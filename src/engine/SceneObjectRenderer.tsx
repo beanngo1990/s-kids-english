@@ -25,7 +25,8 @@ import {
   shouldBounce,
   type ObjectAnimationEffect,
 } from './animations';
-import { canRenderImageSource, getObjectFallbackEmoji } from './AssetFallbacks';
+import { getObjectFallbackEmoji } from './AssetFallbacks';
+import { resolveAsset } from './AssetRegistry';
 import { type DragTranslation, getPercentRectStyle } from './PositionUtils';
 
 export type SceneObjectEffect = ObjectAnimationEffect;
@@ -41,6 +42,7 @@ type SceneObjectRendererProps = {
   onPress: (objectId: string) => void;
   onDragEnd?: (objectId: string, translation: DragTranslation) => boolean;
   style?: StyleProp<ViewStyle>;
+  stageSize?: { width: number; height: number };
 };
 
 export function SceneObjectRenderer({
@@ -54,6 +56,7 @@ export function SceneObjectRenderer({
   onPress,
   onDragEnd,
   style,
+  stageSize,
 }: SceneObjectRendererProps) {
   const [hasImageLoaded, setHasImageLoaded] = React.useState(false);
   const [hasImageError, setHasImageError] = React.useState(false);
@@ -66,9 +69,10 @@ export function SceneObjectRenderer({
     label,
     objectId: object.id,
   });
-  const canUseImage = canRenderImageSource(object.asset.source);
+  const imageSource = resolveAsset(object.asset.source);
+  const canUseImage = !!imageSource;
   const shouldShowImage = canUseImage && hasImageLoaded && !hasImageError;
-  const shouldShowFallback = !shouldShowImage;
+  const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const panResponder = useMemo(
     () =>
@@ -103,6 +107,32 @@ export function SceneObjectRenderer({
     [drag, isDragEnabled, object.id, onDragEnd],
   );
 
+  const hitSlop = useMemo(() => {
+    if (object.touchArea && stageSize && stageSize.width > 0 && stageSize.height > 0) {
+      const slopTop = ((object.position.y - object.touchArea.y) / 100) * stageSize.height;
+      const slopBottom =
+        (((object.touchArea.y + object.touchArea.height) -
+          (object.position.y + object.position.height)) /
+          100) *
+        stageSize.height;
+      const slopLeft = ((object.position.x - object.touchArea.x) / 100) * stageSize.width;
+      const slopRight =
+        (((object.touchArea.x + object.touchArea.width) -
+          (object.position.x + object.position.width)) /
+          100) *
+        stageSize.width;
+
+      return {
+        top: Math.max(0, slopTop),
+        bottom: Math.max(0, slopBottom),
+        left: Math.max(0, slopLeft),
+        right: Math.max(0, slopRight),
+      };
+    }
+    // Default generous hit slop for kids if no touchArea is defined
+    return { top: 24, bottom: 24, left: 24, right: 24 };
+  }, [object.touchArea, object.position, stageSize]);
+
   useEffect(() => {
     if (shouldBounce(effect)) {
       createBounceAnimation(scale).start();
@@ -130,6 +160,7 @@ export function SceneObjectRenderer({
 
   return (
     <Animated.View
+      hitSlop={hitSlop}
       {...(isDragEnabled ? panResponder.panHandlers : {})}
       style={[
         getPercentRectStyle(object.position),
@@ -148,6 +179,7 @@ export function SceneObjectRenderer({
       ]}
     >
       <Pressable
+        hitSlop={hitSlop}
         accessibilityLabel={label}
         accessibilityRole="button"
         disabled={isDisabled || isDragEnabled || !object.isInteractive}
@@ -174,7 +206,7 @@ export function SceneObjectRenderer({
               onError={() => setHasImageError(true)}
               onLoad={() => setHasImageLoaded(true)}
               resizeMode="contain"
-              source={{ uri: object.asset.source }}
+              source={imageSource!}
               style={[styles.image, !shouldShowImage && styles.hiddenImage]}
             />
           ) : null}

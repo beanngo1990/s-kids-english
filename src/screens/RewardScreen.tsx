@@ -20,10 +20,9 @@ import type { RootStackParamList } from '../types/navigation';
 type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 
 export function RewardScreen({ navigation, route }: Props) {
-  const lesson =
-    lessons.find(item => item.id === route.params.lessonId) ?? lessons[0];
-  const reward = getLessonReward(lesson.id);
-  const lessonVocabulary = useMemo(() => getLessonVocabulary(lesson), [lesson]);
+  const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const reward = lesson ? getLessonReward(lesson.id) : null;
+  const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const learnedWords = useMemo(() => {
     if (!progress) {
@@ -54,6 +53,20 @@ export function RewardScreen({ navigation, route }: Props) {
     };
   }, []);
 
+  if (!lesson) {
+    return (
+      <Screen>
+        <View style={styles.errorContainer}>
+          <Text style={styles.title}>Không tìm thấy bài học này.</Text>
+          <AppButton
+            title="Về danh sách bài học"
+            onPress={() => navigation.navigate('LessonList')}
+          />
+        </View>
+      </Screen>
+    );
+  }
+
   return (
     <Screen scroll>
       <View style={styles.container}>
@@ -64,7 +77,7 @@ export function RewardScreen({ navigation, route }: Props) {
             {reward?.title ?? `Bé đã hoàn thành ${lesson.titleVi}!`}
           </Text>
           <Text style={styles.subtitle}>
-            Sticker: {reward?.stickerName ?? 'Morning Star'}
+            Sticker: {reward?.stickerName ?? 'Ngôi sao chăm chỉ'}
           </Text>
         </AppCard>
 
@@ -112,6 +125,13 @@ const styles = StyleSheet.create({
   },
   container: {
     gap: spacing.lg,
+    padding: spacing.lg,
+  },
+  errorContainer: {
+    alignItems: 'center',
+    flex: 1,
+    gap: spacing.lg,
+    justifyContent: 'center',
     padding: spacing.lg,
   },
   meaning: {

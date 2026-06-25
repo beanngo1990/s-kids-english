@@ -10,6 +10,11 @@ export type LocalProgress = {
   completedSceneIds: string[];
   learnedWordIds: string[];
   earnedStickerIds: string[];
+  currentLessonProgress?: {
+    lessonId: string;
+    sceneId: string;
+    stepId: string;
+  };
   updatedAt?: string;
 };
 
@@ -49,28 +54,73 @@ export async function resetProgress() {
 }
 
 export async function completeLessonProgress(lesson: Lesson) {
-  const currentProgress = await getProgress();
-  const lessonReward = getLessonReward(lesson.id);
-  const learnedVocabulary = getLessonVocabulary(lesson);
+  try {
+    const currentProgress = await getProgress();
+    const lessonReward = getLessonReward(lesson.id);
+    const learnedVocabulary = getLessonVocabulary(lesson);
 
-  return saveProgress({
-    completedLessonIds: addUnique(currentProgress.completedLessonIds, [
-      lesson.id,
-    ]),
-    completedSceneIds: addUnique(
-      currentProgress.completedSceneIds,
-      lesson.scenes.map(scene => scene.id),
-    ),
-    earnedStickerIds: addUnique(
-      currentProgress.earnedStickerIds,
-      lessonReward ? [lessonReward.stickerId] : [],
-    ),
-    learnedWordIds: addUnique(
-      currentProgress.learnedWordIds,
-      learnedVocabulary.map(item => item.id),
-    ),
-    updatedAt: currentProgress.updatedAt,
-  });
+    return await saveProgress({
+      ...currentProgress,
+      completedLessonIds: addUnique(currentProgress.completedLessonIds, [
+        lesson.id,
+      ]),
+      completedSceneIds: addUnique(
+        currentProgress.completedSceneIds,
+        lesson.scenes.map(scene => scene.id),
+      ),
+      earnedStickerIds: addUnique(
+        currentProgress.earnedStickerIds,
+        lessonReward ? [lessonReward.stickerId] : [],
+      ),
+      learnedWordIds: addUnique(
+        currentProgress.learnedWordIds,
+        learnedVocabulary.map(item => item.id),
+      ),
+      currentLessonProgress: undefined,
+    });
+  } catch {
+    return emptyProgress;
+  }
+}
+
+export async function saveCurrentStepProgress(
+  lessonId: string,
+  sceneId: string,
+  stepId: string
+) {
+  try {
+    const currentProgress = await getProgress();
+    await saveProgress({
+      ...currentProgress,
+      currentLessonProgress: { lessonId, sceneId, stepId },
+    });
+  } catch {
+    // best effort
+  }
+}
+
+export async function saveLearnedWord(wordId: string) {
+  try {
+    const currentProgress = await getProgress();
+    await saveProgress({
+      ...currentProgress,
+      learnedWordIds: addUnique(currentProgress.learnedWordIds, [wordId]),
+    });
+  } catch {
+    // best effort
+  }
+}
+
+export async function saveSceneProgress(sceneId: string) {
+  try {
+    const currentProgress = await getProgress();
+    await saveProgress({
+      ...currentProgress,
+      completedSceneIds: addUnique(currentProgress.completedSceneIds, [sceneId]),
+    });
+  } catch {
+    // best effort
+  }
 }
 
 export function getLessonVocabulary(lesson: Lesson) {
@@ -93,6 +143,7 @@ function normalizeProgress(value: unknown): LocalProgress {
     completedSceneIds: normalizeStringArray(progress.completedSceneIds),
     earnedStickerIds: normalizeStringArray(progress.earnedStickerIds),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
+    currentLessonProgress: progress.currentLessonProgress,
     updatedAt:
       typeof progress.updatedAt === 'string' ? progress.updatedAt : undefined,
   };

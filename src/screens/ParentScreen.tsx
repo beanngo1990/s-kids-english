@@ -21,17 +21,28 @@ export function ParentScreen() {
   const [isHolding, setIsHolding] = useState(false);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const morningLesson = lessons.find(lesson => lesson.id === 'morning-routine');
-  const morningVocabulary = useMemo(
-    () => (morningLesson ? getLessonVocabulary(morningLesson) : []),
-    [morningLesson],
-  );
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
   const earnedStickerCount = progress?.earnedStickerIds.length ?? 0;
-  const learnedMorningWords = morningVocabulary
-    .filter(item => item.word !== 'sun')
-    .map(item => item.word);
+
+  const recentLearnedWords = useMemo(() => {
+    if (!progress || progress.learnedWordIds.length === 0) {
+      return [];
+    }
+    const allVocabs = lessons.flatMap(lesson => getLessonVocabulary(lesson));
+    const words = progress.learnedWordIds
+      .map(id => allVocabs.find(v => v.id === id)?.word)
+      .filter((word): word is string => !!word);
+    return words.slice(-3);
+  }, [progress]);
+
+  const recentLessonId = progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
+  const recentLesson = lessons.find(l => l.id === recentLessonId);
+  const tipText = recentLesson?.metadata?.parentTipVi ?? (
+    recentLearnedWords.length > 0 
+      ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${recentLearnedWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
+      : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!'
+  );
 
   function clearGateTimer() {
     if (gateTimerRef.current) {
@@ -112,13 +123,13 @@ export function ParentScreen() {
 
       <AppCard style={styles.summary}>
         <Text style={styles.summaryLabel}>Gợi ý ôn tập ngoài đời</Text>
-        <Text style={styles.summaryValue}>
-          Hôm nay bé học: {learnedMorningWords.join(', ')}.
-        </Text>
+        {recentLearnedWords.length > 0 ? (
+          <Text style={styles.summaryValue}>
+            Gần đây bé đã học: {recentLearnedWords.join(', ')}.
+          </Text>
+        ) : null}
         <Text style={styles.tip}>
-          {
-            'Khi ở nhà, ba mẹ có thể hỏi bé: Where is the toothbrush? hoặc What is this?'
-          }
+          {tipText}
         </Text>
       </AppCard>
 

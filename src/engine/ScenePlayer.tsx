@@ -30,18 +30,21 @@ import {
   speakVi,
   speakWord,
 } from './AudioManager';
-import {
-  canRenderImageSource,
-  getSceneFallbackPalette,
-} from './AssetFallbacks';
+import { getSceneFallbackPalette } from './AssetFallbacks';
+import { resolveAsset } from './AssetRegistry';
 import {
   type DragTranslation,
   getDraggedRect,
   getPercentRectStyle,
   getRectCenter,
   getSnapRect,
-  isPointInsideRect,
+  isDropAccepted,
 } from './PositionUtils';
+import {
+  saveCurrentStepProgress,
+  saveLearnedWord,
+  saveSceneProgress,
+} from './ProgressManager';
 import {
   SceneObjectRenderer,
   type SceneObjectEffect,
@@ -142,7 +145,11 @@ export function ScenePlayer({
     }
 
     playAudioForStep(currentScene, currentStep);
-  }, [currentScene, currentStep]);
+
+    if (lessonId) {
+      saveCurrentStepProgress(lessonId, currentScene.id, currentStep.id);
+    }
+  }, [currentScene, currentStep, lessonId]);
 
   if (!currentScene) {
     return (
@@ -163,12 +170,9 @@ export function ScenePlayer({
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const isAdvancing = feedback?.type === 'success';
-  const backgroundSource = {
-    uri: currentScene.background.source,
-  } satisfies ImageSourcePropType;
+  const backgroundSource = resolveAsset(currentScene.background.source);
   const shouldUseBackgroundFallback =
-    !canRenderImageSource(currentScene.background.source) ||
-    failedBackgroundIds[currentScene.background.id] === true;
+    !backgroundSource || failedBackgroundIds[currentScene.background.id] === true;
 
   const handleReplayInstruction = () => {
     if (isAdvancing) {
@@ -177,6 +181,12 @@ export function ScenePlayer({
 
     runAudio(playTapSound());
     playAudioForStep(currentScene, currentStep);
+
+    const targetIds = currentStep.targetObjectIds.length > 0
+      ? currentStep.targetObjectIds
+      : (currentScene.character ? [currentScene.character.id] : []);
+    
+    setSuccessObjectIds(targetIds);
     showTemporaryFeedback({
       text: currentStep.instructionVi,
       type: 'info',
@@ -233,11 +243,10 @@ export function ScenePlayer({
     }
 
     const currentPosition = snappedObjectPositions[objectId] ?? object.position;
-    const draggedRect = getDraggedRect(currentPosition, translation, stageSize);
-    const isInsideDropZone = isPointInsideRect(
-      getRectCenter(draggedRect),
-      dropZone.position,
-    );
+    const baseRect = object.touchArea ?? currentPosition;
+    const draggedRect = getDraggedRect(baseRect, translation, stageSize);
+    const targetDropZoneRect = dropZone.touchArea ?? dropZone.position;
+    const isInsideDropZone = isDropAccepted(draggedRect, targetDropZoneRect);
     const result = resolveDragInteraction(
       currentScene,
       currentStep,
@@ -310,6 +319,8 @@ export function ScenePlayer({
     setFeedback(nextFeedback);
     clearFeedbackTimerRef.current = setTimeout(() => {
       setFeedback(current => (current?.type === 'info' ? null : current));
+      setSuccessObjectIds([]);
+      setShakeObjectIds([]);
     }, 1300);
   };
 
@@ -318,6 +329,16 @@ export function ScenePlayer({
     setSuccessObjectIds([]);
     setShakeObjectIds([]);
 
+    if (lessonId && currentStep) {
+      const vocabItem = (currentStep.type === 'teach' || currentStep.type === 'practice')
+        ? getStepVocabulary(activeScene, currentStep)
+        : undefined;
+
+      if (vocabItem) {
+        saveLearnedWord(vocabItem.id);
+      }
+    }
+
     if (result.nextStep) {
       setStepId(result.nextStep.id);
       return;
@@ -325,6 +346,10 @@ export function ScenePlayer({
 
     if (!result.isSceneComplete) {
       return;
+    }
+
+    if (lessonId) {
+      saveSceneProgress(activeScene.id);
     }
 
     const activeSceneIndex = scenes.findIndex(
@@ -358,7 +383,7 @@ export function ScenePlayer({
             {renderSceneLayer(currentScene)}
             {renderSceneObjects()}
           </View>
-        ) : (
+        ) : backgroundSource ? (
           <ImageBackground
             imageStyle={styles.backgroundImage}
             onError={handleBackgroundError}
@@ -370,7 +395,7 @@ export function ScenePlayer({
             <View style={styles.backgroundTint} />
             {renderSceneObjects()}
           </ImageBackground>
-        )}
+        ) : null}
       </View>
 
       <AppCard style={styles.instructionCard}>
@@ -446,6 +471,7 @@ export function ScenePlayer({
               object={renderObject}
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
+              stageSize={stageSize}
             />
           );
         })}

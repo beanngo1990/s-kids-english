@@ -107,6 +107,14 @@ async function speak(text: string, options: SpeechOptions) {
       return;
     }
 
+    if (__DEV__) {
+      console.warn(
+        '[AudioManager] No native AudioAdapter configured for speech. ' +
+          'Fallback to Web Speech API (might not work in React Native CLI). ' +
+          'Please configure adapter with react-native-tts or expo-speech.'
+      );
+    }
+
     await speakWithWebSpeech(trimmedText, options);
   });
 }
@@ -116,6 +124,14 @@ async function playSound(effect: SoundEffect) {
     if (adapter?.playSound) {
       await adapter.playSound(effect);
       return;
+    }
+
+    if (__DEV__) {
+      console.warn(
+        '[AudioManager] No native AudioAdapter configured for sound effects. ' +
+          'Fallback to Web Audio API (might not work in React Native CLI). ' +
+          'Please configure adapter with react-native-sound or expo-av.'
+      );
     }
 
     await playWebTone(effect);

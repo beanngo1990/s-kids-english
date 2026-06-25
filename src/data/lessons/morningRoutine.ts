@@ -44,6 +44,9 @@ export const morningRoutineLesson: Lesson = {
     max: 4,
     label: '3-4 tuổi',
   },
+  metadata: {
+    parentTipVi: 'Khi ở nhà, ba mẹ có thể hỏi bé: Where is the toothbrush? hoặc What is this?',
+  },
   scenes: [
     {
       id: 'bedroom',

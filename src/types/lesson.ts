@@ -59,6 +59,7 @@ export type SceneObject = {
 export type DropZone = {
   id: EntityId;
   position: PercentRect;
+  touchArea?: PercentRect;
 };
 
 /** Loại step trong scene, từ giới thiệu tới ôn tập. */
@@ -142,4 +143,8 @@ export type Lesson = {
   ageRange: AgeRange;
   scenes: Scene[];
   reviewGame?: ReviewGame;
+  metadata?: {
+    parentTipVi?: string;
+    [key: string]: unknown;
+  };
 };

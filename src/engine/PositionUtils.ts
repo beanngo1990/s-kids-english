@@ -81,3 +81,55 @@ export function getSnapRect(
 function clampRectAxis(value: number, size: number) {
   return Math.max(0, Math.min(100 - size, value));
 }
+
+export function expandRect(rect: PercentRect, tolerance: number): PercentRect {
+  return {
+    x: rect.x - tolerance,
+    y: rect.y - tolerance,
+    width: rect.width + tolerance * 2,
+    height: rect.height + tolerance * 2,
+  };
+}
+
+export function rectsIntersect(rect1: PercentRect, rect2: PercentRect): boolean {
+  return (
+    rect1.x < rect2.x + rect2.width &&
+    rect1.x + rect1.width > rect2.x &&
+    rect1.y < rect2.y + rect2.height &&
+    rect1.y + rect1.height > rect2.y
+  );
+}
+
+export function isNearDropZone(
+  objectRect: PercentRect,
+  dropZoneRect: PercentRect,
+  distanceThreshold: number,
+): boolean {
+  const center1 = getRectCenter(objectRect);
+  const center2 = getRectCenter(dropZoneRect);
+  const distance = Math.sqrt(
+    Math.pow(center1.x - center2.x, 2) + Math.pow(center1.y - center2.y, 2),
+  );
+  return distance <= distanceThreshold;
+}
+
+export function isDropAccepted(
+  objectRect: PercentRect,
+  dropZoneRect: PercentRect,
+  tolerance: number = 10,
+  distanceThreshold: number = 15,
+): boolean {
+  const expandedDropZone = expandRect(dropZoneRect, tolerance);
+
+  // 1. Check if the object intersects the expanded drop zone
+  if (rectsIntersect(objectRect, expandedDropZone)) {
+    return true;
+  }
+
+  // 2. Proximity check
+  if (isNearDropZone(objectRect, dropZoneRect, distanceThreshold)) {
+    return true;
+  }
+
+  return false;
+}
