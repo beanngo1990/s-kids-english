@@ -1,0 +1,284 @@
+import React, { useEffect, useMemo, useRef } from 'react';
+import {
+  Animated,
+  Image,
+  PanResponder,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  type PanResponderGestureState,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
+
+import { SparkleEffect } from '../components/SparkleEffect';
+import { colors } from '../theme/colors';
+import { radius, spacing } from '../theme/spacing';
+import { typography } from '../theme/typography';
+import type { SceneObject } from '../types/lesson';
+import {
+  createBounceAnimation,
+  createShakeAnimation,
+  dimOpacity,
+  glowStyle,
+  shouldBounce,
+  type ObjectAnimationEffect,
+} from './animations';
+import { canRenderImageSource, getObjectFallbackEmoji } from './AssetFallbacks';
+import { type DragTranslation, getPercentRectStyle } from './PositionUtils';
+
+export type SceneObjectEffect = ObjectAnimationEffect;
+
+type SceneObjectRendererProps = {
+  object: SceneObject;
+  label: string;
+  isTargeted: boolean;
+  isDimmed: boolean;
+  isDisabled: boolean;
+  isDraggable?: boolean;
+  effect: SceneObjectEffect;
+  onPress: (objectId: string) => void;
+  onDragEnd?: (objectId: string, translation: DragTranslation) => boolean;
+  style?: StyleProp<ViewStyle>;
+};
+
+export function SceneObjectRenderer({
+  object,
+  label,
+  isTargeted,
+  isDimmed,
+  isDisabled,
+  isDraggable = false,
+  effect,
+  onPress,
+  onDragEnd,
+  style,
+}: SceneObjectRendererProps) {
+  const [hasImageLoaded, setHasImageLoaded] = React.useState(false);
+  const [hasImageError, setHasImageError] = React.useState(false);
+  const scale = useRef(new Animated.Value(1)).current;
+  const translateX = useRef(new Animated.Value(0)).current;
+  const drag = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+  const fallbackEmoji = getObjectFallbackEmoji({
+    assetId: object.asset.id,
+    assetSource: object.asset.source,
+    label,
+    objectId: object.id,
+  });
+  const canUseImage = canRenderImageSource(object.asset.source);
+  const shouldShowImage = canUseImage && hasImageLoaded && !hasImageError;
+  const shouldShowFallback = !shouldShowImage;
+  const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
+  const panResponder = useMemo(
+    () =>
+      PanResponder.create({
+        onMoveShouldSetPanResponder: (_, gestureState) =>
+          shouldStartDrag(gestureState, isDragEnabled),
+        onPanResponderMove: (_, gestureState) => {
+          drag.setValue({
+            x: gestureState.dx,
+            y: gestureState.dy,
+          });
+        },
+        onPanResponderRelease: (_, gestureState) => {
+          const accepted =
+            onDragEnd?.(object.id, {
+              dx: gestureState.dx,
+              dy: gestureState.dy,
+            }) ?? false;
+
+          if (accepted) {
+            drag.setValue({ x: 0, y: 0 });
+            return;
+          }
+
+          resetDragPosition(drag);
+        },
+        onPanResponderTerminate: () => {
+          resetDragPosition(drag);
+        },
+        onStartShouldSetPanResponder: () => isDragEnabled,
+      }),
+    [drag, isDragEnabled, object.id, onDragEnd],
+  );
+
+  useEffect(() => {
+    if (shouldBounce(effect)) {
+      createBounceAnimation(scale).start();
+    }
+
+    if (effect === 'shake') {
+      createShakeAnimation(translateX).start();
+    }
+  }, [effect, scale, translateX]);
+
+  useEffect(() => {
+    drag.setValue({ x: 0, y: 0 });
+  }, [
+    drag,
+    object.position.height,
+    object.position.width,
+    object.position.x,
+    object.position.y,
+  ]);
+
+  useEffect(() => {
+    setHasImageLoaded(false);
+    setHasImageError(false);
+  }, [object.asset.source]);
+
+  return (
+    <Animated.View
+      {...(isDragEnabled ? panResponder.panHandlers : {})}
+      style={[
+        getPercentRectStyle(object.position),
+        styles.wrapper,
+        isDimmed && styles.dimmed,
+        isDragEnabled && styles.draggableWrapper,
+        {
+          transform: [
+            { scale },
+            { translateX: drag.x },
+            { translateY: drag.y },
+            { translateX },
+          ],
+        },
+        style,
+      ]}
+    >
+      <Pressable
+        accessibilityLabel={label}
+        accessibilityRole="button"
+        disabled={isDisabled || isDragEnabled || !object.isInteractive}
+        onPress={() => onPress(object.id)}
+        style={({ pressed }) => [
+          styles.pressable,
+          object.role === 'character' && styles.character,
+          isTargeted && styles.targeted,
+          isDragEnabled && styles.draggable,
+          pressed && !isDisabled && styles.pressed,
+        ]}
+      >
+        <View style={styles.assetBubble}>
+          {shouldShowFallback ? (
+            <Text
+              accessibilityLabel={`${label} placeholder`}
+              style={styles.emoji}
+            >
+              {fallbackEmoji}
+            </Text>
+          ) : null}
+          {canUseImage && !hasImageError ? (
+            <Image
+              onError={() => setHasImageError(true)}
+              onLoad={() => setHasImageLoaded(true)}
+              resizeMode="contain"
+              source={{ uri: object.asset.source }}
+              style={[styles.image, !shouldShowImage && styles.hiddenImage]}
+            />
+          ) : null}
+          <Text numberOfLines={1} adjustsFontSizeToFit style={styles.label}>
+            {label}
+          </Text>
+        </View>
+        <SparkleEffect active={effect === 'sparkle'} />
+      </Pressable>
+    </Animated.View>
+  );
+}
+
+function shouldStartDrag(
+  gestureState: PanResponderGestureState,
+  isDragEnabled: boolean,
+) {
+  if (!isDragEnabled) {
+    return false;
+  }
+
+  return Math.abs(gestureState.dx) > 2 || Math.abs(gestureState.dy) > 2;
+}
+
+function resetDragPosition(drag: Animated.ValueXY) {
+  Animated.spring(drag, {
+    friction: 6,
+    tension: 100,
+    toValue: {
+      x: 0,
+      y: 0,
+    },
+    useNativeDriver: true,
+  }).start();
+}
+
+const styles = StyleSheet.create({
+  assetBubble: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceSoft,
+    borderRadius: radius.lg,
+    flex: 1,
+    justifyContent: 'center',
+    padding: spacing.xs,
+    width: '100%',
+  },
+  character: {
+    backgroundColor: colors.lavender,
+  },
+  dimmed: {
+    opacity: dimOpacity,
+  },
+  draggable: {
+    borderColor: colors.primary,
+  },
+  draggableWrapper: {
+    zIndex: 5,
+  },
+  emoji: {
+    fontSize: 48,
+    lineHeight: 56,
+    textAlign: 'center',
+  },
+  hiddenImage: {
+    height: 0,
+    opacity: 0,
+    width: 0,
+  },
+  image: {
+    flex: 1,
+    maxHeight: '72%',
+    width: '100%',
+  },
+  label: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  pressable: {
+    alignItems: 'center',
+    backgroundColor: colors.mint,
+    borderColor: colors.white,
+    borderRadius: radius.xl,
+    borderWidth: 3,
+    elevation: 3,
+    flex: 1,
+    justifyContent: 'center',
+    overflow: 'visible',
+    shadowColor: colors.shadow,
+    shadowOffset: {
+      height: 5,
+      width: 0,
+    },
+    shadowOpacity: 0.16,
+    shadowRadius: 8,
+  },
+  pressed: {
+    opacity: 0.82,
+  },
+  targeted: {
+    ...glowStyle,
+  },
+  wrapper: {
+    minHeight: 52,
+    minWidth: 52,
+  },
+});
