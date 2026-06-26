@@ -13,6 +13,7 @@ const bundledAudioRegistry: Record<string, ImageRequireSource> = {
   'audio/tts/vi/correct_vi.mp3': require('../assets/audio/tts/vi/correct_vi.mp3'),
   'audio/tts/vi/drag_blanket_vi.mp3': require('../assets/audio/tts/vi/drag_blanket_vi.mp3'),
   'audio/tts/vi/speak_encourage_vi.mp3': require('../assets/audio/tts/vi/speak_encourage_vi.mp3'),
+  'audio/tts/vi/speak_prompt_vi.mp3': require('../assets/audio/tts/vi/speak_prompt_vi.mp3'),
   'audio/tts/vi/drag_blanket_fail_vi.mp3': require('../assets/audio/tts/vi/drag_blanket_fail_vi.mp3'),
   'audio/tts/vi/sun_fail_vi.mp3': require('../assets/audio/tts/vi/sun_fail_vi.mp3'),
   'audio/tts/vi/sun_meaning_vi.mp3': require('../assets/audio/tts/vi/sun_meaning_vi.mp3'),

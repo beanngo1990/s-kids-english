@@ -12,6 +12,7 @@ import { AppCard } from '../components/AppCard';
 import { ProgressDots } from '../components/ProgressDots';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { lessons } from '../data/lessons';
+import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -70,6 +71,11 @@ type FeedbackState = {
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
+type AutoRecordRequest = {
+  requestId: number;
+  stepId: EntityId;
+};
+
 type ScenePlayerProps = {
   lessonId?: string;
   scene?: Scene;
@@ -118,6 +124,8 @@ export function ScenePlayer({
   const [snappedObjectPositions, setSnappedObjectPositions] = useState<
     Record<EntityId, PercentRect>
   >({});
+  const [autoRecordRequest, setAutoRecordRequest] =
+    useState<AutoRecordRequest | null>(null);
   const advanceRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
@@ -156,7 +164,14 @@ export function ScenePlayer({
       return;
     }
 
-    playAudioForStep(currentScene, currentStep);
+    playAudioForStep(currentScene, currentStep, {
+      onTeachAudioComplete: () => {
+        setAutoRecordRequest(previousRequest => ({
+          requestId: (previousRequest?.requestId ?? 0) + 1,
+          stepId: currentStep.id,
+        }));
+      },
+    });
 
     if (lessonId) {
       saveCurrentStepProgress(lessonId, currentScene.id, currentStep.id);
@@ -460,7 +475,13 @@ export function ScenePlayer({
       <AppCard style={styles.instructionCard}>
         {speakPracticeWord ? (
           <SpeakPracticeControls
+            autoStartRequestId={
+              autoRecordRequest?.stepId === currentStep.id
+                ? autoRecordRequest.requestId
+                : 0
+            }
             disabled={isAdvancing}
+            onAudioStart={cancelStepAudioSequence}
             word={speakPracticeWord}
           />
         ) : getStepVocabulary(currentScene, currentStep) ? (
@@ -590,18 +611,31 @@ function getSpeakPracticeWord(scene: Scene, step: SceneStep) {
 
 let globalAudioSequenceId = 0;
 
-function playAudioForStep(scene: Scene, step: SceneStep) {
+type PlayStepAudioOptions = {
+  onTeachAudioComplete?: () => void;
+};
+
+function playAudioForStep(
+  scene: Scene,
+  step: SceneStep,
+  options: PlayStepAudioOptions = {},
+) {
   globalAudioSequenceId += 1;
   const currentId = globalAudioSequenceId;
   const isActive = () => globalAudioSequenceId === currentId;
   
-  runAudio(playStepAudioSequence(scene, step, isActive));
+  runAudio(playStepAudioSequence(scene, step, isActive, options));
+}
+
+function cancelStepAudioSequence() {
+  globalAudioSequenceId += 1;
 }
 
 async function playStepAudioSequence(
   scene: Scene,
   step: SceneStep,
   isActive: () => boolean,
+  options: PlayStepAudioOptions,
 ) {
   const vocabularyItem = getStepVocabulary(scene, step);
 
@@ -614,6 +648,21 @@ async function playStepAudioSequence(
     
     if (!isActive()) return;
     await speakWord(vocabularyItem.word);
+
+    if (!isActive()) return;
+    await delay(260);
+
+    if (!isActive()) return;
+    await speakVi(speakPracticePromptVi);
+
+    if (!isActive()) return;
+    await delay(180);
+
+    if (!isActive()) return;
+    await speakWord(vocabularyItem.word);
+
+    if (!isActive()) return;
+    options.onTeachAudioComplete?.();
     return;
   }
 
@@ -743,21 +792,6 @@ function renderSceneLayer(scene: Scene) {
       />
     </View>
   );
-}
-
-function getStepTypeLabel(step: SceneStep) {
-  switch (step.type) {
-    case 'intro':
-      return 'Bắt đầu';
-    case 'teach':
-      return 'Học từ mới';
-    case 'practice':
-      return 'Bé thử nhé';
-    case 'review':
-      return 'Ôn lại';
-    default:
-      return 'Học nào';
-  }
 }
 
 const styles = StyleSheet.create({

@@ -1,10 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { speakPracticePromptVi } from '../data/speechPrompts';
+import {
+  playSoundEffect,
+  playTapSound,
+  speakVi,
+  speakWord,
+} from '../engine/AudioManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
-import { playSoundEffect, playTapSound, speakVi } from '../engine/AudioManager';
 import {
   isVoiceRecorderAvailable,
   playVoiceRecording,
@@ -13,10 +19,17 @@ import {
   stopVoiceRecording,
 } from '../engine/VoiceRecorder';
 
-type RecordingStatus = 'idle' | 'recording' | 'recorded' | 'unavailable';
+type RecordingStatus =
+  | 'idle'
+  | 'prompting'
+  | 'recording'
+  | 'recorded'
+  | 'unavailable';
 
 type SpeakPracticeControlsProps = {
+  autoStartRequestId?: number;
   disabled?: boolean;
+  onAudioStart?: () => void;
   word: string;
 };
 
@@ -24,7 +37,9 @@ const maxRecordingDurationMs = 2300;
 const encourageText = 'Cô nghe rồi! Giỏi quá!';
 
 export function SpeakPracticeControls({
+  autoStartRequestId = 0,
   disabled = false,
+  onAudioStart,
   word,
 }: SpeakPracticeControlsProps) {
   const [status, setStatus] = useState<RecordingStatus>(() =>
@@ -33,6 +48,7 @@ export function SpeakPracticeControls({
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const recordingUriRef = useRef<string | null>(null);
+  const handledAutoStartRequestRef = useRef(0);
 
   useEffect(() => {
     return () => {
@@ -43,26 +59,55 @@ export function SpeakPracticeControls({
     };
   }, [status]);
 
-  if (status === 'unavailable') {
-    return null;
-  }
+  const finishRecording = useCallback(async () => {
+    clearRecordingTimer(timerRef);
+    const stoppedRecordingUri = await stopVoiceRecording();
+    const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
 
-  const handleRecordPress = async () => {
-    if (disabled) {
+    if (!nextRecordingUri) {
+      setStatus('idle');
       return;
     }
 
-    if (status === 'recording') {
-      await finishRecording();
+    recordingUriRef.current = nextRecordingUri;
+    setRecordingUri(nextRecordingUri);
+    setStatus('recorded');
+    await playSoundEffect('yay');
+    await speakVi(encourageText);
+  }, []);
+
+  const beginRecording = useCallback(async ({
+    playPrompt,
+    playTap,
+  }: {
+    playPrompt: boolean;
+    playTap: boolean;
+  }) => {
+    if (
+      disabled ||
+      status === 'prompting' ||
+      status === 'recording' ||
+      status === 'unavailable'
+    ) {
       return;
     }
 
-    await playTapSound();
+    if (playTap) {
+      await playTapSound();
+    }
 
     const hasPermission = await requestVoiceRecordingPermission();
     if (!hasPermission) {
       setStatus('idle');
       return;
+    }
+
+    setStatus('prompting');
+    onAudioStart?.();
+
+    if (playPrompt) {
+      await speakVi(speakPracticePromptVi);
+      await speakWord(word);
     }
 
     const nextRecordingUri = await startVoiceRecording();
@@ -78,36 +123,58 @@ export function SpeakPracticeControls({
     timerRef.current = setTimeout(() => {
       finishRecording().catch(() => undefined);
     }, maxRecordingDurationMs);
+  }, [disabled, finishRecording, onAudioStart, status, word]);
+
+  useEffect(() => {
+    if (
+      autoStartRequestId <= 0 ||
+      handledAutoStartRequestRef.current === autoStartRequestId
+    ) {
+      return;
+    }
+
+    handledAutoStartRequestRef.current = autoStartRequestId;
+    beginRecording({ playPrompt: false, playTap: false }).catch(() => {
+      setStatus('idle');
+    });
+  }, [autoStartRequestId, beginRecording]);
+
+  if (status === 'unavailable') {
+    return null;
+  }
+
+  const handleRecordPress = async () => {
+    if (disabled || status === 'prompting') {
+      return;
+    }
+
+    if (status === 'recording') {
+      await finishRecording();
+      return;
+    }
+
+    await beginRecording({ playPrompt: true, playTap: true });
   };
 
   const handlePlaybackPress = async () => {
-    if (!recordingUri || disabled || status === 'recording') {
+    if (
+      !recordingUri ||
+      disabled ||
+      status === 'recording' ||
+      status === 'prompting'
+    ) {
       return;
     }
 
     await playTapSound();
+    onAudioStart?.();
     await playVoiceRecording(recordingUri);
   };
 
-  const finishRecording = async () => {
-    clearRecordingTimer(timerRef);
-    const stoppedRecordingUri = await stopVoiceRecording();
-    const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
-
-    if (!nextRecordingUri) {
-      setStatus('idle');
-      return;
-    }
-
-    recordingUriRef.current = nextRecordingUri;
-    setRecordingUri(nextRecordingUri);
-    setStatus('recorded');
-    await playSoundEffect('yay');
-    await speakVi(encourageText);
-  };
-
+  const isPrompting = status === 'prompting';
   const isRecording = status === 'recording';
   const hasRecording = status === 'recorded';
+  const isDisabled = disabled || isPrompting;
 
   return (
     <View style={styles.root}>
@@ -116,16 +183,19 @@ export function SpeakPracticeControls({
           <View
             style={[
               styles.micDot,
+              isPrompting && styles.promptingDot,
               isRecording && styles.recordingDot,
               hasRecording && styles.recordedDot,
             ]}
           />
           <Text style={styles.prompt}>
-            {isRecording
-              ? 'Cô đang nghe...'
-              : hasRecording
-                ? 'Nghe lại giọng bé'
-                : 'Nói theo'}
+            {isPrompting
+              ? 'Chuẩn bị đọc...'
+              : isRecording
+                ? 'Cô đang nghe...'
+                : hasRecording
+                  ? 'Giỏi quá! Nghe lại giọng bé'
+                  : 'Bé nói theo cô'}
           </Text>
         </View>
         <Text numberOfLines={1} style={styles.word}>
@@ -138,13 +208,13 @@ export function SpeakPracticeControls({
           <Pressable
             accessibilityLabel="Nghe lại giọng bé"
             accessibilityRole="button"
-            disabled={disabled}
+            disabled={isDisabled}
             onPress={handlePlaybackPress}
             style={({ pressed }) => [
               styles.iconButton,
               styles.playButton,
-              pressed && !disabled && styles.pressed,
-              disabled && styles.disabled,
+              pressed && !isDisabled && styles.pressed,
+              isDisabled && styles.disabled,
             ]}
           >
             <Text style={styles.playIcon}>▶</Text>
@@ -153,14 +223,14 @@ export function SpeakPracticeControls({
         <Pressable
           accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
           accessibilityRole="button"
-          disabled={disabled}
+          disabled={isDisabled}
           onPress={handleRecordPress}
           style={({ pressed }) => [
             styles.iconButton,
             styles.recordButton,
             isRecording && styles.stopButton,
-            pressed && !disabled && styles.pressed,
-            disabled && styles.disabled,
+            pressed && !isDisabled && styles.pressed,
+            isDisabled && styles.disabled,
           ]}
         >
           <Text style={styles.recordIcon}>{isRecording ? '■' : '🎤'}</Text>
@@ -220,6 +290,9 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.82,
     transform: [{ scale: 0.96 }],
+  },
+  promptingDot: {
+    backgroundColor: colors.secondary,
   },
   prompt: {
     color: colors.textSoft,

@@ -1,3 +1,5 @@
+import { speakPracticePromptVi } from './speechPrompts';
+
 export type RemoteAudioAsset = {
   key: string;
   text: string;
@@ -90,6 +92,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText('Cô nghe rồi! Giỏi quá!')]: {
     key: 'audio/tts/vi/speak_encourage_vi.mp3',
     text: 'Cô nghe rồi! Giỏi quá!',
+  },
+  [normalizeText(speakPracticePromptVi)]: {
+    key: 'audio/tts/vi/speak_prompt_vi.mp3',
+    text: speakPracticePromptVi,
   },
   [normalizeText('Đúng rồi! Bé giỏi quá!')]: {
     key: 'audio/tts/vi/correct_vi.mp3',
