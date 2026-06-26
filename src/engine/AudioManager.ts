@@ -121,6 +121,16 @@ export async function playSoundEffect(effect: SoundEffect) {
   await playSound(effect);
 }
 
+export async function playAudioUri(uri: string) {
+  await safely(async () => {
+    if (!adapter?.playAudioUri) {
+      return;
+    }
+
+    await adapter.playAudioUri(uri);
+  });
+}
+
 async function speak(text: string, options: SpeechOptions) {
   const trimmedText = text.trim();
 

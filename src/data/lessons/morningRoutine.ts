@@ -162,7 +162,7 @@ export const morningRoutineLesson: Lesson = {
         },
         {
           id: 'bedroom-teach-bed',
-          instructionVi: 'Đây là bed.',
+          instructionVi: 'Mình bắt đầu với cái giường nhé.',
           interaction: {
             targetObjectId: 'bedroom-bed',
             type: 'listen',
@@ -206,7 +206,7 @@ export const morningRoutineLesson: Lesson = {
         },
         {
           id: 'bedroom-teach-blanket',
-          instructionVi: 'Đây là blanket.',
+          instructionVi: 'Tiếp theo là cái chăn nhé.',
           interaction: {
             targetObjectId: 'bedroom-blanket',
             type: 'listen',
@@ -248,11 +248,24 @@ export const morningRoutineLesson: Lesson = {
             targetObjectId: 'bedroom-blanket',
             type: 'drag',
           },
-          nextStepId: 'bedroom-review-sun',
+          nextStepId: 'bedroom-teach-sun',
           promptText: 'Drag blanket',
           successFeedbackVi: 'Gọn gàng quá!',
           targetObjectIds: ['bedroom-blanket'],
           type: 'practice',
+        },
+        {
+          id: 'bedroom-teach-sun',
+          instructionVi: 'Bây giờ mình nhìn mặt trời nhé.',
+          interaction: {
+            targetObjectId: 'bedroom-sun',
+            type: 'listen',
+          },
+          nextStepId: 'bedroom-review-sun',
+          promptText: 'sun',
+          successFeedbackVi: 'Sun là mặt trời.',
+          targetObjectIds: ['bedroom-sun'],
+          type: 'teach',
         },
         {
           id: 'bedroom-review-sun',
