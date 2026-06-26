@@ -458,40 +458,28 @@ export function ScenePlayer({
       </View>
 
       <AppCard style={styles.instructionCard}>
-        <Text style={styles.stepType}>{getStepTypeLabel(currentStep)}</Text>
-        <Text style={styles.instruction}>{currentStep.instructionVi}</Text>
-        {currentStep.promptText ? (
-          <Text style={styles.prompt}>{currentStep.promptText}</Text>
-        ) : null}
         {speakPracticeWord ? (
           <SpeakPracticeControls
             disabled={isAdvancing}
             word={speakPracticeWord}
           />
-        ) : null}
-        {feedback ? (
-          <Text
-            style={[
-              styles.feedback,
-              feedback.type === 'success' && styles.successFeedback,
-              feedback.type === 'fail' && styles.failFeedback,
-            ]}
-          >
-            {feedback.text}
+        ) : getStepVocabulary(currentScene, currentStep) ? (
+          <Text style={styles.targetWord}>
+            {getStepVocabulary(currentScene, currentStep)?.word}
           </Text>
         ) : null}
 
         <View style={styles.actionRow}>
           <AppButton
-            title="Nghe lại"
+            title="🔊"
             variant="secondary"
             onPress={handleReplayInstruction}
             style={styles.actionButton}
-            textStyle={styles.smallButtonText}
+            textStyle={styles.iconButtonText}
           />
           {isListenStep(currentStep) ? (
             <AppButton
-              title="Tiếp tục"
+              title="Tiếp tục ➡️"
               onPress={handleContinue}
               style={styles.actionButton}
               textStyle={styles.smallButtonText}
@@ -816,31 +804,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.subtitle,
   },
-  failFeedback: {
-    color: colors.accent,
-  },
-  feedback: {
-    color: colors.primaryDark,
-    textAlign: 'center',
-    ...typography.body,
+  iconButtonText: {
+    fontSize: 28,
   },
   header: {
     alignItems: 'center',
     gap: spacing.sm,
   },
-  instruction: {
-    color: colors.text,
-    textAlign: 'center',
-    ...typography.subtitle,
-  },
   instructionCard: {
     gap: spacing.sm,
     padding: spacing.md,
-  },
-  prompt: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.body,
   },
   sceneAccent: {
     borderRadius: radius.pill,
@@ -911,7 +884,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.caption,
   },
-  successFeedback: {
+  targetWord: {
     color: colors.primaryDark,
+    textAlign: 'center',
+    ...typography.title,
+    fontSize: 32,
+    marginVertical: spacing.xs,
   },
 });
