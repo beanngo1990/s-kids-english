@@ -2,15 +2,24 @@ import type {
   EntityId,
   Scene,
   SceneInteractionType,
+  SceneSoundEffect,
   SceneStep,
 } from '../types/lesson';
 
 export type StepInteractionStatus = 'correct' | 'incorrect' | 'ignored';
+export type StepObjectEffectAnimation = 'bounce' | 'shake' | 'sparkle';
+
+export type StepObjectEffect = {
+  targetObjectId: EntityId;
+  animation: StepObjectEffectAnimation;
+};
 
 export type StepInteractionResult = {
   status: StepInteractionStatus;
   feedbackVi?: string;
   effectObjectIds: EntityId[];
+  objectEffects: StepObjectEffect[];
+  soundEffect?: SceneSoundEffect;
   nextStep?: SceneStep;
   isSceneComplete: boolean;
 };
@@ -62,7 +71,11 @@ export function isStepTargetObject(step: SceneStep, objectId: EntityId) {
 }
 
 export function shouldDimObjectForStep(step: SceneStep, objectId: EntityId) {
-  if (step.type !== 'teach' && step.type !== 'practice') {
+  if (
+    step.type !== 'intro' &&
+    step.type !== 'teach' &&
+    step.type !== 'practice'
+  ) {
     return false;
   }
 
@@ -76,6 +89,7 @@ export function resolveContinueInteraction(
   if (!isListenStep(step)) {
     return {
       effectObjectIds: [],
+      objectEffects: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -92,6 +106,7 @@ export function resolveObjectInteraction(
   if (!canPressObjects(step)) {
     return {
       effectObjectIds: [],
+      objectEffects: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -105,6 +120,7 @@ export function resolveObjectInteraction(
     effectObjectIds: [objectId],
     feedbackVi: step.failFeedbackVi ?? 'Thử lại nhé.',
     isSceneComplete: false,
+    objectEffects: [],
     status: 'incorrect',
   };
 }
@@ -118,6 +134,7 @@ export function resolveDragInteraction(
   if (step.interaction.type !== 'drag') {
     return {
       effectObjectIds: [],
+      objectEffects: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -131,6 +148,7 @@ export function resolveDragInteraction(
     effectObjectIds: [objectId],
     feedbackVi: step.failFeedbackVi ?? 'Kéo vào vùng đúng nhé.',
     isSceneComplete: false,
+    objectEffects: [],
     status: 'incorrect',
   };
 }
@@ -151,30 +169,82 @@ function buildCorrectResult(
   objectId?: EntityId,
 ): StepInteractionResult {
   const nextStep = getNextStep(scene, step);
+  const objectEffects = getSuccessObjectEffects(step, objectId);
 
   return {
-    effectObjectIds: getSuccessEffectObjectIds(step, objectId),
+    effectObjectIds: objectEffects.map(effect => effect.targetObjectId),
     feedbackVi: step.successFeedbackVi,
     isSceneComplete: !nextStep,
     nextStep,
+    objectEffects,
+    soundEffect: getSuccessSoundEffect(step),
     status: 'correct',
   };
 }
 
-function getSuccessEffectObjectIds(step: SceneStep, objectId?: EntityId) {
-  const effectTargetIds =
+function getSuccessObjectEffects(
+  step: SceneStep,
+  objectId?: EntityId,
+): StepObjectEffect[] {
+  const explicitObjectEffects =
     step.effects
-      ?.map(effect => effect.targetObjectId)
-      .filter((targetId): targetId is EntityId => Boolean(targetId)) ?? [];
+      ?.map(effect => {
+        if (
+          effect.type !== 'animation' ||
+          !effect.targetObjectId ||
+          !isSupportedObjectEffectAnimation(effect.animation)
+        ) {
+          return undefined;
+        }
 
-  return Array.from(
-    new Set(
-      [
-        objectId,
-        step.interaction.targetObjectId,
-        ...step.targetObjectIds,
-        ...effectTargetIds,
-      ].filter((targetId): targetId is EntityId => Boolean(targetId)),
-    ),
+        return {
+          animation: effect.animation,
+          targetObjectId: effect.targetObjectId,
+        };
+      })
+      .filter((effect): effect is StepObjectEffect => Boolean(effect)) ?? [];
+
+  const explicitTargetIds = new Set(
+    explicitObjectEffects.map(effect => effect.targetObjectId),
   );
+  const fallbackTargets = [
+    objectId,
+    step.interaction.targetObjectId,
+    ...step.targetObjectIds,
+  ].filter((targetId): targetId is EntityId => Boolean(targetId));
+
+  const fallbackObjectEffects = Array.from(new Set(fallbackTargets))
+    .filter(targetId => !explicitTargetIds.has(targetId))
+    .map(targetId => ({
+      animation: 'sparkle' as const,
+      targetObjectId: targetId,
+    }));
+
+  return dedupeObjectEffects([
+    ...explicitObjectEffects,
+    ...fallbackObjectEffects,
+  ]);
+}
+
+function getSuccessSoundEffect(step: SceneStep) {
+  return step.effects?.find(effect => effect.type === 'sound')?.sound;
+}
+
+function dedupeObjectEffects(objectEffects: StepObjectEffect[]) {
+  const seenTargetIds = new Set<EntityId>();
+
+  return objectEffects.filter(effect => {
+    if (seenTargetIds.has(effect.targetObjectId)) {
+      return false;
+    }
+
+    seenTargetIds.add(effect.targetObjectId);
+    return true;
+  });
+}
+
+function isSupportedObjectEffectAnimation(
+  animation?: string,
+): animation is StepObjectEffectAnimation {
+  return animation === 'bounce' || animation === 'shake' || animation === 'sparkle';
 }

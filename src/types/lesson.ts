@@ -43,6 +43,16 @@ export type SceneObjectRole =
 /** Tên animation mặc định cho object, ví dụ idle, bounce hoặc wave. */
 export type SceneAnimation = string;
 
+/** Tên sound effect ngắn, vui, chạy local hoặc qua remote cache. */
+export type SceneSoundEffect =
+  | 'clap'
+  | 'complete'
+  | 'correct'
+  | 'ding'
+  | 'tap'
+  | 'wrong'
+  | 'yay';
+
 /** Một object hiển thị trong scene, có vị trí phần trăm và trạng thái tương tác. */
 export type SceneObject = {
   id: EntityId;
@@ -82,6 +92,7 @@ export type SceneEffect = {
   targetObjectId?: EntityId;
   asset?: AssetRef;
   animation?: SceneAnimation;
+  sound?: SceneSoundEffect;
 };
 
 /** Một bước học nhỏ trong scene với hướng dẫn, tương tác và phản hồi. */

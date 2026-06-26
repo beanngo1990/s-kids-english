@@ -8,6 +8,7 @@ export const colors = {
   secondary: '#FFD77A',
   secondarySoft: '#FFF4C7',
   accent: '#FF9C8A',
+  accentDark: '#D96B5E',
   accentSoft: '#FFE0DA',
   lavender: '#DCD7FF',
   mint: '#CFF6DF',
