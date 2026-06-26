@@ -7,6 +7,9 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
   
   private var audioPlayers: [String: AVAudioPlayer] = [:]
   private var speechPlayer: AVPlayer?
+  private var speechResolve: RCTPromiseResolveBlock?
+  private var speechEndObserver: NSObjectProtocol?
+  private var speechFailObserver: NSObjectProtocol?
   private var voiceRecorder: AVAudioRecorder?
   private var recordingSession: AVAudioSession!
   
@@ -67,19 +70,39 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
       return
     }
     
-    // Stop any existing speech player
-    speechPlayer?.pause()
+    stopSpeechPlayer(resolvePendingPromise: true)
     
     let playerItem = AVPlayerItem(url: url)
-    speechPlayer = AVPlayer(playerItem: playerItem)
-    speechPlayer?.play()
-    resolve(true)
+    let player = AVPlayer(playerItem: playerItem)
+    speechPlayer = player
+    speechResolve = resolve
+    speechEndObserver = NotificationCenter.default.addObserver(
+      forName: .AVPlayerItemDidPlayToEndTime,
+      object: playerItem,
+      queue: .main
+    ) { [weak self, weak player] _ in
+      guard let self = self, let player = player else {
+        return
+      }
+      self.finishSpeechPlayer(player, didPlay: true)
+    }
+    speechFailObserver = NotificationCenter.default.addObserver(
+      forName: .AVPlayerItemFailedToPlayToEndTime,
+      object: playerItem,
+      queue: .main
+    ) { [weak self, weak player] _ in
+      guard let self = self, let player = player else {
+        return
+      }
+      self.finishSpeechPlayer(player, didPlay: false)
+    }
+    
+    player.play()
   }
   
   @objc func stopSpeech(_ resolve: @escaping RCTPromiseResolveBlock,
                         rejecter reject: @escaping RCTPromiseRejectBlock) {
-    speechPlayer?.pause()
-    speechPlayer = nil
+    stopSpeechPlayer(resolvePendingPromise: true)
     resolve(true)
   }
   
@@ -116,5 +139,42 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
     recorder.stop()
     voiceRecorder = nil
     resolve(recorder.url.absoluteString)
+  }
+
+  private func finishSpeechPlayer(_ player: AVPlayer, didPlay: Bool) {
+    guard speechPlayer === player else {
+      return
+    }
+
+    speechPlayer = nil
+    removeSpeechObservers()
+    resolveSpeechPromise(didPlay)
+  }
+
+  private func stopSpeechPlayer(resolvePendingPromise: Bool = false) {
+    speechPlayer?.pause()
+    speechPlayer = nil
+    removeSpeechObservers()
+
+    if resolvePendingPromise {
+      resolveSpeechPromise(false)
+    }
+  }
+
+  private func removeSpeechObservers() {
+    if let observer = speechEndObserver {
+      NotificationCenter.default.removeObserver(observer)
+      speechEndObserver = nil
+    }
+
+    if let observer = speechFailObserver {
+      NotificationCenter.default.removeObserver(observer)
+      speechFailObserver = nil
+    }
+  }
+
+  private func resolveSpeechPromise(_ value: Bool) {
+    speechResolve?(value)
+    speechResolve = nil
   }
 }
