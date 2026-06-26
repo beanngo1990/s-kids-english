@@ -76,6 +76,8 @@ type AutoRecordRequest = {
   stepId: EntityId;
 };
 
+const objectAudioCooldownMs = 900;
+
 type ScenePlayerProps = {
   lessonId?: string;
   scene?: Scene;
@@ -126,11 +128,13 @@ export function ScenePlayer({
   >({});
   const [autoRecordRequest, setAutoRecordRequest] =
     useState<AutoRecordRequest | null>(null);
+  const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
   const advanceRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
+  const objectAudioLastPlayedAtRef = useRef<Record<EntityId, number>>({});
 
   useEffect(() => {
     setSceneIndex(initialSceneIndex);
@@ -164,6 +168,7 @@ export function ScenePlayer({
       return;
     }
 
+    setIsSpeechPracticeBusy(false);
     playAudioForStep(currentScene, currentStep, {
       onTeachAudioComplete: () => {
         setAutoRecordRequest(previousRequest => ({
@@ -213,7 +218,7 @@ export function ScenePlayer({
     const targetIds = currentStep.targetObjectIds.length > 0
       ? currentStep.targetObjectIds
       : (currentScene.character ? [currentScene.character.id] : []);
-    
+
     setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
       text: currentStep.instructionVi,
@@ -236,6 +241,12 @@ export function ScenePlayer({
       return;
     }
 
+    const object = allObjects.find(item => item.id === objectId);
+    if (object && canTapObjectToHear(currentScene, currentStep, object)) {
+      handleObjectAudioPress(object);
+      return;
+    }
+
     runAudio(playTapSound());
     const result = resolveObjectInteraction(
       currentScene,
@@ -243,6 +254,37 @@ export function ScenePlayer({
       objectId,
     );
     handleInteractionResult(currentScene, result);
+  };
+
+  const handleObjectAudioPress = (object: SceneObject) => {
+    if (isSpeechPracticeBusy) {
+      return;
+    }
+
+    const vocabularyItem = getObjectVocabulary(currentScene, object);
+    if (!vocabularyItem) {
+      return;
+    }
+
+    const now = Date.now();
+    const lastPlayedAt = objectAudioLastPlayedAtRef.current[object.id] ?? 0;
+    if (now - lastPlayedAt < objectAudioCooldownMs) {
+      return;
+    }
+
+    objectAudioLastPlayedAtRef.current[object.id] = now;
+    cancelStepAudioSequence();
+    clearTimer(clearFeedbackTimerRef);
+    setShakeObjectIds([]);
+    setHintObjectIds([]);
+    setSuccessObjectEffects(
+      createUniformObjectEffectMap([object.id], 'bounce'),
+    );
+    showTemporaryFeedback({
+      text: vocabularyItem.word,
+      type: 'info',
+    });
+    runAudio(playObjectVocabularyAudio(vocabularyItem.word));
   };
 
   const handleObjectDrop = (
@@ -482,6 +524,7 @@ export function ScenePlayer({
             }
             disabled={isAdvancing}
             onAudioStart={cancelStepAudioSequence}
+            onBusyChange={setIsSpeechPracticeBusy}
             word={speakPracticeWord}
           />
         ) : getStepVocabulary(currentScene, currentStep) ? (
@@ -524,6 +567,11 @@ export function ScenePlayer({
             ...object,
             position: snappedObjectPositions[object.id] ?? object.position,
           };
+          const canTapToHear = canTapObjectToHear(
+            currentScene,
+            currentStep,
+            object,
+          );
 
           return (
             <SceneObjectRenderer
@@ -534,7 +582,11 @@ export function ScenePlayer({
                 shakeObjectIds,
               )}
               isDimmed={shouldDimObjectForStep(currentStep, object.id)}
-              isDisabled={!canPressObjects(currentStep) || isAdvancing}
+              isDisabled={
+                isAdvancing ||
+                isSpeechPracticeBusy ||
+                (!canPressObjects(currentStep) && !canTapToHear)
+              }
               isDraggable={
                 currentStep.interaction.type === 'drag' &&
                 currentStep.interaction.targetObjectId === object.id &&
@@ -609,6 +661,18 @@ function getSpeakPracticeWord(scene: Scene, step: SceneStep) {
   return getStepVocabulary(scene, step)?.word;
 }
 
+function canTapObjectToHear(
+  scene: Scene,
+  step: SceneStep,
+  object: SceneObject,
+) {
+  return (
+    step.type === 'teach' &&
+    isStepTargetObject(step, object.id) &&
+    Boolean(getObjectVocabulary(scene, object))
+  );
+}
+
 let globalAudioSequenceId = 0;
 
 type PlayStepAudioOptions = {
@@ -623,12 +687,18 @@ function playAudioForStep(
   globalAudioSequenceId += 1;
   const currentId = globalAudioSequenceId;
   const isActive = () => globalAudioSequenceId === currentId;
-  
+
   runAudio(playStepAudioSequence(scene, step, isActive, options));
 }
 
 function cancelStepAudioSequence() {
   globalAudioSequenceId += 1;
+}
+
+async function playObjectVocabularyAudio(word: string) {
+  await playTapSound();
+  await delay(80);
+  await speakWord(word);
 }
 
 async function playStepAudioSequence(
@@ -642,10 +712,10 @@ async function playStepAudioSequence(
   if (step.type === 'teach' && vocabularyItem) {
     if (!isActive()) return;
     await speakVi(step.instructionVi);
-    
+
     if (!isActive()) return;
     await delay(180);
-    
+
     if (!isActive()) return;
     await speakWord(vocabularyItem.word);
 

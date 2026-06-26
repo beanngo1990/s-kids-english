@@ -30,6 +30,7 @@ type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
   disabled?: boolean;
   onAudioStart?: () => void;
+  onBusyChange?: (isBusy: boolean) => void;
   word: string;
 };
 
@@ -40,6 +41,7 @@ export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
   onAudioStart,
+  onBusyChange,
   word,
 }: SpeakPracticeControlsProps) {
   const [status, setStatus] = useState<RecordingStatus>(() =>
@@ -58,6 +60,10 @@ export function SpeakPracticeControls({
       }
     };
   }, [status]);
+
+  useEffect(() => {
+    onBusyChange?.(status === 'prompting' || status === 'recording');
+  }, [onBusyChange, status]);
 
   const finishRecording = useCallback(async () => {
     clearRecordingTimer(timerRef);
