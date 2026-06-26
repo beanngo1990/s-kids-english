@@ -600,20 +600,36 @@ function getSpeakPracticeWord(scene: Scene, step: SceneStep) {
   return getStepVocabulary(scene, step)?.word;
 }
 
+let globalAudioSequenceId = 0;
+
 function playAudioForStep(scene: Scene, step: SceneStep) {
-  runAudio(playStepAudioSequence(scene, step));
+  globalAudioSequenceId += 1;
+  const currentId = globalAudioSequenceId;
+  const isActive = () => globalAudioSequenceId === currentId;
+  
+  runAudio(playStepAudioSequence(scene, step, isActive));
 }
 
-async function playStepAudioSequence(scene: Scene, step: SceneStep) {
+async function playStepAudioSequence(
+  scene: Scene,
+  step: SceneStep,
+  isActive: () => boolean,
+) {
   const vocabularyItem = getStepVocabulary(scene, step);
 
   if (step.type === 'teach' && vocabularyItem) {
+    if (!isActive()) return;
     await speakVi(step.instructionVi);
+    
+    if (!isActive()) return;
     await delay(180);
+    
+    if (!isActive()) return;
     await speakWord(vocabularyItem.word);
     return;
   }
 
+  if (!isActive()) return;
   await speakVi(step.instructionVi);
 }
 
