@@ -1,6 +1,11 @@
 import type { Lesson } from '../types/lesson';
+import { assertValidLessons } from './lessonValidation';
 import { morningRoutineLesson } from './lessons/morningRoutine';
 
-export const lessons: Lesson[] = [morningRoutineLesson];
+const lessonCatalog: Lesson[] = [morningRoutineLesson];
+
+assertValidLessons(lessonCatalog);
+
+export const lessons = lessonCatalog;
 
 export { morningRoutineLesson };
