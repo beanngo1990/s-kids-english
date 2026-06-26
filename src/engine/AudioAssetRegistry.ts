@@ -1,0 +1,21 @@
+import { Image, type ImageRequireSource } from 'react-native';
+
+const bundledAudioRegistry: Record<string, ImageRequireSource> = {
+  'audio/tts/en/bed_en.mp3': require('../assets/audio/tts/en/bed_en.mp3'),
+  'audio/tts/en/blanket_en.mp3': require('../assets/audio/tts/en/blanket_en.mp3'),
+  'audio/tts/en/good_morning_en.mp3': require('../assets/audio/tts/en/good_morning_en.mp3'),
+  'audio/tts/en/sun_en.mp3': require('../assets/audio/tts/en/sun_en.mp3'),
+  'audio/tts/vi/bedroom_intro_vi.mp3': require('../assets/audio/tts/vi/bedroom_intro_vi.mp3'),
+  'audio/tts/vi/correct_vi.mp3': require('../assets/audio/tts/vi/correct_vi.mp3'),
+  'audio/tts/vi/drag_blanket_vi.mp3': require('../assets/audio/tts/vi/drag_blanket_vi.mp3'),
+  'audio/tts/vi/tap_bed_vi.mp3': require('../assets/audio/tts/vi/tap_bed_vi.mp3'),
+};
+
+export function resolveBundledAudioUri(assetKey: string) {
+  const audioSource = bundledAudioRegistry[assetKey];
+  if (!audioSource) {
+    return undefined;
+  }
+
+  return Image.resolveAssetSource(audioSource)?.uri;
+}

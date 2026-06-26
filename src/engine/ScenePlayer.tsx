@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Text,
   View,
-  type ImageSourcePropType,
 } from 'react-native';
 
 import { AppButton } from '../components/AppButton';
@@ -36,7 +35,6 @@ import {
   type DragTranslation,
   getDraggedRect,
   getPercentRectStyle,
-  getRectCenter,
   getSnapRect,
   isDropAccepted,
 } from './PositionUtils';

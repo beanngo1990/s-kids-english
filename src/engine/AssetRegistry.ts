@@ -1,9 +1,12 @@
 import type { ImageSourcePropType } from 'react-native';
 
+import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
+
 const registry: Record<string, ImageSourcePropType> = {
-  // Add bundled images here later, for example:
-  // 'images/objects/bed.png': require('../assets/images/objects/bed.png'),
-  // 'images/scenes/bedroom_bg.png': require('../assets/images/scenes/bedroom_bg.png'),
+  'images/objects/bed.png': require('../assets/images/objects/bed.png'),
+  'images/objects/blanket.png': require('../assets/images/objects/blanket.png'),
+  'images/objects/sun.png': require('../assets/images/objects/sun.png'),
+  'images/scenes/bedroom_bg.png': require('../assets/images/scenes/bedroom_bg.png'),
 };
 
 /**
@@ -11,6 +14,13 @@ const registry: Record<string, ImageSourcePropType> = {
  * Falls back to uri if the string is a valid remote/local URI.
  */
 export function resolveAsset(source: string): ImageSourcePropType | undefined {
+  if (remoteAssetsConfig.preferRemoteImages) {
+    const remoteAssetUrl = getRemoteAssetUrl(source);
+    if (remoteAssetUrl) {
+      return { uri: remoteAssetUrl };
+    }
+  }
+
   if (registry[source]) {
     return registry[source];
   }

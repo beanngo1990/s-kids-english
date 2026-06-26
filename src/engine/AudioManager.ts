@@ -1,5 +1,12 @@
+import {
+  getViAudioAsset,
+  getWordAudioAsset,
+  type RemoteAudioAsset,
+} from '../data/audioManifest';
+import { resolveRemoteAssetUri } from './AssetCacheManager';
+
 type SpeechLanguage = 'en-US' | 'vi-VN';
-type SoundEffect = 'correct' | 'wrong' | 'tap';
+export type SoundEffect = 'complete' | 'correct' | 'wrong' | 'tap';
 
 type SpeechOptions = {
   language: SpeechLanguage;
@@ -8,6 +15,7 @@ type SpeechOptions = {
 };
 
 export type AudioAdapter = {
+  playAudioUri?: (uri: string) => Promise<void> | void;
   speak?: (text: string, options: SpeechOptions) => Promise<void> | void;
   playSound?: (effect: SoundEffect) => Promise<void> | void;
   stopSpeech?: () => Promise<void> | void;
@@ -67,6 +75,11 @@ export function configureAudioManager(nextAdapter: AudioAdapter | null) {
 }
 
 export async function speakWord(word: string) {
+  const audioAsset = getWordAudioAsset(word);
+  if (audioAsset && (await playAudioAsset(audioAsset))) {
+    return;
+  }
+
   await speak(word, {
     language: 'en-US',
     pitch: 1.05,
@@ -75,6 +88,11 @@ export async function speakWord(word: string) {
 }
 
 export async function speakVi(text: string) {
+  const audioAsset = getViAudioAsset(text);
+  if (audioAsset && (await playAudioAsset(audioAsset))) {
+    return;
+  }
+
   await speak(text, {
     language: 'vi-VN',
     pitch: 1,
@@ -92,6 +110,10 @@ export async function playWrongSound() {
 
 export async function playTapSound() {
   await playSound('tap');
+}
+
+export async function playCompleteSound() {
+  await playSound('complete');
 }
 
 async function speak(text: string, options: SpeechOptions) {
@@ -117,6 +139,25 @@ async function speak(text: string, options: SpeechOptions) {
 
     await speakWithWebSpeech(trimmedText, options);
   });
+}
+
+async function playAudioAsset(asset: RemoteAudioAsset) {
+  const audioAdapter = adapter;
+  if (!audioAdapter?.playAudioUri) {
+    return false;
+  }
+
+  const audioUri = await resolveRemoteAssetUri(asset.key);
+  if (!audioUri) {
+    return false;
+  }
+
+  try {
+    await audioAdapter.playAudioUri(audioUri);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 async function playSound(effect: SoundEffect) {
@@ -212,6 +253,8 @@ function getToneFrequency(effect: SoundEffect) {
   switch (effect) {
     case 'correct':
       return 660;
+    case 'complete':
+      return 784;
     case 'wrong':
       return 220;
     case 'tap':
