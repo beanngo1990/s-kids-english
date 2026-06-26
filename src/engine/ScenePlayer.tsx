@@ -696,8 +696,7 @@ function cancelStepAudioSequence() {
 }
 
 async function playObjectVocabularyAudio(word: string) {
-  await playTapSound();
-  await delay(80);
+  runAudio(playTapSound());
   await speakWord(word);
 }
 
@@ -714,19 +713,19 @@ async function playStepAudioSequence(
     await speakVi(step.instructionVi);
 
     if (!isActive()) return;
-    await delay(180);
+    await delay(100);
 
     if (!isActive()) return;
     await speakWord(vocabularyItem.word);
 
     if (!isActive()) return;
-    await delay(260);
+    await delay(120);
 
     if (!isActive()) return;
     await speakVi(speakPracticePromptVi);
 
     if (!isActive()) return;
-    await delay(180);
+    await delay(60);
 
     if (!isActive()) return;
     await speakWord(vocabularyItem.word);
