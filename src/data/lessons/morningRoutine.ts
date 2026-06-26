@@ -1,38 +1,11 @@
-import type {
-  AssetRef,
-  Lesson,
-  PercentRect,
-  SceneObject,
-} from '../../types/lesson';
+import type { Lesson } from '../../types/lesson';
+import { characterObject, imageAsset } from '../lessonAuthoring';
 import {
   bathroomVocabulary,
   bedroomVocabulary,
   breakfastVocabulary,
   schoolVocabulary,
 } from '../vocabulary';
-
-const imageAsset = (id: string, source: string): AssetRef => ({
-  id,
-  source,
-  type: 'image',
-});
-
-const characterObject = (
-  id: string,
-  source: string,
-  position: PercentRect,
-): SceneObject => ({
-  id,
-  asset: {
-    id: `${id}-asset`,
-    source,
-    type: 'sprite',
-  },
-  defaultAnimation: 'wave',
-  isInteractive: false,
-  position,
-  role: 'character',
-});
 
 export const morningRoutineLesson: Lesson = {
   id: 'morning-routine',
