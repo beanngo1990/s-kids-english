@@ -31,6 +31,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: 'audio/tts/vi/bed_meaning_vi.mp3',
     text: 'Bed là cái giường.',
   },
+  [normalizeText('Mình bắt đầu với cái giường nhé.')]: {
+    key: 'audio/tts/vi/teach_bed_intro_vi.mp3',
+    text: 'Mình bắt đầu với cái giường nhé.',
+  },
   [normalizeText('Chạm vào bed nhé.')]: {
     key: 'audio/tts/vi/tap_bed_vi.mp3',
     text: 'Bé hãy chạm vào cái giường nhé.',
@@ -46,6 +50,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText('Blanket là cái chăn.')]: {
     key: 'audio/tts/vi/blanket_meaning_vi.mp3',
     text: 'Blanket là cái chăn.',
+  },
+  [normalizeText('Tiếp theo là cái chăn nhé.')]: {
+    key: 'audio/tts/vi/teach_blanket_intro_vi.mp3',
+    text: 'Tiếp theo là cái chăn nhé.',
   },
   [normalizeText('Kéo chăn gọn nào.')]: {
     key: 'audio/tts/vi/drag_blanket_vi.mp3',
@@ -67,9 +75,21 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: 'audio/tts/vi/sun_fail_vi.mp3',
     text: 'Mặt trời ở trên cao đó.',
   },
+  [normalizeText('Sun là mặt trời.')]: {
+    key: 'audio/tts/vi/sun_meaning_vi.mp3',
+    text: 'Sun là mặt trời.',
+  },
+  [normalizeText('Bây giờ mình nhìn mặt trời nhé.')]: {
+    key: 'audio/tts/vi/teach_sun_intro_vi.mp3',
+    text: 'Bây giờ mình nhìn mặt trời nhé.',
+  },
   [normalizeText('Phòng sáng rồi!')]: {
     key: 'audio/tts/vi/sun_success_vi.mp3',
     text: 'Phòng sáng rồi!',
+  },
+  [normalizeText('Cô nghe rồi! Giỏi quá!')]: {
+    key: 'audio/tts/vi/speak_encourage_vi.mp3',
+    text: 'Cô nghe rồi! Giỏi quá!',
   },
   [normalizeText('Đúng rồi! Bé giỏi quá!')]: {
     key: 'audio/tts/vi/correct_vi.mp3',

@@ -2,6 +2,7 @@ package com.skidsenglish.audio
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
+import android.media.MediaRecorder
 import android.media.SoundPool
 import android.net.Uri
 import android.util.Log
@@ -11,6 +12,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.skidsenglish.R
+import java.io.File
 
 class SkidsAudioModule(
   private val reactContext: ReactApplicationContext,
@@ -22,6 +24,8 @@ class SkidsAudioModule(
   private val soundIds = mutableMapOf<String, Int>()
   private var speechPlayer: MediaPlayer? = null
   private var speechPromise: Promise? = null
+  private var voiceRecorder: MediaRecorder? = null
+  private var voiceRecordingFile: File? = null
   private var isReleased = false
 
   init {
@@ -126,10 +130,69 @@ class SkidsAudioModule(
     promise.resolve(true)
   }
 
+  @ReactMethod
+  fun startVoiceRecording(promise: Promise) {
+    if (isReleased) {
+      promise.resolve(null)
+      return
+    }
+
+    try {
+      stopSpeechPlayer(resolvePendingPromise = true)
+      stopVoiceRecorder(deleteRecording = true)
+
+      val recordingFile = File.createTempFile(
+        "skids_voice_",
+        ".m4a",
+        reactContext.cacheDir,
+      )
+      val recorder = createMediaRecorder()
+
+      recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
+      recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+      recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+      recorder.setAudioEncodingBitRate(96000)
+      recorder.setAudioSamplingRate(44100)
+      recorder.setOutputFile(recordingFile.absolutePath)
+      recorder.prepare()
+      recorder.start()
+
+      voiceRecorder = recorder
+      voiceRecordingFile = recordingFile
+      promise.resolve(Uri.fromFile(recordingFile).toString())
+    } catch (error: Exception) {
+      stopVoiceRecorder(deleteRecording = true)
+      promise.reject("SKIDS_VOICE_RECORD_START_ERROR", error)
+    }
+  }
+
+  @ReactMethod
+  fun stopVoiceRecording(promise: Promise) {
+    if (isReleased) {
+      promise.resolve(null)
+      return
+    }
+
+    val recordingFile = voiceRecordingFile
+
+    try {
+      voiceRecorder?.stop()
+      promise.resolve(recordingFile?.let { Uri.fromFile(it).toString() })
+    } catch (error: Exception) {
+      recordingFile?.delete()
+      promise.resolve(null)
+    } finally {
+      voiceRecorder?.release()
+      voiceRecorder = null
+      voiceRecordingFile = null
+    }
+  }
+
   override fun invalidate() {
     if (!isReleased) {
       isReleased = true
       stopSpeechPlayer(resolvePendingPromise = true)
+      stopVoiceRecorder(deleteRecording = true)
       soundPool.release()
       reactContext.removeLifecycleEventListener(this)
     }
@@ -162,5 +225,26 @@ class SkidsAudioModule(
   private fun resolveSpeechPromise(value: Boolean) {
     speechPromise?.resolve(value)
     speechPromise = null
+  }
+
+  @Suppress("DEPRECATION")
+  private fun createMediaRecorder(): MediaRecorder = MediaRecorder()
+
+  private fun stopVoiceRecorder(deleteRecording: Boolean) {
+    voiceRecorder?.let { recorder ->
+      try {
+        recorder.stop()
+      } catch (_: Exception) {
+      } finally {
+        recorder.release()
+      }
+    }
+
+    if (deleteRecording) {
+      voiceRecordingFile?.delete()
+    }
+
+    voiceRecorder = null
+    voiceRecordingFile = null
   }
 }

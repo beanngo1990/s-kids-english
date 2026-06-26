@@ -10,6 +10,7 @@ import {
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { ProgressDots } from '../components/ProgressDots';
+import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { lessons } from '../data/lessons';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -20,7 +21,6 @@ import type {
   Scene,
   SceneObject,
   SceneStep,
-  VocabularyItem,
 } from '../types/lesson';
 import {
   playCorrectSound,
@@ -182,6 +182,7 @@ export function ScenePlayer({
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const isAdvancing = feedback?.type === 'success';
+  const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
   const backgroundSource = resolveAsset(currentScene.background.source);
   const shouldUseBackgroundFallback =
     !backgroundSource || failedBackgroundIds[currentScene.background.id] === true;
@@ -462,6 +463,12 @@ export function ScenePlayer({
         {currentStep.promptText ? (
           <Text style={styles.prompt}>{currentStep.promptText}</Text>
         ) : null}
+        {speakPracticeWord ? (
+          <SpeakPracticeControls
+            disabled={isAdvancing}
+            word={speakPracticeWord}
+          />
+        ) : null}
         {feedback ? (
           <Text
             style={[
@@ -585,34 +592,29 @@ function getStepVocabulary(scene: Scene, step: SceneStep) {
   return getObjectVocabulary(scene, targetObject);
 }
 
-function playAudioForStep(scene: Scene, step: SceneStep) {
-  const vocabularyItem = getStepVocabulary(scene, step);
-  const speech = getStepSpeech(step, vocabularyItem);
-
-  if (!speech) {
-    return;
+function getSpeakPracticeWord(scene: Scene, step: SceneStep) {
+  if (step.type !== 'teach') {
+    return undefined;
   }
 
-  if (speech.language === 'en') {
-    runAudio(speakWord(speech.text));
-    return;
-  }
-
-  runAudio(speakVi(speech.text));
+  return getStepVocabulary(scene, step)?.word;
 }
 
-function getStepSpeech(step: SceneStep, vocabularyItem?: VocabularyItem) {
+function playAudioForStep(scene: Scene, step: SceneStep) {
+  runAudio(playStepAudioSequence(scene, step));
+}
+
+async function playStepAudioSequence(scene: Scene, step: SceneStep) {
+  const vocabularyItem = getStepVocabulary(scene, step);
+
   if (step.type === 'teach' && vocabularyItem) {
-    return {
-      language: 'en' as const,
-      text: vocabularyItem.word,
-    };
+    await speakVi(step.instructionVi);
+    await delay(180);
+    await speakWord(vocabularyItem.word);
+    return;
   }
 
-  return {
-    language: 'vi' as const,
-    text: step.instructionVi,
-  };
+  await speakVi(step.instructionVi);
 }
 
 function runAudio(audioPromise: Promise<void>) {
