@@ -877,8 +877,9 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-    gap: spacing.md,
-    padding: spacing.lg,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
   },
   sceneLabel: {
     color: colors.textSoft,
@@ -895,7 +896,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     elevation: 3,
     flex: 1,
-    minHeight: 360,
+    minHeight: 220,
     overflow: 'hidden',
     shadowColor: colors.shadow,
     shadowOffset: {
