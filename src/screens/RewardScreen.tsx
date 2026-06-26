@@ -12,6 +12,7 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
+import { playCompleteSound } from '../engine/AudioManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -39,6 +40,8 @@ export function RewardScreen({ navigation, route }: Props) {
 
   useEffect(() => {
     let isMounted = true;
+
+    playCompleteSound().catch(() => undefined);
 
     getProgress()
       .then(nextProgress => {

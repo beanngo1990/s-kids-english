@@ -71,8 +71,10 @@ export function SceneObjectRenderer({
   });
   const imageSource = resolveAsset(object.asset.source);
   const canUseImage = !!imageSource;
-  const shouldShowImage = canUseImage && hasImageLoaded && !hasImageError;
-  const shouldShowFallback = !canUseImage || hasImageError;
+  const isBundledImage = typeof imageSource === 'number';
+  const shouldShowImage =
+    canUseImage && (isBundledImage || hasImageLoaded) && !hasImageError;
+  const shouldShowFallback = !shouldShowImage;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const panResponder = useMemo(
     () =>
