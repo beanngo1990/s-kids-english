@@ -3,6 +3,7 @@ import type { ImageSourcePropType } from 'react-native';
 import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 
 const registry: Record<string, ImageSourcePropType> = {
+  'images/characters/baby_happy.png': require('../assets/images/characters/baby_happy.png'),
   'images/objects/bed.png': require('../assets/images/objects/bed.png'),
   'images/objects/blanket.png': require('../assets/images/objects/blanket.png'),
   'images/objects/sun.png': require('../assets/images/objects/sun.png'),

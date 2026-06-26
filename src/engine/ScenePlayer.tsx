@@ -24,6 +24,7 @@ import type {
 } from '../types/lesson';
 import {
   playCorrectSound,
+  playSoundEffect,
   playTapSound,
   playWrongSound,
   speakVi,
@@ -59,12 +60,15 @@ import {
   resolveObjectInteraction,
   shouldDimObjectForStep,
   type StepInteractionResult,
+  type StepObjectEffect,
 } from './StepController';
 
 type FeedbackState = {
   type: 'success' | 'fail' | 'info';
   text: string;
 };
+
+type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -100,8 +104,13 @@ export function ScenePlayer({
     currentScene ? getInitialStep(currentScene)?.id : undefined,
   );
   const [feedback, setFeedback] = useState<FeedbackState | null>(null);
-  const [successObjectIds, setSuccessObjectIds] = useState<EntityId[]>([]);
+  const [successObjectEffects, setSuccessObjectEffects] =
+    useState<ObjectEffectMap>({});
   const [shakeObjectIds, setShakeObjectIds] = useState<EntityId[]>([]);
+  const [hintObjectIds, setHintObjectIds] = useState<EntityId[]>([]);
+  const [wrongAttemptsByStepId, setWrongAttemptsByStepId] = useState<
+    Record<EntityId, number>
+  >({});
   const [failedBackgroundIds, setFailedBackgroundIds] = useState<
     Record<EntityId, boolean>
   >({});
@@ -109,6 +118,7 @@ export function ScenePlayer({
   const [snappedObjectPositions, setSnappedObjectPositions] = useState<
     Record<EntityId, PercentRect>
   >({});
+  const advanceRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
@@ -119,15 +129,19 @@ export function ScenePlayer({
   }, [initialSceneIndex]);
 
   useEffect(() => {
+    advanceRequestIdRef.current += 1;
     setStepId(currentScene ? getInitialStep(currentScene)?.id : undefined);
     setFeedback(null);
-    setSuccessObjectIds([]);
+    setSuccessObjectEffects({});
     setShakeObjectIds([]);
+    setHintObjectIds([]);
+    setWrongAttemptsByStepId({});
     setSnappedObjectPositions({});
   }, [currentScene]);
 
   useEffect(() => {
     return () => {
+      advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
       clearTimer(clearFeedbackTimerRef);
     };
@@ -184,7 +198,7 @@ export function ScenePlayer({
       ? currentStep.targetObjectIds
       : (currentScene.character ? [currentScene.character.id] : []);
     
-    setSuccessObjectIds(targetIds);
+    setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
       text: currentStep.instructionVi,
       type: 'info',
@@ -286,30 +300,74 @@ export function ScenePlayer({
     clearTimer(clearFeedbackTimerRef);
 
     if (result.status === 'incorrect') {
-      runAudio(playWrongSound());
-      setSuccessObjectIds([]);
-      setShakeObjectIds(result.effectObjectIds);
+      const feedbackText = result.feedbackVi ?? 'Thử lại nhé.';
+      const nextAttemptCount = currentStep
+        ? (wrongAttemptsByStepId[currentStep.id] ?? 0) + 1
+        : 1;
+      const hintIds =
+        currentStep && nextAttemptCount >= 2 ? currentStep.targetObjectIds : [];
+
+      if (currentStep) {
+        setWrongAttemptsByStepId(currentAttempts => ({
+          ...currentAttempts,
+          [currentStep.id]: (currentAttempts[currentStep.id] ?? 0) + 1,
+        }));
+      }
+
+      setSuccessObjectEffects({});
+      setHintObjectIds(hintIds);
+      setShakeObjectIds(dedupeIds([...result.effectObjectIds, ...hintIds]));
       setFeedback({
-        text: result.feedbackVi ?? 'Thử lại nhé.',
+        text: feedbackText,
         type: 'fail',
       });
+      runAudio(playInteractionFeedbackAudio('fail', feedbackText));
       clearFeedbackTimerRef.current = setTimeout(() => {
         setShakeObjectIds([]);
+        setHintObjectIds([]);
       }, 700);
       return;
     }
 
-    runAudio(playCorrectSound());
+    const feedbackText = result.feedbackVi ?? 'Giỏi lắm!';
     setShakeObjectIds([]);
-    setSuccessObjectIds(result.effectObjectIds);
+    setHintObjectIds([]);
+    setWrongAttemptsByStepId({});
+    setSuccessObjectEffects(createObjectEffectMap(result.objectEffects));
     setFeedback({
-      text: result.feedbackVi ?? 'Giỏi lắm!',
+      text: feedbackText,
       type: 'success',
     });
+    scheduleNextStepAfterFeedback(activeScene, result, feedbackText);
+  };
+
+  const scheduleNextStepAfterFeedback = (
+    activeScene: Scene,
+    result: StepInteractionResult,
+    feedbackText: string,
+  ) => {
+    const requestId = advanceRequestIdRef.current + 1;
+    advanceRequestIdRef.current = requestId;
+
+    const advanceIfCurrent = () => {
+      if (advanceRequestIdRef.current !== requestId) {
+        return;
+      }
+
+      advanceRequestIdRef.current += 1;
+      clearTimer(advanceTimerRef);
+      goToNextStep(activeScene, result);
+    };
+
     clearTimer(advanceTimerRef);
     advanceTimerRef.current = setTimeout(() => {
-      goToNextStep(activeScene, result);
-    }, 900);
+      advanceIfCurrent();
+    }, getFeedbackFallbackDelay(feedbackText));
+
+    playInteractionFeedbackAudio('success', feedbackText, result.soundEffect)
+      .then(() => delay(260))
+      .then(advanceIfCurrent)
+      .catch(advanceIfCurrent);
   };
 
   const showTemporaryFeedback = (nextFeedback: FeedbackState) => {
@@ -317,15 +375,17 @@ export function ScenePlayer({
     setFeedback(nextFeedback);
     clearFeedbackTimerRef.current = setTimeout(() => {
       setFeedback(current => (current?.type === 'info' ? null : current));
-      setSuccessObjectIds([]);
+      setSuccessObjectEffects({});
       setShakeObjectIds([]);
+      setHintObjectIds([]);
     }, 1300);
   };
 
   const goToNextStep = (activeScene: Scene, result: StepInteractionResult) => {
     setFeedback(null);
-    setSuccessObjectIds([]);
+    setSuccessObjectEffects({});
     setShakeObjectIds([]);
+    setHintObjectIds([]);
 
     if (lessonId && currentStep) {
       const vocabItem = (currentStep.type === 'teach' || currentStep.type === 'practice')
@@ -371,7 +431,7 @@ export function ScenePlayer({
           total={currentScene.steps.length}
         />
         <Text style={styles.sceneLabel}>
-          {currentScene.titleVi} {sceneIndex + 1}/{scenes.length}
+          Cảnh {sceneIndex + 1}/{scenes.length} - {currentScene.titleVi}
         </Text>
       </View>
 
@@ -454,17 +514,21 @@ export function ScenePlayer({
               key={object.id}
               effect={getObjectEffect(
                 object.id,
-                successObjectIds,
+                successObjectEffects,
                 shakeObjectIds,
               )}
               isDimmed={shouldDimObjectForStep(currentStep, object.id)}
               isDisabled={!canPressObjects(currentStep) || isAdvancing}
               isDraggable={
                 currentStep.interaction.type === 'drag' &&
+                currentStep.interaction.targetObjectId === object.id &&
                 object.isInteractive &&
                 !isAdvancing
               }
-              isTargeted={isStepTargetObject(currentStep, object.id)}
+              isTargeted={
+                isStepTargetObject(currentStep, object.id) ||
+                hintObjectIds.includes(object.id)
+              }
               label={getObjectLabel(currentScene, object)}
               object={renderObject}
               onDragEnd={handleObjectDrop}
@@ -492,6 +556,10 @@ function getRenderableObjects(scene: Scene) {
 }
 
 function getObjectLabel(scene: Scene, object: SceneObject) {
+  if (object.role === 'character') {
+    return 'bé';
+  }
+
   const vocabularyItem = getObjectVocabulary(scene, object);
 
   if (vocabularyItem) {
@@ -551,20 +619,66 @@ function runAudio(audioPromise: Promise<void>) {
   audioPromise.catch(() => undefined);
 }
 
+async function playInteractionFeedbackAudio(
+  type: FeedbackState['type'],
+  feedbackText: string,
+  successSoundEffect?: StepInteractionResult['soundEffect'],
+) {
+  if (type === 'success') {
+    if (successSoundEffect) {
+      await playSoundEffect(successSoundEffect);
+    } else {
+      await playCorrectSound();
+    }
+  } else if (type === 'fail') {
+    await playWrongSound();
+  }
+
+  await delay(120);
+  await speakVi(feedbackText);
+}
+
+function getFeedbackFallbackDelay(feedbackText: string) {
+  return Math.min(5200, Math.max(2800, 1500 + feedbackText.length * 70));
+}
+
+function delay(durationMs: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, durationMs);
+  });
+}
+
+function createObjectEffectMap(objectEffects: StepObjectEffect[]) {
+  return objectEffects.reduce<ObjectEffectMap>((effectMap, objectEffect) => {
+    effectMap[objectEffect.targetObjectId] = objectEffect.animation;
+    return effectMap;
+  }, {});
+}
+
+function createUniformObjectEffectMap(
+  objectIds: EntityId[],
+  effect: SceneObjectEffect,
+) {
+  return objectIds.reduce<ObjectEffectMap>((effectMap, objectId) => {
+    effectMap[objectId] = effect;
+    return effectMap;
+  }, {});
+}
+
+function dedupeIds(objectIds: EntityId[]) {
+  return Array.from(new Set(objectIds));
+}
+
 function getObjectEffect(
   objectId: EntityId,
-  successObjectIds: EntityId[],
+  successObjectEffects: ObjectEffectMap,
   shakeObjectIds: EntityId[],
 ): SceneObjectEffect {
   if (shakeObjectIds.includes(objectId)) {
     return 'shake';
   }
 
-  if (successObjectIds.includes(objectId)) {
-    return 'sparkle';
-  }
-
-  return 'none';
+  return successObjectEffects[objectId] ?? 'none';
 }
 
 function renderActiveDropZone(scene: Scene, step: SceneStep) {
@@ -654,13 +768,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    opacity: 0.22,
+    opacity: 0.82,
   },
   backgroundTint: {
     backgroundColor: colors.sky,
     bottom: 0,
     left: 0,
-    opacity: 0.25,
+    opacity: 0.06,
     position: 'absolute',
     right: 0,
     top: 0,
@@ -774,7 +888,7 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
   },
   stepType: {
-    color: colors.accent,
+    color: colors.accentDark,
     textAlign: 'center',
     ...typography.caption,
   },

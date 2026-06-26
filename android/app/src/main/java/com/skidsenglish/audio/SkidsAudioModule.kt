@@ -21,6 +21,7 @@ class SkidsAudioModule(
   private val soundPool: SoundPool
   private val soundIds = mutableMapOf<String, Int>()
   private var speechPlayer: MediaPlayer? = null
+  private var speechPromise: Promise? = null
   private var isReleased = false
 
   init {
@@ -38,6 +39,9 @@ class SkidsAudioModule(
     soundIds["correct"] = soundPool.load(reactContext, R.raw.sfx_correct, 1)
     soundIds["wrong"] = soundPool.load(reactContext, R.raw.sfx_wrong, 1)
     soundIds["complete"] = soundPool.load(reactContext, R.raw.sfx_complete, 1)
+    soundIds["ding"] = soundPool.load(reactContext, R.raw.sfx_ding, 1)
+    soundIds["yay"] = soundPool.load(reactContext, R.raw.sfx_yay, 1)
+    soundIds["clap"] = soundPool.load(reactContext, R.raw.sfx_clap, 1)
 
     reactContext.addLifecycleEventListener(this)
   }
@@ -70,9 +74,10 @@ class SkidsAudioModule(
     }
 
     try {
-      stopSpeechPlayer()
+      stopSpeechPlayer(resolvePendingPromise = true)
 
       val player = MediaPlayer()
+      speechPromise = promise
       val attributes = AudioAttributes.Builder()
         .setUsage(AudioAttributes.USAGE_MEDIA)
         .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
@@ -86,11 +91,11 @@ class SkidsAudioModule(
       }
       player.setOnPreparedListener {
         it.start()
-        promise.resolve(true)
       }
       player.setOnCompletionListener {
         if (speechPlayer === it) {
           speechPlayer = null
+          resolveSpeechPromise(true)
         }
         it.release()
       }
@@ -100,28 +105,31 @@ class SkidsAudioModule(
         }
         Log.w(tag, "Unable to play audio uri: $uri")
         mediaPlayer.release()
-        promise.resolve(false)
+        resolveSpeechPromise(false)
         true
       }
 
       speechPlayer = player
       player.prepareAsync()
     } catch (error: Exception) {
-      stopSpeechPlayer()
+      stopSpeechPlayer(resolvePendingPromise = false)
+      if (speechPromise === promise) {
+        speechPromise = null
+      }
       promise.reject("SKIDS_AUDIO_PLAY_URI_ERROR", error)
     }
   }
 
   @ReactMethod
   fun stopSpeech(promise: Promise) {
-    stopSpeechPlayer()
+    stopSpeechPlayer(resolvePendingPromise = true)
     promise.resolve(true)
   }
 
   override fun invalidate() {
     if (!isReleased) {
       isReleased = true
-      stopSpeechPlayer()
+      stopSpeechPlayer(resolvePendingPromise = true)
       soundPool.release()
       reactContext.removeLifecycleEventListener(this)
     }
@@ -134,7 +142,7 @@ class SkidsAudioModule(
 
   override fun onHostDestroy() = Unit
 
-  private fun stopSpeechPlayer() {
+  private fun stopSpeechPlayer(resolvePendingPromise: Boolean = false) {
     speechPlayer?.let { player ->
       try {
         if (player.isPlaying) {
@@ -146,5 +154,13 @@ class SkidsAudioModule(
       }
     }
     speechPlayer = null
+    if (resolvePendingPromise) {
+      resolveSpeechPromise(false)
+    }
+  }
+
+  private fun resolveSpeechPromise(value: Boolean) {
+    speechPromise?.resolve(value)
+    speechPromise = null
   }
 }

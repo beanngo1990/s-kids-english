@@ -3,10 +3,11 @@ import {
   getWordAudioAsset,
   type RemoteAudioAsset,
 } from '../data/audioManifest';
+import type { SceneSoundEffect } from '../types/lesson';
 import { resolveRemoteAssetUri } from './AssetCacheManager';
 
 type SpeechLanguage = 'en-US' | 'vi-VN';
-export type SoundEffect = 'complete' | 'correct' | 'wrong' | 'tap';
+export type SoundEffect = SceneSoundEffect;
 
 type SpeechOptions = {
   language: SpeechLanguage;
@@ -113,7 +114,11 @@ export async function playTapSound() {
 }
 
 export async function playCompleteSound() {
-  await playSound('complete');
+  await playSoundEffect('complete');
+}
+
+export async function playSoundEffect(effect: SoundEffect) {
+  await playSound(effect);
 }
 
 async function speak(text: string, options: SpeechOptions) {
@@ -255,8 +260,14 @@ function getToneFrequency(effect: SoundEffect) {
       return 660;
     case 'complete':
       return 784;
+    case 'clap':
+      return 520;
+    case 'ding':
+      return 880;
     case 'wrong':
       return 220;
+    case 'yay':
+      return 740;
     case 'tap':
       return 420;
     default:
@@ -265,5 +276,5 @@ function getToneFrequency(effect: SoundEffect) {
 }
 
 function getToneVolume(effect: SoundEffect) {
-  return effect === 'wrong' ? 0.035 : 0.055;
+  return effect === 'wrong' ? 0.035 : 0.06;
 }

@@ -76,6 +76,9 @@ export function SceneObjectRenderer({
     canUseImage && (isBundledImage || hasImageLoaded) && !hasImageError;
   const shouldShowFallback = !shouldShowImage;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
+  const isLearningObject = object.role === 'learning';
+  const shouldShowLabel =
+    object.role !== 'character' && (!isDimmed || isTargeted);
   const panResponder = useMemo(
     () =>
       PanResponder.create({
@@ -188,17 +191,30 @@ export function SceneObjectRenderer({
         onPress={() => onPress(object.id)}
         style={({ pressed }) => [
           styles.pressable,
+          isLearningObject && styles.learningPressable,
           object.role === 'character' && styles.character,
           isTargeted && styles.targeted,
+          isTargeted && isLearningObject && styles.targetedLearning,
+          isTargeted && object.role === 'character' && styles.targetedCharacter,
           isDragEnabled && styles.draggable,
           pressed && !isDisabled && styles.pressed,
         ]}
       >
-        <View style={styles.assetBubble}>
+        <View
+          style={[
+            styles.assetBubble,
+            isLearningObject && styles.learningAssetBubble,
+            object.role === 'character' && styles.characterAssetBubble,
+          ]}
+        >
           {shouldShowFallback ? (
             <Text
               accessibilityLabel={`${label} placeholder`}
-              style={styles.emoji}
+              style={[
+                styles.emoji,
+                isLearningObject && styles.learningEmoji,
+                object.role === 'character' && styles.characterEmoji,
+              ]}
             >
               {fallbackEmoji}
             </Text>
@@ -209,12 +225,23 @@ export function SceneObjectRenderer({
               onLoad={() => setHasImageLoaded(true)}
               resizeMode="contain"
               source={imageSource!}
-              style={[styles.image, !shouldShowImage && styles.hiddenImage]}
+              style={[
+                styles.image,
+                isLearningObject && styles.learningImage,
+                object.role === 'character' && styles.characterImage,
+                !shouldShowImage && styles.hiddenImage,
+              ]}
             />
           ) : null}
-          <Text numberOfLines={1} adjustsFontSizeToFit style={styles.label}>
-            {label}
-          </Text>
+          {shouldShowLabel ? (
+            <Text
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              style={[styles.label, isLearningObject && styles.learningLabel]}
+            >
+              {label}
+            </Text>
+          ) : null}
         </View>
         <SparkleEffect active={effect === 'sparkle'} />
       </Pressable>
@@ -256,7 +283,21 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   character: {
-    backgroundColor: colors.lavender,
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    elevation: 0,
+    shadowOpacity: 0,
+  },
+  characterAssetBubble: {
+    backgroundColor: 'transparent',
+    padding: 0,
+  },
+  characterEmoji: {
+    fontSize: 64,
+    lineHeight: 72,
+  },
+  characterImage: {
+    maxHeight: '98%',
   },
   dimmed: {
     opacity: dimOpacity,
@@ -287,6 +328,31 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.caption,
   },
+  learningAssetBubble: {
+    backgroundColor: 'transparent',
+    padding: 0,
+  },
+  learningEmoji: {
+    fontSize: 58,
+    lineHeight: 66,
+  },
+  learningImage: {
+    maxHeight: '86%',
+  },
+  learningLabel: {
+    backgroundColor: 'rgba(255, 255, 255, 0.82)',
+    borderRadius: radius.pill,
+    marginTop: spacing.xs,
+    overflow: 'hidden',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 2,
+  },
+  learningPressable: {
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    elevation: 0,
+    shadowOpacity: 0,
+  },
   pressable: {
     alignItems: 'center',
     backgroundColor: colors.mint,
@@ -310,6 +376,14 @@ const styles = StyleSheet.create({
   },
   targeted: {
     ...glowStyle,
+  },
+  targetedLearning: {
+    backgroundColor: 'rgba(255, 246, 215, 0.42)',
+    borderColor: colors.secondary,
+    borderWidth: 3,
+  },
+  targetedCharacter: {
+    backgroundColor: 'rgba(255, 246, 215, 0.18)',
   },
   wrapper: {
     minHeight: 52,
