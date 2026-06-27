@@ -18,6 +18,18 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: 'audio/tts/en/sun_en.wav',
     text: 'sun',
   },
+  toothbrush: {
+    key: 'audio/tts/en/toothbrush_en.wav',
+    text: 'toothbrush',
+  },
+  towel: {
+    key: 'audio/tts/en/towel_en.wav',
+    text: 'towel',
+  },
+  water: {
+    key: 'audio/tts/en/water_en.wav',
+    text: 'water',
+  },
 };
 
 const viAudioByText: Record<string, RemoteAudioAsset> = {
@@ -88,6 +100,78 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText('Phòng sáng rồi!')]: {
     key: 'audio/tts/vi/sun_success_vi.wav',
     text: 'Phòng sáng rồi!',
+  },
+  [normalizeText('Mình vào phòng tắm nhé.')]: {
+    key: 'audio/tts/vi/bathroom_intro_vi.wav',
+    text: 'Mình vào phòng tắm nhé.',
+  },
+  [normalizeText('Sạch sẽ nào!')]: {
+    key: 'audio/tts/vi/bathroom_intro_success_vi.wav',
+    text: 'Sạch sẽ nào!',
+  },
+  [normalizeText('Mình bắt đầu với bàn chải nhé.')]: {
+    key: 'audio/tts/vi/teach_toothbrush_intro_vi.wav',
+    text: 'Mình bắt đầu với bàn chải nhé.',
+  },
+  [normalizeText('Đây là bàn chải đánh răng.')]: {
+    key: 'audio/tts/vi/toothbrush_meaning_vi.wav',
+    text: 'Đây là bàn chải đánh răng.',
+  },
+  [normalizeText('Chạm vào bàn chải nhé.')]: {
+    key: 'audio/tts/vi/tap_toothbrush_vi.wav',
+    text: 'Chạm vào bàn chải nhé.',
+  },
+  [normalizeText('Bàn chải ở cạnh bồn rửa đó.')]: {
+    key: 'audio/tts/vi/tap_toothbrush_fail_vi.wav',
+    text: 'Bàn chải ở cạnh bồn rửa đó.',
+  },
+  [normalizeText('Kéo bàn chải tới miệng bé.')]: {
+    key: 'audio/tts/vi/drag_toothbrush_vi.wav',
+    text: 'Kéo bàn chải tới miệng bé.',
+  },
+  [normalizeText('Kéo bàn chải tới miệng bé nhé.')]: {
+    key: 'audio/tts/vi/drag_toothbrush_fail_vi.wav',
+    text: 'Kéo bàn chải tới miệng bé nhé.',
+  },
+  [normalizeText('Răng sạch rồi!')]: {
+    key: 'audio/tts/vi/toothbrush_success_vi.wav',
+    text: 'Răng sạch rồi!',
+  },
+  [normalizeText('Tiếp theo là nước nhé.')]: {
+    key: 'audio/tts/vi/teach_water_intro_vi.wav',
+    text: 'Tiếp theo là nước nhé.',
+  },
+  [normalizeText('Đây là nước.')]: {
+    key: 'audio/tts/vi/water_meaning_vi.wav',
+    text: 'Đây là nước.',
+  },
+  [normalizeText('Chạm vào nước nhé.')]: {
+    key: 'audio/tts/vi/tap_water_vi.wav',
+    text: 'Chạm vào nước nhé.',
+  },
+  [normalizeText('Nước ở gần bồn đó.')]: {
+    key: 'audio/tts/vi/tap_water_fail_vi.wav',
+    text: 'Nước ở gần bồn đó.',
+  },
+  [normalizeText('Mát quá!')]: {
+    key: 'audio/tts/vi/tap_water_success_vi.wav',
+    text: 'Mát quá!',
+  },
+  [normalizeText('Bây giờ mình lấy khăn nhé.')]: {
+    key: 'audio/tts/vi/teach_towel_intro_vi.wav',
+    text: 'Bây giờ mình lấy khăn nhé.',
+  },
+  [normalizeText('Đây là khăn mặt.')]: {
+    key: 'audio/tts/vi/towel_meaning_vi.wav',
+    text: 'Đây là khăn mặt.',
+  },
+  [normalizeText('Kéo khăn tới mặt bé nhé.')]: {
+    key: 'audio/tts/vi/drag_towel_vi.wav',
+    text: 'Kéo khăn tới mặt bé nhé.',
+  },
+  [normalizeText('Mặt sạch rồi!')]: {
+    key: 'audio/tts/vi/towel_success_vi.wav',
+    text: 'Mặt sạch rồi!',
   },
   [normalizeText('Cô nghe rồi! Giỏi quá!')]: {
     key: 'audio/tts/vi/speak_encourage_vi.wav',
