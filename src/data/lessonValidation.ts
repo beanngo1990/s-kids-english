@@ -170,6 +170,7 @@ function validateStep({
   step,
   stepIds,
   stepIndex,
+  vocabularyIds,
 }: ValidateStepInput) {
   const issues: LessonValidationIssue[] = [];
   const stepPath = `${scenePath}.steps[${stepIndex}:${step.id}]`;
@@ -187,6 +188,10 @@ function validateStep({
       issues.push(error(stepPath, `targetObjectId "${targetObjectId}" does not exist.`));
     }
   });
+
+  if (step.vocabId && !vocabularyIds.has(step.vocabId)) {
+    issues.push(error(stepPath, `vocabId "${step.vocabId}" is missing from scene vocabulary.`));
+  }
 
   if (
     step.interaction.targetObjectId &&
@@ -229,7 +234,7 @@ function validateStep({
       step.targetObjectIds.includes(object.id),
     );
 
-    if (!targetObject?.vocabId) {
+    if (!targetObject?.vocabId && !step.vocabId) {
       issues.push(
         warning(stepPath, 'Teach step should target a learning object with vocabId.'),
       );

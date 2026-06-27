@@ -1,10 +1,21 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  type GestureResponderEvent,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { Screen } from '../components/Screen';
+import {
+  getAvailableLearningModes,
+  getSceneForLearningMode,
+  learningModeLabels,
+} from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import {
   completeLessonProgress,
@@ -14,6 +25,7 @@ import {
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
+import type { LearningMode, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
@@ -46,15 +58,25 @@ export function LessonPackScreen({ navigation, route }: Props) {
     return navigation.addListener('focus', refreshProgress);
   }, [navigation, refreshProgress]);
 
-  const openScene = (sceneId: string) => {
+  const openScene = (sceneId: string, learningMode: LearningMode = 'core') => {
     if (!lesson) {
       return;
     }
 
     navigation.navigate('ScenePlayer', {
+      learningMode,
       lessonId: lesson.id,
       sceneId,
     });
+  };
+
+  const openSceneMode = (
+    event: GestureResponderEvent,
+    sceneId: string,
+    learningMode: LearningMode,
+  ) => {
+    event.stopPropagation();
+    openScene(sceneId, learningMode);
   };
 
   const handlePrimaryAction = async () => {
@@ -112,8 +134,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
           const rewardStars = scene.completionReward?.stars ?? 3;
+          const availableLearningModes = getAvailableLearningModes(scene);
+          const coreScene = getSceneForLearningMode(scene, 'core');
           const vocabularyText =
-            scene.vocabulary?.map(item => item.word).join(' · ') ?? '';
+            coreScene.vocabulary?.map(item => item.word).join(' · ') ?? '';
 
           return (
             <Pressable
@@ -166,6 +190,34 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 {isNext ? (
                   <Text style={styles.nextHint}>Bé học cảnh này tiếp nhé.</Text>
                 ) : null}
+                {availableLearningModes.length > 1 ? (
+                  <View style={styles.modeRow}>
+                    {availableLearningModes.map(learningMode => (
+                      <Pressable
+                        accessibilityRole="button"
+                        key={learningMode}
+                        onPress={event =>
+                          openSceneMode(event, scene.id, learningMode)
+                        }
+                        style={({ pressed }) => [
+                          styles.modeChip,
+                          learningMode === 'core' && styles.modeChipPrimary,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.modeChipText,
+                            learningMode === 'core' &&
+                              styles.modeChipPrimaryText,
+                          ]}
+                        >
+                          {getLearningModeCardLabel(scene, learningMode)}
+                        </Text>
+                      </Pressable>
+                    ))}
+                  </View>
+                ) : null}
               </AppCard>
             </Pressable>
           );
@@ -188,6 +240,37 @@ export function LessonPackScreen({ navigation, route }: Props) {
       </View>
     </Screen>
   );
+}
+
+const previousLearningMode: Record<LearningMode, LearningMode | undefined> = {
+  challenge: 'expanded',
+  core: undefined,
+  expanded: 'core',
+};
+
+function getLearningModeCardLabel(scene: Scene, learningMode: LearningMode) {
+  const modeVocabulary =
+    getSceneForLearningMode(scene, learningMode).vocabulary ?? [];
+  const previousMode = previousLearningMode[learningMode];
+
+  if (!previousMode) {
+    return `${learningModeLabels[learningMode]} · ${modeVocabulary.length} từ`;
+  }
+
+  const previousVocabulary =
+    getSceneForLearningMode(scene, previousMode).vocabulary ?? [];
+  const previousVocabularyIds = new Set(
+    previousVocabulary.map(item => item.id),
+  );
+  const newVocabularyCount = modeVocabulary.filter(
+    item => !previousVocabularyIds.has(item.id),
+  ).length;
+
+  if (newVocabularyCount === 0) {
+    return learningModeLabels[learningMode];
+  }
+
+  return `${learningModeLabels[learningMode]} · +${newVocabularyCount} từ`;
 }
 
 const styles = StyleSheet.create({
@@ -312,6 +395,36 @@ const styles = StyleSheet.create({
     color: colors.accentDark,
     marginTop: spacing.xs,
     ...typography.caption,
+  },
+  modeChip: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexGrow: 1,
+    minHeight: 38,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  modeChipPrimary: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  modeChipPrimaryText: {
+    color: colors.white,
+  },
+  modeChipText: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  modeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginTop: spacing.sm,
   },
   title: {
     color: colors.text,

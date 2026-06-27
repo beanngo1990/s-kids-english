@@ -11,6 +11,7 @@ import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { ProgressDots } from '../components/ProgressDots';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
+import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
@@ -18,6 +19,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type {
   EntityId,
+  LearningMode,
   PercentRect,
   Scene,
   SceneObject,
@@ -89,6 +91,7 @@ type ScenePlayerProps = {
   lessonId?: string;
   scene?: Scene;
   initialSceneId?: string;
+  learningMode?: LearningMode;
   completeCurrentSceneOnly?: boolean;
   onExit?: () => void;
   onComplete?: () => void;
@@ -98,6 +101,7 @@ export function ScenePlayer({
   lessonId,
   scene,
   initialSceneId,
+  learningMode = 'core',
   completeCurrentSceneOnly = false,
   onExit,
   onComplete,
@@ -106,13 +110,20 @@ export function ScenePlayer({
     () => lessons.find(item => item.id === lessonId),
     [lessonId],
   );
-  const scenes = useMemo(() => {
+  const sourceScenes = useMemo(() => {
     if (scene) {
       return [scene];
     }
 
     return lesson?.scenes ?? [];
   }, [lesson?.scenes, scene]);
+  const scenes = useMemo(
+    () =>
+      sourceScenes.map(sourceScene =>
+        getSceneForLearningMode(sourceScene, learningMode),
+      ),
+    [learningMode, sourceScenes],
+  );
   const initialSceneIndex = useMemo(() => {
     const requestedIndex = scenes.findIndex(item => item.id === initialSceneId);
     return requestedIndex >= 0 ? requestedIndex : 0;
@@ -833,6 +844,10 @@ function getObjectVocabulary(scene: Scene, object: SceneObject) {
 }
 
 function getStepVocabulary(scene: Scene, step: SceneStep) {
+  if (step.vocabId) {
+    return scene.vocabulary?.find(item => item.id === step.vocabId);
+  }
+
   const targetObject = getRenderableObjects(scene).find(object =>
     step.targetObjectIds.includes(object.id),
   );
@@ -928,6 +943,14 @@ async function playStepAudioSequence(
 
   if (!isActive()) return;
   await speakVi(step.instructionVi);
+
+  if (step.vocabId && vocabularyItem) {
+    if (!isActive()) return;
+    await delay(100);
+
+    if (!isActive()) return;
+    await speakWord(vocabularyItem.word);
+  }
 }
 
 function runAudio(audioPromise: Promise<void>) {

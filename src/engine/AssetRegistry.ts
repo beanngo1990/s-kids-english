@@ -12,7 +12,13 @@ const registry: Record<string, ImageSourcePropType> = {
   'lessons/morning-routine/bedroom/images/background.png': require('../assets/lessons/morning-routine/bedroom/images/background.png'),
   'lessons/morning-routine/bedroom/images/bed.png': require('../assets/lessons/morning-routine/bedroom/images/bed.png'),
   'lessons/morning-routine/bedroom/images/blanket.png': require('../assets/lessons/morning-routine/bedroom/images/blanket.png'),
+  'lessons/morning-routine/bedroom/images/clock.png': require('../assets/lessons/morning-routine/bedroom/images/clock.png'),
+  'lessons/morning-routine/bedroom/images/doll.png': require('../assets/lessons/morning-routine/bedroom/images/doll.png'),
+  'lessons/morning-routine/bedroom/images/lamp.png': require('../assets/lessons/morning-routine/bedroom/images/lamp.png'),
+  'lessons/morning-routine/bedroom/images/pillow.png': require('../assets/lessons/morning-routine/bedroom/images/pillow.png'),
+  'lessons/morning-routine/bedroom/images/socks.png': require('../assets/lessons/morning-routine/bedroom/images/socks.png'),
   'lessons/morning-routine/bedroom/images/sun.png': require('../assets/lessons/morning-routine/bedroom/images/sun.png'),
+  'lessons/morning-routine/bedroom/images/window.png': require('../assets/lessons/morning-routine/bedroom/images/window.png'),
 };
 
 /**

@@ -22,6 +22,72 @@ export const bedroomVocabulary = {
     level: 'easy',
     type: 'noun',
   },
+  pillow: {
+    id: 'vocab-pillow',
+    word: 'pillow',
+    meaningVi: 'cái gối',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  lamp: {
+    id: 'vocab-lamp',
+    word: 'lamp',
+    meaningVi: 'đèn ngủ',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  window: {
+    id: 'vocab-window',
+    word: 'window',
+    meaningVi: 'cửa sổ',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
+  clock: {
+    id: 'vocab-clock',
+    word: 'clock',
+    meaningVi: 'đồng hồ',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  socks: {
+    id: 'vocab-socks',
+    word: 'socks',
+    meaningVi: 'đôi tất',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
+  doll: {
+    id: 'vocab-doll',
+    word: 'doll',
+    meaningVi: 'búp bê',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
 } satisfies Record<string, VocabularyItem>;
 
 export const bathroomVocabulary = {

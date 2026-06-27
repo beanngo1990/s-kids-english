@@ -1,5 +1,8 @@
 import type { Lesson } from '../../types/lesson';
-import { characterObject, imageAsset } from '../lessonAuthoring';
+import {
+  characterObject,
+  imageAsset,
+} from '../lessonAuthoring';
 import {
   bathroomVocabulary,
   bedroomVocabulary,
@@ -31,20 +34,29 @@ export const morningRoutineLesson: Lesson = {
         'bedroom-bg',
         'lessons/morning-routine/bedroom/images/background.png',
       ),
-      character: characterObject(
-        'bedroom-baby',
-        'lessons/morning-routine/bedroom/images/baby.png',
-        {
-          height: 32,
-          width: 20,
-          x: 60,
-          y: 52,
-        },
-      ),
+      character: {
+        ...characterObject(
+          'bedroom-baby',
+          'lessons/morning-routine/bedroom/images/baby.png',
+          {
+            height: 32,
+            width: 20,
+            x: 60,
+            y: 52,
+          },
+        ),
+        isInteractive: true,
+      },
       vocabulary: [
         bedroomVocabulary.bed,
         bedroomVocabulary.blanket,
         bedroomVocabulary.sun,
+        bedroomVocabulary.pillow,
+        bedroomVocabulary.lamp,
+        bedroomVocabulary.clock,
+        bedroomVocabulary.window,
+        bedroomVocabulary.socks,
+        bedroomVocabulary.doll,
       ],
       objects: [
         {
@@ -114,6 +126,162 @@ export const morningRoutineLesson: Lesson = {
             y: 12,
           },
           vocabId: bedroomVocabulary.sun.id,
+        },
+        {
+          id: 'bedroom-pillow',
+          asset: imageAsset(
+            'pillow',
+            'lessons/morning-routine/bedroom/images/pillow.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 13,
+            width: 28,
+            x: 17,
+            y: 58,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 19,
+            width: 34,
+            x: 14,
+            y: 55,
+          },
+          vocabId: bedroomVocabulary.pillow.id,
+        },
+        {
+          id: 'bedroom-lamp',
+          asset: imageAsset(
+            'lamp',
+            'lessons/morning-routine/bedroom/images/lamp.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 18,
+            width: 14,
+            x: 77,
+            y: 42,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 24,
+            width: 20,
+            x: 74,
+            y: 39,
+          },
+          vocabId: bedroomVocabulary.lamp.id,
+        },
+        {
+          id: 'bedroom-clock',
+          asset: imageAsset(
+            'clock',
+            'lessons/morning-routine/bedroom/images/clock.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 13,
+            width: 13,
+            x: 12,
+            y: 31,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 19,
+            width: 19,
+            x: 9,
+            y: 28,
+          },
+          vocabId: bedroomVocabulary.clock.id,
+        },
+        {
+          id: 'bedroom-window',
+          asset: imageAsset(
+            'window',
+            'lessons/morning-routine/bedroom/images/window.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 24,
+            width: 24,
+            x: 39,
+            y: 10,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 30,
+            width: 30,
+            x: 36,
+            y: 7,
+          },
+          vocabId: bedroomVocabulary.window.id,
+        },
+        {
+          id: 'bedroom-socks',
+          asset: imageAsset(
+            'socks',
+            'lessons/morning-routine/bedroom/images/socks.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 10,
+            width: 18,
+            x: 46,
+            y: 82,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 16,
+            width: 24,
+            x: 43,
+            y: 79,
+          },
+          vocabId: bedroomVocabulary.socks.id,
+        },
+        {
+          id: 'bedroom-doll',
+          asset: imageAsset(
+            'doll',
+            'lessons/morning-routine/bedroom/images/doll.png',
+          ),
+          isInteractive: true,
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 23,
+            width: 14,
+            x: 78,
+            y: 55,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 29,
+            width: 20,
+            x: 75,
+            y: 52,
+          },
+          vocabId: bedroomVocabulary.doll.id,
         },
       ],
       dropZones: [
@@ -272,7 +440,7 @@ export const morningRoutineLesson: Lesson = {
               type: 'sound',
             },
           ],
-          failFeedbackVi: 'Mặt trời ở trên cao đó.',
+          failFeedbackVi: 'Mặt trời đang ở trên cao đó.',
           instructionVi: 'Chạm vào mặt trời cho sáng nhé.',
           interaction: {
             correctObjectIds: ['bedroom-sun'],
@@ -283,6 +451,288 @@ export const morningRoutineLesson: Lesson = {
           successFeedbackVi: 'Phòng sáng rồi!',
           targetObjectIds: ['bedroom-sun'],
           type: 'review',
+        },
+        {
+          id: 'bedroom-teach-pillow',
+          instructionVi: 'Trên giường có cái gối.',
+          interaction: {
+            targetObjectId: 'bedroom-pillow',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'pillow',
+          successFeedbackVi: 'Đây là cái gối.',
+          targetObjectIds: ['bedroom-pillow'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.pillow.id,
+        },
+        {
+          id: 'bedroom-practice-pillow',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-pillow',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Gối ở trên giường đó.',
+          instructionVi: 'Chạm vào cái gối nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-pillow'],
+            targetObjectId: 'bedroom-pillow',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'pillow',
+          successFeedbackVi: 'Đúng rồi, đó là cái gối.',
+          targetObjectIds: ['bedroom-pillow'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.pillow.id,
+        },
+        {
+          id: 'bedroom-teach-lamp',
+          instructionVi: 'Đây là cái đèn ngủ.',
+          interaction: {
+            targetObjectId: 'bedroom-lamp',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'lamp',
+          successFeedbackVi: 'Từ này nghĩa là đèn ngủ.',
+          targetObjectIds: ['bedroom-lamp'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.lamp.id,
+        },
+        {
+          id: 'bedroom-practice-lamp',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-lamp',
+              type: 'animation',
+            },
+            {
+              sound: 'yay',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Đèn ngủ ở cạnh giường đó.',
+          instructionVi: 'Chạm vào đèn ngủ nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-lamp'],
+            targetObjectId: 'bedroom-lamp',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'lamp',
+          successFeedbackVi: 'Con tìm thấy đèn ngủ rồi!',
+          targetObjectIds: ['bedroom-lamp'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.lamp.id,
+        },
+        {
+          id: 'bedroom-teach-clock',
+          instructionVi: 'Trên tường có cái đồng hồ.',
+          interaction: {
+            targetObjectId: 'bedroom-clock',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'clock',
+          successFeedbackVi: 'Từ này nghĩa là đồng hồ.',
+          targetObjectIds: ['bedroom-clock'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.clock.id,
+        },
+        {
+          id: 'bedroom-practice-clock',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-clock',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Đồng hồ ở trên tường đó.',
+          instructionVi: 'Chạm vào đồng hồ nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-clock'],
+            targetObjectId: 'bedroom-clock',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'clock',
+          successFeedbackVi: 'Đúng rồi, đó là đồng hồ.',
+          targetObjectIds: ['bedroom-clock'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.clock.id,
+        },
+        {
+          id: 'bedroom-teach-window',
+          instructionVi: 'Đây là cửa sổ.',
+          interaction: {
+            targetObjectId: 'bedroom-window',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'window',
+          successFeedbackVi: 'Từ này nghĩa là cửa sổ.',
+          targetObjectIds: ['bedroom-window'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.window.id,
+        },
+        {
+          id: 'bedroom-practice-window',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-window',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Cửa sổ ở phía trên giường đó.',
+          instructionVi: 'Chạm vào cửa sổ nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-window'],
+            targetObjectId: 'bedroom-window',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'window',
+          successFeedbackVi: 'Đúng rồi, đó là cửa sổ.',
+          targetObjectIds: ['bedroom-window'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.window.id,
+        },
+        {
+          id: 'bedroom-teach-socks',
+          instructionVi: 'Đây là đôi tất.',
+          interaction: {
+            targetObjectId: 'bedroom-socks',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'socks',
+          successFeedbackVi: 'Từ này nghĩa là đôi tất.',
+          targetObjectIds: ['bedroom-socks'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.socks.id,
+        },
+        {
+          id: 'bedroom-practice-socks',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-socks',
+              type: 'animation',
+            },
+            {
+              sound: 'yay',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Đôi tất ở gần giường đó.',
+          instructionVi: 'Chạm vào đôi tất nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-socks'],
+            targetObjectId: 'bedroom-socks',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'socks',
+          successFeedbackVi: 'Con tìm thấy đôi tất rồi!',
+          targetObjectIds: ['bedroom-socks'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.socks.id,
+        },
+        {
+          id: 'bedroom-teach-doll',
+          instructionVi: 'Đây là búp bê.',
+          interaction: {
+            targetObjectId: 'bedroom-doll',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'doll',
+          successFeedbackVi: 'Từ này nghĩa là búp bê.',
+          targetObjectIds: ['bedroom-doll'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.doll.id,
+        },
+        {
+          id: 'bedroom-practice-doll',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-doll',
+              type: 'animation',
+            },
+            {
+              sound: 'complete',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Búp bê ở cạnh giường đó.',
+          instructionVi: 'Chạm vào búp bê nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-doll'],
+            targetObjectId: 'bedroom-doll',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'doll',
+          successFeedbackVi: 'Đúng rồi, đó là búp bê.',
+          targetObjectIds: ['bedroom-doll'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.doll.id,
         },
       ],
       completionReward: {
