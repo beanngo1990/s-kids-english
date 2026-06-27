@@ -82,6 +82,7 @@ type ScenePlayerProps = {
   lessonId?: string;
   scene?: Scene;
   initialSceneId?: string;
+  completeCurrentSceneOnly?: boolean;
   onComplete?: () => void;
 };
 
@@ -89,6 +90,7 @@ export function ScenePlayer({
   lessonId,
   scene,
   initialSceneId,
+  completeCurrentSceneOnly = false,
   onComplete,
 }: ScenePlayerProps) {
   const lesson = useMemo(
@@ -464,17 +466,37 @@ export function ScenePlayer({
       return;
     }
 
-    if (lessonId) {
-      saveSceneProgress(activeScene.id);
-    }
+    const saveSceneProgressPromise = lessonId
+      ? saveSceneProgress(activeScene.id)
+      : undefined;
 
     const activeSceneIndex = scenes.findIndex(
       item => item.id === activeScene.id,
     );
+
+    if (completeCurrentSceneOnly) {
+      if (saveSceneProgressPromise) {
+        saveSceneProgressPromise
+          .then(() => onComplete?.())
+          .catch(() => onComplete?.());
+        return;
+      }
+
+      onComplete?.();
+      return;
+    }
+
     const nextScene = scenes[activeSceneIndex + 1];
 
     if (nextScene) {
       setSceneIndex(activeSceneIndex + 1);
+      return;
+    }
+
+    if (saveSceneProgressPromise) {
+      saveSceneProgressPromise
+        .then(() => onComplete?.())
+        .catch(() => onComplete?.());
       return;
     }
 

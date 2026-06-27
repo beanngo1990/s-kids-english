@@ -17,7 +17,7 @@ export function LessonListScreen({ navigation }: Props) {
     <Screen scroll>
       <View style={styles.header}>
         <Text style={styles.eyebrow}>Hôm nay học gì?</Text>
-        <Text style={styles.title}>Chọn bài học</Text>
+        <Text style={styles.title}>Chọn gói bài học</Text>
       </View>
 
       <View style={styles.list}>
@@ -26,7 +26,7 @@ export function LessonListScreen({ navigation }: Props) {
             key={lesson.id}
             lesson={lesson}
             onPress={() =>
-              navigation.navigate('ScenePlayer', { lessonId: lesson.id })
+              navigation.navigate('LessonPack', { lessonId: lesson.id })
             }
           />
         ))}

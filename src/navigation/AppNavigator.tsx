@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   HomeScreen,
   LessonListScreen,
+  LessonPackScreen,
   ParentScreen,
   RewardScreen,
   ScenePlayerScreen,
@@ -41,6 +42,11 @@ export function AppNavigator() {
           name="LessonList"
           component={LessonListScreen}
           options={{ title: 'Bài học' }}
+        />
+        <Stack.Screen
+          name="LessonPack"
+          component={LessonPackScreen}
+          options={{ title: 'Gói bài học' }}
         />
         <Stack.Screen
           name="ScenePlayer"

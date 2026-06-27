@@ -1,12 +1,13 @@
 # Lesson Data Authoring
 
-Use one file per lesson under `src/data/lessons/`, then register it in
-`src/data/lessons.ts`.
+Use one file per lesson pack under `src/data/lessons/`, then register it in
+`src/data/lessons.ts`. A `Lesson` is the parent pack; each item in `scenes`
+should be a short mini-scene that can be completed independently.
 
-## Add A Lesson
+## Add A Lesson Pack
 
 1. Create `src/data/lessons/myLesson.ts`.
-2. Export one `Lesson`.
+2. Export one `Lesson` with small, ordered mini-scenes in `scenes`.
 3. Add it to `lessonCatalog` in `src/data/lessons.ts`.
 4. Add bundled images to `AssetRegistry.ts` only when the asset is local.
 5. Add bundled audio to `audioManifest.ts` and `AudioAssetRegistry.ts` only
