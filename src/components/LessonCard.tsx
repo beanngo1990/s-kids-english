@@ -22,7 +22,9 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
       <AppCard style={styles.card}>
         <View style={styles.topRow}>
           <Text style={styles.badge}>{lesson.ageRange.label}</Text>
-          <Text style={styles.duration}>{lesson.scenes.length} cảnh</Text>
+          <Text style={styles.duration}>
+            {lesson.scenes.length} mini-scene
+          </Text>
         </View>
 
         <Text style={styles.title}>{lesson.titleVi}</Text>

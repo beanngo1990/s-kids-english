@@ -116,7 +116,7 @@ export type SceneReward = {
   messageVi?: string;
 };
 
-/** Một scene học tương tác gồm nền, object, drop zone và các step. */
+/** Một mini-scene học tương tác gồm nền, object, drop zone và các step. */
 export type Scene = {
   id: EntityId;
   titleVi: string;
@@ -145,7 +145,7 @@ export type ReviewGame = {
   config?: Record<string, unknown>;
 };
 
-/** Một bài học gồm nhiều scene và game ôn tập tùy chọn. */
+/** Một gói bài học gồm nhiều mini-scene và game ôn tập tùy chọn. */
 export type Lesson = {
   id: EntityId;
   titleVi: string;

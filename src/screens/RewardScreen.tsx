@@ -100,7 +100,7 @@ export function RewardScreen({ navigation, route }: Props) {
           <AppButton
             title="Học lại"
             onPress={() =>
-              navigation.replace('ScenePlayer', { lessonId: lesson.id })
+              navigation.replace('LessonPack', { lessonId: lesson.id })
             }
           />
           <AppButton

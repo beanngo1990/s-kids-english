@@ -16,6 +16,9 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ScenePlayer'>;
 
 export function ScenePlayerScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const scene = route.params.sceneId
+    ? lesson?.scenes.find(item => item.id === route.params.sceneId)
+    : undefined;
 
   if (!lesson) {
     return (
@@ -31,7 +34,33 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     );
   }
 
+  if (route.params.sceneId && !scene) {
+    return (
+      <Screen>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorTitle}>Không tìm thấy cảnh học này.</Text>
+          <AppButton
+            title="Về gói bài học"
+            onPress={() =>
+              navigation.navigate('LessonPack', { lessonId: lesson.id })
+            }
+          />
+        </View>
+      </Screen>
+    );
+  }
+
   const handleComplete = async () => {
+    if (route.params.sceneId) {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      } else {
+        navigation.replace('LessonPack', { lessonId: lesson.id });
+      }
+
+      return;
+    }
+
     try {
       await completeLessonProgress(lesson);
     } catch {
@@ -44,6 +73,8 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   return (
     <Screen>
       <ScenePlayer
+        completeCurrentSceneOnly={Boolean(route.params.sceneId)}
+        initialSceneId={route.params.sceneId}
         lessonId={route.params.lessonId}
         onComplete={handleComplete}
       />
