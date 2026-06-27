@@ -121,6 +121,7 @@ export type Scene = {
   id: EntityId;
   titleVi: string;
   titleEn: string;
+  thumbnailEmoji?: string;
   background: AssetRef;
   character?: SceneObject;
   vocabulary?: VocabularyItem[];
@@ -151,6 +152,7 @@ export type Lesson = {
   titleVi: string;
   titleEn: string;
   descriptionVi: string;
+  thumbnailEmoji?: string;
   ageRange: AgeRange;
   scenes: Scene[];
   reviewGame?: ReviewGame;
