@@ -50,17 +50,16 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     );
   }
 
-  const handleComplete = async () => {
-    if (route.params.sceneId) {
-      if (navigation.canGoBack()) {
-        navigation.goBack();
-      } else {
-        navigation.replace('LessonPack', { lessonId: lesson.id });
-      }
-
+  const handleExitToPack = () => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
       return;
     }
 
+    navigation.replace('LessonPack', { lessonId: lesson.id });
+  };
+
+  const handleComplete = async () => {
     try {
       await completeLessonProgress(lesson);
     } catch {
@@ -77,6 +76,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
         initialSceneId={route.params.sceneId}
         lessonId={route.params.lessonId}
         onComplete={handleComplete}
+        onExit={handleExitToPack}
       />
     </Screen>
   );

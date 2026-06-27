@@ -76,6 +76,13 @@ type AutoRecordRequest = {
   stepId: EntityId;
 };
 
+type SceneCompletionState = {
+  isFinalScene: boolean;
+  nextSceneIndex?: number;
+  scene: Scene;
+  sceneIndex: number;
+};
+
 const objectAudioCooldownMs = 900;
 
 type ScenePlayerProps = {
@@ -83,6 +90,7 @@ type ScenePlayerProps = {
   scene?: Scene;
   initialSceneId?: string;
   completeCurrentSceneOnly?: boolean;
+  onExit?: () => void;
   onComplete?: () => void;
 };
 
@@ -91,6 +99,7 @@ export function ScenePlayer({
   scene,
   initialSceneId,
   completeCurrentSceneOnly = false,
+  onExit,
   onComplete,
 }: ScenePlayerProps) {
   const lesson = useMemo(
@@ -131,6 +140,8 @@ export function ScenePlayer({
   const [autoRecordRequest, setAutoRecordRequest] =
     useState<AutoRecordRequest | null>(null);
   const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
+  const [sceneCompletion, setSceneCompletion] =
+    useState<SceneCompletionState | null>(null);
   const advanceRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
@@ -151,6 +162,9 @@ export function ScenePlayer({
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
     setSnappedObjectPositions({});
+    setAutoRecordRequest(null);
+    setIsSpeechPracticeBusy(false);
+    setSceneCompletion(null);
   }, [currentScene]);
 
   useEffect(() => {
@@ -204,13 +218,14 @@ export function ScenePlayer({
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const isAdvancing = feedback?.type === 'success';
+  const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
   const backgroundSource = resolveAsset(currentScene.background.source);
   const shouldUseBackgroundFallback =
     !backgroundSource || failedBackgroundIds[currentScene.background.id] === true;
 
   const handleReplayInstruction = () => {
-    if (isAdvancing) {
+    if (isAdvancing || isSceneComplete) {
       return;
     }
 
@@ -229,7 +244,7 @@ export function ScenePlayer({
   };
 
   const handleContinue = () => {
-    if (isAdvancing) {
+    if (isAdvancing || isSceneComplete) {
       return;
     }
 
@@ -239,7 +254,7 @@ export function ScenePlayer({
   };
 
   const handleObjectPress = (objectId: EntityId) => {
-    if (isAdvancing) {
+    if (isAdvancing || isSceneComplete) {
       return;
     }
 
@@ -293,7 +308,11 @@ export function ScenePlayer({
     objectId: EntityId,
     translation: DragTranslation,
   ) => {
-    if (isAdvancing || currentStep.interaction.type !== 'drag') {
+    if (
+      isAdvancing ||
+      isSceneComplete ||
+      currentStep.interaction.type !== 'drag'
+    ) {
       return false;
     }
 
@@ -473,30 +492,121 @@ export function ScenePlayer({
     const activeSceneIndex = scenes.findIndex(
       item => item.id === activeScene.id,
     );
-
-    if (completeCurrentSceneOnly) {
-      if (saveSceneProgressPromise) {
-        saveSceneProgressPromise
-          .then(() => onComplete?.())
-          .catch(() => onComplete?.());
-        return;
-      }
-
-      onComplete?.();
-      return;
-    }
-
     const nextScene = scenes[activeSceneIndex + 1];
 
-    if (nextScene) {
-      setSceneIndex(activeSceneIndex + 1);
+    if (completeCurrentSceneOnly) {
+      showSceneCompletionAfterSave(
+        activeScene,
+        activeSceneIndex,
+        nextScene ? activeSceneIndex + 1 : undefined,
+        !nextScene,
+        saveSceneProgressPromise,
+      );
       return;
     }
 
+    if (nextScene) {
+      showSceneCompletionAfterSave(
+        activeScene,
+        activeSceneIndex,
+        activeSceneIndex + 1,
+        false,
+        saveSceneProgressPromise,
+      );
+      return;
+    }
+
+    showSceneCompletionAfterSave(
+      activeScene,
+      activeSceneIndex,
+      undefined,
+      true,
+      saveSceneProgressPromise,
+    );
+  };
+
+  const showSceneCompletionAfterSave = (
+    completedScene: Scene,
+    completedSceneIndex: number,
+    nextSceneIndex: number | undefined,
+    isFinalScene: boolean,
+    saveSceneProgressPromise?: Promise<unknown>,
+  ) => {
+    const showCompletion = () => {
+      setSceneCompletion({
+        isFinalScene,
+        nextSceneIndex,
+        scene: completedScene,
+        sceneIndex: completedSceneIndex,
+      });
+      runAudio(playSceneCompletionAudio(completedScene));
+    };
+
     if (saveSceneProgressPromise) {
-      saveSceneProgressPromise
-        .then(() => onComplete?.())
-        .catch(() => onComplete?.());
+      saveSceneProgressPromise.then(showCompletion).catch(showCompletion);
+      return;
+    }
+
+    showCompletion();
+  };
+
+  const restartSceneAtIndex = (targetSceneIndex: number) => {
+    const targetScene = scenes[targetSceneIndex];
+
+    if (!targetScene) {
+      return;
+    }
+
+    runAudio(playTapSound());
+    advanceRequestIdRef.current += 1;
+    clearTimer(advanceTimerRef);
+    clearTimer(clearFeedbackTimerRef);
+    setSceneIndex(targetSceneIndex);
+    setStepId(getInitialStep(targetScene)?.id);
+    setFeedback(null);
+    setSuccessObjectEffects({});
+    setShakeObjectIds([]);
+    setHintObjectIds([]);
+    setWrongAttemptsByStepId({});
+    setSnappedObjectPositions({});
+    setAutoRecordRequest(null);
+    setIsSpeechPracticeBusy(false);
+    setSceneCompletion(null);
+  };
+
+  const handleCompletionPrimaryAction = () => {
+    if (!sceneCompletion) {
+      return;
+    }
+
+    if (sceneCompletion.nextSceneIndex !== undefined) {
+      restartSceneAtIndex(sceneCompletion.nextSceneIndex);
+      return;
+    }
+
+    if (completeCurrentSceneOnly) {
+      runAudio(playTapSound());
+      onExit?.();
+      return;
+    }
+
+    runAudio(playTapSound());
+    onComplete?.();
+  };
+
+  const handleCompletionSecondaryAction = () => {
+    if (!sceneCompletion) {
+      return;
+    }
+
+    if (sceneCompletion.isFinalScene && !completeCurrentSceneOnly) {
+      restartSceneAtIndex(sceneCompletion.sceneIndex);
+      return;
+    }
+
+    runAudio(playTapSound());
+    if (onExit) {
+      onExit();
       return;
     }
 
@@ -544,7 +654,7 @@ export function ScenePlayer({
                 ? autoRecordRequest.requestId
                 : 0
             }
-            disabled={isAdvancing}
+            disabled={isAdvancing || isSceneComplete}
             onAudioStart={cancelStepAudioSequence}
             onBusyChange={setIsSpeechPracticeBusy}
             word={speakPracticeWord}
@@ -573,8 +683,67 @@ export function ScenePlayer({
           ) : null}
         </View>
       </AppCard>
+
+      {sceneCompletion ? renderSceneCompletionOverlay(sceneCompletion) : null}
     </View>
   );
+
+  function renderSceneCompletionOverlay(completion: SceneCompletionState) {
+    const reward = completion.scene.completionReward;
+    const starCount = reward?.stars ?? 3;
+    const hasNextScene = completion.nextSceneIndex !== undefined;
+    const nextScene =
+      completion.nextSceneIndex !== undefined
+        ? scenes[completion.nextSceneIndex]
+        : undefined;
+    const primaryTitle = hasNextScene
+      ? 'Học cảnh tiếp theo'
+      : completeCurrentSceneOnly
+        ? 'Về gói bài học'
+        : 'Nhận thưởng';
+    const secondaryTitle =
+      completion.isFinalScene && !completeCurrentSceneOnly
+        ? 'Học lại cảnh này'
+        : 'Về gói bài học';
+
+    return (
+      <View style={styles.completionOverlay}>
+        <AppCard style={styles.completionCard}>
+          <Text style={styles.completionEyebrow}>
+            Cảnh {completion.sceneIndex + 1}/{scenes.length}
+          </Text>
+          <Text style={styles.completionTitle}>Giỏi quá!</Text>
+          <View style={styles.starRow}>
+            {Array.from({ length: starCount }).map((_, index) => (
+              <Text key={index} style={styles.star}>
+                ★
+              </Text>
+            ))}
+          </View>
+          <Text style={styles.completionMessage}>
+            {reward?.messageVi ??
+              `Bé đã hoàn thành ${completion.scene.titleVi}.`}
+          </Text>
+          {nextScene ? (
+            <Text style={styles.nextSceneText}>
+              Tiếp theo: {nextScene.titleVi}
+            </Text>
+          ) : null}
+          <View style={styles.completionActions}>
+            <AppButton
+              title={primaryTitle}
+              onPress={handleCompletionPrimaryAction}
+            />
+            <AppButton
+              title={secondaryTitle}
+              variant="secondary"
+              onPress={handleCompletionSecondaryAction}
+            />
+          </View>
+        </AppCard>
+      </View>
+    );
+  }
 
   function renderSceneObjects() {
     if (!currentStep) {
@@ -784,6 +953,15 @@ async function playInteractionFeedbackAudio(
   await speakVi(feedbackText);
 }
 
+async function playSceneCompletionAudio(scene: Scene) {
+  await playSoundEffect('complete');
+  await delay(140);
+  await speakVi(
+    scene.completionReward?.messageVi ??
+      `Bé đã hoàn thành ${scene.titleVi}.`,
+  );
+}
+
 function getFeedbackFallbackDelay(feedbackText: string) {
   return Math.min(5200, Math.max(2800, 1500 + feedbackText.length * 70));
 }
@@ -910,6 +1088,42 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
+  completionActions: {
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+    width: '100%',
+  },
+  completionCard: {
+    alignItems: 'center',
+    gap: spacing.sm,
+    maxWidth: 420,
+    padding: spacing.lg,
+    width: '100%',
+  },
+  completionEyebrow: {
+    color: colors.primaryDark,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    ...typography.caption,
+  },
+  completionMessage: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.subtitle,
+  },
+  completionOverlay: {
+    ...StyleSheet.absoluteFill,
+    alignItems: 'center',
+    backgroundColor: 'rgba(38, 51, 61, 0.38)',
+    justifyContent: 'center',
+    padding: spacing.lg,
+    zIndex: 20,
+  },
+  completionTitle: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.title,
+  },
   dropZone: {
     borderColor: colors.accent,
     borderRadius: radius.lg,
@@ -978,6 +1192,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.sm,
+    position: 'relative',
   },
   sceneLabel: {
     color: colors.textSoft,
@@ -987,6 +1202,33 @@ const styles = StyleSheet.create({
   smallButtonText: {
     fontSize: 17,
     lineHeight: 22,
+  },
+  nextSceneText: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    color: colors.text,
+    overflow: 'hidden',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  star: {
+    color: colors.secondary,
+    fontSize: 34,
+    lineHeight: 38,
+    textShadowColor: colors.shadow,
+    textShadowOffset: {
+      height: 2,
+      width: 0,
+    },
+    textShadowRadius: 4,
+  },
+  starRow: {
+    flexDirection: 'row',
+    gap: spacing.xs,
   },
   stage: {
     borderColor: colors.border,
