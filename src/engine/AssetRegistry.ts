@@ -3,16 +3,16 @@ import type { ImageSourcePropType } from 'react-native';
 import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 
 const registry: Record<string, ImageSourcePropType> = {
-  'images/characters/baby_bathroom.png': require('../assets/images/characters/baby_bathroom.png'),
-  'images/characters/baby_happy.png': require('../assets/images/characters/baby_happy.png'),
-  'images/objects/bed.png': require('../assets/images/objects/bed.png'),
-  'images/objects/blanket.png': require('../assets/images/objects/blanket.png'),
-  'images/objects/sun.png': require('../assets/images/objects/sun.png'),
-  'images/objects/toothbrush.png': require('../assets/images/objects/toothbrush.png'),
-  'images/objects/towel.png': require('../assets/images/objects/towel.png'),
-  'images/objects/water.png': require('../assets/images/objects/water.png'),
-  'images/scenes/bathroom_bg.png': require('../assets/images/scenes/bathroom_bg.png'),
-  'images/scenes/bedroom_bg.png': require('../assets/images/scenes/bedroom_bg.png'),
+  'lessons/morning-routine/bathroom/images/baby.png': require('../assets/lessons/morning-routine/bathroom/images/baby.png'),
+  'lessons/morning-routine/bathroom/images/background.png': require('../assets/lessons/morning-routine/bathroom/images/background.png'),
+  'lessons/morning-routine/bathroom/images/toothbrush.png': require('../assets/lessons/morning-routine/bathroom/images/toothbrush.png'),
+  'lessons/morning-routine/bathroom/images/towel.png': require('../assets/lessons/morning-routine/bathroom/images/towel.png'),
+  'lessons/morning-routine/bathroom/images/water.png': require('../assets/lessons/morning-routine/bathroom/images/water.png'),
+  'lessons/morning-routine/bedroom/images/baby.png': require('../assets/lessons/morning-routine/bedroom/images/baby.png'),
+  'lessons/morning-routine/bedroom/images/background.png': require('../assets/lessons/morning-routine/bedroom/images/background.png'),
+  'lessons/morning-routine/bedroom/images/bed.png': require('../assets/lessons/morning-routine/bedroom/images/bed.png'),
+  'lessons/morning-routine/bedroom/images/blanket.png': require('../assets/lessons/morning-routine/bedroom/images/blanket.png'),
+  'lessons/morning-routine/bedroom/images/sun.png': require('../assets/lessons/morning-routine/bedroom/images/sun.png'),
 };
 
 /**

@@ -14,6 +14,34 @@ should be a short mini-scene that can be completed independently.
    when the audio should work offline before R2 is enabled.
 6. Run `npm test -- --runInBand`.
 
+## Asset Layout
+
+Keep lesson-specific assets with the mini-scene that owns them:
+
+```text
+src/assets/lessons/<lesson-pack-id>/<scene-id>/
+  images/
+    background.png
+    baby.png
+    <object>.png
+  audio/
+    en/
+      <word>.wav
+    vi/
+      intro.wav
+      <action_or_feedback>.wav
+```
+
+Keep reusable assets outside lesson folders:
+
+```text
+src/assets/shared/audio/sfx/
+src/assets/shared/audio/vi/
+```
+
+Generated source files that are useful for re-cutting assets should mirror the
+same lesson/scene folder under `src/assets/source/lessons/`.
+
 ## Prefer Helpers
 
 Use helpers from `src/data/lessonAuthoring.ts`:
