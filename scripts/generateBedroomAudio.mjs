@@ -26,9 +26,11 @@ const voices = {
 
 const files = [
   en('pillow', 'pillow.wav'),
-  en('lamp', 'lamp.wav'),
+  en('lamp', 'lamp.wav', {
+    ssml: '<speak><phoneme alphabet="ipa" ph="l\u00e6mp">lamp</phoneme></speak>',
+  }),
   en('clock', 'clock.wav'),
-  en('window', 'window.wav'),
+  en('box', 'box.wav'),
   en('socks', 'socks.wav'),
   en('doll', 'doll.wav'),
   vi('Trên giường có cái gối.', 'teach_pillow_intro.wav'),
@@ -46,11 +48,11 @@ const files = [
   vi('Đồng hồ ở trên tường đó.', 'tap_clock_fail.wav'),
   vi('Chạm vào đồng hồ nhé.', 'tap_clock.wav'),
   vi('Đúng rồi, đó là đồng hồ.', 'clock_success.wav'),
-  vi('Đây là cửa sổ.', 'teach_window_intro.wav'),
-  vi('Từ này nghĩa là cửa sổ.', 'window_meaning.wav'),
-  vi('Cửa sổ ở phía trên giường đó.', 'tap_window_fail.wav'),
-  vi('Chạm vào cửa sổ nhé.', 'tap_window.wav'),
-  vi('Đúng rồi, đó là cửa sổ.', 'window_success.wav'),
+  vi('Đây là cái hộp.', 'teach_box_intro.wav'),
+  vi('Từ này nghĩa là cái hộp.', 'box_meaning.wav'),
+  vi('Cái hộp ở bên trái đó.', 'tap_box_fail.wav'),
+  vi('Chạm vào cái hộp nhé.', 'tap_box.wav'),
+  vi('Đúng rồi, đó là cái hộp.', 'box_success.wav'),
   vi('Đây là đôi tất.', 'teach_socks_intro.wav'),
   vi('Từ này nghĩa là đôi tất.', 'socks_meaning.wav'),
   vi('Đôi tất ở gần giường đó.', 'tap_socks_fail.wav'),
@@ -75,7 +77,7 @@ for (const file of files) {
   const response = await fetch(endpoint, {
     body: JSON.stringify({
       audioConfig,
-      input: { text: file.text },
+      input: file.ssml ? { ssml: file.ssml } : { text: file.text },
       voice: file.voice,
     }),
     headers: {
@@ -96,9 +98,12 @@ for (const file of files) {
   console.log(`wrote ${file.path}`);
 }
 
-function en(text, filename) {
+writeGeneratedRegistry(files);
+
+function en(text, filename, options = {}) {
   return {
     path: `src/assets/lessons/morning-routine/bedroom/audio/en/${filename}`,
+    ssml: options.ssml,
     text,
     voice: voices.en,
   };
@@ -110,4 +115,28 @@ function vi(text, filename) {
     text,
     voice: voices.vi,
   };
+}
+
+function writeGeneratedRegistry(generatedFiles) {
+  const registryPath = join(repoRoot, 'src/engine/GeneratedBedroomAudioRegistry.ts');
+  const entries = generatedFiles
+    .map(file => {
+      const key = file.path.replace(/^src\/assets\//u, '');
+      const requirePath = file.path.replace(/^src\/assets/u, '../assets');
+      return `  '${key}': require('${requirePath}'),`;
+    })
+    .join('\n');
+
+  writeFileSync(
+    registryPath,
+    [
+      "import type { ImageRequireSource } from 'react-native';",
+      '',
+      'export const generatedBedroomAudioRegistry: Record<string, ImageRequireSource> = {',
+      entries,
+      '};',
+      '',
+    ].join('\n'),
+  );
+  console.log(`wrote ${registryPath.replace(`${repoRoot}/`, '')}`);
 }

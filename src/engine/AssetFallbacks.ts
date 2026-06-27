@@ -6,6 +6,7 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   baby: '👧',
   bed: '🛏️',
   blanket: '🧺',
+  box: '📦',
   bread: '🍞',
   clock: '🕒',
   doll: '🧸',
@@ -19,7 +20,6 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   toothbrush: '🪥',
   towel: '🧻',
   water: '💧',
-  window: '🪟',
 };
 
 type ObjectFallbackInput = {
