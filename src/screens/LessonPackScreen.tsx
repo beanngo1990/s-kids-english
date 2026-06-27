@@ -109,6 +109,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
       <View style={styles.sceneList}>
         {scenes.map((scene, index) => {
           const isCompleted = completedSceneIds.has(scene.id);
+          const isNext =
+            !isPackComplete && !isCompleted && nextScene?.id === scene.id;
+          const rewardStars = scene.completionReward?.stars ?? 3;
           const vocabularyText =
             scene.vocabulary?.map(item => item.word).join(' · ') ?? '';
 
@@ -122,16 +125,27 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 pressed && styles.pressed,
               ]}
             >
-              <AppCard style={styles.sceneCard}>
+              <AppCard
+                style={[
+                  styles.sceneCard,
+                  isCompleted && styles.sceneCardDone,
+                  isNext && styles.sceneCardNext,
+                ]}
+              >
                 <View style={styles.sceneTopRow}>
                   <Text style={styles.sceneIndex}>Cảnh {index + 1}</Text>
                   <Text
                     style={[
                       styles.sceneStatus,
                       isCompleted && styles.sceneStatusDone,
+                      isNext && styles.sceneStatusNext,
                     ]}
                   >
-                    {isCompleted ? 'Đã xong' : 'Sẵn sàng'}
+                    {isCompleted
+                      ? `Đã xong · ${rewardStars} sao`
+                      : isNext
+                        ? 'Tiếp theo'
+                        : 'Sẵn sàng'}
                   </Text>
                 </View>
 
@@ -139,6 +153,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
                 {vocabularyText ? (
                   <Text style={styles.vocabulary}>{vocabularyText}</Text>
+                ) : null}
+                {isNext ? (
+                  <Text style={styles.nextHint}>Bé học cảnh này tiếp nhé.</Text>
                 ) : null}
               </AppCard>
             </Pressable>
@@ -211,6 +228,14 @@ const styles = StyleSheet.create({
   sceneCard: {
     gap: spacing.xs,
   },
+  sceneCardDone: {
+    backgroundColor: colors.backgroundCool,
+    borderColor: colors.primary,
+  },
+  sceneCardNext: {
+    borderColor: colors.accent,
+    borderWidth: 2,
+  },
   sceneIndex: {
     backgroundColor: colors.mint,
     borderRadius: radius.pill,
@@ -233,6 +258,9 @@ const styles = StyleSheet.create({
   sceneStatusDone: {
     color: colors.primaryDark,
   },
+  sceneStatusNext: {
+    color: colors.accentDark,
+  },
   sceneSubtitle: {
     color: colors.primaryDark,
     ...typography.caption,
@@ -249,6 +277,11 @@ const styles = StyleSheet.create({
   subtitle: {
     color: colors.textSoft,
     ...typography.body,
+  },
+  nextHint: {
+    color: colors.accentDark,
+    marginTop: spacing.xs,
+    ...typography.caption,
   },
   title: {
     color: colors.text,
