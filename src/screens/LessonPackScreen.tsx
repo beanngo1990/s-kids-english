@@ -149,11 +149,20 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   </Text>
                 </View>
 
-                <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
-                <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
-                {vocabularyText ? (
-                  <Text style={styles.vocabulary}>{vocabularyText}</Text>
-                ) : null}
+                <View style={styles.sceneMainContent}>
+                  {scene.thumbnailEmoji && (
+                    <View style={styles.sceneEmojiContainer}>
+                      <Text style={styles.sceneEmoji}>{scene.thumbnailEmoji}</Text>
+                    </View>
+                  )}
+                  <View style={styles.sceneTextContainer}>
+                    <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
+                    <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
+                    {vocabularyText ? (
+                      <Text style={styles.vocabulary}>{vocabularyText}</Text>
+                    ) : null}
+                  </View>
+                </View>
                 {isNext ? (
                   <Text style={styles.nextHint}>Bé học cảnh này tiếp nhé.</Text>
                 ) : null}
@@ -260,6 +269,27 @@ const styles = StyleSheet.create({
   },
   sceneStatusNext: {
     color: colors.accentDark,
+  },
+  sceneMainContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+    marginTop: spacing.xs,
+  },
+  sceneEmojiContainer: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceSoft,
+    borderRadius: radius.md,
+    height: 56,
+    justifyContent: 'center',
+    width: 56,
+  },
+  sceneEmoji: {
+    fontSize: 28,
+  },
+  sceneTextContainer: {
+    flex: 1,
+    gap: spacing.xs,
   },
   sceneSubtitle: {
     color: colors.primaryDark,

@@ -12,6 +12,7 @@ export const morningRoutineLesson: Lesson = {
   titleVi: 'Buổi sáng của bé',
   titleEn: 'My Morning',
   descriptionVi: 'Bé học các từ quen thuộc trong buổi sáng.',
+  thumbnailEmoji: '☀️',
   ageRange: {
     min: 3,
     max: 4,
@@ -25,6 +26,7 @@ export const morningRoutineLesson: Lesson = {
       id: 'bedroom',
       titleVi: 'Phòng ngủ',
       titleEn: 'Bedroom',
+      thumbnailEmoji: '🛏️',
       background: imageAsset(
         'bedroom-bg',
         'lessons/morning-routine/bedroom/images/background.png',
@@ -293,6 +295,7 @@ export const morningRoutineLesson: Lesson = {
       id: 'bathroom',
       titleVi: 'Phòng vệ sinh',
       titleEn: 'Bathroom',
+      thumbnailEmoji: '🛁',
       background: imageAsset(
         'bathroom-bg',
         'lessons/morning-routine/bathroom/images/background.png',
@@ -587,6 +590,7 @@ export const morningRoutineLesson: Lesson = {
       id: 'breakfast',
       titleVi: 'Bữa sáng',
       titleEn: 'Breakfast',
+      thumbnailEmoji: '🥣',
       background: imageAsset(
         'breakfast-bg',
         'lessons/morning-routine/breakfast/images/background.png',
@@ -782,6 +786,7 @@ export const morningRoutineLesson: Lesson = {
       id: 'go-to-school',
       titleVi: 'Đi học',
       titleEn: 'Go to School',
+      thumbnailEmoji: '🎒',
       background: imageAsset(
         'school-bg',
         'lessons/morning-routine/go-to-school/images/background.png',

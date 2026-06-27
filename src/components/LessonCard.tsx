@@ -27,9 +27,18 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
           </Text>
         </View>
 
-        <Text style={styles.title}>{lesson.titleVi}</Text>
-        <Text style={styles.subtitle}>{lesson.descriptionVi}</Text>
-        <Text style={styles.meta}>{lesson.titleEn}</Text>
+        <View style={styles.mainContent}>
+          {lesson.thumbnailEmoji && (
+            <View style={styles.emojiContainer}>
+              <Text style={styles.emoji}>{lesson.thumbnailEmoji}</Text>
+            </View>
+          )}
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>{lesson.titleVi}</Text>
+            <Text style={styles.subtitle}>{lesson.descriptionVi}</Text>
+            <Text style={styles.meta}>{lesson.titleEn}</Text>
+          </View>
+        </View>
       </AppCard>
     </Pressable>
   );
@@ -52,9 +61,25 @@ const styles = StyleSheet.create({
     color: colors.muted,
     ...typography.caption,
   },
+  emoji: {
+    fontSize: 32,
+  },
+  emojiContainer: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceSoft,
+    borderRadius: radius.lg,
+    height: 64,
+    justifyContent: 'center',
+    width: 64,
+  },
+  mainContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+    marginTop: spacing.xs,
+  },
   meta: {
     color: colors.primaryDark,
-    marginTop: spacing.xs,
     ...typography.caption,
   },
   pressable: {
@@ -67,6 +92,10 @@ const styles = StyleSheet.create({
   subtitle: {
     color: colors.textSoft,
     ...typography.body,
+  },
+  textContainer: {
+    flex: 1,
+    gap: spacing.xs,
   },
   title: {
     color: colors.text,
