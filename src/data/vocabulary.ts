@@ -44,10 +44,10 @@ export const bedroomVocabulary = {
     level: 'medium',
     type: 'noun',
   },
-  window: {
-    id: 'vocab-window',
-    word: 'window',
-    meaningVi: 'cửa sổ',
+  box: {
+    id: 'vocab-box',
+    word: 'box',
+    meaningVi: 'cái hộp',
     learningScope: {
       minAge: 5,
       minMode: 'challenge',

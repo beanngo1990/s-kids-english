@@ -94,7 +94,7 @@ test('bedroom scene keeps core short and unlocks older-child content by mode', (
     'bedroom-teach-clock',
   );
   expect(expandedScene.steps.map(step => step.id)).not.toContain(
-    'bedroom-teach-window',
+    'bedroom-teach-box',
   );
 
   expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
@@ -104,7 +104,7 @@ test('bedroom scene keeps core short and unlocks older-child content by mode', (
     'pillow',
     'lamp',
     'clock',
-    'window',
+    'box',
     'socks',
     'doll',
   ]);
@@ -173,8 +173,8 @@ test('bedroom extended steps keep prompts aligned with the required action', () 
   const clockPractice = challengeScene.steps.find(
     step => step.id === 'bedroom-practice-clock',
   );
-  const windowPractice = challengeScene.steps.find(
-    step => step.id === 'bedroom-practice-window',
+  const boxPractice = challengeScene.steps.find(
+    step => step.id === 'bedroom-practice-box',
   );
   const socksPractice = challengeScene.steps.find(
     step => step.id === 'bedroom-practice-socks',
@@ -189,8 +189,8 @@ test('bedroom extended steps keep prompts aligned with the required action', () 
   expect(lampPractice?.interaction.targetObjectId).toBe('bedroom-lamp');
   expect(clockPractice?.instructionVi).toBe('Chạm vào đồng hồ nhé.');
   expect(clockPractice?.interaction.targetObjectId).toBe('bedroom-clock');
-  expect(windowPractice?.instructionVi).toBe('Chạm vào cửa sổ nhé.');
-  expect(windowPractice?.interaction.targetObjectId).toBe('bedroom-window');
+  expect(boxPractice?.instructionVi).toBe('Chạm vào cái hộp nhé.');
+  expect(boxPractice?.interaction.targetObjectId).toBe('bedroom-box');
   expect(socksPractice?.instructionVi).toBe('Chạm vào đôi tất nhé.');
   expect(socksPractice?.interaction.targetObjectId).toBe('bedroom-socks');
   expect(dollPractice?.instructionVi).toBe('Chạm vào búp bê nhé.');
@@ -221,7 +221,7 @@ test('bedroom extended steps have bundled audio for their spoken prompts', () =>
     'pillow',
     'lamp',
     'clock',
-    'window',
+    'box',
     'socks',
     'doll',
   ].forEach(word => {

@@ -30,9 +30,9 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: 'lessons/morning-routine/bedroom/audio/en/clock.wav',
     text: 'clock',
   },
-  window: {
-    key: 'lessons/morning-routine/bedroom/audio/en/window.wav',
-    text: 'window',
+  box: {
+    key: 'lessons/morning-routine/bedroom/audio/en/box.wav',
+    text: 'box',
   },
   socks: {
     key: 'lessons/morning-routine/bedroom/audio/en/socks.wav',
@@ -185,25 +185,25 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: 'lessons/morning-routine/bedroom/audio/vi/clock_success.wav',
     text: 'Đúng rồi, đó là đồng hồ.',
   },
-  [normalizeText('Đây là cửa sổ.')]: {
-    key: 'lessons/morning-routine/bedroom/audio/vi/teach_window_intro.wav',
-    text: 'Đây là cửa sổ.',
+  [normalizeText('Đây là cái hộp.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_box_intro.wav',
+    text: 'Đây là cái hộp.',
   },
-  [normalizeText('Từ này nghĩa là cửa sổ.')]: {
-    key: 'lessons/morning-routine/bedroom/audio/vi/window_meaning.wav',
-    text: 'Từ này nghĩa là cửa sổ.',
+  [normalizeText('Từ này nghĩa là cái hộp.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/box_meaning.wav',
+    text: 'Từ này nghĩa là cái hộp.',
   },
-  [normalizeText('Cửa sổ ở phía trên giường đó.')]: {
-    key: 'lessons/morning-routine/bedroom/audio/vi/tap_window_fail.wav',
-    text: 'Cửa sổ ở phía trên giường đó.',
+  [normalizeText('Cái hộp ở bên trái đó.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_box_fail.wav',
+    text: 'Cái hộp ở bên trái đó.',
   },
-  [normalizeText('Chạm vào cửa sổ nhé.')]: {
-    key: 'lessons/morning-routine/bedroom/audio/vi/tap_window.wav',
-    text: 'Chạm vào cửa sổ nhé.',
+  [normalizeText('Chạm vào cái hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_box.wav',
+    text: 'Chạm vào cái hộp nhé.',
   },
-  [normalizeText('Đúng rồi, đó là cửa sổ.')]: {
-    key: 'lessons/morning-routine/bedroom/audio/vi/window_success.wav',
-    text: 'Đúng rồi, đó là cửa sổ.',
+  [normalizeText('Đúng rồi, đó là cái hộp.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/box_success.wav',
+    text: 'Đúng rồi, đó là cái hộp.',
   },
   [normalizeText('Đây là đôi tất.')]: {
     key: 'lessons/morning-routine/bedroom/audio/vi/teach_socks_intro.wav',
