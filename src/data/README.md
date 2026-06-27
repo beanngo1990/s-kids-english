@@ -60,6 +60,23 @@ import {
 
 They keep object shape, position, and interaction config consistent.
 
+## Learning Modes
+
+Use `learningScope` when one scene needs older-child content:
+
+```ts
+{
+  id: 'scene-teach-doll',
+  learningScope: { minAge: 5, minMode: 'challenge' },
+  vocabId: vocabulary.doll.id,
+}
+```
+
+`core` is the default for 3-4 tuổi. `expanded` adds a few extra words or
+phrases. `challenge` can add longer phrases or faster review steps. Keep
+Vietnamese instruction and feedback text Vietnamese-only; put English in
+`promptText` or vocabulary so the English voice reads it.
+
 ## Validator
 
 `assertValidLessons()` runs automatically when `src/data/lessons.ts` loads in

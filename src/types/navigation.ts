@@ -1,3 +1,5 @@
+import type { LearningMode } from './lesson';
+
 export type RootStackParamList = {
   Home: undefined;
   LessonList: undefined;
@@ -6,6 +8,7 @@ export type RootStackParamList = {
   };
   ScenePlayer: {
     lessonId: string;
+    learningMode?: LearningMode;
     sceneId?: string;
   };
   Reward: {

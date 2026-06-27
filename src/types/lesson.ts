@@ -19,6 +19,15 @@ export type AssetRef = {
 /** Độ khó của từ vựng trong bài học. */
 export type VocabularyLevel = 'easy' | 'medium' | 'hard';
 
+/** Mức học đang chọn cho cùng một scene. */
+export type LearningMode = 'core' | 'expanded' | 'challenge';
+
+/** Điều kiện mở nội dung theo tuổi hoặc mức hiểu biết. */
+export type LearningScope = {
+  minAge?: number;
+  minMode?: LearningMode;
+};
+
 /** Loại từ vựng để engine chọn cách dạy và kiểm tra phù hợp. */
 export type VocabularyType = 'noun' | 'verb' | 'phrase';
 
@@ -29,6 +38,7 @@ export type VocabularyItem = {
   meaningVi: string;
   phonetic?: string;
   audio?: AssetRef;
+  learningScope?: LearningScope;
   level: VocabularyLevel;
   type: VocabularyType;
 };
@@ -63,6 +73,7 @@ export type SceneObject = {
   touchArea?: PercentRect;
   isInteractive: boolean;
   defaultAnimation?: SceneAnimation;
+  learningScope?: LearningScope;
 };
 
 /** Khu vực thả object trong các bài kéo thả. */
@@ -70,6 +81,7 @@ export type DropZone = {
   id: EntityId;
   position: PercentRect;
   touchArea?: PercentRect;
+  learningScope?: LearningScope;
 };
 
 /** Loại step trong scene, từ giới thiệu tới ôn tập. */
@@ -106,7 +118,9 @@ export type SceneStep = {
   successFeedbackVi: string;
   failFeedbackVi?: string;
   effects?: SceneEffect[];
+  learningScope?: LearningScope;
   nextStepId?: EntityId;
+  vocabId?: EntityId;
 };
 
 /** Phần thưởng nhận được sau khi hoàn thành một scene. */

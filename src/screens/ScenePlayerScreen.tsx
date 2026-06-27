@@ -74,6 +74,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       <ScenePlayer
         completeCurrentSceneOnly={Boolean(route.params.sceneId)}
         initialSceneId={route.params.sceneId}
+        learningMode={route.params.learningMode}
         lessonId={route.params.lessonId}
         onComplete={handleComplete}
         onExit={handleExitToPack}
