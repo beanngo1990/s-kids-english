@@ -77,8 +77,7 @@ export function SceneObjectRenderer({
   const shouldShowFallback = !shouldShowImage;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
-  const shouldShowLabel =
-    object.role !== 'character' && (!isDimmed || isTargeted);
+  const shouldShowLabel = false; // object.role !== 'character' && (!isDimmed || isTargeted);
   const panResponder = useMemo(
     () =>
       PanResponder.create({
@@ -178,6 +177,8 @@ export function SceneObjectRenderer({
             { translateX: drag.x },
             { translateY: drag.y },
             { translateX },
+            ...(object.position.rotation ? [{ rotate: `${object.position.rotation}deg` }] as const : []),
+            ...(object.position.flipX ? [{ scaleX: -1 }] as const : []),
           ],
         },
         style,
@@ -320,7 +321,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    maxHeight: '72%',
+    maxHeight: '100%',
     width: '100%',
   },
   label: {

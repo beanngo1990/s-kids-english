@@ -1,0 +1,107 @@
+============= UPDATED SCENE LAYOUT JSON =============
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 81 --- CHARACTER ---
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 82 {
+    "id": "bedroom-baby",
+    "asset": {
+        "id": "bedroom-baby-asset",
+        "source": "lessons/morning-routine/bedroom/images/baby.png",
+        "type": "sprite"
+    },
+    "defaultAnimation": "wave",
+    "isInteractive": true,
+    "position": {
+        "height": 32,
+        "width": 20,
+        "x": 57.12820199819712,
+        "y": 49.19370503200398
+    },
+    "role": "character"
+}
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 84 --- OBJECTS ---
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 85 [
+    {
+        "id": "bedroom-bed",
+        "asset": {
+            "id": "bed",
+            "source": "lessons/morning-routine/bedroom/images/bed.png",
+            "type": "image"
+        },
+        "defaultAnimation": "gentleBounce",
+        "isInteractive": true,
+        "position": {
+            "height": 45,
+            "width": 55,
+            "x": 0.6666588416466315,
+            "y": 24.18070128517229,
+            "flipX": true
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 50,
+            "width": 60,
+            "x": 0,
+            "y": 45
+        },
+        "vocabId": "vocab-bed"
+    },
+    {
+        "id": "bedroom-blanket",
+        "asset": {
+            "id": "blanket",
+            "source": "lessons/morning-routine/bedroom/images/blanket.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "position": {
+            "height": 11.375770020533881,
+            "width": 21.384615384615383,
+            "x": 22.564105694110573,
+            "y": 73.37267562921022
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 26,
+            "width": 36,
+            "x": 58.12820669320914,
+            "y": 71.74160206718346
+        },
+        "vocabId": "vocab-blanket"
+    },
+    {
+        "id": "bedroom-sun",
+        "asset": {
+            "id": "sun",
+            "source": "lessons/morning-routine/bedroom/images/sun.png",
+            "type": "image"
+        },
+        "defaultAnimation": "shine",
+        "isInteractive": true,
+        "position": {
+            "height": 22,
+            "width": 22,
+            "x": 57.61538461538461,
+            "y": 9.04517453798768
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 28,
+            "width": 28,
+            "x": 42,
+            "y": 12
+        },
+        "vocabId": "vocab-sun"
+    }
+]
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 87 --- DROPZONES ---
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 88 [
+    {
+        "id": "bedroom-tidy-zone",
+        "position": {
+            "height": 34.120466479041006,
+            "width": 51.5897451547476,
+            "x": 3.205129770132211,
+            "y": 30.034904464314362
+        }
+    }
+]
+&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 90 =====================================================
