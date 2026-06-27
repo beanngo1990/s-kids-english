@@ -47,6 +47,7 @@ import {
   saveLearnedWord,
   saveSceneProgress,
 } from './ProgressManager';
+import { AdminSceneEditor } from './AdminSceneEditor';
 import {
   SceneObjectRenderer,
   type SceneObjectEffect,
@@ -151,6 +152,7 @@ export function ScenePlayer({
   const [autoRecordRequest, setAutoRecordRequest] =
     useState<AutoRecordRequest | null>(null);
   const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
   const advanceRequestIdRef = useRef(0);
@@ -634,6 +636,14 @@ export function ScenePlayer({
         <Text style={styles.sceneLabel}>
           Cảnh {sceneIndex + 1}/{scenes.length} - {currentScene.titleVi}
         </Text>
+        {__DEV__ && (
+          <AppButton
+            title="Edit 🛠️"
+            onPress={() => setIsEditMode(prev => !prev)}
+            style={{ position: 'absolute', right: spacing.md, paddingHorizontal: spacing.sm, minHeight: 32 }}
+            textStyle={{ fontSize: 12 }}
+          />
+        )}
       </View>
 
       <View style={styles.stage}>
@@ -655,6 +665,14 @@ export function ScenePlayer({
             {renderSceneObjects()}
           </ImageBackground>
         ) : null}
+        
+        {isEditMode && (
+          <AdminSceneEditor
+            scene={currentScene}
+            stageSize={stageSize}
+            onClose={() => setIsEditMode(false)}
+          />
+        )}
       </View>
 
       <AppCard style={styles.instructionCard}>

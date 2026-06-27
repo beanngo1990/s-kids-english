@@ -298,6 +298,12 @@ function validateRect(rect: PercentRect, path: string) {
   const entries = Object.entries(rect);
 
   entries.forEach(([key, value]) => {
+    if (key === 'flipX') {
+      if (typeof value !== 'boolean') {
+        issues.push(error(path, `${key} must be a boolean.`));
+      }
+      return;
+    }
     if (!Number.isFinite(value)) {
       issues.push(error(path, `${key} must be a finite number.`));
     }

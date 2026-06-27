@@ -7,6 +7,8 @@ export type PercentRect = {
   y: number;
   width: number;
   height: number;
+  rotation?: number;
+  flipX?: boolean;
 };
 
 /** Tham chiếu asset nội bộ để sau này đổi sang image, lottie hoặc audio dễ hơn. */
