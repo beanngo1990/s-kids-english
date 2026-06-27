@@ -7,182 +7,182 @@ export type RemoteAudioAsset = {
 
 const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   bed: {
-    key: 'audio/tts/en/bed_en.wav',
+    key: 'lessons/morning-routine/bedroom/audio/en/bed.wav',
     text: 'bed',
   },
   blanket: {
-    key: 'audio/tts/en/blanket_en.wav',
+    key: 'lessons/morning-routine/bedroom/audio/en/blanket.wav',
     text: 'blanket',
   },
   sun: {
-    key: 'audio/tts/en/sun_en.wav',
+    key: 'lessons/morning-routine/bedroom/audio/en/sun.wav',
     text: 'sun',
   },
   toothbrush: {
-    key: 'audio/tts/en/toothbrush_en.wav',
+    key: 'lessons/morning-routine/bathroom/audio/en/toothbrush.wav',
     text: 'toothbrush',
   },
   towel: {
-    key: 'audio/tts/en/towel_en.wav',
+    key: 'lessons/morning-routine/bathroom/audio/en/towel.wav',
     text: 'towel',
   },
   water: {
-    key: 'audio/tts/en/water_en.wav',
+    key: 'lessons/morning-routine/bathroom/audio/en/water.wav',
     text: 'water',
   },
 };
 
 const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText('Mình dậy thôi nào.')]: {
-    key: 'audio/tts/vi/bedroom_intro_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/intro.wav',
     text: 'Mình dậy thôi nào. Chào buổi sáng!',
   },
   [normalizeText('Chào buổi sáng!')]: {
-    key: 'audio/tts/vi/bedroom_intro_success_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/intro_success.wav',
     text: 'Chào buổi sáng!',
   },
   [normalizeText('Đây là cái giường.')]: {
-    key: 'audio/tts/vi/bed_meaning_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/bed_meaning.wav',
     text: 'Đây là cái giường.',
   },
   [normalizeText('Mình bắt đầu với cái giường nhé.')]: {
-    key: 'audio/tts/vi/teach_bed_intro_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_bed_intro.wav',
     text: 'Mình bắt đầu với cái giường nhé.',
   },
   [normalizeText('Chạm vào cái giường nhé.')]: {
-    key: 'audio/tts/vi/tap_bed_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_bed.wav',
     text: 'Bé hãy chạm vào cái giường nhé.',
   },
   [normalizeText('Đúng rồi!')]: {
-    key: 'audio/tts/vi/tap_bed_success_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_bed_success.wav',
     text: 'Đúng rồi!',
   },
   [normalizeText('Thử chạm cái giường nhé.')]: {
-    key: 'audio/tts/vi/tap_bed_fail_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_bed_fail.wav',
     text: 'Thử chạm cái giường nhé.',
   },
   [normalizeText('Đây là cái chăn.')]: {
-    key: 'audio/tts/vi/blanket_meaning_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/blanket_meaning.wav',
     text: 'Đây là cái chăn.',
   },
   [normalizeText('Tiếp theo là cái chăn nhé.')]: {
-    key: 'audio/tts/vi/teach_blanket_intro_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_blanket_intro.wav',
     text: 'Tiếp theo là cái chăn nhé.',
   },
   [normalizeText('Kéo chăn gọn nào.')]: {
-    key: 'audio/tts/vi/drag_blanket_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_blanket.wav',
     text: 'Bé kéo cái chăn vào chỗ gọn gàng nào.',
   },
   [normalizeText('Gọn gàng quá!')]: {
-    key: 'audio/tts/vi/blanket_success_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/blanket_success.wav',
     text: 'Gọn gàng quá!',
   },
   [normalizeText('Kéo chăn vào vùng sáng nhé.')]: {
-    key: 'audio/tts/vi/drag_blanket_fail_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_blanket_fail.wav',
     text: 'Kéo chăn vào vùng sáng nhé.',
   },
   [normalizeText('Chạm vào mặt trời cho sáng nhé.')]: {
-    key: 'audio/tts/vi/tap_sun_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/tap_sun.wav',
     text: 'Bé chạm vào mặt trời cho phòng sáng nhé.',
   },
   [normalizeText('Mặt trời ở trên cao đó.')]: {
-    key: 'audio/tts/vi/sun_fail_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/sun_fail.wav',
     text: 'Mặt trời ở trên cao đó.',
   },
   [normalizeText('Đây là mặt trời.')]: {
-    key: 'audio/tts/vi/sun_meaning_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/sun_meaning.wav',
     text: 'Đây là mặt trời.',
   },
   [normalizeText('Bây giờ mình nhìn mặt trời nhé.')]: {
-    key: 'audio/tts/vi/teach_sun_intro_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_sun_intro.wav',
     text: 'Bây giờ mình nhìn mặt trời nhé.',
   },
   [normalizeText('Phòng sáng rồi!')]: {
-    key: 'audio/tts/vi/sun_success_vi.wav',
+    key: 'lessons/morning-routine/bedroom/audio/vi/sun_success.wav',
     text: 'Phòng sáng rồi!',
   },
   [normalizeText('Mình vào phòng tắm nhé.')]: {
-    key: 'audio/tts/vi/bathroom_intro_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/intro.wav',
     text: 'Mình vào phòng tắm nhé.',
   },
   [normalizeText('Sạch sẽ nào!')]: {
-    key: 'audio/tts/vi/bathroom_intro_success_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/intro_success.wav',
     text: 'Sạch sẽ nào!',
   },
   [normalizeText('Mình bắt đầu với bàn chải nhé.')]: {
-    key: 'audio/tts/vi/teach_toothbrush_intro_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/teach_toothbrush_intro.wav',
     text: 'Mình bắt đầu với bàn chải nhé.',
   },
   [normalizeText('Đây là bàn chải đánh răng.')]: {
-    key: 'audio/tts/vi/toothbrush_meaning_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/toothbrush_meaning.wav',
     text: 'Đây là bàn chải đánh răng.',
   },
   [normalizeText('Chạm vào bàn chải nhé.')]: {
-    key: 'audio/tts/vi/tap_toothbrush_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/tap_toothbrush.wav',
     text: 'Chạm vào bàn chải nhé.',
   },
   [normalizeText('Bàn chải ở cạnh bồn rửa đó.')]: {
-    key: 'audio/tts/vi/tap_toothbrush_fail_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/tap_toothbrush_fail.wav',
     text: 'Bàn chải ở cạnh bồn rửa đó.',
   },
   [normalizeText('Kéo bàn chải tới miệng bé.')]: {
-    key: 'audio/tts/vi/drag_toothbrush_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/drag_toothbrush.wav',
     text: 'Kéo bàn chải tới miệng bé.',
   },
   [normalizeText('Kéo bàn chải tới miệng bé nhé.')]: {
-    key: 'audio/tts/vi/drag_toothbrush_fail_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/drag_toothbrush_fail.wav',
     text: 'Kéo bàn chải tới miệng bé nhé.',
   },
   [normalizeText('Răng sạch rồi!')]: {
-    key: 'audio/tts/vi/toothbrush_success_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/toothbrush_success.wav',
     text: 'Răng sạch rồi!',
   },
   [normalizeText('Tiếp theo là nước nhé.')]: {
-    key: 'audio/tts/vi/teach_water_intro_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/teach_water_intro.wav',
     text: 'Tiếp theo là nước nhé.',
   },
   [normalizeText('Đây là nước.')]: {
-    key: 'audio/tts/vi/water_meaning_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/water_meaning.wav',
     text: 'Đây là nước.',
   },
   [normalizeText('Chạm vào nước nhé.')]: {
-    key: 'audio/tts/vi/tap_water_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/tap_water.wav',
     text: 'Chạm vào nước nhé.',
   },
   [normalizeText('Nước ở gần bồn đó.')]: {
-    key: 'audio/tts/vi/tap_water_fail_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/tap_water_fail.wav',
     text: 'Nước ở gần bồn đó.',
   },
   [normalizeText('Mát quá!')]: {
-    key: 'audio/tts/vi/tap_water_success_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/tap_water_success.wav',
     text: 'Mát quá!',
   },
   [normalizeText('Bây giờ mình lấy khăn nhé.')]: {
-    key: 'audio/tts/vi/teach_towel_intro_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/teach_towel_intro.wav',
     text: 'Bây giờ mình lấy khăn nhé.',
   },
   [normalizeText('Đây là khăn mặt.')]: {
-    key: 'audio/tts/vi/towel_meaning_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/towel_meaning.wav',
     text: 'Đây là khăn mặt.',
   },
   [normalizeText('Kéo khăn tới mặt bé nhé.')]: {
-    key: 'audio/tts/vi/drag_towel_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/drag_towel.wav',
     text: 'Kéo khăn tới mặt bé nhé.',
   },
   [normalizeText('Mặt sạch rồi!')]: {
-    key: 'audio/tts/vi/towel_success_vi.wav',
+    key: 'lessons/morning-routine/bathroom/audio/vi/towel_success.wav',
     text: 'Mặt sạch rồi!',
   },
   [normalizeText('Cô nghe rồi! Giỏi quá!')]: {
-    key: 'audio/tts/vi/speak_encourage_vi.wav',
+    key: 'shared/audio/vi/speak_encourage.wav',
     text: 'Cô nghe rồi! Giỏi quá!',
   },
   [normalizeText(speakPracticePromptVi)]: {
-    key: 'audio/tts/vi/speak_prompt_vi.wav',
+    key: 'shared/audio/vi/speak_prompt.wav',
     text: speakPracticePromptVi,
   },
   [normalizeText('Đúng rồi! Bé giỏi quá!')]: {
-    key: 'audio/tts/vi/correct_vi.wav',
+    key: 'shared/audio/vi/correct.wav',
     text: 'Đúng rồi! Bé giỏi quá!',
   },
 };

@@ -20,7 +20,7 @@ test('validator catches missing object references', () => {
       {
         background: {
           id: 'invalid-background',
-          source: 'images/scenes/missing.png',
+          source: 'lessons/invalid-lesson/invalid-scene/images/background.png',
           type: 'image',
         },
         id: 'invalid-scene',
