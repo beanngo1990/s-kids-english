@@ -51,7 +51,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="ScenePlayer"
           component={ScenePlayerScreen}
-          options={{ title: 'Luyện tập' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Reward"
