@@ -725,49 +725,51 @@ export function ScenePlayer({
         )}
       </View>
 
-      <AppCard style={styles.instructionCard}>
-        {speakPracticeWord ? (
-          <SpeakPracticeControls
-            autoStartRequestId={
-              autoRecordRequest?.stepId === currentStep.id
-                ? autoRecordRequest.requestId
-                : 0
-            }
-            disabled={isAdvancing || isSceneComplete}
-            onAudioStart={cancelStepAudioSequence}
-            onBusyChange={setIsSpeechPracticeBusy}
-            onContinue={isListenStep(currentStep) ? handleContinue : undefined}
-            onReplayModel={handleReplayModelWord}
-            word={speakPracticeWord}
-          />
-        ) : getStepVocabulary(currentScene, currentStep) ? (
-          <Text style={styles.targetWord}>
-            {getStepVocabulary(currentScene, currentStep)?.word}
-          </Text>
-        ) : null}
-
-        {!speakPracticeWord ? (
-          <View style={styles.actionRow}>
-            <KidIconButton
-              accessibilityLabel="Nghe lại hướng dẫn"
-              icon="listen"
-              label="Nghe lại"
-              onPress={handleReplayInstruction}
-              style={[styles.actionButton, styles.secondaryActionButton]}
-              tone="quiet"
+      <View style={styles.bottomArea}>
+        <AppCard style={styles.instructionCard}>
+          {speakPracticeWord ? (
+            <SpeakPracticeControls
+              autoStartRequestId={
+                autoRecordRequest?.stepId === currentStep.id
+                  ? autoRecordRequest.requestId
+                  : 0
+              }
+              disabled={isAdvancing || isSceneComplete}
+              onAudioStart={cancelStepAudioSequence}
+              onBusyChange={setIsSpeechPracticeBusy}
+              onContinue={isListenStep(currentStep) ? handleContinue : undefined}
+              onReplayModel={handleReplayModelWord}
+              word={speakPracticeWord}
             />
-            {isListenStep(currentStep) ? (
+          ) : getStepVocabulary(currentScene, currentStep) ? (
+            <Text style={styles.targetWord}>
+              {getStepVocabulary(currentScene, currentStep)?.word}
+            </Text>
+          ) : null}
+
+          {!speakPracticeWord ? (
+            <View style={styles.actionRow}>
               <KidIconButton
-                accessibilityLabel="Tiếp tục"
-                icon="next"
-                label="Tiếp tục"
-                onPress={handleContinue}
-                style={[styles.actionButton, styles.primaryActionButton]}
+                accessibilityLabel="Nghe lại hướng dẫn"
+                icon="listen"
+                label="Nghe lại"
+                onPress={handleReplayInstruction}
+                style={[styles.actionButton, styles.secondaryActionButton]}
+                tone="quiet"
               />
-            ) : null}
-          </View>
-        ) : null}
-      </AppCard>
+              {isListenStep(currentStep) ? (
+                <KidIconButton
+                  accessibilityLabel="Tiếp tục"
+                  icon="next"
+                  label="Tiếp tục"
+                  onPress={handleContinue}
+                  style={[styles.actionButton, styles.primaryActionButton]}
+                />
+              ) : null}
+            </View>
+          ) : null}
+        </AppCard>
+      </View>
 
       {sceneCompletion ? renderSceneCompletionOverlay(sceneCompletion) : null}
 
@@ -1217,6 +1219,11 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     width: '100%',
   },
+  bottomArea: {
+    flex: 0.3,
+    minHeight: 180,
+    justifyContent: 'center',
+  },
   completionCard: {
     alignItems: 'center',
     backgroundColor: colors.cream,
@@ -1377,13 +1384,15 @@ const styles = StyleSheet.create({
   primaryActionButton: {
     backgroundColor: colors.secondary,
     borderColor: colors.white,
-    minHeight: 128,
+    flex: 1.35,
+    minHeight: 76,
     ...shadows.warm,
   },
   secondaryActionButton: {
     backgroundColor: colors.white,
     borderColor: colors.primarySoft,
-    minHeight: 104,
+    flex: 0.95,
+    minHeight: 76,
   },
   nextSceneText: {
     backgroundColor: colors.secondarySoft,
@@ -1430,8 +1439,8 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
     textAlign: 'center',
     ...typography.title,
-    fontSize: 32,
-    marginVertical: spacing.xs,
+    fontSize: 42,
+    marginVertical: spacing.sm,
   },
   topHud: {
     alignItems: 'center',

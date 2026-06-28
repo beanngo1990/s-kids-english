@@ -51,7 +51,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="ScenePlayer"
           component={ScenePlayerScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
           name="Reward"
