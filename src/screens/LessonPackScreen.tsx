@@ -13,6 +13,7 @@ import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
+import { SKidsIcon } from '../components/SKidsIcon';
 import {
   getAvailableLearningModes,
   getSceneForLearningMode,
@@ -29,6 +30,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
+import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
@@ -122,7 +124,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
       <AppCard style={styles.headerCard}>
         <View style={styles.headerTopRow}>
           <View style={styles.packIcon}>
-            <Text style={styles.packEmoji}>{lesson.thumbnailEmoji}</Text>
+            <SKidsIcon name={getLessonIconName(lesson)} size={86} />
           </View>
           <View style={styles.headerText}>
             <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
@@ -192,11 +194,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 </View>
 
                 <View style={styles.sceneMainContent}>
-                  {scene.thumbnailEmoji && (
-                    <View style={styles.sceneEmojiContainer}>
-                      <Text style={styles.sceneEmoji}>{scene.thumbnailEmoji}</Text>
-                    </View>
-                  )}
+                  <View style={styles.sceneIconContainer}>
+                    <SKidsIcon name={getSceneIconName(scene)} size={64} />
+                  </View>
                   <View style={styles.sceneTextContainer}>
                     <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
                     <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
@@ -338,13 +338,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.md,
   },
-  packEmoji: {
-    fontSize: 40,
-    lineHeight: 48,
-  },
   packIcon: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 2,
@@ -393,19 +389,15 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     marginTop: spacing.xs,
   },
-  sceneEmojiContainer: {
+  sceneIconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 64,
     justifyContent: 'center',
     width: 64,
-  },
-  sceneEmoji: {
-    fontSize: 30,
-    lineHeight: 36,
   },
   sceneStars: {
     alignItems: 'flex-end',

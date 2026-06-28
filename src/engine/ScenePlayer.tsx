@@ -12,6 +12,7 @@ import {
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
+import { KidIconButton } from '../components/KidIconButton';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
@@ -740,19 +741,21 @@ export function ScenePlayer({
         ) : null}
 
         <View style={styles.actionRow}>
-          <AppButton
-            title="Nghe lại"
-            variant="secondary"
+          <KidIconButton
+            accessibilityLabel="Nghe lại hướng dẫn"
+            icon="listen"
+            label="Nghe lại"
             onPress={handleReplayInstruction}
             style={styles.actionButton}
-            textStyle={styles.smallButtonText}
+            tone="secondary"
           />
           {isListenStep(currentStep) ? (
-            <AppButton
-              title="Tiếp tục"
+            <KidIconButton
+              accessibilityLabel="Tiếp tục"
+              icon="next"
+              label="Tiếp tục"
               onPress={handleContinue}
               style={styles.actionButton}
-              textStyle={styles.smallButtonText}
             />
           ) : null}
         </View>
@@ -1152,7 +1155,7 @@ function renderSceneLayer(scene: Scene) {
 const styles = StyleSheet.create({
   actionButton: {
     flex: 1,
-    minHeight: 58,
+    minHeight: 120,
   },
   actionRow: {
     alignItems: 'center',
@@ -1303,10 +1306,6 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
     ...typography.caption,
     textTransform: 'uppercase',
-  },
-  smallButtonText: {
-    fontSize: 18,
-    lineHeight: 22,
   },
   progressFill: {
     backgroundColor: colors.secondary,

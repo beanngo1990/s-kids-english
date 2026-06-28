@@ -24,5 +24,6 @@ test('renders the home screen', async () => {
     .findAllByType(Text)
     .map(node => node.props.children);
 
-  expect(textValues).toContain('Bắt đầu học');
+  expect(textValues).toContain('S-Kids');
+  expect(textValues).toContain('Chơi ngay');
 });

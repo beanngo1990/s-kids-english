@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { SKidsIcon } from './SKidsIcon';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import {
   playSoundEffect,
@@ -10,7 +11,6 @@ import {
 } from '../engine/AudioManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
-import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import {
   isVoiceRecorderAvailable,
@@ -224,7 +224,7 @@ export function SpeakPracticeControls({
               isDisabled && styles.disabled,
             ]}
           >
-            <Text style={styles.playIcon}>▶</Text>
+            <SKidsIcon name="replay" size={42} />
           </Pressable>
         ) : null}
         <Pressable
@@ -240,19 +240,13 @@ export function SpeakPracticeControls({
             isDisabled && styles.disabled,
           ]}
         >
-          {isRecording ? <View style={styles.stopIcon} /> : <MicIcon />}
+          {isRecording ? (
+            <View style={styles.stopIcon} />
+          ) : (
+            <SKidsIcon name="speak" size={62} />
+          )}
         </Pressable>
       </View>
-    </View>
-  );
-}
-
-function MicIcon() {
-  return (
-    <View style={styles.micIcon}>
-      <View style={styles.micHead} />
-      <View style={styles.micStem} />
-      <View style={styles.micBase} />
     </View>
   );
 }
@@ -285,41 +279,12 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     justifyContent: 'center',
   },
-  micBase: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    height: 3,
-    width: 22,
-  },
-  micHead: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    height: 22,
-    width: 14,
-  },
-  micIcon: {
-    alignItems: 'center',
-    height: 32,
-    justifyContent: 'center',
-    width: 32,
-  },
-  micStem: {
-    backgroundColor: colors.white,
-    height: 8,
-    width: 3,
-  },
   playButton: {
     backgroundColor: colors.white,
     borderColor: colors.primarySoft,
     borderWidth: 2,
-    height: 50,
-    width: 50,
-  },
-  playIcon: {
-    color: colors.primaryDark,
-    fontSize: 20,
-    fontWeight: '900',
-    lineHeight: 24,
+    height: 58,
+    width: 58,
   },
   micDot: {
     backgroundColor: colors.primary,
@@ -345,12 +310,9 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   recordButton: {
-    backgroundColor: colors.primary,
-    borderColor: colors.white,
-    borderWidth: 2,
-    height: 64,
-    width: 64,
-    ...shadows.soft,
+    backgroundColor: colors.transparent,
+    height: 76,
+    width: 76,
   },
   recordedDot: {
     backgroundColor: colors.secondary,
