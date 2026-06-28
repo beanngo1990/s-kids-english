@@ -4,6 +4,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
 import { AppButton } from '../components/AppButton';
+import { KidBadge } from '../components/KidBadge';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { getLessonReward } from '../data/rewards';
@@ -74,18 +75,24 @@ export function RewardScreen({ navigation, route }: Props) {
     <Screen scroll>
       <View style={styles.container}>
         <AppCard style={styles.rewardBox}>
-          <Text style={styles.badge}>Sticker</Text>
-          <Text style={styles.sticker}>★</Text>
+          <View style={styles.rewardGlow}>
+            <Text style={styles.sticker}>★</Text>
+          </View>
+          <KidBadge tone="sun">Sticker mới</KidBadge>
           <Text style={styles.title}>
             {reward?.title ?? `Bé đã hoàn thành ${lesson.titleVi}!`}
           </Text>
           <Text style={styles.subtitle}>
-            Sticker: {reward?.stickerName ?? 'Ngôi sao chăm chỉ'}
+            Bé đã mở khóa {reward?.stickerName ?? 'Ngôi sao chăm chỉ'} và thêm
+            từ mới vào sổ học tập.
           </Text>
         </AppCard>
 
         <AppCard style={styles.wordsCard}>
-          <Text style={styles.sectionTitle}>Từ bé đã học</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Sổ từ mới</Text>
+            <KidBadge tone="teal">{learnedWords.length} từ</KidBadge>
+          </View>
           <View style={styles.wordList}>
             {learnedWords.map(item => (
               <View key={item.id} style={styles.wordChip}>
@@ -118,17 +125,8 @@ const styles = StyleSheet.create({
   actions: {
     gap: spacing.md,
   },
-  badge: {
-    backgroundColor: colors.secondary,
-    borderRadius: radius.pill,
-    color: colors.text,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.sm,
-    ...typography.button,
-  },
   container: {
     gap: spacing.lg,
-    padding: spacing.lg,
   },
   errorContainer: {
     alignItems: 'center',
@@ -146,19 +144,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.md,
     justifyContent: 'center',
-    minHeight: 260,
+    minHeight: 300,
+    overflow: 'hidden',
+  },
+  rewardGlow: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 4,
+    height: 132,
+    justifyContent: 'center',
+    width: 132,
+  },
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   sectionTitle: {
     color: colors.text,
-    textAlign: 'center',
     ...typography.subtitle,
   },
   sticker: {
     color: colors.secondary,
-    fontSize: 72,
+    fontSize: 78,
     fontWeight: '900',
-    lineHeight: 80,
-    textShadowColor: colors.accentSoft,
+    lineHeight: 86,
+    textShadowColor: colors.borderWarm,
     textShadowOffset: {
       height: 3,
       width: 0,
@@ -182,8 +195,8 @@ const styles = StyleSheet.create({
   },
   wordChip: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
+    backgroundColor: colors.cream,
+    borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
     flexBasis: '45%',

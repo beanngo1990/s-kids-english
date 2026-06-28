@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
+import { KidBadge } from './KidBadge';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -21,7 +22,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
     >
       <AppCard style={styles.card}>
         <View style={styles.topRow}>
-          <Text style={styles.badge}>{lesson.ageRange.label}</Text>
+          <KidBadge tone="sun">{lesson.ageRange.label}</KidBadge>
           <Text style={styles.duration}>
             {lesson.scenes.length} mini-scene
           </Text>
@@ -45,15 +46,6 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
 }
 
 const styles = StyleSheet.create({
-  badge: {
-    backgroundColor: colors.secondary,
-    borderRadius: radius.pill,
-    color: colors.text,
-    overflow: 'hidden',
-    ...typography.caption,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
   card: {
     gap: spacing.sm,
   },
@@ -66,8 +58,10 @@ const styles = StyleSheet.create({
   },
   emojiContainer: {
     alignItems: 'center',
-    backgroundColor: colors.surfaceSoft,
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
     borderRadius: radius.lg,
+    borderWidth: 2,
     height: 64,
     justifyContent: 'center',
     width: 64,

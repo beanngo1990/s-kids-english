@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from '../components/AppCard';
+import { KidBadge } from '../components/KidBadge';
 import { Screen } from '../components/Screen';
 import { StatTile } from '../components/StatTile';
 import { lessons } from '../data/lessons';
@@ -87,8 +88,11 @@ export function ParentScreen() {
       <Screen>
         <View style={styles.gateContainer}>
           <AppCard style={styles.gateCard}>
-            <Text style={styles.eyebrow}>Góc phụ huynh</Text>
-            <Text style={styles.title}>Ba mẹ hãy giữ nút này trong 3 giây</Text>
+            <KidBadge tone="teal">Góc phụ huynh</KidBadge>
+            <Text style={styles.title}>Khu vực dành cho ba mẹ</Text>
+            <Text style={styles.gateHint}>
+              Giữ nút trong 3 giây để mở thống kê và cài đặt học tập.
+            </Text>
             <Pressable
               accessibilityRole="button"
               onPressIn={handleHoldStart}
@@ -111,18 +115,21 @@ export function ParentScreen() {
   return (
     <Screen scroll>
       <View style={styles.header}>
-        <Text style={styles.eyebrow}>Demo offline</Text>
+        <KidBadge tone="sky">Demo offline</KidBadge>
         <Text style={styles.title}>Thống kê học tập</Text>
+        <Text style={styles.headerCopy}>
+          Theo dõi tiến độ nhẹ nhàng, không tạo áp lực cho bé.
+        </Text>
       </View>
 
       <View style={styles.grid}>
-        <StatTile label="Từ bé đã học" value={learnedWordCount} />
-        <StatTile label="Bài hoàn thành" value={completedLessonCount} />
-        <StatTile label="Sticker đã nhận" value={earnedStickerCount} />
+        <StatTile icon="Aa" label="Từ bé đã học" value={learnedWordCount} />
+        <StatTile icon="★" label="Bài hoàn thành" value={completedLessonCount} />
+        <StatTile icon="✓" label="Sticker đã nhận" value={earnedStickerCount} />
       </View>
 
       <AppCard style={styles.summary}>
-        <Text style={styles.summaryLabel}>Gợi ý ôn tập ngoài đời</Text>
+        <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
         {recentLearnedWords.length > 0 ? (
           <Text style={styles.summaryValue}>
             Gần đây bé đã học: {recentLearnedWords.join(', ')}.
@@ -134,6 +141,7 @@ export function ParentScreen() {
       </AppCard>
 
       <AppCard style={styles.privacyCard}>
+        <Text style={styles.privacyTitle}>An toàn cho trẻ</Text>
         <Text style={styles.privacyText}>
           Ứng dụng không có quảng cáo, không có link ngoài và không thu thập
           thông tin trẻ em.
@@ -162,13 +170,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: spacing.lg,
   },
+  gateHint: {
+    color: colors.textSoft,
+    ...typography.body,
+  },
   header: {
-    gap: spacing.xs,
+    gap: spacing.sm,
     marginBottom: spacing.lg,
+  },
+  headerCopy: {
+    color: colors.textSoft,
+    ...typography.body,
   },
   holdButton: {
     alignItems: 'center',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderWidth: 2,
     borderRadius: radius.pill,
     justifyContent: 'center',
     minHeight: 72,
@@ -176,19 +194,25 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
   },
   holdButtonActive: {
-    backgroundColor: colors.primaryDark,
+    backgroundColor: colors.secondaryDark,
   },
   holdButtonText: {
-    color: colors.white,
+    color: colors.text,
     textAlign: 'center',
     ...typography.button,
   },
   privacyCard: {
+    backgroundColor: colors.surfaceBlue,
     marginTop: spacing.lg,
   },
   privacyText: {
     color: colors.textSoft,
     ...typography.body,
+  },
+  privacyTitle: {
+    color: colors.text,
+    marginBottom: spacing.xs,
+    ...typography.subtitle,
   },
   summary: {
     gap: spacing.md,

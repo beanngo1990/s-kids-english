@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { colors } from '../theme/colors';
@@ -9,18 +9,26 @@ import { typography } from '../theme/typography';
 type StatTileProps = {
   label: string;
   value: number | string;
+  icon?: string;
 };
 
-export function StatTile({ label, value }: StatTileProps) {
+export function StatTile({ icon, label, value }: StatTileProps) {
   return (
     <AppCard style={styles.tile}>
-      <Text style={styles.value}>{value}</Text>
+      <View style={styles.topRow}>
+        {icon ? <Text style={styles.icon}>{icon}</Text> : null}
+        <Text style={styles.value}>{value}</Text>
+      </View>
       <Text style={styles.label}>{label}</Text>
     </AppCard>
   );
 }
 
 const styles = StyleSheet.create({
+  icon: {
+    fontSize: 24,
+    lineHeight: 28,
+  },
   label: {
     color: colors.muted,
     ...typography.caption,
@@ -35,5 +43,10 @@ const styles = StyleSheet.create({
   value: {
     color: colors.text,
     ...typography.title,
+  },
+  topRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
   },
 });

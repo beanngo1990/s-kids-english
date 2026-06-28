@@ -10,6 +10,8 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
+import { KidBadge } from '../components/KidBadge';
+import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import {
   getAvailableLearningModes,
@@ -117,16 +119,26 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   return (
     <Screen scroll>
-      <View style={styles.header}>
-        <Text style={styles.eyebrow}>Gói bài học</Text>
-        <Text style={styles.title}>{lesson.titleVi}</Text>
-        <Text style={styles.subtitle}>{lesson.titleEn}</Text>
-        <View style={styles.progressPill}>
+      <AppCard style={styles.headerCard}>
+        <View style={styles.headerTopRow}>
+          <View style={styles.packIcon}>
+            <Text style={styles.packEmoji}>{lesson.thumbnailEmoji}</Text>
+          </View>
+          <View style={styles.headerText}>
+            <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
+              {isPackComplete ? 'Đã hoàn thành' : 'Gói bài học'}
+            </KidBadge>
+            <Text style={styles.title}>{lesson.titleVi}</Text>
+            <Text style={styles.subtitle}>{lesson.titleEn}</Text>
+          </View>
+        </View>
+        <View style={styles.headerProgress}>
+          <ProgressStars completed={completedSceneCount} total={scenes.length} />
           <Text style={styles.progressText}>
-            {completedSceneCount}/{scenes.length} mini-scene
+            {completedSceneCount}/{scenes.length} cảnh đã học
           </Text>
         </View>
-      </View>
+      </AppCard>
 
       <View style={styles.sceneList}>
         {scenes.map((scene, index) => {
@@ -157,20 +169,26 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 ]}
               >
                 <View style={styles.sceneTopRow}>
-                  <Text style={styles.sceneIndex}>Cảnh {index + 1}</Text>
-                  <Text
-                    style={[
-                      styles.sceneStatus,
-                      isCompleted && styles.sceneStatusDone,
-                      isNext && styles.sceneStatusNext,
-                    ]}
+                  <KidBadge
+                    tone={isCompleted ? 'teal' : isNext ? 'coral' : 'sky'}
                   >
-                    {isCompleted
-                      ? `Đã xong · ${rewardStars} sao`
-                      : isNext
-                        ? 'Tiếp theo'
-                        : 'Sẵn sàng'}
-                  </Text>
+                    Trạm {index + 1}
+                  </KidBadge>
+                  <View style={styles.sceneStars}>
+                    <Text
+                      style={[
+                        styles.sceneStatus,
+                        isCompleted && styles.sceneStatusDone,
+                        isNext && styles.sceneStatusNext,
+                      ]}
+                    >
+                      {isCompleted
+                        ? `Đã xong · ${rewardStars} sao`
+                        : isNext
+                          ? 'Học tiếp'
+                          : 'Sẵn sàng'}
+                    </Text>
+                  </View>
                 </View>
 
                 <View style={styles.sceneMainContent}>
@@ -188,7 +206,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   </View>
                 </View>
                 {isNext ? (
-                  <Text style={styles.nextHint}>Bé học cảnh này tiếp nhé.</Text>
+                  <View style={styles.nextHintBubble}>
+                    <Text style={styles.nextHint}>
+                      Bé học cảnh này tiếp nhé.
+                    </Text>
+                  </View>
                 ) : null}
                 {availableLearningModes.length > 1 ? (
                   <View style={styles.modeRow}>
@@ -227,7 +249,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
       <View style={styles.actions}>
         <AppButton
           disabled={isCompleting || !nextScene}
-          title={isPackComplete ? 'Nhận thưởng' : 'Học tiếp'}
+          title={isPackComplete ? 'Nhận sticker' : 'Học tiếp'}
           onPress={handlePrimaryAction}
         />
         {scenes[0] ? (
@@ -276,7 +298,7 @@ function getLearningModeCardLabel(scene: Scene, learningMode: LearningMode) {
 const styles = StyleSheet.create({
   actions: {
     gap: spacing.md,
-    marginTop: spacing.lg,
+    marginTop: spacing.xl,
   },
   errorContainer: {
     alignItems: 'center',
@@ -290,52 +312,64 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.title,
   },
-  eyebrow: {
-    color: colors.primaryDark,
-    ...typography.caption,
-    textTransform: 'uppercase',
-  },
-  header: {
-    gap: spacing.xs,
+  headerCard: {
+    backgroundColor: colors.cream,
+    borderColor: colors.borderWarm,
+    gap: spacing.md,
     marginBottom: spacing.lg,
+  },
+  headerProgress: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  headerText: {
+    flex: 1,
+    gap: spacing.xs,
+  },
+  headerTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  packEmoji: {
+    fontSize: 40,
+    lineHeight: 48,
+  },
+  packIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.xl,
+    borderWidth: 2,
+    height: 88,
+    justifyContent: 'center',
+    width: 88,
   },
   pressed: {
     opacity: 0.82,
     transform: [{ scale: 0.99 }],
   },
-  progressPill: {
-    alignSelf: 'flex-start',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    marginTop: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-  },
   progressText: {
-    color: colors.text,
+    color: colors.textSoft,
     ...typography.caption,
   },
   sceneCard: {
-    gap: spacing.xs,
+    gap: spacing.sm,
   },
   sceneCardDone: {
-    backgroundColor: colors.backgroundCool,
+    backgroundColor: colors.surfaceBlue,
     borderColor: colors.primary,
   },
   sceneCardNext: {
     borderColor: colors.accent,
     borderWidth: 2,
-  },
-  sceneIndex: {
-    backgroundColor: colors.mint,
-    borderRadius: radius.pill,
-    color: colors.text,
-    overflow: 'hidden',
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    ...typography.caption,
   },
   sceneList: {
     gap: spacing.md,
@@ -361,14 +395,20 @@ const styles = StyleSheet.create({
   },
   sceneEmojiContainer: {
     alignItems: 'center',
-    backgroundColor: colors.surfaceSoft,
-    borderRadius: radius.md,
-    height: 56,
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    height: 64,
     justifyContent: 'center',
-    width: 56,
+    width: 64,
   },
   sceneEmoji: {
-    fontSize: 28,
+    fontSize: 30,
+    lineHeight: 36,
+  },
+  sceneStars: {
+    alignItems: 'flex-end',
   },
   sceneTextContainer: {
     flex: 1,
@@ -387,14 +427,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  subtitle: {
-    color: colors.textSoft,
-    ...typography.body,
-  },
   nextHint: {
     color: colors.accentDark,
-    marginTop: spacing.xs,
     ...typography.caption,
+  },
+  nextHintBubble: {
+    alignSelf: 'flex-start',
+    backgroundColor: colors.accentSoft,
+    borderRadius: radius.pill,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
   },
   modeChip: {
     alignItems: 'center',
@@ -409,11 +451,11 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   modeChipPrimary: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primarySoft,
     borderColor: colors.primary,
   },
   modeChipPrimaryText: {
-    color: colors.white,
+    color: colors.primaryDark,
   },
   modeChipText: {
     color: colors.text,
@@ -429,6 +471,10 @@ const styles = StyleSheet.create({
   title: {
     color: colors.text,
     ...typography.title,
+  },
+  subtitle: {
+    color: colors.textSoft,
+    ...typography.body,
   },
   vocabulary: {
     color: colors.textSoft,

@@ -3,6 +3,7 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { colors } from '../theme/colors';
 import { layout, radius } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 
 type AppCardProps = {
   children: ReactNode;
@@ -19,14 +20,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: radius.xl,
     borderWidth: 1,
-    elevation: 3,
     padding: layout.cardPadding,
-    shadowColor: colors.shadow,
-    shadowOffset: {
-      height: 8,
-      width: 0,
-    },
-    shadowOpacity: 0.14,
-    shadowRadius: 16,
+    ...shadows.soft,
   },
 });
