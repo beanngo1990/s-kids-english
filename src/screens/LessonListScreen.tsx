@@ -6,12 +6,14 @@ import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
+import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
+import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 
@@ -60,9 +62,7 @@ export function LessonListScreen({ navigation }: Props) {
               <AppCard style={styles.lessonCard}>
                 <View style={styles.lessonTopRow}>
                   <View style={styles.lessonIcon}>
-                    <Text style={styles.lessonEmoji}>
-                      {lesson.thumbnailEmoji}
-                    </Text>
+                    <SKidsIcon name={getLessonIconName(lesson)} size={74} />
                   </View>
                   <View style={styles.lessonText}>
                     <View style={styles.lessonBadgeRow}>
@@ -106,9 +106,7 @@ export function LessonListScreen({ navigation }: Props) {
                             isNext && styles.stopDotNext,
                           ]}
                         >
-                          <Text style={styles.stopEmoji}>
-                            {scene.thumbnailEmoji}
-                          </Text>
+                          <SKidsIcon name={getSceneIconName(scene)} size={48} />
                         </View>
                         <Text style={styles.stopTitle}>{scene.titleVi}</Text>
                       </View>
@@ -144,13 +142,9 @@ const styles = StyleSheet.create({
     color: colors.textSoft,
     ...typography.body,
   },
-  lessonEmoji: {
-    fontSize: 36,
-    lineHeight: 42,
-  },
   lessonIcon: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -221,10 +215,6 @@ const styles = StyleSheet.create({
   stopDotNext: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
-  },
-  stopEmoji: {
-    fontSize: 24,
-    lineHeight: 30,
   },
   stopTitle: {
     color: colors.text,

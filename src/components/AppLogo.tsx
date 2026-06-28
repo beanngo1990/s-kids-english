@@ -6,9 +6,16 @@ import { shadows } from '../theme/shadows';
 
 const appLogo = require('../assets/images/app-logo.png');
 
-export function AppLogo() {
+type AppLogoProps = {
+  size?: number;
+};
+
+export function AppLogo({ size = 128 }: AppLogoProps) {
   return (
-    <View accessibilityLabel="S-Kids English logo" style={styles.logo}>
+    <View
+      accessibilityLabel="S-Kids English logo"
+      style={[styles.logo, { height: size, width: size }]}
+    >
       <Image source={appLogo} style={styles.image} />
     </View>
   );
@@ -21,9 +28,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     borderRadius: radius.xl,
-    height: 128,
     overflow: 'hidden',
-    width: 128,
     ...shadows.floating,
   },
 });

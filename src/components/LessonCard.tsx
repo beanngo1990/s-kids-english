@@ -3,10 +3,12 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
+import { SKidsIcon } from './SKidsIcon';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
+import { getLessonIconName } from '../utils/lessonIcons';
 
 type LessonCardProps = {
   lesson: Lesson;
@@ -29,11 +31,9 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
         </View>
 
         <View style={styles.mainContent}>
-          {lesson.thumbnailEmoji && (
-            <View style={styles.emojiContainer}>
-              <Text style={styles.emoji}>{lesson.thumbnailEmoji}</Text>
-            </View>
-          )}
+          <View style={styles.iconContainer}>
+            <SKidsIcon name={getLessonIconName(lesson)} size={62} />
+          </View>
           <View style={styles.textContainer}>
             <Text style={styles.title}>{lesson.titleVi}</Text>
             <Text style={styles.subtitle}>{lesson.descriptionVi}</Text>
@@ -53,12 +53,9 @@ const styles = StyleSheet.create({
     color: colors.muted,
     ...typography.caption,
   },
-  emoji: {
-    fontSize: 32,
-  },
-  emojiContainer: {
+  iconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
