@@ -106,7 +106,6 @@ export function SceneObjectRenderer({
         onPanResponderTerminate: () => {
           resetDragPosition(drag);
         },
-        onStartShouldSetPanResponder: () => isDragEnabled,
       }),
     [drag, isDragEnabled, object.id, onDragEnd],
   );
@@ -387,7 +386,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 246, 215, 0.18)',
   },
   wrapper: {
-    minHeight: 52,
-    minWidth: 52,
   },
 });
