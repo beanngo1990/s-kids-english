@@ -78,7 +78,7 @@ type FeedbackState = {
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
-const showSceneEditorControl = false;
+const showSceneEditorControl = true;
 
 type AutoRecordRequest = {
   requestId: number;
@@ -162,12 +162,11 @@ export function ScenePlayer({
   const [isEditMode, setIsEditMode] = useState(false);
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
-  const advanceRequestIdRef = useRef(0);
 
-  // Floating edit button drag
-  const floatEditPos = useRef({ x: 8, y: 8 });
-  const floatEditAnim = useRef(new Animated.ValueXY({ x: 8, y: 8 })).current;
-  const floatEditStart = useRef({ x: 8, y: 8 });
+  // Floating drag setup
+  const floatEditPos = useRef({ x: 20, y: 100 });
+  const floatEditAnim = useRef(new Animated.ValueXY({ x: 20, y: 100 })).current;
+  const floatEditStart = useRef({ x: 20, y: 100 });
   const floatEditPan = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -183,6 +182,8 @@ export function ScenePlayer({
       onPanResponderRelease: () => {},
     })
   ).current;
+
+  const advanceRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
@@ -694,26 +695,6 @@ export function ScenePlayer({
         </View>
       </View>
 
-      {/* Floating Edit Button — DEV only */}
-      {__DEV__ && showSceneEditorControl && (
-        <Animated.View
-          style={[
-            styles.floatEditBtn,
-            isEditMode && styles.floatEditBtnActive,
-            { transform: floatEditAnim.getTranslateTransform() },
-          ]}
-          {...floatEditPan.panHandlers}
-        >
-          <TouchableOpacity
-            onPress={() => setIsEditMode(prev => !prev)}
-            style={styles.floatEditInner}
-          >
-            <Text style={styles.floatEditText}>
-              {isEditMode ? 'Close' : 'Edit'}
-            </Text>
-          </TouchableOpacity>
-        </Animated.View>
-      )}
 
       <View style={styles.stage}>
         {shouldUseBackgroundFallback ? (
@@ -789,6 +770,32 @@ export function ScenePlayer({
       </AppCard>
 
       {sceneCompletion ? renderSceneCompletionOverlay(sceneCompletion) : null}
+
+      {/* Floating Edit Button — DEV only */}
+      {__DEV__ && showSceneEditorControl && (
+        <Animated.View
+          style={[
+            styles.floatEditBtn,
+            isEditMode && styles.floatEditBtnActive,
+            { transform: floatEditAnim.getTranslateTransform() },
+          ]}
+        >
+          {/* Vùng kéo thả riêng biệt */}
+          <View style={styles.floatDragHandle} {...floatEditPan.panHandlers}>
+            <Text style={styles.floatDragIcon}>⠿</Text>
+          </View>
+          {/* Vùng bấm riêng biệt */}
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => setIsEditMode(prev => !prev)}
+            style={styles.floatEditInner}
+          >
+            <Text style={styles.floatEditText}>
+              {isEditMode ? 'Close' : 'Edit 🛠️'}
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
+      )}
     </View>
   );
 
@@ -1436,28 +1443,43 @@ const styles = StyleSheet.create({
   // --- Floating Edit Button (DEV) ---
   floatEditBtn: {
     position: 'absolute',
-    zIndex: 9998,
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: 'rgba(255, 180, 0, 0.92)',
+    zIndex: 9999,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 180, 0, 0.95)',
+    borderRadius: 24,
+    height: 48,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.35,
-    shadowRadius: 6,
-    elevation: 10,
+    shadowRadius: 8,
+    elevation: 12,
+    overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)',
   },
   floatEditBtnActive: {
-    backgroundColor: 'rgba(220, 60, 60, 0.92)',
+    backgroundColor: 'rgba(220, 60, 60, 0.95)',
   },
-  floatEditInner: {
-    flex: 1,
+  floatDragHandle: {
+    width: 36,
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 22,
+    backgroundColor: 'rgba(0,0,0,0.1)',
+  },
+  floatDragIcon: {
+    fontSize: 16,
+    color: 'rgba(255,255,255,0.7)',
+  },
+  floatEditInner: {
+    paddingHorizontal: 16,
+    height: '100%',
+    justifyContent: 'center',
   },
   floatEditText: {
-    fontSize: 20,
-    lineHeight: 24,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
   },
 });

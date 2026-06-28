@@ -60,7 +60,10 @@ export function AdminSceneEditor({
   const floatPan = useMemo(
     () =>
       PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        // Only grab when user drags, so buttons inside header can be tapped
+        onStartShouldSetPanResponder: () => false,
+        onMoveShouldSetPanResponder: (_, state) =>
+          Math.abs(state.dx) > 4 || Math.abs(state.dy) > 4,
         onPanResponderGrant: () => {
           floatStart.current = { x: floatPos.current.x, y: floatPos.current.y };
         },
