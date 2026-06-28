@@ -12,7 +12,6 @@ import {
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
-import { ProgressDots } from '../components/ProgressDots';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
@@ -77,6 +76,8 @@ type FeedbackState = {
 };
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
+
+const showSceneEditorControl = false;
 
 type AutoRecordRequest = {
   requestId: number;
@@ -254,6 +255,8 @@ export function ScenePlayer({
 
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
+  const progressPercent =
+    `${Math.max(8, (currentStepIndex / currentScene.steps.length) * 100)}%` as `${number}%`;
   const isAdvancing = feedback?.type === 'success';
   const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
@@ -653,17 +656,22 @@ export function ScenePlayer({
   return (
     <View style={styles.root}>
       <View style={styles.header}>
-        <ProgressDots
-          current={currentStepIndex}
-          total={currentScene.steps.length}
-        />
-        <Text style={styles.sceneLabel}>
-          Cảnh {sceneIndex + 1}/{scenes.length} - {currentScene.titleVi}
-        </Text>
+        <View style={styles.headerTopRow}>
+          <Text style={styles.sceneKicker}>
+            Cảnh {sceneIndex + 1}/{scenes.length}
+          </Text>
+          <Text style={styles.stepCounter}>
+            Bước {currentStepIndex}/{currentScene.steps.length}
+          </Text>
+        </View>
+        <Text style={styles.sceneLabel}>{currentScene.titleVi}</Text>
+        <View style={styles.progressTrack}>
+          <View style={[styles.progressFill, { width: progressPercent }]} />
+        </View>
       </View>
 
       {/* Floating Edit Button — DEV only */}
-      {__DEV__ && (
+      {__DEV__ && showSceneEditorControl && (
         <Animated.View
           style={[
             styles.floatEditBtn,
@@ -676,7 +684,9 @@ export function ScenePlayer({
             onPress={() => setIsEditMode(prev => !prev)}
             style={styles.floatEditInner}
           >
-            <Text style={styles.floatEditText}>{isEditMode ? '✕' : '🛠️'}</Text>
+            <Text style={styles.floatEditText}>
+              {isEditMode ? 'Close' : 'Edit'}
+            </Text>
           </TouchableOpacity>
         </Animated.View>
       )}
@@ -731,15 +741,15 @@ export function ScenePlayer({
 
         <View style={styles.actionRow}>
           <AppButton
-            title="🔊"
+            title="Nghe lại"
             variant="secondary"
             onPress={handleReplayInstruction}
             style={styles.actionButton}
-            textStyle={styles.iconButtonText}
+            textStyle={styles.smallButtonText}
           />
           {isListenStep(currentStep) ? (
             <AppButton
-              title="Tiếp tục ➡️"
+              title="Tiếp tục"
               onPress={handleContinue}
               style={styles.actionButton}
               textStyle={styles.smallButtonText}
@@ -1142,9 +1152,10 @@ function renderSceneLayer(scene: Scene) {
 const styles = StyleSheet.create({
   actionButton: {
     flex: 1,
-    minHeight: 54,
+    minHeight: 58,
   },
   actionRow: {
+    alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.sm,
   },
@@ -1153,13 +1164,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    opacity: 0.9,
+    opacity: 1,
   },
   backgroundTint: {
     backgroundColor: colors.sky,
     bottom: 0,
     left: 0,
-    opacity: 0.06,
+    opacity: 0.02,
     position: 'absolute',
     right: 0,
     top: 0,
@@ -1203,12 +1214,12 @@ const styles = StyleSheet.create({
     ...typography.title,
   },
   dropZone: {
-    borderColor: colors.accent,
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
     borderRadius: radius.lg,
     borderStyle: 'dashed',
     borderWidth: 3,
-    backgroundColor: colors.accentSoft,
-    opacity: 0.75,
+    opacity: 0.42,
   },
   emptyState: {
     alignItems: 'center',
@@ -1221,11 +1232,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.subtitle,
   },
-  iconButtonText: {
-    fontSize: 28,
-  },
   header: {
-    alignItems: 'center',
+    alignItems: 'stretch',
     backgroundColor: colors.white,
     borderColor: colors.border,
     borderRadius: radius.xl,
@@ -1234,6 +1242,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     ...shadows.soft,
+  },
+  headerTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   instructionCard: {
     backgroundColor: colors.cream,
@@ -1282,13 +1295,30 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   sceneLabel: {
-    color: colors.textSoft,
-    textAlign: 'center',
+    color: colors.text,
+    textAlign: 'left',
+    ...typography.subtitle,
+  },
+  sceneKicker: {
+    color: colors.primaryDark,
     ...typography.caption,
+    textTransform: 'uppercase',
   },
   smallButtonText: {
-    fontSize: 17,
+    fontSize: 18,
     lineHeight: 22,
+  },
+  progressFill: {
+    backgroundColor: colors.secondary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  progressTrack: {
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 10,
+    overflow: 'hidden',
+    width: '100%',
   },
   nextSceneText: {
     backgroundColor: colors.secondarySoft,
@@ -1320,7 +1350,7 @@ const styles = StyleSheet.create({
   stage: {
     borderColor: colors.white,
     borderRadius: radius.xl,
-    borderWidth: 3,
+    borderWidth: 4,
     flex: 1,
     minHeight: 220,
     overflow: 'hidden',
@@ -1329,6 +1359,10 @@ const styles = StyleSheet.create({
   stepType: {
     color: colors.accentDark,
     textAlign: 'center',
+    ...typography.caption,
+  },
+  stepCounter: {
+    color: colors.textSoft,
     ...typography.caption,
   },
   targetWord: {
