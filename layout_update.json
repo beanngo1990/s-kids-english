@@ -1,6 +1,6 @@
 ============= UPDATED SCENE LAYOUT JSON =============
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 81 --- CHARACTER ---
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 82 {
+AdminSceneEditor.tsx: 90 --- CHARACTER ---
+AdminSceneEditor.tsx: 91 {
     "id": "bedroom-baby",
     "asset": {
         "id": "bedroom-baby-asset",
@@ -17,8 +17,8 @@
     },
     "role": "character"
 }
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 84 --- OBJECTS ---
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 85 [
+AdminSceneEditor.tsx: 93 --- OBJECTS ---
+AdminSceneEditor.tsx: 94 [
     {
         "id": "bedroom-bed",
         "asset": {
@@ -90,18 +90,181 @@
             "y": 12
         },
         "vocabId": "vocab-sun"
+    },
+    {
+        "id": "bedroom-pillow",
+        "asset": {
+            "id": "pillow",
+            "source": "lessons/morning-routine/bedroom/images/pillow.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 4,
+            "minMode": "expanded"
+        },
+        "position": {
+            "height": 7.672827875344906,
+            "width": 23.333331768329327,
+            "x": 24.153846153846157,
+            "y": 40.39767073801655,
+            "rotation": 15
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 14,
+            "width": 26,
+            "x": 12,
+            "y": 59
+        },
+        "vocabId": "vocab-pillow"
+    },
+    {
+        "id": "bedroom-lamp",
+        "asset": {
+            "id": "lamp",
+            "source": "lessons/morning-routine/bedroom/images/lamp.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 4,
+            "minMode": "expanded"
+        },
+        "position": {
+            "height": 18,
+            "width": 14,
+            "x": 52.35897592397836,
+            "y": 36.8920444079891
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 24,
+            "width": 20,
+            "x": 80.94872107872595,
+            "y": 58.464256266906894
+        },
+        "vocabId": "vocab-lamp"
+    },
+    {
+        "id": "bedroom-clock",
+        "asset": {
+            "id": "clock",
+            "source": "lessons/morning-routine/bedroom/images/clock.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 4,
+            "minMode": "expanded"
+        },
+        "position": {
+            "height": 14.57426524700815,
+            "width": 18.02564415564904,
+            "x": 5.64103346604567,
+            "y": 9.507867143384239
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 19,
+            "width": 19,
+            "x": 9,
+            "y": 28
+        },
+        "vocabId": "vocab-clock"
+    },
+    {
+        "id": "bedroom-box",
+        "asset": {
+            "id": "box",
+            "source": "lessons/morning-routine/bedroom/images/box.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 5,
+            "minMode": "challenge"
+        },
+        "position": {
+            "height": 13,
+            "width": 17,
+            "x": 82.33333176832933,
+            "y": 43.88980046141074
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 19,
+            "width": 23,
+            "x": 6,
+            "y": 40
+        },
+        "vocabId": "vocab-box"
+    },
+    {
+        "id": "bedroom-socks",
+        "asset": {
+            "id": "socks",
+            "source": "lessons/morning-routine/bedroom/images/socks.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 5,
+            "minMode": "challenge"
+        },
+        "position": {
+            "height": 10,
+            "width": 18,
+            "x": 0.8717933067908654,
+            "y": 73.95871029858837
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 16,
+            "width": 24,
+            "x": 41.35897592397837,
+            "y": 79.17226265998467
+        },
+        "vocabId": "vocab-socks"
+    },
+    {
+        "id": "bedroom-doll",
+        "asset": {
+            "id": "doll",
+            "source": "lessons/morning-routine/bedroom/images/doll.png",
+            "type": "image"
+        },
+        "isInteractive": true,
+        "learningScope": {
+            "minAge": 5,
+            "minMode": "challenge"
+        },
+        "position": {
+            "height": 23,
+            "width": 14,
+            "x": 84.56410569411058,
+            "y": 67.04175431331815
+        },
+        "role": "learning",
+        "touchArea": {
+            "height": 29,
+            "width": 20,
+            "x": 75,
+            "y": 65
+        },
+        "vocabId": "vocab-doll"
     }
 ]
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 87 --- DROPZONES ---
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 88 [
+AdminSceneEditor.tsx: 96 --- DROPZONES ---
+AdminSceneEditor.tsx: 97 [
     {
         "id": "bedroom-tidy-zone",
         "position": {
-            "height": 34.120466479041006,
-            "width": 51.5897451547476,
-            "x": 3.205129770132211,
-            "y": 30.034904464314362
+            "height": 45.14031380843333,
+            "width": 53.43589900090144,
+            "x": 0.8461585411658645,
+            "y": 24.080079002302043
         }
     }
 ]
-&platform=ios&dev=true&lazy=true&minify=false&inlineSourceMap=false&modulesOnly=true&runModule=true&sourcePaths=url-server&app=org.reactjs.native.example.SKidsEnglish&shallow=true: 90 =====================================================
+AdminSceneEditor.tsx: 99 =====================================================

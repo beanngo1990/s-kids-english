@@ -38,7 +38,7 @@ export function AdminSceneEditor({
         asset: { id: 'dz-placeholder', source: '', type: 'image' as any },
         isInteractive: true,
       }));
-      arr.push(...zones);
+      arr.unshift(...zones);
     }
     return arr;
   }, [scene]);
@@ -259,7 +259,7 @@ function EditableObject({
     backgroundColor: isSelected 
       ? (isDropzone ? 'rgba(255, 105, 180, 0.3)' : 'rgba(0, 150, 255, 0.2)')
       : (isDropzone ? 'rgba(255, 105, 180, 0.1)' : 'transparent'),
-    zIndex: isSelected ? 100 : 10,
+    zIndex: isSelected ? 100 : (isDropzone ? 5 : 10),
     borderRadius: isDropzone ? 8 : 0,
   };
 
