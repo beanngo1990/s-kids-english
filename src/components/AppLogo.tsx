@@ -1,28 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import { colors } from '../theme/colors';
 import { radius } from '../theme/spacing';
-import { typography } from '../theme/typography';
+
+const appLogo = require('../assets/images/app-logo.png');
 
 export function AppLogo() {
   return (
     <View accessibilityLabel="S-Kids English logo" style={styles.logo}>
-      <Text style={styles.mark}>S</Text>
+      <Image source={appLogo} style={styles.image} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  image: {
+    height: '100%',
+    width: '100%',
+  },
   logo: {
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 3,
+    borderRadius: radius.xl,
     elevation: 4,
-    height: 116,
-    justifyContent: 'center',
+    height: 128,
+    overflow: 'hidden',
     shadowColor: colors.shadow,
     shadowOffset: {
       height: 8,
@@ -30,12 +31,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 12,
-    width: 116,
-  },
-  mark: {
-    color: colors.white,
-    ...typography.hero,
-    fontSize: 58,
-    lineHeight: 64,
+    width: 128,
   },
 });
