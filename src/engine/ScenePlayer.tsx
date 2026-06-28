@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
@@ -66,7 +67,6 @@ import {
   resolveContinueInteraction,
   resolveDragInteraction,
   resolveObjectInteraction,
-  shouldDimObjectForStep,
   type StepInteractionResult,
   type StepObjectEffect,
 } from './StepController';
@@ -113,6 +113,7 @@ export function ScenePlayer({
   onExit,
   onComplete,
 }: ScenePlayerProps) {
+  const insets = useSafeAreaInsets();
   const lesson = useMemo(
     () => lessons.find(item => item.id === lessonId),
     [lessonId],
@@ -256,8 +257,10 @@ export function ScenePlayer({
 
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
+  const totalStepCount = Math.max(1, currentScene.steps.length);
   const progressPercent =
-    `${Math.max(8, (currentStepIndex / currentScene.steps.length) * 100)}%` as `${number}%`;
+    `${Math.max(5, (currentStepIndex / totalStepCount) * 100)}%` as `${number}%`;
+  const rootPaddingTop = Math.max(spacing.xs, insets.top + spacing.xs);
   const isAdvancing = feedback?.type === 'success';
   const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
@@ -282,6 +285,16 @@ export function ScenePlayer({
       text: currentStep.instructionVi,
       type: 'info',
     });
+  };
+
+  const handleReplayModelWord = () => {
+    if (!speakPracticeWord || isAdvancing || isSceneComplete) {
+      return;
+    }
+
+    cancelStepAudioSequence();
+    clearTimer(clearFeedbackTimerRef);
+    runAudio(playObjectVocabularyAudio(speakPracticeWord));
   };
 
   const handleContinue = () => {
@@ -655,19 +668,29 @@ export function ScenePlayer({
   };
 
   return (
-    <View style={styles.root}>
-      <View style={styles.header}>
-        <View style={styles.headerTopRow}>
-          <Text style={styles.sceneKicker}>
-            Cảnh {sceneIndex + 1}/{scenes.length}
+    <View style={[styles.root, { paddingTop: rootPaddingTop }]}>
+      <View style={styles.topHud}>
+        {onExit ? (
+          <TouchableOpacity
+            accessibilityLabel="Thoát bài học"
+            accessibilityRole="button"
+            activeOpacity={0.82}
+            onPress={onExit}
+            style={styles.exitButton}
+          >
+            <View style={styles.exitIcon}>
+              <View style={styles.exitStroke} />
+              <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
+            </View>
+          </TouchableOpacity>
+        ) : null}
+        <View style={styles.lessonHud}>
+          <Text numberOfLines={1} style={styles.lessonTag}>
+            {currentScene.titleVi}
           </Text>
-          <Text style={styles.stepCounter}>
-            Bước {currentStepIndex}/{currentScene.steps.length}
-          </Text>
-        </View>
-        <Text style={styles.sceneLabel}>{currentScene.titleVi}</Text>
-        <View style={styles.progressTrack}>
-          <View style={[styles.progressFill, { width: progressPercent }]} />
+          <View style={styles.hudProgressTrack}>
+            <View style={[styles.hudProgressFill, { width: progressPercent }]} />
+          </View>
         </View>
       </View>
 
@@ -711,7 +734,7 @@ export function ScenePlayer({
             {renderSceneObjects()}
           </ImageBackground>
         ) : null}
-        
+
         {isEditMode && (
           <AdminSceneEditor
             scene={currentScene}
@@ -732,6 +755,8 @@ export function ScenePlayer({
             disabled={isAdvancing || isSceneComplete}
             onAudioStart={cancelStepAudioSequence}
             onBusyChange={setIsSpeechPracticeBusy}
+            onContinue={isListenStep(currentStep) ? handleContinue : undefined}
+            onReplayModel={handleReplayModelWord}
             word={speakPracticeWord}
           />
         ) : getStepVocabulary(currentScene, currentStep) ? (
@@ -740,25 +765,27 @@ export function ScenePlayer({
           </Text>
         ) : null}
 
-        <View style={styles.actionRow}>
-          <KidIconButton
-            accessibilityLabel="Nghe lại hướng dẫn"
-            icon="listen"
-            label="Nghe lại"
-            onPress={handleReplayInstruction}
-            style={styles.actionButton}
-            tone="secondary"
-          />
-          {isListenStep(currentStep) ? (
+        {!speakPracticeWord ? (
+          <View style={styles.actionRow}>
             <KidIconButton
-              accessibilityLabel="Tiếp tục"
-              icon="next"
-              label="Tiếp tục"
-              onPress={handleContinue}
-              style={styles.actionButton}
+              accessibilityLabel="Nghe lại hướng dẫn"
+              icon="listen"
+              label="Nghe lại"
+              onPress={handleReplayInstruction}
+              style={[styles.actionButton, styles.secondaryActionButton]}
+              tone="quiet"
             />
-          ) : null}
-        </View>
+            {isListenStep(currentStep) ? (
+              <KidIconButton
+                accessibilityLabel="Tiếp tục"
+                icon="next"
+                label="Tiếp tục"
+                onPress={handleContinue}
+                style={[styles.actionButton, styles.primaryActionButton]}
+              />
+            ) : null}
+          </View>
+        ) : null}
       </AppCard>
 
       {sceneCompletion ? renderSceneCompletionOverlay(sceneCompletion) : null}
@@ -849,7 +876,7 @@ export function ScenePlayer({
                 successObjectEffects,
                 shakeObjectIds,
               )}
-              isDimmed={shouldDimObjectForStep(currentStep, object.id)}
+              isDimmed={false}
               isDisabled={
                 isAdvancing ||
                 isSpeechPracticeBusy ||
@@ -1155,7 +1182,7 @@ function renderSceneLayer(scene: Scene) {
 const styles = StyleSheet.create({
   actionButton: {
     flex: 1,
-    minHeight: 120,
+    minHeight: 108,
   },
   actionRow: {
     alignItems: 'center',
@@ -1217,12 +1244,13 @@ const styles = StyleSheet.create({
     ...typography.title,
   },
   dropZone: {
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: 'rgba(255, 211, 77, 0.2)',
     borderColor: colors.secondary,
-    borderRadius: radius.lg,
-    borderStyle: 'dashed',
-    borderWidth: 3,
-    opacity: 0.42,
+    borderRadius: radius.xl,
+    borderStyle: 'solid',
+    borderWidth: 5,
+    opacity: 0.78,
+    ...shadows.warm,
   },
   emptyState: {
     alignItems: 'center',
@@ -1235,27 +1263,51 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.subtitle,
   },
-  header: {
-    alignItems: 'stretch',
-    backgroundColor: colors.white,
-    borderColor: colors.border,
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    gap: spacing.xs,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    ...shadows.soft,
-  },
-  headerTopRow: {
+  exitButton: {
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    backgroundColor: colors.surfaceSoft,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    height: 50,
+    justifyContent: 'center',
+    width: 50,
+    ...shadows.warm,
+  },
+  exitIcon: {
+    alignItems: 'center',
+    height: 24,
+    justifyContent: 'center',
+    width: 24,
+  },
+  exitStroke: {
+    backgroundColor: colors.accentDark,
+    borderRadius: radius.pill,
+    height: 5,
+    position: 'absolute',
+    transform: [{ rotate: '45deg' }],
+    width: 24,
+  },
+  exitStrokeReverse: {
+    transform: [{ rotate: '-45deg' }],
+  },
+  hudProgressFill: {
+    backgroundColor: colors.secondary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  hudProgressTrack: {
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 5,
+    overflow: 'hidden',
+    width: '100%',
   },
   instructionCard: {
     backgroundColor: colors.cream,
     borderColor: colors.borderWarm,
-    gap: spacing.sm,
-    padding: spacing.md,
+    gap: spacing.xs,
+    padding: spacing.sm,
   },
   sceneAccent: {
     borderRadius: radius.pill,
@@ -1292,32 +1344,39 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-    gap: spacing.md,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.sm,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
     position: 'relative',
   },
-  sceneLabel: {
+  lessonHud: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flex: 1,
+    gap: spacing.xxs,
+    justifyContent: 'center',
+    minHeight: 42,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    ...shadows.soft,
+  },
+  lessonTag: {
     color: colors.text,
-    textAlign: 'left',
-    ...typography.subtitle,
-  },
-  sceneKicker: {
-    color: colors.primaryDark,
+    textAlign: 'center',
     ...typography.caption,
-    textTransform: 'uppercase',
   },
-  progressFill: {
+  primaryActionButton: {
     backgroundColor: colors.secondary,
-    borderRadius: radius.pill,
-    height: '100%',
+    borderColor: colors.white,
+    minHeight: 128,
+    ...shadows.warm,
   },
-  progressTrack: {
-    backgroundColor: colors.primarySoft,
-    borderRadius: radius.pill,
-    height: 10,
-    overflow: 'hidden',
-    width: '100%',
+  secondaryActionButton: {
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
+    minHeight: 104,
   },
   nextSceneText: {
     backgroundColor: colors.secondarySoft,
@@ -1351,7 +1410,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.xl,
     borderWidth: 4,
     flex: 1,
-    minHeight: 220,
+    minHeight: 240,
     overflow: 'hidden',
     ...shadows.floating,
   },
@@ -1360,16 +1419,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.caption,
   },
-  stepCounter: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
   targetWord: {
     color: colors.primaryDark,
     textAlign: 'center',
     ...typography.title,
     fontSize: 32,
     marginVertical: spacing.xs,
+  },
+  topHud: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+    minHeight: 50,
+    zIndex: 4,
   },
   // --- Floating Edit Button (DEV) ---
   floatEditBtn: {

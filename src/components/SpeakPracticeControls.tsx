@@ -1,6 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Animated,
+  Easing,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
+import { KidIconButton } from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import {
@@ -9,9 +17,6 @@ import {
   speakVi,
   speakWord,
 } from '../engine/AudioManager';
-import { colors } from '../theme/colors';
-import { radius, spacing } from '../theme/spacing';
-import { typography } from '../theme/typography';
 import {
   isVoiceRecorderAvailable,
   playVoiceRecording,
@@ -19,6 +24,10 @@ import {
   startVoiceRecording,
   stopVoiceRecording,
 } from '../engine/VoiceRecorder';
+import { colors } from '../theme/colors';
+import { radius, spacing } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
+import { typography } from '../theme/typography';
 
 type RecordingStatus =
   | 'idle'
@@ -32,10 +41,12 @@ type SpeakPracticeControlsProps = {
   disabled?: boolean;
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
+  onContinue?: () => void;
+  onReplayModel?: () => void;
   word: string;
 };
 
-const maxRecordingDurationMs = 2300;
+const maxRecordingDurationMs = 3200;
 const encourageText = 'Cô nghe rồi! Giỏi quá!';
 
 export function SpeakPracticeControls({
@@ -43,6 +54,8 @@ export function SpeakPracticeControls({
   disabled = false,
   onAudioStart,
   onBusyChange,
+  onContinue,
+  onReplayModel,
   word,
 }: SpeakPracticeControlsProps) {
   const [status, setStatus] = useState<RecordingStatus>(() =>
@@ -50,6 +63,7 @@ export function SpeakPracticeControls({
   );
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const listeningPulse = useRef(new Animated.Value(0)).current;
   const recordingUriRef = useRef<string | null>(null);
   const handledAutoStartRequestRef = useRef(0);
 
@@ -65,6 +79,29 @@ export function SpeakPracticeControls({
   useEffect(() => {
     onBusyChange?.(status === 'prompting' || status === 'recording');
   }, [onBusyChange, status]);
+
+  useEffect(() => {
+    if (status !== 'recording') {
+      listeningPulse.stopAnimation();
+      listeningPulse.setValue(0);
+      return;
+    }
+
+    const animation = Animated.loop(
+      Animated.timing(listeningPulse, {
+        duration: 1200,
+        easing: Easing.out(Easing.quad),
+        toValue: 1,
+        useNativeDriver: true,
+      }),
+    );
+
+    animation.start();
+
+    return () => {
+      animation.stop();
+    };
+  }, [listeningPulse, status]);
 
   const finishRecording = useCallback(async () => {
     clearRecordingTimer(timerRef);
@@ -83,54 +120,57 @@ export function SpeakPracticeControls({
     await speakVi(encourageText);
   }, []);
 
-  const beginRecording = useCallback(async ({
-    playPrompt,
-    playTap,
-  }: {
-    playPrompt: boolean;
-    playTap: boolean;
-  }) => {
-    if (
-      disabled ||
-      status === 'prompting' ||
-      status === 'recording' ||
-      status === 'unavailable'
-    ) {
-      return;
-    }
+  const beginRecording = useCallback(
+    async ({
+      playPrompt,
+      playTap,
+    }: {
+      playPrompt: boolean;
+      playTap: boolean;
+    }) => {
+      if (
+        disabled ||
+        status === 'prompting' ||
+        status === 'recording' ||
+        status === 'unavailable'
+      ) {
+        return;
+      }
 
-    if (playTap) {
-      await playTapSound();
-    }
+      if (playTap) {
+        await playTapSound();
+      }
 
-    const hasPermission = await requestVoiceRecordingPermission();
-    if (!hasPermission) {
-      setStatus('idle');
-      return;
-    }
+      const hasPermission = await requestVoiceRecordingPermission();
+      if (!hasPermission) {
+        setStatus('idle');
+        return;
+      }
 
-    setStatus('prompting');
-    onAudioStart?.();
+      setStatus('prompting');
+      onAudioStart?.();
 
-    if (playPrompt) {
-      await speakVi(speakPracticePromptVi);
-      await speakWord(word);
-    }
+      if (playPrompt) {
+        await speakVi(speakPracticePromptVi);
+        await speakWord(word);
+      }
 
-    const nextRecordingUri = await startVoiceRecording();
-    if (!nextRecordingUri) {
-      setStatus('unavailable');
-      return;
-    }
+      const nextRecordingUri = await startVoiceRecording();
+      if (!nextRecordingUri) {
+        setStatus('unavailable');
+        return;
+      }
 
-    recordingUriRef.current = nextRecordingUri;
-    setRecordingUri(nextRecordingUri);
-    setStatus('recording');
-    clearRecordingTimer(timerRef);
-    timerRef.current = setTimeout(() => {
-      finishRecording().catch(() => undefined);
-    }, maxRecordingDurationMs);
-  }, [disabled, finishRecording, onAudioStart, status, word]);
+      recordingUriRef.current = nextRecordingUri;
+      setRecordingUri(nextRecordingUri);
+      setStatus('recording');
+      clearRecordingTimer(timerRef);
+      timerRef.current = setTimeout(() => {
+        finishRecording().catch(() => undefined);
+      }, maxRecordingDurationMs);
+    },
+    [disabled, finishRecording, onAudioStart, status, word],
+  );
 
   useEffect(() => {
     if (
@@ -178,39 +218,65 @@ export function SpeakPracticeControls({
     await playVoiceRecording(recordingUri);
   };
 
+  const handleReplayModelPress = () => {
+    if (
+      !onReplayModel ||
+      disabled ||
+      status === 'recording' ||
+      status === 'prompting'
+    ) {
+      return;
+    }
+
+    onReplayModel();
+  };
+
   const isPrompting = status === 'prompting';
   const isRecording = status === 'recording';
   const hasRecording = status === 'recorded';
   const isDisabled = disabled || isPrompting;
+  const isModelButtonDisabled = disabled || isPrompting || isRecording;
+  const rippleScale = listeningPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.86, 1.6],
+  });
+  const rippleOpacity = listeningPulse.interpolate({
+    inputRange: [0, 0.72, 1],
+    outputRange: [0.34, 0.14, 0],
+  });
+  const secondRippleScale = listeningPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.66, 1.34],
+  });
+  const secondRippleOpacity = listeningPulse.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [0.24, 0.16, 0],
+  });
+  const promptText = isPrompting
+    ? 'Chuẩn bị đọc...'
+    : isRecording
+      ? 'Cô đang nghe...'
+      : hasRecording
+        ? 'Giỏi quá! Từ này đọc là:'
+        : 'Bé nói theo cô:';
 
   return (
     <View style={styles.root}>
-      <View style={styles.copy}>
-        <View style={styles.promptRow}>
+      <View style={styles.promptRow}>
+        {!isRecording ? (
           <View
             style={[
-              styles.micDot,
-              isPrompting && styles.promptingDot,
-              isRecording && styles.recordingDot,
-              hasRecording && styles.recordedDot,
+              styles.statusIcon,
+              isPrompting && styles.promptingStatusIcon,
+              hasRecording && styles.recordedStatusIcon,
             ]}
-          />
-          <Text style={styles.prompt}>
-            {isPrompting
-              ? 'Chuẩn bị đọc...'
-              : isRecording
-                ? 'Cô đang nghe...'
-                : hasRecording
-                  ? 'Giỏi quá! Nghe lại giọng bé'
-                  : 'Bé nói theo cô'}
-          </Text>
-        </View>
-        <Text numberOfLines={1} style={styles.word}>
-          {word}
+          >
+            <SKidsIcon name={hasRecording ? 'star' : 'speak'} size={26} />
+          </View>
+        ) : null}
+        <Text numberOfLines={2} style={styles.prompt}>
+          {promptText}
         </Text>
-      </View>
-
-      <View style={styles.actions}>
         {hasRecording ? (
           <Pressable
             accessibilityLabel="Nghe lại giọng bé"
@@ -218,35 +284,119 @@ export function SpeakPracticeControls({
             disabled={isDisabled}
             onPress={handlePlaybackPress}
             style={({ pressed }) => [
-              styles.iconButton,
-              styles.playButton,
+              styles.voicePlaybackPill,
               pressed && !isDisabled && styles.pressed,
               isDisabled && styles.disabled,
             ]}
           >
-            <SKidsIcon name="replay" size={42} />
+            <SKidsIcon name="replay" size={24} />
+            <Text numberOfLines={1} style={styles.voicePlaybackText}>
+              Giọng bé
+            </Text>
           </Pressable>
         ) : null}
+      </View>
+
+      <View style={styles.wordPanel}>
+        <Text adjustsFontSizeToFit numberOfLines={1} style={styles.word}>
+          {word}
+        </Text>
+        {onReplayModel ? (
+          <Pressable
+            accessibilityLabel={`Nghe mẫu từ ${word}`}
+            accessibilityRole="button"
+            disabled={isModelButtonDisabled}
+            onPress={handleReplayModelPress}
+            style={({ pressed }) => [
+              styles.modelButton,
+              pressed && !isModelButtonDisabled && styles.pressed,
+              isModelButtonDisabled && styles.disabled,
+            ]}
+          >
+            <SKidsIcon name="listen" size={44} />
+          </Pressable>
+        ) : null}
+      </View>
+
+      {hasRecording ? (
+        <View style={styles.actions}>
+          <KidIconButton
+            accessibilityLabel="Thu âm lại"
+            disabled={isDisabled}
+            icon="speak"
+            label="Thu lại"
+            onPress={handleRecordPress}
+            size="md"
+            style={[styles.actionButton, styles.secondaryAction]}
+            tone="quiet"
+          />
+          {onContinue ? (
+            <KidIconButton
+              accessibilityLabel="Tiếp tục"
+              disabled={disabled}
+              icon="next"
+              label="Tiếp tục"
+              onPress={onContinue}
+              size="md"
+              style={[styles.actionButton, styles.primaryAction]}
+            />
+          ) : null}
+        </View>
+      ) : (
         <Pressable
           accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
           accessibilityRole="button"
           disabled={isDisabled}
           onPress={handleRecordPress}
           style={({ pressed }) => [
-            styles.iconButton,
             styles.recordButton,
-            isRecording && styles.stopButton,
+            isRecording && styles.listeningButton,
             pressed && !isDisabled && styles.pressed,
             isDisabled && styles.disabled,
           ]}
         >
           {isRecording ? (
-            <View style={styles.stopIcon} />
+            <View style={styles.listeningMicWrap}>
+              <Animated.View
+                pointerEvents="none"
+                style={[
+                  styles.listeningRipple,
+                  {
+                    opacity: rippleOpacity,
+                    transform: [{ scale: rippleScale }],
+                  },
+                ]}
+              />
+              <Animated.View
+                pointerEvents="none"
+                style={[
+                  styles.listeningRipple,
+                  styles.listeningRippleSecond,
+                  {
+                    opacity: secondRippleOpacity,
+                    transform: [{ scale: secondRippleScale }],
+                  },
+                ]}
+              />
+              <View style={styles.listeningMicCore}>
+                <SKidsIcon name="speak" size={84} />
+              </View>
+            </View>
           ) : (
-            <SKidsIcon name="speak" size={62} />
+            <SKidsIcon name="speak" size={76} />
           )}
+          <View
+            style={[
+              styles.recordLabelPill,
+              isRecording && styles.listeningLabelPill,
+            ]}
+          >
+            <Text numberOfLines={1} style={styles.recordLabel}>
+              {isRecording ? 'Chạm để dừng' : 'Bé nói'}
+            </Text>
+          </View>
         </Pressable>
-      </View>
+      )}
     </View>
   );
 }
@@ -261,89 +411,175 @@ function clearRecordingTimer(
 }
 
 const styles = StyleSheet.create({
-  actions: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.xxs,
-  },
-  copy: {
+  actionButton: {
     flex: 1,
-    gap: spacing.xxs,
-    minWidth: 0,
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    width: '100%',
   },
   disabled: {
     opacity: 0.5,
   },
-  iconButton: {
+  modelButton: {
     alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.white,
     borderRadius: radius.pill,
+    borderWidth: 3,
+    height: 68,
     justifyContent: 'center',
+    width: 68,
+    ...shadows.soft,
   },
-  playButton: {
-    backgroundColor: colors.white,
-    borderColor: colors.primarySoft,
-    borderWidth: 2,
-    height: 58,
-    width: 58,
+  listeningButton: {
+    backgroundColor: colors.transparent,
+    borderWidth: 0,
+    elevation: 0,
+    minHeight: 148,
+    minWidth: 210,
+    shadowOpacity: 0,
   },
-  micDot: {
-    backgroundColor: colors.primary,
+  listeningLabelPill: {
+    marginTop: -spacing.sm,
+    paddingHorizontal: spacing.lg,
+  },
+  listeningMicCore: {
+    alignItems: 'center',
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.white,
     borderRadius: radius.pill,
-    height: 14,
-    width: 14,
+    borderWidth: 4,
+    height: 110,
+    justifyContent: 'center',
+    width: 110,
+    ...shadows.warm,
+  },
+  listeningMicWrap: {
+    alignItems: 'center',
+    height: 124,
+    justifyContent: 'center',
+    width: 124,
+  },
+  listeningRipple: {
+    backgroundColor: colors.accent,
+    borderRadius: radius.pill,
+    height: 112,
+    position: 'absolute',
+    width: 112,
+  },
+  listeningRippleSecond: {
+    backgroundColor: colors.secondary,
   },
   pressed: {
     opacity: 0.9,
     transform: [{ scale: 0.97 }],
   },
-  promptingDot: {
+  primaryAction: {
     backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    flex: 1.35,
+    minHeight: 92,
+    ...shadows.warm,
   },
   prompt: {
-    color: colors.primaryDark,
-    flexShrink: 1,
+    color: colors.text,
+    flex: 1,
+    minWidth: 0,
     ...typography.caption,
   },
   promptRow: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.xs,
+    width: '100%',
+  },
+  promptingStatusIcon: {
+    backgroundColor: colors.secondarySoft,
   },
   recordButton: {
-    backgroundColor: colors.transparent,
-    height: 76,
-    width: 76,
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.xl,
+    borderWidth: 3,
+    justifyContent: 'center',
+    minHeight: 128,
+    minWidth: 178,
+    padding: spacing.sm,
+    ...shadows.soft,
   },
-  recordedDot: {
+  recordLabel: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  recordLabelPill: {
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    marginTop: -spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 3,
+  },
+  recordedStatusIcon: {
     backgroundColor: colors.secondary,
   },
-  recordingDot: {
-    backgroundColor: colors.accent,
-  },
   root: {
-    alignItems: 'center',
     backgroundColor: colors.white,
     borderColor: colors.primarySoft,
     borderRadius: radius.xl,
     borderWidth: 1,
-    flexDirection: 'row',
-    gap: spacing.md,
-    minHeight: 82,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    gap: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
   },
-  stopButton: {
-    backgroundColor: colors.accent,
-  },
-  stopIcon: {
+  secondaryAction: {
     backgroundColor: colors.white,
-    borderRadius: 4,
-    height: 18,
-    width: 18,
+    borderColor: colors.primarySoft,
+    flex: 0.95,
+    minHeight: 86,
+  },
+  statusIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 42,
+    justifyContent: 'center',
+    width: 42,
+  },
+  voicePlaybackPill: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.xxs,
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.xxs,
+  },
+  voicePlaybackText: {
+    color: colors.primaryDark,
+    ...typography.caption,
   },
   word: {
     color: colors.text,
+    flex: 1,
     ...typography.title,
-    fontSize: 30,
+    fontSize: 42,
+    lineHeight: 48,
+    textAlign: 'center',
+  },
+  wordPanel: {
+    alignItems: 'center',
+    backgroundColor: colors.transparent,
+    borderRadius: radius.pill,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    minHeight: 72,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
   },
 });
