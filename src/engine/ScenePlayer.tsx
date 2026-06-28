@@ -1,9 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
   ImageBackground,
   type LayoutChangeEvent,
+  PanResponder,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 
@@ -156,6 +159,26 @@ export function ScenePlayer({
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
   const advanceRequestIdRef = useRef(0);
+
+  // Floating edit button drag
+  const floatEditPos = useRef({ x: 8, y: 8 });
+  const floatEditAnim = useRef(new Animated.ValueXY({ x: 8, y: 8 })).current;
+  const floatEditStart = useRef({ x: 8, y: 8 });
+  const floatEditPan = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        floatEditStart.current = { x: floatEditPos.current.x, y: floatEditPos.current.y };
+      },
+      onPanResponderMove: (_, state) => {
+        const newX = floatEditStart.current.x + state.dx;
+        const newY = floatEditStart.current.y + state.dy;
+        floatEditPos.current = { x: newX, y: newY };
+        floatEditAnim.setValue({ x: newX, y: newY });
+      },
+      onPanResponderRelease: () => {},
+    })
+  ).current;
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
@@ -636,15 +659,26 @@ export function ScenePlayer({
         <Text style={styles.sceneLabel}>
           Cảnh {sceneIndex + 1}/{scenes.length} - {currentScene.titleVi}
         </Text>
-        {__DEV__ && (
-          <AppButton
-            title="Edit 🛠️"
-            onPress={() => setIsEditMode(prev => !prev)}
-            style={{ position: 'absolute', right: spacing.md, paddingHorizontal: spacing.sm, minHeight: 32 }}
-            textStyle={{ fontSize: 12 }}
-          />
-        )}
       </View>
+
+      {/* Floating Edit Button — DEV only */}
+      {__DEV__ && (
+        <Animated.View
+          style={[
+            styles.floatEditBtn,
+            isEditMode && styles.floatEditBtnActive,
+            { transform: floatEditAnim.getTranslateTransform() },
+          ]}
+          {...floatEditPan.panHandlers}
+        >
+          <TouchableOpacity
+            onPress={() => setIsEditMode(prev => !prev)}
+            style={styles.floatEditInner}
+          >
+            <Text style={styles.floatEditText}>{isEditMode ? '✕' : '🛠️'}</Text>
+          </TouchableOpacity>
+        </Animated.View>
+      )}
 
       <View style={styles.stage}>
         {shouldUseBackgroundFallback ? (
@@ -1298,5 +1332,32 @@ const styles = StyleSheet.create({
     ...typography.title,
     fontSize: 32,
     marginVertical: spacing.xs,
+  },
+  // --- Floating Edit Button (DEV) ---
+  floatEditBtn: {
+    position: 'absolute',
+    zIndex: 9998,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255, 180, 0, 0.92)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+    elevation: 10,
+  },
+  floatEditBtnActive: {
+    backgroundColor: 'rgba(220, 60, 60, 0.92)',
+  },
+  floatEditInner: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 22,
+  },
+  floatEditText: {
+    fontSize: 20,
+    lineHeight: 24,
   },
 });
