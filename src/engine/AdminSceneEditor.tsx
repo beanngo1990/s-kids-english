@@ -6,6 +6,7 @@ import {
   PanResponder,
   TouchableOpacity,
   Image,
+  Animated,
 } from 'react-native';
 import type { Scene, SceneObject, PercentRect } from '../types/lesson';
 import { colors } from '../theme/colors';
@@ -47,6 +48,30 @@ export function AdminSceneEditor({
     JSON.parse(JSON.stringify(initialObjects))
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [collapsed, setCollapsed] = useState(false);
+
+  // Floating toolbar drag
+  const floatPos = useRef({ x: 10, y: 50 });
+  const floatAnim = useRef(new Animated.ValueXY({ x: 10, y: 50 })).current;
+  const floatStart = useRef({ x: 10, y: 50 });
+
+  const floatPan = useMemo(
+    () =>
+      PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onPanResponderGrant: () => {
+          floatStart.current = { x: floatPos.current.x, y: floatPos.current.y };
+        },
+        onPanResponderMove: (_, state) => {
+          const newX = floatStart.current.x + state.dx;
+          const newY = floatStart.current.y + state.dy;
+          floatPos.current = { x: newX, y: newY };
+          floatAnim.setValue({ x: newX, y: newY });
+        },
+        onPanResponderRelease: () => {},
+      }),
+    [floatAnim]
+  );
 
   const handleUpdateRect = (id: string, newRect: PercentRect) => {
     setObjects((prev) =>
@@ -119,16 +144,37 @@ export function AdminSceneEditor({
         />
       ))}
 
-      {/* Toolbar */}
-      <View style={styles.toolbar}>
-        <Text style={styles.toolbarTitle}>Admin Layout Editor</Text>
-        <TouchableOpacity style={styles.button} onPress={handleLogJson}>
-          <Text style={styles.buttonText}>Log JSON</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonClose} onPress={onClose}>
-          <Text style={styles.buttonText}>Đóng</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Floating Toolbar */}
+      <Animated.View
+        style={[
+          styles.floatingPanel,
+          { transform: floatAnim.getTranslateTransform() },
+        ]}
+      >
+        {/* Drag handle header */}
+        <View style={styles.floatHeader} {...floatPan.panHandlers}>
+          <Text style={styles.floatDragIcon}>⠿</Text>
+          <Text style={styles.toolbarTitle}>✏️ Editor</Text>
+          <TouchableOpacity
+            style={styles.collapseBtn}
+            onPress={() => setCollapsed(c => !c)}
+          >
+            <Text style={styles.collapseBtnText}>{collapsed ? '▼' : '▲'}</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Buttons — hidden when collapsed */}
+        {!collapsed && (
+          <View style={styles.floatActions}>
+            <TouchableOpacity style={styles.button} onPress={handleLogJson}>
+              <Text style={styles.buttonText}>📋 Log JSON</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonClose} onPress={onClose}>
+              <Text style={styles.buttonText}>✕ Đóng</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      </Animated.View>
     </View>
   );
 }
@@ -339,18 +385,49 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
-  toolbar: {
+  // --- Floating panel ---
+  floatingPanel: {
     position: 'absolute',
-    top: 10,
-    left: 10,
-    right: 10,
+    minWidth: 160,
+    backgroundColor: 'rgba(15, 15, 30, 0.88)',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.15)',
+    zIndex: 9999,
+    overflow: 'hidden',
+    // shadow
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 12,
+  },
+  floatHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    padding: 10,
-    borderRadius: 8,
-    zIndex: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    gap: 6,
+  },
+  floatDragIcon: {
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: 16,
+    marginRight: 2,
+  },
+  collapseBtn: {
+    marginLeft: 'auto',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  collapseBtnText: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 12,
+  },
+  floatActions: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingHorizontal: 10,
+    paddingBottom: 10,
   },
   toolbarTitle: {
     color: '#fff',
