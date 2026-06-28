@@ -188,6 +188,23 @@ class SkidsAudioModule(
     }
   }
 
+  @ReactMethod
+  fun getVoiceRecordingLevel(promise: Promise) {
+    val recorder = voiceRecorder
+
+    if (isReleased || recorder == null) {
+      promise.resolve(null)
+      return
+    }
+
+    try {
+      val amplitude = recorder.maxAmplitude
+      promise.resolve((amplitude / 32767.0).coerceIn(0.0, 1.0))
+    } catch (_: Exception) {
+      promise.resolve(null)
+    }
+  }
+
   override fun invalidate() {
     if (!isReleased) {
       isReleased = true

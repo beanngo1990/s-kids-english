@@ -3,6 +3,7 @@ import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
 import { playAudioUri } from './AudioManager';
 
 type SkidsAudioModule = {
+  getVoiceRecordingLevel?: () => Promise<number | null>;
   startVoiceRecording?: () => Promise<string | null>;
   stopVoiceRecording?: () => Promise<string | null>;
 };
@@ -51,6 +52,14 @@ export async function stopVoiceRecording() {
   }
 
   return nativeAudio.stopVoiceRecording();
+}
+
+export async function getVoiceRecordingLevel() {
+  if (!nativeAudio?.getVoiceRecordingLevel) {
+    return null;
+  }
+
+  return nativeAudio.getVoiceRecordingLevel();
 }
 
 export async function playVoiceRecording(recordingUri: string) {

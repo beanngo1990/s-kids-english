@@ -19,4 +19,7 @@ RCT_EXTERN_METHOD(startVoiceRecording:(RCTPromiseResolveBlock)resolve
 RCT_EXTERN_METHOD(stopVoiceRecording:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(getVoiceRecordingLevel:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
 @end
