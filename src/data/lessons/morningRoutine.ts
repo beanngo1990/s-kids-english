@@ -57,6 +57,8 @@ export const morningRoutineLesson: Lesson = {
         bedroomVocabulary.box,
         bedroomVocabulary.socks,
         bedroomVocabulary.doll,
+        bedroomVocabulary.goodMorning,
+        bedroomVocabulary.makeTheBed,
       ],
       objects: [
         {
@@ -296,6 +298,25 @@ export const morningRoutineLesson: Lesson = {
             y: 24.080079002302043,
           },
         },
+        {
+          id: 'bedroom-box-zone',
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 14,
+            width: 18,
+            x: 81.5,
+            y: 44,
+          },
+          touchArea: {
+            height: 28,
+            width: 30,
+            x: 75.5,
+            y: 37,
+          },
+        },
       ],
       steps: [
         {
@@ -453,6 +474,35 @@ export const morningRoutineLesson: Lesson = {
           successFeedbackVi: 'Phòng sáng rồi!',
           targetObjectIds: ['bedroom-sun'],
           type: 'review',
+        },
+        {
+          id: 'bedroom-teach-good-morning',
+          effects: [
+            {
+              animation: 'bounce',
+              targetObjectId: 'bedroom-baby',
+              type: 'animation',
+            },
+            {
+              animation: 'shine',
+              targetObjectId: 'bedroom-sun',
+              type: 'animation',
+            },
+          ],
+          instructionVi: 'Mình cùng chào buổi sáng nhé.',
+          interaction: {
+            targetObjectId: 'bedroom-baby',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'good morning',
+          successFeedbackVi: 'Câu này nghĩa là chào buổi sáng.',
+          targetObjectIds: ['bedroom-baby', 'bedroom-sun'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.goodMorning.id,
         },
         {
           id: 'bedroom-teach-pillow',
@@ -625,7 +675,7 @@ export const morningRoutineLesson: Lesson = {
               type: 'sound',
             },
           ],
-          failFeedbackVi: 'Cái hộp ở bên trái đó.',
+          failFeedbackVi: 'Cái hộp ở bên phải đó.',
           instructionVi: 'Chạm vào cái hộp nhé.',
           interaction: {
             correctObjectIds: ['bedroom-box'],
@@ -735,6 +785,138 @@ export const morningRoutineLesson: Lesson = {
           targetObjectIds: ['bedroom-doll'],
           type: 'practice',
           vocabId: bedroomVocabulary.doll.id,
+        },
+        {
+          id: 'bedroom-teach-make-the-bed',
+          effects: [
+            {
+              animation: 'bounce',
+              targetObjectId: 'bedroom-bed',
+              type: 'animation',
+            },
+          ],
+          instructionVi: 'Mình học câu dọn giường nhé.',
+          interaction: {
+            targetObjectId: 'bedroom-bed',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'make the bed',
+          successFeedbackVi: 'Câu này nghĩa là dọn giường.',
+          targetObjectIds: ['bedroom-bed'],
+          type: 'teach',
+          vocabId: bedroomVocabulary.makeTheBed.id,
+        },
+        {
+          id: 'bedroom-drag-pillow-to-box',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-pillow',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'bedroom-box',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo gối vào cái hộp nhé.',
+          instructionVi: 'Cất gối vào hộp nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-pillow'],
+            dropZoneId: 'bedroom-box-zone',
+            targetObjectId: 'bedroom-pillow',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'pillow in box',
+          successFeedbackVi: 'Gối đã ở trong hộp rồi!',
+          targetObjectIds: ['bedroom-pillow', 'bedroom-box'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.pillow.id,
+        },
+        {
+          id: 'bedroom-drag-blanket-to-box',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-blanket',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'bedroom-box',
+              type: 'animation',
+            },
+            {
+              sound: 'clap',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo chăn vào cái hộp nhé.',
+          instructionVi: 'Cất chăn vào hộp để dọn giường nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-blanket'],
+            dropZoneId: 'bedroom-box-zone',
+            targetObjectId: 'bedroom-blanket',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'make the bed',
+          successFeedbackVi: 'Giường gọn gàng rồi!',
+          targetObjectIds: ['bedroom-blanket', 'bedroom-box'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.makeTheBed.id,
+        },
+        {
+          id: 'bedroom-drag-socks-to-box',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'bedroom-socks',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'bedroom-box',
+              type: 'animation',
+            },
+            {
+              sound: 'complete',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo tất vào cái hộp nhé.',
+          instructionVi: 'Cất tất vào hộp nhé.',
+          interaction: {
+            correctObjectIds: ['bedroom-socks'],
+            dropZoneId: 'bedroom-box-zone',
+            targetObjectId: 'bedroom-socks',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'socks in box',
+          successFeedbackVi: 'Tất đã ở trong hộp rồi!',
+          targetObjectIds: ['bedroom-socks', 'bedroom-box'],
+          type: 'practice',
+          vocabId: bedroomVocabulary.socks.id,
         },
       ],
       completionReward: {
