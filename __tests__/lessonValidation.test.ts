@@ -107,6 +107,8 @@ test('bedroom scene keeps core short and unlocks older-child content by mode', (
     'box',
     'socks',
     'doll',
+    'good morning',
+    'make the bed',
   ]);
   expect(challengeScene.objects.map(object => object.id)).toContain(
     'bedroom-doll',
@@ -154,6 +156,9 @@ test('bedroom scene can gate older-child challenge content by age', () => {
   expect(fiveYearOldChallenge.vocabulary?.map(item => item.word)).toContain(
     'doll',
   );
+  expect(fiveYearOldChallenge.vocabulary?.map(item => item.word)).toContain(
+    'make the bed',
+  );
 });
 
 test('bedroom extended steps keep prompts aligned with the required action', () => {
@@ -182,6 +187,21 @@ test('bedroom extended steps keep prompts aligned with the required action', () 
   const dollPractice = challengeScene.steps.find(
     step => step.id === 'bedroom-practice-doll',
   );
+  const goodMorningTeach = challengeScene.steps.find(
+    step => step.id === 'bedroom-teach-good-morning',
+  );
+  const makeTheBedTeach = challengeScene.steps.find(
+    step => step.id === 'bedroom-teach-make-the-bed',
+  );
+  const pillowDrag = challengeScene.steps.find(
+    step => step.id === 'bedroom-drag-pillow-to-box',
+  );
+  const blanketDrag = challengeScene.steps.find(
+    step => step.id === 'bedroom-drag-blanket-to-box',
+  );
+  const socksDrag = challengeScene.steps.find(
+    step => step.id === 'bedroom-drag-socks-to-box',
+  );
 
   expect(pillowPractice?.instructionVi).toBe('Chạm vào cái gối nhé.');
   expect(pillowPractice?.interaction.targetObjectId).toBe('bedroom-pillow');
@@ -191,10 +211,29 @@ test('bedroom extended steps keep prompts aligned with the required action', () 
   expect(clockPractice?.interaction.targetObjectId).toBe('bedroom-clock');
   expect(boxPractice?.instructionVi).toBe('Chạm vào cái hộp nhé.');
   expect(boxPractice?.interaction.targetObjectId).toBe('bedroom-box');
+  expect(boxPractice?.failFeedbackVi).toBe('Cái hộp ở bên phải đó.');
   expect(socksPractice?.instructionVi).toBe('Chạm vào đôi tất nhé.');
   expect(socksPractice?.interaction.targetObjectId).toBe('bedroom-socks');
   expect(dollPractice?.instructionVi).toBe('Chạm vào búp bê nhé.');
   expect(dollPractice?.interaction.targetObjectId).toBe('bedroom-doll');
+  expect(goodMorningTeach?.promptText).toBe('good morning');
+  expect(goodMorningTeach?.vocabId).toBe('vocab-good-morning');
+  expect(makeTheBedTeach?.promptText).toBe('make the bed');
+  expect(makeTheBedTeach?.vocabId).toBe('vocab-make-the-bed');
+  expect(pillowDrag?.instructionVi).toBe('Cất gối vào hộp nhé.');
+  expect(pillowDrag?.interaction.targetObjectId).toBe('bedroom-pillow');
+  expect(pillowDrag?.interaction.dropZoneId).toBe('bedroom-box-zone');
+  expect(pillowDrag?.vocabId).toBe('vocab-pillow');
+  expect(blanketDrag?.instructionVi).toBe(
+    'Cất chăn vào hộp để dọn giường nhé.',
+  );
+  expect(blanketDrag?.interaction.targetObjectId).toBe('bedroom-blanket');
+  expect(blanketDrag?.interaction.dropZoneId).toBe('bedroom-box-zone');
+  expect(blanketDrag?.vocabId).toBe('vocab-make-the-bed');
+  expect(socksDrag?.instructionVi).toBe('Cất tất vào hộp nhé.');
+  expect(socksDrag?.interaction.targetObjectId).toBe('bedroom-socks');
+  expect(socksDrag?.interaction.dropZoneId).toBe('bedroom-box-zone');
+  expect(socksDrag?.vocabId).toBe('vocab-socks');
 });
 
 test('bedroom extended steps have bundled audio for their spoken prompts', () => {
@@ -224,6 +263,8 @@ test('bedroom extended steps have bundled audio for their spoken prompts', () =>
     'box',
     'socks',
     'doll',
+    'good morning',
+    'make the bed',
   ].forEach(word => {
     expect(getWordAudioAsset(word)?.key).toBeTruthy();
   });

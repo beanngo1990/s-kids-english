@@ -88,6 +88,28 @@ export const bedroomVocabulary = {
     level: 'hard',
     type: 'noun',
   },
+  goodMorning: {
+    id: 'vocab-good-morning',
+    word: 'good morning',
+    meaningVi: 'chào buổi sáng',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  makeTheBed: {
+    id: 'vocab-make-the-bed',
+    word: 'make the bed',
+    meaningVi: 'dọn giường',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
 } satisfies Record<string, VocabularyItem>;
 
 export const bathroomVocabulary = {

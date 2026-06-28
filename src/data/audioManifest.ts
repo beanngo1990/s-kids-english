@@ -42,6 +42,14 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: 'lessons/morning-routine/bedroom/audio/en/doll.wav',
     text: 'doll',
   },
+  'good morning': {
+    key: 'lessons/morning-routine/bedroom/audio/en/good_morning.wav',
+    text: 'good morning',
+  },
+  'make the bed': {
+    key: 'lessons/morning-routine/bedroom/audio/en/make_the_bed.wav',
+    text: 'make the bed',
+  },
   toothbrush: {
     key: 'lessons/morning-routine/bathroom/audio/en/toothbrush.wav',
     text: 'toothbrush',
@@ -193,9 +201,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: 'lessons/morning-routine/bedroom/audio/vi/box_meaning.wav',
     text: 'Từ này nghĩa là cái hộp.',
   },
-  [normalizeText('Cái hộp ở bên trái đó.')]: {
+  [normalizeText('Cái hộp ở bên phải đó.')]: {
     key: 'lessons/morning-routine/bedroom/audio/vi/tap_box_fail.wav',
-    text: 'Cái hộp ở bên trái đó.',
+    text: 'Cái hộp ở bên phải đó.',
   },
   [normalizeText('Chạm vào cái hộp nhé.')]: {
     key: 'lessons/morning-routine/bedroom/audio/vi/tap_box.wav',
@@ -244,6 +252,58 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText('Đúng rồi, đó là búp bê.')]: {
     key: 'lessons/morning-routine/bedroom/audio/vi/doll_success.wav',
     text: 'Đúng rồi, đó là búp bê.',
+  },
+  [normalizeText('Mình cùng chào buổi sáng nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_good_morning_intro.wav',
+    text: 'Mình cùng chào buổi sáng nhé.',
+  },
+  [normalizeText('Câu này nghĩa là chào buổi sáng.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/good_morning_meaning.wav',
+    text: 'Câu này nghĩa là chào buổi sáng.',
+  },
+  [normalizeText('Mình học câu dọn giường nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/teach_make_the_bed_intro.wav',
+    text: 'Mình học câu dọn giường nhé.',
+  },
+  [normalizeText('Câu này nghĩa là dọn giường.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/make_the_bed_meaning.wav',
+    text: 'Câu này nghĩa là dọn giường.',
+  },
+  [normalizeText('Cất gối vào hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_pillow_to_box.wav',
+    text: 'Cất gối vào hộp nhé.',
+  },
+  [normalizeText('Kéo gối vào cái hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_pillow_to_box_fail.wav',
+    text: 'Kéo gối vào cái hộp nhé.',
+  },
+  [normalizeText('Gối đã ở trong hộp rồi!')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/pillow_in_box_success.wav',
+    text: 'Gối đã ở trong hộp rồi!',
+  },
+  [normalizeText('Cất chăn vào hộp để dọn giường nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_blanket_to_box.wav',
+    text: 'Cất chăn vào hộp để dọn giường nhé.',
+  },
+  [normalizeText('Kéo chăn vào cái hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_blanket_to_box_fail.wav',
+    text: 'Kéo chăn vào cái hộp nhé.',
+  },
+  [normalizeText('Giường gọn gàng rồi!')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/make_the_bed_success.wav',
+    text: 'Giường gọn gàng rồi!',
+  },
+  [normalizeText('Cất tất vào hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_socks_to_box.wav',
+    text: 'Cất tất vào hộp nhé.',
+  },
+  [normalizeText('Kéo tất vào cái hộp nhé.')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/drag_socks_to_box_fail.wav',
+    text: 'Kéo tất vào cái hộp nhé.',
+  },
+  [normalizeText('Tất đã ở trong hộp rồi!')]: {
+    key: 'lessons/morning-routine/bedroom/audio/vi/socks_in_box_success.wav',
+    text: 'Tất đã ở trong hộp rồi!',
   },
   [normalizeText('Mình vào phòng tắm nhé.')]: {
     key: 'lessons/morning-routine/bathroom/audio/vi/intro.wav',
