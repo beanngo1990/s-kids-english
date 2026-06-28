@@ -1,5 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
 import {
+  Alert,
   View,
   Text,
   StyleSheet,
@@ -7,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   Animated,
+  type ViewStyle,
 } from 'react-native';
 import type { Scene, SceneObject, PercentRect } from '../types/lesson';
 import { colors } from '../theme/colors';
@@ -35,7 +37,7 @@ export function AdminSceneEditor({
         id: dz.id,
         position: dz.position,
         touchArea: dz.touchArea,
-        role: 'dropzone' as any,
+        role: 'dropZone' as const,
         asset: { id: 'dz-placeholder', source: '', type: 'image' as any },
         isInteractive: true,
       }));
@@ -103,8 +105,8 @@ export function AdminSceneEditor({
 
   const handleLogJson = () => {
     const charObj = objects.find(o => o.id === scene.character?.id);
-    const sceneObjs = objects.filter(o => o.id !== scene.character?.id && o.role !== 'dropzone');
-    const dropZones = objects.filter(o => o.role === 'dropzone').map(dz => ({
+    const sceneObjs = objects.filter(o => o.id !== scene.character?.id && o.role !== 'dropZone');
+    const dropZones = objects.filter(o => o.role === 'dropZone').map(dz => ({
       id: dz.id,
       position: dz.position,
       touchArea: dz.touchArea,
@@ -122,7 +124,7 @@ export function AdminSceneEditor({
       console.log(JSON.stringify(dropZones, null, 2));
     }
     console.log('=====================================================');
-    alert('Đã in JSON ra console terminal!');
+    Alert.alert('Đã in JSON ra console terminal!');
   };
 
   if (stageSize.width === 0 || stageSize.height === 0) return null;
@@ -277,7 +279,7 @@ function EditableObject({
           onUpdateRect(currentRect.current);
         },
       }),
-    [stageSize, onUpdateRect]
+    [onUpdateRect]
   );
 
   const toggleFlip = () => {
@@ -290,14 +292,14 @@ function EditableObject({
 
   const isLearningObject = object.role === 'learning';
   const isCharacter = object.role === 'character';
-  const isDropzone = object.role === 'dropzone';
+  const isDropzone = object.role === 'dropZone';
 
-  const boxStyle = {
+  const boxStyle: ViewStyle = {
     position: 'absolute' as const,
-    left: `${rect.x}%`,
-    top: `${rect.y}%`,
-    width: `${rect.width}%`,
-    height: `${rect.height}%`,
+    left: `${rect.x}%` as `${number}%`,
+    top: `${rect.y}%` as `${number}%`,
+    width: `${rect.width}%` as `${number}%`,
+    height: `${rect.height}%` as `${number}%`,
     transform: rect.rotation ? [{ rotate: `${rect.rotation}deg` }] : [],
     borderWidth: isSelected ? 2 : 1,
     borderColor: isSelected ? colors.primary : isDropzone ? 'rgba(255, 105, 180, 0.8)' : 'rgba(255, 0, 0, 0.5)',
@@ -308,8 +310,6 @@ function EditableObject({
     zIndex: isSelected ? 100 : (isDropzone ? 5 : 10),
     borderRadius: isDropzone ? 8 : 0,
   };
-
-  const shouldShowLabel = false; 
 
   return (
     <View style={boxStyle}>
@@ -372,7 +372,7 @@ function EditableObject({
             style={[styles.handle, styles.flipHandle]}
             onPress={toggleFlip}
           >
-            <Text style={{ fontSize: 12, textAlign: 'center', lineHeight: 20 }}>↔</Text>
+            <Text style={styles.flipHandleText}>↔</Text>
           </TouchableOpacity>
         </>
       )}
@@ -382,8 +382,12 @@ function EditableObject({
 
 const styles = StyleSheet.create({
   overlayBg: {
-    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
   },
   // --- Floating panel ---
   floatingPanel: {
@@ -492,6 +496,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  flipHandleText: {
+    fontSize: 12,
+    lineHeight: 20,
+    textAlign: 'center',
+  },
   // Replicated game styles
   assetBubble: {
     alignItems: 'center',
@@ -536,9 +545,13 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   dropzoneContent: {
-    ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
   },
   dropzoneIcon: {
     fontSize: 18,

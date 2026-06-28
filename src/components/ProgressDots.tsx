@@ -36,7 +36,7 @@ export function ProgressDots({ current, total, style }: ProgressDotsProps) {
 
 const styles = StyleSheet.create({
   activeDot: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
     width: 28,
   },
   container: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     height: 12,
   },
   idleDot: {
-    backgroundColor: colors.lavender,
+    backgroundColor: colors.primarySoft,
     width: 12,
   },
 });

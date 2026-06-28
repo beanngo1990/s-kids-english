@@ -19,6 +19,7 @@ import { lessons } from '../data/lessons';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import type {
   EntityId,
@@ -1152,7 +1153,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    opacity: 0.82,
+    opacity: 0.9,
   },
   backgroundTint: {
     backgroundColor: colors.sky,
@@ -1170,6 +1171,8 @@ const styles = StyleSheet.create({
   },
   completionCard: {
     alignItems: 'center',
+    backgroundColor: colors.cream,
+    borderColor: colors.borderWarm,
     gap: spacing.sm,
     maxWidth: 420,
     padding: spacing.lg,
@@ -1189,7 +1192,7 @@ const styles = StyleSheet.create({
   completionOverlay: {
     ...StyleSheet.absoluteFill,
     alignItems: 'center',
-    backgroundColor: 'rgba(38, 51, 61, 0.38)',
+    backgroundColor: 'rgba(37, 54, 66, 0.42)',
     justifyContent: 'center',
     padding: spacing.lg,
     zIndex: 20,
@@ -1223,9 +1226,18 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    gap: spacing.sm,
+    backgroundColor: colors.white,
+    borderColor: colors.border,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    gap: spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    ...shadows.soft,
   },
   instructionCard: {
+    backgroundColor: colors.cream,
+    borderColor: colors.borderWarm,
     gap: spacing.sm,
     padding: spacing.md,
   },
@@ -1264,7 +1276,7 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-    gap: spacing.sm,
+    gap: spacing.md,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.sm,
     position: 'relative',
@@ -1306,20 +1318,13 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   stage: {
-    borderColor: colors.border,
+    borderColor: colors.white,
     borderRadius: radius.xl,
-    borderWidth: 1,
-    elevation: 3,
+    borderWidth: 3,
     flex: 1,
     minHeight: 220,
     overflow: 'hidden',
-    shadowColor: colors.shadow,
-    shadowOffset: {
-      height: 8,
-      width: 0,
-    },
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
+    ...shadows.floating,
   },
   stepType: {
     color: colors.accentDark,

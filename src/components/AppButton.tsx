@@ -10,6 +10,7 @@ import {
 
 import { colors } from '../theme/colors';
 import { radius, spacing, touchTarget } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
@@ -66,18 +67,14 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   pressed: {
-    opacity: 0.82,
-    transform: [{ scale: 0.98 }],
+    opacity: 0.9,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
   },
   primary: {
-    backgroundColor: colors.primary,
-    shadowColor: colors.shadow,
-    shadowOffset: {
-      height: 6,
-      width: 0,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 10,
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderWidth: 2,
+    ...shadows.warm,
   },
   ghost: {
     backgroundColor: colors.transparent,
@@ -86,15 +83,16 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
   },
   primaryText: {
-    color: colors.white,
+    color: colors.text,
   },
   secondary: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderWidth: 1,
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
+    borderWidth: 2,
+    ...shadows.soft,
   },
   secondaryText: {
-    color: colors.text,
+    color: colors.primaryDark,
   },
   text: {
     ...typography.button,

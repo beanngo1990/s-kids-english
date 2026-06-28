@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
-import { colors } from '../theme/colors';
 import { radius } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 
 const appLogo = require('../assets/images/app-logo.png');
 
@@ -21,16 +21,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     borderRadius: radius.xl,
-    elevation: 4,
     height: 128,
     overflow: 'hidden',
-    shadowColor: colors.shadow,
-    shadowOffset: {
-      height: 8,
-      width: 0,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
     width: 128,
+    ...shadows.floating,
   },
 });
