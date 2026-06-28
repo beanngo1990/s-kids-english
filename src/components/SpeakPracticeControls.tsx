@@ -413,7 +413,7 @@ export function SpeakPracticeControls({
               isModelButtonDisabled && styles.disabled,
             ]}
           >
-            <SKidsIcon name="listen" size={44} />
+            <SKidsIcon name="listen" size={32} />
           </Pressable>
         ) : null}
       </View>
@@ -443,18 +443,19 @@ export function SpeakPracticeControls({
           ) : null}
         </View>
       ) : (
-        <Pressable
-          accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
-          accessibilityRole="button"
-          disabled={isDisabled}
-          onPress={handleRecordPress}
-          style={({ pressed }) => [
-            styles.recordButton,
-            isRecording && styles.listeningButton,
-            pressed && !isDisabled && styles.pressed,
-            isDisabled && styles.disabled,
-          ]}
-        >
+        <View style={styles.actions}>
+          <Pressable
+            accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
+            accessibilityRole="button"
+            disabled={isDisabled}
+            onPress={handleRecordPress}
+            style={({ pressed }) => [
+              styles.recordButton,
+              isRecording && styles.listeningButton,
+              pressed && !isDisabled && styles.pressed,
+              isDisabled && styles.disabled,
+            ]}
+          >
           {isRecording ? (
             <View style={styles.listeningMicWrap}>
               <Animated.View
@@ -479,11 +480,11 @@ export function SpeakPracticeControls({
                 ]}
               />
               <View style={styles.listeningMicCore}>
-                <SKidsIcon name="speak" size={84} />
+                <SKidsIcon name="speak" size={56} />
               </View>
             </View>
           ) : (
-            <SKidsIcon name="speak" size={76} />
+            <SKidsIcon name="speak" size={48} />
           )}
           <View
             style={[
@@ -495,7 +496,19 @@ export function SpeakPracticeControls({
               {isRecording ? 'Chạm để dừng' : 'Bé nói'}
             </Text>
           </View>
-        </Pressable>
+          </Pressable>
+          {onContinue && !isRecording ? (
+            <KidIconButton
+              accessibilityLabel="Tiếp tục"
+              disabled={disabled}
+              icon="next"
+              label="Tiếp tục"
+              onPress={onContinue}
+              size="md"
+              style={[styles.actionButton, styles.primaryAction]}
+            />
+          ) : null}
+        </View>
       )}
     </View>
   );
@@ -542,17 +555,17 @@ const styles = StyleSheet.create({
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 3,
-    height: 68,
+    height: 52,
     justifyContent: 'center',
-    width: 68,
+    width: 52,
     ...shadows.soft,
   },
   listeningButton: {
     backgroundColor: colors.transparent,
     borderWidth: 0,
     elevation: 0,
-    minHeight: 148,
-    minWidth: 210,
+    minHeight: 110,
+    minWidth: 160,
     shadowOpacity: 0,
   },
   listeningLabelPill: {
@@ -565,23 +578,23 @@ const styles = StyleSheet.create({
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 4,
-    height: 110,
+    height: 76,
     justifyContent: 'center',
-    width: 110,
+    width: 76,
     ...shadows.warm,
   },
   listeningMicWrap: {
     alignItems: 'center',
-    height: 124,
+    height: 84,
     justifyContent: 'center',
-    width: 124,
+    width: 84,
   },
   listeningRipple: {
     backgroundColor: colors.accent,
     borderRadius: radius.pill,
-    height: 112,
+    height: 78,
     position: 'absolute',
-    width: 112,
+    width: 78,
   },
   listeningRippleSecond: {
     backgroundColor: colors.secondary,
@@ -594,7 +607,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     borderColor: colors.white,
     flex: 1.35,
-    minHeight: 92,
+    minHeight: 76,
     ...shadows.warm,
   },
   prompt: {
@@ -614,14 +627,14 @@ const styles = StyleSheet.create({
   },
   recordButton: {
     alignItems: 'center',
-    alignSelf: 'center',
     backgroundColor: colors.primarySoft,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 3,
+    flex: 1,
     justifyContent: 'center',
-    minHeight: 128,
-    minWidth: 178,
+    minHeight: 96,
+    minWidth: 140,
     padding: spacing.sm,
     ...shadows.soft,
   },
@@ -645,7 +658,7 @@ const styles = StyleSheet.create({
     borderColor: colors.primarySoft,
     borderRadius: radius.xl,
     borderWidth: 1,
-    gap: spacing.xs,
+    gap: spacing.xxs,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
   },
@@ -653,15 +666,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderColor: colors.primarySoft,
     flex: 0.95,
-    minHeight: 86,
+    minHeight: 76,
   },
   statusIcon: {
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
     borderRadius: radius.pill,
-    height: 42,
+    height: 36,
     justifyContent: 'center',
-    width: 42,
+    width: 36,
   },
   voicePlaybackPill: {
     alignItems: 'center',
@@ -682,8 +695,8 @@ const styles = StyleSheet.create({
     color: colors.text,
     flex: 1,
     ...typography.title,
-    fontSize: 42,
-    lineHeight: 48,
+    fontSize: 32,
+    lineHeight: 38,
     textAlign: 'center',
   },
   wordPanel: {
@@ -692,7 +705,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     flexDirection: 'row',
     gap: spacing.sm,
-    minHeight: 72,
+    minHeight: 54,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
   },
