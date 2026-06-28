@@ -10,6 +10,7 @@ import {
 } from '../engine/AudioManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import {
   isVoiceRecorderAvailable,
@@ -239,9 +240,19 @@ export function SpeakPracticeControls({
             isDisabled && styles.disabled,
           ]}
         >
-          <Text style={styles.recordIcon}>{isRecording ? '■' : '🎤'}</Text>
+          {isRecording ? <View style={styles.stopIcon} /> : <MicIcon />}
         </Pressable>
       </View>
+    </View>
+  );
+}
+
+function MicIcon() {
+  return (
+    <View style={styles.micIcon}>
+      <View style={styles.micHead} />
+      <View style={styles.micStem} />
+      <View style={styles.micBase} />
     </View>
   );
 }
@@ -274,15 +285,38 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     justifyContent: 'center',
   },
+  micBase: {
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    height: 3,
+    width: 22,
+  },
+  micHead: {
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    height: 22,
+    width: 14,
+  },
+  micIcon: {
+    alignItems: 'center',
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  micStem: {
+    backgroundColor: colors.white,
+    height: 8,
+    width: 3,
+  },
   playButton: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
     borderWidth: 2,
-    height: 46,
-    width: 46,
+    height: 50,
+    width: 50,
   },
   playIcon: {
-    color: colors.text,
+    color: colors.primaryDark,
     fontSize: 20,
     fontWeight: '900',
     lineHeight: 24,
@@ -294,14 +328,14 @@ const styles = StyleSheet.create({
     width: 14,
   },
   pressed: {
-    opacity: 0.82,
-    transform: [{ scale: 0.96 }],
+    opacity: 0.9,
+    transform: [{ scale: 0.97 }],
   },
   promptingDot: {
     backgroundColor: colors.secondary,
   },
   prompt: {
-    color: colors.textSoft,
+    color: colors.primaryDark,
     flexShrink: 1,
     ...typography.caption,
   },
@@ -312,22 +346,11 @@ const styles = StyleSheet.create({
   },
   recordButton: {
     backgroundColor: colors.primary,
-    height: 56,
-    shadowColor: colors.shadow,
-    shadowOffset: {
-      height: 4,
-      width: 0,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 8,
-    width: 56,
-  },
-  recordIcon: {
-    color: colors.white,
-    fontSize: 24,
-    fontWeight: '900',
-    lineHeight: 30,
-    textAlign: 'center',
+    borderColor: colors.white,
+    borderWidth: 2,
+    height: 64,
+    width: 64,
+    ...shadows.soft,
   },
   recordedDot: {
     backgroundColor: colors.secondary,
@@ -337,21 +360,28 @@ const styles = StyleSheet.create({
   },
   root: {
     alignItems: 'center',
-    backgroundColor: colors.surfaceSoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 2,
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
+    borderRadius: radius.xl,
+    borderWidth: 1,
     flexDirection: 'row',
-    gap: spacing.xs,
-    minHeight: 66,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
+    gap: spacing.md,
+    minHeight: 82,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
   stopButton: {
     backgroundColor: colors.accent,
   },
+  stopIcon: {
+    backgroundColor: colors.white,
+    borderRadius: 4,
+    height: 18,
+    width: 18,
+  },
   word: {
     color: colors.text,
-    ...typography.body,
+    ...typography.title,
+    fontSize: 30,
   },
 });
