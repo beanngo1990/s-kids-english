@@ -121,6 +121,7 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
     do {
       voiceRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
       voiceRecorder?.delegate = self
+      voiceRecorder?.isMeteringEnabled = true
       voiceRecorder?.record()
       resolve(audioFilename.absoluteString)
     } catch {
@@ -139,6 +140,19 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
     recorder.stop()
     voiceRecorder = nil
     resolve(recorder.url.absoluteString)
+  }
+
+  @objc func getVoiceRecordingLevel(_ resolve: @escaping RCTPromiseResolveBlock,
+                                    rejecter reject: @escaping RCTPromiseRejectBlock) {
+    guard let recorder = voiceRecorder, recorder.isRecording else {
+      resolve(nil)
+      return
+    }
+
+    recorder.updateMeters()
+    let averagePower = recorder.averagePower(forChannel: 0)
+    let normalizedLevel = pow(10.0, Double(averagePower) / 20.0)
+    resolve(min(max(normalizedLevel, 0.0), 1.0))
   }
 
   private func finishSpeechPlayer(_ player: AVPlayer, didPlay: Bool) {

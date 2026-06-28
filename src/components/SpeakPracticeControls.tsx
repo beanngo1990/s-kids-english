@@ -18,6 +18,7 @@ import {
   speakWord,
 } from '../engine/AudioManager';
 import {
+  getVoiceRecordingLevel,
   isVoiceRecorderAvailable,
   playVoiceRecording,
   requestVoiceRecordingPermission,
@@ -46,7 +47,13 @@ type SpeakPracticeControlsProps = {
   word: string;
 };
 
-const maxRecordingDurationMs = 3200;
+const fallbackSingleWordRecordingMs = 5200;
+const fallbackPhraseRecordingMs = 7600;
+const levelPollIntervalMs = 120;
+const minListenBeforeSilenceStopMs = 900;
+const minVoiceLevel = 0.065;
+const noiseFloorMultiplier = 2.35;
+const silenceAfterSpeechMs = 900;
 const encourageText = 'Cô nghe rồi! Giỏi quá!';
 
 export function SpeakPracticeControls({
@@ -63,18 +70,30 @@ export function SpeakPracticeControls({
   );
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const levelPollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const listeningPulse = useRef(new Animated.Value(0)).current;
   const recordingUriRef = useRef<string | null>(null);
   const handledAutoStartRequestRef = useRef(0);
+  const hasDetectedSpeechRef = useRef(false);
+  const isFinishingRecordingRef = useRef(false);
+  const isPollingLevelRef = useRef(false);
+  const lastSpeechAtRef = useRef<number | null>(null);
+  const noiseFloorRef = useRef(0.025);
+  const recordingStartedAtRef = useRef(0);
+  const statusRef = useRef<RecordingStatus>(status);
+
+  useEffect(() => {
+    statusRef.current = status;
+  }, [status]);
 
   useEffect(() => {
     return () => {
-      clearRecordingTimer(timerRef);
-      if (status === 'recording') {
+      clearRecordingTimers(timerRef, levelPollTimerRef);
+      if (statusRef.current === 'recording') {
         stopVoiceRecording().catch(() => undefined);
       }
     };
-  }, [status]);
+  }, []);
 
   useEffect(() => {
     onBusyChange?.(status === 'prompting' || status === 'recording');
@@ -104,12 +123,21 @@ export function SpeakPracticeControls({
   }, [listeningPulse, status]);
 
   const finishRecording = useCallback(async () => {
-    clearRecordingTimer(timerRef);
+    if (
+      isFinishingRecordingRef.current ||
+      statusRef.current !== 'recording'
+    ) {
+      return;
+    }
+
+    isFinishingRecordingRef.current = true;
+    clearRecordingTimers(timerRef, levelPollTimerRef);
     const stoppedRecordingUri = await stopVoiceRecording();
     const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
 
     if (!nextRecordingUri) {
       setStatus('idle');
+      isFinishingRecordingRef.current = false;
       return;
     }
 
@@ -118,7 +146,81 @@ export function SpeakPracticeControls({
     setStatus('recorded');
     await playSoundEffect('yay');
     await speakVi(encourageText);
+    isFinishingRecordingRef.current = false;
   }, []);
+
+  const handleVoiceLevel = useCallback((level: number | null) => {
+    if (
+      level === null ||
+      statusRef.current !== 'recording' ||
+      isFinishingRecordingRef.current
+    ) {
+      return;
+    }
+
+    const now = Date.now();
+    const elapsedMs = now - recordingStartedAtRef.current;
+    const clampedLevel = Math.max(0, Math.min(1, level));
+
+    if (!hasDetectedSpeechRef.current) {
+      noiseFloorRef.current =
+        noiseFloorRef.current * 0.92 + Math.min(clampedLevel, 0.16) * 0.08;
+    }
+
+    const speechThreshold = Math.max(
+      minVoiceLevel,
+      noiseFloorRef.current * noiseFloorMultiplier,
+    );
+
+    if (clampedLevel >= speechThreshold) {
+      hasDetectedSpeechRef.current = true;
+      lastSpeechAtRef.current = now;
+      return;
+    }
+
+    if (
+      hasDetectedSpeechRef.current &&
+      lastSpeechAtRef.current !== null &&
+      elapsedMs >= minListenBeforeSilenceStopMs &&
+      now - lastSpeechAtRef.current >= silenceAfterSpeechMs
+    ) {
+      finishRecording().catch(() => undefined);
+    }
+  }, [finishRecording]);
+
+  const pollVoiceLevel = useCallback(async () => {
+    if (
+      isPollingLevelRef.current ||
+      isFinishingRecordingRef.current ||
+      statusRef.current !== 'recording'
+    ) {
+      return;
+    }
+
+    isPollingLevelRef.current = true;
+    try {
+      handleVoiceLevel(await getVoiceRecordingLevel());
+    } finally {
+      isPollingLevelRef.current = false;
+    }
+  }, [handleVoiceLevel]);
+
+  const startVoiceActivityMonitoring = useCallback((targetWord: string) => {
+    clearRecordingTimers(timerRef, levelPollTimerRef);
+    hasDetectedSpeechRef.current = false;
+    isPollingLevelRef.current = false;
+    lastSpeechAtRef.current = null;
+    noiseFloorRef.current = 0.025;
+    recordingStartedAtRef.current = Date.now();
+
+    timerRef.current = setTimeout(() => {
+      finishRecording().catch(() => undefined);
+    }, getFallbackRecordingDurationMs(targetWord));
+
+    levelPollTimerRef.current = setInterval(() => {
+      pollVoiceLevel().catch(() => undefined);
+    }, levelPollIntervalMs);
+  }, [finishRecording, pollVoiceLevel]);
 
   const beginRecording = useCallback(
     async ({
@@ -164,12 +266,10 @@ export function SpeakPracticeControls({
       recordingUriRef.current = nextRecordingUri;
       setRecordingUri(nextRecordingUri);
       setStatus('recording');
-      clearRecordingTimer(timerRef);
-      timerRef.current = setTimeout(() => {
-        finishRecording().catch(() => undefined);
-      }, maxRecordingDurationMs);
+      isFinishingRecordingRef.current = false;
+      startVoiceActivityMonitoring(word);
     },
-    [disabled, finishRecording, onAudioStart, status, word],
+    [disabled, onAudioStart, startVoiceActivityMonitoring, status, word],
   );
 
   useEffect(() => {
@@ -401,13 +501,27 @@ export function SpeakPracticeControls({
   );
 }
 
-function clearRecordingTimer(
-  timerRef: React.MutableRefObject<ReturnType<typeof setTimeout> | null>,
+function clearRecordingTimers(
+  timeoutRef: React.MutableRefObject<ReturnType<typeof setTimeout> | null>,
+  intervalRef: React.MutableRefObject<ReturnType<typeof setInterval> | null>,
 ) {
-  if (timerRef.current) {
-    clearTimeout(timerRef.current);
-    timerRef.current = null;
+  if (timeoutRef.current) {
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = null;
   }
+
+  if (intervalRef.current) {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  }
+}
+
+function getFallbackRecordingDurationMs(word: string) {
+  const wordCount = word.trim().split(/\s+/).filter(Boolean).length;
+
+  return wordCount > 1
+    ? fallbackPhraseRecordingMs
+    : fallbackSingleWordRecordingMs;
 }
 
 const styles = StyleSheet.create({
