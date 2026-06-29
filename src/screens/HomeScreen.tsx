@@ -1,15 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Pressable,
-  StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { AppCard } from '../components/AppCard';
+import { type SKidsIconName } from '../assets/icons/skids';
 import { AppLogo } from '../components/AppLogo';
 import { KidBadge } from '../components/KidBadge';
 import { KidIconButton } from '../components/KidIconButton';
@@ -24,36 +17,41 @@ import { typography } from '../theme/typography';
 import type { Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getSceneIconName } from '../utils/lessonIcons';
+import {
+  getCompletedSceneCount,
+  getNextScene,
+  isLessonComplete,
+  isSceneUnlocked,
+} from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type MapAlignment = 'left' | 'center' | 'right';
 
-const horizontalTrailDots = Array.from({ length: 7 }, (_, index) => index);
-const verticalTrailDots = Array.from({ length: 4 }, (_, index) => index);
+const connectorDots = Array.from({ length: 11 }, (_, index) => index);
+const connectorHeight = 82;
 
 export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const featuredLesson = lessons[0];
+  const scenes = useMemo(() => featuredLesson?.scenes ?? [], [featuredLesson]);
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
   );
-  const totalSceneCount = featuredLesson?.scenes.length ?? 0;
-  const completedSceneCount =
-    featuredLesson?.scenes.filter(scene => completedSceneIds.has(scene.id))
-      .length ?? 0;
-  const isFeaturedLessonComplete =
-    Boolean(featuredLesson) &&
-    totalSceneCount > 0 &&
-    completedSceneCount >= totalSceneCount;
-  const nextScene =
-    !isFeaturedLessonComplete && featuredLesson
-      ? featuredLesson.scenes.find(scene => !completedSceneIds.has(scene.id)) ??
-        featuredLesson.scenes[0]
-      : undefined;
-  const missionSubtitle = isFeaturedLessonComplete
-    ? 'Hoàn thành rồi! Bé nhận sticker nhé'
-    : `Tiếp theo: ${nextScene?.titleVi ?? 'Bắt đầu hành trình'}`;
-  const journeyScenes = featuredLesson?.scenes.slice(0, 4) ?? [];
+  const completedSceneCount = getCompletedSceneCount(scenes, completedSceneIds);
+  const isFeaturedLessonComplete = isLessonComplete(scenes, completedSceneIds);
+  const nextScene = isFeaturedLessonComplete
+    ? undefined
+    : getNextScene(scenes, completedSceneIds);
+  const pendingProgress = progress?.currentLessonProgress;
+  const shouldResumeProgress = Boolean(
+    pendingProgress && !completedSceneIds.has(pendingProgress.sceneId),
+  );
+  const rewardAlignment = getRewardAlignment(scenes.length);
+  const primaryLabel = isFeaturedLessonComplete ? 'MỞ QUÀ' : 'Chơi ngay';
+  const primaryIconName: SKidsIconName = isFeaturedLessonComplete
+    ? 'sticker'
+    : 'next';
 
   useEffect(() => {
     getProgress()
@@ -62,65 +60,36 @@ export function HomeScreen({ navigation }: Props) {
   }, []);
 
   const handleStart = () => {
-    if (progress?.currentLessonProgress) {
+    if (shouldResumeProgress && pendingProgress) {
       navigation.navigate('ScenePlayer', {
         learningMode: 'core',
-        lessonId: progress.currentLessonProgress.lessonId,
-        sceneId: progress.currentLessonProgress.sceneId,
+        lessonId: pendingProgress.lessonId,
+        sceneId: pendingProgress.sceneId,
       });
       return;
     }
 
-    if (featuredLesson) {
-      navigation.navigate('LessonPack', { lessonId: featuredLesson.id });
+    if (isFeaturedLessonComplete && featuredLesson) {
+      navigation.navigate('Reward', { lessonId: featuredLesson.id });
+      return;
+    }
+
+    if (featuredLesson && nextScene) {
+      navigation.navigate('ScenePlayer', {
+        learningMode: 'core',
+        lessonId: featuredLesson.id,
+        sceneId: nextScene.id,
+      });
       return;
     }
 
     navigation.navigate('LessonList');
   };
 
-  const renderJourneyNode = (scene: Scene | undefined, index: number) => {
-    if (!scene) {
-      return null;
-    }
-
-    const isCompleted = completedSceneIds.has(scene.id);
-    const isCurrent =
-      nextScene?.id === scene.id ||
-      (isFeaturedLessonComplete && index === totalSceneCount - 1);
-    const isUnlocked = isCompleted || isCurrent;
-    const accessibilityLabel = isUnlocked
-      ? `${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi}`
-      : `${scene.titleVi} chưa mở khóa`;
-
-    return (
-      <LevelNode
-        accessibilityLabel={accessibilityLabel}
-        iconName={getSceneIconName(scene)}
-        index={index}
-        isCompleted={isCompleted}
-        isCurrent={isCurrent}
-        isLocked={!isUnlocked}
-        key={scene.id}
-        onPress={() => {
-          if (!featuredLesson || !isUnlocked) {
-            return;
-          }
-
-          navigation.navigate('ScenePlayer', {
-            learningMode: 'core',
-            lessonId: featuredLesson.id,
-            sceneId: scene.id,
-          });
-        }}
-      />
-    );
-  };
-
   return (
     <Screen scroll>
       <View style={styles.container}>
-        <View style={styles.skyDecor}>
+        <View pointerEvents="none" style={styles.skyDecor}>
           <View style={[styles.cloud, styles.cloudLeft]} />
           <View style={[styles.cloud, styles.cloudBottom]} />
           <Text style={[styles.sparkle, styles.sparkleTop]}>★</Text>
@@ -129,7 +98,7 @@ export function HomeScreen({ navigation }: Props) {
 
         <View style={styles.topBar}>
           <View style={styles.brandCluster}>
-            <AppLogo size={76} />
+            <AppLogo size={64} />
             <View style={styles.brandText}>
               <Text style={styles.title}>S-Kids</Text>
               <KidBadge tone="sun">English Quest</KidBadge>
@@ -146,74 +115,111 @@ export function HomeScreen({ navigation }: Props) {
         </View>
 
         {featuredLesson ? (
-          <View style={styles.gameWorld}>
-            <AppCard style={styles.questCard}>
-              <View style={styles.questHeader}>
-                <View style={styles.questText}>
-                  <View style={styles.questBadgeRow}>
-                    <KidBadge tone="teal">Nhiệm vụ hôm nay</KidBadge>
-                    <View style={styles.questRewardChip}>
-                      <SKidsIcon name="star" size={26} />
-                      <Text style={styles.questRewardText}>
-                        {completedSceneCount}/{totalSceneCount}
-                      </Text>
-                    </View>
-                  </View>
-                  <Text style={styles.questTitle}>
-                    {featuredLesson.titleVi}
-                  </Text>
-                  <Text style={styles.questSubtitle}>{missionSubtitle}</Text>
-                </View>
+          <View style={styles.world}>
+            <View style={styles.mapHeader}>
+              <View style={styles.lessonTitleGroup}>
+                <KidBadge tone="teal">Bản đồ học tập</KidBadge>
+                <Text style={styles.mapTitle}>{featuredLesson.titleVi}</Text>
+              </View>
+              <View style={styles.progressChip}>
+                <SKidsIcon name="star" size={24} />
+                <Text style={styles.progressChipText}>
+                  {completedSceneCount}/{scenes.length}
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.learningMap}>
+              <View pointerEvents="none" style={styles.mapBackdrop}>
+                <View style={[styles.mapHill, styles.mapHillLeft]} />
+                <View style={[styles.mapHill, styles.mapHillRight]} />
+                <Text style={[styles.mapStar, styles.mapStarOne]}>★</Text>
+                <Text style={[styles.mapStar, styles.mapStarTwo]}>★</Text>
               </View>
 
-              <View style={styles.levelPath}>
-                <View style={styles.pathRow}>
-                  {renderJourneyNode(journeyScenes[0], 0)}
-                  <DottedTrail
-                    isComplete={completedSceneCount > 0}
-                    style={styles.topTrail}
-                  />
-                  {renderJourneyNode(journeyScenes[1], 1)}
-                </View>
+              {scenes.map((scene, index) => {
+                const alignment = getMapAlignment(index);
+                const nextAlignment =
+                  index < scenes.length - 1
+                    ? getMapAlignment(index + 1)
+                    : rewardAlignment;
+                const isCompleted = completedSceneIds.has(scene.id);
+                const isCurrent =
+                  !isFeaturedLessonComplete && nextScene?.id === scene.id;
+                const isUnlocked = isSceneUnlocked(
+                  scenes,
+                  scene,
+                  completedSceneIds,
+                );
 
-                <DottedTrail
-                  isComplete={completedSceneCount > 1}
-                  style={styles.dropTrail}
-                  vertical
-                />
+                return (
+                  <React.Fragment key={scene.id}>
+                    <SceneMapStop
+                      alignment={alignment}
+                      index={index}
+                      isCompleted={isCompleted}
+                      isCurrent={isCurrent}
+                      isLocked={!isUnlocked}
+                      scene={scene}
+                      onPress={() => {
+                        if (!isUnlocked) {
+                          return;
+                        }
 
-                <View style={[styles.pathRow, styles.pathRowReverse]}>
-                  {renderJourneyNode(journeyScenes[2], 2)}
-                  <DottedTrail
-                    isComplete={completedSceneCount > 2}
-                    style={styles.bottomTrail}
-                  />
-                  {renderJourneyNode(journeyScenes[3], 3)}
-                </View>
-              </View>
-            </AppCard>
+                        navigation.navigate('ScenePlayer', {
+                          learningMode: 'core',
+                          lessonId: featuredLesson.id,
+                          sceneId: scene.id,
+                        });
+                      }}
+                    />
+                    <MapConnector
+                      from={alignment}
+                      isComplete={isCompleted}
+                      to={nextAlignment}
+                    />
+                  </React.Fragment>
+                );
+              })}
+
+              <RewardMapStop
+                alignment={rewardAlignment}
+                isUnlocked={isFeaturedLessonComplete}
+                onPress={() =>
+                  navigation.navigate('Reward', { lessonId: featuredLesson.id })
+                }
+              />
+            </View>
 
             <View style={styles.playCluster}>
               <PlayNowButton
-                accessibilityLabel="Bắt đầu học"
-                label="Chơi ngay"
+                accessibilityLabel={
+                  isFeaturedLessonComplete ? 'Mở quà' : 'Chơi ngay'
+                }
+                iconName={primaryIconName}
+                isReward={isFeaturedLessonComplete}
+                label={primaryLabel}
                 onPress={handleStart}
               />
               <View style={styles.sideActions}>
                 <KidIconButton
-                  accessibilityLabel="Bản đồ bài học"
+                  accessibilityLabel="Xem gói bài học"
                   icon="map"
-                  label="Bản đồ"
-                  onPress={() => navigation.navigate('LessonList')}
+                  label="Gói bài"
+                  onPress={() =>
+                    navigation.navigate('LessonPack', {
+                      lessonId: featuredLesson.id,
+                    })
+                  }
                   size="md"
                   style={styles.sideActionButton}
                   tone="secondary"
                 />
                 <KidIconButton
-                  accessibilityLabel="Sticker của bé"
+                  accessibilityLabel="Album sticker của bé"
                   disabled={!isFeaturedLessonComplete}
                   icon="sticker"
-                  label="Sticker"
+                  label="Album"
                   onPress={() =>
                     navigation.navigate('Reward', {
                       lessonId: featuredLesson.id,
@@ -232,25 +238,29 @@ export function HomeScreen({ navigation }: Props) {
   );
 }
 
-type LevelNodeProps = {
-  accessibilityLabel: string;
-  iconName: ReturnType<typeof getSceneIconName>;
+type SceneMapStopProps = {
+  alignment: MapAlignment;
   index: number;
   isCompleted: boolean;
   isCurrent: boolean;
   isLocked: boolean;
   onPress: () => void;
+  scene: Scene;
 };
 
-function LevelNode({
-  accessibilityLabel,
-  iconName,
+function SceneMapStop({
+  alignment,
   index,
   isCompleted,
   isCurrent,
   isLocked,
   onPress,
-}: LevelNodeProps) {
+  scene,
+}: SceneMapStopProps) {
+  const accessibilityLabel = isLocked
+    ? `${scene.titleVi} chưa mở khóa`
+    : `${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi}`;
+
   return (
     <Pressable
       accessibilityLabel={accessibilityLabel}
@@ -259,74 +269,153 @@ function LevelNode({
       disabled={isLocked}
       onPress={onPress}
       style={({ pressed }) => [
-        styles.levelNode,
-        isCompleted && styles.levelNodeDone,
-        isCurrent && styles.levelNodeCurrent,
-        isLocked && styles.levelNodeLocked,
-        pressed && !isLocked && styles.levelNodePressed,
+        styles.mapStop,
+        alignment === 'left' && styles.mapStopLeft,
+        alignment === 'center' && styles.mapStopCenter,
+        alignment === 'right' && styles.mapStopRight,
+        pressed && !isLocked && styles.mapStopPressed,
       ]}
     >
-      {isCurrent ? <View style={styles.levelNodeGlow} /> : null}
-      <SKidsIcon
-        name={iconName}
-        size={isCurrent ? 66 : 58}
-        style={!isCurrent && isCompleted ? styles.levelIconDone : undefined}
-      />
-      <View style={styles.levelBadge}>
-        <Text style={styles.levelNumber}>{index + 1}</Text>
-      </View>
-      {isCompleted ? (
-        <View style={styles.levelTick}>
-          <Text style={styles.levelTickText}>✓</Text>
+      <View
+        style={[
+          styles.stopNode,
+          isCompleted && styles.stopNodeDone,
+          isCurrent && styles.stopNodeCurrent,
+          isLocked && styles.stopNodeLocked,
+        ]}
+      >
+        {isCurrent ? <View style={styles.stopGlow} /> : null}
+        <SKidsIcon
+          name={getSceneIconName(scene)}
+          size={isCurrent ? 96 : 86}
+          style={isLocked ? styles.lockedIcon : undefined}
+        />
+        <View style={styles.stopNumber}>
+          <Text style={styles.stopNumberText}>{index + 1}</Text>
         </View>
-      ) : null}
+        {isCompleted ? (
+          <View style={styles.doneBadge}>
+            <Text style={styles.doneBadgeText}>✓</Text>
+          </View>
+        ) : null}
+        {isLocked ? (
+          <View style={styles.lockBadge}>
+            <SKidsIcon name="parentLock" size={28} />
+          </View>
+        ) : null}
+      </View>
+      <Text
+        numberOfLines={2}
+        style={[styles.stopTitle, isLocked && styles.stopTitleLocked]}
+      >
+        {scene.titleVi}
+      </Text>
     </Pressable>
   );
 }
 
-type DottedTrailProps = {
-  isComplete: boolean;
-  style?: StyleProp<ViewStyle>;
-  vertical?: boolean;
+type RewardMapStopProps = {
+  alignment: MapAlignment;
+  isUnlocked: boolean;
+  onPress: () => void;
 };
 
-function DottedTrail({
-  isComplete,
-  style,
-  vertical = false,
-}: DottedTrailProps) {
-  const dots = vertical ? verticalTrailDots : horizontalTrailDots;
-
+function RewardMapStop({
+  alignment,
+  isUnlocked,
+  onPress,
+}: RewardMapStopProps) {
   return (
-    <View
-      pointerEvents="none"
-      style={[
-        styles.dottedTrail,
-        vertical ? styles.dottedTrailVertical : styles.dottedTrailHorizontal,
-        style,
+    <Pressable
+      accessibilityLabel={isUnlocked ? 'Mở quà' : 'Quà tặng chưa mở khóa'}
+      accessibilityRole="button"
+      accessibilityState={{ disabled: !isUnlocked }}
+      disabled={!isUnlocked}
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.mapStop,
+        alignment === 'left' && styles.mapStopLeft,
+        alignment === 'center' && styles.mapStopCenter,
+        alignment === 'right' && styles.mapStopRight,
+        pressed && isUnlocked && styles.mapStopPressed,
       ]}
     >
-      {dots.map(dot => (
-        <View
-          key={dot}
-          style={[
-            styles.trailDot,
-            isComplete ? styles.trailDotDone : styles.trailDotIdle,
-          ]}
+      <View
+        style={[
+          styles.stopNode,
+          styles.rewardNode,
+          isUnlocked ? styles.rewardNodeOpen : styles.stopNodeLocked,
+        ]}
+      >
+        {isUnlocked ? <View style={styles.rewardGlow} /> : null}
+        <SKidsIcon
+          name="star"
+          size={isUnlocked ? 98 : 86}
+          style={!isUnlocked ? styles.lockedIcon : undefined}
         />
-      ))}
+        {!isUnlocked ? (
+          <View style={styles.lockBadge}>
+            <SKidsIcon name="parentLock" size={28} />
+          </View>
+        ) : null}
+      </View>
+      <Text
+        numberOfLines={1}
+        style={[styles.stopTitle, !isUnlocked && styles.stopTitleLocked]}
+      >
+        Quà tặng
+      </Text>
+    </Pressable>
+  );
+}
+
+type MapConnectorProps = {
+  from: MapAlignment;
+  isComplete: boolean;
+  to: MapAlignment;
+};
+
+function MapConnector({ from, isComplete, to }: MapConnectorProps) {
+  const fromX = getAlignmentX(from);
+  const toX = getAlignmentX(to);
+
+  return (
+    <View pointerEvents="none" style={styles.connector}>
+      {connectorDots.map(dot => {
+        const progress = (dot + 1) / (connectorDots.length + 1);
+        const x = fromX + (toX - fromX) * progress;
+        const y = progress * connectorHeight;
+
+        return (
+          <View
+            key={dot}
+            style={[
+              styles.connectorDot,
+              isComplete ? styles.connectorDotDone : styles.connectorDotIdle,
+              {
+                left: percent(x),
+                top: y,
+              },
+            ]}
+          />
+        );
+      })}
     </View>
   );
 }
 
 type PlayNowButtonProps = {
   accessibilityLabel: string;
+  iconName: SKidsIconName;
+  isReward: boolean;
   label: string;
   onPress: () => void;
 };
 
 function PlayNowButton({
   accessibilityLabel,
+  iconName,
+  isReward,
   label,
   onPress,
 }: PlayNowButtonProps) {
@@ -337,12 +426,13 @@ function PlayNowButton({
       onPress={onPress}
       style={({ pressed }) => [
         styles.playNowButton,
+        isReward && styles.playNowButtonReward,
         pressed && styles.playNowButtonPressed,
       ]}
     >
       <View style={styles.playGlowOuter} />
       <View style={styles.playGlowInner} />
-      <SKidsIcon name="next" size={92} style={styles.playNowIcon} />
+      <SKidsIcon name={iconName} size={92} style={styles.playNowIcon} />
       <View style={styles.playLabelPill}>
         <Text numberOfLines={1} style={styles.playLabel}>
           {label}
@@ -350,6 +440,34 @@ function PlayNowButton({
       </View>
     </Pressable>
   );
+}
+
+function getMapAlignment(index: number): MapAlignment {
+  return index % 2 === 0 ? 'left' : 'right';
+}
+
+function getRewardAlignment(sceneCount: number): MapAlignment {
+  if (sceneCount < 2) {
+    return 'right';
+  }
+
+  return 'center';
+}
+
+function getAlignmentX(alignment: MapAlignment) {
+  switch (alignment) {
+    case 'left':
+      return 24;
+    case 'right':
+      return 76;
+    case 'center':
+    default:
+      return 50;
+  }
+}
+
+function percent(value: number): `${number}%` {
+  return `${value}%`;
 }
 
 const styles = StyleSheet.create({
@@ -361,20 +479,11 @@ const styles = StyleSheet.create({
   brandText: {
     gap: spacing.xs,
   },
-  bottomTrail: {
-    marginHorizontal: -spacing.xs,
-  },
   cloud: {
     backgroundColor: colors.white,
     borderRadius: radius.pill,
     opacity: 0.42,
     position: 'absolute',
-  },
-  cloudLeft: {
-    height: 72,
-    left: -54,
-    top: 142,
-    width: 150,
   },
   cloudBottom: {
     bottom: 40,
@@ -382,139 +491,168 @@ const styles = StyleSheet.create({
     left: 48,
     width: 220,
   },
+  cloudLeft: {
+    height: 72,
+    left: -54,
+    top: 142,
+    width: 150,
+  },
+  connector: {
+    height: connectorHeight,
+    position: 'relative',
+  },
+  connectorDot: {
+    borderRadius: radius.pill,
+    height: 12,
+    marginLeft: -6,
+    marginTop: -6,
+    position: 'absolute',
+    width: 12,
+  },
+  connectorDotDone: {
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderWidth: 2,
+  },
+  connectorDotIdle: {
+    backgroundColor: colors.white,
+    borderColor: colors.borderWarm,
+    borderWidth: 2,
+  },
   container: {
-    gap: spacing.xl,
+    gap: spacing.lg,
     minHeight: 720,
     overflow: 'hidden',
     paddingBottom: spacing.xl,
     paddingTop: spacing.md,
   },
-  gameWorld: {
-    gap: spacing.lg,
-  },
-  dottedTrail: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  dottedTrailHorizontal: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingHorizontal: spacing.xs,
-  },
-  dottedTrailVertical: {
-    flexDirection: 'column',
-  },
-  dropTrail: {
-    alignSelf: 'flex-end',
-    height: 38,
-    marginRight: 45,
-    marginVertical: -spacing.xs,
-    width: 18,
-  },
-  levelBadge: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    bottom: -5,
-    height: 28,
-    justifyContent: 'center',
-    position: 'absolute',
-    right: -5,
-    width: 28,
-    ...shadows.soft,
-  },
-  levelIconDone: {
-    opacity: 0.76,
-  },
-  levelNode: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.border,
-    borderRadius: 34,
-    borderWidth: 3,
-    height: 96,
-    justifyContent: 'center',
-    position: 'relative',
-    width: 96,
-    zIndex: 1,
-    ...shadows.soft,
-  },
-  levelNodeCurrent: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    height: 108,
-    width: 108,
-    ...shadows.warm,
-  },
-  levelNodeDone: {
-    backgroundColor: colors.primarySoft,
-    borderColor: colors.primary,
-  },
-  levelNodeGlow: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 4,
-    bottom: -10,
-    left: -10,
-    opacity: 0.62,
-    position: 'absolute',
-    right: -10,
-    top: -10,
-  },
-  levelNodeLocked: {
-    opacity: 0.5,
-  },
-  levelNodePressed: {
-    opacity: 0.9,
-    transform: [{ translateY: 2 }, { scale: 0.97 }],
-  },
-  levelNumber: {
-    color: colors.text,
-    ...typography.caption,
-  },
-  levelPath: {
-    gap: spacing.xs,
-    paddingBottom: spacing.xs,
-    paddingHorizontal: spacing.xs,
-    paddingTop: spacing.sm,
-  },
-  levelTick: {
+  doneBadge: {
     alignItems: 'center',
     backgroundColor: colors.green,
     borderColor: colors.white,
     borderRadius: radius.pill,
-    borderWidth: 3,
-    height: 30,
+    borderWidth: 4,
+    height: 42,
     justifyContent: 'center',
     position: 'absolute',
     right: -8,
     top: -8,
-    width: 30,
+    width: 42,
     ...shadows.soft,
   },
-  levelTickText: {
+  doneBadgeText: {
     color: colors.white,
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: '900',
-    lineHeight: 21,
+    lineHeight: 29,
   },
-  pathRow: {
+  learningMap: {
+    minHeight: 420,
+    paddingHorizontal: spacing.xs,
+    paddingTop: spacing.md,
+    position: 'relative',
+  },
+  lessonTitleGroup: {
+    flex: 1,
+    gap: spacing.xs,
+  },
+  lockBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    bottom: 4,
+    height: 42,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 0,
+    width: 42,
+    ...shadows.soft,
+  },
+  lockedIcon: {
+    opacity: 0.32,
+  },
+  mapBackdrop: {
+    bottom: 0,
+    left: 0,
+    overflow: 'hidden',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  mapHeader: {
     alignItems: 'center',
     flexDirection: 'row',
-    minHeight: 110,
+    gap: spacing.md,
+    justifyContent: 'space-between',
   },
-  pathRowReverse: {
-    flexDirection: 'row-reverse',
+  mapHill: {
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    opacity: 0.28,
+    position: 'absolute',
+  },
+  mapHillLeft: {
+    height: 164,
+    left: -82,
+    top: 90,
+    width: 260,
+  },
+  mapHillRight: {
+    height: 220,
+    right: -130,
+    top: 360,
+    width: 330,
+  },
+  mapStar: {
+    color: colors.secondary,
+    fontSize: 22,
+    fontWeight: '900',
+    opacity: 0.58,
+    position: 'absolute',
+  },
+  mapStarOne: {
+    right: 62,
+    top: 44,
+    transform: [{ rotate: '14deg' }],
+  },
+  mapStarTwo: {
+    left: 72,
+    top: 330,
+    transform: [{ rotate: '-10deg' }],
+  },
+  mapStop: {
+    alignItems: 'center',
+    gap: spacing.xs,
+    width: 154,
+    zIndex: 1,
+  },
+  mapStopCenter: {
+    alignSelf: 'center',
+  },
+  mapStopLeft: {
+    alignSelf: 'flex-start',
+  },
+  mapStopPressed: {
+    opacity: 0.92,
+    transform: [{ translateY: 2 }, { scale: 0.98 }],
+  },
+  mapStopRight: {
+    alignSelf: 'flex-end',
+  },
+  mapTitle: {
+    color: colors.text,
+    ...typography.subtitle,
   },
   parentGate: {
     backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.pill,
-    height: 78,
-    minHeight: 78,
-    minWidth: 78,
-    width: 78,
+    height: 72,
+    minHeight: 72,
+    minWidth: 72,
+    width: 72,
     ...shadows.floating,
   },
   playCluster: {
@@ -574,26 +712,13 @@ const styles = StyleSheet.create({
     opacity: 0.92,
     transform: [{ translateY: 3 }, { scale: 0.98 }],
   },
+  playNowButtonReward: {
+    backgroundColor: colors.primary,
+  },
   playNowIcon: {
     marginTop: -spacing.xs,
   },
-  questBadgeRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-    justifyContent: 'space-between',
-  },
-  questCard: {
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
-    gap: spacing.lg,
-  },
-  questHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  questRewardChip: {
+  progressChip: {
     alignItems: 'center',
     backgroundColor: colors.white,
     borderColor: colors.borderWarm,
@@ -606,21 +731,30 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xxs,
     ...shadows.soft,
   },
-  questRewardText: {
+  progressChipText: {
     color: colors.textSoft,
     ...typography.caption,
   },
-  questSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
+  rewardGlow: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 5,
+    bottom: -12,
+    left: -12,
+    opacity: 0.78,
+    position: 'absolute',
+    right: -12,
+    top: -12,
   },
-  questText: {
-    flex: 1,
-    gap: spacing.sm,
+  rewardNode: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
-  questTitle: {
-    color: colors.text,
-    ...typography.title,
+  rewardNodeOpen: {
+    backgroundColor: colors.white,
+    borderColor: colors.secondary,
+    ...shadows.warm,
   },
   sideActionButton: {
     borderRadius: radius.lg,
@@ -653,9 +787,79 @@ const styles = StyleSheet.create({
     top: 10,
     transform: [{ rotate: '12deg' }],
   },
+  stopGlow: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 5,
+    bottom: -12,
+    left: -12,
+    opacity: 0.78,
+    position: 'absolute',
+    right: -12,
+    top: -12,
+  },
+  stopNode: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 5,
+    height: 132,
+    justifyContent: 'center',
+    position: 'relative',
+    width: 132,
+    ...shadows.floating,
+  },
+  stopNodeCurrent: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    height: 142,
+    width: 142,
+  },
+  stopNodeDone: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  stopNodeLocked: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+  },
+  stopNumber: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    bottom: -4,
+    height: 34,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -4,
+    width: 34,
+    ...shadows.soft,
+  },
+  stopNumberText: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  stopTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 20,
+    maxWidth: 154,
+    textAlign: 'center',
+    width: 154,
+  },
+  stopTitleLocked: {
+    color: colors.muted,
+  },
   title: {
     color: colors.text,
-    ...typography.hero,
+    fontSize: 34,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 38,
   },
   topBar: {
     alignItems: 'center',
@@ -663,22 +867,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: spacing.sm,
   },
-  topTrail: {
-    marginHorizontal: -spacing.xs,
-  },
-  trailDot: {
-    borderRadius: radius.pill,
-    height: 9,
-    width: 9,
-  },
-  trailDotDone: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.white,
-    borderWidth: 1,
-  },
-  trailDotIdle: {
-    backgroundColor: colors.white,
-    borderColor: colors.borderWarm,
-    borderWidth: 1,
+  world: {
+    gap: spacing.md,
   },
 });
