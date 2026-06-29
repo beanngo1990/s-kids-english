@@ -5,6 +5,7 @@ import type { LearningMode } from '../types/lesson';
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
 export type ParentSettings = {
+  enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
   learningMode: LearningMode;
   updatedAt?: string;
@@ -39,6 +40,7 @@ export const learningDifficultyOptions: LearningDifficultyOption[] = [
 ];
 
 export const defaultParentSettings: ParentSettings = {
+  enableSceneEditor: false,
   hasCompletedOnboarding: false,
   learningMode: 'core',
 };
@@ -94,6 +96,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
   const settings = value as Partial<ParentSettings>;
 
   return {
+    enableSceneEditor: Boolean(settings.enableSceneEditor),
     hasCompletedOnboarding: Boolean(settings.hasCompletedOnboarding),
     learningMode: normalizeLearningMode(settings.learningMode),
     updatedAt:

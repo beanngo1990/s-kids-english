@@ -57,6 +57,7 @@ import {
   SceneObjectRenderer,
   type SceneObjectEffect,
 } from './SceneObjectRenderer';
+import { getParentSettings } from './ParentSettingsManager';
 import {
   canPressObjects,
   getInitialStep,
@@ -77,8 +78,6 @@ type FeedbackState = {
 };
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
-
-const showSceneEditorControl = true;
 
 type AutoRecordRequest = {
   requestId: number;
@@ -160,6 +159,7 @@ export function ScenePlayer({
     useState<AutoRecordRequest | null>(null);
   const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [showSceneEditorControl, setShowSceneEditorControl] = useState(false);
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
 
@@ -193,6 +193,14 @@ export function ScenePlayer({
   useEffect(() => {
     setSceneIndex(initialSceneIndex);
   }, [initialSceneIndex]);
+
+  useEffect(() => {
+    if (__DEV__) {
+      getParentSettings().then(settings => {
+        setShowSceneEditorControl(settings.enableSceneEditor || false);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     advanceRequestIdRef.current += 1;

@@ -21,6 +21,7 @@ import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
+import { saveParentSettings } from '../engine/ParentSettingsManager';
 
 const GATE_DURATION_MS = 3000;
 
@@ -28,6 +29,7 @@ export function ParentScreen() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [enableSceneEditor, setEnableSceneEditor] = useState(false);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,7 +73,10 @@ export function ParentScreen() {
       .then(setProgress)
       .catch(() => setProgress(null));
     getParentSettings()
-      .then(settings => setLearningMode(settings.learningMode))
+      .then(settings => {
+        setLearningMode(settings.learningMode);
+        setEnableSceneEditor(settings.enableSceneEditor || false);
+      })
       .catch(() => setLearningMode('core'));
   }, [isUnlocked]);
 
@@ -110,6 +115,12 @@ export function ParentScreen() {
     } finally {
       setSavingMode(null);
     }
+  };
+
+  const handleToggleSceneEditor = async () => {
+    const nextState = !enableSceneEditor;
+    setEnableSceneEditor(nextState);
+    await saveParentSettings({ enableSceneEditor: nextState });
   };
 
   if (!isUnlocked) {
@@ -218,6 +229,37 @@ export function ParentScreen() {
           thông tin trẻ em.
         </Text>
       </AppCard>
+
+      {__DEV__ && (
+        <AppCard style={styles.settingsCard}>
+          <View style={styles.sectionHeader}>
+            <View style={styles.sectionTitleGroup}>
+              <KidBadge tone="alert">DEV ONLY</KidBadge>
+              <Text style={styles.privacyTitle}>Công cụ nội bộ</Text>
+            </View>
+          </View>
+          <Pressable
+            accessibilityRole="switch"
+            accessibilityState={{ checked: enableSceneEditor }}
+            onPress={handleToggleSceneEditor}
+            style={({ pressed }) => [
+              styles.difficultyOption,
+              enableSceneEditor && styles.difficultyOptionSelected,
+              pressed && styles.pressed,
+            ]}
+          >
+            <View style={styles.difficultyText}>
+              <Text style={styles.difficultyTitle}>Scene Editor</Text>
+              <Text style={styles.difficultySubtitle}>
+                Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.
+              </Text>
+            </View>
+            <Text style={styles.difficultyState}>
+              {enableSceneEditor ? 'Đang bật' : 'Đang tắt'}
+            </Text>
+          </Pressable>
+        </AppCard>
+      )}
     </Screen>
   );
 }
