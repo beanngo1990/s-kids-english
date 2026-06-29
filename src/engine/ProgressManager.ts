@@ -117,6 +117,10 @@ export async function saveSceneProgress(sceneId: string) {
     await saveProgress({
       ...currentProgress,
       completedSceneIds: addUnique(currentProgress.completedSceneIds, [sceneId]),
+      currentLessonProgress:
+        currentProgress.currentLessonProgress?.sceneId === sceneId
+          ? undefined
+          : currentProgress.currentLessonProgress,
     });
   } catch {
     // best effort

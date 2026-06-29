@@ -31,6 +31,7 @@ import { typography } from '../theme/typography';
 import type { LearningMode, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
+import { isSceneUnlocked } from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
@@ -64,6 +65,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   const openScene = (sceneId: string, learningMode: LearningMode = 'core') => {
     if (!lesson) {
+      return;
+    }
+
+    const scene = scenes.find(item => item.id === sceneId);
+
+    if (!scene || !isSceneUnlocked(scenes, scene, completedSceneIds)) {
       return;
     }
 
@@ -147,6 +154,8 @@ export function LessonPackScreen({ navigation, route }: Props) {
           const isCompleted = completedSceneIds.has(scene.id);
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
+          const isUnlocked = isSceneUnlocked(scenes, scene, completedSceneIds);
+          const isLocked = !isUnlocked;
           const rewardStars = scene.completionReward?.stars ?? 3;
           const availableLearningModes = getAvailableLearningModes(scene);
           const coreScene = getSceneForLearningMode(scene, 'core');
@@ -156,11 +165,13 @@ export function LessonPackScreen({ navigation, route }: Props) {
           return (
             <Pressable
               accessibilityRole="button"
+              accessibilityState={{ disabled: isLocked }}
+              disabled={isLocked}
               key={scene.id}
               onPress={() => openScene(scene.id)}
               style={({ pressed }) => [
                 styles.scenePressable,
-                pressed && styles.pressed,
+                pressed && !isLocked && styles.pressed,
               ]}
             >
               <AppCard
@@ -168,6 +179,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   styles.sceneCard,
                   isCompleted && styles.sceneCardDone,
                   isNext && styles.sceneCardNext,
+                  isLocked && styles.sceneCardLocked,
                 ]}
               >
                 <View style={styles.sceneTopRow}>
@@ -188,14 +200,22 @@ export function LessonPackScreen({ navigation, route }: Props) {
                         ? `Đã xong · ${rewardStars} sao`
                         : isNext
                           ? 'Học tiếp'
-                          : 'Sẵn sàng'}
+                          : 'Đang khóa'}
                     </Text>
                   </View>
                 </View>
 
                 <View style={styles.sceneMainContent}>
-                  <View style={styles.sceneIconContainer}>
-                    <SKidsIcon name={getSceneIconName(scene)} size={64} />
+                  <View
+                    style={[
+                      styles.sceneIconContainer,
+                      isLocked && styles.sceneIconContainerLocked,
+                    ]}
+                  >
+                    <SKidsIcon
+                      name={isLocked ? 'parentLock' : getSceneIconName(scene)}
+                      size={64}
+                    />
                   </View>
                   <View style={styles.sceneTextContainer}>
                     <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
@@ -212,7 +232,14 @@ export function LessonPackScreen({ navigation, route }: Props) {
                     </Text>
                   </View>
                 ) : null}
-                {availableLearningModes.length > 1 ? (
+                {isLocked ? (
+                  <View style={styles.lockedHintBubble}>
+                    <Text style={styles.lockedHint}>
+                      Hoàn thành trạm trước để mở khóa.
+                    </Text>
+                  </View>
+                ) : null}
+                {isUnlocked && availableLearningModes.length > 1 ? (
                   <View style={styles.modeRow}>
                     {availableLearningModes.map(learningMode => (
                       <Pressable
@@ -367,6 +394,13 @@ const styles = StyleSheet.create({
     borderColor: colors.accent,
     borderWidth: 2,
   },
+  sceneCardLocked: {
+    opacity: 0.66,
+  },
+  sceneIconContainerLocked: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+  },
   sceneList: {
     gap: spacing.md,
   },
@@ -426,6 +460,17 @@ const styles = StyleSheet.create({
   nextHintBubble: {
     alignSelf: 'flex-start',
     backgroundColor: colors.accentSoft,
+    borderRadius: radius.pill,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+  },
+  lockedHint: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lockedHintBubble: {
+    alignSelf: 'flex-start',
+    backgroundColor: colors.surfaceBlue,
     borderRadius: radius.pill,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
