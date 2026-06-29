@@ -31,6 +31,238 @@ const voices = {
     name: process.env.GOOGLE_TTS_VI_VOICE ?? 'vi-VN-Chirp3-HD-Aoede',
   },
 };
+const legacyViAudioKeyByText = new Map(
+  [
+    [
+      'Mình bắt đầu với cái giường nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_bed_intro.wav',
+    ],
+    [
+      'Đây là cái giường.',
+      'lessons/morning-routine/bedroom/audio/vi/bed_meaning.wav',
+    ],
+    [
+      'Chạm vào cái giường nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_bed.wav',
+    ],
+    [
+      'Thử chạm cái giường nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_bed_fail.wav',
+    ],
+    [
+      'Tiếp theo là cái chăn nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_blanket_intro.wav',
+    ],
+    [
+      'Đây là cái chăn.',
+      'lessons/morning-routine/bedroom/audio/vi/blanket_meaning.wav',
+    ],
+    [
+      'Kéo chăn gọn nào.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_blanket.wav',
+    ],
+    [
+      'Gọn gàng quá!',
+      'lessons/morning-routine/bedroom/audio/vi/blanket_success.wav',
+    ],
+    [
+      'Kéo chăn vào vùng sáng nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_blanket_fail.wav',
+    ],
+    [
+      'Bây giờ mình nhìn mặt trời nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_sun_intro.wav',
+    ],
+    [
+      'Đây là mặt trời.',
+      'lessons/morning-routine/bedroom/audio/vi/sun_meaning.wav',
+    ],
+    [
+      'Chạm vào mặt trời cho sáng nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_sun.wav',
+    ],
+    [
+      'Mặt trời đang ở trên cao đó.',
+      'lessons/morning-routine/bedroom/audio/vi/sun_fail.wav',
+    ],
+    [
+      'Phòng sáng rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/sun_success.wav',
+    ],
+    [
+      'Trên giường có cái gối.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_pillow_intro.wav',
+    ],
+    [
+      'Đây là cái gối.',
+      'lessons/morning-routine/bedroom/audio/vi/pillow_meaning.wav',
+    ],
+    [
+      'Gối ở trên giường đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_pillow_fail.wav',
+    ],
+    [
+      'Chạm vào cái gối nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_pillow.wav',
+    ],
+    [
+      'Đúng rồi, đó là cái gối.',
+      'lessons/morning-routine/bedroom/audio/vi/pillow_success.wav',
+    ],
+    [
+      'Đây là cái đèn ngủ.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_lamp_intro.wav',
+    ],
+    [
+      'Từ này nghĩa là đèn ngủ.',
+      'lessons/morning-routine/bedroom/audio/vi/lamp_meaning.wav',
+    ],
+    [
+      'Đèn ngủ ở cạnh giường đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_lamp_fail.wav',
+    ],
+    [
+      'Chạm vào đèn ngủ nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_lamp.wav',
+    ],
+    [
+      'Con tìm thấy đèn ngủ rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/lamp_success.wav',
+    ],
+    [
+      'Trên tường có cái đồng hồ.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_clock_intro.wav',
+    ],
+    [
+      'Từ này nghĩa là đồng hồ.',
+      'lessons/morning-routine/bedroom/audio/vi/clock_meaning.wav',
+    ],
+    [
+      'Đồng hồ ở trên tường đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_clock_fail.wav',
+    ],
+    [
+      'Chạm vào đồng hồ nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_clock.wav',
+    ],
+    [
+      'Đúng rồi, đó là đồng hồ.',
+      'lessons/morning-routine/bedroom/audio/vi/clock_success.wav',
+    ],
+    [
+      'Đây là cái hộp.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_box_intro.wav',
+    ],
+    [
+      'Từ này nghĩa là cái hộp.',
+      'lessons/morning-routine/bedroom/audio/vi/box_meaning.wav',
+    ],
+    [
+      'Cái hộp ở bên phải đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_box_fail.wav',
+    ],
+    [
+      'Chạm vào cái hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_box.wav',
+    ],
+    [
+      'Đúng rồi, đó là cái hộp.',
+      'lessons/morning-routine/bedroom/audio/vi/box_success.wav',
+    ],
+    [
+      'Đây là đôi tất.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_socks_intro.wav',
+    ],
+    [
+      'Từ này nghĩa là đôi tất.',
+      'lessons/morning-routine/bedroom/audio/vi/socks_meaning.wav',
+    ],
+    [
+      'Đôi tất ở gần giường đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_socks_fail.wav',
+    ],
+    [
+      'Chạm vào đôi tất nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_socks.wav',
+    ],
+    [
+      'Con tìm thấy đôi tất rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/socks_success.wav',
+    ],
+    [
+      'Đây là búp bê.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_doll_intro.wav',
+    ],
+    [
+      'Từ này nghĩa là búp bê.',
+      'lessons/morning-routine/bedroom/audio/vi/doll_meaning.wav',
+    ],
+    [
+      'Búp bê ở cạnh giường đó.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_doll_fail.wav',
+    ],
+    [
+      'Chạm vào búp bê nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/tap_doll.wav',
+    ],
+    [
+      'Đúng rồi, đó là búp bê.',
+      'lessons/morning-routine/bedroom/audio/vi/doll_success.wav',
+    ],
+    [
+      'Mình cùng chào buổi sáng nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_good_morning_intro.wav',
+    ],
+    [
+      'Câu này nghĩa là chào buổi sáng.',
+      'lessons/morning-routine/bedroom/audio/vi/good_morning_meaning.wav',
+    ],
+    [
+      'Mình học câu dọn giường nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/teach_make_the_bed_intro.wav',
+    ],
+    [
+      'Câu này nghĩa là dọn giường.',
+      'lessons/morning-routine/bedroom/audio/vi/make_the_bed_meaning.wav',
+    ],
+    [
+      'Cất gối vào hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_pillow_to_box.wav',
+    ],
+    [
+      'Kéo gối vào cái hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_pillow_to_box_fail.wav',
+    ],
+    [
+      'Gối đã ở trong hộp rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/pillow_in_box_success.wav',
+    ],
+    [
+      'Cất chăn vào hộp để dọn giường nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_blanket_to_box.wav',
+    ],
+    [
+      'Kéo chăn vào cái hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_blanket_to_box_fail.wav',
+    ],
+    [
+      'Giường gọn gàng rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/make_the_bed_success.wav',
+    ],
+    [
+      'Cất tất vào hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_socks_to_box.wav',
+    ],
+    [
+      'Kéo tất vào cái hộp nhé.',
+      'lessons/morning-routine/bedroom/audio/vi/drag_socks_to_box_fail.wav',
+    ],
+    [
+      'Tất đã ở trong hộp rồi!',
+      'lessons/morning-routine/bedroom/audio/vi/socks_in_box_success.wav',
+    ],
+  ].map(([text, key]) => [normalizeText(text), key]),
+);
 
 globalThis.__DEV__ = false;
 
@@ -277,9 +509,10 @@ function addViTarget(targets, { defaultKey, existingViAudio, text }) {
     return;
   }
 
+  const legacyKey = getLegacyViAudioKey(text);
   const existingAsset = existingViAudio?.(text);
   addTarget(targets, {
-    key: existingAsset?.key ?? defaultKey,
+    key: legacyKey ?? existingAsset?.key ?? defaultKey,
     kind: 'vi',
     language: 'vi',
     lookupText: text,
@@ -298,6 +531,15 @@ function addTarget(targets, target) {
   }
 
   targets.set(mapKey, target);
+}
+
+function getLegacyViAudioKey(text) {
+  const key = legacyViAudioKeyByText.get(normalizeText(text));
+  if (!key || !existsSync(join(repoRoot, 'src/assets', key))) {
+    return undefined;
+  }
+
+  return key;
 }
 
 function getStepAudioKey(lessonId, sceneId, stepId, part) {
