@@ -7,6 +7,12 @@ import { Screen } from '../components/Screen';
 import { StatTile } from '../components/StatTile';
 import { lessons } from '../data/lessons';
 import {
+  getLearningDifficultyOption,
+  getParentSettings,
+  learningDifficultyOptions,
+  saveParentLearningMode,
+} from '../engine/ParentSettingsManager';
+import {
   getLessonVocabulary,
   getProgress,
   type LocalProgress,
@@ -14,13 +20,16 @@ import {
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
+import type { LearningMode } from '../types/lesson';
 
 const GATE_DURATION_MS = 3000;
 
 export function ParentScreen() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
+  const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
@@ -39,6 +48,7 @@ export function ParentScreen() {
 
   const recentLessonId = progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
   const recentLesson = lessons.find(l => l.id === recentLessonId);
+  const currentDifficulty = getLearningDifficultyOption(learningMode);
   const tipText = recentLesson?.metadata?.parentTipVi ?? (
     recentLearnedWords.length > 0 
       ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${recentLearnedWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
@@ -60,6 +70,9 @@ export function ParentScreen() {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    getParentSettings()
+      .then(settings => setLearningMode(settings.learningMode))
+      .catch(() => setLearningMode('core'));
   }, [isUnlocked]);
 
   useEffect(() => {
@@ -81,6 +94,22 @@ export function ParentScreen() {
     }
 
     clearGateTimer();
+  };
+
+  const handleSelectLearningMode = async (nextLearningMode: LearningMode) => {
+    if (savingMode) {
+      return;
+    }
+
+    setSavingMode(nextLearningMode);
+    try {
+      const nextSettings = await saveParentLearningMode(nextLearningMode);
+      setLearningMode(nextSettings.learningMode);
+    } catch {
+      // Settings are local best-effort; keep the current mode if saving fails.
+    } finally {
+      setSavingMode(null);
+    }
   };
 
   if (!isUnlocked) {
@@ -128,6 +157,48 @@ export function ParentScreen() {
         <StatTile icon="✓" label="Sticker đã nhận" value={earnedStickerCount} />
       </View>
 
+      <AppCard style={styles.settingsCard}>
+        <View style={styles.sectionHeader}>
+          <View style={styles.sectionTitleGroup}>
+            <KidBadge tone="teal">Cài đặt học tập</KidBadge>
+            <Text style={styles.privacyTitle}>Độ khó của bé</Text>
+          </View>
+          <KidBadge tone="sky">Đang dùng: {currentDifficulty.title}</KidBadge>
+        </View>
+        <View style={styles.difficultyList}>
+          {learningDifficultyOptions.map(option => {
+            const isSelected = option.learningMode === learningMode;
+            const isSavingThisMode = savingMode === option.learningMode;
+
+            return (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: isSelected }}
+                disabled={Boolean(savingMode)}
+                key={option.learningMode}
+                onPress={() => handleSelectLearningMode(option.learningMode)}
+                style={({ pressed }) => [
+                  styles.difficultyOption,
+                  isSelected && styles.difficultyOptionSelected,
+                  pressed && !savingMode && styles.pressed,
+                  savingMode && !isSavingThisMode && styles.optionDisabled,
+                ]}
+              >
+                <View style={styles.difficultyText}>
+                  <Text style={styles.difficultyTitle}>{option.title}</Text>
+                  <Text style={styles.difficultySubtitle}>
+                    {option.subtitle}
+                  </Text>
+                </View>
+                <Text style={styles.difficultyState}>
+                  {isSavingThisMode ? 'Đang lưu...' : isSelected ? '✓' : ''}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      </AppCard>
+
       <AppCard style={styles.summary}>
         <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
         {recentLearnedWords.length > 0 ? (
@@ -152,6 +223,44 @@ export function ParentScreen() {
 }
 
 const styles = StyleSheet.create({
+  difficultyList: {
+    gap: spacing.sm,
+  },
+  difficultyOption: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+    minHeight: 76,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  difficultyOptionSelected: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+  },
+  difficultyState: {
+    color: colors.primaryDark,
+    minWidth: 72,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  difficultySubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  difficultyText: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  difficultyTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
   eyebrow: {
     color: colors.accent,
     ...typography.caption,
@@ -213,6 +322,27 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: spacing.xs,
     ...typography.subtitle,
+  },
+  pressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
+  },
+  optionDisabled: {
+    opacity: 0.56,
+  },
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+  },
+  sectionTitleGroup: {
+    flex: 1,
+    gap: spacing.xs,
+  },
+  settingsCard: {
+    gap: spacing.md,
+    marginTop: spacing.xl,
   },
   summary: {
     gap: spacing.md,

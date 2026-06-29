@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -9,12 +9,13 @@ import { KidIconButton } from '../components/KidIconButton';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
-import type { Scene } from '../types/lesson';
+import type { LearningMode, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getSceneIconName } from '../utils/lessonIcons';
 import {
@@ -32,6 +33,7 @@ const connectorHeight = 82;
 
 export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const featuredLesson = lessons[0];
   const scenes = useMemo(() => featuredLesson?.scenes ?? [], [featuredLesson]);
   const completedSceneIds = useMemo(
@@ -53,16 +55,24 @@ export function HomeScreen({ navigation }: Props) {
     ? 'sticker'
     : 'next';
 
-  useEffect(() => {
+  const refreshHomeData = useCallback(() => {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    getParentSettings()
+      .then(settings => setLearningMode(settings.learningMode))
+      .catch(() => setLearningMode('core'));
   }, []);
+
+  useEffect(() => {
+    refreshHomeData();
+    return navigation.addListener('focus', refreshHomeData);
+  }, [navigation, refreshHomeData]);
 
   const handleStart = () => {
     if (shouldResumeProgress && pendingProgress) {
       navigation.navigate('ScenePlayer', {
-        learningMode: 'core',
+        learningMode,
         lessonId: pendingProgress.lessonId,
         sceneId: pendingProgress.sceneId,
       });
@@ -76,7 +86,7 @@ export function HomeScreen({ navigation }: Props) {
 
     if (featuredLesson && nextScene) {
       navigation.navigate('ScenePlayer', {
-        learningMode: 'core',
+        learningMode,
         lessonId: featuredLesson.id,
         sceneId: nextScene.id,
       });
@@ -167,7 +177,7 @@ export function HomeScreen({ navigation }: Props) {
                         }
 
                         navigation.navigate('ScenePlayer', {
-                          learningMode: 'core',
+                          learningMode,
                           lessonId: featuredLesson.id,
                           sceneId: scene.id,
                         });

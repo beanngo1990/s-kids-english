@@ -7,6 +7,7 @@ import { Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { HomeScreen } from '../src/screens/HomeScreen';
+import { OnboardingScreen } from '../src/screens/OnboardingScreen';
 
 test('renders the home screen', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
@@ -14,7 +15,9 @@ test('renders the home screen', async () => {
   await ReactTestRenderer.act(() => {
     tree = ReactTestRenderer.create(
       <HomeScreen
-        navigation={{ navigate: jest.fn() } as never}
+        navigation={
+          { addListener: jest.fn(() => jest.fn()), navigate: jest.fn() } as never
+        }
         route={{ key: 'Home', name: 'Home' } as never}
       />,
     );
@@ -26,4 +29,26 @@ test('renders the home screen', async () => {
 
   expect(textValues).toContain('S-Kids');
   expect(textValues).toContain('Chơi ngay');
+});
+
+test('renders parent onboarding before first use', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(() => {
+    tree = ReactTestRenderer.create(
+      <OnboardingScreen
+        navigation={{ replace: jest.fn() } as never}
+        route={{ key: 'Onboarding', name: 'Onboarding' } as never}
+      />,
+    );
+  });
+
+  const textValues = tree?.root
+    .findAllByType(Text)
+    .map(node => node.props.children);
+
+  expect(textValues).toContain('Chọn độ khó cho bé');
+  expect(textValues).toContain('Dễ');
+  expect(textValues).toContain('Vừa');
+  expect(textValues).toContain('Khó');
 });
