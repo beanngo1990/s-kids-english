@@ -1713,6 +1713,12 @@ export const morningRoutineLesson: Lesson = {
         breakfastVocabulary.milk,
         breakfastVocabulary.apple,
         breakfastVocabulary.bread,
+        breakfastVocabulary.plate,
+        breakfastVocabulary.egg,
+        breakfastVocabulary.banana,
+        breakfastVocabulary.cup,
+        breakfastVocabulary.pourMilk,
+        breakfastVocabulary.eatBreakfast,
       ],
       objects: [
         {
@@ -1783,6 +1789,114 @@ export const morningRoutineLesson: Lesson = {
           },
           vocabId: breakfastVocabulary.bread.id,
         },
+        {
+          id: 'breakfast-plate',
+          asset: imageAsset(
+            'plate',
+            'lessons/morning-routine/breakfast/images/plate.png',
+          ),
+          defaultAnimation: 'gentleBounce',
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 18,
+            width: 34,
+            x: 38,
+            y: 64,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 26,
+            width: 42,
+            x: 34,
+            y: 60,
+          },
+          vocabId: breakfastVocabulary.plate.id,
+        },
+        {
+          id: 'breakfast-egg',
+          asset: imageAsset(
+            'egg',
+            'lessons/morning-routine/breakfast/images/egg.png',
+          ),
+          defaultAnimation: 'pop',
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 14,
+            width: 16,
+            x: 12,
+            y: 70,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 24,
+            width: 26,
+            x: 7,
+            y: 65,
+          },
+          vocabId: breakfastVocabulary.egg.id,
+        },
+        {
+          id: 'breakfast-banana',
+          asset: imageAsset(
+            'banana',
+            'lessons/morning-routine/breakfast/images/banana.png',
+          ),
+          defaultAnimation: 'wiggle',
+          isInteractive: true,
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 17,
+            width: 20,
+            x: 78,
+            y: 52,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 27,
+            width: 30,
+            x: 73,
+            y: 47,
+          },
+          vocabId: breakfastVocabulary.banana.id,
+        },
+        {
+          id: 'breakfast-cup',
+          asset: imageAsset(
+            'cup',
+            'lessons/morning-routine/breakfast/images/cup.png',
+          ),
+          defaultAnimation: 'gentleBounce',
+          isInteractive: true,
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 18,
+            width: 14,
+            x: 28,
+            y: 66,
+          },
+          role: 'learning',
+          touchArea: {
+            height: 28,
+            width: 24,
+            x: 23,
+            y: 61,
+          },
+          vocabId: breakfastVocabulary.cup.id,
+        },
       ],
       dropZones: [
         {
@@ -1794,10 +1908,74 @@ export const morningRoutineLesson: Lesson = {
             y: 65,
           },
         },
+        {
+          id: 'breakfast-plate-zone',
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          position: {
+            height: 18,
+            width: 34,
+            x: 38,
+            y: 64,
+          },
+          touchArea: {
+            height: 28,
+            width: 44,
+            x: 33,
+            y: 59,
+          },
+        },
+        {
+          id: 'breakfast-cup-zone',
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 20,
+            width: 16,
+            x: 27,
+            y: 64,
+          },
+          touchArea: {
+            height: 30,
+            width: 26,
+            x: 22,
+            y: 59,
+          },
+        },
+        {
+          id: 'breakfast-mouth-zone',
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          position: {
+            height: 12,
+            width: 12,
+            x: 52,
+            y: 45,
+          },
+          touchArea: {
+            height: 20,
+            width: 20,
+            x: 48,
+            y: 41,
+          },
+        },
       ],
       steps: [
         {
           id: 'breakfast-intro',
+          effects: [
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-baby',
+              type: 'animation',
+            },
+          ],
           instructionVi: 'Ăn sáng thôi nào.',
           interaction: {
             type: 'listen',
@@ -1823,6 +2001,17 @@ export const morningRoutineLesson: Lesson = {
         },
         {
           id: 'breakfast-tap-milk',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-milk',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
           failFeedbackVi: 'Chạm hộp sữa nhé.',
           instructionVi: 'Chạm milk nhé.',
           interaction: {
@@ -1830,11 +2019,96 @@ export const morningRoutineLesson: Lesson = {
             targetObjectId: 'breakfast-milk',
             type: 'tap',
           },
-          nextStepId: 'breakfast-teach-apple',
+          nextStepId: 'breakfast-teach-cup',
           promptText: 'Tap milk',
           successFeedbackVi: 'Đúng rồi, milk!',
           targetObjectIds: ['breakfast-milk'],
           type: 'practice',
+        },
+        {
+          id: 'breakfast-teach-cup',
+          instructionVi: 'Đây là cái cốc.',
+          interaction: {
+            targetObjectId: 'breakfast-cup',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          nextStepId: 'breakfast-teach-pour-milk',
+          promptText: 'cup',
+          successFeedbackVi: 'Từ này nghĩa là cái cốc.',
+          targetObjectIds: ['breakfast-cup'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.cup.id,
+        },
+        {
+          id: 'breakfast-teach-pour-milk',
+          effects: [
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-milk',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-cup',
+              type: 'animation',
+            },
+          ],
+          instructionVi: 'Mình học câu rót sữa nhé.',
+          interaction: {
+            targetObjectId: 'breakfast-milk',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          nextStepId: 'breakfast-drag-milk-to-cup',
+          promptText: 'pour milk',
+          successFeedbackVi: 'Câu này nghĩa là rót sữa.',
+          targetObjectIds: ['breakfast-milk', 'breakfast-cup'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.pourMilk.id,
+        },
+        {
+          id: 'breakfast-drag-milk-to-cup',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-milk',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-cup',
+              type: 'animation',
+            },
+            {
+              sound: 'clap',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo sữa tới cái cốc nhé.',
+          instructionVi: 'Rót sữa vào cốc nhé.',
+          interaction: {
+            correctObjectIds: ['breakfast-milk'],
+            dropZoneId: 'breakfast-cup-zone',
+            targetObjectId: 'breakfast-milk',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          nextStepId: 'breakfast-teach-apple',
+          promptText: 'pour milk',
+          successFeedbackVi: 'Sữa đã vào cốc rồi!',
+          targetObjectIds: ['breakfast-milk', 'breakfast-cup'],
+          type: 'practice',
+          vocabId: breakfastVocabulary.pourMilk.id,
         },
         {
           id: 'breakfast-teach-apple',
@@ -1851,6 +2125,17 @@ export const morningRoutineLesson: Lesson = {
         },
         {
           id: 'breakfast-drag-apple',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-apple',
+              type: 'animation',
+            },
+            {
+              sound: 'yay',
+              type: 'sound',
+            },
+          ],
           failFeedbackVi: 'Kéo táo tới bàn nhé.',
           instructionVi: 'Kéo apple tới bàn.',
           interaction: {
@@ -1859,25 +2144,256 @@ export const morningRoutineLesson: Lesson = {
             targetObjectId: 'breakfast-apple',
             type: 'drag',
           },
-          nextStepId: 'breakfast-review-bread',
+          nextStepId: 'breakfast-teach-plate',
           promptText: 'Drag apple',
           successFeedbackVi: 'Táo lên bàn rồi!',
           targetObjectIds: ['breakfast-apple'],
           type: 'practice',
         },
         {
+          id: 'breakfast-teach-plate',
+          instructionVi: 'Đây là cái đĩa.',
+          interaction: {
+            targetObjectId: 'breakfast-plate',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          nextStepId: 'breakfast-drag-apple-to-plate',
+          promptText: 'plate',
+          successFeedbackVi: 'Từ này nghĩa là cái đĩa.',
+          targetObjectIds: ['breakfast-plate'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.plate.id,
+        },
+        {
+          id: 'breakfast-drag-apple-to-plate',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-apple',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-plate',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo táo vào cái đĩa nhé.',
+          instructionVi: 'Đặt táo vào đĩa nhé.',
+          interaction: {
+            correctObjectIds: ['breakfast-apple'],
+            dropZoneId: 'breakfast-plate-zone',
+            targetObjectId: 'breakfast-apple',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          nextStepId: 'breakfast-teach-egg',
+          promptText: 'apple on plate',
+          successFeedbackVi: 'Táo ở trên đĩa rồi!',
+          targetObjectIds: ['breakfast-apple', 'breakfast-plate'],
+          type: 'practice',
+          vocabId: breakfastVocabulary.apple.id,
+        },
+        {
+          id: 'breakfast-teach-egg',
+          instructionVi: 'Đây là quả trứng.',
+          interaction: {
+            targetObjectId: 'breakfast-egg',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          nextStepId: 'breakfast-tap-egg',
+          promptText: 'egg',
+          successFeedbackVi: 'Từ này nghĩa là quả trứng.',
+          targetObjectIds: ['breakfast-egg'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.egg.id,
+        },
+        {
+          id: 'breakfast-tap-egg',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-egg',
+              type: 'animation',
+            },
+            {
+              sound: 'ding',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Quả trứng ở bên trái bàn đó.',
+          instructionVi: 'Chạm vào quả trứng nhé.',
+          interaction: {
+            correctObjectIds: ['breakfast-egg'],
+            targetObjectId: 'breakfast-egg',
+            type: 'tap',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          nextStepId: 'breakfast-teach-banana',
+          promptText: 'egg',
+          successFeedbackVi: 'Đúng rồi, đó là quả trứng.',
+          targetObjectIds: ['breakfast-egg'],
+          type: 'practice',
+          vocabId: breakfastVocabulary.egg.id,
+        },
+        {
+          id: 'breakfast-teach-banana',
+          instructionVi: 'Đây là quả chuối.',
+          interaction: {
+            targetObjectId: 'breakfast-banana',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          nextStepId: 'breakfast-drag-banana-to-plate',
+          promptText: 'banana',
+          successFeedbackVi: 'Từ này nghĩa là quả chuối.',
+          targetObjectIds: ['breakfast-banana'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.banana.id,
+        },
+        {
+          id: 'breakfast-drag-banana-to-plate',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-banana',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-plate',
+              type: 'animation',
+            },
+            {
+              sound: 'clap',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Kéo chuối vào cái đĩa nhé.',
+          instructionVi: 'Đặt chuối vào đĩa nhé.',
+          interaction: {
+            correctObjectIds: ['breakfast-banana'],
+            dropZoneId: 'breakfast-plate-zone',
+            targetObjectId: 'breakfast-banana',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 4,
+            minMode: 'expanded',
+          },
+          promptText: 'banana on plate',
+          successFeedbackVi: 'Chuối đã ở trên đĩa rồi!',
+          targetObjectIds: ['breakfast-banana', 'breakfast-plate'],
+          type: 'practice',
+          vocabId: breakfastVocabulary.banana.id,
+        },
+        {
           id: 'breakfast-review-bread',
-          failFeedbackVi: 'Bánh mì ở trên bàn đó.',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-bread',
+              type: 'animation',
+            },
+            {
+              sound: 'complete',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Bánh mì ở trước mặt bé đó.',
           instructionVi: 'Chạm bread nào.',
           interaction: {
             correctObjectIds: ['breakfast-bread'],
             targetObjectId: 'breakfast-bread',
             type: 'tap',
           },
+          nextStepId: 'breakfast-teach-eat-breakfast',
           promptText: 'bread',
           successFeedbackVi: 'Bread là bánh mì!',
           targetObjectIds: ['breakfast-bread'],
           type: 'review',
+        },
+        {
+          id: 'breakfast-teach-eat-breakfast',
+          effects: [
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-baby',
+              type: 'animation',
+            },
+          ],
+          instructionVi: 'Mình học câu ăn sáng nhé.',
+          interaction: {
+            targetObjectId: 'breakfast-baby',
+            type: 'listen',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          nextStepId: 'breakfast-drag-bread-to-mouth',
+          promptText: 'eat breakfast',
+          successFeedbackVi: 'Câu này nghĩa là ăn sáng.',
+          targetObjectIds: ['breakfast-baby', 'breakfast-bread'],
+          type: 'teach',
+          vocabId: breakfastVocabulary.eatBreakfast.id,
+        },
+        {
+          id: 'breakfast-drag-bread-to-mouth',
+          effects: [
+            {
+              animation: 'sparkle',
+              targetObjectId: 'breakfast-bread',
+              type: 'animation',
+            },
+            {
+              animation: 'bounce',
+              targetObjectId: 'breakfast-baby',
+              type: 'animation',
+            },
+            {
+              sound: 'complete',
+              type: 'sound',
+            },
+          ],
+          failFeedbackVi: 'Đưa bánh mì tới miệng bé nhé.',
+          instructionVi: 'Đưa bánh mì tới bé để ăn sáng nhé.',
+          interaction: {
+            correctObjectIds: ['breakfast-bread'],
+            dropZoneId: 'breakfast-mouth-zone',
+            targetObjectId: 'breakfast-bread',
+            type: 'drag',
+          },
+          learningScope: {
+            minAge: 5,
+            minMode: 'challenge',
+          },
+          promptText: 'eat breakfast',
+          successFeedbackVi: 'Bé ăn sáng ngon lành!',
+          targetObjectIds: ['breakfast-bread', 'breakfast-baby'],
+          type: 'practice',
+          vocabId: breakfastVocabulary.eatBreakfast.id,
         },
       ],
       completionReward: {

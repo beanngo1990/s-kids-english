@@ -273,6 +273,108 @@ test('bathroom challenge actions stay in a logical hygiene sequence', () => {
   expect(towelReview?.nextStepId).toBe('bathroom-teach-mirror');
 });
 
+test('breakfast scene unlocks basic, expanded, and challenge content by mode', () => {
+  const breakfastScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'breakfast',
+  );
+
+  expect(breakfastScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(breakfastScene!, 'core');
+  const expandedScene = getSceneForLearningMode(breakfastScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(breakfastScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'milk',
+    'apple',
+    'bread',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'breakfast-intro',
+    'breakfast-teach-milk',
+    'breakfast-tap-milk',
+    'breakfast-teach-apple',
+    'breakfast-drag-apple',
+    'breakfast-review-bread',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'milk',
+    'apple',
+    'bread',
+    'plate',
+    'egg',
+    'banana',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'breakfast-teach-plate',
+      'breakfast-drag-apple-to-plate',
+      'breakfast-tap-egg',
+      'breakfast-drag-banana-to-plate',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'breakfast-teach-cup',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'milk',
+    'apple',
+    'bread',
+    'plate',
+    'egg',
+    'banana',
+    'cup',
+    'pour milk',
+    'eat breakfast',
+  ]);
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'breakfast-teach-pour-milk',
+      'breakfast-drag-milk-to-cup',
+      'breakfast-teach-eat-breakfast',
+      'breakfast-drag-bread-to-mouth',
+    ]),
+  );
+});
+
+test('breakfast challenge actions stay in a logical breakfast sequence', () => {
+  const breakfastScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'breakfast',
+  );
+
+  expect(breakfastScene).toBeDefined();
+
+  const challengeScene = getSceneForLearningMode(breakfastScene!, 'challenge');
+  const milkDrag = challengeScene.steps.find(
+    step => step.id === 'breakfast-drag-milk-to-cup',
+  );
+  const appleToPlate = challengeScene.steps.find(
+    step => step.id === 'breakfast-drag-apple-to-plate',
+  );
+  const bananaToPlate = challengeScene.steps.find(
+    step => step.id === 'breakfast-drag-banana-to-plate',
+  );
+  const eatBreakfastTeach = challengeScene.steps.find(
+    step => step.id === 'breakfast-teach-eat-breakfast',
+  );
+  const breadToMouth = challengeScene.steps.find(
+    step => step.id === 'breakfast-drag-bread-to-mouth',
+  );
+
+  expect(milkDrag?.interaction.targetObjectId).toBe('breakfast-milk');
+  expect(milkDrag?.interaction.dropZoneId).toBe('breakfast-cup-zone');
+  expect(milkDrag?.vocabId).toBe('vocab-pour-milk');
+  expect(appleToPlate?.interaction.dropZoneId).toBe('breakfast-plate-zone');
+  expect(appleToPlate?.interaction.targetObjectId).toBe('breakfast-apple');
+  expect(bananaToPlate?.interaction.dropZoneId).toBe('breakfast-plate-zone');
+  expect(bananaToPlate?.interaction.targetObjectId).toBe('breakfast-banana');
+  expect(eatBreakfastTeach?.vocabId).toBe('vocab-eat-breakfast');
+  expect(breadToMouth?.interaction.dropZoneId).toBe('breakfast-mouth-zone');
+  expect(breadToMouth?.promptText).toBe('eat breakfast');
+});
+
 test('bedroom extended steps keep prompts aligned with the required action', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',

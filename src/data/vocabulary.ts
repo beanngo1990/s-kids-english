@@ -235,6 +235,72 @@ export const breakfastVocabulary = {
     level: 'easy',
     type: 'noun',
   },
+  plate: {
+    id: 'vocab-plate',
+    word: 'plate',
+    meaningVi: 'cái đĩa',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  egg: {
+    id: 'vocab-egg',
+    word: 'egg',
+    meaningVi: 'quả trứng',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  banana: {
+    id: 'vocab-banana',
+    word: 'banana',
+    meaningVi: 'quả chuối',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  cup: {
+    id: 'vocab-cup',
+    word: 'cup',
+    meaningVi: 'cái cốc',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
+  pourMilk: {
+    id: 'vocab-pour-milk',
+    word: 'pour milk',
+    meaningVi: 'rót sữa',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  eatBreakfast: {
+    id: 'vocab-eat-breakfast',
+    word: 'eat breakfast',
+    meaningVi: 'ăn sáng',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
 } satisfies Record<string, VocabularyItem>;
 
 export const schoolVocabulary = {
