@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -6,10 +7,12 @@ import {
   HomeScreen,
   LessonListScreen,
   LessonPackScreen,
+  OnboardingScreen,
   ParentScreen,
   RewardScreen,
   ScenePlayerScreen,
 } from '../screens';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import { colors } from '../theme/colors';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
@@ -17,10 +20,44 @@ import type { RootStackParamList } from '../types/navigation';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
+  const [initialRouteName, setInitialRouteName] = useState<
+    keyof RootStackParamList | null
+  >(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    getParentSettings()
+      .then(settings => {
+        if (isMounted) {
+          setInitialRouteName(
+            settings.hasCompletedOnboarding ? 'Home' : 'Onboarding',
+          );
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setInitialRouteName('Onboarding');
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (!initialRouteName) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator color={colors.primary} size="large" />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName={initialRouteName}
         screenOptions={{
           contentStyle: { backgroundColor: colors.background },
           headerShadowVisible: false,
@@ -33,6 +70,11 @@ export function AppNavigator() {
           },
         }}
       >
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -67,3 +109,12 @@ export function AppNavigator() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  loading: {
+    alignItems: 'center',
+    backgroundColor: colors.background,
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
