@@ -161,6 +161,118 @@ test('bedroom scene can gate older-child challenge content by age', () => {
   );
 });
 
+test('bathroom scene unlocks basic, expanded, and challenge content by mode', () => {
+  const bathroomScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'bathroom',
+  );
+
+  expect(bathroomScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(bathroomScene!, 'core');
+  const expandedScene = getSceneForLearningMode(bathroomScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(bathroomScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'toothbrush',
+    'water',
+    'towel',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'bathroom-intro',
+    'bathroom-teach-toothbrush',
+    'bathroom-tap-toothbrush',
+    'bathroom-drag-toothbrush',
+    'bathroom-teach-water',
+    'bathroom-tap-water',
+    'bathroom-teach-towel',
+    'bathroom-review-towel',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'toothbrush',
+    'water',
+    'towel',
+    'sink',
+    'soap',
+    'mirror',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'bathroom-teach-sink',
+      'bathroom-drag-soap-to-hand',
+      'bathroom-review-mirror',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'bathroom-teach-toothpaste',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'toothbrush',
+    'water',
+    'towel',
+    'sink',
+    'soap',
+    'mirror',
+    'toothpaste',
+    'brush teeth',
+    'wash face',
+    'dry face',
+  ]);
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'bathroom-drag-toothpaste-to-brush',
+      'bathroom-teach-brush-teeth',
+      'bathroom-drag-water-to-face',
+      'bathroom-teach-dry-face',
+    ]),
+  );
+});
+
+test('bathroom challenge actions stay in a logical hygiene sequence', () => {
+  const bathroomScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'bathroom',
+  );
+
+  expect(bathroomScene).toBeDefined();
+
+  const challengeScene = getSceneForLearningMode(bathroomScene!, 'challenge');
+  const toothpasteDrag = challengeScene.steps.find(
+    step => step.id === 'bathroom-drag-toothpaste-to-brush',
+  );
+  const brushTeeth = challengeScene.steps.find(
+    step => step.id === 'bathroom-drag-toothbrush',
+  );
+  const soapDrag = challengeScene.steps.find(
+    step => step.id === 'bathroom-drag-soap-to-hand',
+  );
+  const washFace = challengeScene.steps.find(
+    step => step.id === 'bathroom-drag-water-to-face',
+  );
+  const dryFaceTeach = challengeScene.steps.find(
+    step => step.id === 'bathroom-teach-dry-face',
+  );
+  const towelReview = challengeScene.steps.find(
+    step => step.id === 'bathroom-review-towel',
+  );
+
+  expect(toothpasteDrag?.interaction.targetObjectId).toBe(
+    'bathroom-toothpaste',
+  );
+  expect(toothpasteDrag?.interaction.dropZoneId).toBe(
+    'bathroom-toothbrush-zone',
+  );
+  expect(toothpasteDrag?.nextStepId).toBe('bathroom-teach-brush-teeth');
+  expect(brushTeeth?.interaction.dropZoneId).toBe('bathroom-mouth-zone');
+  expect(brushTeeth?.promptText).toBe('brush teeth');
+  expect(soapDrag?.interaction.dropZoneId).toBe('bathroom-hand-zone');
+  expect(washFace?.interaction.dropZoneId).toBe('bathroom-face-zone');
+  expect(washFace?.vocabId).toBe('vocab-wash-face');
+  expect(dryFaceTeach?.vocabId).toBe('vocab-dry-face');
+  expect(towelReview?.interaction.dropZoneId).toBe('bathroom-face-zone');
+  expect(towelReview?.nextStepId).toBe('bathroom-teach-mirror');
+});
+
 test('bedroom extended steps keep prompts aligned with the required action', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',

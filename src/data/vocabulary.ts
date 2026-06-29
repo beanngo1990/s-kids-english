@@ -134,6 +134,83 @@ export const bathroomVocabulary = {
     level: 'easy',
     type: 'noun',
   },
+  sink: {
+    id: 'vocab-sink',
+    word: 'sink',
+    meaningVi: 'bồn rửa',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  soap: {
+    id: 'vocab-soap',
+    word: 'soap',
+    meaningVi: 'xà phòng',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  mirror: {
+    id: 'vocab-mirror',
+    word: 'mirror',
+    meaningVi: 'cái gương',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  toothpaste: {
+    id: 'vocab-toothpaste',
+    word: 'toothpaste',
+    meaningVi: 'kem đánh răng',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
+  brushTeeth: {
+    id: 'vocab-brush-teeth',
+    word: 'brush teeth',
+    meaningVi: 'đánh răng',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  washFace: {
+    id: 'vocab-wash-face',
+    word: 'wash face',
+    meaningVi: 'rửa mặt',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  dryFace: {
+    id: 'vocab-dry-face',
+    word: 'dry face',
+    meaningVi: 'lau mặt',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
 } satisfies Record<string, VocabularyItem>;
 
 export const breakfastVocabulary = {
