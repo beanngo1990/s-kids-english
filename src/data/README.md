@@ -10,8 +10,9 @@ should be a short mini-scene that can be completed independently.
 2. Export one `Lesson` with small, ordered mini-scenes in `scenes`.
 3. Add it to `lessonCatalog` in `src/data/lessons.ts`.
 4. Add bundled images to `AssetRegistry.ts` only when the asset is local.
-5. Add bundled audio to `audioManifest.ts` and `AudioAssetRegistry.ts` only
-   when the audio should work offline before R2 is enabled.
+5. Run `npm run generate:audio:dry-run` to preview missing audio. Run
+   `npm run generate:audio` to create missing Google TTS files and refresh the
+   generated audio manifest/registry.
 6. Run `npm test -- --runInBand`.
 
 ## Asset Layout
@@ -37,6 +38,32 @@ Keep reusable assets outside lesson folders:
 ```text
 src/assets/shared/audio/sfx/
 src/assets/shared/audio/vi/
+```
+
+## Audio Generation
+
+`scripts/generateMissingAudio.mjs` scans the registered lesson catalog, builds
+English word audio plus Vietnamese instruction/feedback audio, skips files that
+already exist, and updates:
+
+```text
+src/data/audioManifest.ts
+src/engine/GeneratedAudioRegistry.ts
+```
+
+Use Google Cloud Text-to-Speech auth through one of:
+
+```text
+GOOGLE_TTS_API_KEY
+GOOGLE_TTS_ACCESS_TOKEN
+gcloud auth print-access-token
+```
+
+Optional filters:
+
+```bash
+npm run generate:audio -- --lesson=morning-routine --scene=bathroom
+npm run generate:audio -- --limit=10
 ```
 
 Generated source files that are useful for re-cutting assets should mirror the
