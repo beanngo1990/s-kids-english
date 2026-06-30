@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import {
   existsSync,
   mkdirSync,
@@ -285,15 +286,20 @@ if (!Array.isArray(lessons) || lessons.length === 0) {
 const audioTargets = collectAudioTargets(lessons, {
   existingViAudio,
   existingWordAudio,
+  speechPrompts: speechPromptsModule,
+});
+const selectedAudioTargets = collectAudioTargets(lessons, {
+  existingViAudio,
+  existingWordAudio,
   lessonId: args.lesson,
   sceneId: args.scene,
   speechPrompts: speechPromptsModule,
 });
-const missingTargets = audioTargets.filter(
+const missingTargets = selectedAudioTargets.filter(
   target => args.force || !existsSync(join(repoRoot, 'src/assets', target.key)),
 );
 
-printSummary(audioTargets, missingTargets);
+printSummary(selectedAudioTargets, missingTargets);
 
 if (args.dryRun) {
   printMissingTargets(missingTargets);
@@ -435,19 +441,32 @@ function collectAudioTargets(
             scene.id,
             step.id,
             'instruction',
+            step.instructionVi,
           ),
           existingViAudio,
           text: step.instructionVi,
         });
         addViTarget(targets, {
-          defaultKey: getStepAudioKey(lesson.id, scene.id, step.id, 'success'),
+          defaultKey: getStepAudioKey(
+            lesson.id,
+            scene.id,
+            step.id,
+            'success',
+            step.successFeedbackVi,
+          ),
           existingViAudio,
           text: step.successFeedbackVi,
         });
 
         if (step.failFeedbackVi) {
           addViTarget(targets, {
-            defaultKey: getStepAudioKey(lesson.id, scene.id, step.id, 'fail'),
+            defaultKey: getStepAudioKey(
+              lesson.id,
+              scene.id,
+              step.id,
+              'fail',
+              step.failFeedbackVi,
+            ),
             existingViAudio,
             text: step.failFeedbackVi,
           });
@@ -456,7 +475,11 @@ function collectAudioTargets(
 
       if (scene.completionReward?.messageVi) {
         addViTarget(targets, {
-          defaultKey: `lessons/${lesson.id}/${scene.id}/audio/vi/completion.wav`,
+          defaultKey: getCompletionAudioKey(
+            lesson.id,
+            scene.id,
+            scene.completionReward.messageVi,
+          ),
           existingViAudio,
           text: scene.completionReward.messageVi,
         });
@@ -542,10 +565,18 @@ function getLegacyViAudioKey(text) {
   return key;
 }
 
-function getStepAudioKey(lessonId, sceneId, stepId, part) {
+function getStepAudioKey(lessonId, sceneId, stepId, part, text) {
   const stepSlug = slug(stripScenePrefix(sceneId, stepId));
   const suffix = part === 'instruction' ? '' : `_${part}`;
-  return `lessons/${lessonId}/${sceneId}/audio/vi/${stepSlug}${suffix}.wav`;
+  return `lessons/${lessonId}/${sceneId}/audio/vi/${stepSlug}${suffix}_${textDigest(
+    text,
+  )}.wav`;
+}
+
+function getCompletionAudioKey(lessonId, sceneId, text) {
+  return `lessons/${lessonId}/${sceneId}/audio/vi/completion_${textDigest(
+    text,
+  )}.wav`;
 }
 
 function stripScenePrefix(sceneId, stepId) {
@@ -820,6 +851,13 @@ function slug(text) {
     .replace(/[\u0300-\u036f]/gu, '')
     .replace(/[^a-z0-9]+/gu, '_')
     .replace(/^_+|_+$/gu, '');
+}
+
+function textDigest(text) {
+  return createHash('sha1')
+    .update(normalizeText(text))
+    .digest('hex')
+    .slice(0, 8);
 }
 
 function formatString(value) {

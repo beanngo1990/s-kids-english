@@ -7,8 +7,10 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   bed: '🛏️',
   banana: '🍌',
   blanket: '🧺',
+  book: '📘',
   box: '📦',
   bread: '🍞',
+  bus: '🚌',
   clock: '🕒',
   cup: '🥤',
   doll: '🧸',
@@ -18,6 +20,7 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   mirror: '🪞',
   pillow: '🛏️',
   plate: '🍽️',
+  lunchbox: '🍱',
   school: '🏫',
   shoes: '👟',
   sink: '🚰',
@@ -27,6 +30,7 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   toothpaste: '🦷',
   toothbrush: '🪥',
   towel: '🧻',
+  uniform: '👕',
   water: '💧',
 };
 
