@@ -404,6 +404,179 @@ export const schoolVocabulary = {
   },
 } satisfies Record<string, VocabularyItem>;
 
+export const atSchoolVocabulary = {
+  teacher: {
+    id: 'vocab-teacher',
+    word: 'teacher',
+    meaningVi: 'cô giáo',
+    level: 'easy',
+    type: 'noun',
+  },
+  desk: {
+    id: 'vocab-desk',
+    word: 'desk',
+    meaningVi: 'bàn học',
+    level: 'easy',
+    type: 'noun',
+  },
+  chair: {
+    id: 'vocab-chair',
+    word: 'chair',
+    meaningVi: 'cái ghế',
+    level: 'easy',
+    type: 'noun',
+  },
+  book: {
+    id: 'vocab-class-book',
+    word: 'book',
+    meaningVi: 'quyển sách',
+    level: 'easy',
+    type: 'noun',
+  },
+  pencil: {
+    id: 'vocab-pencil',
+    word: 'pencil',
+    meaningVi: 'bút chì',
+    level: 'easy',
+    type: 'noun',
+  },
+  crayon: {
+    id: 'vocab-crayon',
+    word: 'crayon',
+    meaningVi: 'bút màu',
+    level: 'easy',
+    type: 'noun',
+  },
+  listen: {
+    id: 'vocab-listen',
+    word: 'listen',
+    meaningVi: 'lắng nghe',
+    level: 'easy',
+    type: 'verb',
+  },
+  board: {
+    id: 'vocab-board',
+    word: 'board',
+    meaningVi: 'cái bảng',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  classroom: {
+    id: 'vocab-classroom',
+    word: 'classroom',
+    meaningVi: 'lớp học',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  eraser: {
+    id: 'vocab-eraser',
+    word: 'eraser',
+    meaningVi: 'cục tẩy',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  ruler: {
+    id: 'vocab-ruler',
+    word: 'ruler',
+    meaningVi: 'cái thước',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  notebook: {
+    id: 'vocab-notebook',
+    word: 'notebook',
+    meaningVi: 'quyển vở',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  sitDown: {
+    id: 'vocab-sit-down',
+    word: 'sit down',
+    meaningVi: 'ngồi xuống',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  raiseHand: {
+    id: 'vocab-raise-hand',
+    word: 'raise hand',
+    meaningVi: 'giơ tay',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  openBook: {
+    id: 'vocab-open-book',
+    word: 'open book',
+    meaningVi: 'mở sách',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  drawCircle: {
+    id: 'vocab-draw-circle',
+    word: 'draw a circle',
+    meaningVi: 'vẽ hình tròn',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  writeName: {
+    id: 'vocab-write-name',
+    word: 'write your name',
+    meaningVi: 'viết tên của con',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  cleanUp: {
+    id: 'vocab-clean-up',
+    word: 'clean up',
+    meaningVi: 'dọn đồ',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+} satisfies Record<string, VocabularyItem>;
+
 export const morningVocabulary: VocabularyItem[] = [
   ...Object.values(bedroomVocabulary),
   ...Object.values(bathroomVocabulary),

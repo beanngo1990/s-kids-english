@@ -14,6 +14,13 @@ export const lessonRewards: LessonReward[] = [
     stickerName: 'Morning Star',
     title: 'Bé đã hoàn thành Buổi sáng của bé!',
   },
+  {
+    id: 'reward-school-helper',
+    lessonId: 'at-school',
+    stickerId: 'sticker-school-helper',
+    stickerName: 'School Helper',
+    title: 'Bé đã hoàn thành Ở Trường Của Bé!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

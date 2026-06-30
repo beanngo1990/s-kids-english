@@ -16,7 +16,10 @@ test('renders the home screen', async () => {
     tree = ReactTestRenderer.create(
       <HomeScreen
         navigation={
-          { addListener: jest.fn(() => jest.fn()), navigate: jest.fn() } as never
+          {
+            addListener: jest.fn(() => jest.fn()),
+            navigate: jest.fn(),
+          } as never
         }
         route={{ key: 'Home', name: 'Home' } as never}
       />,
@@ -29,6 +32,7 @@ test('renders the home screen', async () => {
 
   expect(textValues).toContain('S-Kids');
   expect(textValues).toContain('Chơi ngay');
+  expect(textValues).toContain('Ở Trường Của Bé');
 });
 
 test('renders parent onboarding before first use', async () => {

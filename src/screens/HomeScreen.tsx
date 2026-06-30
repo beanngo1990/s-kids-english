@@ -15,9 +15,9 @@ import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
-import type { LearningMode, Scene } from '../types/lesson';
+import type { LearningMode, Lesson, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
-import { getSceneIconName } from '../utils/lessonIcons';
+import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
 import {
   getCompletedSceneCount,
   getNextScene,
@@ -34,8 +34,16 @@ const connectorHeight = 82;
 export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
-  const featuredLesson = lessons[0];
+  const [selectedLessonId, setSelectedLessonId] = useState<string | undefined>(
+    lessons[0]?.id,
+  );
+  const featuredLesson =
+    lessons.find(lesson => lesson.id === selectedLessonId) ?? lessons[0];
   const scenes = useMemo(() => featuredLesson?.scenes ?? [], [featuredLesson]);
+  const sceneIds = useMemo(
+    () => new Set(scenes.map(scene => scene.id)),
+    [scenes],
+  );
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -47,7 +55,11 @@ export function HomeScreen({ navigation }: Props) {
     : getNextScene(scenes, completedSceneIds);
   const pendingProgress = progress?.currentLessonProgress;
   const shouldResumeProgress = Boolean(
-    pendingProgress && !completedSceneIds.has(pendingProgress.sceneId),
+    featuredLesson &&
+      pendingProgress &&
+      pendingProgress.lessonId === featuredLesson.id &&
+      sceneIds.has(pendingProgress.sceneId) &&
+      !completedSceneIds.has(pendingProgress.sceneId),
   );
   const rewardAlignment = getRewardAlignment(scenes.length);
   const primaryLabel = isFeaturedLessonComplete ? 'MỞ QUÀ' : 'Chơi ngay';
@@ -123,6 +135,15 @@ export function HomeScreen({ navigation }: Props) {
             tone="quiet"
           />
         </View>
+
+        {lessons.length > 1 ? (
+          <LessonSwitcher
+            completedSceneIds={completedSceneIds}
+            lessons={lessons}
+            selectedLessonId={featuredLesson?.id}
+            onSelectLesson={setSelectedLessonId}
+          />
+        ) : null}
 
         {featuredLesson ? (
           <View style={styles.world}>
@@ -248,6 +269,71 @@ export function HomeScreen({ navigation }: Props) {
   );
 }
 
+type LessonSwitcherProps = {
+  completedSceneIds: Set<string>;
+  lessons: Lesson[];
+  onSelectLesson: (lessonId: string) => void;
+  selectedLessonId?: string;
+};
+
+function LessonSwitcher({
+  completedSceneIds,
+  lessons,
+  onSelectLesson,
+  selectedLessonId,
+}: LessonSwitcherProps) {
+  return (
+    <View style={styles.lessonSwitcher}>
+      <View style={styles.lessonSwitcherHeader}>
+        <KidBadge tone="sky">Gói bài</KidBadge>
+        <Text style={styles.lessonSwitcherHint}>Chọn hành trình cho bé</Text>
+      </View>
+
+      <View style={styles.lessonSwitcherList}>
+        {lessons.map(lesson => {
+          const isSelected = lesson.id === selectedLessonId;
+          const completedSceneCount = getCompletedSceneCount(
+            lesson.scenes,
+            completedSceneIds,
+          );
+
+          return (
+            <Pressable
+              accessibilityLabel={`Chọn bài ${lesson.titleVi}`}
+              accessibilityRole="button"
+              accessibilityState={{ selected: isSelected }}
+              key={lesson.id}
+              onPress={() => onSelectLesson(lesson.id)}
+              style={({ pressed }) => [
+                styles.lessonChip,
+                isSelected && styles.lessonChipSelected,
+                pressed && styles.lessonChipPressed,
+              ]}
+            >
+              <View
+                style={[
+                  styles.lessonChipIcon,
+                  isSelected && styles.lessonChipIconSelected,
+                ]}
+              >
+                <SKidsIcon name={getLessonIconName(lesson)} size={52} />
+              </View>
+              <View style={styles.lessonChipText}>
+                <Text numberOfLines={2} style={styles.lessonChipTitle}>
+                  {lesson.titleVi}
+                </Text>
+                <Text style={styles.lessonChipMeta}>
+                  {completedSceneCount}/{lesson.scenes.length} trạm
+                </Text>
+              </View>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 type SceneMapStopProps = {
   alignment: MapAlignment;
   index: number;
@@ -330,11 +416,7 @@ type RewardMapStopProps = {
   onPress: () => void;
 };
 
-function RewardMapStop({
-  alignment,
-  isUnlocked,
-  onPress,
-}: RewardMapStopProps) {
+function RewardMapStop({ alignment, isUnlocked, onPress }: RewardMapStopProps) {
   return (
     <Pressable
       accessibilityLabel={isUnlocked ? 'Mở quà' : 'Quà tặng chưa mở khóa'}
@@ -561,6 +643,76 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xs,
     paddingTop: spacing.md,
     position: 'relative',
+  },
+  lessonChip: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    flexBasis: '47%',
+    flexDirection: 'row',
+    flexGrow: 1,
+    gap: spacing.sm,
+    minHeight: 98,
+    padding: spacing.sm,
+    ...shadows.soft,
+  },
+  lessonChipIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.white,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    height: 58,
+    justifyContent: 'center',
+    width: 58,
+  },
+  lessonChipIconSelected: {
+    backgroundColor: colors.white,
+    borderColor: colors.secondary,
+  },
+  lessonChipMeta: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonChipPressed: {
+    opacity: 0.92,
+    transform: [{ scale: 0.99 }],
+  },
+  lessonChipSelected: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+  },
+  lessonChipText: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  lessonChipTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 20,
+  },
+  lessonSwitcher: {
+    gap: spacing.sm,
+    zIndex: 1,
+  },
+  lessonSwitcherHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'space-between',
+  },
+  lessonSwitcherHint: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonSwitcherList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
   },
   lessonTitleGroup: {
     flex: 1,
