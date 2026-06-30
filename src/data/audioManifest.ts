@@ -72,6 +72,78 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/teacher-instructions/audio/en/listen.wav",
     text: "listen",
   },
+  [normalizeText("crumbs")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/crumbs.wav",
+    text: "crumbs",
+  },
+  [normalizeText("trash bin")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/trash_bin.wav",
+    text: "trash bin",
+  },
+  [normalizeText("wash hands")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/wash_hands.wav",
+    text: "wash hands",
+  },
+  [normalizeText("wipe table")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/wipe_table.wav",
+    text: "wipe table",
+  },
+  [normalizeText("bowl")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/bowl.wav",
+    text: "bowl",
+  },
+  [normalizeText("eat lunch")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/eat_lunch.wav",
+    text: "eat lunch",
+  },
+  [normalizeText("fork")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/fork.wav",
+    text: "fork",
+  },
+  [normalizeText("open lunchbox")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/open_lunchbox.wav",
+    text: "open lunchbox",
+  },
+  [normalizeText("rice")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/rice.wav",
+    text: "rice",
+  },
+  [normalizeText("soup")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/soup.wav",
+    text: "soup",
+  },
+  [normalizeText("spoon")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/spoon.wav",
+    text: "spoon",
+  },
+  [normalizeText("use spoon")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/use_spoon.wav",
+    text: "use spoon",
+  },
+  [normalizeText("fruit")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/fruit.wav",
+    text: "fruit",
+  },
+  [normalizeText("napkin")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/napkin.wav",
+    text: "napkin",
+  },
+  [normalizeText("say thank you")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/say_thank_you.wav",
+    text: "say thank you",
+  },
+  [normalizeText("share food")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/share_food.wav",
+    text: "share food",
+  },
+  [normalizeText("sit at table")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/sit_at_table.wav",
+    text: "sit at table",
+  },
+  [normalizeText("table")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/table.wav",
+    text: "table",
+  },
   [normalizeText("brush teeth")]: {
     key: "lessons/morning-routine/bathroom/audio/en/brush_teeth.wav",
     text: "brush teeth",
@@ -231,6 +303,106 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("uniform")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/uniform.wav",
     text: "uniform",
+  },
+  [normalizeText("blocks")]: {
+    key: "lessons/playtime/friend-games/audio/en/blocks.wav",
+    text: "blocks",
+  },
+  [normalizeText("bucket")]: {
+    key: "lessons/playtime/friend-games/audio/en/bucket.wav",
+    text: "bucket",
+  },
+  [normalizeText("friend")]: {
+    key: "lessons/playtime/friend-games/audio/en/friend.wav",
+    text: "friend",
+  },
+  [normalizeText("kite")]: {
+    key: "lessons/playtime/friend-games/audio/en/kite.wav",
+    text: "kite",
+  },
+  [normalizeText("play together")]: {
+    key: "lessons/playtime/friend-games/audio/en/play_together.wav",
+    text: "play together",
+  },
+  [normalizeText("rope")]: {
+    key: "lessons/playtime/friend-games/audio/en/rope.wav",
+    text: "rope",
+  },
+  [normalizeText("share toys")]: {
+    key: "lessons/playtime/friend-games/audio/en/share_toys.wav",
+    text: "share toys",
+  },
+  [normalizeText("toy")]: {
+    key: "lessons/playtime/friend-games/audio/en/toy.wav",
+    text: "toy",
+  },
+  [normalizeText("wait")]: {
+    key: "lessons/playtime/friend-games/audio/en/wait.wav",
+    text: "wait",
+  },
+  [normalizeText("ball")]: {
+    key: "lessons/playtime/playground/audio/en/ball.wav",
+    text: "ball",
+  },
+  [normalizeText("jump")]: {
+    key: "lessons/playtime/playground/audio/en/jump.wav",
+    text: "jump",
+  },
+  [normalizeText("playground")]: {
+    key: "lessons/playtime/playground/audio/en/playground.wav",
+    text: "playground",
+  },
+  [normalizeText("run")]: {
+    key: "lessons/playtime/playground/audio/en/run.wav",
+    text: "run",
+  },
+  [normalizeText("sandbox")]: {
+    key: "lessons/playtime/playground/audio/en/sandbox.wav",
+    text: "sandbox",
+  },
+  [normalizeText("seesaw")]: {
+    key: "lessons/playtime/playground/audio/en/seesaw.wav",
+    text: "seesaw",
+  },
+  [normalizeText("slide")]: {
+    key: "lessons/playtime/playground/audio/en/slide.wav",
+    text: "slide",
+  },
+  [normalizeText("swing")]: {
+    key: "lessons/playtime/playground/audio/en/swing.wav",
+    text: "swing",
+  },
+  [normalizeText("take turns")]: {
+    key: "lessons/playtime/playground/audio/en/take_turns.wav",
+    text: "take turns",
+  },
+  [normalizeText("bench")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/bench.wav",
+    text: "bench",
+  },
+  [normalizeText("bottle")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/bottle.wav",
+    text: "bottle",
+  },
+  [normalizeText("drink water")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/drink_water.wav",
+    text: "drink water",
+  },
+  [normalizeText("eat snack")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/eat_snack.wav",
+    text: "eat snack",
+  },
+  [normalizeText("rest")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest.wav",
+    text: "rest",
+  },
+  [normalizeText("shade")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/shade.wav",
+    text: "shade",
+  },
+  [normalizeText("snack")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/snack.wav",
+    text: "snack",
   },
 };
 
@@ -714,6 +886,494 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cô giáo bảo mình viết tên.")]: {
     key: "lessons/at-school/teacher-instructions/audio/vi/instructions_teach_write_name_4c7a1d0f.wav",
     text: "Cô giáo bảo mình viết tên.",
+  },
+  [normalizeText("Bỏ vụn thức ăn vào thùng rác.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_crumbs_to_trash_74c048d9.wav",
+    text: "Bỏ vụn thức ăn vào thùng rác.",
+  },
+  [normalizeText("Đưa vụn thức ăn vào thùng rác nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_crumbs_to_trash_fail_07a40ee4.wav",
+    text: "Đưa vụn thức ăn vào thùng rác nhé.",
+  },
+  [normalizeText("Vụn thức ăn đã vào thùng rác.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_crumbs_to_trash_success_5c54546c.wav",
+    text: "Vụn thức ăn đã vào thùng rác.",
+  },
+  [normalizeText("Đưa cái đĩa tới bồn rửa.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_plate_to_sink_475e2fb2.wav",
+    text: "Đưa cái đĩa tới bồn rửa.",
+  },
+  [normalizeText("Đưa cái đĩa tới bồn rửa nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_plate_to_sink_fail_fa033a58.wav",
+    text: "Đưa cái đĩa tới bồn rửa nhé.",
+  },
+  [normalizeText("Cái đĩa đã tới bồn rửa.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_plate_to_sink_success_f9cf3114.wav",
+    text: "Cái đĩa đã tới bồn rửa.",
+  },
+  [normalizeText("Đưa xà phòng tới tay để rửa tay.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_soap_to_hands_03438145.wav",
+    text: "Đưa xà phòng tới tay để rửa tay.",
+  },
+  [normalizeText("Tay bé sạch rồi!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_soap_to_hands_success_7f310065.wav",
+    text: "Tay bé sạch rồi!",
+  },
+  [normalizeText("Kéo khăn lau tới mặt bàn.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_towel_to_table_63c5eb55.wav",
+    text: "Kéo khăn lau tới mặt bàn.",
+  },
+  [normalizeText("Kéo khăn lau tới mặt bàn nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_towel_to_table_fail_ecce0adc.wav",
+    text: "Kéo khăn lau tới mặt bàn nhé.",
+  },
+  [normalizeText("Mặt bàn sạch rồi!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_towel_to_table_success_d2dd8159.wav",
+    text: "Mặt bàn sạch rồi!",
+  },
+  [normalizeText("Ăn xong mình dọn gọn nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_intro_89b2f785.wav",
+    text: "Ăn xong mình dọn gọn nhé.",
+  },
+  [normalizeText("Dọn dẹp sau bữa trưa nào!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_intro_success_148e4e4f.wav",
+    text: "Dọn dẹp sau bữa trưa nào!",
+  },
+  [normalizeText("Chạm vào cái đĩa nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_plate_00b467e0.wav",
+    text: "Chạm vào cái đĩa nhé.",
+  },
+  [normalizeText("Cái đĩa ở trên bàn đó.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_plate_fail_ef6c204c.wav",
+    text: "Cái đĩa ở trên bàn đó.",
+  },
+  [normalizeText("Đúng rồi, đó là cái đĩa.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_plate_success_1c6699cb.wav",
+    text: "Đúng rồi, đó là cái đĩa.",
+  },
+  [normalizeText("Bồn rửa nằm phía trên bên phải đó.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_sink_fail_e229158b.wav",
+    text: "Bồn rửa nằm phía trên bên phải đó.",
+  },
+  [normalizeText("Con tìm thấy bồn rửa rồi!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_sink_success_8ecf25fc.wav",
+    text: "Con tìm thấy bồn rửa rồi!",
+  },
+  [normalizeText("Xà phòng ở gần bồn rửa đó.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_soap_fail_41db83dc.wav",
+    text: "Xà phòng ở gần bồn rửa đó.",
+  },
+  [normalizeText("Chạm vào xà phòng nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_soap_fe765f22.wav",
+    text: "Chạm vào xà phòng nhé.",
+  },
+  [normalizeText("Con tìm thấy xà phòng rồi!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_soap_success_8f533821.wav",
+    text: "Con tìm thấy xà phòng rồi!",
+  },
+  [normalizeText("Chạm vào khăn lau nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_towel_ac5a6660.wav",
+    text: "Chạm vào khăn lau nhé.",
+  },
+  [normalizeText("Khăn lau nằm phía dưới bên trái đó.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_towel_fail_dbf214d1.wav",
+    text: "Khăn lau nằm phía dưới bên trái đó.",
+  },
+  [normalizeText("Đúng rồi, đó là khăn lau.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_tap_towel_success_947e72ba.wav",
+    text: "Đúng rồi, đó là khăn lau.",
+  },
+  [normalizeText("Mình học câu dọn dẹp nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_clean_up_1f7086d9.wav",
+    text: "Mình học câu dọn dẹp nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dọn dẹp.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_clean_up_success_1a1ca3a3.wav",
+    text: "Câu này nghĩa là dọn dẹp.",
+  },
+  [normalizeText("Đây là vụn thức ăn.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_crumbs_d01e3af7.wav",
+    text: "Đây là vụn thức ăn.",
+  },
+  [normalizeText("Từ này nghĩa là vụn thức ăn.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_crumbs_success_b56320d0.wav",
+    text: "Từ này nghĩa là vụn thức ăn.",
+  },
+  [normalizeText("Đây là bồn rửa.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_sink_41dc268b.wav",
+    text: "Đây là bồn rửa.",
+  },
+  [normalizeText("Đây là thùng rác.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_trash_bin_f093cc8c.wav",
+    text: "Đây là thùng rác.",
+  },
+  [normalizeText("Từ này nghĩa là thùng rác.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_trash_bin_success_d316febf.wav",
+    text: "Từ này nghĩa là thùng rác.",
+  },
+  [normalizeText("Mình học câu rửa tay nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_wash_hands_b39802f2.wav",
+    text: "Mình học câu rửa tay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là rửa tay.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_wash_hands_success_fbb55504.wav",
+    text: "Câu này nghĩa là rửa tay.",
+  },
+  [normalizeText("Mình học câu lau bàn nhé.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_wipe_table_34910a12.wav",
+    text: "Mình học câu lau bàn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là lau bàn.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_teach_wipe_table_success_2d37984f.wav",
+    text: "Câu này nghĩa là lau bàn.",
+  },
+  [normalizeText("Bé đã dọn gọn sau bữa trưa.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/completion_165a53fe.wav",
+    text: "Bé đã dọn gọn sau bữa trưa.",
+  },
+  [normalizeText("Bé đã chuẩn bị hộp cơm trưa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/completion_f055c155.wav",
+    text: "Bé đã chuẩn bị hộp cơm trưa.",
+  },
+  [normalizeText("Đưa cơm tới miệng để ăn trưa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_rice_to_mouth_e7ba8df4.wav",
+    text: "Đưa cơm tới miệng để ăn trưa.",
+  },
+  [normalizeText("Đưa cơm tới miệng bé nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_rice_to_mouth_fail_e49fcf17.wav",
+    text: "Đưa cơm tới miệng bé nhé.",
+  },
+  [normalizeText("Bé ăn trưa ngon miệng!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_rice_to_mouth_success_a2785ded.wav",
+    text: "Bé ăn trưa ngon miệng!",
+  },
+  [normalizeText("Đưa canh vào cái bát.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_soup_to_bowl_e64b96da.wav",
+    text: "Đưa canh vào cái bát.",
+  },
+  [normalizeText("Đưa canh vào cái bát nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_soup_to_bowl_fail_08ba12a2.wav",
+    text: "Đưa canh vào cái bát nhé.",
+  },
+  [normalizeText("Canh đã ở trong bát rồi!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_soup_to_bowl_success_025c6802.wav",
+    text: "Canh đã ở trong bát rồi!",
+  },
+  [normalizeText("Dùng thìa để ăn canh.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_mouth_2f58c39a.wav",
+    text: "Dùng thìa để ăn canh.",
+  },
+  [normalizeText("Đưa cái thìa tới miệng bé nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_mouth_fail_e5b02dd9.wav",
+    text: "Đưa cái thìa tới miệng bé nhé.",
+  },
+  [normalizeText("Bé dùng thìa rất khéo!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_mouth_success_7b17a844.wav",
+    text: "Bé dùng thìa rất khéo!",
+  },
+  [normalizeText("Đưa cái thìa tới bát canh.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_soup_00bb71c1.wav",
+    text: "Đưa cái thìa tới bát canh.",
+  },
+  [normalizeText("Đưa cái thìa tới bát canh nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_soup_fail_722f2a9e.wav",
+    text: "Đưa cái thìa tới bát canh nhé.",
+  },
+  [normalizeText("Cái thìa đã ở cạnh bát canh.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_drag_spoon_to_soup_success_0e32260b.wav",
+    text: "Cái thìa đã ở cạnh bát canh.",
+  },
+  [normalizeText("Mình chuẩn bị ăn trưa nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_intro_b84da744.wav",
+    text: "Mình chuẩn bị ăn trưa nhé.",
+  },
+  [normalizeText("Bữa trưa bắt đầu rồi!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_intro_success_d0a43ac1.wav",
+    text: "Bữa trưa bắt đầu rồi!",
+  },
+  [normalizeText("Chạm vào cái nĩa nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_fork_3b210d9c.wav",
+    text: "Chạm vào cái nĩa nhé.",
+  },
+  [normalizeText("Cái nĩa nằm gần cái thìa đó.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_fork_fail_4c086771.wav",
+    text: "Cái nĩa nằm gần cái thìa đó.",
+  },
+  [normalizeText("Con tìm thấy cái nĩa rồi!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_fork_success_0ec413c8.wav",
+    text: "Con tìm thấy cái nĩa rồi!",
+  },
+  [normalizeText("Chạm vào hộp cơm nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_lunchbox_73530166.wav",
+    text: "Chạm vào hộp cơm nhé.",
+  },
+  [normalizeText("Hộp cơm nằm ở giữa khay đó.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_lunchbox_fail_af2b5a0a.wav",
+    text: "Hộp cơm nằm ở giữa khay đó.",
+  },
+  [normalizeText("Đúng rồi, đó là hộp cơm.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_lunchbox_success_d5590934.wav",
+    text: "Đúng rồi, đó là hộp cơm.",
+  },
+  [normalizeText("Chạm hộp cơm để mở nắp.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_open_lunchbox_b5a155dc.wav",
+    text: "Chạm hộp cơm để mở nắp.",
+  },
+  [normalizeText("Chạm hộp cơm để mở nắp nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_open_lunchbox_fail_a85fc601.wav",
+    text: "Chạm hộp cơm để mở nắp nhé.",
+  },
+  [normalizeText("Hộp cơm đã mở rồi!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_open_lunchbox_success_c81b4195.wav",
+    text: "Hộp cơm đã mở rồi!",
+  },
+  [normalizeText("Chạm vào cơm nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_rice_ee1e7494.wav",
+    text: "Chạm vào cơm nhé.",
+  },
+  [normalizeText("Cơm ở trên khay bên trái đó.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_rice_fail_3cc1da39.wav",
+    text: "Cơm ở trên khay bên trái đó.",
+  },
+  [normalizeText("Đúng rồi, đó là cơm.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_rice_success_662a1977.wav",
+    text: "Đúng rồi, đó là cơm.",
+  },
+  [normalizeText("Chạm vào canh nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_soup_c0c873c2.wav",
+    text: "Chạm vào canh nhé.",
+  },
+  [normalizeText("Canh ở trong bát nhỏ bên phải đó.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_soup_fail_619abe40.wav",
+    text: "Canh ở trong bát nhỏ bên phải đó.",
+  },
+  [normalizeText("Con tìm thấy canh rồi!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_tap_soup_success_52fc0298.wav",
+    text: "Con tìm thấy canh rồi!",
+  },
+  [normalizeText("Đây là cái bát.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_bowl_6be05de4.wav",
+    text: "Đây là cái bát.",
+  },
+  [normalizeText("Từ này nghĩa là cái bát.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_bowl_success_8f6e43ba.wav",
+    text: "Từ này nghĩa là cái bát.",
+  },
+  [normalizeText("Mình học câu ăn trưa nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_eat_lunch_8e2c9458.wav",
+    text: "Mình học câu ăn trưa nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ăn trưa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_eat_lunch_success_2199c2fc.wav",
+    text: "Câu này nghĩa là ăn trưa.",
+  },
+  [normalizeText("Đây là cái nĩa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_fork_497fe2d7.wav",
+    text: "Đây là cái nĩa.",
+  },
+  [normalizeText("Từ này nghĩa là cái nĩa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_fork_success_6fa6defe.wav",
+    text: "Từ này nghĩa là cái nĩa.",
+  },
+  [normalizeText("Mình học câu mở hộp cơm nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_open_lunchbox_0eec972a.wav",
+    text: "Mình học câu mở hộp cơm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là mở hộp cơm.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_open_lunchbox_success_d955d140.wav",
+    text: "Câu này nghĩa là mở hộp cơm.",
+  },
+  [normalizeText("Đây là cơm.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_rice_a4c9f9c1.wav",
+    text: "Đây là cơm.",
+  },
+  [normalizeText("Từ này nghĩa là cơm.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_rice_success_1f8587a3.wav",
+    text: "Từ này nghĩa là cơm.",
+  },
+  [normalizeText("Đây là canh.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_soup_54f47a65.wav",
+    text: "Đây là canh.",
+  },
+  [normalizeText("Từ này nghĩa là canh.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_soup_success_f8c1a0fb.wav",
+    text: "Từ này nghĩa là canh.",
+  },
+  [normalizeText("Đây là cái thìa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_spoon_0a6d1281.wav",
+    text: "Đây là cái thìa.",
+  },
+  [normalizeText("Từ này nghĩa là cái thìa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_spoon_success_53ac66cf.wav",
+    text: "Từ này nghĩa là cái thìa.",
+  },
+  [normalizeText("Mình học câu dùng thìa nhé.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_use_spoon_7ddcff73.wav",
+    text: "Mình học câu dùng thìa nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dùng thìa.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_use_spoon_success_a57cc592.wav",
+    text: "Câu này nghĩa là dùng thìa.",
+  },
+  [normalizeText("Bé đã biết ăn trưa cùng bạn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/completion_aebd2395.wav",
+    text: "Bé đã biết ăn trưa cùng bạn.",
+  },
+  [normalizeText("Đưa ghế vào chỗ ngồi.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_seat_2608af29.wav",
+    text: "Đưa ghế vào chỗ ngồi.",
+  },
+  [normalizeText("Đưa ghế tới vị trí ngồi bên bàn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_seat_fail_314d783e.wav",
+    text: "Đưa ghế tới vị trí ngồi bên bàn nhé.",
+  },
+  [normalizeText("Bé đã ngồi vào bàn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_seat_success_d89480c7.wav",
+    text: "Bé đã ngồi vào bàn.",
+  },
+  [normalizeText("Kéo ghế tới bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_table_c9376413.wav",
+    text: "Kéo ghế tới bàn ăn.",
+  },
+  [normalizeText("Kéo ghế tới gần bàn ăn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_table_fail_81370bf7.wav",
+    text: "Kéo ghế tới gần bàn ăn nhé.",
+  },
+  [normalizeText("Ghế đã ở cạnh bàn ăn rồi!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_chair_to_table_success_d890d634.wav",
+    text: "Ghế đã ở cạnh bàn ăn rồi!",
+  },
+  [normalizeText("Chia sẻ trái cây với bạn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_friend_602b7bfd.wav",
+    text: "Chia sẻ trái cây với bạn.",
+  },
+  [normalizeText("Đưa trái cây tới bạn để chia sẻ nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_friend_fail_99cfe60c.wav",
+    text: "Đưa trái cây tới bạn để chia sẻ nhé.",
+  },
+  [normalizeText("Bé chia sẻ đồ ăn rất ngoan!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_friend_success_477592eb.wav",
+    text: "Bé chia sẻ đồ ăn rất ngoan!",
+  },
+  [normalizeText("Đặt trái cây lên bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_table_5f8ef5da.wav",
+    text: "Đặt trái cây lên bàn ăn.",
+  },
+  [normalizeText("Đặt trái cây lên bàn ăn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_table_fail_587e9b05.wav",
+    text: "Đặt trái cây lên bàn ăn nhé.",
+  },
+  [normalizeText("Trái cây đã sẵn sàng!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_fruit_to_table_success_d50617f9.wav",
+    text: "Trái cây đã sẵn sàng!",
+  },
+  [normalizeText("Đặt khăn giấy lên bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_napkin_to_table_3a1f02d6.wav",
+    text: "Đặt khăn giấy lên bàn ăn.",
+  },
+  [normalizeText("Đặt khăn giấy lên bàn ăn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_napkin_to_table_fail_093f9f46.wav",
+    text: "Đặt khăn giấy lên bàn ăn nhé.",
+  },
+  [normalizeText("Khăn giấy đã ở trên bàn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_drag_napkin_to_table_success_6d28e254.wav",
+    text: "Khăn giấy đã ở trên bàn.",
+  },
+  [normalizeText("Mình ăn trưa cùng bạn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_intro_46eeae00.wav",
+    text: "Mình ăn trưa cùng bạn nhé.",
+  },
+  [normalizeText("Cùng ngồi vào bàn nào!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_intro_success_4b775148.wav",
+    text: "Cùng ngồi vào bàn nào!",
+  },
+  [normalizeText("Chạm vào cái cốc nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_cup_2cfad55f.wav",
+    text: "Chạm vào cái cốc nhé.",
+  },
+  [normalizeText("Cái cốc nằm trên bàn ăn đó.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_cup_fail_70479e53.wav",
+    text: "Cái cốc nằm trên bàn ăn đó.",
+  },
+  [normalizeText("Đúng rồi, đó là cái cốc.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_cup_success_2ba0651a.wav",
+    text: "Đúng rồi, đó là cái cốc.",
+  },
+  [normalizeText("Bạn đang ngồi bên phải đó.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_friend_fail_ffcf5c50.wav",
+    text: "Bạn đang ngồi bên phải đó.",
+  },
+  [normalizeText("Chạm vào bàn ăn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_table_7462748a.wav",
+    text: "Chạm vào bàn ăn nhé.",
+  },
+  [normalizeText("Bàn ăn ở giữa phòng đó.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_table_fail_374e4d45.wav",
+    text: "Bàn ăn ở giữa phòng đó.",
+  },
+  [normalizeText("Đúng rồi, đó là bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_table_success_568c8e23.wav",
+    text: "Đúng rồi, đó là bàn ăn.",
+  },
+  [normalizeText("Chạm thẻ cảm ơn để nói lời cảm ơn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_thanks_card_76711c17.wav",
+    text: "Chạm thẻ cảm ơn để nói lời cảm ơn.",
+  },
+  [normalizeText("Chạm thẻ cảm ơn cạnh bạn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_thanks_card_fail_1ec1ac72.wav",
+    text: "Chạm thẻ cảm ơn cạnh bạn nhé.",
+  },
+  [normalizeText("Bé nói cảm ơn thật lễ phép!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_tap_thanks_card_success_ce349183.wav",
+    text: "Bé nói cảm ơn thật lễ phép!",
+  },
+  [normalizeText("Đây là trái cây.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_fruit_7c332fa9.wav",
+    text: "Đây là trái cây.",
+  },
+  [normalizeText("Từ này nghĩa là trái cây.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_fruit_success_1545d4c4.wav",
+    text: "Từ này nghĩa là trái cây.",
+  },
+  [normalizeText("Đây là khăn giấy.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_napkin_43f41ef3.wav",
+    text: "Đây là khăn giấy.",
+  },
+  [normalizeText("Từ này nghĩa là khăn giấy.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_napkin_success_c0a4d55a.wav",
+    text: "Từ này nghĩa là khăn giấy.",
+  },
+  [normalizeText("Mình học câu nói lời cảm ơn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_say_thank_you_da6034af.wav",
+    text: "Mình học câu nói lời cảm ơn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nói lời cảm ơn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_say_thank_you_success_2060952c.wav",
+    text: "Câu này nghĩa là nói lời cảm ơn.",
+  },
+  [normalizeText("Mình học câu chia sẻ đồ ăn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_share_food_10aec35a.wav",
+    text: "Mình học câu chia sẻ đồ ăn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chia sẻ đồ ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_share_food_success_5b01836c.wav",
+    text: "Câu này nghĩa là chia sẻ đồ ăn.",
+  },
+  [normalizeText("Mình học câu ngồi vào bàn nhé.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_sit_at_table_3ec2c69f.wav",
+    text: "Mình học câu ngồi vào bàn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngồi vào bàn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_sit_at_table_success_d3249b21.wav",
+    text: "Câu này nghĩa là ngồi vào bàn.",
+  },
+  [normalizeText("Đây là bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_table_d12acac4.wav",
+    text: "Đây là bàn ăn.",
+  },
+  [normalizeText("Từ này nghĩa là bàn ăn.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_table_success_ab835110.wav",
+    text: "Từ này nghĩa là bàn ăn.",
   },
   [normalizeText("Bé đã vệ sinh thật tốt.")]: {
     key: "lessons/morning-routine/bathroom/audio/vi/completion.wav",
@@ -1502,6 +2162,562 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là đồng phục.")]: {
     key: "lessons/morning-routine/go-to-school/audio/vi/school_teach_uniform_success_ad977d1b.wav",
     text: "Từ này nghĩa là đồng phục.",
+  },
+  [normalizeText("Bé đã biết chơi vui và chia sẻ với bạn.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/completion_ba602849.wav",
+    text: "Bé đã biết chơi vui và chia sẻ với bạn.",
+  },
+  [normalizeText("Đưa khối xếp hình vào thảm để chơi cùng nhau.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_play_together_2101b3b8.wav",
+    text: "Đưa khối xếp hình vào thảm để chơi cùng nhau.",
+  },
+  [normalizeText("Kéo khối xếp hình vào thảm để chơi cùng nhau nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_play_together_fail_f2a28a08.wav",
+    text: "Kéo khối xếp hình vào thảm để chơi cùng nhau nhé.",
+  },
+  [normalizeText("Hai bạn chơi cùng nhau rất vui!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_play_together_success_26d1c4a5.wav",
+    text: "Hai bạn chơi cùng nhau rất vui!",
+  },
+  [normalizeText("Đưa khối xếp hình vào thảm chơi.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_to_mat_c0078cab.wav",
+    text: "Đưa khối xếp hình vào thảm chơi.",
+  },
+  [normalizeText("Kéo khối xếp hình vào thảm chơi nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_to_mat_fail_79b0c62d.wav",
+    text: "Kéo khối xếp hình vào thảm chơi nhé.",
+  },
+  [normalizeText("Khối xếp hình đã vào thảm chơi!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_blocks_to_mat_success_46d844f5.wav",
+    text: "Khối xếp hình đã vào thảm chơi!",
+  },
+  [normalizeText("Đưa diều lên trời.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_kite_to_sky_da50b72e.wav",
+    text: "Đưa diều lên trời.",
+  },
+  [normalizeText("Kéo diều lên vùng trời nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_kite_to_sky_fail_b269736d.wav",
+    text: "Kéo diều lên vùng trời nhé.",
+  },
+  [normalizeText("Diều bay lên rồi!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_kite_to_sky_success_f786dae7.wav",
+    text: "Diều bay lên rồi!",
+  },
+  [normalizeText("Chia sẻ đồ chơi với bạn.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_toy_to_friend_769254a3.wav",
+    text: "Chia sẻ đồ chơi với bạn.",
+  },
+  [normalizeText("Kéo đồ chơi tới bạn để cùng chơi nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_toy_to_friend_fail_8ec6b0e0.wav",
+    text: "Kéo đồ chơi tới bạn để cùng chơi nhé.",
+  },
+  [normalizeText("Bé chia sẻ đồ chơi thật ngoan!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_drag_toy_to_friend_success_2c27f653.wav",
+    text: "Bé chia sẻ đồ chơi thật ngoan!",
+  },
+  [normalizeText("Mình chơi cùng bạn nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_intro_b686a8c9.wav",
+    text: "Mình chơi cùng bạn nhé.",
+  },
+  [normalizeText("Có bạn chơi cùng thật vui!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_intro_success_43e38b2d.wav",
+    text: "Có bạn chơi cùng thật vui!",
+  },
+  [normalizeText("Chạm vào cái xô nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_bucket_4a1d50de.wav",
+    text: "Chạm vào cái xô nhé.",
+  },
+  [normalizeText("Cái xô ở phía dưới bên phải đó.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_bucket_fail_a1e4a5df.wav",
+    text: "Cái xô ở phía dưới bên phải đó.",
+  },
+  [normalizeText("Đúng rồi, đó là cái xô.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_bucket_success_9aca6c80.wav",
+    text: "Đúng rồi, đó là cái xô.",
+  },
+  [normalizeText("Chạm vào bạn nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_friend_b4ce0b88.wav",
+    text: "Chạm vào bạn nhé.",
+  },
+  [normalizeText("Bạn đang đứng bên phải đó.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_friend_fail_88791705.wav",
+    text: "Bạn đang đứng bên phải đó.",
+  },
+  [normalizeText("Con tìm thấy bạn rồi!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_friend_success_6b9c9bd4.wav",
+    text: "Con tìm thấy bạn rồi!",
+  },
+  [normalizeText("Chạm vào dây nhảy nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_rope_98e2dc62.wav",
+    text: "Chạm vào dây nhảy nhé.",
+  },
+  [normalizeText("Dây nhảy nằm phía dưới bên trái đó.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_rope_fail_94d70728.wav",
+    text: "Dây nhảy nằm phía dưới bên trái đó.",
+  },
+  [normalizeText("Con tìm thấy dây nhảy rồi!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_rope_success_60bf36c4.wav",
+    text: "Con tìm thấy dây nhảy rồi!",
+  },
+  [normalizeText("Chạm vào đồ chơi nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_toy_457add8b.wav",
+    text: "Chạm vào đồ chơi nhé.",
+  },
+  [normalizeText("Đồ chơi nằm gần giữa sân đó.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_toy_fail_1219d838.wav",
+    text: "Đồ chơi nằm gần giữa sân đó.",
+  },
+  [normalizeText("Đúng rồi, đó là đồ chơi.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_toy_success_c2747afc.wav",
+    text: "Đúng rồi, đó là đồ chơi.",
+  },
+  [normalizeText("Chạm biểu tượng chờ đến lượt.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_wait_clock_830eeea3.wav",
+    text: "Chạm biểu tượng chờ đến lượt.",
+  },
+  [normalizeText("Biểu tượng chờ nằm cạnh thẻ chia sẻ đó.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_wait_clock_fail_402edf5e.wav",
+    text: "Biểu tượng chờ nằm cạnh thẻ chia sẻ đó.",
+  },
+  [normalizeText("Bé biết chờ đến lượt rồi!")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_tap_wait_clock_success_55293935.wav",
+    text: "Bé biết chờ đến lượt rồi!",
+  },
+  [normalizeText("Đây là khối xếp hình.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_blocks_3f7a3d80.wav",
+    text: "Đây là khối xếp hình.",
+  },
+  [normalizeText("Từ này nghĩa là khối xếp hình.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_blocks_success_76399f2a.wav",
+    text: "Từ này nghĩa là khối xếp hình.",
+  },
+  [normalizeText("Đây là cái xô.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_bucket_bde7b353.wav",
+    text: "Đây là cái xô.",
+  },
+  [normalizeText("Từ này nghĩa là cái xô.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_bucket_success_085d639c.wav",
+    text: "Từ này nghĩa là cái xô.",
+  },
+  [normalizeText("Đây là bạn.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_friend_769d3936.wav",
+    text: "Đây là bạn.",
+  },
+  [normalizeText("Từ này nghĩa là bạn.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_friend_success_2015fa8d.wav",
+    text: "Từ này nghĩa là bạn.",
+  },
+  [normalizeText("Đây là diều.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_kite_30f16fb9.wav",
+    text: "Đây là diều.",
+  },
+  [normalizeText("Từ này nghĩa là diều.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_kite_success_4b9eb0c5.wav",
+    text: "Từ này nghĩa là diều.",
+  },
+  [normalizeText("Mình học câu chơi cùng nhau nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_play_together_8f4be462.wav",
+    text: "Mình học câu chơi cùng nhau nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chơi cùng nhau.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_play_together_success_f62c4c68.wav",
+    text: "Câu này nghĩa là chơi cùng nhau.",
+  },
+  [normalizeText("Đây là dây nhảy.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_rope_e6f0fd07.wav",
+    text: "Đây là dây nhảy.",
+  },
+  [normalizeText("Từ này nghĩa là dây nhảy.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_rope_success_b20c0196.wav",
+    text: "Từ này nghĩa là dây nhảy.",
+  },
+  [normalizeText("Mình học câu chia sẻ đồ chơi nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_share_toys_1d843e31.wav",
+    text: "Mình học câu chia sẻ đồ chơi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chia sẻ đồ chơi.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_share_toys_success_3f2bedb8.wav",
+    text: "Câu này nghĩa là chia sẻ đồ chơi.",
+  },
+  [normalizeText("Đây là đồ chơi.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_toy_3d5a7b32.wav",
+    text: "Đây là đồ chơi.",
+  },
+  [normalizeText("Từ này nghĩa là đồ chơi.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_toy_success_6ff555b4.wav",
+    text: "Từ này nghĩa là đồ chơi.",
+  },
+  [normalizeText("Mình học từ chờ nhé.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_wait_fb3cffa0.wav",
+    text: "Mình học từ chờ nhé.",
+  },
+  [normalizeText("Từ này nghĩa là chờ.")]: {
+    key: "lessons/playtime/friend-games/audio/vi/games_teach_wait_success_879ca239.wav",
+    text: "Từ này nghĩa là chờ.",
+  },
+  [normalizeText("Bé đã chơi ở sân trường thật vui.")]: {
+    key: "lessons/playtime/playground/audio/vi/completion_d91c0bd7.wav",
+    text: "Bé đã chơi ở sân trường thật vui.",
+  },
+  [normalizeText("Đưa bóng vào vòng lượt chơi.")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_turn_2e6ce3c7.wav",
+    text: "Đưa bóng vào vòng lượt chơi.",
+  },
+  [normalizeText("Đưa bóng tới vòng lượt chơi nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_turn_fail_8705daf5.wav",
+    text: "Đưa bóng tới vòng lượt chơi nhé.",
+  },
+  [normalizeText("Bé biết chờ lượt rồi!")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_turn_success_3bfb5999.wav",
+    text: "Bé biết chờ lượt rồi!",
+  },
+  [normalizeText("Kéo bóng vào sân chơi.")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_yard_eebf266f.wav",
+    text: "Kéo bóng vào sân chơi.",
+  },
+  [normalizeText("Kéo bóng vào giữa sân chơi nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_yard_fail_170a7e48.wav",
+    text: "Kéo bóng vào giữa sân chơi nhé.",
+  },
+  [normalizeText("Bóng đã vào sân chơi rồi!")]: {
+    key: "lessons/playtime/playground/audio/vi/drag_ball_to_yard_success_e078bf25.wav",
+    text: "Bóng đã vào sân chơi rồi!",
+  },
+  [normalizeText("Mình ra sân chơi nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/intro_fc0d520a.wav",
+    text: "Mình ra sân chơi nhé.",
+  },
+  [normalizeText("Sân chơi vui quá!")]: {
+    key: "lessons/playtime/playground/audio/vi/intro_success_1644f4fb.wav",
+    text: "Sân chơi vui quá!",
+  },
+  [normalizeText("Chạm vào vòng để nhảy nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_jump_hoop_76b9222b.wav",
+    text: "Chạm vào vòng để nhảy nhé.",
+  },
+  [normalizeText("Vòng nhảy ở phía dưới sân đó.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_jump_hoop_fail_6657066a.wav",
+    text: "Vòng nhảy ở phía dưới sân đó.",
+  },
+  [normalizeText("Bé nhảy qua vòng rồi!")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_jump_hoop_success_2d781e23.wav",
+    text: "Bé nhảy qua vòng rồi!",
+  },
+  [normalizeText("Chạm đường chạy để chạy nhẹ.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_run_path_38ffc52a.wav",
+    text: "Chạm đường chạy để chạy nhẹ.",
+  },
+  [normalizeText("Chạm vào đường chạy dưới sân nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_run_path_fail_5ad2569c.wav",
+    text: "Chạm vào đường chạy dưới sân nhé.",
+  },
+  [normalizeText("Bé chạy nhẹ rất an toàn!")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_run_path_success_32db2910.wav",
+    text: "Bé chạy nhẹ rất an toàn!",
+  },
+  [normalizeText("Chạm vào hố cát nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_sandbox_6fa7c486.wav",
+    text: "Chạm vào hố cát nhé.",
+  },
+  [normalizeText("Hố cát ở phía dưới bên phải đó.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_sandbox_fail_1015b46d.wav",
+    text: "Hố cát ở phía dưới bên phải đó.",
+  },
+  [normalizeText("Con tìm thấy hố cát rồi!")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_sandbox_success_7d5ca553.wav",
+    text: "Con tìm thấy hố cát rồi!",
+  },
+  [normalizeText("Chạm vào bập bênh nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_seesaw_0aed9ee8.wav",
+    text: "Chạm vào bập bênh nhé.",
+  },
+  [normalizeText("Bập bênh nằm gần giữa sân đó.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_seesaw_fail_9e21a564.wav",
+    text: "Bập bênh nằm gần giữa sân đó.",
+  },
+  [normalizeText("Đúng rồi, đó là bập bênh.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_seesaw_success_4eb6ed61.wav",
+    text: "Đúng rồi, đó là bập bênh.",
+  },
+  [normalizeText("Chạm vào cầu trượt nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_slide_d22e8613.wav",
+    text: "Chạm vào cầu trượt nhé.",
+  },
+  [normalizeText("Cầu trượt ở bên phải đó.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_slide_fail_b34b9210.wav",
+    text: "Cầu trượt ở bên phải đó.",
+  },
+  [normalizeText("Con tìm thấy cầu trượt rồi!")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_slide_success_e94d6a42.wav",
+    text: "Con tìm thấy cầu trượt rồi!",
+  },
+  [normalizeText("Chạm vào xích đu nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_swing_5a13b18e.wav",
+    text: "Chạm vào xích đu nhé.",
+  },
+  [normalizeText("Xích đu ở bên trái sân chơi đó.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_swing_fail_66696f26.wav",
+    text: "Xích đu ở bên trái sân chơi đó.",
+  },
+  [normalizeText("Đúng rồi, đó là xích đu.")]: {
+    key: "lessons/playtime/playground/audio/vi/tap_swing_success_d83cb0ee.wav",
+    text: "Đúng rồi, đó là xích đu.",
+  },
+  [normalizeText("Đây là quả bóng.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_ball_aef40571.wav",
+    text: "Đây là quả bóng.",
+  },
+  [normalizeText("Từ này nghĩa là quả bóng.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_ball_success_0f951d32.wav",
+    text: "Từ này nghĩa là quả bóng.",
+  },
+  [normalizeText("Mình học từ nhảy nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_jump_15d6cbb4.wav",
+    text: "Mình học từ nhảy nhé.",
+  },
+  [normalizeText("Từ này nghĩa là nhảy.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_jump_success_893af856.wav",
+    text: "Từ này nghĩa là nhảy.",
+  },
+  [normalizeText("Đây là sân chơi.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_playground_5303a2cc.wav",
+    text: "Đây là sân chơi.",
+  },
+  [normalizeText("Từ này nghĩa là sân chơi.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_playground_success_411242ca.wav",
+    text: "Từ này nghĩa là sân chơi.",
+  },
+  [normalizeText("Mình học từ chạy nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_run_968f08c8.wav",
+    text: "Mình học từ chạy nhé.",
+  },
+  [normalizeText("Từ này nghĩa là chạy.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_run_success_7c51a89c.wav",
+    text: "Từ này nghĩa là chạy.",
+  },
+  [normalizeText("Đây là hố cát.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_sandbox_e00fd881.wav",
+    text: "Đây là hố cát.",
+  },
+  [normalizeText("Từ này nghĩa là hố cát.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_sandbox_success_c1811183.wav",
+    text: "Từ này nghĩa là hố cát.",
+  },
+  [normalizeText("Đây là bập bênh.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_seesaw_89e01356.wav",
+    text: "Đây là bập bênh.",
+  },
+  [normalizeText("Từ này nghĩa là bập bênh.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_seesaw_success_c7c6a624.wav",
+    text: "Từ này nghĩa là bập bênh.",
+  },
+  [normalizeText("Đây là cầu trượt.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_slide_28755f00.wav",
+    text: "Đây là cầu trượt.",
+  },
+  [normalizeText("Từ này nghĩa là cầu trượt.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_slide_success_9ac6be50.wav",
+    text: "Từ này nghĩa là cầu trượt.",
+  },
+  [normalizeText("Đây là xích đu.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_swing_ac32a5c7.wav",
+    text: "Đây là xích đu.",
+  },
+  [normalizeText("Từ này nghĩa là xích đu.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_swing_success_a7860021.wav",
+    text: "Từ này nghĩa là xích đu.",
+  },
+  [normalizeText("Mình học câu lần lượt chơi nhé.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_take_turns_abf49e6a.wav",
+    text: "Mình học câu lần lượt chơi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là lần lượt chơi.")]: {
+    key: "lessons/playtime/playground/audio/vi/teach_take_turns_success_a473acb2.wav",
+    text: "Câu này nghĩa là lần lượt chơi.",
+  },
+  [normalizeText("Bé đã biết nghỉ ngơi sau khi chơi.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/completion_264e290a.wav",
+    text: "Bé đã biết nghỉ ngơi sau khi chơi.",
+  },
+  [normalizeText("Đưa bình nước tới miệng bé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_bottle_to_mouth_9f3d2aca.wav",
+    text: "Đưa bình nước tới miệng bé.",
+  },
+  [normalizeText("Đưa bình nước tới miệng bé nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_bottle_to_mouth_fail_92531371.wav",
+    text: "Đưa bình nước tới miệng bé nhé.",
+  },
+  [normalizeText("Bé uống nước rồi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_bottle_to_mouth_success_8299ef5d.wav",
+    text: "Bé uống nước rồi!",
+  },
+  [normalizeText("Đưa đồ ăn nhẹ tới miệng bé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_mouth_ae08b1d7.wav",
+    text: "Đưa đồ ăn nhẹ tới miệng bé.",
+  },
+  [normalizeText("Đưa đồ ăn nhẹ tới miệng bé nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_mouth_fail_2dd80641.wav",
+    text: "Đưa đồ ăn nhẹ tới miệng bé nhé.",
+  },
+  [normalizeText("Bé ăn nhẹ xong rồi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_mouth_success_80a476f7.wav",
+    text: "Bé ăn nhẹ xong rồi!",
+  },
+  [normalizeText("Đặt đồ ăn nhẹ lên bàn.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_table_3c36f992.wav",
+    text: "Đặt đồ ăn nhẹ lên bàn.",
+  },
+  [normalizeText("Đưa đồ ăn nhẹ lên bàn nhỏ nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_table_fail_0728a7be.wav",
+    text: "Đưa đồ ăn nhẹ lên bàn nhỏ nhé.",
+  },
+  [normalizeText("Đồ ăn nhẹ đã ở trên bàn.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_snack_to_table_success_788892ed.wav",
+    text: "Đồ ăn nhẹ đã ở trên bàn.",
+  },
+  [normalizeText("Lau mặt sau khi chơi nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_towel_to_face_df2f1446.wav",
+    text: "Lau mặt sau khi chơi nhé.",
+  },
+  [normalizeText("Kéo khăn lau tới mặt bé nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_towel_to_face_fail_48bdb1b2.wav",
+    text: "Kéo khăn lau tới mặt bé nhé.",
+  },
+  [normalizeText("Mặt bé sạch và mát rồi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_drag_towel_to_face_success_a5d0e469.wav",
+    text: "Mặt bé sạch và mát rồi!",
+  },
+  [normalizeText("Chơi xong mình nghỉ một chút nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_intro_d2fc14fc.wav",
+    text: "Chơi xong mình nghỉ một chút nhé.",
+  },
+  [normalizeText("Nghỉ một chút cho khỏe nào!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_intro_success_6429f378.wav",
+    text: "Nghỉ một chút cho khỏe nào!",
+  },
+  [normalizeText("Chạm vào ghế dài nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_26fd7562.wav",
+    text: "Chạm vào ghế dài nhé.",
+  },
+  [normalizeText("Ghế dài ở bên phải đó.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_fail_75329add.wav",
+    text: "Ghế dài ở bên phải đó.",
+  },
+  [normalizeText("Chạm ghế dài để nghỉ ngơi.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_rest_507920db.wav",
+    text: "Chạm ghế dài để nghỉ ngơi.",
+  },
+  [normalizeText("Chọn ghế dài để ngồi nghỉ nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_rest_fail_3c6ac5e2.wav",
+    text: "Chọn ghế dài để ngồi nghỉ nhé.",
+  },
+  [normalizeText("Bé đã nghỉ ngơi sau giờ chơi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_rest_success_f351e186.wav",
+    text: "Bé đã nghỉ ngơi sau giờ chơi!",
+  },
+  [normalizeText("Con tìm thấy ghế dài rồi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bench_success_99c52cfa.wav",
+    text: "Con tìm thấy ghế dài rồi!",
+  },
+  [normalizeText("Chạm vào bình nước nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bottle_20fff68e.wav",
+    text: "Chạm vào bình nước nhé.",
+  },
+  [normalizeText("Bình nước ở cạnh cốc nước đó.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bottle_fail_a717151d.wav",
+    text: "Bình nước ở cạnh cốc nước đó.",
+  },
+  [normalizeText("Đúng rồi, đó là bình nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_bottle_success_1c1b802a.wav",
+    text: "Đúng rồi, đó là bình nước.",
+  },
+  [normalizeText("Chạm vào bóng râm nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_shade_6b0efe0d.wav",
+    text: "Chạm vào bóng râm nhé.",
+  },
+  [normalizeText("Bóng râm nằm ở phía trên bên phải đó.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_shade_fail_a38fbe37.wav",
+    text: "Bóng râm nằm ở phía trên bên phải đó.",
+  },
+  [normalizeText("Bé đứng dưới bóng râm rồi!")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_shade_success_026fca18.wav",
+    text: "Bé đứng dưới bóng râm rồi!",
+  },
+  [normalizeText("Nước ở trên bàn nhỏ đó.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_water_fail_69161104.wav",
+    text: "Nước ở trên bàn nhỏ đó.",
+  },
+  [normalizeText("Đúng rồi, đó là nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_tap_water_success_aa6625f2.wav",
+    text: "Đúng rồi, đó là nước.",
+  },
+  [normalizeText("Đây là ghế dài.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_bench_dd70ee6f.wav",
+    text: "Đây là ghế dài.",
+  },
+  [normalizeText("Từ này nghĩa là ghế dài.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_bench_success_f871f3ec.wav",
+    text: "Từ này nghĩa là ghế dài.",
+  },
+  [normalizeText("Đây là bình nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_bottle_9972366e.wav",
+    text: "Đây là bình nước.",
+  },
+  [normalizeText("Từ này nghĩa là bình nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_bottle_success_c6da78d9.wav",
+    text: "Từ này nghĩa là bình nước.",
+  },
+  [normalizeText("Mình học câu uống nước nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_drink_water_10f6f213.wav",
+    text: "Mình học câu uống nước nhé.",
+  },
+  [normalizeText("Câu này nghĩa là uống nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_drink_water_success_f8541bb1.wav",
+    text: "Câu này nghĩa là uống nước.",
+  },
+  [normalizeText("Mình học câu ăn nhẹ nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_eat_snack_ff77be58.wav",
+    text: "Mình học câu ăn nhẹ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ăn nhẹ.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_eat_snack_success_9ae9ffb3.wav",
+    text: "Câu này nghĩa là ăn nhẹ.",
+  },
+  [normalizeText("Mình học từ nghỉ ngơi nhé.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_rest_f15dc046.wav",
+    text: "Mình học từ nghỉ ngơi nhé.",
+  },
+  [normalizeText("Từ này nghĩa là nghỉ ngơi.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_rest_success_b2b68fff.wav",
+    text: "Từ này nghĩa là nghỉ ngơi.",
+  },
+  [normalizeText("Đây là bóng râm.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_shade_208f2722.wav",
+    text: "Đây là bóng râm.",
+  },
+  [normalizeText("Từ này nghĩa là bóng râm.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_shade_success_419505c9.wav",
+    text: "Từ này nghĩa là bóng râm.",
+  },
+  [normalizeText("Đây là đồ ăn nhẹ.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_snack_fee65cd6.wav",
+    text: "Đây là đồ ăn nhẹ.",
+  },
+  [normalizeText("Từ này nghĩa là đồ ăn nhẹ.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_snack_success_2c4ca751.wav",
+    text: "Từ này nghĩa là đồ ăn nhẹ.",
+  },
+  [normalizeText("Đây là khăn lau.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_towel_f57fd504.wav",
+    text: "Đây là khăn lau.",
+  },
+  [normalizeText("Từ này nghĩa là khăn lau.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_towel_success_c15321eb.wav",
+    text: "Từ này nghĩa là khăn lau.",
+  },
+  [normalizeText("Từ này nghĩa là nước.")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_water_success_bc2ccca0.wav",
+    text: "Từ này nghĩa là nước.",
   },
   [normalizeText("Đúng rồi! Bé giỏi quá!")]: {
     key: "shared/audio/vi/correct.wav",

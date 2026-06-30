@@ -33,6 +33,8 @@ test('renders the home screen', async () => {
   expect(textValues).toContain('S-Kids');
   expect(textValues).toContain('Chơi ngay');
   expect(textValues).toContain('Ở Trường Của Bé');
+  expect(textValues).toContain('Giờ Ra Chơi');
+  expect(textValues).toContain('Bữa trưa của bé');
 });
 
 test('renders parent onboarding before first use', async () => {

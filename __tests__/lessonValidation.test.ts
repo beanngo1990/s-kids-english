@@ -5,7 +5,9 @@ import {
   getSceneForLearningMode,
 } from '../src/data/learningModes';
 import { atSchoolLesson } from '../src/data/lessons/atSchool';
+import { lunchTimeLesson } from '../src/data/lessons/lunchTime';
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
+import { playtimeLesson } from '../src/data/lessons/playtime';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import type { Lesson } from '../src/types/lesson';
 
@@ -19,6 +21,8 @@ test('lesson catalog orders the school day after the morning routine', () => {
   expect(lessons.map(lesson => lesson.id)).toEqual([
     'morning-routine',
     'at-school',
+    'playtime',
+    'lunch-time',
   ]);
 });
 
@@ -581,6 +585,368 @@ test('teacher-instructions challenge follows a real classroom sequence', () => {
       step => step.id === 'instructions-drag-pencil-to-box',
     )?.vocabId,
   ).toBe('vocab-clean-up');
+});
+
+test('playtime playground scene unlocks movement content by mode', () => {
+  const playgroundScene = playtimeLesson.scenes.find(
+    scene => scene.id === 'playground',
+  );
+
+  expect(playgroundScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(playgroundScene!, 'core');
+  const expandedScene = getSceneForLearningMode(playgroundScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(playgroundScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'swing',
+    'slide',
+    'ball',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'playground-intro',
+    'playground-teach-swing',
+    'playground-tap-swing',
+    'playground-teach-slide',
+    'playground-tap-slide',
+    'playground-teach-ball',
+    'playground-drag-ball-to-yard',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'swing',
+    'slide',
+    'ball',
+    'seesaw',
+    'sandbox',
+    'playground',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'playground-teach-seesaw',
+      'playground-tap-sandbox',
+      'playground-teach-playground',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'playground-teach-run',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'swing',
+    'slide',
+    'ball',
+    'seesaw',
+    'sandbox',
+    'playground',
+    'run',
+    'jump',
+    'take turns',
+  ]);
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'playground-tap-run-path',
+      'playground-tap-jump-hoop',
+      'playground-drag-ball-to-turn',
+    ]),
+  );
+
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'playground-drag-ball-to-yard',
+    )?.interaction.dropZoneId,
+  ).toBe('playground-yard-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'playground-drag-ball-to-turn',
+    )?.vocabId,
+  ).toBe('vocab-take-turns');
+});
+
+test('playtime friend-games scene teaches sharing before group play', () => {
+  const gamesScene = playtimeLesson.scenes.find(
+    scene => scene.id === 'friend-games',
+  );
+
+  expect(gamesScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(gamesScene!, 'core');
+  const expandedScene = getSceneForLearningMode(gamesScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(gamesScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'friend',
+    'toy',
+    'blocks',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'friend',
+    'toy',
+    'blocks',
+    'kite',
+    'rope',
+    'bucket',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'friend',
+    'toy',
+    'blocks',
+    'kite',
+    'rope',
+    'bucket',
+    'share toys',
+    'wait',
+    'play together',
+  ]);
+
+  expect(
+    expandedScene.steps.find(step => step.id === 'games-drag-kite-to-sky')
+      ?.interaction.dropZoneId,
+  ).toBe('games-sky-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'games-drag-toy-to-friend')
+      ?.interaction.dropZoneId,
+  ).toBe('games-friend-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'games-tap-wait-clock')
+      ?.vocabId,
+  ).toBe('vocab-wait');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'games-drag-blocks-play-together',
+    )?.vocabId,
+  ).toBe('vocab-play-together');
+});
+
+test('playtime rest scene follows a recovery sequence after active play', () => {
+  const restScene = playtimeLesson.scenes.find(
+    scene => scene.id === 'playtime-rest',
+  );
+
+  expect(restScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(restScene!, 'core');
+  const expandedScene = getSceneForLearningMode(restScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(restScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'water',
+    'snack',
+    'bench',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'water',
+    'snack',
+    'bench',
+    'bottle',
+    'towel',
+    'shade',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'water',
+    'snack',
+    'bench',
+    'bottle',
+    'towel',
+    'shade',
+    'drink water',
+    'eat snack',
+    'rest',
+  ]);
+
+  expect(
+    expandedScene.steps.find(step => step.id === 'rest-drag-towel-to-face')
+      ?.interaction.dropZoneId,
+  ).toBe('rest-face-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'rest-drag-bottle-to-mouth')
+      ?.vocabId,
+  ).toBe('vocab-drink-water');
+  expect(
+    challengeScene.steps.find(step => step.id === 'rest-drag-snack-to-mouth')
+      ?.interaction.dropZoneId,
+  ).toBe('rest-mouth-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'rest-tap-bench-rest')
+      ?.vocabId,
+  ).toBe('vocab-rest');
+});
+
+test('lunch-time lunch-box scene builds from food words to eating actions', () => {
+  const lunchBoxScene = lunchTimeLesson.scenes.find(
+    scene => scene.id === 'lunch-box',
+  );
+
+  expect(lunchBoxScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(lunchBoxScene!, 'core');
+  const expandedScene = getSceneForLearningMode(lunchBoxScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(lunchBoxScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'rice',
+    'soup',
+    'spoon',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'lunchbox-intro',
+    'lunchbox-teach-rice',
+    'lunchbox-tap-rice',
+    'lunchbox-teach-soup',
+    'lunchbox-tap-soup',
+    'lunchbox-teach-spoon',
+    'lunchbox-drag-spoon-to-soup',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'rice',
+    'soup',
+    'spoon',
+    'lunchbox',
+    'bowl',
+    'fork',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'lunchbox-teach-lunchbox',
+      'lunchbox-drag-soup-to-bowl',
+      'lunchbox-tap-fork',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'lunchbox-teach-eat-lunch',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'rice',
+    'soup',
+    'spoon',
+    'lunchbox',
+    'bowl',
+    'fork',
+    'open lunchbox',
+    'use spoon',
+    'eat lunch',
+  ]);
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'lunchbox-drag-spoon-to-mouth',
+    )?.vocabId,
+  ).toBe('vocab-use-spoon');
+  expect(
+    challengeScene.steps.find(step => step.id === 'lunchbox-drag-rice-to-mouth')
+      ?.interaction.dropZoneId,
+  ).toBe('lunchbox-mouth-zone');
+});
+
+test('lunch-time table scene teaches sitting, sharing, and thanking in order', () => {
+  const tableScene = lunchTimeLesson.scenes.find(
+    scene => scene.id === 'lunch-table',
+  );
+
+  expect(tableScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(tableScene!, 'core');
+  const expandedScene = getSceneForLearningMode(tableScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(tableScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'table',
+    'chair',
+    'friend',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'table',
+    'chair',
+    'friend',
+    'cup',
+    'napkin',
+    'fruit',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'table',
+    'chair',
+    'friend',
+    'cup',
+    'napkin',
+    'fruit',
+    'sit at table',
+    'share food',
+    'say thank you',
+  ]);
+
+  expect(
+    coreScene.steps.find(step => step.id === 'lunchtable-drag-chair-to-table')
+      ?.interaction.dropZoneId,
+  ).toBe('lunchtable-table-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'lunchtable-drag-chair-to-seat',
+    )?.vocabId,
+  ).toBe('vocab-sit-at-table');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'lunchtable-drag-fruit-to-friend',
+    )?.interaction.dropZoneId,
+  ).toBe('lunchtable-friend-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'lunchtable-tap-thanks-card')
+      ?.vocabId,
+  ).toBe('vocab-say-thank-you');
+});
+
+test('lunch-time cleanup scene follows a realistic after-lunch routine', () => {
+  const cleanupScene = lunchTimeLesson.scenes.find(
+    scene => scene.id === 'after-lunch',
+  );
+
+  expect(cleanupScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(cleanupScene!, 'core');
+  const expandedScene = getSceneForLearningMode(cleanupScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(cleanupScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'plate',
+    'crumbs',
+    'trash bin',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'plate',
+    'crumbs',
+    'trash bin',
+    'sink',
+    'towel',
+    'soap',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'plate',
+    'crumbs',
+    'trash bin',
+    'sink',
+    'towel',
+    'soap',
+    'clean up',
+    'wipe table',
+    'wash hands',
+  ]);
+
+  expect(
+    coreScene.steps.find(step => step.id === 'cleanup-drag-crumbs-to-trash')
+      ?.interaction.dropZoneId,
+  ).toBe('cleanup-trash-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'cleanup-drag-plate-to-sink')
+      ?.vocabId,
+  ).toBe('vocab-lunch-clean-up');
+  expect(
+    challengeScene.steps.find(step => step.id === 'cleanup-drag-towel-to-table')
+      ?.interaction.dropZoneId,
+  ).toBe('cleanup-table-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'cleanup-drag-soap-to-hands')
+      ?.vocabId,
+  ).toBe('vocab-wash-hands');
 });
 
 test('school scene unlocks basic, expanded, and challenge content by mode', () => {
