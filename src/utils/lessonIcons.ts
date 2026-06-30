@@ -6,6 +6,12 @@ const sceneIconById: Record<string, SKidsIconName> = {
   bedroom: 'bedroom',
   breakfast: 'breakfast',
   classroom: 'school',
+  'friend-games': 'star',
+  'after-lunch': 'breakfast',
+  'lunch-box': 'breakfast',
+  'lunch-table': 'breakfast',
+  playground: 'school',
+  'playtime-rest': 'star',
   school: 'school',
   'school-supplies': 'school',
   'teacher-instructions': 'listen',
@@ -13,7 +19,9 @@ const sceneIconById: Record<string, SKidsIconName> = {
 
 const lessonIconById: Record<string, SKidsIconName> = {
   'at-school': 'school',
+  'lunch-time': 'breakfast',
   'morning-routine': 'map',
+  playtime: 'star',
 };
 
 export function getLessonIconName(lesson: Pick<Lesson, 'id'>): SKidsIconName {

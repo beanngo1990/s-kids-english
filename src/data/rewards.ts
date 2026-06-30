@@ -21,6 +21,20 @@ export const lessonRewards: LessonReward[] = [
     stickerName: 'School Helper',
     title: 'Bé đã hoàn thành Ở Trường Của Bé!',
   },
+  {
+    id: 'reward-playtime-buddy',
+    lessonId: 'playtime',
+    stickerId: 'sticker-playtime-buddy',
+    stickerName: 'Playtime Buddy',
+    title: 'Bé đã hoàn thành Giờ Ra Chơi!',
+  },
+  {
+    id: 'reward-lunch-helper',
+    lessonId: 'lunch-time',
+    stickerId: 'sticker-lunch-helper',
+    stickerName: 'Lunch Helper',
+    title: 'Bé đã hoàn thành Bữa trưa của bé!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {
