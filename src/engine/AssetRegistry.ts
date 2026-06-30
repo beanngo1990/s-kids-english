@@ -3,6 +3,14 @@ import type { ImageSourcePropType } from 'react-native';
 import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 
 const registry: Record<string, ImageSourcePropType> = {
+  'lessons/at-school/classroom/images/baby.png': require('../assets/lessons/at-school/classroom/images/baby.png'),
+  'lessons/at-school/classroom/images/background.png': require('../assets/lessons/at-school/classroom/images/background.png'),
+  'lessons/at-school/classroom/images/board.png': require('../assets/lessons/at-school/classroom/images/board.png'),
+  'lessons/at-school/classroom/images/chair.png': require('../assets/lessons/at-school/classroom/images/chair.png'),
+  'lessons/at-school/classroom/images/classroom.png': require('../assets/lessons/at-school/classroom/images/classroom.png'),
+  'lessons/at-school/classroom/images/desk.png': require('../assets/lessons/at-school/classroom/images/desk.png'),
+  'lessons/at-school/classroom/images/hand.png': require('../assets/lessons/at-school/classroom/images/hand.png'),
+  'lessons/at-school/classroom/images/teacher.png': require('../assets/lessons/at-school/classroom/images/teacher.png'),
   'lessons/morning-routine/bathroom/images/baby.png': require('../assets/lessons/morning-routine/bathroom/images/baby.png'),
   'lessons/morning-routine/bathroom/images/background.png': require('../assets/lessons/morning-routine/bathroom/images/background.png'),
   'lessons/morning-routine/bathroom/images/mirror.png': require('../assets/lessons/morning-routine/bathroom/images/mirror.png'),
