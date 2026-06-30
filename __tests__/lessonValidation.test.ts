@@ -375,6 +375,137 @@ test('breakfast challenge actions stay in a logical breakfast sequence', () => {
   expect(breadToMouth?.promptText).toBe('eat breakfast');
 });
 
+test('Vietnamese spoken prompts do not mix raw English vocabulary words', () => {
+  const spokenViTexts = morningRoutineLesson.scenes.flatMap(scene => {
+    const vocabularyWords = scene.vocabulary?.map(item => item.word) ?? [];
+    const stepTexts = scene.steps.flatMap(step => [
+      step.instructionVi,
+      step.successFeedbackVi,
+      step.failFeedbackVi,
+    ]);
+
+    return [...stepTexts, scene.completionReward?.messageVi].flatMap(text =>
+      text
+        ? vocabularyWords
+            .filter(word => containsRawEnglishTerm(text, word))
+            .map(word => ({ sceneId: scene.id, text, word }))
+        : [],
+    );
+  });
+
+  expect(spokenViTexts).toEqual([]);
+});
+
+test('school scene unlocks basic, expanded, and challenge content by mode', () => {
+  const schoolScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'go-to-school',
+  );
+
+  expect(schoolScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(schoolScene!, 'core');
+  const expandedScene = getSceneForLearningMode(schoolScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(schoolScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'bag',
+    'shoes',
+    'school',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'school-intro',
+    'school-teach-bag',
+    'school-drag-bag',
+    'school-teach-shoes',
+    'school-tap-shoes',
+    'school-review-school',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'bag',
+    'shoes',
+    'school',
+    'book',
+    'lunchbox',
+    'uniform',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'school-teach-book',
+      'school-drag-book-to-bag',
+      'school-drag-lunchbox-to-bag',
+      'school-tap-uniform',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'school-teach-bus',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'bag',
+    'shoes',
+    'school',
+    'book',
+    'lunchbox',
+    'uniform',
+    'bus',
+    'pack bag',
+    'put on shoes',
+    'go to school',
+  ]);
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'school-teach-pack-bag',
+      'school-drag-shoes-to-feet',
+      'school-tap-bus',
+      'school-teach-go-to-school',
+    ]),
+  );
+});
+
+test('school challenge actions stay in a logical school-prep sequence', () => {
+  const schoolScene = morningRoutineLesson.scenes.find(
+    scene => scene.id === 'go-to-school',
+  );
+
+  expect(schoolScene).toBeDefined();
+
+  const challengeScene = getSceneForLearningMode(schoolScene!, 'challenge');
+  const bookToBag = challengeScene.steps.find(
+    step => step.id === 'school-drag-book-to-bag',
+  );
+  const lunchboxToBag = challengeScene.steps.find(
+    step => step.id === 'school-drag-lunchbox-to-bag',
+  );
+  const putOnShoesTeach = challengeScene.steps.find(
+    step => step.id === 'school-teach-put-on-shoes',
+  );
+  const shoesToFeet = challengeScene.steps.find(
+    step => step.id === 'school-drag-shoes-to-feet',
+  );
+  const busTap = challengeScene.steps.find(
+    step => step.id === 'school-tap-bus',
+  );
+  const goToSchoolTeach = challengeScene.steps.find(
+    step => step.id === 'school-teach-go-to-school',
+  );
+  const schoolReview = challengeScene.steps.find(
+    step => step.id === 'school-review-school',
+  );
+
+  expect(bookToBag?.interaction.targetObjectId).toBe('school-book');
+  expect(bookToBag?.interaction.dropZoneId).toBe('school-bag-zone');
+  expect(bookToBag?.nextStepId).toBe('school-teach-lunchbox');
+  expect(lunchboxToBag?.interaction.targetObjectId).toBe('school-lunchbox');
+  expect(lunchboxToBag?.interaction.dropZoneId).toBe('school-bag-zone');
+  expect(putOnShoesTeach?.vocabId).toBe('vocab-put-on-shoes');
+  expect(shoesToFeet?.interaction.dropZoneId).toBe('school-feet-zone');
+  expect(shoesToFeet?.promptText).toBe('put on shoes');
+  expect(busTap?.interaction.targetObjectId).toBe('school-bus');
+  expect(goToSchoolTeach?.vocabId).toBe('vocab-go-to-school');
+  expect(schoolReview?.interaction.targetObjectId).toBe('school-building');
+});
+
 test('bedroom extended steps keep prompts aligned with the required action', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',
@@ -483,3 +614,18 @@ test('bedroom extended steps have bundled audio for their spoken prompts', () =>
     expect(getWordAudioAsset(word)?.key).toBeTruthy();
   });
 });
+
+function containsRawEnglishTerm(text: string, term: string) {
+  if (!/[a-z]/iu.test(term)) {
+    return false;
+  }
+
+  return new RegExp(
+    `(^|[^\\p{L}])${escapeRegExp(term)}(?=$|[^\\p{L}])`,
+    'iu',
+  ).test(text);
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+}

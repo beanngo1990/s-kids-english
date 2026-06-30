@@ -325,6 +325,83 @@ export const schoolVocabulary = {
     level: 'easy',
     type: 'noun',
   },
+  book: {
+    id: 'vocab-book',
+    word: 'book',
+    meaningVi: 'quyển sách',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  lunchbox: {
+    id: 'vocab-lunchbox',
+    word: 'lunchbox',
+    meaningVi: 'hộp cơm',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  uniform: {
+    id: 'vocab-uniform',
+    word: 'uniform',
+    meaningVi: 'đồng phục',
+    learningScope: {
+      minAge: 4,
+      minMode: 'expanded',
+    },
+    level: 'medium',
+    type: 'noun',
+  },
+  bus: {
+    id: 'vocab-bus',
+    word: 'bus',
+    meaningVi: 'xe buýt',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'noun',
+  },
+  packBag: {
+    id: 'vocab-pack-bag',
+    word: 'pack bag',
+    meaningVi: 'xếp cặp',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  putOnShoes: {
+    id: 'vocab-put-on-shoes',
+    word: 'put on shoes',
+    meaningVi: 'mang giày',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
+  goToSchool: {
+    id: 'vocab-go-to-school',
+    word: 'go to school',
+    meaningVi: 'đi học',
+    learningScope: {
+      minAge: 5,
+      minMode: 'challenge',
+    },
+    level: 'hard',
+    type: 'phrase',
+  },
 } satisfies Record<string, VocabularyItem>;
 
 export const morningVocabulary: VocabularyItem[] = [
