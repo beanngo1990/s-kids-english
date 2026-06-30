@@ -5,7 +5,7 @@ import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
-type KidBadgeTone = 'sun' | 'teal' | 'coral' | 'sky';
+type KidBadgeTone = 'sun' | 'teal' | 'coral' | 'sky' | 'alert';
 
 type KidBadgeProps = {
   children: ReactNode;
@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
+  },
+  alert: {
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.alert,
+  },
+  alertText: {
+    color: colors.alert,
   },
   coral: {
     backgroundColor: colors.accentSoft,

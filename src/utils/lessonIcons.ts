@@ -5,10 +5,14 @@ const sceneIconById: Record<string, SKidsIconName> = {
   bathroom: 'bathroom',
   bedroom: 'bedroom',
   breakfast: 'breakfast',
+  classroom: 'school',
   school: 'school',
+  'school-supplies': 'school',
+  'teacher-instructions': 'listen',
 };
 
 const lessonIconById: Record<string, SKidsIconName> = {
+  'at-school': 'school',
   'morning-routine': 'map',
 };
 

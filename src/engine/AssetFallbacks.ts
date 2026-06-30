@@ -8,25 +8,36 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   banana: '🍌',
   blanket: '🧺',
   book: '📘',
+  board: '🟩',
   box: '📦',
   bread: '🍞',
   bus: '🚌',
+  chair: '🪑',
   clock: '🕒',
+  classroom: '🏫',
+  crayon: '🖍️',
   cup: '🥤',
+  desk: '📝',
   doll: '🧸',
   egg: '🥚',
+  eraser: '🧽',
+  hand: '✋',
   lamp: '💡',
   milk: '🥛',
   mirror: '🪞',
+  notebook: '📓',
   pillow: '🛏️',
+  pencil: '✏️',
   plate: '🍽️',
   lunchbox: '🍱',
+  ruler: '📏',
   school: '🏫',
   shoes: '👟',
   sink: '🚰',
   soap: '🧼',
   socks: '🧦',
   sun: '☀️',
+  teacher: '👩‍🏫',
   toothpaste: '🦷',
   toothbrush: '🪥',
   towel: '🧻',
@@ -95,6 +106,27 @@ export function getSceneFallbackPalette(scene: Scene) {
         floor: '#D8F0D2',
         panel: '#F2FBFF',
         wall: '#E9F6FF',
+      };
+    case 'classroom':
+      return {
+        accent: '#6BCB77',
+        floor: '#E6D7BC',
+        panel: '#FFF8E8',
+        wall: '#E8F7F0',
+      };
+    case 'school-supplies':
+      return {
+        accent: '#FFB703',
+        floor: '#F3E4C7',
+        panel: '#FFF9DF',
+        wall: '#F0F7FF',
+      };
+    case 'teacher-instructions':
+      return {
+        accent: '#5DADEC',
+        floor: '#E5D7C2',
+        panel: '#F7FBFF',
+        wall: '#EAF1FF',
       };
     default:
       return {

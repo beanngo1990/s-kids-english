@@ -4,6 +4,7 @@ import {
   getAvailableLearningModes,
   getSceneForLearningMode,
 } from '../src/data/learningModes';
+import { atSchoolLesson } from '../src/data/lessons/atSchool';
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import type { Lesson } from '../src/types/lesson';
@@ -12,6 +13,13 @@ test('lesson catalog has valid data links', () => {
   const issues = validateLessons(lessons);
 
   expect(issues.filter(issue => issue.severity === 'error')).toEqual([]);
+});
+
+test('lesson catalog orders the school day after the morning routine', () => {
+  expect(lessons.map(lesson => lesson.id)).toEqual([
+    'morning-routine',
+    'at-school',
+  ]);
 });
 
 test('validator catches missing object references', () => {
@@ -376,24 +384,203 @@ test('breakfast challenge actions stay in a logical breakfast sequence', () => {
 });
 
 test('Vietnamese spoken prompts do not mix raw English vocabulary words', () => {
-  const spokenViTexts = morningRoutineLesson.scenes.flatMap(scene => {
-    const vocabularyWords = scene.vocabulary?.map(item => item.word) ?? [];
-    const stepTexts = scene.steps.flatMap(step => [
-      step.instructionVi,
-      step.successFeedbackVi,
-      step.failFeedbackVi,
-    ]);
+  const spokenViTexts = lessons.flatMap(lesson =>
+    lesson.scenes.flatMap(scene => {
+      const vocabularyWords = scene.vocabulary?.map(item => item.word) ?? [];
+      const stepTexts = scene.steps.flatMap(step => [
+        step.instructionVi,
+        step.successFeedbackVi,
+        step.failFeedbackVi,
+      ]);
 
-    return [...stepTexts, scene.completionReward?.messageVi].flatMap(text =>
-      text
-        ? vocabularyWords
-            .filter(word => containsRawEnglishTerm(text, word))
-            .map(word => ({ sceneId: scene.id, text, word }))
-        : [],
-    );
-  });
+      return [...stepTexts, scene.completionReward?.messageVi].flatMap(text =>
+        text
+          ? vocabularyWords
+              .filter(word => containsRawEnglishTerm(text, word))
+              .map(word => ({
+                lessonId: lesson.id,
+                sceneId: scene.id,
+                text,
+                word,
+              }))
+          : [],
+      );
+    }),
+  );
 
   expect(spokenViTexts).toEqual([]);
+});
+
+test('at-school lesson unlocks classroom content by mode', () => {
+  const classroomScene = atSchoolLesson.scenes.find(
+    scene => scene.id === 'classroom',
+  );
+
+  expect(classroomScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(classroomScene!, 'core');
+  const expandedScene = getSceneForLearningMode(classroomScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(classroomScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'teacher',
+    'desk',
+    'chair',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'classroom-intro',
+    'classroom-teach-teacher',
+    'classroom-tap-teacher',
+    'classroom-teach-desk',
+    'classroom-tap-desk',
+    'classroom-teach-chair',
+    'classroom-drag-chair-to-desk',
+    'classroom-review-teacher',
+  ]);
+
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'teacher',
+    'desk',
+    'chair',
+    'board',
+    'classroom',
+  ]);
+  expect(expandedScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'classroom-teach-board',
+      'classroom-tap-board',
+      'classroom-teach-classroom',
+    ]),
+  );
+  expect(expandedScene.steps.map(step => step.id)).not.toContain(
+    'classroom-teach-raise-hand',
+  );
+
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'teacher',
+    'desk',
+    'chair',
+    'board',
+    'classroom',
+    'sit down',
+    'raise hand',
+  ]);
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'classroom-teach-sit-down',
+      'classroom-tap-chair-sit-down',
+      'classroom-teach-raise-hand',
+      'classroom-tap-hand',
+    ]),
+  );
+});
+
+test('at-school supplies scene builds from objects to school actions', () => {
+  const suppliesScene = atSchoolLesson.scenes.find(
+    scene => scene.id === 'school-supplies',
+  );
+
+  expect(suppliesScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(suppliesScene!, 'core');
+  const expandedScene = getSceneForLearningMode(suppliesScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(suppliesScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'book',
+    'pencil',
+    'crayon',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'book',
+    'pencil',
+    'crayon',
+    'eraser',
+    'ruler',
+    'notebook',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'book',
+    'pencil',
+    'crayon',
+    'eraser',
+    'ruler',
+    'notebook',
+    'open book',
+    'draw a circle',
+    'write your name',
+  ]);
+
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'supplies-tap-book-open',
+      'supplies-drag-crayon-to-paper',
+      'supplies-drag-pencil-to-paper',
+    ]),
+  );
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'supplies-drag-crayon-to-paper',
+    )?.interaction.dropZoneId,
+  ).toBe('supplies-paper-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'supplies-drag-pencil-to-paper',
+    )?.vocabId,
+  ).toBe('vocab-write-name');
+});
+
+test('teacher-instructions challenge follows a real classroom sequence', () => {
+  const instructionsScene = atSchoolLesson.scenes.find(
+    scene => scene.id === 'teacher-instructions',
+  );
+
+  expect(instructionsScene).toBeDefined();
+
+  const challengeScene = getSceneForLearningMode(
+    instructionsScene!,
+    'challenge',
+  );
+
+  expect(challengeScene.steps.map(step => step.id)).toEqual(
+    expect.arrayContaining([
+      'instructions-teach-open-book',
+      'instructions-tap-book-open',
+      'instructions-drag-crayon-to-paper',
+      'instructions-drag-pencil-to-paper',
+      'instructions-tap-hand',
+      'instructions-drag-book-to-box',
+      'instructions-drag-pencil-to-box',
+    ]),
+  );
+  expect(
+    challengeScene.steps.find(step => step.id === 'instructions-tap-book-open')
+      ?.vocabId,
+  ).toBe('vocab-open-book');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'instructions-drag-crayon-to-paper',
+    )?.interaction.dropZoneId,
+  ).toBe('instructions-paper-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'instructions-drag-pencil-to-paper',
+    )?.vocabId,
+  ).toBe('vocab-write-name');
+  expect(
+    challengeScene.steps.find(step => step.id === 'instructions-tap-hand')
+      ?.vocabId,
+  ).toBe('vocab-raise-hand');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'instructions-drag-book-to-box',
+    )?.interaction.dropZoneId,
+  ).toBe('instructions-box-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'instructions-drag-pencil-to-box',
+    )?.vocabId,
+  ).toBe('vocab-clean-up');
 });
 
 test('school scene unlocks basic, expanded, and challenge content by mode', () => {
