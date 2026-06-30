@@ -5,7 +5,11 @@ import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 const registry: Record<string, ImageSourcePropType> = {
   'lessons/morning-routine/bathroom/images/baby.png': require('../assets/lessons/morning-routine/bathroom/images/baby.png'),
   'lessons/morning-routine/bathroom/images/background.png': require('../assets/lessons/morning-routine/bathroom/images/background.png'),
+  'lessons/morning-routine/bathroom/images/mirror.png': require('../assets/lessons/morning-routine/bathroom/images/mirror.png'),
+  'lessons/morning-routine/bathroom/images/sink.png': require('../assets/lessons/morning-routine/bathroom/images/sink.png'),
+  'lessons/morning-routine/bathroom/images/soap.png': require('../assets/lessons/morning-routine/bathroom/images/soap.png'),
   'lessons/morning-routine/bathroom/images/toothbrush.png': require('../assets/lessons/morning-routine/bathroom/images/toothbrush.png'),
+  'lessons/morning-routine/bathroom/images/toothpaste.png': require('../assets/lessons/morning-routine/bathroom/images/toothpaste.png'),
   'lessons/morning-routine/bathroom/images/towel.png': require('../assets/lessons/morning-routine/bathroom/images/towel.png'),
   'lessons/morning-routine/bathroom/images/water.png': require('../assets/lessons/morning-routine/bathroom/images/water.png'),
   'lessons/morning-routine/bedroom/images/baby.png': require('../assets/lessons/morning-routine/bedroom/images/baby.png'),
