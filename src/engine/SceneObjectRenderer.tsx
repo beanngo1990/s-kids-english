@@ -169,6 +169,7 @@ export function SceneObjectRenderer({
         getPercentRectStyle(object.position),
         styles.wrapper,
         isDimmed && styles.dimmed,
+        isTargeted && styles.targetedWrapper,
         isDragEnabled && styles.draggableWrapper,
         {
           transform: [
@@ -376,6 +377,9 @@ const styles = StyleSheet.create({
   },
   targeted: {
     ...glowStyle,
+  },
+  targetedWrapper: {
+    zIndex: 3,
   },
   targetedLearning: {
     backgroundColor: 'rgba(255, 246, 215, 0.42)',
