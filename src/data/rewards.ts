@@ -56,6 +56,34 @@ export const lessonRewards: LessonReward[] = [
     stickerName: 'Home Player',
     title: 'Bé đã hoàn thành Chơi ở nhà!',
   },
+  {
+    id: 'reward-afternoon-bath',
+    lessonId: 'afternoon-bath',
+    stickerId: 'sticker-afternoon-bath',
+    stickerName: 'Bath Helper',
+    title: 'Bé đã hoàn thành Tắm rửa buổi chiều!',
+  },
+  {
+    id: 'reward-family-dinner',
+    lessonId: 'family-dinner',
+    stickerId: 'sticker-family-dinner',
+    stickerName: 'Dinner Helper',
+    title: 'Bé đã hoàn thành Bữa tối của gia đình!',
+  },
+  {
+    id: 'reward-after-dinner-cleanup',
+    lessonId: 'after-dinner-cleanup',
+    stickerId: 'sticker-after-dinner-cleanup',
+    stickerName: 'Cleanup Helper',
+    title: 'Bé đã hoàn thành Dọn dẹp sau bữa tối!',
+  },
+  {
+    id: 'reward-bedtime',
+    lessonId: 'bedtime',
+    stickerId: 'sticker-bedtime',
+    stickerName: 'Sleepy Star',
+    title: 'Bé đã hoàn thành Giờ đi ngủ!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

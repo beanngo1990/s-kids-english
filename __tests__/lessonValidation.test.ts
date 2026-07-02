@@ -4,8 +4,12 @@ import {
   getAvailableLearningModes,
   getSceneForLearningMode,
 } from '../src/data/learningModes';
+import { afterDinnerCleanupLesson } from '../src/data/lessons/afterDinnerCleanup';
+import { afternoonBathLesson } from '../src/data/lessons/afternoonBath';
 import { afternoonHomeLesson } from '../src/data/lessons/afternoonHome';
 import { atSchoolLesson } from '../src/data/lessons/atSchool';
+import { bedtimeLesson } from '../src/data/lessons/bedtime';
+import { familyDinnerLesson } from '../src/data/lessons/familyDinner';
 import { homePlayLesson } from '../src/data/lessons/homePlay';
 import { lunchTimeLesson } from '../src/data/lessons/lunchTime';
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
@@ -29,6 +33,10 @@ test('lesson catalog orders the school day after the morning routine', () => {
     'afternoon-home',
     'snack-time',
     'home-play',
+    'afternoon-bath',
+    'family-dinner',
+    'after-dinner-cleanup',
+    'bedtime',
   ]);
 });
 
@@ -1497,6 +1505,909 @@ test('home-play cleanup scene keeps the after-play routine realistic', () => {
       step => step.id === 'toy-cleanup-drag-basket-to-shelf',
     )?.vocabId,
   ).toBe('vocab-tidy-room');
+});
+
+test('afternoon-bath prep scene uses new bath setup vocabulary', () => {
+  const prepScene = afternoonBathLesson.scenes.find(
+    scene => scene.id === 'bath-prep',
+  );
+
+  expect(prepScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(prepScene!, 'core');
+  const expandedScene = getSceneForLearningMode(prepScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(prepScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'shower',
+    'bathtub',
+    'bath mat',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'bath-prep-intro',
+    'bath-prep-teach-shower',
+    'bath-prep-tap-shower',
+    'bath-prep-teach-bathtub',
+    'bath-prep-tap-bathtub',
+    'bath-prep-teach-bath-mat',
+    'bath-prep-drag-mat-to-bathtub',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'shower',
+    'bathtub',
+    'bath mat',
+    'shampoo',
+    'bath sponge',
+    'body wash',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'shower',
+    'bathtub',
+    'bath mat',
+    'shampoo',
+    'bath sponge',
+    'body wash',
+    'step onto mat',
+    'turn on shower',
+    'check temperature',
+  ]);
+
+  expect(
+    coreScene.steps.find(step => step.id === 'bath-prep-drag-mat-to-bathtub')
+      ?.interaction.dropZoneId,
+  ).toBe('bath-prep-mat-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'bath-prep-drag-body-wash-to-sponge',
+    )?.interaction.dropZoneId,
+  ).toBe('bath-prep-sponge-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-prep-tap-check-temperature',
+    )?.vocabId,
+  ).toBe('vocab-check-temperature');
+});
+
+test('afternoon-bath rinse scene combines body-part and rinsing actions', () => {
+  const rinseScene = afternoonBathLesson.scenes.find(
+    scene => scene.id === 'bath-rinse',
+  );
+
+  expect(rinseScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(rinseScene!, 'core');
+  const expandedScene = getSceneForLearningMode(rinseScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(rinseScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'bubble',
+    'foam',
+    'shower head',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'bubble',
+    'foam',
+    'shower head',
+    'elbow',
+    'knee',
+    'shoulder',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'bubble',
+    'foam',
+    'shower head',
+    'elbow',
+    'knee',
+    'shoulder',
+    'make bubbles',
+    'scrub knees',
+    'rinse hair',
+  ]);
+
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-rinse-drag-foam-to-bubbles',
+    )?.vocabId,
+  ).toBe('vocab-make-bubbles');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-rinse-drag-sponge-to-knee',
+    )?.interaction.dropZoneId,
+  ).toBe('bath-rinse-knee-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-rinse-drag-shower-head-to-hair',
+    )?.vocabId,
+  ).toBe('vocab-rinse-hair');
+});
+
+test('afternoon-bath finish scene moves from clothes to after-bath care', () => {
+  const finishScene = afternoonBathLesson.scenes.find(
+    scene => scene.id === 'bath-finish',
+  );
+
+  expect(finishScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(finishScene!, 'core');
+  const expandedScene = getSceneForLearningMode(finishScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(finishScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'pajamas',
+    'comb',
+    'robe',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'pajamas',
+    'comb',
+    'robe',
+    'laundry basket',
+    'hook',
+    'slippers',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'pajamas',
+    'comb',
+    'robe',
+    'laundry basket',
+    'hook',
+    'slippers',
+    'put on pajamas',
+    'comb hair',
+    'hang robe',
+  ]);
+
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'bath-finish-drag-clothes-to-basket',
+    )?.interaction.dropZoneId,
+  ).toBe('bath-finish-laundry-basket-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'bath-finish-drag-slippers-to-feet',
+    )?.interaction.dropZoneId,
+  ).toBe('bath-finish-feet-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-finish-drag-pajamas-to-baby',
+    )?.vocabId,
+  ).toBe('vocab-put-on-pajamas');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-finish-drag-comb-to-hair',
+    )?.vocabId,
+  ).toBe('vocab-comb-hair');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bath-finish-drag-robe-to-hook',
+    )?.interaction.dropZoneId,
+  ).toBe('bath-finish-hook-zone');
+});
+
+test('afternoon-bath avoids reusing earlier bathroom hygiene vocabulary', () => {
+  const words = afternoonBathLesson.scenes.flatMap(
+    scene => scene.vocabulary?.map(item => item.word) ?? [],
+  );
+  const earlierHygieneWords = [
+    'toothbrush',
+    'water',
+    'towel',
+    'sink',
+    'soap',
+    'mirror',
+    'toothpaste',
+    'brush teeth',
+    'wash face',
+    'dry face',
+    'wash hands',
+  ];
+
+  expect(earlierHygieneWords.filter(word => words.includes(word))).toEqual([]);
+});
+
+test('family-dinner prep scene builds dinner setup without old meal words', () => {
+  const prepScene = familyDinnerLesson.scenes.find(
+    scene => scene.id === 'dinner-prep',
+  );
+
+  expect(prepScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(prepScene!, 'core');
+  const expandedScene = getSceneForLearningMode(prepScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(prepScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'dinner',
+    'placemat',
+    'apron',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'dinner-prep-intro',
+    'dinner-prep-teach-dinner',
+    'dinner-prep-tap-dinner',
+    'dinner-prep-teach-placemat',
+    'dinner-prep-drag-placemat-to-spot',
+    'dinner-prep-teach-apron',
+    'dinner-prep-tap-apron',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'dinner',
+    'placemat',
+    'apron',
+    'serving tray',
+    'ladle',
+    'dinner bell',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'dinner',
+    'placemat',
+    'apron',
+    'serving tray',
+    'ladle',
+    'dinner bell',
+    'set placemat',
+    'carry tray',
+    'call everyone',
+  ]);
+
+  expect(
+    coreScene.steps.find(
+      step => step.id === 'dinner-prep-drag-placemat-to-spot',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-prep-placemat-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'dinner-prep-drag-ladle-to-tray',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-prep-serving-tray-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'dinner-prep-drag-carry-tray')
+      ?.vocabId,
+  ).toBe('vocab-carry-tray');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-prep-tap-call-everyone',
+    )?.vocabId,
+  ).toBe('vocab-call-everyone');
+});
+
+test('family-dinner table scene teaches new dinner foods and sharing actions', () => {
+  const tableScene = familyDinnerLesson.scenes.find(
+    scene => scene.id === 'dinner-table',
+  );
+
+  expect(tableScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(tableScene!, 'core');
+  const expandedScene = getSceneForLearningMode(tableScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(tableScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'vegetables',
+    'fish',
+    'noodles',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'vegetables',
+    'fish',
+    'noodles',
+    'chicken',
+    'salad',
+    'sauce',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'vegetables',
+    'fish',
+    'noodles',
+    'chicken',
+    'salad',
+    'sauce',
+    'pass dish',
+    'try vegetables',
+    'serve noodles',
+  ]);
+
+  expect(
+    coreScene.steps.find(
+      step => step.id === 'dinner-table-drag-noodles-to-meal',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-table-meal-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-table-drag-dish-to-grownup',
+    )?.vocabId,
+  ).toBe('vocab-pass-dish');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-table-drag-vegetables-to-child',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-table-child-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-table-drag-serve-noodles',
+    )?.vocabId,
+  ).toBe('vocab-serve-noodles');
+});
+
+test('family-dinner cleanup scene covers leftovers and evening closeout', () => {
+  const cleanupScene = familyDinnerLesson.scenes.find(
+    scene => scene.id === 'dinner-cleanup',
+  );
+
+  expect(cleanupScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(cleanupScene!, 'core');
+  const expandedScene = getSceneForLearningMode(cleanupScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(cleanupScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'dessert',
+    'leftovers',
+    'dishwasher',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'dessert',
+    'leftovers',
+    'dishwasher',
+    'food cover',
+    'kitchen counter',
+    'dining light',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'dessert',
+    'leftovers',
+    'dishwasher',
+    'food cover',
+    'kitchen counter',
+    'dining light',
+    'save leftovers',
+    'load dishwasher',
+    'say good night',
+  ]);
+
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'dinner-cleanup-drag-cover-to-leftovers',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-cleanup-leftovers-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'dinner-cleanup-drag-leftovers-to-counter',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-cleanup-counter-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-cleanup-drag-save-leftovers',
+    )?.vocabId,
+  ).toBe('vocab-save-leftovers');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-cleanup-drag-dish-to-dishwasher',
+    )?.interaction.dropZoneId,
+  ).toBe('dinner-cleanup-dishwasher-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'dinner-cleanup-tap-good-night',
+    )?.vocabId,
+  ).toBe('vocab-say-good-night');
+});
+
+test('family-dinner avoids exact repeats from earlier meal lessons', () => {
+  const words = familyDinnerLesson.scenes.flatMap(
+    scene => scene.vocabulary?.map(item => item.word) ?? [],
+  );
+  const earlierMealWords = [
+    'milk',
+    'apple',
+    'bread',
+    'plate',
+    'egg',
+    'banana',
+    'cup',
+    'rice',
+    'soup',
+    'spoon',
+    'lunchbox',
+    'bowl',
+    'fork',
+    'table',
+    'chair',
+    'friend',
+    'napkin',
+    'fruit',
+    'sit at table',
+    'share food',
+    'say thank you',
+    'crumbs',
+    'trash bin',
+    'clean up',
+    'wipe table',
+    'snack',
+    'yogurt',
+    'cookie',
+    'juice',
+    'straw',
+    'snack box',
+    'bite',
+    'sip',
+    'cracker',
+    'raisins',
+    'small table',
+    'take a bite',
+    'sip juice',
+    'wipe mouth',
+    'tray',
+    'wrapper',
+    'basket',
+    'throw away wrapper',
+    'put away tray',
+  ];
+
+  expect(earlierMealWords.filter(word => words.includes(word))).toEqual([]);
+});
+
+test('after-dinner-cleanup clear scene teaches new clearing tools', () => {
+  const clearScene = afterDinnerCleanupLesson.scenes.find(
+    scene => scene.id === 'clear-dinner',
+  );
+
+  expect(clearScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(clearScene!, 'core');
+  const expandedScene = getSceneForLearningMode(clearScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(clearScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'coaster',
+    'serving cart',
+    'tongs',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'clear-dinner-intro',
+    'clear-dinner-teach-coaster',
+    'clear-dinner-tap-coaster',
+    'clear-dinner-teach-serving-cart',
+    'clear-dinner-drag-coaster-to-cart',
+    'clear-dinner-teach-tongs',
+    'clear-dinner-tap-tongs',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'coaster',
+    'serving cart',
+    'tongs',
+    'pot holder',
+    'carafe',
+    'label',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'coaster',
+    'serving cart',
+    'tongs',
+    'pot holder',
+    'carafe',
+    'label',
+    'stack coasters',
+    'move cart',
+    'label container',
+  ]);
+
+  expect(
+    coreScene.steps.find(
+      step => step.id === 'clear-dinner-drag-coaster-to-cart',
+    )?.interaction.dropZoneId,
+  ).toBe('clear-dinner-coaster-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'clear-dinner-drag-carafe-to-cart',
+    )?.interaction.dropZoneId,
+  ).toBe('clear-dinner-cart-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'clear-dinner-drag-stack-coasters',
+    )?.vocabId,
+  ).toBe('vocab-stack-coasters');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'clear-dinner-drag-label-to-container',
+    )?.vocabId,
+  ).toBe('vocab-label-container');
+});
+
+test('after-dinner-cleanup spot scene handles spills with new cleaning words', () => {
+  const spotScene = afterDinnerCleanupLesson.scenes.find(
+    scene => scene.id === 'spot-clean',
+  );
+
+  expect(spotScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(spotScene!, 'core');
+  const expandedScene = getSceneForLearningMode(spotScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(spotScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'spill',
+    'stain',
+    'spray bottle',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'spill',
+    'stain',
+    'spray bottle',
+    'scraper',
+    'cleaning brush',
+    'rubber gloves',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'spill',
+    'stain',
+    'spray bottle',
+    'scraper',
+    'cleaning brush',
+    'rubber gloves',
+    'spray stain',
+    'scrub spot',
+    'dry surface',
+  ]);
+
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'spot-clean-drag-brush-to-spill',
+    )?.interaction.dropZoneId,
+  ).toBe('spot-clean-spill-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'spot-clean-drag-spray-to-stain',
+    )?.vocabId,
+  ).toBe('vocab-spray-stain');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'spot-clean-drag-brush-scrub-spot',
+    )?.vocabId,
+  ).toBe('vocab-scrub-spot');
+  expect(
+    challengeScene.steps.find(step => step.id === 'spot-clean-tap-dry-surface')
+      ?.vocabId,
+  ).toBe('vocab-dry-surface');
+});
+
+test('after-dinner-cleanup sort scene finishes with recycling and drying actions', () => {
+  const sortScene = afterDinnerCleanupLesson.scenes.find(
+    scene => scene.id === 'sort-and-dry',
+  );
+
+  expect(sortScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(sortScene!, 'core');
+  const expandedScene = getSceneForLearningMode(sortScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(sortScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'recycling bin',
+    'compost bin',
+    'dish rack',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'recycling bin',
+    'compost bin',
+    'dish rack',
+    'drying mat',
+    'timer',
+    'cabinet',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'recycling bin',
+    'compost bin',
+    'dish rack',
+    'drying mat',
+    'timer',
+    'cabinet',
+    'sort recycling',
+    'start timer',
+    'air dry dishes',
+  ]);
+
+  expect(
+    expandedScene.steps.find(step => step.id === 'sort-and-dry-drag-drying-mat')
+      ?.interaction.dropZoneId,
+  ).toBe('sort-and-dry-drying-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sort-and-dry-drag-carton-to-recycling',
+    )?.interaction.dropZoneId,
+  ).toBe('sort-and-dry-recycling-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sort-and-dry-tap-start-timer',
+    )?.vocabId,
+  ).toBe('vocab-start-timer');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sort-and-dry-drag-dishes-to-rack',
+    )?.vocabId,
+  ).toBe('vocab-air-dry-dishes');
+});
+
+test('after-dinner-cleanup avoids exact repeats from dinner and cleanup lessons', () => {
+  const words = afterDinnerCleanupLesson.scenes.flatMap(
+    scene => scene.vocabulary?.map(item => item.word) ?? [],
+  );
+  const usedCleanupWords = [
+    'clean up',
+    'wipe table',
+    'wash hands',
+    'crumbs',
+    'trash bin',
+    'cloth',
+    'basket',
+    'throw away wrapper',
+    'put away tray',
+    'leftovers',
+    'dishwasher',
+    'food cover',
+    'kitchen counter',
+    'dining light',
+    'save leftovers',
+    'load dishwasher',
+    'say good night',
+    'dinner',
+    'placemat',
+    'apron',
+    'serving tray',
+    'ladle',
+    'dinner bell',
+    'vegetables',
+    'fish',
+    'noodles',
+    'dessert',
+    'tray',
+    'plate',
+    'cup',
+    'spoon',
+    'fork',
+    'table',
+    'napkin',
+  ];
+
+  expect(usedCleanupWords.filter(word => words.includes(word))).toEqual([]);
+});
+
+test('bedtime story scene builds a quiet story routine with new words', () => {
+  const storyScene = bedtimeLesson.scenes.find(
+    scene => scene.id === 'bedtime-story',
+  );
+
+  expect(storyScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(storyScene!, 'core');
+  const expandedScene = getSceneForLearningMode(storyScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(storyScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'storybook',
+    'bookmark',
+    'reading nook',
+  ]);
+  expect(coreScene.steps.map(step => step.id)).toEqual([
+    'bedtime-story-intro',
+    'bedtime-story-teach-storybook',
+    'bedtime-story-tap-storybook',
+    'bedtime-story-teach-bookmark',
+    'bedtime-story-tap-bookmark',
+    'bedtime-story-teach-reading-nook',
+    'bedtime-story-drag-storybook-to-nook',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'storybook',
+    'bookmark',
+    'reading nook',
+    'page tab',
+    'soft voice',
+    'story shelf',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'storybook',
+    'bookmark',
+    'reading nook',
+    'page tab',
+    'soft voice',
+    'story shelf',
+    'choose story',
+    'place bookmark',
+    'read softly',
+  ]);
+
+  expect(
+    coreScene.steps.find(
+      step => step.id === 'bedtime-story-drag-storybook-to-nook',
+    )?.interaction.dropZoneId,
+  ).toBe('bedtime-story-nook-zone');
+  expect(
+    expandedScene.steps.find(step => step.id === 'bedtime-story-drag-page-tab')
+      ?.interaction.dropZoneId,
+  ).toBe('bedtime-story-page-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bedtime-story-drag-choose-story',
+    )?.vocabId,
+  ).toBe('vocab-choose-story');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bedtime-story-drag-place-bookmark',
+    )?.vocabId,
+  ).toBe('vocab-place-bookmark');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'bedtime-story-tap-read-softly',
+    )?.vocabId,
+  ).toBe('vocab-read-softly');
+});
+
+test('bedtime calm-room scene dims the room with new light and sound words', () => {
+  const calmScene = bedtimeLesson.scenes.find(
+    scene => scene.id === 'calm-room',
+  );
+
+  expect(calmScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(calmScene!, 'core');
+  const expandedScene = getSceneForLearningMode(calmScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(calmScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'night light',
+    'curtain',
+    'sound machine',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'night light',
+    'curtain',
+    'sound machine',
+    'star projector',
+    'humidifier',
+    'lullaby',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'night light',
+    'curtain',
+    'sound machine',
+    'star projector',
+    'humidifier',
+    'lullaby',
+    'dim lights',
+    'close curtains',
+    'play lullaby',
+  ]);
+
+  expect(
+    coreScene.steps.find(step => step.id === 'calm-room-drag-sound-machine')
+      ?.interaction.dropZoneId,
+  ).toBe('calm-room-corner-zone');
+  expect(
+    expandedScene.steps.find(step => step.id === 'calm-room-drag-humidifier')
+      ?.interaction.dropZoneId,
+  ).toBe('calm-room-air-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'calm-room-tap-dim-lights')
+      ?.vocabId,
+  ).toBe('vocab-dim-lights');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'calm-room-drag-close-curtains',
+    )?.interaction.dropZoneId,
+  ).toBe('calm-room-window-zone');
+  expect(
+    challengeScene.steps.find(step => step.id === 'calm-room-tap-play-lullaby')
+      ?.vocabId,
+  ).toBe('vocab-play-lullaby');
+});
+
+test('bedtime sleep-ready scene settles the child with new sleep words', () => {
+  const sleepScene = bedtimeLesson.scenes.find(
+    scene => scene.id === 'sleep-ready',
+  );
+
+  expect(sleepScene).toBeDefined();
+
+  const coreScene = getSceneForLearningMode(sleepScene!, 'core');
+  const expandedScene = getSceneForLearningMode(sleepScene!, 'expanded');
+  const challengeScene = getSceneForLearningMode(sleepScene!, 'challenge');
+
+  expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
+    'sleep mask',
+    'comfort plush',
+    'nightstand',
+  ]);
+  expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
+    'sleep mask',
+    'comfort plush',
+    'nightstand',
+    'dream journal',
+    'glow sticker',
+    'moon mobile',
+  ]);
+  expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
+    'sleep mask',
+    'comfort plush',
+    'nightstand',
+    'dream journal',
+    'glow sticker',
+    'moon mobile',
+    'wear sleep mask',
+    'hug comfort plush',
+    'check dream journal',
+  ]);
+
+  expect(
+    coreScene.steps.find(
+      step => step.id === 'sleep-ready-drag-mask-to-nightstand',
+    )?.interaction.dropZoneId,
+  ).toBe('sleep-ready-nightstand-zone');
+  expect(
+    expandedScene.steps.find(
+      step => step.id === 'sleep-ready-drag-glow-sticker',
+    )?.interaction.dropZoneId,
+  ).toBe('sleep-ready-wall-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sleep-ready-drag-wear-sleep-mask',
+    )?.vocabId,
+  ).toBe('vocab-wear-sleep-mask');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sleep-ready-drag-hug-comfort-plush',
+    )?.interaction.dropZoneId,
+  ).toBe('sleep-ready-baby-zone');
+  expect(
+    challengeScene.steps.find(
+      step => step.id === 'sleep-ready-tap-check-dream-journal',
+    )?.vocabId,
+  ).toBe('vocab-check-dream-journal');
+});
+
+test('bedtime avoids exact repeats from earlier bedroom bath and home lessons', () => {
+  const words = bedtimeLesson.scenes.flatMap(
+    scene => scene.vocabulary?.map(item => item.word) ?? [],
+  );
+  const earlierBedtimeAdjacentWords = [
+    'bed',
+    'blanket',
+    'sun',
+    'pillow',
+    'lamp',
+    'box',
+    'clock',
+    'socks',
+    'doll',
+    'good morning',
+    'make the bed',
+    'toothbrush',
+    'water',
+    'towel',
+    'sink',
+    'soap',
+    'mirror',
+    'toothpaste',
+    'brush teeth',
+    'wash face',
+    'dry face',
+    'pajamas',
+    'robe',
+    'slippers',
+    'put on pajamas',
+    'hang robe',
+    'book',
+    'music',
+    'read book',
+    'put away book',
+    'timer',
+    'start timer',
+    'dining light',
+    'say good night',
+  ];
+
+  expect(
+    earlierBedtimeAdjacentWords.filter(word => words.includes(word)),
+  ).toEqual([]);
 });
 
 test('school scene unlocks basic, expanded, and challenge content by mode', () => {

@@ -2,11 +2,20 @@ import { type SKidsIconName } from '../assets/icons/skids';
 import type { Lesson, Scene } from '../types/lesson';
 
 const sceneIconById: Record<string, SKidsIconName> = {
+  'bedtime-story': 'star',
+  'calm-room': 'star',
+  'clear-dinner': 'star',
+  'bath-finish': 'star',
+  'bath-prep': 'bathroom',
+  'bath-rinse': 'bathroom',
   bathroom: 'bathroom',
   bedroom: 'bedroom',
   breakfast: 'breakfast',
   classroom: 'school',
   'creative-play': 'star',
+  'dinner-cleanup': 'star',
+  'dinner-prep': 'breakfast',
+  'dinner-table': 'breakfast',
   'friend-games': 'star',
   'after-lunch': 'breakfast',
   'going-home': 'school',
@@ -20,15 +29,22 @@ const sceneIconById: Record<string, SKidsIconName> = {
   'school-supplies': 'school',
   'teacher-instructions': 'listen',
   'ride-home': 'map',
+  'sleep-ready': 'star',
+  'sort-and-dry': 'star',
   'snack-cleanup': 'star',
   'snack-prep': 'breakfast',
   'snack-table': 'breakfast',
+  'spot-clean': 'star',
   'toy-cleanup': 'star',
 };
 
 const lessonIconById: Record<string, SKidsIconName> = {
+  'after-dinner-cleanup': 'star',
+  'afternoon-bath': 'bathroom',
   'afternoon-home': 'map',
   'at-school': 'school',
+  bedtime: 'star',
+  'family-dinner': 'breakfast',
   'lunch-time': 'breakfast',
   'morning-routine': 'map',
   'home-play': 'star',
