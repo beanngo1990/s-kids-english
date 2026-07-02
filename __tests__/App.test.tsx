@@ -38,6 +38,10 @@ test('renders the home screen', async () => {
   expect(textValues).toContain('Về nhà buổi chiều');
   expect(textValues).toContain('Bữa xế của bé');
   expect(textValues).toContain('Chơi ở nhà');
+  expect(textValues).toContain('Tắm rửa buổi chiều');
+  expect(textValues).toContain('Bữa tối của gia đình');
+  expect(textValues).toContain('Dọn dẹp sau bữa tối');
+  expect(textValues).toContain('Giờ đi ngủ');
 });
 
 test('renders parent onboarding before first use', async () => {
