@@ -35,6 +35,27 @@ export const lessonRewards: LessonReward[] = [
     stickerName: 'Lunch Helper',
     title: 'Bé đã hoàn thành Bữa trưa của bé!',
   },
+  {
+    id: 'reward-afternoon-home',
+    lessonId: 'afternoon-home',
+    stickerId: 'sticker-afternoon-home',
+    stickerName: 'Home Helper',
+    title: 'Bé đã hoàn thành Về nhà buổi chiều!',
+  },
+  {
+    id: 'reward-snack-time',
+    lessonId: 'snack-time',
+    stickerId: 'sticker-snack-time',
+    stickerName: 'Snack Helper',
+    title: 'Bé đã hoàn thành Bữa xế của bé!',
+  },
+  {
+    id: 'reward-home-play',
+    lessonId: 'home-play',
+    stickerId: 'sticker-home-play',
+    stickerName: 'Home Player',
+    title: 'Bé đã hoàn thành Chơi ở nhà!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {
