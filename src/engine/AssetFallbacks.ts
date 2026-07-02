@@ -15,54 +15,82 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   board: '🟩',
   box: '📦',
   bread: '🍞',
+  bite: '😋',
   blocks: '🧱',
   bucket: '🪣',
   bus: '🚌',
+  basket: '🧺',
+  car: '🚗',
   chair: '🪑',
   clock: '🕒',
   classroom: '🏫',
+  cloth: '🧽',
+  cookie: '🍪',
+  cracker: '🥨',
   crumbs: '🍚',
   crayon: '🖍️',
   cup: '🥤',
   desk: '📝',
   doll: '🧸',
+  door: '🚪',
+  drum: '🥁',
   egg: '🥚',
   eraser: '🧽',
   face: '🙂',
+  family: '👨‍👩‍👧',
+  folder: '📁',
+  floor: '▭',
   friend: '🧒',
   fork: '🍴',
   fruit: '🍎',
+  goodbye: '👋',
   hand: '✋',
   hands: '👐',
+  home: '🏠',
+  hug: '🤗',
+  jacket: '🧥',
+  juice: '🧃',
+  'juice-container': '🧃',
   jump: '⭕',
   kite: '🪁',
   lamp: '💡',
+  line: '➖',
   lunchbox: '🍱',
   milk: '🥛',
   mirror: '🪞',
   mouth: '🙂',
+  music: '🎵',
   napkin: '🧻',
   notebook: '📓',
   open: '🍱',
+  paper: '📄',
   pillow: '🛏️',
   pencil: '✏️',
   plate: '🍽️',
   play: '🎲',
   playground: '🏫',
+  puzzle: '🧩',
   rope: '➰',
+  road: '🛣️',
   run: '👟',
+  raisins: '🍇',
   ruler: '📏',
   rice: '🍚',
   school: '🏫',
   seesaw: '⚖️',
+  'seat-belt': '🎗️',
   shade: '🌳',
+  shelf: '🗄️',
   shoes: '👟',
   sink: '🚰',
   slide: '🛝',
   snack: '🥨',
+  'snack-box': '🍱',
   soap: '🧼',
   soup: '🥣',
+  sip: '🥤',
   spoon: '🥄',
+  sponge: '🧽',
   socks: '🧦',
   sun: '☀️',
   swing: '🛝',
@@ -73,11 +101,16 @@ export const objectFallbackEmojiMap: Record<string, string> = {
   toothbrush: '🪥',
   towel: '🧻',
   toy: '🧸',
+  tray: '🍽️',
   'trash-bin': '🗑️',
+  'traffic-light': '🚦',
   turn: '🔄',
   uniform: '👕',
   wait: '⏳',
   water: '💧',
+  window: '🪟',
+  wrapper: '🍬',
+  yogurt: '🥣',
 };
 
 type ObjectFallbackInput = {
@@ -199,6 +232,69 @@ export function getSceneFallbackPalette(scene: Scene) {
         wall: '#F0F7FF',
       };
     case 'after-lunch':
+      return {
+        accent: '#69C9B9',
+        floor: '#E6D7BC',
+        panel: '#FFFFFF',
+        wall: '#E8F7F0',
+      };
+    case 'going-home':
+      return {
+        accent: '#5DADEC',
+        floor: '#E5D7C2',
+        panel: '#F7FBFF',
+        wall: '#EAF1FF',
+      };
+    case 'ride-home':
+      return {
+        accent: '#8FD6FF',
+        floor: '#D8F0D2',
+        panel: '#F2FBFF',
+        wall: '#E9F6FF',
+      };
+    case 'home-arrival':
+      return {
+        accent: '#74D889',
+        floor: '#F3E4C7',
+        panel: '#FFF8E8',
+        wall: '#E8F7F0',
+      };
+    case 'snack-prep':
+      return {
+        accent: '#FFB703',
+        floor: '#F3E4C7',
+        panel: '#FFF9DF',
+        wall: '#FFF7E8',
+      };
+    case 'snack-table':
+      return {
+        accent: '#FF9C8A',
+        floor: '#FFE2CC',
+        panel: '#FFF8E8',
+        wall: '#F0F7FF',
+      };
+    case 'snack-cleanup':
+      return {
+        accent: '#69C9B9',
+        floor: '#E6D7BC',
+        panel: '#FFFFFF',
+        wall: '#E8F7F0',
+      };
+    case 'home-toy-corner':
+      return {
+        accent: '#FFB703',
+        floor: '#F3E4C7',
+        panel: '#FFF9DF',
+        wall: '#F0F7FF',
+      };
+    case 'creative-play':
+      return {
+        accent: '#FF9C8A',
+        floor: '#FFE2CC',
+        panel: '#FFF8E8',
+        wall: '#FFF7E8',
+      };
+    case 'toy-cleanup':
       return {
         accent: '#69C9B9',
         floor: '#E6D7BC',
