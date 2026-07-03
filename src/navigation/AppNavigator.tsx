@@ -11,6 +11,7 @@ import {
   ParentScreen,
   RewardScreen,
   ScenePlayerScreen,
+  ThemeLibraryScreen,
 } from '../screens';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { colors } from '../theme/colors';
@@ -79,6 +80,11 @@ export function AppNavigator() {
           name="Home"
           component={HomeScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ThemeLibrary"
+          component={ThemeLibraryScreen}
+          options={{ title: 'Thư viện chủ đề' }}
         />
         <Stack.Screen
           name="LessonList"

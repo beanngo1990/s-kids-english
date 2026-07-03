@@ -26,6 +26,7 @@ type AfternoonHomeSceneId = 'going-home' | 'ride-home' | 'home-arrival';
 
 export const afternoonHomeLesson: Lesson = {
   id: 'afternoon-home',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Về nhà buổi chiều',
   titleEn: 'Going Home in the Afternoon',
   descriptionVi:

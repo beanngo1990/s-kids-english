@@ -1,8 +1,10 @@
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import {
+  getSceneProgressId,
   getCompletedSceneCount,
   getNextScene,
   isLessonComplete,
+  isSceneProgressComplete,
   isSceneUnlocked,
 } from '../src/utils/lessonProgress';
 
@@ -28,4 +30,23 @@ test('lesson progress unlocks only the first incomplete scene', () => {
   expect(scenes.every(scene => isSceneUnlocked(scenes, scene, completedProgress))).toBe(
     true,
   );
+});
+
+test('lesson progress supports composite scene ids per lesson', () => {
+  const lesson = morningRoutineLesson;
+  const scenes = lesson.scenes;
+  const completedProgress = new Set([
+    getSceneProgressId(lesson.id, scenes[0].id),
+  ]);
+
+  expect(
+    isSceneProgressComplete(completedProgress, lesson.id, scenes[0].id),
+  ).toBe(true);
+  expect(getCompletedSceneCount(scenes, completedProgress, lesson.id)).toBe(1);
+  expect(getNextScene(scenes, completedProgress, lesson.id)?.id).toBe(
+    scenes[1].id,
+  );
+  expect(
+    isSceneUnlocked(scenes, scenes[1], completedProgress, lesson.id),
+  ).toBe(true);
 });

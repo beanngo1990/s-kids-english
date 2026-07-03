@@ -26,6 +26,7 @@ type SnackSceneId = 'snack-prep' | 'snack-table' | 'snack-cleanup';
 
 export const snackTimeLesson: Lesson = {
   id: 'snack-time',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Bữa xế của bé',
   titleEn: 'Snack Time',
   descriptionVi:

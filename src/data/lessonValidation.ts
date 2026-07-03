@@ -57,6 +57,10 @@ export function assertValidLessons(lessons: readonly Lesson[]) {
 export function validateLesson(lesson: Lesson, lessonPath = lesson.id) {
   const issues: LessonValidationIssue[] = [];
 
+  if (typeof lesson.themeId !== 'string' || lesson.themeId.length === 0) {
+    issues.push(error(lessonPath, 'Lesson must include a themeId.'));
+  }
+
   if (lesson.scenes.length === 0) {
     issues.push(error(lessonPath, 'Lesson must include at least one scene.'));
   }

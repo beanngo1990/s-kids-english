@@ -16,10 +16,18 @@ import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import { playtimeLesson } from '../src/data/lessons/playtime';
 import { snackTimeLesson } from '../src/data/lessons/snackTime';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
+import { validateThemes } from '../src/data/themeValidation';
+import { themes } from '../src/data/themes';
 import type { Lesson } from '../src/types/lesson';
 
 test('lesson catalog has valid data links', () => {
   const issues = validateLessons(lessons);
+
+  expect(issues.filter(issue => issue.severity === 'error')).toEqual([]);
+});
+
+test('theme catalog references valid lesson routes', () => {
+  const issues = validateThemes(themes, lessons);
 
   expect(issues.filter(issue => issue.severity === 'error')).toEqual([]);
 });
@@ -48,6 +56,7 @@ test('validator catches missing object references', () => {
     },
     descriptionVi: 'Demo',
     id: 'invalid-lesson',
+    themeId: 'mot-ngay-cua-be',
     scenes: [
       {
         background: {

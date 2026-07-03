@@ -549,7 +549,7 @@ export function ScenePlayer({
     }
 
     const saveSceneProgressPromise = lessonId
-      ? saveSceneProgress(activeScene.id)
+      ? saveSceneProgress(lessonId, activeScene.id)
       : undefined;
 
     const activeSceneIndex = scenes.findIndex(

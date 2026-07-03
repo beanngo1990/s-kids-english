@@ -26,6 +26,7 @@ type BedtimeSceneId = 'bedtime-story' | 'calm-room' | 'sleep-ready';
 
 export const bedtimeLesson: Lesson = {
   id: 'bedtime',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Giờ đi ngủ',
   titleEn: 'Bedtime',
   descriptionVi:

@@ -9,6 +9,7 @@ import {
 
 export const morningRoutineLesson: Lesson = {
   id: 'morning-routine',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Buổi sáng của bé',
   titleEn: 'My Morning',
   descriptionVi: 'Bé học các từ quen thuộc trong buổi sáng.',
