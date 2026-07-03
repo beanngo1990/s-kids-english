@@ -26,6 +26,7 @@ type AfternoonBathSceneId = 'bath-prep' | 'bath-rinse' | 'bath-finish';
 
 export const afternoonBathLesson: Lesson = {
   id: 'afternoon-bath',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Tắm rửa buổi chiều',
   titleEn: 'Afternoon Bath',
   descriptionVi:

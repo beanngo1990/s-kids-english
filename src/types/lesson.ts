@@ -162,9 +162,20 @@ export type ReviewGame = {
   config?: Record<string, unknown>;
 };
 
+/** Một chủ đề/lộ trình gom nhiều gói bài thành một bản đồ dài. */
+export type LessonTheme = {
+  id: EntityId;
+  titleVi: string;
+  titleEn?: string;
+  thumbnailEmoji: string;
+  descriptionVi?: string;
+  lessonIds: EntityId[];
+};
+
 /** Một gói bài học gồm nhiều mini-scene và game ôn tập tùy chọn. */
 export type Lesson = {
   id: EntityId;
+  themeId: EntityId;
   titleVi: string;
   titleEn: string;
   descriptionVi: string;

@@ -25,7 +25,10 @@ import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
-import { isSceneUnlocked } from '../utils/lessonProgress';
+import {
+  isSceneProgressComplete,
+  isSceneUnlocked,
+} from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
@@ -40,10 +43,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
     [progress],
   );
   const completedSceneCount = scenes.filter(scene =>
-    completedSceneIds.has(scene.id),
+    isSceneProgressComplete(completedSceneIds, lesson?.id, scene.id),
   ).length;
   const nextScene =
-    scenes.find(scene => !completedSceneIds.has(scene.id)) ?? scenes[0];
+    scenes.find(
+      scene => !isSceneProgressComplete(completedSceneIds, lesson?.id, scene.id),
+    ) ?? scenes[0];
   const isPackComplete =
     scenes.length > 0 && completedSceneCount === scenes.length;
 
@@ -70,7 +75,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     const scene = scenes.find(item => item.id === sceneId);
 
-    if (!scene || !isSceneUnlocked(scenes, scene, completedSceneIds)) {
+    if (!scene || !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
       return;
     }
 
@@ -143,10 +148,19 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
       <View style={styles.sceneList}>
         {scenes.map((scene, index) => {
-          const isCompleted = completedSceneIds.has(scene.id);
+          const isCompleted = isSceneProgressComplete(
+            completedSceneIds,
+            lesson.id,
+            scene.id,
+          );
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
-          const isUnlocked = isSceneUnlocked(scenes, scene, completedSceneIds);
+          const isUnlocked = isSceneUnlocked(
+            scenes,
+            scene,
+            completedSceneIds,
+            lesson.id,
+          );
           const isLocked = !isUnlocked;
           const rewardStars = scene.completionReward?.stars ?? 3;
           const modeScene = getSceneForLearningMode(scene, learningMode);

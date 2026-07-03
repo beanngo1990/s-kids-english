@@ -4,6 +4,7 @@ import { atSchoolVocabulary } from '../vocabulary';
 
 export const atSchoolLesson: Lesson = {
   id: 'at-school',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Ở Trường Của Bé',
   titleEn: 'At School',
   descriptionVi: 'Bé học từ vựng và làm theo chỉ dẫn quen thuộc trong lớp học.',

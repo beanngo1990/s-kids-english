@@ -1,11 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { lessons } from '../data/lessons';
 import { getLessonReward } from '../data/rewards';
+import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import type { Lesson, VocabularyItem } from '../types/lesson';
+import {
+  getSceneProgressId,
+  isSceneProgressComplete,
+} from '../utils/lessonProgress';
 
 const PROGRESS_STORAGE_KEY = '@skidsenglish/progress/v1';
 
 export type LocalProgress = {
+  activeThemeId: string;
   completedLessonIds: string[];
   completedSceneIds: string[];
   learnedWordIds: string[];
@@ -19,6 +26,7 @@ export type LocalProgress = {
 };
 
 const emptyProgress: LocalProgress = {
+  activeThemeId: DEFAULT_THEME_ID,
   completedLessonIds: [],
   completedSceneIds: [],
   earnedStickerIds: [],
@@ -58,16 +66,17 @@ export async function completeLessonProgress(lesson: Lesson) {
     const currentProgress = await getProgress();
     const lessonReward = getLessonReward(lesson.id);
     const learnedVocabulary = getLessonVocabulary(lesson);
+    const completedSceneIds = addUnique(
+      currentProgress.completedSceneIds,
+      lesson.scenes.map(scene => getSceneProgressId(lesson.id, scene.id)),
+    );
 
     return await saveProgress({
       ...currentProgress,
       completedLessonIds: addUnique(currentProgress.completedLessonIds, [
         lesson.id,
       ]),
-      completedSceneIds: addUnique(
-        currentProgress.completedSceneIds,
-        lesson.scenes.map(scene => scene.id),
-      ),
+      completedSceneIds,
       earnedStickerIds: addUnique(
         currentProgress.earnedStickerIds,
         lessonReward ? [lessonReward.stickerId] : [],
@@ -81,6 +90,15 @@ export async function completeLessonProgress(lesson: Lesson) {
   } catch {
     return emptyProgress;
   }
+}
+
+export async function saveActiveThemeId(activeThemeId: string) {
+  const currentProgress = await getProgress();
+
+  return saveProgress({
+    ...currentProgress,
+    activeThemeId,
+  });
 }
 
 export async function saveCurrentStepProgress(
@@ -111,13 +129,47 @@ export async function saveLearnedWord(wordId: string) {
   }
 }
 
-export async function saveSceneProgress(sceneId: string) {
+export async function saveSceneProgress(lessonId: string, sceneId: string) {
   try {
     const currentProgress = await getProgress();
+    const lesson = lessons.find(item => item.id === lessonId);
+    const completedSceneIds = addUnique(currentProgress.completedSceneIds, [
+      getSceneProgressId(lessonId, sceneId),
+    ]);
+    const completedSceneIdSet = new Set(completedSceneIds);
+    const isLessonNowComplete = Boolean(
+      lesson &&
+        lesson.scenes.every(scene =>
+          isSceneProgressComplete(completedSceneIdSet, lesson.id, scene.id),
+        ),
+    );
+    const lessonReward = isLessonNowComplete
+      ? getLessonReward(lessonId)
+      : undefined;
+    const learnedVocabulary = isLessonNowComplete && lesson
+      ? getLessonVocabulary(lesson)
+      : [];
+
     await saveProgress({
       ...currentProgress,
-      completedSceneIds: addUnique(currentProgress.completedSceneIds, [sceneId]),
+      completedLessonIds: isLessonNowComplete
+        ? addUnique(currentProgress.completedLessonIds, [lessonId])
+        : currentProgress.completedLessonIds,
+      completedSceneIds,
+      earnedStickerIds: isLessonNowComplete
+        ? addUnique(
+            currentProgress.earnedStickerIds,
+            lessonReward ? [lessonReward.stickerId] : [],
+          )
+        : currentProgress.earnedStickerIds,
+      learnedWordIds: isLessonNowComplete
+        ? addUnique(
+            currentProgress.learnedWordIds,
+            learnedVocabulary.map(item => item.id),
+          )
+        : currentProgress.learnedWordIds,
       currentLessonProgress:
+        currentProgress.currentLessonProgress?.lessonId === lessonId &&
         currentProgress.currentLessonProgress?.sceneId === sceneId
           ? undefined
           : currentProgress.currentLessonProgress,
@@ -143,14 +195,43 @@ function normalizeProgress(value: unknown): LocalProgress {
   const progress = value as Partial<LocalProgress>;
 
   return {
+    activeThemeId: normalizeThemeId(progress.activeThemeId),
     completedLessonIds: normalizeStringArray(progress.completedLessonIds),
     completedSceneIds: normalizeStringArray(progress.completedSceneIds),
     earnedStickerIds: normalizeStringArray(progress.earnedStickerIds),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
-    currentLessonProgress: progress.currentLessonProgress,
+    currentLessonProgress: normalizeCurrentLessonProgress(
+      progress.currentLessonProgress,
+    ),
     updatedAt:
       typeof progress.updatedAt === 'string' ? progress.updatedAt : undefined,
   };
+}
+
+function normalizeThemeId(value: unknown) {
+  if (
+    typeof value === 'string' &&
+    themes.some(theme => theme.id === value)
+  ) {
+    return value;
+  }
+
+  return DEFAULT_THEME_ID;
+}
+
+function normalizeCurrentLessonProgress(value: unknown) {
+  const progress = value as LocalProgress['currentLessonProgress'];
+
+  if (
+    progress &&
+    typeof progress.lessonId === 'string' &&
+    typeof progress.sceneId === 'string' &&
+    typeof progress.stepId === 'string'
+  ) {
+    return progress;
+  }
+
+  return undefined;
 }
 
 function normalizeStringArray(value: unknown) {

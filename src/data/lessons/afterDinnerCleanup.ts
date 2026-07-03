@@ -26,6 +26,7 @@ type AfterDinnerCleanupSceneId = 'clear-dinner' | 'spot-clean' | 'sort-and-dry';
 
 export const afterDinnerCleanupLesson: Lesson = {
   id: 'after-dinner-cleanup',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Dọn dẹp sau bữa tối',
   titleEn: 'After-Dinner Cleanup',
   descriptionVi:

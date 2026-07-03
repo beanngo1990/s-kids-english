@@ -26,6 +26,7 @@ type FamilyDinnerSceneId = 'dinner-prep' | 'dinner-table' | 'dinner-cleanup';
 
 export const familyDinnerLesson: Lesson = {
   id: 'family-dinner',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Bữa tối của gia đình',
   titleEn: 'Family Dinner',
   descriptionVi:

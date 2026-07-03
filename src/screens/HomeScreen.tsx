@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { type SKidsIconName } from '../assets/icons/skids';
@@ -9,24 +9,30 @@ import { KidIconButton } from '../components/KidIconButton';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { colors } from '../theme/colors';
-import { radius, spacing } from '../theme/spacing';
+import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
-import type { LearningMode, Lesson, Scene } from '../types/lesson';
+import type { LearningMode, Lesson, LessonTheme, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
-import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
+import { getSceneIconName } from '../utils/lessonIcons';
 import {
-  getCompletedSceneCount,
-  getNextScene,
-  isLessonComplete,
-  isSceneUnlocked,
+  getSceneProgressId,
+  isSceneProgressComplete,
 } from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
+
+type ThemeMapNode = {
+  key: string;
+  lessonId: string;
+  lessonTitleVi: string;
+  scene: Scene;
+};
 
 const connectorDots = Array.from({ length: 11 }, (_, index) => index);
 const connectorHeight = 82;
@@ -34,38 +40,54 @@ const connectorHeight = 82;
 export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
-  const [selectedLessonId, setSelectedLessonId] = useState<string | undefined>(
-    lessons[0]?.id,
+  const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
+  const activeTheme =
+    getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
+  const themeLessons = useMemo(
+    () => getThemeLessons(activeTheme),
+    [activeTheme],
   );
-  const featuredLesson =
-    lessons.find(lesson => lesson.id === selectedLessonId) ?? lessons[0];
-  const scenes = useMemo(() => featuredLesson?.scenes ?? [], [featuredLesson]);
-  const sceneIds = useMemo(
-    () => new Set(scenes.map(scene => scene.id)),
-    [scenes],
+  const mapNodes = useMemo(
+    () => buildThemeMapNodes(themeLessons),
+    [themeLessons],
   );
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
   );
-  const completedSceneCount = getCompletedSceneCount(scenes, completedSceneIds);
-  const isFeaturedLessonComplete = isLessonComplete(scenes, completedSceneIds);
-  const nextScene = isFeaturedLessonComplete
-    ? undefined
-    : getNextScene(scenes, completedSceneIds);
-  const pendingProgress = progress?.currentLessonProgress;
-  const shouldResumeProgress = Boolean(
-    featuredLesson &&
-      pendingProgress &&
-      pendingProgress.lessonId === featuredLesson.id &&
-      sceneIds.has(pendingProgress.sceneId) &&
-      !completedSceneIds.has(pendingProgress.sceneId),
+  const completedSceneCount = getCompletedThemeNodeCount(
+    mapNodes,
+    completedSceneIds,
   );
-  const rewardAlignment = getRewardAlignment(scenes.length);
-  const primaryLabel = isFeaturedLessonComplete ? 'MỞ QUÀ' : 'Chơi ngay';
-  const primaryIconName: SKidsIconName = isFeaturedLessonComplete
-    ? 'sticker'
-    : 'next';
+  const isThemeComplete =
+    mapNodes.length > 0 &&
+    completedSceneCount === mapNodes.length;
+  const nextNode = isThemeComplete
+    ? undefined
+    : getNextThemeNode(mapNodes, completedSceneIds);
+  const pendingProgress = progress?.currentLessonProgress;
+  const pendingNode = pendingProgress
+    ? mapNodes.find(
+        node =>
+          node.lessonId === pendingProgress.lessonId &&
+          node.scene.id === pendingProgress.sceneId,
+      )
+    : undefined;
+  const shouldResumeProgress = Boolean(
+    pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
+  );
+  const primaryLabel = isThemeComplete
+    ? 'Ôn lại'
+    : shouldResumeProgress
+      ? 'Học tiếp'
+      : 'Chơi ngay';
+  const primaryIconName: SKidsIconName = isThemeComplete ? 'replay' : 'next';
+  const ctaNode = shouldResumeProgress && pendingNode
+    ? pendingNode
+    : nextNode ?? mapNodes[0];
+  const ctaSubtitle = ctaNode
+    ? `${ctaNode.lessonTitleVi} · ${ctaNode.scene.titleVi}`
+    : 'Chọn chủ đề để bắt đầu';
 
   const refreshHomeData = useCallback(() => {
     getProgress()
@@ -81,255 +103,224 @@ export function HomeScreen({ navigation }: Props) {
     return navigation.addListener('focus', refreshHomeData);
   }, [navigation, refreshHomeData]);
 
+  const openNode = (node: ThemeMapNode) => {
+    navigation.navigate('ScenePlayer', {
+      learningMode,
+      lessonId: node.lessonId,
+      sceneId: node.scene.id,
+    });
+  };
+
   const handleStart = () => {
-    if (shouldResumeProgress && pendingProgress) {
-      navigation.navigate('ScenePlayer', {
-        learningMode,
-        lessonId: pendingProgress.lessonId,
-        sceneId: pendingProgress.sceneId,
-      });
+    if (shouldResumeProgress && pendingNode) {
+      openNode(pendingNode);
       return;
     }
 
-    if (isFeaturedLessonComplete && featuredLesson) {
-      navigation.navigate('Reward', { lessonId: featuredLesson.id });
+    if (nextNode) {
+      openNode(nextNode);
       return;
     }
 
-    if (featuredLesson && nextScene) {
-      navigation.navigate('ScenePlayer', {
-        learningMode,
-        lessonId: featuredLesson.id,
-        sceneId: nextScene.id,
-      });
+    if (mapNodes[0]) {
+      openNode(mapNodes[0]);
       return;
     }
 
-    navigation.navigate('LessonList');
+    navigation.navigate('ThemeLibrary');
   };
 
   return (
-    <Screen scroll>
-      <View style={styles.container}>
-        <View pointerEvents="none" style={styles.skyDecor}>
-          <View style={[styles.cloud, styles.cloudLeft]} />
-          <View style={[styles.cloud, styles.cloudBottom]} />
-          <Text style={[styles.sparkle, styles.sparkleTop]}>★</Text>
-          <Text style={[styles.sparkle, styles.sparkleMid]}>★</Text>
-        </View>
-
-        <View style={styles.topBar}>
-          <View style={styles.brandCluster}>
-            <AppLogo size={64} />
-            <View style={styles.brandText}>
-              <Text style={styles.title}>S-Kids</Text>
-              <KidBadge tone="sun">English Quest</KidBadge>
-            </View>
-          </View>
-          <KidIconButton
-            accessibilityLabel="Góc phụ huynh"
-            icon="parentLock"
-            onPress={() => navigation.navigate('Parent')}
-            size="md"
-            style={styles.parentGate}
-            tone="quiet"
-          />
-        </View>
-
-        {lessons.length > 1 ? (
-          <LessonSwitcher
-            completedSceneIds={completedSceneIds}
-            lessons={lessons}
-            selectedLessonId={featuredLesson?.id}
-            onSelectLesson={setSelectedLessonId}
-          />
-        ) : null}
-
-        {featuredLesson ? (
-          <View style={styles.world}>
-            <View style={styles.mapHeader}>
-              <View style={styles.lessonTitleGroup}>
-                <KidBadge tone="teal">Bản đồ học tập</KidBadge>
-                <Text style={styles.mapTitle}>{featuredLesson.titleVi}</Text>
-              </View>
-              <View style={styles.progressChip}>
-                <SKidsIcon name="star" size={24} />
-                <Text style={styles.progressChipText}>
-                  {completedSceneCount}/{scenes.length}
-                </Text>
-              </View>
+    <Screen>
+      <View style={styles.shell}>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          contentContainerStyle={styles.scrollContent}
+          style={styles.scrollArea}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.container}>
+            <View pointerEvents="none" style={styles.skyDecor}>
+              <View style={[styles.cloud, styles.cloudLeft]} />
+              <View style={[styles.cloud, styles.cloudBottom]} />
+              <Text style={[styles.sparkle, styles.sparkleTop]}>★</Text>
+              <Text style={[styles.sparkle, styles.sparkleMid]}>★</Text>
             </View>
 
-            <View style={styles.learningMap}>
-              <View pointerEvents="none" style={styles.mapBackdrop}>
-                <View style={[styles.mapHill, styles.mapHillLeft]} />
-                <View style={[styles.mapHill, styles.mapHillRight]} />
-                <Text style={[styles.mapStar, styles.mapStarOne]}>★</Text>
-                <Text style={[styles.mapStar, styles.mapStarTwo]}>★</Text>
+            <View style={styles.topBar}>
+              <View style={styles.brandCluster}>
+                <AppLogo size={52} />
+                <View style={styles.brandText}>
+                  <Text style={styles.title}>S-Kids</Text>
+                  <KidBadge tone="sun">English Quest</KidBadge>
+                </View>
               </View>
-
-              {scenes.map((scene, index) => {
-                const alignment = getMapAlignment(index);
-                const nextAlignment =
-                  index < scenes.length - 1
-                    ? getMapAlignment(index + 1)
-                    : rewardAlignment;
-                const isCompleted = completedSceneIds.has(scene.id);
-                const isCurrent =
-                  !isFeaturedLessonComplete && nextScene?.id === scene.id;
-                const isUnlocked = isSceneUnlocked(
-                  scenes,
-                  scene,
-                  completedSceneIds,
-                );
-
-                return (
-                  <React.Fragment key={scene.id}>
-                    <SceneMapStop
-                      alignment={alignment}
-                      index={index}
-                      isCompleted={isCompleted}
-                      isCurrent={isCurrent}
-                      isLocked={!isUnlocked}
-                      scene={scene}
-                      onPress={() => {
-                        if (!isUnlocked) {
-                          return;
-                        }
-
-                        navigation.navigate('ScenePlayer', {
-                          learningMode,
-                          lessonId: featuredLesson.id,
-                          sceneId: scene.id,
-                        });
-                      }}
-                    />
-                    <MapConnector
-                      from={alignment}
-                      isComplete={isCompleted}
-                      to={nextAlignment}
-                    />
-                  </React.Fragment>
-                );
-              })}
-
-              <RewardMapStop
-                alignment={rewardAlignment}
-                isUnlocked={isFeaturedLessonComplete}
-                onPress={() =>
-                  navigation.navigate('Reward', { lessonId: featuredLesson.id })
-                }
+              <KidIconButton
+                accessibilityLabel="Góc phụ huynh"
+                icon="parentLock"
+                onPress={() => navigation.navigate('Parent')}
+                size="md"
+                style={styles.parentGate}
+                tone="quiet"
               />
             </View>
 
-            <View style={styles.playCluster}>
-              <PlayNowButton
-                accessibilityLabel={
-                  isFeaturedLessonComplete ? 'Mở quà' : 'Chơi ngay'
-                }
-                iconName={primaryIconName}
-                isReward={isFeaturedLessonComplete}
-                label={primaryLabel}
-                onPress={handleStart}
-              />
-              <View style={styles.sideActions}>
-                <KidIconButton
-                  accessibilityLabel="Xem gói bài học"
-                  icon="map"
-                  label="Gói bài"
-                  onPress={() =>
-                    navigation.navigate('LessonPack', {
-                      lessonId: featuredLesson.id,
-                    })
-                  }
-                  size="md"
-                  style={styles.sideActionButton}
-                  tone="secondary"
-                />
-                <KidIconButton
-                  accessibilityLabel="Album sticker của bé"
-                  disabled={!isFeaturedLessonComplete}
-                  icon="sticker"
-                  label="Album"
-                  onPress={() =>
-                    navigation.navigate('Reward', {
-                      lessonId: featuredLesson.id,
-                    })
-                  }
-                  size="md"
-                  style={styles.sideActionButton}
-                  tone="quiet"
-                />
+            {activeTheme ? (
+              <View style={styles.world}>
+                <View style={styles.mapHeader}>
+                  <View style={styles.lessonTitleGroup}>
+                    <KidBadge tone="teal">Siêu bản đồ</KidBadge>
+                    <Text style={styles.mapTitle}>{activeTheme.titleVi}</Text>
+                    <Text style={styles.mapDescription}>
+                      {themeLessons.length} gói bài · {mapNodes.length} trạm
+                    </Text>
+                  </View>
+                  <View style={styles.mapHeaderActions}>
+                    <View style={styles.progressChip}>
+                      <SKidsIcon name="star" size={22} />
+                      <Text style={styles.progressChipText}>
+                        {completedSceneCount}/{mapNodes.length}
+                      </Text>
+                    </View>
+                    <Pressable
+                      accessibilityLabel="Mở thư viện chủ đề"
+                      accessibilityRole="button"
+                      onPress={() => navigation.navigate('ThemeLibrary')}
+                      style={({ pressed }) => [
+                        styles.themeLibraryButton,
+                        pressed && styles.themeLibraryButtonPressed,
+                      ]}
+                    >
+                      <SKidsIcon name="map" size={28} />
+                      <Text numberOfLines={1} style={styles.themeLibraryText}>
+                        Thư viện
+                      </Text>
+                    </Pressable>
+                  </View>
+                </View>
+
+                <View style={styles.learningMap}>
+                  <View pointerEvents="none" style={styles.mapBackdrop}>
+                    <View style={[styles.mapHill, styles.mapHillLeft]} />
+                    <View style={[styles.mapHill, styles.mapHillRight]} />
+                    <Text style={[styles.mapStar, styles.mapStarOne]}>★</Text>
+                    <Text style={[styles.mapStar, styles.mapStarTwo]}>★</Text>
+                  </View>
+
+                  {mapNodes.length === 0 ? (
+                    <View style={styles.emptyMap}>
+                      <KidBadge tone="alert">Chưa có trạm</KidBadge>
+                      <Text style={styles.emptyMapTitle}>
+                        Chủ đề này chưa có gói bài học.
+                      </Text>
+                    </View>
+                  ) : null}
+
+                  {mapNodes.map((node, index) => {
+                    const alignment = getMapAlignment(index);
+                    const nextAlignment = getMapAlignment(index + 1);
+                    const isCompleted = isThemeNodeComplete(
+                      node,
+                      completedSceneIds,
+                    );
+                    const isCurrent =
+                      !isThemeComplete && nextNode?.key === node.key;
+                    const isUnlocked =
+                      isCompleted ||
+                      nextNode?.key === node.key ||
+                      isThemeComplete;
+
+                    return (
+                      <React.Fragment key={node.key}>
+                        <SceneMapStop
+                          alignment={alignment}
+                          index={index}
+                          isCompleted={isCompleted}
+                          isCurrent={isCurrent}
+                          isLocked={!isUnlocked}
+                          lessonTitleVi={node.lessonTitleVi}
+                          scene={node.scene}
+                          onPress={() => {
+                            if (!isUnlocked) {
+                              return;
+                            }
+
+                            openNode(node);
+                          }}
+                        />
+                        {index < mapNodes.length - 1 ? (
+                          <MapConnector
+                            from={alignment}
+                            isComplete={isCompleted}
+                            to={nextAlignment}
+                          />
+                        ) : null}
+                      </React.Fragment>
+                    );
+                  })}
+                </View>
               </View>
-            </View>
+            ) : null}
           </View>
-        ) : null}
+        </ScrollView>
+
+        <StickyStartButton
+          accessibilityLabel={`${primaryLabel}: ${ctaSubtitle}`}
+          iconName={primaryIconName}
+          isComplete={isThemeComplete}
+          label={primaryLabel}
+          subtitle={ctaSubtitle}
+          onPress={handleStart}
+        />
       </View>
     </Screen>
   );
 }
 
-type LessonSwitcherProps = {
-  completedSceneIds: Set<string>;
-  lessons: Lesson[];
-  onSelectLesson: (lessonId: string) => void;
-  selectedLessonId?: string;
+type StickyStartButtonProps = {
+  accessibilityLabel: string;
+  iconName: SKidsIconName;
+  isComplete: boolean;
+  label: string;
+  onPress: () => void;
+  subtitle: string;
 };
 
-function LessonSwitcher({
-  completedSceneIds,
-  lessons,
-  onSelectLesson,
-  selectedLessonId,
-}: LessonSwitcherProps) {
+function StickyStartButton({
+  accessibilityLabel,
+  iconName,
+  isComplete,
+  label,
+  onPress,
+  subtitle,
+}: StickyStartButtonProps) {
   return (
-    <View style={styles.lessonSwitcher}>
-      <View style={styles.lessonSwitcherHeader}>
-        <KidBadge tone="sky">Gói bài</KidBadge>
-        <Text style={styles.lessonSwitcherHint}>Chọn hành trình cho bé</Text>
-      </View>
-
-      <View style={styles.lessonSwitcherList}>
-        {lessons.map(lesson => {
-          const isSelected = lesson.id === selectedLessonId;
-          const completedSceneCount = getCompletedSceneCount(
-            lesson.scenes,
-            completedSceneIds,
-          );
-
-          return (
-            <Pressable
-              accessibilityLabel={`Chọn bài ${lesson.titleVi}`}
-              accessibilityRole="button"
-              accessibilityState={{ selected: isSelected }}
-              key={lesson.id}
-              onPress={() => onSelectLesson(lesson.id)}
-              style={({ pressed }) => [
-                styles.lessonChip,
-                isSelected && styles.lessonChipSelected,
-                pressed && styles.lessonChipPressed,
-              ]}
-            >
-              <View
-                style={[
-                  styles.lessonChipIcon,
-                  isSelected && styles.lessonChipIconSelected,
-                ]}
-              >
-                <SKidsIcon name={getLessonIconName(lesson)} size={52} />
-              </View>
-              <View style={styles.lessonChipText}>
-                <Text numberOfLines={2} style={styles.lessonChipTitle}>
-                  {lesson.titleVi}
-                </Text>
-                <Text style={styles.lessonChipMeta}>
-                  {completedSceneCount}/{lesson.scenes.length} trạm
-                </Text>
-              </View>
-            </Pressable>
-          );
-        })}
-      </View>
+    <View pointerEvents="box-none" style={styles.stickyFooter}>
+      <Pressable
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        onPress={onPress}
+        style={({ pressed }) => [
+          styles.stickyButton,
+          isComplete && styles.stickyButtonComplete,
+          pressed && styles.stickyButtonPressed,
+        ]}
+      >
+        <View style={styles.stickyIcon}>
+          <SKidsIcon name={iconName} size={48} />
+        </View>
+        <View style={styles.stickyTextGroup}>
+          <Text numberOfLines={1} style={styles.stickyLabel}>
+            {label}
+          </Text>
+          <Text numberOfLines={1} style={styles.stickySubtitle}>
+            {subtitle}
+          </Text>
+        </View>
+        <View style={styles.stickyArrow}>
+          <SKidsIcon name="next" size={34} />
+        </View>
+      </Pressable>
     </View>
   );
 }
@@ -340,6 +331,7 @@ type SceneMapStopProps = {
   isCompleted: boolean;
   isCurrent: boolean;
   isLocked: boolean;
+  lessonTitleVi: string;
   onPress: () => void;
   scene: Scene;
 };
@@ -350,6 +342,7 @@ function SceneMapStop({
   isCompleted,
   isCurrent,
   isLocked,
+  lessonTitleVi,
   onPress,
   scene,
 }: SceneMapStopProps) {
@@ -401,61 +394,16 @@ function SceneMapStop({
         ) : null}
       </View>
       <Text
+        numberOfLines={1}
+        style={[styles.stopLessonTitle, isLocked && styles.stopTitleLocked]}
+      >
+        {lessonTitleVi}
+      </Text>
+      <Text
         numberOfLines={2}
         style={[styles.stopTitle, isLocked && styles.stopTitleLocked]}
       >
         {scene.titleVi}
-      </Text>
-    </Pressable>
-  );
-}
-
-type RewardMapStopProps = {
-  alignment: MapAlignment;
-  isUnlocked: boolean;
-  onPress: () => void;
-};
-
-function RewardMapStop({ alignment, isUnlocked, onPress }: RewardMapStopProps) {
-  return (
-    <Pressable
-      accessibilityLabel={isUnlocked ? 'Mở quà' : 'Quà tặng chưa mở khóa'}
-      accessibilityRole="button"
-      accessibilityState={{ disabled: !isUnlocked }}
-      disabled={!isUnlocked}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.mapStop,
-        alignment === 'left' && styles.mapStopLeft,
-        alignment === 'center' && styles.mapStopCenter,
-        alignment === 'right' && styles.mapStopRight,
-        pressed && isUnlocked && styles.mapStopPressed,
-      ]}
-    >
-      <View
-        style={[
-          styles.stopNode,
-          styles.rewardNode,
-          isUnlocked ? styles.rewardNodeOpen : styles.stopNodeLocked,
-        ]}
-      >
-        {isUnlocked ? <View style={styles.rewardGlow} /> : null}
-        <SKidsIcon
-          name="star"
-          size={isUnlocked ? 98 : 86}
-          style={!isUnlocked ? styles.lockedIcon : undefined}
-        />
-        {!isUnlocked ? (
-          <View style={styles.lockBadge}>
-            <SKidsIcon name="parentLock" size={28} />
-          </View>
-        ) : null}
-      </View>
-      <Text
-        numberOfLines={1}
-        style={[styles.stopTitle, !isUnlocked && styles.stopTitleLocked]}
-      >
-        Quà tặng
       </Text>
     </Pressable>
   );
@@ -496,54 +444,59 @@ function MapConnector({ from, isComplete, to }: MapConnectorProps) {
   );
 }
 
-type PlayNowButtonProps = {
-  accessibilityLabel: string;
-  iconName: SKidsIconName;
-  isReward: boolean;
-  label: string;
-  onPress: () => void;
-};
+function getThemeLessons(theme: LessonTheme | undefined): Lesson[] {
+  if (!theme) {
+    return [];
+  }
 
-function PlayNowButton({
-  accessibilityLabel,
-  iconName,
-  isReward,
-  label,
-  onPress,
-}: PlayNowButtonProps) {
-  return (
-    <Pressable
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="button"
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.playNowButton,
-        isReward && styles.playNowButtonReward,
-        pressed && styles.playNowButtonPressed,
-      ]}
-    >
-      <View style={styles.playGlowOuter} />
-      <View style={styles.playGlowInner} />
-      <SKidsIcon name={iconName} size={92} style={styles.playNowIcon} />
-      <View style={styles.playLabelPill}>
-        <Text numberOfLines={1} style={styles.playLabel}>
-          {label}
-        </Text>
-      </View>
-    </Pressable>
+  return theme.lessonIds
+    .map(lessonId => lessons.find(lesson => lesson.id === lessonId))
+    .filter((lesson): lesson is Lesson => Boolean(lesson));
+}
+
+function buildThemeMapNodes(themeLessons: Lesson[]): ThemeMapNode[] {
+  return themeLessons.flatMap(lesson =>
+    lesson.scenes.map(scene => ({
+      key: getSceneProgressId(lesson.id, scene.id),
+      lessonId: lesson.id,
+      lessonTitleVi: lesson.titleVi,
+      scene,
+    })),
+  );
+}
+
+function getCompletedThemeNodeCount(
+  nodes: ThemeMapNode[],
+  completedSceneIds: Set<string>,
+) {
+  return nodes.filter(node => isThemeNodeComplete(node, completedSceneIds))
+    .length;
+}
+
+function getNextThemeNode(
+  nodes: ThemeMapNode[],
+  completedSceneIds: Set<string>,
+) {
+  return nodes.find(node => !isThemeNodeComplete(node, completedSceneIds));
+}
+
+function isThemeNodeComplete(
+  node: ThemeMapNode | undefined,
+  completedSceneIds: Set<string>,
+) {
+  if (!node) {
+    return false;
+  }
+
+  return isSceneProgressComplete(
+    completedSceneIds,
+    node.lessonId,
+    node.scene.id,
   );
 }
 
 function getMapAlignment(index: number): MapAlignment {
   return index % 2 === 0 ? 'left' : 'right';
-}
-
-function getRewardAlignment(sceneCount: number): MapAlignment {
-  if (sceneCount < 2) {
-    return 'right';
-  }
-
-  return 'center';
 }
 
 function getAlignmentX(alignment: MapAlignment) {
@@ -565,6 +518,7 @@ function percent(value: number): `${number}%` {
 const styles = StyleSheet.create({
   brandCluster: {
     alignItems: 'center',
+    flex: 1,
     flexDirection: 'row',
     gap: spacing.sm,
   },
@@ -612,11 +566,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   container: {
-    gap: spacing.lg,
+    gap: spacing.md,
     minHeight: 720,
     overflow: 'hidden',
     paddingBottom: spacing.xl,
-    paddingTop: spacing.md,
+    paddingTop: spacing.xs,
   },
   doneBadge: {
     alignItems: 'center',
@@ -638,81 +592,23 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     lineHeight: 29,
   },
+  emptyMap: {
+    alignItems: 'center',
+    gap: spacing.sm,
+    minHeight: 320,
+    justifyContent: 'center',
+    padding: spacing.lg,
+  },
+  emptyMapTitle: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.subtitle,
+  },
   learningMap: {
-    minHeight: 420,
+    minHeight: 520,
     paddingHorizontal: spacing.xs,
     paddingTop: spacing.md,
     position: 'relative',
-  },
-  lessonChip: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    flexBasis: '47%',
-    flexDirection: 'row',
-    flexGrow: 1,
-    gap: spacing.sm,
-    minHeight: 98,
-    padding: spacing.sm,
-    ...shadows.soft,
-  },
-  lessonChipIcon: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.white,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    height: 58,
-    justifyContent: 'center',
-    width: 58,
-  },
-  lessonChipIconSelected: {
-    backgroundColor: colors.white,
-    borderColor: colors.secondary,
-  },
-  lessonChipMeta: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonChipPressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
-  },
-  lessonChipSelected: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-  },
-  lessonChipText: {
-    flex: 1,
-    gap: spacing.xxs,
-  },
-  lessonChipTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 20,
-  },
-  lessonSwitcher: {
-    gap: spacing.sm,
-    zIndex: 1,
-  },
-  lessonSwitcherHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-    justifyContent: 'space-between',
-  },
-  lessonSwitcherHint: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonSwitcherList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
   },
   lessonTitleGroup: {
     flex: 1,
@@ -743,11 +639,20 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
+  mapDescription: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
   mapHeader: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexDirection: 'row',
-    gap: spacing.md,
+    gap: spacing.sm,
     justifyContent: 'space-between',
+  },
+  mapHeaderActions: {
+    alignItems: 'flex-end',
+    gap: spacing.xs,
+    paddingTop: spacing.xs,
   },
   mapHill: {
     backgroundColor: colors.white,
@@ -811,74 +716,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.pill,
-    height: 72,
-    minHeight: 72,
-    minWidth: 72,
-    width: 72,
+    height: 64,
+    minHeight: 64,
+    minWidth: 64,
+    width: 64,
     ...shadows.floating,
-  },
-  playCluster: {
-    alignItems: 'stretch',
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  playGlowInner: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    height: 120,
-    opacity: 0.15,
-    position: 'absolute',
-    right: -30,
-    top: 16,
-    width: 120,
-  },
-  playGlowOuter: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    height: 210,
-    left: -70,
-    opacity: 0.18,
-    position: 'absolute',
-    top: -64,
-    width: 210,
-  },
-  playLabel: {
-    color: colors.text,
-    fontSize: 22,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 26,
-    textAlign: 'center',
-  },
-  playLabelPill: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    marginTop: -spacing.xs,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xs,
-  },
-  playNowButton: {
-    alignItems: 'center',
-    backgroundColor: colors.secondary,
-    borderColor: colors.white,
-    borderRadius: radius.xl,
-    borderWidth: 4,
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 166,
-    overflow: 'hidden',
-    padding: spacing.md,
-    ...shadows.warm,
-  },
-  playNowButtonPressed: {
-    opacity: 0.92,
-    transform: [{ translateY: 3 }, { scale: 0.98 }],
-  },
-  playNowButtonReward: {
-    backgroundColor: colors.primary,
-  },
-  playNowIcon: {
-    marginTop: -spacing.xs,
   },
   progressChip: {
     alignItems: 'center',
@@ -889,6 +731,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.xxs,
     justifyContent: 'center',
+    minWidth: 92,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
     ...shadows.soft,
@@ -897,34 +740,15 @@ const styles = StyleSheet.create({
     color: colors.textSoft,
     ...typography.caption,
   },
-  rewardGlow: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 5,
-    bottom: -12,
-    left: -12,
-    opacity: 0.78,
-    position: 'absolute',
-    right: -12,
-    top: -12,
+  scrollArea: {
+    flex: 1,
   },
-  rewardNode: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
+  scrollContent: {
+    padding: layout.screenPadding,
+    paddingBottom: 152,
   },
-  rewardNodeOpen: {
-    backgroundColor: colors.white,
-    borderColor: colors.secondary,
-    ...shadows.warm,
-  },
-  sideActionButton: {
-    borderRadius: radius.lg,
-    minHeight: 88,
-  },
-  sideActions: {
-    gap: spacing.sm,
-    width: 112,
+  shell: {
+    flex: 1,
   },
   skyDecor: {
     bottom: 0,
@@ -949,6 +773,65 @@ const styles = StyleSheet.create({
     top: 10,
     transform: [{ rotate: '12deg' }],
   },
+  stickyArrow: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    height: 46,
+    justifyContent: 'center',
+    width: 46,
+  },
+  stickyButton: {
+    alignItems: 'center',
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderRadius: radius.xl,
+    borderWidth: 4,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    minHeight: 86,
+    overflow: 'hidden',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    ...shadows.warm,
+  },
+  stickyButtonComplete: {
+    backgroundColor: colors.primary,
+  },
+  stickyButtonPressed: {
+    opacity: 0.92,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
+  },
+  stickyFooter: {
+    bottom: spacing.md,
+    left: layout.screenPadding,
+    position: 'absolute',
+    right: layout.screenPadding,
+    zIndex: 20,
+  },
+  stickyIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    height: 58,
+    justifyContent: 'center',
+    width: 58,
+  },
+  stickyLabel: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 26,
+  },
+  stickySubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  stickyTextGroup: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
   stopGlow: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.white,
@@ -960,6 +843,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -12,
     top: -12,
+  },
+  stopLessonTitle: {
+    color: colors.textSoft,
+    fontSize: 13,
+    fontWeight: '800',
+    letterSpacing: 0,
+    lineHeight: 16,
+    maxWidth: 154,
+    textAlign: 'center',
+    width: 154,
   },
   stopNode: {
     alignItems: 'center',
@@ -1018,16 +911,40 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.text,
-    fontSize: 34,
+    fontSize: 30,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 38,
+    lineHeight: 34,
+  },
+  themeLibraryButton: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flexDirection: 'row',
+    gap: spacing.xxs,
+    minHeight: 42,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+    ...shadows.soft,
+  },
+  themeLibraryButtonPressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 1 }, { scale: 0.98 }],
+  },
+  themeLibraryText: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 18,
   },
   topBar: {
     alignItems: 'center',
     flexDirection: 'row',
+    gap: spacing.sm,
     justifyContent: 'space-between',
-    paddingTop: spacing.sm,
   },
   world: {
     gap: spacing.md,

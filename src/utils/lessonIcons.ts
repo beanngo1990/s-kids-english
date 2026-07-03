@@ -11,6 +11,7 @@ const sceneIconById: Record<string, SKidsIconName> = {
   bathroom: 'bathroom',
   bedroom: 'bedroom',
   breakfast: 'breakfast',
+  'go-to-school': 'school',
   classroom: 'school',
   'creative-play': 'star',
   'dinner-cleanup': 'star',

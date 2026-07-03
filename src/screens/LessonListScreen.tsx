@@ -14,6 +14,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
+import { isSceneProgressComplete } from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 
@@ -44,7 +45,7 @@ export function LessonListScreen({ navigation }: Props) {
       <View style={styles.list}>
         {lessons.map(lesson => {
           const completedSceneCount = lesson.scenes.filter(scene =>
-            completedSceneIds.has(scene.id),
+            isSceneProgressComplete(completedSceneIds, lesson.id, scene.id),
           ).length;
 
           return (
@@ -90,12 +91,22 @@ export function LessonListScreen({ navigation }: Props) {
 
                 <View style={styles.map}>
                   {lesson.scenes.map((scene, index) => {
-                    const isCompleted = completedSceneIds.has(scene.id);
+                    const isCompleted = isSceneProgressComplete(
+                      completedSceneIds,
+                      lesson.id,
+                      scene.id,
+                    );
                     const isNext =
                       !isCompleted &&
                       lesson.scenes
                         .slice(0, index)
-                        .every(item => completedSceneIds.has(item.id));
+                        .every(item =>
+                          isSceneProgressComplete(
+                            completedSceneIds,
+                            lesson.id,
+                            item.id,
+                          ),
+                        );
 
                     return (
                       <View key={scene.id} style={styles.mapStop}>

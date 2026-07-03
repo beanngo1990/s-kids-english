@@ -26,6 +26,7 @@ type LunchSceneId = 'lunch-box' | 'lunch-table' | 'after-lunch';
 
 export const lunchTimeLesson: Lesson = {
   id: 'lunch-time',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Bữa trưa của bé',
   titleEn: 'Lunch Time',
   descriptionVi: 'Bé học tên món ăn, cách ăn cùng bạn và dọn dẹp sau bữa trưa.',

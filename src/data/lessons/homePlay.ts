@@ -26,6 +26,7 @@ type HomePlaySceneId = 'home-toy-corner' | 'creative-play' | 'toy-cleanup';
 
 export const homePlayLesson: Lesson = {
   id: 'home-play',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Chơi ở nhà',
   titleEn: 'Playing at Home',
   descriptionVi:

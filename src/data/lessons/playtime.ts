@@ -7,7 +7,6 @@ import type {
   SceneEffect,
   SceneObject,
   SceneStep,
-  SceneStepType,
   VocabularyItem,
 } from '../../types/lesson';
 import { characterObject, imageAsset } from '../lessonAuthoring';
@@ -27,6 +26,7 @@ type PlaytimeSceneId = 'playground' | 'friend-games' | 'playtime-rest';
 
 export const playtimeLesson: Lesson = {
   id: 'playtime',
+  themeId: 'mot-ngay-cua-be',
   titleVi: 'Giờ Ra Chơi',
   titleEn: 'Playtime',
   descriptionVi:

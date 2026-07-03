@@ -1,5 +1,7 @@
 import type { Lesson } from '../types/lesson';
 import { assertValidLessons } from './lessonValidation';
+import { assertValidThemes } from './themeValidation';
+import { themes } from './themes';
 import { afterDinnerCleanupLesson } from './lessons/afterDinnerCleanup';
 import { afternoonBathLesson } from './lessons/afternoonBath';
 import { afternoonHomeLesson } from './lessons/afternoonHome';
@@ -27,6 +29,7 @@ const lessonCatalog: Lesson[] = [
 ];
 
 assertValidLessons(lessonCatalog);
+assertValidThemes(themes, lessonCatalog);
 
 export const lessons = lessonCatalog;
 
