@@ -641,14 +641,24 @@ function SceneMapStop({
       accessibilityState={{ disabled: isLocked }}
       disabled={isLocked}
       onPress={onPress}
-      style={({ pressed }) => [
-        styles.mapStop,
-        alignment === 'left' && styles.mapStopLeft,
-        alignment === 'center' && styles.mapStopCenter,
-        alignment === 'right' && styles.mapStopRight,
-        isLocked && styles.mapStopLocked,
-        pressed && !isLocked && styles.mapStopPressed,
-      ]}
+      style={({ pressed }) => {
+        const isPressed = pressed && !isLocked;
+        return [
+          styles.mapStop,
+          alignment === 'left' && styles.mapStopLeft,
+          alignment === 'center' && styles.mapStopCenter,
+          alignment === 'right' && styles.mapStopRight,
+          isLocked && styles.mapStopLocked,
+          isPressed && { opacity: 0.92 },
+          {
+            transform: [
+              ...(alignment === 'left' ? [{ translateX: -90 }] : []),
+              ...(alignment === 'right' ? [{ translateX: 90 }] : []),
+              ...(isPressed ? [{ translateY: 2 }, { scale: 0.98 }] : []),
+            ],
+          },
+        ];
+      }}
     >
       {isCurrent ? (
         <CurrentStopNode>
@@ -1989,18 +1999,15 @@ const styles = StyleSheet.create({
   },
   mapStopLeft: {
     alignSelf: 'center',
-    transform: [{ translateX: -90 }],
   },
   mapStopLocked: {
     opacity: 0.82,
   },
   mapStopPressed: {
     opacity: 0.92,
-    transform: [{ translateY: 2 }, { scale: 0.98 }],
   },
   mapStopRight: {
     alignSelf: 'center',
-    transform: [{ translateX: 90 }],
   },
   parentGate: {
     backgroundColor: colors.white,
