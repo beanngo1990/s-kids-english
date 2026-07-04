@@ -925,31 +925,26 @@ function LessonMilestone({
             style={[
               styles.lessonMonumentIcon,
               !isCurrent && !isCompleted && styles.lessonMonumentIconIdle,
+              styles.lessonMonumentIconPedestalElevated,
             ]}
           />
         </View>
         <View style={styles.lessonMonumentIslandShadow} />
         <View
           style={[
-            styles.lessonMonumentHill,
-            isCurrent && styles.lessonMonumentHillCurrent,
-            isCompleted && styles.lessonMonumentHillDone,
+            styles.lessonPedestal,
+            isCurrent && styles.lessonPedestalCurrent,
+            isCompleted && styles.lessonPedestalDone,
           ]}
         >
-          <View style={styles.lessonMonumentHillHighlight} />
-          <View style={styles.lessonMonumentHillDepth} />
-          <View
-            style={[
-              styles.lessonMonumentGrassTuft,
-              styles.lessonMonumentGrassTuftLeft,
-            ]}
-          />
-          <View
-            style={[
-              styles.lessonMonumentGrassTuft,
-              styles.lessonMonumentGrassTuftRight,
-            ]}
-          />
+          <View style={styles.lessonPedestalRing} />
+          <View style={styles.lessonPedestalBody}>
+            <View style={styles.lessonPedestalBodyHighlight} />
+            <View style={styles.lessonPedestalBodyShadow} />
+          </View>
+          <View style={styles.lessonPedestalSurface}>
+             <View style={styles.lessonPedestalSurfaceShine} />
+          </View>
         </View>
         <View
           style={[
@@ -1606,60 +1601,84 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     opacity: 0.28,
   },
-  lessonMonumentGrassTuft: {
-    backgroundColor: colors.mint,
-    borderRadius: radius.pill,
-    height: 18,
+  lessonPedestal: {
+    alignItems: 'center',
+    bottom: 24,
+    height: 60,
     position: 'absolute',
-    top: 6,
-    width: 42,
-    zIndex: 3,
+    width: 110,
+    zIndex: 2,
   },
-  lessonMonumentGrassTuftLeft: {
-    left: 18,
-    transform: [{ rotate: '-9deg' }],
-  },
-  lessonMonumentGrassTuftRight: {
-    right: 18,
-    transform: [{ rotate: '8deg' }],
-  },
-  lessonMonumentHill: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 4,
-    bottom: 30,
-    height: 58,
+  lessonPedestalBody: {
+    backgroundColor: '#FFD166',
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+    borderColor: '#F2A65A',
+    borderTopWidth: 0,
+    borderWidth: 3,
+    height: 30,
     overflow: 'hidden',
     position: 'absolute',
-    width: 164,
+    top: 18,
+    width: 90,
     zIndex: 2,
-    ...shadows.soft,
   },
-  lessonMonumentHillCurrent: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
+  lessonPedestalBodyHighlight: {
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    height: '100%',
+    left: 12,
+    position: 'absolute',
+    transform: [{ skewX: '-10deg' }],
+    width: 14,
   },
-  lessonMonumentHillDone: {
-    backgroundColor: colors.mint,
-    borderColor: colors.primary,
-  },
-  lessonMonumentHillDepth: {
-    backgroundColor: 'rgba(17, 123, 120, 0.18)',
-    bottom: 0,
-    height: 18,
-    left: 0,
+  lessonPedestalBodyShadow: {
+    backgroundColor: 'rgba(212, 175, 55, 0.2)',
+    height: '100%',
     position: 'absolute',
     right: 0,
+    width: 20,
   },
-  lessonMonumentHillHighlight: {
-    backgroundColor: 'rgba(255, 255, 255, 0.34)',
-    borderRadius: radius.pill,
-    height: 14,
-    left: 24,
+  lessonPedestalCurrent: {
+    transform: [{ scale: 1.05 }],
+  },
+  lessonPedestalDone: {},
+  lessonPedestalRing: {
+    backgroundColor: '#F4A261',
+    borderColor: '#E76F51',
+    borderRadius: 50,
+    borderWidth: 2,
+    height: 24,
     position: 'absolute',
-    right: 24,
-    top: 8,
+    top: 36,
+    width: 106,
+    zIndex: 1,
+  },
+  lessonPedestalSurface: {
+    backgroundColor: '#FFFDF9',
+    borderColor: '#FFD700',
+    borderRadius: 50,
+    borderWidth: 3,
+    height: 36,
+    position: 'absolute',
+    shadowColor: '#FFEB3B',
+    shadowOffset: {
+      height: -2,
+      width: 0,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    top: 0,
+    width: 90,
+    zIndex: 3,
+  },
+  lessonPedestalSurfaceShine: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: 50,
+    height: 8,
+    left: 8,
+    position: 'absolute',
+    top: 4,
+    width: 30,
   },
   lessonMonumentIslandShadow: {
     backgroundColor: colors.shadow,
@@ -1682,6 +1701,9 @@ const styles = StyleSheet.create({
   },
   lessonMonumentIconIdle: {
     opacity: 0.62,
+  },
+  lessonMonumentIconPedestalElevated: {
+    bottom: -10,
   },
   lessonMonumentIllustration: {
     alignItems: 'center',
