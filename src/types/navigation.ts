@@ -13,6 +13,10 @@ export type RootStackParamList = {
     learningMode?: LearningMode;
     sceneId?: string;
   };
+  ReviewGame: {
+    lessonId: string;
+  };
+  ReviewLibrary: undefined;
   Reward: {
     lessonId: string;
   };

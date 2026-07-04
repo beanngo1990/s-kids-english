@@ -1719,7 +1719,7 @@ export const atSchoolLesson: Lesson = {
   reviewGame: {
     id: 'at-school-review',
     titleVi: 'Tìm đồ ở trường',
-    type: 'matching',
+    type: 'memory',
     config: {
       vocabularyIds: [
         atSchoolVocabulary.teacher.id,

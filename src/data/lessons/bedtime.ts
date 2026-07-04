@@ -1090,7 +1090,7 @@ export const bedtimeLesson: Lesson = {
   ],
   reviewGame: {
     id: 'bedtime-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ cho giờ đi ngủ',
     config: {
       vocabularyIds: [

@@ -1311,7 +1311,7 @@ export const playtimeLesson: Lesson = {
   ],
   reviewGame: {
     id: 'playtime-review',
-    type: 'listenAndChoose',
+    type: 'memory',
     titleVi: 'Tìm đồ trong giờ ra chơi',
     config: {
       vocabularyIds: [

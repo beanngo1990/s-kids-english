@@ -60,6 +60,11 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   };
 
   const handleComplete = async () => {
+    if (lesson.reviewGame?.type === 'memory') {
+      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+      return;
+    }
+
     try {
       await completeLessonProgress(lesson);
     } catch {

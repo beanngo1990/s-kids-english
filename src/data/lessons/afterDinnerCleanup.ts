@@ -1085,7 +1085,7 @@ export const afterDinnerCleanupLesson: Lesson = {
   ],
   reviewGame: {
     id: 'after-dinner-cleanup-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ dọn sau bữa tối',
     config: {
       vocabularyIds: [

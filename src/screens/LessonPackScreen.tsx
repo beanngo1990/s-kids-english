@@ -51,6 +51,21 @@ export function LessonPackScreen({ navigation, route }: Props) {
     ) ?? scenes[0];
   const isPackComplete =
     scenes.length > 0 && completedSceneCount === scenes.length;
+  const hasCompletedLesson = Boolean(
+    lesson && progress?.completedLessonIds.includes(lesson.id),
+  );
+  const hasReviewGame = lesson?.reviewGame?.type === 'memory';
+  const hasCompletedReviewGame = Boolean(
+    lesson?.reviewGame &&
+      progress?.completedReviewGameIds.includes(lesson.reviewGame.id),
+  );
+  const shouldPlayReviewGame =
+    isPackComplete && hasReviewGame && !hasCompletedReviewGame;
+  const primaryActionTitle = !isPackComplete
+    ? 'Học tiếp'
+    : shouldPlayReviewGame
+      ? 'Chơi lật thẻ'
+      : 'Nhận sticker';
 
   const difficultyOption = getLearningDifficultyOption(learningMode);
 
@@ -96,6 +111,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
       return;
     }
 
+    if (shouldPlayReviewGame) {
+      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+      return;
+    }
+
     setIsCompleting(true);
     try {
       await completeLessonProgress(lesson);
@@ -131,7 +151,13 @@ export function LessonPackScreen({ navigation, route }: Props) {
           </View>
           <View style={styles.headerText}>
             <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
-              {isPackComplete ? 'Đã hoàn thành' : 'Gói bài học'}
+              {hasCompletedLesson
+                ? 'Đã nhận thưởng'
+                : shouldPlayReviewGame
+                  ? 'Sẵn sàng ôn tập'
+                  : isPackComplete
+                    ? 'Đã học đủ cảnh'
+                    : 'Gói bài học'}
             </KidBadge>
             <Text style={styles.title}>{lesson.titleVi}</Text>
             <Text style={styles.subtitle}>{lesson.titleEn}</Text>
@@ -253,9 +279,18 @@ export function LessonPackScreen({ navigation, route }: Props) {
       <View style={styles.actions}>
         <AppButton
           disabled={isCompleting || !nextScene}
-          title={isPackComplete ? 'Nhận sticker' : 'Học tiếp'}
+          title={primaryActionTitle}
           onPress={handlePrimaryAction}
         />
+        {isPackComplete && hasReviewGame && hasCompletedReviewGame ? (
+          <AppButton
+            title="Chơi lật thẻ lại"
+            variant="secondary"
+            onPress={() =>
+              navigation.navigate('ReviewGame', { lessonId: lesson.id })
+            }
+          />
+        ) : null}
         {scenes[0] ? (
           <AppButton
             title="Học từ cảnh đầu"

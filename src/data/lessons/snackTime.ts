@@ -1086,7 +1086,7 @@ export const snackTimeLesson: Lesson = {
   ],
   reviewGame: {
     id: 'snack-time-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ bữa xế',
     config: {
       vocabularyIds: [

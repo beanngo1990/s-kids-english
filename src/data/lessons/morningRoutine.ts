@@ -3120,7 +3120,7 @@ export const morningRoutineLesson: Lesson = {
   reviewGame: {
     id: 'morning-review',
     titleVi: 'Tìm đồ buổi sáng',
-    type: 'matching',
+    type: 'memory',
     config: {
       vocabularyIds: [
         bedroomVocabulary.bed.id,

@@ -10,6 +10,8 @@ import {
   OnboardingScreen,
   ParentScreen,
   RewardScreen,
+  ReviewGameScreen,
+  ReviewLibraryScreen,
   ScenePlayerScreen,
   ThemeLibraryScreen,
 } from '../screens';
@@ -100,6 +102,16 @@ export function AppNavigator() {
           name="ScenePlayer"
           component={ScenePlayerScreen}
           options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="ReviewGame"
+          component={ReviewGameScreen}
+          options={{ title: 'Lật thẻ ôn tập', gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="ReviewLibrary"
+          component={ReviewLibraryScreen}
+          options={{ title: 'Ôn tập' }}
         />
         <Stack.Screen
           name="Reward"
