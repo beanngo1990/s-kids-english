@@ -30,8 +30,14 @@ test('renders the home screen', async () => {
     .findAllByType(Text)
     .map(node => node.props.children);
 
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
+
   expect(textValues).toContain('S-Kids');
-  expect(textValues).toContain('Chơi ngay');
+  expect(textValues).toContain('Bản đồ');
+  expect(textValues).toContain('Chơi');
+  expect(textValues).not.toContain('Chơi ngay');
   expect(textValues).toContain('Ở Trường Của Bé');
   expect(textValues).toContain('Giờ Ra Chơi');
   expect(textValues).toContain('Bữa trưa của bé');
@@ -59,6 +65,10 @@ test('renders parent onboarding before first use', async () => {
   const textValues = tree?.root
     .findAllByType(Text)
     .map(node => node.props.children);
+
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
 
   expect(textValues).toContain('Chọn độ khó cho bé');
   expect(textValues).toContain('Dễ');
