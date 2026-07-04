@@ -92,6 +92,7 @@ type SceneCompletionState = {
 };
 
 const objectAudioCooldownMs = 900;
+const interactionCooldownMs = 400;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -189,6 +190,7 @@ export function ScenePlayer({
     null,
   );
   const objectAudioLastPlayedAtRef = useRef<Record<EntityId, number>>({});
+  const lastInteractionAtRef = useRef(0);
 
   useEffect(() => {
     setSceneIndex(initialSceneIndex);
@@ -282,6 +284,12 @@ export function ScenePlayer({
       return;
     }
 
+    const now = Date.now();
+    if (now - lastInteractionAtRef.current < interactionCooldownMs) {
+      return;
+    }
+    lastInteractionAtRef.current = now;
+
     runAudio(playTapSound());
     playAudioForStep(currentScene, currentStep);
 
@@ -301,6 +309,12 @@ export function ScenePlayer({
       return;
     }
 
+    const now = Date.now();
+    if (now - lastInteractionAtRef.current < interactionCooldownMs) {
+      return;
+    }
+    lastInteractionAtRef.current = now;
+
     cancelStepAudioSequence();
     clearTimer(clearFeedbackTimerRef);
     runAudio(playObjectVocabularyAudio(speakPracticeWord));
@@ -311,6 +325,12 @@ export function ScenePlayer({
       return;
     }
 
+    const now = Date.now();
+    if (now - lastInteractionAtRef.current < interactionCooldownMs) {
+      return;
+    }
+    lastInteractionAtRef.current = now;
+
     runAudio(playTapSound());
     const result = resolveContinueInteraction(currentScene, currentStep);
     handleInteractionResult(currentScene, result);
@@ -320,6 +340,12 @@ export function ScenePlayer({
     if (isAdvancing || isSceneComplete) {
       return;
     }
+
+    const now = Date.now();
+    if (now - lastInteractionAtRef.current < interactionCooldownMs) {
+      return;
+    }
+    lastInteractionAtRef.current = now;
 
     const object = allObjects.find(item => item.id === objectId);
     if (object && canTapObjectToHear(currentScene, currentStep, object)) {
@@ -378,6 +404,12 @@ export function ScenePlayer({
     ) {
       return false;
     }
+
+    const now = Date.now();
+    if (now - lastInteractionAtRef.current < interactionCooldownMs) {
+      return false;
+    }
+    lastInteractionAtRef.current = now;
 
     runAudio(playTapSound());
     const object = allObjects.find(item => item.id === objectId);
