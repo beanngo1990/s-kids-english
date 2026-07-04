@@ -73,7 +73,7 @@ export function AdminSceneEditor({
           floatPos.current = { x: newX, y: newY };
           floatAnim.setValue({ x: newX, y: newY });
         },
-        onPanResponderRelease: () => {},
+        onPanResponderRelease: () => { },
       }),
     [floatAnim]
   );
@@ -91,10 +91,10 @@ export function AdminSceneEditor({
         const newTouchArea =
           obj.touchArea && (dx !== 0 || dy !== 0)
             ? {
-                ...obj.touchArea,
-                x: obj.touchArea.x + dx,
-                y: obj.touchArea.y + dy,
-              }
+              ...obj.touchArea,
+              x: obj.touchArea.x + dx,
+              y: obj.touchArea.y + dy,
+            }
             : obj.touchArea;
 
         return {
@@ -271,7 +271,7 @@ function EditableObject({
         onPanResponderMove: (_, state) => {
           const original = startRect.current;
           // Simple rotation: drag left/right to rotate
-          const deltaAngle = state.dx / 1.5; 
+          const deltaAngle = state.dx / 1.5;
           let newRotation = (original.rotation || 0) + deltaAngle;
           // Round to nearest 5 degrees
           newRotation = Math.round(newRotation / 5) * 5;
@@ -307,7 +307,7 @@ function EditableObject({
     borderWidth: isSelected ? 2 : 1,
     borderColor: isSelected ? colors.primary : isDropzone ? 'rgba(255, 105, 180, 0.8)' : 'rgba(255, 0, 0, 0.5)',
     borderStyle: isDropzone ? 'solid' as const : 'dashed' as const,
-    backgroundColor: isSelected 
+    backgroundColor: isSelected
       ? (isDropzone ? 'rgba(255, 105, 180, 0.3)' : 'rgba(0, 150, 255, 0.2)')
       : (isDropzone ? 'rgba(255, 105, 180, 0.1)' : 'transparent'),
     zIndex: isSelected ? 100 : (isDropzone ? 5 : 10),
@@ -323,12 +323,12 @@ function EditableObject({
         </View>
       ) : (
         /* Object Image - mimicking SceneObjectRenderer layout exactly */
-        <View 
+        <View
           style={[
             styles.assetBubble,
             isLearningObject && styles.learningAssetBubble,
             isCharacter && styles.characterAssetBubble,
-          ]} 
+          ]}
           pointerEvents="none"
         >
           <Image
@@ -349,7 +349,7 @@ function EditableObject({
         style={StyleSheet.absoluteFill}
         {...panMove.panHandlers}
       />
-      
+
       {/* Label */}
       <Text style={styles.objLabel} pointerEvents="none">
         {object.id.split('-').pop()}

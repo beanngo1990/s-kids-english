@@ -179,7 +179,7 @@ export function ScenePlayer({
         floatEditPos.current = { x: newX, y: newY };
         floatEditAnim.setValue({ x: newX, y: newY });
       },
-      onPanResponderRelease: () => {},
+      onPanResponderRelease: () => { },
     })
   ).current;
 
@@ -1091,7 +1091,7 @@ async function playSceneCompletionAudio(scene: Scene) {
   await delay(140);
   await speakVi(
     scene.completionReward?.messageVi ??
-      `Bé đã hoàn thành ${scene.titleVi}.`,
+    `Bé đã hoàn thành ${scene.titleVi}.`,
   );
 }
 

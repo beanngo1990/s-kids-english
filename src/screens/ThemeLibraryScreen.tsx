@@ -7,7 +7,7 @@ import { KidBadge } from '../components/KidBadge';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
-import { themes } from '../data/themes';
+import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import {
   getProgress,
   saveActiveThemeId,
@@ -26,6 +26,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 export function ThemeLibraryScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
+  const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -39,6 +40,11 @@ export function ThemeLibraryScreen({ navigation }: Props) {
 
   const handleSelectTheme = async (themeId: string) => {
     if (savingThemeId) {
+      return;
+    }
+
+    if (themeId === activeThemeId) {
+      navigation.navigate('Home');
       return;
     }
 
@@ -58,20 +64,36 @@ export function ThemeLibraryScreen({ navigation }: Props) {
         <KidBadge tone="teal">Thư viện chủ đề</KidBadge>
         <Text style={styles.title}>Chọn lộ trình học</Text>
         <Text style={styles.subtitle}>
-          Mỗi chủ đề là một bản đồ dài gồm nhiều gói bài. Bé chọn một lộ trình,
-          rồi quay lại trang chủ để đi tiếp.
+          Mỗi chủ đề là một Siêu bản đồ dài gồm nhiều gói bài. Khi chọn một
+          chủ đề, app sẽ lưu lộ trình đang học và quay về Home để bé tiếp tục
+          trên bản đồ đó.
         </Text>
+        <View style={styles.parentNote}>
+          <KidBadge tone="sun">Ghi chú cho phụ huynh</KidBadge>
+          <Text style={styles.parentNoteText}>
+            Chủ đề có nhãn “Đang học” chính là bản đồ đang hiển thị ở Home.
+            Bấm vào chủ đề này sẽ đưa bé quay lại Siêu bản đồ hiện tại, không
+            tạo lộ trình mới.
+          </Text>
+        </View>
       </View>
 
       <View style={styles.grid}>
         {themes.map(theme => {
           const themeProgress = getThemeProgress(theme, completedSceneIds);
-          const isActive = progress?.activeThemeId === theme.id;
+          const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;
+          const actionLabel = isActive
+            ? 'Tiếp tục trên bản đồ'
+            : 'Chọn chủ đề này';
+          const actionHint = isActive
+            ? 'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.'
+            : 'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.';
 
           return (
             <Pressable
-              accessibilityLabel={`Chọn chủ đề ${theme.titleVi}`}
+              accessibilityHint={actionHint}
+              accessibilityLabel={`${actionLabel}: ${theme.titleVi}`}
               accessibilityRole="button"
               accessibilityState={{ selected: isActive }}
               disabled={Boolean(savingThemeId)}
@@ -122,6 +144,31 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                     {themeProgress.completed}/{themeProgress.total} trạm
                   </Text>
                 </View>
+
+                <View
+                  style={[
+                    styles.actionRow,
+                    isActive && styles.actionRowActive,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.actionText,
+                      isActive && styles.actionTextActive,
+                    ]}
+                  >
+                    {isSavingThisTheme ? 'Đang lưu...' : actionLabel}
+                  </Text>
+                  <Text
+                    numberOfLines={2}
+                    style={[
+                      styles.actionHint,
+                      isActive && styles.actionHintActive,
+                    ]}
+                  >
+                    {actionHint}
+                  </Text>
+                </View>
               </AppCard>
             </Pressable>
           );
@@ -170,6 +217,49 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.92,
     transform: [{ scale: 0.99 }],
+  },
+  actionHint: {
+    color: colors.textSoft,
+    flex: 1,
+    ...typography.caption,
+  },
+  actionHintActive: {
+    color: colors.primaryDark,
+  },
+  actionRow: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  actionRowActive: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  actionText: {
+    color: colors.text,
+    ...typography.caption,
+    fontWeight: '900',
+  },
+  actionTextActive: {
+    color: colors.primaryDark,
+  },
+  parentNote: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    gap: spacing.xs,
+    padding: spacing.md,
+  },
+  parentNoteText: {
+    color: colors.text,
+    ...typography.caption,
   },
   progressRow: {
     alignItems: 'center',
