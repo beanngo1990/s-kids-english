@@ -60,7 +60,7 @@ type ThemeMapSection = {
 
 const connectorDots = Array.from({ length: 9 }, (_, index) => index);
 const connectorHeight = 56;
-const connectorLongHeight = 86;
+const connectorLongHeight = 72;
 const connectorShortHeight = 44;
 const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
   classroom: 'teacherInstructions',
@@ -95,18 +95,17 @@ export function HomeScreen({ navigation }: Props) {
     completedSceneIds,
   );
   const isThemeComplete =
-    mapNodes.length > 0 &&
-    completedSceneCount === mapNodes.length;
+    mapNodes.length > 0 && completedSceneCount === mapNodes.length;
   const nextNode = isThemeComplete
     ? undefined
     : getNextThemeNode(mapNodes, completedSceneIds);
   const pendingProgress = progress?.currentLessonProgress;
   const pendingNode = pendingProgress
     ? mapNodes.find(
-      node =>
-        node.lessonId === pendingProgress.lessonId &&
-        node.scene.id === pendingProgress.sceneId,
-    )
+        node =>
+          node.lessonId === pendingProgress.lessonId &&
+          node.scene.id === pendingProgress.sceneId,
+      )
     : undefined;
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
@@ -114,18 +113,14 @@ export function HomeScreen({ navigation }: Props) {
   const primaryLabel = isThemeComplete
     ? 'Ôn lại'
     : shouldResumeProgress
-      ? 'Học tiếp'
-      : 'Chơi ngay';
+    ? 'Học tiếp'
+    : 'Chơi ngay';
   const primaryIconName: SKidsIconName = isThemeComplete ? 'replay' : 'next';
-  const ctaNode = shouldResumeProgress && pendingNode
-    ? pendingNode
-    : nextNode ?? mapNodes[0];
+  const ctaNode =
+    shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
   const ctaSubtitle = ctaNode
     ? `${ctaNode.lessonTitleVi} · ${ctaNode.scene.titleVi}`
     : 'Chọn chủ đề để bắt đầu';
-  const ctaLessonProgress = ctaNode
-    ? getLessonNodeProgress(mapNodes, ctaNode.lessonId, completedSceneIds)
-    : undefined;
 
   const refreshHomeData = useCallback(() => {
     getProgress()
@@ -187,7 +182,7 @@ export function HomeScreen({ navigation }: Props) {
 
             <View style={styles.topBar}>
               <View style={styles.brandCluster}>
-                <AppLogo size={38} />
+                <AppLogo size={40} />
                 <View style={styles.brandText}>
                   <Text style={styles.title}>S-Kids</Text>
                 </View>
@@ -211,8 +206,6 @@ export function HomeScreen({ navigation }: Props) {
 
             {activeTheme ? (
               <View style={styles.world}>
-
-
                 <View style={styles.learningMap}>
                   <View pointerEvents="none" style={styles.mapBackdrop}>
                     <View style={[styles.mapTrailRibbon, styles.mapTrailTop]} />
@@ -222,24 +215,48 @@ export function HomeScreen({ navigation }: Props) {
                     <View style={[styles.mapHill, styles.mapHillRight]} />
                     <View style={[styles.mapHill, styles.mapHillLower]} />
                     <View style={[styles.mapCloud, styles.mapCloudTop]}>
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffOne]} />
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]} />
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffThree]} />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffOne]}
+                      />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]}
+                      />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffThree]}
+                      />
                     </View>
                     <View style={[styles.mapCloud, styles.mapCloudMiddle]}>
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffOne]} />
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]} />
-                      <View style={[styles.mapCloudPuff, styles.mapCloudPuffThree]} />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffOne]}
+                      />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]}
+                      />
+                      <View
+                        style={[styles.mapCloudPuff, styles.mapCloudPuffThree]}
+                      />
                     </View>
                     <View style={[styles.mapBrush, styles.mapBrushLeft]}>
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]} />
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]} />
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]} />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]}
+                      />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]}
+                      />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]}
+                      />
                     </View>
                     <View style={[styles.mapBrush, styles.mapBrushRight]}>
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]} />
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]} />
-                      <View style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]} />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]}
+                      />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]}
+                      />
+                      <View
+                        style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]}
+                      />
                     </View>
                     <Text style={[styles.mapStar, styles.mapStarOne]}>★</Text>
                     <Text style={[styles.mapStar, styles.mapStarTwo]}>★</Text>
@@ -266,13 +283,14 @@ export function HomeScreen({ navigation }: Props) {
                     );
                     const isLessonCompleted = Boolean(
                       lessonProgress.total > 0 &&
-                      lessonProgress.completed === lessonProgress.total,
+                        lessonProgress.completed === lessonProgress.total,
                     );
                     const isLessonCurrent = Boolean(
                       !isThemeComplete &&
-                      ctaNode?.lessonId === section.lesson.id,
+                        ctaNode?.lessonId === section.lesson.id,
                     );
-                    const lessonMonumentAlignment = getLessonMonumentAlignment();
+                    const lessonMonumentAlignment =
+                      getLessonMonumentAlignment();
                     const firstNode = section.nodes[0];
                     const firstNodeAlignment = getSectionMapAlignment(
                       0,
@@ -280,9 +298,9 @@ export function HomeScreen({ navigation }: Props) {
                     );
                     const isFirstNodePathActive = Boolean(
                       firstNode &&
-                      (isThemeNodeComplete(firstNode, completedSceneIds) ||
-                        ctaNode?.key === firstNode.key ||
-                        isThemeComplete),
+                        (isThemeNodeComplete(firstNode, completedSceneIds) ||
+                          ctaNode?.key === firstNode.key ||
+                          isThemeComplete),
                     );
 
                     return (
@@ -296,28 +314,77 @@ export function HomeScreen({ navigation }: Props) {
                         <View style={styles.lessonSectionBody}>
                           <View
                             pointerEvents="none"
-                            style={{
-                              position: 'absolute',
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              bottom: 0,
-                              zIndex: 0,
-                            }}
+                            style={styles.lessonDecorLayer}
                           >
                             {section.lessonIndex % 2 === 0 ? (
                               <>
-                                <Text style={[styles.mapEmoji, { top: '15%', left: '10%' }]}>🌲</Text>
-                                <Text style={[styles.mapEmoji, { top: '45%', right: '15%' }]}>🌸</Text>
-                                <Text style={[styles.mapEmoji, { top: '75%', left: '20%', transform: [{ rotate: '15deg' }] }]}>🦋</Text>
-                                <Text style={[styles.mapEmoji, { top: '90%', right: '10%', fontSize: 30 }]}>🍄</Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiEvenTree,
+                                  ]}
+                                >
+                                  🌲
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiEvenFlower,
+                                  ]}
+                                >
+                                  🌸
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiEvenButterfly,
+                                  ]}
+                                >
+                                  🦋
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiEvenMushroom,
+                                  ]}
+                                >
+                                  🍄
+                                </Text>
                               </>
                             ) : (
                               <>
-                                <Text style={[styles.mapEmoji, { top: '20%', right: '15%' }]}>🌲</Text>
-                                <Text style={[styles.mapEmoji, { top: '50%', left: '10%', fontSize: 28 }]}>🦆</Text>
-                                <Text style={[styles.mapEmoji, { top: '80%', right: '20%', fontSize: 32 }]}>☀️</Text>
-                                <Text style={[styles.mapEmoji, { top: '10%', left: '25%' }]}>☁️</Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiOddTree,
+                                  ]}
+                                >
+                                  🌲
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiOddDuck,
+                                  ]}
+                                >
+                                  🦆
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiOddSun,
+                                  ]}
+                                >
+                                  ☀️
+                                </Text>
+                                <Text
+                                  style={[
+                                    styles.mapEmoji,
+                                    styles.mapEmojiOddCloud,
+                                  ]}
+                                >
+                                  ☁️
+                                </Text>
                               </>
                             )}
                           </View>
@@ -395,7 +462,7 @@ export function HomeScreen({ navigation }: Props) {
                                   section.lessonIndex,
                                 )}
                                 isComplete={isLessonCompleted}
-                                size="long"
+                                size="default"
                                 to={lessonMonumentAlignment}
                               />
 
@@ -411,7 +478,7 @@ export function HomeScreen({ navigation }: Props) {
                                 <MapConnector
                                   from={lessonMonumentAlignment}
                                   isComplete={isLessonCompleted}
-                                  size="long"
+                                  size="default"
                                   to={lessonMonumentAlignment}
                                 />
                               ) : null}
@@ -436,88 +503,6 @@ export function HomeScreen({ navigation }: Props) {
         />
       </View>
     </Screen>
-  );
-}
-
-type CourseBannerProps = {
-  activeThemeTitle: string;
-  completedInTheme: number;
-  currentLessonProgress: {
-    completed: number;
-    total: number;
-  };
-  isThemeComplete: boolean;
-  lessonCount: number;
-  node: ThemeMapNode;
-  onOpenLibrary: () => void;
-  totalInTheme: number;
-};
-
-function CourseBanner({
-  activeThemeTitle,
-  completedInTheme,
-  currentLessonProgress,
-  isThemeComplete,
-  lessonCount,
-  node,
-  onOpenLibrary,
-  totalInTheme,
-}: CourseBannerProps) {
-  const progressCompleted = isThemeComplete
-    ? completedInTheme
-    : currentLessonProgress.completed;
-  const progressTotal = isThemeComplete
-    ? totalInTheme
-    : currentLessonProgress.total;
-  const progressPercent =
-    progressTotal > 0
-      ? Math.round((progressCompleted / progressTotal) * 100)
-      : 0;
-
-  return (
-    <View style={styles.courseBanner}>
-      <View style={styles.courseText}>
-        <Text style={styles.courseEyebrow}>
-          {isThemeComplete
-            ? 'SIÊU BẢN ĐỒ'
-            : `BÀI ${node.lessonIndex + 1}/${lessonCount}`}
-        </Text>
-        <Text numberOfLines={1} style={styles.courseTitle}>
-          {isThemeComplete ? activeThemeTitle : node.lessonTitleVi}
-        </Text>
-        <View style={styles.courseMetaRow}>
-          <SKidsIcon name="star" size={18} />
-          <Text style={styles.courseMetaText}>
-            Sao {progressCompleted}/{progressTotal}
-          </Text>
-        </View>
-        <View
-          accessibilityLabel={`Bé đã thu thập ${progressCompleted} trên ${progressTotal} sao trong mục này`}
-          accessibilityRole="progressbar"
-          style={styles.courseProgressTrack}
-        >
-          <View
-            style={[
-              styles.courseProgressFill,
-              {
-                width: percent(progressPercent),
-              },
-            ]}
-          />
-        </View>
-      </View>
-      <Pressable
-        accessibilityLabel="Mở thư viện chủ đề"
-        accessibilityRole="button"
-        onPress={onOpenLibrary}
-        style={({ pressed }) => [
-          styles.courseLibraryButton,
-          pressed && styles.courseLibraryButtonPressed,
-        ]}
-      >
-        <SKidsIcon name="map" size={28} />
-      </Pressable>
-    </View>
   );
 }
 
@@ -579,47 +564,9 @@ function StickyStartButton({
   label,
   onPress,
 }: StickyStartButtonProps) {
-  const breathe = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    const animation = Animated.loop(
-      Animated.sequence([
-        Animated.timing(breathe, {
-          duration: 780,
-          easing: Easing.out(Easing.quad),
-          toValue: 1,
-          useNativeDriver: true,
-        }),
-        Animated.timing(breathe, {
-          duration: 780,
-          easing: Easing.in(Easing.quad),
-          toValue: 0,
-          useNativeDriver: true,
-        }),
-        Animated.delay(1400),
-      ]),
-    );
-
-    animation.start();
-
-    return () => animation.stop();
-  }, [breathe]);
-
-  const buttonScale = breathe.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.025],
-  });
-
   return (
     <View pointerEvents="box-none" style={styles.stickyFooter}>
-      <Animated.View
-        style={[
-          styles.stickyButtonBreather,
-          {
-            transform: [{ scale: buttonScale }],
-          },
-        ]}
-      >
+      <View style={styles.stickyButtonBreather}>
         <Pressable
           accessibilityLabel={accessibilityLabel}
           accessibilityRole="button"
@@ -633,7 +580,7 @@ function StickyStartButton({
           <View pointerEvents="none" style={styles.stickyButtonGloss} />
           <View pointerEvents="none" style={styles.stickyButtonLip} />
           <View style={styles.stickyIcon}>
-            <SKidsIcon name={iconName} size={34} />
+            <SKidsIcon name={iconName} size={30} />
           </View>
           <View style={styles.stickyTextGroup}>
             <Text numberOfLines={1} style={styles.stickyLabel}>
@@ -641,7 +588,7 @@ function StickyStartButton({
             </Text>
           </View>
         </Pressable>
-      </Animated.View>
+      </View>
     </View>
   );
 }
@@ -675,60 +622,17 @@ function SceneMapStop({
   sceneIndexInLesson,
   scene,
 }: SceneMapStopProps) {
-  const pulse = useRef(new Animated.Value(0)).current;
-  const lessonPosition = `Bài ${lessonIndex + 1
-    }/${lessonCount}: ${lessonTitleVi}, trạm ${sceneIndexInLesson + 1
-    }/${sceneCountInLesson}`;
+  const isAvailable = !isCompleted && !isCurrent && !isLocked;
+  const lessonPosition = `Bài ${
+    lessonIndex + 1
+  }/${lessonCount}: ${lessonTitleVi}, trạm ${
+    sceneIndexInLesson + 1
+  }/${sceneCountInLesson}`;
   const accessibilityLabel = isLocked
     ? `${lessonPosition}: ${scene.titleVi} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'
-    } ${scene.titleVi}`;
-
-  useEffect(() => {
-    if (!isCurrent) {
-      pulse.stopAnimation();
-      pulse.setValue(0);
-      return;
-    }
-
-    const animation = Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulse, {
-          duration: 860,
-          easing: Easing.out(Easing.quad),
-          toValue: 1,
-          useNativeDriver: true,
-        }),
-        Animated.timing(pulse, {
-          duration: 860,
-          easing: Easing.in(Easing.quad),
-          toValue: 0,
-          useNativeDriver: true,
-        }),
-      ]),
-    );
-
-    animation.start();
-
-    return () => animation.stop();
-  }, [isCurrent, pulse]);
-
-  const currentScale = pulse.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.055],
-  });
-  const glowScale = pulse.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.15],
-  });
-  const glowOpacity = pulse.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0.56, 0.88],
-  });
-  const bubbleLift = pulse.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -3],
-  });
+    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${
+        scene.titleVi
+      }`;
 
   return (
     <Pressable
@@ -746,57 +650,131 @@ function SceneMapStop({
         pressed && !isLocked && styles.mapStopPressed,
       ]}
     >
+      {isCurrent ? (
+        <CurrentStopNode>
+          <SKidsIcon name={iconName} size={64} />
+          <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
+            <Text style={styles.stopNumberText}>{sceneIndexInLesson + 1}</Text>
+          </View>
+        </CurrentStopNode>
+      ) : (
+        <View
+          style={[
+            styles.stopNode,
+            isAvailable && styles.stopNodeAvailable,
+            isCompleted && styles.stopNodeDone,
+            isLocked && styles.stopNodeLocked,
+          ]}
+        >
+          {isLocked ? (
+            <View pointerEvents="none" style={styles.lockedOverlay} />
+          ) : null}
+          <SKidsIcon
+            name={iconName}
+            size={isLocked ? 44 : 52}
+            style={isLocked ? styles.lockedIcon : undefined}
+          />
+          <View
+            style={[
+              styles.stopNumber,
+              isCompleted && styles.stopNumberDone,
+              isLocked && styles.stopNumberLocked,
+            ]}
+          >
+            <Text
+              style={[
+                styles.stopNumberText,
+                isCompleted && styles.stopNumberTextDone,
+                isLocked && styles.stopNumberTextLocked,
+              ]}
+            >
+              {sceneIndexInLesson + 1}
+            </Text>
+          </View>
+          {isCompleted ? (
+            <View style={styles.doneBadge}>
+              <Text style={styles.doneBadgeText}>✓</Text>
+            </View>
+          ) : null}
+          {isLocked ? (
+            <View style={styles.lockBadge}>
+              <SKidsIcon name="parentLock" size={28} />
+            </View>
+          ) : null}
+        </View>
+      )}
+    </Pressable>
+  );
+}
 
-      <Animated.View
+function CurrentStopNode({ children }: { children: React.ReactNode }) {
+  const pulse = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const animation = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, {
+          duration: 900,
+          easing: Easing.out(Easing.quad),
+          toValue: 1,
+          useNativeDriver: false,
+        }),
+        Animated.timing(pulse, {
+          duration: 900,
+          easing: Easing.in(Easing.quad),
+          toValue: 0,
+          useNativeDriver: false,
+        }),
+      ]),
+    );
+
+    animation.start();
+
+    return () => animation.stop();
+  }, [pulse]);
+
+  const currentScale = pulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.055],
+  });
+  const glowOpacity = pulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.48, 0.86],
+  });
+  const sparkleOpacity = pulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.54, 1],
+  });
+
+  return (
+    <Animated.View
+      style={[
+        styles.stopNode,
+        styles.stopNodeCurrent,
+        { transform: [{ scale: currentScale }] },
+      ]}
+    >
+      <Animated.View style={[styles.stopGlow, { opacity: glowOpacity }]} />
+      <Animated.Text
         style={[
-          styles.stopNode,
-          isCompleted && styles.stopNodeDone,
-          isCurrent && styles.stopNodeCurrent,
-          isLocked && styles.stopNodeLocked,
-          isCurrent && {
-            transform: [{ scale: currentScale }],
-          },
+          styles.stopSparkle,
+          styles.stopSparkleTop,
+          { opacity: sparkleOpacity },
         ]}
       >
-        {isCurrent ? (
-          <>
-            <Animated.View
-              style={[
-                styles.stopGlow,
-                {
-                  opacity: glowOpacity,
-                  transform: [{ scale: glowScale }],
-                },
-              ]}
-            />
-            <Text style={[styles.stopSparkle, styles.stopSparkleTop]}>★</Text>
-            <Text style={[styles.stopSparkle, styles.stopSparkleBottom]}>
-              ★
-            </Text>
-          </>
-        ) : null}
-        <SKidsIcon
-          name={iconName}
-          size={isCurrent ? 64 : isLocked ? 44 : 52}
-          style={isLocked ? styles.lockedIcon : undefined}
-        />
-        <View style={styles.stopNumber}>
-          <Text style={styles.stopNumberText}>
-            {sceneIndexInLesson + 1}
-          </Text>
-        </View>
-        {isCompleted ? (
-          <View style={styles.doneBadge}>
-            <Text style={styles.doneBadgeText}>✓</Text>
-          </View>
-        ) : null}
-        {isLocked ? (
-          <View style={styles.lockBadge}>
-            <SKidsIcon name="parentLock" size={28} />
-          </View>
-        ) : null}
-      </Animated.View>
-    </Pressable>
+        ★
+      </Animated.Text>
+      <Animated.Text
+        style={[
+          styles.stopSparkle,
+          styles.stopSparkleBottom,
+          { opacity: sparkleOpacity },
+        ]}
+      >
+        ★
+      </Animated.Text>
+      {children}
+    </Animated.View>
   );
 }
 
@@ -833,17 +811,9 @@ function LessonSectionHeader({
       {hasTransition ? (
         <View pointerEvents="none" style={styles.lessonEnvironmentTransition}>
           <View style={styles.lessonRiver}>
+            <View style={[styles.lessonRiverWave, styles.lessonRiverWaveTop]} />
             <View
-              style={[
-                styles.lessonRiverWave,
-                styles.lessonRiverWaveTop,
-              ]}
-            />
-            <View
-              style={[
-                styles.lessonRiverWave,
-                styles.lessonRiverWaveBottom,
-              ]}
+              style={[styles.lessonRiverWave, styles.lessonRiverWaveBottom]}
             />
           </View>
           <View style={styles.lessonBridge}>
@@ -852,28 +822,16 @@ function LessonSectionHeader({
             ))}
           </View>
           <View
-            style={[
-              styles.lessonRiverStone,
-              styles.lessonRiverStoneLeft,
-            ]}
+            style={[styles.lessonRiverStone, styles.lessonRiverStoneLeft]}
           />
           <View
-            style={[
-              styles.lessonRiverStone,
-              styles.lessonRiverStoneRight,
-            ]}
+            style={[styles.lessonRiverStone, styles.lessonRiverStoneRight]}
           />
           <View
-            style={[
-              styles.lessonGrassPatch,
-              styles.lessonGrassPatchLeft,
-            ]}
+            style={[styles.lessonGrassPatch, styles.lessonGrassPatchLeft]}
           />
           <View
-            style={[
-              styles.lessonGrassPatch,
-              styles.lessonGrassPatchRight,
-            ]}
+            style={[styles.lessonGrassPatch, styles.lessonGrassPatchRight]}
           />
         </View>
       ) : null}
@@ -932,7 +890,7 @@ function LessonMilestone({
           isCompleted && styles.lessonMonumentStageDone,
         ]}
       >
-        {(isCurrent || isCompleted) ? (
+        {isCurrent || isCompleted ? (
           <View
             style={[
               styles.lessonMonumentGlow,
@@ -940,7 +898,7 @@ function LessonMilestone({
             ]}
           />
         ) : null}
-        {(isCurrent || isCompleted) ? (
+        {isCurrent || isCompleted ? (
           <>
             <Text
               style={[
@@ -1056,7 +1014,8 @@ function MapConnector({
         const progress = (dot + 1) / (connectorDots.length + 1);
         const easedProgress = easePathProgress(progress);
         const wave = Math.sin(progress * Math.PI * 2) * 8;
-        const xOffset = fromOffset + (toOffset - fromOffset) * easedProgress + wave;
+        const xOffset =
+          fromOffset + (toOffset - fromOffset) * easedProgress + wave;
         const y = progress * height;
 
         return (
@@ -1235,7 +1194,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    gap: spacing.xs,
+    gap: spacing.sm,
+    minWidth: 0,
   },
   brandText: {
     gap: spacing.xxs,
@@ -1282,8 +1242,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   connectorDotIdle: {
-    backgroundColor: colors.white,
-    borderColor: colors.borderWarm,
+    backgroundColor: '#FFFDF5',
+    borderColor: '#EDCE83',
     borderWidth: 2,
   },
   connectorDotOnPath: {
@@ -1295,104 +1255,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     paddingBottom: spacing.xl,
     paddingTop: spacing.xs,
-  },
-  courseBanner: {
-    alignItems: 'center',
-    backgroundColor: colors.skyDeep,
-    borderColor: colors.white,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    flexDirection: 'row',
-    gap: spacing.sm,
-    minHeight: 76,
-    overflow: 'hidden',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-    ...shadows.floating,
-  },
-  courseEyebrow: {
-    color: colors.backgroundCool,
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 14,
-  },
-  courseLibraryButton: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.backgroundCool,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 44,
-    justifyContent: 'center',
-    width: 44,
-    ...shadows.soft,
-  },
-  courseLibraryButtonPressed: {
-    opacity: 0.9,
-    transform: [{ translateY: 1 }, { scale: 0.98 }],
-  },
-  courseMetaRow: {
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    flexDirection: 'row',
-    gap: spacing.xxs,
-    paddingHorizontal: spacing.xs,
-    paddingVertical: 3,
-  },
-  courseMetaText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 15,
-  },
-  courseProgressFill: {
-    backgroundColor: colors.secondary,
-    borderRadius: radius.pill,
-    height: '100%',
-  },
-  courseProgressTrack: {
-    backgroundColor: 'rgba(255, 255, 255, 0.32)',
-    borderColor: 'rgba(255, 255, 255, 0.42)',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    height: 8,
-    marginTop: 2,
-    overflow: 'hidden',
-    width: '100%',
-  },
-  courseText: {
-    flex: 1,
-    gap: spacing.xxs,
-    minWidth: 0,
-  },
-  courseTitle: {
-    color: colors.white,
-    fontSize: 18,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 22,
-  },
-  currentBubble: {
-    alignItems: 'center',
-    backgroundColor: colors.accent,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 3,
-    marginBottom: spacing.xxs,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 5,
-    ...shadows.warm,
-  },
-  currentBubbleText: {
-    color: colors.white,
-    fontSize: 13,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 16,
   },
   doneBadge: {
     alignItems: 'center',
@@ -1433,12 +1295,20 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   lessonSection: {
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   lessonSectionBody: {
-    paddingBottom: spacing.md,
+    paddingBottom: spacing.xs,
     paddingTop: spacing.xs,
     position: 'relative',
+  },
+  lessonDecorLayer: {
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    zIndex: 0,
   },
   lessonSectionHeader: {
     alignItems: 'center',
@@ -1448,9 +1318,9 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   lessonSectionHeaderWithTransition: {
-    marginTop: spacing.xl,
-    minHeight: 112,
-    paddingTop: spacing.xl,
+    marginTop: spacing.xs,
+    minHeight: 86,
+    paddingTop: spacing.lg,
   },
   lessonSectionLabel: {
     color: colors.text,
@@ -1642,7 +1512,7 @@ const styles = StyleSheet.create({
   lessonMilestone: {
     alignItems: 'center',
     alignSelf: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.xs,
     marginTop: spacing.xs,
     width: 176,
     zIndex: 2,
@@ -1848,7 +1718,7 @@ const styles = StyleSheet.create({
   },
   lessonMonumentStage: {
     alignItems: 'center',
-    height: 168,
+    height: 152,
     justifyContent: 'flex-end',
     position: 'relative',
     width: 176,
@@ -1861,20 +1731,29 @@ const styles = StyleSheet.create({
   },
   lockBadge: {
     alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.border,
+    backgroundColor: '#F8FEFF',
+    borderColor: colors.sky,
     borderRadius: radius.pill,
     borderWidth: 3,
-    bottom: 4,
-    height: 42,
+    bottom: 2,
+    height: 40,
     justifyContent: 'center',
     position: 'absolute',
-    right: 0,
-    width: 42,
+    right: -2,
+    width: 40,
     ...shadows.soft,
   },
   lockedIcon: {
-    opacity: 0.7,
+    opacity: 0.48,
+  },
+  lockedOverlay: {
+    backgroundColor: 'rgba(221, 245, 255, 0.52)',
+    borderRadius: radius.pill,
+    bottom: 7,
+    left: 7,
+    position: 'absolute',
+    right: 7,
+    top: 7,
   },
   mapBackdrop: {
     bottom: 0,
@@ -1886,7 +1765,7 @@ const styles = StyleSheet.create({
   },
   mapBrush: {
     height: 54,
-    opacity: 0.28,
+    opacity: 0.36,
     position: 'absolute',
     width: 96,
   },
@@ -1901,7 +1780,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: 34,
     left: 4,
-    width: 52,
+    width: 54,
   },
   mapBrushLeafThree: {
     bottom: 2,
@@ -1927,7 +1806,7 @@ const styles = StyleSheet.create({
   },
   mapCloud: {
     height: 58,
-    opacity: 0.6,
+    opacity: 0.68,
     position: 'absolute',
     width: 148,
   },
@@ -1966,7 +1845,7 @@ const styles = StyleSheet.create({
   mapHill: {
     backgroundColor: colors.white,
     borderRadius: radius.pill,
-    opacity: 0.5,
+    opacity: 0.58,
     position: 'absolute',
   },
   mapHillLeft: {
@@ -1993,7 +1872,7 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: 22,
     fontWeight: '900',
-    opacity: 0.58,
+    opacity: 0.66,
     position: 'absolute',
   },
   mapStarOne: {
@@ -2014,7 +1893,43 @@ const styles = StyleSheet.create({
   mapEmoji: {
     fontSize: 24,
     position: 'absolute',
-    opacity: 0.35,
+    opacity: 0.42,
+  },
+  mapEmojiEvenButterfly: {
+    left: '20%',
+    top: '75%',
+    transform: [{ rotate: '15deg' }],
+  },
+  mapEmojiEvenFlower: {
+    right: '15%',
+    top: '45%',
+  },
+  mapEmojiEvenMushroom: {
+    fontSize: 30,
+    right: '10%',
+    top: '90%',
+  },
+  mapEmojiEvenTree: {
+    left: '10%',
+    top: '15%',
+  },
+  mapEmojiOddCloud: {
+    left: '25%',
+    top: '10%',
+  },
+  mapEmojiOddDuck: {
+    fontSize: 28,
+    left: '10%',
+    top: '50%',
+  },
+  mapEmojiOddSun: {
+    fontSize: 32,
+    right: '20%',
+    top: '80%',
+  },
+  mapEmojiOddTree: {
+    right: '15%',
+    top: '20%',
   },
   mapTrailLow: {
     left: -68,
@@ -2032,7 +1947,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 44,
-    opacity: 0.18,
+    opacity: 0.26,
     position: 'absolute',
     width: 250,
   },
@@ -2069,18 +1984,20 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.pill,
-    height: 56,
-    minHeight: 56,
-    minWidth: 56,
-    width: 56,
-    ...shadows.floating,
+    borderWidth: 2,
+    height: 54,
+    minHeight: 54,
+    minWidth: 54,
+    padding: 0,
+    width: 54,
+    ...shadows.soft,
   },
   scrollArea: {
     flex: 1,
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 144,
+    paddingBottom: 124,
   },
   shell: {
     flex: 1,
@@ -2113,14 +2030,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     borderColor: colors.white,
     borderRadius: radius.pill,
-    borderWidth: 4,
+    borderWidth: 3,
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: spacing.xs,
     justifyContent: 'center',
-    minHeight: 64,
+    minHeight: 56,
     overflow: 'hidden',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
     ...shadows.warm,
   },
   stickyButtonBreather: {
@@ -2133,7 +2050,7 @@ const styles = StyleSheet.create({
   stickyButtonGloss: {
     backgroundColor: 'rgba(255, 255, 255, 0.24)',
     borderRadius: radius.pill,
-    height: 24,
+    height: 19,
     left: 12,
     position: 'absolute',
     right: 12,
@@ -2142,7 +2059,7 @@ const styles = StyleSheet.create({
   stickyButtonLip: {
     backgroundColor: 'rgba(200, 135, 18, 0.22)',
     bottom: 0,
-    height: 9,
+    height: 7,
     left: 16,
     position: 'absolute',
     right: 16,
@@ -2152,10 +2069,10 @@ const styles = StyleSheet.create({
     transform: [{ translateY: 2 }, { scale: 0.99 }],
   },
   stickyFooter: {
-    bottom: spacing.md,
-    left: 60,
+    bottom: spacing.sm,
+    left: 72,
     position: 'absolute',
-    right: 60,
+    right: 72,
     zIndex: 20,
   },
   stickyIcon: {
@@ -2164,17 +2081,17 @@ const styles = StyleSheet.create({
     borderColor: colors.secondarySoft,
     borderWidth: 2,
     borderRadius: radius.pill,
-    height: 46,
+    height: 42,
     justifyContent: 'center',
-    width: 46,
+    width: 42,
     ...shadows.soft,
   },
   stickyLabel: {
     color: colors.text,
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 22,
+    lineHeight: 21,
   },
   stickyTextGroup: {
     flex: 0,
@@ -2204,6 +2121,11 @@ const styles = StyleSheet.create({
     width: 80,
     ...shadows.floating,
   },
+  stopNodeAvailable: {
+    backgroundColor: '#F9FDFF',
+    borderColor: colors.sky,
+    borderWidth: 4,
+  },
   stopNodeCurrent: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
@@ -2217,14 +2139,14 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
   },
   stopNodeLocked: {
-    backgroundColor: colors.white,
-    borderColor: '#C5E2F0',
+    backgroundColor: '#F6FCFF',
+    borderColor: '#B9DDED',
     borderWidth: 4,
     elevation: 1,
-    height: 92,
-    shadowOpacity: 0.06,
+    height: 90,
+    shadowOpacity: 0.05,
     shadowRadius: 10,
-    width: 92,
+    width: 90,
   },
   stopNumber: {
     alignItems: 'center',
@@ -2240,9 +2162,26 @@ const styles = StyleSheet.create({
     width: 30,
     ...shadows.soft,
   },
+  stopNumberCurrent: {
+    borderColor: colors.secondary,
+  },
+  stopNumberDone: {
+    backgroundColor: colors.primary,
+    borderColor: colors.white,
+  },
+  stopNumberLocked: {
+    backgroundColor: '#EFF9FE',
+    borderColor: colors.white,
+  },
   stopNumberText: {
     color: colors.text,
     ...typography.caption,
+  },
+  stopNumberTextDone: {
+    color: colors.white,
+  },
+  stopNumberTextLocked: {
+    color: colors.muted,
   },
   title: {
     color: colors.text,
@@ -2256,11 +2195,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.sm,
     justifyContent: 'space-between',
+    minHeight: 64,
+    paddingHorizontal: spacing.xxs,
   },
   topActions: {
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.42)',
+    borderColor: 'rgba(255, 255, 255, 0.72)',
+    borderRadius: radius.pill,
+    borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.xs,
+    padding: 4,
   },
   topStatusCaption: {
     color: colors.primaryDark,
@@ -2275,13 +2221,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderColor: colors.white,
     borderRadius: radius.lg,
-    borderWidth: 2,
+    borderWidth: 1,
     gap: 2,
-    height: 56,
+    height: 54,
     justifyContent: 'center',
     paddingHorizontal: spacing.xs,
-    width: 108,
-    ...shadows.floating,
+    width: 106,
+    ...shadows.soft,
   },
   topStatusCount: {
     color: colors.text,
