@@ -5,6 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "generate:audio": "node scripts/generateMissingAudio.mjs",
+    "check:images": "node scripts/checkMissingImages.mjs",
     "generate:audio:dry-run": "node scripts/generateMissingAudio.mjs --dry-run",
     "generate:bedroom-audio": "node scripts/generateBedroomAudio.mjs",
     "ios": "react-native run-ios",
