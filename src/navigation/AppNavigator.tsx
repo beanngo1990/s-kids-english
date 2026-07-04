@@ -81,7 +81,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{ animation: 'none', headerShown: false }}
         />
         <Stack.Screen
           name="ThemeLibrary"
@@ -111,7 +111,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="ReviewLibrary"
           component={ReviewLibraryScreen}
-          options={{ title: 'Ôn tập' }}
+          options={{ animation: 'none', headerShown: false }}
         />
         <Stack.Screen
           name="Reward"

@@ -8,6 +8,7 @@ import React, {
 import {
   Animated,
   Easing,
+  LayoutChangeEvent,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -17,9 +18,10 @@ import {
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { type SKidsIconName } from '../assets/icons/skids';
-import { AppLogo } from '../components/AppLogo';
 import { KidBadge } from '../components/KidBadge';
-import { KidIconButton } from '../components/KidIconButton';
+import { KidModeHeader } from '../components/KidModeHeader';
+import { KidModeTabs, type KidModeTab } from '../components/KidModeTabs';
+import { KidPlayPanel } from '../components/KidPlayPanel';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
@@ -69,8 +71,16 @@ const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
 };
 
 export function HomeScreen({ navigation }: Props) {
+  const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
+  const mapScrollRef = useRef<ScrollView | null>(null);
+  const mapRootYByKeyRef = useRef<Record<string, number>>({});
+  const mapSectionYByKeyRef = useRef<Record<string, number>>({});
+  const mapSectionBodyYByKeyRef = useRef<Record<string, number>>({});
+  const mapNodeYByKeyRef = useRef<Record<string, number>>({});
+  const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const activeTheme =
     getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
@@ -107,6 +117,7 @@ export function HomeScreen({ navigation }: Props) {
       ),
     [completedReviewGameIds, completedSceneIds, themeLessons],
   );
+  const hasPendingReviewGame = Boolean(pendingReviewLesson?.reviewGame);
   const isThemeComplete =
     mapNodes.length > 0 && completedSceneCount === mapNodes.length;
   const nextNode = isThemeComplete
@@ -123,26 +134,28 @@ export function HomeScreen({ navigation }: Props) {
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
   );
-  const primaryLabel = pendingReviewLesson
-    ? 'Chơi lật thẻ'
-    : isThemeComplete
-    ? 'Ôn lại'
-    : shouldResumeProgress
-    ? 'Học tiếp'
-    : 'Chơi ngay';
-  const primaryIconName: SKidsIconName = pendingReviewLesson
-    ? 'star'
-    : isThemeComplete
-      ? 'replay'
-      : 'next';
   const ctaNode =
     shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
-  const ctaSubtitle = pendingReviewLesson?.reviewGame
-    ? `${pendingReviewLesson.titleVi} · ${pendingReviewLesson.reviewGame.titleVi}`
-    : ctaNode
-      ? `${ctaNode.lessonTitleVi} · ${ctaNode.scene.titleVi}`
-      : 'Chọn chủ đề để bắt đầu';
-  const currentLessonId = pendingReviewLesson?.id ?? ctaNode?.lessonId;
+  const currentLessonId = ctaNode?.lessonId;
+
+  const updateMapLayoutY = useCallback(
+    (
+      layoutRef: React.MutableRefObject<Record<string, number>>,
+      key: string,
+      y: number,
+    ) => {
+      if (layoutRef.current[key] === y) {
+        return;
+      }
+
+      layoutRef.current = {
+        ...layoutRef.current,
+        [key]: y,
+      };
+      setMapLayoutVersion(version => version + 1);
+    },
+    [],
+  );
 
   const refreshHomeData = useCallback(() => {
     getProgress()
@@ -158,6 +171,55 @@ export function HomeScreen({ navigation }: Props) {
     return navigation.addListener('focus', refreshHomeData);
   }, [navigation, refreshHomeData]);
 
+  useEffect(() => {
+    if (activeTab !== 'map') {
+      lastAutoScrolledNodeKeyRef.current = null;
+    }
+  }, [activeTab]);
+
+  useEffect(() => {
+    const targetNodeKey = ctaNode?.key;
+
+    if (
+      activeTab !== 'map' ||
+      !targetNodeKey ||
+      lastAutoScrolledNodeKeyRef.current === targetNodeKey
+    ) {
+      return;
+    }
+
+    const rootY = mapRootYByKeyRef.current;
+    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
+    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
+    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
+
+    if (
+      rootY.container === undefined ||
+      rootY.world === undefined ||
+      rootY.learningMap === undefined ||
+      sectionY === undefined ||
+      sectionBodyY === undefined ||
+      nodeY === undefined
+    ) {
+      return;
+    }
+
+    const targetY =
+      rootY.container +
+      rootY.world +
+      rootY.learningMap +
+      sectionY +
+      sectionBodyY +
+      nodeY;
+    const scrollY = Math.max(targetY - 160, 0);
+    const scrollTimeout = setTimeout(() => {
+      mapScrollRef.current?.scrollTo({ animated: false, y: scrollY });
+      lastAutoScrolledNodeKeyRef.current = targetNodeKey;
+    }, 40);
+
+    return () => clearTimeout(scrollTimeout);
+  }, [activeTab, ctaNode, mapLayoutVersion]);
+
   const openNode = (node: ThemeMapNode) => {
     navigation.navigate('ScenePlayer', {
       learningMode,
@@ -166,470 +228,467 @@ export function HomeScreen({ navigation }: Props) {
     });
   };
 
-  const handleStart = () => {
-    if (shouldResumeProgress && pendingNode) {
-      openNode(pendingNode);
-      return;
-    }
-
-    if (pendingReviewLesson?.reviewGame) {
-      navigation.navigate('ReviewGame', { lessonId: pendingReviewLesson.id });
-      return;
-    }
-
-    if (nextNode) {
-      openNode(nextNode);
-      return;
-    }
-
-    if (mapNodes[0]) {
-      openNode(mapNodes[0]);
-      return;
-    }
-
-    navigation.navigate('ThemeLibrary');
-  };
-
   return (
     <Screen>
       <View style={styles.shell}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          contentContainerStyle={styles.scrollContent}
-          style={styles.scrollArea}
-          showsVerticalScrollIndicator={false}
-        >
-          <View style={styles.container}>
-            <View pointerEvents="none" style={styles.skyDecor}>
-              <View style={[styles.cloud, styles.cloudLeft]} />
-              <View style={[styles.cloud, styles.cloudBottom]} />
-              <Text style={[styles.sparkle, styles.sparkleTop]}>★</Text>
-              <Text style={[styles.sparkle, styles.sparkleMid]}>★</Text>
-            </View>
-
-            <View style={styles.topBar}>
-              <View style={styles.brandCluster}>
-                <AppLogo size={40} />
-                <View style={styles.brandText}>
-                  <Text style={styles.title}>S-Kids</Text>
+        <KidModeHeader
+          completed={completedSceneCount}
+          isComplete={isThemeComplete}
+          onOpenParent={() => navigation.navigate('Parent')}
+          total={mapNodes.length}
+        />
+        <View style={styles.tabContent}>
+          <View
+            style={[
+              styles.tabPane,
+              activeTab !== 'map' && styles.tabPaneHidden,
+            ]}
+          >
+            <ScrollView
+              ref={mapScrollRef}
+              contentInsetAdjustmentBehavior="automatic"
+              contentContainerStyle={styles.scrollContent}
+              style={styles.scrollArea}
+              showsVerticalScrollIndicator={false}
+            >
+              <View
+                onLayout={(event: LayoutChangeEvent) =>
+                  updateMapLayoutY(
+                    mapRootYByKeyRef,
+                    'container',
+                    event.nativeEvent.layout.y,
+                  )
+                }
+                style={styles.container}
+              >
+                <View pointerEvents="none" style={styles.skyDecor}>
+                  <View style={[styles.cloud, styles.cloudLeft]} />
+                  <View style={[styles.cloud, styles.cloudBottom]} />
+                  <Text style={[styles.sparkle, styles.sparkleTop]}>★</Text>
+                  <Text style={[styles.sparkle, styles.sparkleMid]}>★</Text>
                 </View>
-              </View>
-              <View style={styles.topActions}>
-                <TopProgressStatus
-                  completed={completedSceneCount}
-                  isComplete={isThemeComplete}
-                  total={mapNodes.length}
-                />
-                <Pressable
-                  accessibilityLabel="Mở màn ôn tập"
-                  accessibilityRole="button"
-                  onPress={() => navigation.navigate('ReviewLibrary')}
-                  style={({ pressed }) => [
-                    styles.reviewGate,
-                    pressed && styles.reviewGatePressed,
-                  ]}
-                >
-                  <SKidsIcon name="replay" size={24} />
-                  <Text numberOfLines={1} style={styles.reviewGateText}>
-                    Ôn tập
-                  </Text>
-                </Pressable>
-                <KidIconButton
-                  accessibilityLabel="Góc phụ huynh"
-                  icon="parentLock"
-                  onPress={() => navigation.navigate('Parent')}
-                  size="md"
-                  style={styles.parentGate}
-                  tone="quiet"
-                />
-              </View>
-            </View>
 
-            {activeTheme ? (
-              <View style={styles.world}>
-                <View style={styles.learningMap}>
-                  <View pointerEvents="none" style={styles.mapBackdrop}>
-                    <View style={[styles.mapTrailRibbon, styles.mapTrailTop]} />
-                    <View style={[styles.mapTrailRibbon, styles.mapTrailMid]} />
-                    <View style={[styles.mapTrailRibbon, styles.mapTrailLow]} />
-                    <View style={[styles.mapHill, styles.mapHillLeft]} />
-                    <View style={[styles.mapHill, styles.mapHillRight]} />
-                    <View style={[styles.mapHill, styles.mapHillLower]} />
-                    <View style={[styles.mapCloud, styles.mapCloudTop]}>
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffOne]}
-                      />
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]}
-                      />
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffThree]}
-                      />
-                    </View>
-                    <View style={[styles.mapCloud, styles.mapCloudMiddle]}>
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffOne]}
-                      />
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffTwo]}
-                      />
-                      <View
-                        style={[styles.mapCloudPuff, styles.mapCloudPuffThree]}
-                      />
-                    </View>
-                    <View style={[styles.mapBrush, styles.mapBrushLeft]}>
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]}
-                      />
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]}
-                      />
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]}
-                      />
-                    </View>
-                    <View style={[styles.mapBrush, styles.mapBrushRight]}>
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafOne]}
-                      />
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafTwo]}
-                      />
-                      <View
-                        style={[styles.mapBrushLeaf, styles.mapBrushLeafThree]}
-                      />
-                    </View>
-                    <Text style={[styles.mapStar, styles.mapStarOne]}>★</Text>
-                    <Text style={[styles.mapStar, styles.mapStarTwo]}>★</Text>
-                    <Text style={[styles.mapStar, styles.mapStarThree]}>★</Text>
-                  </View>
-
-                  {mapNodes.length === 0 ? (
-                    <View style={styles.emptyMap}>
-                      <KidBadge tone="alert">Chưa có trạm</KidBadge>
-                      <Text style={styles.emptyMapTitle}>
-                        Chủ đề này chưa có gói bài học.
-                      </Text>
-                    </View>
-                  ) : null}
-
-                  {mapSections.map(section => {
-                    const lessonIconName = getLessonIconName({
-                      id: section.lesson.id,
-                    });
-                    const lessonProgress = getLessonNodeProgress(
-                      mapNodes,
-                      section.lesson.id,
-                      completedSceneIds,
-                    );
-                    const isLessonCompleted = Boolean(
-                      lessonProgress.total > 0 &&
-                        lessonProgress.completed === lessonProgress.total,
-                    );
-                    const isLessonCurrent = Boolean(
-                      !isThemeComplete && currentLessonId === section.lesson.id,
-                    );
-                    const lessonMonumentAlignment =
-                      getLessonMonumentAlignment();
-                    const firstNode = section.nodes[0];
-                    const firstNodeAlignment = getSectionMapAlignment(
-                      0,
-                      section.lessonIndex,
-                    );
-                    const isFirstNodePathActive = Boolean(
-                      firstNode &&
-                        (isThemeNodeComplete(firstNode, completedSceneIds) ||
-                          ctaNode?.key === firstNode.key ||
-                          isThemeComplete),
-                    );
-
-                    return (
-                      <View key={section.key} style={styles.lessonSection}>
-                        <LessonSectionHeader
-                          isCompleted={isLessonCompleted}
-                          isCurrent={isLessonCurrent}
-                          lessonIndex={section.lessonIndex}
-                          title={section.lesson.titleVi}
+                {activeTheme ? (
+                  <View
+                    onLayout={(event: LayoutChangeEvent) =>
+                      updateMapLayoutY(
+                        mapRootYByKeyRef,
+                        'world',
+                        event.nativeEvent.layout.y,
+                      )
+                    }
+                    style={styles.world}
+                  >
+                    <View
+                      onLayout={(event: LayoutChangeEvent) =>
+                        updateMapLayoutY(
+                          mapRootYByKeyRef,
+                          'learningMap',
+                          event.nativeEvent.layout.y,
+                        )
+                      }
+                      style={styles.learningMap}
+                    >
+                      <View pointerEvents="none" style={styles.mapBackdrop}>
+                        <View
+                          style={[styles.mapTrailRibbon, styles.mapTrailTop]}
                         />
-                        <View style={styles.lessonSectionBody}>
+                        <View
+                          style={[styles.mapTrailRibbon, styles.mapTrailMid]}
+                        />
+                        <View
+                          style={[styles.mapTrailRibbon, styles.mapTrailLow]}
+                        />
+                        <View style={[styles.mapHill, styles.mapHillLeft]} />
+                        <View style={[styles.mapHill, styles.mapHillRight]} />
+                        <View style={[styles.mapHill, styles.mapHillLower]} />
+                        <View style={[styles.mapCloud, styles.mapCloudTop]}>
                           <View
-                            pointerEvents="none"
-                            style={styles.lessonDecorLayer}
-                          >
-                            {section.lessonIndex % 2 === 0 ? (
-                              <>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiEvenTree,
-                                  ]}
-                                >
-                                  🌲
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiEvenFlower,
-                                  ]}
-                                >
-                                  🌸
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiEvenButterfly,
-                                  ]}
-                                >
-                                  🦋
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiEvenMushroom,
-                                  ]}
-                                >
-                                  🍄
-                                </Text>
-                              </>
-                            ) : (
-                              <>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiOddTree,
-                                  ]}
-                                >
-                                  🌲
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiOddDuck,
-                                  ]}
-                                >
-                                  🦆
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiOddSun,
-                                  ]}
-                                >
-                                  ☀️
-                                </Text>
-                                <Text
-                                  style={[
-                                    styles.mapEmoji,
-                                    styles.mapEmojiOddCloud,
-                                  ]}
-                                >
-                                  ☁️
-                                </Text>
-                              </>
-                            )}
-                          </View>
-                          {section.lessonIndex > 0 && firstNode ? (
-                            <MapConnector
-                              from={lessonMonumentAlignment}
-                              isComplete={isFirstNodePathActive}
-                              size="short"
-                              to={firstNodeAlignment}
-                            />
-                          ) : null}
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffOne,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffTwo,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffThree,
+                            ]}
+                          />
+                        </View>
+                        <View style={[styles.mapCloud, styles.mapCloudMiddle]}>
+                          <View
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffOne,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffTwo,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapCloudPuff,
+                              styles.mapCloudPuffThree,
+                            ]}
+                          />
+                        </View>
+                        <View style={[styles.mapBrush, styles.mapBrushLeft]}>
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafOne,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafTwo,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafThree,
+                            ]}
+                          />
+                        </View>
+                        <View style={[styles.mapBrush, styles.mapBrushRight]}>
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafOne,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafTwo,
+                            ]}
+                          />
+                          <View
+                            style={[
+                              styles.mapBrushLeaf,
+                              styles.mapBrushLeafThree,
+                            ]}
+                          />
+                        </View>
+                        <Text style={[styles.mapStar, styles.mapStarOne]}>
+                          ★
+                        </Text>
+                        <Text style={[styles.mapStar, styles.mapStarTwo]}>
+                          ★
+                        </Text>
+                        <Text style={[styles.mapStar, styles.mapStarThree]}>
+                          ★
+                        </Text>
+                      </View>
 
-                          {section.nodes.map((node, nodeIndex) => {
-                            const alignment = getSectionMapAlignment(
-                              nodeIndex,
-                              section.lessonIndex,
-                            );
-                            const nextAlignment = getSectionMapAlignment(
-                              nodeIndex + 1,
-                              section.lessonIndex,
-                            );
-                            const isCompleted = isThemeNodeComplete(
-                              node,
+                      {mapNodes.length === 0 ? (
+                        <View style={styles.emptyMap}>
+                          <KidBadge tone="alert">Chưa có trạm</KidBadge>
+                          <Text style={styles.emptyMapTitle}>
+                            Chủ đề này chưa có gói bài học.
+                          </Text>
+                        </View>
+                      ) : null}
+
+                      {mapSections.map(section => {
+                        const lessonIconName = getLessonIconName({
+                          id: section.lesson.id,
+                        });
+                        const lessonProgress = getLessonNodeProgress(
+                          mapNodes,
+                          section.lesson.id,
+                          completedSceneIds,
+                        );
+                        const isLessonCompleted = Boolean(
+                          lessonProgress.total > 0 &&
+                            lessonProgress.completed === lessonProgress.total,
+                        );
+                        const isLessonCurrent = Boolean(
+                          !isThemeComplete &&
+                            currentLessonId === section.lesson.id,
+                        );
+                        const lessonMonumentAlignment =
+                          getLessonMonumentAlignment();
+                        const firstNode = section.nodes[0];
+                        const firstNodeAlignment = getSectionMapAlignment(
+                          0,
+                          section.lessonIndex,
+                        );
+                        const isFirstNodePathActive = Boolean(
+                          firstNode &&
+                            (isThemeNodeComplete(
+                              firstNode,
                               completedSceneIds,
-                            );
-                            const isCurrent =
-                              !isThemeComplete && ctaNode?.key === node.key;
-                            const isUnlocked =
-                              isCompleted ||
-                              ctaNode?.key === node.key ||
-                              nextNode?.key === node.key ||
-                              isThemeComplete;
+                            ) ||
+                              ctaNode?.key === firstNode.key ||
+                              isThemeComplete),
+                        );
 
-                            return (
-                              <React.Fragment key={node.key}>
-                                <SceneMapStop
-                                  alignment={alignment}
-                                  isCompleted={isCompleted}
-                                  isCurrent={isCurrent}
-                                  isLocked={!isUnlocked}
-                                  lessonCount={themeLessons.length}
-                                  lessonIndex={node.lessonIndex}
-                                  lessonTitleVi={node.lessonTitleVi}
-                                  iconName={getMapSceneIconName(
-                                    node.scene,
-                                    lessonIconName,
-                                  )}
-                                  sceneCountInLesson={node.sceneCountInLesson}
-                                  sceneIndexInLesson={node.sceneIndexInLesson}
-                                  scene={node.scene}
-                                  onPress={() => {
-                                    if (!isUnlocked) {
-                                      return;
-                                    }
-
-                                    openNode(node);
-                                  }}
-                                />
-                                {nodeIndex < section.nodes.length - 1 ? (
-                                  <MapConnector
-                                    from={alignment}
-                                    isComplete={isCompleted}
-                                    to={nextAlignment}
-                                  />
-                                ) : null}
-                              </React.Fragment>
-                            );
-                          })}
-
-                          {section.nodes.length > 0 ? (
-                            <>
-                              <MapConnector
-                                from={getSectionMapAlignment(
-                                  section.nodes.length - 1,
-                                  section.lessonIndex,
+                        return (
+                          <View
+                            key={section.key}
+                            onLayout={(event: LayoutChangeEvent) =>
+                              updateMapLayoutY(
+                                mapSectionYByKeyRef,
+                                section.lesson.id,
+                                event.nativeEvent.layout.y,
+                              )
+                            }
+                            style={styles.lessonSection}
+                          >
+                            <LessonSectionHeader
+                              isCompleted={isLessonCompleted}
+                              isCurrent={isLessonCurrent}
+                              lessonIndex={section.lessonIndex}
+                              title={section.lesson.titleVi}
+                            />
+                            <View
+                              onLayout={(event: LayoutChangeEvent) =>
+                                updateMapLayoutY(
+                                  mapSectionBodyYByKeyRef,
+                                  section.lesson.id,
+                                  event.nativeEvent.layout.y,
+                                )
+                              }
+                              style={styles.lessonSectionBody}
+                            >
+                              <View
+                                pointerEvents="none"
+                                style={styles.lessonDecorLayer}
+                              >
+                                {section.lessonIndex % 2 === 0 ? (
+                                  <>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiEvenTree,
+                                      ]}
+                                    >
+                                      🌲
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiEvenFlower,
+                                      ]}
+                                    >
+                                      🌸
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiEvenButterfly,
+                                      ]}
+                                    >
+                                      🦋
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiEvenMushroom,
+                                      ]}
+                                    >
+                                      🍄
+                                    </Text>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiOddTree,
+                                      ]}
+                                    >
+                                      🌲
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiOddDuck,
+                                      ]}
+                                    >
+                                      🦆
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiOddSun,
+                                      ]}
+                                    >
+                                      ☀️
+                                    </Text>
+                                    <Text
+                                      style={[
+                                        styles.mapEmoji,
+                                        styles.mapEmojiOddCloud,
+                                      ]}
+                                    >
+                                      ☁️
+                                    </Text>
+                                  </>
                                 )}
-                                isComplete={isLessonCompleted}
-                                size="default"
-                                to={lessonMonumentAlignment}
-                              />
-
-                              <LessonMilestone
-                                alignment={lessonMonumentAlignment}
-                                iconName={lessonIconName}
-                                isCompleted={isLessonCompleted}
-                                isCurrent={isLessonCurrent}
-                                titleVi={section.lesson.titleVi}
-                              />
-
-                              {section.lessonIndex < mapSections.length - 1 ? (
+                              </View>
+                              {section.lessonIndex > 0 && firstNode ? (
                                 <MapConnector
                                   from={lessonMonumentAlignment}
-                                  isComplete={isLessonCompleted}
-                                  size="default"
-                                  to={lessonMonumentAlignment}
+                                  isComplete={isFirstNodePathActive}
+                                  size="short"
+                                  to={firstNodeAlignment}
                                 />
                               ) : null}
-                            </>
-                          ) : null}
-                        </View>
-                      </View>
-                    );
-                  })}
-                </View>
-              </View>
-            ) : null}
-          </View>
-        </ScrollView>
 
-        <StickyStartButton
-          accessibilityLabel={`${primaryLabel}: ${ctaSubtitle}`}
-          iconName={primaryIconName}
-          isComplete={isThemeComplete}
-          label={primaryLabel}
-          onPress={handleStart}
+                              {section.nodes.map((node, nodeIndex) => {
+                                const alignment = getSectionMapAlignment(
+                                  nodeIndex,
+                                  section.lessonIndex,
+                                );
+                                const nextAlignment = getSectionMapAlignment(
+                                  nodeIndex + 1,
+                                  section.lessonIndex,
+                                );
+                                const isCompleted = isThemeNodeComplete(
+                                  node,
+                                  completedSceneIds,
+                                );
+                                const isCurrent =
+                                  !isThemeComplete && ctaNode?.key === node.key;
+                                const isUnlocked =
+                                  isCompleted ||
+                                  ctaNode?.key === node.key ||
+                                  nextNode?.key === node.key ||
+                                  isThemeComplete;
+
+                                return (
+                                  <React.Fragment key={node.key}>
+                                    <SceneMapStop
+                                      alignment={alignment}
+                                      isCompleted={isCompleted}
+                                      isCurrent={isCurrent}
+                                      isLocked={!isUnlocked}
+                                      lessonCount={themeLessons.length}
+                                      lessonIndex={node.lessonIndex}
+                                      lessonTitleVi={node.lessonTitleVi}
+                                      iconName={getMapSceneIconName(
+                                        node.scene,
+                                        lessonIconName,
+                                      )}
+                                      sceneCountInLesson={
+                                        node.sceneCountInLesson
+                                      }
+                                      sceneIndexInLesson={
+                                        node.sceneIndexInLesson
+                                      }
+                                      scene={node.scene}
+                                      onLayout={(event: LayoutChangeEvent) =>
+                                        updateMapLayoutY(
+                                          mapNodeYByKeyRef,
+                                          node.key,
+                                          event.nativeEvent.layout.y,
+                                        )
+                                      }
+                                      onPress={() => {
+                                        if (!isUnlocked) {
+                                          return;
+                                        }
+
+                                        openNode(node);
+                                      }}
+                                    />
+                                    {nodeIndex < section.nodes.length - 1 ? (
+                                      <MapConnector
+                                        from={alignment}
+                                        isComplete={isCompleted}
+                                        to={nextAlignment}
+                                      />
+                                    ) : null}
+                                  </React.Fragment>
+                                );
+                              })}
+
+                              {section.nodes.length > 0 ? (
+                                <>
+                                  <MapConnector
+                                    from={getSectionMapAlignment(
+                                      section.nodes.length - 1,
+                                      section.lessonIndex,
+                                    )}
+                                    isComplete={isLessonCompleted}
+                                    size="default"
+                                    to={lessonMonumentAlignment}
+                                  />
+
+                                  <LessonMilestone
+                                    alignment={lessonMonumentAlignment}
+                                    iconName={lessonIconName}
+                                    isCompleted={isLessonCompleted}
+                                    isCurrent={isLessonCurrent}
+                                    titleVi={section.lesson.titleVi}
+                                  />
+
+                                  {section.lessonIndex <
+                                  mapSections.length - 1 ? (
+                                    <MapConnector
+                                      from={lessonMonumentAlignment}
+                                      isComplete={isLessonCompleted}
+                                      size="default"
+                                      to={lessonMonumentAlignment}
+                                    />
+                                  ) : null}
+                                </>
+                              ) : null}
+                            </View>
+                          </View>
+                        );
+                      })}
+                    </View>
+                  </View>
+                ) : null}
+              </View>
+            </ScrollView>
+          </View>
+
+          <View
+            style={[
+              styles.tabPane,
+              activeTab !== 'play' && styles.tabPaneHidden,
+            ]}
+          >
+            <ScrollView
+              contentInsetAdjustmentBehavior="automatic"
+              contentContainerStyle={styles.playScrollContent}
+              style={styles.scrollArea}
+              showsVerticalScrollIndicator={false}
+            >
+              <KidPlayPanel
+                completedReviewGameIds={completedReviewGameIds}
+                completedSceneIds={completedSceneIds}
+                onOpenReviewGame={lessonId =>
+                  navigation.navigate('ReviewGame', { lessonId })
+                }
+              />
+            </ScrollView>
+          </View>
+        </View>
+        <KidModeTabs
+          activeTab={activeTab}
+          hasPendingPlay={hasPendingReviewGame}
+          onSelectMap={() => setActiveTab('map')}
+          onSelectPlay={() => setActiveTab('play')}
         />
       </View>
     </Screen>
-  );
-}
-
-type TopProgressStatusProps = {
-  completed: number;
-  isComplete: boolean;
-  total: number;
-};
-
-function TopProgressStatus({
-  completed,
-  isComplete,
-  total,
-}: TopProgressStatusProps) {
-  const safeTotal = Math.max(total, 0);
-  const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
-  const progressPercent =
-    safeTotal > 0 ? Math.round((safeCompleted / safeTotal) * 100) : 0;
-
-  return (
-    <View
-      accessibilityLabel={`Bé có ${safeCompleted} sao trong ${safeTotal} trạm`}
-      accessibilityRole="progressbar"
-      style={styles.topStatusCard}
-    >
-      <View style={styles.topStatusRow}>
-        <SKidsIcon name="star" size={22} />
-        <Text style={styles.topStatusCount}>x {safeCompleted}</Text>
-      </View>
-      <View style={styles.topStatusTrack}>
-        <View
-          style={[
-            styles.topStatusFill,
-            {
-              width: percent(progressPercent),
-            },
-          ]}
-        />
-      </View>
-      <Text numberOfLines={1} style={styles.topStatusCaption}>
-        {isComplete ? 'Đủ sao!' : `${safeCompleted}/${safeTotal}`}
-      </Text>
-    </View>
-  );
-}
-
-type StickyStartButtonProps = {
-  accessibilityLabel: string;
-  iconName: SKidsIconName;
-  isComplete: boolean;
-  label: string;
-  onPress: () => void;
-};
-
-function StickyStartButton({
-  accessibilityLabel,
-  iconName,
-  isComplete,
-  label,
-  onPress,
-}: StickyStartButtonProps) {
-  return (
-    <View pointerEvents="box-none" style={styles.stickyFooter}>
-      <View style={styles.stickyButtonBreather}>
-        <Pressable
-          accessibilityLabel={accessibilityLabel}
-          accessibilityRole="button"
-          onPress={onPress}
-          style={({ pressed }) => [
-            styles.stickyButton,
-            isComplete && styles.stickyButtonComplete,
-            pressed && styles.stickyButtonPressed,
-          ]}
-        >
-          <View pointerEvents="none" style={styles.stickyButtonGloss} />
-          <View pointerEvents="none" style={styles.stickyButtonLip} />
-          <View style={styles.stickyIcon}>
-            <SKidsIcon name={iconName} size={30} />
-          </View>
-          <View style={styles.stickyTextGroup}>
-            <Text numberOfLines={1} style={styles.stickyLabel}>
-              {label}
-            </Text>
-          </View>
-        </Pressable>
-      </View>
-    </View>
   );
 }
 
@@ -642,6 +701,7 @@ type SceneMapStopProps = {
   lessonCount: number;
   lessonIndex: number;
   lessonTitleVi: string;
+  onLayout: (event: LayoutChangeEvent) => void;
   onPress: () => void;
   sceneCountInLesson: number;
   sceneIndexInLesson: number;
@@ -657,6 +717,7 @@ function SceneMapStop({
   lessonCount,
   lessonIndex,
   lessonTitleVi,
+  onLayout,
   onPress,
   sceneCountInLesson,
   sceneIndexInLesson,
@@ -680,6 +741,7 @@ function SceneMapStop({
       accessibilityRole="button"
       accessibilityState={{ disabled: isLocked }}
       disabled={isLocked}
+      onLayout={onLayout}
       onPress={onPress}
       style={({ pressed }) => {
         const isPressed = pressed && !isLocked;
@@ -993,7 +1055,7 @@ function LessonMilestone({
             <View style={styles.lessonPedestalBodyShadow} />
           </View>
           <View style={styles.lessonPedestalSurface}>
-             <View style={styles.lessonPedestalSurfaceShine} />
+            <View style={styles.lessonPedestalSurfaceShine} />
           </View>
         </View>
         <View
@@ -1144,7 +1206,10 @@ function getPendingReviewLesson(
   completedReviewGameIds: Set<string>,
 ) {
   return themeLessons.find(lesson => {
-    if (!lesson.reviewGame || completedReviewGameIds.has(lesson.reviewGame.id)) {
+    if (
+      !lesson.reviewGame ||
+      completedReviewGameIds.has(lesson.reviewGame.id)
+    ) {
       return false;
     }
 
@@ -1249,21 +1314,7 @@ function easePathProgress(value: number) {
   return 0.5 - Math.cos(value * Math.PI) / 2;
 }
 
-function percent(value: number): `${number}%` {
-  return `${value}%`;
-}
-
 const styles = StyleSheet.create({
-  brandCluster: {
-    alignItems: 'center',
-    flex: 1,
-    flexDirection: 'row',
-    gap: spacing.sm,
-    minWidth: 0,
-  },
-  brandText: {
-    gap: spacing.xxs,
-  },
   cloud: {
     backgroundColor: colors.white,
     borderRadius: radius.pill,
@@ -2068,49 +2119,16 @@ const styles = StyleSheet.create({
   mapStopRight: {
     alignSelf: 'center',
   },
-  parentGate: {
-    backgroundColor: colors.white,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 54,
-    minHeight: 54,
-    minWidth: 54,
-    padding: 0,
-    width: 54,
-    ...shadows.soft,
-  },
-  reviewGate: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.primarySoft,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    gap: 1,
-    height: 54,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.xs,
-    width: 64,
-    ...shadows.soft,
-  },
-  reviewGatePressed: {
-    opacity: 0.9,
-    transform: [{ translateY: 2 }, { scale: 0.98 }],
-  },
-  reviewGateText: {
-    color: colors.primaryDark,
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 12,
-    textAlign: 'center',
-  },
   scrollArea: {
     flex: 1,
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 124,
+    paddingBottom: 112,
+  },
+  playScrollContent: {
+    padding: layout.screenPadding,
+    paddingBottom: 112,
   },
   shell: {
     flex: 1,
@@ -2138,77 +2156,14 @@ const styles = StyleSheet.create({
     top: 10,
     transform: [{ rotate: '12deg' }],
   },
-  stickyButton: {
-    alignItems: 'center',
-    backgroundColor: colors.secondary,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 3,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    justifyContent: 'center',
-    minHeight: 56,
-    overflow: 'hidden',
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 6,
-    ...shadows.warm,
+  tabContent: {
+    flex: 1,
   },
-  stickyButtonBreather: {
-    borderRadius: radius.pill,
-    ...shadows.warm,
+  tabPane: {
+    flex: 1,
   },
-  stickyButtonComplete: {
-    backgroundColor: colors.primary,
-  },
-  stickyButtonGloss: {
-    backgroundColor: 'rgba(255, 255, 255, 0.24)',
-    borderRadius: radius.pill,
-    height: 19,
-    left: 12,
-    position: 'absolute',
-    right: 12,
-    top: 6,
-  },
-  stickyButtonLip: {
-    backgroundColor: 'rgba(200, 135, 18, 0.22)',
-    bottom: 0,
-    height: 7,
-    left: 16,
-    position: 'absolute',
-    right: 16,
-  },
-  stickyButtonPressed: {
-    opacity: 0.92,
-    transform: [{ translateY: 2 }, { scale: 0.99 }],
-  },
-  stickyFooter: {
-    bottom: spacing.sm,
-    left: 72,
-    position: 'absolute',
-    right: 72,
-    zIndex: 20,
-  },
-  stickyIcon: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.secondarySoft,
-    borderWidth: 2,
-    borderRadius: radius.pill,
-    height: 42,
-    justifyContent: 'center',
-    width: 42,
-    ...shadows.soft,
-  },
-  stickyLabel: {
-    color: colors.text,
-    fontSize: 17,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 21,
-  },
-  stickyTextGroup: {
-    flex: 0,
-    gap: spacing.xxs,
+  tabPaneHidden: {
+    display: 'none',
   },
   stopGlow: {
     backgroundColor: colors.secondarySoft,
@@ -2295,76 +2250,6 @@ const styles = StyleSheet.create({
   },
   stopNumberTextLocked: {
     color: colors.muted,
-  },
-  title: {
-    color: colors.text,
-    fontSize: 23,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 27,
-  },
-  topBar: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-    justifyContent: 'space-between',
-    minHeight: 64,
-    paddingHorizontal: spacing.xxs,
-  },
-  topActions: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.42)',
-    borderColor: 'rgba(255, 255, 255, 0.72)',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    padding: 4,
-  },
-  topStatusCaption: {
-    color: colors.primaryDark,
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 12,
-    textAlign: 'center',
-  },
-  topStatusCard: {
-    alignItems: 'stretch',
-    backgroundColor: colors.white,
-    borderColor: colors.white,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    gap: 2,
-    height: 54,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.xs,
-    width: 106,
-    ...shadows.soft,
-  },
-  topStatusCount: {
-    color: colors.text,
-    fontSize: 15,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 18,
-  },
-  topStatusFill: {
-    backgroundColor: colors.secondary,
-    borderRadius: radius.pill,
-    height: '100%',
-  },
-  topStatusRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.xxs,
-    justifyContent: 'center',
-  },
-  topStatusTrack: {
-    backgroundColor: colors.border,
-    borderRadius: radius.pill,
-    height: 6,
-    overflow: 'hidden',
   },
   world: {
     gap: spacing.md,
