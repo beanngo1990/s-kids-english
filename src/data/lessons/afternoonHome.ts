@@ -1315,7 +1315,7 @@ export const afternoonHomeLesson: Lesson = {
   ],
   reviewGame: {
     id: 'afternoon-home-review',
-    type: 'listenAndChoose',
+    type: 'memory',
     titleVi: 'Tìm đồ khi về nhà',
     config: {
       vocabularyIds: [

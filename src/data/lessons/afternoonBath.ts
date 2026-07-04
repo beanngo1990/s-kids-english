@@ -1099,7 +1099,7 @@ export const afternoonBathLesson: Lesson = {
   ],
   reviewGame: {
     id: 'afternoon-bath-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ tắm buổi chiều',
     config: {
       vocabularyIds: [

@@ -1315,7 +1315,7 @@ export const lunchTimeLesson: Lesson = {
   ],
   reviewGame: {
     id: 'lunch-time-review',
-    type: 'listenAndChoose',
+    type: 'memory',
     titleVi: 'Tìm đồ trong bữa trưa',
     config: {
       vocabularyIds: [

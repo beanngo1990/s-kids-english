@@ -1095,7 +1095,7 @@ export const familyDinnerLesson: Lesson = {
   ],
   reviewGame: {
     id: 'family-dinner-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ trong bữa tối',
     config: {
       vocabularyIds: [

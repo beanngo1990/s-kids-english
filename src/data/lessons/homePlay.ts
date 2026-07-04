@@ -1051,7 +1051,7 @@ export const homePlayLesson: Lesson = {
   ],
   reviewGame: {
     id: 'home-play-review',
-    type: 'matching',
+    type: 'memory',
     titleVi: 'Tìm đồ chơi ở nhà',
     config: {
       vocabularyIds: [

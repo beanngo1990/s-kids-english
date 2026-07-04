@@ -90,9 +90,22 @@ export function HomeScreen({ navigation }: Props) {
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
   );
+  const completedReviewGameIds = useMemo(
+    () => new Set(progress?.completedReviewGameIds ?? []),
+    [progress],
+  );
   const completedSceneCount = getCompletedThemeNodeCount(
     mapNodes,
     completedSceneIds,
+  );
+  const pendingReviewLesson = useMemo(
+    () =>
+      getPendingReviewLesson(
+        themeLessons,
+        completedSceneIds,
+        completedReviewGameIds,
+      ),
+    [completedReviewGameIds, completedSceneIds, themeLessons],
   );
   const isThemeComplete =
     mapNodes.length > 0 && completedSceneCount === mapNodes.length;
@@ -110,17 +123,26 @@ export function HomeScreen({ navigation }: Props) {
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
   );
-  const primaryLabel = isThemeComplete
+  const primaryLabel = pendingReviewLesson
+    ? 'Chơi lật thẻ'
+    : isThemeComplete
     ? 'Ôn lại'
     : shouldResumeProgress
     ? 'Học tiếp'
     : 'Chơi ngay';
-  const primaryIconName: SKidsIconName = isThemeComplete ? 'replay' : 'next';
+  const primaryIconName: SKidsIconName = pendingReviewLesson
+    ? 'star'
+    : isThemeComplete
+      ? 'replay'
+      : 'next';
   const ctaNode =
     shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
-  const ctaSubtitle = ctaNode
-    ? `${ctaNode.lessonTitleVi} · ${ctaNode.scene.titleVi}`
-    : 'Chọn chủ đề để bắt đầu';
+  const ctaSubtitle = pendingReviewLesson?.reviewGame
+    ? `${pendingReviewLesson.titleVi} · ${pendingReviewLesson.reviewGame.titleVi}`
+    : ctaNode
+      ? `${ctaNode.lessonTitleVi} · ${ctaNode.scene.titleVi}`
+      : 'Chọn chủ đề để bắt đầu';
+  const currentLessonId = pendingReviewLesson?.id ?? ctaNode?.lessonId;
 
   const refreshHomeData = useCallback(() => {
     getProgress()
@@ -147,6 +169,11 @@ export function HomeScreen({ navigation }: Props) {
   const handleStart = () => {
     if (shouldResumeProgress && pendingNode) {
       openNode(pendingNode);
+      return;
+    }
+
+    if (pendingReviewLesson?.reviewGame) {
+      navigation.navigate('ReviewGame', { lessonId: pendingReviewLesson.id });
       return;
     }
 
@@ -193,6 +220,20 @@ export function HomeScreen({ navigation }: Props) {
                   isComplete={isThemeComplete}
                   total={mapNodes.length}
                 />
+                <Pressable
+                  accessibilityLabel="Mở màn ôn tập"
+                  accessibilityRole="button"
+                  onPress={() => navigation.navigate('ReviewLibrary')}
+                  style={({ pressed }) => [
+                    styles.reviewGate,
+                    pressed && styles.reviewGatePressed,
+                  ]}
+                >
+                  <SKidsIcon name="replay" size={24} />
+                  <Text numberOfLines={1} style={styles.reviewGateText}>
+                    Ôn tập
+                  </Text>
+                </Pressable>
                 <KidIconButton
                   accessibilityLabel="Góc phụ huynh"
                   icon="parentLock"
@@ -286,8 +327,7 @@ export function HomeScreen({ navigation }: Props) {
                         lessonProgress.completed === lessonProgress.total,
                     );
                     const isLessonCurrent = Boolean(
-                      !isThemeComplete &&
-                        ctaNode?.lessonId === section.lesson.id,
+                      !isThemeComplete && currentLessonId === section.lesson.id,
                     );
                     const lessonMonumentAlignment =
                       getLessonMonumentAlignment();
@@ -1096,6 +1136,25 @@ function getNextThemeNode(
   completedSceneIds: Set<string>,
 ) {
   return nodes.find(node => !isThemeNodeComplete(node, completedSceneIds));
+}
+
+function getPendingReviewLesson(
+  themeLessons: Lesson[],
+  completedSceneIds: Set<string>,
+  completedReviewGameIds: Set<string>,
+) {
+  return themeLessons.find(lesson => {
+    if (!lesson.reviewGame || completedReviewGameIds.has(lesson.reviewGame.id)) {
+      return false;
+    }
+
+    return (
+      lesson.scenes.length > 0 &&
+      lesson.scenes.every(scene =>
+        isSceneProgressComplete(completedSceneIds, lesson.id, scene.id),
+      )
+    );
+  });
 }
 
 function getLessonNodeProgress(
@@ -2020,6 +2079,31 @@ const styles = StyleSheet.create({
     padding: 0,
     width: 54,
     ...shadows.soft,
+  },
+  reviewGate: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.primarySoft,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    gap: 1,
+    height: 54,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.xs,
+    width: 64,
+    ...shadows.soft,
+  },
+  reviewGatePressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 2 }, { scale: 0.98 }],
+  },
+  reviewGateText: {
+    color: colors.primaryDark,
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 12,
+    textAlign: 'center',
   },
   scrollArea: {
     flex: 1,

@@ -4,5 +4,7 @@ export { LessonListScreen } from './LessonListScreen';
 export { OnboardingScreen } from './OnboardingScreen';
 export { ParentScreen } from './ParentScreen';
 export { RewardScreen } from './RewardScreen';
+export { ReviewGameScreen } from './ReviewGameScreen';
+export { ReviewLibraryScreen } from './ReviewLibraryScreen';
 export { ThemeLibraryScreen } from './ThemeLibraryScreen';
 export { ScenePlayerScreen } from './ScenePlayerScreen';
