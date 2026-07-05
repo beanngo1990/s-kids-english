@@ -798,8 +798,7 @@ export function HomeScreen({ navigation }: Props) {
             
             {showFocusButton && activeTab === 'map' ? (
               <Pressable style={styles.focusFab} onPress={scrollToCurrentNode}>
-                <SKidsIcon name="map" size={24} color={colors.primaryDark} />
-                <Text style={styles.focusFabText}>Về bài học</Text>
+                <SKidsIcon name="focusLesson" size={32} />
               </Pressable>
             ) : null}
           </View>
@@ -2299,22 +2298,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
     borderColor: colors.primary,
-    borderRadius: radius.pill,
+    borderRadius: 28,
     borderWidth: 2,
     bottom: 100,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    justifyContent: 'center',
+    height: 56,
+    width: 56,
     position: 'absolute',
     right: spacing.lg,
     ...shadows.soft,
     elevation: 4,
     zIndex: 40,
-  },
-  focusFabText: {
-    color: colors.primaryDark,
-    ...typography.button,
   },
   scrollContent: {
     padding: layout.screenPadding,
