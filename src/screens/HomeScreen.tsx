@@ -9,6 +9,7 @@ import {
   Animated,
   Easing,
   LayoutChangeEvent,
+  Modal,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Pressable,
@@ -90,6 +91,7 @@ export function HomeScreen({ navigation }: Props) {
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
+  const [isHubOpen, setIsHubOpen] = useState(false);
   const mapScrollRef = useRef<ScrollView | null>(null);
   const mapRootYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionYByKeyRef = useRef<Record<string, number>>({});
@@ -141,10 +143,10 @@ export function HomeScreen({ navigation }: Props) {
   const pendingProgress = progress?.currentLessonProgress;
   const pendingNode = pendingProgress
     ? mapNodes.find(
-      node =>
-        node.lessonId === pendingProgress.lessonId &&
-        node.scene.id === pendingProgress.sceneId,
-    )
+        node =>
+          node.lessonId === pendingProgress.lessonId &&
+          node.scene.id === pendingProgress.sceneId,
+      )
     : undefined;
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
@@ -155,26 +157,25 @@ export function HomeScreen({ navigation }: Props) {
   const homeCoachMessage = isThemeComplete
     ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
     : hasPendingReviewGame
-      ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'
-      } nhé!`
-      : ctaNode
-        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
-        : 'Hôm nay mình học cùng Suga nhé!';
+    ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'} nhé!`
+    : ctaNode
+    ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
+    : 'Hôm nay mình học cùng Suga nhé!';
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
     : hasPendingReviewGame
-      ? 'learn'
-      : 'letsGo';
+    ? 'learn'
+    : 'letsGo';
   const homeCoachTone = isThemeComplete
     ? 'success'
     : hasPendingReviewGame
-      ? 'hint'
-      : 'guide';
+    ? 'hint'
+    : 'guide';
   const homeCoachTapMessages = isThemeComplete
     ? sugaHomeCompleteTapMessages
     : hasPendingReviewGame
-      ? sugaHomeReviewTapMessages
-      : sugaHomeGuideTapMessages;
+    ? sugaHomeReviewTapMessages
+    : sugaHomeGuideTapMessages;
 
   const updateMapLayoutY = useCallback(
     (
@@ -292,7 +293,7 @@ export function HomeScreen({ navigation }: Props) {
   const handleMapScroll = useCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       const offsetY = event.nativeEvent.contentOffset.y;
-      
+
       const targetNodeKey = ctaNode?.key;
       if (!targetNodeKey) return;
 
@@ -319,7 +320,7 @@ export function HomeScreen({ navigation }: Props) {
         sectionY +
         sectionBodyY +
         nodeY;
-        
+
       const optimalY = Math.max(targetY - 160, 0);
       const isFar = Math.abs(offsetY - optimalY) > 500;
       if (showFocusButton !== isFar) {
@@ -329,13 +330,47 @@ export function HomeScreen({ navigation }: Props) {
     [ctaNode, showFocusButton],
   );
 
-  const openNode = (node: ThemeMapNode) => {
-    navigation.navigate('ScenePlayer', {
-      learningMode,
-      lessonId: node.lessonId,
-      sceneId: node.scene.id,
-    });
-  };
+  const openNode = useCallback(
+    (node: ThemeMapNode) => {
+      navigation.navigate('ScenePlayer', {
+        learningMode,
+        lessonId: node.lessonId,
+        sceneId: node.scene.id,
+      });
+    },
+    [learningMode, navigation],
+  );
+
+  const closeHub = useCallback(() => {
+    setIsHubOpen(false);
+  }, []);
+
+  const handleOpenHub = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    setIsHubOpen(true);
+  }, []);
+
+  const handleHubPrimaryPress = useCallback(() => {
+    setIsHubOpen(false);
+
+    if (pendingReviewLesson?.reviewGame) {
+      navigation.navigate('ReviewGame', {
+        learningMode,
+        lessonId: pendingReviewLesson.id,
+      });
+      return;
+    }
+
+    if (ctaNode) {
+      openNode(ctaNode);
+    }
+  }, [ctaNode, learningMode, navigation, openNode, pendingReviewLesson]);
+
+  const handleHubFocusPress = useCallback(() => {
+    setIsHubOpen(false);
+    setActiveTab('map');
+    setTimeout(scrollToCurrentNode, 80);
+  }, [scrollToCurrentNode]);
 
   return (
     <Screen>
@@ -343,6 +378,7 @@ export function HomeScreen({ navigation }: Props) {
         <KidModeHeader
           completed={completedSceneCount}
           isComplete={isThemeComplete}
+          onOpenHub={handleOpenHub}
           onOpenParent={() => navigation.navigate('Parent')}
           total={mapNodes.length}
         />
@@ -534,20 +570,20 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isLessonCompleted = Boolean(
                           lessonProgress.total > 0 &&
-                          lessonProgress.completed === lessonProgress.total,
+                            lessonProgress.completed === lessonProgress.total,
                         );
                         const isReviewGameCompleted = Boolean(
                           section.lesson.reviewGame &&
-                          completedReviewGameIds.has(
-                            section.lesson.reviewGame.id,
-                          ),
+                            completedReviewGameIds.has(
+                              section.lesson.reviewGame.id,
+                            ),
                         );
                         const isReviewGameCurrent = Boolean(
                           isLessonCompleted && !isReviewGameCompleted,
                         );
                         const isLessonCurrent = Boolean(
                           !isThemeComplete &&
-                          currentLessonId === section.lesson.id,
+                            currentLessonId === section.lesson.id,
                         );
                         const lessonMonumentAlignment =
                           getLessonMonumentAlignment();
@@ -558,12 +594,12 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isFirstNodePathActive = Boolean(
                           firstNode &&
-                          (isThemeNodeComplete(
-                            firstNode,
-                            completedSceneIds,
-                          ) ||
-                            ctaNode?.key === firstNode.key ||
-                            isThemeComplete),
+                            (isThemeNodeComplete(
+                              firstNode,
+                              completedSceneIds,
+                            ) ||
+                              ctaNode?.key === firstNode.key ||
+                              isThemeComplete),
                         );
 
                         return (
@@ -766,7 +802,10 @@ export function HomeScreen({ navigation }: Props) {
                                     isCurrent={isReviewGameCurrent}
                                     titleVi={section.lesson.titleVi}
                                     onPress={() => {
-                                      if (isReviewGameCompleted || isReviewGameCurrent) {
+                                      if (
+                                        isReviewGameCompleted ||
+                                        isReviewGameCurrent
+                                      ) {
                                         navigation.navigate('ReviewGame', {
                                           lessonId: section.lesson.id,
                                           learningMode,
@@ -776,7 +815,7 @@ export function HomeScreen({ navigation }: Props) {
                                   />
 
                                   {section.lessonIndex <
-                                    mapSections.length - 1 ? (
+                                  mapSections.length - 1 ? (
                                     <MapConnector
                                       from={lessonMonumentAlignment}
                                       isComplete={isLessonCompleted}
@@ -795,7 +834,7 @@ export function HomeScreen({ navigation }: Props) {
                 ) : null}
               </View>
             </ScrollView>
-            
+
             {showFocusButton && activeTab === 'map' ? (
               <Pressable style={styles.focusFab} onPress={scrollToCurrentNode}>
                 <SKidsIcon name="focusLesson" size={32} />
@@ -831,8 +870,221 @@ export function HomeScreen({ navigation }: Props) {
           onSelectMap={() => setActiveTab('map')}
           onSelectPlay={() => setActiveTab('play')}
         />
+        <SKidsHubSheet
+          activeThemeEmoji={activeTheme?.thumbnailEmoji ?? '★'}
+          activeThemeTitle={activeTheme?.titleVi ?? 'Bản đồ S-Kids'}
+          completed={completedSceneCount}
+          hasPendingReviewGame={hasPendingReviewGame}
+          isComplete={isThemeComplete}
+          nextNode={ctaNode}
+          onClose={closeHub}
+          onFocusCurrent={handleHubFocusPress}
+          onOpenPrimary={handleHubPrimaryPress}
+          pendingReviewLesson={pendingReviewLesson}
+          total={mapNodes.length}
+          visible={isHubOpen}
+        />
       </View>
     </Screen>
+  );
+}
+
+type SKidsHubSheetProps = {
+  activeThemeEmoji: string;
+  activeThemeTitle: string;
+  completed: number;
+  hasPendingReviewGame: boolean;
+  isComplete: boolean;
+  nextNode: ThemeMapNode | undefined;
+  onClose: () => void;
+  onFocusCurrent: () => void;
+  onOpenPrimary: () => void;
+  pendingReviewLesson: Lesson | undefined;
+  total: number;
+  visible: boolean;
+};
+
+function SKidsHubSheet({
+  activeThemeEmoji,
+  activeThemeTitle,
+  completed,
+  hasPendingReviewGame,
+  isComplete,
+  nextNode,
+  onClose,
+  onFocusCurrent,
+  onOpenPrimary,
+  pendingReviewLesson,
+  total,
+  visible,
+}: SKidsHubSheetProps) {
+  const safeTotal = Math.max(total, 0);
+  const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
+  const completionPercent =
+    safeTotal > 0 ? Math.round((safeCompleted / safeTotal) * 100) : 0;
+  const primaryActionDisabled = !hasPendingReviewGame && !nextNode;
+  const heroIconName: SKidsIconName = hasPendingReviewGame
+    ? 'replay'
+    : isComplete
+    ? 'star'
+    : 'focusLesson';
+  const heroTitle = hasPendingReviewGame
+    ? `Ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'}`
+    : isComplete
+    ? 'Bản đồ đã đủ sao'
+    : nextNode?.scene.titleVi ?? 'Sẵn sàng học tiếp';
+  const heroSubtitle = hasPendingReviewGame
+    ? 'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.'
+    : isComplete
+    ? 'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.'
+    : nextNode
+    ? `${nextNode.lessonTitleVi} · Trạm ${nextNode.sceneIndexInLesson + 1}/${
+        nextNode.sceneCountInLesson
+      }`
+    : 'Bản đồ sẽ hiện bài mới khi có nội dung.';
+  const primaryLabel = hasPendingReviewGame
+    ? 'Chơi ôn tập'
+    : isComplete
+    ? 'Chơi lại trạm đầu'
+    : 'Học tiếp';
+  const giftText = hasPendingReviewGame
+    ? 'Xong phần ôn tập, bé nhận thêm sticker thưởng.'
+    : isComplete
+    ? 'Chơi lại một trạm để giữ cảm giác tự tin.'
+    : 'Hoàn thành trạm hôm nay để nhận sticker mới.';
+
+  return (
+    <Modal
+      animationType="fade"
+      onRequestClose={onClose}
+      transparent
+      visible={visible}
+    >
+      <View style={styles.hubModalRoot}>
+        <Pressable
+          accessibilityLabel="Đóng S-Kids Hub"
+          onPress={onClose}
+          style={styles.hubBackdrop}
+        />
+        <View style={styles.hubSheet}>
+          <View style={styles.hubHandle} />
+          <ScrollView
+            contentContainerStyle={styles.hubSheetContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <View style={styles.hubHeader}>
+              <View style={styles.hubLogoBadge}>
+                <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
+              </View>
+              <View style={styles.hubHeaderText}>
+                <Text style={styles.hubEyebrow}>S-Kids Hub</Text>
+                <Text style={styles.hubTitle}>Hôm nay mình đi đâu?</Text>
+              </View>
+              <Pressable
+                accessibilityLabel="Đóng S-Kids Hub"
+                accessibilityRole="button"
+                onPress={onClose}
+                style={({ pressed }) => [
+                  styles.hubCloseButton,
+                  pressed && styles.hubButtonPressed,
+                ]}
+              >
+                <Text style={styles.hubCloseText}>Đóng</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.hubHeroCard}>
+              <View style={styles.hubHeroIcon}>
+                <SKidsIcon name={heroIconName} size={54} />
+              </View>
+              <View style={styles.hubHeroText}>
+                <Text numberOfLines={2} style={styles.hubHeroTitle}>
+                  {heroTitle}
+                </Text>
+                <Text style={styles.hubHeroSubtitle}>{heroSubtitle}</Text>
+              </View>
+            </View>
+
+            <View style={styles.hubProgressBlock}>
+              <View style={styles.hubProgressTopRow}>
+                <Text style={styles.hubSectionTitle}>{activeThemeTitle}</Text>
+                <Text style={styles.hubProgressLabel}>
+                  {safeCompleted}/{safeTotal}
+                </Text>
+              </View>
+              <View
+                accessibilityLabel={`Bé đã hoàn thành ${completionPercent} phần trăm bản đồ`}
+                accessibilityRole="progressbar"
+                style={styles.hubProgressTrack}
+              >
+                <View
+                  style={[
+                    styles.hubProgressFill,
+                    { width: `${completionPercent}%` },
+                  ]}
+                />
+              </View>
+            </View>
+
+            <View style={styles.hubStatsRow}>
+              <View style={styles.hubStatCard}>
+                <Text style={styles.hubStatValue}>{safeCompleted}</Text>
+                <Text style={styles.hubStatLabel}>Sao đã nhận</Text>
+              </View>
+              <View style={styles.hubStatCard}>
+                <Text style={styles.hubStatValue}>
+                  {Math.max(safeTotal - safeCompleted, 0)}
+                </Text>
+                <Text style={styles.hubStatLabel}>Trạm còn lại</Text>
+              </View>
+            </View>
+
+            <View style={styles.hubGiftCard}>
+              <View style={styles.hubGiftIcon}>
+                <SKidsIcon name="sticker" size={40} />
+              </View>
+              <View style={styles.hubGiftText}>
+                <Text style={styles.hubGiftTitle}>Quà hôm nay</Text>
+                <Text style={styles.hubGiftCopy}>{giftText}</Text>
+              </View>
+            </View>
+
+            <View style={styles.hubActions}>
+              <Pressable
+                accessibilityLabel={primaryLabel}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: primaryActionDisabled }}
+                disabled={primaryActionDisabled}
+                onPress={onOpenPrimary}
+                style={({ pressed }) => [
+                  styles.hubPrimaryAction,
+                  pressed && !primaryActionDisabled && styles.hubButtonPressed,
+                  primaryActionDisabled && styles.hubActionDisabled,
+                ]}
+              >
+                <Text style={styles.hubPrimaryActionText}>{primaryLabel}</Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Đưa bản đồ về trạm hiện tại"
+                accessibilityRole="button"
+                accessibilityState={{ disabled: !nextNode }}
+                disabled={!nextNode}
+                onPress={onFocusCurrent}
+                style={({ pressed }) => [
+                  styles.hubSecondaryAction,
+                  pressed && nextNode && styles.hubButtonPressed,
+                  !nextNode && styles.hubActionDisabled,
+                ]}
+              >
+                <Text style={styles.hubSecondaryActionText}>
+                  Về trạm hiện tại
+                </Text>
+              </Pressable>
+            </View>
+          </ScrollView>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -868,13 +1120,16 @@ function SceneMapStop({
   scene,
 }: SceneMapStopProps) {
   const isAvailable = !isCompleted && !isCurrent && !isLocked;
-  const lessonPosition = `Bài ${lessonIndex + 1
-    }/${lessonCount}: ${lessonTitleVi}, trạm ${sceneIndexInLesson + 1
-    }/${sceneCountInLesson}`;
+  const lessonPosition = `Bài ${
+    lessonIndex + 1
+  }/${lessonCount}: ${lessonTitleVi}, trạm ${
+    sceneIndexInLesson + 1
+  }/${sceneCountInLesson}`;
   const accessibilityLabel = isLocked
     ? `${lessonPosition}: ${scene.titleVi} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi
-    }`;
+    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${
+        scene.titleVi
+      }`;
 
   return (
     <Pressable
@@ -1556,6 +1811,274 @@ const styles = StyleSheet.create({
     color: colors.text,
     textAlign: 'center',
     ...typography.subtitle,
+  },
+  hubActionDisabled: {
+    opacity: 0.48,
+  },
+  hubActions: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  hubBackdrop: {
+    backgroundColor: 'rgba(37, 54, 66, 0.32)',
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  hubButtonPressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
+  },
+  hubCloseButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    justifyContent: 'center',
+    minHeight: 42,
+    paddingHorizontal: spacing.md,
+  },
+  hubCloseText: {
+    color: colors.primaryDark,
+    fontSize: 13,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 17,
+  },
+  hubEyebrow: {
+    color: colors.primaryDark,
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 15,
+    textTransform: 'uppercase',
+  },
+  hubGiftCard: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceSoft,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    padding: spacing.md,
+  },
+  hubGiftCopy: {
+    color: colors.textSoft,
+    flexShrink: 1,
+    ...typography.caption,
+  },
+  hubGiftIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 56,
+    justifyContent: 'center',
+    width: 56,
+  },
+  hubGiftText: {
+    flex: 1,
+    gap: 2,
+  },
+  hubGiftTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  hubHandle: {
+    alignSelf: 'center',
+    backgroundColor: colors.border,
+    borderRadius: radius.pill,
+    height: 5,
+    marginTop: spacing.sm,
+    width: 56,
+  },
+  hubHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  hubHeaderText: {
+    flex: 1,
+    gap: 2,
+    minWidth: 0,
+  },
+  hubHeroCard: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.white,
+    borderRadius: radius.lg,
+    borderWidth: 3,
+    flexDirection: 'row',
+    gap: spacing.md,
+    padding: spacing.md,
+    ...shadows.soft,
+  },
+  hubHeroIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 72,
+    justifyContent: 'center',
+    width: 72,
+  },
+  hubHeroSubtitle: {
+    color: colors.textSoft,
+    flexShrink: 1,
+    ...typography.caption,
+  },
+  hubHeroText: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  hubHeroTitle: {
+    color: colors.text,
+    fontSize: 21,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 26,
+  },
+  hubLogoBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 54,
+    justifyContent: 'center',
+    width: 54,
+    ...shadows.soft,
+  },
+  hubLogoEmoji: {
+    fontSize: 28,
+    lineHeight: 34,
+  },
+  hubModalRoot: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  hubPrimaryAction: {
+    alignItems: 'center',
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 58,
+    paddingHorizontal: spacing.md,
+    ...shadows.warm,
+  },
+  hubPrimaryActionText: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.button,
+  },
+  hubProgressBlock: {
+    gap: spacing.xs,
+  },
+  hubProgressFill: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  hubProgressLabel: {
+    color: colors.primaryDark,
+    fontSize: 15,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 18,
+  },
+  hubProgressTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'space-between',
+  },
+  hubProgressTrack: {
+    backgroundColor: colors.border,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 18,
+    overflow: 'hidden',
+  },
+  hubSecondaryAction: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.sky,
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 58,
+    paddingHorizontal: spacing.md,
+  },
+  hubSecondaryActionText: {
+    color: colors.primaryDark,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  hubSectionTitle: {
+    color: colors.text,
+    flex: 1,
+    ...typography.caption,
+  },
+  hubSheet: {
+    backgroundColor: colors.white,
+    borderColor: 'rgba(255, 255, 255, 0.9)',
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    borderWidth: 1,
+    maxHeight: '86%',
+    overflow: 'hidden',
+    ...shadows.floating,
+  },
+  hubSheetContent: {
+    gap: spacing.md,
+    padding: spacing.lg,
+    paddingBottom: spacing.xl,
+  },
+  hubStatCard: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    flex: 1,
+    gap: spacing.xxs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.md,
+  },
+  hubStatLabel: {
+    color: colors.textSoft,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  hubStatsRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  hubStatValue: {
+    color: colors.text,
+    fontSize: 30,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 34,
+  },
+  hubTitle: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 27,
   },
   learningMap: {
     minHeight: 520,
