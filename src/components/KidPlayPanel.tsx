@@ -58,20 +58,13 @@ export function KidPlayPanel({
     <>
       <View style={styles.header}>
         <KidBadge tone="teal">Chơi</KidBadge>
-        <Text style={styles.title}>Chọn game muốn chơi</Text>
-        <Text style={styles.subtitle}>
-          Các game sẽ mở khi bé học đủ cảnh trong gói bài. Bé có thể quay lại
-          luyện trí nhớ và nghe từ vựng bất cứ lúc nào.
-        </Text>
-        <View style={styles.summaryRow}>
-          {pendingReviewLesson ? (
-            <KidBadge tone="alert">1 game đang chờ</KidBadge>
-          ) : (
-            <KidBadge tone="sun">
-              {unlockedCount}/{reviewLessons.length} game đã mở
-            </KidBadge>
-          )}
-        </View>
+        {pendingReviewLesson ? (
+          <KidBadge tone="alert">1 game</KidBadge>
+        ) : (
+          <KidBadge tone="sun">
+            {unlockedCount}/{reviewLessons.length}
+          </KidBadge>
+        )}
       </View>
 
       <View style={styles.list}>
@@ -87,9 +80,26 @@ export function KidPlayPanel({
             completedSceneIds,
             lesson.id,
           );
+          const statusLabel = isPending
+            ? 'Chơi ngay'
+            : isUnlocked
+            ? isCompleted
+              ? 'Chơi lại'
+              : 'Đã mở'
+            : 'Đang khóa';
+          const actionIcon = !isUnlocked
+            ? 'parentLock'
+            : isCompleted
+            ? 'star'
+            : 'replay';
 
           return (
             <Pressable
+              accessibilityLabel={`${lesson.titleVi}. ${
+                lesson.reviewGame?.titleVi ?? 'Game lật thẻ'
+              }. ${statusLabel}. ${completedSceneCount}/${
+                lesson.scenes.length
+              } cảnh.`}
               accessibilityRole="button"
               accessibilityState={{ disabled: !isUnlocked }}
               disabled={!isUnlocked}
@@ -128,29 +138,25 @@ export function KidPlayPanel({
                       <KidBadge
                         tone={isPending ? 'alert' : isUnlocked ? 'teal' : 'sky'}
                       >
-                        {isPending
-                          ? 'Chơi ngay'
-                          : isUnlocked
-                          ? isCompleted
-                            ? 'Chơi lại'
-                            : 'Đã mở khóa'
-                          : 'Đang khóa'}
+                        {statusLabel}
                       </KidBadge>
                       <KidBadge tone="sun">
-                        {completedSceneCount}/{lesson.scenes.length} cảnh
+                        {completedSceneCount}/{lesson.scenes.length}
                       </KidBadge>
                     </View>
                     <Text style={styles.lessonTitle}>{lesson.titleVi}</Text>
                     <Text style={styles.gameTitle}>
                       {lesson.reviewGame?.titleVi ?? 'Game lật thẻ'}
                     </Text>
-                    <Text style={styles.hintText}>
-                      {isPending
-                        ? 'Game lật thẻ đang chờ bé chơi sau khi hoàn thành gói.'
-                        : isUnlocked
-                        ? 'Bấm để chơi lật thẻ hình giống nhau.'
-                        : 'Hoàn thành đủ các cảnh để mở game.'}
-                    </Text>
+                  </View>
+
+                  <View
+                    style={[
+                      styles.actionBox,
+                      !isUnlocked && styles.actionBoxLocked,
+                    ]}
+                  >
+                    <SKidsIcon name={actionIcon} size={42} />
                   </View>
                 </View>
               </AppCard>
@@ -189,12 +195,11 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   header: {
+    alignItems: 'center',
+    flexDirection: 'row',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
-  },
-  hintText: {
-    color: colors.textSoft,
-    ...typography.caption,
+    justifyContent: 'space-between',
+    marginBottom: spacing.md,
   },
   iconBox: {
     alignItems: 'center',
@@ -234,16 +239,18 @@ const styles = StyleSheet.create({
   reviewCardUnlocked: {
     borderColor: colors.primary,
   },
-  subtitle: {
-    color: colors.textSoft,
-    ...typography.body,
+  actionBox: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 60,
+    justifyContent: 'center',
+    width: 60,
   },
-  summaryRow: {
-    alignItems: 'flex-start',
-    marginTop: spacing.xs,
-  },
-  title: {
-    color: colors.text,
-    ...typography.title,
+  actionBoxLocked: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
   },
 });

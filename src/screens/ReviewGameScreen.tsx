@@ -1,13 +1,15 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
-import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
+import { SKidsIcon } from '../components/SKidsIcon';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
+import { memoryGameIntroPromptVi } from '../data/reviewGamePrompts';
+import { speakVi } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { completeLessonProgress } from '../engine/ProgressManager';
 import { GamePlayer } from '../games/GameRegistry';
@@ -22,6 +24,7 @@ import type {
   VocabularyItem,
 } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
+import { getLessonIconName } from '../utils/lessonIcons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
 
@@ -35,6 +38,17 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     () => (lesson ? getMemoryGameItems(lesson) : []),
     [lesson],
   );
+  const shouldPlayIntro = Boolean(
+    lesson?.reviewGame?.type === 'memory' && memoryItems.length >= 2,
+  );
+
+  useEffect(() => {
+    if (!shouldPlayIntro) {
+      return;
+    }
+
+    speakVi(memoryGameIntroPromptVi).catch(() => undefined);
+  }, [route.params.lessonId, shouldPlayIntro]);
 
   const handleComplete = async () => {
     if (!lesson || isCompleting) {
@@ -50,7 +64,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       setIsCompleting(false);
     }
 
-    navigation.replace('Reward', { lessonId: lesson.id });
+    navigation.replace('Reward', {
+      lessonId: lesson.id,
+      playedWordIds: memoryItems.map(item => item.id),
+    });
   };
 
   if (!lesson) {
@@ -108,20 +125,22 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   return (
     <Screen scroll>
       <View style={styles.container}>
-        <AppCard style={styles.headerCard}>
-          <View style={styles.headerTopRow}>
-            <KidBadge tone="teal">Ôn tập nhẹ</KidBadge>
-            <KidBadge tone="sun">{memoryItems.length} từ</KidBadge>
+        <View style={styles.header}>
+          <View style={styles.iconBox}>
+            <SKidsIcon name={getLessonIconName(lesson)} size={48} />
           </View>
-          <Text style={styles.title}>{lesson.reviewGame.titleVi}</Text>
-          <Text style={styles.subtitle}>
-            Bé lật hai hình giống nhau để luyện trí nhớ. Mỗi lần lật thẻ, app
-            sẽ đọc lại từ tiếng Anh.
-          </Text>
-        </AppCard>
+          <View style={styles.headerText}>
+            <View style={styles.headerTopRow}>
+              <KidBadge tone="teal">Lật thẻ</KidBadge>
+              <KidBadge tone="sun">{memoryItems.length} từ</KidBadge>
+            </View>
+            <Text numberOfLines={2} style={styles.title}>
+              {lesson.reviewGame.titleVi}
+            </Text>
+          </View>
+        </View>
 
         <GamePlayer
-          isCompleting={isCompleting}
           memoryItems={memoryItems}
           onComplete={handleComplete}
           reviewGame={lesson.reviewGame}
@@ -210,7 +229,7 @@ function getRenderableObjects(scene: Scene) {
 
 const styles = StyleSheet.create({
   container: {
-    gap: spacing.lg,
+    gap: spacing.md,
   },
   errorContainer: {
     alignItems: 'center',
@@ -229,22 +248,35 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.title,
   },
-  headerCard: {
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
-    gap: spacing.sm,
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
   },
   headerTopRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
-  subtitle: {
-    color: colors.textSoft,
-    ...typography.body,
+  headerText: {
+    flex: 1,
+    gap: spacing.xs,
+  },
+  iconBox: {
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    borderColor: colors.border,
+    borderRadius: 24,
+    borderWidth: 2,
+    height: 64,
+    justifyContent: 'center',
+    width: 64,
   },
   title: {
     color: colors.text,
-    ...typography.title,
+    fontSize: 24,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 29,
   },
 });

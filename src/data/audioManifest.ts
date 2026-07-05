@@ -7091,6 +7091,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "shared/audio/vi/correct.wav",
     text: "Đúng rồi! Bé giỏi quá!",
   },
+  [normalizeText("Con hãy tìm hai hình giống nhau nhé.")]: {
+    key: "shared/audio/vi/memory_game_intro.wav",
+    text: "Con hãy tìm hai hình giống nhau nhé.",
+  },
   [normalizeText("Cô nghe rồi! Giỏi quá!")]: {
     key: "shared/audio/vi/speak_encourage.wav",
     text: "Cô nghe rồi! Giỏi quá!",
