@@ -275,6 +275,9 @@ const audioManifestModule = loadTsModule(
 const speechPromptsModule = loadTsModule(
   join(repoRoot, 'src/data/speechPrompts.ts'),
 );
+const reviewGamePromptsModule = loadTsModule(
+  join(repoRoot, 'src/data/reviewGamePrompts.ts'),
+);
 const lessons = lessonsModule.lessons ?? [];
 const existingWordAudio = audioManifestModule.getWordAudioAsset;
 const existingViAudio = audioManifestModule.getViAudioAsset;
@@ -286,12 +289,14 @@ if (!Array.isArray(lessons) || lessons.length === 0) {
 const audioTargets = collectAudioTargets(lessons, {
   existingViAudio,
   existingWordAudio,
+  reviewGamePrompts: reviewGamePromptsModule,
   speechPrompts: speechPromptsModule,
 });
 const selectedAudioTargets = collectAudioTargets(lessons, {
   existingViAudio,
   existingWordAudio,
   lessonId: args.lesson,
+  reviewGamePrompts: reviewGamePromptsModule,
   sceneId: args.scene,
   speechPrompts: speechPromptsModule,
 });
@@ -411,7 +416,14 @@ Auth:
 
 function collectAudioTargets(
   lessonCatalog,
-  { existingViAudio, existingWordAudio, lessonId, sceneId, speechPrompts },
+  {
+    existingViAudio,
+    existingWordAudio,
+    lessonId,
+    reviewGamePrompts,
+    sceneId,
+    speechPrompts,
+  },
 ) {
   const targets = new Map();
 
@@ -501,6 +513,11 @@ function collectAudioTargets(
     defaultKey: 'shared/audio/vi/correct.wav',
     existingViAudio,
     text: 'Đúng rồi! Bé giỏi quá!',
+  });
+  addSharedViTarget(targets, {
+    defaultKey: 'shared/audio/vi/memory_game_intro.wav',
+    existingViAudio,
+    text: reviewGamePrompts.memoryGameIntroPromptVi,
   });
 
   return Array.from(targets.values()).sort((left, right) =>

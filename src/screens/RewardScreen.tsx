@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
@@ -13,7 +13,9 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { playCompleteSound } from '../engine/AudioManager';
+import { playCompleteSound, speakWord } from '../engine/AudioManager';
+import { resolveAsset } from '../engine/AssetRegistry';
+import type { SceneObject } from '../types/lesson';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -26,7 +28,12 @@ export function RewardScreen({ navigation, route }: Props) {
   const reward = lesson ? getLessonReward(lesson.id) : null;
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
-  const learnedWords = useMemo(() => {
+  const displayWords = useMemo(() => {
+    if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
+      const playedSet = new Set(route.params.playedWordIds);
+      return lessonVocabulary.filter(item => playedSet.has(item.id));
+    }
+
     if (!progress) {
       return lessonVocabulary;
     }
@@ -37,7 +44,28 @@ export function RewardScreen({ navigation, route }: Props) {
     );
 
     return filteredWords.length > 0 ? filteredWords : lessonVocabulary;
-  }, [lessonVocabulary, progress]);
+  }, [lessonVocabulary, progress, route.params.playedWordIds]);
+
+  const vocabImages = useMemo(() => {
+    if (!lesson) {
+      return new Map<string, SceneObject>();
+    }
+    const objectByVocabId = new Map<string, SceneObject>();
+    lesson.scenes.forEach(scene => {
+      const renderables = scene.character ? [scene.character, ...scene.objects] : scene.objects;
+      renderables.forEach(object => {
+        if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
+          objectByVocabId.set(object.vocabId, object);
+        }
+      });
+    });
+    return objectByVocabId;
+  }, [lesson]);
+
+  const currentLessonIndex = lesson ? lessons.findIndex(l => l.id === lesson.id) : -1;
+  const nextLesson = currentLessonIndex !== -1 && currentLessonIndex < lessons.length - 1
+    ? lessons[currentLessonIndex + 1]
+    : null;
 
   useEffect(() => {
     let isMounted = true;
@@ -90,31 +118,61 @@ export function RewardScreen({ navigation, route }: Props) {
 
         <AppCard style={styles.wordsCard}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Sổ từ mới</Text>
-            <KidBadge tone="teal">{learnedWords.length} từ</KidBadge>
+            <Text style={styles.sectionTitle}>Các từ bé vừa học</Text>
+            <KidBadge tone="teal">{displayWords.length} từ</KidBadge>
           </View>
           <View style={styles.wordList}>
-            {learnedWords.map(item => (
-              <View key={item.id} style={styles.wordChip}>
-                <Text style={styles.word}>{item.word}</Text>
-                <Text style={styles.meaning}>{item.meaningVi}</Text>
-              </View>
-            ))}
+            {displayWords.map(item => {
+              const obj = vocabImages.get(item.id);
+              const imgSource = obj ? resolveAsset(obj.asset.source) : null;
+              
+              return (
+                <Pressable
+                  key={item.id}
+                  style={({ pressed }) => [styles.wordChip, pressed && styles.wordChipPressed]}
+                  onPress={() => speakWord(item.word).catch(() => undefined)}
+                >
+                  {imgSource && (
+                    <Image source={imgSource as any} style={styles.wordImage} resizeMode="contain" />
+                  )}
+                  <Text style={styles.word}>{item.word}</Text>
+                </Pressable>
+              );
+            })}
           </View>
         </AppCard>
 
         <View style={styles.actions}>
-          <AppButton
-            title="Học lại"
-            onPress={() =>
-              navigation.replace('LessonPack', { lessonId: lesson.id })
-            }
-          />
-          <AppButton
-            title="Về trang chủ"
-            variant="secondary"
-            onPress={() => navigation.popToTop()}
-          />
+          {nextLesson ? (
+            <>
+              <AppButton
+                title={`Bài tiếp: ${nextLesson.titleVi}`}
+                onPress={() => navigation.replace('LessonPack', { lessonId: nextLesson.id })}
+              />
+              <AppButton
+                title="Về danh sách bài học"
+                variant="secondary"
+                onPress={() => navigation.navigate('LessonList')}
+              />
+              <AppButton
+                title="Chơi lại bài này"
+                variant="outlined"
+                onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
+              />
+            </>
+          ) : (
+            <>
+              <AppButton
+                title="Về danh sách bài học"
+                onPress={() => navigation.navigate('LessonList')}
+              />
+              <AppButton
+                title="Chơi lại bài này"
+                variant="secondary"
+                onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
+              />
+            </>
+          )}
         </View>
       </View>
     </Screen>
@@ -195,17 +253,25 @@ const styles = StyleSheet.create({
   },
   wordChip: {
     alignItems: 'center',
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
+    backgroundColor: colors.white,
+    borderColor: colors.border,
     borderRadius: radius.lg,
-    borderWidth: 1,
+    borderWidth: 2,
     flexBasis: '45%',
     flexGrow: 1,
-    gap: spacing.xs,
-    minHeight: 86,
+    gap: spacing.sm,
+    minHeight: 120,
     justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.md,
+    padding: spacing.sm,
+  },
+  wordChipPressed: {
+    backgroundColor: colors.cream,
+    borderColor: colors.secondary,
+    transform: [{ scale: 0.98 }],
+  },
+  wordImage: {
+    height: 72,
+    width: '100%',
   },
   wordList: {
     flexDirection: 'row',

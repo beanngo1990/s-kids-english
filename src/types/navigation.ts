@@ -19,6 +19,7 @@ export type RootStackParamList = {
   ReviewLibrary: undefined;
   Reward: {
     lessonId: string;
+    playedWordIds?: string[];
   };
   Parent: undefined;
 };

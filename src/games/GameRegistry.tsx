@@ -12,14 +12,12 @@ import {
 } from './memory/MemoryGame';
 
 type GamePlayerProps = {
-  isCompleting?: boolean;
   memoryItems: MemoryGameItem[];
   onComplete: () => void;
   reviewGame: ReviewGame;
 };
 
 export function GamePlayer({
-  isCompleting,
   memoryItems,
   onComplete,
   reviewGame,
@@ -28,7 +26,6 @@ export function GamePlayer({
     case 'memory':
       return (
         <MemoryGame
-          isCompleting={isCompleting}
           items={memoryItems}
           onComplete={onComplete}
         />

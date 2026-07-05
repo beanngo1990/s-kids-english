@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
   Image,
+  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -8,7 +10,7 @@ import {
   type ImageSourcePropType,
 } from 'react-native';
 
-import { AppButton } from '../../components/AppButton';
+
 import {
   playCompleteSound,
   playCorrectSound,
@@ -32,13 +34,11 @@ type MemoryCard = MemoryGameItem & {
 };
 
 type MemoryGameProps = {
-  isCompleting?: boolean;
   items: MemoryGameItem[];
   onComplete: () => void;
 };
 
 export function MemoryGame({
-  isCompleting = false,
   items,
   onComplete,
 }: MemoryGameProps) {
@@ -52,6 +52,8 @@ export function MemoryGame({
   const [turnCount, setTurnCount] = useState(0);
   const checkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const completionSoundPlayedRef = useRef(false);
+  const popupScale = useRef(new Animated.Value(0.5)).current;
+  const popupOpacity = useRef(new Animated.Value(0)).current;
 
   const isComplete = items.length > 0 && matchedItemIds.length === items.length;
   const cardBasis = cards.length <= 8 ? '30%' : '22%';
@@ -64,7 +66,9 @@ export function MemoryGame({
     setIsCheckingPair(false);
     setTurnCount(0);
     completionSoundPlayedRef.current = false;
-  }, [itemKey, items]);
+    popupScale.setValue(0.5);
+    popupOpacity.setValue(0);
+  }, [itemKey, items, popupScale, popupOpacity]);
 
   useEffect(() => {
     return () => {
@@ -79,7 +83,29 @@ export function MemoryGame({
 
     completionSoundPlayedRef.current = true;
     playCompleteSound().catch(() => undefined);
-  }, [isComplete]);
+
+    Animated.parallel([
+      Animated.spring(popupScale, {
+        toValue: 1,
+        friction: 5,
+        tension: 60,
+        useNativeDriver: true,
+      }),
+      Animated.timing(popupOpacity, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    const timerId = setTimeout(() => {
+      onComplete();
+    }, 2500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [isComplete, popupScale, popupOpacity, onComplete]);
 
   const handleCardPress = (card: MemoryCard) => {
     const isCardVisible =
@@ -180,25 +206,21 @@ export function MemoryGame({
         })}
       </View>
 
-      <View style={styles.helperBox}>
-        <Text style={styles.helperText}>
-          Lật hai hình giống nhau. Mỗi lần lật, bé sẽ nghe lại từ tiếng Anh.
-        </Text>
-      </View>
-
-      {isComplete ? (
-        <View style={styles.completeBox}>
-          <Text style={styles.completeTitle}>Giỏi lắm!</Text>
-          <Text style={styles.completeText}>
-            Bé đã tìm đủ các cặp hình và nghe lại {items.length} từ.
-          </Text>
-          <AppButton
-            disabled={isCompleting}
-            title={isCompleting ? 'Đang lưu...' : 'Nhận sticker'}
-            onPress={onComplete}
-          />
+      <Modal visible={isComplete} transparent={true} animationType="fade">
+        <View style={styles.celebrationOverlay} pointerEvents="none">
+          <Animated.View
+            style={[
+              styles.celebrationIcon,
+              {
+                opacity: popupOpacity,
+                transform: [{ scale: popupScale }],
+              },
+            ]}
+          >
+            <Text style={styles.celebrationEmoji}>🎉</Text>
+          </Animated.View>
         </View>
-      ) : null}
+      </Modal>
     </View>
   );
 }
@@ -278,24 +300,29 @@ const styles = StyleSheet.create({
     opacity: 0.88,
     transform: [{ scale: 0.98 }],
   },
-  completeBox: {
+  celebrationEmoji: {
+    fontSize: 96,
+  },
+  celebrationIcon: {
     alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
+    backgroundColor: colors.white,
     borderColor: colors.secondary,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    gap: spacing.sm,
-    padding: spacing.md,
+    borderRadius: 100,
+    borderWidth: 6,
+    elevation: 12,
+    height: 160,
+    justifyContent: 'center',
+    shadowColor: colors.primaryDark,
+    shadowOffset: { height: 6, width: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    width: 160,
   },
-  completeText: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.body,
-  },
-  completeTitle: {
-    color: colors.text,
-    textAlign: 'center',
-    ...typography.subtitle,
+  celebrationOverlay: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    flex: 1,
+    justifyContent: 'center',
   },
   container: {
     gap: spacing.md,
@@ -304,19 +331,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-  },
-  helperBox: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  helperText: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.caption,
   },
   statusPill: {
     backgroundColor: colors.white,

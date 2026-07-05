@@ -1859,6 +1859,7 @@ export const generatedAudioRegistry: Record<string, ImageRequireSource> = {
   'shared/audio/sfx/sfx_wrong.wav': require('../assets/shared/audio/sfx/sfx_wrong.wav'),
   'shared/audio/sfx/sfx_yay.wav': require('../assets/shared/audio/sfx/sfx_yay.wav'),
   'shared/audio/vi/correct.wav': require('../assets/shared/audio/vi/correct.wav'),
+  'shared/audio/vi/memory_game_intro.wav': require('../assets/shared/audio/vi/memory_game_intro.wav'),
   'shared/audio/vi/speak_encourage.wav': require('../assets/shared/audio/vi/speak_encourage.wav'),
   'shared/audio/vi/speak_prompt.wav': require('../assets/shared/audio/vi/speak_prompt.wav'),
 };
