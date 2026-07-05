@@ -31,7 +31,7 @@ const tabs: Array<{
   },
   {
     accessibilityLabel: 'Mở khu chơi',
-    icon: 'replay',
+    icon: 'playZone',
     id: 'play',
     label: 'Chơi',
   },

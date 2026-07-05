@@ -58,7 +58,7 @@ export function KidModeHeader({
           />
           <KidIconButton
             accessibilityLabel="Góc phụ huynh"
-            icon="parentLock"
+            icon="parentGate"
             onPress={onOpenParent}
             size="md"
             style={styles.parentGate}
