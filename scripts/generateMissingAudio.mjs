@@ -278,6 +278,9 @@ const speechPromptsModule = loadTsModule(
 const reviewGamePromptsModule = loadTsModule(
   join(repoRoot, 'src/data/reviewGamePrompts.ts'),
 );
+const mascotPromptsModule = loadTsModule(
+  join(repoRoot, 'src/data/mascotPrompts.ts'),
+);
 const lessons = lessonsModule.lessons ?? [];
 const existingWordAudio = audioManifestModule.getWordAudioAsset;
 const existingViAudio = audioManifestModule.getViAudioAsset;
@@ -289,6 +292,7 @@ if (!Array.isArray(lessons) || lessons.length === 0) {
 const audioTargets = collectAudioTargets(lessons, {
   existingViAudio,
   existingWordAudio,
+  mascotPrompts: mascotPromptsModule,
   reviewGamePrompts: reviewGamePromptsModule,
   speechPrompts: speechPromptsModule,
 });
@@ -296,6 +300,7 @@ const selectedAudioTargets = collectAudioTargets(lessons, {
   existingViAudio,
   existingWordAudio,
   lessonId: args.lesson,
+  mascotPrompts: mascotPromptsModule,
   reviewGamePrompts: reviewGamePromptsModule,
   sceneId: args.scene,
   speechPrompts: speechPromptsModule,
@@ -420,6 +425,7 @@ function collectAudioTargets(
     existingViAudio,
     existingWordAudio,
     lessonId,
+    mascotPrompts,
     reviewGamePrompts,
     sceneId,
     speechPrompts,
@@ -519,6 +525,13 @@ function collectAudioTargets(
     existingViAudio,
     text: reviewGamePrompts.memoryGameIntroPromptVi,
   });
+  for (const text of mascotPrompts.sugaSpeechLines ?? []) {
+    addSharedViTarget(targets, {
+      defaultKey: getSugaAudioKey(text),
+      existingViAudio,
+      text,
+    });
+  }
 
   return Array.from(targets.values()).sort((left, right) =>
     left.key.localeCompare(right.key),
@@ -594,6 +607,10 @@ function getCompletionAudioKey(lessonId, sceneId, text) {
   return `lessons/${lessonId}/${sceneId}/audio/vi/completion_${textDigest(
     text,
   )}.wav`;
+}
+
+function getSugaAudioKey(text) {
+  return `shared/audio/vi/suga/${slug(text)}_${textDigest(text)}.wav`;
 }
 
 function stripScenePrefix(sceneId, stepId) {

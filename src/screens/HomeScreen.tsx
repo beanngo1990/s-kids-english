@@ -22,10 +22,17 @@ import { KidBadge } from '../components/KidBadge';
 import { KidModeHeader } from '../components/KidModeHeader';
 import { KidModeTabs, type KidModeTab } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
+import { MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import {
+  sugaHomeCompleteTapMessages,
+  sugaHomeGuideTapMessages,
+  sugaHomeReviewTapMessages,
+} from '../data/mascotPrompts';
 import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
+import { playTapSound, speakVi } from '../engine/AudioManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { colors } from '../theme/colors';
@@ -42,6 +49,11 @@ import {
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
+
+function speakSugaLine(message: string) {
+  playTapSound().catch(() => undefined);
+  speakVi(message).catch(() => undefined);
+}
 
 type ThemeMapNode = {
   key: string;
@@ -137,6 +149,30 @@ export function HomeScreen({ navigation }: Props) {
   const ctaNode =
     shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
   const currentLessonId = ctaNode?.lessonId;
+  const homeCoachMessage = isThemeComplete
+    ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
+    : hasPendingReviewGame
+      ? `Mình cùng ôn lại ${
+          pendingReviewLesson?.titleVi ?? 'bài vừa học'
+        } nhé!`
+      : ctaNode
+        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
+        : 'Hôm nay mình học cùng Suga nhé!';
+  const homeCoachPose = isThemeComplete
+    ? 'greatJob'
+    : hasPendingReviewGame
+      ? 'learn'
+      : 'letsGo';
+  const homeCoachTone = isThemeComplete
+    ? 'success'
+    : hasPendingReviewGame
+      ? 'hint'
+      : 'guide';
+  const homeCoachTapMessages = isThemeComplete
+    ? sugaHomeCompleteTapMessages
+    : hasPendingReviewGame
+      ? sugaHomeReviewTapMessages
+      : sugaHomeGuideTapMessages;
 
   const updateMapLayoutY = useCallback(
     (
@@ -279,6 +315,16 @@ export function HomeScreen({ navigation }: Props) {
                     }
                     style={styles.world}
                   >
+                    <MascotSpeechBubble
+                      mascotSize="sm"
+                      message={homeCoachMessage}
+                      onMascotPress={speakSugaLine}
+                      pose={homeCoachPose}
+                      style={styles.mapCoach}
+                      tapMessages={homeCoachTapMessages}
+                      title="Suga dẫn đường"
+                      tone={homeCoachTone}
+                    />
                     <View
                       onLayout={(event: LayoutChangeEvent) =>
                         updateMapLayoutY(
@@ -1438,6 +1484,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xs,
     paddingTop: spacing.sm,
     position: 'relative',
+  },
+  mapCoach: {
+    marginHorizontal: spacing.xs,
   },
   lessonSection: {
     marginBottom: spacing.xs,
