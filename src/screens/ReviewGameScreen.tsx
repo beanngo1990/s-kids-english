@@ -11,6 +11,7 @@ import { lessons } from '../data/lessons';
 import { memoryGameIntroPromptVi } from '../data/reviewGamePrompts';
 import { speakVi } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import { completeLessonProgress } from '../engine/ProgressManager';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
@@ -18,6 +19,7 @@ import { colors } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type {
+  LearningMode,
   Lesson,
   Scene,
   SceneObject,
@@ -34,9 +36,19 @@ const maxMemoryPairCount = 6;
 export function ReviewGameScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const [isCompleting, setIsCompleting] = useState(false);
+  const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
+    route.params.learningMode,
+  );
+
+  useEffect(() => {
+    if (!learningMode) {
+      getParentSettings().then(settings => setLearningMode(settings.learningMode));
+    }
+  }, [learningMode]);
+
   const memoryItems = useMemo(
-    () => (lesson ? getMemoryGameItems(lesson) : []),
-    [lesson],
+    () => (lesson && learningMode ? getMemoryGameItems(lesson, learningMode) : []),
+    [lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
     lesson?.reviewGame?.type === 'memory' && memoryItems.length >= 2,
@@ -150,7 +162,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   );
 }
 
-function getMemoryGameItems(lesson: Lesson): MemoryGameItem[] {
+function getMemoryGameItems(
+  lesson: Lesson,
+  learningMode: LearningMode,
+): MemoryGameItem[] {
   const vocabularyById = new Map<string, VocabularyItem>();
   const objectByVocabId = new Map<string, SceneObject>();
 
@@ -166,10 +181,12 @@ function getMemoryGameItems(lesson: Lesson): MemoryGameItem[] {
     });
   });
 
-  const configuredIds = getConfiguredVocabularyIds(lesson);
-  const selectedIds =
-    configuredIds.length > 0 ? configuredIds : Array.from(vocabularyById.keys());
-  const maxPairs = getMemoryPairCount(lesson.reviewGame?.config);
+  let selectedIds = Array.from(vocabularyById.keys());
+
+  // Randomize all available vocabulary to ensure the child reviews different words
+  selectedIds = selectedIds.sort(() => Math.random() - 0.5);
+
+  const maxPairs = getMemoryPairCount(lesson.reviewGame?.config, learningMode);
 
   return selectedIds
     .map(vocabId =>
@@ -213,14 +230,24 @@ function getConfiguredVocabularyIds(lesson: Lesson) {
   return vocabularyIds.filter((item): item is string => typeof item === 'string');
 }
 
-function getMemoryPairCount(config: Record<string, unknown> | undefined) {
+function getMemoryPairCount(
+  config: Record<string, unknown> | undefined,
+  learningMode: LearningMode,
+) {
   const pairCount = config?.pairCount ?? config?.maxPairs;
 
-  if (typeof pairCount !== 'number' || !Number.isFinite(pairCount)) {
-    return defaultMemoryPairCount;
+  if (typeof pairCount === 'number' && Number.isFinite(pairCount)) {
+    return Math.max(2, Math.min(maxMemoryPairCount, Math.floor(pairCount)));
   }
 
-  return Math.max(2, Math.min(maxMemoryPairCount, Math.floor(pairCount)));
+  if (learningMode === 'expanded') {
+    return 5;
+  }
+  if (learningMode === 'challenge') {
+    return 6;
+  }
+  
+  return defaultMemoryPairCount; // 4
 }
 
 function getRenderableObjects(scene: Scene) {
