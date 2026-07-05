@@ -15,6 +15,7 @@ export type RootStackParamList = {
   };
   ReviewGame: {
     lessonId: string;
+    learningMode?: LearningMode;
   };
   ReviewLibrary: undefined;
   Reward: {

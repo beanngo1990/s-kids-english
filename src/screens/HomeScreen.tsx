@@ -415,6 +415,15 @@ export function HomeScreen({ navigation }: Props) {
                           lessonProgress.total > 0 &&
                             lessonProgress.completed === lessonProgress.total,
                         );
+                        const isReviewGameCompleted = Boolean(
+                          section.lesson.reviewGame &&
+                            completedReviewGameIds.has(
+                              section.lesson.reviewGame.id,
+                            ),
+                        );
+                        const isReviewGameCurrent = Boolean(
+                          isLessonCompleted && !isReviewGameCompleted,
+                        );
                         const isLessonCurrent = Boolean(
                           !isThemeComplete &&
                             currentLessonId === section.lesson.id,
@@ -632,9 +641,17 @@ export function HomeScreen({ navigation }: Props) {
                                   <LessonMilestone
                                     alignment={lessonMonumentAlignment}
                                     iconName={lessonIconName}
-                                    isCompleted={isLessonCompleted}
-                                    isCurrent={isLessonCurrent}
+                                    isCompleted={isReviewGameCompleted}
+                                    isCurrent={isReviewGameCurrent}
                                     titleVi={section.lesson.titleVi}
+                                    onPress={() => {
+                                      if (isReviewGameCompleted || isReviewGameCurrent) {
+                                        navigation.navigate('ReviewGame', {
+                                          lessonId: section.lesson.id,
+                                          learningMode,
+                                        });
+                                      }
+                                    }}
                                   />
 
                                   {section.lessonIndex <
@@ -675,7 +692,7 @@ export function HomeScreen({ navigation }: Props) {
                 completedReviewGameIds={completedReviewGameIds}
                 completedSceneIds={completedSceneIds}
                 onOpenReviewGame={lessonId =>
-                  navigation.navigate('ReviewGame', { lessonId })
+                  navigation.navigate('ReviewGame', { lessonId, learningMode })
                 }
               />
             </ScrollView>
@@ -896,6 +913,7 @@ type LessonMilestoneProps = {
   isCompleted: boolean;
   isCurrent: boolean;
   titleVi: string;
+  onPress: () => void;
 };
 
 type LessonSectionHeaderProps = {
@@ -982,18 +1000,25 @@ function LessonMilestone({
   isCompleted,
   isCurrent,
   titleVi,
+  onPress,
 }: LessonMilestoneProps) {
   const starRating = getLessonStarRating(isCompleted);
 
   return (
-    <View
+    <Pressable
       accessibilityLabel={`Bài ${titleVi} đạt ${starRating} trên 3 sao`}
-      style={[
-        styles.lessonMilestone,
-        alignment === 'left' && styles.lessonMilestoneLeft,
-        alignment === 'center' && styles.lessonMilestoneCenter,
-        alignment === 'right' && styles.lessonMilestoneRight,
-      ]}
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => {
+        const isPressed = pressed && (isCurrent || isCompleted);
+        return [
+          styles.lessonMilestone,
+          alignment === 'left' && styles.lessonMilestoneLeft,
+          alignment === 'center' && styles.lessonMilestoneCenter,
+          alignment === 'right' && styles.lessonMilestoneRight,
+          isPressed && { opacity: 0.92, transform: [{ scale: 0.98 }] },
+        ];
+      }}
     >
       <View
         style={[
@@ -1040,6 +1065,11 @@ function LessonMilestone({
               styles.lessonMonumentIconPedestalElevated,
             ]}
           />
+          {!isCurrent && !isCompleted ? (
+            <View style={styles.lessonMonumentLockBadge}>
+              <SKidsIcon name="parentLock" size={28} />
+            </View>
+          ) : null}
         </View>
         <View style={styles.lessonMonumentIslandShadow} />
         <View
@@ -1087,7 +1117,7 @@ function LessonMilestone({
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -1820,7 +1850,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
   },
   lessonMonumentIconIdle: {
-    opacity: 0.62,
+    opacity: 0.48,
   },
   lessonMonumentIconPedestalElevated: {
     bottom: -10,
@@ -1882,6 +1912,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     right: -2,
+    width: 40,
+    ...shadows.soft,
+  },
+  lessonMonumentLockBadge: {
+    alignItems: 'center',
+    backgroundColor: '#F8FEFF',
+    borderColor: colors.sky,
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    bottom: 0,
+    height: 40,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 15,
     width: 40,
     ...shadows.soft,
   },
