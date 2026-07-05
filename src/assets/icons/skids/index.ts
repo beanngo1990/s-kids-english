@@ -15,6 +15,7 @@ export const skidsIcons = {
   dinnerPrep: require('./dinner-prep.png'),
   dinnerTable: require('./dinner-table.png'),
   friendGames: require('./friend-games.png'),
+  focusLesson: require('./focus-lesson.png'),
   goToSchool: require('./go-to-school.png'),
   goingHome: require('./going-home.png'),
   homeArrival: require('./home-arrival.png'),
