@@ -9,6 +9,8 @@ import {
   Animated,
   Easing,
   LayoutChangeEvent,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -87,6 +89,7 @@ export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
+  const [showFocusButton, setShowFocusButton] = useState(false);
   const mapScrollRef = useRef<ScrollView | null>(null);
   const mapRootYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionYByKeyRef = useRef<Record<string, number>>({});
@@ -138,10 +141,10 @@ export function HomeScreen({ navigation }: Props) {
   const pendingProgress = progress?.currentLessonProgress;
   const pendingNode = pendingProgress
     ? mapNodes.find(
-        node =>
-          node.lessonId === pendingProgress.lessonId &&
-          node.scene.id === pendingProgress.sceneId,
-      )
+      node =>
+        node.lessonId === pendingProgress.lessonId &&
+        node.scene.id === pendingProgress.sceneId,
+    )
     : undefined;
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
@@ -152,9 +155,8 @@ export function HomeScreen({ navigation }: Props) {
   const homeCoachMessage = isThemeComplete
     ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
     : hasPendingReviewGame
-      ? `Mình cùng ôn lại ${
-          pendingReviewLesson?.titleVi ?? 'bài vừa học'
-        } nhé!`
+      ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'
+      } nhé!`
       : ctaNode
         ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
         : 'Hôm nay mình học cùng Suga nhé!';
@@ -256,6 +258,77 @@ export function HomeScreen({ navigation }: Props) {
     return () => clearTimeout(scrollTimeout);
   }, [activeTab, ctaNode, mapLayoutVersion]);
 
+  const scrollToCurrentNode = useCallback(() => {
+    const targetNodeKey = ctaNode?.key;
+    if (!targetNodeKey) return;
+
+    const rootY = mapRootYByKeyRef.current;
+    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
+    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
+    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
+
+    if (
+      rootY.container === undefined ||
+      rootY.world === undefined ||
+      rootY.learningMap === undefined ||
+      sectionY === undefined ||
+      sectionBodyY === undefined ||
+      nodeY === undefined
+    ) {
+      return;
+    }
+
+    const targetY =
+      rootY.container +
+      rootY.world +
+      rootY.learningMap +
+      sectionY +
+      sectionBodyY +
+      nodeY;
+    const scrollY = Math.max(targetY - 160, 0);
+    mapScrollRef.current?.scrollTo({ animated: true, y: scrollY });
+  }, [ctaNode]);
+
+  const handleMapScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const offsetY = event.nativeEvent.contentOffset.y;
+      
+      const targetNodeKey = ctaNode?.key;
+      if (!targetNodeKey) return;
+
+      const rootY = mapRootYByKeyRef.current;
+      const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
+      const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
+      const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
+
+      if (
+        rootY.container === undefined ||
+        rootY.world === undefined ||
+        rootY.learningMap === undefined ||
+        sectionY === undefined ||
+        sectionBodyY === undefined ||
+        nodeY === undefined
+      ) {
+        return;
+      }
+
+      const targetY =
+        rootY.container +
+        rootY.world +
+        rootY.learningMap +
+        sectionY +
+        sectionBodyY +
+        nodeY;
+        
+      const optimalY = Math.max(targetY - 160, 0);
+      const isFar = Math.abs(offsetY - optimalY) > 500;
+      if (showFocusButton !== isFar) {
+        setShowFocusButton(isFar);
+      }
+    },
+    [ctaNode, showFocusButton],
+  );
+
   const openNode = (node: ThemeMapNode) => {
     navigation.navigate('ScenePlayer', {
       learningMode,
@@ -286,6 +359,8 @@ export function HomeScreen({ navigation }: Props) {
               contentContainerStyle={styles.scrollContent}
               style={styles.scrollArea}
               showsVerticalScrollIndicator={false}
+              onScroll={handleMapScroll}
+              scrollEventThrottle={32}
             >
               <View
                 onLayout={(event: LayoutChangeEvent) =>
@@ -459,20 +534,20 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isLessonCompleted = Boolean(
                           lessonProgress.total > 0 &&
-                            lessonProgress.completed === lessonProgress.total,
+                          lessonProgress.completed === lessonProgress.total,
                         );
                         const isReviewGameCompleted = Boolean(
                           section.lesson.reviewGame &&
-                            completedReviewGameIds.has(
-                              section.lesson.reviewGame.id,
-                            ),
+                          completedReviewGameIds.has(
+                            section.lesson.reviewGame.id,
+                          ),
                         );
                         const isReviewGameCurrent = Boolean(
                           isLessonCompleted && !isReviewGameCompleted,
                         );
                         const isLessonCurrent = Boolean(
                           !isThemeComplete &&
-                            currentLessonId === section.lesson.id,
+                          currentLessonId === section.lesson.id,
                         );
                         const lessonMonumentAlignment =
                           getLessonMonumentAlignment();
@@ -483,12 +558,12 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isFirstNodePathActive = Boolean(
                           firstNode &&
-                            (isThemeNodeComplete(
-                              firstNode,
-                              completedSceneIds,
-                            ) ||
-                              ctaNode?.key === firstNode.key ||
-                              isThemeComplete),
+                          (isThemeNodeComplete(
+                            firstNode,
+                            completedSceneIds,
+                          ) ||
+                            ctaNode?.key === firstNode.key ||
+                            isThemeComplete),
                         );
 
                         return (
@@ -701,7 +776,7 @@ export function HomeScreen({ navigation }: Props) {
                                   />
 
                                   {section.lessonIndex <
-                                  mapSections.length - 1 ? (
+                                    mapSections.length - 1 ? (
                                     <MapConnector
                                       from={lessonMonumentAlignment}
                                       isComplete={isLessonCompleted}
@@ -720,6 +795,13 @@ export function HomeScreen({ navigation }: Props) {
                 ) : null}
               </View>
             </ScrollView>
+            
+            {showFocusButton && activeTab === 'map' ? (
+              <Pressable style={styles.focusFab} onPress={scrollToCurrentNode}>
+                <SKidsIcon name="map" size={24} color={colors.primaryDark} />
+                <Text style={styles.focusFabText}>Về bài học</Text>
+              </Pressable>
+            ) : null}
           </View>
 
           <View
@@ -787,16 +869,13 @@ function SceneMapStop({
   scene,
 }: SceneMapStopProps) {
   const isAvailable = !isCompleted && !isCurrent && !isLocked;
-  const lessonPosition = `Bài ${
-    lessonIndex + 1
-  }/${lessonCount}: ${lessonTitleVi}, trạm ${
-    sceneIndexInLesson + 1
-  }/${sceneCountInLesson}`;
+  const lessonPosition = `Bài ${lessonIndex + 1
+    }/${lessonCount}: ${lessonTitleVi}, trạm ${sceneIndexInLesson + 1
+    }/${sceneCountInLesson}`;
   const accessibilityLabel = isLocked
     ? `${lessonPosition}: ${scene.titleVi} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${
-        scene.titleVi
-      }`;
+    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi
+    }`;
 
   return (
     <Pressable
@@ -2214,6 +2293,28 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     flex: 1,
+    position: 'relative',
+  },
+  focusFab: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    bottom: 100,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    position: 'absolute',
+    right: spacing.lg,
+    ...shadows.soft,
+    elevation: 4,
+    zIndex: 40,
+  },
+  focusFabText: {
+    color: colors.primaryDark,
+    ...typography.button,
   },
   scrollContent: {
     padding: layout.screenPadding,
