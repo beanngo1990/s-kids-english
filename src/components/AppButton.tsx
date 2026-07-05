@@ -13,7 +13,7 @@ import { radius, spacing, touchTarget } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outlined';
 
 type AppButtonProps = {
   title: string;
@@ -80,6 +80,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.transparent,
   },
   ghostText: {
+    color: colors.primaryDark,
+  },
+  outlined: {
+    backgroundColor: colors.transparent,
+    borderColor: colors.primary,
+    borderWidth: 2,
+  },
+  outlinedText: {
     color: colors.primaryDark,
   },
   primaryText: {

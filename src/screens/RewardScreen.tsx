@@ -5,15 +5,21 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppCard } from '../components/AppCard';
 import { AppButton } from '../components/AppButton';
 import { KidBadge } from '../components/KidBadge';
+import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
+import { sugaRewardTapMessages } from '../data/mascotPrompts';
 import { getLessonReward } from '../data/rewards';
 import {
   getLessonVocabulary,
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { playCompleteSound, speakWord } from '../engine/AudioManager';
+import {
+  playCompleteSound,
+  speakVi,
+  speakWord,
+} from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import type { SceneObject } from '../types/lesson';
 import { colors } from '../theme/colors';
@@ -22,6 +28,11 @@ import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
+
+function celebrateWithSuga(message: string) {
+  playCompleteSound().catch(() => undefined);
+  speakVi(message).catch(() => undefined);
+}
 
 export function RewardScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
@@ -103,8 +114,14 @@ export function RewardScreen({ navigation, route }: Props) {
     <Screen scroll>
       <View style={styles.container}>
         <AppCard style={styles.rewardBox}>
-          <View style={styles.rewardGlow}>
-            <Text style={styles.sticker}>★</Text>
+          <View style={styles.rewardMascotStage}>
+            <View style={styles.rewardGlow} />
+            <MascotImage
+              accessibilityLabel="Suga chúc mừng bé"
+              pose="greatJob"
+              size={210}
+              style={styles.rewardMascot}
+            />
           </View>
           <KidBadge tone="sun">Sticker mới</KidBadge>
           <Text style={styles.title}>
@@ -114,6 +131,24 @@ export function RewardScreen({ navigation, route }: Props) {
             Bé đã mở khóa {reward?.stickerName ?? 'Ngôi sao chăm chỉ'} và thêm
             từ mới vào sổ học tập.
           </Text>
+          <MascotSpeechBubble
+            mascotPosition="right"
+            mascotSize="avatar"
+            message="Giỏi quá! Suga đã cất sticker mới vào sổ học tập của bé."
+            onMascotPress={celebrateWithSuga}
+            pose="greatJob"
+            style={styles.rewardCoach}
+            tapMessages={
+              nextLesson
+                ? sugaRewardTapMessages.slice(0, 3)
+                : [
+                    sugaRewardTapMessages[0],
+                    sugaRewardTapMessages[1],
+                    sugaRewardTapMessages[3],
+                  ]
+            }
+            tone="success"
+          />
         </AppCard>
 
         <AppCard style={styles.wordsCard}>
@@ -202,18 +237,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.md,
     justifyContent: 'center',
-    minHeight: 300,
+    minHeight: 420,
     overflow: 'hidden',
   },
   rewardGlow: {
-    alignItems: 'center',
     backgroundColor: colors.secondarySoft,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 4,
-    height: 132,
-    justifyContent: 'center',
-    width: 132,
+    bottom: 14,
+    height: 142,
+    opacity: 0.88,
+    position: 'absolute',
+    width: 190,
+  },
+  rewardCoach: {
+    alignSelf: 'stretch',
+  },
+  rewardMascot: {
+    zIndex: 2,
+  },
+  rewardMascotStage: {
+    alignItems: 'center',
+    height: 220,
+    justifyContent: 'flex-end',
+    position: 'relative',
+    width: '100%',
   },
   sectionHeader: {
     alignItems: 'center',
@@ -223,18 +272,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     color: colors.text,
     ...typography.subtitle,
-  },
-  sticker: {
-    color: colors.secondary,
-    fontSize: 78,
-    fontWeight: '900',
-    lineHeight: 86,
-    textShadowColor: colors.borderWarm,
-    textShadowOffset: {
-      height: 3,
-      width: 0,
-    },
-    textShadowRadius: 4,
   },
   subtitle: {
     color: colors.textSoft,

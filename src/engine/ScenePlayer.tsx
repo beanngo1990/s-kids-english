@@ -14,9 +14,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidIconButton } from '../components/KidIconButton';
+import { MascotSpeechBubble } from '../components/mascot';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
+import { sugaCompletionTapMessages } from '../data/mascotPrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -858,6 +860,11 @@ export function ScenePlayer({
       completion.isFinalScene && !completeCurrentSceneOnly
         ? 'Học lại cảnh này'
         : 'Về gói bài học';
+    const completionCoachMessage = hasNextScene
+      ? 'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.'
+      : completeCurrentSceneOnly
+        ? 'Suga đã đánh dấu trạm này xong rồi. Bé về gói bài học nhé!'
+        : 'Tuyệt vời! Suga đã sẵn sàng trao sticker cho bé.';
 
     return (
       <View style={styles.completionOverlay}>
@@ -865,6 +872,31 @@ export function ScenePlayer({
           <Text style={styles.completionEyebrow}>
             Cảnh {completion.sceneIndex + 1}/{scenes.length}
           </Text>
+          <MascotSpeechBubble
+            mascotPosition="right"
+            mascotSize="sm"
+            message={completionCoachMessage}
+            onMascotPress={message => {
+              runAudio(playTapSound());
+              runAudio(speakVi(message));
+            }}
+            pose="greatJob"
+            style={styles.completionCoach}
+            tapMessages={
+              nextScene
+                ? [
+                    sugaCompletionTapMessages[0],
+                    sugaCompletionTapMessages[1],
+                    sugaCompletionTapMessages[3],
+                  ]
+                : [
+                    sugaCompletionTapMessages[0],
+                    sugaCompletionTapMessages[2],
+                    sugaCompletionTapMessages[3],
+                  ]
+            }
+            tone="success"
+          />
           <Text style={styles.completionTitle}>Giỏi quá!</Text>
           <View style={styles.starRow}>
             {Array.from({ length: starCount }).map((_, index) => (
@@ -1272,6 +1304,9 @@ const styles = StyleSheet.create({
     maxWidth: 420,
     padding: spacing.lg,
     width: '100%',
+  },
+  completionCoach: {
+    alignSelf: 'stretch',
   },
   completionEyebrow: {
     color: colors.primaryDark,

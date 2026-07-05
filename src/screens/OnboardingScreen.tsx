@@ -6,7 +6,13 @@ import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { AppLogo } from '../components/AppLogo';
 import { KidBadge } from '../components/KidBadge';
+import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
+import {
+  sugaOnboardingGreeting,
+  sugaOnboardingTapMessages,
+} from '../data/mascotPrompts';
+import { playTapSound, speakVi } from '../engine/AudioManager';
 import {
   completeParentOnboarding,
   learningDifficultyOptions,
@@ -19,6 +25,11 @@ import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
+
+function speakSugaLine(message: string) {
+  playTapSound().catch(() => undefined);
+  speakVi(message).catch(() => undefined);
+}
 
 export function OnboardingScreen({ navigation }: Props) {
   const [selectedMode, setSelectedMode] = useState<LearningMode>('core');
@@ -42,13 +53,31 @@ export function OnboardingScreen({ navigation }: Props) {
     <Screen scroll>
       <View style={styles.container}>
         <View style={styles.hero}>
-          <AppLogo size={84} />
+          <View style={styles.heroBrand}>
+            <AppLogo size={76} />
+            <MascotImage
+              accessibilityLabel="Suga, bạn học của bé"
+              onPress={() => speakSugaLine(sugaOnboardingGreeting)}
+              pose="hello"
+              size={132}
+              style={styles.heroMascot}
+            />
+          </View>
           <KidBadge tone="sun">Dành cho ba mẹ</KidBadge>
           <Text style={styles.title}>Chọn độ khó cho bé</Text>
           <Text style={styles.subtitle}>
             Bé sẽ chỉ thấy bản đồ học tập. Ba mẹ có thể đổi lại trong Góc phụ
             huynh bất cứ lúc nào.
           </Text>
+          <MascotSpeechBubble
+            mascotSize="avatar"
+            message="Suga sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành."
+            onMascotPress={speakSugaLine}
+            style={styles.coachBubble}
+            tapMessages={sugaOnboardingTapMessages}
+            title="Bạn học của bé"
+            tone="guide"
+          />
         </View>
 
         <View style={styles.optionList}>
@@ -115,6 +144,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     paddingTop: spacing.sm,
+  },
+  coachBubble: {
+    marginTop: spacing.xs,
+  },
+  heroBrand: {
+    alignItems: 'flex-end',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'center',
+  },
+  heroMascot: {
+    marginBottom: -spacing.xs,
   },
   noteCard: {
     backgroundColor: colors.surfaceBlue,
