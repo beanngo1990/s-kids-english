@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppLogo } from './AppLogo';
@@ -12,6 +12,7 @@ import { shadows } from '../theme/shadows';
 type KidModeHeaderProps = {
   completed: number;
   isComplete: boolean;
+  onOpenHub?: () => void;
   onOpenParent: () => void;
   total: number;
 };
@@ -19,16 +20,36 @@ type KidModeHeaderProps = {
 export function KidModeHeader({
   completed,
   isComplete,
+  onOpenHub,
   onOpenParent,
   total,
 }: KidModeHeaderProps) {
+  const brandContent = (
+    <>
+      <AppLogo size={40} />
+      <Text style={styles.title}>S-Kids</Text>
+    </>
+  );
+
   return (
     <SafeAreaView edges={['top']} style={styles.header}>
       <View style={styles.topBar}>
-        <View style={styles.brandCluster}>
-          <AppLogo size={40} />
-          <Text style={styles.title}>S-Kids</Text>
-        </View>
+        {onOpenHub ? (
+          <Pressable
+            accessibilityLabel="Mở S-Kids Hub"
+            accessibilityRole="button"
+            hitSlop={8}
+            onPress={onOpenHub}
+            style={({ pressed }) => [
+              styles.brandCluster,
+              pressed && styles.brandClusterPressed,
+            ]}
+          >
+            {brandContent}
+          </Pressable>
+        ) : (
+          <View style={styles.brandCluster}>{brandContent}</View>
+        )}
         <View style={styles.topActions}>
           <TopProgressStatus
             completed={completed}
@@ -99,6 +120,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.sm,
     minWidth: 0,
+  },
+  brandClusterPressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 1 }, { scale: 0.99 }],
   },
   header: {
     backgroundColor: colors.background,
