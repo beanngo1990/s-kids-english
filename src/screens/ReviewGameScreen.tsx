@@ -71,8 +71,12 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     }
 
     setIsCompleting(true);
+    let xpGained = 0;
     try {
-      await completeLessonProgress(lesson);
+      const result = await completeLessonProgress(lesson);
+      if (result && typeof result === 'object' && 'xpGained' in result) {
+         xpGained = (result as any).xpGained;
+      }
     } catch {
       // Progress is best-effort; reward flow should still continue.
     } finally {
@@ -82,6 +86,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     navigation.replace('Reward', {
       lessonId: lesson.id,
       playedWordIds: memoryItems.map(item => item.id),
+      xpGained,
     });
   };
 

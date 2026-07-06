@@ -92,9 +92,9 @@ export async function completeLessonProgress(lesson: Lesson) {
       : currentProgress.completedReviewGameIds;
       
     const isNewReviewGame = nextCompletedReviewGameIds.length > currentProgress.completedReviewGameIds.length;
-    const gainedXP = isNewReviewGame ? 15 : 5; // Reward 5 XP for replay
+    const gainedXP = isNewReviewGame ? 2 : 1; // 2 for new, 1 for replay
 
-    return await saveProgress({
+    await saveProgress({
       ...currentProgress,
       completedLessonIds: addUnique(currentProgress.completedLessonIds, [
         lesson.id,
@@ -112,8 +112,10 @@ export async function completeLessonProgress(lesson: Lesson) {
       totalXP: currentProgress.totalXP + gainedXP,
       currentLessonProgress: undefined,
     });
+    
+    return { xpGained: gainedXP };
   } catch {
-    return emptyProgress;
+    return { xpGained: 0 };
   }
 }
 
@@ -184,10 +186,7 @@ export async function saveVocabularyInteraction(
     };
     
     // Reward XP
-    let gainedXP = isFirstTry ? 5 : 1;
-    if (nextMasteryLevel > existingWordProgress.masteryLevel && nextMasteryLevel === 3) {
-      gainedXP += 20; // Bonus for blooming a flower!
-    }
+    const gainedXP = 0; // Removing direct XP from card interactions to avoid spam // Bonus for blooming a flower!
 
     await saveProgress({
       ...currentProgress,
@@ -198,8 +197,10 @@ export async function saveVocabularyInteraction(
       },
       totalXP: currentProgress.totalXP + gainedXP,
     });
+    
+    return { xpGained: gainedXP };
   } catch {
-    // best effort
+    return { xpGained: 0 };
   }
 }
 
@@ -228,7 +229,7 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
       : [];
 
     const isNewScene = completedSceneIds.length > currentProgress.completedSceneIds.length;
-    const gainedXP = isNewScene ? 10 : 5; // Reward 5 XP for replay
+    const gainedXP = isNewScene ? 3 : 1; // 3 for new, 1 for replay
 
     await saveProgress({
       ...currentProgress,
@@ -255,8 +256,10 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
           ? undefined
           : currentProgress.currentLessonProgress,
     });
+    
+    return { xpGained: gainedXP };
   } catch {
-    // best effort
+    return { xpGained: 0 };
   }
 }
 
@@ -333,14 +336,14 @@ function addUnique(existingIds: string[], nextIds: string[]) {
 }
 
 export function calculateLevelFromXP(xp: number): number {
-  if (xp < 50) return 1;
-  if (xp < 150) return 2;
-  if (xp < 300) return 3;
-  if (xp < 600) return 4;
-  if (xp < 1000) return 5;
-  if (xp < 1500) return 6;
-  if (xp < 2100) return 7;
-  return 8 + Math.floor((xp - 2100) / 800);
+  if (xp < 10) return 1;
+  if (xp < 25) return 2;
+  if (xp < 45) return 3;
+  if (xp < 70) return 4;
+  if (xp < 100) return 5;
+  if (xp < 135) return 6;
+  if (xp < 175) return 7;
+  return 8 + Math.floor((xp - 175) / 50);
 }
 
 export function getLevelProgress(xp: number) {
@@ -348,17 +351,17 @@ export function getLevelProgress(xp: number) {
   let currentLevelXP = 0;
   let nextLevelXP = 0;
 
-  if (level === 1) { currentLevelXP = 0; nextLevelXP = 50; }
-  else if (level === 2) { currentLevelXP = 50; nextLevelXP = 150; }
-  else if (level === 3) { currentLevelXP = 150; nextLevelXP = 300; }
-  else if (level === 4) { currentLevelXP = 300; nextLevelXP = 600; }
-  else if (level === 5) { currentLevelXP = 600; nextLevelXP = 1000; }
-  else if (level === 6) { currentLevelXP = 1000; nextLevelXP = 1500; }
-  else if (level === 7) { currentLevelXP = 1500; nextLevelXP = 2100; }
+  if (level === 1) { currentLevelXP = 0; nextLevelXP = 10; }
+  else if (level === 2) { currentLevelXP = 10; nextLevelXP = 25; }
+  else if (level === 3) { currentLevelXP = 25; nextLevelXP = 45; }
+  else if (level === 4) { currentLevelXP = 45; nextLevelXP = 70; }
+  else if (level === 5) { currentLevelXP = 70; nextLevelXP = 100; }
+  else if (level === 6) { currentLevelXP = 100; nextLevelXP = 135; }
+  else if (level === 7) { currentLevelXP = 135; nextLevelXP = 175; }
   else {
-    const baseXP = 2100 + (level - 8) * 800;
+    const baseXP = 175 + (level - 8) * 50;
     currentLevelXP = baseXP;
-    nextLevelXP = baseXP + 800;
+    nextLevelXP = baseXP + 50;
   }
 
   return {

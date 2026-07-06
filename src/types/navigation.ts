@@ -21,6 +21,7 @@ export type RootStackParamList = {
   Reward: {
     lessonId: string;
     playedWordIds?: string[];
+    xpGained?: number;
   };
   Parent: undefined;
 };
