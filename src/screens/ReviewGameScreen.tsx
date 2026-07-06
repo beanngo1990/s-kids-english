@@ -12,7 +12,10 @@ import { memoryGameIntroPromptVi } from '../data/reviewGamePrompts';
 import { speakVi } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { getParentSettings } from '../engine/ParentSettingsManager';
-import { completeLessonProgress } from '../engine/ProgressManager';
+import {
+  completeLessonProgress,
+  saveVocabularyInteraction,
+} from '../engine/ProgressManager';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
 import { colors } from '../theme/colors';
@@ -155,6 +158,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
         <GamePlayer
           memoryItems={memoryItems}
           onComplete={handleComplete}
+          onWordInteraction={saveVocabularyInteraction}
           reviewGame={lesson.reviewGame}
         />
       </View>

@@ -10,19 +10,15 @@ import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 
 type KidModeHeaderProps = {
-  completed: number;
-  isComplete: boolean;
+  totalXP: number;
   onOpenHub?: () => void;
   onOpenParent: () => void;
-  total: number;
 };
 
 export function KidModeHeader({
-  completed,
-  isComplete,
+  totalXP,
   onOpenHub,
   onOpenParent,
-  total,
 }: KidModeHeaderProps) {
   const brandContent = (
     <>
@@ -51,11 +47,7 @@ export function KidModeHeader({
           <View style={styles.brandCluster}>{brandContent}</View>
         )}
         <View style={styles.topActions}>
-          <TopProgressStatus
-            completed={completed}
-            isComplete={isComplete}
-            total={total}
-          />
+          <TopProgressStatus totalXP={totalXP} />
           <KidIconButton
             accessibilityLabel="Góc phụ huynh"
             icon="parentGate"
@@ -70,31 +62,26 @@ export function KidModeHeader({
   );
 }
 
+import { getLevelProgress } from '../engine/ProgressManager';
+
 type TopProgressStatusProps = {
-  completed: number;
-  isComplete: boolean;
-  total: number;
+  totalXP: number;
 };
 
 function TopProgressStatus({
-  completed,
-  isComplete,
-  total,
+  totalXP,
 }: TopProgressStatusProps) {
-  const safeTotal = Math.max(total, 0);
-  const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
-  const progressPercent =
-    safeTotal > 0 ? Math.round((safeCompleted / safeTotal) * 100) : 0;
+  const { level, xpInLevel, xpNeeded, progressPercent } = getLevelProgress(totalXP);
 
   return (
     <View
-      accessibilityLabel={`Bé có ${safeCompleted} sao trong ${safeTotal} trạm`}
+      accessibilityLabel={`Bé đang ở cấp ${level}, có ${xpInLevel} hạt dẻ, cần thêm ${xpNeeded - xpInLevel} hạt dẻ để lên cấp`}
       accessibilityRole="progressbar"
       style={styles.topStatusCard}
     >
       <View style={styles.topStatusRow}>
-        <SKidsIcon name="star" size={22} />
-        <Text style={styles.topStatusCount}>x {safeCompleted}</Text>
+        <Text style={styles.topStatusIcon}>🌰</Text>
+        <Text style={styles.topStatusCount}>Cấp {level}</Text>
       </View>
       <View style={styles.topStatusTrack}>
         <View
@@ -107,7 +94,7 @@ function TopProgressStatus({
         />
       </View>
       <Text numberOfLines={1} style={styles.topStatusCaption}>
-        {isComplete ? 'Đủ sao!' : `${safeCompleted}/${safeTotal}`}
+        {xpInLevel}/{xpNeeded}
       </Text>
     </View>
   );
@@ -193,10 +180,13 @@ const styles = StyleSheet.create({
   },
   topStatusCount: {
     color: colors.text,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '900',
     letterSpacing: 0,
     lineHeight: 18,
+  },
+  topStatusIcon: {
+    fontSize: 14,
   },
   topStatusFill: {
     backgroundColor: colors.secondary,

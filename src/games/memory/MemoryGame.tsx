@@ -36,11 +36,13 @@ type MemoryCard = MemoryGameItem & {
 type MemoryGameProps = {
   items: MemoryGameItem[];
   onComplete: () => void;
+  onMatch?: (wordId: string, isFirstTry: boolean) => void;
 };
 
 export function MemoryGame({
   items,
   onComplete,
+  onMatch,
 }: MemoryGameProps) {
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
@@ -50,6 +52,7 @@ export function MemoryGame({
   const [matchedItemIds, setMatchedItemIds] = useState<string[]>([]);
   const [isCheckingPair, setIsCheckingPair] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
+  const missedItemIdsRef = useRef<Set<string>>(new Set());
   const checkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const completionSoundPlayedRef = useRef(false);
   const popupScale = useRef(new Animated.Value(0.5)).current;
@@ -65,6 +68,7 @@ export function MemoryGame({
     setMatchedItemIds([]);
     setIsCheckingPair(false);
     setTurnCount(0);
+    missedItemIdsRef.current = new Set();
     completionSoundPlayedRef.current = false;
     popupScale.setValue(0.5);
     popupOpacity.setValue(0);
@@ -143,6 +147,10 @@ export function MemoryGame({
             current.includes(card.itemId) ? current : [...current, card.itemId],
           );
           playCorrectSound().catch(() => undefined);
+          onMatch?.(card.itemId, !missedItemIdsRef.current.has(card.itemId));
+        } else {
+          missedItemIdsRef.current.add(firstCard.itemId);
+          missedItemIdsRef.current.add(card.itemId);
         }
 
         setOpenCardIds([]);

@@ -376,11 +376,9 @@ export function HomeScreen({ navigation }: Props) {
     <Screen>
       <View style={styles.shell}>
         <KidModeHeader
-          completed={completedSceneCount}
-          isComplete={isThemeComplete}
+          totalXP={progress?.totalXP ?? 0}
           onOpenHub={handleOpenHub}
           onOpenParent={() => navigation.navigate('Parent')}
-          total={mapNodes.length}
         />
         <View style={styles.tabContent}>
           <View
