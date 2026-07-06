@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  Animated,
   Image,
-  Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -12,7 +10,6 @@ import {
 
 
 import {
-  playCompleteSound,
   playCorrectSound,
   playTapSound,
   speakWord,
@@ -54,10 +51,6 @@ export function MemoryGame({
   const [turnCount, setTurnCount] = useState(0);
   const missedItemIdsRef = useRef<Set<string>>(new Set());
   const checkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const completionSoundPlayedRef = useRef(false);
-  const popupScale = useRef(new Animated.Value(0.5)).current;
-  const popupOpacity = useRef(new Animated.Value(0)).current;
-
   const isComplete = items.length > 0 && matchedItemIds.length === items.length;
   const cardBasis = cards.length <= 8 ? '30%' : '22%';
 
@@ -69,10 +62,7 @@ export function MemoryGame({
     setIsCheckingPair(false);
     setTurnCount(0);
     missedItemIdsRef.current = new Set();
-    completionSoundPlayedRef.current = false;
-    popupScale.setValue(0.5);
-    popupOpacity.setValue(0);
-  }, [itemKey, items, popupScale, popupOpacity]);
+  }, [itemKey, items]);
 
   useEffect(() => {
     return () => {
@@ -81,35 +71,10 @@ export function MemoryGame({
   }, []);
 
   useEffect(() => {
-    if (!isComplete || completionSoundPlayedRef.current) {
-      return;
-    }
-
-    completionSoundPlayedRef.current = true;
-    playCompleteSound().catch(() => undefined);
-
-    Animated.parallel([
-      Animated.spring(popupScale, {
-        toValue: 1,
-        friction: 5,
-        tension: 60,
-        useNativeDriver: true,
-      }),
-      Animated.timing(popupOpacity, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
-    const timerId = setTimeout(() => {
+    if (isComplete) {
       onComplete();
-    }, 2500);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [isComplete, popupScale, popupOpacity, onComplete]);
+    }
+  }, [isComplete, onComplete]);
 
   const handleCardPress = (card: MemoryCard) => {
     const isCardVisible =
@@ -217,22 +182,6 @@ export function MemoryGame({
           );
         })}
       </View>
-
-      <Modal visible={isComplete} transparent={true} animationType="fade">
-        <View style={styles.celebrationOverlay} pointerEvents="none">
-          <Animated.View
-            style={[
-              styles.celebrationIcon,
-              {
-                opacity: popupOpacity,
-                transform: [{ scale: popupScale }],
-              },
-            ]}
-          >
-            <Text style={styles.celebrationEmoji}>🎉</Text>
-          </Animated.View>
-        </View>
-      </Modal>
     </View>
   );
 }
@@ -311,30 +260,6 @@ const styles = StyleSheet.create({
   cardPressed: {
     opacity: 0.88,
     transform: [{ scale: 0.98 }],
-  },
-  celebrationEmoji: {
-    fontSize: 96,
-  },
-  celebrationIcon: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.secondary,
-    borderRadius: 100,
-    borderWidth: 6,
-    elevation: 12,
-    height: 160,
-    justifyContent: 'center',
-    shadowColor: colors.primaryDark,
-    shadowOffset: { height: 6, width: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    width: 160,
-  },
-  celebrationOverlay: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    flex: 1,
-    justifyContent: 'center',
   },
   container: {
     gap: spacing.md,
