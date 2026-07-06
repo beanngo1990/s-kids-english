@@ -7,6 +7,7 @@ import { AppButton } from '../components/AppButton';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
+import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import { sugaRewardTapMessages } from '../data/mascotPrompts';
 import { getLessonReward } from '../data/rewards';
@@ -126,7 +127,11 @@ export function RewardScreen({ navigation, route }: Props) {
           <View style={styles.badgeRow}>
             <KidBadge tone="sun">Sticker mới</KidBadge>
             {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
-              <KidBadge tone="sand">+{route.params.xpGained} 🌰 Hạt dẻ</KidBadge>
+              <View style={styles.xpBadge}>
+                <Text style={styles.xpBadgeText}>+{route.params.xpGained}</Text>
+                <SKidsIcon name="acorn" size={16} />
+                <Text style={styles.xpBadgeText}>Hạt dẻ</Text>
+              </View>
             )}
           </View>
           <Text style={styles.title}>
@@ -328,5 +333,21 @@ const styles = StyleSheet.create({
   },
   wordsCard: {
     gap: spacing.md,
+  },
+  xpBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.xxs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  xpBadgeText: {
+    color: colors.text,
+    fontWeight: '700',
+    ...typography.caption,
   },
 });
