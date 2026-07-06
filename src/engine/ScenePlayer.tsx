@@ -15,6 +15,7 @@ import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidIconButton } from '../components/KidIconButton';
 import { MascotSpeechBubble } from '../components/mascot';
+import { SKidsIcon } from '../components/SKidsIcon';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
@@ -903,7 +904,8 @@ export function ScenePlayer({
           <Text style={styles.completionTitle}>Giỏi quá!</Text>
           {completion.xpGained > 0 && (
             <View style={styles.xpBadge}>
-              <Text style={styles.xpText}>+{completion.xpGained} 🌰</Text>
+              <Text style={styles.xpText}>+{completion.xpGained}</Text>
+              <SKidsIcon name="acorn" size={24} />
             </View>
           )}
           <View style={styles.starRow}>
@@ -1575,10 +1577,13 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   xpBadge: {
+    alignItems: 'center',
     backgroundColor: colors.cream,
     borderColor: colors.secondary,
     borderRadius: radius.pill,
     borderWidth: 2,
+    flexDirection: 'row',
+    gap: spacing.xs,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
     marginTop: spacing.sm,

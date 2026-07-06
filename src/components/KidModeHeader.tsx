@@ -80,7 +80,7 @@ function TopProgressStatus({
       style={styles.topStatusCard}
     >
       <View style={styles.topStatusRow}>
-        <Text style={styles.topStatusIcon}>🌰</Text>
+        <SKidsIcon name="acorn" size={18} />
         <Text style={styles.topStatusCount}>Cấp {level}</Text>
       </View>
       <View style={styles.topStatusTrack}>
@@ -185,9 +185,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     lineHeight: 18,
   },
-  topStatusIcon: {
-    fontSize: 14,
-  },
+
   topStatusFill: {
     backgroundColor: colors.secondary,
     borderRadius: radius.pill,

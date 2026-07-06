@@ -1,4 +1,5 @@
 export const skidsIcons = {
+  acorn: require('./acorn.png'),
   afterLunch: require('./after-lunch.png'),
   bathFinish: require('./bath-finish.png'),
   bathPrep: require('./bath-prep.png'),
