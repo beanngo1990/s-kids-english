@@ -11,6 +11,14 @@ import {
 
 const PROGRESS_STORAGE_KEY = '@skidsenglish/progress/v1';
 
+export type WordProgress = {
+  wordId: string;
+  masteryLevel: number;
+  correctCount: number;
+  wrongCount: number;
+  lastReviewedAt: string;
+};
+
 export type LocalProgress = {
   activeThemeId: string;
   completedLessonIds: string[];
@@ -18,6 +26,8 @@ export type LocalProgress = {
   completedSceneIds: string[];
   learnedWordIds: string[];
   earnedStickerIds: string[];
+  vocabularyProgress: Record<string, WordProgress>;
+  totalXP: number;
   currentLessonProgress?: {
     lessonId: string;
     sceneId: string;
@@ -33,6 +43,8 @@ const emptyProgress: LocalProgress = {
   completedSceneIds: [],
   earnedStickerIds: [],
   learnedWordIds: [],
+  vocabularyProgress: {},
+  totalXP: 0,
 };
 
 export async function getProgress(): Promise<LocalProgress> {
@@ -73,16 +85,21 @@ export async function completeLessonProgress(lesson: Lesson) {
       lesson.scenes.map(scene => getSceneProgressId(lesson.id, scene.id)),
     );
 
+    const nextCompletedReviewGameIds = lesson.reviewGame
+      ? addUnique(currentProgress.completedReviewGameIds, [
+          lesson.reviewGame.id,
+        ])
+      : currentProgress.completedReviewGameIds;
+      
+    const isNewReviewGame = nextCompletedReviewGameIds.length > currentProgress.completedReviewGameIds.length;
+    const gainedXP = isNewReviewGame ? 15 : 5; // Reward 5 XP for replay
+
     return await saveProgress({
       ...currentProgress,
       completedLessonIds: addUnique(currentProgress.completedLessonIds, [
         lesson.id,
       ]),
-      completedReviewGameIds: lesson.reviewGame
-        ? addUnique(currentProgress.completedReviewGameIds, [
-            lesson.reviewGame.id,
-          ])
-        : currentProgress.completedReviewGameIds,
+      completedReviewGameIds: nextCompletedReviewGameIds,
       completedSceneIds,
       earnedStickerIds: addUnique(
         currentProgress.earnedStickerIds,
@@ -92,6 +109,7 @@ export async function completeLessonProgress(lesson: Lesson) {
         currentProgress.learnedWordIds,
         learnedVocabulary.map(item => item.id),
       ),
+      totalXP: currentProgress.totalXP + gainedXP,
       currentLessonProgress: undefined,
     });
   } catch {
@@ -136,6 +154,55 @@ export async function saveLearnedWord(wordId: string) {
   }
 }
 
+export async function saveVocabularyInteraction(
+  wordId: string,
+  isFirstTry: boolean,
+) {
+  try {
+    const currentProgress = await getProgress();
+    const existingWordProgress = currentProgress.vocabularyProgress[wordId] || {
+      wordId,
+      masteryLevel: 0,
+      correctCount: 0,
+      wrongCount: 0,
+      lastReviewedAt: new Date().toISOString(),
+    };
+
+    const nextCorrectCount = existingWordProgress.correctCount + (isFirstTry ? 1 : 0);
+    const nextWrongCount = existingWordProgress.wrongCount + (isFirstTry ? 0 : 1);
+    
+    // Simple mastery calculation: correct - wrong, max 3
+    const score = nextCorrectCount - nextWrongCount;
+    const nextMasteryLevel = Math.max(0, Math.min(3, Math.floor(score / 2)));
+
+    const nextWordProgress: WordProgress = {
+      ...existingWordProgress,
+      correctCount: nextCorrectCount,
+      wrongCount: nextWrongCount,
+      masteryLevel: nextMasteryLevel,
+      lastReviewedAt: new Date().toISOString(),
+    };
+    
+    // Reward XP
+    let gainedXP = isFirstTry ? 5 : 1;
+    if (nextMasteryLevel > existingWordProgress.masteryLevel && nextMasteryLevel === 3) {
+      gainedXP += 20; // Bonus for blooming a flower!
+    }
+
+    await saveProgress({
+      ...currentProgress,
+      learnedWordIds: addUnique(currentProgress.learnedWordIds, [wordId]),
+      vocabularyProgress: {
+        ...currentProgress.vocabularyProgress,
+        [wordId]: nextWordProgress,
+      },
+      totalXP: currentProgress.totalXP + gainedXP,
+    });
+  } catch {
+    // best effort
+  }
+}
+
 export async function saveSceneProgress(lessonId: string, sceneId: string) {
   try {
     const currentProgress = await getProgress();
@@ -160,6 +227,9 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
       ? getLessonVocabulary(lesson)
       : [];
 
+    const isNewScene = completedSceneIds.length > currentProgress.completedSceneIds.length;
+    const gainedXP = isNewScene ? 10 : 5; // Reward 5 XP for replay
+
     await saveProgress({
       ...currentProgress,
       completedLessonIds: shouldCompleteLessonNow
@@ -178,6 +248,7 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
             learnedVocabulary.map(item => item.id),
           )
         : currentProgress.learnedWordIds,
+      totalXP: currentProgress.totalXP + gainedXP,
       currentLessonProgress:
         currentProgress.currentLessonProgress?.lessonId === lessonId &&
         currentProgress.currentLessonProgress?.sceneId === sceneId
@@ -213,6 +284,8 @@ function normalizeProgress(value: unknown): LocalProgress {
     completedSceneIds: normalizeStringArray(progress.completedSceneIds),
     earnedStickerIds: normalizeStringArray(progress.earnedStickerIds),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
+    vocabularyProgress: progress.vocabularyProgress || {},
+    totalXP: typeof progress.totalXP === 'number' && !Number.isNaN(progress.totalXP) ? progress.totalXP : 0,
     currentLessonProgress: normalizeCurrentLessonProgress(
       progress.currentLessonProgress,
     ),
@@ -257,4 +330,54 @@ function normalizeStringArray(value: unknown) {
 
 function addUnique(existingIds: string[], nextIds: string[]) {
   return Array.from(new Set([...existingIds, ...nextIds]));
+}
+
+export function calculateLevelFromXP(xp: number): number {
+  if (xp < 50) return 1;
+  if (xp < 150) return 2;
+  if (xp < 300) return 3;
+  if (xp < 600) return 4;
+  if (xp < 1000) return 5;
+  if (xp < 1500) return 6;
+  if (xp < 2100) return 7;
+  return 8 + Math.floor((xp - 2100) / 800);
+}
+
+export function getLevelProgress(xp: number) {
+  const level = calculateLevelFromXP(xp);
+  let currentLevelXP = 0;
+  let nextLevelXP = 0;
+
+  if (level === 1) { currentLevelXP = 0; nextLevelXP = 50; }
+  else if (level === 2) { currentLevelXP = 50; nextLevelXP = 150; }
+  else if (level === 3) { currentLevelXP = 150; nextLevelXP = 300; }
+  else if (level === 4) { currentLevelXP = 300; nextLevelXP = 600; }
+  else if (level === 5) { currentLevelXP = 600; nextLevelXP = 1000; }
+  else if (level === 6) { currentLevelXP = 1000; nextLevelXP = 1500; }
+  else if (level === 7) { currentLevelXP = 1500; nextLevelXP = 2100; }
+  else {
+    const baseXP = 2100 + (level - 8) * 800;
+    currentLevelXP = baseXP;
+    nextLevelXP = baseXP + 800;
+  }
+
+  return {
+    level,
+    xpInLevel: xp - currentLevelXP,
+    xpNeeded: nextLevelXP - currentLevelXP,
+    progressPercent: Math.min(100, Math.max(0, Math.round(((xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100))),
+  };
+}
+
+export async function addXP(amount: number) {
+  try {
+    if (amount <= 0) return;
+    const currentProgress = await getProgress();
+    await saveProgress({
+      ...currentProgress,
+      totalXP: currentProgress.totalXP + amount,
+    });
+  } catch {
+    // best effort
+  }
 }

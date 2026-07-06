@@ -14,12 +14,14 @@ import {
 type GamePlayerProps = {
   memoryItems: MemoryGameItem[];
   onComplete: () => void;
+  onWordInteraction?: (wordId: string, isFirstTry: boolean) => void;
   reviewGame: ReviewGame;
 };
 
 export function GamePlayer({
   memoryItems,
   onComplete,
+  onWordInteraction,
   reviewGame,
 }: GamePlayerProps) {
   switch (reviewGame.type) {
@@ -28,6 +30,7 @@ export function GamePlayer({
         <MemoryGame
           items={memoryItems}
           onComplete={onComplete}
+          onMatch={onWordInteraction}
         />
       );
     default:
