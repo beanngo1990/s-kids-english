@@ -229,16 +229,6 @@ function createMemoryGameItem(
   };
 }
 
-function getConfiguredVocabularyIds(lesson: Lesson) {
-  const vocabularyIds = lesson.reviewGame?.config?.vocabularyIds;
-
-  if (!Array.isArray(vocabularyIds)) {
-    return [];
-  }
-
-  return vocabularyIds.filter((item): item is string => typeof item === 'string');
-}
-
 function getMemoryPairCount(
   config: Record<string, unknown> | undefined,
   learningMode: LearningMode,

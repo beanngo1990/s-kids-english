@@ -633,6 +633,10 @@ export function ScenePlayer({
   ) => {
     const showCompletion = (result?: any) => {
       const xpGained = result && typeof result === 'object' && typeof result.xpGained === 'number' ? result.xpGained : 0;
+      if (isFinalScene && !completeCurrentSceneOnly) {
+        onComplete?.();
+        return;
+      }
       setSceneCompletion({
         isFinalScene,
         nextSceneIndex,
