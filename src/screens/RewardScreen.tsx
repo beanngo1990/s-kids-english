@@ -123,7 +123,12 @@ export function RewardScreen({ navigation, route }: Props) {
               style={styles.rewardMascot}
             />
           </View>
-          <KidBadge tone="sun">Sticker mới</KidBadge>
+          <View style={styles.badgeRow}>
+            <KidBadge tone="sun">Sticker mới</KidBadge>
+            {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
+              <KidBadge tone="sand">+{route.params.xpGained} 🌰 Hạt dẻ</KidBadge>
+            )}
+          </View>
           <Text style={styles.title}>
             {reward?.title ?? `Bé đã hoàn thành ${lesson.titleVi}!`}
           </Text>
@@ -232,6 +237,12 @@ const styles = StyleSheet.create({
     color: colors.textSoft,
     textAlign: 'center',
     ...typography.caption,
+  },
+  badgeRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   rewardBox: {
     alignItems: 'center',

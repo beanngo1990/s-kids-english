@@ -88,9 +88,10 @@ type AutoRecordRequest = {
 
 type SceneCompletionState = {
   isFinalScene: boolean;
-  nextSceneIndex?: number;
+  nextSceneIndex: number | undefined;
   scene: Scene;
   sceneIndex: number;
+  xpGained: number;
 };
 
 const objectAudioCooldownMs = 900;
@@ -629,12 +630,14 @@ export function ScenePlayer({
     isFinalScene: boolean,
     saveSceneProgressPromise?: Promise<unknown>,
   ) => {
-    const showCompletion = () => {
+    const showCompletion = (result?: any) => {
+      const xpGained = result && typeof result === 'object' && typeof result.xpGained === 'number' ? result.xpGained : 0;
       setSceneCompletion({
         isFinalScene,
         nextSceneIndex,
         scene: completedScene,
         sceneIndex: completedSceneIndex,
+        xpGained,
       });
       runAudio(playSceneCompletionAudio(completedScene));
     };
@@ -898,6 +901,11 @@ export function ScenePlayer({
             tone="success"
           />
           <Text style={styles.completionTitle}>Giỏi quá!</Text>
+          {completion.xpGained > 0 && (
+            <View style={styles.xpBadge}>
+              <Text style={styles.xpText}>+{completion.xpGained} 🌰</Text>
+            </View>
+          )}
           <View style={styles.starRow}>
             {Array.from({ length: starCount }).map((_, index) => (
               <Text key={index} style={styles.star}>
@@ -1565,5 +1573,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
+  },
+  xpBadge: {
+    backgroundColor: colors.cream,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    marginTop: spacing.sm,
+    ...shadows.soft,
+  },
+  xpText: {
+    color: colors.primaryDark,
+    fontSize: 24,
+    fontWeight: '900',
   },
 });

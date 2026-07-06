@@ -65,13 +65,17 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       return;
     }
 
+    let xpGained = 0;
     try {
-      await completeLessonProgress(lesson);
+      const result = await completeLessonProgress(lesson);
+      if (result && typeof result === 'object' && 'xpGained' in result) {
+         xpGained = (result as any).xpGained;
+      }
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id });
+    navigation.navigate('Reward', { lessonId: lesson.id, xpGained });
   };
 
   return (

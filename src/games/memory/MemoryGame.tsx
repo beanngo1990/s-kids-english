@@ -36,7 +36,7 @@ type MemoryCard = MemoryGameItem & {
 type MemoryGameProps = {
   items: MemoryGameItem[];
   onComplete: () => void;
-  onMatch?: (wordId: string, isFirstTry: boolean) => void;
+  onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
 };
 
 export function MemoryGame({
@@ -141,13 +141,17 @@ export function MemoryGame({
     setTurnCount(current => current + 1);
 
     checkTimerRef.current = setTimeout(
-      () => {
+      async () => {
         if (isMatchingPair) {
           setMatchedItemIds(current =>
             current.includes(card.itemId) ? current : [...current, card.itemId],
           );
           playCorrectSound().catch(() => undefined);
-          onMatch?.(card.itemId, !missedItemIdsRef.current.has(card.itemId));
+          if (onMatch) {
+             try {
+                await onMatch(card.itemId, !missedItemIdsRef.current.has(card.itemId));
+             } catch {}
+          }
         } else {
           missedItemIdsRef.current.add(firstCard.itemId);
           missedItemIdsRef.current.add(card.itemId);
