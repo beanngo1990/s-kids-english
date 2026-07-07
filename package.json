@@ -7,6 +7,8 @@
     "generate:audio": "node scripts/generateMissingAudio.mjs",
     "check:images": "node scripts/checkMissingImages.mjs",
     "generate:audio:dry-run": "node scripts/generateMissingAudio.mjs --dry-run",
+    "upload:r2": "node scripts/uploadToR2.mjs",
+    "upload:r2:dry-run": "node scripts/uploadToR2.mjs --dry-run",
     "generate:bedroom-audio": "node scripts/generateBedroomAudio.mjs",
     "ios": "react-native run-ios",
     "lint": "eslint .",
