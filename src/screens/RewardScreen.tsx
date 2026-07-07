@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import ConfettiCannon from 'react-native-confetti-cannon';
 
 import { AppCard } from '../components/AppCard';
 import { AppButton } from '../components/AppButton';
@@ -10,7 +11,6 @@ import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import { sugaRewardTapMessages } from '../data/mascotPrompts';
-import { getLessonReward } from '../data/rewards';
 import {
   getLessonVocabulary,
   getProgress,
@@ -37,7 +37,6 @@ function celebrateWithSuga(message: string) {
 
 export function RewardScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
-  const reward = lesson ? getLessonReward(lesson.id) : null;
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const displayWords = useMemo(() => {
@@ -125,7 +124,9 @@ export function RewardScreen({ navigation, route }: Props) {
             />
           </View>
           <View style={styles.badgeRow}>
-            <KidBadge tone="sun">Sticker mới</KidBadge>
+            {route.params.leveledUp && route.params.unlockedSticker && (
+              <KidBadge tone="sun">Sticker mới</KidBadge>
+            )}
             {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
               <View style={styles.xpBadge}>
                 <Text style={styles.xpBadgeText}>+{route.params.xpGained}</Text>
@@ -135,30 +136,16 @@ export function RewardScreen({ navigation, route }: Props) {
             )}
           </View>
           <Text style={styles.title}>
-            {reward?.title ?? `Bé đã hoàn thành ${lesson.titleVi}!`}
+            {route.params.leveledUp
+              ? `Chúc mừng bé lên Cấp ${route.params.newLevel}!`
+              : `Bé đã hoàn thành ${lesson.titleVi}!`}
           </Text>
           <Text style={styles.subtitle}>
-            Bé đã mở khóa {reward?.stickerName ?? 'Ngôi sao chăm chỉ'} và thêm
-            từ mới vào sổ học tập.
+            {route.params.leveledUp && route.params.unlockedSticker
+              ? `Bé đã mở khóa ${route.params.unlockedSticker.stickerName} và thêm từ mới vào sổ học tập.`
+              : `Bé đã học thêm nhiều từ mới và tích luỹ thêm hạt dẻ.`}
           </Text>
-          <MascotSpeechBubble
-            mascotPosition="right"
-            mascotSize="avatar"
-            message="Giỏi quá! Suga đã cất sticker mới vào sổ học tập của bé."
-            onMascotPress={celebrateWithSuga}
-            pose="greatJob"
-            style={styles.rewardCoach}
-            tapMessages={
-              nextLesson
-                ? sugaRewardTapMessages.slice(0, 3)
-                : [
-                    sugaRewardTapMessages[0],
-                    sugaRewardTapMessages[1],
-                    sugaRewardTapMessages[3],
-                  ]
-            }
-            tone="success"
-          />
+
         </AppCard>
 
         <AppCard style={styles.wordsCard}>
@@ -220,6 +207,12 @@ export function RewardScreen({ navigation, route }: Props) {
           )}
         </View>
       </View>
+      <ConfettiCannon
+        count={route.params.leveledUp ? 200 : 60}
+        origin={{ x: 200, y: -20 }}
+        fallSpeed={3000}
+        fadeOut={true}
+      />
     </Screen>
   );
 }

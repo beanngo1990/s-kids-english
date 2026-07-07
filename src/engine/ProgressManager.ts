@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { lessons } from '../data/lessons';
-import { getLessonReward } from '../data/rewards';
+import { getLevelReward } from '../data/rewards';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import type { Lesson, VocabularyItem } from '../types/lesson';
 import {
@@ -78,7 +78,6 @@ export async function resetProgress() {
 export async function completeLessonProgress(lesson: Lesson) {
   try {
     const currentProgress = await getProgress();
-    const lessonReward = getLessonReward(lesson.id);
     const learnedVocabulary = getLessonVocabulary(lesson);
     const completedSceneIds = addUnique(
       currentProgress.completedSceneIds,
@@ -92,8 +91,14 @@ export async function completeLessonProgress(lesson: Lesson) {
       : currentProgress.completedReviewGameIds;
       
     const isNewReviewGame = nextCompletedReviewGameIds.length > currentProgress.completedReviewGameIds.length;
-    const gainedXP = isNewReviewGame ? 2 : 1; // 2 for new, 1 for replay
+    const gainedXP = isNewReviewGame ? 2 : 1;
 
+    const oldLevel = calculateLevelFromXP(currentProgress.totalXP);
+    const newTotalXP = currentProgress.totalXP + gainedXP;
+    const newLevel = calculateLevelFromXP(newTotalXP);
+    const leveledUp = newLevel > oldLevel;
+    const levelReward = leveledUp ? getLevelReward(newLevel) : undefined;
+    
     await saveProgress({
       ...currentProgress,
       completedLessonIds: addUnique(currentProgress.completedLessonIds, [
@@ -103,19 +108,19 @@ export async function completeLessonProgress(lesson: Lesson) {
       completedSceneIds,
       earnedStickerIds: addUnique(
         currentProgress.earnedStickerIds,
-        lessonReward ? [lessonReward.stickerId] : [],
+        levelReward ? [levelReward.stickerId] : [],
       ),
       learnedWordIds: addUnique(
         currentProgress.learnedWordIds,
         learnedVocabulary.map(item => item.id),
       ),
-      totalXP: currentProgress.totalXP + gainedXP,
+      totalXP: newTotalXP,
       currentLessonProgress: undefined,
     });
     
-    return { xpGained: gainedXP };
+    return { xpGained: gainedXP, leveledUp, newLevel, unlockedSticker: levelReward };
   } catch {
-    return { xpGained: 0 };
+    return { xpGained: 0, leveledUp: false, newLevel: 1 };
   }
 }
 
@@ -221,15 +226,18 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
     const shouldCompleteLessonNow = Boolean(
       isLessonNowComplete && !lesson?.reviewGame,
     );
-    const lessonReward = shouldCompleteLessonNow
-      ? getLessonReward(lessonId)
-      : undefined;
     const learnedVocabulary = shouldCompleteLessonNow && lesson
       ? getLessonVocabulary(lesson)
       : [];
 
     const isNewScene = completedSceneIds.length > currentProgress.completedSceneIds.length;
-    const gainedXP = isNewScene ? 3 : 1; // 3 for new, 1 for replay
+    const gainedXP = isNewScene ? 3 : 1;
+
+    const oldLevel = calculateLevelFromXP(currentProgress.totalXP);
+    const newTotalXP = currentProgress.totalXP + gainedXP;
+    const newLevel = calculateLevelFromXP(newTotalXP);
+    const leveledUp = newLevel > oldLevel;
+    const levelReward = leveledUp ? getLevelReward(newLevel) : undefined;
 
     await saveProgress({
       ...currentProgress,
@@ -237,19 +245,17 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
         ? addUnique(currentProgress.completedLessonIds, [lessonId])
         : currentProgress.completedLessonIds,
       completedSceneIds,
-      earnedStickerIds: shouldCompleteLessonNow
-        ? addUnique(
-            currentProgress.earnedStickerIds,
-            lessonReward ? [lessonReward.stickerId] : [],
-          )
-        : currentProgress.earnedStickerIds,
+      earnedStickerIds: addUnique(
+        currentProgress.earnedStickerIds,
+        levelReward ? [levelReward.stickerId] : [],
+      ),
       learnedWordIds: shouldCompleteLessonNow
         ? addUnique(
             currentProgress.learnedWordIds,
             learnedVocabulary.map(item => item.id),
           )
         : currentProgress.learnedWordIds,
-      totalXP: currentProgress.totalXP + gainedXP,
+      totalXP: newTotalXP,
       currentLessonProgress:
         currentProgress.currentLessonProgress?.lessonId === lessonId &&
         currentProgress.currentLessonProgress?.sceneId === sceneId
@@ -257,9 +263,9 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
           : currentProgress.currentLessonProgress,
     });
     
-    return { xpGained: gainedXP };
+    return { xpGained: gainedXP, leveledUp, newLevel, unlockedSticker: levelReward };
   } catch {
-    return { xpGained: 0 };
+    return { xpGained: 0, leveledUp: false, newLevel: 1 };
   }
 }
 

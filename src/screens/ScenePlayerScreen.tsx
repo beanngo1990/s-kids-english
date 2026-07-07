@@ -66,16 +66,22 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     }
 
     let xpGained = 0;
+    let leveledUp = false;
+    let newLevel = 1;
+    let unlockedSticker = undefined;
     try {
       const result = await completeLessonProgress(lesson);
       if (result && typeof result === 'object' && 'xpGained' in result) {
          xpGained = (result as any).xpGained;
+         leveledUp = (result as any).leveledUp;
+         newLevel = (result as any).newLevel;
+         unlockedSticker = (result as any).unlockedSticker;
       }
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id, xpGained });
+    navigation.navigate('Reward', { lessonId: lesson.id, xpGained, leveledUp, newLevel, unlockedSticker });
   };
 
   return (
