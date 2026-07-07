@@ -1,11 +1,10 @@
 export const remoteAssetsConfig = {
   /**
-   * Set this to your public R2/custom-domain base URL later, for example:
-   * https://assets.s-kids-english.com
+   * Public R2 URL for remote asset loading.
    */
-  baseUrl: '',
+  baseUrl: 'https://pub-4b4ed99067d94d3f8d25b7270982970a.r2.dev/v1',
   cacheRemoteAssets: true,
-  preferRemoteImages: false,
+  preferRemoteImages: true,
 };
 
 export function getRemoteAssetUrl(assetKey: string) {
