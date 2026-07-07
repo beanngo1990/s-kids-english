@@ -1862,7 +1862,6 @@ export const generatedAudioRegistry: Record<string, ImageRequireSource> = {
   'shared/audio/vi/memory_game_intro.wav': require('../assets/shared/audio/vi/memory_game_intro.wav'),
   'shared/audio/vi/speak_encourage.wav': require('../assets/shared/audio/vi/speak_encourage.wav'),
   'shared/audio/vi/speak_prompt.wav': require('../assets/shared/audio/vi/speak_prompt.wav'),
-  'shared/audio/vi/sungy/_sungy_a_thay_ca_ban_o_sang_len_roi_9429c5c4.wav': require('../assets/shared/audio/vi/sungy/_sungy_a_thay_ca_ban_o_sang_len_roi_9429c5c4.wav'),
   'shared/audio/vi/sungy/ba_me_chon_o_kho_truoc_roi_sungy_se_dan_be_i_tung_tram_nhe_823e71e6.wav': require('../assets/shared/audio/vi/sungy/ba_me_chon_o_kho_truoc_roi_sungy_se_dan_be_i_tung_tram_nhe_823e71e6.wav'),
   'shared/audio/vi/sungy/bam_tab_choi_e_gap_game_ang_mo_nhe_cbd5f365.wav': require('../assets/shared/audio/vi/sungy/bam_tab_choi_e_gap_game_ang_mo_nhe_cbd5f365.wav'),
   'shared/audio/vi/sungy/bam_vao_tram_sang_len_e_hoc_tiep_nhe_168f2d20.wav': require('../assets/shared/audio/vi/sungy/bam_vao_tram_sang_len_e_hoc_tiep_nhe_168f2d20.wav'),
