@@ -1,91 +1,91 @@
-export type LessonReward = {
+export type LevelReward = {
   id: string;
-  lessonId: string;
+  level: number;
   stickerId: string;
   stickerName: string;
   title: string;
 };
 
-export const lessonRewards: LessonReward[] = [
+export const levelRewards: LevelReward[] = [
   {
     id: 'reward-morning-star',
-    lessonId: 'morning-routine',
+    level: 2,
     stickerId: 'sticker-morning-star',
     stickerName: 'Morning Star',
-    title: 'Bé đã hoàn thành Buổi sáng của bé!',
+    title: 'Bé đã mở khoá Morning Star!',
   },
   {
     id: 'reward-school-helper',
-    lessonId: 'at-school',
+    level: 3,
     stickerId: 'sticker-school-helper',
     stickerName: 'School Helper',
-    title: 'Bé đã hoàn thành Ở Trường Của Bé!',
+    title: 'Bé đã mở khoá School Helper!',
   },
   {
     id: 'reward-playtime-buddy',
-    lessonId: 'playtime',
+    level: 4,
     stickerId: 'sticker-playtime-buddy',
     stickerName: 'Playtime Buddy',
-    title: 'Bé đã hoàn thành Giờ Ra Chơi!',
+    title: 'Bé đã mở khoá Playtime Buddy!',
   },
   {
     id: 'reward-lunch-helper',
-    lessonId: 'lunch-time',
+    level: 5,
     stickerId: 'sticker-lunch-helper',
     stickerName: 'Lunch Helper',
-    title: 'Bé đã hoàn thành Bữa trưa của bé!',
+    title: 'Bé đã mở khoá Lunch Helper!',
   },
   {
     id: 'reward-afternoon-home',
-    lessonId: 'afternoon-home',
+    level: 6,
     stickerId: 'sticker-afternoon-home',
     stickerName: 'Home Helper',
-    title: 'Bé đã hoàn thành Về nhà buổi chiều!',
+    title: 'Bé đã mở khoá Home Helper!',
   },
   {
     id: 'reward-snack-time',
-    lessonId: 'snack-time',
+    level: 7,
     stickerId: 'sticker-snack-time',
     stickerName: 'Snack Helper',
-    title: 'Bé đã hoàn thành Bữa xế của bé!',
+    title: 'Bé đã mở khoá Snack Helper!',
   },
   {
     id: 'reward-home-play',
-    lessonId: 'home-play',
+    level: 8,
     stickerId: 'sticker-home-play',
     stickerName: 'Home Player',
-    title: 'Bé đã hoàn thành Chơi ở nhà!',
+    title: 'Bé đã mở khoá Home Player!',
   },
   {
     id: 'reward-afternoon-bath',
-    lessonId: 'afternoon-bath',
+    level: 9,
     stickerId: 'sticker-afternoon-bath',
     stickerName: 'Bath Helper',
-    title: 'Bé đã hoàn thành Tắm rửa buổi chiều!',
+    title: 'Bé đã mở khoá Bath Helper!',
   },
   {
     id: 'reward-family-dinner',
-    lessonId: 'family-dinner',
+    level: 10,
     stickerId: 'sticker-family-dinner',
     stickerName: 'Dinner Helper',
-    title: 'Bé đã hoàn thành Bữa tối của gia đình!',
+    title: 'Bé đã mở khoá Dinner Helper!',
   },
   {
     id: 'reward-after-dinner-cleanup',
-    lessonId: 'after-dinner-cleanup',
+    level: 11,
     stickerId: 'sticker-after-dinner-cleanup',
     stickerName: 'Cleanup Helper',
-    title: 'Bé đã hoàn thành Dọn dẹp sau bữa tối!',
+    title: 'Bé đã mở khoá Cleanup Helper!',
   },
   {
     id: 'reward-bedtime',
-    lessonId: 'bedtime',
+    level: 12,
     stickerId: 'sticker-bedtime',
     stickerName: 'Sleepy Star',
-    title: 'Bé đã hoàn thành Giờ đi ngủ!',
+    title: 'Bé đã mở khoá Sleepy Star!',
   },
 ];
 
-export function getLessonReward(lessonId: string) {
-  return lessonRewards.find(reward => reward.lessonId === lessonId);
+export function getLevelReward(level: number) {
+  return levelRewards.find(reward => reward.level === level);
 }

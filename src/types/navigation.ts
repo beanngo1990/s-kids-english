@@ -18,10 +18,13 @@ export type RootStackParamList = {
     learningMode?: LearningMode;
   };
   ReviewLibrary: undefined;
-  Reward: {
-    lessonId: string;
-    playedWordIds?: string[];
-    xpGained?: number;
+  Reward: { 
+    lessonId: string; 
+    playedWordIds?: string[]; 
+    xpGained?: number; 
+    leveledUp?: boolean;
+    newLevel?: number;
+    unlockedSticker?: { id: string; stickerId: string; stickerName: string; title: string; };
   };
   Parent: undefined;
 };
