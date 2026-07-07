@@ -44,7 +44,7 @@ export function MascotImage({
   accessibilityLabel,
   decorative = false,
   imageStyle,
-  mascotId = 'suga',
+  mascotId = 'sungy',
   onPress,
   pose = 'hello',
   pressCooldownMs = 900,
@@ -132,7 +132,7 @@ export function MascotImage({
         accessibilityLabel={
           decorative || onPress
             ? undefined
-            : accessibilityLabel ?? 'Suga mascot'
+            : accessibilityLabel ?? 'Sungy mascot'
         }
         accessible={!decorative && !onPress}
         resizeMode="contain"
@@ -146,7 +146,7 @@ export function MascotImage({
   if (onPress) {
     return (
       <Pressable
-        accessibilityLabel={accessibilityLabel ?? 'Chạm vào Suga'}
+        accessibilityLabel={accessibilityLabel ?? 'Chạm vào Sungy'}
         accessibilityRole="button"
         onPress={runInteraction}
         style={[styles.frame, dimensions, style]}

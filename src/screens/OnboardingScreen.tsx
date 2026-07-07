@@ -9,8 +9,8 @@ import { KidBadge } from '../components/KidBadge';
 import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import {
-  sugaOnboardingGreeting,
-  sugaOnboardingTapMessages,
+  sungyOnboardingGreeting,
+  sungyOnboardingTapMessages,
 } from '../data/mascotPrompts';
 import { playTapSound, speakVi } from '../engine/AudioManager';
 import {
@@ -26,7 +26,7 @@ import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
 
-function speakSugaLine(message: string) {
+function speakSungyLine(message: string) {
   playTapSound().catch(() => undefined);
   speakVi(message).catch(() => undefined);
 }
@@ -56,8 +56,8 @@ export function OnboardingScreen({ navigation }: Props) {
           <View style={styles.heroBrand}>
             <AppLogo size={76} />
             <MascotImage
-              accessibilityLabel="Suga, bạn học của bé"
-              onPress={() => speakSugaLine(sugaOnboardingGreeting)}
+              accessibilityLabel="Sungy, bạn học của bé"
+              onPress={() => speakSungyLine(sungyOnboardingGreeting)}
               pose="hello"
               size={132}
               style={styles.heroMascot}
@@ -71,10 +71,10 @@ export function OnboardingScreen({ navigation }: Props) {
           </Text>
           <MascotSpeechBubble
             mascotSize="avatar"
-            message="Suga sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành."
-            onMascotPress={speakSugaLine}
+            message="Sungy sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành."
+            onMascotPress={speakSungyLine}
             style={styles.coachBubble}
-            tapMessages={sugaOnboardingTapMessages}
+            tapMessages={sungyOnboardingTapMessages}
             title="Bạn học của bé"
             tone="guide"
           />

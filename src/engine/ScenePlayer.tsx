@@ -19,7 +19,7 @@ import { SKidsIcon } from '../components/SKidsIcon';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
-import { sugaCompletionTapMessages } from '../data/mascotPrompts';
+import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -871,8 +871,8 @@ export function ScenePlayer({
     const completionCoachMessage = hasNextScene
       ? 'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.'
       : completeCurrentSceneOnly
-        ? 'Suga đã đánh dấu trạm này xong rồi. Bé về gói bài học nhé!'
-        : 'Tuyệt vời! Suga đã sẵn sàng trao sticker cho bé.';
+        ? 'Sungy đã đánh dấu trạm này xong rồi. Bé về gói bài học nhé!'
+        : 'Tuyệt vời! Sungy đã sẵn sàng trao sticker cho bé.';
 
     return (
       <View style={styles.completionOverlay}>
@@ -893,14 +893,14 @@ export function ScenePlayer({
             tapMessages={
               nextScene
                 ? [
-                    sugaCompletionTapMessages[0],
-                    sugaCompletionTapMessages[1],
-                    sugaCompletionTapMessages[3],
+                    sungyCompletionTapMessages[0],
+                    sungyCompletionTapMessages[1],
+                    sungyCompletionTapMessages[3],
                   ]
                 : [
-                    sugaCompletionTapMessages[0],
-                    sugaCompletionTapMessages[2],
-                    sugaCompletionTapMessages[3],
+                    sungyCompletionTapMessages[0],
+                    sungyCompletionTapMessages[2],
+                    sungyCompletionTapMessages[3],
                   ]
             }
             tone="success"
