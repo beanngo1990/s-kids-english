@@ -2102,6 +2102,7 @@ const styles = StyleSheet.create({
     minHeight: 520,
     paddingHorizontal: spacing.xs,
     paddingTop: spacing.sm,
+    paddingBottom: 240,
     position: 'relative',
   },
   mapCoach: {
@@ -2853,11 +2854,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 112,
+    paddingBottom: 240,
   },
   playScrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 112,
+    paddingBottom: 240,
   },
   shell: {
     flex: 1,
