@@ -1,17 +1,28 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 
 import { AppCard } from '../components/AppCard';
+import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
+import { LearningStreakCard } from '../components/LearningStreakCard';
 import { Screen } from '../components/Screen';
 import { StatTile } from '../components/StatTile';
+import { WeeklyChart } from '../components/WeeklyChart';
 import { lessons } from '../data/lessons';
 import {
+  getActivityLog,
+  getWeeklyData,
+  type ActivityLog,
+} from '../engine/DailyActivityTracker';
+import {
+  AVATAR_EMOJI_OPTIONS,
   getLearningDifficultyOption,
   getParentSettings,
   learningDifficultyOptions,
   saveParentLearningMode,
   saveParentSettings,
+  type ChildProfile,
+  defaultChildProfile,
 } from '../engine/ParentSettingsManager';
 import type { AppLanguage, AppTheme } from '../engine/ParentSettingsManager';
 import {
@@ -33,7 +44,7 @@ export function ParentScreen() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
-  
+
   // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
@@ -42,7 +53,11 @@ export function ParentScreen() {
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTime, setReminderTime] = useState('19:30');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
-  
+  const [childProfile, setChildProfile] = useState<ChildProfile>(defaultChildProfile);
+
+  // Activity State
+  const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
+
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -65,7 +80,7 @@ export function ParentScreen() {
   const recentLesson = lessons.find(l => l.id === recentLessonId);
   const currentDifficulty = getLearningDifficultyOption(learningMode);
   const tipText = recentLesson?.metadata?.parentTipVi ?? (
-    recentLearnedWords.length > 0 
+    recentLearnedWords.length > 0
       ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${recentLearnedWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
       : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!'
   );
@@ -85,6 +100,9 @@ export function ParentScreen() {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    getActivityLog()
+      .then(setActivityLog)
+      .catch(() => setActivityLog(null));
     getParentSettings()
       .then(settings => {
         setLearningMode(settings.learningMode);
@@ -94,6 +112,7 @@ export function ParentScreen() {
         setReminderEnabled(settings.reminderEnabled);
         setReminderTime(settings.reminderTime);
         setVisibleLessonIds(settings.visibleLessonIds);
+        setChildProfile(settings.childProfile);
       })
       .catch(() => {
         setLearningMode('core');
@@ -202,35 +221,27 @@ export function ParentScreen() {
 
   return (
     <Screen scroll>
-      <View style={styles.header}>
-        <KidBadge tone="sky">Demo offline</KidBadge>
-        <Text style={styles.title}>Khu vực Phụ huynh</Text>
-        <Text style={styles.headerCopy}>
-          Cài đặt và theo dõi tiến độ của bé.
-        </Text>
-      </View>
-
       <View style={styles.tabContainer}>
-        <Pressable 
+        <Pressable
           accessibilityRole="tab"
           accessibilityState={{ selected: activeTab === 'stats' }}
-          onPress={() => setActiveTab('stats')} 
+          onPress={() => setActiveTab('stats')}
           style={[styles.tabButton, activeTab === 'stats' && styles.tabButtonActive]}
         >
           <Text style={[styles.tabButtonText, activeTab === 'stats' && styles.tabButtonTextActive]}>Thống kê</Text>
         </Pressable>
-        <Pressable 
+        <Pressable
           accessibilityRole="tab"
           accessibilityState={{ selected: activeTab === 'lessons' }}
-          onPress={() => setActiveTab('lessons')} 
+          onPress={() => setActiveTab('lessons')}
           style={[styles.tabButton, activeTab === 'lessons' && styles.tabButtonActive]}
         >
           <Text style={[styles.tabButtonText, activeTab === 'lessons' && styles.tabButtonTextActive]}>Bài học</Text>
         </Pressable>
-        <Pressable 
+        <Pressable
           accessibilityRole="tab"
           accessibilityState={{ selected: activeTab === 'settings' }}
-          onPress={() => setActiveTab('settings')} 
+          onPress={() => setActiveTab('settings')}
           style={[styles.tabButton, activeTab === 'settings' && styles.tabButtonActive]}
         >
           <Text style={[styles.tabButtonText, activeTab === 'settings' && styles.tabButtonTextActive]}>Cài đặt</Text>
@@ -239,12 +250,26 @@ export function ParentScreen() {
 
       {activeTab === 'stats' && (
         <View style={styles.tabContent}>
+          <ChildProfileCard
+            profile={childProfile}
+            onEditPress={() => setActiveTab('settings')}
+          />
+
+          <LearningStreakCard
+            currentStreak={activityLog?.currentStreak ?? 0}
+            longestStreak={activityLog?.longestStreak ?? 0}
+          />
+
           <View style={styles.grid}>
             <StatTile icon="Aa" label="Từ bé đã học" value={learnedWordCount} />
             <StatTile icon="★" label="Bài hoàn thành" value={completedLessonCount} />
             <StatTile icon="✓" label="Sticker đã nhận" value={earnedStickerCount} />
           </View>
-          
+
+          <WeeklyChart
+            data={getWeeklyData(activityLog?.entries ?? [])}
+          />
+
           <AppCard style={styles.summary}>
             <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
             {recentLearnedWords.length > 0 ? (
@@ -275,7 +300,7 @@ export function ParentScreen() {
               {lessons.map(lesson => {
                 const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
                 const isVisible = currentVisible.includes(lesson.id);
-                
+
                 return (
                   <View key={lesson.id} style={styles.lessonRow}>
                     <View style={styles.lessonTextGroup}>
@@ -297,6 +322,90 @@ export function ParentScreen() {
 
       {activeTab === 'settings' && (
         <View style={styles.tabContent}>
+          <AppCard style={styles.settingsCard}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.sectionTitleGroup}>
+                <KidBadge tone="sky">Hồ sơ bé</KidBadge>
+                <Text style={styles.privacyTitle}>Thông tin cá nhân</Text>
+              </View>
+            </View>
+
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Tên bé</Text>
+              </View>
+              <TextInput
+                style={styles.textInput}
+                value={childProfile.name}
+                onChangeText={(text) => {
+                  const next = { ...childProfile, name: text };
+                  setChildProfile(next);
+                }}
+                onBlur={() => {
+                  const name = childProfile.name.trim() || defaultChildProfile.name;
+                  const next = { ...childProfile, name };
+                  setChildProfile(next);
+                  saveParentSettings({ childProfile: next });
+                }}
+                placeholder="Nhập tên bé"
+                placeholderTextColor={colors.muted}
+                maxLength={20}
+              />
+            </View>
+
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Avatar</Text>
+              </View>
+            </View>
+            <View style={styles.emojiGrid}>
+              {AVATAR_EMOJI_OPTIONS.map(emoji => {
+                const isSelected = childProfile.avatarEmoji === emoji;
+                return (
+                  <Pressable
+                    key={emoji}
+                    onPress={() => {
+                      const next = { ...childProfile, avatarEmoji: emoji };
+                      setChildProfile(next);
+                      saveParentSettings({ childProfile: next });
+                    }}
+                    style={[
+                      styles.emojiOption,
+                      isSelected && styles.emojiOptionSelected,
+                    ]}
+                  >
+                    <Text style={styles.emojiText}>{emoji}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Năm sinh (tuỳ chọn)</Text>
+              </View>
+              <TextInput
+                style={styles.textInputSmall}
+                value={childProfile.birthYear?.toString() ?? ''}
+                onChangeText={(text) => {
+                  const num = parseInt(text, 10);
+                  const next = {
+                    ...childProfile,
+                    birthYear: Number.isNaN(num) ? undefined : num,
+                  };
+                  setChildProfile(next);
+                }}
+                onBlur={() => {
+                  saveParentSettings({ childProfile });
+                }}
+                placeholder="VD: 2021"
+                placeholderTextColor={colors.muted}
+                keyboardType="number-pad"
+                maxLength={4}
+              />
+            </View>
+          </AppCard>
+
           <AppCard style={styles.settingsCard}>
             <View style={styles.sectionHeader}>
               <View style={styles.sectionTitleGroup}>
@@ -676,5 +785,53 @@ const styles = StyleSheet.create({
   },
   tabContent: {
     paddingBottom: spacing.xl,
+    gap: spacing.md,
+  },
+  textInput: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+    color: colors.text,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    minWidth: 120,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  textInputSmall: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+    color: colors.text,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    minWidth: 80,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  emojiGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  emojiOption: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  emojiOptionSelected: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  emojiText: {
+    fontSize: 24,
+    lineHeight: 30,
   },
 });
