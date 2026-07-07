@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppCard } from '../components/AppCard';
@@ -10,6 +10,7 @@ import { Screen } from '../components/Screen';
 import { StatTile } from '../components/StatTile';
 import { WeeklyChart } from '../components/WeeklyChart';
 import { lessons } from '../data/lessons';
+import { themes } from '../data/themes';
 import {
   getActivityLog,
   getWeeklyData,
@@ -45,6 +46,7 @@ export function ParentScreen() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
+  const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
 
   // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
@@ -85,6 +87,14 @@ export function ParentScreen() {
       ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${recentLearnedWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
       : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!'
   );
+
+  const recentThemeId = recentLesson?.themeId ?? themes[0]?.id;
+
+  useEffect(() => {
+    if (recentThemeId && !expandedThemeId) {
+      setExpandedThemeId(recentThemeId);
+    }
+  }, [recentThemeId, expandedThemeId]);
 
   function clearGateTimer() {
     if (gateTimerRef.current) {
@@ -182,11 +192,22 @@ export function ParentScreen() {
   const handleToggleLesson = async (lessonId: string) => {
     const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
     let nextVisible: string[];
+    
     if (currentVisible.includes(lessonId)) {
+      const lesson = lessons.find(l => l.id === lessonId);
+      if (lesson) {
+        const themeLessons = lessons.filter(l => l.themeId === lesson.themeId);
+        const visibleInTheme = themeLessons.filter(l => currentVisible.includes(l.id));
+        if (visibleInTheme.length <= 1) {
+          Alert.alert('Lưu ý', 'Cần giữ ít nhất 1 bài học được bật trong chủ đề này.');
+          return;
+        }
+      }
       nextVisible = currentVisible.filter(id => id !== lessonId);
     } else {
       nextVisible = [...currentVisible, lessonId];
     }
+    
     setVisibleLessonIds(nextVisible);
     await saveParentSettings({ visibleLessonIds: nextVisible });
   };
@@ -273,21 +294,47 @@ export function ParentScreen() {
                 Chọn các bài học bạn muốn bé tập trung. Tắt các bài học khác để bé không bị phân tâm.
               </Text>
               <View style={styles.lessonList}>
-                {lessons.map(lesson => {
-                  const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
-                  const isVisible = currentVisible.includes(lesson.id);
+                {themes.map(theme => {
+                  const isExpanded = expandedThemeId === theme.id;
+                  const themeLessons = lessons.filter(l => l.themeId === theme.id);
+                  if (themeLessons.length === 0) return null;
 
                   return (
-                    <View key={lesson.id} style={styles.lessonRow}>
-                      <View style={styles.lessonTextGroup}>
-                        <Text style={styles.difficultyTitle}>{lesson.titleVi}</Text>
-                        <Text style={styles.difficultySubtitle}>{lesson.titleEn}</Text>
-                      </View>
-                      <Switch
-                        value={isVisible}
-                        onValueChange={() => handleToggleLesson(lesson.id)}
-                        trackColor={{ false: colors.border, true: colors.primary }}
-                      />
+                    <View key={theme.id} style={styles.themeGroup}>
+                      <Pressable 
+                        style={[styles.themeHeader, isExpanded && styles.themeHeaderExpanded]}
+                        onPress={() => setExpandedThemeId(isExpanded ? null : theme.id)}
+                      >
+                        <View style={styles.themeHeaderLeft}>
+                          <Text style={styles.themeEmoji}>{theme.thumbnailEmoji}</Text>
+                          <Text style={styles.themeTitle}>{theme.titleVi}</Text>
+                        </View>
+                        <Text style={styles.expandIcon}>{isExpanded ? '▼' : '▶'}</Text>
+                      </Pressable>
+                      
+                      {isExpanded && (
+                        <View style={styles.themeLessons}>
+                          {themeLessons.map((lesson, index) => {
+                            const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
+                            const isVisible = currentVisible.includes(lesson.id);
+                            const isLast = index === themeLessons.length - 1;
+
+                            return (
+                              <View key={lesson.id} style={[styles.lessonRow, isLast && { borderBottomWidth: 0 }]}>
+                                <View style={styles.lessonTextGroup}>
+                                  <Text style={styles.difficultyTitle}>{lesson.titleVi}</Text>
+                                  <Text style={styles.difficultySubtitle}>{lesson.titleEn}</Text>
+                                </View>
+                                <Switch
+                                  value={isVisible}
+                                  onValueChange={() => handleToggleLesson(lesson.id)}
+                                  trackColor={{ false: colors.border, true: colors.primary }}
+                                />
+                              </View>
+                            );
+                          })}
+                        </View>
+                      )}
                     </View>
                   );
                 })}
@@ -753,6 +800,45 @@ const styles = StyleSheet.create({
   lessonList: {
     marginTop: spacing.md,
     gap: spacing.sm,
+  },
+  themeGroup: {
+    backgroundColor: colors.white,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  themeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: spacing.md,
+    backgroundColor: colors.surfaceBlue,
+  },
+  themeHeaderExpanded: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  themeHeaderLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  themeEmoji: {
+    fontSize: 20,
+  },
+  themeTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  expandIcon: {
+    color: colors.textSoft,
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  themeLessons: {
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.white,
   },
   lessonRow: {
     alignItems: 'center',
