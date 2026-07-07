@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppCard } from '../components/AppCard';
 import { ChildProfileCard } from '../components/ChildProfileCard';
@@ -220,33 +221,8 @@ export function ParentScreen() {
   }
 
   return (
-    <Screen scroll>
-      <View style={styles.tabContainer}>
-        <Pressable
-          accessibilityRole="tab"
-          accessibilityState={{ selected: activeTab === 'stats' }}
-          onPress={() => setActiveTab('stats')}
-          style={[styles.tabButton, activeTab === 'stats' && styles.tabButtonActive]}
-        >
-          <Text style={[styles.tabButtonText, activeTab === 'stats' && styles.tabButtonTextActive]}>Thống kê</Text>
-        </Pressable>
-        <Pressable
-          accessibilityRole="tab"
-          accessibilityState={{ selected: activeTab === 'lessons' }}
-          onPress={() => setActiveTab('lessons')}
-          style={[styles.tabButton, activeTab === 'lessons' && styles.tabButtonActive]}
-        >
-          <Text style={[styles.tabButtonText, activeTab === 'lessons' && styles.tabButtonTextActive]}>Bài học</Text>
-        </Pressable>
-        <Pressable
-          accessibilityRole="tab"
-          accessibilityState={{ selected: activeTab === 'settings' }}
-          onPress={() => setActiveTab('settings')}
-          style={[styles.tabButton, activeTab === 'settings' && styles.tabButtonActive]}
-        >
-          <Text style={[styles.tabButtonText, activeTab === 'settings' && styles.tabButtonTextActive]}>Cài đặt</Text>
-        </Pressable>
-      </View>
+    <View style={styles.screenContainer}>
+      <Screen scroll>
 
       {activeTab === 'stats' && (
         <View style={styles.tabContent}>
@@ -560,7 +536,40 @@ export function ParentScreen() {
           )}
         </View>
       )}
-    </Screen>
+      </Screen>
+
+      <SafeAreaView edges={['bottom']} style={styles.bottomBarSafe}>
+        <View style={styles.bottomBar}>
+          <Pressable
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeTab === 'stats' }}
+            onPress={() => setActiveTab('stats')}
+            style={[styles.bottomTab, activeTab === 'stats' && styles.bottomTabActive]}
+          >
+            <Text style={styles.bottomTabEmoji}>📊</Text>
+            <Text style={[styles.bottomTabText, activeTab === 'stats' && styles.bottomTabTextActive]}>Thống kê</Text>
+          </Pressable>
+          <Pressable
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeTab === 'lessons' }}
+            onPress={() => setActiveTab('lessons')}
+            style={[styles.bottomTab, activeTab === 'lessons' && styles.bottomTabActive]}
+          >
+            <Text style={styles.bottomTabEmoji}>📚</Text>
+            <Text style={[styles.bottomTabText, activeTab === 'lessons' && styles.bottomTabTextActive]}>Bài học</Text>
+          </Pressable>
+          <Pressable
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeTab === 'settings' }}
+            onPress={() => setActiveTab('settings')}
+            style={[styles.bottomTab, activeTab === 'settings' && styles.bottomTabActive]}
+          >
+            <Text style={styles.bottomTabEmoji}>⚙️</Text>
+            <Text style={[styles.bottomTabText, activeTab === 'settings' && styles.bottomTabTextActive]}>Cài đặt</Text>
+          </Pressable>
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
 
@@ -786,6 +795,44 @@ const styles = StyleSheet.create({
   tabContent: {
     paddingBottom: spacing.xl,
     gap: spacing.md,
+  },
+  screenContainer: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  bottomBarSafe: {
+    backgroundColor: colors.white,
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+  },
+  bottomBar: {
+    flexDirection: 'row',
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.md,
+  },
+  bottomTab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: spacing.xs,
+    gap: spacing.xxs,
+    borderRadius: radius.md,
+  },
+  bottomTabActive: {
+    backgroundColor: colors.primarySoft,
+  },
+  bottomTabEmoji: {
+    fontSize: 20,
+    lineHeight: 24,
+  },
+  bottomTabText: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  bottomTabTextActive: {
+    color: colors.primaryDark,
+    fontWeight: '900',
   },
   textInput: {
     backgroundColor: colors.surfaceBlue,
