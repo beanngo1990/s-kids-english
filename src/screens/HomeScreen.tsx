@@ -144,10 +144,10 @@ export function HomeScreen({ navigation }: Props) {
   const pendingProgress = progress?.currentLessonProgress;
   const pendingNode = pendingProgress
     ? mapNodes.find(
-        node =>
-          node.lessonId === pendingProgress.lessonId &&
-          node.scene.id === pendingProgress.sceneId,
-      )
+      node =>
+        node.lessonId === pendingProgress.lessonId &&
+        node.scene.id === pendingProgress.sceneId,
+    )
     : undefined;
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
@@ -158,25 +158,25 @@ export function HomeScreen({ navigation }: Props) {
   const homeCoachMessage = isThemeComplete
     ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
     : hasPendingReviewGame
-    ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'} nhé!`
-    : ctaNode
-    ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
-    : 'Hôm nay mình học cùng Suga nhé!';
+      ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'} nhé!`
+      : ctaNode
+        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
+        : 'Hôm nay mình học cùng Suga nhé!';
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
     : hasPendingReviewGame
-    ? 'learn'
-    : 'letsGo';
+      ? 'learn'
+      : 'letsGo';
   const homeCoachTone = isThemeComplete
     ? 'success'
     : hasPendingReviewGame
-    ? 'hint'
-    : 'guide';
+      ? 'hint'
+      : 'guide';
   const homeCoachTapMessages = isThemeComplete
     ? sugaHomeCompleteTapMessages
     : hasPendingReviewGame
-    ? sugaHomeReviewTapMessages
-    : sugaHomeGuideTapMessages;
+      ? sugaHomeReviewTapMessages
+      : sugaHomeGuideTapMessages;
 
   const updateMapLayoutY = useCallback(
     (
@@ -575,20 +575,20 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isLessonCompleted = Boolean(
                           lessonProgress.total > 0 &&
-                            lessonProgress.completed === lessonProgress.total,
+                          lessonProgress.completed === lessonProgress.total,
                         );
                         const isReviewGameCompleted = Boolean(
                           section.lesson.reviewGame &&
-                            completedReviewGameIds.has(
-                              section.lesson.reviewGame.id,
-                            ),
+                          completedReviewGameIds.has(
+                            section.lesson.reviewGame.id,
+                          ),
                         );
                         const isReviewGameCurrent = Boolean(
                           isLessonCompleted && !isReviewGameCompleted,
                         );
                         const isLessonCurrent = Boolean(
                           !isThemeComplete &&
-                            currentLessonId === section.lesson.id,
+                          currentLessonId === section.lesson.id,
                         );
                         const lessonMonumentAlignment =
                           getLessonMonumentAlignment();
@@ -599,12 +599,12 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isFirstNodePathActive = Boolean(
                           firstNode &&
-                            (isThemeNodeComplete(
-                              firstNode,
-                              completedSceneIds,
-                            ) ||
-                              ctaNode?.key === firstNode.key ||
-                              isThemeComplete),
+                          (isThemeNodeComplete(
+                            firstNode,
+                            completedSceneIds,
+                          ) ||
+                            ctaNode?.key === firstNode.key ||
+                            isThemeComplete),
                         );
 
                         return (
@@ -820,7 +820,7 @@ export function HomeScreen({ navigation }: Props) {
                                   />
 
                                   {section.lessonIndex <
-                                  mapSections.length - 1 ? (
+                                    mapSections.length - 1 ? (
                                     <MapConnector
                                       from={lessonMonumentAlignment}
                                       isComplete={isLessonCompleted}
@@ -931,32 +931,31 @@ function SKidsHubSheet({
   const heroIconName: SKidsIconName = hasPendingReviewGame
     ? 'replay'
     : isComplete
-    ? 'star'
-    : 'focusLesson';
+      ? 'star'
+      : 'focusLesson';
   const heroTitle = hasPendingReviewGame
     ? `Ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'}`
     : isComplete
-    ? 'Bản đồ đã đủ sao'
-    : nextNode?.scene.titleVi ?? 'Sẵn sàng học tiếp';
+      ? 'Bản đồ đã đủ sao'
+      : nextNode?.scene.titleVi ?? 'Sẵn sàng học tiếp';
   const heroSubtitle = hasPendingReviewGame
     ? 'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.'
     : isComplete
-    ? 'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.'
-    : nextNode
-    ? `${nextNode.lessonTitleVi} · Trạm ${nextNode.sceneIndexInLesson + 1}/${
-        nextNode.sceneCountInLesson
-      }`
-    : 'Bản đồ sẽ hiện bài mới khi có nội dung.';
+      ? 'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.'
+      : nextNode
+        ? `${nextNode.lessonTitleVi} · Trạm ${nextNode.sceneIndexInLesson + 1}/${nextNode.sceneCountInLesson
+        }`
+        : 'Bản đồ sẽ hiện bài mới khi có nội dung.';
   const primaryLabel = hasPendingReviewGame
     ? 'Chơi ôn tập'
     : isComplete
-    ? 'Chơi lại trạm đầu'
-    : 'Học tiếp';
+      ? 'Chơi lại trạm đầu'
+      : 'Học tiếp';
   const giftText = hasPendingReviewGame
     ? 'Xong phần ôn tập, bé nhận thêm sticker thưởng.'
     : isComplete
-    ? 'Chơi lại một trạm để giữ cảm giác tự tin.'
-    : 'Hoàn thành trạm hôm nay để nhận sticker mới.';
+      ? 'Chơi lại một trạm để giữ cảm giác tự tin.'
+      : 'Hoàn thành trạm hôm nay để nhận sticker mới.';
 
   return (
     <Modal
@@ -1125,16 +1124,13 @@ function SceneMapStop({
   scene,
 }: SceneMapStopProps) {
   const isAvailable = !isCompleted && !isCurrent && !isLocked;
-  const lessonPosition = `Bài ${
-    lessonIndex + 1
-  }/${lessonCount}: ${lessonTitleVi}, trạm ${
-    sceneIndexInLesson + 1
-  }/${sceneCountInLesson}`;
+  const lessonPosition = `Bài ${lessonIndex + 1
+    }/${lessonCount}: ${lessonTitleVi}, trạm ${sceneIndexInLesson + 1
+    }/${sceneCountInLesson}`;
   const accessibilityLabel = isLocked
     ? `${lessonPosition}: ${scene.titleVi} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${
-        scene.titleVi
-      }`;
+    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi
+    }`;
 
   return (
     <Pressable
@@ -1572,11 +1568,11 @@ function getThemeLessons(
       if (!lesson) {
         return false;
       }
-      
+
       if (visibleLessonIds && !visibleLessonIds.includes(lesson.id)) {
         return false;
       }
-      
+
       return true;
     });
 }
@@ -2102,7 +2098,7 @@ const styles = StyleSheet.create({
     minHeight: 520,
     paddingHorizontal: spacing.xs,
     paddingTop: spacing.sm,
-    paddingBottom: 240,
+    paddingBottom: 20,
     position: 'relative',
   },
   mapCoach: {
@@ -2854,11 +2850,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 240,
+    paddingBottom: 20,
   },
   playScrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 240,
+    paddingBottom: 20,
   },
   shell: {
     flex: 1,

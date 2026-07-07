@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: spacing.xxxl,
+    paddingBottom: 100,
   },
 });

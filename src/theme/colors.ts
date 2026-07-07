@@ -25,9 +25,9 @@ export const colors = {
   borderWarm: '#F3DDA8',
   shadow: '#5CA6C5',
   warmShadow: '#D7A03F',
-  text: '#253642',
-  textSoft: '#526C7A',
-  muted: '#7D95A3',
+  text: '#334155',
+  textSoft: '#64748B',
+  muted: '#94A3B8',
   white: '#FFFFFF',
   transparent: 'transparent',
 } as const;

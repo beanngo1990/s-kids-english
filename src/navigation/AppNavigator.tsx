@@ -121,7 +121,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="Parent"
           component={ParentScreen}
-          options={{ title: 'Góc phụ huynh' }}
+          options={{ title: 'Góc phụ huynh', headerBackTitleVisible: false, headerBackTitle: '' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

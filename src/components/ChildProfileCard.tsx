@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import type { ChildProfile } from '../engine/ParentSettingsManager';
@@ -22,7 +22,7 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
     <AppCard style={styles.card}>
       <View style={styles.row}>
         <View style={styles.avatarContainer}>
-          <Text style={styles.avatarEmoji}>{profile.avatarEmoji}</Text>
+          <Image source={require('../assets/mascot/suga/suga-avatar.png')} style={styles.avatarImage} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.name}>{profile.name}</Text>
@@ -51,7 +51,6 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
   },
   row: {
     alignItems: 'center',
@@ -68,9 +67,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 56,
   },
-  avatarEmoji: {
-    fontSize: 28,
-    lineHeight: 34,
+  avatarImage: {
+    height: 48,
+    width: 48,
+    resizeMode: 'contain',
   },
   textContainer: {
     flex: 1,
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   editButton: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surfaceBlue,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 1.5,
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
   },
   editButtonPressed: {
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   },
   editButtonText: {
     color: colors.primaryDark,
-    ...typography.caption,
+    fontWeight: '700',
+    fontSize: 13,
   },
 });

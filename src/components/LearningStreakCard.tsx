@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { colors } from '../theme/colors';
@@ -26,9 +26,14 @@ export function LearningStreakCard({
     <AppCard style={styles.card}>
       <View style={styles.row}>
         <View style={styles.fireContainer}>
-          <Text style={styles.fireEmoji}>
-            {currentStreak > 0 ? '🔥' : '💤'}
-          </Text>
+          {currentStreak > 0 ? (
+            <Image
+              source={require('../assets/icons/skids/star.png')}
+              style={styles.streakImage}
+            />
+          ) : (
+            <Text style={styles.sleepEmoji}>🌙</Text>
+          )}
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.streakNumber}>{currentStreak}</Text>
@@ -41,13 +46,13 @@ export function LearningStreakCard({
         </View>
       </View>
       <View style={styles.dotsRow}>
-        {Array.from({ length: 7 }).map((_, i) => {
+        {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map((day, i) => {
           const isActive = i < currentStreak && i < 7;
           return (
-            <View
-              key={i}
-              style={[styles.dot, isActive && styles.dotActive]}
-            />
+            <View key={i} style={styles.dotColumn}>
+              <View style={[styles.dot, isActive && styles.dotActive]} />
+              <Text style={styles.dayLabel}>{day}</Text>
+            </View>
           );
         })}
       </View>
@@ -58,7 +63,6 @@ export function LearningStreakCard({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.backgroundWarm,
-    borderColor: colors.borderWarm,
     gap: spacing.sm,
   },
   row: {
@@ -69,16 +73,19 @@ const styles = StyleSheet.create({
   fireContainer: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
-    borderColor: colors.borderWarm,
     borderRadius: radius.lg,
-    borderWidth: 2,
     height: 56,
     justifyContent: 'center',
     width: 56,
   },
-  fireEmoji: {
-    fontSize: 28,
-    lineHeight: 34,
+  streakImage: {
+    height: 32,
+    resizeMode: 'contain',
+    width: 32,
+  },
+  sleepEmoji: {
+    fontSize: 32,
+    lineHeight: 38,
   },
   textContainer: {
     flex: 1,
@@ -110,5 +117,14 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     backgroundColor: colors.secondary,
+  },
+  dotColumn: {
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  dayLabel: {
+    color: colors.muted,
+    fontSize: 10,
+    fontWeight: '700',
   },
 });
