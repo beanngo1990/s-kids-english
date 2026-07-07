@@ -525,9 +525,9 @@ function collectAudioTargets(
     existingViAudio,
     text: reviewGamePrompts.memoryGameIntroPromptVi,
   });
-  for (const text of mascotPrompts.sugaSpeechLines ?? []) {
+  for (const text of mascotPrompts.sungySpeechLines ?? []) {
     addSharedViTarget(targets, {
-      defaultKey: getSugaAudioKey(text),
+      defaultKey: getSungyAudioKey(text),
       existingViAudio,
       text,
     });
@@ -609,8 +609,8 @@ function getCompletionAudioKey(lessonId, sceneId, text) {
   )}.wav`;
 }
 
-function getSugaAudioKey(text) {
-  return `shared/audio/vi/suga/${slug(text)}_${textDigest(text)}.wav`;
+function getSungyAudioKey(text) {
+  return `shared/audio/vi/sungy/${slug(text)}_${textDigest(text)}.wav`;
 }
 
 function stripScenePrefix(sceneId, stepId) {

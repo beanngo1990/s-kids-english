@@ -10,7 +10,7 @@ import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
-import { sugaRewardTapMessages } from '../data/mascotPrompts';
+import { sungyRewardTapMessages } from '../data/mascotPrompts';
 import {
   getLessonVocabulary,
   getProgress,
@@ -30,7 +30,7 @@ import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 
-function celebrateWithSuga(message: string) {
+function celebrateWithSungy(message: string) {
   playCompleteSound().catch(() => undefined);
   speakVi(message).catch(() => undefined);
 }
@@ -117,7 +117,7 @@ export function RewardScreen({ navigation, route }: Props) {
           <View style={styles.rewardMascotStage}>
             <View style={styles.rewardGlow} />
             <MascotImage
-              accessibilityLabel="Suga chúc mừng bé"
+              accessibilityLabel="Sungy chúc mừng bé"
               pose="greatJob"
               size={210}
               style={styles.rewardMascot}

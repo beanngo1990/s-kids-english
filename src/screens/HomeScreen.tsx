@@ -30,9 +30,9 @@ import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import {
-  sugaHomeCompleteTapMessages,
-  sugaHomeGuideTapMessages,
-  sugaHomeReviewTapMessages,
+  sungyHomeCompleteTapMessages,
+  sungyHomeGuideTapMessages,
+  sungyHomeReviewTapMessages,
 } from '../data/mascotPrompts';
 import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { playTapSound, speakVi } from '../engine/AudioManager';
@@ -53,7 +53,7 @@ import {
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
 
-function speakSugaLine(message: string) {
+function speakSungyLine(message: string) {
   playTapSound().catch(() => undefined);
   speakVi(message).catch(() => undefined);
 }
@@ -161,7 +161,7 @@ export function HomeScreen({ navigation }: Props) {
       ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'} nhé!`
       : ctaNode
         ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
-        : 'Hôm nay mình học cùng Suga nhé!';
+        : 'Hôm nay mình học cùng Sungy nhé!';
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
     : hasPendingReviewGame
@@ -173,10 +173,10 @@ export function HomeScreen({ navigation }: Props) {
       ? 'hint'
       : 'guide';
   const homeCoachTapMessages = isThemeComplete
-    ? sugaHomeCompleteTapMessages
+    ? sungyHomeCompleteTapMessages
     : hasPendingReviewGame
-      ? sugaHomeReviewTapMessages
-      : sugaHomeGuideTapMessages;
+      ? sungyHomeReviewTapMessages
+      : sungyHomeGuideTapMessages;
 
   const updateMapLayoutY = useCallback(
     (
@@ -434,11 +434,11 @@ export function HomeScreen({ navigation }: Props) {
                     <MascotSpeechBubble
                       mascotSize="sm"
                       message={homeCoachMessage}
-                      onMascotPress={speakSugaLine}
+                      onMascotPress={speakSungyLine}
                       pose={homeCoachPose}
                       style={styles.mapCoach}
                       tapMessages={homeCoachTapMessages}
-                      title="Suga dẫn đường"
+                      title="Sungy dẫn đường"
                       tone={homeCoachTone}
                     />
                     <View

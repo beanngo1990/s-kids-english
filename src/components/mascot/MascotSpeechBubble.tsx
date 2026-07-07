@@ -96,7 +96,7 @@ export function MascotSpeechBubble({
       ]}
     >
       <MascotImage
-        accessibilityLabel={mascotAccessibilityLabel ?? 'Chạm vào Suga'}
+        accessibilityLabel={mascotAccessibilityLabel ?? 'Chạm vào Sungy'}
         decorative={!onMascotPress && tapMessages.length === 0}
         onPress={
           onMascotPress || tapMessages.length > 0

@@ -7103,85 +7103,85 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "shared/audio/vi/speak_prompt.wav",
     text: "Bé nói theo cô nhé.",
   },
-  [normalizeText("Ba mẹ chọn độ khó trước, rồi Suga sẽ dẫn bé đi từng trạm nhé.")]: {
-    key: "shared/audio/vi/suga/ba_me_chon_o_kho_truoc_roi_suga_se_dan_be_i_tung_tram_nhe_823e71e6.wav",
-    text: "Ba mẹ chọn độ khó trước, rồi Suga sẽ dẫn bé đi từng trạm nhé.",
+  [normalizeText("Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.")]: {
+    key: "shared/audio/vi/sungy/ba_me_chon_o_kho_truoc_roi_sungy_se_dan_be_i_tung_tram_nhe_823e71e6.wav",
+    text: "Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.",
   },
   [normalizeText("Bấm tab Chơi để gặp game đang mở nhé.")]: {
-    key: "shared/audio/vi/suga/bam_tab_choi_e_gap_game_ang_mo_nhe_cbd5f365.wav",
+    key: "shared/audio/vi/sungy/bam_tab_choi_e_gap_game_ang_mo_nhe_cbd5f365.wav",
     text: "Bấm tab Chơi để gặp game đang mở nhé.",
   },
   [normalizeText("Bấm vào trạm sáng lên để học tiếp nhé.")]: {
-    key: "shared/audio/vi/suga/bam_vao_tram_sang_len_e_hoc_tiep_nhe_168f2d20.wav",
+    key: "shared/audio/vi/sungy/bam_vao_tram_sang_len_e_hoc_tiep_nhe_168f2d20.wav",
     text: "Bấm vào trạm sáng lên để học tiếp nhé.",
   },
   [normalizeText("Bấm vào từ mới bên dưới để nghe lại tiếng Anh nhé.")]: {
-    key: "shared/audio/vi/suga/bam_vao_tu_moi_ben_duoi_e_nghe_lai_tieng_anh_nhe_cb489611.wav",
+    key: "shared/audio/vi/sungy/bam_vao_tu_moi_ben_duoi_e_nghe_lai_tieng_anh_nhe_cb489611.wav",
     text: "Bấm vào từ mới bên dưới để nghe lại tiếng Anh nhé.",
   },
-  [normalizeText("Bé đã đi rất xa rồi, Suga tự hào lắm!")]: {
-    key: "shared/audio/vi/suga/be_a_i_rat_xa_roi_suga_tu_hao_lam_66b32e83.wav",
-    text: "Bé đã đi rất xa rồi, Suga tự hào lắm!",
+  [normalizeText("Bé đã đi rất xa rồi, Sungy tự hào lắm!")]: {
+    key: "shared/audio/vi/sungy/be_a_i_rat_xa_roi_sungy_tu_hao_lam_66b32e83.wav",
+    text: "Bé đã đi rất xa rồi, Sungy tự hào lắm!",
   },
   [normalizeText("Bé giỏi quá! Mình cùng nhận thêm sticker nhé.")]: {
-    key: "shared/audio/vi/suga/be_gioi_qua_minh_cung_nhan_them_sticker_nhe_1b33832a.wav",
+    key: "shared/audio/vi/sungy/be_gioi_qua_minh_cung_nhan_them_sticker_nhe_1b33832a.wav",
     text: "Bé giỏi quá! Mình cùng nhận thêm sticker nhé.",
   },
   [normalizeText("Bé vừa hoàn thành cảnh này rồi!")]: {
-    key: "shared/audio/vi/suga/be_vua_hoan_thanh_canh_nay_roi_7f4ccfc9.wav",
+    key: "shared/audio/vi/sungy/be_vua_hoan_thanh_canh_nay_roi_7f4ccfc9.wav",
     text: "Bé vừa hoàn thành cảnh này rồi!",
   },
   [normalizeText("Cảnh tiếp theo đang chờ mình. Mình đi nhé!")]: {
-    key: "shared/audio/vi/suga/canh_tiep_theo_ang_cho_minh_minh_i_nhe_1c48cf95.wav",
+    key: "shared/audio/vi/sungy/canh_tiep_theo_ang_cho_minh_minh_i_nhe_1c48cf95.wav",
     text: "Cảnh tiếp theo đang chờ mình. Mình đi nhé!",
   },
   [normalizeText("Chạm nút màu vàng để tiếp tục nào!")]: {
-    key: "shared/audio/vi/suga/cham_nut_mau_vang_e_tiep_tuc_nao_7a70ebdb.wav",
+    key: "shared/audio/vi/sungy/cham_nut_mau_vang_e_tiep_tuc_nao_7a70ebdb.wav",
     text: "Chạm nút màu vàng để tiếp tục nào!",
   },
-  [normalizeText("Chơi ôn tập xong là Suga trao sticker liền!")]: {
-    key: "shared/audio/vi/suga/choi_on_tap_xong_la_suga_trao_sticker_lien_2f262b0f.wav",
-    text: "Chơi ôn tập xong là Suga trao sticker liền!",
+  [normalizeText("Chơi ôn tập xong là Sungy trao sticker liền!")]: {
+    key: "shared/audio/vi/sungy/choi_on_tap_xong_la_sungy_trao_sticker_lien_2f262b0f.wav",
+    text: "Chơi ôn tập xong là Sungy trao sticker liền!",
   },
   [normalizeText("Mình có thể chơi lại để ôn từ mới nữa đó.")]: {
-    key: "shared/audio/vi/suga/minh_co_the_choi_lai_e_on_tu_moi_nua_o_3f2eeef4.wav",
+    key: "shared/audio/vi/sungy/minh_co_the_choi_lai_e_on_tu_moi_nua_o_3f2eeef4.wav",
     text: "Mình có thể chơi lại để ôn từ mới nữa đó.",
   },
   [normalizeText("Mình cùng lật thẻ để nhớ từ lâu hơn nhé.")]: {
-    key: "shared/audio/vi/suga/minh_cung_lat_the_e_nho_tu_lau_hon_nhe_756c712b.wav",
+    key: "shared/audio/vi/sungy/minh_cung_lat_the_e_nho_tu_lau_hon_nhe_756c712b.wav",
     text: "Mình cùng lật thẻ để nhớ từ lâu hơn nhé.",
   },
   [normalizeText("Mình kiếm thêm sao nào!")]: {
-    key: "shared/audio/vi/suga/minh_kiem_them_sao_nao_018ee72c.wav",
+    key: "shared/audio/vi/sungy/minh_kiem_them_sao_nao_018ee72c.wav",
     text: "Mình kiếm thêm sao nào!",
   },
   [normalizeText("Mình sẵn sàng sang bài tiếp theo.")]: {
-    key: "shared/audio/vi/suga/minh_san_sang_sang_bai_tiep_theo_98f72c3d.wav",
+    key: "shared/audio/vi/sungy/minh_san_sang_sang_bai_tiep_theo_98f72c3d.wav",
     text: "Mình sẵn sàng sang bài tiếp theo.",
   },
   [normalizeText("Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.")]: {
-    key: "shared/audio/vi/suga/minh_se_co_vu_be_moi_khi_be_hoc_xong_mot_canh_da5c3792.wav",
+    key: "shared/audio/vi/sungy/minh_se_co_vu_be_moi_khi_be_hoc_xong_mot_canh_da5c3792.wav",
     text: "Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.",
   },
   [normalizeText("Sticker mới sáng lên rồi!")]: {
-    key: "shared/audio/vi/suga/sticker_moi_sang_len_roi_08c5f47f.wav",
+    key: "shared/audio/vi/sungy/sticker_moi_sang_len_roi_08c5f47f.wav",
     text: "Sticker mới sáng lên rồi!",
   },
-  [normalizeText("Suga đã thấy cả bản đồ sáng lên rồi!")]: {
-    key: "shared/audio/vi/suga/suga_a_thay_ca_ban_o_sang_len_roi_9429c5c4.wav",
-    text: "Suga đã thấy cả bản đồ sáng lên rồi!",
+  [normalizeText("Sungy đã thấy cả bản đồ sáng lên rồi!")]: {
+    key: "shared/audio/vi/sungy/sungy_a_thay_ca_ban_o_sang_len_roi_9429c5c4.wav",
+    text: "Sungy đã thấy cả bản đồ sáng lên rồi!",
   },
-  [normalizeText("Suga đang giữ sticker mới cho bé đây.")]: {
-    key: "shared/audio/vi/suga/suga_ang_giu_sticker_moi_cho_be_ay_535e2848.wav",
-    text: "Suga đang giữ sticker mới cho bé đây.",
+  [normalizeText("Sungy đang giữ sticker mới cho bé đây.")]: {
+    key: "shared/audio/vi/sungy/sungy_ang_giu_sticker_moi_cho_be_ay_535e2848.wav",
+    text: "Sungy đang giữ sticker mới cho bé đây.",
   },
-  [normalizeText("Suga đi cùng bé nè!")]: {
-    key: "shared/audio/vi/suga/suga_i_cung_be_ne_26b29757.wav",
-    text: "Suga đi cùng bé nè!",
+  [normalizeText("Sungy đi cùng bé nè!")]: {
+    key: "shared/audio/vi/sungy/sungy_i_cung_be_ne_26b29757.wav",
+    text: "Sungy đi cùng bé nè!",
   },
-  [normalizeText("Xin chào! Mình là Suga, bạn học của bé.")]: {
-    key: "shared/audio/vi/suga/xin_chao_minh_la_suga_ban_hoc_cua_be_967fe8c4.wav",
-    text: "Xin chào! Mình là Suga, bạn học của bé.",
+  [normalizeText("Xin chào! Mình là Sungy, bạn học của bé.")]: {
+    key: "shared/audio/vi/sungy/xin_chao_minh_la_sungy_ban_hoc_cua_be_967fe8c4.wav",
+    text: "Xin chào! Mình là Sungy, bạn học của bé.",
   },
 };
 

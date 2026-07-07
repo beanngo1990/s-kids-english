@@ -22,7 +22,7 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
     <AppCard style={styles.card}>
       <View style={styles.row}>
         <View style={styles.avatarContainer}>
-          <Image source={require('../assets/mascot/suga/suga-avatar.png')} style={styles.avatarImage} />
+          <Image source={require('../assets/mascot/sungy/sungy-avatar.png')} style={styles.avatarImage} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.name}>{profile.name}</Text>
