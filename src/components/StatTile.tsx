@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, type ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { colors } from '../theme/colors';
@@ -10,13 +10,18 @@ type StatTileProps = {
   label: string;
   value: number | string;
   icon?: string;
+  image?: ImageSourcePropType;
 };
 
-export function StatTile({ icon, label, value }: StatTileProps) {
+export function StatTile({ icon, image, label, value }: StatTileProps) {
   return (
     <AppCard style={styles.tile}>
       <View style={styles.topRow}>
-        {icon ? <Text style={styles.icon}>{icon}</Text> : null}
+        {image ? (
+          <Image source={image} style={styles.imageIcon} />
+        ) : icon ? (
+          <Text style={styles.icon}>{icon}</Text>
+        ) : null}
         <Text style={styles.value}>{value}</Text>
       </View>
       <Text style={styles.label}>{label}</Text>
@@ -28,6 +33,12 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 24,
     lineHeight: 28,
+    color: colors.primaryDark,
+  },
+  imageIcon: {
+    height: 32,
+    width: 32,
+    resizeMode: 'contain',
   },
   label: {
     color: colors.muted,
