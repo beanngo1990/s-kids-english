@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
@@ -11,7 +11,9 @@ import {
   getParentSettings,
   learningDifficultyOptions,
   saveParentLearningMode,
+  saveParentSettings,
 } from '../engine/ParentSettingsManager';
+import type { AppLanguage, AppTheme } from '../engine/ParentSettingsManager';
 import {
   getLessonVocabulary,
   getProgress,
@@ -19,17 +21,28 @@ import {
 } from '../engine/ProgressManager';
 import { colors } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
+import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
-import { saveParentSettings } from '../engine/ParentSettingsManager';
 
 const GATE_DURATION_MS = 3000;
+
+type ParentTab = 'stats' | 'lessons' | 'settings';
 
 export function ParentScreen() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
+  const [activeTab, setActiveTab] = useState<ParentTab>('stats');
+  
+  // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const [appTheme, setAppTheme] = useState<AppTheme>('system');
+  const [reminderEnabled, setReminderEnabled] = useState(false);
+  const [reminderTime, setReminderTime] = useState('19:30');
+  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
+  
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -76,8 +89,15 @@ export function ParentScreen() {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setEnableSceneEditor(settings.enableSceneEditor || false);
+        setAppLanguage(settings.appLanguage);
+        setAppTheme(settings.appTheme);
+        setReminderEnabled(settings.reminderEnabled);
+        setReminderTime(settings.reminderTime);
+        setVisibleLessonIds(settings.visibleLessonIds);
       })
-      .catch(() => setLearningMode('core'));
+      .catch(() => {
+        setLearningMode('core');
+      });
   }, [isUnlocked]);
 
   useEffect(() => {
@@ -123,6 +143,34 @@ export function ParentScreen() {
     await saveParentSettings({ enableSceneEditor: nextState });
   };
 
+  const handleUpdateLanguage = async (lang: AppLanguage) => {
+    setAppLanguage(lang);
+    await saveParentSettings({ appLanguage: lang });
+  };
+
+  const handleUpdateTheme = async (theme: AppTheme) => {
+    setAppTheme(theme);
+    await saveParentSettings({ appTheme: theme });
+  };
+
+  const handleToggleReminder = async () => {
+    const next = !reminderEnabled;
+    setReminderEnabled(next);
+    await saveParentSettings({ reminderEnabled: next });
+  };
+
+  const handleToggleLesson = async (lessonId: string) => {
+    const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
+    let nextVisible: string[];
+    if (currentVisible.includes(lessonId)) {
+      nextVisible = currentVisible.filter(id => id !== lessonId);
+    } else {
+      nextVisible = [...currentVisible, lessonId];
+    }
+    setVisibleLessonIds(nextVisible);
+    await saveParentSettings({ visibleLessonIds: nextVisible });
+  };
+
   if (!isUnlocked) {
     return (
       <Screen>
@@ -156,109 +204,252 @@ export function ParentScreen() {
     <Screen scroll>
       <View style={styles.header}>
         <KidBadge tone="sky">Demo offline</KidBadge>
-        <Text style={styles.title}>Thống kê học tập</Text>
+        <Text style={styles.title}>Khu vực Phụ huynh</Text>
         <Text style={styles.headerCopy}>
-          Theo dõi tiến độ nhẹ nhàng, không tạo áp lực cho bé.
+          Cài đặt và theo dõi tiến độ của bé.
         </Text>
       </View>
 
-      <View style={styles.grid}>
-        <StatTile icon="Aa" label="Từ bé đã học" value={learnedWordCount} />
-        <StatTile icon="★" label="Bài hoàn thành" value={completedLessonCount} />
-        <StatTile icon="✓" label="Sticker đã nhận" value={earnedStickerCount} />
+      <View style={styles.tabContainer}>
+        <Pressable 
+          accessibilityRole="tab"
+          accessibilityState={{ selected: activeTab === 'stats' }}
+          onPress={() => setActiveTab('stats')} 
+          style={[styles.tabButton, activeTab === 'stats' && styles.tabButtonActive]}
+        >
+          <Text style={[styles.tabButtonText, activeTab === 'stats' && styles.tabButtonTextActive]}>Thống kê</Text>
+        </Pressable>
+        <Pressable 
+          accessibilityRole="tab"
+          accessibilityState={{ selected: activeTab === 'lessons' }}
+          onPress={() => setActiveTab('lessons')} 
+          style={[styles.tabButton, activeTab === 'lessons' && styles.tabButtonActive]}
+        >
+          <Text style={[styles.tabButtonText, activeTab === 'lessons' && styles.tabButtonTextActive]}>Bài học</Text>
+        </Pressable>
+        <Pressable 
+          accessibilityRole="tab"
+          accessibilityState={{ selected: activeTab === 'settings' }}
+          onPress={() => setActiveTab('settings')} 
+          style={[styles.tabButton, activeTab === 'settings' && styles.tabButtonActive]}
+        >
+          <Text style={[styles.tabButtonText, activeTab === 'settings' && styles.tabButtonTextActive]}>Cài đặt</Text>
+        </Pressable>
       </View>
 
-      <AppCard style={styles.settingsCard}>
-        <View style={styles.sectionHeader}>
-          <View style={styles.sectionTitleGroup}>
-            <KidBadge tone="teal">Cài đặt học tập</KidBadge>
-            <Text style={styles.privacyTitle}>Độ khó của bé</Text>
+      {activeTab === 'stats' && (
+        <View style={styles.tabContent}>
+          <View style={styles.grid}>
+            <StatTile icon="Aa" label="Từ bé đã học" value={learnedWordCount} />
+            <StatTile icon="★" label="Bài hoàn thành" value={completedLessonCount} />
+            <StatTile icon="✓" label="Sticker đã nhận" value={earnedStickerCount} />
           </View>
-          <KidBadge tone="sky">Đang dùng: {currentDifficulty.title}</KidBadge>
+          
+          <AppCard style={styles.summary}>
+            <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
+            {recentLearnedWords.length > 0 ? (
+              <Text style={styles.summaryValue}>
+                Gần đây bé đã học: {recentLearnedWords.join(', ')}.
+              </Text>
+            ) : null}
+            <Text style={styles.tip}>
+              {tipText}
+            </Text>
+          </AppCard>
         </View>
-        <View style={styles.difficultyList}>
-          {learningDifficultyOptions.map(option => {
-            const isSelected = option.learningMode === learningMode;
-            const isSavingThisMode = savingMode === option.learningMode;
+      )}
 
-            return (
+      {activeTab === 'lessons' && (
+        <View style={styles.tabContent}>
+          <AppCard style={styles.settingsCard}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.sectionTitleGroup}>
+                <KidBadge tone="sky">Quản lý nội dung</KidBadge>
+                <Text style={styles.privacyTitle}>Bài học của bé</Text>
+              </View>
+            </View>
+            <Text style={styles.difficultySubtitle}>
+              Chọn các bài học bạn muốn bé tập trung. Tắt các bài học khác để bé không bị phân tâm.
+            </Text>
+            <View style={styles.lessonList}>
+              {lessons.map(lesson => {
+                const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
+                const isVisible = currentVisible.includes(lesson.id);
+                
+                return (
+                  <View key={lesson.id} style={styles.lessonRow}>
+                    <View style={styles.lessonTextGroup}>
+                      <Text style={styles.difficultyTitle}>{lesson.titleVi}</Text>
+                      <Text style={styles.difficultySubtitle}>{lesson.titleEn}</Text>
+                    </View>
+                    <Switch
+                      value={isVisible}
+                      onValueChange={() => handleToggleLesson(lesson.id)}
+                      trackColor={{ false: colors.border, true: colors.primary }}
+                    />
+                  </View>
+                );
+              })}
+            </View>
+          </AppCard>
+        </View>
+      )}
+
+      {activeTab === 'settings' && (
+        <View style={styles.tabContent}>
+          <AppCard style={styles.settingsCard}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.sectionTitleGroup}>
+                <KidBadge tone="teal">Cài đặt học tập</KidBadge>
+                <Text style={styles.privacyTitle}>Độ khó của bé</Text>
+              </View>
+              <KidBadge tone="sky">Đang dùng: {currentDifficulty.title}</KidBadge>
+            </View>
+            <View style={styles.difficultyList}>
+              {learningDifficultyOptions.map(option => {
+                const isSelected = option.learningMode === learningMode;
+                const isSavingThisMode = savingMode === option.learningMode;
+
+                return (
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: isSelected }}
+                    disabled={Boolean(savingMode)}
+                    key={option.learningMode}
+                    onPress={() => handleSelectLearningMode(option.learningMode)}
+                    style={({ pressed }) => [
+                      styles.difficultyOption,
+                      isSelected && styles.difficultyOptionSelected,
+                      pressed && !savingMode && styles.pressed,
+                      savingMode && !isSavingThisMode && styles.optionDisabled,
+                    ]}
+                  >
+                    <View style={styles.difficultyText}>
+                      <Text style={styles.difficultyTitle}>{option.title}</Text>
+                      <Text style={styles.difficultySubtitle}>
+                        {option.subtitle}
+                      </Text>
+                    </View>
+                    <Text style={styles.difficultyState}>
+                      {isSavingThisMode ? 'Đang lưu...' : isSelected ? '✓' : ''}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </AppCard>
+
+          <AppCard style={styles.settingsCard}>
+            <View style={styles.sectionHeader}>
+              <View style={styles.sectionTitleGroup}>
+                <KidBadge tone="teal">Cài đặt Ứng dụng</KidBadge>
+                <Text style={styles.privacyTitle}>Hệ thống</Text>
+              </View>
+            </View>
+
+            {/* Ngôn ngữ */}
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Ngôn ngữ</Text>
+                <Text style={styles.difficultySubtitle}>Ngôn ngữ hiển thị của ứng dụng.</Text>
+              </View>
+              <View style={styles.switchGroup}>
+                <Pressable
+                  style={[styles.smallButton, appLanguage === 'vi' && styles.smallButtonActive]}
+                  onPress={() => handleUpdateLanguage('vi')}
+                >
+                  <Text style={[styles.smallButtonText, appLanguage === 'vi' && styles.smallButtonTextActive]}>VI</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.smallButton, appLanguage === 'en' && styles.smallButtonActive]}
+                  onPress={() => handleUpdateLanguage('en')}
+                >
+                  <Text style={[styles.smallButtonText, appLanguage === 'en' && styles.smallButtonTextActive]}>EN</Text>
+                </Pressable>
+              </View>
+            </View>
+
+            {/* Giao diện */}
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Giao diện</Text>
+                <Text style={styles.difficultySubtitle}>Sáng, tối hoặc theo hệ thống.</Text>
+              </View>
+              <View style={styles.switchGroup}>
+                <Pressable
+                  style={[styles.smallButton, appTheme === 'light' && styles.smallButtonActive]}
+                  onPress={() => handleUpdateTheme('light')}
+                >
+                  <Text style={[styles.smallButtonText, appTheme === 'light' && styles.smallButtonTextActive]}>Sáng</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.smallButton, appTheme === 'dark' && styles.smallButtonActive]}
+                  onPress={() => handleUpdateTheme('dark')}
+                >
+                  <Text style={[styles.smallButtonText, appTheme === 'dark' && styles.smallButtonTextActive]}>Tối</Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.smallButton, appTheme === 'system' && styles.smallButtonActive]}
+                  onPress={() => handleUpdateTheme('system')}
+                >
+                  <Text style={[styles.smallButtonText, appTheme === 'system' && styles.smallButtonTextActive]}>Auto</Text>
+                </Pressable>
+              </View>
+            </View>
+
+            {/* Nhắc nhở */}
+            <View style={styles.settingRow}>
+              <View style={styles.settingTextGroup}>
+                <Text style={styles.difficultyTitle}>Nhắc nhở học tập ({reminderTime})</Text>
+                <Text style={styles.difficultySubtitle}>Nhận thông báo nhắc bé học mỗi ngày.</Text>
+              </View>
+              <Switch
+                value={reminderEnabled}
+                onValueChange={handleToggleReminder}
+                trackColor={{ false: colors.border, true: colors.primary }}
+              />
+            </View>
+          </AppCard>
+
+          <AppCard style={styles.privacyCard}>
+            <Text style={styles.privacyTitle}>An toàn cho trẻ</Text>
+            <Text style={styles.privacyText}>
+              Ứng dụng không có quảng cáo, không có link ngoài và không thu thập
+              thông tin trẻ em.
+            </Text>
+          </AppCard>
+
+          {__DEV__ && (
+            <AppCard style={styles.settingsCard}>
+              <View style={styles.sectionHeader}>
+                <View style={styles.sectionTitleGroup}>
+                  <KidBadge tone="alert">DEV ONLY</KidBadge>
+                  <Text style={styles.privacyTitle}>Công cụ nội bộ</Text>
+                </View>
+              </View>
               <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ selected: isSelected }}
-                disabled={Boolean(savingMode)}
-                key={option.learningMode}
-                onPress={() => handleSelectLearningMode(option.learningMode)}
+                accessibilityRole="switch"
+                accessibilityState={{ checked: enableSceneEditor }}
+                onPress={handleToggleSceneEditor}
                 style={({ pressed }) => [
                   styles.difficultyOption,
-                  isSelected && styles.difficultyOptionSelected,
-                  pressed && !savingMode && styles.pressed,
-                  savingMode && !isSavingThisMode && styles.optionDisabled,
+                  enableSceneEditor && styles.difficultyOptionSelected,
+                  pressed && styles.pressed,
                 ]}
               >
                 <View style={styles.difficultyText}>
-                  <Text style={styles.difficultyTitle}>{option.title}</Text>
+                  <Text style={styles.difficultyTitle}>Scene Editor</Text>
                   <Text style={styles.difficultySubtitle}>
-                    {option.subtitle}
+                    Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.
                   </Text>
                 </View>
                 <Text style={styles.difficultyState}>
-                  {isSavingThisMode ? 'Đang lưu...' : isSelected ? '✓' : ''}
+                  {enableSceneEditor ? 'Đang bật' : 'Đang tắt'}
                 </Text>
               </Pressable>
-            );
-          })}
+            </AppCard>
+          )}
         </View>
-      </AppCard>
-
-      <AppCard style={styles.summary}>
-        <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
-        {recentLearnedWords.length > 0 ? (
-          <Text style={styles.summaryValue}>
-            Gần đây bé đã học: {recentLearnedWords.join(', ')}.
-          </Text>
-        ) : null}
-        <Text style={styles.tip}>
-          {tipText}
-        </Text>
-      </AppCard>
-
-      <AppCard style={styles.privacyCard}>
-        <Text style={styles.privacyTitle}>An toàn cho trẻ</Text>
-        <Text style={styles.privacyText}>
-          Ứng dụng không có quảng cáo, không có link ngoài và không thu thập
-          thông tin trẻ em.
-        </Text>
-      </AppCard>
-
-      {__DEV__ && (
-        <AppCard style={styles.settingsCard}>
-          <View style={styles.sectionHeader}>
-            <View style={styles.sectionTitleGroup}>
-              <KidBadge tone="alert">DEV ONLY</KidBadge>
-              <Text style={styles.privacyTitle}>Công cụ nội bộ</Text>
-            </View>
-          </View>
-          <Pressable
-            accessibilityRole="switch"
-            accessibilityState={{ checked: enableSceneEditor }}
-            onPress={handleToggleSceneEditor}
-            style={({ pressed }) => [
-              styles.difficultyOption,
-              enableSceneEditor && styles.difficultyOptionSelected,
-              pressed && styles.pressed,
-            ]}
-          >
-            <View style={styles.difficultyText}>
-              <Text style={styles.difficultyTitle}>Scene Editor</Text>
-              <Text style={styles.difficultySubtitle}>
-                Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.
-              </Text>
-            </View>
-            <Text style={styles.difficultyState}>
-              {enableSceneEditor ? 'Đang bật' : 'Đang tắt'}
-            </Text>
-          </Pressable>
-        </AppCard>
       )}
     </Screen>
   );
@@ -405,5 +596,85 @@ const styles = StyleSheet.create({
   title: {
     color: colors.text,
     ...typography.title,
+  },
+  settingRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  settingTextGroup: {
+    flex: 1,
+    paddingRight: spacing.md,
+  },
+  switchGroup: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  smallButton: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.sm,
+    backgroundColor: colors.surfaceBlue,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  smallButtonActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  smallButtonText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  smallButtonTextActive: {
+    color: colors.white,
+    fontWeight: 'bold',
+  },
+  lessonList: {
+    marginTop: spacing.md,
+    gap: spacing.sm,
+  },
+  lessonRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  lessonTextGroup: {
+    flex: 1,
+    paddingRight: spacing.md,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+    backgroundColor: colors.surfaceSoft,
+    borderRadius: radius.pill,
+    padding: spacing.xs,
+    marginBottom: spacing.md,
+  },
+  tabButton: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: spacing.sm,
+    borderRadius: radius.pill,
+  },
+  tabButtonActive: {
+    backgroundColor: colors.white,
+    ...shadows.soft,
+  },
+  tabButtonText: {
+    color: colors.textSoft,
+    ...typography.button,
+  },
+  tabButtonTextActive: {
+    color: colors.primaryDark,
+  },
+  tabContent: {
+    paddingBottom: spacing.xl,
   },
 });

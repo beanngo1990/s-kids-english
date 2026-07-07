@@ -89,6 +89,7 @@ export function HomeScreen({ navigation }: Props) {
   const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
   const [isHubOpen, setIsHubOpen] = useState(false);
@@ -102,8 +103,8 @@ export function HomeScreen({ navigation }: Props) {
   const activeTheme =
     getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
   const themeLessons = useMemo(
-    () => getThemeLessons(activeTheme),
-    [activeTheme],
+    () => getThemeLessons(activeTheme, visibleLessonIds),
+    [activeTheme, visibleLessonIds],
   );
   const mapNodes = useMemo(
     () => buildThemeMapNodes(themeLessons),
@@ -201,8 +202,14 @@ export function HomeScreen({ navigation }: Props) {
       .then(setProgress)
       .catch(() => setProgress(null));
     getParentSettings()
-      .then(settings => setLearningMode(settings.learningMode))
-      .catch(() => setLearningMode('core'));
+      .then(settings => {
+        setLearningMode(settings.learningMode);
+        setVisibleLessonIds(settings.visibleLessonIds);
+      })
+      .catch(() => {
+        setLearningMode('core');
+        setVisibleLessonIds(undefined);
+      });
   }, []);
 
   useEffect(() => {
@@ -1551,14 +1558,27 @@ function MapConnector({
   );
 }
 
-function getThemeLessons(theme: LessonTheme | undefined): Lesson[] {
+function getThemeLessons(
+  theme: LessonTheme | undefined,
+  visibleLessonIds: string[] | undefined,
+): Lesson[] {
   if (!theme) {
     return [];
   }
 
   return theme.lessonIds
     .map(lessonId => lessons.find(lesson => lesson.id === lessonId))
-    .filter((lesson): lesson is Lesson => Boolean(lesson));
+    .filter((lesson): lesson is Lesson => {
+      if (!lesson) {
+        return false;
+      }
+      
+      if (visibleLessonIds && !visibleLessonIds.includes(lesson.id)) {
+        return false;
+      }
+      
+      return true;
+    });
 }
 
 function buildThemeMapNodes(themeLessons: Lesson[]): ThemeMapNode[] {

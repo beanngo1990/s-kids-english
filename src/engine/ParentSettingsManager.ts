@@ -4,11 +4,19 @@ import type { LearningMode } from '../types/lesson';
 
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
+export type AppLanguage = 'vi' | 'en';
+export type AppTheme = 'light' | 'dark' | 'system';
+
 export type ParentSettings = {
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
   learningMode: LearningMode;
   updatedAt?: string;
+  visibleLessonIds?: string[]; // If undefined, all lessons are visible
+  appLanguage: AppLanguage;
+  appTheme: AppTheme;
+  reminderEnabled: boolean;
+  reminderTime: string; // e.g. "19:30"
 };
 
 export type LearningDifficultyOption = {
@@ -43,6 +51,10 @@ export const defaultParentSettings: ParentSettings = {
   enableSceneEditor: false,
   hasCompletedOnboarding: false,
   learningMode: 'core',
+  appLanguage: 'vi',
+  appTheme: 'system',
+  reminderEnabled: false,
+  reminderTime: '19:30',
 };
 
 export async function getParentSettings(): Promise<ParentSettings> {
@@ -101,9 +113,25 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     learningMode: normalizeLearningMode(settings.learningMode),
     updatedAt:
       typeof settings.updatedAt === 'string' ? settings.updatedAt : undefined,
+    visibleLessonIds: Array.isArray(settings.visibleLessonIds)
+      ? settings.visibleLessonIds.filter(id => typeof id === 'string')
+      : undefined,
+    appLanguage: normalizeAppLanguage(settings.appLanguage),
+    appTheme: normalizeAppTheme(settings.appTheme),
+    reminderEnabled: Boolean(settings.reminderEnabled),
+    reminderTime:
+      typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
   };
 }
 
 function normalizeLearningMode(value: unknown): LearningMode {
   return value === 'expanded' || value === 'challenge' ? value : 'core';
+}
+
+function normalizeAppLanguage(value: unknown): AppLanguage {
+  return value === 'en' ? 'en' : 'vi';
+}
+
+function normalizeAppTheme(value: unknown): AppTheme {
+  return value === 'light' || value === 'dark' ? value : 'system';
 }
