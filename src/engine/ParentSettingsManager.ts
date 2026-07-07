@@ -7,6 +7,21 @@ const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 export type AppLanguage = 'vi' | 'en';
 export type AppTheme = 'light' | 'dark' | 'system';
 
+export type ChildProfile = {
+  name: string;
+  avatarEmoji: string;
+  birthYear?: number;
+};
+
+export const AVATAR_EMOJI_OPTIONS = [
+  '🧒', '👦', '👧', '🐰', '🦊', '🐻', '🐼', '🦁', '🌟', '🦄', '🐬', '🦋',
+] as const;
+
+export const defaultChildProfile: ChildProfile = {
+  name: 'Bé yêu',
+  avatarEmoji: '🧒',
+};
+
 export type ParentSettings = {
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
@@ -17,6 +32,7 @@ export type ParentSettings = {
   appTheme: AppTheme;
   reminderEnabled: boolean;
   reminderTime: string; // e.g. "19:30"
+  childProfile: ChildProfile;
 };
 
 export type LearningDifficultyOption = {
@@ -55,6 +71,7 @@ export const defaultParentSettings: ParentSettings = {
   appTheme: 'system',
   reminderEnabled: false,
   reminderTime: '19:30',
+  childProfile: defaultChildProfile,
 };
 
 export async function getParentSettings(): Promise<ParentSettings> {
@@ -121,6 +138,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     reminderEnabled: Boolean(settings.reminderEnabled),
     reminderTime:
       typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
+    childProfile: normalizeChildProfile(settings.childProfile),
   };
 }
 
@@ -134,4 +152,22 @@ function normalizeAppLanguage(value: unknown): AppLanguage {
 
 function normalizeAppTheme(value: unknown): AppTheme {
   return value === 'light' || value === 'dark' ? value : 'system';
+}
+
+function normalizeChildProfile(value: unknown): ChildProfile {
+  const profile = value as Partial<ChildProfile> | undefined;
+  if (!profile || typeof profile !== 'object') {
+    return defaultChildProfile;
+  }
+  return {
+    name: typeof profile.name === 'string' && profile.name.trim().length > 0
+      ? profile.name.trim()
+      : defaultChildProfile.name,
+    avatarEmoji: typeof profile.avatarEmoji === 'string' && profile.avatarEmoji.length > 0
+      ? profile.avatarEmoji
+      : defaultChildProfile.avatarEmoji,
+    birthYear: typeof profile.birthYear === 'number' && !Number.isNaN(profile.birthYear)
+      ? profile.birthYear
+      : undefined,
+  };
 }

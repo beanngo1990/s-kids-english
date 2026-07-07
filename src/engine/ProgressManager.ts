@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { lessons } from '../data/lessons';
 import { getLevelReward } from '../data/rewards';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
+import { recordActivity } from './DailyActivityTracker';
 import type { Lesson, VocabularyItem } from '../types/lesson';
 import {
   getSceneProgressId,
@@ -152,10 +153,14 @@ export async function saveCurrentStepProgress(
 export async function saveLearnedWord(wordId: string) {
   try {
     const currentProgress = await getProgress();
+    const isNew = !currentProgress.learnedWordIds.includes(wordId);
     await saveProgress({
       ...currentProgress,
       learnedWordIds: addUnique(currentProgress.learnedWordIds, [wordId]),
     });
+    if (isNew) {
+      recordActivity('word', 1);
+    }
   } catch {
     // best effort
   }
@@ -263,6 +268,7 @@ export async function saveSceneProgress(lessonId: string, sceneId: string) {
           : currentProgress.currentLessonProgress,
     });
     
+    recordActivity('scene', 1);
     return { xpGained: gainedXP, leveledUp, newLevel, unlockedSticker: levelReward };
   } catch {
     return { xpGained: 0, leveledUp: false, newLevel: 1 };
