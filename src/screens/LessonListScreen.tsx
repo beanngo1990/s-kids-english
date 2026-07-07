@@ -20,6 +20,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 
 export function LessonListScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -29,6 +30,9 @@ export function LessonListScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    import('../engine/ParentSettingsManager').then(({ getParentSettings }) => {
+      getParentSettings().then(settings => setVisibleLessonIds(settings.visibleLessonIds));
+    });
   }, []);
 
   return (
@@ -43,7 +47,9 @@ export function LessonListScreen({ navigation }: Props) {
       </View>
 
       <View style={styles.list}>
-        {lessons.map(lesson => {
+        {lessons
+          .filter(lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id))
+          .map(lesson => {
           const completedSceneCount = lesson.scenes.filter(scene =>
             isSceneProgressComplete(completedSceneIds, lesson.id, scene.id),
           ).length;

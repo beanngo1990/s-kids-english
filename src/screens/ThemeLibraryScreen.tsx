@@ -26,6 +26,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 export function ThemeLibraryScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -36,6 +37,9 @@ export function ThemeLibraryScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    import('../engine/ParentSettingsManager').then(({ getParentSettings }) => {
+      getParentSettings().then(settings => setVisibleLessonIds(settings.visibleLessonIds));
+    });
   }, []);
 
   const handleSelectTheme = async (themeId: string) => {
@@ -80,7 +84,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
 
       <View style={styles.grid}>
         {themes.map(theme => {
-          const themeProgress = getThemeProgress(theme, completedSceneIds);
+          const themeProgress = getThemeProgress(theme, completedSceneIds, visibleLessonIds);
           const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;
           const actionLabel = isActive
@@ -178,10 +182,22 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   );
 }
 
-function getThemeProgress(theme: LessonTheme, completedSceneIds: Set<string>) {
+function getThemeProgress(
+  theme: LessonTheme, 
+  completedSceneIds: Set<string>,
+  visibleLessonIds: string[] | undefined
+) {
   const themeLessons = theme.lessonIds
     .map(lessonId => lessons.find(lesson => lesson.id === lessonId))
-    .filter((lesson): lesson is Lesson => Boolean(lesson));
+    .filter((lesson): lesson is Lesson => {
+      if (!lesson) {
+        return false;
+      }
+      if (visibleLessonIds && !visibleLessonIds.includes(lesson.id)) {
+        return false;
+      }
+      return true;
+    });
   const total = themeLessons.reduce(
     (sum, lesson) => sum + lesson.scenes.length,
     0,
