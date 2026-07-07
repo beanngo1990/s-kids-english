@@ -107,24 +107,21 @@ const styles = StyleSheet.create({
     zIndex: 30,
   },
   iconActive: {
-    backgroundColor: colors.white,
-    borderColor: colors.secondary,
+    backgroundColor: colors.secondarySoft,
   },
   iconBubble: {
     alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
     borderRadius: radius.pill,
-    borderWidth: 2,
     height: 42,
     justifyContent: 'center',
     width: 42,
   },
   iconPending: {
     borderColor: colors.secondary,
+    borderWidth: 2,
   },
   label: {
-    color: colors.textSoft,
+    color: '#3D5463', // Darker than textSoft for better contrast
     fontSize: 14,
     fontWeight: '900',
     letterSpacing: 0,
@@ -144,19 +141,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
   },
-  tabActive: {
-    backgroundColor: colors.secondarySoft,
-  },
+  tabActive: {},
   tabBar: {
     alignItems: 'center',
     backgroundColor: colors.white,
-    borderColor: colors.white,
     borderRadius: radius.pill,
-    borderWidth: 3,
     flexDirection: 'row',
     gap: spacing.xs,
     padding: spacing.xs,
-    ...shadows.floating,
+    shadowColor: '#000',
+    shadowOffset: {
+      height: -6,
+      width: 0,
+    },
+    shadowOpacity: 0.16,
+    shadowRadius: 16,
+    elevation: 8,
   },
   tabPending: {
     backgroundColor: colors.surfaceSoft,
