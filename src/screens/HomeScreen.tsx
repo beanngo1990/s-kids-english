@@ -89,6 +89,7 @@ export function HomeScreen({ navigation }: Props) {
   const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
@@ -204,10 +205,12 @@ export function HomeScreen({ navigation }: Props) {
     getParentSettings()
       .then(settings => {
         setLearningMode(settings.learningMode);
+        setJourneyMode(settings.journeyMode);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => {
         setLearningMode('core');
+        setJourneyMode('guided');
         setVisibleLessonIds(undefined);
       });
   }, []);
@@ -736,6 +739,7 @@ export function HomeScreen({ navigation }: Props) {
                                 const isCurrent =
                                   !isThemeComplete && ctaNode?.key === node.key;
                                 const isUnlocked =
+                                  journeyMode === 'free' ||
                                   isCompleted ||
                                   ctaNode?.key === node.key ||
                                   nextNode?.key === node.key ||
@@ -805,9 +809,11 @@ export function HomeScreen({ navigation }: Props) {
                                     iconName={lessonIconName}
                                     isCompleted={isReviewGameCompleted}
                                     isCurrent={isReviewGameCurrent}
+                                    isUnlocked={journeyMode === 'free' || isReviewGameCompleted || isReviewGameCurrent}
                                     titleVi={section.lesson.titleVi}
                                     onPress={() => {
                                       if (
+                                        journeyMode === 'free' ||
                                         isReviewGameCompleted ||
                                         isReviewGameCurrent
                                       ) {
@@ -862,6 +868,7 @@ export function HomeScreen({ navigation }: Props) {
               <KidPlayPanel
                 completedReviewGameIds={completedReviewGameIds}
                 completedSceneIds={completedSceneIds}
+                journeyMode={journeyMode}
                 onOpenReviewGame={lessonId =>
                   navigation.navigate('ReviewGame', { lessonId, learningMode })
                 }
@@ -1292,6 +1299,7 @@ type LessonMilestoneProps = {
   iconName: SKidsIconName;
   isCompleted: boolean;
   isCurrent: boolean;
+  isUnlocked?: boolean;
   titleVi: string;
   onPress: () => void;
 };
@@ -1379,6 +1387,7 @@ function LessonMilestone({
   iconName,
   isCompleted,
   isCurrent,
+  isUnlocked,
   titleVi,
   onPress,
 }: LessonMilestoneProps) {
@@ -1390,7 +1399,7 @@ function LessonMilestone({
       accessibilityRole="button"
       onPress={onPress}
       style={({ pressed }) => {
-        const isPressed = pressed && (isCurrent || isCompleted);
+        const isPressed = pressed && isUnlocked;
         return [
           styles.lessonMilestone,
           alignment === 'left' && styles.lessonMilestoneLeft,
@@ -1407,7 +1416,7 @@ function LessonMilestone({
           isCompleted && styles.lessonMonumentStageDone,
         ]}
       >
-        {isCurrent || isCompleted ? (
+        {isUnlocked ? (
           <View
             style={[
               styles.lessonMonumentGlow,
@@ -1415,7 +1424,7 @@ function LessonMilestone({
             ]}
           />
         ) : null}
-        {isCurrent || isCompleted ? (
+        {isUnlocked ? (
           <>
             <Text
               style={[
@@ -1441,11 +1450,11 @@ function LessonMilestone({
             size={isCompleted ? 92 : isCurrent ? 88 : 82}
             style={[
               styles.lessonMonumentIcon,
-              !isCurrent && !isCompleted && styles.lessonMonumentIconIdle,
+              !isUnlocked && styles.lessonMonumentIconIdle,
               styles.lessonMonumentIconPedestalElevated,
             ]}
           />
-          {!isCurrent && !isCompleted ? (
+          {!isUnlocked ? (
             <View style={styles.lessonMonumentLockBadge}>
               <SKidsIcon name="parentLock" size={28} />
             </View>
