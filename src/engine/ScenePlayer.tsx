@@ -22,6 +22,7 @@ import { lessons } from '../data/lessons';
 import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import { colors } from '../theme/colors';
+import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -118,6 +119,8 @@ export function ScenePlayer({
   onComplete,
 }: ScenePlayerProps) {
   const insets = useSafeAreaInsets();
+  const responsiveLayout = useResponsiveLayout();
+  const isTabletLandscapeLayout = responsiveLayout.isTabletLandscape;
   const lesson = useMemo(
     () => lessons.find(item => item.id === lessonId),
     [lessonId],
@@ -276,6 +279,17 @@ export function ScenePlayer({
   const progressPercent =
     `${Math.max(5, (currentStepIndex / totalStepCount) * 100)}%` as `${number}%`;
   const rootPaddingTop = Math.max(spacing.xs, insets.top + spacing.xs);
+  const rootPaddingHorizontal = isTabletLandscapeLayout
+    ? spacing.lg
+    : spacing.md;
+  const rootPaddingStyle = {
+    paddingBottom: spacing.xs,
+    paddingHorizontal: rootPaddingHorizontal,
+    paddingTop: rootPaddingTop,
+  };
+  const sidePanelStyle = isTabletLandscapeLayout
+    ? { width: responsiveLayout.sidePanelWidth }
+    : null;
   const isAdvancing = feedback?.type === 'success';
   const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
@@ -719,7 +733,13 @@ export function ScenePlayer({
   };
 
   return (
-    <View style={[styles.root, { paddingTop: rootPaddingTop }]}>
+    <View
+      style={[
+        styles.root,
+        isTabletLandscapeLayout && styles.rootTabletLandscape,
+        rootPaddingStyle,
+      ]}
+    >
       <View style={styles.topHud}>
         {onExit ? (
           <TouchableOpacity
@@ -746,79 +766,107 @@ export function ScenePlayer({
       </View>
 
 
-      <View style={styles.stage}>
-        {shouldUseBackgroundFallback ? (
-          <View onLayout={handleStageLayout} style={styles.background}>
-            {renderSceneLayer(currentScene)}
-            {renderSceneObjects()}
-          </View>
-        ) : backgroundSource ? (
-          <ImageBackground
-            imageStyle={styles.backgroundImage}
-            onError={handleBackgroundError}
-            onLayout={handleStageLayout}
-            resizeMode="cover"
-            source={backgroundSource}
-            style={styles.background}
-          >
-            <View style={styles.backgroundTint} />
-            {renderSceneObjects()}
-          </ImageBackground>
-        ) : null}
-
-        {isEditMode && (
-          <AdminSceneEditor
-            scene={currentScene}
-            stageSize={stageSize}
-            onClose={() => setIsEditMode(false)}
-          />
-        )}
-      </View>
-
-      <View style={styles.bottomArea}>
-        <AppCard style={styles.instructionCard}>
-          {speakPracticeWord ? (
-            <SpeakPracticeControls
-              autoStartRequestId={
-                autoRecordRequest?.stepId === currentStep.id
-                  ? autoRecordRequest.requestId
-                  : 0
-              }
-              disabled={isAdvancing || isSceneComplete}
-              onAudioStart={cancelStepAudioSequence}
-              onBusyChange={setIsSpeechPracticeBusy}
-              onContinue={isListenStep(currentStep) ? handleContinue : undefined}
-              onReplayModel={handleReplayModelWord}
-              word={speakPracticeWord}
-            />
-          ) : getStepVocabulary(currentScene, currentStep) ? (
-            <Text style={styles.targetWord}>
-              {getStepVocabulary(currentScene, currentStep)?.word}
-            </Text>
-          ) : null}
-
-          {!speakPracticeWord ? (
-            <View style={styles.actionRow}>
-              <KidIconButton
-                accessibilityLabel="Nghe lại hướng dẫn"
-                icon="listen"
-                label="Nghe lại"
-                onPress={handleReplayInstruction}
-                style={[styles.actionButton, styles.secondaryActionButton]}
-                tone="quiet"
-              />
-              {isListenStep(currentStep) ? (
-                <KidIconButton
-                  accessibilityLabel="Tiếp tục"
-                  icon="next"
-                  label="Tiếp tục"
-                  onPress={handleContinue}
-                  style={[styles.actionButton, styles.primaryActionButton]}
-                />
-              ) : null}
+      <View
+        style={[
+          styles.contentArea,
+          isTabletLandscapeLayout && styles.contentAreaTabletLandscape,
+        ]}
+      >
+        <View
+          style={[
+            styles.stage,
+            isTabletLandscapeLayout && styles.stageTabletLandscape,
+          ]}
+        >
+          {shouldUseBackgroundFallback ? (
+            <View onLayout={handleStageLayout} style={styles.background}>
+              {renderSceneLayer(currentScene)}
+              {renderSceneObjects()}
             </View>
+          ) : backgroundSource ? (
+            <ImageBackground
+              imageStyle={styles.backgroundImage}
+              onError={handleBackgroundError}
+              onLayout={handleStageLayout}
+              resizeMode="cover"
+              source={backgroundSource}
+              style={styles.background}
+            >
+              <View style={styles.backgroundTint} />
+              {renderSceneObjects()}
+            </ImageBackground>
           ) : null}
-        </AppCard>
+
+          {isEditMode && (
+            <AdminSceneEditor
+              scene={currentScene}
+              stageSize={stageSize}
+              onClose={() => setIsEditMode(false)}
+            />
+          )}
+        </View>
+
+        <View
+          style={[
+            styles.bottomArea,
+            isTabletLandscapeLayout && styles.bottomAreaTabletLandscape,
+            sidePanelStyle,
+          ]}
+        >
+          <AppCard
+            style={[
+              styles.instructionCard,
+              isTabletLandscapeLayout &&
+                styles.instructionCardTabletLandscape,
+            ]}
+          >
+            {speakPracticeWord ? (
+              <SpeakPracticeControls
+                autoStartRequestId={
+                  autoRecordRequest?.stepId === currentStep.id
+                    ? autoRecordRequest.requestId
+                    : 0
+                }
+                disabled={isAdvancing || isSceneComplete}
+                onAudioStart={cancelStepAudioSequence}
+                onBusyChange={setIsSpeechPracticeBusy}
+                onContinue={isListenStep(currentStep) ? handleContinue : undefined}
+                onReplayModel={handleReplayModelWord}
+                word={speakPracticeWord}
+              />
+            ) : getStepVocabulary(currentScene, currentStep) ? (
+              <Text
+                adjustsFontSizeToFit
+                numberOfLines={1}
+                style={styles.targetWord}
+              >
+                {getStepVocabulary(currentScene, currentStep)?.word}
+              </Text>
+            ) : null}
+
+            {!speakPracticeWord ? (
+              <View style={styles.actionRow}>
+                <KidIconButton
+                  accessibilityLabel="Nghe lại hướng dẫn"
+                  icon="listen"
+                  label="Nghe lại"
+                  onPress={handleReplayInstruction}
+                  style={[styles.actionButton, styles.secondaryActionButton]}
+                  tone="quiet"
+                />
+                {isListenStep(currentStep) ? (
+                  <KidIconButton
+                    accessibilityLabel="Tiếp tục"
+                    icon="next"
+                    label="Tiếp tục"
+                    onPress={handleContinue}
+                    style={[styles.actionButton, styles.primaryActionButton]}
+                  />
+                ) : null}
+              </View>
+            ) : null}
+          </AppCard>
+        </View>
       </View>
 
       {sceneCompletion ? renderSceneCompletionOverlay(sceneCompletion) : null}
@@ -1310,6 +1358,12 @@ const styles = StyleSheet.create({
     minHeight: 180,
     justifyContent: 'center',
   },
+  bottomAreaTabletLandscape: {
+    alignSelf: 'stretch',
+    flex: 0,
+    justifyContent: 'center',
+    minHeight: 0,
+  },
   completionCard: {
     alignItems: 'center',
     backgroundColor: colors.cream,
@@ -1345,6 +1399,16 @@ const styles = StyleSheet.create({
     color: colors.text,
     textAlign: 'center',
     ...typography.title,
+  },
+  contentArea: {
+    flex: 1,
+    gap: spacing.sm,
+    minHeight: 0,
+  },
+  contentAreaTabletLandscape: {
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    gap: spacing.md,
   },
   dropZone: {
     backgroundColor: 'rgba(255, 211, 77, 0.2)',
@@ -1412,6 +1476,11 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
     padding: spacing.sm,
   },
+  instructionCardTabletLandscape: {
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    padding: spacing.md,
+  },
   sceneAccent: {
     borderRadius: radius.pill,
     height: 20,
@@ -1451,6 +1520,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
     position: 'relative',
+  },
+  rootTabletLandscape: {
+    gap: spacing.sm,
   },
   lessonHud: {
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
@@ -1518,6 +1590,9 @@ const styles = StyleSheet.create({
     minHeight: 240,
     overflow: 'hidden',
     ...shadows.floating,
+  },
+  stageTabletLandscape: {
+    minHeight: 0,
   },
   stepType: {
     color: colors.accentDark,

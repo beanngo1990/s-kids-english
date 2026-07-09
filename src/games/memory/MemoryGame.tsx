@@ -15,6 +15,10 @@ import {
   speakWord,
 } from '../../engine/AudioManager';
 import { colors } from '../../theme/colors';
+import {
+  type ResponsiveLayout,
+  useResponsiveLayout,
+} from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
 
@@ -41,6 +45,7 @@ export function MemoryGame({
   onComplete,
   onMatch,
 }: MemoryGameProps) {
+  const responsiveLayout = useResponsiveLayout();
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
     createShuffledCards(items),
@@ -52,7 +57,10 @@ export function MemoryGame({
   const missedItemIdsRef = useRef<Set<string>>(new Set());
   const checkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isComplete = items.length > 0 && matchedItemIds.length === items.length;
-  const cardBasis = cards.length <= 8 ? '30%' : '22%';
+  const gridLayout = useMemo(
+    () => getMemoryGridLayout(cards.length, responsiveLayout),
+    [cards.length, responsiveLayout],
+  );
 
   useEffect(() => {
     clearCheckTimer(checkTimerRef);
@@ -159,7 +167,7 @@ export function MemoryGame({
               onPress={() => handleCardPress(card)}
               style={({ pressed }) => [
                 styles.card,
-                { flexBasis: cardBasis },
+                gridLayout.cardStyle,
                 isVisible ? styles.cardOpen : styles.cardClosed,
                 isMatched && styles.cardMatched,
                 pressed && !isVisible && styles.cardPressed,
@@ -216,6 +224,46 @@ function clearCheckTimer(
   }
 }
 
+function getMemoryGridLayout(
+  cardCount: number,
+  layout: ResponsiveLayout,
+) {
+  const columnCount = getMemoryColumnCount(cardCount, layout);
+  const gapAllowancePercent = layout.isTablet ? 1.4 : 2.5;
+  const basisValue = Math.max(
+    14,
+    100 / columnCount - gapAllowancePercent,
+  );
+
+  return {
+    cardStyle: {
+      flexBasis: `${basisValue}%` as const,
+      maxWidth: layout.isTablet ? (layout.isLandscape ? 188 : 176) : undefined,
+      minHeight: layout.isTablet ? 132 : 116,
+    },
+  };
+}
+
+function getMemoryColumnCount(cardCount: number, layout: ResponsiveLayout) {
+  if (cardCount <= 0) {
+    return 1;
+  }
+
+  if (layout.isTabletLandscape) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 6);
+  }
+
+  if (layout.isTablet) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 5);
+  }
+
+  if (layout.isLandscape) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 5);
+  }
+
+  return Math.min(cardCount, cardCount <= 8 ? 3 : 4);
+}
+
 const styles = StyleSheet.create({
   card: {
     aspectRatio: 0.9,
@@ -268,6 +316,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
+    justifyContent: 'center',
   },
   statusPill: {
     backgroundColor: colors.white,
