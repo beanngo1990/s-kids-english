@@ -47,13 +47,9 @@ type SpeakPracticeControlsProps = {
   word: string;
 };
 
-const fallbackSingleWordRecordingMs = 5200;
-const fallbackPhraseRecordingMs = 7600;
 const levelPollIntervalMs = 120;
-const minListenBeforeSilenceStopMs = 900;
 const minVoiceLevel = 0.065;
 const noiseFloorMultiplier = 2.35;
-const silenceAfterSpeechMs = 900;
 const encourageText = 'Cô nghe rồi! Giỏi quá!';
 
 export function SpeakPracticeControls({
@@ -81,6 +77,11 @@ export function SpeakPracticeControls({
   const noiseFloorRef = useRef(0.025);
   const recordingStartedAtRef = useRef(0);
   const statusRef = useRef<RecordingStatus>(status);
+  const recordingParamsRef = useRef({
+    fallbackRecordingDurationMs: 5200,
+    minListenBeforeSilenceStopMs: 900,
+    silenceAfterSpeechMs: 900,
+  });
 
   useEffect(() => {
     statusRef.current = status;
@@ -181,8 +182,8 @@ export function SpeakPracticeControls({
     if (
       hasDetectedSpeechRef.current &&
       lastSpeechAtRef.current !== null &&
-      elapsedMs >= minListenBeforeSilenceStopMs &&
-      now - lastSpeechAtRef.current >= silenceAfterSpeechMs
+      elapsedMs >= recordingParamsRef.current.minListenBeforeSilenceStopMs &&
+      now - lastSpeechAtRef.current >= recordingParamsRef.current.silenceAfterSpeechMs
     ) {
       finishRecording().catch(() => undefined);
     }
@@ -207,6 +208,16 @@ export function SpeakPracticeControls({
 
   const startVoiceActivityMonitoring = useCallback((targetWord: string) => {
     clearRecordingTimers(timerRef, levelPollTimerRef);
+
+    const wordCount = targetWord.trim().split(/\s+/).filter(Boolean).length;
+    const charCount = targetWord.replace(/\s+/g, '').length;
+
+    recordingParamsRef.current = {
+      fallbackRecordingDurationMs: Math.max(5000, 3500 + charCount * 350),
+      minListenBeforeSilenceStopMs: wordCount > 1 ? 1200 : 800,
+      silenceAfterSpeechMs: wordCount > 1 ? 1100 : 750,
+    };
+
     hasDetectedSpeechRef.current = false;
     isPollingLevelRef.current = false;
     lastSpeechAtRef.current = null;
@@ -215,7 +226,7 @@ export function SpeakPracticeControls({
 
     timerRef.current = setTimeout(() => {
       finishRecording().catch(() => undefined);
-    }, getFallbackRecordingDurationMs(targetWord));
+    }, recordingParamsRef.current.fallbackRecordingDurationMs);
 
     levelPollTimerRef.current = setInterval(() => {
       pollVoiceLevel().catch(() => undefined);
@@ -527,14 +538,6 @@ function clearRecordingTimers(
     clearInterval(intervalRef.current);
     intervalRef.current = null;
   }
-}
-
-function getFallbackRecordingDurationMs(word: string) {
-  const wordCount = word.trim().split(/\s+/).filter(Boolean).length;
-
-  return wordCount > 1
-    ? fallbackPhraseRecordingMs
-    : fallbackSingleWordRecordingMs;
 }
 
 const styles = StyleSheet.create({
