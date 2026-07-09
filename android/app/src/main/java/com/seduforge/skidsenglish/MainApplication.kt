@@ -1,4 +1,4 @@
-package com.skidsenglish
+package com.seduforge.skidsenglish
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -6,8 +6,8 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
-import com.skidsenglish.assets.SkidsAssetCachePackage
-import com.skidsenglish.audio.SkidsAudioPackage
+import com.seduforge.skidsenglish.assets.SkidsAssetCachePackage
+import com.seduforge.skidsenglish.audio.SkidsAudioPackage
 
 class MainApplication : Application(), ReactApplication {
 

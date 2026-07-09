@@ -1,4 +1,4 @@
-package com.skidsenglish
+package com.seduforge.skidsenglish
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
