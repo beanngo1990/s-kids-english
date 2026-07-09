@@ -1,6 +1,6 @@
 @file:Suppress("OVERRIDE_DEPRECATION")
 
-package com.skidsenglish.assets
+package com.seduforge.skidsenglish.assets
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule

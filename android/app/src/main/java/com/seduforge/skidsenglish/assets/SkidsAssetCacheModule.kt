@@ -1,4 +1,4 @@
-package com.skidsenglish.assets
+package com.seduforge.skidsenglish.assets
 
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext

@@ -1,4 +1,4 @@
-package com.skidsenglish.audio
+package com.seduforge.skidsenglish.audio
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -11,7 +11,7 @@ import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
-import com.skidsenglish.R
+import com.seduforge.skidsenglish.R
 import java.io.File
 
 class SkidsAudioModule(
