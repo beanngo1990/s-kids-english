@@ -38,6 +38,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -74,8 +75,14 @@ export function LessonPackScreen({ navigation, route }: Props) {
       .then(setProgress)
       .catch(() => setProgress(null));
     getParentSettings()
-      .then(settings => setLearningMode(settings.learningMode))
-      .catch(() => setLearningMode('core'));
+      .then(settings => {
+        setLearningMode(settings.learningMode);
+        setJourneyMode(settings.journeyMode);
+      })
+      .catch(() => {
+        setLearningMode('core');
+        setJourneyMode('guided');
+      });
   }, []);
 
   useEffect(() => {
@@ -90,7 +97,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     const scene = scenes.find(item => item.id === sceneId);
 
-    if (!scene || !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
+    if (!scene || (journeyMode === 'guided' && !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id))) {
       return;
     }
 
@@ -181,7 +188,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
           );
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
-          const isUnlocked = isSceneUnlocked(
+          const isUnlocked = journeyMode === 'free' || isSceneUnlocked(
             scenes,
             scene,
             completedSceneIds,
@@ -282,9 +289,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
           title={primaryActionTitle}
           onPress={handlePrimaryAction}
         />
-        {isPackComplete && hasReviewGame && hasCompletedReviewGame ? (
+        {(journeyMode === 'free' || isPackComplete) && hasReviewGame && !shouldPlayReviewGame ? (
           <AppButton
-            title="Chơi lật thẻ lại"
+            title={hasCompletedReviewGame ? "Chơi lật thẻ lại" : "Chơi lật thẻ"}
             variant="secondary"
             onPress={() =>
               navigation.navigate('ReviewGame', { lessonId: lesson.id })

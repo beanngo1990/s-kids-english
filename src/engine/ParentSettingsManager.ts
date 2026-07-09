@@ -25,6 +25,7 @@ export const defaultChildProfile: ChildProfile = {
 export type ParentSettings = {
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
+  journeyMode: 'guided' | 'free';
   learningMode: LearningMode;
   updatedAt?: string;
   visibleLessonIds?: string[]; // If undefined, all lessons are visible
@@ -66,6 +67,7 @@ export const learningDifficultyOptions: LearningDifficultyOption[] = [
 export const defaultParentSettings: ParentSettings = {
   enableSceneEditor: false,
   hasCompletedOnboarding: false,
+  journeyMode: 'guided',
   learningMode: 'core',
   appLanguage: 'vi',
   appTheme: 'system',
@@ -127,6 +129,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
   return {
     enableSceneEditor: Boolean(settings.enableSceneEditor),
     hasCompletedOnboarding: Boolean(settings.hasCompletedOnboarding),
+    journeyMode: settings.journeyMode === 'free' ? 'free' : 'guided',
     learningMode: normalizeLearningMode(settings.learningMode),
     updatedAt:
       typeof settings.updatedAt === 'string' ? settings.updatedAt : undefined,

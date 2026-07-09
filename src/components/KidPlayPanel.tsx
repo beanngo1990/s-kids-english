@@ -18,12 +18,14 @@ import {
 type KidPlayPanelProps = {
   completedReviewGameIds: Set<string>;
   completedSceneIds: Set<string>;
+  journeyMode?: 'guided' | 'free';
   onOpenReviewGame: (lessonId: string) => void;
 };
 
 export function KidPlayPanel({
   completedReviewGameIds,
   completedSceneIds,
+  journeyMode = 'guided',
   onOpenReviewGame,
 }: KidPlayPanelProps) {
   const reviewLessons = useMemo(
@@ -31,17 +33,17 @@ export function KidPlayPanel({
     [],
   );
   const unlockedCount = reviewLessons.filter(lesson =>
-    isReviewGameUnlocked(lesson, completedSceneIds),
+    journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds),
   ).length;
   const pendingReviewLesson = useMemo(
     () =>
       reviewLessons.find(
         lesson =>
           lesson.reviewGame &&
-          isReviewGameUnlocked(lesson, completedSceneIds) &&
+          (journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds)) &&
           !completedReviewGameIds.has(lesson.reviewGame.id),
       ),
-    [completedReviewGameIds, completedSceneIds, reviewLessons],
+    [completedReviewGameIds, completedSceneIds, journeyMode, reviewLessons],
   );
   const orderedReviewLessons = useMemo(() => {
     if (!pendingReviewLesson) {
@@ -69,7 +71,7 @@ export function KidPlayPanel({
 
       <View style={styles.list}>
         {orderedReviewLessons.map(lesson => {
-          const isUnlocked = isReviewGameUnlocked(lesson, completedSceneIds);
+          const isUnlocked = journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds);
           const isCompleted = Boolean(
             lesson.reviewGame &&
               completedReviewGameIds.has(lesson.reviewGame.id),

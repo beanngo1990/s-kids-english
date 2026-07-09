@@ -50,6 +50,7 @@ export function ParentScreen() {
 
   // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
@@ -117,6 +118,7 @@ export function ParentScreen() {
     getParentSettings()
       .then(settings => {
         setLearningMode(settings.learningMode);
+        setJourneyMode(settings.journeyMode);
         setEnableSceneEditor(settings.enableSceneEditor || false);
         setAppLanguage(settings.appLanguage);
         setAppTheme(settings.appTheme);
@@ -165,6 +167,11 @@ export function ParentScreen() {
     } finally {
       setSavingMode(null);
     }
+  };
+
+  const handleUpdateJourneyMode = async (mode: 'guided' | 'free') => {
+    setJourneyMode(mode);
+    await saveParentSettings({ journeyMode: mode });
   };
 
   const handleToggleSceneEditor = async () => {
@@ -435,6 +442,33 @@ export function ParentScreen() {
               <View style={styles.sectionHeader}>
                 <View style={styles.sectionTitleGroup}>
                   <KidBadge tone="teal">Cài đặt học tập</KidBadge>
+                  <Text style={styles.privacyTitle}>Hành trình</Text>
+                </View>
+              </View>
+
+              <View style={styles.settingRow}>
+                <View style={styles.settingTextGroup}>
+                  <Text style={styles.difficultyTitle}>Chế độ mở khóa</Text>
+                  <Text style={styles.difficultySubtitle}>Lộ trình (từng bước) hoặc Tự do (mở tất cả).</Text>
+                </View>
+                <View style={styles.switchGroup}>
+                  <Pressable
+                    style={[styles.smallButton, journeyMode === 'guided' && styles.smallButtonActive]}
+                    onPress={() => handleUpdateJourneyMode('guided')}
+                  >
+                    <Text style={[styles.smallButtonText, journeyMode === 'guided' && styles.smallButtonTextActive]}>Lộ trình</Text>
+                  </Pressable>
+                  <Pressable
+                    style={[styles.smallButton, journeyMode === 'free' && styles.smallButtonActive]}
+                    onPress={() => handleUpdateJourneyMode('free')}
+                  >
+                    <Text style={[styles.smallButtonText, journeyMode === 'free' && styles.smallButtonTextActive]}>Tự do</Text>
+                  </Pressable>
+                </View>
+              </View>
+
+              <View style={[styles.sectionHeader, { marginTop: spacing.lg }]}>
+                <View style={styles.sectionTitleGroup}>
                   <Text style={styles.privacyTitle}>Độ khó của bé</Text>
                 </View>
                 <KidBadge tone="sky">Đang dùng: {currentDifficulty.title}</KidBadge>
