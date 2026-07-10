@@ -878,7 +878,6 @@ export function HomeScreen({ navigation }: Props) {
         </View>
         <KidModeTabs
           activeTab={activeTab}
-          hasPendingPlay={hasPendingReviewGame}
           onSelectMap={() => setActiveTab('map')}
           onSelectPlay={() => setActiveTab('play')}
         />
