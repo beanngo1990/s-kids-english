@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Pressable, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { Alert, Pressable, Switch, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppCard } from '../components/AppCard';
@@ -17,7 +17,6 @@ import {
   type ActivityLog,
 } from '../engine/DailyActivityTracker';
 import {
-  AVATAR_EMOJI_OPTIONS,
   getLearningDifficultyOption,
   getParentSettings,
   learningDifficultyOptions,
@@ -32,7 +31,8 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { useAppTheme } from '../theme/AppTheme';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -43,6 +43,8 @@ const GATE_DURATION_MS = 3000;
 type ParentTab = 'stats' | 'lessons' | 'settings';
 
 export function ParentScreen() {
+  useThemeSync();
+  const { appThemePreference, setAppThemePreference } = useAppTheme();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
@@ -96,6 +98,10 @@ export function ParentScreen() {
       setExpandedThemeId(recentThemeId);
     }
   }, [recentThemeId, expandedThemeId]);
+
+  useEffect(() => {
+    setAppTheme(appThemePreference);
+  }, [appThemePreference]);
 
   function clearGateTimer() {
     if (gateTimerRef.current) {
@@ -187,7 +193,7 @@ export function ParentScreen() {
 
   const handleUpdateTheme = async (theme: AppTheme) => {
     setAppTheme(theme);
-    await saveParentSettings({ appTheme: theme });
+    await setAppThemePreference(theme);
   };
 
   const handleToggleReminder = async () => {
@@ -653,13 +659,13 @@ export function ParentScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   difficultyList: {
     gap: spacing.sm,
   },
   difficultyOption: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -836,7 +842,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   themeGroup: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
@@ -872,7 +878,7 @@ const styles = StyleSheet.create({
   },
   themeLessons: {
     paddingHorizontal: spacing.md,
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
   },
   lessonRow: {
     alignItems: 'center',
@@ -901,7 +907,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
   },
   tabButtonActive: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     ...shadows.soft,
   },
   tabButtonText: {
@@ -920,7 +926,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   bottomBarSafe: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderTopColor: colors.border,
     borderTopWidth: 1,
   },
@@ -994,4 +1000,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 30,
   },
-});
+}));

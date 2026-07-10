@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   StyleProp,
-  StyleSheet,
   Text,
   type TextStyle,
   View,
   type ViewStyle,
 } from 'react-native';
 
-import { colors } from '../../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
 import { radius, spacing } from '../../theme/spacing';
 import { shadows } from '../../theme/shadows';
 import { typography } from '../../theme/typography';
@@ -61,6 +60,7 @@ export function MascotSpeechBubble({
   title,
   tone = 'guide',
 }: MascotSpeechBubbleProps) {
+  useThemeSync();
   const activePose = pose ?? poseByTone[tone];
   const isMascotOnRight = mascotPosition === 'right';
   const [displayMessage, setDisplayMessage] = useState(message);
@@ -124,7 +124,7 @@ export function MascotSpeechBubble({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   bubble: {
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -204,4 +204,4 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accentSoft,
     borderColor: colors.accent,
   },
-});
+}));

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import { type SKidsIconName } from '../assets/icons/skids';
 import { SKidsIcon } from './SKidsIcon';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
-import { shadows } from '../theme/shadows';
 
 export type KidModeTab = 'map' | 'play';
 
@@ -43,6 +42,7 @@ export function KidModeTabs({
   onSelectMap,
   onSelectPlay,
 }: KidModeTabsProps) {
+  useThemeSync();
   const insets = useContext(SafeAreaInsetsContext) ?? {
     bottom: 0,
     left: 0,
@@ -99,7 +99,7 @@ export function KidModeTabs({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   footer: {
     left: layout.screenPadding,
     position: 'absolute',
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   tabActive: {},
   tabBar: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     flexDirection: 'row',
     gap: spacing.xs,
@@ -176,4 +176,4 @@ const styles = StyleSheet.create({
     top: -1,
     width: 13,
   },
-});
+}));

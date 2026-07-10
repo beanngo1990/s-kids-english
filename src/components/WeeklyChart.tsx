@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
@@ -21,6 +21,7 @@ type WeeklyChartProps = {
 const CHART_HEIGHT = 100;
 
 export function WeeklyChart({ data }: WeeklyChartProps) {
+  useThemeSync();
   const maxWords = Math.max(...data.map(d => d.wordsLearned), 1);
   const todayDate = new Date();
   const todayStr = `${todayDate.getFullYear()}-${String(todayDate.getMonth() + 1).padStart(2, '0')}-${String(todayDate.getDate()).padStart(2, '0')}`;
@@ -71,7 +72,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     gap: spacing.sm,
   },
@@ -128,4 +129,4 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
     fontWeight: '900',
   },
-});
+}));

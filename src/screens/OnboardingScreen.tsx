@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
@@ -17,7 +17,7 @@ import {
   completeParentOnboarding,
   learningDifficultyOptions,
 } from '../engine/ParentSettingsManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -32,6 +32,7 @@ function speakSungyLine(message: string) {
 }
 
 export function OnboardingScreen({ navigation }: Props) {
+  useThemeSync();
   const [selectedMode, setSelectedMode] = useState<LearningMode>('core');
   const [isSaving, setIsSaving] = useState(false);
 
@@ -135,7 +136,7 @@ export function OnboardingScreen({ navigation }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   container: {
     gap: spacing.lg,
     paddingBottom: spacing.xl,
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
   },
   option: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -239,4 +240,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.title,
   },
-});
+}));

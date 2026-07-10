@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
@@ -13,7 +13,7 @@ import {
   saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -24,6 +24,7 @@ import { isSceneProgressComplete } from '../utils/lessonProgress';
 type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 
 export function ThemeLibraryScreen({ navigation }: Props) {
+  useThemeSync();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
@@ -214,7 +215,7 @@ function getThemeProgress(
   return { completed, total };
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   badgeRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -244,7 +245,7 @@ const styles = StyleSheet.create({
   },
   actionRow: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -279,7 +280,7 @@ const styles = StyleSheet.create({
   },
   progressRow: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -316,7 +317,7 @@ const styles = StyleSheet.create({
   },
   themeIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 3,
@@ -345,4 +346,4 @@ const styles = StyleSheet.create({
     color: colors.text,
     ...typography.title,
   },
-});
+}));

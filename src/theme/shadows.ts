@@ -1,7 +1,7 @@
 import { colors } from './colors';
 
-export const shadows = {
-  soft: {
+function createSoftShadow() {
+  return {
     elevation: 3,
     shadowColor: colors.shadow,
     shadowOffset: {
@@ -10,8 +10,11 @@ export const shadows = {
     },
     shadowOpacity: 0.12,
     shadowRadius: 16,
-  },
-  floating: {
+  };
+}
+
+function createFloatingShadow() {
+  return {
     elevation: 6,
     shadowColor: colors.shadow,
     shadowOffset: {
@@ -20,8 +23,11 @@ export const shadows = {
     },
     shadowOpacity: 0.18,
     shadowRadius: 20,
-  },
-  warm: {
+  };
+}
+
+function createWarmShadow() {
+  return {
     elevation: 4,
     shadowColor: colors.warmShadow,
     shadowOffset: {
@@ -30,5 +36,17 @@ export const shadows = {
     },
     shadowOpacity: 0.2,
     shadowRadius: 14,
+  };
+}
+
+export const shadows = {
+  get soft() {
+    return createSoftShadow();
+  },
+  get floating() {
+    return createFloatingShadow();
+  },
+  get warm() {
+    return createWarmShadow();
   },
 } as const;

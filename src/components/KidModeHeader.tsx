@@ -1,11 +1,11 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppLogo } from './AppLogo';
 import { KidIconButton } from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 
@@ -20,6 +20,7 @@ export function KidModeHeader({
   onOpenHub,
   onOpenParent,
 }: KidModeHeaderProps) {
+  useThemeSync();
   const brandContent = (
     <>
       <AppLogo size={40} />
@@ -100,7 +101,7 @@ function TopProgressStatus({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   brandCluster: {
     alignItems: 'center',
     flex: 1,
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     zIndex: 20,
   },
   parentGate: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   },
   topStatusCard: {
     alignItems: 'stretch',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -203,4 +204,4 @@ const styles = StyleSheet.create({
     height: 6,
     overflow: 'hidden',
   },
-});
+}));

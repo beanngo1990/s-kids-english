@@ -1,16 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
 import { AppCard } from '../components/AppCard';
 import { AppButton } from '../components/AppButton';
 import { KidBadge } from '../components/KidBadge';
-import { MascotImage, MascotSpeechBubble } from '../components/mascot';
+import { MascotImage } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
-import { sungyRewardTapMessages } from '../data/mascotPrompts';
 import {
   getLessonVocabulary,
   getProgress,
@@ -18,24 +17,19 @@ import {
 } from '../engine/ProgressManager';
 import {
   playCompleteSound,
-  speakVi,
   speakWord,
 } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import type { SceneObject } from '../types/lesson';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 
-function celebrateWithSungy(message: string) {
-  playCompleteSound().catch(() => undefined);
-  speakVi(message).catch(() => undefined);
-}
-
 export function RewardScreen({ navigation, route }: Props) {
+  useThemeSync();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
@@ -217,7 +211,7 @@ export function RewardScreen({ navigation, route }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actions: {
     gap: spacing.md,
   },
@@ -299,7 +293,7 @@ const styles = StyleSheet.create({
   },
   wordChip: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -340,7 +334,7 @@ const styles = StyleSheet.create({
   },
   xpBadgeText: {
     color: colors.text,
-    fontWeight: '700',
     ...typography.caption,
+    fontWeight: '700',
   },
-});
+}));

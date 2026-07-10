@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
@@ -15,6 +15,7 @@ export function LearningStreakCard({
   currentStreak,
   longestStreak,
 }: LearningStreakCardProps) {
+  useThemeSync();
   const streakLabel =
     currentStreak === 0
       ? 'Bé chưa học hôm nay'
@@ -60,7 +61,7 @@ export function LearningStreakCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     backgroundColor: colors.backgroundWarm,
     gap: spacing.sm,
@@ -127,4 +128,4 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '700',
   },
-});
+}));

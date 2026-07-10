@@ -21,7 +21,7 @@ import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -118,6 +118,7 @@ export function ScenePlayer({
   onExit,
   onComplete,
 }: ScenePlayerProps) {
+  useThemeSync();
   const insets = useSafeAreaInsets();
   const responsiveLayout = useResponsiveLayout();
   const isTabletLandscapeLayout = responsiveLayout.isTabletLandscape;
@@ -1322,7 +1323,7 @@ function renderSceneLayer(scene: Scene) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actionButton: {
     flex: 1,
     minHeight: 108,
@@ -1550,7 +1551,7 @@ const styles = StyleSheet.create({
     ...shadows.warm,
   },
   secondaryActionButton: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     flex: 0.95,
     minHeight: 76,
@@ -1673,4 +1674,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '900',
   },
-});
+}));

@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { Text } from 'react-native';
 
 import { AppCard } from '../components/AppCard';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { ReviewGame } from '../types/lesson';
@@ -24,6 +24,7 @@ export function GamePlayer({
   onWordInteraction,
   reviewGame,
 }: GamePlayerProps) {
+  useThemeSync();
   switch (reviewGame.type) {
     case 'memory':
       return (
@@ -47,7 +48,7 @@ export function GamePlayer({
   }
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   unsupportedCard: {
     gap: spacing.sm,
   },
@@ -61,4 +62,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.subtitle,
   },
-});
+}));

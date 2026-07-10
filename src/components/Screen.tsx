@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
 
 type ScreenProps = {
@@ -11,6 +11,7 @@ type ScreenProps = {
 };
 
 export function Screen({ children, scroll = false }: ScreenProps) {
+  useThemeSync();
   const responsiveLayout = useResponsiveLayout();
   const scrollContentStyle = {
     alignSelf: 'center' as const,
@@ -40,7 +41,7 @@ export function Screen({ children, scroll = false }: ScreenProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   content: {
     flex: 1,
   },
@@ -51,4 +52,4 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
   },
-});
+}));

@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
 import { lessons } from '../data/lessons';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
@@ -28,6 +28,7 @@ export function KidPlayPanel({
   journeyMode = 'guided',
   onOpenReviewGame,
 }: KidPlayPanelProps) {
+  useThemeSync();
   const reviewLessons = useMemo(
     () => lessons.filter(lesson => lesson.reviewGame),
     [],
@@ -174,7 +175,7 @@ function isReviewGameUnlocked(lesson: Lesson, completedSceneIds: Set<string>) {
   return isLessonComplete(lesson.scenes, completedSceneIds, lesson.id);
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   badgeRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
   },
   iconBox: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -255,4 +256,4 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceBlue,
     borderColor: colors.border,
   },
-});
+}));

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
@@ -9,7 +9,7 @@ import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
@@ -19,6 +19,7 @@ import { isSceneProgressComplete } from '../utils/lessonProgress';
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 
 export function LessonListScreen({ navigation }: Props) {
+  useThemeSync();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const completedSceneIds = useMemo(
@@ -139,7 +140,7 @@ export function LessonListScreen({ navigation }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   header: {
     gap: spacing.sm,
     marginBottom: spacing.lg,
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
   },
   lessonIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
   },
   stopDot: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -246,4 +247,4 @@ const styles = StyleSheet.create({
     color: colors.text,
     ...typography.title,
   },
-});
+}));

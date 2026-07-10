@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -18,7 +18,7 @@ import {
 } from '../engine/ProgressManager';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type {
@@ -37,6 +37,7 @@ const defaultMemoryPairCount = 4;
 const maxMemoryPairCount = 6;
 
 export function ReviewGameScreen({ navigation, route }: Props) {
+  useThemeSync();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const [isCompleting, setIsCompleting] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
@@ -262,7 +263,7 @@ function getRenderableObjects(scene: Scene) {
   return scene.character ? [scene.character, ...scene.objects] : scene.objects;
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   container: {
     gap: spacing.md,
   },
@@ -299,7 +300,7 @@ const styles = StyleSheet.create({
   },
   iconBox: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: 24,
     borderWidth: 2,
@@ -314,4 +315,4 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     lineHeight: 29,
   },
-});
+}));

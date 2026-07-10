@@ -11,7 +11,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import type { Scene, SceneObject, PercentRect } from '../types/lesson';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { resolveAsset } from './AssetRegistry';
@@ -27,6 +27,7 @@ export function AdminSceneEditor({
   stageSize,
   onClose,
 }: AdminSceneEditorProps) {
+  useThemeSync();
   const initialObjects = useMemo(() => {
     const arr = [...scene.objects];
     if (scene.character) {
@@ -383,7 +384,7 @@ function EditableObject({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   overlayBg: {
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
     bottom: 0,
@@ -564,4 +565,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 9,
   },
-});
+}));
