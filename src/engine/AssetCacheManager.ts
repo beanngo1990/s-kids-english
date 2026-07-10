@@ -6,6 +6,7 @@ import { resolveBundledAudioUri } from './AudioAssetRegistry';
 type SkidsAssetCacheModule = {
   clearCache?: () => Promise<boolean>;
   getCachedAssetUrl?: (remoteUrl: string, cacheKey: string) => Promise<string>;
+  prefetchAssets?: (assets: {remoteUrl: string, cacheKey: string}[]) => Promise<boolean>;
 };
 
 const nativeAssetCache = NativeModules.SkidsAssetCache as
@@ -32,4 +33,24 @@ export async function resolveRemoteAssetUri(assetKey: string) {
 
 export async function clearRemoteAssetCache() {
   return nativeAssetCache?.clearCache?.() ?? false;
+}
+
+export async function prefetchRemoteAssets(
+  assets: { remoteUrl: string; cacheKey: string }[],
+) {
+  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeAssetCache?.prefetchAssets) {
+    return false;
+  }
+
+  const validAssets = assets.filter(asset => Boolean(asset.remoteUrl && asset.cacheKey));
+  
+  if (validAssets.length === 0) {
+    return false;
+  }
+
+  try {
+    return await nativeAssetCache.prefetchAssets(validAssets);
+  } catch {
+    return false;
+  }
 }

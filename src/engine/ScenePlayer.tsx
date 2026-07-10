@@ -18,6 +18,8 @@ import { MascotSpeechBubble } from '../components/mascot';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
+import { getViAudioAsset, getWordAudioAsset, type RemoteAudioAsset } from '../data/audioManifest';
+import { getRemoteAssetUrl } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
@@ -44,6 +46,7 @@ import {
 } from './AudioManager';
 import { getSceneFallbackPalette } from './AssetFallbacks';
 import { prefetchAssets, resolveAsset } from './AssetRegistry';
+import { prefetchRemoteAssets } from './AssetCacheManager';
 import {
   type DragTranslation,
   getDraggedRect,
@@ -232,6 +235,8 @@ export function ScenePlayer({
     }
 
     prefetchAssets(getSceneImageSources(currentScene)).catch(() => undefined);
+    prefetchRemoteAssets(getSceneAudioAssets(currentScene)).catch(() => undefined);
+    
     const nextScene = scenes[sceneIndex + 1];
     if (!nextScene) {
       return;
@@ -239,6 +244,7 @@ export function ScenePlayer({
 
     const timer = setTimeout(() => {
       prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
+      prefetchRemoteAssets(getSceneAudioAssets(nextScene)).catch(() => undefined);
     }, 350);
 
     return () => clearTimeout(timer);
@@ -1095,6 +1101,48 @@ function getSceneImageSources(scene: Scene) {
   }
 
   return Array.from(new Set(sources));
+}
+
+function getSceneAudioAssets(scene: Scene) {
+  const assets: RemoteAudioAsset[] = [];
+
+  if (scene.titleVi) {
+    const titleAsset = getViAudioAsset(scene.titleVi);
+    if (titleAsset) assets.push(titleAsset);
+  }
+
+  for (const vocab of scene.vocabulary ?? []) {
+    const wordAsset = getWordAudioAsset(vocab.word);
+    if (wordAsset) assets.push(wordAsset);
+  }
+
+  for (const step of scene.steps) {
+    if (step.instructionVi) {
+      const instructionAsset = getViAudioAsset(step.instructionVi);
+      if (instructionAsset) assets.push(instructionAsset);
+    }
+    if (step.successFeedbackVi) {
+      const feedbackAsset = getViAudioAsset(step.successFeedbackVi);
+      if (feedbackAsset) assets.push(feedbackAsset);
+    }
+    if (step.failFeedbackVi) {
+      const failFeedbackAsset = getViAudioAsset(step.failFeedbackVi);
+      if (failFeedbackAsset) assets.push(failFeedbackAsset);
+    }
+  }
+
+  const urlsToKeys = new Map<string, string>();
+  for (const asset of assets) {
+    const remoteUrl = getRemoteAssetUrl(asset.key);
+    if (remoteUrl) {
+      urlsToKeys.set(remoteUrl, asset.key);
+    }
+  }
+
+  return Array.from(urlsToKeys.entries()).map(([remoteUrl, cacheKey]) => ({
+    remoteUrl,
+    cacheKey,
+  }));
 }
 
 function getObjectLabel(scene: Scene, object: SceneObject) {
