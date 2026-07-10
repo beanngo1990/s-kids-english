@@ -59,7 +59,7 @@ class SkidsAssetCacheModule(
       try {
         cacheRoot.mkdirs()
         for (i in 0 until assets.size()) {
-          val asset = assets.getMap(i)
+          val asset = assets.getMap(i) ?: continue
           val remoteUrl = asset.getString("remoteUrl")
           val cacheKey = asset.getString("cacheKey")
 
