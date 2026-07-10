@@ -1,13 +1,21 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Alert, Pressable, Switch, Text, TextInput, View } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppCard } from '../components/AppCard';
 import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
-import { LearningStreakCard } from '../components/LearningStreakCard';
+import { MascotImage } from '../components/mascot';
+import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
-import { StatTile } from '../components/StatTile';
+import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
 import { lessons } from '../data/lessons';
 import { themes } from '../data/themes';
@@ -36,16 +44,33 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
+import { useResponsiveLayout } from '../theme/responsive';
 import type { LearningMode } from '../types/lesson';
+import type { RootStackParamList } from '../types/navigation';
+import { getLessonIconName } from '../utils/lessonIcons';
+import { isSceneProgressComplete } from '../utils/lessonProgress';
 
 const GATE_DURATION_MS = 3000;
+const WEEKLY_WORD_TARGET = 30;
 
 type ParentTab = 'stats' | 'lessons' | 'settings';
+type Props = NativeStackScreenProps<RootStackParamList, 'Parent'>;
 
-export function ParentScreen() {
+function getLocalDateString() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+export function ParentScreen({ navigation }: Props) {
   useThemeSync();
   const { appThemePreference, setAppThemePreference } = useAppTheme();
+  const responsiveLayout = useResponsiveLayout();
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isDashboardReady, setIsDashboardReady] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
   const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
@@ -58,8 +83,11 @@ export function ParentScreen() {
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTime, setReminderTime] = useState('19:30');
-  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
-  const [childProfile, setChildProfile] = useState<ChildProfile>(defaultChildProfile);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<
+    string[] | undefined
+  >(undefined);
+  const [childProfile, setChildProfile] =
+    useState<ChildProfile>(defaultChildProfile);
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -70,26 +98,154 @@ export function ParentScreen() {
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
   const earnedStickerCount = progress?.earnedStickerIds.length ?? 0;
+  const isCompactDashboard = responsiveLayout.width <= 360;
+  const weeklyData = useMemo(
+    () => getWeeklyData(activityLog?.entries ?? []),
+    [activityLog?.entries],
+  );
+  const todayActivity = useMemo(
+    () =>
+      activityLog?.entries.find(entry => entry.date === getLocalDateString()),
+    [activityLog?.entries],
+  );
+  const todayWordCount = todayActivity?.wordsLearned ?? 0;
+  const todaySceneCount = todayActivity?.scenesCompleted ?? 0;
 
-  const recentLearnedWords = useMemo(() => {
-    if (!progress || progress.learnedWordIds.length === 0) {
+  const recentLessonId =
+    progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
+  const recentLesson = lessons.find(l => l.id === recentLessonId);
+  const visibleLessons = useMemo(
+    () =>
+      lessons.filter(
+        lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id),
+      ),
+    [visibleLessonIds],
+  );
+  const completedLessonIds = useMemo(
+    () => new Set(progress?.completedLessonIds ?? []),
+    [progress?.completedLessonIds],
+  );
+  const completedSceneIds = useMemo(
+    () => new Set(progress?.completedSceneIds ?? []),
+    [progress?.completedSceneIds],
+  );
+  const focusLesson = useMemo(() => {
+    const resumedLesson = progress?.currentLessonProgress
+      ? visibleLessons.find(
+          lesson => lesson.id === progress.currentLessonProgress?.lessonId,
+        )
+      : undefined;
+    const partiallyCompletedLesson = visibleLessons.find(lesson => {
+      const completedSceneCount = lesson.scenes.filter(scene =>
+        isSceneProgressComplete(completedSceneIds, lesson.id, scene.id),
+      ).length;
+
+      return (
+        completedSceneCount > 0 && completedSceneCount < lesson.scenes.length
+      );
+    });
+    const firstIncompleteLesson = visibleLessons.find(
+      lesson => !completedLessonIds.has(lesson.id),
+    );
+    const recentVisibleLesson = visibleLessons.find(
+      lesson => lesson.id === recentLesson?.id,
+    );
+
+    return (
+      resumedLesson ??
+      partiallyCompletedLesson ??
+      firstIncompleteLesson ??
+      recentVisibleLesson ??
+      visibleLessons[0]
+    );
+  }, [
+    completedLessonIds,
+    completedSceneIds,
+    progress?.currentLessonProgress,
+    recentLesson,
+    visibleLessons,
+  ]);
+  const completedFocusSceneCount = useMemo(() => {
+    if (!focusLesson) {
+      return 0;
+    }
+
+    return focusLesson.scenes.filter(scene =>
+      isSceneProgressComplete(completedSceneIds, focusLesson.id, scene.id),
+    ).length;
+  }, [completedSceneIds, focusLesson]);
+  const focusSceneCount = focusLesson?.scenes.length ?? 0;
+  const focusProgress =
+    focusSceneCount > 0
+      ? Math.round((completedFocusSceneCount / focusSceneCount) * 100)
+      : 0;
+  const reviewLesson =
+    visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
+    focusLesson;
+  const reviewWords = useMemo(() => {
+    if (!reviewLesson) {
       return [];
     }
-    const allVocabs = lessons.flatMap(lesson => getLessonVocabulary(lesson));
-    const words = progress.learnedWordIds
-      .map(id => allVocabs.find(v => v.id === id)?.word)
-      .filter((word): word is string => !!word);
-    return words.slice(-3);
-  }, [progress]);
 
-  const recentLessonId = progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
-  const recentLesson = lessons.find(l => l.id === recentLessonId);
-  const currentDifficulty = getLearningDifficultyOption(learningMode);
-  const tipText = recentLesson?.metadata?.parentTipVi ?? (
-    recentLearnedWords.length > 0
-      ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${recentLearnedWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
-      : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!'
+    const vocabulary = getLessonVocabulary(reviewLesson);
+    const vocabularyById = new Map(
+      vocabulary.map(item => [item.id, item.word]),
+    );
+    const learnedWordsInLesson = (progress?.learnedWordIds ?? [])
+      .filter(id => vocabularyById.has(id))
+      .slice(-3)
+      .map(id => vocabularyById.get(id))
+      .filter((word): word is string => Boolean(word));
+
+    return learnedWordsInLesson.length > 0
+      ? learnedWordsInLesson
+      : vocabulary.slice(0, 3).map(item => item.word);
+  }, [progress?.learnedWordIds, reviewLesson]);
+  const isFocusLessonComplete =
+    focusSceneCount > 0 && completedFocusSceneCount === focusSceneCount;
+  const isReviewLessonReadyForGame = Boolean(
+    reviewLesson?.reviewGame &&
+      reviewLesson.scenes.every(scene =>
+        isSceneProgressComplete(completedSceneIds, reviewLesson.id, scene.id),
+      ),
   );
+  const focusLessonBadge = isFocusLessonComplete
+    ? 'Sẵn sàng ôn lại'
+    : completedFocusSceneCount > 0
+    ? 'Bài đang học'
+    : 'Bài tiếp theo';
+  const focusLessonAction = isFocusLessonComplete ? 'Ôn lại' : 'Tiếp tục';
+  const heroTitle =
+    todayWordCount > 0 || todaySceneCount > 0
+      ? `Tuyệt vời, ${childProfile.name}!`
+      : 'Một ngày học thật nhẹ nhàng';
+  const heroSummary = !isDashboardReady
+    ? 'Đang tải tiến độ gần đây của bé…'
+    : todayWordCount > 0
+    ? `Bé đã khám phá ${todayWordCount} từ mới${
+        todaySceneCount > 0 ? ` và hoàn thành ${todaySceneCount} trạm` : ''
+      } hôm nay.`
+    : todaySceneCount > 0
+    ? `Bé đã hoàn thành ${todaySceneCount} trạm học hôm nay.`
+    : 'Một bài học ngắn hôm nay sẽ giúp bé giữ nhịp thật vui.';
+  const heroAction =
+    completedFocusSceneCount > 0 ? 'Tiếp tục cùng bé' : 'Cùng bé bắt đầu';
+  const canOpenFocusLesson = isDashboardReady && Boolean(focusLesson);
+  const canReviewTogether = isDashboardReady && Boolean(reviewLesson);
+  const todayPrimaryMetricValue =
+    todayWordCount > 0 ? todayWordCount : todaySceneCount;
+  const todayPrimaryMetricLabel =
+    todayWordCount > 0
+      ? 'từ mới'
+      : todaySceneCount > 0
+      ? 'trạm học'
+      : 'hoạt động';
+  const currentDifficulty = getLearningDifficultyOption(learningMode);
+  const tipText =
+    reviewLesson?.metadata?.parentTipVi ??
+    (reviewWords.length > 0
+      ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${reviewWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
+      : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!');
 
   const recentThemeId = recentLesson?.themeId ?? themes[0]?.id;
 
@@ -110,19 +266,17 @@ export function ParentScreen() {
     }
   }
 
-  useEffect(() => {
-    if (!isUnlocked) {
-      return;
-    }
+  const refreshParentData = useCallback(() => {
+    setIsDashboardReady(false);
+    Promise.all([
+      getProgress().catch(() => null),
+      getActivityLog().catch(() => null),
+      getParentSettings().catch(() => null),
+    ]).then(([nextProgress, nextActivityLog, settings]) => {
+      setProgress(nextProgress);
+      setActivityLog(nextActivityLog);
 
-    getProgress()
-      .then(setProgress)
-      .catch(() => setProgress(null));
-    getActivityLog()
-      .then(setActivityLog)
-      .catch(() => setActivityLog(null));
-    getParentSettings()
-      .then(settings => {
+      if (settings) {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
         setEnableSceneEditor(settings.enableSceneEditor || false);
@@ -132,11 +286,22 @@ export function ParentScreen() {
         setReminderTime(settings.reminderTime);
         setVisibleLessonIds(settings.visibleLessonIds);
         setChildProfile(settings.childProfile);
-      })
-      .catch(() => {
+      } else {
         setLearningMode('core');
-      });
-  }, [isUnlocked]);
+      }
+
+      setIsDashboardReady(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isUnlocked) {
+      return;
+    }
+
+    refreshParentData();
+    return navigation.addListener('focus', refreshParentData);
+  }, [isUnlocked, navigation, refreshParentData]);
 
   useEffect(() => {
     return clearGateTimer;
@@ -157,6 +322,30 @@ export function ParentScreen() {
     }
 
     clearGateTimer();
+  };
+
+  const handleOpenFocusLesson = () => {
+    if (!focusLesson) {
+      return;
+    }
+
+    setIsUnlocked(false);
+    navigation.navigate('LessonPack', { lessonId: focusLesson.id });
+  };
+
+  const handleReviewTogether = () => {
+    if (!reviewLesson) {
+      return;
+    }
+
+    if (reviewLesson.reviewGame && isReviewLessonReadyForGame) {
+      setIsUnlocked(false);
+      navigation.navigate('ReviewGame', { lessonId: reviewLesson.id });
+      return;
+    }
+
+    setIsUnlocked(false);
+    navigation.navigate('LessonPack', { lessonId: reviewLesson.id });
   };
 
   const handleSelectLearningMode = async (nextLearningMode: LearningMode) => {
@@ -205,14 +394,19 @@ export function ParentScreen() {
   const handleToggleLesson = async (lessonId: string) => {
     const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
     let nextVisible: string[];
-    
+
     if (currentVisible.includes(lessonId)) {
       const lesson = lessons.find(l => l.id === lessonId);
       if (lesson) {
         const themeLessons = lessons.filter(l => l.themeId === lesson.themeId);
-        const visibleInTheme = themeLessons.filter(l => currentVisible.includes(l.id));
+        const visibleInTheme = themeLessons.filter(l =>
+          currentVisible.includes(l.id),
+        );
         if (visibleInTheme.length <= 1) {
-          Alert.alert('Lưu ý', 'Cần giữ ít nhất 1 bài học được bật trong chủ đề này.');
+          Alert.alert(
+            'Lưu ý',
+            'Cần giữ ít nhất 1 bài học được bật trong chủ đề này.',
+          );
           return;
         }
       }
@@ -220,7 +414,7 @@ export function ParentScreen() {
     } else {
       nextVisible = [...currentVisible, lessonId];
     }
-    
+
     setVisibleLessonIds(nextVisible);
     await saveParentSettings({ visibleLessonIds: nextVisible });
   };
@@ -257,7 +451,6 @@ export function ParentScreen() {
   return (
     <View style={styles.screenContainer}>
       <Screen scroll>
-
         {activeTab === 'stats' && (
           <View style={styles.tabContent}>
             <ChildProfileCard
@@ -265,31 +458,290 @@ export function ParentScreen() {
               onEditPress={() => setActiveTab('settings')}
             />
 
-            <LearningStreakCard
-              currentStreak={activityLog?.currentStreak ?? 0}
-              longestStreak={activityLog?.longestStreak ?? 0}
-            />
+            <AppCard
+              style={[
+                styles.todayCard,
+                isCompactDashboard && styles.dashboardCardCompact,
+              ]}
+            >
+              <View style={styles.todayTopRow}>
+                <View style={styles.todayCopy}>
+                  <View style={styles.todayEyebrow}>
+                    <Text style={styles.todayEyebrowText}>TIẾN ĐỘ HÔM NAY</Text>
+                  </View>
+                  <Text style={styles.todayTitle}>{heroTitle}</Text>
+                  <Text style={styles.todaySummary}>{heroSummary}</Text>
+                  <View style={styles.todayMetrics}>
+                    <View style={styles.todayMetric}>
+                      <Text style={styles.todayMetricValue}>
+                        {todayPrimaryMetricValue}
+                      </Text>
+                      <Text style={styles.todayMetricLabel}>
+                        {todayPrimaryMetricLabel}
+                      </Text>
+                    </View>
+                    <View style={styles.todayMetricDivider} />
+                    <View style={styles.todayMetric}>
+                      <Text style={styles.todayMetricValue}>
+                        {activityLog?.currentStreak ?? 0}
+                      </Text>
+                      <Text style={styles.todayMetricLabel}>
+                        ngày liên tiếp
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <MascotImage
+                  decorative
+                  pose={
+                    todayWordCount > 0 || todaySceneCount > 0
+                      ? 'greatJob'
+                      : 'letsGo'
+                  }
+                  size={isCompactDashboard ? 84 : 112}
+                  style={styles.todayMascot}
+                />
+              </View>
+              <Pressable
+                accessibilityLabel={`${heroAction}: ${
+                  focusLesson?.titleVi ?? 'bài học của bé'
+                }`}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: !canOpenFocusLesson }}
+                disabled={!canOpenFocusLesson}
+                onPress={handleOpenFocusLesson}
+                style={({ pressed }) => [
+                  styles.todayAction,
+                  !canOpenFocusLesson && styles.actionDisabled,
+                  pressed && styles.pressed,
+                ]}
+              >
+                <Text style={styles.todayActionText}>{heroAction}</Text>
+                <Text style={styles.todayActionArrow}>→</Text>
+              </Pressable>
+            </AppCard>
 
-            <View style={styles.grid}>
-              <StatTile image={require('../assets/icons/skids/school.png')} label="Từ bé đã học" value={learnedWordCount} />
-              <StatTile image={require('../assets/icons/skids/acorn.png')} label="Bài hoàn thành" value={completedLessonCount} />
-              <StatTile image={require('../assets/icons/skids/star.png')} label="Sticker đã nhận" value={earnedStickerCount} />
-            </View>
+            <Pressable
+              accessibilityHint="Mở bài học bé đang học"
+              accessibilityLabel={`${focusLessonAction} ${
+                focusLesson?.titleVi ?? 'bài học'
+              }`}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !canOpenFocusLesson }}
+              disabled={!canOpenFocusLesson}
+              onPress={handleOpenFocusLesson}
+              style={({ pressed }) => [
+                styles.cardPressable,
+                pressed && styles.pressed,
+              ]}
+            >
+              <AppCard
+                style={[
+                  styles.currentLessonCard,
+                  isCompactDashboard && styles.dashboardCardCompact,
+                ]}
+              >
+                <View
+                  style={[
+                    styles.currentLessonTopRow,
+                    isCompactDashboard && styles.currentLessonTopRowCompact,
+                  ]}
+                >
+                  <View
+                    style={[
+                      styles.currentLessonIcon,
+                      isCompactDashboard && styles.currentLessonIconCompact,
+                    ]}
+                  >
+                    {focusLesson ? (
+                      <SKidsIcon
+                        name={getLessonIconName(focusLesson)}
+                        size={isCompactDashboard ? 52 : 64}
+                      />
+                    ) : (
+                      <SKidsIcon
+                        name="focusLesson"
+                        size={isCompactDashboard ? 52 : 64}
+                      />
+                    )}
+                  </View>
+                  <View style={styles.currentLessonCopy}>
+                    <KidBadge tone={isFocusLessonComplete ? 'teal' : 'sun'}>
+                      {focusLessonBadge}
+                    </KidBadge>
+                    <Text style={styles.currentLessonTitle}>
+                      {isDashboardReady
+                        ? focusLesson?.titleVi ?? 'Bài học đầu tiên'
+                        : 'Đang chuẩn bị lộ trình'}
+                    </Text>
+                    <Text style={styles.currentLessonSubtitle}>
+                      {focusLesson?.titleEn ?? 'Let’s learn together'}
+                    </Text>
+                  </View>
+                </View>
 
-            <WeeklyChart
-              data={getWeeklyData(activityLog?.entries ?? [])}
-            />
+                <View style={styles.lessonProgressMeta}>
+                  <Text style={styles.currentLessonProgressText}>
+                    {isDashboardReady
+                      ? `${completedFocusSceneCount}/${focusSceneCount} trạm`
+                      : 'Đang tải tiến độ'}
+                  </Text>
+                  <Text style={styles.currentLessonPercent}>
+                    {focusProgress}%
+                  </Text>
+                </View>
 
-            <AppCard style={styles.summary}>
-              <KidBadge tone="sun">Gợi ý ôn tập ngoài đời</KidBadge>
-              {recentLearnedWords.length > 0 ? (
-                <Text style={styles.summaryValue}>
-                  Gần đây bé đã học: {recentLearnedWords.join(', ')}.
-                </Text>
+                <View style={styles.lessonProgressTrack}>
+                  {focusProgress > 0 ? (
+                    <View
+                      style={[
+                        styles.lessonProgressFill,
+                        { width: `${focusProgress}%` },
+                      ]}
+                    />
+                  ) : null}
+                </View>
+
+                <View style={styles.currentLessonFooter}>
+                  <View style={styles.currentLessonStars}>
+                    <ProgressStars
+                      completed={completedFocusSceneCount}
+                      total={focusSceneCount}
+                    />
+                  </View>
+                  <Text style={styles.currentLessonAction}>
+                    {focusLessonAction} →
+                  </Text>
+                </View>
+              </AppCard>
+            </Pressable>
+
+            <AppCard
+              style={[
+                styles.achievementCard,
+                isCompactDashboard && styles.dashboardCardCompact,
+              ]}
+            >
+              <View style={styles.achievementHeader}>
+                <View style={styles.achievementCopy}>
+                  <Text style={styles.achievementTitle}>Hành trình của bé</Text>
+                  <Text style={styles.achievementSubtitle}>
+                    Mỗi lần học là một bước tiến đáng yêu.
+                  </Text>
+                </View>
+                <SKidsIcon name="star" size={44} />
+              </View>
+              <View
+                style={[
+                  styles.milestoneRow,
+                  isCompactDashboard && styles.milestoneRowCompact,
+                ]}
+              >
+                <View
+                  style={[
+                    styles.milestoneItem,
+                    isCompactDashboard && styles.milestoneItemCompact,
+                  ]}
+                >
+                  <SKidsIcon name="school" size={36} />
+                  <Text style={styles.milestoneValue}>{learnedWordCount}</Text>
+                  <Text style={styles.milestoneLabel}>Từ đã học</Text>
+                </View>
+                {!isCompactDashboard ? (
+                  <View style={styles.milestoneDivider} />
+                ) : null}
+                <View
+                  style={[
+                    styles.milestoneItem,
+                    isCompactDashboard && styles.milestoneItemCompact,
+                  ]}
+                >
+                  <SKidsIcon name="acorn" size={36} />
+                  <Text style={styles.milestoneValue}>
+                    {completedLessonCount}
+                  </Text>
+                  <Text style={styles.milestoneLabel}>Bài hoàn thành</Text>
+                </View>
+                {!isCompactDashboard ? (
+                  <View style={styles.milestoneDivider} />
+                ) : null}
+                <View
+                  style={[
+                    styles.milestoneItem,
+                    isCompactDashboard && styles.milestoneItemCompact,
+                    isCompactDashboard && styles.milestoneItemLastCompact,
+                  ]}
+                >
+                  <SKidsIcon name="sticker" size={36} />
+                  <Text style={styles.milestoneValue}>
+                    {earnedStickerCount}
+                  </Text>
+                  <Text style={styles.milestoneLabel}>Sticker nhận được</Text>
+                </View>
+              </View>
+            </AppCard>
+
+            <WeeklyChart data={weeklyData} weeklyTarget={WEEKLY_WORD_TARGET} />
+
+            <AppCard
+              style={[
+                styles.reviewCard,
+                isCompactDashboard && styles.dashboardCardCompact,
+              ]}
+            >
+              <View style={styles.reviewHeader}>
+                <View style={styles.reviewCopy}>
+                  <KidBadge tone="sun">Ôn cùng bé · 3 phút</KidBadge>
+                  <Text style={styles.reviewTitle}>
+                    {isDashboardReady
+                      ? reviewLesson
+                        ? `Cùng ôn ${reviewLesson.titleVi}`
+                        : 'Một hoạt động nhỏ hôm nay'
+                      : 'Đang chuẩn bị gợi ý ôn tập'}
+                  </Text>
+                </View>
+                <View style={styles.reviewIcon}>
+                  <SKidsIcon name="speak" size={56} />
+                </View>
+              </View>
+
+              {reviewWords.length > 0 ? (
+                <View style={styles.wordSection}>
+                  <Text style={styles.wordSectionLabel}>Từ bé vừa gặp</Text>
+                  <View style={styles.wordChipRow}>
+                    {reviewWords.map((word, index) => (
+                      <View key={`${word}-${index}`} style={styles.wordChip}>
+                        <Text style={styles.wordChipText}>{word}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
               ) : null}
-              <Text style={styles.tip}>
-                {tipText}
-              </Text>
+
+              <View style={styles.parentPrompt}>
+                <Text style={styles.parentPromptLabel}>Gợi ý cho ba mẹ</Text>
+                <Text style={styles.parentPromptText}>{tipText}</Text>
+              </View>
+
+              <Pressable
+                accessibilityLabel="Mở hoạt động ôn tập cùng bé"
+                accessibilityRole="button"
+                accessibilityState={{ disabled: !canReviewTogether }}
+                disabled={!canReviewTogether}
+                onPress={handleReviewTogether}
+                style={({ pressed }) => [
+                  styles.reviewAction,
+                  !canReviewTogether && styles.actionDisabled,
+                  pressed && styles.pressed,
+                ]}
+              >
+                <Text style={styles.reviewActionText}>
+                  {isReviewLessonReadyForGame
+                    ? 'Chơi lật thẻ cùng bé'
+                    : 'Mở hoạt động ôn tập'}
+                </Text>
+                <Text style={styles.reviewActionArrow}>→</Text>
+              </Pressable>
             </AppCard>
           </View>
         )}
@@ -304,44 +756,74 @@ export function ParentScreen() {
                 </View>
               </View>
               <Text style={styles.difficultySubtitle}>
-                Chọn các bài học bạn muốn bé tập trung. Tắt các bài học khác để bé không bị phân tâm.
+                Chọn các bài học bạn muốn bé tập trung. Tắt các bài học khác để
+                bé không bị phân tâm.
               </Text>
               <View style={styles.lessonList}>
                 {themes.map(theme => {
                   const isExpanded = expandedThemeId === theme.id;
-                  const themeLessons = lessons.filter(l => l.themeId === theme.id);
+                  const themeLessons = lessons.filter(
+                    l => l.themeId === theme.id,
+                  );
                   if (themeLessons.length === 0) return null;
 
                   return (
                     <View key={theme.id} style={styles.themeGroup}>
-                      <Pressable 
-                        style={[styles.themeHeader, isExpanded && styles.themeHeaderExpanded]}
-                        onPress={() => setExpandedThemeId(isExpanded ? null : theme.id)}
+                      <Pressable
+                        style={[
+                          styles.themeHeader,
+                          isExpanded && styles.themeHeaderExpanded,
+                        ]}
+                        onPress={() =>
+                          setExpandedThemeId(isExpanded ? null : theme.id)
+                        }
                       >
                         <View style={styles.themeHeaderLeft}>
-                          <Text style={styles.themeEmoji}>{theme.thumbnailEmoji}</Text>
+                          <Text style={styles.themeEmoji}>
+                            {theme.thumbnailEmoji}
+                          </Text>
                           <Text style={styles.themeTitle}>{theme.titleVi}</Text>
                         </View>
-                        <Text style={styles.expandIcon}>{isExpanded ? '▼' : '▶'}</Text>
+                        <Text style={styles.expandIcon}>
+                          {isExpanded ? '▼' : '▶'}
+                        </Text>
                       </Pressable>
-                      
+
                       {isExpanded && (
                         <View style={styles.themeLessons}>
                           {themeLessons.map((lesson, index) => {
-                            const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
-                            const isVisible = currentVisible.includes(lesson.id);
+                            const currentVisible =
+                              visibleLessonIds ?? lessons.map(l => l.id);
+                            const isVisible = currentVisible.includes(
+                              lesson.id,
+                            );
                             const isLast = index === themeLessons.length - 1;
 
                             return (
-                              <View key={lesson.id} style={[styles.lessonRow, isLast && { borderBottomWidth: 0 }]}>
+                              <View
+                                key={lesson.id}
+                                style={[
+                                  styles.lessonRow,
+                                  isLast && styles.lessonRowLast,
+                                ]}
+                              >
                                 <View style={styles.lessonTextGroup}>
-                                  <Text style={styles.difficultyTitle}>{lesson.titleVi}</Text>
-                                  <Text style={styles.difficultySubtitle}>{lesson.titleEn}</Text>
+                                  <Text style={styles.difficultyTitle}>
+                                    {lesson.titleVi}
+                                  </Text>
+                                  <Text style={styles.difficultySubtitle}>
+                                    {lesson.titleEn}
+                                  </Text>
                                 </View>
                                 <Switch
                                   value={isVisible}
-                                  onValueChange={() => handleToggleLesson(lesson.id)}
-                                  trackColor={{ false: colors.border, true: colors.primary }}
+                                  onValueChange={() =>
+                                    handleToggleLesson(lesson.id)
+                                  }
+                                  trackColor={{
+                                    false: colors.border,
+                                    true: colors.primary,
+                                  }}
                                 />
                               </View>
                             );
@@ -373,12 +855,13 @@ export function ParentScreen() {
                 <TextInput
                   style={styles.textInput}
                   value={childProfile.name}
-                  onChangeText={(text) => {
+                  onChangeText={text => {
                     const next = { ...childProfile, name: text };
                     setChildProfile(next);
                   }}
                   onBlur={() => {
-                    const name = childProfile.name.trim() || defaultChildProfile.name;
+                    const name =
+                      childProfile.name.trim() || defaultChildProfile.name;
                     const next = { ...childProfile, name };
                     setChildProfile(next);
                     saveParentSettings({ childProfile: next });
@@ -420,12 +903,14 @@ export function ParentScreen() {
 
               <View style={styles.settingRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Năm sinh (tuỳ chọn)</Text>
+                  <Text style={styles.difficultyTitle}>
+                    Năm sinh (tuỳ chọn)
+                  </Text>
                 </View>
                 <TextInput
                   style={styles.textInputSmall}
                   value={childProfile.birthYear?.toString() ?? ''}
-                  onChangeText={(text) => {
+                  onChangeText={text => {
                     const num = parseInt(text, 10);
                     const next = {
                       ...childProfile,
@@ -455,20 +940,43 @@ export function ParentScreen() {
               <View style={styles.settingRow}>
                 <View style={styles.settingTextGroup}>
                   <Text style={styles.difficultyTitle}>Chế độ mở khóa</Text>
-                  <Text style={styles.difficultySubtitle}>Lộ trình (từng bước) hoặc Tự do (mở tất cả).</Text>
+                  <Text style={styles.difficultySubtitle}>
+                    Lộ trình (từng bước) hoặc Tự do (mở tất cả).
+                  </Text>
                 </View>
                 <View style={styles.switchGroup}>
                   <Pressable
-                    style={[styles.smallButton, journeyMode === 'guided' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      journeyMode === 'guided' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateJourneyMode('guided')}
                   >
-                    <Text style={[styles.smallButtonText, journeyMode === 'guided' && styles.smallButtonTextActive]}>Lộ trình</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        journeyMode === 'guided' &&
+                          styles.smallButtonTextActive,
+                      ]}
+                    >
+                      Lộ trình
+                    </Text>
                   </Pressable>
                   <Pressable
-                    style={[styles.smallButton, journeyMode === 'free' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      journeyMode === 'free' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateJourneyMode('free')}
                   >
-                    <Text style={[styles.smallButtonText, journeyMode === 'free' && styles.smallButtonTextActive]}>Tự do</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        journeyMode === 'free' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      Tự do
+                    </Text>
                   </Pressable>
                 </View>
               </View>
@@ -477,7 +985,9 @@ export function ParentScreen() {
                 <View style={styles.sectionTitleGroup}>
                   <Text style={styles.privacyTitle}>Độ khó của bé</Text>
                 </View>
-                <KidBadge tone="sky">Đang dùng: {currentDifficulty.title}</KidBadge>
+                <KidBadge tone="sky">
+                  Đang dùng: {currentDifficulty.title}
+                </KidBadge>
               </View>
               <View style={styles.difficultyList}>
                 {learningDifficultyOptions.map(option => {
@@ -490,22 +1000,32 @@ export function ParentScreen() {
                       accessibilityState={{ selected: isSelected }}
                       disabled={Boolean(savingMode)}
                       key={option.learningMode}
-                      onPress={() => handleSelectLearningMode(option.learningMode)}
+                      onPress={() =>
+                        handleSelectLearningMode(option.learningMode)
+                      }
                       style={({ pressed }) => [
                         styles.difficultyOption,
                         isSelected && styles.difficultyOptionSelected,
                         pressed && !savingMode && styles.pressed,
-                        savingMode && !isSavingThisMode && styles.optionDisabled,
+                        savingMode &&
+                          !isSavingThisMode &&
+                          styles.optionDisabled,
                       ]}
                     >
                       <View style={styles.difficultyText}>
-                        <Text style={styles.difficultyTitle}>{option.title}</Text>
+                        <Text style={styles.difficultyTitle}>
+                          {option.title}
+                        </Text>
                         <Text style={styles.difficultySubtitle}>
                           {option.subtitle}
                         </Text>
                       </View>
                       <Text style={styles.difficultyState}>
-                        {isSavingThisMode ? 'Đang lưu...' : isSelected ? '✓' : ''}
+                        {isSavingThisMode
+                          ? 'Đang lưu...'
+                          : isSelected
+                          ? '✓'
+                          : ''}
                       </Text>
                     </Pressable>
                   );
@@ -525,20 +1045,42 @@ export function ParentScreen() {
               <View style={styles.settingRow}>
                 <View style={styles.settingTextGroup}>
                   <Text style={styles.difficultyTitle}>Ngôn ngữ</Text>
-                  <Text style={styles.difficultySubtitle}>Ngôn ngữ hiển thị của ứng dụng.</Text>
+                  <Text style={styles.difficultySubtitle}>
+                    Ngôn ngữ hiển thị của ứng dụng.
+                  </Text>
                 </View>
                 <View style={styles.switchGroup}>
                   <Pressable
-                    style={[styles.smallButton, appLanguage === 'vi' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      appLanguage === 'vi' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateLanguage('vi')}
                   >
-                    <Text style={[styles.smallButtonText, appLanguage === 'vi' && styles.smallButtonTextActive]}>VI</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        appLanguage === 'vi' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      VI
+                    </Text>
                   </Pressable>
                   <Pressable
-                    style={[styles.smallButton, appLanguage === 'en' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      appLanguage === 'en' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateLanguage('en')}
                   >
-                    <Text style={[styles.smallButtonText, appLanguage === 'en' && styles.smallButtonTextActive]}>EN</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        appLanguage === 'en' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      EN
+                    </Text>
                   </Pressable>
                 </View>
               </View>
@@ -547,26 +1089,58 @@ export function ParentScreen() {
               <View style={styles.settingRow}>
                 <View style={styles.settingTextGroup}>
                   <Text style={styles.difficultyTitle}>Giao diện</Text>
-                  <Text style={styles.difficultySubtitle}>Sáng, tối hoặc theo hệ thống.</Text>
+                  <Text style={styles.difficultySubtitle}>
+                    Sáng, tối hoặc theo hệ thống.
+                  </Text>
                 </View>
                 <View style={styles.switchGroup}>
                   <Pressable
-                    style={[styles.smallButton, appTheme === 'light' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      appTheme === 'light' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateTheme('light')}
                   >
-                    <Text style={[styles.smallButtonText, appTheme === 'light' && styles.smallButtonTextActive]}>Sáng</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        appTheme === 'light' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      Sáng
+                    </Text>
                   </Pressable>
                   <Pressable
-                    style={[styles.smallButton, appTheme === 'dark' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      appTheme === 'dark' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateTheme('dark')}
                   >
-                    <Text style={[styles.smallButtonText, appTheme === 'dark' && styles.smallButtonTextActive]}>Tối</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        appTheme === 'dark' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      Tối
+                    </Text>
                   </Pressable>
                   <Pressable
-                    style={[styles.smallButton, appTheme === 'system' && styles.smallButtonActive]}
+                    style={[
+                      styles.smallButton,
+                      appTheme === 'system' && styles.smallButtonActive,
+                    ]}
                     onPress={() => handleUpdateTheme('system')}
                   >
-                    <Text style={[styles.smallButtonText, appTheme === 'system' && styles.smallButtonTextActive]}>Auto</Text>
+                    <Text
+                      style={[
+                        styles.smallButtonText,
+                        appTheme === 'system' && styles.smallButtonTextActive,
+                      ]}
+                    >
+                      Auto
+                    </Text>
                   </Pressable>
                 </View>
               </View>
@@ -574,8 +1148,12 @@ export function ParentScreen() {
               {/* Nhắc nhở */}
               <View style={styles.settingRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Nhắc nhở học tập ({reminderTime})</Text>
-                  <Text style={styles.difficultySubtitle}>Nhận thông báo nhắc bé học mỗi ngày.</Text>
+                  <Text style={styles.difficultyTitle}>
+                    Nhắc nhở học tập ({reminderTime})
+                  </Text>
+                  <Text style={styles.difficultySubtitle}>
+                    Nhận thông báo nhắc bé học mỗi ngày.
+                  </Text>
                 </View>
                 <Switch
                   value={reminderEnabled}
@@ -588,8 +1166,8 @@ export function ParentScreen() {
             <AppCard style={styles.privacyCard}>
               <Text style={styles.privacyTitle}>An toàn cho trẻ</Text>
               <Text style={styles.privacyText}>
-                Ứng dụng không có quảng cáo, không có link ngoài và không thu thập
-                thông tin trẻ em.
+                Ứng dụng không có quảng cáo, không có link ngoài và không thu
+                thập thông tin trẻ em.
               </Text>
             </AppCard>
 
@@ -633,25 +1211,55 @@ export function ParentScreen() {
             accessibilityRole="tab"
             accessibilityState={{ selected: activeTab === 'stats' }}
             onPress={() => setActiveTab('stats')}
-            style={[styles.bottomTab, activeTab === 'stats' && styles.bottomTabActive]}
+            style={[
+              styles.bottomTab,
+              activeTab === 'stats' && styles.bottomTabActive,
+            ]}
           >
-            <Text style={[styles.bottomTabText, activeTab === 'stats' && styles.bottomTabTextActive]}>Thống kê</Text>
+            <Text
+              style={[
+                styles.bottomTabText,
+                activeTab === 'stats' && styles.bottomTabTextActive,
+              ]}
+            >
+              Thống kê
+            </Text>
           </Pressable>
           <Pressable
             accessibilityRole="tab"
             accessibilityState={{ selected: activeTab === 'lessons' }}
             onPress={() => setActiveTab('lessons')}
-            style={[styles.bottomTab, activeTab === 'lessons' && styles.bottomTabActive]}
+            style={[
+              styles.bottomTab,
+              activeTab === 'lessons' && styles.bottomTabActive,
+            ]}
           >
-            <Text style={[styles.bottomTabText, activeTab === 'lessons' && styles.bottomTabTextActive]}>Bài học</Text>
+            <Text
+              style={[
+                styles.bottomTabText,
+                activeTab === 'lessons' && styles.bottomTabTextActive,
+              ]}
+            >
+              Bài học
+            </Text>
           </Pressable>
           <Pressable
             accessibilityRole="tab"
             accessibilityState={{ selected: activeTab === 'settings' }}
             onPress={() => setActiveTab('settings')}
-            style={[styles.bottomTab, activeTab === 'settings' && styles.bottomTabActive]}
+            style={[
+              styles.bottomTab,
+              activeTab === 'settings' && styles.bottomTabActive,
+            ]}
           >
-            <Text style={[styles.bottomTabText, activeTab === 'settings' && styles.bottomTabTextActive]}>Cài đặt</Text>
+            <Text
+              style={[
+                styles.bottomTabText,
+                activeTab === 'settings' && styles.bottomTabTextActive,
+              ]}
+            >
+              Cài đặt
+            </Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -660,6 +1268,104 @@ export function ParentScreen() {
 }
 
 const styles = createThemedStyles(() => ({
+  achievementCard: {
+    backgroundColor: colors.backgroundWarm,
+    borderColor: colors.borderWarm,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  actionDisabled: {
+    opacity: 0.56,
+  },
+  achievementCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  achievementHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  achievementSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  achievementTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  cardPressable: {
+    borderRadius: radius.xl,
+  },
+  currentLessonAction: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  currentLessonCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  currentLessonCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  currentLessonFooter: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'space-between',
+  },
+  currentLessonIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    height: 76,
+    justifyContent: 'center',
+    width: 76,
+  },
+  currentLessonIconCompact: {
+    height: 60,
+    width: 60,
+  },
+  currentLessonPercent: {
+    color: colors.primaryDark,
+    ...typography.subtitle,
+  },
+  currentLessonProgressText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  currentLessonStars: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    minWidth: 0,
+  },
+  currentLessonSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  currentLessonTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  currentLessonTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  currentLessonTopRowCompact: {
+    alignItems: 'flex-start',
+  },
+  dashboardCardCompact: {
+    padding: spacing.md,
+  },
   difficultyList: {
     gap: spacing.sm,
   },
@@ -728,6 +1434,23 @@ const styles = createThemedStyles(() => ({
     color: colors.textSoft,
     ...typography.body,
   },
+  lessonProgressFill: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  lessonProgressMeta: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  lessonProgressTrack: {
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 12,
+    overflow: 'hidden',
+    width: '100%',
+  },
   holdButton: {
     alignItems: 'center',
     backgroundColor: colors.secondary,
@@ -766,6 +1489,58 @@ const styles = createThemedStyles(() => ({
   },
   optionDisabled: {
     opacity: 0.56,
+  },
+  milestoneDivider: {
+    alignSelf: 'stretch',
+    backgroundColor: colors.borderWarm,
+    width: 1,
+  },
+  milestoneItem: {
+    alignItems: 'center',
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  milestoneItemCompact: {
+    flexBasis: '45%',
+    minHeight: 88,
+  },
+  milestoneItemLastCompact: {
+    flexBasis: '100%',
+  },
+  milestoneLabel: {
+    color: colors.textSoft,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  milestoneRow: {
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  milestoneRowCompact: {
+    flexWrap: 'wrap',
+    gap: spacing.md,
+  },
+  milestoneValue: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  parentPrompt: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    padding: spacing.md,
+  },
+  parentPromptLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  parentPromptText: {
+    color: colors.text,
+    ...typography.body,
   },
   sectionHeader: {
     alignItems: 'center',
@@ -888,6 +1663,9 @@ const styles = createThemedStyles(() => ({
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
   },
+  lessonRowLast: {
+    borderBottomWidth: 0,
+  },
   lessonTextGroup: {
     flex: 1,
     paddingRight: spacing.md,
@@ -999,5 +1777,169 @@ const styles = createThemedStyles(() => ({
   emojiText: {
     fontSize: 24,
     lineHeight: 30,
+  },
+  reviewAction: {
+    alignItems: 'center',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 56,
+    paddingHorizontal: spacing.md,
+  },
+  reviewActionArrow: {
+    color: colors.text,
+    fontSize: 24,
+    fontWeight: '900',
+    lineHeight: 28,
+  },
+  reviewActionText: {
+    color: colors.text,
+    ...typography.button,
+  },
+  reviewCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  reviewCopy: {
+    flex: 1,
+    gap: spacing.xs,
+    minWidth: 0,
+  },
+  reviewHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  reviewIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderRadius: radius.lg,
+    height: 68,
+    justifyContent: 'center',
+    width: 68,
+  },
+  reviewTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  todayAction: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 52,
+    paddingHorizontal: spacing.md,
+  },
+  todayActionArrow: {
+    color: colors.text,
+    fontSize: 24,
+    fontWeight: '900',
+    lineHeight: 28,
+  },
+  todayActionText: {
+    color: colors.text,
+    ...typography.button,
+  },
+  todayCard: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderWidth: 1,
+    gap: spacing.md,
+    overflow: 'hidden',
+  },
+  todayCopy: {
+    flex: 1,
+    gap: spacing.xs,
+    minWidth: 0,
+  },
+  todayEyebrow: {
+    alignSelf: 'flex-start',
+    backgroundColor: colors.surface,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    maxWidth: '100%',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+  },
+  todayEyebrowText: {
+    color: colors.primaryDark,
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+    lineHeight: 15,
+  },
+  todayMascot: {
+    alignSelf: 'flex-end',
+    flexShrink: 0,
+    marginBottom: -spacing.xs,
+    marginRight: -spacing.sm,
+  },
+  todayMetric: {
+    gap: spacing.xxs,
+  },
+  todayMetricDivider: {
+    backgroundColor: colors.primary,
+    height: 34,
+    marginHorizontal: spacing.xs,
+    width: 1,
+  },
+  todayMetricLabel: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  todayMetrics: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginTop: spacing.xs,
+  },
+  todayMetricValue: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  todaySummary: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  todayTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  todayTopRow: {
+    alignItems: 'flex-end',
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  wordChip: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  wordChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  wordChipText: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  wordSection: {
+    gap: spacing.xs,
+  },
+  wordSectionLabel: {
+    color: colors.textSoft,
+    ...typography.caption,
   },
 }));
