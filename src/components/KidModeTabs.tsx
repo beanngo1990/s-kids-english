@@ -11,7 +11,6 @@ export type KidModeTab = 'map' | 'play';
 
 type KidModeTabsProps = {
   activeTab: KidModeTab;
-  hasPendingPlay?: boolean;
   onSelectMap: () => void;
   onSelectPlay: () => void;
 };
@@ -38,7 +37,6 @@ const tabs: Array<{
 
 export function KidModeTabs({
   activeTab,
-  hasPendingPlay = false,
   onSelectMap,
   onSelectPlay,
 }: KidModeTabsProps) {
@@ -58,7 +56,6 @@ export function KidModeTabs({
       <View style={styles.tabBar}>
         {tabs.map(tab => {
           const isActive = activeTab === tab.id;
-          const hasPending = hasPendingPlay && tab.id === 'play';
           const onPress = tab.id === 'map' ? onSelectMap : onSelectPlay;
 
           return (
@@ -71,7 +68,6 @@ export function KidModeTabs({
               style={({ pressed }) => [
                 styles.tab,
                 isActive && styles.tabActive,
-                hasPending && !isActive && styles.tabPending,
                 pressed && styles.tabPressed,
               ]}
             >
@@ -79,11 +75,9 @@ export function KidModeTabs({
                 style={[
                   styles.iconBubble,
                   isActive && styles.iconActive,
-                  hasPending && !isActive && styles.iconPending,
                 ]}
               >
                 <SKidsIcon name={tab.icon} size={28} />
-                {hasPending ? <View style={styles.pendingDot} /> : null}
               </View>
               <Text
                 numberOfLines={1}
@@ -115,10 +109,6 @@ const styles = createThemedStyles(() => ({
     height: 42,
     justifyContent: 'center',
     width: 42,
-  },
-  iconPending: {
-    borderColor: colors.secondary,
-    borderWidth: 2,
   },
   label: {
     color: '#3D5463', // Darker than textSoft for better contrast
@@ -158,22 +148,8 @@ const styles = createThemedStyles(() => ({
     shadowRadius: 16,
     elevation: 8,
   },
-  tabPending: {
-    backgroundColor: colors.surfaceSoft,
-  },
   tabPressed: {
     opacity: 0.92,
     transform: [{ translateY: 1 }, { scale: 0.99 }],
-  },
-  pendingDot: {
-    backgroundColor: colors.accent,
-    borderColor: colors.white,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 13,
-    position: 'absolute',
-    right: -1,
-    top: -1,
-    width: 13,
   },
 }));
