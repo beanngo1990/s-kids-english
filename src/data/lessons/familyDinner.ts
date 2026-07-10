@@ -1243,7 +1243,7 @@ function sceneImage(sceneId: FamilyDinnerSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: FamilyDinnerSceneId, assetName: string) {
-  return `lessons/family-dinner/${sceneId}/images/${assetName}.png`;
+  return `lessons/family-dinner/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

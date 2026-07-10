@@ -43,7 +43,7 @@ import {
   speakWord,
 } from './AudioManager';
 import { getSceneFallbackPalette } from './AssetFallbacks';
-import { resolveAsset } from './AssetRegistry';
+import { prefetchAssets, resolveAsset } from './AssetRegistry';
 import {
   type DragTranslation,
   getDraggedRect,
@@ -225,6 +225,24 @@ export function ScenePlayer({
     setIsSpeechPracticeBusy(false);
     setSceneCompletion(null);
   }, [currentScene]);
+
+  useEffect(() => {
+    if (!currentScene) {
+      return;
+    }
+
+    prefetchAssets(getSceneImageSources(currentScene)).catch(() => undefined);
+    const nextScene = scenes[sceneIndex + 1];
+    if (!nextScene) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
+    }, 350);
+
+    return () => clearTimeout(timer);
+  }, [currentScene, sceneIndex, scenes]);
 
   useEffect(() => {
     return () => {
@@ -1060,6 +1078,23 @@ function clearTimer(
 
 function getRenderableObjects(scene: Scene) {
   return scene.character ? [scene.character, ...scene.objects] : scene.objects;
+}
+
+function getSceneImageSources(scene: Scene) {
+  const sources = [
+    scene.background.source,
+    ...getRenderableObjects(scene).map(object => object.asset.source),
+  ];
+
+  for (const step of scene.steps) {
+    for (const effect of step.effects ?? []) {
+      if (effect.asset?.source) {
+        sources.push(effect.asset.source);
+      }
+    }
+  }
+
+  return Array.from(new Set(sources));
 }
 
 function getObjectLabel(scene: Scene, object: SceneObject) {

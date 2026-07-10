@@ -1234,7 +1234,7 @@ function sceneImage(sceneId: SnackSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: SnackSceneId, assetName: string) {
-  return `lessons/snack-time/${sceneId}/images/${assetName}.png`;
+  return `lessons/snack-time/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

@@ -1247,7 +1247,7 @@ function sceneImage(sceneId: AfternoonBathSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: AfternoonBathSceneId, assetName: string) {
-  return `lessons/afternoon-bath/${sceneId}/images/${assetName}.png`;
+  return `lessons/afternoon-bath/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

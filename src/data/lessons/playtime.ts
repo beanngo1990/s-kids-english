@@ -1399,7 +1399,7 @@ function sceneImage(sceneId: PlaytimeSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: PlaytimeSceneId, assetName: string) {
-  return `lessons/playtime/${sceneId}/images/${assetName}.png`;
+  return `lessons/playtime/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {
