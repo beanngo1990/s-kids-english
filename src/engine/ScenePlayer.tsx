@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   Animated,
   ImageBackground,
   type LayoutChangeEvent,
@@ -174,6 +175,7 @@ export function ScenePlayer({
   const [showSceneEditorControl, setShowSceneEditorControl] = useState(false);
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
+  const [isPreloading, setIsPreloading] = useState(true);
 
   // Floating drag setup
   const floatEditPos = useRef({ x: 20, y: 100 });
@@ -227,19 +229,38 @@ export function ScenePlayer({
     setAutoRecordRequest(null);
     setIsSpeechPracticeBusy(false);
     setSceneCompletion(null);
+    setIsPreloading(true);
   }, [currentScene]);
 
   useEffect(() => {
     if (!currentScene) {
+      setIsPreloading(false);
       return;
     }
 
-    prefetchAssets(getSceneImageSources(currentScene)).catch(() => undefined);
-    prefetchRemoteAssets(getSceneAudioAssets(currentScene)).catch(() => undefined);
+    let isMounted = true;
+    setIsPreloading(true);
+
+    const preloadCurrentScene = async () => {
+      try {
+        await Promise.all([
+          prefetchAssets(getSceneImageSources(currentScene)),
+          prefetchRemoteAssets(getSceneAudioAssets(currentScene)),
+        ]);
+      } catch (e) {
+        // Ignore errors to let scene continue even if some assets fail
+      } finally {
+        if (isMounted) {
+          setIsPreloading(false);
+        }
+      }
+    };
+
+    preloadCurrentScene();
     
     const nextScene = scenes[sceneIndex + 1];
     if (!nextScene) {
-      return;
+      return () => { isMounted = false; };
     }
 
     const timer = setTimeout(() => {
@@ -247,7 +268,10 @@ export function ScenePlayer({
       prefetchRemoteAssets(getSceneAudioAssets(nextScene)).catch(() => undefined);
     }, 350);
 
-    return () => clearTimeout(timer);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [currentScene, sceneIndex, scenes]);
 
   useEffect(() => {
@@ -263,7 +287,7 @@ export function ScenePlayer({
     : undefined;
 
   useEffect(() => {
-    if (!currentScene || !currentStep) {
+    if (!currentScene || !currentStep || isPreloading) {
       return;
     }
 
@@ -294,6 +318,15 @@ export function ScenePlayer({
     return (
       <View style={styles.emptyState}>
         <Text style={styles.emptyTitle}>Scene chưa có bước học</Text>
+      </View>
+    );
+  }
+
+  if (isPreloading) {
+    return (
+      <View style={[styles.root, styles.emptyState]}>
+        <ActivityIndicator size="large" color={colors.primary} />
+        <Text style={[styles.emptyTitle, { marginTop: spacing.md }]}>Đang chuẩn bị bài học...</Text>
       </View>
     );
   }
