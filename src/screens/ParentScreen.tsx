@@ -104,6 +104,9 @@ export function ParentScreen({ navigation }: Props) {
   >(undefined);
   const [childProfile, setChildProfile] =
     useState<ChildProfile>(defaultChildProfile);
+  const childAge = childProfile.birthYear
+    ? new Date().getFullYear() - childProfile.birthYear
+    : undefined;
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -1281,20 +1284,40 @@ export function ParentScreen({ navigation }: Props) {
 
         {activeTab === 'settings' && (
           <View style={styles.tabContent}>
-            <AppCard style={styles.settingsCard}>
-              <View style={styles.sectionHeader}>
-                <View style={styles.sectionTitleGroup}>
+            <View style={styles.settingsHero}>
+              <KidBadge tone="teal">Không gian của bé</KidBadge>
+              <Text style={styles.settingsHeroTitle}>
+                Cài đặt cho {childProfile.name}
+              </Text>
+              <Text style={styles.settingsHeroSubtitle}>
+                Tinh chỉnh hồ sơ, nhịp học và trải nghiệm phù hợp với bé.
+              </Text>
+            </View>
+
+            <AppCard style={styles.profileSettingsCard}>
+              <View style={styles.profileSummary}>
+                <View style={styles.profileMascot}>
+                  <MascotImage decorative pose="avatar" size={64} />
+                </View>
+                <View style={styles.profileSummaryCopy}>
                   <KidBadge tone="sky">Hồ sơ bé</KidBadge>
-                  <Text style={styles.privacyTitle}>Thông tin cá nhân</Text>
+                  <Text style={styles.profileSummaryName}>
+                    {childProfile.name}
+                  </Text>
+                  <Text style={styles.profileSummaryMeta}>
+                    {childAge && childAge > 0
+                      ? childAge + ' tuổi'
+                      : 'Thêm năm sinh để cá nhân hoá hành trình'}
+                  </Text>
                 </View>
               </View>
 
-              <View style={styles.settingRow}>
+              <View style={styles.settingsInputRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Tên bé</Text>
+                  <Text style={styles.settingsFieldLabel}>Tên hiển thị</Text>
                 </View>
                 <TextInput
-                  style={styles.textInput}
+                  style={styles.settingsTextInput}
                   value={childProfile.name}
                   onChangeText={text => {
                     const next = { ...childProfile, name: text };
@@ -1342,14 +1365,12 @@ export function ParentScreen({ navigation }: Props) {
             </View>
             */}
 
-              <View style={styles.settingRow}>
+              <View style={styles.settingsInputRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>
-                    Năm sinh (tuỳ chọn)
-                  </Text>
+                  <Text style={styles.settingsFieldLabel}>Năm sinh</Text>
                 </View>
                 <TextInput
-                  style={styles.textInputSmall}
+                  style={styles.settingsTextInputSmall}
                   value={childProfile.birthYear?.toString() ?? ''}
                   onChangeText={text => {
                     const num = parseInt(text, 10);
@@ -1370,154 +1391,204 @@ export function ParentScreen({ navigation }: Props) {
               </View>
             </AppCard>
 
-            <AppCard style={styles.settingsCard}>
-              <View style={styles.sectionHeader}>
-                <View style={styles.sectionTitleGroup}>
-                  <KidBadge tone="teal">Cài đặt học tập</KidBadge>
-                  <Text style={styles.privacyTitle}>Hành trình</Text>
+            <AppCard style={styles.learningSettingsCard}>
+              <View style={styles.settingsCardHeader}>
+                <KidBadge tone="teal">Cài đặt học tập</KidBadge>
+                <Text style={styles.learningSettingsTitle}>Hành trình học</Text>
+                <Text style={styles.learningSettingsSubtitle}>
+                  Chọn cách bé khám phá nội dung và mức thử thách phù hợp.
+                </Text>
+              </View>
+
+              <View style={styles.settingSection}>
+                <Text style={styles.settingSectionTitle}>Cách mở bài học</Text>
+                <View style={styles.journeyChoices}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: journeyMode === 'guided' }}
+                    onPress={() => handleUpdateJourneyMode('guided')}
+                    style={({ pressed }) => [
+                      styles.journeyChoice,
+                      journeyMode === 'guided' && styles.journeyChoiceActive,
+                      pressed && styles.pressed,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.journeyChoiceTitle,
+                        journeyMode === 'guided' &&
+                          styles.journeyChoiceTitleActive,
+                      ]}
+                    >
+                      Theo lộ trình
+                    </Text>
+                    <Text
+                      style={[
+                        styles.journeyChoiceSubtitle,
+                        journeyMode === 'guided' &&
+                          styles.journeyChoiceSubtitleActive,
+                      ]}
+                    >
+                      Bé đi từng bước
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: journeyMode === 'free' }}
+                    onPress={() => handleUpdateJourneyMode('free')}
+                    style={({ pressed }) => [
+                      styles.journeyChoice,
+                      journeyMode === 'free' && styles.journeyChoiceWarm,
+                      pressed && styles.pressed,
+                    ]}
+                  >
+                    <Text style={styles.journeyChoiceTitle}>Tự do</Text>
+                    <Text style={styles.journeyChoiceSubtitle}>
+                      Mở tất cả bài
+                    </Text>
+                  </Pressable>
                 </View>
               </View>
 
-              <View style={styles.settingRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Chế độ mở khóa</Text>
-                  <Text style={styles.difficultySubtitle}>
-                    Lộ trình (từng bước) hoặc Tự do (mở tất cả).
+              <View style={styles.learningSettingsDivider} />
+
+              <View style={styles.settingSection}>
+                <View style={styles.difficultyHeader}>
+                  <Text style={styles.settingSectionTitle}>Độ khó của bé</Text>
+                  <Text style={styles.difficultyCurrentLabel}>
+                    Đang dùng: {currentDifficulty.title}
                   </Text>
                 </View>
-                <View style={styles.switchGroup}>
-                  <Pressable
-                    style={[
-                      styles.smallButton,
-                      journeyMode === 'guided' && styles.smallButtonActive,
-                    ]}
-                    onPress={() => handleUpdateJourneyMode('guided')}
-                  >
-                    <Text
-                      style={[
-                        styles.smallButtonText,
-                        journeyMode === 'guided' &&
-                          styles.smallButtonTextActive,
-                      ]}
-                    >
-                      Lộ trình
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    style={[
-                      styles.smallButton,
-                      journeyMode === 'free' && styles.smallButtonActive,
-                    ]}
-                    onPress={() => handleUpdateJourneyMode('free')}
-                  >
-                    <Text
-                      style={[
-                        styles.smallButtonText,
-                        journeyMode === 'free' && styles.smallButtonTextActive,
-                      ]}
-                    >
-                      Tự do
-                    </Text>
-                  </Pressable>
-                </View>
-              </View>
+                <View style={styles.difficultyChoices}>
+                  {learningDifficultyOptions.map(option => {
+                    const isSelected = option.learningMode === learningMode;
+                    const isSavingThisMode = savingMode === option.learningMode;
 
-              <View style={[styles.sectionHeader, { marginTop: spacing.lg }]}>
-                <View style={styles.sectionTitleGroup}>
-                  <Text style={styles.privacyTitle}>Độ khó của bé</Text>
-                </View>
-                <KidBadge tone="sky">
-                  Đang dùng: {currentDifficulty.title}
-                </KidBadge>
-              </View>
-              <View style={styles.difficultyList}>
-                {learningDifficultyOptions.map(option => {
-                  const isSelected = option.learningMode === learningMode;
-                  const isSavingThisMode = savingMode === option.learningMode;
-
-                  return (
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityState={{ selected: isSelected }}
-                      disabled={Boolean(savingMode)}
-                      key={option.learningMode}
-                      onPress={() =>
-                        handleSelectLearningMode(option.learningMode)
-                      }
-                      style={({ pressed }) => [
-                        styles.difficultyOption,
-                        isSelected && styles.difficultyOptionSelected,
-                        pressed && !savingMode && styles.pressed,
-                        savingMode &&
-                          !isSavingThisMode &&
-                          styles.optionDisabled,
-                      ]}
-                    >
-                      <View style={styles.difficultyText}>
-                        <Text style={styles.difficultyTitle}>
-                          {option.title}
+                    return (
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{ selected: isSelected }}
+                        disabled={Boolean(savingMode)}
+                        key={option.learningMode}
+                        onPress={() =>
+                          handleSelectLearningMode(option.learningMode)
+                        }
+                        style={({ pressed }) => [
+                          styles.difficultyChoice,
+                          isSelected && styles.difficultyChoiceActive,
+                          pressed && !savingMode && styles.pressed,
+                          savingMode &&
+                            !isSavingThisMode &&
+                            styles.optionDisabled,
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.difficultyChoiceTitle,
+                            isSelected && styles.difficultyChoiceTitleActive,
+                          ]}
+                        >
+                          {isSavingThisMode ? 'Đang lưu' : option.title}
                         </Text>
-                        <Text style={styles.difficultySubtitle}>
+                        <Text
+                          style={[
+                            styles.difficultyChoiceSubtitle,
+                            isSelected && styles.difficultyChoiceSubtitleActive,
+                          ]}
+                        >
                           {option.subtitle}
                         </Text>
-                      </View>
-                      <Text style={styles.difficultyState}>
-                        {isSavingThisMode
-                          ? 'Đang lưu...'
-                          : isSelected
-                          ? '✓'
-                          : ''}
-                      </Text>
-                    </Pressable>
-                  );
-                })}
+                      </Pressable>
+                    );
+                  })}
+                </View>
+                <View style={styles.difficultyInsight}>
+                  <Text style={styles.difficultyInsightLabel}>
+                    Phù hợp lúc này
+                  </Text>
+                  <Text style={styles.difficultyInsightText}>
+                    {currentDifficulty.detail}
+                  </Text>
+                </View>
               </View>
             </AppCard>
 
-            <AppCard style={styles.settingsCard}>
-              <View style={styles.sectionHeader}>
-                <View style={styles.sectionTitleGroup}>
-                  <KidBadge tone="teal">Cài đặt Ứng dụng</KidBadge>
-                  <Text style={styles.privacyTitle}>Hệ thống</Text>
-                </View>
+            <AppCard style={styles.dailySettingsCard}>
+              <View style={styles.settingsCardHeader}>
+                <KidBadge tone="sun">Nhịp học hằng ngày</KidBadge>
+                <Text style={styles.dailySettingsTitle}>Một thói quen nhỏ</Text>
+                <Text style={styles.dailySettingsSubtitle}>
+                  Giúp bé học đều mà không tạo áp lực.
+                </Text>
               </View>
 
-              {/* Ngôn ngữ */}
-              <View style={styles.settingRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Ngôn ngữ</Text>
-                  <Text style={styles.difficultySubtitle}>
+              <View style={styles.reminderPanel}>
+                <View style={styles.reminderClock}>
+                  <Text style={styles.reminderClockText}>⏰</Text>
+                </View>
+                <View style={styles.reminderCopy}>
+                  <Text style={styles.reminderTitle}>Nhắc bé học</Text>
+                  <Text style={styles.reminderSubtitle}>
+                    {reminderEnabled
+                      ? 'Đang nhắc mỗi ngày lúc ' + reminderTime
+                      : 'Bật nhắc học vào giờ bé thoải mái nhất'}
+                  </Text>
+                </View>
+                <Switch
+                  value={reminderEnabled}
+                  onValueChange={handleToggleReminder}
+                  trackColor={{ false: colors.border, true: colors.primary }}
+                />
+              </View>
+
+              <View style={styles.appSettingsDivider} />
+
+              <View style={styles.settingsCardHeader}>
+                <KidBadge tone="sky">Trải nghiệm ứng dụng</KidBadge>
+                <Text style={styles.appSettingsTitle}>Dành cho ba mẹ</Text>
+              </View>
+
+              <View style={styles.preferenceRow}>
+                <View style={styles.preferenceCopy}>
+                  <Text style={styles.preferenceTitle}>Ngôn ngữ</Text>
+                  <Text style={styles.preferenceSubtitle}>
                     Ngôn ngữ hiển thị của ứng dụng.
                   </Text>
                 </View>
-                <View style={styles.switchGroup}>
+                <View style={styles.preferenceChoices}>
                   <Pressable
-                    style={[
-                      styles.smallButton,
-                      appLanguage === 'vi' && styles.smallButtonActive,
-                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: appLanguage === 'vi' }}
                     onPress={() => handleUpdateLanguage('vi')}
+                    style={[
+                      styles.preferenceChoice,
+                      appLanguage === 'vi' && styles.preferenceChoiceActive,
+                    ]}
                   >
                     <Text
                       style={[
-                        styles.smallButtonText,
-                        appLanguage === 'vi' && styles.smallButtonTextActive,
+                        styles.preferenceChoiceText,
+                        appLanguage === 'vi' &&
+                          styles.preferenceChoiceTextActive,
                       ]}
                     >
                       VI
                     </Text>
                   </Pressable>
                   <Pressable
-                    style={[
-                      styles.smallButton,
-                      appLanguage === 'en' && styles.smallButtonActive,
-                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: appLanguage === 'en' }}
                     onPress={() => handleUpdateLanguage('en')}
+                    style={[
+                      styles.preferenceChoice,
+                      appLanguage === 'en' && styles.preferenceChoiceActive,
+                    ]}
                   >
                     <Text
                       style={[
-                        styles.smallButtonText,
-                        appLanguage === 'en' && styles.smallButtonTextActive,
+                        styles.preferenceChoiceText,
+                        appLanguage === 'en' &&
+                          styles.preferenceChoiceTextActive,
                       ]}
                     >
                       EN
@@ -1526,81 +1597,72 @@ export function ParentScreen({ navigation }: Props) {
                 </View>
               </View>
 
-              {/* Giao diện */}
-              <View style={styles.settingRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>Giao diện</Text>
-                  <Text style={styles.difficultySubtitle}>
+              <View style={styles.preferenceRow}>
+                <View style={styles.preferenceCopy}>
+                  <Text style={styles.preferenceTitle}>Giao diện</Text>
+                  <Text style={styles.preferenceSubtitle}>
                     Sáng, tối hoặc theo hệ thống.
                   </Text>
                 </View>
-                <View style={styles.switchGroup}>
+                <View style={styles.preferenceChoices}>
                   <Pressable
-                    style={[
-                      styles.smallButton,
-                      appTheme === 'light' && styles.smallButtonActive,
-                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: appTheme === 'light' }}
                     onPress={() => handleUpdateTheme('light')}
+                    style={[
+                      styles.preferenceChoice,
+                      appTheme === 'light' && styles.preferenceChoiceActive,
+                    ]}
                   >
                     <Text
                       style={[
-                        styles.smallButtonText,
-                        appTheme === 'light' && styles.smallButtonTextActive,
+                        styles.preferenceChoiceText,
+                        appTheme === 'light' &&
+                          styles.preferenceChoiceTextActive,
                       ]}
                     >
                       Sáng
                     </Text>
                   </Pressable>
                   <Pressable
-                    style={[
-                      styles.smallButton,
-                      appTheme === 'dark' && styles.smallButtonActive,
-                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: appTheme === 'dark' }}
                     onPress={() => handleUpdateTheme('dark')}
+                    style={[
+                      styles.preferenceChoice,
+                      appTheme === 'dark' && styles.preferenceChoiceActive,
+                    ]}
                   >
                     <Text
                       style={[
-                        styles.smallButtonText,
-                        appTheme === 'dark' && styles.smallButtonTextActive,
+                        styles.preferenceChoiceText,
+                        appTheme === 'dark' &&
+                          styles.preferenceChoiceTextActive,
                       ]}
                     >
                       Tối
                     </Text>
                   </Pressable>
                   <Pressable
-                    style={[
-                      styles.smallButton,
-                      appTheme === 'system' && styles.smallButtonActive,
-                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: appTheme === 'system' }}
                     onPress={() => handleUpdateTheme('system')}
+                    style={[
+                      styles.preferenceChoice,
+                      appTheme === 'system' && styles.preferenceChoiceActive,
+                    ]}
                   >
                     <Text
                       style={[
-                        styles.smallButtonText,
-                        appTheme === 'system' && styles.smallButtonTextActive,
+                        styles.preferenceChoiceText,
+                        appTheme === 'system' &&
+                          styles.preferenceChoiceTextActive,
                       ]}
                     >
                       Auto
                     </Text>
                   </Pressable>
                 </View>
-              </View>
-
-              {/* Nhắc nhở */}
-              <View style={styles.settingRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.difficultyTitle}>
-                    Nhắc nhở học tập ({reminderTime})
-                  </Text>
-                  <Text style={styles.difficultySubtitle}>
-                    Nhận thông báo nhắc bé học mỗi ngày.
-                  </Text>
-                </View>
-                <Switch
-                  value={reminderEnabled}
-                  onValueChange={handleToggleReminder}
-                  trackColor={{ false: colors.border, true: colors.primary }}
-                />
               </View>
             </AppCard>
 
@@ -1830,6 +1892,93 @@ const styles = createThemedStyles(() => ({
   dashboardCardCompact: {
     padding: spacing.md,
   },
+  appSettingsDivider: {
+    backgroundColor: colors.border,
+    height: 1,
+    marginVertical: spacing.xs,
+  },
+  appSettingsTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  dailySettingsCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  dailySettingsSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  dailySettingsTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  difficultyChoice: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flex: 1,
+    gap: spacing.xxs,
+    justifyContent: 'center',
+    minHeight: 72,
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.sm,
+  },
+  difficultyChoiceActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  difficultyChoices: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  difficultyChoiceSubtitle: {
+    color: colors.textSoft,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  difficultyChoiceSubtitleActive: {
+    color: colors.surface,
+  },
+  difficultyChoiceTitle: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  difficultyChoiceTitleActive: {
+    color: colors.surface,
+  },
+  difficultyCurrentLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  difficultyHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'space-between',
+  },
+  difficultyInsight: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    marginTop: spacing.sm,
+    padding: spacing.sm,
+  },
+  difficultyInsightLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  difficultyInsightText: {
+    color: colors.text,
+    ...typography.caption,
+  },
   difficultyList: {
     gap: spacing.sm,
   },
@@ -1914,6 +2063,42 @@ const styles = createThemedStyles(() => ({
     height: 12,
     overflow: 'hidden',
     width: '100%',
+  },
+  journeyChoice: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flex: 1,
+    gap: spacing.xxs,
+    minHeight: 86,
+    padding: spacing.sm,
+  },
+  journeyChoiceActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  journeyChoiceSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  journeyChoiceSubtitleActive: {
+    color: colors.surface,
+  },
+  journeyChoices: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  journeyChoiceTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  journeyChoiceTitleActive: {
+    color: colors.surface,
+  },
+  journeyChoiceWarm: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
   learningFocusArrow: {
     color: colors.primaryDark,
@@ -2009,6 +2194,24 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.pill,
     height: 10,
     overflow: 'hidden',
+  },
+  learningSettingsCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.primary,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  learningSettingsDivider: {
+    backgroundColor: colors.border,
+    height: 1,
+  },
+  learningSettingsSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningSettingsTitle: {
+    color: colors.text,
+    ...typography.subtitle,
   },
   lessonPlanCard: {
     gap: spacing.sm,
@@ -2262,6 +2465,177 @@ const styles = createThemedStyles(() => ({
   managedLessonTitle: {
     color: colors.text,
     ...typography.subtitle,
+  },
+  preferenceChoice: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 38,
+    paddingHorizontal: spacing.sm,
+  },
+  preferenceChoiceActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  preferenceChoices: {
+    flexDirection: 'row',
+    gap: spacing.xxs,
+  },
+  preferenceChoiceText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  preferenceChoiceTextActive: {
+    color: colors.surface,
+  },
+  preferenceCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    paddingRight: spacing.sm,
+  },
+  preferenceRow: {
+    alignItems: 'center',
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: spacing.sm,
+  },
+  preferenceSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  preferenceTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  profileMascot: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    height: 76,
+    justifyContent: 'center',
+    width: 76,
+  },
+  profileSettingsCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  profileSummary: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  profileSummaryCopy: {
+    flex: 1,
+    gap: spacing.xs,
+  },
+  profileSummaryMeta: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  profileSummaryName: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  reminderClock: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderRadius: radius.lg,
+    height: 56,
+    justifyContent: 'center',
+    width: 56,
+  },
+  reminderClockText: {
+    fontSize: 26,
+  },
+  reminderCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  reminderPanel: {
+    alignItems: 'center',
+    backgroundColor: colors.backgroundWarm,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    padding: spacing.sm,
+  },
+  reminderSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  reminderTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  settingSection: {
+    gap: spacing.sm,
+  },
+  settingSectionTitle: {
+    color: colors.text,
+    ...typography.body,
+  },
+  settingsCardHeader: {
+    gap: spacing.xs,
+  },
+  settingsFieldLabel: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  settingsHero: {
+    gap: spacing.xs,
+    marginBottom: spacing.xs,
+  },
+  settingsHeroSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  settingsHeroTitle: {
+    color: colors.text,
+    ...typography.title,
+  },
+  settingsInputRow: {
+    alignItems: 'center',
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: spacing.sm,
+  },
+  settingsTextInput: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    color: colors.text,
+    minWidth: 136,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  settingsTextInputSmall: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    color: colors.text,
+    minWidth: 108,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    textAlign: 'right',
+    ...typography.caption,
   },
   holdButton: {
     alignItems: 'center',
