@@ -16,34 +16,74 @@ type DayData = {
 
 type WeeklyChartProps = {
   data: DayData[];
+  weeklyTarget?: number;
 };
 
 const CHART_HEIGHT = 100;
 
-export function WeeklyChart({ data }: WeeklyChartProps) {
+export function WeeklyChart({ data, weeklyTarget = 30 }: WeeklyChartProps) {
   useThemeSync();
   const maxWords = Math.max(...data.map(d => d.wordsLearned), 1);
   const todayDate = new Date();
-  const todayStr = `${todayDate.getFullYear()}-${String(todayDate.getMonth() + 1).padStart(2, '0')}-${String(todayDate.getDate()).padStart(2, '0')}`;
+  const todayStr = `${todayDate.getFullYear()}-${String(
+    todayDate.getMonth() + 1,
+  ).padStart(2, '0')}-${String(todayDate.getDate()).padStart(2, '0')}`;
   const totalWords = data.reduce((sum, d) => sum + d.wordsLearned, 0);
+  const target = Math.max(weeklyTarget, 1);
+  const remainingWords = Math.max(target - totalWords, 0);
+  const progressPercent = Math.min(
+    Math.round((totalWords / target) * 100),
+    100,
+  );
+  const activeDayCount = data.filter(
+    day => day.wordsLearned > 0 || day.scenesCompleted > 0,
+  ).length;
+  const insight =
+    totalWords >= target
+      ? 'Bé đã đạt mục tiêu 7 ngày. Một tràng pháo tay cho bé!'
+      : totalWords > 0
+      ? `Còn ${remainingWords} từ để đạt mục tiêu 7 ngày.`
+      : 'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.';
 
   return (
     <AppCard style={styles.card}>
       <View style={styles.headerRow}>
-        <KidBadge tone="sky">Tuần này</KidBadge>
-        <Text style={styles.totalText}>{totalWords} từ</Text>
+        <View style={styles.headerCopy}>
+          <KidBadge tone="sky">7 ngày gần đây</KidBadge>
+          <Text style={styles.totalText}>
+            {totalWords}/{target} từ
+          </Text>
+        </View>
+        <View style={styles.progressSummary}>
+          <Text style={styles.progressPercent}>{progressPercent}%</Text>
+          <Text style={styles.progressSummaryLabel}>mục tiêu</Text>
+        </View>
       </View>
+
+      <View
+        accessibilityLabel={`Bé đã hoàn thành ${progressPercent}% mục tiêu 7 ngày`}
+        accessibilityRole="progressbar"
+        style={styles.goalTrack}
+      >
+        {progressPercent > 0 ? (
+          <View style={[styles.goalFill, { width: `${progressPercent}%` }]} />
+        ) : null}
+      </View>
+
       <View style={styles.chartContainer}>
         {data.map(day => {
-          const barHeight = day.wordsLearned > 0
+          const hasWordActivity = day.wordsLearned > 0;
+          const hasActivity = hasWordActivity || day.scenesCompleted > 0;
+          const barHeight = hasWordActivity
             ? Math.max(8, (day.wordsLearned / maxWords) * CHART_HEIGHT)
+            : hasActivity
+            ? 8
             : 4;
           const isToday = day.date === todayStr;
-          const hasActivity = day.wordsLearned > 0;
 
           return (
             <View key={day.date} style={styles.column}>
-              {hasActivity && (
+              {hasWordActivity && (
                 <Text style={styles.barValue}>{day.wordsLearned}</Text>
               )}
               <View style={styles.barTrack}>
@@ -56,42 +96,103 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
                   ]}
                 />
               </View>
-              <Text
-                style={[
-                  styles.dayLabel,
-                  isToday && styles.dayLabelToday,
-                ]}
-              >
+              <Text style={[styles.dayLabel, isToday && styles.dayLabelToday]}>
                 {day.label}
               </Text>
             </View>
           );
         })}
       </View>
+
+      <View style={styles.insightRow}>
+        <View style={styles.insightDot} />
+        <Text style={styles.insightText}>{insight}</Text>
+      </View>
+      {activeDayCount > 0 ? (
+        <Text style={styles.activeDaysText}>
+          Bé đã học vào {activeDayCount}/7 ngày gần đây.
+        </Text>
+      ) : null}
     </AppCard>
   );
 }
 
 const styles = createThemedStyles(() => ({
   card: {
-    gap: spacing.sm,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  activeDaysText: {
+    color: colors.muted,
+    ...typography.caption,
+  },
+  headerCopy: {
+    flex: 1,
+    gap: spacing.xs,
   },
   headerRow: {
     alignItems: 'center',
     flexDirection: 'row',
+    gap: spacing.md,
     justifyContent: 'space-between',
+  },
+  goalFill: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  goalTrack: {
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 10,
+    overflow: 'hidden',
+  },
+  insightDot: {
+    backgroundColor: colors.secondary,
+    borderRadius: radius.pill,
+    height: 10,
+    marginTop: 4,
+    width: 10,
+  },
+  insightRow: {
+    alignItems: 'flex-start',
+    backgroundColor: colors.backgroundWarm,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    padding: spacing.sm,
+  },
+  insightText: {
+    color: colors.text,
+    flex: 1,
+    ...typography.caption,
   },
   totalText: {
     color: colors.primaryDark,
+    ...typography.subtitle,
+  },
+  progressPercent: {
+    color: colors.primaryDark,
+    ...typography.subtitle,
+  },
+  progressSummary: {
+    alignItems: 'flex-end',
+    gap: spacing.xxs,
+  },
+  progressSummaryLabel: {
+    color: colors.textSoft,
     ...typography.caption,
   },
   chartContainer: {
     alignItems: 'flex-end',
     flexDirection: 'row',
     gap: spacing.xs,
-    height: CHART_HEIGHT + 40,
+    minHeight: CHART_HEIGHT + 48,
     justifyContent: 'space-between',
-    paddingTop: spacing.md,
+    paddingTop: spacing.xs,
   },
   column: {
     alignItems: 'center',
@@ -106,7 +207,7 @@ const styles = createThemedStyles(() => ({
   bar: {
     backgroundColor: colors.border,
     borderRadius: radius.sm,
-    minWidth: 20,
+    minWidth: 18,
     width: '100%',
   },
   barActive: {
