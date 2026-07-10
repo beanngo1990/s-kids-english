@@ -41,6 +41,7 @@ type RecordingStatus =
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
   disabled?: boolean;
+  isInstructionPlaying?: boolean;
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
   onContinue?: () => void;
@@ -56,6 +57,7 @@ const encourageText = 'Cô nghe rồi! Giỏi quá!';
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
+  isInstructionPlaying = false,
   onAudioStart,
   onBusyChange,
   onContinue,
@@ -372,7 +374,9 @@ export function SpeakPracticeControls({
     inputRange: [0, 0.5, 1],
     outputRange: [0.24, 0.16, 0],
   });
-  const promptText = isPrompting
+  const promptText = isInstructionPlaying
+    ? 'Cô đang nói...'
+    : isPrompting
     ? 'Chuẩn bị đọc...'
     : isRecording
       ? 'Cô đang nghe...'

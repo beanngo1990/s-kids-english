@@ -176,6 +176,8 @@ export function ScenePlayer({
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
   const [isPreloading, setIsPreloading] = useState(true);
+  const [completedListenInstructionKey, setCompletedListenInstructionKey] =
+    useState<string | null>(null);
 
   // Floating drag setup
   const floatEditPos = useRef({ x: 20, y: 100 });
@@ -228,6 +230,7 @@ export function ScenePlayer({
     setSnappedObjectPositions({});
     setAutoRecordRequest(null);
     setIsSpeechPracticeBusy(false);
+    setCompletedListenInstructionKey(null);
     setSceneCompletion(null);
     setIsPreloading(true);
   }, [currentScene]);
@@ -292,7 +295,17 @@ export function ScenePlayer({
     }
 
     setIsSpeechPracticeBusy(false);
+    const isListeningStep = isListenStep(currentStep);
+    const instructionKey = getListenInstructionKey(currentScene, currentStep);
+    if (isListeningStep) {
+      setCompletedListenInstructionKey(null);
+    }
     playAudioForStep(currentScene, currentStep, {
+      onAudioComplete: () => {
+        if (isListeningStep) {
+          setCompletedListenInstructionKey(instructionKey);
+        }
+      },
       onTeachAudioComplete: () => {
         setAutoRecordRequest(previousRequest => ({
           requestId: (previousRequest?.requestId ?? 0) + 1,
@@ -304,7 +317,7 @@ export function ScenePlayer({
     if (lessonId) {
       saveCurrentStepProgress(lessonId, currentScene.id, currentStep.id);
     }
-  }, [currentScene, currentStep, lessonId]);
+  }, [currentScene, currentStep, isPreloading, lessonId]);
 
   if (!currentScene) {
     return (
@@ -331,6 +344,13 @@ export function ScenePlayer({
     );
   }
 
+  const currentListenInstructionKey = getListenInstructionKey(
+    currentScene,
+    currentStep,
+  );
+  const isInstructionPlaying =
+    isListenStep(currentStep) &&
+    completedListenInstructionKey !== currentListenInstructionKey;
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const totalStepCount = Math.max(1, currentScene.steps.length);
@@ -367,7 +387,16 @@ export function ScenePlayer({
     lastInteractionAtRef.current = now;
 
     runAudio(playTapSound());
-    playAudioForStep(currentScene, currentStep);
+    playAudioForStep(
+      currentScene,
+      currentStep,
+      isListenStep(currentStep) && isInstructionPlaying
+        ? {
+            onAudioComplete: () =>
+              setCompletedListenInstructionKey(currentListenInstructionKey),
+          }
+        : undefined,
+    );
 
     const targetIds = currentStep.targetObjectIds.length > 0
       ? currentStep.targetObjectIds
@@ -397,7 +426,7 @@ export function ScenePlayer({
   };
 
   const handleContinue = () => {
-    if (isAdvancing || isSceneComplete) {
+    if (isAdvancing || isInstructionPlaying || isSceneComplete) {
       return;
     }
 
@@ -413,7 +442,7 @@ export function ScenePlayer({
   };
 
   const handleObjectPress = (objectId: EntityId) => {
-    if (isAdvancing || isSceneComplete) {
+    if (isAdvancing || isInstructionPlaying || isSceneComplete) {
       return;
     }
 
@@ -439,7 +468,7 @@ export function ScenePlayer({
   };
 
   const handleObjectAudioPress = (object: SceneObject) => {
-    if (isSpeechPracticeBusy) {
+    if (isInstructionPlaying || isSpeechPracticeBusy) {
       return;
     }
 
@@ -885,10 +914,17 @@ export function ScenePlayer({
                     ? autoRecordRequest.requestId
                     : 0
                 }
-                disabled={isAdvancing || isSceneComplete}
+                disabled={
+                  isAdvancing || isInstructionPlaying || isSceneComplete
+                }
+                isInstructionPlaying={isInstructionPlaying}
                 onAudioStart={cancelStepAudioSequence}
                 onBusyChange={setIsSpeechPracticeBusy}
-                onContinue={isListenStep(currentStep) ? handleContinue : undefined}
+                onContinue={
+                  isListenStep(currentStep) && !isInstructionPlaying
+                    ? handleContinue
+                    : undefined
+                }
                 onReplayModel={handleReplayModelWord}
                 word={speakPracticeWord}
               />
@@ -913,13 +949,24 @@ export function ScenePlayer({
                   tone="quiet"
                 />
                 {isListenStep(currentStep) ? (
-                  <KidIconButton
-                    accessibilityLabel="Tiếp tục"
-                    icon="next"
-                    label="Tiếp tục"
-                    onPress={handleContinue}
-                    style={[styles.actionButton, styles.primaryActionButton]}
-                  />
+                  isInstructionPlaying ? (
+                    <View
+                      accessible
+                      accessibilityLabel="Cô đang nói. Bé hãy lắng nghe."
+                      style={[styles.actionButton, styles.listeningStatus]}
+                    >
+                      <ActivityIndicator color={colors.primary} size="small" />
+                      <Text style={styles.listeningStatusText}>Cô đang nói...</Text>
+                    </View>
+                  ) : (
+                    <KidIconButton
+                      accessibilityLabel="Tiếp tục"
+                      icon="next"
+                      label="Tiếp tục"
+                      onPress={handleContinue}
+                      style={[styles.actionButton, styles.primaryActionButton]}
+                    />
+                  )
                 ) : null}
               </View>
             ) : null}
@@ -1080,6 +1127,7 @@ export function ScenePlayer({
               isDimmed={false}
               isDisabled={
                 isAdvancing ||
+                isInstructionPlaying ||
                 isSpeechPracticeBusy ||
                 (!canPressObjects(currentStep) && !canTapToHear)
               }
@@ -1234,7 +1282,12 @@ function canTapObjectToHear(
 
 let globalAudioSequenceId = 0;
 
+function getListenInstructionKey(scene: Scene, step: SceneStep) {
+  return `${scene.id}:${step.id}`;
+}
+
 type PlayStepAudioOptions = {
+  onAudioComplete?: () => void;
   onTeachAudioComplete?: () => void;
 };
 
@@ -1291,6 +1344,7 @@ async function playStepAudioSequence(
 
     if (!isActive()) return;
     options.onTeachAudioComplete?.();
+    options.onAudioComplete?.();
     return;
   }
 
@@ -1304,6 +1358,9 @@ async function playStepAudioSequence(
     if (!isActive()) return;
     await speakWord(vocabularyItem.word);
   }
+
+  if (!isActive()) return;
+  options.onAudioComplete?.();
 }
 
 function runAudio(audioPromise: Promise<void>) {
@@ -1597,6 +1654,24 @@ const styles = createThemedStyles(() => ({
     alignSelf: 'stretch',
     justifyContent: 'center',
     padding: spacing.md,
+  },
+  listeningStatus: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.xl,
+    borderWidth: 3,
+    flex: 1.35,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    justifyContent: 'center',
+    minHeight: 76,
+    padding: spacing.sm,
+  },
+  listeningStatusText: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.caption,
   },
   sceneAccent: {
     borderRadius: radius.pill,
