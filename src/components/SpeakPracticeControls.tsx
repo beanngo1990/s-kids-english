@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Alert,
   Animated,
   Easing,
+  Linking,
   Pressable,
   Text,
   View,
@@ -241,12 +243,7 @@ export function SpeakPracticeControls({
       playPrompt: boolean;
       playTap: boolean;
     }) => {
-      if (
-        disabled ||
-        status === 'prompting' ||
-        status === 'recording' ||
-        status === 'unavailable'
-      ) {
+      if (disabled || status === 'prompting' || status === 'recording') {
         return;
       }
 
@@ -256,7 +253,17 @@ export function SpeakPracticeControls({
 
       const hasPermission = await requestVoiceRecordingPermission();
       if (!hasPermission) {
-        setStatus('idle');
+        setStatus('unavailable');
+        if (playTap) {
+          Alert.alert(
+            'Quyền truy cập Micro',
+            'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
+            [
+              { text: 'Để sau', style: 'cancel' },
+              { text: 'Mở Cài đặt', onPress: () => Linking.openSettings() },
+            ],
+          );
+        }
         return;
       }
 
@@ -297,9 +304,10 @@ export function SpeakPracticeControls({
     });
   }, [autoStartRequestId, beginRecording]);
 
-  if (status === 'unavailable') {
-    return null;
-  }
+  // Removed early return for 'unavailable' status so UI can still render
+  // if (status === 'unavailable') {
+  //   return null;
+  // }
 
   const handleRecordPress = async () => {
     if (disabled || status === 'prompting') {
@@ -345,6 +353,7 @@ export function SpeakPracticeControls({
   const isPrompting = status === 'prompting';
   const isRecording = status === 'recording';
   const hasRecording = status === 'recorded';
+  const isUnavailable = status === 'unavailable';
   const isDisabled = disabled || isPrompting;
   const isModelButtonDisabled = disabled || isPrompting || isRecording;
   const rippleScale = listeningPulse.interpolate({
@@ -369,7 +378,9 @@ export function SpeakPracticeControls({
       ? 'Cô đang nghe...'
       : hasRecording
         ? 'Giỏi quá! Từ này đọc là:'
-        : 'Bé nói theo cô:';
+        : isUnavailable
+          ? 'Cần cấp quyền Micro. Từ này đọc là:'
+          : 'Bé nói theo cô:';
 
   return (
     <View style={styles.root}>
@@ -429,7 +440,7 @@ export function SpeakPracticeControls({
         ) : null}
       </View>
 
-      {hasRecording ? (
+      {(hasRecording || isUnavailable) ? (
         <View style={styles.actions}>
           <KidIconButton
             accessibilityLabel="Thu âm lại"
@@ -448,8 +459,7 @@ export function SpeakPracticeControls({
               icon="next"
               label="Tiếp tục"
               onPress={onContinue}
-              size="md"
-              style={[styles.actionButton, styles.primaryAction]}
+              style={[styles.actionButton, styles.primaryAction, isUnavailable && { flex: 1 }]}
             />
           ) : null}
         </View>

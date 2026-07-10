@@ -6,6 +6,7 @@ type SkidsAudioModule = {
   getVoiceRecordingLevel?: () => Promise<number | null>;
   startVoiceRecording?: () => Promise<string | null>;
   stopVoiceRecording?: () => Promise<string | null>;
+  requestRecordPermission?: () => Promise<boolean>;
 };
 
 const nativeAudio = NativeModules.SkidsAudio as SkidsAudioModule | undefined;
@@ -17,6 +18,10 @@ export function isVoiceRecorderAvailable() {
 }
 
 export async function requestVoiceRecordingPermission() {
+  if (Platform.OS === 'ios' && nativeAudio?.requestRecordPermission) {
+    return nativeAudio.requestRecordPermission();
+  }
+
   if (Platform.OS !== 'android') {
     return isVoiceRecorderAvailable();
   }

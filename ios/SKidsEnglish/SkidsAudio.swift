@@ -155,6 +155,19 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
     resolve(min(max(normalizedLevel, 0.0), 1.0))
   }
 
+  @objc func requestRecordPermission(_ resolve: @escaping RCTPromiseResolveBlock,
+                                     rejecter reject: @escaping RCTPromiseRejectBlock) {
+    AVAudioSession.sharedInstance().requestRecordPermission { granted in
+      resolve(granted)
+    }
+  }
+  
+  @objc func checkRecordPermission(_ resolve: @escaping RCTPromiseResolveBlock,
+                                   rejecter reject: @escaping RCTPromiseRejectBlock) {
+    let status = AVAudioSession.sharedInstance().recordPermission
+    resolve(status == .granted)
+  }
+
   private func finishSpeechPlayer(_ player: AVPlayer, didPlay: Bool) {
     guard speechPlayer === player else {
       return
