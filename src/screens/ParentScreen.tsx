@@ -5,7 +5,15 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { Alert, Pressable, Switch, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  Pressable,
+  Switch,
+  Text,
+  TextInput,
+  type DimensionValue,
+  View,
+} from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -53,6 +61,12 @@ import { isSceneProgressComplete } from '../utils/lessonProgress';
 const GATE_DURATION_MS = 3000;
 const WEEKLY_WORD_TARGET = 30;
 
+function haveSameLessonIds(first: string[], second: string[]) {
+  return (
+    first.length === second.length && first.every(id => second.includes(id))
+  );
+}
+
 type ParentTab = 'stats' | 'lessons' | 'settings';
 type Props = NativeStackScreenProps<RootStackParamList, 'Parent'>;
 
@@ -74,6 +88,8 @@ export function ParentScreen({ navigation }: Props) {
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
   const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
+  const [isCustomPlanMode, setIsCustomPlanMode] = useState(false);
 
   // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
@@ -110,16 +126,38 @@ export function ParentScreen({ navigation }: Props) {
   );
   const todayWordCount = todayActivity?.wordsLearned ?? 0;
   const todaySceneCount = todayActivity?.scenesCompleted ?? 0;
+  const journeyLessons = useMemo(() => {
+    const orderedIds = [
+      ...themes.flatMap(theme => theme.lessonIds),
+      ...lessons.map(lesson => lesson.id),
+    ];
+    const knownIds = new Set<string>();
+    const result: Array<(typeof lessons)[number]> = [];
+
+    orderedIds.forEach(id => {
+      if (knownIds.has(id)) {
+        return;
+      }
+
+      const lesson = lessons.find(item => item.id === id);
+      if (lesson) {
+        knownIds.add(id);
+        result.push(lesson);
+      }
+    });
+
+    return result;
+  }, []);
 
   const recentLessonId =
     progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
   const recentLesson = lessons.find(l => l.id === recentLessonId);
   const visibleLessons = useMemo(
     () =>
-      lessons.filter(
+      journeyLessons.filter(
         lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id),
       ),
-    [visibleLessonIds],
+    [journeyLessons, visibleLessonIds],
   );
   const completedLessonIds = useMemo(
     () => new Set(progress?.completedLessonIds ?? []),
@@ -179,6 +217,49 @@ export function ParentScreen({ navigation }: Props) {
     focusSceneCount > 0
       ? Math.round((completedFocusSceneCount / focusSceneCount) * 100)
       : 0;
+  const allLessonIds = useMemo(
+    () => journeyLessons.map(lesson => lesson.id),
+    [journeyLessons],
+  );
+  const gentleLessonIds = useMemo(() => {
+    const focusIndex = Math.max(
+      journeyLessons.findIndex(lesson => lesson.id === focusLesson?.id),
+      0,
+    );
+    const startIndex = Math.min(
+      focusIndex,
+      Math.max(journeyLessons.length - 3, 0),
+    );
+
+    return journeyLessons
+      .slice(startIndex, startIndex + 3)
+      .map(lesson => lesson.id);
+  }, [focusLesson, journeyLessons]);
+  const enabledLessonIds = visibleLessonIds ?? allLessonIds;
+  const isFullJourneyEnabled = haveSameLessonIds(
+    enabledLessonIds,
+    allLessonIds,
+  );
+  const isGentlePlanEnabled = haveSameLessonIds(
+    enabledLessonIds,
+    gentleLessonIds,
+  );
+  const isCustomPlanActive =
+    isCustomPlanMode || (!isFullJourneyEnabled && !isGentlePlanEnabled);
+  const focusTheme = themes.find(theme =>
+    theme.lessonIds.includes(focusLesson?.id ?? ''),
+  );
+  const learningPathTitle =
+    themes.length === 1
+      ? themes[0]?.titleVi ?? 'Lộ trình học của bé'
+      : String(themes.length) + ' chủ đề học';
+  const learningPathSubtitle =
+    themes.length === 1
+      ? themes[0]?.descriptionVi ?? 'Bé học theo hành trình ba mẹ đã chọn.'
+      : 'Bé chỉ thấy những chủ đề và bài học ba mẹ đang bật.';
+  const completedVisibleLessonCount = visibleLessons.filter(lesson =>
+    completedLessonIds.has(lesson.id),
+  ).length;
   const reviewLesson =
     visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
     focusLesson;
@@ -247,13 +328,14 @@ export function ParentScreen({ navigation }: Props) {
       ? `Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the ${reviewWords[0]}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.`
       : 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!');
 
-  const recentThemeId = recentLesson?.themeId ?? themes[0]?.id;
-
   useEffect(() => {
-    if (recentThemeId && !expandedThemeId) {
-      setExpandedThemeId(recentThemeId);
+    if (!isDashboardReady || !focusTheme?.id || !focusLesson?.id) {
+      return;
     }
-  }, [recentThemeId, expandedThemeId]);
+
+    setExpandedThemeId(current => current ?? focusTheme.id);
+    setSelectedLessonId(current => current ?? focusLesson.id);
+  }, [focusLesson?.id, focusTheme?.id, isDashboardReady]);
 
   useEffect(() => {
     setAppTheme(appThemePreference);
@@ -324,13 +406,17 @@ export function ParentScreen({ navigation }: Props) {
     clearGateTimer();
   };
 
+  const handleOpenLesson = (lessonId: string) => {
+    setIsUnlocked(false);
+    navigation.navigate('LessonPack', { lessonId });
+  };
+
   const handleOpenFocusLesson = () => {
     if (!focusLesson) {
       return;
     }
 
-    setIsUnlocked(false);
-    navigation.navigate('LessonPack', { lessonId: focusLesson.id });
+    handleOpenLesson(focusLesson.id);
   };
 
   const handleReviewTogether = () => {
@@ -346,6 +432,18 @@ export function ParentScreen({ navigation }: Props) {
 
     setIsUnlocked(false);
     navigation.navigate('LessonPack', { lessonId: reviewLesson.id });
+  };
+
+  const handleSelectLessonPlan = async (lessonIds?: string[]) => {
+    setIsCustomPlanMode(false);
+    setVisibleLessonIds(lessonIds);
+    await saveParentSettings({ visibleLessonIds: lessonIds });
+  };
+
+  const handleOpenCustomPlan = () => {
+    setIsCustomPlanMode(true);
+    setExpandedThemeId(focusTheme?.id ?? themes[0]?.id ?? null);
+    setSelectedLessonId(null);
   };
 
   const handleSelectLearningMode = async (nextLearningMode: LearningMode) => {
@@ -415,6 +513,7 @@ export function ParentScreen({ navigation }: Props) {
       nextVisible = [...currentVisible, lessonId];
     }
 
+    setIsCustomPlanMode(true);
     setVisibleLessonIds(nextVisible);
     await saveParentSettings({ visibleLessonIds: nextVisible });
   };
@@ -748,74 +847,369 @@ export function ParentScreen({ navigation }: Props) {
 
         {activeTab === 'lessons' && (
           <View style={styles.tabContent}>
-            <AppCard style={styles.settingsCard}>
-              <View style={styles.sectionHeader}>
-                <View style={styles.sectionTitleGroup}>
-                  <KidBadge tone="sky">Quản lý nội dung</KidBadge>
-                  <Text style={styles.privacyTitle}>Bài học của bé</Text>
+            <AppCard style={styles.learningPathCard}>
+              <View style={styles.learningPathTopRow}>
+                <View style={styles.learningPathCopy}>
+                  <KidBadge tone="teal">Lộ trình học của bé</KidBadge>
+                  <Text style={styles.learningPathTitle}>
+                    {learningPathTitle}
+                  </Text>
+                  <Text style={styles.learningPathSubtitle}>
+                    {learningPathSubtitle}
+                  </Text>
+                </View>
+                <View style={styles.learningPathCount}>
+                  <Text style={styles.learningPathCountValue}>
+                    {visibleLessons.length}
+                  </Text>
+                  <Text style={styles.learningPathCountLabel}>
+                    /{journeyLessons.length} bài
+                  </Text>
                 </View>
               </View>
-              <Text style={styles.difficultySubtitle}>
-                Chọn các bài học bạn muốn bé tập trung. Tắt các bài học khác để
-                bé không bị phân tâm.
+              <View style={styles.learningPathTrack}>
+                {journeyLessons.length > 0 ? (
+                  <View
+                    style={[
+                      styles.learningPathFill,
+                      {
+                        width: (String(
+                          Math.round(
+                            (visibleLessons.length / journeyLessons.length) *
+                              100,
+                          ),
+                        ) + '%') as DimensionValue,
+                      },
+                    ]}
+                  />
+                ) : null}
+              </View>
+              <Text style={styles.learningPathFootnote}>
+                Đã hoàn thành {completedVisibleLessonCount}/
+                {visibleLessons.length} bài đang bật.
               </Text>
-              <View style={styles.lessonList}>
-                {themes.map(theme => {
-                  const isExpanded = expandedThemeId === theme.id;
-                  const themeLessons = lessons.filter(
-                    l => l.themeId === theme.id,
-                  );
-                  if (themeLessons.length === 0) return null;
+            </AppCard>
 
-                  return (
-                    <View key={theme.id} style={styles.themeGroup}>
-                      <Pressable
-                        style={[
-                          styles.themeHeader,
-                          isExpanded && styles.themeHeaderExpanded,
-                        ]}
-                        onPress={() =>
-                          setExpandedThemeId(isExpanded ? null : theme.id)
-                        }
-                      >
-                        <View style={styles.themeHeaderLeft}>
-                          <Text style={styles.themeEmoji}>
-                            {theme.thumbnailEmoji}
-                          </Text>
-                          <Text style={styles.themeTitle}>{theme.titleVi}</Text>
-                        </View>
-                        <Text style={styles.expandIcon}>
-                          {isExpanded ? '▼' : '▶'}
+            <AppCard style={styles.lessonPlanCard}>
+              <Text style={styles.lessonPlanTitle}>Chọn nhịp học</Text>
+              <Text style={styles.lessonPlanSubtitle}>
+                Ba mẹ có thể chọn một nhịp phù hợp hoặc tự tinh chỉnh từng bài.
+              </Text>
+              <View
+                style={[
+                  styles.lessonPlanOptions,
+                  isCompactDashboard && styles.lessonPlanOptionsCompact,
+                ]}
+              >
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: isFullJourneyEnabled }}
+                  disabled={!isDashboardReady}
+                  onPress={() => handleSelectLessonPlan()}
+                  style={({ pressed }) => [
+                    styles.lessonPlanOption,
+                    isCompactDashboard && styles.lessonPlanOptionCompact,
+                    isFullJourneyEnabled && styles.lessonPlanOptionActive,
+                    !isDashboardReady && styles.optionDisabled,
+                    pressed && isDashboardReady && styles.pressed,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionTitle,
+                      isFullJourneyEnabled &&
+                        styles.lessonPlanOptionTitleActive,
+                    ]}
+                  >
+                    Theo lộ trình
+                  </Text>
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionSubtitle,
+                      isFullJourneyEnabled &&
+                        styles.lessonPlanOptionSubtitleActive,
+                    ]}
+                  >
+                    Tất cả bài
+                  </Text>
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: isGentlePlanEnabled }}
+                  disabled={!isDashboardReady}
+                  onPress={() => handleSelectLessonPlan(gentleLessonIds)}
+                  style={({ pressed }) => [
+                    styles.lessonPlanOption,
+                    isCompactDashboard && styles.lessonPlanOptionCompact,
+                    isGentlePlanEnabled && styles.lessonPlanOptionWarm,
+                    !isDashboardReady && styles.optionDisabled,
+                    pressed && isDashboardReady && styles.pressed,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionTitle,
+                      isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
+                    ]}
+                  >
+                    Nhẹ nhàng
+                  </Text>
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionSubtitle,
+                      isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
+                    ]}
+                  >
+                    {gentleLessonIds.length} bài gần nhất
+                  </Text>
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: isCustomPlanActive }}
+                  disabled={!isDashboardReady}
+                  onPress={handleOpenCustomPlan}
+                  style={({ pressed }) => [
+                    styles.lessonPlanOption,
+                    isCompactDashboard && styles.lessonPlanOptionCompact,
+                    isCompactDashboard && styles.lessonPlanOptionLastCompact,
+                    isCustomPlanActive && styles.lessonPlanOptionCustom,
+                    !isDashboardReady && styles.optionDisabled,
+                    pressed && isDashboardReady && styles.pressed,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionTitle,
+                      isCustomPlanActive && styles.lessonPlanOptionCustomText,
+                    ]}
+                  >
+                    Tự chọn
+                  </Text>
+                  <Text
+                    style={[
+                      styles.lessonPlanOptionSubtitle,
+                      isCustomPlanActive && styles.lessonPlanOptionCustomText,
+                    ]}
+                  >
+                    Từng bài
+                  </Text>
+                </Pressable>
+              </View>
+              {isCustomPlanActive ? (
+                <View style={styles.customPlanNotice}>
+                  <View style={styles.customPlanNoticeDot} />
+                  <Text style={styles.customPlanNoticeText}>
+                    Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên
+                    dưới để ẩn hoặc hiện bài cho bé.
+                  </Text>
+                </View>
+              ) : null}
+            </AppCard>
+
+            {focusLesson ? (
+              <Pressable
+                accessibilityHint="Mở bài học bé đang học"
+                accessibilityLabel={'Mở ' + focusLesson.titleVi}
+                accessibilityRole="button"
+                accessibilityState={{ disabled: !canOpenFocusLesson }}
+                disabled={!canOpenFocusLesson}
+                onPress={handleOpenFocusLesson}
+                style={({ pressed }) => [
+                  styles.learningFocusPressable,
+                  pressed && styles.pressed,
+                ]}
+              >
+                <AppCard style={styles.learningFocusCard}>
+                  <View style={styles.learningFocusIcon}>
+                    <SKidsIcon
+                      name={getLessonIconName(focusLesson)}
+                      size={58}
+                    />
+                  </View>
+                  <View style={styles.learningFocusCopy}>
+                    <Text style={styles.learningFocusLabel}>
+                      {isFocusLessonComplete
+                        ? 'Bài bé có thể ôn lại'
+                        : 'Bài bé đang học'}
+                    </Text>
+                    <Text style={styles.learningFocusTitle}>
+                      {focusLesson.titleVi}
+                    </Text>
+                    <Text style={styles.learningFocusProgress}>
+                      {completedFocusSceneCount}/{focusSceneCount} trạm ·{' '}
+                      {focusProgress}% hoàn thành
+                    </Text>
+                  </View>
+                  <Text style={styles.learningFocusArrow}>→</Text>
+                </AppCard>
+              </Pressable>
+            ) : null}
+
+            <View style={styles.lessonSectionHeading}>
+              <View style={styles.lessonSectionHeadingCopy}>
+                <Text style={styles.lessonSectionHeadingTitle}>
+                  Các chủ đề bé đang học
+                </Text>
+                <Text style={styles.lessonSectionHeadingSubtitle}>
+                  Mỗi chủ đề chứa các bài học và từ vựng riêng của bé.
+                </Text>
+              </View>
+              <KidBadge tone="sky">Tự chọn</KidBadge>
+            </View>
+
+            <View style={styles.lessonSectionList}>
+              {themes.map(theme => {
+                const themeLessons = journeyLessons.filter(lesson =>
+                  theme.lessonIds.includes(lesson.id),
+                );
+                const visibleCount = themeLessons.filter(lesson =>
+                  enabledLessonIds.includes(lesson.id),
+                ).length;
+                const completedCount = themeLessons.filter(lesson =>
+                  completedLessonIds.has(lesson.id),
+                ).length;
+                const isExpanded = expandedThemeId === theme.id;
+
+                return (
+                  <AppCard
+                    key={theme.id}
+                    style={[
+                      styles.lessonSectionCard,
+                      isExpanded && styles.lessonSectionCardExpanded,
+                    ]}
+                  >
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ expanded: isExpanded }}
+                      onPress={() =>
+                        setExpandedThemeId(isExpanded ? null : theme.id)
+                      }
+                      style={({ pressed }) => [
+                        styles.lessonSectionHeader,
+                        pressed && styles.pressed,
+                      ]}
+                    >
+                      <View style={styles.lessonSectionEmoji}>
+                        <Text style={styles.lessonSectionEmojiText}>
+                          {theme.thumbnailEmoji}
                         </Text>
-                      </Pressable>
+                      </View>
+                      <View style={styles.lessonSectionCopy}>
+                        <Text style={styles.lessonSectionTitle}>
+                          {theme.titleVi}
+                        </Text>
+                        <Text style={styles.lessonSectionSubtitle}>
+                          {completedCount}/{themeLessons.length} bài hoàn thành
+                          {' · '}
+                          {visibleCount} bài bật
+                        </Text>
+                      </View>
+                      <Text style={styles.lessonSectionExpandIcon}>
+                        {isExpanded ? '⌃' : '⌄'}
+                      </Text>
+                    </Pressable>
 
-                      {isExpanded && (
-                        <View style={styles.themeLessons}>
-                          {themeLessons.map((lesson, index) => {
-                            const currentVisible =
-                              visibleLessonIds ?? lessons.map(l => l.id);
-                            const isVisible = currentVisible.includes(
-                              lesson.id,
-                            );
-                            const isLast = index === themeLessons.length - 1;
+                    {isExpanded ? (
+                      <View style={styles.managedLessonList}>
+                        {themeLessons.map((lesson, index) => {
+                          const isVisible = enabledLessonIds.includes(
+                            lesson.id,
+                          );
+                          const completedSceneCount = lesson.scenes.filter(
+                            scene =>
+                              isSceneProgressComplete(
+                                completedSceneIds,
+                                lesson.id,
+                                scene.id,
+                              ),
+                          ).length;
+                          const hasCompletedAllScenes =
+                            lesson.scenes.length > 0 &&
+                            completedSceneCount === lesson.scenes.length;
+                          const isCompleted = completedLessonIds.has(lesson.id);
+                          const isCurrentLesson = focusLesson?.id === lesson.id;
+                          const isSelected = selectedLessonId === lesson.id;
+                          const isLast = index === themeLessons.length - 1;
+                          const lessonWords = getLessonVocabulary(lesson)
+                            .slice(0, 3)
+                            .map(item => item.word);
+                          const lessonState = !isVisible
+                            ? 'Đang ẩn'
+                            : isCurrentLesson && hasCompletedAllScenes
+                            ? 'Sẵn sàng ôn'
+                            : isCurrentLesson
+                            ? 'Đang học'
+                            : isCompleted
+                            ? 'Đã hoàn thành'
+                            : hasCompletedAllScenes
+                            ? 'Chờ ôn tập'
+                            : completedSceneCount > 0
+                            ? 'Đang tiếp tục'
+                            : 'Sẵn sàng';
 
-                            return (
-                              <View
-                                key={lesson.id}
-                                style={[
-                                  styles.lessonRow,
-                                  isLast && styles.lessonRowLast,
-                                ]}
-                              >
-                                <View style={styles.lessonTextGroup}>
-                                  <Text style={styles.difficultyTitle}>
-                                    {lesson.titleVi}
+                          return (
+                            <View
+                              key={lesson.id}
+                              style={[
+                                styles.managedLesson,
+                                isSelected && styles.managedLessonSelected,
+                                !isVisible && styles.managedLessonHidden,
+                                isLast && styles.managedLessonLast,
+                              ]}
+                            >
+                              <View style={styles.managedLessonRow}>
+                                <Pressable
+                                  accessibilityRole="button"
+                                  accessibilityState={{ expanded: isSelected }}
+                                  onPress={() =>
+                                    setSelectedLessonId(
+                                      isSelected ? null : lesson.id,
+                                    )
+                                  }
+                                  style={({ pressed }) => [
+                                    styles.managedLessonPressable,
+                                    pressed && styles.pressed,
+                                  ]}
+                                >
+                                  <View style={styles.managedLessonIcon}>
+                                    <SKidsIcon
+                                      name={getLessonIconName(lesson)}
+                                      size={48}
+                                    />
+                                  </View>
+                                  <View style={styles.managedLessonCopy}>
+                                    <Text
+                                      style={[
+                                        styles.managedLessonState,
+                                        isCurrentLesson &&
+                                          styles.managedLessonStateCurrent,
+                                        isCompleted &&
+                                          styles.managedLessonStateDone,
+                                        !isVisible &&
+                                          styles.managedLessonStateHidden,
+                                      ]}
+                                    >
+                                      {lessonState}
+                                    </Text>
+                                    <Text style={styles.managedLessonTitle}>
+                                      {lesson.titleVi}
+                                    </Text>
+                                    <Text style={styles.managedLessonSubtitle}>
+                                      {completedSceneCount}/
+                                      {lesson.scenes.length} trạm ·{' '}
+                                      {getLessonVocabulary(lesson).length} từ
+                                    </Text>
+                                  </View>
+                                  <Text style={styles.managedLessonChevron}>
+                                    {isSelected ? '⌃' : '›'}
                                   </Text>
-                                  <Text style={styles.difficultySubtitle}>
-                                    {lesson.titleEn}
-                                  </Text>
-                                </View>
+                                </Pressable>
                                 <Switch
+                                  accessibilityLabel={
+                                    (isVisible ? 'Ẩn ' : 'Hiện ') +
+                                    lesson.titleVi
+                                  }
+                                  disabled={!isDashboardReady}
                                   value={isVisible}
                                   onValueChange={() =>
                                     handleToggleLesson(lesson.id)
@@ -826,15 +1220,62 @@ export function ParentScreen({ navigation }: Props) {
                                   }}
                                 />
                               </View>
-                            );
-                          })}
-                        </View>
-                      )}
-                    </View>
-                  );
-                })}
-              </View>
-            </AppCard>
+
+                              {isSelected && isVisible ? (
+                                <View style={styles.lessonPreview}>
+                                  <Text style={styles.lessonPreviewLabel}>
+                                    Bé sẽ khám phá
+                                  </Text>
+                                  <View style={styles.lessonPreviewWords}>
+                                    {lessonWords.map((word, wordIndex) => (
+                                      <View
+                                        key={lesson.id + '-' + wordIndex}
+                                        style={styles.lessonPreviewWord}
+                                      >
+                                        <Text
+                                          style={styles.lessonPreviewWordText}
+                                        >
+                                          {word}
+                                        </Text>
+                                      </View>
+                                    ))}
+                                  </View>
+                                  <Pressable
+                                    accessibilityLabel={
+                                      'Xem bài ' + lesson.titleVi
+                                    }
+                                    accessibilityRole="button"
+                                    disabled={!isDashboardReady}
+                                    onPress={() => handleOpenLesson(lesson.id)}
+                                    style={({ pressed }) => [
+                                      styles.lessonPreviewAction,
+                                      !isDashboardReady &&
+                                        styles.actionDisabled,
+                                      pressed && styles.pressed,
+                                    ]}
+                                  >
+                                    <Text
+                                      style={styles.lessonPreviewActionText}
+                                    >
+                                      Xem bài học
+                                    </Text>
+                                    <Text
+                                      style={styles.lessonPreviewActionArrow}
+                                    >
+                                      →
+                                    </Text>
+                                  </Pressable>
+                                </View>
+                              ) : null}
+                            </View>
+                          );
+                        })}
+                      </View>
+                    ) : null}
+                  </AppCard>
+                );
+              })}
+            </View>
           </View>
         )}
 
@@ -1363,6 +1804,29 @@ const styles = createThemedStyles(() => ({
   currentLessonTopRowCompact: {
     alignItems: 'flex-start',
   },
+  customPlanNotice: {
+    alignItems: 'flex-start',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    marginTop: spacing.sm,
+    padding: spacing.sm,
+  },
+  customPlanNoticeDot: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: 10,
+    marginTop: 4,
+    width: 10,
+  },
+  customPlanNoticeText: {
+    color: colors.primaryDark,
+    flex: 1,
+    ...typography.caption,
+  },
   dashboardCardCompact: {
     padding: spacing.md,
   },
@@ -1450,6 +1914,354 @@ const styles = createThemedStyles(() => ({
     height: 12,
     overflow: 'hidden',
     width: '100%',
+  },
+  learningFocusArrow: {
+    color: colors.primaryDark,
+    fontSize: 24,
+    fontWeight: '900',
+  },
+  learningFocusCard: {
+    alignItems: 'center',
+    backgroundColor: colors.backgroundWarm,
+    borderColor: colors.borderWarm,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  learningFocusCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  learningFocusIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.secondary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    height: 68,
+    justifyContent: 'center',
+    width: 68,
+  },
+  learningFocusLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  learningFocusPressable: {
+    borderRadius: radius.xl,
+  },
+  learningFocusProgress: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningFocusTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  learningPathCard: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.primary,
+    borderWidth: 1,
+    gap: spacing.md,
+  },
+  learningPathCopy: {
+    flex: 1,
+    gap: spacing.xs,
+    minWidth: 0,
+  },
+  learningPathCount: {
+    alignItems: 'flex-end',
+    gap: spacing.xxs,
+  },
+  learningPathCountLabel: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningPathCountValue: {
+    color: colors.primaryDark,
+    ...typography.title,
+  },
+  learningPathFill: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  learningPathFootnote: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningPathSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningPathTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  learningPathTopRow: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+  },
+  learningPathTrack: {
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 10,
+    overflow: 'hidden',
+  },
+  lessonPlanCard: {
+    gap: spacing.sm,
+  },
+  lessonPlanOption: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flex: 1,
+    gap: spacing.xxs,
+    justifyContent: 'center',
+    minHeight: 82,
+    padding: spacing.sm,
+  },
+  lessonPlanOptionCompact: {
+    flexBasis: '46%',
+  },
+  lessonPlanOptionLastCompact: {
+    flexBasis: '100%',
+  },
+  lessonPlanOptionActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  lessonPlanOptionCustom: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  lessonPlanOptionCustomText: {
+    color: colors.primaryDark,
+  },
+  lessonPlanOptionSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonPlanOptionSubtitleActive: {
+    color: colors.surface,
+  },
+  lessonPlanOptionTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  lessonPlanOptionTitleActive: {
+    color: colors.surface,
+  },
+  lessonPlanOptionWarm: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+  },
+  lessonPlanOptionWarmText: {
+    color: colors.text,
+  },
+  lessonPlanOptions: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+    marginTop: spacing.xs,
+  },
+  lessonPlanOptionsCompact: {
+    flexWrap: 'wrap',
+  },
+  lessonPlanSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonPlanTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  lessonPreview: {
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+    paddingTop: spacing.sm,
+  },
+  lessonPreviewAction: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 46,
+    paddingHorizontal: spacing.md,
+  },
+  lessonPreviewActionArrow: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  lessonPreviewActionText: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  lessonPreviewLabel: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonPreviewWord: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  lessonPreviewWordText: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  lessonPreviewWords: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  lessonSectionCard: {
+    borderColor: colors.border,
+    borderWidth: 1,
+    overflow: 'hidden',
+    padding: 0,
+  },
+  lessonSectionCardExpanded: {
+    borderColor: colors.primary,
+  },
+  lessonSectionCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  lessonSectionEmoji: {
+    alignItems: 'center',
+    backgroundColor: colors.backgroundWarm,
+    borderRadius: radius.md,
+    height: 52,
+    justifyContent: 'center',
+    width: 52,
+  },
+  lessonSectionEmojiText: {
+    fontSize: 26,
+    lineHeight: 32,
+  },
+  lessonSectionExpandIcon: {
+    color: colors.primaryDark,
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  lessonSectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    padding: spacing.md,
+  },
+  lessonSectionHeading: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+    marginTop: spacing.sm,
+  },
+  lessonSectionHeadingCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  lessonSectionHeadingSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonSectionHeadingTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  lessonSectionList: {
+    gap: spacing.sm,
+  },
+  lessonSectionSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  lessonSectionTitle: {
+    color: colors.text,
+    ...typography.subtitle,
+  },
+  managedLesson: {
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  managedLessonChevron: {
+    color: colors.primaryDark,
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  managedLessonCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  managedLessonHidden: {
+    opacity: 0.56,
+  },
+  managedLessonIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderRadius: radius.md,
+    height: 56,
+    justifyContent: 'center',
+    width: 56,
+  },
+  managedLessonLast: {
+    borderBottomWidth: 0,
+  },
+  managedLessonList: {
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+  },
+  managedLessonPressable: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    minWidth: 0,
+  },
+  managedLessonRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  managedLessonSelected: {
+    backgroundColor: colors.surfaceBlue,
+  },
+  managedLessonState: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  managedLessonStateCurrent: {
+    color: colors.primaryDark,
+  },
+  managedLessonStateDone: {
+    color: colors.secondaryDark,
+  },
+  managedLessonStateHidden: {
+    color: colors.muted,
+  },
+  managedLessonSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  managedLessonTitle: {
+    color: colors.text,
+    ...typography.subtitle,
   },
   holdButton: {
     alignItems: 'center',
