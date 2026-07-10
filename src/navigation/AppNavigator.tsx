@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -16,13 +16,14 @@ import {
   ThemeLibraryScreen,
 } from '../screens';
 import { getParentSettings } from '../engine/ParentSettingsManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
+  useThemeSync();
   const [initialRouteName, setInitialRouteName] = useState<
     keyof RootStackParamList | null
   >(null);
@@ -121,18 +122,21 @@ export function AppNavigator() {
         <Stack.Screen
           name="Parent"
           component={ParentScreen}
-          options={{ title: 'Góc phụ huynh', headerBackTitleVisible: false, headerBackTitle: '' }}
+          options={{
+            headerBackButtonDisplayMode: 'minimal',
+            title: 'Góc phụ huynh',
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   loading: {
     alignItems: 'center',
     backgroundColor: colors.background,
     flex: 1,
     justifyContent: 'center',
   },
-});
+}));

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, type ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
+import { Image, type ImageSourcePropType, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
@@ -14,6 +14,7 @@ type StatTileProps = {
 };
 
 export function StatTile({ icon, image, label, value }: StatTileProps) {
+  useThemeSync();
   return (
     <AppCard style={styles.tile}>
       <View style={styles.topRow}>
@@ -29,7 +30,7 @@ export function StatTile({ icon, image, label, value }: StatTileProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   icon: {
     fontSize: 24,
     lineHeight: 28,
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.sm,
   },
-});
+}));

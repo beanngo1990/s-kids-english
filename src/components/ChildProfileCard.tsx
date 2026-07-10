@@ -1,9 +1,9 @@
 import React from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import type { ChildProfile } from '../engine/ParentSettingsManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
@@ -13,6 +13,7 @@ type ChildProfileCardProps = {
 };
 
 export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps) {
+  useThemeSync();
   const currentYear = new Date().getFullYear();
   const age = profile.birthYear
     ? currentYear - profile.birthYear
@@ -48,7 +49,7 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     backgroundColor: colors.surfaceBlue,
   },
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   },
   avatarContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primary,
     borderRadius: radius.pill,
     borderWidth: 3,
@@ -100,4 +101,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 13,
   },
-});
+}));

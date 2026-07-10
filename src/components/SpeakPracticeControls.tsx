@@ -3,7 +3,6 @@ import {
   Animated,
   Easing,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -25,7 +24,7 @@ import {
   startVoiceRecording,
   stopVoiceRecording,
 } from '../engine/VoiceRecorder';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -61,6 +60,7 @@ export function SpeakPracticeControls({
   onReplayModel,
   word,
 }: SpeakPracticeControlsProps) {
+  useThemeSync();
   const [status, setStatus] = useState<RecordingStatus>(() =>
     isVoiceRecorderAvailable() ? 'idle' : 'unavailable',
   );
@@ -540,7 +540,7 @@ function clearRecordingTimers(
   }
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actionButton: {
     flex: 1,
   },
@@ -647,7 +647,7 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   recordLabelPill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     marginTop: -spacing.xs,
     paddingHorizontal: spacing.md,
@@ -657,7 +657,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
   root: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     borderRadius: radius.xl,
     borderWidth: 1,
@@ -666,7 +666,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   secondaryAction: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     flex: 0.95,
     minHeight: 76,
@@ -712,4 +712,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
   },
-});
+}));

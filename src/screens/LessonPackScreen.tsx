@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
@@ -19,7 +19,7 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
@@ -33,6 +33,7 @@ import {
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
 export function LessonPackScreen({ navigation, route }: Props) {
+  useThemeSync();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
@@ -310,7 +311,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actions: {
     gap: spacing.md,
     marginTop: spacing.xl,
@@ -335,7 +336,7 @@ const styles = StyleSheet.create({
   },
   headerProgress: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -355,7 +356,7 @@ const styles = StyleSheet.create({
   },
   packIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 2,
@@ -413,7 +414,7 @@ const styles = StyleSheet.create({
   },
   sceneIconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -506,4 +507,4 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
     ...typography.body,
   },
-});
+}));

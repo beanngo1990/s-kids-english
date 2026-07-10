@@ -14,7 +14,6 @@ import {
   NativeSyntheticEvent,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -38,7 +37,7 @@ import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { playTapSound, speakVi } from '../engine/AudioManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -86,6 +85,7 @@ const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
 };
 
 export function HomeScreen({ navigation }: Props) {
+  useThemeSync();
   const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
@@ -1746,9 +1746,9 @@ function easePathProgress(value: number) {
   return 0.5 - Math.cos(value * Math.PI) / 2;
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   cloud: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     opacity: 0.42,
     position: 'absolute',
@@ -1896,7 +1896,7 @@ const styles = StyleSheet.create({
   },
   hubGiftIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.secondary,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -1943,7 +1943,7 @@ const styles = StyleSheet.create({
   },
   hubHeroIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primary,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -2055,7 +2055,7 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   hubSheet: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: 'rgba(255, 255, 255, 0.9)',
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
@@ -2220,7 +2220,7 @@ const styles = StyleSheet.create({
     ...shadows.soft,
   },
   lessonRiverStone: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -2365,7 +2365,7 @@ const styles = StyleSheet.create({
   },
   lessonMilestoneStars: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -2676,7 +2676,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.86 }],
   },
   mapCloudPuff: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     position: 'absolute',
   },
@@ -2703,7 +2703,7 @@ const styles = StyleSheet.create({
     top: 118,
   },
   mapHill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     opacity: 0.58,
     position: 'absolute',
@@ -2802,7 +2802,7 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '24deg' }],
   },
   mapTrailRibbon: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -2914,7 +2914,7 @@ const styles = StyleSheet.create({
   },
   stopNode: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 4,
@@ -2953,7 +2953,7 @@ const styles = StyleSheet.create({
   },
   stopNumber: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderWidth: 2,
     borderRadius: radius.pill,
@@ -3012,4 +3012,4 @@ const styles = StyleSheet.create({
     top: 9,
     transform: [{ rotate: '12deg' }],
   },
-});
+}));

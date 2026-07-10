@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Image,
   Pressable,
-  StyleSheet,
   Text,
   View,
   type ImageSourcePropType,
@@ -14,7 +13,7 @@ import {
   playTapSound,
   speakWord,
 } from '../../engine/AudioManager';
-import { colors } from '../../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
 import {
   type ResponsiveLayout,
   useResponsiveLayout,
@@ -45,6 +44,7 @@ export function MemoryGame({
   onComplete,
   onMatch,
 }: MemoryGameProps) {
+  useThemeSync();
   const responsiveLayout = useResponsiveLayout();
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
@@ -264,7 +264,7 @@ function getMemoryColumnCount(cardCount: number, layout: ResponsiveLayout) {
   return Math.min(cardCount, cardCount <= 8 ? 3 : 4);
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     aspectRatio: 0.9,
     borderRadius: radius.lg,
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
   },
   cardFace: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     flex: 1,
     justifyContent: 'center',
     padding: spacing.sm,
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   statusPill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -335,4 +335,4 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
     ...typography.caption,
   },
-});
+}));

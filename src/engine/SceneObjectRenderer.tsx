@@ -4,7 +4,6 @@ import {
   Image,
   PanResponder,
   Pressable,
-  StyleSheet,
   Text,
   View,
   type PanResponderGestureState,
@@ -13,7 +12,7 @@ import {
 } from 'react-native';
 
 import { SparkleEffect } from '../components/SparkleEffect';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { SceneObject } from '../types/lesson';
@@ -58,6 +57,7 @@ export function SceneObjectRenderer({
   style,
   stageSize,
 }: SceneObjectRendererProps) {
+  useThemeSync();
   const [hasImageLoaded, setHasImageLoaded] = React.useState(false);
   const [hasImageError, setHasImageError] = React.useState(false);
   const scale = useRef(new Animated.Value(1)).current;
@@ -273,7 +273,7 @@ function resetDragPosition(drag: Animated.ValueXY) {
   }).start();
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   assetBubble: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
@@ -391,4 +391,4 @@ const styles = StyleSheet.create({
   },
   wrapper: {
   },
-});
+}));

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
@@ -16,6 +16,7 @@ type LessonCardProps = {
 };
 
 export function LessonCard({ lesson, onPress }: LessonCardProps) {
+  useThemeSync();
   return (
     <Pressable
       accessibilityRole="button"
@@ -45,7 +46,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     gap: spacing.sm,
   },
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -97,4 +98,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-});
+}));

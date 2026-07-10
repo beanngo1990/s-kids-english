@@ -2,13 +2,12 @@ import React from 'react';
 import {
   Pressable,
   StyleProp,
-  StyleSheet,
   Text,
   TextStyle,
   ViewStyle,
 } from 'react-native';
 
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing, touchTarget } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -32,6 +31,7 @@ export function AppButton({
   style,
   textStyle,
 }: AppButtonProps) {
+  useThemeSync();
   return (
     <Pressable
       accessibilityRole="button"
@@ -53,7 +53,7 @@ export function AppButton({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   base: {
     alignItems: 'center',
     borderRadius: radius.pill,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   secondary: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     borderWidth: 2,
     ...shadows.soft,
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     ...typography.button,
     textAlign: 'center',
   },
-});
+}));
