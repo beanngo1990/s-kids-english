@@ -13,6 +13,8 @@ should be a short mini-scene that can be completed independently.
 5. Run `npm run generate:audio:dry-run` to preview missing audio. Run
    `npm run generate:audio` to create missing Google TTS files and refresh the
    generated audio manifest/registry.
+   Newly generated files are trimmed automatically. Run `npm run trim:audio`
+   to apply the same cleanup to existing TTS files.
 6. Run `npm test -- --runInBand`.
 
 ## Asset Layout

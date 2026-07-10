@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url';
 
 import ts from 'typescript';
 
+import { trimWavSilence } from './audioSilence.mjs';
+
 const nodeRequire = createRequire(import.meta.url);
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
@@ -690,7 +692,8 @@ async function synthesizeTarget(target, auth) {
   const outputPath = join(repoRoot, 'src/assets', target.key);
 
   mkdirSync(dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, Buffer.from(responseBody.audioContent, 'base64'));
+  const audioBuffer = Buffer.from(responseBody.audioContent, 'base64');
+  writeFileSync(outputPath, trimWavSilence(audioBuffer));
 }
 
 function writeAudioManifest(targets) {
