@@ -104,20 +104,13 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.secondary,
     borderColor: colors.white,
     borderWidth: 2,
-    shadowColor: colors.warmShadow,
-    shadowOffset: {
-      height: 2,
-      width: 0,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 3,
   },
   iconBubble: {
     alignItems: 'center',
-    borderRadius: radius.pill,
+    borderRadius: 22, // Fix Android bug: using exact half of width/height instead of 999 for perfect circle
     height: 44,
     justifyContent: 'center',
+    overflow: 'hidden',
     width: 44,
   },
   label: {
@@ -133,6 +126,7 @@ const styles = createThemedStyles(() => ({
     fontSize: 16,
     fontWeight: '900',
     opacity: 1,
+    paddingRight: spacing.xs,
   },
   tab: {
     alignItems: 'center',
