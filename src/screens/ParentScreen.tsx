@@ -7,6 +7,8 @@ import React, {
 } from 'react';
 import {
   Alert,
+  FlatList,
+  Modal,
   Pressable,
   Switch,
   Text,
@@ -16,6 +18,9 @@ import {
 } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import DateTimePicker from '@react-native-community/datetimepicker';
+
+import { NotificationService } from '../services/NotificationService';
 
 import { AppCard } from '../components/AppCard';
 import { ChildProfileCard } from '../components/ChildProfileCard';
@@ -107,6 +112,8 @@ export function ParentScreen({ navigation }: Props) {
   const childAge = childProfile.birthYear
     ? new Date().getFullYear() - childProfile.birthYear
     : undefined;
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [showYearPicker, setShowYearPicker] = useState(false);
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -490,6 +497,26 @@ export function ParentScreen({ navigation }: Props) {
     const next = !reminderEnabled;
     setReminderEnabled(next);
     await saveParentSettings({ reminderEnabled: next });
+    if (next) {
+      await NotificationService.scheduleDailyReminder(reminderTime);
+    } else {
+      await NotificationService.cancelDailyReminder();
+    }
+  };
+
+  const handleTimeChange = async (event: any, selectedDate?: Date) => {
+    setShowTimePicker(false);
+    if (selectedDate) {
+      const hours = selectedDate.getHours().toString().padStart(2, '0');
+      const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      setReminderTime(timeString);
+      await saveParentSettings({ reminderTime: timeString });
+      
+      if (reminderEnabled) {
+        await NotificationService.scheduleDailyReminder(timeString);
+      }
+    }
   };
 
   const handleToggleLesson = async (lessonId: string) => {
@@ -1369,26 +1396,66 @@ export function ParentScreen({ navigation }: Props) {
                 <View style={styles.settingTextGroup}>
                   <Text style={styles.settingsFieldLabel}>Năm sinh</Text>
                 </View>
-                <TextInput
+                <Pressable
                   style={styles.settingsTextInputSmall}
-                  value={childProfile.birthYear?.toString() ?? ''}
-                  onChangeText={text => {
-                    const num = parseInt(text, 10);
-                    const next = {
-                      ...childProfile,
-                      birthYear: Number.isNaN(num) ? undefined : num,
-                    };
-                    setChildProfile(next);
-                  }}
-                  onBlur={() => {
-                    saveParentSettings({ childProfile });
-                  }}
-                  placeholder="VD: 2021"
-                  placeholderTextColor={colors.muted}
-                  keyboardType="number-pad"
-                  maxLength={4}
-                />
+                  onPress={() => setShowYearPicker(true)}
+                >
+                  <Text style={styles.yearPickerButtonText}>
+                    {childProfile.birthYear?.toString() ?? 'Chọn năm'}
+                  </Text>
+                </Pressable>
               </View>
+
+              <Modal
+                visible={showYearPicker}
+                transparent
+                animationType="slide"
+                onRequestClose={() => setShowYearPicker(false)}
+              >
+                <Pressable
+                  style={styles.yearPickerOverlay}
+                  onPress={() => setShowYearPicker(false)}
+                >
+                  <View style={styles.yearPickerSheet}>
+                    <View style={styles.yearPickerHeader}>
+                      <Text style={styles.yearPickerTitle}>Chọn năm sinh của bé</Text>
+                    </View>
+                    <FlatList
+                      data={Array.from({ length: 50 }, (_, i) => new Date().getFullYear() - i)}
+                      keyExtractor={item => item.toString()}
+                      renderItem={({ item }) => {
+                        const isSelected = childProfile.birthYear === item;
+                        return (
+                          <Pressable
+                            style={[
+                              styles.yearPickerItem,
+                              isSelected && styles.yearPickerItemSelected,
+                            ]}
+                            onPress={() => {
+                              const next = { ...childProfile, birthYear: item };
+                              setChildProfile(next);
+                              saveParentSettings({ childProfile: next });
+                              setShowYearPicker(false);
+                            }}
+                          >
+                            <Text
+                              style={[
+                                styles.yearPickerItemText,
+                                isSelected && styles.yearPickerItemTextSelected,
+                              ]}
+                            >
+                              {item}
+                            </Text>
+                            {isSelected && (
+                              <Text style={styles.yearPickerCheckmark}>✓</Text>
+                            )}
+                          </Pressable>
+                        );
+                      }}
+                    />
+                  </View>
+                </Pressable>
+              </Modal>
             </AppCard>
 
             <AppCard style={styles.learningSettingsCard}>
@@ -1526,20 +1593,37 @@ export function ParentScreen({ navigation }: Props) {
                 <View style={styles.reminderClock}>
                   <Text style={styles.reminderClockText}>⏰</Text>
                 </View>
-                <View style={styles.reminderCopy}>
+                <Pressable
+                  style={styles.reminderCopy}
+                  onPress={() => setShowTimePicker(true)}
+                >
                   <Text style={styles.reminderTitle}>Nhắc bé học</Text>
                   <Text style={styles.reminderSubtitle}>
                     {reminderEnabled
-                      ? 'Đang nhắc mỗi ngày lúc ' + reminderTime
+                      ? `Đang nhắc mỗi ngày lúc ${reminderTime} ✎`
                       : 'Bật nhắc học vào giờ bé thoải mái nhất'}
                   </Text>
-                </View>
+                </Pressable>
                 <Switch
                   value={reminderEnabled}
                   onValueChange={handleToggleReminder}
                   trackColor={{ false: colors.border, true: colors.primary }}
                 />
               </View>
+              {showTimePicker && (
+                <DateTimePicker
+                  value={(() => {
+                    const d = new Date();
+                    const [h, m] = reminderTime.split(':').map(Number);
+                    d.setHours(h);
+                    d.setMinutes(m);
+                    return d;
+                  })()}
+                  mode="time"
+                  display="spinner"
+                  onChange={handleTimeChange}
+                />
+              )}
 
               <View style={styles.appSettingsDivider} />
 
@@ -3127,5 +3211,56 @@ const styles = createThemedStyles(() => ({
   wordSectionLabel: {
     color: colors.textSoft,
     ...typography.caption,
+  },
+  yearPickerButtonText: {
+    color: colors.text,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  yearPickerCheckmark: {
+    color: colors.primary,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  yearPickerHeader: {
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    paddingBottom: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.md,
+  },
+  yearPickerItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  yearPickerItemSelected: {
+    backgroundColor: colors.primarySoft ?? colors.surfaceBlue,
+  },
+  yearPickerItemText: {
+    color: colors.text,
+    ...typography.body,
+  },
+  yearPickerItemTextSelected: {
+    color: colors.primary,
+    fontWeight: '700',
+  },
+  yearPickerOverlay: {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  yearPickerSheet: {
+    backgroundColor: colors.surface,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    maxHeight: 380,
+    paddingBottom: spacing.xl,
+  },
+  yearPickerTitle: {
+    color: colors.text,
+    ...typography.subtitle,
   },
 }));
