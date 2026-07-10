@@ -1,4 +1,4 @@
-import type { ImageSourcePropType } from 'react-native';
+import { Image, type ImageSourcePropType } from 'react-native';
 
 import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 
@@ -32,4 +32,20 @@ export function resolveAsset(source: string): ImageSourcePropType | undefined {
   }
 
   return undefined;
+}
+
+export async function prefetchAssets(sources: string[]) {
+  if (!remoteAssetsConfig.preferRemoteImages) {
+    return;
+  }
+
+  const remoteUrls = Array.from(
+    new Set(
+      sources
+        .map(source => getRemoteAssetUrl(source))
+        .filter((source): source is string => !!source),
+    ),
+  );
+
+  await Promise.allSettled(remoteUrls.map(remoteUrl => Image.prefetch(remoteUrl)));
 }

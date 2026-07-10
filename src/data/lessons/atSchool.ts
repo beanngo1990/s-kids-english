@@ -26,11 +26,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '👩‍🏫',
       background: imageAsset(
         'classroom-bg',
-        'lessons/at-school/classroom/images/background.png',
+        'lessons/at-school/classroom/images/background.webp',
       ),
       character: characterObject(
         'classroom-baby',
-        'lessons/at-school/classroom/images/baby.png',
+        'lessons/at-school/classroom/images/baby.webp',
         {
           height: 42,
           width: 24,
@@ -52,7 +52,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-teacher',
           asset: imageAsset(
             'teacher',
-            'lessons/at-school/classroom/images/teacher.png',
+            'lessons/at-school/classroom/images/teacher.webp',
           ),
           defaultAnimation: 'wave',
           isInteractive: true,
@@ -75,7 +75,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-desk',
           asset: imageAsset(
             'desk',
-            'lessons/at-school/classroom/images/desk.png',
+            'lessons/at-school/classroom/images/desk.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -98,7 +98,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-chair',
           asset: imageAsset(
             'chair',
-            'lessons/at-school/classroom/images/chair.png',
+            'lessons/at-school/classroom/images/chair.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -121,7 +121,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-board',
           asset: imageAsset(
             'board',
-            'lessons/at-school/classroom/images/board.png',
+            'lessons/at-school/classroom/images/board.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -148,7 +148,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-room',
           asset: imageAsset(
             'classroom',
-            'lessons/at-school/classroom/images/classroom.png',
+            'lessons/at-school/classroom/images/classroom.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -174,7 +174,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-hand',
           asset: imageAsset(
             'hand',
-            'lessons/at-school/classroom/images/hand.png',
+            'lessons/at-school/classroom/images/hand.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -506,11 +506,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '✏️',
       background: imageAsset(
         'supplies-bg',
-        'lessons/at-school/school-supplies/images/background.png',
+        'lessons/at-school/school-supplies/images/background.webp',
       ),
       character: characterObject(
         'supplies-baby',
-        'lessons/at-school/school-supplies/images/baby.png',
+        'lessons/at-school/school-supplies/images/baby.webp',
         {
           height: 38,
           width: 22,
@@ -534,7 +534,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-book',
           asset: imageAsset(
             'book',
-            'lessons/at-school/school-supplies/images/book.png',
+            'lessons/at-school/school-supplies/images/book.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -557,7 +557,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-pencil',
           asset: imageAsset(
             'pencil',
-            'lessons/at-school/school-supplies/images/pencil.png',
+            'lessons/at-school/school-supplies/images/pencil.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -580,7 +580,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-crayon',
           asset: imageAsset(
             'crayon',
-            'lessons/at-school/school-supplies/images/crayon.png',
+            'lessons/at-school/school-supplies/images/crayon.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -603,7 +603,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-notebook',
           asset: imageAsset(
             'notebook',
-            'lessons/at-school/school-supplies/images/notebook.png',
+            'lessons/at-school/school-supplies/images/notebook.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -630,7 +630,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-eraser',
           asset: imageAsset(
             'eraser',
-            'lessons/at-school/school-supplies/images/eraser.png',
+            'lessons/at-school/school-supplies/images/eraser.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -656,7 +656,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-ruler',
           asset: imageAsset(
             'ruler',
-            'lessons/at-school/school-supplies/images/ruler.png',
+            'lessons/at-school/school-supplies/images/ruler.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -682,7 +682,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-circle',
           asset: imageAsset(
             'circle',
-            'lessons/at-school/school-supplies/images/circle.png',
+            'lessons/at-school/school-supplies/images/circle.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: false,
@@ -1076,11 +1076,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '✋',
       background: imageAsset(
         'teacher-instructions-bg',
-        'lessons/at-school/teacher-instructions/images/background.png',
+        'lessons/at-school/teacher-instructions/images/background.webp',
       ),
       character: characterObject(
         'instructions-baby',
-        'lessons/at-school/teacher-instructions/images/baby.png',
+        'lessons/at-school/teacher-instructions/images/baby.webp',
         {
           height: 42,
           width: 24,
@@ -1105,7 +1105,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-teacher',
           asset: imageAsset(
             'teacher',
-            'lessons/at-school/teacher-instructions/images/teacher.png',
+            'lessons/at-school/teacher-instructions/images/teacher.webp',
           ),
           defaultAnimation: 'wave',
           isInteractive: true,
@@ -1128,7 +1128,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-book',
           asset: imageAsset(
             'book',
-            'lessons/at-school/teacher-instructions/images/book.png',
+            'lessons/at-school/teacher-instructions/images/book.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -1151,7 +1151,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-pencil',
           asset: imageAsset(
             'pencil',
-            'lessons/at-school/teacher-instructions/images/pencil.png',
+            'lessons/at-school/teacher-instructions/images/pencil.webp',
           ),
           isInteractive: true,
           position: {
@@ -1173,7 +1173,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-notebook',
           asset: imageAsset(
             'notebook',
-            'lessons/at-school/teacher-instructions/images/notebook.png',
+            'lessons/at-school/teacher-instructions/images/notebook.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -1199,7 +1199,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-crayon',
           asset: imageAsset(
             'crayon',
-            'lessons/at-school/teacher-instructions/images/crayon.png',
+            'lessons/at-school/teacher-instructions/images/crayon.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -1224,7 +1224,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-hand',
           asset: imageAsset(
             'hand',
-            'lessons/at-school/teacher-instructions/images/hand.png',
+            'lessons/at-school/teacher-instructions/images/hand.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -1250,7 +1250,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-cleanup-box',
           asset: imageAsset(
             'box',
-            'lessons/at-school/teacher-instructions/images/box.png',
+            'lessons/at-school/teacher-instructions/images/box.webp',
           ),
           isInteractive: true,
           learningScope: {

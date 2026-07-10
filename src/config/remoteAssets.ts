@@ -1,8 +1,16 @@
+import {
+  remoteAssetRelease,
+  remoteImageRevision,
+} from './generatedAssetRelease';
+
+const publicAssetRoot =
+  'https://pub-4b4ed99067d94d3f8d25b7270982970a.r2.dev';
+
 export const remoteAssetsConfig = {
   /**
    * Public R2 URL for remote asset loading.
    */
-  baseUrl: 'https://pub-4b4ed99067d94d3f8d25b7270982970a.r2.dev/v1',
+  baseUrl: `${publicAssetRoot}/${remoteAssetRelease}`,
   cacheRemoteAssets: true,
   preferRemoteImages: true,
 };
@@ -15,5 +23,10 @@ export function getRemoteAssetUrl(assetKey: string) {
   const baseUrl = remoteAssetsConfig.baseUrl.replace(/\/+$/u, '');
   const normalizedKey = assetKey.replace(/^\/+/u, '');
 
-  return `${baseUrl}/${normalizedKey}`;
+  const remoteUrl = `${baseUrl}/${normalizedKey}`;
+  const isImage = /\.(?:avif|gif|jpe?g|png|webp)$/iu.test(normalizedKey);
+
+  return isImage
+    ? `${remoteUrl}?rev=${encodeURIComponent(remoteImageRevision)}`
+    : remoteUrl;
 }

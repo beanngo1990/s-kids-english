@@ -24,9 +24,9 @@ Keep lesson-specific assets with the mini-scene that owns them:
 ```text
 src/assets/lessons/<lesson-pack-id>/<scene-id>/
   images/
-    background.png
-    baby.png
-    <object>.png
+    background.webp
+    baby.webp
+    <object>.webp
   audio/
     en/
       <word>.wav
@@ -69,7 +69,33 @@ npm run generate:audio -- --limit=10
 ```
 
 Generated source files that are useful for re-cutting assets should mirror the
-same lesson/scene folder under `src/assets/source/lessons/`.
+same lesson/scene folder under `src/assets/source/lessons/`. Final lossless PNG
+masters live under `src/assets/source/master/lessons/`; WebP files under
+`src/assets/lessons/` are generated and must not be edited manually.
+
+## Image Asset Pipeline
+
+Add or replace the final PNG master, then build and validate the generated
+WebP output:
+
+```bash
+npm run assets:audit -- --lesson=my-lesson
+npm run assets:build -- --lesson=my-lesson
+npm run assets:verify -- --lesson=my-lesson
+npm run upload:r2:dry-run -- --lesson=my-lesson
+npm run upload:r2 -- --lesson=my-lesson
+npm run r2:verify -- --lesson=my-lesson
+```
+
+The build selects a 512, 768, or 1024 pixel object profile from the maximum
+scene position, uses up to 1280 pixels for large characters, and 2048 pixels
+for backgrounds. It never enlarges a master image. Configuration and per-asset
+overrides live in `scripts/assets/config.mjs`.
+
+R2 uses the `v1` prefix. Generated URLs include an image manifest revision so
+an iPad does not reuse a stale device cache after the R2/CDN cache is purged.
+Use `npm run r2:clear -- --prefix=v1/` to preview a purge; destructive execution
+requires `--apply` and the confirmation printed by the script.
 
 ## Prefer Helpers
 

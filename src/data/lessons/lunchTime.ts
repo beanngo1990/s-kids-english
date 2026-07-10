@@ -1403,7 +1403,7 @@ function sceneImage(sceneId: LunchSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: LunchSceneId, assetName: string) {
-  return `lessons/lunch-time/${sceneId}/images/${assetName}.png`;
+  return `lessons/lunch-time/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {
