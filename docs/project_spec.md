@@ -238,8 +238,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   dashboard, mô tả lesson/theme, parent tips và prompt data vẫn Vietnamese-first.
 - **Partial:** `teacherPromptMode` (`vi`/`en`/`bilingual`) được persist và chọn trong Parent UI.
   ScenePlayer instruction audio/display dùng `instructionVi` và `promptText` để phát Vietnamese,
-  English cue hoặc song ngữ. Success/fail feedback và nhiều lesson prompt vẫn chưa có bản dịch
-  English đầy đủ.
+  English cue hoặc song ngữ. Scene success/fail feedback, speech-practice prompt/encouragement và
+  memory review intro cũng đi qua teacher prompt resolver. Vì lesson data chưa có bản dịch
+  feedback English đầy đủ, English/bilingual feedback dùng cue an toàn như “Great job!” hoặc
+  “Try again.” khi chỉ có bản Việt.
 
 ### Scene learning
 
@@ -247,6 +249,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Teacher instruction resolver hỗ trợ Vietnamese, English cue hoặc bilingual dựa trên
   `teacherPromptMode`; English cue dùng `SceneStep.promptText` khi có và fallback Vietnamese khi
   thiếu.
+- Teacher feedback resolver hỗ trợ success/fail display/audio theo `teacherPromptMode`; feedback
+  cụ thể từ lesson vẫn là `successFeedbackVi`/`failFeedbackVi`, còn English fallback hiện là cue
+  chung cho tới khi schema/data có bản dịch chi tiết.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
   vocabulary và phát âm mục tiêu vẫn luôn là English.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
@@ -354,8 +359,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 
 `AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
-không được làm lesson flow kẹt. Teacher prompt mode English/bilingual hiện dùng `promptText` và
-TTS/audio fallback hiện có; chưa có generated English teacher prompt audio đầy đủ cho mọi step.
+không được làm lesson flow kẹt. Teacher prompt mode English/bilingual dùng `promptText`, shared
+English cues và generated audio manifest khi có asset; nếu English prompt audio chưa được generate
+hoặc chưa có trên R2 thì fallback sang native TTS.
 
 ### Native support matrix
 
@@ -396,14 +402,14 @@ trong `docs/asset-pipeline.md`.
 
 ### Generated lesson audio
 
-- English word audio: `audio/en/*.wav`.
+- English vocabulary và teacher prompt/cue audio: `audio/en/*.wav`.
 - Vietnamese instruction/feedback: `audio/vi/*.wav`.
+- Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
 - `generateMissingAudio.mjs` scan registered catalog, tạo missing files và cập nhật
   `src/data/audioManifest.ts`.
-- **Open decision/pipeline drift:** `GeneratedAudioRegistry.ts` hiện cố ý để trống để audio tải
-  qua R2, nhưng generator vẫn rewrite file này thành bundled `require(...)`, kể cả
-  `--manifest-only`. Không chạy hoặc commit generation output cho đến khi task xác định remote-only
-  hay bundled fallback và xử lý generator tương ứng.
+- `GeneratedAudioRegistry.ts` cố ý để trống cho R2-first lesson audio. Generator giữ file này
+  nguyên trạng mặc định, kể cả `--manifest-only`; chỉ rewrite bundled `require(...)` khi chạy với
+  `--write-bundled-registry`.
 - TTS generation cần Google auth; luôn preview bằng `npm run generate:audio:dry-run` và đọc số
   `Missing files`. Dry-run có thể exit `0` dù vẫn còn missing audio.
 
@@ -465,9 +471,9 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng 2026-07-13:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 64/67 tests pass; failures còn ở speech recording fallback timing và reward/review
+- Jest: 65/68 tests pass; failures còn ở speech recording fallback timing và reward/review
   expectations.
-- ESLint: còn 1 error và 4 warnings trong baseline.
+- ESLint: pass với 4 warnings trong baseline.
 - Repository chưa có tracked CI workflow.
 
 Các con số này là snapshot, không thay thế việc chạy checks. Cập nhật hoặc xóa mục này ngay khi

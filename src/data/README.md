@@ -12,10 +12,9 @@ should be a short mini-scene that can be completed independently.
 4. Add bundled images to `AssetRegistry.ts` only when the asset is local.
 5. Run `npm run generate:audio:dry-run` to preview missing audio and inspect the
    printed `Missing files` count; exit code `0` does not mean the count is zero.
-   Do not run `npm run generate:audio` until the R2-only registry conflict below
-   has been resolved for the task. Newly generated files are trimmed
-   automatically. Run `npm run trim:audio` to apply the same cleanup to existing
-   TTS files.
+   Run real generation only when Google TTS auth/network access and the file
+   changes are in scope. Newly generated files are trimmed automatically. Run
+   `npm run trim:audio` to apply the same cleanup to existing TTS files.
 6. Run `npm test -- --runInBand`.
 
 ## Asset Layout
@@ -30,7 +29,7 @@ src/assets/lessons/<lesson-pack-id>/<scene-id>/
     <object>.webp
   audio/
     en/
-      <word>.wav
+      <word_or_teacher_prompt>.wav
     vi/
       intro.wav
       <action_or_feedback>.wav
@@ -40,32 +39,35 @@ Keep reusable assets outside lesson folders:
 
 ```text
 src/assets/shared/audio/sfx/
+src/assets/shared/audio/en/
 src/assets/shared/audio/vi/
 ```
 
 ## Audio Generation
 
 `scripts/generateMissingAudio.mjs` scans the registered lesson catalog, builds
-English word audio plus Vietnamese instruction/feedback audio, skips files that
-already exist, and rewrites:
+English vocabulary/prompt audio plus Vietnamese instruction/feedback audio,
+skips files that already exist, and rewrites:
 
 ```text
 src/data/audioManifest.ts
-src/engine/GeneratedAudioRegistry.ts
 ```
 
-### Current R2-only registry conflict
+English lesson audio comes from vocabulary words, `SceneStep.promptText`, scene
+completion cues and shared teacher prompts such as speech-practice and generic
+feedback. Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
+`failFeedbackVi`, completion messages and shared Vietnamese prompts. Bilingual
+teacher mode does not have its own generated files; runtime plays the Vietnamese
+segment and then the English segment.
+
+### R2-first registry mode
 
 The checked-in `GeneratedAudioRegistry.ts` is intentionally empty so lesson
-audio loads from R2. The generator currently scans all local WAV/MP3 files and
-rewrites that registry with bundled `require(...)` entries, including in
-`--manifest-only` mode. Running or committing the generator output can therefore
-bundle the complete lesson-audio catalog and change the runtime delivery model.
-
-Until the generator has an explicit remote-only mode, do not run
-`generate:audio` or `--manifest-only` as a routine refresh. A task that genuinely
-needs generation must first decide whether audio remains R2-only or gains a
-bundled fallback, then update the generator and documentation consistently.
+audio loads from R2. The generator leaves this registry unchanged by default,
+including in `--manifest-only` mode. Use `--write-bundled-registry` only for a
+task that deliberately changes the delivery model or adds a bundled fallback.
+Routine audio generation should keep the registry empty and update
+`src/data/audioManifest.ts` plus the local WAV files only.
 
 Use Google Cloud Text-to-Speech auth through one of:
 
@@ -80,6 +82,8 @@ Optional filters:
 ```bash
 npm run generate:audio -- --lesson=morning-routine --scene=bathroom
 npm run generate:audio -- --limit=10
+npm run generate:audio -- --manifest-only
+npm run generate:audio -- --manifest-only --write-bundled-registry
 ```
 
 Generated source files that are useful for re-cutting assets should mirror the

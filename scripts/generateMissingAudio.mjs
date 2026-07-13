@@ -280,6 +280,9 @@ const speechPromptsModule = loadTsModule(
 const reviewGamePromptsModule = loadTsModule(
   join(repoRoot, 'src/data/reviewGamePrompts.ts'),
 );
+const teacherPromptsModule = loadTsModule(
+  join(repoRoot, 'src/i18n/teacherPrompts.ts'),
+);
 const mascotPromptsModule = loadTsModule(
   join(repoRoot, 'src/data/mascotPrompts.ts'),
 );
@@ -297,6 +300,7 @@ const audioTargets = collectAudioTargets(lessons, {
   mascotPrompts: mascotPromptsModule,
   reviewGamePrompts: reviewGamePromptsModule,
   speechPrompts: speechPromptsModule,
+  teacherPrompts: teacherPromptsModule,
 });
 const selectedAudioTargets = collectAudioTargets(lessons, {
   existingViAudio,
@@ -306,6 +310,7 @@ const selectedAudioTargets = collectAudioTargets(lessons, {
   reviewGamePrompts: reviewGamePromptsModule,
   sceneId: args.scene,
   speechPrompts: speechPromptsModule,
+  teacherPrompts: teacherPromptsModule,
 });
 const missingTargets = selectedAudioTargets.filter(
   target => args.force || !existsSync(join(repoRoot, 'src/assets', target.key)),
@@ -319,15 +324,20 @@ if (args.dryRun) {
 }
 
 if (!args.manifestOnly) {
-  const auth = getGoogleAuth();
   const limitedTargets =
     args.limit === undefined
       ? missingTargets
       : missingTargets.slice(0, args.limit);
 
-  for (const [index, target] of limitedTargets.entries()) {
-    await synthesizeTarget(target, auth);
-    console.log(`wrote ${target.key} (${index + 1}/${limitedTargets.length})`);
+  if (limitedTargets.length > 0) {
+    const auth = getGoogleAuth();
+
+    for (const [index, target] of limitedTargets.entries()) {
+      await synthesizeTarget(target, auth);
+      console.log(
+        `wrote ${target.key} (${index + 1}/${limitedTargets.length})`,
+      );
+    }
   }
 
   if (args.limit !== undefined && missingTargets.length > args.limit) {
@@ -340,7 +350,13 @@ if (!args.manifestOnly) {
 }
 
 writeAudioManifest(audioTargets);
-writeGeneratedAudioRegistry();
+if (args.writeBundledRegistry) {
+  writeGeneratedAudioRegistry();
+} else {
+  console.log(
+    'kept src/engine/GeneratedAudioRegistry.ts unchanged (R2-first audio)',
+  );
+}
 
 function parseArgs(rawArgs) {
   const options = {
@@ -350,6 +366,7 @@ function parseArgs(rawArgs) {
     limit: undefined,
     manifestOnly: false,
     scene: undefined,
+    writeBundledRegistry: false,
   };
 
   for (const arg of rawArgs) {
@@ -363,6 +380,10 @@ function parseArgs(rawArgs) {
     }
     if (arg === '--manifest-only') {
       options.manifestOnly = true;
+      continue;
+    }
+    if (arg === '--write-bundled-registry') {
+      options.writeBundledRegistry = true;
       continue;
     }
     if (arg.startsWith('--lesson=')) {
@@ -408,7 +429,11 @@ Usage:
 
 Options:
   --dry-run, -n       List missing files without writing or calling Google TTS.
-  --manifest-only    Rewrite audioManifest and GeneratedAudioRegistry only.
+  --manifest-only    Rewrite audioManifest only; pair with --write-bundled-registry
+                     to also rewrite GeneratedAudioRegistry.
+  --write-bundled-registry
+                     Rewrite GeneratedAudioRegistry with bundled require() entries.
+                     Default leaves it unchanged for R2-first lesson audio.
   --force            Regenerate files even if they already exist.
   --lesson=<id>      Limit to one lesson pack.
   --scene=<id>       Limit to one scene.
@@ -431,6 +456,7 @@ function collectAudioTargets(
     reviewGamePrompts,
     sceneId,
     speechPrompts,
+    teacherPrompts,
   },
 ) {
   const targets = new Map();
@@ -455,6 +481,18 @@ function collectAudioTargets(
       }
 
       for (const step of scene.steps ?? []) {
+        if (step.promptText?.trim()) {
+          addEnglishPromptTarget(targets, {
+            defaultKey: getEnglishStepAudioKey(
+              lesson.id,
+              scene.id,
+              step.id,
+              step.promptText,
+            ),
+            existingWordAudio,
+            text: step.promptText,
+          });
+        }
         addViTarget(targets, {
           defaultKey: getStepAudioKey(
             lesson.id,
@@ -504,8 +542,80 @@ function collectAudioTargets(
           text: scene.completionReward.messageVi,
         });
       }
+
+      const completionPromptEn = getEnglishSegment(
+        teacherPrompts.resolveSceneCompletionPrompt(scene, 'en'),
+      );
+      addEnglishPromptTarget(targets, {
+        defaultKey: getEnglishCompletionAudioKey(
+          lesson.id,
+          scene.id,
+          completionPromptEn,
+        ),
+        existingWordAudio,
+        text: completionPromptEn,
+      });
     }
   }
+
+  const speechPromptEn = getEnglishSegment(
+    teacherPrompts.resolveSpeechPracticePrompt('en'),
+  );
+  const recordingEncouragementEn = getEnglishSegment(
+    teacherPrompts.resolveRecordingEncouragementPrompt('en'),
+  );
+  const successFeedbackEn = getEnglishSegment(
+    teacherPrompts.resolveTeacherFeedback({
+      mode: 'en',
+      type: 'success',
+    }),
+  );
+  const failFeedbackEn = getEnglishSegment(
+    teacherPrompts.resolveTeacherFeedback({
+      mode: 'en',
+      type: 'fail',
+    }),
+  );
+  const memoryGameIntroEn = getEnglishSegment(
+    teacherPrompts.resolveReviewGameIntroPrompt('memory', 'en'),
+  );
+  const reviewGameIntroEn = getEnglishSegment(
+    teacherPrompts.resolveReviewGameIntroPrompt(undefined, 'en'),
+  );
+
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey('speak_prompt', speechPromptEn),
+    existingWordAudio,
+    text: speechPromptEn,
+  });
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey(
+      'recording_encouragement',
+      recordingEncouragementEn,
+    ),
+    existingWordAudio,
+    text: recordingEncouragementEn,
+  });
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey('feedback_success', successFeedbackEn),
+    existingWordAudio,
+    text: successFeedbackEn,
+  });
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey('feedback_fail', failFeedbackEn),
+    existingWordAudio,
+    text: failFeedbackEn,
+  });
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey('memory_game_intro', memoryGameIntroEn),
+    existingWordAudio,
+    text: memoryGameIntroEn,
+  });
+  addSharedEnglishTarget(targets, {
+    defaultKey: getSharedEnglishAudioKey('review_game_intro', reviewGameIntroEn),
+    existingWordAudio,
+    text: reviewGameIntroEn,
+  });
 
   addSharedViTarget(targets, {
     defaultKey: 'shared/audio/vi/speak_prompt.wav',
@@ -541,14 +651,24 @@ function collectAudioTargets(
 }
 
 function addWordTarget(targets, { existingWordAudio, lesson, scene, text }) {
+  addEnglishPromptTarget(targets, {
+    defaultKey: `lessons/${lesson.id}/${scene.id}/audio/en/${slug(text)}.wav`,
+    existingWordAudio,
+    text,
+  });
+}
+
+function addEnglishPromptTarget(targets, { defaultKey, existingWordAudio, text }) {
   if (!text?.trim()) {
     return;
   }
 
   const existingAsset = existingWordAudio?.(text);
-  const key =
-    existingAsset?.key ??
-    `lessons/${lesson.id}/${scene.id}/audio/en/${slug(text)}.wav`;
+  const key = existingAsset?.key ?? defaultKey;
+
+  if (!key) {
+    throw new Error(`Missing English audio key for "${text}".`);
+  }
 
   addTarget(targets, {
     key,
@@ -557,6 +677,10 @@ function addWordTarget(targets, { existingWordAudio, lesson, scene, text }) {
     lookupText: text,
     text: existingAsset?.text ?? text,
   });
+}
+
+function addSharedEnglishTarget(targets, input) {
+  addEnglishPromptTarget(targets, input);
 }
 
 function addViTarget(targets, { defaultKey, existingViAudio, text }) {
@@ -605,14 +729,43 @@ function getStepAudioKey(lessonId, sceneId, stepId, part, text) {
   )}.wav`;
 }
 
+function getEnglishStepAudioKey(lessonId, sceneId, stepId, text) {
+  const stepSlug = slug(stripScenePrefix(sceneId, stepId));
+  return `lessons/${lessonId}/${sceneId}/audio/en/prompt_${stepSlug}_${textDigest(
+    text,
+  )}.wav`;
+}
+
 function getCompletionAudioKey(lessonId, sceneId, text) {
   return `lessons/${lessonId}/${sceneId}/audio/vi/completion_${textDigest(
     text,
   )}.wav`;
 }
 
+function getEnglishCompletionAudioKey(lessonId, sceneId, text) {
+  return `lessons/${lessonId}/${sceneId}/audio/en/completion_${textDigest(
+    text,
+  )}.wav`;
+}
+
+function getSharedEnglishAudioKey(name, text) {
+  return `shared/audio/en/${name}_${textDigest(text)}.wav`;
+}
+
 function getSungyAudioKey(text) {
   return `shared/audio/vi/sungy/${slug(text)}_${textDigest(text)}.wav`;
+}
+
+function getEnglishSegment(resolution) {
+  const text = resolution.segments.find(
+    segment => segment.language === 'en',
+  )?.text;
+
+  if (!text?.trim()) {
+    throw new Error('Teacher prompt resolution did not include English text.');
+  }
+
+  return text;
 }
 
 function stripScenePrefix(sceneId, stepId) {
@@ -697,8 +850,8 @@ async function synthesizeTarget(target, auth) {
 }
 
 function writeAudioManifest(targets) {
-  const wordTargets = targets.filter(target => target.kind === 'word');
-  const viTargets = targets.filter(target => target.kind === 'vi');
+  const enTargets = targets.filter(target => target.language === 'en');
+  const viTargets = targets.filter(target => target.language === 'vi');
   const manifestPath = join(repoRoot, 'src/data/audioManifest.ts');
   const lines = [
     'export type RemoteAudioAsset = {',
@@ -706,8 +859,8 @@ function writeAudioManifest(targets) {
     '  text: string;',
     '};',
     '',
-    'const wordAudioByWord: Record<string, RemoteAudioAsset> = {',
-    ...wordTargets.map(formatAudioMapEntry),
+    'const enAudioByText: Record<string, RemoteAudioAsset> = {',
+    ...enTargets.map(formatAudioMapEntry),
     '};',
     '',
     'const viAudioByText: Record<string, RemoteAudioAsset> = {',
@@ -715,7 +868,7 @@ function writeAudioManifest(targets) {
     '};',
     '',
     'export function getWordAudioAsset(word: string) {',
-    '  return wordAudioByWord[normalizeText(word)];',
+    '  return enAudioByText[normalizeText(word)];',
     '}',
     '',
     'export function getViAudioAsset(text: string) {',

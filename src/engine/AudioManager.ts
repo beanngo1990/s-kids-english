@@ -3,6 +3,7 @@ import {
   getWordAudioAsset,
   type RemoteAudioAsset,
 } from '../data/audioManifest';
+import type { TeacherPromptSegment } from '../i18n/teacherPrompts';
 import type { SceneSoundEffect } from '../types/lesson';
 import { resolveRemoteAssetUri } from './AssetCacheManager';
 
@@ -99,6 +100,18 @@ export async function speakVi(text: string) {
     pitch: 1,
     rate: 0.9,
   });
+}
+
+export async function speakTeacherPromptSegments(
+  segments: TeacherPromptSegment[],
+) {
+  for (const segment of segments) {
+    if (segment.language === 'en') {
+      await speakWord(segment.text);
+    } else {
+      await speakVi(segment.text);
+    }
+  }
 }
 
 export async function playCorrectSound() {
