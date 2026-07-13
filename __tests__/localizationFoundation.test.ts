@@ -10,8 +10,11 @@ import {
   getLocalizedThemeTitle,
 } from '../src/i18n/domainCopy';
 import {
+  resolveRecordingEncouragementPrompt,
+  resolveReviewGameIntroPrompt,
   resolveSceneCompletionPrompt,
   resolveSpeechPracticePrompt,
+  resolveTeacherFeedback,
   resolveTeacherInstruction,
 } from '../src/i18n/teacherPrompts';
 import {
@@ -137,4 +140,38 @@ test('provides speech practice and completion prompt fallbacks', () => {
   expect(resolveSceneCompletionPrompt(scene, 'en').displayText).toBe(
     'Bedroom is complete.',
   );
+});
+
+test('resolves feedback, recording encouragement and review intro by teacher prompt mode', () => {
+  expect(
+    resolveTeacherFeedback({
+      mode: 'en',
+      type: 'success',
+      viText: 'Đúng rồi!',
+    }),
+  ).toEqual({
+    displayText: 'Great job!',
+    segments: [{ language: 'en', text: 'Great job!' }],
+  });
+
+  expect(
+    resolveTeacherFeedback({
+      mode: 'bilingual',
+      type: 'fail',
+      viText: 'Thử lại nhé.',
+    }),
+  ).toEqual({
+    displayText: 'Thử lại nhé.\nTry again.',
+    segments: [
+      { language: 'vi', text: 'Thử lại nhé.' },
+      { language: 'en', text: 'Try again.' },
+    ],
+  });
+
+  expect(resolveRecordingEncouragementPrompt('en').displayText).toBe(
+    'I heard you! Great job!',
+  );
+  expect(resolveReviewGameIntroPrompt('memory', 'en').segments).toEqual([
+    { language: 'en', text: 'Find two matching pictures.' },
+  ]);
 });

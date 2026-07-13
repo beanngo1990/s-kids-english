@@ -8,14 +8,31 @@ import { speakVi } from '../src/engine/AudioManager';
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import type { Scene } from '../src/types/lesson';
 
-jest.mock('../src/engine/AudioManager', () => ({
-  playCorrectSound: jest.fn(() => Promise.resolve()),
-  playSoundEffect: jest.fn(() => Promise.resolve()),
-  playTapSound: jest.fn(() => Promise.resolve()),
-  playWrongSound: jest.fn(() => Promise.resolve()),
-  speakVi: jest.fn(() => Promise.resolve()),
-  speakWord: jest.fn(() => Promise.resolve()),
-}));
+jest.mock('../src/engine/AudioManager', () => {
+  const speakViMock = jest.fn((_text: string) => Promise.resolve());
+  const speakWordMock = jest.fn((_text: string) => Promise.resolve());
+
+  return {
+    playCorrectSound: jest.fn(() => Promise.resolve()),
+    playSoundEffect: jest.fn(() => Promise.resolve()),
+    playTapSound: jest.fn(() => Promise.resolve()),
+    playWrongSound: jest.fn(() => Promise.resolve()),
+    speakTeacherPromptSegments: jest.fn(
+      (segments: Array<{ language: 'en' | 'vi'; text: string }>) =>
+        segments.reduce<Promise<void>>(
+          (promise, segment) =>
+            promise.then(() =>
+              segment.language === 'en'
+                ? speakWordMock(segment.text)
+                : speakViMock(segment.text),
+            ),
+          Promise.resolve(),
+        ),
+    ),
+    speakVi: speakViMock,
+    speakWord: speakWordMock,
+  };
+});
 
 jest.mock('../src/engine/AssetRegistry', () => ({
   prefetchAssets: jest.fn(() => Promise.resolve()),

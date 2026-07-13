@@ -1,5 +1,6 @@
+import { memoryGameIntroPromptVi } from '../data/reviewGamePrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
-import type { Scene, SceneStep } from '../types/lesson';
+import type { ReviewGame, Scene, SceneStep } from '../types/lesson';
 import type { TeacherPromptMode } from './types';
 
 export type TeacherPromptSegment = {
@@ -10,6 +11,15 @@ export type TeacherPromptSegment = {
 export type TeacherPromptResolution = {
   displayText: string;
   segments: TeacherPromptSegment[];
+};
+
+type TeacherFeedbackType = 'fail' | 'success';
+
+type ResolveTeacherFeedbackOptions = {
+  enText?: string;
+  mode: TeacherPromptMode;
+  type: TeacherFeedbackType;
+  viText?: string;
 };
 
 export function resolveTeacherInstruction(
@@ -42,6 +52,40 @@ export function resolveTeacherInstruction(
   };
 }
 
+export function resolveTeacherFeedback({
+  enText,
+  mode,
+  type,
+  viText,
+}: ResolveTeacherFeedbackOptions): TeacherPromptResolution {
+  const fallbackVi = type === 'success' ? 'Giỏi lắm!' : 'Thử lại nhé.';
+  const fallbackEn = type === 'success' ? 'Great job!' : 'Try again.';
+  const resolvedViText = viText?.trim() || fallbackVi;
+  const resolvedEnText = enText?.trim() || fallbackEn;
+
+  if (mode === 'en') {
+    return {
+      displayText: resolvedEnText,
+      segments: [{ language: 'en', text: resolvedEnText }],
+    };
+  }
+
+  if (mode === 'bilingual') {
+    return {
+      displayText: `${resolvedViText}\n${resolvedEnText}`,
+      segments: [
+        { language: 'vi', text: resolvedViText },
+        { language: 'en', text: resolvedEnText },
+      ],
+    };
+  }
+
+  return {
+    displayText: resolvedViText,
+    segments: [{ language: 'vi', text: resolvedViText }],
+  };
+}
+
 export function resolveSpeechPracticePrompt(
   mode: TeacherPromptMode,
 ): TeacherPromptResolution {
@@ -67,6 +111,49 @@ export function resolveSpeechPracticePrompt(
   return {
     displayText: speakPracticePromptVi,
     segments: [{ language: 'vi', text: speakPracticePromptVi }],
+  };
+}
+
+export function resolveRecordingEncouragementPrompt(
+  mode: TeacherPromptMode,
+): TeacherPromptResolution {
+  return resolveTeacherFeedback({
+    enText: 'I heard you! Great job!',
+    mode,
+    type: 'success',
+    viText: 'Cô nghe rồi! Giỏi quá!',
+  });
+}
+
+export function resolveReviewGameIntroPrompt(
+  reviewGameType: ReviewGame['type'] | undefined,
+  mode: TeacherPromptMode,
+): TeacherPromptResolution {
+  const enText =
+    reviewGameType === 'memory'
+      ? 'Find two matching pictures.'
+      : 'Let’s review together.';
+
+  if (mode === 'en') {
+    return {
+      displayText: enText,
+      segments: [{ language: 'en', text: enText }],
+    };
+  }
+
+  if (mode === 'bilingual') {
+    return {
+      displayText: `${memoryGameIntroPromptVi}\n${enText}`,
+      segments: [
+        { language: 'vi', text: memoryGameIntroPromptVi },
+        { language: 'en', text: enText },
+      ],
+    };
+  }
+
+  return {
+    displayText: memoryGameIntroPromptVi,
+    segments: [{ language: 'vi', text: memoryGameIntroPromptVi }],
   };
 }
 

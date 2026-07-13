@@ -11,13 +11,17 @@ import {
 
 import { KidIconButton } from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
-import { speakPracticePromptVi } from '../data/speechPrompts';
 import {
   playSoundEffect,
   playTapSound,
-  speakVi,
+  speakTeacherPromptSegments,
   speakWord,
 } from '../engine/AudioManager';
+import {
+  resolveRecordingEncouragementPrompt,
+  resolveSpeechPracticePrompt,
+} from '../i18n/teacherPrompts';
+import type { TeacherPromptMode } from '../i18n/types';
 import {
   getVoiceRecordingLevel,
   isVoiceRecorderAvailable,
@@ -47,6 +51,7 @@ type SpeakPracticeControlsProps = {
   onBusyChange?: (isBusy: boolean) => void;
   onContinue?: () => void;
   onReplayModel?: () => void;
+  teacherPromptMode?: TeacherPromptMode;
   word: string;
 };
 
@@ -62,6 +67,7 @@ export function SpeakPracticeControls({
   onBusyChange,
   onContinue,
   onReplayModel,
+  teacherPromptMode = 'vi',
   word,
 }: SpeakPracticeControlsProps) {
   useThemeSync();
@@ -151,9 +157,11 @@ export function SpeakPracticeControls({
     setRecordingUri(nextRecordingUri);
     setStatus('recorded');
     await playSoundEffect('yay');
-    await speakVi(t('speakPractice.encourage'));
+    await speakTeacherPromptSegments(
+      resolveRecordingEncouragementPrompt(teacherPromptMode).segments,
+    );
     isFinishingRecordingRef.current = false;
-  }, [t]);
+  }, [teacherPromptMode]);
 
   const handleVoiceLevel = useCallback((level: number | null) => {
     if (
@@ -274,7 +282,9 @@ export function SpeakPracticeControls({
       onAudioStart?.();
 
       if (playPrompt) {
-        await speakVi(speakPracticePromptVi);
+        await speakTeacherPromptSegments(
+          resolveSpeechPracticePrompt(teacherPromptMode).segments,
+        );
         await speakWord(word);
       }
 
@@ -290,7 +300,15 @@ export function SpeakPracticeControls({
       isFinishingRecordingRef.current = false;
       startVoiceActivityMonitoring(word);
     },
-    [disabled, onAudioStart, startVoiceActivityMonitoring, status, t, word],
+    [
+      disabled,
+      onAudioStart,
+      startVoiceActivityMonitoring,
+      status,
+      teacherPromptMode,
+      t,
+      word,
+    ],
   );
 
   useEffect(() => {

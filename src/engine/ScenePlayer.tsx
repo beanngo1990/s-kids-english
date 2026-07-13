@@ -26,10 +26,11 @@ import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
 import {
+  resolveRecordingEncouragementPrompt,
   resolveSceneCompletionPrompt,
   resolveSpeechPracticePrompt,
+  resolveTeacherFeedback,
   resolveTeacherInstruction,
-  type TeacherPromptSegment,
 } from '../i18n/teacherPrompts';
 import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -50,6 +51,7 @@ import {
   playSoundEffect,
   playTapSound,
   playWrongSound,
+  speakTeacherPromptSegments,
   speakVi,
   speakWord,
 } from './AudioManager';
@@ -608,7 +610,11 @@ export function ScenePlayer({
     clearTimer(clearFeedbackTimerRef);
 
     if (result.status === 'incorrect') {
-      const feedbackText = result.feedbackVi ?? t('scene.replayInstructionFallback');
+      const feedbackPrompt = resolveTeacherFeedback({
+        mode: teacherPromptMode,
+        type: 'fail',
+        viText: result.feedbackVi,
+      });
       const nextAttemptCount = currentStep
         ? (wrongAttemptsByStepId[currentStep.id] ?? 0) + 1
         : 1;
@@ -626,10 +632,10 @@ export function ScenePlayer({
       setHintObjectIds(hintIds);
       setShakeObjectIds(dedupeIds([...result.effectObjectIds, ...hintIds]));
       setFeedback({
-        text: feedbackText,
+        text: feedbackPrompt.displayText,
         type: 'fail',
       });
-      runAudio(playInteractionFeedbackAudio('fail', feedbackText));
+      runAudio(playInteractionFeedbackAudio('fail', feedbackPrompt));
       clearFeedbackTimerRef.current = setTimeout(() => {
         setShakeObjectIds([]);
         setHintObjectIds([]);
@@ -637,22 +643,26 @@ export function ScenePlayer({
       return;
     }
 
-    const feedbackText = result.feedbackVi ?? t('scene.successFallback');
+    const feedbackPrompt = resolveTeacherFeedback({
+      mode: teacherPromptMode,
+      type: 'success',
+      viText: result.feedbackVi,
+    });
     setShakeObjectIds([]);
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
     setSuccessObjectEffects(createObjectEffectMap(result.objectEffects));
     setFeedback({
-      text: feedbackText,
+      text: feedbackPrompt.displayText,
       type: 'success',
     });
-    scheduleNextStepAfterFeedback(activeScene, result, feedbackText);
+    scheduleNextStepAfterFeedback(activeScene, result, feedbackPrompt);
   };
 
   const scheduleNextStepAfterFeedback = (
     activeScene: Scene,
     result: StepInteractionResult,
-    feedbackText: string,
+    feedbackPrompt: ReturnType<typeof resolveTeacherFeedback>,
   ) => {
     const requestId = advanceRequestIdRef.current + 1;
     advanceRequestIdRef.current = requestId;
@@ -670,9 +680,9 @@ export function ScenePlayer({
     clearTimer(advanceTimerRef);
     advanceTimerRef.current = setTimeout(() => {
       advanceIfCurrent();
-    }, getFeedbackFallbackDelay(feedbackText));
+    }, getFeedbackFallbackDelay(feedbackPrompt.displayText));
 
-    playInteractionFeedbackAudio('success', feedbackText, result.soundEffect)
+    playInteractionFeedbackAudio('success', feedbackPrompt, result.soundEffect)
       .then(() => delay(260))
       .then(advanceIfCurrent)
       .catch(advanceIfCurrent);
@@ -955,6 +965,7 @@ export function ScenePlayer({
                     : undefined
                 }
                 onReplayModel={handleReplayModelWord}
+                teacherPromptMode={teacherPromptMode}
                 word={speakPracticeWord}
               />
             ) : getStepVocabulary(currentScene, currentStep) ? (
@@ -1244,6 +1255,10 @@ function getSceneAudioAssets(scene: Scene) {
   }
 
   for (const step of scene.steps) {
+    if (step.promptText) {
+      const promptAsset = getWordAudioAsset(step.promptText);
+      if (promptAsset) assets.push(promptAsset);
+    }
     if (step.instructionVi) {
       const instructionAsset = getViAudioAsset(step.instructionVi);
       if (instructionAsset) assets.push(instructionAsset);
@@ -1258,6 +1273,11 @@ function getSceneAudioAssets(scene: Scene) {
     }
   }
 
+  for (const text of getSceneEnglishAudioTexts(scene)) {
+    const englishAsset = getWordAudioAsset(text);
+    if (englishAsset) assets.push(englishAsset);
+  }
+
   const urlsToKeys = new Map<string, string>();
   for (const asset of assets) {
     const remoteUrl = getRemoteAssetUrl(asset.key);
@@ -1270,6 +1290,24 @@ function getSceneAudioAssets(scene: Scene) {
     remoteUrl,
     cacheKey,
   }));
+}
+
+function getSceneEnglishAudioTexts(scene: Scene) {
+  return [
+    ...resolveSceneCompletionPrompt(scene, 'en').segments,
+    ...resolveSpeechPracticePrompt('en').segments,
+    ...resolveRecordingEncouragementPrompt('en').segments,
+    ...resolveTeacherFeedback({
+      mode: 'en',
+      type: 'success',
+    }).segments,
+    ...resolveTeacherFeedback({
+      mode: 'en',
+      type: 'fail',
+    }).segments,
+  ]
+    .filter(segment => segment.language === 'en')
+    .map(segment => segment.text);
 }
 
 function getObjectLabel(scene: Scene, object: SceneObject) {
@@ -1361,16 +1399,6 @@ async function playObjectVocabularyAudio(word: string) {
   await speakWord(word);
 }
 
-async function playTeacherPromptSegments(segments: TeacherPromptSegment[]) {
-  for (const segment of segments) {
-    if (segment.language === 'en') {
-      await speakWord(segment.text);
-    } else {
-      await speakVi(segment.text);
-    }
-  }
-}
-
 async function playStepAudioSequence(
   scene: Scene,
   step: SceneStep,
@@ -1382,7 +1410,7 @@ async function playStepAudioSequence(
 
   if (step.type === 'teach' && vocabularyItem) {
     if (!isActive()) return;
-    await playTeacherPromptSegments(
+    await speakTeacherPromptSegments(
       resolveTeacherInstruction(step, teacherPromptMode).segments,
     );
 
@@ -1404,7 +1432,7 @@ async function playStepAudioSequence(
     await delay(120);
 
     if (!isActive()) return;
-    await playTeacherPromptSegments(
+    await speakTeacherPromptSegments(
       resolveSpeechPracticePrompt(teacherPromptMode).segments,
     );
 
@@ -1421,7 +1449,7 @@ async function playStepAudioSequence(
   }
 
   if (!isActive()) return;
-  await playTeacherPromptSegments(
+  await speakTeacherPromptSegments(
     resolveTeacherInstruction(step, teacherPromptMode).segments,
   );
 
@@ -1467,7 +1495,7 @@ function runAudio(audioPromise: Promise<void>) {
 
 async function playInteractionFeedbackAudio(
   type: FeedbackState['type'],
-  feedbackText: string,
+  feedbackPrompt: ReturnType<typeof resolveTeacherFeedback>,
   successSoundEffect?: StepInteractionResult['soundEffect'],
 ) {
   if (type === 'success') {
@@ -1481,7 +1509,7 @@ async function playInteractionFeedbackAudio(
   }
 
   await delay(120);
-  await speakVi(feedbackText);
+  await speakTeacherPromptSegments(feedbackPrompt.segments);
 }
 
 async function playSceneCompletionAudio(
@@ -1490,7 +1518,7 @@ async function playSceneCompletionAudio(
 ) {
   await playSoundEffect('complete');
   await delay(140);
-  await playTeacherPromptSegments(
+  await speakTeacherPromptSegments(
     resolveSceneCompletionPrompt(scene, teacherPromptMode).segments,
   );
 }
