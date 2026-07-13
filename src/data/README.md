@@ -10,11 +10,12 @@ should be a short mini-scene that can be completed independently.
 2. Export one `Lesson` with small, ordered mini-scenes in `scenes`.
 3. Add it to `lessonCatalog` in `src/data/lessons.ts`.
 4. Add bundled images to `AssetRegistry.ts` only when the asset is local.
-5. Run `npm run generate:audio:dry-run` to preview missing audio. Run
-   `npm run generate:audio` to create missing Google TTS files and refresh the
-   generated audio manifest/registry.
-   Newly generated files are trimmed automatically. Run `npm run trim:audio`
-   to apply the same cleanup to existing TTS files.
+5. Run `npm run generate:audio:dry-run` to preview missing audio and inspect the
+   printed `Missing files` count; exit code `0` does not mean the count is zero.
+   Do not run `npm run generate:audio` until the R2-only registry conflict below
+   has been resolved for the task. Newly generated files are trimmed
+   automatically. Run `npm run trim:audio` to apply the same cleanup to existing
+   TTS files.
 6. Run `npm test -- --runInBand`.
 
 ## Asset Layout
@@ -46,12 +47,25 @@ src/assets/shared/audio/vi/
 
 `scripts/generateMissingAudio.mjs` scans the registered lesson catalog, builds
 English word audio plus Vietnamese instruction/feedback audio, skips files that
-already exist, and updates:
+already exist, and rewrites:
 
 ```text
 src/data/audioManifest.ts
 src/engine/GeneratedAudioRegistry.ts
 ```
+
+### Current R2-only registry conflict
+
+The checked-in `GeneratedAudioRegistry.ts` is intentionally empty so lesson
+audio loads from R2. The generator currently scans all local WAV/MP3 files and
+rewrites that registry with bundled `require(...)` entries, including in
+`--manifest-only` mode. Running or committing the generator output can therefore
+bundle the complete lesson-audio catalog and change the runtime delivery model.
+
+Until the generator has an explicit remote-only mode, do not run
+`generate:audio` or `--manifest-only` as a routine refresh. A task that genuinely
+needs generation must first decide whether audio remains R2-only or gains a
+bundled fallback, then update the generator and documentation consistently.
 
 Use Google Cloud Text-to-Speech auth through one of:
 
@@ -82,10 +96,17 @@ WebP output:
 npm run assets:audit -- --lesson=my-lesson
 npm run assets:build -- --lesson=my-lesson
 npm run assets:verify -- --lesson=my-lesson
+npm run check:images
 npm run upload:r2:dry-run -- --lesson=my-lesson
 npm run upload:r2 -- --lesson=my-lesson
 npm run r2:verify -- --lesson=my-lesson
 ```
+
+The four local asset commands (`assets:audit`, `assets:build`, `assets:verify`,
+and `check:images`) do not require R2. The upload dry-run does not mutate the
+bucket, but it still loads `.env`, requires R2 credentials and network access,
+and reads the remote manifest. Run it only when that access is in scope; an
+actual upload additionally requires explicit approval.
 
 The build selects a 512, 768, or 1024 pixel object profile from the maximum
 scene position, uses up to 1280 pixels for large characters, and 2048 pixels

@@ -20,6 +20,15 @@ npm run upload:r2
 npm run r2:verify
 ```
 
+`npm run upload:r2:dry-run` is the preview command. `npm run upload:r2` already
+passes `--apply` and mutates the bucket; run it only after explicit approval and
+after reviewing the dry-run output.
+
+The R2 dry-run does not write to the bucket, but it still loads `.env`, requires
+R2 credentials and network access, and reads the remote manifest. Run it only
+when that access is in scope; otherwise report it as not run and keep the local
+asset checks separate.
+
 All image scripts accept `--lesson=<lesson-id>`. `assets:build` also accepts
 `--force`; otherwise it skips outputs whose source hash, profile, and config
 signature are unchanged.
@@ -37,6 +46,7 @@ npm run r2:clear -- --prefix=v1/
 ```
 
 The command prints the exact confirmation required for destructive execution.
+Do not construct or reuse that confirmation without explicit approval.
 To clear the entire bucket, both `--all` and `--confirm-bucket=<bucket>` are
 required. After a clear, upload and verify before launching a build configured
 to prefer remote images.
