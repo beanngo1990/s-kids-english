@@ -176,7 +176,7 @@ export async function recordActivity(
 export function getWeeklyData(
   entries: DailyActivity[],
 ): Array<{ label: string; date: string; wordsLearned: number; scenesCompleted: number }> {
-  const dayLabels = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+  const dayLabels = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   const result: Array<{
     label: string;
     date: string;

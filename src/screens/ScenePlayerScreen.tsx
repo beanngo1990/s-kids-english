@@ -5,6 +5,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
+import { useI18n } from '../i18n';
 import { completeLessonProgress } from '../engine/ProgressManager';
 import { ScenePlayer } from '../engine/ScenePlayer';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -16,6 +17,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ScenePlayer'>;
 
 export function ScenePlayerScreen({ navigation, route }: Props) {
   useThemeSync();
+  const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
@@ -25,9 +27,9 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy bài học này.</Text>
+          <Text style={styles.errorTitle}>{t('scenePlayer.lessonNotFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('scenePlayer.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -39,9 +41,9 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy cảnh học này.</Text>
+          <Text style={styles.errorTitle}>{t('scenePlayer.sceneNotFound')}</Text>
           <AppButton
-            title="Về gói bài học"
+            title={t('scenePlayer.backToPack')}
             onPress={() =>
               navigation.navigate('LessonPack', { lessonId: lesson.id })
             }

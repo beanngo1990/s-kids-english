@@ -26,12 +26,13 @@ export function translate(
   key: TranslationKey,
   params?: TranslationParams,
 ) {
-  const template = dictionaries[language][key] ?? vi[key] ?? key;
+  const dict = dictionaries[language] ?? vi;
+  const template = dict[key] ?? vi[key] ?? key;
   return interpolate(template, params);
 }
 
 export function createTranslator(language: AppLanguage): Translator {
-  return (key, params) => translate(language, key, params);
+  return (key, params) => translate(language || 'vi', key, params);
 }
 
 export function useTranslations(language: AppLanguage): Translator {
@@ -47,7 +48,7 @@ export function useSavedAppLanguage() {
     getParentSettings()
       .then(settings => {
         if (isMounted) {
-          setLanguage(settings.appLanguage);
+          setLanguage(settings?.appLanguage || 'vi');
         }
       })
       .catch(() => undefined);
@@ -57,12 +58,14 @@ export function useSavedAppLanguage() {
     };
   }, []);
 
-  return language;
+  return language || 'vi';
 }
 
 export function useSavedTranslations() {
   return useTranslations(useSavedAppLanguage());
 }
+
+export const useI18n = useSavedTranslations;
 
 function interpolate(template: string, params?: TranslationParams) {
   if (!params) {

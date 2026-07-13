@@ -22,6 +22,7 @@ import {
 } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
+import { useI18n } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import type { SceneObject } from '../types/lesson';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -33,6 +34,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 
 export function RewardScreen({ navigation, route }: Props) {
   useThemeSync();
+  const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
@@ -105,9 +107,9 @@ export function RewardScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.title}>Không tìm thấy bài học này.</Text>
+          <Text style={styles.title}>{t('reward.notFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('reward.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -122,7 +124,7 @@ export function RewardScreen({ navigation, route }: Props) {
           <View style={styles.rewardMascotStage}>
             <View style={styles.rewardGlow} />
             <MascotImage
-              accessibilityLabel="Sungy chúc mừng bé"
+              accessibilityLabel={t('reward.mascotAccessibility')}
               pose="greatJob"
               size={210}
               style={styles.rewardMascot}
@@ -130,36 +132,36 @@ export function RewardScreen({ navigation, route }: Props) {
           </View>
           <View style={styles.badgeRow}>
             {route.params.leveledUp && route.params.unlockedSticker && (
-              <KidBadge tone="sun">Sticker mới</KidBadge>
+              <KidBadge tone="sun">{t('reward.newSticker')}</KidBadge>
             )}
             {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
               <View style={styles.xpBadge}>
                 <Text style={styles.xpBadgeText}>+{route.params.xpGained}</Text>
                 <SKidsIcon name="acorn" size={16} />
-                <Text style={styles.xpBadgeText}>Hạt dẻ</Text>
+                <Text style={styles.xpBadgeText}>{t('reward.acorn')}</Text>
               </View>
             )}
           </View>
           <Text style={styles.title}>
             {route.params.leveledUp
-              ? `Chúc mừng bé lên Cấp ${route.params.newLevel}!`
-              : `Bé đã hoàn thành ${getLocalizedLessonTitle(
+              ? t('reward.levelUpTitle', { level: String(route.params.newLevel) })
+              : t('reward.completedTitle', { lessonTitle: getLocalizedLessonTitle(
                   lesson,
                   appLanguage,
-                )}!`}
+                ) })}
           </Text>
           <Text style={styles.subtitle}>
             {route.params.leveledUp && route.params.unlockedSticker
-              ? `Bé đã mở khóa ${route.params.unlockedSticker.stickerName} và thêm từ mới vào sổ học tập.`
-              : `Bé đã học thêm nhiều từ mới và tích luỹ thêm hạt dẻ.`}
+              ? t('reward.levelUpSubtitle', { stickerName: route.params.unlockedSticker.stickerName })
+              : t('reward.completedSubtitle')}
           </Text>
 
         </AppCard>
 
         <AppCard style={styles.wordsCard}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Các từ bé vừa học</Text>
-            <KidBadge tone="teal">{displayWords.length} từ</KidBadge>
+            <Text style={styles.sectionTitle}>{t('reward.wordsLearned')}</Text>
+            <KidBadge tone="teal">{t('reward.wordCount', { count: String(displayWords.length) })}</KidBadge>
           </View>
           <View style={styles.wordList}>
             {displayWords.map(item => {
@@ -186,19 +188,19 @@ export function RewardScreen({ navigation, route }: Props) {
           {nextLesson ? (
             <>
               <AppButton
-                title={`Bài tiếp: ${getLocalizedLessonTitle(
+                title={t('reward.nextLesson', { lessonTitle: getLocalizedLessonTitle(
                   nextLesson,
                   appLanguage,
-                )}`}
+                ) })}
                 onPress={() => navigation.replace('LessonPack', { lessonId: nextLesson.id })}
               />
               <AppButton
-                title="Về danh sách bài học"
+                title={t('reward.backToList')}
                 variant="secondary"
                 onPress={() => navigation.navigate('LessonList')}
               />
               <AppButton
-                title="Chơi lại bài này"
+                title={t('reward.replayLesson')}
                 variant="outlined"
                 onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
               />
@@ -206,11 +208,11 @@ export function RewardScreen({ navigation, route }: Props) {
           ) : (
             <>
               <AppButton
-                title="Về danh sách bài học"
+                title={t('reward.backToList')}
                 onPress={() => navigation.navigate('LessonList')}
               />
               <AppButton
-                title="Chơi lại bài này"
+                title={t('reward.replayLesson')}
                 variant="secondary"
                 onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
               />

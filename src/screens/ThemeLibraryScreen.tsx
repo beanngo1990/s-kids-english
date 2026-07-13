@@ -14,11 +14,11 @@ import {
   saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
+import { useI18n, useSavedAppLanguage } from '../i18n';
 import {
   getLocalizedThemeDescription,
   getLocalizedThemeTitle,
 } from '../i18n/domainCopy';
-import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -31,9 +31,10 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 
 export function ThemeLibraryScreen({ navigation }: Props) {
   useThemeSync();
+  const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const completedSceneIds = useMemo(
@@ -47,7 +48,6 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       .catch(() => setProgress(null));
     getParentSettings()
       .then(settings => {
-        setAppLanguage(settings.appLanguage);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => undefined);
@@ -76,19 +76,13 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   return (
     <Screen scroll>
       <View style={styles.header}>
-        <KidBadge tone="teal">Thư viện chủ đề</KidBadge>
-        <Text style={styles.title}>Chọn lộ trình học</Text>
-        <Text style={styles.subtitle}>
-          Mỗi chủ đề là một Siêu bản đồ dài gồm nhiều gói bài. Khi chọn một
-          chủ đề, app sẽ lưu lộ trình đang học và quay về Home để bé tiếp tục
-          trên bản đồ đó.
-        </Text>
+        <KidBadge tone="teal">{t('themeLibrary.badge')}</KidBadge>
+        <Text style={styles.title}>{t('themeLibrary.title')}</Text>
+        <Text style={styles.subtitle}>{t('themeLibrary.subtitle')}</Text>
         <View style={styles.parentNote}>
-          <KidBadge tone="sun">Ghi chú cho phụ huynh</KidBadge>
+          <KidBadge tone="sun">{t('themeLibrary.parentNote')}</KidBadge>
           <Text style={styles.parentNoteText}>
-            Chủ đề có nhãn “Đang học” chính là bản đồ đang hiển thị ở Home.
-            Bấm vào chủ đề này sẽ đưa bé quay lại Siêu bản đồ hiện tại, không
-            tạo lộ trình mới.
+            {t('themeLibrary.parentNoteDescription')}
           </Text>
         </View>
       </View>
@@ -101,15 +95,15 @@ export function ThemeLibraryScreen({ navigation }: Props) {
           const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;
           const actionLabel = isActive
-            ? 'Tiếp tục trên bản đồ'
-            : 'Chọn chủ đề này';
-          const actionHint = isActive
-            ? 'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.'
-            : 'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.';
+            ? t('themeLibrary.continueOnMap')
+            : t('themeLibrary.chooseThisTheme');
+          const activeDescription = isActive
+            ? t('themeLibrary.activeDescription')
+            : t('themeLibrary.inactiveDescription');
 
           return (
             <Pressable
-              accessibilityHint={actionHint}
+              accessibilityHint={activeDescription}
               accessibilityLabel={`${actionLabel}: ${themeTitle}`}
               accessibilityRole="button"
               accessibilityState={{ selected: isActive }}
@@ -137,10 +131,10 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                   <View style={styles.themeText}>
                     <View style={styles.badgeRow}>
                       <KidBadge tone={isActive ? 'teal' : 'sky'}>
-                        {isActive ? 'Đang học' : 'Chủ đề'}
+                        {isActive ? t('themeLibrary.activeStatus') : t('themeLibrary.themeStatus')}
                       </KidBadge>
                       {isSavingThisTheme ? (
-                        <KidBadge tone="sun">Đang lưu</KidBadge>
+                        <KidBadge tone="sun">{t('themeLibrary.savingStatus')}</KidBadge>
                       ) : null}
                     </View>
                     <Text style={styles.themeTitle}>{themeTitle}</Text>
@@ -158,7 +152,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                     total={themeProgress.total}
                   />
                   <Text style={styles.progressText}>
-                    {themeProgress.completed}/{themeProgress.total} trạm
+                    {themeProgress.completed}/{themeProgress.total} {t('themeLibrary.stations')}
                   </Text>
                 </View>
 
@@ -174,7 +168,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                       isActive && styles.actionTextActive,
                     ]}
                   >
-                    {isSavingThisTheme ? 'Đang lưu...' : actionLabel}
+                    {isSavingThisTheme ? t('themeLibrary.savingAction') : actionLabel}
                   </Text>
                   <Text
                     numberOfLines={2}
@@ -183,7 +177,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                       isActive && styles.actionHintActive,
                     ]}
                   >
-                    {actionHint}
+                    {activeDescription}
                   </Text>
                 </View>
               </AppCard>

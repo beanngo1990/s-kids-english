@@ -8,6 +8,7 @@ import { SKidsIcon } from './SKidsIcon';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
+import { useI18n } from '../i18n';
 
 type KidModeHeaderProps = {
   totalXP: number;
@@ -21,6 +22,7 @@ export function KidModeHeader({
   onOpenParent,
 }: KidModeHeaderProps) {
   useThemeSync();
+  const t = useI18n();
   const brandContent = (
     <>
       <AppLogo size={40} />
@@ -33,7 +35,7 @@ export function KidModeHeader({
       <View style={styles.topBar}>
         {onOpenHub ? (
           <Pressable
-            accessibilityLabel="Mở S-Kids Hub"
+            accessibilityLabel={t('header.openHub')}
             accessibilityRole="button"
             hitSlop={8}
             onPress={onOpenHub}
@@ -50,7 +52,7 @@ export function KidModeHeader({
         <View style={styles.topActions}>
           <TopProgressStatus totalXP={totalXP} />
           <KidIconButton
-            accessibilityLabel="Góc phụ huynh"
+            accessibilityLabel={t('header.parentGate')}
             icon="parentGate"
             onPress={onOpenParent}
             size="md"
@@ -72,17 +74,18 @@ type TopProgressStatusProps = {
 function TopProgressStatus({
   totalXP,
 }: TopProgressStatusProps) {
+  const t = useI18n();
   const { level, xpInLevel, xpNeeded, progressPercent } = getLevelProgress(totalXP);
 
   return (
     <View
-      accessibilityLabel={`Bé đang ở cấp ${level}, có ${xpInLevel} hạt dẻ, cần thêm ${xpNeeded - xpInLevel} hạt dẻ để lên cấp`}
+      accessibilityLabel={t('header.levelAccessibility', { level: String(level), xpInLevel: String(xpInLevel), xpNeeded: String(xpNeeded - xpInLevel) })}
       accessibilityRole="progressbar"
       style={styles.topStatusCard}
     >
       <View style={styles.topStatusRow}>
         <SKidsIcon name="acorn" size={18} />
-        <Text style={styles.topStatusCount}>Cấp {level}</Text>
+        <Text style={styles.topStatusCount}>{t('header.level', { level: String(level) })}</Text>
       </View>
       <View style={styles.topStatusTrack}>
         <View

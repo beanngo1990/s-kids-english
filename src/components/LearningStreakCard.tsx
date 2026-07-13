@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -16,12 +17,13 @@ export function LearningStreakCard({
   longestStreak,
 }: LearningStreakCardProps) {
   useThemeSync();
+  const t = useI18n();
   const streakLabel =
     currentStreak === 0
-      ? 'Bé chưa học hôm nay'
+      ? t('streak.notLearnedToday')
       : currentStreak === 1
-        ? 'Bé đã học hôm nay!'
-        : `${currentStreak} ngày liên tiếp!`;
+        ? t('streak.learnedToday')
+        : t('streak.streakDays', { days: String(currentStreak) });
 
   return (
     <AppCard style={styles.card}>
@@ -41,7 +43,7 @@ export function LearningStreakCard({
           <Text style={styles.streakLabel}>{streakLabel}</Text>
           {longestStreak > 1 && (
             <Text style={styles.recordText}>
-              Kỷ lục: {longestStreak} ngày 🏆
+              {t('streak.record', { days: String(longestStreak) })}
             </Text>
           )}
         </View>

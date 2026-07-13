@@ -9,6 +9,7 @@ import {
   getLocalizedLessonTitle,
   getLocalizedReviewGameTitle,
 } from '../i18n/domainCopy';
+import { useI18n } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -36,6 +37,7 @@ export function KidPlayPanel({
   onOpenReviewGame,
 }: KidPlayPanelProps) {
   useThemeSync();
+  const t = useI18n();
   const reviewLessons = useMemo(
     () => lessons.filter(lesson => lesson.reviewGame),
     [],
@@ -67,9 +69,9 @@ export function KidPlayPanel({
   return (
     <>
       <View style={styles.header}>
-        <KidBadge tone="teal">Chơi</KidBadge>
+        <KidBadge tone="teal">{t('playPanel.play')}</KidBadge>
         {pendingReviewLesson ? (
-          <KidBadge tone="alert">1 game</KidBadge>
+          <KidBadge tone="alert">{t('playPanel.oneGame')}</KidBadge>
         ) : (
           <KidBadge tone="sun">
             {unlockedCount}/{reviewLessons.length}
@@ -96,12 +98,12 @@ export function KidPlayPanel({
             lesson.id,
           );
           const statusLabel = isPending
-            ? 'Chơi ngay'
+            ? t('playPanel.playNow')
             : isUnlocked
             ? isCompleted
-              ? 'Chơi lại'
-              : 'Đã mở'
-            : 'Đang khóa';
+              ? t('playPanel.playAgain')
+              : t('playPanel.unlocked')
+            : t('playPanel.locked');
           const actionIcon = !isUnlocked
             ? 'parentLock'
             : isCompleted
@@ -114,7 +116,7 @@ export function KidPlayPanel({
                 reviewGameTitle
               }. ${statusLabel}. ${completedSceneCount}/${
                 lesson.scenes.length
-              } cảnh.`}
+              } ${t('playPanel.scene')}.`}
               accessibilityRole="button"
               accessibilityState={{ disabled: !isUnlocked }}
               disabled={!isUnlocked}

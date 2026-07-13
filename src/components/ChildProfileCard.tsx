@@ -3,6 +3,7 @@ import { Image, Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import type { ChildProfile } from '../engine/ParentSettingsManager';
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -14,6 +15,7 @@ type ChildProfileCardProps = {
 
 export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps) {
   useThemeSync();
+  const t = useI18n();
   const currentYear = new Date().getFullYear();
   const age = profile.birthYear
     ? currentYear - profile.birthYear
@@ -28,12 +30,12 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
         <View style={styles.textContainer}>
           <Text style={styles.name}>{profile.name}</Text>
           {age != null && age > 0 && (
-            <Text style={styles.ageText}>{age} tuổi</Text>
+            <Text style={styles.ageText}>{t('parent.settings.childAge', { age: String(age) })}</Text>
           )}
         </View>
         {onEditPress && (
           <Pressable
-            accessibilityLabel="Sửa hồ sơ bé"
+            accessibilityLabel={t('childProfile.editAccessibility')}
             accessibilityRole="button"
             onPress={onEditPress}
             style={({ pressed }) => [
@@ -41,7 +43,7 @@ export function ChildProfileCard({ profile, onEditPress }: ChildProfileCardProps
               pressed && styles.editButtonPressed,
             ]}
           >
-            <Text style={styles.editButtonText}>Sửa</Text>
+            <Text style={styles.editButtonText}>{t('childProfile.edit')}</Text>
           </Pressable>
         )}
       </View>

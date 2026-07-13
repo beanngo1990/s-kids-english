@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -23,6 +24,7 @@ const CHART_HEIGHT = 100;
 
 export function WeeklyChart({ data, weeklyTarget = 30 }: WeeklyChartProps) {
   useThemeSync();
+  const t = useI18n();
   const maxWords = Math.max(...data.map(d => d.wordsLearned), 1);
   const todayDate = new Date();
   const todayStr = `${todayDate.getFullYear()}-${String(
@@ -40,28 +42,28 @@ export function WeeklyChart({ data, weeklyTarget = 30 }: WeeklyChartProps) {
   ).length;
   const insight =
     totalWords >= target
-      ? 'Bé đã đạt mục tiêu 7 ngày. Một tràng pháo tay cho bé!'
+      ? t('weeklyChart.goalReached')
       : totalWords > 0
-      ? `Còn ${remainingWords} từ để đạt mục tiêu 7 ngày.`
-      : 'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.';
+      ? t('weeklyChart.wordsRemaining', { remaining: String(remainingWords) })
+      : t('weeklyChart.startJourney');
 
   return (
     <AppCard style={styles.card}>
       <View style={styles.headerRow}>
         <View style={styles.headerCopy}>
-          <KidBadge tone="sky">7 ngày gần đây</KidBadge>
+          <KidBadge tone="sky">{t('weeklyChart.last7Days')}</KidBadge>
           <Text style={styles.totalText}>
-            {totalWords}/{target} từ
+            {t('weeklyChart.words', { total: String(totalWords), target: String(target) })}
           </Text>
         </View>
         <View style={styles.progressSummary}>
           <Text style={styles.progressPercent}>{progressPercent}%</Text>
-          <Text style={styles.progressSummaryLabel}>mục tiêu</Text>
+          <Text style={styles.progressSummaryLabel}>{t('weeklyChart.goal')}</Text>
         </View>
       </View>
 
       <View
-        accessibilityLabel={`Bé đã hoàn thành ${progressPercent}% mục tiêu 7 ngày`}
+        accessibilityLabel={t('weeklyChart.accessibility', { percent: String(progressPercent) })}
         accessibilityRole="progressbar"
         style={styles.goalTrack}
       >
@@ -97,7 +99,7 @@ export function WeeklyChart({ data, weeklyTarget = 30 }: WeeklyChartProps) {
                 />
               </View>
               <Text style={[styles.dayLabel, isToday && styles.dayLabelToday]}>
-                {day.label}
+                {t(`weeklyChart.day.${day.label}` as any)}
               </Text>
             </View>
           );
@@ -110,7 +112,7 @@ export function WeeklyChart({ data, weeklyTarget = 30 }: WeeklyChartProps) {
       </View>
       {activeDayCount > 0 ? (
         <Text style={styles.activeDaysText}>
-          Bé đã học vào {activeDayCount}/7 ngày gần đây.
+          {t('weeklyChart.activeDays', { active: String(activeDayCount) })}
         </Text>
       ) : null}
     </AppCard>

@@ -30,6 +30,7 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
+import { useI18n } from '../i18n';
 
 type RecordingStatus =
   | 'idle'
@@ -52,7 +53,6 @@ type SpeakPracticeControlsProps = {
 const levelPollIntervalMs = 120;
 const minVoiceLevel = 0.065;
 const noiseFloorMultiplier = 2.35;
-const encourageText = 'Cô nghe rồi! Giỏi quá!';
 
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
@@ -65,6 +65,7 @@ export function SpeakPracticeControls({
   word,
 }: SpeakPracticeControlsProps) {
   useThemeSync();
+  const t = useI18n();
   const [status, setStatus] = useState<RecordingStatus>(() =>
     isVoiceRecorderAvailable() ? 'idle' : 'unavailable',
   );
@@ -150,9 +151,9 @@ export function SpeakPracticeControls({
     setRecordingUri(nextRecordingUri);
     setStatus('recorded');
     await playSoundEffect('yay');
-    await speakVi(encourageText);
+    await speakVi(t('speakPractice.encourage'));
     isFinishingRecordingRef.current = false;
-  }, []);
+  }, [t]);
 
   const handleVoiceLevel = useCallback((level: number | null) => {
     if (
@@ -258,11 +259,11 @@ export function SpeakPracticeControls({
         setStatus('unavailable');
         if (playTap) {
           Alert.alert(
-            'Quyền truy cập Micro',
-            'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
+            t('speakPractice.micPermissionTitle'),
+            t('speakPractice.micPermissionText'),
             [
-              { text: 'Để sau', style: 'cancel' },
-              { text: 'Mở Cài đặt', onPress: () => Linking.openSettings() },
+              { text: t('speakPractice.cancel'), style: 'cancel' },
+              { text: t('speakPractice.openSettings'), onPress: () => Linking.openSettings() },
             ],
           );
         }
@@ -289,7 +290,7 @@ export function SpeakPracticeControls({
       isFinishingRecordingRef.current = false;
       startVoiceActivityMonitoring(word);
     },
-    [disabled, onAudioStart, startVoiceActivityMonitoring, status, word],
+    [disabled, onAudioStart, startVoiceActivityMonitoring, status, t, word],
   );
 
   useEffect(() => {
@@ -375,16 +376,16 @@ export function SpeakPracticeControls({
     outputRange: [0.24, 0.16, 0],
   });
   const promptText = isInstructionPlaying
-    ? 'Cô đang nói...'
+    ? t('speakPractice.promptInstruction')
     : isPrompting
-    ? 'Chuẩn bị đọc...'
+    ? t('speakPractice.promptPrepare')
     : isRecording
-      ? 'Cô đang nghe...'
+      ? t('speakPractice.promptRecording')
       : hasRecording
-        ? 'Giỏi quá! Từ này đọc là:'
+        ? t('speakPractice.promptRecorded')
         : isUnavailable
-          ? 'Cần cấp quyền Micro. Từ này đọc là:'
-          : 'Bé nói theo cô:';
+          ? t('speakPractice.promptNoMic')
+          : t('speakPractice.promptSpeak');
 
   return (
     <View style={styles.root}>
@@ -405,7 +406,7 @@ export function SpeakPracticeControls({
         </Text>
         {hasRecording ? (
           <Pressable
-            accessibilityLabel="Nghe lại giọng bé"
+            accessibilityLabel={t('speakPractice.replayVoiceAccessibility')}
             accessibilityRole="button"
             disabled={isDisabled}
             onPress={handlePlaybackPress}
@@ -417,7 +418,7 @@ export function SpeakPracticeControls({
           >
             <SKidsIcon name="replay" size={24} />
             <Text numberOfLines={1} style={styles.voicePlaybackText}>
-              Giọng bé
+              {t('speakPractice.replayVoice')}
             </Text>
           </Pressable>
         ) : null}
@@ -429,7 +430,7 @@ export function SpeakPracticeControls({
         </Text>
         {onReplayModel ? (
           <Pressable
-            accessibilityLabel={`Nghe mẫu từ ${word}`}
+            accessibilityLabel={t('speakPractice.replayModelAccessibility', { word })}
             accessibilityRole="button"
             disabled={isModelButtonDisabled}
             onPress={handleReplayModelPress}
@@ -447,10 +448,10 @@ export function SpeakPracticeControls({
       {(hasRecording || isUnavailable) ? (
         <View style={styles.actions}>
           <KidIconButton
-            accessibilityLabel="Thu âm lại"
+            accessibilityLabel={t('speakPractice.recordAgainAccessibility')}
             disabled={isDisabled}
             icon="speak"
-            label="Thu lại"
+            label={t('speakPractice.recordAgain')}
             onPress={handleRecordPress}
             size="md"
             style={[styles.actionButton, styles.secondaryAction]}
@@ -458,10 +459,10 @@ export function SpeakPracticeControls({
           />
           {onContinue ? (
             <KidIconButton
-              accessibilityLabel="Tiếp tục"
+              accessibilityLabel={t('speakPractice.continueAccessibility')}
               disabled={disabled}
               icon="next"
-              label="Tiếp tục"
+              label={t('speakPractice.continue')}
               onPress={onContinue}
               style={[styles.actionButton, styles.primaryAction, isUnavailable && { flex: 1 }]}
             />
@@ -470,7 +471,7 @@ export function SpeakPracticeControls({
       ) : (
         <View style={styles.actions}>
           <Pressable
-            accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
+            accessibilityLabel={isRecording ? t('speakPractice.stopRecordingAccessibility') : t('speakPractice.speakAccessibility', { word })}
             accessibilityRole="button"
             disabled={isDisabled}
             onPress={handleRecordPress}
@@ -518,16 +519,16 @@ export function SpeakPracticeControls({
             ]}
           >
             <Text numberOfLines={1} style={styles.recordLabel}>
-              {isRecording ? 'Chạm để dừng' : 'Bé nói'}
+              {isRecording ? t('speakPractice.tapToStop') : t('speakPractice.speak')}
             </Text>
           </View>
           </Pressable>
           {onContinue && !isRecording ? (
             <KidIconButton
-              accessibilityLabel="Tiếp tục"
+              accessibilityLabel={t('speakPractice.continueAccessibility')}
               disabled={disabled}
               icon="next"
-              label="Tiếp tục"
+              label={t('speakPractice.continue')}
               onPress={onContinue}
               size="md"
               style={[styles.actionButton, styles.primaryAction]}

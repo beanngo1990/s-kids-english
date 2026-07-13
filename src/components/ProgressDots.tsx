@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 
@@ -12,12 +13,13 @@ type ProgressDotsProps = {
 
 export function ProgressDots({ current, total, style }: ProgressDotsProps) {
   useThemeSync();
+  const t = useI18n();
   const safeTotal = Math.max(total, 1);
   const activeStep = Math.min(Math.max(current, 1), safeTotal);
 
   return (
     <View
-      accessibilityLabel={`Bước ${activeStep} trên ${safeTotal}`}
+      accessibilityLabel={t('progressDots.accessibilityLabel', { current: String(activeStep), total: String(safeTotal) })}
       accessibilityRole="progressbar"
       style={[styles.container, style]}
     >
