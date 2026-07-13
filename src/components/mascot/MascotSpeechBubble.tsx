@@ -13,6 +13,7 @@ import { shadows } from '../../theme/shadows';
 import { typography } from '../../theme/typography';
 import type { MascotPoseId } from '../../data/mascot';
 import { MascotImage, type MascotImageSize } from './MascotImage';
+import { useI18n } from '../../i18n';
 
 export type MascotSpeechBubbleTone =
   | 'guide'
@@ -61,6 +62,7 @@ export function MascotSpeechBubble({
   tone = 'guide',
 }: MascotSpeechBubbleProps) {
   useThemeSync();
+  const t = useI18n();
   const activePose = pose ?? poseByTone[tone];
   const isMascotOnRight = mascotPosition === 'right';
   const [displayMessage, setDisplayMessage] = useState(message);
@@ -96,7 +98,7 @@ export function MascotSpeechBubble({
       ]}
     >
       <MascotImage
-        accessibilityLabel={mascotAccessibilityLabel ?? 'Chạm vào Sungy'}
+        accessibilityLabel={mascotAccessibilityLabel ?? t('mascot.touchAccessibility')}
         decorative={!onMascotPress && tapMessages.length === 0}
         onPress={
           onMascotPress || tapMessages.length > 0

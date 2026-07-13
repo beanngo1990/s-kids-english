@@ -16,6 +16,7 @@ import {
   completeLessonProgress,
   saveVocabularyInteraction,
 } from '../engine/ProgressManager';
+import { useI18n } from '../i18n';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
 import { getLocalizedReviewGameTitle } from '../i18n/domainCopy';
@@ -40,6 +41,7 @@ const maxMemoryPairCount = 6;
 
 export function ReviewGameScreen({ navigation, route }: Props) {
   useThemeSync();
+  const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const [isCompleting, setIsCompleting] = useState(false);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
@@ -112,9 +114,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy bài học này.</Text>
+          <Text style={styles.errorTitle}>{t('reviewGame.notFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('reviewGame.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -126,9 +128,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Bài học này chưa có game ôn tập.</Text>
+          <Text style={styles.errorTitle}>{t('reviewGame.noGame')}</Text>
           <AppButton
-            title="Về gói bài học"
+            title={t('reviewGame.backToPack')}
             onPress={() =>
               navigation.replace('LessonPack', { lessonId: lesson.id })
             }
@@ -169,8 +171,8 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           </View>
           <View style={styles.headerText}>
             <View style={styles.headerTopRow}>
-              <KidBadge tone="teal">Lật thẻ</KidBadge>
-              <KidBadge tone="sun">{memoryItems.length} từ</KidBadge>
+              <KidBadge tone="teal">{t('reviewGame.memoryBadge')}</KidBadge>
+              <KidBadge tone="sun">{t('reviewGame.wordCount', { count: String(memoryItems.length) })}</KidBadge>
             </View>
             <Text numberOfLines={2} style={styles.title}>
               {getLocalizedReviewGameTitle(lesson.reviewGame, appLanguage)}

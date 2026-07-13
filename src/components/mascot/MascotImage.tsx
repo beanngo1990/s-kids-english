@@ -17,6 +17,7 @@ import {
   type MascotId,
   type MascotPoseId,
 } from '../../data/mascot';
+import { useI18n } from '../../i18n';
 
 export type MascotImageSize = 'avatar' | 'sm' | 'md' | 'lg' | 'xl' | number;
 
@@ -51,6 +52,7 @@ export function MascotImage({
   size = 'md',
   style,
 }: MascotImageProps) {
+  const t = useI18n();
   const mascotPose = getMascotPose(pose, mascotId);
   const bounce = useRef(new Animated.Value(1)).current;
   const sparkleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -132,7 +134,7 @@ export function MascotImage({
         accessibilityLabel={
           decorative || onPress
             ? undefined
-            : accessibilityLabel ?? 'Sungy mascot'
+            : accessibilityLabel ?? t('mascot.name')
         }
         accessible={!decorative && !onPress}
         resizeMode="contain"
@@ -146,7 +148,7 @@ export function MascotImage({
   if (onPress) {
     return (
       <Pressable
-        accessibilityLabel={accessibilityLabel ?? 'Chạm vào Sungy'}
+        accessibilityLabel={accessibilityLabel ?? t('mascot.touchAccessibility')}
         accessibilityRole="button"
         onPress={runInteraction}
         style={[styles.frame, dimensions, style]}

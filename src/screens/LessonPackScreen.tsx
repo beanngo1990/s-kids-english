@@ -11,7 +11,6 @@ import { SKidsIcon } from '../components/SKidsIcon';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import {
-  getLearningDifficultyOption,
   getParentSettings,
 } from '../engine/ParentSettingsManager';
 import {
@@ -25,6 +24,8 @@ import {
   getLocalizedSceneSubtitle,
   getLocalizedSceneTitle,
 } from '../i18n/domainCopy';
+import { getLearningModeCopy } from '../i18n/learningModeCopy';
+import { useI18n } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -41,6 +42,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
 export function LessonPackScreen({ navigation, route }: Props) {
   useThemeSync();
+  const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
@@ -72,12 +74,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const shouldPlayReviewGame =
     isPackComplete && hasReviewGame && !hasCompletedReviewGame;
   const primaryActionTitle = !isPackComplete
-    ? 'Học tiếp'
+    ? t('lessonPack.continue')
     : shouldPlayReviewGame
-      ? 'Chơi lật thẻ'
-      : 'Nhận sticker';
+      ? t('lessonPack.playMemory')
+      : t('lessonPack.claimSticker');
 
-  const difficultyOption = getLearningDifficultyOption(learningMode);
+  const difficultyOption = getLearningModeCopy(learningMode, t);
 
   const refreshScreenData = useCallback(() => {
     getProgress()
@@ -150,9 +152,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy gói bài học này.</Text>
+          <Text style={styles.errorTitle}>{t('lessonPack.notFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('lessonPack.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -170,12 +172,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
           <View style={styles.headerText}>
             <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
               {hasCompletedLesson
-                ? 'Đã nhận thưởng'
+                ? t('lessonPack.rewardClaimed')
                 : shouldPlayReviewGame
-                  ? 'Sẵn sàng ôn tập'
+                  ? t('lessonPack.readyToReview')
                   : isPackComplete
-                    ? 'Đã học đủ cảnh'
-                    : 'Gói bài học'}
+                    ? t('lessonPack.scenesCompleted')
+                    : t('lessonPack.lessonPack')}
             </KidBadge>
             <Text style={styles.title}>
               {getLocalizedLessonTitle(lesson, appLanguage)}
@@ -188,9 +190,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
         <View style={styles.headerProgress}>
           <ProgressStars completed={completedSceneCount} total={scenes.length} />
           <Text style={styles.progressText}>
-            {completedSceneCount}/{scenes.length} cảnh đã học
+            {t('lessonPack.scenesLearned', { completed: String(completedSceneCount), total: String(scenes.length) })}
           </Text>
-          <KidBadge tone="sky">Độ khó: {difficultyOption.title}</KidBadge>
+          <KidBadge tone="sky">{t('lessonPack.difficulty', { difficulty: difficultyOption.title })}</KidBadge>
         </View>
       </AppCard>
 
@@ -239,7 +241,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   <KidBadge
                     tone={isCompleted ? 'teal' : isNext ? 'coral' : 'sky'}
                   >
-                    Trạm {index + 1}
+                    {t('lessonPack.station', { index: String(index + 1) })}
                   </KidBadge>
                   <View style={styles.sceneStars}>
                     <Text
@@ -250,10 +252,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
                       ]}
                     >
                       {isCompleted
-                        ? `Đã xong · ${rewardStars} sao`
+                        ? t('lessonPack.sceneStatusDone', { stars: String(rewardStars) })
                         : isNext
-                          ? 'Học tiếp'
-                          : 'Đang khóa'}
+                          ? t('lessonPack.continue')
+                          : t('lessonPack.locked')}
                     </Text>
                   </View>
                 </View>
@@ -285,14 +287,14 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 {isNext ? (
                   <View style={styles.nextHintBubble}>
                     <Text style={styles.nextHint}>
-                      Bé học cảnh này tiếp nhé.
+                      {t('lessonPack.nextHint')}
                     </Text>
                   </View>
                 ) : null}
                 {isLocked ? (
                   <View style={styles.lockedHintBubble}>
                     <Text style={styles.lockedHint}>
-                      Hoàn thành trạm trước để mở khóa.
+                      {t('lessonPack.lockedHint')}
                     </Text>
                   </View>
                 ) : null}
@@ -310,7 +312,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
         />
         {(journeyMode === 'free' || isPackComplete) && hasReviewGame && !shouldPlayReviewGame ? (
           <AppButton
-            title={hasCompletedReviewGame ? "Chơi lật thẻ lại" : "Chơi lật thẻ"}
+            title={hasCompletedReviewGame ? t('lessonPack.playMemoryAgain') : t('lessonPack.playMemory')}
             variant="secondary"
             onPress={() =>
               navigation.navigate('ReviewGame', { lessonId: lesson.id })
@@ -319,7 +321,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
         ) : null}
         {scenes[0] ? (
           <AppButton
-            title="Học từ cảnh đầu"
+            title={t('lessonPack.learnFromStart')}
             variant="secondary"
             onPress={() => openScene(scenes[0].id)}
           />

@@ -63,7 +63,7 @@ export function OnboardingScreen({ navigation }: Props) {
           <View style={styles.heroBrand}>
             <AppLogo size={76} />
             <MascotImage
-              accessibilityLabel="Sungy, bạn học của bé"
+              accessibilityLabel={t('onboarding.mascotAccessibility')}
               onPress={() => speakSungyLine(sungyOnboardingGreeting)}
               pose="hello"
               size={132}

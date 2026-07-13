@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Animated,
-  Image,
   PanResponder,
   Pressable,
   Text,

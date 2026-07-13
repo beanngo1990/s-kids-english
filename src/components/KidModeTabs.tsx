@@ -6,6 +6,7 @@ import { type SKidsIconName } from '../assets/icons/skids';
 import { SKidsIcon } from './SKidsIcon';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
+import { useI18n } from '../i18n';
 
 export type KidModeTab = 'map' | 'play';
 
@@ -15,23 +16,24 @@ type KidModeTabsProps = {
   onSelectPlay: () => void;
 };
 
-const tabs: Array<{
+// Moved into component to use t()
+const getTabs = (t: (key: any) => string): Array<{
   accessibilityLabel: string;
   icon: SKidsIconName;
   id: KidModeTab;
   label: string;
-}> = [
+}> => [
   {
-    accessibilityLabel: 'Mở bản đồ bài học',
+    accessibilityLabel: t('kidModeTabs.mapAccessibility'),
     icon: 'map',
     id: 'map',
-    label: 'Bản đồ',
+    label: t('kidModeTabs.map'),
   },
   {
-    accessibilityLabel: 'Mở khu chơi',
+    accessibilityLabel: t('kidModeTabs.playAccessibility'),
     icon: 'playZone',
     id: 'play',
-    label: 'Chơi',
+    label: t('kidModeTabs.play'),
   },
 ];
 
@@ -41,6 +43,8 @@ export function KidModeTabs({
   onSelectPlay,
 }: KidModeTabsProps) {
   useThemeSync();
+  const t = useI18n();
+  const tabs = getTabs(t);
   const insets = useContext(SafeAreaInsetsContext) ?? {
     bottom: 0,
     left: 0,

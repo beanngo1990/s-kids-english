@@ -14,6 +14,7 @@ import {
   getLocalizedLessonTitle,
   getLocalizedSceneTitle,
 } from '../i18n/domainCopy';
+import { useI18n } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -26,6 +27,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 
 export function LessonListScreen({ navigation }: Props) {
   useThemeSync();
+  const t = useI18n();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
@@ -49,8 +51,8 @@ export function LessonListScreen({ navigation }: Props) {
   return (
     <Screen scroll>
       <View style={styles.header}>
-        <KidBadge tone="teal">Bản đồ bài học</KidBadge>
-        <Text style={styles.title}>Hành trình tiếng Anh của bé</Text>
+        <KidBadge tone="teal">{t('lessonList.mapTitle')}</KidBadge>
+        <Text style={styles.title}>{t('lessonList.title')}</Text>
         <Text style={styles.subtitle}>
           Mỗi trạm là một cảnh quen thuộc. Bé đi từng bước, nghe từng từ và
           mở khóa sticker sau khi hoàn thành.
