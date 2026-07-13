@@ -119,16 +119,16 @@ test('resolves teacher instructions for vi, en and bilingual modes', () => {
     segments: [{ language: 'vi', text: 'Chạm vào cái giường nhé.' }],
   });
 
-  expect(resolveTeacherInstruction(step, 'en')).toEqual({
-    displayText: 'Tap bed',
-    segments: [{ language: 'en', text: 'Tap bed' }],
+  expect(resolveTeacherInstruction(step, 'en', scene)).toEqual({
+    displayText: 'Tap the bed.',
+    segments: [{ language: 'en', text: 'Tap the bed.' }],
   });
 
-  expect(resolveTeacherInstruction(step, 'bilingual')).toEqual({
-    displayText: 'Chạm vào cái giường nhé.\nTap bed',
+  expect(resolveTeacherInstruction(step, 'bilingual', scene)).toEqual({
+    displayText: 'Chạm vào cái giường nhé.\nTap the bed.',
     segments: [
       { language: 'vi', text: 'Chạm vào cái giường nhé.' },
-      { language: 'en', text: 'Tap bed' },
+      { language: 'en', text: 'Tap the bed.' },
     ],
   });
 });
@@ -152,6 +152,43 @@ test('resolves feedback, recording encouragement and review intro by teacher pro
   ).toEqual({
     displayText: 'Great job!',
     segments: [{ language: 'en', text: 'Great job!' }],
+  });
+
+  const goodMorningStep: SceneStep = {
+    id: 'teach-good-morning',
+    instructionVi: 'Mình cùng chào buổi sáng nhé.',
+    interaction: { targetObjectId: 'baby', type: 'listen' },
+    promptText: 'good morning',
+    successFeedbackVi: 'Câu này nghĩa là chào buổi sáng.',
+    targetObjectIds: ['baby'],
+    type: 'teach',
+    vocabId: 'good-morning',
+  };
+  const goodMorningScene: Scene = {
+    ...scene,
+    steps: [goodMorningStep],
+    vocabulary: [
+      {
+        id: 'good-morning',
+        level: 'medium',
+        meaningVi: 'chào buổi sáng',
+        type: 'phrase',
+        word: 'good morning',
+      },
+    ],
+  };
+
+  expect(
+    resolveTeacherFeedback({
+      mode: 'en',
+      scene: goodMorningScene,
+      step: goodMorningStep,
+      type: 'success',
+      viText: goodMorningStep.successFeedbackVi,
+    }),
+  ).toEqual({
+    displayText: 'It means good morning.',
+    segments: [{ language: 'en', text: 'It means good morning.' }],
   });
 
   expect(

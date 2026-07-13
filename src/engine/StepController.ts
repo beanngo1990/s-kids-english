@@ -16,6 +16,7 @@ export type StepObjectEffect = {
 
 export type StepInteractionResult = {
   status: StepInteractionStatus;
+  feedbackEn?: string;
   feedbackVi?: string;
   effectObjectIds: EntityId[];
   objectEffects: StepObjectEffect[];
@@ -118,6 +119,7 @@ export function resolveObjectInteraction(
 
   return {
     effectObjectIds: [objectId],
+    feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Thử lại nhé.',
     isSceneComplete: false,
     objectEffects: [],
@@ -146,6 +148,7 @@ export function resolveDragInteraction(
 
   return {
     effectObjectIds: [objectId],
+    feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Kéo vào vùng đúng nhé.',
     isSceneComplete: false,
     objectEffects: [],
@@ -173,6 +176,7 @@ function buildCorrectResult(
 
   return {
     effectObjectIds: objectEffects.map(effect => effect.targetObjectId),
+    feedbackEn: step.successFeedbackEn,
     feedbackVi: step.successFeedbackVi,
     isSceneComplete: !nextStep,
     nextStep,

@@ -115,10 +115,13 @@ export type SceneStep = {
   type: SceneStepType;
   targetObjectIds: EntityId[];
   instructionVi: string;
+  instructionEn?: string;
   promptText?: string;
   interaction: SceneInteraction;
   successFeedbackVi: string;
+  successFeedbackEn?: string;
   failFeedbackVi?: string;
+  failFeedbackEn?: string;
   effects?: SceneEffect[];
   learningScope?: LearningScope;
   nextStepId?: EntityId;
@@ -130,6 +133,7 @@ export type SceneReward = {
   stars: number;
   badgeId?: EntityId;
   messageVi?: string;
+  messageEn?: string;
 };
 
 /** Một mini-scene học tương tác gồm nền, object, drop zone và các step. */
