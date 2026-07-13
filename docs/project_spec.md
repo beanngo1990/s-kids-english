@@ -1,0 +1,504 @@
+# Đặc tả Dự án - SKidsEnglish
+
+**Trạng thái tài liệu:** ảnh chụp implementation hiện tại
+
+**Kiểm chứng gần nhất:** 2026-07-13
+
+**Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa`; tại thời điểm
+kiểm chứng, working tree không có thay đổi application code, chỉ có documentation work đang thực
+hiện.
+
+**Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
+delivery đang có trong repository.
+
+## 1. Cách đọc tài liệu
+
+Tài liệu này mô tả hệ thống đang được triển khai, không tự động biến ý tưởng chưa có code thành
+roadmap. Các nhãn được dùng như sau:
+
+- **Implemented:** có implementation trong runtime hiện tại.
+- **Partial:** có type/helper/UI hoặc một phần platform, nhưng chưa hoàn chỉnh end-to-end.
+- **Unsupported:** chưa có implementation runtime; không được suy diễn là đã lên roadmap.
+- **Open decision:** code, test hoặc product intent đang mâu thuẫn và cần quyết định rõ trước khi
+  thay đổi contract.
+
+Nguồn chi tiết theo lĩnh vực:
+
+- Runtime/current behavior: code, native implementation, types, tests và config.
+- Lesson authoring: `src/data/README.md`.
+- Image/R2 pipeline: `docs/asset-pipeline.md`.
+- Dependency ranges/scripts: `package.json`; exact resolved versions: `package-lock.json`.
+- AI working conventions và verification: `AGENTS.md`.
+
+Khi implementation và tài liệu lệch nhau, phải báo drift và xác định intent; không tự động sửa
+code theo spec hoặc sửa spec theo code một cách âm thầm.
+
+## 2. Product snapshot
+
+SKidsEnglish là ứng dụng React Native giúp trẻ học từ/cụm từ tiếng Anh qua các tình huống sinh
+hoạt thường ngày. UI và hướng dẫn hiện chủ yếu bằng tiếng Việt; vocabulary và phát âm mục tiêu
+bằng tiếng Anh.
+
+Đặc điểm hiện tại:
+
+- **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
+- **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
+- **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker, activity/streak, daily reminder,
+  Light/Dark/System theme.
+- **Implemented:** local persistence bằng AsyncStorage.
+- **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
+- **Unsupported:** account, backend sync hoặc cloud progress.
+- **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
+
+Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
+URI và không có backend upload trong implementation hiện tại.
+
+## 3. Tech stack và platform
+
+### JavaScript/React Native
+
+- React Native `0.86.0`.
+- React `19.2.3`.
+- TypeScript strict; range khai báo là `^5.8.3`, `package-lock.json` hiện resolve `5.9.3`.
+- React Navigation v7: native container + native stack.
+- AsyncStorage `3.x`.
+- Notifee `9.x`.
+- Node.js `>=22.11.0`.
+- Jest `29.x`, ESLint `8.x`.
+
+`package.json` là nguồn cho declared ranges; `package-lock.json` là nguồn cho exact resolved
+versions nếu các con số trên bị stale.
+
+### Entry composition
+
+```text
+index.js
+  -> App.tsx
+     -> configureNativeAudioAdapter()
+     -> AppThemeProvider
+     -> SafeAreaProvider
+     -> AppNavigator
+```
+
+`AppNavigator` đọc parent settings để chọn route ban đầu:
+
+- `hasCompletedOnboarding === false` -> `Onboarding`.
+- `hasCompletedOnboarding === true` -> `Home`.
+- Đọc settings thất bại -> `Onboarding`.
+
+### Navigation routes
+
+Contract params nằm trong `src/types/navigation.ts`:
+
+- `Onboarding`
+- `Home`
+- `ThemeLibrary`
+- `LessonList`
+- `LessonPack { lessonId }`
+- `ScenePlayer { lessonId, learningMode?, sceneId? }`
+- `ReviewGame { lessonId, learningMode? }`
+- `ReviewLibrary`
+- `Reward { lessonId, playedWordIds?, xp/reward fields... }`
+- `Parent`
+
+Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
+cả registration, param types và call sites.
+
+## 4. Source architecture
+
+```text
+src/
+  assets/       lesson/shared assets, source masters và generated outputs
+  components/   reusable UI và mascot components
+  config/       remote R2 configuration và generated release revision
+  data/         catalogs, prompts, lesson authoring helpers và validators
+  engine/       scene, step, progress, persistence, audio, recording và asset logic
+  games/        review-game registry và implementations
+  navigation/   navigation container/stack
+  screens/      route-level screens
+  services/     local notification service
+  theme/        colors, theme provider, typography, spacing, shadows, responsive helpers
+  types/        shared lesson/navigation/progress contracts
+  utils/        progress/theme/icon helpers
+```
+
+Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities nằm trong
+`scripts/`. Jest suites nằm trong `__tests__/`.
+
+## 5. Catalog và domain model
+
+### Current catalog
+
+Hiện có một theme:
+
+- `mot-ngay-cua-be` / “Một ngày của bé”.
+
+Theme chứa 11 lesson packs theo thứ tự:
+
+1. `morning-routine`
+2. `at-school`
+3. `playtime`
+4. `lunch-time`
+5. `afternoon-home`
+6. `snack-time`
+7. `home-play`
+8. `afternoon-bath`
+9. `family-dinner`
+10. `after-dinner-cleanup`
+11. `bedtime`
+
+Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
+catalog được import; trong development, validation errors có thể throw và warnings được log.
+
+### Hierarchy
+
+```text
+LessonTheme
+  -> lessonIds[]
+
+Lesson
+  -> ageRange
+  -> scenes[]
+  -> optional reviewGame
+
+Scene
+  -> background
+  -> optional character
+  -> vocabulary[]
+  -> objects[]
+  -> dropZones[]
+  -> steps[]
+  -> optional completionReward
+```
+
+Shared contracts nằm trong `src/types/lesson.ts`.
+
+### Scene vocabulary và objects
+
+- Vocabulary type: `noun`, `verb`, `phrase`.
+- Vocabulary level: `easy`, `medium`, `hard`.
+- Object roles: `learning`, `decoration`, `dropZone`, `character`.
+- Vị trí và touch areas dùng `PercentRect` để responsive theo scene.
+- `AssetRef` hỗ trợ type `image`, `audio`, `lottie`, `sprite`; runtime support thực tế phụ thuộc
+  renderer/registry hiện có.
+
+### Steps và interactions
+
+- Step types: `intro`, `teach`, `practice`, `review`.
+- Interaction types: `listen`, `tap`, `drag`, `find`.
+- `StepController` quyết định listen/interactive flow, đánh giá tap/find/drag, next step và
+  success/fail feedback.
+- `ScenePlayer` render scene, phát instruction/audio, khóa tương tác trong thời điểm cần thiết,
+  điều phối effects, prefetch và progress.
+
+### Learning modes
+
+- `core`: nội dung cơ bản.
+- `expanded`: thêm vocabulary/steps có `minMode: expanded`.
+- `challenge`: thêm nội dung có `minMode: challenge`.
+
+`src/data/learningModes.ts` lọc đồng bộ vocabulary, character, objects, drop zones và steps theo
+`learningScope`, đồng thời bỏ dangling `nextStepId` sau khi lọc.
+
+- **Implemented:** mode filtering bằng `learningScope.minMode`.
+- **Partial:** `learningScope.minAge` được hỗ trợ bởi helper và tests, nhưng runtime call sites
+  chưa truyền child age vào `getSceneForLearningMode`; chưa có age-personalized lesson runtime.
+
+## 6. User flows và feature status
+
+### Onboarding
+
+- **Implemented:** lần đầu mở app, phụ huynh chọn `core`, `expanded` hoặc `challenge`.
+- **Implemented:** hoàn tất ghi `hasCompletedOnboarding` và `learningMode`, sau đó vào `Home`.
+- **Unsupported trong onboarding:** nhập tên, avatar hoặc năm sinh. Child profile được chỉnh sau
+  trong Parent Mode.
+
+### Kid Mode
+
+- `HomeScreen` là trải nghiệm Kid Mode chính với Map và Play tabs.
+- Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
+- `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
+- `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
+- `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả.
+- `ThemeLibrary` đã có infrastructure nhưng catalog hiện chỉ có một theme.
+
+### Parent Mode
+
+- **Implemented:** parent gate bằng thao tác giữ nút trong 3 giây.
+- **Unsupported:** PIN hoặc câu hỏi toán/bảo mật; không mô tả hai cơ chế này là đã có.
+- **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
+- **Implemented:** chỉnh difficulty, guided/free journey, visible lessons, child profile,
+  Light/Dark/System theme, app-language preference và daily reminder time.
+- **Implemented:** development-only scene editor flag; không coi đây là production feature.
+- **Partial:** `appLanguage` (`vi`/`en`) được persist và chọn trong Parent UI, nhưng chưa được dùng
+  để localize toàn bộ screen/prompt; app UI vẫn chủ yếu tiếng Việt.
+
+### Scene learning
+
+- Scene gồm instruction playback, Continue/listen steps và object interactions.
+- Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Scene có thể prefetch current/next images và audio.
+- Scene progress dùng composite ID `<lessonId>:<sceneId>` và còn đọc legacy bare scene IDs.
+- Current step ID được persist, nhưng resume flow hiện chỉ sử dụng lesson/scene; **Partial:** chưa
+  resume trực tiếp đúng step trong scene.
+
+### Speech practice
+
+- **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
+- **Implemented:** phát từ mẫu, request record permission, ghi âm, theo dõi audio level/silence,
+  auto-stop và hỗ trợ phát lại local recording theo yêu cầu.
+- Speech practice không phải một `SceneInteractionType` riêng.
+- **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Current
+  feedback chỉ khuyến khích sau recording, không xác nhận phát âm đúng.
+
+### Review games
+
+- `ReviewGame.type` khai báo `matching | memory | listenAndChoose` để mở rộng data model.
+- **Implemented:** runtime registry chỉ hỗ trợ `memory`.
+- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word khi lật và
+  hoàn tất khi ghép hết cặp.
+- Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config
+  override trong giới hạn runtime.
+- **Unsupported:** `matching` và `listenAndChoose`; registry hiển thị unsupported UI.
+
+### Rewards và progress
+
+`LocalProgress` lưu:
+
+- active theme;
+- completed lesson, scene và review-game IDs;
+- learned words và per-word mastery counters;
+- earned sticker IDs;
+- total XP;
+- optional current lesson/scene/step pointer.
+
+Các completion/event-write flow chính catch lỗi theo hướng best-effort để lesson/reward navigation
+không bị kẹt. Các primitive như đọc, save/reset toàn bộ progress hoặc lưu active theme vẫn có thể
+throw; caller không được giả định mọi progress operation đều nuốt lỗi. Activity ghi words/scenes
+và ước lượng 3 phút cho mỗi scene event.
+
+- **Open decision:** runtime reward implementation và `reviewGameProgress.test.ts` đang khác nhau
+  về thời điểm trao sticker:
+  - Runtime `saveSceneProgress`: scene mới +3 XP, replay +1 XP và trao level sticker nếu lần gọi đó
+    làm tăng level, kể cả trước review.
+  - Runtime `completeLessonProgress`: review mới +2 XP, replay +1 XP và chỉ trao sticker nếu lần
+    gọi review đó làm tăng level.
+  - Tests hiện yêu cầu chưa có sticker sau khi hoàn tất các scene và phải có sticker sau khi hoàn
+    tất review.
+  - Không thay reward contract hoặc “sửa test cho pass” nếu task chưa xác định semantics mong muốn.
+
+### Daily reminders
+
+- **Implemented:** Notifee request permission và tạo một timestamp trigger lặp mỗi ngày.
+- Notification ID/channel ID: `daily-reminder`.
+- Khi bật reminder hoặc đổi giờ, Parent UI schedule/reschedule; khi tắt thì cancel.
+- Service cancel notification cũ trước khi tạo schedule mới.
+- **Partial verification:** chưa có native E2E tests trong repo chứng minh behavior trên cả hai OS;
+  thay đổi reminder cần kiểm tra trên platform hoặc báo rõ chưa chạy.
+
+### Theme
+
+- `AppThemeProvider` đọc/persist preference `light | dark | system`.
+- `system` resolve bằng React Native `Appearance` thành light hoặc dark.
+- `colors.ts` cung cấp token proxy, `createThemedStyles` và `useThemeSync` để styles cập nhật theo
+  active scheme.
+
+## 7. Local persistence
+
+App hiện không có account/cloud sync. Có ba AsyncStorage stores:
+
+### Parent settings
+
+- Key: `@skidsenglish/parent-settings/v1`.
+- Manager: `src/engine/ParentSettingsManager.ts`.
+- Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
+  app language/theme, reminder state/time và child profile.
+- Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
+
+### Learning progress
+
+- Key: `@skidsenglish/progress/v1`.
+- Manager: `src/engine/ProgressManager.ts`.
+- Lưu completion, review, vocabulary mastery, XP, stickers, active theme và resume pointer.
+- Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ.
+
+### Daily activity
+
+- Key: `@skidsenglish/daily-activity/v1`.
+- Manager: `src/engine/DailyActivityTracker.ts`.
+- Giữ tối đa 30 daily entries và tính current/longest streak.
+- Minutes hiện là estimate, không phải measured session duration.
+- Activity calls là best-effort; counters có thể phản ánh replay events thay vì chỉ unique scenes.
+
+Mọi schema/key change cần migration hoặc backward-compatible normalization và tests.
+
+## 8. Audio, recording và native modules
+
+### Audio layers
+
+1. Lesson vocabulary/prompt audio: generated files, runtime R2-first.
+2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
+3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
+
+`AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
+không được làm lesson flow kẹt.
+
+### Native support matrix
+
+| Capability                          | Android                       | iOS                           | Fallback/current behavior         |
+| ----------------------------------- | ----------------------------- | ----------------------------- | --------------------------------- |
+| `SkidsAudio` SFX/URI playback       | Implemented                   | Implemented                   | AudioManager best-effort          |
+| Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
+| `SkidsAssetCache` disk cache        | Implemented                   | Unsupported                   | JS trả remote URL khi module vắng |
+| Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
+
+`SkidsAudio` contract được nối qua `NativeAudioAdapter.ts` và `VoiceRecorder.ts`. Android
+implementation nằm trong package `audio`; iOS implementation là `SkidsAudio.swift` với Objective-C
+bridge `SkidsAudio.m`.
+
+`SkidsAssetCache` hiện chỉ có Kotlin/Android implementation. Current JS call sites dùng nó để
+cache/prefetch remote lesson audio, không phải lesson images. Không tuyên bố iOS disk cache parity.
+
+## 9. Asset delivery và authoring pipeline
+
+### Runtime remote config
+
+- `src/config/remoteAssets.ts` tạo URL từ public R2 root + release.
+- Current release prefix là generated value `v1`; không hardcode revision hash vào spec.
+- `preferRemoteImages` và `cacheRemoteAssets` hiện bật.
+- Image URLs có manifest revision query để tránh stale device/CDN image cache.
+
+### Images
+
+- Final lossless source of truth:
+  `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png`.
+- Raw/chroma inputs: `src/assets/source/lessons/`.
+- Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp`.
+- Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2.
+- Current/next scene image prefetch dùng React Native `Image.prefetch`.
+
+Không hand-edit WebP, asset manifest hoặc `generatedAssetRelease.ts`. Dùng scripts được mô tả
+trong `docs/asset-pipeline.md`.
+
+### Generated lesson audio
+
+- English word audio: `audio/en/*.wav`.
+- Vietnamese instruction/feedback: `audio/vi/*.wav`.
+- `generateMissingAudio.mjs` scan registered catalog, tạo missing files và cập nhật
+  `src/data/audioManifest.ts`.
+- **Open decision/pipeline drift:** `GeneratedAudioRegistry.ts` hiện cố ý để trống để audio tải
+  qua R2, nhưng generator vẫn rewrite file này thành bundled `require(...)`, kể cả
+  `--manifest-only`. Không chạy hoặc commit generation output cho đến khi task xác định remote-only
+  hay bundled fallback và xử lý generator tương ứng.
+- TTS generation cần Google auth; luôn preview bằng `npm run generate:audio:dry-run` và đọc số
+  `Missing files`. Dry-run có thể exit `0` dù vẫn còn missing audio.
+
+### R2 operations
+
+- Khi R2 credentials/network access nằm trong phạm vi task, workflow phải chạy
+  `npm run upload:r2:dry-run` trước. Dry-run không ghi bucket nhưng vẫn tự đọc `.env`, cần đủ R2
+  credentials, kết nối network và đọc remote manifest. Nếu không được phép/chưa có credentials,
+  báo `not run` và lý do.
+- `npm run upload:r2` đã bao gồm `--apply` và sẽ mutate R2.
+- Clear/purge có `--apply` còn yêu cầu confirmation do dry-run in ra. Upload thật và clear/purge
+  phải được người dùng cho phép rõ ràng.
+- Sau upload/clear, verify R2 trước khi coi release hoàn tất.
+
+## 10. Validation contract
+
+### General code health
+
+```bash
+npx tsc --noEmit
+npm run lint
+npm test -- --runInBand
+```
+
+Không giả định baseline xanh. Mọi task phải ghi command đã chạy, lỗi mới và lỗi baseline còn lại.
+
+### Lesson changes
+
+```bash
+npm test -- --runInBand __tests__/lessonValidation.test.ts
+npm test -- --runInBand
+```
+
+Chạy thêm `npm run generate:audio:dry-run` khi lesson change làm đổi vocabulary, prompt hoặc audio
+references. Đọc số `Missing files`; exit code `0` không chứng minh không còn audio thiếu.
+
+### Image changes
+
+```bash
+npm run assets:audit -- --lesson=<lesson-id>
+npm run assets:build -- --lesson=<lesson-id>
+npm run assets:verify -- --lesson=<lesson-id>
+npm run check:images
+```
+
+Bốn command trên là local checks. Chỉ chạy thêm
+`npm run upload:r2:dry-run -- --lesson=<lesson-id>` khi task cần so sánh remote và việc đọc
+credentials/kết nối network được phép; nếu không, báo `not run` và lý do.
+
+### Native changes
+
+Chạy TypeScript/lint/tests liên quan và ưu tiên build-only command cho platform bị tác động nếu môi
+trường có SDK. `npm run android`/`npm run ios` có thể cài và launch app, nên chỉ dùng khi
+device/simulator side effect nằm trong phạm vi task. Nếu Android/iOS build hoặc manual behavior
+chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
+
+## 11. Known health và implementation limits
+
+Tại lần kiểm chứng 2026-07-13:
+
+- `npx tsc --noEmit`: pass.
+- Jest: 58/61 tests pass; failures còn ở speech recording fallback timing và reward/review
+  expectations.
+- ESLint: còn 2 errors và 4 warnings trong baseline.
+- Repository chưa có tracked CI workflow.
+
+Các con số này là snapshot, không thay thế việc chạy checks. Cập nhật hoặc xóa mục này ngay khi
+baseline thay đổi.
+
+Support summary:
+
+| Area                                     | Status hiện tại |
+| ---------------------------------------- | --------------- |
+| Memory review game                       | Implemented     |
+| Matching/listen-and-choose review        | Unsupported     |
+| Parent hold gate                         | Implemented     |
+| Parent PIN/math gate                     | Unsupported     |
+| Theme Light/Dark/System                  | Implemented     |
+| Full VI/EN localization                  | Partial         |
+| Mode-based lesson filtering              | Implemented     |
+| Age-based runtime filtering              | Partial         |
+| Scene-level resume                       | Implemented     |
+| Exact step resume                        | Partial         |
+| Record/playback speech practice          | Implemented     |
+| Speech recognition/pronunciation scoring | Unsupported     |
+| Android audio disk cache                 | Implemented     |
+| iOS audio disk cache                     | Unsupported     |
+| Full offline lesson bundle               | Unsupported     |
+| Native reminder E2E coverage             | Partial         |
+| Cloud progress/account sync              | Unsupported     |
+
+## 12. Spec maintenance
+
+Cập nhật tài liệu này trong cùng task khi thay đổi:
+
+- feature status hoặc user-visible flow;
+- route/param contract;
+- lesson/domain schema hoặc catalog contents/order;
+- dependency/toolchain range hoặc resolved baseline;
+- persistence key/schema/normalization semantics;
+- XP/reward/progress contract;
+- native bridge methods hoặc platform support matrix;
+- asset runtime delivery, generated-file ownership hoặc R2 workflow;
+- notification scheduling semantics;
+- architecture/ownership của module.
+
+Khi cập nhật snapshot behavior/health, đồng thời cập nhật ngày và implementation baseline ở đầu
+tài liệu để người đọc biết revision nào đã được kiểm chứng.
+
+Không cập nhật spec chỉ vì formatting, mechanical refactor hoặc test-only change không đổi contract.
+Mọi status mới phải có implementation evidence; không gọi capability là “planned” nếu chưa có
+product decision rõ ràng.
