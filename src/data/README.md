@@ -53,9 +53,15 @@ skips files that already exist, and rewrites:
 src/data/audioManifest.ts
 ```
 
-English lesson audio comes from vocabulary words, `SceneStep.promptText`, scene
-completion cues and shared teacher prompts such as speech-practice and generic
-feedback. Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
+English lesson audio comes from vocabulary words, resolved English teacher
+instructions, scene completion cues and shared teacher prompts such as
+speech-practice and generic feedback. A step can provide `instructionEn`,
+`successFeedbackEn` or `failFeedbackEn` for author-written English copy; when
+`instructionEn` is absent, the teacher prompt resolver builds a child-friendly
+English instruction from the interaction, vocabulary and `promptText`. Teach-step
+success feedback can also fall back to a vocabulary meaning sentence such as
+`It means good morning.` instead of the generic success cue.
+Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
 `failFeedbackVi`, completion messages and shared Vietnamese prompts. Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese
 segment and then the English segment.
@@ -154,8 +160,10 @@ Use `learningScope` when one scene needs older-child content:
 
 `core` is the default for 3-4 tuổi. `expanded` adds a few extra words or
 phrases. `challenge` can add longer phrases or faster review steps. Keep
-Vietnamese instruction and feedback text Vietnamese-only; put English in
-`promptText` or vocabulary so the English voice reads it.
+Vietnamese instruction and feedback text Vietnamese-only. Use `promptText` for
+the English word/phrase cue, and add `instructionEn`, `successFeedbackEn` or
+`failFeedbackEn` only when the generated English teacher instruction/feedback
+needs author-written copy.
 
 ## Validator
 

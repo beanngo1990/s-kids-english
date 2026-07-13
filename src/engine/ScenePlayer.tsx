@@ -26,6 +26,7 @@ import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
 import {
+  getTeacherInstructionEn,
   resolveRecordingEncouragementPrompt,
   resolveSceneCompletionPrompt,
   resolveSpeechPracticePrompt,
@@ -434,8 +435,11 @@ export function ScenePlayer({
 
     setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
-      text: resolveTeacherInstruction(currentStep, teacherPromptMode)
-        .displayText,
+      text: resolveTeacherInstruction(
+        currentStep,
+        teacherPromptMode,
+        currentScene,
+      ).displayText,
       type: 'info',
     });
   };
@@ -611,7 +615,10 @@ export function ScenePlayer({
 
     if (result.status === 'incorrect') {
       const feedbackPrompt = resolveTeacherFeedback({
+        enText: result.feedbackEn,
         mode: teacherPromptMode,
+        scene: activeScene,
+        step: currentStep,
         type: 'fail',
         viText: result.feedbackVi,
       });
@@ -644,7 +651,10 @@ export function ScenePlayer({
     }
 
     const feedbackPrompt = resolveTeacherFeedback({
+      enText: result.feedbackEn,
       mode: teacherPromptMode,
+      scene: activeScene,
+      step: currentStep,
       type: 'success',
       viText: result.feedbackVi,
     });
@@ -1255,9 +1265,29 @@ function getSceneAudioAssets(scene: Scene) {
   }
 
   for (const step of scene.steps) {
-    if (step.promptText) {
-      const promptAsset = getWordAudioAsset(step.promptText);
-      if (promptAsset) assets.push(promptAsset);
+    for (const segment of resolveTeacherInstruction(step, 'en', scene).segments) {
+      const instructionAsset = getWordAudioAsset(segment.text);
+      if (instructionAsset) assets.push(instructionAsset);
+    }
+    for (const segment of resolveTeacherFeedback({
+      enText: step.successFeedbackEn,
+      mode: 'en',
+      scene,
+      step,
+      type: 'success',
+    }).segments) {
+      const feedbackAsset = getWordAudioAsset(segment.text);
+      if (feedbackAsset) assets.push(feedbackAsset);
+    }
+    for (const segment of resolveTeacherFeedback({
+      enText: step.failFeedbackEn,
+      mode: 'en',
+      scene,
+      step,
+      type: 'fail',
+    }).segments) {
+      const feedbackAsset = getWordAudioAsset(segment.text);
+      if (feedbackAsset) assets.push(feedbackAsset);
     }
     if (step.instructionVi) {
       const instructionAsset = getViAudioAsset(step.instructionVi);
@@ -1411,7 +1441,7 @@ async function playStepAudioSequence(
   if (step.type === 'teach' && vocabularyItem) {
     if (!isActive()) return;
     await speakTeacherPromptSegments(
-      resolveTeacherInstruction(step, teacherPromptMode).segments,
+      resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
     );
 
     if (!isActive()) return;
@@ -1423,6 +1453,7 @@ async function playStepAudioSequence(
         step,
         teacherPromptMode,
         vocabularyItem.word,
+        scene,
       )
     ) {
       await speakWord(vocabularyItem.word);
@@ -1450,7 +1481,7 @@ async function playStepAudioSequence(
 
   if (!isActive()) return;
   await speakTeacherPromptSegments(
-    resolveTeacherInstruction(step, teacherPromptMode).segments,
+    resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
   );
 
   if (
@@ -1460,6 +1491,7 @@ async function playStepAudioSequence(
       step,
       teacherPromptMode,
       vocabularyItem.word,
+      scene,
     )
   ) {
     if (!isActive()) return;
@@ -1477,12 +1509,15 @@ function shouldPlayVocabularyAfterInstruction(
   step: SceneStep,
   teacherPromptMode: TeacherPromptMode,
   word: string,
+  scene: Scene,
 ) {
   if (teacherPromptMode !== 'en') {
     return true;
   }
 
-  return normalizePromptText(step.promptText) !== normalizePromptText(word);
+  return !normalizePromptText(getTeacherInstructionEn(step, scene)).includes(
+    normalizePromptText(word),
+  );
 }
 
 function normalizePromptText(value: string | undefined) {

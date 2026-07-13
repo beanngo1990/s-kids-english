@@ -237,21 +237,23 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   theme/lesson/scene/review-game ở các màn hình chính. Nhiều screen/copy dài trong Kid Mode,
   dashboard, mô tả lesson/theme, parent tips và prompt data vẫn Vietnamese-first.
 - **Partial:** `teacherPromptMode` (`vi`/`en`/`bilingual`) được persist và chọn trong Parent UI.
-  ScenePlayer instruction audio/display dùng `instructionVi` và `promptText` để phát Vietnamese,
-  English cue hoặc song ngữ. Scene success/fail feedback, speech-practice prompt/encouragement và
-  memory review intro cũng đi qua teacher prompt resolver. Vì lesson data chưa có bản dịch
-  feedback English đầy đủ, English/bilingual feedback dùng cue an toàn như “Great job!” hoặc
-  “Try again.” khi chỉ có bản Việt.
+  ScenePlayer instruction audio/display dùng `instructionVi` cho Vietnamese và English teacher
+  instruction từ `instructionEn` hoặc fallback resolver dựa trên interaction/vocabulary/promptText.
+  Scene success/fail feedback, speech-practice prompt/encouragement và memory review intro cũng đi
+  qua teacher prompt resolver. Teach-step feedback có thể tự dựng câu nghĩa từ vocabulary như
+  “It means good morning.”; các feedback English chưa có context rõ vẫn dùng cue an toàn như
+  “Great job!” hoặc “Try again.” khi chỉ có bản Việt.
 
 ### Scene learning
 
 - Scene gồm instruction playback, Continue/listen steps và object interactions.
-- Teacher instruction resolver hỗ trợ Vietnamese, English cue hoặc bilingual dựa trên
-  `teacherPromptMode`; English cue dùng `SceneStep.promptText` khi có và fallback Vietnamese khi
-  thiếu.
+- Teacher instruction resolver hỗ trợ Vietnamese, English hoặc bilingual dựa trên
+  `teacherPromptMode`; English instruction ưu tiên `SceneStep.instructionEn`, sau đó tự dựng câu
+  từ interaction/vocabulary/promptText để tránh đọc cue cụt như chỉ “book”.
 - Teacher feedback resolver hỗ trợ success/fail display/audio theo `teacherPromptMode`; feedback
-  cụ thể từ lesson vẫn là `successFeedbackVi`/`failFeedbackVi`, còn English fallback hiện là cue
-  chung cho tới khi schema/data có bản dịch chi tiết.
+  cụ thể từ lesson có thể dùng `successFeedbackEn`/`failFeedbackEn`; khi thiếu, teach step có
+  vocabulary fallback sang câu nghĩa English, còn các feedback khác dùng cue chung cho tới khi
+  schema/data có bản dịch chi tiết.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
   vocabulary và phát âm mục tiêu vẫn luôn là English.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
@@ -359,9 +361,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 
 `AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
-không được làm lesson flow kẹt. Teacher prompt mode English/bilingual dùng `promptText`, shared
-English cues và generated audio manifest khi có asset; nếu English prompt audio chưa được generate
-hoặc chưa có trên R2 thì fallback sang native TTS.
+không được làm lesson flow kẹt. Teacher prompt mode English/bilingual dùng resolved English
+teacher instructions, shared English cues và generated audio manifest khi có asset; nếu English
+prompt audio chưa được generate hoặc chưa có trên R2 thì fallback sang native TTS.
 
 ### Native support matrix
 
@@ -402,7 +404,7 @@ trong `docs/asset-pipeline.md`.
 
 ### Generated lesson audio
 
-- English vocabulary và teacher prompt/cue audio: `audio/en/*.wav`.
+- English vocabulary và teacher instruction/prompt/cue audio: `audio/en/*.wav`.
 - Vietnamese instruction/feedback: `audio/vi/*.wav`.
 - Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
 - `generateMissingAudio.mjs` scan registered catalog, tạo missing files và cập nhật

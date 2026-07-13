@@ -32,9 +32,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/pot_holder.wav",
     text: "pot holder",
   },
+  [normalizeText("Drag the carafe.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_drag_carafe_to_cart_e4bb2816.wav",
+    text: "Drag the carafe.",
+  },
+  [normalizeText("Drag the coaster.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_drag_coaster_to_cart_b77e9f81.wav",
+    text: "Drag the coaster.",
+  },
+  [normalizeText("Label container.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_drag_label_to_container_32f55dad.wav",
+    text: "Label container.",
+  },
+  [normalizeText("Move cart.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_drag_move_cart_623a7c69.wav",
+    text: "Move cart.",
+  },
+  [normalizeText("Stack coasters.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_drag_stack_coasters_bd0fc0a3.wav",
+    text: "Stack coasters.",
+  },
   [normalizeText("Clear dinner!")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_intro_602ead8b.wav",
     text: "Clear dinner!",
+  },
+  [normalizeText("Tap the coaster.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_coaster_5d25af24.wav",
+    text: "Tap the coaster.",
+  },
+  [normalizeText("Label.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_label_d699da71.wav",
+    text: "Label.",
+  },
+  [normalizeText("Tap the pot holder.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_pot_holder_289cb3d4.wav",
+    text: "Tap the pot holder.",
+  },
+  [normalizeText("Tap the tongs.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_tongs_84516792.wav",
+    text: "Tap the tongs.",
+  },
+  [normalizeText("This is the carafe.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_carafe_b0ea0318.wav",
+    text: "This is the carafe.",
+  },
+  [normalizeText("This is the coaster.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_coaster_018fe974.wav",
+    text: "This is the coaster.",
+  },
+  [normalizeText("Let's learn label container.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_label_container_3a1b1a7e.wav",
+    text: "Let's learn label container.",
+  },
+  [normalizeText("This is the label.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_label_d3d24d43.wav",
+    text: "This is the label.",
+  },
+  [normalizeText("Let's learn move cart.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_move_cart_5fd39972.wav",
+    text: "Let's learn move cart.",
+  },
+  [normalizeText("This is the pot holder.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_pot_holder_3b31d74e.wav",
+    text: "This is the pot holder.",
+  },
+  [normalizeText("This is the serving cart.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_serving_cart_8ec96e55.wav",
+    text: "This is the serving cart.",
+  },
+  [normalizeText("Let's learn stack coasters.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_stack_coasters_cf8e0aa3.wav",
+    text: "Let's learn stack coasters.",
+  },
+  [normalizeText("This is the tongs.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_tongs_0837f9e0.wav",
+    text: "This is the tongs.",
   },
   [normalizeText("serving cart")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/serving_cart.wav",
@@ -43,6 +115,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("stack coasters")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/stack_coasters.wav",
     text: "stack coasters",
+  },
+  [normalizeText("It means carafe.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_carafe_success_5cb3a4b9.wav",
+    text: "It means carafe.",
+  },
+  [normalizeText("It means coaster.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_coaster_success_8e7f03bf.wav",
+    text: "It means coaster.",
+  },
+  [normalizeText("It means label container.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_label_container_success_b66e7da8.wav",
+    text: "It means label container.",
+  },
+  [normalizeText("It means label.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_label_success_030ea0d3.wav",
+    text: "It means label.",
+  },
+  [normalizeText("It means move cart.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_move_cart_success_983367d2.wav",
+    text: "It means move cart.",
+  },
+  [normalizeText("It means pot holder.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_pot_holder_success_33d257b0.wav",
+    text: "It means pot holder.",
+  },
+  [normalizeText("It means serving cart.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_serving_cart_success_7afbabb7.wav",
+    text: "It means serving cart.",
+  },
+  [normalizeText("It means stack coasters.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_stack_coasters_success_81dfcb76.wav",
+    text: "It means stack coasters.",
+  },
+  [normalizeText("It means tongs.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_tongs_success_9ef9a64d.wav",
+    text: "It means tongs.",
   },
   [normalizeText("tongs")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/tongs.wav",
@@ -72,9 +180,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/drying_mat.wav",
     text: "drying mat",
   },
+  [normalizeText("Sort recycling.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_drag_carton_to_recycling_ebb06909.wav",
+    text: "Sort recycling.",
+  },
+  [normalizeText("Air dry dishes.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_drag_dishes_to_rack_89144ba3.wav",
+    text: "Air dry dishes.",
+  },
+  [normalizeText("Drag the drying mat.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_drag_drying_mat_6636ff28.wav",
+    text: "Drag the drying mat.",
+  },
   [normalizeText("Sort and dry!")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_intro_41ca81ab.wav",
     text: "Sort and dry!",
+  },
+  [normalizeText("Tap the cabinet.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_cabinet_bf1eacf5.wav",
+    text: "Tap the cabinet.",
+  },
+  [normalizeText("Tap the compost bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_compost_bin_fbc83097.wav",
+    text: "Tap the compost bin.",
+  },
+  [normalizeText("Tap the dish rack.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_dish_rack_98765d42.wav",
+    text: "Tap the dish rack.",
+  },
+  [normalizeText("Tap the recycling bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_recycling_bin_114931fc.wav",
+    text: "Tap the recycling bin.",
+  },
+  [normalizeText("Start timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_start_timer_aa9d8fb8.wav",
+    text: "Start timer.",
+  },
+  [normalizeText("Tap the timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_timer_0661bb7e.wav",
+    text: "Tap the timer.",
+  },
+  [normalizeText("Let's learn air dry dishes.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_air_dry_dishes_986abf5f.wav",
+    text: "Let's learn air dry dishes.",
+  },
+  [normalizeText("This is the cabinet.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_cabinet_fa4c8b5a.wav",
+    text: "This is the cabinet.",
+  },
+  [normalizeText("This is the compost bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_compost_bin_6bca69b6.wav",
+    text: "This is the compost bin.",
+  },
+  [normalizeText("This is the dish rack.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_dish_rack_1bf52a9b.wav",
+    text: "This is the dish rack.",
+  },
+  [normalizeText("This is the drying mat.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_drying_mat_d692f121.wav",
+    text: "This is the drying mat.",
+  },
+  [normalizeText("This is the recycling bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_recycling_bin_85fe070e.wav",
+    text: "This is the recycling bin.",
+  },
+  [normalizeText("Let's learn sort recycling.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_sort_recycling_2e1a833e.wav",
+    text: "Let's learn sort recycling.",
+  },
+  [normalizeText("Let's learn start timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_start_timer_d0ba3723.wav",
+    text: "Let's learn start timer.",
+  },
+  [normalizeText("This is the timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_timer_b0a39a27.wav",
+    text: "This is the timer.",
   },
   [normalizeText("recycling bin")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/recycling_bin.wav",
@@ -87,6 +267,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("start timer")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/start_timer.wav",
     text: "start timer",
+  },
+  [normalizeText("It means air dry dishes.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_air_dry_dishes_success_890b3406.wav",
+    text: "It means air dry dishes.",
+  },
+  [normalizeText("It means cabinet.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_cabinet_success_b9bf73bb.wav",
+    text: "It means cabinet.",
+  },
+  [normalizeText("It means compost bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_compost_bin_success_3f1db807.wav",
+    text: "It means compost bin.",
+  },
+  [normalizeText("It means dish rack.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_dish_rack_success_995fef4f.wav",
+    text: "It means dish rack.",
+  },
+  [normalizeText("It means drying mat.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_drying_mat_success_23a48f2e.wav",
+    text: "It means drying mat.",
+  },
+  [normalizeText("It means recycling bin.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_recycling_bin_success_475d799c.wav",
+    text: "It means recycling bin.",
+  },
+  [normalizeText("It means sort recycling.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_sort_recycling_success_d7a097f5.wav",
+    text: "It means sort recycling.",
+  },
+  [normalizeText("It means start timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_start_timer_success_de522cb6.wav",
+    text: "It means start timer.",
+  },
+  [normalizeText("It means timer.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_timer_success_3db92a1a.wav",
+    text: "It means timer.",
   },
   [normalizeText("timer")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/timer.wav",
@@ -104,9 +320,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/dry_surface.wav",
     text: "dry surface",
   },
+  [normalizeText("Scrub spot.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_drag_brush_scrub_spot_9b02811d.wav",
+    text: "Scrub spot.",
+  },
+  [normalizeText("Drag the cleaning brush.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_drag_brush_to_spill_173bd8b4.wav",
+    text: "Drag the cleaning brush.",
+  },
+  [normalizeText("Spray stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_drag_spray_to_stain_ebc70b79.wav",
+    text: "Spray stain.",
+  },
   [normalizeText("Clean the spot!")]: {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_intro_9b09105c.wav",
     text: "Clean the spot!",
+  },
+  [normalizeText("Dry surface.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_dry_surface_2cb4d434.wav",
+    text: "Dry surface.",
+  },
+  [normalizeText("Tap the rubber gloves.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_rubber_gloves_49af111b.wav",
+    text: "Tap the rubber gloves.",
+  },
+  [normalizeText("Tap the scraper.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_scraper_d7b04c41.wav",
+    text: "Tap the scraper.",
+  },
+  [normalizeText("Tap the spill.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_spill_e006b269.wav",
+    text: "Tap the spill.",
+  },
+  [normalizeText("Spray bottle.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_spray_bottle_12c0e1f7.wav",
+    text: "Spray bottle.",
+  },
+  [normalizeText("Tap the stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_stain_c9a86ad6.wav",
+    text: "Tap the stain.",
+  },
+  [normalizeText("This is the cleaning brush.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_cleaning_brush_12b8da1e.wav",
+    text: "This is the cleaning brush.",
+  },
+  [normalizeText("Let's learn dry surface.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_dry_surface_eade10ff.wav",
+    text: "Let's learn dry surface.",
+  },
+  [normalizeText("This is the rubber gloves.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_rubber_gloves_c2f20138.wav",
+    text: "This is the rubber gloves.",
+  },
+  [normalizeText("This is the scraper.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_scraper_5795f6cc.wav",
+    text: "This is the scraper.",
+  },
+  [normalizeText("Let's learn scrub spot.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_scrub_spot_554d25f8.wav",
+    text: "Let's learn scrub spot.",
+  },
+  [normalizeText("This is the spill.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_spill_b8002ae5.wav",
+    text: "This is the spill.",
+  },
+  [normalizeText("This is the spray bottle.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_spray_bottle_a6cff77a.wav",
+    text: "This is the spray bottle.",
+  },
+  [normalizeText("Let's learn spray stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_spray_stain_c7b058f5.wav",
+    text: "Let's learn spray stain.",
+  },
+  [normalizeText("This is the stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_stain_f5fb434c.wav",
+    text: "This is the stain.",
   },
   [normalizeText("rubber gloves")]: {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/rubber_gloves.wav",
@@ -136,6 +424,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/stain.wav",
     text: "stain",
   },
+  [normalizeText("It means cleaning brush.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_cleaning_brush_success_2ab94048.wav",
+    text: "It means cleaning brush.",
+  },
+  [normalizeText("It means dry surface.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_dry_surface_success_b0d022d4.wav",
+    text: "It means dry surface.",
+  },
+  [normalizeText("It means rubber gloves.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_rubber_gloves_success_b24f61ac.wav",
+    text: "It means rubber gloves.",
+  },
+  [normalizeText("It means scraper.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_scraper_success_76f1f5f7.wav",
+    text: "It means scraper.",
+  },
+  [normalizeText("It means scrub spot.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_scrub_spot_success_a6106c25.wav",
+    text: "It means scrub spot.",
+  },
+  [normalizeText("It means spill.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_spill_success_89f5cb81.wav",
+    text: "It means spill.",
+  },
+  [normalizeText("It means spray bottle.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_spray_bottle_success_4897f7f7.wav",
+    text: "It means spray bottle.",
+  },
+  [normalizeText("It means spray stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_spray_stain_success_c3f08d9f.wav",
+    text: "It means spray stain.",
+  },
+  [normalizeText("It means stain.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_stain_success_c948a334.wav",
+    text: "It means stain.",
+  },
   [normalizeText("comb hair")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/comb_hair.wav",
     text: "comb hair",
@@ -164,9 +488,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-finish/audio/en/pajamas.wav",
     text: "pajamas",
   },
+  [normalizeText("Drag the dirty clothes.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_drag_clothes_to_basket_d32dcc9f.wav",
+    text: "Drag the dirty clothes.",
+  },
+  [normalizeText("Comb hair.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_drag_comb_to_hair_8ab9838f.wav",
+    text: "Comb hair.",
+  },
+  [normalizeText("Put on pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_drag_pajamas_to_baby_8c85e833.wav",
+    text: "Put on pajamas.",
+  },
+  [normalizeText("Hang robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_drag_robe_to_hook_604e411e.wav",
+    text: "Hang robe.",
+  },
+  [normalizeText("Drag the slippers.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_drag_slippers_to_feet_996f293d.wav",
+    text: "Drag the slippers.",
+  },
   [normalizeText("After bath!")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_intro_1c44260b.wav",
     text: "After bath!",
+  },
+  [normalizeText("Comb.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_comb_7ad7a253.wav",
+    text: "Comb.",
+  },
+  [normalizeText("Tap the hook.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_hook_f69bcb83.wav",
+    text: "Tap the hook.",
+  },
+  [normalizeText("Tap the pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_pajamas_5e10e07e.wav",
+    text: "Tap the pajamas.",
+  },
+  [normalizeText("Tap the robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_robe_8b17aa7b.wav",
+    text: "Tap the robe.",
+  },
+  [normalizeText("This is the comb.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_comb_5362488f.wav",
+    text: "This is the comb.",
+  },
+  [normalizeText("Let's learn comb hair.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_comb_hair_a37bef36.wav",
+    text: "Let's learn comb hair.",
+  },
+  [normalizeText("Let's learn hang robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_hang_robe_10a94a90.wav",
+    text: "Let's learn hang robe.",
+  },
+  [normalizeText("This is the hook.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_hook_134d07d7.wav",
+    text: "This is the hook.",
+  },
+  [normalizeText("This is the laundry basket.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_laundry_basket_fa3a99d2.wav",
+    text: "This is the laundry basket.",
+  },
+  [normalizeText("This is the pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_pajamas_41e9660a.wav",
+    text: "This is the pajamas.",
+  },
+  [normalizeText("Let's learn put on pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_put_on_pajamas_c4497120.wav",
+    text: "Let's learn put on pajamas.",
+  },
+  [normalizeText("This is the robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_robe_59ace8a6.wav",
+    text: "This is the robe.",
+  },
+  [normalizeText("This is the slippers.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_teach_slippers_41247301.wav",
+    text: "This is the slippers.",
   },
   [normalizeText("put on pajamas")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/put_on_pajamas.wav",
@@ -179,6 +575,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("slippers")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/slippers.wav",
     text: "slippers",
+  },
+  [normalizeText("It means comb hair.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_comb_hair_success_3d8984be.wav",
+    text: "It means comb hair.",
+  },
+  [normalizeText("It means comb.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_comb_success_de68e85f.wav",
+    text: "It means comb.",
+  },
+  [normalizeText("It means hang robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_hang_robe_success_2eabd4c9.wav",
+    text: "It means hang robe.",
+  },
+  [normalizeText("It means hook.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_hook_success_6267c744.wav",
+    text: "It means hook.",
+  },
+  [normalizeText("It means laundry basket.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_laundry_basket_success_c1a8c1ab.wav",
+    text: "It means laundry basket.",
+  },
+  [normalizeText("It means pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_pajamas_success_438bf42b.wav",
+    text: "It means pajamas.",
+  },
+  [normalizeText("It means put on pajamas.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_put_on_pajamas_success_a65d803b.wav",
+    text: "It means put on pajamas.",
+  },
+  [normalizeText("It means robe.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_robe_success_12606833.wav",
+    text: "It means robe.",
+  },
+  [normalizeText("It means slippers.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/teach_slippers_success_61310ca0.wav",
+    text: "It means slippers.",
   },
   [normalizeText("bath mat")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/bath_mat.wav",
@@ -204,9 +636,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-prep/audio/en/completion_58a0f9fd.wav",
     text: "Getting Ready for a Bath is complete.",
   },
+  [normalizeText("Drag the body wash.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_drag_body_wash_to_sponge_9cc21b19.wav",
+    text: "Drag the body wash.",
+  },
+  [normalizeText("Drag the bath mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_drag_mat_to_bathtub_e103b98d.wav",
+    text: "Drag the bath mat.",
+  },
   [normalizeText("Bath time!")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_intro_99927957.wav",
     text: "Bath time!",
+  },
+  [normalizeText("Tap the bath sponge.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_bath_sponge_ddef35bc.wav",
+    text: "Tap the bath sponge.",
+  },
+  [normalizeText("Tap the bathtub.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_bathtub_d678ef2e.wav",
+    text: "Tap the bathtub.",
+  },
+  [normalizeText("Check temperature.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_check_temperature_e81c26fa.wav",
+    text: "Check temperature.",
+  },
+  [normalizeText("Tap the shampoo.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_shampoo_d41c5396.wav",
+    text: "Tap the shampoo.",
+  },
+  [normalizeText("Tap the shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_shower_739afe05.wav",
+    text: "Tap the shower.",
+  },
+  [normalizeText("Step onto mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_step_onto_mat_c7e5e9a6.wav",
+    text: "Step onto mat.",
+  },
+  [normalizeText("Turn on shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_turn_on_shower_7f77e911.wav",
+    text: "Turn on shower.",
+  },
+  [normalizeText("This is the bath mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_bath_mat_51d4fc49.wav",
+    text: "This is the bath mat.",
+  },
+  [normalizeText("This is the bath sponge.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_bath_sponge_81cb5826.wav",
+    text: "This is the bath sponge.",
+  },
+  [normalizeText("This is the bathtub.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_bathtub_9c88f3d4.wav",
+    text: "This is the bathtub.",
+  },
+  [normalizeText("This is the body wash.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_body_wash_158628d9.wav",
+    text: "This is the body wash.",
+  },
+  [normalizeText("Let's learn check temperature.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_check_temperature_493b1652.wav",
+    text: "Let's learn check temperature.",
+  },
+  [normalizeText("This is the shampoo.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_shampoo_34e7b8cd.wav",
+    text: "This is the shampoo.",
+  },
+  [normalizeText("This is the shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_shower_951dde92.wav",
+    text: "This is the shower.",
+  },
+  [normalizeText("Let's learn step onto mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_step_onto_mat_9214cbe9.wav",
+    text: "Let's learn step onto mat.",
+  },
+  [normalizeText("Let's learn turn on shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_turn_on_shower_af3b7399.wav",
+    text: "Let's learn turn on shower.",
   },
   [normalizeText("shampoo")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/shampoo.wav",
@@ -219,6 +723,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("step onto mat")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/step_onto_mat.wav",
     text: "step onto mat",
+  },
+  [normalizeText("It means bath mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_bath_mat_success_29b43749.wav",
+    text: "It means bath mat.",
+  },
+  [normalizeText("It means bath sponge.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_bath_sponge_success_4fcd724d.wav",
+    text: "It means bath sponge.",
+  },
+  [normalizeText("It means bathtub.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_bathtub_success_dd47c89c.wav",
+    text: "It means bathtub.",
+  },
+  [normalizeText("It means body wash.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_body_wash_success_88f227a9.wav",
+    text: "It means body wash.",
+  },
+  [normalizeText("It means check temperature.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_check_temperature_success_23147638.wav",
+    text: "It means check temperature.",
+  },
+  [normalizeText("It means shampoo.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_shampoo_success_e2ab0500.wav",
+    text: "It means shampoo.",
+  },
+  [normalizeText("It means shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_shower_success_e7e42145.wav",
+    text: "It means shower.",
+  },
+  [normalizeText("It means step onto mat.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_step_onto_mat_success_62e2fdef.wav",
+    text: "It means step onto mat.",
+  },
+  [normalizeText("It means turn on shower.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/teach_turn_on_shower_success_2cc62946.wav",
+    text: "It means turn on shower.",
   },
   [normalizeText("turn on shower")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/turn_on_shower.wav",
@@ -248,9 +788,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/make_bubbles.wav",
     text: "make bubbles",
   },
+  [normalizeText("Make bubbles.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_drag_foam_to_bubbles_e8c187bf.wav",
+    text: "Make bubbles.",
+  },
+  [normalizeText("Rinse hair.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_drag_shower_head_to_hair_33944850.wav",
+    text: "Rinse hair.",
+  },
+  [normalizeText("Scrub knees.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_drag_sponge_to_knee_2933b912.wav",
+    text: "Scrub knees.",
+  },
   [normalizeText("Wash and rinse!")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_intro_05ccd00c.wav",
     text: "Wash and rinse!",
+  },
+  [normalizeText("Tap the bubble.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_bubble_44395199.wav",
+    text: "Tap the bubble.",
+  },
+  [normalizeText("Tap the elbow.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_elbow_1803bff1.wav",
+    text: "Tap the elbow.",
+  },
+  [normalizeText("Tap the foam.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_foam_af13f63b.wav",
+    text: "Tap the foam.",
+  },
+  [normalizeText("Tap the knee.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_knee_50f37221.wav",
+    text: "Tap the knee.",
+  },
+  [normalizeText("Tap the shoulder.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_shoulder_dd24996f.wav",
+    text: "Tap the shoulder.",
+  },
+  [normalizeText("Tap the shower head.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_shower_head_b3b67272.wav",
+    text: "Tap the shower head.",
+  },
+  [normalizeText("This is the bubble.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_bubble_c7c0afbd.wav",
+    text: "This is the bubble.",
+  },
+  [normalizeText("This is the elbow.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_elbow_8f700de5.wav",
+    text: "This is the elbow.",
+  },
+  [normalizeText("This is the foam.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_foam_160f1164.wav",
+    text: "This is the foam.",
+  },
+  [normalizeText("This is the knee.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_knee_85e6cdd8.wav",
+    text: "This is the knee.",
+  },
+  [normalizeText("Let's learn make bubbles.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_make_bubbles_f2c23486.wav",
+    text: "Let's learn make bubbles.",
+  },
+  [normalizeText("Let's learn rinse hair.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_rinse_hair_28ca6154.wav",
+    text: "Let's learn rinse hair.",
+  },
+  [normalizeText("Let's learn scrub knees.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_scrub_knees_08fb9178.wav",
+    text: "Let's learn scrub knees.",
+  },
+  [normalizeText("This is the shoulder.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_shoulder_3e3b5314.wav",
+    text: "This is the shoulder.",
+  },
+  [normalizeText("This is the shower head.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_shower_head_8855ed46.wav",
+    text: "This is the shower head.",
   },
   [normalizeText("rinse hair")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/rinse_hair.wav",
@@ -267,6 +879,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("shower head")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/shower_head.wav",
     text: "shower head",
+  },
+  [normalizeText("It means bubble.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_bubble_success_29604ff9.wav",
+    text: "It means bubble.",
+  },
+  [normalizeText("It means elbow.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_elbow_success_a268ac3b.wav",
+    text: "It means elbow.",
+  },
+  [normalizeText("It means foam.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_foam_success_28c79bd6.wav",
+    text: "It means foam.",
+  },
+  [normalizeText("It means knee.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_knee_success_d57ac567.wav",
+    text: "It means knee.",
+  },
+  [normalizeText("It means make bubbles.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_make_bubbles_success_55d98d99.wav",
+    text: "It means make bubbles.",
+  },
+  [normalizeText("It means rinse hair.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_rinse_hair_success_bc323072.wav",
+    text: "It means rinse hair.",
+  },
+  [normalizeText("It means scrub knees.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_scrub_knees_success_3ea2ebe5.wav",
+    text: "It means scrub knees.",
+  },
+  [normalizeText("It means shoulder.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_shoulder_success_67c13a8c.wav",
+    text: "It means shoulder.",
+  },
+  [normalizeText("It means shower head.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_shower_head_success_b4883eab.wav",
+    text: "It means shower head.",
   },
   [normalizeText("Getting Ready to Go Home is complete.")]: {
     key: "lessons/afternoon-home/going-home/audio/en/completion_72080f62.wav",
@@ -288,13 +936,77 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/going-home/audio/en/line_up.wav",
     text: "line up",
   },
+  [normalizeText("Line up.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_drag_bag_to_line_1bea79b0.wav",
+    text: "Line up.",
+  },
+  [normalizeText("Pack bag.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_drag_folder_to_bag_45cc0d56.wav",
+    text: "Pack bag.",
+  },
   [normalizeText("Going home!")]: {
     key: "lessons/afternoon-home/going-home/audio/en/prompt_intro_9dbc530d.wav",
     text: "Going home!",
   },
+  [normalizeText("Tap the bag.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_bag_06a4af04.wav",
+    text: "Tap the bag.",
+  },
+  [normalizeText("Tap the folder.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_folder_806fba2d.wav",
+    text: "Tap the folder.",
+  },
+  [normalizeText("Say goodbye.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_goodbye_card_667b429c.wav",
+    text: "Say goodbye.",
+  },
+  [normalizeText("Tap the jacket.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_jacket_2caf05a8.wav",
+    text: "Tap the jacket.",
+  },
+  [normalizeText("This is the door.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_door_5ee8a9b6.wav",
+    text: "This is the door.",
+  },
+  [normalizeText("This is the folder.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_folder_683a2e65.wav",
+    text: "This is the folder.",
+  },
+  [normalizeText("This is the jacket.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_jacket_83f4e282.wav",
+    text: "This is the jacket.",
+  },
+  [normalizeText("Let's learn line up.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_line_up_3aaa7e8b.wav",
+    text: "Let's learn line up.",
+  },
+  [normalizeText("Let's learn say goodbye.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_say_goodbye_7139576c.wav",
+    text: "Let's learn say goodbye.",
+  },
   [normalizeText("say goodbye")]: {
     key: "lessons/afternoon-home/going-home/audio/en/say_goodbye.wav",
     text: "say goodbye",
+  },
+  [normalizeText("It means door.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/teach_door_success_b49901b3.wav",
+    text: "It means door.",
+  },
+  [normalizeText("It means folder.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/teach_folder_success_d12bbd63.wav",
+    text: "It means folder.",
+  },
+  [normalizeText("It means jacket.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/teach_jacket_success_477305e1.wav",
+    text: "It means jacket.",
+  },
+  [normalizeText("It means line up.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/teach_line_up_success_e5728141.wav",
+    text: "It means line up.",
+  },
+  [normalizeText("It means say goodbye.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/teach_say_goodbye_success_3f4eea5d.wav",
+    text: "It means say goodbye.",
   },
   [normalizeText("Arriving Home is complete.")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/completion_1f092d14.wav",
@@ -308,9 +1020,45 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/home-arrival/audio/en/hug_family.wav",
     text: "hug family",
   },
+  [normalizeText("Drag the shoes.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_drag_shoes_to_door_b9759a63.wav",
+    text: "Drag the shoes.",
+  },
+  [normalizeText("Take off shoes.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_drag_shoes_to_shelf_8f5e2b36.wav",
+    text: "Take off shoes.",
+  },
   [normalizeText("Home!")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/prompt_intro_d66a83e1.wav",
     text: "Home!",
+  },
+  [normalizeText("Tap the family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_tap_family_c6ffbd5f.wav",
+    text: "Tap the family.",
+  },
+  [normalizeText("Hug family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_tap_family_hug_d22a60ba.wav",
+    text: "Hug family.",
+  },
+  [normalizeText("Tap the shelf.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_tap_shelf_53619846.wav",
+    text: "Tap the shelf.",
+  },
+  [normalizeText("This is the family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_teach_family_285847b3.wav",
+    text: "This is the family.",
+  },
+  [normalizeText("Let's learn hug family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_teach_hug_family_63f950a0.wav",
+    text: "Let's learn hug family.",
+  },
+  [normalizeText("This is the shelf.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_teach_shelf_035d8f3e.wav",
+    text: "This is the shelf.",
+  },
+  [normalizeText("Let's learn take off shoes.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_teach_take_off_shoes_f67fd399.wav",
+    text: "Let's learn take off shoes.",
   },
   [normalizeText("shelf")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/shelf.wav",
@@ -319,6 +1067,22 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("take off shoes")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/take_off_shoes.wav",
     text: "take off shoes",
+  },
+  [normalizeText("It means family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/teach_family_success_63960db4.wav",
+    text: "It means family.",
+  },
+  [normalizeText("It means hug family.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/teach_hug_family_success_2861c74f.wav",
+    text: "It means hug family.",
+  },
+  [normalizeText("It means shelf.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/teach_shelf_success_3da78004.wav",
+    text: "It means shelf.",
+  },
+  [normalizeText("It means take off shoes.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/teach_take_off_shoes_success_e986c03c.wav",
+    text: "It means take off shoes.",
   },
   [normalizeText("arrive home")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/arrive_home.wav",
@@ -340,9 +1104,69 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/ride-home/audio/en/home.wav",
     text: "home",
   },
+  [normalizeText("Drag the bus.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_drag_bus_to_road_7397b97e.wav",
+    text: "Drag the bus.",
+  },
+  [normalizeText("Buckle up.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_drag_seat_belt_buckle_c9d3ced1.wav",
+    text: "Buckle up.",
+  },
+  [normalizeText("Drag the seat belt.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_drag_seat_belt_to_seat_d6b931bd.wav",
+    text: "Drag the seat belt.",
+  },
   [normalizeText("Ride home!")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/prompt_intro_658e4d53.wav",
     text: "Ride home!",
+  },
+  [normalizeText("Get on bus.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_tap_bus_door_eafff757.wav",
+    text: "Get on bus.",
+  },
+  [normalizeText("Tap the home.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_tap_home_f8778ddb.wav",
+    text: "Tap the home.",
+  },
+  [normalizeText("Tap the traffic light.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_tap_traffic_light_8b14b3a5.wav",
+    text: "Tap the traffic light.",
+  },
+  [normalizeText("Tap the window.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_tap_window_a3528d6c.wav",
+    text: "Tap the window.",
+  },
+  [normalizeText("Let's learn arrive home.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_arrive_home_cd4e8fa9.wav",
+    text: "Let's learn arrive home.",
+  },
+  [normalizeText("Let's learn buckle up.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_buckle_up_fae5c78d.wav",
+    text: "Let's learn buckle up.",
+  },
+  [normalizeText("Let's learn get on bus.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_get_on_bus_4a961618.wav",
+    text: "Let's learn get on bus.",
+  },
+  [normalizeText("This is the home.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_home_c4eaf3c0.wav",
+    text: "This is the home.",
+  },
+  [normalizeText("This is the road.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_road_f332e7e8.wav",
+    text: "This is the road.",
+  },
+  [normalizeText("This is the seat belt.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_seat_belt_5dda843a.wav",
+    text: "This is the seat belt.",
+  },
+  [normalizeText("This is the traffic light.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_traffic_light_c4f61713.wav",
+    text: "This is the traffic light.",
+  },
+  [normalizeText("This is the window.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_window_6fd60735.wav",
+    text: "This is the window.",
   },
   [normalizeText("road")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/road.wav",
@@ -351,6 +1175,38 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("seat belt")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/seat_belt.wav",
     text: "seat belt",
+  },
+  [normalizeText("It means arrive home.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_arrive_home_success_e6e44047.wav",
+    text: "It means arrive home.",
+  },
+  [normalizeText("It means buckle up.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_buckle_up_success_c3b84bcd.wav",
+    text: "It means buckle up.",
+  },
+  [normalizeText("It means get on bus.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_get_on_bus_success_729c74c4.wav",
+    text: "It means get on bus.",
+  },
+  [normalizeText("It means home.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_home_success_54813c85.wav",
+    text: "It means home.",
+  },
+  [normalizeText("It means road.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_road_success_1b6e46c2.wav",
+    text: "It means road.",
+  },
+  [normalizeText("It means seat belt.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_seat_belt_success_9397f10b.wav",
+    text: "It means seat belt.",
+  },
+  [normalizeText("It means traffic light.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_traffic_light_success_415d1ec3.wav",
+    text: "It means traffic light.",
+  },
+  [normalizeText("It means window.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/teach_window_success_a1dab91d.wav",
+    text: "It means window.",
   },
   [normalizeText("traffic light")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/traffic_light.wav",
@@ -380,9 +1236,61 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/classroom/audio/en/desk.wav",
     text: "desk",
   },
+  [normalizeText("Drag the chair.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_drag_chair_to_desk_489a1613.wav",
+    text: "Drag the chair.",
+  },
   [normalizeText("At school!")]: {
     key: "lessons/at-school/classroom/audio/en/prompt_intro_029be165.wav",
     text: "At school!",
+  },
+  [normalizeText("Tap the board.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_tap_board_9165c834.wav",
+    text: "Tap the board.",
+  },
+  [normalizeText("Sit down.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_tap_chair_sit_down_fc695df3.wav",
+    text: "Sit down.",
+  },
+  [normalizeText("Tap the desk.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_tap_desk_365cd0d3.wav",
+    text: "Tap the desk.",
+  },
+  [normalizeText("Raise hand.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_tap_hand_27f8c858.wav",
+    text: "Raise hand.",
+  },
+  [normalizeText("Tap the teacher.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_tap_teacher_02df73f4.wav",
+    text: "Tap the teacher.",
+  },
+  [normalizeText("This is the board.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_board_f2125fda.wav",
+    text: "This is the board.",
+  },
+  [normalizeText("This is the chair.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_chair_ef873d08.wav",
+    text: "This is the chair.",
+  },
+  [normalizeText("This is the classroom.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_classroom_71792c6d.wav",
+    text: "This is the classroom.",
+  },
+  [normalizeText("This is the desk.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_desk_f7b52232.wav",
+    text: "This is the desk.",
+  },
+  [normalizeText("Let's learn raise hand.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_raise_hand_237d9da9.wav",
+    text: "Let's learn raise hand.",
+  },
+  [normalizeText("Let's learn sit down.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_sit_down_926e0aa5.wav",
+    text: "Let's learn sit down.",
+  },
+  [normalizeText("This is the teacher.")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_teach_teacher_ae0784a1.wav",
+    text: "This is the teacher.",
   },
   [normalizeText("raise hand")]: {
     key: "lessons/at-school/classroom/audio/en/raise_hand.wav",
@@ -391,6 +1299,34 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("sit down")]: {
     key: "lessons/at-school/classroom/audio/en/sit_down.wav",
     text: "sit down",
+  },
+  [normalizeText("It means board.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_board_success_0335cdc0.wav",
+    text: "It means board.",
+  },
+  [normalizeText("It means chair.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_chair_success_8542052f.wav",
+    text: "It means chair.",
+  },
+  [normalizeText("It means classroom.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_classroom_success_cab699d9.wav",
+    text: "It means classroom.",
+  },
+  [normalizeText("It means desk.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_desk_success_5ac167c2.wav",
+    text: "It means desk.",
+  },
+  [normalizeText("It means raise hand.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_raise_hand_success_96f2426a.wav",
+    text: "It means raise hand.",
+  },
+  [normalizeText("It means sit down.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_sit_down_success_4b8371ad.wav",
+    text: "It means sit down.",
+  },
+  [normalizeText("It means teacher.")]: {
+    key: "lessons/at-school/classroom/audio/en/teach_teacher_success_6a1a7f3c.wav",
+    text: "It means teacher.",
   },
   [normalizeText("teacher")]: {
     key: "lessons/at-school/classroom/audio/en/teacher.wav",
@@ -424,13 +1360,109 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/school-supplies/audio/en/pencil.wav",
     text: "pencil",
   },
+  [normalizeText("Draw a circle.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_drag_crayon_to_paper_47aa2b73.wav",
+    text: "Draw a circle.",
+  },
+  [normalizeText("Write your name.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_drag_pencil_to_paper_46016132.wav",
+    text: "Write your name.",
+  },
+  [normalizeText("Drag the pencil.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_drag_pencil_to_table_3a7b5b0f.wav",
+    text: "Drag the pencil.",
+  },
+  [normalizeText("Drag the ruler.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_drag_ruler_to_paper_b4add533.wav",
+    text: "Drag the ruler.",
+  },
   [normalizeText("School supplies!")]: {
     key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_intro_adf2290b.wav",
     text: "School supplies!",
   },
+  [normalizeText("Tap the book.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_tap_book_b3e79cca.wav",
+    text: "Tap the book.",
+  },
+  [normalizeText("Open book.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_tap_book_open_d5c33ad0.wav",
+    text: "Open book.",
+  },
+  [normalizeText("Tap the crayon.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_tap_crayon_cf4d5c91.wav",
+    text: "Tap the crayon.",
+  },
+  [normalizeText("Tap the eraser.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_tap_eraser_0680b296.wav",
+    text: "Tap the eraser.",
+  },
+  [normalizeText("This is the crayon.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_crayon_4e4d2eae.wav",
+    text: "This is the crayon.",
+  },
+  [normalizeText("Let's learn draw a circle.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_draw_circle_d65d9e1f.wav",
+    text: "Let's learn draw a circle.",
+  },
+  [normalizeText("This is the eraser.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_eraser_ecc3a7eb.wav",
+    text: "This is the eraser.",
+  },
+  [normalizeText("This is the notebook.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_notebook_3aca9082.wav",
+    text: "This is the notebook.",
+  },
+  [normalizeText("Let's learn open book.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_open_book_458b4985.wav",
+    text: "Let's learn open book.",
+  },
+  [normalizeText("This is the pencil.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_pencil_283ce2d5.wav",
+    text: "This is the pencil.",
+  },
+  [normalizeText("This is the ruler.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_ruler_611af271.wav",
+    text: "This is the ruler.",
+  },
+  [normalizeText("Let's learn write your name.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_write_name_0bad8033.wav",
+    text: "Let's learn write your name.",
+  },
   [normalizeText("ruler")]: {
     key: "lessons/at-school/school-supplies/audio/en/ruler.wav",
     text: "ruler",
+  },
+  [normalizeText("It means crayon.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_crayon_success_cc2d4349.wav",
+    text: "It means crayon.",
+  },
+  [normalizeText("It means draw a circle.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_draw_circle_success_56d200bd.wav",
+    text: "It means draw a circle.",
+  },
+  [normalizeText("It means eraser.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_eraser_success_671475ca.wav",
+    text: "It means eraser.",
+  },
+  [normalizeText("It means notebook.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_notebook_success_d6dc7fd7.wav",
+    text: "It means notebook.",
+  },
+  [normalizeText("It means open book.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_open_book_success_a75c6b30.wav",
+    text: "It means open book.",
+  },
+  [normalizeText("It means pencil.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_pencil_success_b927694c.wav",
+    text: "It means pencil.",
+  },
+  [normalizeText("It means ruler.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_ruler_success_56726a58.wav",
+    text: "It means ruler.",
+  },
+  [normalizeText("It means write your name.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/supplies_teach_write_name_success_7e718e70.wav",
+    text: "It means write your name.",
   },
   [normalizeText("write your name")]: {
     key: "lessons/at-school/school-supplies/audio/en/write_your_name.wav",
@@ -444,13 +1476,45 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/teacher-instructions/audio/en/completion_03a26cf9.wav",
     text: "Teacher Says is complete.",
   },
+  [normalizeText("It means clean up.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/instructions_teach_clean_up_success_34a07d8e.wav",
+    text: "It means clean up.",
+  },
+  [normalizeText("It means listen.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/instructions_teach_listen_success_6b7b835a.wav",
+    text: "It means listen.",
+  },
   [normalizeText("listen")]: {
     key: "lessons/at-school/teacher-instructions/audio/en/listen.wav",
     text: "listen",
   },
+  [normalizeText("Clean up.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_drag_book_to_box_b9751a3d.wav",
+    text: "Clean up.",
+  },
+  [normalizeText("Drag the book.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_drag_book_to_desk_5338289b.wav",
+    text: "Drag the book.",
+  },
   [normalizeText("Teacher says!")]: {
     key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_intro_322d0bc5.wav",
     text: "Teacher says!",
+  },
+  [normalizeText("Tap the pencil.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_tap_pencil_d51a4caa.wav",
+    text: "Tap the pencil.",
+  },
+  [normalizeText("Listen.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_tap_teacher_listen_d4d11a3b.wav",
+    text: "Listen.",
+  },
+  [normalizeText("Let's learn clean up.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_teach_clean_up_e43fa027.wav",
+    text: "Let's learn clean up.",
+  },
+  [normalizeText("Let's learn listen.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_teach_listen_db748663.wav",
+    text: "Let's learn listen.",
   },
   [normalizeText("bookmark")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/bookmark.wav",
@@ -472,9 +1536,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/bedtime-story/audio/en/place_bookmark.wav",
     text: "place bookmark",
   },
+  [normalizeText("Choose story.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_drag_choose_story_d7e6f1a1.wav",
+    text: "Choose story.",
+  },
+  [normalizeText("Drag the page tab.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_drag_page_tab_8e1863fa.wav",
+    text: "Drag the page tab.",
+  },
+  [normalizeText("Drag the bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_drag_place_bookmark_8f127c78.wav",
+    text: "Drag the bookmark.",
+  },
+  [normalizeText("Drag the storybook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_drag_storybook_to_nook_04438fb7.wav",
+    text: "Drag the storybook.",
+  },
   [normalizeText("Bedtime story!")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/prompt_intro_c55cd5f9.wav",
     text: "Bedtime story!",
+  },
+  [normalizeText("Tap the bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_bookmark_2af17d8f.wav",
+    text: "Tap the bookmark.",
+  },
+  [normalizeText("Read softly.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_read_softly_a8c37fcc.wav",
+    text: "Read softly.",
+  },
+  [normalizeText("Tap the soft voice.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_soft_voice_7fa58760.wav",
+    text: "Tap the soft voice.",
+  },
+  [normalizeText("Tap the story shelf.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_story_shelf_041d9a45.wav",
+    text: "Tap the story shelf.",
+  },
+  [normalizeText("Tap the storybook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_storybook_3c7e9e7e.wav",
+    text: "Tap the storybook.",
+  },
+  [normalizeText("This is the bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_bookmark_129033ee.wav",
+    text: "This is the bookmark.",
+  },
+  [normalizeText("Let's learn choose story.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_choose_story_bef74185.wav",
+    text: "Let's learn choose story.",
+  },
+  [normalizeText("This is the page tab.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_page_tab_f172bfa0.wav",
+    text: "This is the page tab.",
+  },
+  [normalizeText("Let's learn place bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_place_bookmark_1cfc9c6e.wav",
+    text: "Let's learn place bookmark.",
+  },
+  [normalizeText("Let's learn read softly.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_read_softly_7b765de5.wav",
+    text: "Let's learn read softly.",
+  },
+  [normalizeText("This is the reading nook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_reading_nook_b2d9fad7.wav",
+    text: "This is the reading nook.",
+  },
+  [normalizeText("Let's learn soft voice.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_soft_voice_6e9890c7.wav",
+    text: "Let's learn soft voice.",
+  },
+  [normalizeText("This is the story shelf.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_story_shelf_85642c7d.wav",
+    text: "This is the story shelf.",
+  },
+  [normalizeText("This is the storybook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_storybook_5c1fa0e4.wav",
+    text: "This is the storybook.",
   },
   [normalizeText("read softly")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/read_softly.wav",
@@ -495,6 +1631,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("storybook")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/storybook.wav",
     text: "storybook",
+  },
+  [normalizeText("It means bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_bookmark_success_394600ec.wav",
+    text: "It means bookmark.",
+  },
+  [normalizeText("It means choose story.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_choose_story_success_9782ffdd.wav",
+    text: "It means choose story.",
+  },
+  [normalizeText("It means page tab.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_page_tab_success_1af41fda.wav",
+    text: "It means page tab.",
+  },
+  [normalizeText("It means place bookmark.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_place_bookmark_success_2e0bcd89.wav",
+    text: "It means place bookmark.",
+  },
+  [normalizeText("It means read softly.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_read_softly_success_d7e69377.wav",
+    text: "It means read softly.",
+  },
+  [normalizeText("It means reading nook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_reading_nook_success_ab97c133.wav",
+    text: "It means reading nook.",
+  },
+  [normalizeText("It means soft voice.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_soft_voice_success_af0ef58c.wav",
+    text: "It means soft voice.",
+  },
+  [normalizeText("It means story shelf.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_story_shelf_success_13e05e27.wav",
+    text: "It means story shelf.",
+  },
+  [normalizeText("It means storybook.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/teach_storybook_success_1277c9f0.wav",
+    text: "It means storybook.",
   },
   [normalizeText("close curtains")]: {
     key: "lessons/bedtime/calm-room/audio/en/close_curtains.wav",
@@ -528,9 +1700,77 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/calm-room/audio/en/play_lullaby.wav",
     text: "play lullaby",
   },
+  [normalizeText("Drag the curtain.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_drag_close_curtains_82084aca.wav",
+    text: "Drag the curtain.",
+  },
+  [normalizeText("Drag the humidifier.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_drag_humidifier_23edc1cd.wav",
+    text: "Drag the humidifier.",
+  },
+  [normalizeText("Drag the sound machine.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_drag_sound_machine_a2676633.wav",
+    text: "Drag the sound machine.",
+  },
   [normalizeText("Calm room!")]: {
     key: "lessons/bedtime/calm-room/audio/en/prompt_intro_159b2d1e.wav",
     text: "Calm room!",
+  },
+  [normalizeText("Tap the curtain.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_tap_curtain_28743ee0.wav",
+    text: "Tap the curtain.",
+  },
+  [normalizeText("Tap the lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_tap_lullaby_2dd7bc20.wav",
+    text: "Tap the lullaby.",
+  },
+  [normalizeText("Tap the night light.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_tap_night_light_5a5d671f.wav",
+    text: "Tap the night light.",
+  },
+  [normalizeText("Play lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_tap_play_lullaby_963a01d7.wav",
+    text: "Play lullaby.",
+  },
+  [normalizeText("Tap the star projector.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_tap_star_projector_621033d5.wav",
+    text: "Tap the star projector.",
+  },
+  [normalizeText("Let's learn close curtains.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_close_curtains_c543a3db.wav",
+    text: "Let's learn close curtains.",
+  },
+  [normalizeText("This is the curtain.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_curtain_a3f8c0fb.wav",
+    text: "This is the curtain.",
+  },
+  [normalizeText("Let's learn dim lights.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_dim_lights_86a1b186.wav",
+    text: "Let's learn dim lights.",
+  },
+  [normalizeText("This is the humidifier.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_humidifier_ae228cda.wav",
+    text: "This is the humidifier.",
+  },
+  [normalizeText("This is the lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_lullaby_49943bb6.wav",
+    text: "This is the lullaby.",
+  },
+  [normalizeText("This is the night light.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_night_light_a1727242.wav",
+    text: "This is the night light.",
+  },
+  [normalizeText("Let's learn play lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_play_lullaby_d807d1fa.wav",
+    text: "Let's learn play lullaby.",
+  },
+  [normalizeText("This is the sound machine.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_sound_machine_62f26426.wav",
+    text: "This is the sound machine.",
+  },
+  [normalizeText("This is the star projector.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_teach_star_projector_4d16d562.wav",
+    text: "This is the star projector.",
   },
   [normalizeText("sound machine")]: {
     key: "lessons/bedtime/calm-room/audio/en/sound_machine.wav",
@@ -539,6 +1779,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("star projector")]: {
     key: "lessons/bedtime/calm-room/audio/en/star_projector.wav",
     text: "star projector",
+  },
+  [normalizeText("It means close curtains.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_close_curtains_success_18ca4699.wav",
+    text: "It means close curtains.",
+  },
+  [normalizeText("It means curtain.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_curtain_success_3db0cf6f.wav",
+    text: "It means curtain.",
+  },
+  [normalizeText("It means dim lights.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_dim_lights_success_1eb28751.wav",
+    text: "It means dim lights.",
+  },
+  [normalizeText("It means humidifier.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_humidifier_success_0d7b217a.wav",
+    text: "It means humidifier.",
+  },
+  [normalizeText("It means lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_lullaby_success_5e03af6d.wav",
+    text: "It means lullaby.",
+  },
+  [normalizeText("It means night light.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_night_light_success_bba6b687.wav",
+    text: "It means night light.",
+  },
+  [normalizeText("It means play lullaby.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_play_lullaby_success_bb84923c.wav",
+    text: "It means play lullaby.",
+  },
+  [normalizeText("It means sound machine.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_sound_machine_success_4ffae0e2.wav",
+    text: "It means sound machine.",
+  },
+  [normalizeText("It means star projector.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/teach_star_projector_success_5fd6d12f.wav",
+    text: "It means star projector.",
   },
   [normalizeText("check dream journal")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/check_dream_journal.wav",
@@ -572,13 +1848,117 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/sleep-ready/audio/en/nightstand.wav",
     text: "nightstand",
   },
+  [normalizeText("Drag the glow sticker.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_drag_glow_sticker_882cb6fb.wav",
+    text: "Drag the glow sticker.",
+  },
+  [normalizeText("Hug comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_drag_hug_comfort_plush_ca2ec3ef.wav",
+    text: "Hug comfort plush.",
+  },
+  [normalizeText("Drag the sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_drag_mask_to_nightstand_ced7e8b1.wav",
+    text: "Drag the sleep mask.",
+  },
   [normalizeText("Ready to sleep!")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/prompt_intro_0793e8e2.wav",
     text: "Ready to sleep!",
   },
+  [normalizeText("Check dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_check_dream_journal_9f31efe5.wav",
+    text: "Check dream journal.",
+  },
+  [normalizeText("Tap the comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_comfort_plush_f76e72bf.wav",
+    text: "Tap the comfort plush.",
+  },
+  [normalizeText("Tap the dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_dream_journal_f7b6c428.wav",
+    text: "Tap the dream journal.",
+  },
+  [normalizeText("Tap the moon mobile.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_moon_mobile_bf898161.wav",
+    text: "Tap the moon mobile.",
+  },
+  [normalizeText("Tap the sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_sleep_mask_bb60194a.wav",
+    text: "Tap the sleep mask.",
+  },
+  [normalizeText("Let's learn check dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_check_dream_journal_ec7abc16.wav",
+    text: "Let's learn check dream journal.",
+  },
+  [normalizeText("This is the comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_comfort_plush_a9bf5855.wav",
+    text: "This is the comfort plush.",
+  },
+  [normalizeText("This is the dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_dream_journal_d8df0de4.wav",
+    text: "This is the dream journal.",
+  },
+  [normalizeText("This is the glow sticker.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_glow_sticker_5fa9acaf.wav",
+    text: "This is the glow sticker.",
+  },
+  [normalizeText("Let's learn hug comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_hug_comfort_plush_46b319c9.wav",
+    text: "Let's learn hug comfort plush.",
+  },
+  [normalizeText("This is the moon mobile.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_moon_mobile_9bd4278f.wav",
+    text: "This is the moon mobile.",
+  },
+  [normalizeText("This is the nightstand.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_nightstand_1a98cb74.wav",
+    text: "This is the nightstand.",
+  },
+  [normalizeText("This is the sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_sleep_mask_f68a6210.wav",
+    text: "This is the sleep mask.",
+  },
+  [normalizeText("Let's learn wear sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_wear_sleep_mask_19956e57.wav",
+    text: "Let's learn wear sleep mask.",
+  },
   [normalizeText("sleep mask")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/sleep_mask.wav",
     text: "sleep mask",
+  },
+  [normalizeText("It means check dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_check_dream_journal_success_250b2632.wav",
+    text: "It means check dream journal.",
+  },
+  [normalizeText("It means comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_comfort_plush_success_4344fd95.wav",
+    text: "It means comfort plush.",
+  },
+  [normalizeText("It means dream journal.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_dream_journal_success_33fcc2cb.wav",
+    text: "It means dream journal.",
+  },
+  [normalizeText("It means glow sticker.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_glow_sticker_success_aec480af.wav",
+    text: "It means glow sticker.",
+  },
+  [normalizeText("It means hug comfort plush.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_hug_comfort_plush_success_c55f65c8.wav",
+    text: "It means hug comfort plush.",
+  },
+  [normalizeText("It means moon mobile.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_moon_mobile_success_5444dca7.wav",
+    text: "It means moon mobile.",
+  },
+  [normalizeText("It means nightstand.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_nightstand_success_24ffb0ef.wav",
+    text: "It means nightstand.",
+  },
+  [normalizeText("It means sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_sleep_mask_success_35e1ff3a.wav",
+    text: "It means sleep mask.",
+  },
+  [normalizeText("It means wear sleep mask.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/teach_wear_sleep_mask_success_b1076843.wav",
+    text: "It means wear sleep mask.",
   },
   [normalizeText("wear sleep mask")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/wear_sleep_mask.wav",
@@ -616,9 +1996,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/load_dishwasher.wav",
     text: "load dishwasher",
   },
+  [normalizeText("Drag the food cover.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_drag_cover_to_leftovers_36e58fba.wav",
+    text: "Drag the food cover.",
+  },
+  [normalizeText("Load dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_drag_dish_to_dishwasher_d8565f14.wav",
+    text: "Load dishwasher.",
+  },
+  [normalizeText("Drag the leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_drag_leftovers_to_counter_7a9202c7.wav",
+    text: "Drag the leftovers.",
+  },
+  [normalizeText("Save leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_drag_save_leftovers_7dee36d6.wav",
+    text: "Save leftovers.",
+  },
   [normalizeText("After dinner!")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_intro_740fd824.wav",
     text: "After dinner!",
+  },
+  [normalizeText("Tap the dessert.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_dessert_a9c31498.wav",
+    text: "Tap the dessert.",
+  },
+  [normalizeText("Tap the dining light.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_dining_light_20c82694.wav",
+    text: "Tap the dining light.",
+  },
+  [normalizeText("Tap the dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_dishwasher_5098c760.wav",
+    text: "Tap the dishwasher.",
+  },
+  [normalizeText("Say good night.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_good_night_fa63c7e5.wav",
+    text: "Say good night.",
+  },
+  [normalizeText("Tap the leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_leftovers_53145017.wav",
+    text: "Tap the leftovers.",
+  },
+  [normalizeText("This is the dessert.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_dessert_7f635a15.wav",
+    text: "This is the dessert.",
+  },
+  [normalizeText("This is the dining light.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_dining_light_be1cf7b6.wav",
+    text: "This is the dining light.",
+  },
+  [normalizeText("This is the dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_dishwasher_fe721b11.wav",
+    text: "This is the dishwasher.",
+  },
+  [normalizeText("This is the food cover.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_food_cover_8b727664.wav",
+    text: "This is the food cover.",
+  },
+  [normalizeText("This is the kitchen counter.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_kitchen_counter_48057411.wav",
+    text: "This is the kitchen counter.",
+  },
+  [normalizeText("This is the leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_leftovers_9e9db52b.wav",
+    text: "This is the leftovers.",
+  },
+  [normalizeText("Let's learn load dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_load_dishwasher_ee67277b.wav",
+    text: "Let's learn load dishwasher.",
+  },
+  [normalizeText("Let's learn save leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_save_leftovers_e0290b41.wav",
+    text: "Let's learn save leftovers.",
+  },
+  [normalizeText("Let's learn say good night.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_teach_say_good_night_7604cf8c.wav",
+    text: "Let's learn say good night.",
   },
   [normalizeText("save leftovers")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/save_leftovers.wav",
@@ -627,6 +2079,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("say good night")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/say_good_night.wav",
     text: "say good night",
+  },
+  [normalizeText("It means dessert.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_dessert_success_176ed822.wav",
+    text: "It means dessert.",
+  },
+  [normalizeText("It means dining light.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_dining_light_success_a95d8fdc.wav",
+    text: "It means dining light.",
+  },
+  [normalizeText("It means dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_dishwasher_success_c5a454c9.wav",
+    text: "It means dishwasher.",
+  },
+  [normalizeText("It means food cover.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_food_cover_success_64cdaf5b.wav",
+    text: "It means food cover.",
+  },
+  [normalizeText("It means kitchen counter.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_kitchen_counter_success_f9113107.wav",
+    text: "It means kitchen counter.",
+  },
+  [normalizeText("It means leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_leftovers_success_0050bbb7.wav",
+    text: "It means leftovers.",
+  },
+  [normalizeText("It means load dishwasher.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_load_dishwasher_success_ce2a81ec.wav",
+    text: "It means load dishwasher.",
+  },
+  [normalizeText("It means save leftovers.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_save_leftovers_success_fbba1cbc.wav",
+    text: "It means save leftovers.",
+  },
+  [normalizeText("It means say good night.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_say_good_night_success_f234ac48.wav",
+    text: "It means say good night.",
   },
   [normalizeText("apron")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/apron.wav",
@@ -660,9 +2148,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-prep/audio/en/placemat.wav",
     text: "placemat",
   },
+  [normalizeText("Carry tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_drag_carry_tray_0922f9b7.wav",
+    text: "Carry tray.",
+  },
+  [normalizeText("Drag the ladle.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_drag_ladle_to_tray_be05cb93.wav",
+    text: "Drag the ladle.",
+  },
+  [normalizeText("Drag the placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_drag_placemat_to_spot_5aaab2bc.wav",
+    text: "Drag the placemat.",
+  },
+  [normalizeText("Set placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_drag_set_placemat_a6bb1705.wav",
+    text: "Set placemat.",
+  },
   [normalizeText("Dinner time!")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/prompt_intro_84cba5d2.wav",
     text: "Dinner time!",
+  },
+  [normalizeText("Tap the apron.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_apron_9b1de408.wav",
+    text: "Tap the apron.",
+  },
+  [normalizeText("Call everyone.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_call_everyone_9e9479e4.wav",
+    text: "Call everyone.",
+  },
+  [normalizeText("Tap the dinner bell.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_dinner_bell_a220240b.wav",
+    text: "Tap the dinner bell.",
+  },
+  [normalizeText("Tap the dinner.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_dinner_d2f7e92e.wav",
+    text: "Tap the dinner.",
+  },
+  [normalizeText("Tap the serving tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_serving_tray_ca03ac38.wav",
+    text: "Tap the serving tray.",
+  },
+  [normalizeText("This is the apron.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_apron_805bdffd.wav",
+    text: "This is the apron.",
+  },
+  [normalizeText("Let's learn call everyone.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_call_everyone_ee23345b.wav",
+    text: "Let's learn call everyone.",
+  },
+  [normalizeText("Let's learn carry tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_carry_tray_4286e3f5.wav",
+    text: "Let's learn carry tray.",
+  },
+  [normalizeText("This is the dinner.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_dinner_5ed36280.wav",
+    text: "This is the dinner.",
+  },
+  [normalizeText("This is the dinner bell.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_dinner_bell_81f2c6d3.wav",
+    text: "This is the dinner bell.",
+  },
+  [normalizeText("This is the ladle.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_ladle_6b808f9f.wav",
+    text: "This is the ladle.",
+  },
+  [normalizeText("This is the placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_placemat_cec7fe52.wav",
+    text: "This is the placemat.",
+  },
+  [normalizeText("This is the serving tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_serving_tray_33dd2ab1.wav",
+    text: "This is the serving tray.",
+  },
+  [normalizeText("Let's learn set placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_set_placemat_7ae1fcea.wav",
+    text: "Let's learn set placemat.",
   },
   [normalizeText("serving tray")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/serving_tray.wav",
@@ -671,6 +2231,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("set placemat")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/set_placemat.wav",
     text: "set placemat",
+  },
+  [normalizeText("It means apron.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_apron_success_a021f531.wav",
+    text: "It means apron.",
+  },
+  [normalizeText("It means call everyone.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_call_everyone_success_1526dff2.wav",
+    text: "It means call everyone.",
+  },
+  [normalizeText("It means carry tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_carry_tray_success_161abf37.wav",
+    text: "It means carry tray.",
+  },
+  [normalizeText("It means dinner bell.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_dinner_bell_success_5a0059d9.wav",
+    text: "It means dinner bell.",
+  },
+  [normalizeText("It means dinner.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_dinner_success_23d3da44.wav",
+    text: "It means dinner.",
+  },
+  [normalizeText("It means ladle.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_ladle_success_f118a16d.wav",
+    text: "It means ladle.",
+  },
+  [normalizeText("It means placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_placemat_success_b0a02a76.wav",
+    text: "It means placemat.",
+  },
+  [normalizeText("It means serving tray.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_serving_tray_success_0ecebc73.wav",
+    text: "It means serving tray.",
+  },
+  [normalizeText("It means set placemat.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/teach_set_placemat_success_6525e0d9.wav",
+    text: "It means set placemat.",
   },
   [normalizeText("chicken")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/chicken.wav",
@@ -692,9 +2288,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-table/audio/en/pass_dish.wav",
     text: "pass dish",
   },
+  [normalizeText("Pass dish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_drag_dish_to_grownup_317e0f67.wav",
+    text: "Pass dish.",
+  },
+  [normalizeText("Drag the noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_drag_noodles_to_meal_511d65bd.wav",
+    text: "Drag the noodles.",
+  },
+  [normalizeText("Drag the salad.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_drag_salad_to_meal_510157dc.wav",
+    text: "Drag the salad.",
+  },
+  [normalizeText("Serve noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_drag_serve_noodles_818f5688.wav",
+    text: "Serve noodles.",
+  },
+  [normalizeText("Try vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_drag_vegetables_to_child_c938105f.wav",
+    text: "Try vegetables.",
+  },
   [normalizeText("Family dinner!")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/prompt_intro_aa615adb.wav",
     text: "Family dinner!",
+  },
+  [normalizeText("Tap the chicken.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_chicken_b3b60b80.wav",
+    text: "Tap the chicken.",
+  },
+  [normalizeText("Tap the fish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_fish_1bc8ab79.wav",
+    text: "Tap the fish.",
+  },
+  [normalizeText("Tap the sauce.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_sauce_7316939a.wav",
+    text: "Tap the sauce.",
+  },
+  [normalizeText("Tap the vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_vegetables_c7e386f8.wav",
+    text: "Tap the vegetables.",
+  },
+  [normalizeText("This is the chicken.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_chicken_1d4e4a4d.wav",
+    text: "This is the chicken.",
+  },
+  [normalizeText("This is the fish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_fish_012dc6dd.wav",
+    text: "This is the fish.",
+  },
+  [normalizeText("This is the noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_noodles_306ddcd7.wav",
+    text: "This is the noodles.",
+  },
+  [normalizeText("Let's learn pass dish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_pass_dish_a9481e4a.wav",
+    text: "Let's learn pass dish.",
+  },
+  [normalizeText("This is the salad.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_salad_3703cad1.wav",
+    text: "This is the salad.",
+  },
+  [normalizeText("This is the sauce.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_sauce_cf432f96.wav",
+    text: "This is the sauce.",
+  },
+  [normalizeText("Let's learn serve noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_serve_noodles_c95adc07.wav",
+    text: "Let's learn serve noodles.",
+  },
+  [normalizeText("Let's learn try vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_try_vegetables_2a84d9e5.wav",
+    text: "Let's learn try vegetables.",
+  },
+  [normalizeText("This is the vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_vegetables_8e9d37e2.wav",
+    text: "This is the vegetables.",
   },
   [normalizeText("salad")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/salad.wav",
@@ -707,6 +2375,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("serve noodles")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/serve_noodles.wav",
     text: "serve noodles",
+  },
+  [normalizeText("It means chicken.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_chicken_success_eb5b4517.wav",
+    text: "It means chicken.",
+  },
+  [normalizeText("It means fish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_fish_success_03180e6d.wav",
+    text: "It means fish.",
+  },
+  [normalizeText("It means noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_noodles_success_c2acd876.wav",
+    text: "It means noodles.",
+  },
+  [normalizeText("It means pass dish.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_pass_dish_success_c772f2f8.wav",
+    text: "It means pass dish.",
+  },
+  [normalizeText("It means salad.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_salad_success_6e147594.wav",
+    text: "It means salad.",
+  },
+  [normalizeText("It means sauce.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_sauce_success_9872d2fe.wav",
+    text: "It means sauce.",
+  },
+  [normalizeText("It means serve noodles.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_serve_noodles_success_610d37e7.wav",
+    text: "It means serve noodles.",
+  },
+  [normalizeText("It means try vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_try_vegetables_success_a4143e46.wav",
+    text: "It means try vegetables.",
+  },
+  [normalizeText("It means vegetables.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/teach_vegetables_success_94effe1b.wav",
+    text: "It means vegetables.",
   },
   [normalizeText("try vegetables")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/try_vegetables.wav",
@@ -736,9 +2440,65 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/creative-play/audio/en/paper.wav",
     text: "paper",
   },
+  [normalizeText("Draw picture.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_drag_crayon_draw_3904876b.wav",
+    text: "Draw picture.",
+  },
+  [normalizeText("Drag the crayon.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_drag_crayon_to_paper_5ae17541.wav",
+    text: "Drag the crayon.",
+  },
+  [normalizeText("Solve puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_drag_puzzle_piece_0ea7d169.wav",
+    text: "Solve puzzle.",
+  },
   [normalizeText("Creative play!")]: {
     key: "lessons/home-play/creative-play/audio/en/prompt_intro_ce959a0e.wav",
     text: "Creative play!",
+  },
+  [normalizeText("Read book.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_tap_book_read_bb53d60a.wav",
+    text: "Read book.",
+  },
+  [normalizeText("Tap the drum.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_tap_drum_2d12716c.wav",
+    text: "Tap the drum.",
+  },
+  [normalizeText("Tap the music.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_tap_music_03f3b58b.wav",
+    text: "Tap the music.",
+  },
+  [normalizeText("Tap the puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_tap_puzzle_a6333fcf.wav",
+    text: "Tap the puzzle.",
+  },
+  [normalizeText("Let's learn draw picture.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_draw_picture_eead8426.wav",
+    text: "Let's learn draw picture.",
+  },
+  [normalizeText("This is the drum.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_drum_94a68aa8.wav",
+    text: "This is the drum.",
+  },
+  [normalizeText("This is the music.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_music_6ac13d95.wav",
+    text: "This is the music.",
+  },
+  [normalizeText("This is the paper.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_paper_428ad147.wav",
+    text: "This is the paper.",
+  },
+  [normalizeText("This is the puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_puzzle_545b13a0.wav",
+    text: "This is the puzzle.",
+  },
+  [normalizeText("Let's learn read book.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_read_book_a1192359.wav",
+    text: "Let's learn read book.",
+  },
+  [normalizeText("Let's learn solve puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_teach_solve_puzzle_f7efabb0.wav",
+    text: "Let's learn solve puzzle.",
   },
   [normalizeText("puzzle")]: {
     key: "lessons/home-play/creative-play/audio/en/puzzle.wav",
@@ -751,6 +2511,34 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("solve puzzle")]: {
     key: "lessons/home-play/creative-play/audio/en/solve_puzzle.wav",
     text: "solve puzzle",
+  },
+  [normalizeText("It means draw picture.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_draw_picture_success_214f0c67.wav",
+    text: "It means draw picture.",
+  },
+  [normalizeText("It means drum.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_drum_success_84f01fdd.wav",
+    text: "It means drum.",
+  },
+  [normalizeText("It means music.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_music_success_f47d2139.wav",
+    text: "It means music.",
+  },
+  [normalizeText("It means paper.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_paper_success_ddecdf76.wav",
+    text: "It means paper.",
+  },
+  [normalizeText("It means puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_puzzle_success_e031c29a.wav",
+    text: "It means puzzle.",
+  },
+  [normalizeText("It means read book.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_read_book_success_fe456c28.wav",
+    text: "It means read book.",
+  },
+  [normalizeText("It means solve puzzle.")]: {
+    key: "lessons/home-play/creative-play/audio/en/teach_solve_puzzle_success_a380e811.wav",
+    text: "It means solve puzzle.",
   },
   [normalizeText("build tower")]: {
     key: "lessons/home-play/home-toy-corner/audio/en/build_tower.wav",
@@ -772,9 +2560,61 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/home-toy-corner/audio/en/play_gently.wav",
     text: "play gently",
   },
+  [normalizeText("Build tower.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_drag_blocks_to_tower_555a7853.wav",
+    text: "Build tower.",
+  },
+  [normalizeText("Drag the car.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_drag_car_to_floor_a1411a32.wav",
+    text: "Drag the car.",
+  },
   [normalizeText("Play at home!")]: {
     key: "lessons/home-play/home-toy-corner/audio/en/prompt_intro_4c4160af.wav",
     text: "Play at home!",
+  },
+  [normalizeText("Tap the blocks.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_tap_blocks_64372539.wav",
+    text: "Tap the blocks.",
+  },
+  [normalizeText("Choose toy.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_tap_choice_970da0f2.wav",
+    text: "Choose toy.",
+  },
+  [normalizeText("Play gently.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_tap_doll_gently_8f927d20.wav",
+    text: "Play gently.",
+  },
+  [normalizeText("Let's learn build tower.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_teach_build_tower_fcabac48.wav",
+    text: "Let's learn build tower.",
+  },
+  [normalizeText("This is the car.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_teach_car_de670624.wav",
+    text: "This is the car.",
+  },
+  [normalizeText("Let's learn choose toy.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_teach_choose_toy_ff8c33e4.wav",
+    text: "Let's learn choose toy.",
+  },
+  [normalizeText("Let's learn play gently.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_teach_play_gently_cd327303.wav",
+    text: "Let's learn play gently.",
+  },
+  [normalizeText("It means build tower.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/teach_build_tower_success_720c5227.wav",
+    text: "It means build tower.",
+  },
+  [normalizeText("It means car.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/teach_car_success_ad293b5b.wav",
+    text: "It means car.",
+  },
+  [normalizeText("It means choose toy.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/teach_choose_toy_success_3776a75b.wav",
+    text: "It means choose toy.",
+  },
+  [normalizeText("It means play gently.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/teach_play_gently_success_453b4197.wav",
+    text: "It means play gently.",
   },
   [normalizeText("basket")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/basket.wav",
@@ -792,17 +2632,85 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/toy-cleanup/audio/en/floor.wav",
     text: "floor",
   },
+  [normalizeText("Tidy room.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_drag_basket_to_shelf_ba784c4c.wav",
+    text: "Tidy room.",
+  },
+  [normalizeText("Put away book.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_drag_book_away_05dc2a65.wav",
+    text: "Put away book.",
+  },
+  [normalizeText("Clean up toys.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_drag_toy_clean_up_09d7bc43.wav",
+    text: "Clean up toys.",
+  },
+  [normalizeText("Drag the toy.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_drag_toy_to_basket_d6e687c7.wav",
+    text: "Drag the toy.",
+  },
   [normalizeText("Clean up toys!")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/prompt_intro_81aafc04.wav",
     text: "Clean up toys!",
+  },
+  [normalizeText("Tap the floor.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_tap_floor_9dc43e05.wav",
+    text: "Tap the floor.",
+  },
+  [normalizeText("Let's learn clean up toys.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_teach_clean_up_toys_ccc94d31.wav",
+    text: "Let's learn clean up toys.",
+  },
+  [normalizeText("This is the floor.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_teach_floor_8596cb1f.wav",
+    text: "This is the floor.",
+  },
+  [normalizeText("Let's learn put away book.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_teach_put_away_book_8bacc17c.wav",
+    text: "Let's learn put away book.",
+  },
+  [normalizeText("Let's learn tidy room.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_teach_tidy_room_34454abc.wav",
+    text: "Let's learn tidy room.",
   },
   [normalizeText("put away book")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/put_away_book.wav",
     text: "put away book",
   },
+  [normalizeText("It means clean up toys.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/teach_clean_up_toys_success_866e1fe8.wav",
+    text: "It means clean up toys.",
+  },
+  [normalizeText("It means floor.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/teach_floor_success_1900806f.wav",
+    text: "It means floor.",
+  },
+  [normalizeText("It means put away book.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/teach_put_away_book_success_a5261684.wav",
+    text: "It means put away book.",
+  },
+  [normalizeText("It means tidy room.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/teach_tidy_room_success_2410b28a.wav",
+    text: "It means tidy room.",
+  },
   [normalizeText("tidy room")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/tidy_room.wav",
     text: "tidy room",
+  },
+  [normalizeText("It means crumbs.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/cleanup_teach_crumbs_success_fd6a487a.wav",
+    text: "It means crumbs.",
+  },
+  [normalizeText("It means trash bin.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/cleanup_teach_trash_bin_success_6d5f132a.wav",
+    text: "It means trash bin.",
+  },
+  [normalizeText("It means wash hands.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/cleanup_teach_wash_hands_success_bea20d94.wav",
+    text: "It means wash hands.",
+  },
+  [normalizeText("It means wipe table.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/cleanup_teach_wipe_table_success_7805bd79.wav",
+    text: "It means wipe table.",
   },
   [normalizeText("Clean Up After Lunch is complete.")]: {
     key: "lessons/lunch-time/after-lunch/audio/en/completion_d2a52b70.wav",
@@ -812,9 +2720,49 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/after-lunch/audio/en/crumbs.wav",
     text: "crumbs",
   },
+  [normalizeText("Drag the crumbs.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_drag_crumbs_to_trash_f6335662.wav",
+    text: "Drag the crumbs.",
+  },
+  [normalizeText("Wash hands.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_drag_soap_to_hands_f19bda6d.wav",
+    text: "Wash hands.",
+  },
+  [normalizeText("Wipe table.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_drag_towel_to_table_ebf11bdd.wav",
+    text: "Wipe table.",
+  },
   [normalizeText("Clean up!")]: {
     key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_intro_27e13d82.wav",
     text: "Clean up!",
+  },
+  [normalizeText("Tap the plate.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_tap_plate_aa035936.wav",
+    text: "Tap the plate.",
+  },
+  [normalizeText("Tap the soap.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_tap_soap_dc576737.wav",
+    text: "Tap the soap.",
+  },
+  [normalizeText("Tap the towel.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_tap_towel_5cc4bada.wav",
+    text: "Tap the towel.",
+  },
+  [normalizeText("This is the crumbs.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_teach_crumbs_835625cb.wav",
+    text: "This is the crumbs.",
+  },
+  [normalizeText("This is the trash bin.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_teach_trash_bin_14bc2bf4.wav",
+    text: "This is the trash bin.",
+  },
+  [normalizeText("Let's learn wash hands.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_teach_wash_hands_4185f132.wav",
+    text: "Let's learn wash hands.",
+  },
+  [normalizeText("Let's learn wipe table.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_teach_wipe_table_b6d5b1ff.wav",
+    text: "Let's learn wipe table.",
   },
   [normalizeText("trash bin")]: {
     key: "lessons/lunch-time/after-lunch/audio/en/trash_bin.wav",
@@ -844,13 +2792,113 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/lunch-box/audio/en/fork.wav",
     text: "fork",
   },
+  [normalizeText("It means bowl.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_bowl_success_7e0ff003.wav",
+    text: "It means bowl.",
+  },
+  [normalizeText("It means eat lunch.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_eat_lunch_success_460f4406.wav",
+    text: "It means eat lunch.",
+  },
+  [normalizeText("It means fork.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_fork_success_c3e2b71d.wav",
+    text: "It means fork.",
+  },
+  [normalizeText("It means open lunchbox.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_open_lunchbox_success_f6d41c10.wav",
+    text: "It means open lunchbox.",
+  },
+  [normalizeText("It means rice.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_rice_success_bb31ca8f.wav",
+    text: "It means rice.",
+  },
+  [normalizeText("It means soup.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_soup_success_99f2ee5f.wav",
+    text: "It means soup.",
+  },
+  [normalizeText("It means spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_spoon_success_1447d727.wav",
+    text: "It means spoon.",
+  },
+  [normalizeText("It means use spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_use_spoon_success_6ca0c9e4.wav",
+    text: "It means use spoon.",
+  },
   [normalizeText("open lunchbox")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/open_lunchbox.wav",
     text: "open lunchbox",
   },
+  [normalizeText("Eat lunch.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_drag_rice_to_mouth_73d6ff84.wav",
+    text: "Eat lunch.",
+  },
+  [normalizeText("Drag the soup.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_drag_soup_to_bowl_ee8487fe.wav",
+    text: "Drag the soup.",
+  },
+  [normalizeText("Use spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_drag_spoon_to_mouth_580e14d4.wav",
+    text: "Use spoon.",
+  },
+  [normalizeText("Drag the spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_drag_spoon_to_soup_134ecdd6.wav",
+    text: "Drag the spoon.",
+  },
   [normalizeText("Lunch time!")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_intro_3faf0a16.wav",
     text: "Lunch time!",
+  },
+  [normalizeText("Tap the fork.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_fork_26159bd7.wav",
+    text: "Tap the fork.",
+  },
+  [normalizeText("Tap the lunchbox.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_lunchbox_a42178c4.wav",
+    text: "Tap the lunchbox.",
+  },
+  [normalizeText("Open lunchbox.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_open_lunchbox_94ac9231.wav",
+    text: "Open lunchbox.",
+  },
+  [normalizeText("Tap the rice.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_rice_63dbb27d.wav",
+    text: "Tap the rice.",
+  },
+  [normalizeText("Tap the soup.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_soup_88afbcae.wav",
+    text: "Tap the soup.",
+  },
+  [normalizeText("This is the bowl.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_bowl_c634b171.wav",
+    text: "This is the bowl.",
+  },
+  [normalizeText("Let's learn eat lunch.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_eat_lunch_05613169.wav",
+    text: "Let's learn eat lunch.",
+  },
+  [normalizeText("This is the fork.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_fork_31f37e4a.wav",
+    text: "This is the fork.",
+  },
+  [normalizeText("Let's learn open lunchbox.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_open_lunchbox_07dadd3d.wav",
+    text: "Let's learn open lunchbox.",
+  },
+  [normalizeText("This is the rice.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_rice_4f5af421.wav",
+    text: "This is the rice.",
+  },
+  [normalizeText("This is the soup.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_soup_0e3b76e3.wav",
+    text: "This is the soup.",
+  },
+  [normalizeText("This is the spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_spoon_0fab08fd.wav",
+    text: "This is the spoon.",
+  },
+  [normalizeText("Let's learn use spoon.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_teach_use_spoon_da38c18b.wav",
+    text: "Let's learn use spoon.",
   },
   [normalizeText("rice")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/rice.wav",
@@ -876,13 +2924,89 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/lunch-table/audio/en/fruit.wav",
     text: "fruit",
   },
+  [normalizeText("It means fruit.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_fruit_success_3373ab8a.wav",
+    text: "It means fruit.",
+  },
+  [normalizeText("It means napkin.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_napkin_success_9868c463.wav",
+    text: "It means napkin.",
+  },
+  [normalizeText("It means say thank you.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_say_thank_you_success_81716523.wav",
+    text: "It means say thank you.",
+  },
+  [normalizeText("It means share food.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_share_food_success_3b546457.wav",
+    text: "It means share food.",
+  },
+  [normalizeText("It means sit at table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_sit_at_table_success_d47a9dc0.wav",
+    text: "It means sit at table.",
+  },
+  [normalizeText("It means table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_table_success_9904cc18.wav",
+    text: "It means table.",
+  },
   [normalizeText("napkin")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/napkin.wav",
     text: "napkin",
   },
+  [normalizeText("Sit at table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_drag_chair_to_seat_0487de92.wav",
+    text: "Sit at table.",
+  },
+  [normalizeText("Share food.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_drag_fruit_to_friend_a60142c1.wav",
+    text: "Share food.",
+  },
+  [normalizeText("Drag the fruit.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_drag_fruit_to_table_276a8842.wav",
+    text: "Drag the fruit.",
+  },
+  [normalizeText("Drag the napkin.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_drag_napkin_to_table_81d12a33.wav",
+    text: "Drag the napkin.",
+  },
   [normalizeText("Lunch with friends!")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_intro_ad46c94c.wav",
     text: "Lunch with friends!",
+  },
+  [normalizeText("Tap the cup.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_tap_cup_8644be05.wav",
+    text: "Tap the cup.",
+  },
+  [normalizeText("Tap the table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_tap_table_488163a8.wav",
+    text: "Tap the table.",
+  },
+  [normalizeText("Say thank you.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_tap_thanks_card_75371f36.wav",
+    text: "Say thank you.",
+  },
+  [normalizeText("This is the fruit.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_fruit_1b8b3d81.wav",
+    text: "This is the fruit.",
+  },
+  [normalizeText("This is the napkin.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_napkin_237892f2.wav",
+    text: "This is the napkin.",
+  },
+  [normalizeText("Let's learn say thank you.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_say_thank_you_c727d352.wav",
+    text: "Let's learn say thank you.",
+  },
+  [normalizeText("Let's learn share food.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_share_food_4f8aeed9.wav",
+    text: "Let's learn share food.",
+  },
+  [normalizeText("Let's learn sit at table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_sit_at_table_9e3ec062.wav",
+    text: "Let's learn sit at table.",
+  },
+  [normalizeText("This is the table.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_table_1c55824b.wav",
+    text: "This is the table.",
   },
   [normalizeText("say thank you")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/say_thank_you.wav",
@@ -916,21 +3040,85 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bathroom/audio/en/mirror.wav",
     text: "mirror",
   },
-  [normalizeText("toothpaste on toothbrush")]: {
-    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_toothpaste_to_brush_cf7614d7.wav",
-    text: "toothpaste on toothbrush",
+  [normalizeText("Drag the soap.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_soap_to_hand_f7579393.wav",
+    text: "Drag the soap.",
+  },
+  [normalizeText("Drag the toothbrush.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_toothbrush_c70cc9e9.wav",
+    text: "Drag the toothbrush.",
+  },
+  [normalizeText("Put the toothpaste on the toothbrush.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_toothpaste_to_brush_e3080830.wav",
+    text: "Put the toothpaste on the toothbrush.",
+  },
+  [normalizeText("Wash face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_water_to_face_dd93544f.wav",
+    text: "Wash face.",
   },
   [normalizeText("Bathroom time!")]: {
     key: "lessons/morning-routine/bathroom/audio/en/prompt_intro_ddb671a3.wav",
     text: "Bathroom time!",
   },
-  [normalizeText("Tap toothbrush")]: {
-    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_toothbrush_2656a176.wav",
-    text: "Tap toothbrush",
+  [normalizeText("Tap the mirror.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_review_mirror_fd4363aa.wav",
+    text: "Tap the mirror.",
   },
-  [normalizeText("Tap water")]: {
-    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_water_d458b038.wav",
-    text: "Tap water",
+  [normalizeText("Dry face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_review_towel_cbfcf58e.wav",
+    text: "Dry face.",
+  },
+  [normalizeText("Tap the sink.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_sink_1b158ce6.wav",
+    text: "Tap the sink.",
+  },
+  [normalizeText("Tap the toothbrush.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_toothbrush_9d63c70c.wav",
+    text: "Tap the toothbrush.",
+  },
+  [normalizeText("Tap the water.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_water_13b6b394.wav",
+    text: "Tap the water.",
+  },
+  [normalizeText("Let's learn brush teeth.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_brush_teeth_d24735b1.wav",
+    text: "Let's learn brush teeth.",
+  },
+  [normalizeText("Let's learn dry face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_dry_face_3d7e965a.wav",
+    text: "Let's learn dry face.",
+  },
+  [normalizeText("This is the mirror.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_mirror_bb5ebfe5.wav",
+    text: "This is the mirror.",
+  },
+  [normalizeText("This is the sink.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_sink_3a64e545.wav",
+    text: "This is the sink.",
+  },
+  [normalizeText("This is the soap.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_soap_18ead48a.wav",
+    text: "This is the soap.",
+  },
+  [normalizeText("This is the toothbrush.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_toothbrush_6e0951e3.wav",
+    text: "This is the toothbrush.",
+  },
+  [normalizeText("This is the toothpaste.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_toothpaste_7dff07f8.wav",
+    text: "This is the toothpaste.",
+  },
+  [normalizeText("This is the towel.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_towel_1ebcc544.wav",
+    text: "This is the towel.",
+  },
+  [normalizeText("Let's learn wash face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_wash_face_b7090b06.wav",
+    text: "Let's learn wash face.",
+  },
+  [normalizeText("This is the water.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_water_b01e4737.wav",
+    text: "This is the water.",
   },
   [normalizeText("sink")]: {
     key: "lessons/morning-routine/bathroom/audio/en/sink.wav",
@@ -939,6 +3127,46 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("soap")]: {
     key: "lessons/morning-routine/bathroom/audio/en/soap.wav",
     text: "soap",
+  },
+  [normalizeText("It means brush teeth.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_brush_teeth_success_96ca43f8.wav",
+    text: "It means brush teeth.",
+  },
+  [normalizeText("It means dry face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_dry_face_success_47dcf6c8.wav",
+    text: "It means dry face.",
+  },
+  [normalizeText("It means mirror.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_mirror_success_6e8a0a49.wav",
+    text: "It means mirror.",
+  },
+  [normalizeText("It means sink.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_sink_success_750b8b0b.wav",
+    text: "It means sink.",
+  },
+  [normalizeText("It means soap.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_soap_success_fd4d1b74.wav",
+    text: "It means soap.",
+  },
+  [normalizeText("It means toothbrush.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_toothbrush_success_92525ae3.wav",
+    text: "It means toothbrush.",
+  },
+  [normalizeText("It means toothpaste.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_toothpaste_success_50431e82.wav",
+    text: "It means toothpaste.",
+  },
+  [normalizeText("It means towel.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_towel_success_d9f0f9fb.wav",
+    text: "It means towel.",
+  },
+  [normalizeText("It means wash face.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_wash_face_success_ccb65426.wav",
+    text: "It means wash face.",
+  },
+  [normalizeText("It means water.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/teach_water_success_f10d0576.wav",
+    text: "It means water.",
   },
   [normalizeText("toothbrush")]: {
     key: "lessons/morning-routine/bathroom/audio/en/toothbrush.wav",
@@ -1000,25 +3228,101 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bedroom/audio/en/pillow.wav",
     text: "pillow",
   },
-  [normalizeText("pillow in box")]: {
-    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_pillow_to_box_3498d7f2.wav",
-    text: "pillow in box",
+  [normalizeText("Make the bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_blanket_to_box_90e6f54e.wav",
+    text: "Make the bed.",
   },
-  [normalizeText("socks in box")]: {
-    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_socks_to_box_f4cf5078.wav",
-    text: "socks in box",
+  [normalizeText("Put the pillow in the box.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_pillow_to_box_a658ae37.wav",
+    text: "Put the pillow in the box.",
+  },
+  [normalizeText("Put the socks in the box.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_socks_to_box_bcde2bbf.wav",
+    text: "Put the socks in the box.",
   },
   [normalizeText("Good morning!")]: {
     key: "lessons/morning-routine/bedroom/audio/en/prompt_intro_bfba329f.wav",
     text: "Good morning!",
   },
-  [normalizeText("Tap bed")]: {
-    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_bed_bda9ed1f.wav",
-    text: "Tap bed",
+  [normalizeText("Tap the bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_bed_62c246ed.wav",
+    text: "Tap the bed.",
   },
-  [normalizeText("Drag blanket")]: {
-    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_blanket_6f321cca.wav",
-    text: "Drag blanket",
+  [normalizeText("Drag the blanket.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_blanket_539a01ab.wav",
+    text: "Drag the blanket.",
+  },
+  [normalizeText("Tap the box.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_box_09add4a2.wav",
+    text: "Tap the box.",
+  },
+  [normalizeText("Tap the clock.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_clock_317c3523.wav",
+    text: "Tap the clock.",
+  },
+  [normalizeText("Tap the doll.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_doll_2008ed77.wav",
+    text: "Tap the doll.",
+  },
+  [normalizeText("Tap the lamp.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_lamp_20eb0c38.wav",
+    text: "Tap the lamp.",
+  },
+  [normalizeText("Tap the pillow.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_pillow_02f6fc23.wav",
+    text: "Tap the pillow.",
+  },
+  [normalizeText("Tap the socks.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_socks_3e603a84.wav",
+    text: "Tap the socks.",
+  },
+  [normalizeText("Tap the sun.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_review_sun_88094e22.wav",
+    text: "Tap the sun.",
+  },
+  [normalizeText("This is the bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_bed_084c0b4a.wav",
+    text: "This is the bed.",
+  },
+  [normalizeText("This is the blanket.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_blanket_13c8efe9.wav",
+    text: "This is the blanket.",
+  },
+  [normalizeText("This is the box.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_box_8d919bcd.wav",
+    text: "This is the box.",
+  },
+  [normalizeText("This is the clock.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_clock_2f7d17b4.wav",
+    text: "This is the clock.",
+  },
+  [normalizeText("This is the doll.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_doll_796b5265.wav",
+    text: "This is the doll.",
+  },
+  [normalizeText("Let's learn good morning.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_good_morning_8b346be0.wav",
+    text: "Let's learn good morning.",
+  },
+  [normalizeText("This is the lamp.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_lamp_c18ec954.wav",
+    text: "This is the lamp.",
+  },
+  [normalizeText("Let's learn make the bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_make_the_bed_5a747af8.wav",
+    text: "Let's learn make the bed.",
+  },
+  [normalizeText("This is the pillow.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_pillow_7da0c07c.wav",
+    text: "This is the pillow.",
+  },
+  [normalizeText("This is the socks.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_socks_f6ba2b2a.wav",
+    text: "This is the socks.",
+  },
+  [normalizeText("This is the sun.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_sun_f7295391.wav",
+    text: "This is the sun.",
   },
   [normalizeText("socks")]: {
     key: "lessons/morning-routine/bedroom/audio/en/socks.wav",
@@ -1027,6 +3331,50 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("sun")]: {
     key: "lessons/morning-routine/bedroom/audio/en/sun.wav",
     text: "sun",
+  },
+  [normalizeText("It means bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_bed_success_8bdc28c3.wav",
+    text: "It means bed.",
+  },
+  [normalizeText("It means blanket.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_blanket_success_9b17050e.wav",
+    text: "It means blanket.",
+  },
+  [normalizeText("It means box.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_box_success_856f0a3c.wav",
+    text: "It means box.",
+  },
+  [normalizeText("It means clock.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_clock_success_0cd5062c.wav",
+    text: "It means clock.",
+  },
+  [normalizeText("It means doll.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_doll_success_8a387dc2.wav",
+    text: "It means doll.",
+  },
+  [normalizeText("It means good morning.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_good_morning_success_88d7f0a0.wav",
+    text: "It means good morning.",
+  },
+  [normalizeText("It means lamp.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_lamp_success_16fcca94.wav",
+    text: "It means lamp.",
+  },
+  [normalizeText("It means make the bed.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_make_the_bed_success_efab6181.wav",
+    text: "It means make the bed.",
+  },
+  [normalizeText("It means pillow.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_pillow_success_461d47a2.wav",
+    text: "It means pillow.",
+  },
+  [normalizeText("It means socks.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_socks_success_b638f515.wav",
+    text: "It means socks.",
+  },
+  [normalizeText("It means sun.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/teach_sun_success_cecc308c.wav",
+    text: "It means sun.",
   },
   [normalizeText("apple")]: {
     key: "lessons/morning-routine/breakfast/audio/en/apple.wav",
@@ -1068,25 +3416,105 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/breakfast/audio/en/pour_milk.wav",
     text: "pour milk",
   },
-  [normalizeText("Drag apple")]: {
-    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_9dcc6d2e.wav",
-    text: "Drag apple",
+  [normalizeText("Drag the apple.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_0c14ba6f.wav",
+    text: "Drag the apple.",
   },
-  [normalizeText("apple on plate")]: {
-    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_to_plate_ad8129f5.wav",
-    text: "apple on plate",
+  [normalizeText("Put the apple on the plate.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_to_plate_3f3cf028.wav",
+    text: "Put the apple on the plate.",
   },
-  [normalizeText("banana on plate")]: {
-    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_banana_to_plate_bfc5af70.wav",
-    text: "banana on plate",
+  [normalizeText("Put the banana on the plate.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_banana_to_plate_0b53dc90.wav",
+    text: "Put the banana on the plate.",
+  },
+  [normalizeText("Eat breakfast.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_bread_to_mouth_2c7c5c4c.wav",
+    text: "Eat breakfast.",
+  },
+  [normalizeText("Pour milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_milk_to_cup_88ef906b.wav",
+    text: "Pour milk.",
   },
   [normalizeText("Breakfast time!")]: {
     key: "lessons/morning-routine/breakfast/audio/en/prompt_intro_aa84d6d2.wav",
     text: "Breakfast time!",
   },
-  [normalizeText("Tap milk")]: {
-    key: "lessons/morning-routine/breakfast/audio/en/prompt_tap_milk_92bc5f34.wav",
-    text: "Tap milk",
+  [normalizeText("Tap the bread.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_review_bread_2e152ca0.wav",
+    text: "Tap the bread.",
+  },
+  [normalizeText("Tap the egg.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_tap_egg_b01b1cff.wav",
+    text: "Tap the egg.",
+  },
+  [normalizeText("Tap the milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_tap_milk_75b204ca.wav",
+    text: "Tap the milk.",
+  },
+  [normalizeText("This is the apple.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_apple_640ad69c.wav",
+    text: "This is the apple.",
+  },
+  [normalizeText("This is the banana.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_banana_cc8e043c.wav",
+    text: "This is the banana.",
+  },
+  [normalizeText("This is the cup.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_cup_a09b7cea.wav",
+    text: "This is the cup.",
+  },
+  [normalizeText("Let's learn eat breakfast.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_eat_breakfast_25224593.wav",
+    text: "Let's learn eat breakfast.",
+  },
+  [normalizeText("This is the egg.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_egg_5d3924c6.wav",
+    text: "This is the egg.",
+  },
+  [normalizeText("This is the milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_milk_f67e21bb.wav",
+    text: "This is the milk.",
+  },
+  [normalizeText("This is the plate.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_plate_b84396c6.wav",
+    text: "This is the plate.",
+  },
+  [normalizeText("Let's learn pour milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_pour_milk_6474651f.wav",
+    text: "Let's learn pour milk.",
+  },
+  [normalizeText("It means apple.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_apple_success_b734b1ed.wav",
+    text: "It means apple.",
+  },
+  [normalizeText("It means banana.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_banana_success_20cda1aa.wav",
+    text: "It means banana.",
+  },
+  [normalizeText("It means cup.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_cup_success_f40f574d.wav",
+    text: "It means cup.",
+  },
+  [normalizeText("It means eat breakfast.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_eat_breakfast_success_fcec3690.wav",
+    text: "It means eat breakfast.",
+  },
+  [normalizeText("It means egg.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_egg_success_82e1104c.wav",
+    text: "It means egg.",
+  },
+  [normalizeText("It means milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_milk_success_5d26d122.wav",
+    text: "It means milk.",
+  },
+  [normalizeText("It means plate.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_plate_success_f4d393c6.wav",
+    text: "It means plate.",
+  },
+  [normalizeText("It means pour milk.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/teach_pour_milk_success_4623b5e3.wav",
+    text: "It means pour milk.",
   },
   [normalizeText("bag")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/bag.wav",
@@ -1116,29 +3544,117 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/go-to-school/audio/en/pack_bag.wav",
     text: "pack bag",
   },
-  [normalizeText("Drag bag")]: {
-    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_bag_0969917b.wav",
-    text: "Drag bag",
+  [normalizeText("Drag the bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_bag_d5e98051.wav",
+    text: "Drag the bag.",
   },
-  [normalizeText("book in bag")]: {
-    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_book_to_bag_a89c8882.wav",
-    text: "book in bag",
+  [normalizeText("Put the book in the bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_book_to_bag_b8415e61.wav",
+    text: "Put the book in the bag.",
   },
-  [normalizeText("lunchbox in bag")]: {
-    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_lunchbox_to_bag_513f7709.wav",
-    text: "lunchbox in bag",
+  [normalizeText("Put the lunchbox in the bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_lunchbox_to_bag_1d74fa06.wav",
+    text: "Put the lunchbox in the bag.",
+  },
+  [normalizeText("Put on shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_shoes_to_feet_ffbbb4cb.wav",
+    text: "Put on shoes.",
   },
   [normalizeText("Go to school!")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_intro_faa281fa.wav",
     text: "Go to school!",
   },
-  [normalizeText("Tap shoes")]: {
-    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_shoes_1059f43d.wav",
-    text: "Tap shoes",
+  [normalizeText("Tap the school.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_review_school_ac4e92c8.wav",
+    text: "Tap the school.",
+  },
+  [normalizeText("Tap the bus.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_bus_ad64a9fe.wav",
+    text: "Tap the bus.",
+  },
+  [normalizeText("Tap the shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_shoes_c174f086.wav",
+    text: "Tap the shoes.",
+  },
+  [normalizeText("Tap the uniform.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_uniform_d9292e3c.wav",
+    text: "Tap the uniform.",
+  },
+  [normalizeText("This is the bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_bag_afcca2ea.wav",
+    text: "This is the bag.",
+  },
+  [normalizeText("This is the book.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_book_d7a255c4.wav",
+    text: "This is the book.",
+  },
+  [normalizeText("This is the bus.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_bus_08262c43.wav",
+    text: "This is the bus.",
+  },
+  [normalizeText("Let's learn go to school.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_go_to_school_d5887b45.wav",
+    text: "Let's learn go to school.",
+  },
+  [normalizeText("This is the lunchbox.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_lunchbox_ceff435b.wav",
+    text: "This is the lunchbox.",
+  },
+  [normalizeText("Let's learn pack bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_pack_bag_d4502afa.wav",
+    text: "Let's learn pack bag.",
+  },
+  [normalizeText("Let's learn put on shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_put_on_shoes_4ca32152.wav",
+    text: "Let's learn put on shoes.",
+  },
+  [normalizeText("This is the shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_shoes_404b4bd7.wav",
+    text: "This is the shoes.",
+  },
+  [normalizeText("This is the uniform.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_uniform_d187ecf2.wav",
+    text: "This is the uniform.",
   },
   [normalizeText("put on shoes")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/put_on_shoes.wav",
     text: "put on shoes",
+  },
+  [normalizeText("It means bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_bag_success_fe006b73.wav",
+    text: "It means bag.",
+  },
+  [normalizeText("It means book.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_book_success_a38c468a.wav",
+    text: "It means book.",
+  },
+  [normalizeText("It means bus.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_bus_success_56376550.wav",
+    text: "It means bus.",
+  },
+  [normalizeText("It means go to school.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_go_to_school_success_e5b37713.wav",
+    text: "It means go to school.",
+  },
+  [normalizeText("It means lunchbox.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_lunchbox_success_2eec4614.wav",
+    text: "It means lunchbox.",
+  },
+  [normalizeText("It means pack bag.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_pack_bag_success_e07fdd48.wav",
+    text: "It means pack bag.",
+  },
+  [normalizeText("It means put on shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_put_on_shoes_success_4d5c9596.wav",
+    text: "It means put on shoes.",
+  },
+  [normalizeText("It means shoes.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_shoes_success_b5994227.wav",
+    text: "It means shoes.",
+  },
+  [normalizeText("It means uniform.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/school_teach_uniform_success_5bf0f97a.wav",
+    text: "It means uniform.",
   },
   [normalizeText("school")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/school.wav",
@@ -1168,6 +3684,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/friend-games/audio/en/friend.wav",
     text: "friend",
   },
+  [normalizeText("It means blocks.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_blocks_success_49678b0a.wav",
+    text: "It means blocks.",
+  },
+  [normalizeText("It means bucket.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_bucket_success_62b6ad79.wav",
+    text: "It means bucket.",
+  },
+  [normalizeText("It means friend.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_friend_success_d87e6038.wav",
+    text: "It means friend.",
+  },
+  [normalizeText("It means kite.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_kite_success_b242cad8.wav",
+    text: "It means kite.",
+  },
+  [normalizeText("It means play together.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_play_together_success_329e801f.wav",
+    text: "It means play together.",
+  },
+  [normalizeText("It means rope.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_rope_success_91d94cee.wav",
+    text: "It means rope.",
+  },
+  [normalizeText("It means share toys.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_share_toys_success_3d2cfa1f.wav",
+    text: "It means share toys.",
+  },
+  [normalizeText("It means toy.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_toy_success_58d64189.wav",
+    text: "It means toy.",
+  },
+  [normalizeText("It means wait.")]: {
+    key: "lessons/playtime/friend-games/audio/en/games_teach_wait_success_eb32d6b8.wav",
+    text: "It means wait.",
+  },
   [normalizeText("kite")]: {
     key: "lessons/playtime/friend-games/audio/en/kite.wav",
     text: "kite",
@@ -1176,9 +3728,81 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/friend-games/audio/en/play_together.wav",
     text: "play together",
   },
+  [normalizeText("Play together.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_drag_blocks_play_together_000fe634.wav",
+    text: "Play together.",
+  },
+  [normalizeText("Drag the blocks.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_drag_blocks_to_mat_b15da937.wav",
+    text: "Drag the blocks.",
+  },
+  [normalizeText("Drag the kite.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_drag_kite_to_sky_1061084e.wav",
+    text: "Drag the kite.",
+  },
+  [normalizeText("Share toys.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_drag_toy_to_friend_8e771851.wav",
+    text: "Share toys.",
+  },
   [normalizeText("Play together!")]: {
     key: "lessons/playtime/friend-games/audio/en/prompt_games_intro_14d2582f.wav",
     text: "Play together!",
+  },
+  [normalizeText("Tap the bucket.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_bucket_5b4d85af.wav",
+    text: "Tap the bucket.",
+  },
+  [normalizeText("Tap the friend.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_friend_01604ab2.wav",
+    text: "Tap the friend.",
+  },
+  [normalizeText("Tap the rope.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_rope_1aea1747.wav",
+    text: "Tap the rope.",
+  },
+  [normalizeText("Tap the toy.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_toy_3dabb3e2.wav",
+    text: "Tap the toy.",
+  },
+  [normalizeText("Tap the wait.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_wait_clock_771a4aa0.wav",
+    text: "Tap the wait.",
+  },
+  [normalizeText("This is the blocks.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_blocks_29f62197.wav",
+    text: "This is the blocks.",
+  },
+  [normalizeText("This is the bucket.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_bucket_c3745fcf.wav",
+    text: "This is the bucket.",
+  },
+  [normalizeText("This is the friend.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_friend_e411de90.wav",
+    text: "This is the friend.",
+  },
+  [normalizeText("This is the kite.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_kite_08880e09.wav",
+    text: "This is the kite.",
+  },
+  [normalizeText("Let's learn play together.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_play_together_cdb6f560.wav",
+    text: "Let's learn play together.",
+  },
+  [normalizeText("This is the rope.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_rope_f4dc6a92.wav",
+    text: "This is the rope.",
+  },
+  [normalizeText("Let's learn share toys.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_share_toys_4b4cbef2.wav",
+    text: "Let's learn share toys.",
+  },
+  [normalizeText("This is the toy.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_toy_e28fd1f6.wav",
+    text: "This is the toy.",
+  },
+  [normalizeText("Let's learn wait.")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_teach_wait_afea85d5.wav",
+    text: "Let's learn wait.",
   },
   [normalizeText("rope")]: {
     key: "lessons/playtime/friend-games/audio/en/rope.wav",
@@ -1212,9 +3836,77 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playground/audio/en/playground.wav",
     text: "playground",
   },
+  [normalizeText("Take turns.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_drag_ball_to_turn_6fcb40a5.wav",
+    text: "Take turns.",
+  },
+  [normalizeText("Drag the ball.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_drag_ball_to_yard_a0d3e1fe.wav",
+    text: "Drag the ball.",
+  },
   [normalizeText("Playtime!")]: {
     key: "lessons/playtime/playground/audio/en/prompt_intro_795e2654.wav",
     text: "Playtime!",
+  },
+  [normalizeText("Tap the jump.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_jump_hoop_1c8ba64c.wav",
+    text: "Tap the jump.",
+  },
+  [normalizeText("Tap the run.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_run_path_001421f0.wav",
+    text: "Tap the run.",
+  },
+  [normalizeText("Tap the sandbox.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_sandbox_b8c9a665.wav",
+    text: "Tap the sandbox.",
+  },
+  [normalizeText("Tap the seesaw.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_seesaw_988b8c2d.wav",
+    text: "Tap the seesaw.",
+  },
+  [normalizeText("Tap the slide.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_slide_e34fad6a.wav",
+    text: "Tap the slide.",
+  },
+  [normalizeText("Tap the swing.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_tap_swing_8c5c43bd.wav",
+    text: "Tap the swing.",
+  },
+  [normalizeText("This is the ball.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_ball_29820c8b.wav",
+    text: "This is the ball.",
+  },
+  [normalizeText("Let's learn jump.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_jump_f3e93940.wav",
+    text: "Let's learn jump.",
+  },
+  [normalizeText("This is the playground.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_playground_137a1414.wav",
+    text: "This is the playground.",
+  },
+  [normalizeText("Let's learn run.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_run_d44351cf.wav",
+    text: "Let's learn run.",
+  },
+  [normalizeText("This is the sandbox.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_sandbox_8a7013b7.wav",
+    text: "This is the sandbox.",
+  },
+  [normalizeText("This is the seesaw.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_seesaw_98f98d17.wav",
+    text: "This is the seesaw.",
+  },
+  [normalizeText("This is the slide.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_slide_19177b69.wav",
+    text: "This is the slide.",
+  },
+  [normalizeText("This is the swing.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_swing_e8ec85b4.wav",
+    text: "This is the swing.",
+  },
+  [normalizeText("Let's learn take turns.")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_teach_take_turns_57a9d396.wav",
+    text: "Let's learn take turns.",
   },
   [normalizeText("run")]: {
     key: "lessons/playtime/playground/audio/en/run.wav",
@@ -1240,6 +3932,42 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playground/audio/en/take_turns.wav",
     text: "take turns",
   },
+  [normalizeText("It means ball.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_ball_success_333bbdda.wav",
+    text: "It means ball.",
+  },
+  [normalizeText("It means jump.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_jump_success_8143110d.wav",
+    text: "It means jump.",
+  },
+  [normalizeText("It means playground.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_playground_success_81a141dc.wav",
+    text: "It means playground.",
+  },
+  [normalizeText("It means run.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_run_success_ab27beb1.wav",
+    text: "It means run.",
+  },
+  [normalizeText("It means sandbox.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_sandbox_success_50f512a2.wav",
+    text: "It means sandbox.",
+  },
+  [normalizeText("It means seesaw.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_seesaw_success_578ea0ea.wav",
+    text: "It means seesaw.",
+  },
+  [normalizeText("It means slide.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_slide_success_173cbbb7.wav",
+    text: "It means slide.",
+  },
+  [normalizeText("It means swing.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_swing_success_5e87f52e.wav",
+    text: "It means swing.",
+  },
+  [normalizeText("It means take turns.")]: {
+    key: "lessons/playtime/playground/audio/en/teach_take_turns_success_de10bf58.wav",
+    text: "It means take turns.",
+  },
   [normalizeText("bench")]: {
     key: "lessons/playtime/playtime-rest/audio/en/bench.wav",
     text: "bench",
@@ -1260,9 +3988,93 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playtime-rest/audio/en/eat_snack.wav",
     text: "eat snack",
   },
+  [normalizeText("Drag the bottle.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_drag_bottle_to_mouth_91981ae7.wav",
+    text: "Drag the bottle.",
+  },
+  [normalizeText("Eat snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_drag_snack_to_mouth_a4b54014.wav",
+    text: "Eat snack.",
+  },
+  [normalizeText("Drag the snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_drag_snack_to_table_a8eaea19.wav",
+    text: "Drag the snack.",
+  },
+  [normalizeText("Drag the towel.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_drag_towel_to_face_a55eae98.wav",
+    text: "Drag the towel.",
+  },
   [normalizeText("Take a break!")]: {
     key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_intro_216c4a3e.wav",
     text: "Take a break!",
+  },
+  [normalizeText("Tap the bench.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_tap_bench_08043b91.wav",
+    text: "Tap the bench.",
+  },
+  [normalizeText("Tap the bottle.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_tap_bottle_95db3e5a.wav",
+    text: "Tap the bottle.",
+  },
+  [normalizeText("Tap the shade.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_tap_shade_19850722.wav",
+    text: "Tap the shade.",
+  },
+  [normalizeText("This is the bench.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_bench_ca322aac.wav",
+    text: "This is the bench.",
+  },
+  [normalizeText("This is the bottle.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_bottle_8134b853.wav",
+    text: "This is the bottle.",
+  },
+  [normalizeText("Let's learn drink water.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_drink_water_51cc6846.wav",
+    text: "Let's learn drink water.",
+  },
+  [normalizeText("Let's learn eat snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_eat_snack_915b05ce.wav",
+    text: "Let's learn eat snack.",
+  },
+  [normalizeText("Let's learn rest.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_rest_bfbd3ac7.wav",
+    text: "Let's learn rest.",
+  },
+  [normalizeText("This is the shade.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_shade_09bcc536.wav",
+    text: "This is the shade.",
+  },
+  [normalizeText("This is the snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_teach_snack_6c9a8c92.wav",
+    text: "This is the snack.",
+  },
+  [normalizeText("It means bench.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_bench_success_ff9b8cc0.wav",
+    text: "It means bench.",
+  },
+  [normalizeText("It means bottle.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_bottle_success_d184aeb0.wav",
+    text: "It means bottle.",
+  },
+  [normalizeText("It means drink water.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_drink_water_success_fd9cfd65.wav",
+    text: "It means drink water.",
+  },
+  [normalizeText("It means eat snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_eat_snack_success_27a264b7.wav",
+    text: "It means eat snack.",
+  },
+  [normalizeText("It means rest.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_rest_success_5ffa4725.wav",
+    text: "It means rest.",
+  },
+  [normalizeText("It means shade.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_shade_success_059709b9.wav",
+    text: "It means shade.",
+  },
+  [normalizeText("It means snack.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/rest_teach_snack_success_d71ab77b.wav",
+    text: "It means snack.",
   },
   [normalizeText("rest")]: {
     key: "lessons/playtime/playtime-rest/audio/en/rest.wav",
@@ -1284,9 +4096,85 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-cleanup/audio/en/completion_5f602d78.wav",
     text: "Cleaning Up After Snack is complete.",
   },
+  [normalizeText("Put away tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_drag_tray_away_a34fb917.wav",
+    text: "Put away tray.",
+  },
+  [normalizeText("Throw away wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_drag_wrapper_away_447c2904.wav",
+    text: "Throw away wrapper.",
+  },
+  [normalizeText("Drag the wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_drag_wrapper_to_tray_52b58ade.wav",
+    text: "Drag the wrapper.",
+  },
+  [normalizeText("Tap the basket.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_basket_1c96a0df.wav",
+    text: "Tap the basket.",
+  },
+  [normalizeText("Tap the cloth.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_cloth_8403f051.wav",
+    text: "Tap the cloth.",
+  },
+  [normalizeText("Tap the crumbs.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_crumbs_37ce8f50.wav",
+    text: "Tap the crumbs.",
+  },
+  [normalizeText("Tap the tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_tray_6d12e2d9.wav",
+    text: "Tap the tray.",
+  },
+  [normalizeText("This is the basket.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_basket_a936b8f0.wav",
+    text: "This is the basket.",
+  },
+  [normalizeText("This is the cloth.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_cloth_c086519c.wav",
+    text: "This is the cloth.",
+  },
+  [normalizeText("Let's learn put away tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_put_away_tray_61d803e9.wav",
+    text: "Let's learn put away tray.",
+  },
+  [normalizeText("Let's learn throw away wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_throw_away_wrapper_28a415f8.wav",
+    text: "Let's learn throw away wrapper.",
+  },
+  [normalizeText("This is the tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_tray_a315abcf.wav",
+    text: "This is the tray.",
+  },
+  [normalizeText("This is the wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/prompt_teach_wrapper_dc32ed03.wav",
+    text: "This is the wrapper.",
+  },
   [normalizeText("put away tray")]: {
     key: "lessons/snack-time/snack-cleanup/audio/en/put_away_tray.wav",
     text: "put away tray",
+  },
+  [normalizeText("It means basket.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_basket_success_a5c34da9.wav",
+    text: "It means basket.",
+  },
+  [normalizeText("It means cloth.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_cloth_success_0e8590cb.wav",
+    text: "It means cloth.",
+  },
+  [normalizeText("It means put away tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_put_away_tray_success_69cb1c31.wav",
+    text: "It means put away tray.",
+  },
+  [normalizeText("It means throw away wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_throw_away_wrapper_success_a74e998c.wav",
+    text: "It means throw away wrapper.",
+  },
+  [normalizeText("It means tray.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_tray_success_5bcf72a0.wav",
+    text: "It means tray.",
+  },
+  [normalizeText("It means wrapper.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/teach_wrapper_success_89ef1feb.wav",
+    text: "It means wrapper.",
   },
   [normalizeText("throw away wrapper")]: {
     key: "lessons/snack-time/snack-cleanup/audio/en/throw_away_wrapper.wav",
@@ -1324,9 +4212,77 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-prep/audio/en/pour_juice.wav",
     text: "pour juice",
   },
+  [normalizeText("Drag the cookie.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_drag_cookie_to_snack_8695bbdb.wav",
+    text: "Drag the cookie.",
+  },
+  [normalizeText("Pour juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_drag_juice_to_container_2d076800.wav",
+    text: "Pour juice.",
+  },
+  [normalizeText("Drag the straw.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_drag_straw_to_juice_67afbbeb.wav",
+    text: "Drag the straw.",
+  },
   [normalizeText("Snack time!")]: {
     key: "lessons/snack-time/snack-prep/audio/en/prompt_intro_ab6159cf.wav",
     text: "Snack time!",
+  },
+  [normalizeText("Open snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_box_open_886f0ac6.wav",
+    text: "Open snack box.",
+  },
+  [normalizeText("Choose snack.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_choice_c3bee111.wav",
+    text: "Choose snack.",
+  },
+  [normalizeText("Tap the juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_juice_aa4c2038.wav",
+    text: "Tap the juice.",
+  },
+  [normalizeText("Tap the snack.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_snack_35f57f65.wav",
+    text: "Tap the snack.",
+  },
+  [normalizeText("Tap the snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_snack_box_03f7d4f4.wav",
+    text: "Tap the snack box.",
+  },
+  [normalizeText("Tap the yogurt.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_yogurt_a490217c.wav",
+    text: "Tap the yogurt.",
+  },
+  [normalizeText("Let's learn choose snack.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_choose_snack_e0fa7dd4.wav",
+    text: "Let's learn choose snack.",
+  },
+  [normalizeText("This is the cookie.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_cookie_cf69a2df.wav",
+    text: "This is the cookie.",
+  },
+  [normalizeText("This is the juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_juice_5e66a7a3.wav",
+    text: "This is the juice.",
+  },
+  [normalizeText("Let's learn open snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_open_snack_box_ce78b78d.wav",
+    text: "Let's learn open snack box.",
+  },
+  [normalizeText("Let's learn pour juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_pour_juice_1a657617.wav",
+    text: "Let's learn pour juice.",
+  },
+  [normalizeText("This is the snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_snack_box_472517e5.wav",
+    text: "This is the snack box.",
+  },
+  [normalizeText("This is the straw.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_straw_3960f7b5.wav",
+    text: "This is the straw.",
+  },
+  [normalizeText("This is the yogurt.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_yogurt_d11644db.wav",
+    text: "This is the yogurt.",
   },
   [normalizeText("snack box")]: {
     key: "lessons/snack-time/snack-prep/audio/en/snack_box.wav",
@@ -1335,6 +4291,38 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("straw")]: {
     key: "lessons/snack-time/snack-prep/audio/en/straw.wav",
     text: "straw",
+  },
+  [normalizeText("It means choose snack.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_choose_snack_success_6301c8bc.wav",
+    text: "It means choose snack.",
+  },
+  [normalizeText("It means cookie.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_cookie_success_6893bf21.wav",
+    text: "It means cookie.",
+  },
+  [normalizeText("It means juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_juice_success_f406fb01.wav",
+    text: "It means juice.",
+  },
+  [normalizeText("It means open snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_open_snack_box_success_5bb0d9a9.wav",
+    text: "It means open snack box.",
+  },
+  [normalizeText("It means pour juice.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_pour_juice_success_922560c4.wav",
+    text: "It means pour juice.",
+  },
+  [normalizeText("It means snack box.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_snack_box_success_e76e6058.wav",
+    text: "It means snack box.",
+  },
+  [normalizeText("It means straw.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_straw_success_e328686d.wav",
+    text: "It means straw.",
+  },
+  [normalizeText("It means yogurt.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/teach_yogurt_success_b70fc395.wav",
+    text: "It means yogurt.",
   },
   [normalizeText("yogurt")]: {
     key: "lessons/snack-time/snack-prep/audio/en/yogurt.wav",
@@ -1352,9 +4340,77 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-table/audio/en/cracker.wav",
     text: "cracker",
   },
+  [normalizeText("Take a bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_drag_cracker_to_mouth_5473956c.wav",
+    text: "Take a bite.",
+  },
+  [normalizeText("Drag the cracker.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_drag_cracker_to_table_9270b721.wav",
+    text: "Drag the cracker.",
+  },
+  [normalizeText("Wipe mouth.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_drag_napkin_to_mouth_b5a16748.wav",
+    text: "Wipe mouth.",
+  },
+  [normalizeText("Sip juice.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_drag_sip_to_mouth_250bfe14.wav",
+    text: "Sip juice.",
+  },
   [normalizeText("Let us eat!")]: {
     key: "lessons/snack-time/snack-table/audio/en/prompt_intro_ea939b15.wav",
     text: "Let us eat!",
+  },
+  [normalizeText("Tap the bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_tap_bite_6a5ca268.wav",
+    text: "Tap the bite.",
+  },
+  [normalizeText("Tap the cracker.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_tap_cracker_91c45b29.wav",
+    text: "Tap the cracker.",
+  },
+  [normalizeText("Tap the napkin.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_tap_napkin_30441408.wav",
+    text: "Tap the napkin.",
+  },
+  [normalizeText("Tap the raisins.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_tap_raisins_3e4d1aec.wav",
+    text: "Tap the raisins.",
+  },
+  [normalizeText("Sip.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_tap_sip_3283193f.wav",
+    text: "Sip.",
+  },
+  [normalizeText("Let's learn bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_bite_1f4d78ad.wav",
+    text: "Let's learn bite.",
+  },
+  [normalizeText("This is the cracker.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_cracker_915a3650.wav",
+    text: "This is the cracker.",
+  },
+  [normalizeText("This is the raisins.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_raisins_2bcb0e60.wav",
+    text: "This is the raisins.",
+  },
+  [normalizeText("Let's learn sip.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_sip_dd6f9251.wav",
+    text: "Let's learn sip.",
+  },
+  [normalizeText("Let's learn sip juice.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_sip_juice_99e588ab.wav",
+    text: "Let's learn sip juice.",
+  },
+  [normalizeText("This is the small table.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_small_table_afd1e371.wav",
+    text: "This is the small table.",
+  },
+  [normalizeText("Let's learn take a bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_take_bite_518873d0.wav",
+    text: "Let's learn take a bite.",
+  },
+  [normalizeText("Let's learn wipe mouth.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_teach_wipe_mouth_16a7f3d5.wav",
+    text: "Let's learn wipe mouth.",
   },
   [normalizeText("raisins")]: {
     key: "lessons/snack-time/snack-table/audio/en/raisins.wav",
@@ -1375,6 +4431,38 @@ const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("take a bite")]: {
     key: "lessons/snack-time/snack-table/audio/en/take_a_bite.wav",
     text: "take a bite",
+  },
+  [normalizeText("It means bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_bite_success_d5761872.wav",
+    text: "It means bite.",
+  },
+  [normalizeText("It means cracker.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_cracker_success_e8c0e9cb.wav",
+    text: "It means cracker.",
+  },
+  [normalizeText("It means raisins.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_raisins_success_b7341eda.wav",
+    text: "It means raisins.",
+  },
+  [normalizeText("It means sip juice.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_sip_juice_success_7d004b21.wav",
+    text: "It means sip juice.",
+  },
+  [normalizeText("It means sip.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_sip_success_27bfd353.wav",
+    text: "It means sip.",
+  },
+  [normalizeText("It means small table.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_small_table_success_e704bd0b.wav",
+    text: "It means small table.",
+  },
+  [normalizeText("It means take a bite.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_take_bite_success_0e832344.wav",
+    text: "It means take a bite.",
+  },
+  [normalizeText("It means wipe mouth.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/teach_wipe_mouth_success_2ffe94d8.wav",
+    text: "It means wipe mouth.",
   },
   [normalizeText("wipe mouth")]: {
     key: "lessons/snack-time/snack-table/audio/en/wipe_mouth.wav",

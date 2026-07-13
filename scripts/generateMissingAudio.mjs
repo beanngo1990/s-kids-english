@@ -481,18 +481,19 @@ function collectAudioTargets(
       }
 
       for (const step of scene.steps ?? []) {
-        if (step.promptText?.trim()) {
-          addEnglishPromptTarget(targets, {
-            defaultKey: getEnglishStepAudioKey(
-              lesson.id,
-              scene.id,
-              step.id,
-              step.promptText,
-            ),
-            existingWordAudio,
-            text: step.promptText,
-          });
-        }
+        const instructionPromptEn = getEnglishSegment(
+          teacherPrompts.resolveTeacherInstruction(step, 'en', scene),
+        );
+        addEnglishPromptTarget(targets, {
+          defaultKey: getEnglishStepAudioKey(
+            lesson.id,
+            scene.id,
+            step.id,
+            instructionPromptEn,
+          ),
+          existingWordAudio,
+          text: instructionPromptEn,
+        });
         addViTarget(targets, {
           defaultKey: getStepAudioKey(
             lesson.id,
@@ -527,6 +528,48 @@ function collectAudioTargets(
             ),
             existingViAudio,
             text: step.failFeedbackVi,
+          });
+        }
+
+        const successFeedbackEn = teacherPrompts.getTeacherFeedbackEn(
+          'success',
+          step,
+          scene,
+        );
+        if (successFeedbackEn?.trim()) {
+          addEnglishPromptTarget(targets, {
+            defaultKey: getEnglishStepFeedbackAudioKey(
+              lesson.id,
+              scene.id,
+              step.id,
+              'success',
+              successFeedbackEn,
+            ),
+            existingWordAudio,
+            text: successFeedbackEn,
+          });
+        }
+
+        if (step.failFeedbackEn?.trim()) {
+          const failFeedbackEn = getEnglishSegment(
+            teacherPrompts.resolveTeacherFeedback({
+              enText: step.failFeedbackEn,
+              mode: 'en',
+              scene,
+              step,
+              type: 'fail',
+            }),
+          );
+          addEnglishPromptTarget(targets, {
+            defaultKey: getEnglishStepFeedbackAudioKey(
+              lesson.id,
+              scene.id,
+              step.id,
+              'fail',
+              failFeedbackEn,
+            ),
+            existingWordAudio,
+            text: failFeedbackEn,
           });
         }
       }
@@ -732,6 +775,13 @@ function getStepAudioKey(lessonId, sceneId, stepId, part, text) {
 function getEnglishStepAudioKey(lessonId, sceneId, stepId, text) {
   const stepSlug = slug(stripScenePrefix(sceneId, stepId));
   return `lessons/${lessonId}/${sceneId}/audio/en/prompt_${stepSlug}_${textDigest(
+    text,
+  )}.wav`;
+}
+
+function getEnglishStepFeedbackAudioKey(lessonId, sceneId, stepId, part, text) {
+  const stepSlug = slug(stripScenePrefix(sceneId, stepId));
+  return `lessons/${lessonId}/${sceneId}/audio/en/${stepSlug}_${part}_${textDigest(
     text,
   )}.wav`;
 }
