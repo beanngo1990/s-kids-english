@@ -3,7 +3,7 @@ export type RemoteAudioAsset = {
   text: string;
 };
 
-const wordAudioByWord: Record<string, RemoteAudioAsset> = {
+const enAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("carafe")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/carafe.wav",
     text: "carafe",
@@ -11,6 +11,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("coaster")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/coaster.wav",
     text: "coaster",
+  },
+  [normalizeText("Clearing Dinner Items is complete.")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/completion_848bcc12.wav",
+    text: "Clearing Dinner Items is complete.",
   },
   [normalizeText("label container")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/label_container.wav",
@@ -27,6 +31,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("pot holder")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/pot_holder.wav",
     text: "pot holder",
+  },
+  [normalizeText("Clear dinner!")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_intro_602ead8b.wav",
+    text: "Clear dinner!",
   },
   [normalizeText("serving cart")]: {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/serving_cart.wav",
@@ -48,6 +56,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/cabinet.wav",
     text: "cabinet",
   },
+  [normalizeText("Sorting and Drying is complete.")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/completion_a2369f46.wav",
+    text: "Sorting and Drying is complete.",
+  },
   [normalizeText("compost bin")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/compost_bin.wav",
     text: "compost bin",
@@ -59,6 +71,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("drying mat")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/drying_mat.wav",
     text: "drying mat",
+  },
+  [normalizeText("Sort and dry!")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_intro_41ca81ab.wav",
+    text: "Sort and dry!",
   },
   [normalizeText("recycling bin")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/recycling_bin.wav",
@@ -80,9 +96,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/cleaning_brush.wav",
     text: "cleaning brush",
   },
+  [normalizeText("Cleaning Spills and Spots is complete.")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/completion_a94b7136.wav",
+    text: "Cleaning Spills and Spots is complete.",
+  },
   [normalizeText("dry surface")]: {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/dry_surface.wav",
     text: "dry surface",
+  },
+  [normalizeText("Clean the spot!")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_intro_9b09105c.wav",
+    text: "Clean the spot!",
   },
   [normalizeText("rubber gloves")]: {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/en/rubber_gloves.wav",
@@ -120,6 +144,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-finish/audio/en/comb.wav",
     text: "comb",
   },
+  [normalizeText("After-Bath Clothes is complete.")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/completion_3cd74744.wav",
+    text: "After-Bath Clothes is complete.",
+  },
   [normalizeText("hang robe")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/hang_robe.wav",
     text: "hang robe",
@@ -135,6 +163,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("pajamas")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/pajamas.wav",
     text: "pajamas",
+  },
+  [normalizeText("After bath!")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_intro_1c44260b.wav",
+    text: "After bath!",
   },
   [normalizeText("put on pajamas")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/en/put_on_pajamas.wav",
@@ -168,6 +200,14 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-prep/audio/en/check_temperature.wav",
     text: "check temperature",
   },
+  [normalizeText("Getting Ready for a Bath is complete.")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/completion_58a0f9fd.wav",
+    text: "Getting Ready for a Bath is complete.",
+  },
+  [normalizeText("Bath time!")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_intro_99927957.wav",
+    text: "Bath time!",
+  },
   [normalizeText("shampoo")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/en/shampoo.wav",
     text: "shampoo",
@@ -188,6 +228,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/bubble.wav",
     text: "bubble",
   },
+  [normalizeText("Washing and Rinsing is complete.")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/completion_76cb7208.wav",
+    text: "Washing and Rinsing is complete.",
+  },
   [normalizeText("elbow")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/elbow.wav",
     text: "elbow",
@@ -203,6 +247,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("make bubbles")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/make_bubbles.wav",
     text: "make bubbles",
+  },
+  [normalizeText("Wash and rinse!")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_intro_05ccd00c.wav",
+    text: "Wash and rinse!",
   },
   [normalizeText("rinse hair")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/rinse_hair.wav",
@@ -220,6 +268,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-rinse/audio/en/shower_head.wav",
     text: "shower head",
   },
+  [normalizeText("Getting Ready to Go Home is complete.")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/completion_72080f62.wav",
+    text: "Getting Ready to Go Home is complete.",
+  },
   [normalizeText("door")]: {
     key: "lessons/afternoon-home/going-home/audio/en/door.wav",
     text: "door",
@@ -236,9 +288,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/going-home/audio/en/line_up.wav",
     text: "line up",
   },
+  [normalizeText("Going home!")]: {
+    key: "lessons/afternoon-home/going-home/audio/en/prompt_intro_9dbc530d.wav",
+    text: "Going home!",
+  },
   [normalizeText("say goodbye")]: {
     key: "lessons/afternoon-home/going-home/audio/en/say_goodbye.wav",
     text: "say goodbye",
+  },
+  [normalizeText("Arriving Home is complete.")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/completion_1f092d14.wav",
+    text: "Arriving Home is complete.",
   },
   [normalizeText("family")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/family.wav",
@@ -247,6 +307,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("hug family")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/hug_family.wav",
     text: "hug family",
+  },
+  [normalizeText("Home!")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/en/prompt_intro_d66a83e1.wav",
+    text: "Home!",
   },
   [normalizeText("shelf")]: {
     key: "lessons/afternoon-home/home-arrival/audio/en/shelf.wav",
@@ -264,6 +328,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/ride-home/audio/en/buckle_up.wav",
     text: "buckle up",
   },
+  [normalizeText("The Ride Home is complete.")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/completion_41252568.wav",
+    text: "The Ride Home is complete.",
+  },
   [normalizeText("get on bus")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/get_on_bus.wav",
     text: "get on bus",
@@ -271,6 +339,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("home")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/home.wav",
     text: "home",
+  },
+  [normalizeText("Ride home!")]: {
+    key: "lessons/afternoon-home/ride-home/audio/en/prompt_intro_658e4d53.wav",
+    text: "Ride home!",
   },
   [normalizeText("road")]: {
     key: "lessons/afternoon-home/ride-home/audio/en/road.wav",
@@ -300,9 +372,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/classroom/audio/en/classroom.wav",
     text: "classroom",
   },
+  [normalizeText("Classroom is complete.")]: {
+    key: "lessons/at-school/classroom/audio/en/completion_74426613.wav",
+    text: "Classroom is complete.",
+  },
   [normalizeText("desk")]: {
     key: "lessons/at-school/classroom/audio/en/desk.wav",
     text: "desk",
+  },
+  [normalizeText("At school!")]: {
+    key: "lessons/at-school/classroom/audio/en/prompt_intro_029be165.wav",
+    text: "At school!",
   },
   [normalizeText("raise hand")]: {
     key: "lessons/at-school/classroom/audio/en/raise_hand.wav",
@@ -315,6 +395,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("teacher")]: {
     key: "lessons/at-school/classroom/audio/en/teacher.wav",
     text: "teacher",
+  },
+  [normalizeText("School Supplies is complete.")]: {
+    key: "lessons/at-school/school-supplies/audio/en/completion_cbdabe84.wav",
+    text: "School Supplies is complete.",
   },
   [normalizeText("crayon")]: {
     key: "lessons/at-school/school-supplies/audio/en/crayon.wav",
@@ -340,6 +424,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/school-supplies/audio/en/pencil.wav",
     text: "pencil",
   },
+  [normalizeText("School supplies!")]: {
+    key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_intro_adf2290b.wav",
+    text: "School supplies!",
+  },
   [normalizeText("ruler")]: {
     key: "lessons/at-school/school-supplies/audio/en/ruler.wav",
     text: "ruler",
@@ -352,9 +440,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/teacher-instructions/audio/en/clean_up.wav",
     text: "clean up",
   },
+  [normalizeText("Teacher Says is complete.")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/completion_03a26cf9.wav",
+    text: "Teacher Says is complete.",
+  },
   [normalizeText("listen")]: {
     key: "lessons/at-school/teacher-instructions/audio/en/listen.wav",
     text: "listen",
+  },
+  [normalizeText("Teacher says!")]: {
+    key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_intro_322d0bc5.wav",
+    text: "Teacher says!",
   },
   [normalizeText("bookmark")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/bookmark.wav",
@@ -364,6 +460,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/bedtime-story/audio/en/choose_story.wav",
     text: "choose story",
   },
+  [normalizeText("Choosing a Bedtime Story is complete.")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/completion_609440a1.wav",
+    text: "Choosing a Bedtime Story is complete.",
+  },
   [normalizeText("page tab")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/page_tab.wav",
     text: "page tab",
@@ -371,6 +471,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("place bookmark")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/place_bookmark.wav",
     text: "place bookmark",
+  },
+  [normalizeText("Bedtime story!")]: {
+    key: "lessons/bedtime/bedtime-story/audio/en/prompt_intro_c55cd5f9.wav",
+    text: "Bedtime story!",
   },
   [normalizeText("read softly")]: {
     key: "lessons/bedtime/bedtime-story/audio/en/read_softly.wav",
@@ -396,6 +500,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/calm-room/audio/en/close_curtains.wav",
     text: "close curtains",
   },
+  [normalizeText("Calming the Room is complete.")]: {
+    key: "lessons/bedtime/calm-room/audio/en/completion_c4279684.wav",
+    text: "Calming the Room is complete.",
+  },
   [normalizeText("curtain")]: {
     key: "lessons/bedtime/calm-room/audio/en/curtain.wav",
     text: "curtain",
@@ -420,6 +528,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/calm-room/audio/en/play_lullaby.wav",
     text: "play lullaby",
   },
+  [normalizeText("Calm room!")]: {
+    key: "lessons/bedtime/calm-room/audio/en/prompt_intro_159b2d1e.wav",
+    text: "Calm room!",
+  },
   [normalizeText("sound machine")]: {
     key: "lessons/bedtime/calm-room/audio/en/sound_machine.wav",
     text: "sound machine",
@@ -435,6 +547,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("comfort plush")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/comfort_plush.wav",
     text: "comfort plush",
+  },
+  [normalizeText("Getting Ready to Sleep is complete.")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/completion_56c87249.wav",
+    text: "Getting Ready to Sleep is complete.",
   },
   [normalizeText("dream journal")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/dream_journal.wav",
@@ -456,6 +572,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/sleep-ready/audio/en/nightstand.wav",
     text: "nightstand",
   },
+  [normalizeText("Ready to sleep!")]: {
+    key: "lessons/bedtime/sleep-ready/audio/en/prompt_intro_0793e8e2.wav",
+    text: "Ready to sleep!",
+  },
   [normalizeText("sleep mask")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/sleep_mask.wav",
     text: "sleep mask",
@@ -463,6 +583,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("wear sleep mask")]: {
     key: "lessons/bedtime/sleep-ready/audio/en/wear_sleep_mask.wav",
     text: "wear sleep mask",
+  },
+  [normalizeText("After-Dinner Cleanup is complete.")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/completion_068a1589.wav",
+    text: "After-Dinner Cleanup is complete.",
   },
   [normalizeText("dessert")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/dessert.wav",
@@ -492,6 +616,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/load_dishwasher.wav",
     text: "load dishwasher",
   },
+  [normalizeText("After dinner!")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_intro_740fd824.wav",
+    text: "After dinner!",
+  },
   [normalizeText("save leftovers")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/en/save_leftovers.wav",
     text: "save leftovers",
@@ -512,6 +640,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-prep/audio/en/carry_tray.wav",
     text: "carry tray",
   },
+  [normalizeText("Getting Dinner Ready is complete.")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/completion_37a01c46.wav",
+    text: "Getting Dinner Ready is complete.",
+  },
   [normalizeText("dinner bell")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/dinner_bell.wav",
     text: "dinner bell",
@@ -528,6 +660,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-prep/audio/en/placemat.wav",
     text: "placemat",
   },
+  [normalizeText("Dinner time!")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/en/prompt_intro_84cba5d2.wav",
+    text: "Dinner time!",
+  },
   [normalizeText("serving tray")]: {
     key: "lessons/family-dinner/dinner-prep/audio/en/serving_tray.wav",
     text: "serving tray",
@@ -540,6 +676,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-table/audio/en/chicken.wav",
     text: "chicken",
   },
+  [normalizeText("Sharing Dinner Dishes is complete.")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/completion_6d101470.wav",
+    text: "Sharing Dinner Dishes is complete.",
+  },
   [normalizeText("fish")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/fish.wav",
     text: "fish",
@@ -551,6 +691,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("pass dish")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/pass_dish.wav",
     text: "pass dish",
+  },
+  [normalizeText("Family dinner!")]: {
+    key: "lessons/family-dinner/dinner-table/audio/en/prompt_intro_aa615adb.wav",
+    text: "Family dinner!",
   },
   [normalizeText("salad")]: {
     key: "lessons/family-dinner/dinner-table/audio/en/salad.wav",
@@ -572,6 +716,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-table/audio/en/vegetables.wav",
     text: "vegetables",
   },
+  [normalizeText("Creative Play is complete.")]: {
+    key: "lessons/home-play/creative-play/audio/en/completion_137285c9.wav",
+    text: "Creative Play is complete.",
+  },
   [normalizeText("draw picture")]: {
     key: "lessons/home-play/creative-play/audio/en/draw_picture.wav",
     text: "draw picture",
@@ -587,6 +735,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("paper")]: {
     key: "lessons/home-play/creative-play/audio/en/paper.wav",
     text: "paper",
+  },
+  [normalizeText("Creative play!")]: {
+    key: "lessons/home-play/creative-play/audio/en/prompt_intro_ce959a0e.wav",
+    text: "Creative play!",
   },
   [normalizeText("puzzle")]: {
     key: "lessons/home-play/creative-play/audio/en/puzzle.wav",
@@ -612,9 +764,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/home-toy-corner/audio/en/choose_toy.wav",
     text: "choose toy",
   },
+  [normalizeText("Toy Corner is complete.")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/completion_db179489.wav",
+    text: "Toy Corner is complete.",
+  },
   [normalizeText("play gently")]: {
     key: "lessons/home-play/home-toy-corner/audio/en/play_gently.wav",
     text: "play gently",
+  },
+  [normalizeText("Play at home!")]: {
+    key: "lessons/home-play/home-toy-corner/audio/en/prompt_intro_4c4160af.wav",
+    text: "Play at home!",
   },
   [normalizeText("basket")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/basket.wav",
@@ -624,9 +784,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/toy-cleanup/audio/en/clean_up_toys.wav",
     text: "clean up toys",
   },
+  [normalizeText("Cleaning Up Toys is complete.")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/completion_d8183ebd.wav",
+    text: "Cleaning Up Toys is complete.",
+  },
   [normalizeText("floor")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/floor.wav",
     text: "floor",
+  },
+  [normalizeText("Clean up toys!")]: {
+    key: "lessons/home-play/toy-cleanup/audio/en/prompt_intro_81aafc04.wav",
+    text: "Clean up toys!",
   },
   [normalizeText("put away book")]: {
     key: "lessons/home-play/toy-cleanup/audio/en/put_away_book.wav",
@@ -636,9 +804,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/toy-cleanup/audio/en/tidy_room.wav",
     text: "tidy room",
   },
+  [normalizeText("Clean Up After Lunch is complete.")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/completion_d2a52b70.wav",
+    text: "Clean Up After Lunch is complete.",
+  },
   [normalizeText("crumbs")]: {
     key: "lessons/lunch-time/after-lunch/audio/en/crumbs.wav",
     text: "crumbs",
+  },
+  [normalizeText("Clean up!")]: {
+    key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_intro_27e13d82.wav",
+    text: "Clean up!",
   },
   [normalizeText("trash bin")]: {
     key: "lessons/lunch-time/after-lunch/audio/en/trash_bin.wav",
@@ -656,6 +832,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/lunch-box/audio/en/bowl.wav",
     text: "bowl",
   },
+  [normalizeText("Lunch Box is complete.")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/completion_9ec67cb5.wav",
+    text: "Lunch Box is complete.",
+  },
   [normalizeText("eat lunch")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/eat_lunch.wav",
     text: "eat lunch",
@@ -667,6 +847,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("open lunchbox")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/open_lunchbox.wav",
     text: "open lunchbox",
+  },
+  [normalizeText("Lunch time!")]: {
+    key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_intro_3faf0a16.wav",
+    text: "Lunch time!",
   },
   [normalizeText("rice")]: {
     key: "lessons/lunch-time/lunch-box/audio/en/rice.wav",
@@ -684,6 +868,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/lunch-box/audio/en/use_spoon.wav",
     text: "use spoon",
   },
+  [normalizeText("Lunch with Friends is complete.")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/completion_4e45d3ea.wav",
+    text: "Lunch with Friends is complete.",
+  },
   [normalizeText("fruit")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/fruit.wav",
     text: "fruit",
@@ -691,6 +879,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("napkin")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/napkin.wav",
     text: "napkin",
+  },
+  [normalizeText("Lunch with friends!")]: {
+    key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_intro_ad46c94c.wav",
+    text: "Lunch with friends!",
   },
   [normalizeText("say thank you")]: {
     key: "lessons/lunch-time/lunch-table/audio/en/say_thank_you.wav",
@@ -712,6 +904,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bathroom/audio/en/brush_teeth.wav",
     text: "brush teeth",
   },
+  [normalizeText("Bathroom is complete.")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/completion_95f3dfaf.wav",
+    text: "Bathroom is complete.",
+  },
   [normalizeText("dry face")]: {
     key: "lessons/morning-routine/bathroom/audio/en/dry_face.wav",
     text: "dry face",
@@ -719,6 +915,22 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("mirror")]: {
     key: "lessons/morning-routine/bathroom/audio/en/mirror.wav",
     text: "mirror",
+  },
+  [normalizeText("toothpaste on toothbrush")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_toothpaste_to_brush_cf7614d7.wav",
+    text: "toothpaste on toothbrush",
+  },
+  [normalizeText("Bathroom time!")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_intro_ddb671a3.wav",
+    text: "Bathroom time!",
+  },
+  [normalizeText("Tap toothbrush")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_toothbrush_2656a176.wav",
+    text: "Tap toothbrush",
+  },
+  [normalizeText("Tap water")]: {
+    key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_water_d458b038.wav",
+    text: "Tap water",
   },
   [normalizeText("sink")]: {
     key: "lessons/morning-routine/bathroom/audio/en/sink.wav",
@@ -764,6 +976,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bedroom/audio/en/clock.wav",
     text: "clock",
   },
+  [normalizeText("Bedroom is complete.")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/completion_832a4f40.wav",
+    text: "Bedroom is complete.",
+  },
   [normalizeText("doll")]: {
     key: "lessons/morning-routine/bedroom/audio/en/doll.wav",
     text: "doll",
@@ -784,6 +1000,26 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bedroom/audio/en/pillow.wav",
     text: "pillow",
   },
+  [normalizeText("pillow in box")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_pillow_to_box_3498d7f2.wav",
+    text: "pillow in box",
+  },
+  [normalizeText("socks in box")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_socks_to_box_f4cf5078.wav",
+    text: "socks in box",
+  },
+  [normalizeText("Good morning!")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_intro_bfba329f.wav",
+    text: "Good morning!",
+  },
+  [normalizeText("Tap bed")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_bed_bda9ed1f.wav",
+    text: "Tap bed",
+  },
+  [normalizeText("Drag blanket")]: {
+    key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_blanket_6f321cca.wav",
+    text: "Drag blanket",
+  },
   [normalizeText("socks")]: {
     key: "lessons/morning-routine/bedroom/audio/en/socks.wav",
     text: "socks",
@@ -803,6 +1039,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("bread")]: {
     key: "lessons/morning-routine/breakfast/audio/en/bread.wav",
     text: "bread",
+  },
+  [normalizeText("Breakfast is complete.")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/completion_dc162900.wav",
+    text: "Breakfast is complete.",
   },
   [normalizeText("cup")]: {
     key: "lessons/morning-routine/breakfast/audio/en/cup.wav",
@@ -828,6 +1068,26 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/breakfast/audio/en/pour_milk.wav",
     text: "pour milk",
   },
+  [normalizeText("Drag apple")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_9dcc6d2e.wav",
+    text: "Drag apple",
+  },
+  [normalizeText("apple on plate")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_apple_to_plate_ad8129f5.wav",
+    text: "apple on plate",
+  },
+  [normalizeText("banana on plate")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_drag_banana_to_plate_bfc5af70.wav",
+    text: "banana on plate",
+  },
+  [normalizeText("Breakfast time!")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_intro_aa84d6d2.wav",
+    text: "Breakfast time!",
+  },
+  [normalizeText("Tap milk")]: {
+    key: "lessons/morning-routine/breakfast/audio/en/prompt_tap_milk_92bc5f34.wav",
+    text: "Tap milk",
+  },
   [normalizeText("bag")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/bag.wav",
     text: "bag",
@@ -840,6 +1100,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/go-to-school/audio/en/bus.wav",
     text: "bus",
   },
+  [normalizeText("Go to School is complete.")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/completion_1d566fdc.wav",
+    text: "Go to School is complete.",
+  },
   [normalizeText("go to school")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/go_to_school.wav",
     text: "go to school",
@@ -851,6 +1115,26 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("pack bag")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/pack_bag.wav",
     text: "pack bag",
+  },
+  [normalizeText("Drag bag")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_bag_0969917b.wav",
+    text: "Drag bag",
+  },
+  [normalizeText("book in bag")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_book_to_bag_a89c8882.wav",
+    text: "book in bag",
+  },
+  [normalizeText("lunchbox in bag")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_drag_lunchbox_to_bag_513f7709.wav",
+    text: "lunchbox in bag",
+  },
+  [normalizeText("Go to school!")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_intro_faa281fa.wav",
+    text: "Go to school!",
+  },
+  [normalizeText("Tap shoes")]: {
+    key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_shoes_1059f43d.wav",
+    text: "Tap shoes",
   },
   [normalizeText("put on shoes")]: {
     key: "lessons/morning-routine/go-to-school/audio/en/put_on_shoes.wav",
@@ -876,6 +1160,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/friend-games/audio/en/bucket.wav",
     text: "bucket",
   },
+  [normalizeText("Games with Friends is complete.")]: {
+    key: "lessons/playtime/friend-games/audio/en/completion_709bf819.wav",
+    text: "Games with Friends is complete.",
+  },
   [normalizeText("friend")]: {
     key: "lessons/playtime/friend-games/audio/en/friend.wav",
     text: "friend",
@@ -887,6 +1175,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("play together")]: {
     key: "lessons/playtime/friend-games/audio/en/play_together.wav",
     text: "play together",
+  },
+  [normalizeText("Play together!")]: {
+    key: "lessons/playtime/friend-games/audio/en/prompt_games_intro_14d2582f.wav",
+    text: "Play together!",
   },
   [normalizeText("rope")]: {
     key: "lessons/playtime/friend-games/audio/en/rope.wav",
@@ -908,6 +1200,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playground/audio/en/ball.wav",
     text: "ball",
   },
+  [normalizeText("Playground is complete.")]: {
+    key: "lessons/playtime/playground/audio/en/completion_caa6cf2b.wav",
+    text: "Playground is complete.",
+  },
   [normalizeText("jump")]: {
     key: "lessons/playtime/playground/audio/en/jump.wav",
     text: "jump",
@@ -915,6 +1211,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("playground")]: {
     key: "lessons/playtime/playground/audio/en/playground.wav",
     text: "playground",
+  },
+  [normalizeText("Playtime!")]: {
+    key: "lessons/playtime/playground/audio/en/prompt_intro_795e2654.wav",
+    text: "Playtime!",
   },
   [normalizeText("run")]: {
     key: "lessons/playtime/playground/audio/en/run.wav",
@@ -948,6 +1248,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playtime-rest/audio/en/bottle.wav",
     text: "bottle",
   },
+  [normalizeText("Rest After Play is complete.")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/completion_89f71a39.wav",
+    text: "Rest After Play is complete.",
+  },
   [normalizeText("drink water")]: {
     key: "lessons/playtime/playtime-rest/audio/en/drink_water.wav",
     text: "drink water",
@@ -955,6 +1259,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("eat snack")]: {
     key: "lessons/playtime/playtime-rest/audio/en/eat_snack.wav",
     text: "eat snack",
+  },
+  [normalizeText("Take a break!")]: {
+    key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_intro_216c4a3e.wav",
+    text: "Take a break!",
   },
   [normalizeText("rest")]: {
     key: "lessons/playtime/playtime-rest/audio/en/rest.wav",
@@ -971,6 +1279,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("cloth")]: {
     key: "lessons/snack-time/snack-cleanup/audio/en/cloth.wav",
     text: "cloth",
+  },
+  [normalizeText("Cleaning Up After Snack is complete.")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/en/completion_5f602d78.wav",
+    text: "Cleaning Up After Snack is complete.",
   },
   [normalizeText("put away tray")]: {
     key: "lessons/snack-time/snack-cleanup/audio/en/put_away_tray.wav",
@@ -992,6 +1304,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-prep/audio/en/choose_snack.wav",
     text: "choose snack",
   },
+  [normalizeText("Choosing a Snack is complete.")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/completion_05187237.wav",
+    text: "Choosing a Snack is complete.",
+  },
   [normalizeText("cookie")]: {
     key: "lessons/snack-time/snack-prep/audio/en/cookie.wav",
     text: "cookie",
@@ -1007,6 +1323,10 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("pour juice")]: {
     key: "lessons/snack-time/snack-prep/audio/en/pour_juice.wav",
     text: "pour juice",
+  },
+  [normalizeText("Snack time!")]: {
+    key: "lessons/snack-time/snack-prep/audio/en/prompt_intro_ab6159cf.wav",
+    text: "Snack time!",
   },
   [normalizeText("snack box")]: {
     key: "lessons/snack-time/snack-prep/audio/en/snack_box.wav",
@@ -1024,9 +1344,17 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-table/audio/en/bite.wav",
     text: "bite",
   },
+  [normalizeText("Eating a Snack Neatly is complete.")]: {
+    key: "lessons/snack-time/snack-table/audio/en/completion_b65fff7f.wav",
+    text: "Eating a Snack Neatly is complete.",
+  },
   [normalizeText("cracker")]: {
     key: "lessons/snack-time/snack-table/audio/en/cracker.wav",
     text: "cracker",
+  },
+  [normalizeText("Let us eat!")]: {
+    key: "lessons/snack-time/snack-table/audio/en/prompt_intro_ea939b15.wav",
+    text: "Let us eat!",
   },
   [normalizeText("raisins")]: {
     key: "lessons/snack-time/snack-table/audio/en/raisins.wav",
@@ -1051,6 +1379,30 @@ const wordAudioByWord: Record<string, RemoteAudioAsset> = {
   [normalizeText("wipe mouth")]: {
     key: "lessons/snack-time/snack-table/audio/en/wipe_mouth.wav",
     text: "wipe mouth",
+  },
+  [normalizeText("Try again.")]: {
+    key: "shared/audio/en/feedback_fail_9c3fc2eb.wav",
+    text: "Try again.",
+  },
+  [normalizeText("Great job!")]: {
+    key: "shared/audio/en/feedback_success_fcd6d5ea.wav",
+    text: "Great job!",
+  },
+  [normalizeText("Find two matching pictures.")]: {
+    key: "shared/audio/en/memory_game_intro_2480d4dc.wav",
+    text: "Find two matching pictures.",
+  },
+  [normalizeText("I heard you! Great job!")]: {
+    key: "shared/audio/en/recording_encouragement_8731bb5d.wav",
+    text: "I heard you! Great job!",
+  },
+  [normalizeText("Let’s review together.")]: {
+    key: "shared/audio/en/review_game_intro_33982bd2.wav",
+    text: "Let’s review together.",
+  },
+  [normalizeText("Say it with me.")]: {
+    key: "shared/audio/en/speak_prompt_1f8ffb29.wav",
+    text: "Say it with me.",
   },
 };
 
@@ -7186,7 +7538,7 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
 };
 
 export function getWordAudioAsset(word: string) {
-  return wordAudioByWord[normalizeText(word)];
+  return enAudioByText[normalizeText(word)];
 }
 
 export function getViAudioAsset(text: string) {
