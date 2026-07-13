@@ -8,11 +8,17 @@ import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import {
   getProgress,
   saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
+import {
+  getLocalizedThemeDescription,
+  getLocalizedThemeTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -27,6 +33,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   useThemeSync();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const completedSceneIds = useMemo(
@@ -38,9 +45,12 @@ export function ThemeLibraryScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
-    import('../engine/ParentSettingsManager').then(({ getParentSettings }) => {
-      getParentSettings().then(settings => setVisibleLessonIds(settings.visibleLessonIds));
-    });
+    getParentSettings()
+      .then(settings => {
+        setAppLanguage(settings.appLanguage);
+        setVisibleLessonIds(settings.visibleLessonIds);
+      })
+      .catch(() => undefined);
   }, []);
 
   const handleSelectTheme = async (themeId: string) => {
@@ -85,6 +95,8 @@ export function ThemeLibraryScreen({ navigation }: Props) {
 
       <View style={styles.grid}>
         {themes.map(theme => {
+          const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
+          const themeDescription = getLocalizedThemeDescription(theme);
           const themeProgress = getThemeProgress(theme, completedSceneIds, visibleLessonIds);
           const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;
@@ -98,7 +110,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
           return (
             <Pressable
               accessibilityHint={actionHint}
-              accessibilityLabel={`${actionLabel}: ${theme.titleVi}`}
+              accessibilityLabel={`${actionLabel}: ${themeTitle}`}
               accessibilityRole="button"
               accessibilityState={{ selected: isActive }}
               disabled={Boolean(savingThemeId)}
@@ -131,10 +143,10 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                         <KidBadge tone="sun">Đang lưu</KidBadge>
                       ) : null}
                     </View>
-                    <Text style={styles.themeTitle}>{theme.titleVi}</Text>
-                    {theme.descriptionVi ? (
+                    <Text style={styles.themeTitle}>{themeTitle}</Text>
+                    {themeDescription ? (
                       <Text style={styles.themeDescription}>
-                        {theme.descriptionVi}
+                        {themeDescription}
                       </Text>
                     ) : null}
                   </View>

@@ -19,6 +19,13 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
+import {
+  getLocalizedLessonSubtitle,
+  getLocalizedLessonTitle,
+  getLocalizedSceneSubtitle,
+  getLocalizedSceneTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -40,6 +47,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const [isCompleting, setIsCompleting] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -79,10 +87,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
+        setAppLanguage(settings.appLanguage);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
+        setAppLanguage('vi');
       });
   }, []);
 
@@ -167,8 +177,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
                     ? 'Đã học đủ cảnh'
                     : 'Gói bài học'}
             </KidBadge>
-            <Text style={styles.title}>{lesson.titleVi}</Text>
-            <Text style={styles.subtitle}>{lesson.titleEn}</Text>
+            <Text style={styles.title}>
+              {getLocalizedLessonTitle(lesson, appLanguage)}
+            </Text>
+            <Text style={styles.subtitle}>
+              {getLocalizedLessonSubtitle(lesson, appLanguage)}
+            </Text>
           </View>
         </View>
         <View style={styles.headerProgress}>
@@ -257,8 +271,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
                     />
                   </View>
                   <View style={styles.sceneTextContainer}>
-                    <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
-                    <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
+                    <Text style={styles.sceneTitle}>
+                      {getLocalizedSceneTitle(scene, appLanguage)}
+                    </Text>
+                    <Text style={styles.sceneSubtitle}>
+                      {getLocalizedSceneSubtitle(scene, appLanguage)}
+                    </Text>
                     {vocabularyText ? (
                       <Text style={styles.vocabulary}>{vocabularyText}</Text>
                     ) : null}

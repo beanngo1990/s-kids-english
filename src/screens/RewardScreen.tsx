@@ -15,11 +15,14 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import {
   playCompleteSound,
   speakWord,
 } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
+import { getLocalizedLessonTitle } from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import type { SceneObject } from '../types/lesson';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -33,6 +36,7 @@ export function RewardScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const displayWords = useMemo(() => {
     if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
       const playedSet = new Set(route.params.playedWordIds);
@@ -84,6 +88,13 @@ export function RewardScreen({ navigation, route }: Props) {
         }
       })
       .catch(() => undefined);
+    getParentSettings()
+      .then(settings => {
+        if (isMounted) {
+          setAppLanguage(settings.appLanguage);
+        }
+      })
+      .catch(() => undefined);
 
     return () => {
       isMounted = false;
@@ -132,7 +143,10 @@ export function RewardScreen({ navigation, route }: Props) {
           <Text style={styles.title}>
             {route.params.leveledUp
               ? `Chúc mừng bé lên Cấp ${route.params.newLevel}!`
-              : `Bé đã hoàn thành ${lesson.titleVi}!`}
+              : `Bé đã hoàn thành ${getLocalizedLessonTitle(
+                  lesson,
+                  appLanguage,
+                )}!`}
           </Text>
           <Text style={styles.subtitle}>
             {route.params.leveledUp && route.params.unlockedSticker
@@ -172,7 +186,10 @@ export function RewardScreen({ navigation, route }: Props) {
           {nextLesson ? (
             <>
               <AppButton
-                title={`Bài tiếp: ${nextLesson.titleVi}`}
+                title={`Bài tiếp: ${getLocalizedLessonTitle(
+                  nextLesson,
+                  appLanguage,
+                )}`}
                 onPress={() => navigation.replace('LessonPack', { lessonId: nextLesson.id })}
               />
               <AppButton

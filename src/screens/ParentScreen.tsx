@@ -38,7 +38,6 @@ import {
   type ActivityLog,
 } from '../engine/DailyActivityTracker';
 import {
-  getLearningDifficultyOption,
   getParentSettings,
   learningDifficultyOptions,
   saveParentLearningMode,
@@ -46,7 +45,18 @@ import {
   type ChildProfile,
   defaultChildProfile,
 } from '../engine/ParentSettingsManager';
-import type { AppLanguage, AppTheme } from '../engine/ParentSettingsManager';
+import type {
+  AppLanguage,
+  AppTheme,
+  TeacherPromptMode,
+} from '../engine/ParentSettingsManager';
+import {
+  getLocalizedLessonSubtitle,
+  getLocalizedLessonTitle,
+  getLocalizedThemeTitle,
+} from '../i18n/domainCopy';
+import { getLearningModeCopy } from '../i18n/learningModeCopy';
+import { useTranslations } from '../i18n';
 import {
   getLessonVocabulary,
   getProgress,
@@ -101,6 +111,8 @@ export function ParentScreen({ navigation }: Props) {
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const [teacherPromptMode, setTeacherPromptMode] =
+    useState<TeacherPromptMode>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTime, setReminderTime] = useState('19:30');
@@ -114,6 +126,7 @@ export function ParentScreen({ navigation }: Props) {
     : undefined;
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [showYearPicker, setShowYearPicker] = useState(false);
+  const t = useTranslations(appLanguage);
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -261,7 +274,9 @@ export function ParentScreen({ navigation }: Props) {
   );
   const learningPathTitle =
     themes.length === 1
-      ? themes[0]?.titleVi ?? 'Lộ trình học của bé'
+      ? themes[0]
+        ? getLocalizedThemeTitle(themes[0], appLanguage)
+        : 'Lộ trình học của bé'
       : String(themes.length) + ' chủ đề học';
   const learningPathSubtitle =
     themes.length === 1
@@ -331,7 +346,16 @@ export function ParentScreen({ navigation }: Props) {
       : todaySceneCount > 0
       ? 'trạm học'
       : 'hoạt động';
-  const currentDifficulty = getLearningDifficultyOption(learningMode);
+  const currentDifficultyCopy = getLearningModeCopy(learningMode, t);
+  const focusLessonTitle = focusLesson
+    ? getLocalizedLessonTitle(focusLesson, appLanguage)
+    : undefined;
+  const focusLessonSubtitle = focusLesson
+    ? getLocalizedLessonSubtitle(focusLesson, appLanguage)
+    : undefined;
+  const reviewLessonTitle = reviewLesson
+    ? getLocalizedLessonTitle(reviewLesson, appLanguage)
+    : undefined;
   const tipText =
     reviewLesson?.metadata?.parentTipVi ??
     (reviewWords.length > 0
@@ -373,6 +397,7 @@ export function ParentScreen({ navigation }: Props) {
         setJourneyMode(settings.journeyMode);
         setEnableSceneEditor(settings.enableSceneEditor || false);
         setAppLanguage(settings.appLanguage);
+        setTeacherPromptMode(settings.teacherPromptMode);
         setAppTheme(settings.appTheme);
         setReminderEnabled(settings.reminderEnabled);
         setReminderTime(settings.reminderTime);
@@ -488,6 +513,11 @@ export function ParentScreen({ navigation }: Props) {
     await saveParentSettings({ appLanguage: lang });
   };
 
+  const handleUpdateTeacherPromptMode = async (mode: TeacherPromptMode) => {
+    setTeacherPromptMode(mode);
+    await saveParentSettings({ teacherPromptMode: mode });
+  };
+
   const handleUpdateTheme = async (theme: AppTheme) => {
     setAppTheme(theme);
     await setAppThemePreference(theme);
@@ -532,8 +562,8 @@ export function ParentScreen({ navigation }: Props) {
         );
         if (visibleInTheme.length <= 1) {
           Alert.alert(
-            'Lưu ý',
-            'Cần giữ ít nhất 1 bài học được bật trong chủ đề này.',
+            t('parent.alert.notice'),
+            t('parent.alert.keepOneLesson'),
           );
           return;
         }
@@ -553,10 +583,10 @@ export function ParentScreen({ navigation }: Props) {
       <Screen>
         <View style={styles.gateContainer}>
           <AppCard style={styles.gateCard}>
-            <KidBadge tone="teal">Góc phụ huynh</KidBadge>
-            <Text style={styles.title}>Khu vực dành cho ba mẹ</Text>
+            <KidBadge tone="teal">{t('parent.gate.badge')}</KidBadge>
+            <Text style={styles.title}>{t('parent.gate.title')}</Text>
             <Text style={styles.gateHint}>
-              Giữ nút trong 3 giây để mở thống kê và cài đặt học tập.
+              {t('parent.gate.hint')}
             </Text>
             <Pressable
               accessibilityRole="button"
@@ -568,7 +598,7 @@ export function ParentScreen({ navigation }: Props) {
               ]}
             >
               <Text style={styles.holdButtonText}>
-                {isHolding ? 'Đang giữ...' : 'Giữ để mở'}
+                {isHolding ? t('parent.gate.holding') : t('parent.gate.hold')}
               </Text>
             </Pressable>
           </AppCard>
@@ -633,7 +663,7 @@ export function ParentScreen({ navigation }: Props) {
               </View>
               <Pressable
                 accessibilityLabel={`${heroAction}: ${
-                  focusLesson?.titleVi ?? 'bài học của bé'
+                  focusLessonTitle ?? 'bài học của bé'
                 }`}
                 accessibilityRole="button"
                 accessibilityState={{ disabled: !canOpenFocusLesson }}
@@ -653,7 +683,7 @@ export function ParentScreen({ navigation }: Props) {
             <Pressable
               accessibilityHint="Mở bài học bé đang học"
               accessibilityLabel={`${focusLessonAction} ${
-                focusLesson?.titleVi ?? 'bài học'
+                focusLessonTitle ?? 'bài học'
               }`}
               accessibilityRole="button"
               accessibilityState={{ disabled: !canOpenFocusLesson }}
@@ -700,11 +730,11 @@ export function ParentScreen({ navigation }: Props) {
                     </KidBadge>
                     <Text style={styles.currentLessonTitle}>
                       {isDashboardReady
-                        ? focusLesson?.titleVi ?? 'Bài học đầu tiên'
+                        ? focusLessonTitle ?? 'Bài học đầu tiên'
                         : 'Đang chuẩn bị lộ trình'}
                     </Text>
                     <Text style={styles.currentLessonSubtitle}>
-                      {focusLesson?.titleEn ?? 'Let’s learn together'}
+                      {focusLessonSubtitle ?? 'Let’s learn together'}
                     </Text>
                   </View>
                 </View>
@@ -824,7 +854,7 @@ export function ParentScreen({ navigation }: Props) {
                   <Text style={styles.reviewTitle}>
                     {isDashboardReady
                       ? reviewLesson
-                        ? `Cùng ôn ${reviewLesson.titleVi}`
+                        ? `Cùng ôn ${reviewLessonTitle}`
                         : 'Một hoạt động nhỏ hôm nay'
                       : 'Đang chuẩn bị gợi ý ôn tập'}
                   </Text>
@@ -1039,7 +1069,7 @@ export function ParentScreen({ navigation }: Props) {
             {focusLesson ? (
               <Pressable
                 accessibilityHint="Mở bài học bé đang học"
-                accessibilityLabel={'Mở ' + focusLesson.titleVi}
+                accessibilityLabel={'Mở ' + focusLessonTitle}
                 accessibilityRole="button"
                 accessibilityState={{ disabled: !canOpenFocusLesson }}
                 disabled={!canOpenFocusLesson}
@@ -1063,7 +1093,7 @@ export function ParentScreen({ navigation }: Props) {
                         : 'Bài bé đang học'}
                     </Text>
                     <Text style={styles.learningFocusTitle}>
-                      {focusLesson.titleVi}
+                      {focusLessonTitle}
                     </Text>
                     <Text style={styles.learningFocusProgress}>
                       {completedFocusSceneCount}/{focusSceneCount} trạm ·{' '}
@@ -1126,7 +1156,7 @@ export function ParentScreen({ navigation }: Props) {
                       </View>
                       <View style={styles.lessonSectionCopy}>
                         <Text style={styles.lessonSectionTitle}>
-                          {theme.titleVi}
+                          {getLocalizedThemeTitle(theme, appLanguage)}
                         </Text>
                         <Text style={styles.lessonSectionSubtitle}>
                           {completedCount}/{themeLessons.length} bài hoàn thành
@@ -1142,6 +1172,10 @@ export function ParentScreen({ navigation }: Props) {
                     {isExpanded ? (
                       <View style={styles.managedLessonList}>
                         {themeLessons.map((lesson, index) => {
+                          const lessonTitle = getLocalizedLessonTitle(
+                            lesson,
+                            appLanguage,
+                          );
                           const isVisible = enabledLessonIds.includes(
                             lesson.id,
                           );
@@ -1222,7 +1256,7 @@ export function ParentScreen({ navigation }: Props) {
                                       {lessonState}
                                     </Text>
                                     <Text style={styles.managedLessonTitle}>
-                                      {lesson.titleVi}
+                                      {lessonTitle}
                                     </Text>
                                     <Text style={styles.managedLessonSubtitle}>
                                       {completedSceneCount}/
@@ -1237,7 +1271,7 @@ export function ParentScreen({ navigation }: Props) {
                                 <Switch
                                   accessibilityLabel={
                                     (isVisible ? 'Ẩn ' : 'Hiện ') +
-                                    lesson.titleVi
+                                    lessonTitle
                                   }
                                   disabled={!isDashboardReady}
                                   value={isVisible}
@@ -1272,7 +1306,7 @@ export function ParentScreen({ navigation }: Props) {
                                   </View>
                                   <Pressable
                                     accessibilityLabel={
-                                      'Xem bài ' + lesson.titleVi
+                                      'Xem bài ' + lessonTitle
                                     }
                                     accessibilityRole="button"
                                     disabled={!isDashboardReady}
@@ -1312,12 +1346,12 @@ export function ParentScreen({ navigation }: Props) {
         {activeTab === 'settings' && (
           <View style={styles.tabContent}>
             <View style={styles.settingsHero}>
-              <KidBadge tone="teal">Không gian của bé</KidBadge>
+              <KidBadge tone="teal">{t('parent.settings.heroBadge')}</KidBadge>
               <Text style={styles.settingsHeroTitle}>
-                Cài đặt cho {childProfile.name}
+                {t('parent.settings.heroTitle', { name: childProfile.name })}
               </Text>
               <Text style={styles.settingsHeroSubtitle}>
-                Tinh chỉnh hồ sơ, nhịp học và trải nghiệm phù hợp với bé.
+                {t('parent.settings.heroSubtitle')}
               </Text>
             </View>
 
@@ -1327,21 +1361,25 @@ export function ParentScreen({ navigation }: Props) {
                   <MascotImage decorative pose="avatar" size={64} />
                 </View>
                 <View style={styles.profileSummaryCopy}>
-                  <KidBadge tone="sky">Hồ sơ bé</KidBadge>
+                  <KidBadge tone="sky">
+                    {t('parent.settings.profileBadge')}
+                  </KidBadge>
                   <Text style={styles.profileSummaryName}>
                     {childProfile.name}
                   </Text>
                   <Text style={styles.profileSummaryMeta}>
                     {childAge && childAge > 0
-                      ? childAge + ' tuổi'
-                      : 'Thêm năm sinh để cá nhân hoá hành trình'}
+                      ? t('parent.settings.childAge', { age: childAge })
+                      : t('parent.settings.profileMissingBirthYear')}
                   </Text>
                 </View>
               </View>
 
               <View style={styles.settingsInputRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>Tên hiển thị</Text>
+                  <Text style={styles.settingsFieldLabel}>
+                    {t('parent.settings.displayNameLabel')}
+                  </Text>
                 </View>
                 <TextInput
                   style={styles.settingsTextInput}
@@ -1357,7 +1395,7 @@ export function ParentScreen({ navigation }: Props) {
                     setChildProfile(next);
                     saveParentSettings({ childProfile: next });
                   }}
-                  placeholder="Nhập tên bé"
+                  placeholder={t('parent.settings.displayNamePlaceholder')}
                   placeholderTextColor={colors.muted}
                   maxLength={20}
                 />
@@ -1394,14 +1432,17 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.settingsInputRow}>
                 <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>Năm sinh</Text>
+                  <Text style={styles.settingsFieldLabel}>
+                    {t('parent.settings.birthYearLabel')}
+                  </Text>
                 </View>
                 <Pressable
                   style={styles.settingsTextInputSmall}
                   onPress={() => setShowYearPicker(true)}
                 >
                   <Text style={styles.yearPickerButtonText}>
-                    {childProfile.birthYear?.toString() ?? 'Chọn năm'}
+                    {childProfile.birthYear?.toString() ??
+                      t('parent.settings.birthYearPlaceholder')}
                   </Text>
                 </Pressable>
               </View>
@@ -1418,7 +1459,9 @@ export function ParentScreen({ navigation }: Props) {
                 >
                   <View style={styles.yearPickerSheet}>
                     <View style={styles.yearPickerHeader}>
-                      <Text style={styles.yearPickerTitle}>Chọn năm sinh của bé</Text>
+                      <Text style={styles.yearPickerTitle}>
+                        {t('parent.settings.yearPickerTitle')}
+                      </Text>
                     </View>
                     <FlatList
                       data={Array.from({ length: 50 }, (_, i) => new Date().getFullYear() - i)}
@@ -1460,15 +1503,21 @@ export function ParentScreen({ navigation }: Props) {
 
             <AppCard style={styles.learningSettingsCard}>
               <View style={styles.settingsCardHeader}>
-                <KidBadge tone="teal">Cài đặt học tập</KidBadge>
-                <Text style={styles.learningSettingsTitle}>Hành trình học</Text>
+                <KidBadge tone="teal">
+                  {t('parent.settings.journeyBadge')}
+                </KidBadge>
+                <Text style={styles.learningSettingsTitle}>
+                  {t('parent.settings.journeyTitle')}
+                </Text>
                 <Text style={styles.learningSettingsSubtitle}>
-                  Chọn cách bé khám phá nội dung và mức thử thách phù hợp.
+                  {t('parent.settings.journeySubtitle')}
                 </Text>
               </View>
 
               <View style={styles.settingSection}>
-                <Text style={styles.settingSectionTitle}>Cách mở bài học</Text>
+                <Text style={styles.settingSectionTitle}>
+                  {t('parent.settings.journeyModeTitle')}
+                </Text>
                 <View style={styles.journeyChoices}>
                   <Pressable
                     accessibilityRole="button"
@@ -1487,7 +1536,7 @@ export function ParentScreen({ navigation }: Props) {
                           styles.journeyChoiceTitleActive,
                       ]}
                     >
-                      Theo lộ trình
+                      {t('parent.settings.journeyGuidedTitle')}
                     </Text>
                     <Text
                       style={[
@@ -1496,7 +1545,7 @@ export function ParentScreen({ navigation }: Props) {
                           styles.journeyChoiceSubtitleActive,
                       ]}
                     >
-                      Bé đi từng bước
+                      {t('parent.settings.journeyGuidedSubtitle')}
                     </Text>
                   </Pressable>
                   <Pressable
@@ -1509,9 +1558,11 @@ export function ParentScreen({ navigation }: Props) {
                       pressed && styles.pressed,
                     ]}
                   >
-                    <Text style={styles.journeyChoiceTitle}>Tự do</Text>
+                    <Text style={styles.journeyChoiceTitle}>
+                      {t('parent.settings.journeyFreeTitle')}
+                    </Text>
                     <Text style={styles.journeyChoiceSubtitle}>
-                      Mở tất cả bài
+                      {t('parent.settings.journeyFreeSubtitle')}
                     </Text>
                   </Pressable>
                 </View>
@@ -1521,15 +1572,23 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.settingSection}>
                 <View style={styles.difficultyHeader}>
-                  <Text style={styles.settingSectionTitle}>Độ khó của bé</Text>
+                  <Text style={styles.settingSectionTitle}>
+                    {t('parent.settings.difficultyTitle')}
+                  </Text>
                   <Text style={styles.difficultyCurrentLabel}>
-                    Đang dùng: {currentDifficulty.title}
+                    {t('parent.settings.difficultyCurrent', {
+                      difficulty: currentDifficultyCopy.title,
+                    })}
                   </Text>
                 </View>
                 <View style={styles.difficultyChoices}>
                   {learningDifficultyOptions.map(option => {
                     const isSelected = option.learningMode === learningMode;
                     const isSavingThisMode = savingMode === option.learningMode;
+                    const optionCopy = getLearningModeCopy(
+                      option.learningMode,
+                      t,
+                    );
 
                     return (
                       <Pressable
@@ -1555,7 +1614,9 @@ export function ParentScreen({ navigation }: Props) {
                             isSelected && styles.difficultyChoiceTitleActive,
                           ]}
                         >
-                          {isSavingThisMode ? 'Đang lưu' : option.title}
+                          {isSavingThisMode
+                            ? t('common.saveInProgress')
+                            : optionCopy.title}
                         </Text>
                         <Text
                           style={[
@@ -1563,7 +1624,7 @@ export function ParentScreen({ navigation }: Props) {
                             isSelected && styles.difficultyChoiceSubtitleActive,
                           ]}
                         >
-                          {option.subtitle}
+                          {optionCopy.subtitle}
                         </Text>
                       </Pressable>
                     );
@@ -1571,10 +1632,10 @@ export function ParentScreen({ navigation }: Props) {
                 </View>
                 <View style={styles.difficultyInsight}>
                   <Text style={styles.difficultyInsightLabel}>
-                    Phù hợp lúc này
+                    {t('parent.settings.difficultyInsightLabel')}
                   </Text>
                   <Text style={styles.difficultyInsightText}>
-                    {currentDifficulty.detail}
+                    {currentDifficultyCopy.detail}
                   </Text>
                 </View>
               </View>
@@ -1582,10 +1643,12 @@ export function ParentScreen({ navigation }: Props) {
 
             <AppCard style={styles.dailySettingsCard}>
               <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sun">Nhịp học hằng ngày</KidBadge>
-                <Text style={styles.dailySettingsTitle}>Một thói quen nhỏ</Text>
+                <KidBadge tone="sun">{t('parent.settings.dailyBadge')}</KidBadge>
+                <Text style={styles.dailySettingsTitle}>
+                  {t('parent.settings.dailyTitle')}
+                </Text>
                 <Text style={styles.dailySettingsSubtitle}>
-                  Giúp bé học đều mà không tạo áp lực.
+                  {t('parent.settings.dailySubtitle')}
                 </Text>
               </View>
 
@@ -1597,11 +1660,15 @@ export function ParentScreen({ navigation }: Props) {
                   style={styles.reminderCopy}
                   onPress={() => setShowTimePicker(true)}
                 >
-                  <Text style={styles.reminderTitle}>Nhắc bé học</Text>
+                  <Text style={styles.reminderTitle}>
+                    {t('parent.settings.reminderTitle')}
+                  </Text>
                   <Text style={styles.reminderSubtitle}>
                     {reminderEnabled
-                      ? `Đang nhắc mỗi ngày lúc ${reminderTime} ✎`
-                      : 'Bật nhắc học vào giờ bé thoải mái nhất'}
+                      ? t('parent.settings.reminderEnabled', {
+                          time: reminderTime,
+                        })
+                      : t('parent.settings.reminderDisabled')}
                   </Text>
                 </Pressable>
                 <Switch
@@ -1628,15 +1695,21 @@ export function ParentScreen({ navigation }: Props) {
               <View style={styles.appSettingsDivider} />
 
               <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sky">Trải nghiệm ứng dụng</KidBadge>
-                <Text style={styles.appSettingsTitle}>Dành cho ba mẹ</Text>
+                <KidBadge tone="sky">
+                  {t('parent.settings.appExperienceBadge')}
+                </KidBadge>
+                <Text style={styles.appSettingsTitle}>
+                  {t('parent.settings.appExperienceTitle')}
+                </Text>
               </View>
 
               <View style={styles.preferenceRow}>
                 <View style={styles.preferenceCopy}>
-                  <Text style={styles.preferenceTitle}>Ngôn ngữ</Text>
+                  <Text style={styles.preferenceTitle}>
+                    {t('parent.settings.appLanguageTitle')}
+                  </Text>
                   <Text style={styles.preferenceSubtitle}>
-                    Ngôn ngữ hiển thị của ứng dụng.
+                    {t('parent.settings.appLanguageSubtitle')}
                   </Text>
                 </View>
                 <View style={styles.preferenceChoices}>
@@ -1683,9 +1756,86 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.preferenceRow}>
                 <View style={styles.preferenceCopy}>
-                  <Text style={styles.preferenceTitle}>Giao diện</Text>
+                  <Text style={styles.preferenceTitle}>
+                    {t('parent.settings.teacherPromptTitle')}
+                  </Text>
                   <Text style={styles.preferenceSubtitle}>
-                    Sáng, tối hoặc theo hệ thống.
+                    {t('parent.settings.teacherPromptSubtitle')}
+                  </Text>
+                </View>
+                <View style={styles.preferenceChoices}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: teacherPromptMode === 'vi' }}
+                    onPress={() => handleUpdateTeacherPromptMode('vi')}
+                    style={[
+                      styles.preferenceChoice,
+                      teacherPromptMode === 'vi' &&
+                        styles.preferenceChoiceActive,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.preferenceChoiceText,
+                        teacherPromptMode === 'vi' &&
+                          styles.preferenceChoiceTextActive,
+                      ]}
+                    >
+                      {t('parent.settings.teacherPromptVietnamese')}
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: teacherPromptMode === 'en' }}
+                    onPress={() => handleUpdateTeacherPromptMode('en')}
+                    style={[
+                      styles.preferenceChoice,
+                      teacherPromptMode === 'en' &&
+                        styles.preferenceChoiceActive,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.preferenceChoiceText,
+                        teacherPromptMode === 'en' &&
+                          styles.preferenceChoiceTextActive,
+                      ]}
+                    >
+                      {t('parent.settings.teacherPromptEnglish')}
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{
+                      selected: teacherPromptMode === 'bilingual',
+                    }}
+                    onPress={() => handleUpdateTeacherPromptMode('bilingual')}
+                    style={[
+                      styles.preferenceChoice,
+                      teacherPromptMode === 'bilingual' &&
+                        styles.preferenceChoiceActive,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.preferenceChoiceText,
+                        teacherPromptMode === 'bilingual' &&
+                          styles.preferenceChoiceTextActive,
+                      ]}
+                    >
+                      {t('parent.settings.teacherPromptBilingual')}
+                    </Text>
+                  </Pressable>
+                </View>
+              </View>
+
+              <View style={styles.preferenceRow}>
+                <View style={styles.preferenceCopy}>
+                  <Text style={styles.preferenceTitle}>
+                    {t('parent.settings.themeTitle')}
+                  </Text>
+                  <Text style={styles.preferenceSubtitle}>
+                    {t('parent.settings.themeSubtitle')}
                   </Text>
                 </View>
                 <View style={styles.preferenceChoices}>
@@ -1705,7 +1855,7 @@ export function ParentScreen({ navigation }: Props) {
                           styles.preferenceChoiceTextActive,
                       ]}
                     >
-                      Sáng
+                      {t('parent.settings.themeLight')}
                     </Text>
                   </Pressable>
                   <Pressable
@@ -1724,7 +1874,7 @@ export function ParentScreen({ navigation }: Props) {
                           styles.preferenceChoiceTextActive,
                       ]}
                     >
-                      Tối
+                      {t('parent.settings.themeDark')}
                     </Text>
                   </Pressable>
                   <Pressable
@@ -1743,7 +1893,7 @@ export function ParentScreen({ navigation }: Props) {
                           styles.preferenceChoiceTextActive,
                       ]}
                     >
-                      Auto
+                      {t('common.auto')}
                     </Text>
                   </Pressable>
                 </View>
@@ -1751,10 +1901,11 @@ export function ParentScreen({ navigation }: Props) {
             </AppCard>
 
             <AppCard style={styles.privacyCard}>
-              <Text style={styles.privacyTitle}>An toàn cho trẻ</Text>
+              <Text style={styles.privacyTitle}>
+                {t('parent.privacy.title')}
+              </Text>
               <Text style={styles.privacyText}>
-                Ứng dụng không có quảng cáo, không có link ngoài và không thu
-                thập thông tin trẻ em.
+                {t('parent.privacy.text')}
               </Text>
             </AppCard>
 
@@ -1763,7 +1914,9 @@ export function ParentScreen({ navigation }: Props) {
                 <View style={styles.sectionHeader}>
                   <View style={styles.sectionTitleGroup}>
                     <KidBadge tone="alert">DEV ONLY</KidBadge>
-                    <Text style={styles.privacyTitle}>Công cụ nội bộ</Text>
+                    <Text style={styles.privacyTitle}>
+                      {t('parent.dev.internalTools')}
+                    </Text>
                   </View>
                 </View>
                 <Pressable
@@ -1779,11 +1932,13 @@ export function ParentScreen({ navigation }: Props) {
                   <View style={styles.difficultyText}>
                     <Text style={styles.difficultyTitle}>Scene Editor</Text>
                     <Text style={styles.difficultySubtitle}>
-                      Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.
+                      {t('parent.dev.editorSubtitle')}
                     </Text>
                   </View>
                   <Text style={styles.difficultyState}>
-                    {enableSceneEditor ? 'Đang bật' : 'Đang tắt'}
+                    {enableSceneEditor
+                      ? t('parent.dev.editorStateOn')
+                      : t('parent.dev.editorStateOff')}
                   </Text>
                 </Pressable>
               </AppCard>
@@ -1809,7 +1964,7 @@ export function ParentScreen({ navigation }: Props) {
                 activeTab === 'stats' && styles.bottomTabTextActive,
               ]}
             >
-              Thống kê
+              {t('parent.tabs.stats')}
             </Text>
           </Pressable>
           <Pressable
@@ -1827,7 +1982,7 @@ export function ParentScreen({ navigation }: Props) {
                 activeTab === 'lessons' && styles.bottomTabTextActive,
               ]}
             >
-              Bài học
+              {t('parent.tabs.lessons')}
             </Text>
           </Pressable>
           <Pressable
@@ -1845,7 +2000,7 @@ export function ParentScreen({ navigation }: Props) {
                 activeTab === 'settings' && styles.bottomTabTextActive,
               ]}
             >
-              Cài đặt
+              {t('parent.tabs.settings')}
             </Text>
           </Pressable>
         </View>
@@ -2558,6 +2713,7 @@ const styles = createThemedStyles(() => ({
     borderWidth: 1,
     justifyContent: 'center',
     minHeight: 38,
+    minWidth: 52,
     paddingHorizontal: spacing.sm,
   },
   preferenceChoiceActive: {
@@ -2566,10 +2722,14 @@ const styles = createThemedStyles(() => ({
   },
   preferenceChoices: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.xxs,
+    justifyContent: 'flex-end',
+    maxWidth: '64%',
   },
   preferenceChoiceText: {
     color: colors.textSoft,
+    textAlign: 'center',
     ...typography.caption,
   },
   preferenceChoiceTextActive: {

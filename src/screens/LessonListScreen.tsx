@@ -8,7 +8,13 @@ import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
+import {
+  getLocalizedLessonTitle,
+  getLocalizedSceneTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -21,6 +27,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
 export function LessonListScreen({ navigation }: Props) {
   useThemeSync();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -31,9 +38,12 @@ export function LessonListScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
-    import('../engine/ParentSettingsManager').then(({ getParentSettings }) => {
-      getParentSettings().then(settings => setVisibleLessonIds(settings.visibleLessonIds));
-    });
+    getParentSettings()
+      .then(settings => {
+        setAppLanguage(settings.appLanguage);
+        setVisibleLessonIds(settings.visibleLessonIds);
+      })
+      .catch(() => undefined);
   }, []);
 
   return (
@@ -51,6 +61,7 @@ export function LessonListScreen({ navigation }: Props) {
         {lessons
           .filter(lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id))
           .map(lesson => {
+          const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
           const completedSceneCount = lesson.scenes.filter(scene =>
             isSceneProgressComplete(completedSceneIds, lesson.id, scene.id),
           ).length;
@@ -79,7 +90,7 @@ export function LessonListScreen({ navigation }: Props) {
                         {lesson.scenes.length} trạm
                       </KidBadge>
                     </View>
-                    <Text style={styles.lessonTitle}>{lesson.titleVi}</Text>
+                    <Text style={styles.lessonTitle}>{lessonTitle}</Text>
                     <Text style={styles.lessonDescription}>
                       {lesson.descriptionVi}
                     </Text>
@@ -126,7 +137,9 @@ export function LessonListScreen({ navigation }: Props) {
                         >
                           <SKidsIcon name={getSceneIconName(scene)} size={48} />
                         </View>
-                        <Text style={styles.stopTitle}>{scene.titleVi}</Text>
+                        <Text style={styles.stopTitle}>
+                          {getLocalizedSceneTitle(scene, appLanguage)}
+                        </Text>
                       </View>
                     );
                   })}

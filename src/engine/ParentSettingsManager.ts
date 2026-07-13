@@ -1,10 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 import type { LearningMode } from '../types/lesson';
 
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
-export type AppLanguage = 'vi' | 'en';
+export type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 export type AppTheme = 'light' | 'dark' | 'system';
 
 export type ChildProfile = {
@@ -30,6 +31,7 @@ export type ParentSettings = {
   updatedAt?: string;
   visibleLessonIds?: string[]; // If undefined, all lessons are visible
   appLanguage: AppLanguage;
+  teacherPromptMode: TeacherPromptMode;
   appTheme: AppTheme;
   reminderEnabled: boolean;
   reminderTime: string; // e.g. "19:30"
@@ -70,6 +72,7 @@ export const defaultParentSettings: ParentSettings = {
   journeyMode: 'guided',
   learningMode: 'core',
   appLanguage: 'vi',
+  teacherPromptMode: 'vi',
   appTheme: 'system',
   reminderEnabled: false,
   reminderTime: '19:30',
@@ -137,6 +140,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       ? settings.visibleLessonIds.filter(id => typeof id === 'string')
       : undefined,
     appLanguage: normalizeAppLanguage(settings.appLanguage),
+    teacherPromptMode: normalizeTeacherPromptMode(settings.teacherPromptMode),
     appTheme: normalizeAppTheme(settings.appTheme),
     reminderEnabled: Boolean(settings.reminderEnabled),
     reminderTime:
@@ -151,6 +155,10 @@ function normalizeLearningMode(value: unknown): LearningMode {
 
 function normalizeAppLanguage(value: unknown): AppLanguage {
   return value === 'en' ? 'en' : 'vi';
+}
+
+function normalizeTeacherPromptMode(value: unknown): TeacherPromptMode {
+  return value === 'en' || value === 'bilingual' ? value : 'vi';
 }
 
 function normalizeAppTheme(value: unknown): AppTheme {
