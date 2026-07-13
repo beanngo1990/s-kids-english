@@ -37,6 +37,12 @@ import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { playTapSound, speakVi } from '../engine/AudioManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
+import {
+  getLocalizedLessonTitle,
+  getLocalizedSceneTitle,
+  getLocalizedThemeTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -61,10 +67,11 @@ type ThemeMapNode = {
   key: string;
   lessonId: string;
   lessonIndex: number;
-  lessonTitleVi: string;
+  lessonTitle: string;
   sceneCountInLesson: number;
   sceneIndexInLesson: number;
   scene: Scene;
+  sceneTitle: string;
 };
 
 type ThemeMapSection = {
@@ -90,6 +97,7 @@ export function HomeScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
@@ -108,12 +116,12 @@ export function HomeScreen({ navigation }: Props) {
     [activeTheme, visibleLessonIds],
   );
   const mapNodes = useMemo(
-    () => buildThemeMapNodes(themeLessons),
-    [themeLessons],
+    () => buildThemeMapNodes(themeLessons, appLanguage),
+    [appLanguage, themeLessons],
   );
   const mapSections = useMemo(
-    () => buildThemeMapSections(themeLessons),
-    [themeLessons],
+    () => buildThemeMapSections(themeLessons, appLanguage),
+    [appLanguage, themeLessons],
   );
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -159,9 +167,13 @@ export function HomeScreen({ navigation }: Props) {
   const homeCoachMessage = isThemeComplete
     ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
     : hasPendingReviewGame
-      ? `Mình cùng ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'} nhé!`
+      ? `Mình cùng ôn lại ${
+          pendingReviewLesson
+            ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
+            : 'bài vừa học'
+        } nhé!`
       : ctaNode
-        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.scene.titleVi}.`
+        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.sceneTitle}.`
         : 'Hôm nay mình học cùng Sungy nhé!';
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
@@ -206,11 +218,13 @@ export function HomeScreen({ navigation }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
+        setAppLanguage(settings.appLanguage);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
+        setAppLanguage('vi');
         setVisibleLessonIds(undefined);
       });
   }, []);
@@ -626,7 +640,10 @@ export function HomeScreen({ navigation }: Props) {
                               isCompleted={isLessonCompleted}
                               isCurrent={isLessonCurrent}
                               lessonIndex={section.lessonIndex}
-                              title={section.lesson.titleVi}
+                              title={getLocalizedLessonTitle(
+                                section.lesson,
+                                appLanguage,
+                              )}
                             />
                             <View
                               onLayout={(event: LayoutChangeEvent) =>
@@ -754,7 +771,7 @@ export function HomeScreen({ navigation }: Props) {
                                       isLocked={!isUnlocked}
                                       lessonCount={themeLessons.length}
                                       lessonIndex={node.lessonIndex}
-                                      lessonTitleVi={node.lessonTitleVi}
+                                      lessonTitle={node.lessonTitle}
                                       iconName={getMapSceneIconName(
                                         node.scene,
                                         lessonIconName,
@@ -765,7 +782,7 @@ export function HomeScreen({ navigation }: Props) {
                                       sceneIndexInLesson={
                                         node.sceneIndexInLesson
                                       }
-                                      scene={node.scene}
+                                      sceneTitle={node.sceneTitle}
                                       onLayout={(event: LayoutChangeEvent) =>
                                         updateMapLayoutY(
                                           mapNodeYByKeyRef,
@@ -810,7 +827,10 @@ export function HomeScreen({ navigation }: Props) {
                                     isCompleted={isReviewGameCompleted}
                                     isCurrent={isReviewGameCurrent}
                                     isUnlocked={journeyMode === 'free' || isReviewGameCompleted || isReviewGameCurrent}
-                                    titleVi={section.lesson.titleVi}
+                                    title={getLocalizedLessonTitle(
+                                      section.lesson,
+                                      appLanguage,
+                                    )}
                                     onPress={() => {
                                       if (
                                         journeyMode === 'free' ||
@@ -866,6 +886,7 @@ export function HomeScreen({ navigation }: Props) {
               showsVerticalScrollIndicator={false}
             >
               <KidPlayPanel
+                appLanguage={appLanguage}
                 completedReviewGameIds={completedReviewGameIds}
                 completedSceneIds={completedSceneIds}
                 journeyMode={journeyMode}
@@ -883,7 +904,12 @@ export function HomeScreen({ navigation }: Props) {
         />
         <SKidsHubSheet
           activeThemeEmoji={activeTheme?.thumbnailEmoji ?? '★'}
-          activeThemeTitle={activeTheme?.titleVi ?? 'Bản đồ S-Kids'}
+          activeThemeTitle={
+            activeTheme
+              ? getLocalizedThemeTitle(activeTheme, appLanguage)
+              : 'Bản đồ S-Kids'
+          }
+          appLanguage={appLanguage}
           completed={completedSceneCount}
           hasPendingReviewGame={hasPendingReviewGame}
           isComplete={isThemeComplete}
@@ -903,6 +929,7 @@ export function HomeScreen({ navigation }: Props) {
 type SKidsHubSheetProps = {
   activeThemeEmoji: string;
   activeThemeTitle: string;
+  appLanguage: AppLanguage;
   completed: number;
   hasPendingReviewGame: boolean;
   isComplete: boolean;
@@ -918,6 +945,7 @@ type SKidsHubSheetProps = {
 function SKidsHubSheet({
   activeThemeEmoji,
   activeThemeTitle,
+  appLanguage,
   completed,
   hasPendingReviewGame,
   isComplete,
@@ -940,16 +968,20 @@ function SKidsHubSheet({
       ? 'star'
       : 'focusLesson';
   const heroTitle = hasPendingReviewGame
-    ? `Ôn lại ${pendingReviewLesson?.titleVi ?? 'bài vừa học'}`
+    ? `Ôn lại ${
+        pendingReviewLesson
+          ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
+          : 'bài vừa học'
+      }`
     : isComplete
       ? 'Bản đồ đã đủ sao'
-      : nextNode?.scene.titleVi ?? 'Sẵn sàng học tiếp';
+      : nextNode?.sceneTitle ?? 'Sẵn sàng học tiếp';
   const heroSubtitle = hasPendingReviewGame
     ? 'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.'
     : isComplete
       ? 'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.'
       : nextNode
-        ? `${nextNode.lessonTitleVi} · Trạm ${nextNode.sceneIndexInLesson + 1}/${nextNode.sceneCountInLesson
+        ? `${nextNode.lessonTitle} · Trạm ${nextNode.sceneIndexInLesson + 1}/${nextNode.sceneCountInLesson
         }`
         : 'Bản đồ sẽ hiện bài mới khi có nội dung.';
   const primaryLabel = hasPendingReviewGame
@@ -1106,12 +1138,12 @@ type SceneMapStopProps = {
   isLocked: boolean;
   lessonCount: number;
   lessonIndex: number;
-  lessonTitleVi: string;
+  lessonTitle: string;
   onLayout: (event: LayoutChangeEvent) => void;
   onPress: () => void;
   sceneCountInLesson: number;
   sceneIndexInLesson: number;
-  scene: Scene;
+  sceneTitle: string;
 };
 
 function SceneMapStop({
@@ -1122,20 +1154,20 @@ function SceneMapStop({
   isLocked,
   lessonCount,
   lessonIndex,
-  lessonTitleVi,
+  lessonTitle,
   onLayout,
   onPress,
   sceneCountInLesson,
   sceneIndexInLesson,
-  scene,
+  sceneTitle,
 }: SceneMapStopProps) {
   const isAvailable = !isCompleted && !isCurrent && !isLocked;
   const lessonPosition = `Bài ${lessonIndex + 1
-    }/${lessonCount}: ${lessonTitleVi}, trạm ${sceneIndexInLesson + 1
+    }/${lessonCount}: ${lessonTitle}, trạm ${sceneIndexInLesson + 1
     }/${sceneCountInLesson}`;
   const accessibilityLabel = isLocked
-    ? `${lessonPosition}: ${scene.titleVi} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${scene.titleVi
+    ? `${lessonPosition}: ${sceneTitle} chưa mở khóa`
+    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${sceneTitle
     }`;
 
   return (
@@ -1299,7 +1331,7 @@ type LessonMilestoneProps = {
   isCompleted: boolean;
   isCurrent: boolean;
   isUnlocked?: boolean;
-  titleVi: string;
+  title: string;
   onPress: () => void;
 };
 
@@ -1387,14 +1419,14 @@ function LessonMilestone({
   isCompleted,
   isCurrent,
   isUnlocked,
-  titleVi,
+  title,
   onPress,
 }: LessonMilestoneProps) {
   const starRating = getLessonStarRating(isCompleted);
 
   return (
     <Pressable
-      accessibilityLabel={`Bài ${titleVi} đạt ${starRating} trên 3 sao`}
+      accessibilityLabel={`Bài ${title} đạt ${starRating} trên 3 sao`}
       accessibilityRole="button"
       onPress={onPress}
       style={({ pressed }) => {
@@ -1585,21 +1617,28 @@ function getThemeLessons(
     });
 }
 
-function buildThemeMapNodes(themeLessons: Lesson[]): ThemeMapNode[] {
+function buildThemeMapNodes(
+  themeLessons: Lesson[],
+  appLanguage: AppLanguage,
+): ThemeMapNode[] {
   return themeLessons.flatMap((lesson, lessonIndex) =>
     lesson.scenes.map((scene, sceneIndexInLesson) => ({
       key: getSceneProgressId(lesson.id, scene.id),
       lessonId: lesson.id,
       lessonIndex,
-      lessonTitleVi: lesson.titleVi,
+      lessonTitle: getLocalizedLessonTitle(lesson, appLanguage),
       sceneCountInLesson: lesson.scenes.length,
       sceneIndexInLesson,
       scene,
+      sceneTitle: getLocalizedSceneTitle(scene, appLanguage),
     })),
   );
 }
 
-function buildThemeMapSections(themeLessons: Lesson[]): ThemeMapSection[] {
+function buildThemeMapSections(
+  themeLessons: Lesson[],
+  appLanguage: AppLanguage,
+): ThemeMapSection[] {
   return themeLessons.map((lesson, lessonIndex) => ({
     key: lesson.id,
     lesson,
@@ -1608,10 +1647,11 @@ function buildThemeMapSections(themeLessons: Lesson[]): ThemeMapSection[] {
       key: getSceneProgressId(lesson.id, scene.id),
       lessonId: lesson.id,
       lessonIndex,
-      lessonTitleVi: lesson.titleVi,
+      lessonTitle: getLocalizedLessonTitle(lesson, appLanguage),
       sceneCountInLesson: lesson.scenes.length,
       sceneIndexInLesson,
       scene,
+      sceneTitle: getLocalizedSceneTitle(scene, appLanguage),
     })),
   }));
 }

@@ -18,6 +18,8 @@ import {
 } from '../engine/ProgressManager';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
+import { getLocalizedReviewGameTitle } from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -40,14 +42,20 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   useThemeSync();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const [isCompleting, setIsCompleting] = useState(false);
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
     route.params.learningMode,
   );
 
   useEffect(() => {
-    if (!learningMode) {
-      getParentSettings().then(settings => setLearningMode(settings.learningMode));
-    }
+    getParentSettings()
+      .then(settings => {
+        setAppLanguage(settings.appLanguage);
+        if (!learningMode) {
+          setLearningMode(settings.learningMode);
+        }
+      })
+      .catch(() => undefined);
   }, [learningMode]);
 
   const memoryItems = useMemo(
@@ -165,7 +173,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
               <KidBadge tone="sun">{memoryItems.length} từ</KidBadge>
             </View>
             <Text numberOfLines={2} style={styles.title}>
-              {lesson.reviewGame.titleVi}
+              {getLocalizedReviewGameTitle(lesson.reviewGame, appLanguage)}
             </Text>
           </View>
         </View>

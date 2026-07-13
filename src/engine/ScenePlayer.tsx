@@ -23,7 +23,15 @@ import { getViAudioAsset, getWordAudioAsset, type RemoteAudioAsset } from '../da
 import { getRemoteAssetUrl } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { sungyCompletionTapMessages } from '../data/mascotPrompts';
-import { speakPracticePromptVi } from '../data/speechPrompts';
+import { useTranslations } from '../i18n';
+import { getLocalizedSceneTitle } from '../i18n/domainCopy';
+import {
+  resolveSceneCompletionPrompt,
+  resolveSpeechPracticePrompt,
+  resolveTeacherInstruction,
+  type TeacherPromptSegment,
+} from '../i18n/teacherPrompts';
+import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
@@ -123,6 +131,11 @@ export function ScenePlayer({
   onComplete,
 }: ScenePlayerProps) {
   useThemeSync();
+  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const [teacherPromptMode, setTeacherPromptMode] =
+    useState<TeacherPromptMode>('vi');
+  const [isLocalizationReady, setIsLocalizationReady] = useState(false);
+  const t = useTranslations(appLanguage);
   const insets = useSafeAreaInsets();
   const responsiveLayout = useResponsiveLayout();
   const isTabletLandscapeLayout = responsiveLayout.isTabletLandscape;
@@ -212,11 +225,16 @@ export function ScenePlayer({
   }, [initialSceneIndex]);
 
   useEffect(() => {
-    if (__DEV__) {
-      getParentSettings().then(settings => {
-        setShowSceneEditorControl(settings.enableSceneEditor || false);
-      });
-    }
+    getParentSettings()
+      .then(settings => {
+        setAppLanguage(settings.appLanguage ?? 'vi');
+        setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
+        if (__DEV__) {
+          setShowSceneEditorControl(settings.enableSceneEditor || false);
+        }
+      })
+      .catch(() => undefined)
+      .finally(() => setIsLocalizationReady(true));
   }, []);
 
   useEffect(() => {
@@ -250,7 +268,7 @@ export function ScenePlayer({
           prefetchAssets(getSceneImageSources(currentScene)),
           prefetchRemoteAssets(getSceneAudioAssets(currentScene)),
         ]);
-      } catch (e) {
+      } catch {
         // Ignore errors to let scene continue even if some assets fail
       } finally {
         if (isMounted) {
@@ -290,7 +308,7 @@ export function ScenePlayer({
     : undefined;
 
   useEffect(() => {
-    if (!currentScene || !currentStep || isPreloading) {
+    if (!currentScene || !currentStep || isPreloading || !isLocalizationReady) {
       return;
     }
 
@@ -300,7 +318,7 @@ export function ScenePlayer({
     if (isListeningStep) {
       setCompletedListenInstructionKey(null);
     }
-    playAudioForStep(currentScene, currentStep, {
+    playAudioForStep(currentScene, currentStep, teacherPromptMode, {
       onAudioComplete: () => {
         if (isListeningStep) {
           setCompletedListenInstructionKey(instructionKey);
@@ -317,12 +335,19 @@ export function ScenePlayer({
     if (lessonId) {
       saveCurrentStepProgress(lessonId, currentScene.id, currentStep.id);
     }
-  }, [currentScene, currentStep, isPreloading, lessonId]);
+  }, [
+    currentScene,
+    currentStep,
+    isLocalizationReady,
+    isPreloading,
+    lessonId,
+    teacherPromptMode,
+  ]);
 
   if (!currentScene) {
     return (
       <View style={styles.emptyState}>
-        <Text style={styles.emptyTitle}>Chưa có scene</Text>
+        <Text style={styles.emptyTitle}>{t('scene.empty.noScene')}</Text>
       </View>
     );
   }
@@ -330,7 +355,7 @@ export function ScenePlayer({
   if (!currentStep) {
     return (
       <View style={styles.emptyState}>
-        <Text style={styles.emptyTitle}>Scene chưa có bước học</Text>
+        <Text style={styles.emptyTitle}>{t('scene.empty.noStep')}</Text>
       </View>
     );
   }
@@ -339,7 +364,9 @@ export function ScenePlayer({
     return (
       <View style={[styles.root, styles.emptyState]}>
         <ActivityIndicator size="large" color={colors.primary} />
-        <Text style={[styles.emptyTitle, { marginTop: spacing.md }]}>Đang chuẩn bị bài học...</Text>
+        <Text style={[styles.emptyTitle, { marginTop: spacing.md }]}>
+          {t('scene.loading')}
+        </Text>
       </View>
     );
   }
@@ -390,6 +417,7 @@ export function ScenePlayer({
     playAudioForStep(
       currentScene,
       currentStep,
+      teacherPromptMode,
       isListenStep(currentStep) && isInstructionPlaying
         ? {
             onAudioComplete: () =>
@@ -404,7 +432,8 @@ export function ScenePlayer({
 
     setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
-      text: currentStep.instructionVi,
+      text: resolveTeacherInstruction(currentStep, teacherPromptMode)
+        .displayText,
       type: 'info',
     });
   };
@@ -579,7 +608,7 @@ export function ScenePlayer({
     clearTimer(clearFeedbackTimerRef);
 
     if (result.status === 'incorrect') {
-      const feedbackText = result.feedbackVi ?? 'Thử lại nhé.';
+      const feedbackText = result.feedbackVi ?? t('scene.replayInstructionFallback');
       const nextAttemptCount = currentStep
         ? (wrongAttemptsByStepId[currentStep.id] ?? 0) + 1
         : 1;
@@ -608,7 +637,7 @@ export function ScenePlayer({
       return;
     }
 
-    const feedbackText = result.feedbackVi ?? 'Giỏi lắm!';
+    const feedbackText = result.feedbackVi ?? t('scene.successFallback');
     setShakeObjectIds([]);
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
@@ -745,7 +774,7 @@ export function ScenePlayer({
         sceneIndex: completedSceneIndex,
         xpGained,
       });
-      runAudio(playSceneCompletionAudio(completedScene));
+      runAudio(playSceneCompletionAudio(completedScene, teacherPromptMode));
     };
 
     if (saveSceneProgressPromise) {
@@ -844,7 +873,7 @@ export function ScenePlayer({
         ) : null}
         <View style={styles.lessonHud}>
           <Text numberOfLines={1} style={styles.lessonTag}>
-            {currentScene.titleVi}
+            {getLocalizedSceneTitle(currentScene, appLanguage)}
           </Text>
           <View style={styles.hudProgressTrack}>
             <View style={[styles.hudProgressFill, { width: progressPercent }]} />
@@ -1013,25 +1042,36 @@ export function ScenePlayer({
         ? scenes[completion.nextSceneIndex]
         : undefined;
     const primaryTitle = hasNextScene
-      ? 'Học cảnh tiếp theo'
+      ? t('scene.completion.primaryNext')
       : completeCurrentSceneOnly
-        ? 'Về gói bài học'
-        : 'Nhận thưởng';
+        ? t('scene.completion.backToLesson')
+        : t('scene.completion.primaryReward');
     const secondaryTitle =
       completion.isFinalScene && !completeCurrentSceneOnly
-        ? 'Học lại cảnh này'
-        : 'Về gói bài học';
+        ? t('scene.completion.replayScene')
+        : t('scene.completion.backToLesson');
     const completionCoachMessage = hasNextScene
-      ? 'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.'
+      ? t('scene.completion.coach.next')
       : completeCurrentSceneOnly
-        ? 'Sungy đã đánh dấu trạm này xong rồi. Bé về gói bài học nhé!'
-        : 'Tuyệt vời! Sungy đã sẵn sàng trao sticker cho bé.';
+        ? t('scene.completion.coach.single')
+        : t('scene.completion.coach.final');
+    const completionSceneTitle =
+      getLocalizedSceneTitle(completion.scene, appLanguage);
+    const completionMessage =
+      appLanguage === 'vi' && reward?.messageVi
+        ? reward.messageVi
+        : t('scene.completion.defaultMessage', {
+            sceneTitle: completionSceneTitle,
+          });
 
     return (
       <View style={styles.completionOverlay}>
         <AppCard style={styles.completionCard}>
           <Text style={styles.completionEyebrow}>
-            Cảnh {completion.sceneIndex + 1}/{scenes.length}
+            {t('scene.completion.eyebrow', {
+              current: completion.sceneIndex + 1,
+              total: scenes.length,
+            })}
           </Text>
           <MascotSpeechBubble
             mascotPosition="right"
@@ -1039,7 +1079,9 @@ export function ScenePlayer({
             message={completionCoachMessage}
             onMascotPress={message => {
               runAudio(playTapSound());
-              runAudio(speakVi(message));
+              runAudio(
+                appLanguage === 'en' ? speakWord(message) : speakVi(message),
+              );
             }}
             pose="greatJob"
             style={styles.completionCoach}
@@ -1058,7 +1100,9 @@ export function ScenePlayer({
             }
             tone="success"
           />
-          <Text style={styles.completionTitle}>Giỏi quá!</Text>
+          <Text style={styles.completionTitle}>
+            {t('scene.completion.title')}
+          </Text>
           {completion.xpGained > 0 && (
             <View style={styles.xpBadge}>
               <Text style={styles.xpText}>+{completion.xpGained}</Text>
@@ -1073,12 +1117,14 @@ export function ScenePlayer({
             ))}
           </View>
           <Text style={styles.completionMessage}>
-            {reward?.messageVi ??
-              `Bé đã hoàn thành ${completion.scene.titleVi}.`}
+            {completionMessage}
           </Text>
           {nextScene ? (
             <Text style={styles.nextSceneText}>
-              Tiếp theo: {nextScene.titleVi}
+              {t('scene.completion.nextScene', {
+                sceneTitle:
+                  getLocalizedSceneTitle(nextScene, appLanguage),
+              })}
             </Text>
           ) : null}
           <View style={styles.completionActions}>
@@ -1294,13 +1340,16 @@ type PlayStepAudioOptions = {
 function playAudioForStep(
   scene: Scene,
   step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
   options: PlayStepAudioOptions = {},
 ) {
   globalAudioSequenceId += 1;
   const currentId = globalAudioSequenceId;
   const isActive = () => globalAudioSequenceId === currentId;
 
-  runAudio(playStepAudioSequence(scene, step, isActive, options));
+  runAudio(
+    playStepAudioSequence(scene, step, teacherPromptMode, isActive, options),
+  );
 }
 
 function cancelStepAudioSequence() {
@@ -1312,9 +1361,20 @@ async function playObjectVocabularyAudio(word: string) {
   await speakWord(word);
 }
 
+async function playTeacherPromptSegments(segments: TeacherPromptSegment[]) {
+  for (const segment of segments) {
+    if (segment.language === 'en') {
+      await speakWord(segment.text);
+    } else {
+      await speakVi(segment.text);
+    }
+  }
+}
+
 async function playStepAudioSequence(
   scene: Scene,
   step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
   isActive: () => boolean,
   options: PlayStepAudioOptions,
 ) {
@@ -1322,19 +1382,31 @@ async function playStepAudioSequence(
 
   if (step.type === 'teach' && vocabularyItem) {
     if (!isActive()) return;
-    await speakVi(step.instructionVi);
+    await playTeacherPromptSegments(
+      resolveTeacherInstruction(step, teacherPromptMode).segments,
+    );
 
     if (!isActive()) return;
     await delay(100);
 
     if (!isActive()) return;
-    await speakWord(vocabularyItem.word);
+    if (
+      shouldPlayVocabularyAfterInstruction(
+        step,
+        teacherPromptMode,
+        vocabularyItem.word,
+      )
+    ) {
+      await speakWord(vocabularyItem.word);
+    }
 
     if (!isActive()) return;
     await delay(120);
 
     if (!isActive()) return;
-    await speakVi(speakPracticePromptVi);
+    await playTeacherPromptSegments(
+      resolveSpeechPracticePrompt(teacherPromptMode).segments,
+    );
 
     if (!isActive()) return;
     await delay(60);
@@ -1349,9 +1421,19 @@ async function playStepAudioSequence(
   }
 
   if (!isActive()) return;
-  await speakVi(step.instructionVi);
+  await playTeacherPromptSegments(
+    resolveTeacherInstruction(step, teacherPromptMode).segments,
+  );
 
-  if (step.vocabId && vocabularyItem) {
+  if (
+    step.vocabId &&
+    vocabularyItem &&
+    shouldPlayVocabularyAfterInstruction(
+      step,
+      teacherPromptMode,
+      vocabularyItem.word,
+    )
+  ) {
     if (!isActive()) return;
     await delay(100);
 
@@ -1361,6 +1443,22 @@ async function playStepAudioSequence(
 
   if (!isActive()) return;
   options.onAudioComplete?.();
+}
+
+function shouldPlayVocabularyAfterInstruction(
+  step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
+  word: string,
+) {
+  if (teacherPromptMode !== 'en') {
+    return true;
+  }
+
+  return normalizePromptText(step.promptText) !== normalizePromptText(word);
+}
+
+function normalizePromptText(value: string | undefined) {
+  return value?.trim().toLocaleLowerCase('en-US') ?? '';
 }
 
 function runAudio(audioPromise: Promise<void>) {
@@ -1386,12 +1484,14 @@ async function playInteractionFeedbackAudio(
   await speakVi(feedbackText);
 }
 
-async function playSceneCompletionAudio(scene: Scene) {
+async function playSceneCompletionAudio(
+  scene: Scene,
+  teacherPromptMode: TeacherPromptMode,
+) {
   await playSoundEffect('complete');
   await delay(140);
-  await speakVi(
-    scene.completionReward?.messageVi ??
-    `Bé đã hoàn thành ${scene.titleVi}.`,
+  await playTeacherPromptSegments(
+    resolveSceneCompletionPrompt(scene, teacherPromptMode).segments,
   );
 }
 

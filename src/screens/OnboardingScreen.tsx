@@ -12,11 +12,14 @@ import {
   sungyOnboardingGreeting,
   sungyOnboardingTapMessages,
 } from '../data/mascotPrompts';
-import { playTapSound, speakVi } from '../engine/AudioManager';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import {
   completeParentOnboarding,
   learningDifficultyOptions,
 } from '../engine/ParentSettingsManager';
+import { useSavedAppLanguage, useTranslations } from '../i18n';
+import { getLearningModeCopy } from '../i18n/learningModeCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -26,13 +29,16 @@ import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
 
-function speakSungyLine(message: string) {
+function speakSungyLine(message: string, language: AppLanguage = 'vi') {
   playTapSound().catch(() => undefined);
-  speakVi(message).catch(() => undefined);
+  const speech = language === 'en' ? speakWord(message) : speakVi(message);
+  speech.catch(() => undefined);
 }
 
 export function OnboardingScreen({ navigation }: Props) {
   useThemeSync();
+  const appLanguage = useSavedAppLanguage();
+  const t = useTranslations(appLanguage);
   const [selectedMode, setSelectedMode] = useState<LearningMode>('core');
   const [isSaving, setIsSaving] = useState(false);
 
@@ -64,19 +70,18 @@ export function OnboardingScreen({ navigation }: Props) {
               style={styles.heroMascot}
             />
           </View>
-          <KidBadge tone="sun">Dành cho ba mẹ</KidBadge>
-          <Text style={styles.title}>Chọn độ khó cho bé</Text>
+          <KidBadge tone="sun">{t('onboarding.parentBadge')}</KidBadge>
+          <Text style={styles.title}>{t('onboarding.title')}</Text>
           <Text style={styles.subtitle}>
-            Bé sẽ chỉ thấy bản đồ học tập. Ba mẹ có thể đổi lại trong Góc phụ
-            huynh bất cứ lúc nào.
+            {t('onboarding.subtitle')}
           </Text>
           <MascotSpeechBubble
             mascotSize="avatar"
-            message="Sungy sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành."
-            onMascotPress={speakSungyLine}
+            message={t('onboarding.coach.message')}
+            onMascotPress={message => speakSungyLine(message, appLanguage)}
             style={styles.coachBubble}
             tapMessages={sungyOnboardingTapMessages}
-            title="Bạn học của bé"
+            title={t('onboarding.coach.title')}
             tone="guide"
           />
         </View>
@@ -84,6 +89,7 @@ export function OnboardingScreen({ navigation }: Props) {
         <View style={styles.optionList}>
           {learningDifficultyOptions.map(option => {
             const isSelected = option.learningMode === selectedMode;
+            const optionCopy = getLearningModeCopy(option.learningMode, t);
 
             return (
               <Pressable
@@ -108,9 +114,11 @@ export function OnboardingScreen({ navigation }: Props) {
                   </Text>
                 </View>
                 <View style={styles.optionText}>
-                  <Text style={styles.optionTitle}>{option.title}</Text>
-                  <Text style={styles.optionSubtitle}>{option.subtitle}</Text>
-                  <Text style={styles.optionDetail}>{option.detail}</Text>
+                  <Text style={styles.optionTitle}>{optionCopy.title}</Text>
+                  <Text style={styles.optionSubtitle}>
+                    {optionCopy.subtitle}
+                  </Text>
+                  <Text style={styles.optionDetail}>{optionCopy.detail}</Text>
                 </View>
               </Pressable>
             );
@@ -119,16 +127,15 @@ export function OnboardingScreen({ navigation }: Props) {
 
         <AppButton
           disabled={isSaving}
-          title={isSaving ? 'Đang lưu...' : 'Bắt đầu'}
+          title={
+            isSaving ? t('onboarding.startSaving') : t('onboarding.start')
+          }
           onPress={handleStart}
         />
 
         <AppCard style={styles.noteCard}>
-          <Text style={styles.noteTitle}>Gợi ý nhanh</Text>
-          <Text style={styles.noteText}>
-            Nếu bé mới bắt đầu, chọn Dễ trước. Khi bé quen nhịp học, ba mẹ tăng
-            lên Vừa hoặc Khó.
-          </Text>
+          <Text style={styles.noteTitle}>{t('onboarding.note.title')}</Text>
+          <Text style={styles.noteText}>{t('onboarding.note.text')}</Text>
         </AppCard>
 
       </View>

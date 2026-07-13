@@ -5,6 +5,11 @@ import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
 import { lessons } from '../data/lessons';
+import {
+  getLocalizedLessonTitle,
+  getLocalizedReviewGameTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -16,6 +21,7 @@ import {
 } from '../utils/lessonProgress';
 
 type KidPlayPanelProps = {
+  appLanguage: AppLanguage;
   completedReviewGameIds: Set<string>;
   completedSceneIds: Set<string>;
   journeyMode?: 'guided' | 'free';
@@ -23,6 +29,7 @@ type KidPlayPanelProps = {
 };
 
 export function KidPlayPanel({
+  appLanguage,
   completedReviewGameIds,
   completedSceneIds,
   journeyMode = 'guided',
@@ -72,6 +79,11 @@ export function KidPlayPanel({
 
       <View style={styles.list}>
         {orderedReviewLessons.map(lesson => {
+          const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
+          const reviewGameTitle = getLocalizedReviewGameTitle(
+            lesson.reviewGame,
+            appLanguage,
+          );
           const isUnlocked = journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds);
           const isCompleted = Boolean(
             lesson.reviewGame &&
@@ -98,8 +110,8 @@ export function KidPlayPanel({
 
           return (
             <Pressable
-              accessibilityLabel={`${lesson.titleVi}. ${
-                lesson.reviewGame?.titleVi ?? 'Game lật thẻ'
+              accessibilityLabel={`${lessonTitle}. ${
+                reviewGameTitle
               }. ${statusLabel}. ${completedSceneCount}/${
                 lesson.scenes.length
               } cảnh.`}
@@ -147,9 +159,9 @@ export function KidPlayPanel({
                         {completedSceneCount}/{lesson.scenes.length}
                       </KidBadge>
                     </View>
-                    <Text style={styles.lessonTitle}>{lesson.titleVi}</Text>
+                    <Text style={styles.lessonTitle}>{lessonTitle}</Text>
                     <Text style={styles.gameTitle}>
-                      {lesson.reviewGame?.titleVi ?? 'Game lật thẻ'}
+                      {reviewGameTitle}
                     </Text>
                   </View>
 

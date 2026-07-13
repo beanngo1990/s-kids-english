@@ -4,9 +4,8 @@
 
 **Kiểm chứng gần nhất:** 2026-07-13
 
-**Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa`; tại thời điểm
-kiểm chứng, working tree không có thay đổi application code, chỉ có documentation work đang thực
-hiện.
+**Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
+localization foundation trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -36,8 +35,9 @@ code theo spec hoặc sửa spec theo code một cách âm thầm.
 ## 2. Product snapshot
 
 SKidsEnglish là ứng dụng React Native giúp trẻ học từ/cụm từ tiếng Anh qua các tình huống sinh
-hoạt thường ngày. UI và hướng dẫn hiện chủ yếu bằng tiếng Việt; vocabulary và phát âm mục tiêu
-bằng tiếng Anh.
+hoạt thường ngày. Sản phẩm dạy tiếng Anh cố định; localization chỉ áp dụng cho UI và hướng dẫn
+của cô giáo. UI/hướng dẫn hiện vẫn Vietnamese-first, nhưng đã có foundation `vi`/`en` cho một số
+cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 
 Đặc điểm hiện tại:
 
@@ -45,6 +45,8 @@ bằng tiếng Anh.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker, activity/streak, daily reminder,
   Light/Dark/System theme.
+- **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
+  mode `vi`/`en`/`bilingual`; chưa phải full-app localization.
 - **Implemented:** local persistence bằng AsyncStorage.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Unsupported:** account, backend sync hoặc cloud progress.
@@ -228,14 +230,25 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Unsupported:** PIN hoặc câu hỏi toán/bảo mật; không mô tả hai cơ chế này là đã có.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** chỉnh difficulty, guided/free journey, visible lessons, child profile,
-  Light/Dark/System theme, app-language preference và daily reminder time.
+  Light/Dark/System theme, app-language preference, teacher prompt mode và daily reminder time.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
-- **Partial:** `appLanguage` (`vi`/`en`) được persist và chọn trong Parent UI, nhưng chưa được dùng
-  để localize toàn bộ screen/prompt; app UI vẫn chủ yếu tiếng Việt.
+- **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
+  Parent gate/settings, một số ScenePlayer system overlay, bottom tabs và domain titles
+  theme/lesson/scene/review-game ở các màn hình chính. Nhiều screen/copy dài trong Kid Mode,
+  dashboard, mô tả lesson/theme, parent tips và prompt data vẫn Vietnamese-first.
+- **Partial:** `teacherPromptMode` (`vi`/`en`/`bilingual`) được persist và chọn trong Parent UI.
+  ScenePlayer instruction audio/display dùng `instructionVi` và `promptText` để phát Vietnamese,
+  English cue hoặc song ngữ. Success/fail feedback và nhiều lesson prompt vẫn chưa có bản dịch
+  English đầy đủ.
 
 ### Scene learning
 
 - Scene gồm instruction playback, Continue/listen steps và object interactions.
+- Teacher instruction resolver hỗ trợ Vietnamese, English cue hoặc bilingual dựa trên
+  `teacherPromptMode`; English cue dùng `SceneStep.promptText` khi có và fallback Vietnamese khi
+  thiếu.
+- Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
+  vocabulary và phát âm mục tiêu vẫn luôn là English.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
 - Scene có thể prefetch current/next images và audio.
 - Scene progress dùng composite ID `<lessonId>:<sceneId>` và còn đọc legacy bare scene IDs.
@@ -312,7 +325,7 @@ App hiện không có account/cloud sync. Có ba AsyncStorage stores:
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language/theme, reminder state/time và child profile.
+  app language, teacher prompt mode, app theme, reminder state/time và child profile.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 
 ### Learning progress
@@ -341,7 +354,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 
 `AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
-không được làm lesson flow kẹt.
+không được làm lesson flow kẹt. Teacher prompt mode English/bilingual hiện dùng `promptText` và
+TTS/audio fallback hiện có; chưa có generated English teacher prompt audio đầy đủ cho mọi step.
 
 ### Native support matrix
 
@@ -451,9 +465,9 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng 2026-07-13:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 58/61 tests pass; failures còn ở speech recording fallback timing và reward/review
+- Jest: 64/67 tests pass; failures còn ở speech recording fallback timing và reward/review
   expectations.
-- ESLint: còn 2 errors và 4 warnings trong baseline.
+- ESLint: còn 1 error và 4 warnings trong baseline.
 - Repository chưa có tracked CI workflow.
 
 Các con số này là snapshot, không thay thế việc chạy checks. Cập nhật hoặc xóa mục này ngay khi
@@ -469,6 +483,7 @@ Support summary:
 | Parent PIN/math gate                     | Unsupported     |
 | Theme Light/Dark/System                  | Implemented     |
 | Full VI/EN localization                  | Partial         |
+| Teacher prompt mode vi/en/bilingual      | Partial         |
 | Mode-based lesson filtering              | Implemented     |
 | Age-based runtime filtering              | Partial         |
 | Scene-level resume                       | Implemented     |
