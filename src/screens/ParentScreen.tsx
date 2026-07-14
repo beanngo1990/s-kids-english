@@ -84,6 +84,8 @@ function haveSameLessonIds(first: string[], second: string[]) {
 }
 
 type ParentTab = 'stats' | 'lessons' | 'settings';
+type LearningSettingsSheet = 'journey' | 'difficulty';
+type AppSettingsSheet = 'language' | 'teacherPrompt' | 'theme';
 type Props = NativeStackScreenProps<RootStackParamList, 'Parent'>;
 
 function getLocalDateString() {
@@ -128,6 +130,10 @@ export function ParentScreen({ navigation }: Props) {
     : undefined;
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [showYearPicker, setShowYearPicker] = useState(false);
+  const [learningSettingsSheet, setLearningSettingsSheet] =
+    useState<LearningSettingsSheet | null>(null);
+  const [appSettingsSheet, setAppSettingsSheet] =
+    useState<AppSettingsSheet | null>(null);
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -342,6 +348,32 @@ export function ParentScreen({ navigation }: Props) {
       ? t('parent.stats.metricScenes')
       : t('parent.stats.metricActivity');
   const currentDifficultyCopy = getLearningModeCopy(learningMode, t);
+  const currentJourneyCopy =
+    journeyMode === 'guided'
+      ? {
+          subtitle: t('parent.settings.journeyGuidedSubtitle'),
+          title: t('parent.settings.journeyGuidedTitle'),
+        }
+      : {
+          subtitle: t('parent.settings.journeyFreeSubtitle'),
+          title: t('parent.settings.journeyFreeTitle'),
+        };
+  const currentLanguageTitle =
+    appLanguage === 'vi'
+      ? t('parent.settings.appLanguageVietnamese')
+      : t('parent.settings.appLanguageEnglish');
+  const currentTeacherPromptTitle =
+    teacherPromptMode === 'vi'
+      ? t('parent.settings.teacherPromptVietnamese')
+      : teacherPromptMode === 'en'
+      ? t('parent.settings.teacherPromptEnglish')
+      : t('parent.settings.teacherPromptBilingual');
+  const currentThemeTitle =
+    appTheme === 'light'
+      ? t('parent.settings.themeLight')
+      : appTheme === 'dark'
+      ? t('parent.settings.themeDark')
+      : t('common.auto');
   const focusLessonTitle = focusLesson
     ? getLocalizedLessonTitle(focusLesson, appLanguage)
     : undefined;
@@ -481,6 +513,7 @@ export function ParentScreen({ navigation }: Props) {
       return;
     }
 
+    setLearningSettingsSheet(null);
     setSavingMode(nextLearningMode);
     try {
       const nextSettings = await saveParentLearningMode(nextLearningMode);
@@ -493,6 +526,7 @@ export function ParentScreen({ navigation }: Props) {
   };
 
   const handleUpdateJourneyMode = async (mode: 'guided' | 'free') => {
+    setLearningSettingsSheet(null);
     setJourneyMode(mode);
     await saveParentSettings({ journeyMode: mode });
   };
@@ -504,16 +538,19 @@ export function ParentScreen({ navigation }: Props) {
   };
 
   const handleUpdateLanguage = async (lang: AppLanguage) => {
+    setAppSettingsSheet(null);
     setAppLanguage(lang);
     await saveParentSettings({ appLanguage: lang });
   };
 
   const handleUpdateTeacherPromptMode = async (mode: TeacherPromptMode) => {
+    setAppSettingsSheet(null);
     setTeacherPromptMode(mode);
     await saveParentSettings({ teacherPromptMode: mode });
   };
 
   const handleUpdateTheme = async (theme: AppTheme) => {
+    setAppSettingsSheet(null);
     setAppTheme(theme);
     await setAppThemePreference(theme);
   };
@@ -1492,136 +1529,244 @@ export function ParentScreen({ navigation }: Props) {
                 <Text style={styles.learningSettingsTitle}>
                   {t('parent.settings.journeyTitle')}
                 </Text>
-                <Text style={styles.learningSettingsSubtitle}>
-                  {t('parent.settings.journeySubtitle')}
-                </Text>
               </View>
 
-              <View style={styles.settingSection}>
-                <Text style={styles.settingSectionTitle}>
-                  {t('parent.settings.journeyModeTitle')}
-                </Text>
-                <View style={styles.journeyChoices}>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: journeyMode === 'guided' }}
-                    onPress={() => handleUpdateJourneyMode('guided')}
-                    style={({ pressed }) => [
-                      styles.journeyChoice,
-                      journeyMode === 'guided' && styles.journeyChoiceActive,
-                      pressed && styles.pressed,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.journeyChoiceTitle,
-                        journeyMode === 'guided' &&
-                          styles.journeyChoiceTitleActive,
-                      ]}
-                    >
-                      {t('parent.settings.journeyGuidedTitle')}
-                    </Text>
-                    <Text
-                      style={[
-                        styles.journeyChoiceSubtitle,
-                        journeyMode === 'guided' &&
-                          styles.journeyChoiceSubtitleActive,
-                      ]}
-                    >
-                      {t('parent.settings.journeyGuidedSubtitle')}
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: journeyMode === 'free' }}
-                    onPress={() => handleUpdateJourneyMode('free')}
-                    style={({ pressed }) => [
-                      styles.journeyChoice,
-                      journeyMode === 'free' && styles.journeyChoiceWarm,
-                      pressed && styles.pressed,
-                    ]}
-                  >
-                    <Text style={styles.journeyChoiceTitle}>
-                      {t('parent.settings.journeyFreeTitle')}
-                    </Text>
-                    <Text style={styles.journeyChoiceSubtitle}>
-                      {t('parent.settings.journeyFreeSubtitle')}
-                    </Text>
-                  </Pressable>
+              <View style={styles.learningSummaryPanel}>
+                <View style={styles.learningSummaryIcon}>
+                  <SKidsIcon name="school" size={34} />
                 </View>
-              </View>
-
-              <View style={styles.learningSettingsDivider} />
-
-              <View style={styles.settingSection}>
-                <View style={styles.difficultyHeader}>
-                  <Text style={styles.settingSectionTitle}>
-                    {t('parent.settings.difficultyTitle')}
+                <View style={styles.learningSummaryCopy}>
+                  <Text style={styles.learningSummaryLabel}>
+                    {t('parent.settings.learningSummaryLabel')}
                   </Text>
-                  <Text style={styles.difficultyCurrentLabel}>
-                    {t('parent.settings.difficultyCurrent', {
+                  <Text style={styles.learningSummaryTitle}>
+                    {t('parent.settings.learningSummaryTitle', {
                       difficulty: currentDifficultyCopy.title,
+                      journey: currentJourneyCopy.title,
                     })}
                   </Text>
-                </View>
-                <View style={styles.difficultyChoices}>
-                  {learningDifficultyOptions.map(option => {
-                    const isSelected = option.learningMode === learningMode;
-                    const isSavingThisMode = savingMode === option.learningMode;
-                    const optionCopy = getLearningModeCopy(
-                      option.learningMode,
-                      t,
-                    );
-
-                    return (
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityState={{ selected: isSelected }}
-                        disabled={Boolean(savingMode)}
-                        key={option.learningMode}
-                        onPress={() =>
-                          handleSelectLearningMode(option.learningMode)
-                        }
-                        style={({ pressed }) => [
-                          styles.difficultyChoice,
-                          isSelected && styles.difficultyChoiceActive,
-                          pressed && !savingMode && styles.pressed,
-                          savingMode &&
-                            !isSavingThisMode &&
-                            styles.optionDisabled,
-                        ]}
-                      >
-                        <Text
-                          style={[
-                            styles.difficultyChoiceTitle,
-                            isSelected && styles.difficultyChoiceTitleActive,
-                          ]}
-                        >
-                          {isSavingThisMode
-                            ? t('common.saveInProgress')
-                            : optionCopy.title}
-                        </Text>
-                        <Text
-                          style={[
-                            styles.difficultyChoiceSubtitle,
-                            isSelected && styles.difficultyChoiceSubtitleActive,
-                          ]}
-                        >
-                          {optionCopy.subtitle}
-                        </Text>
-                      </Pressable>
-                    );
-                  })}
-                </View>
-                <View style={styles.difficultyInsight}>
-                  <Text style={styles.difficultyInsightLabel}>
-                    {t('parent.settings.difficultyInsightLabel')}
-                  </Text>
-                  <Text style={styles.difficultyInsightText}>
-                    {currentDifficultyCopy.detail}
+                  <Text style={styles.learningSummarySubtitle}>
+                    {t('parent.settings.learningSummarySubtitle')}
                   </Text>
                 </View>
               </View>
+
+              <View style={styles.learningSettingsList}>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setLearningSettingsSheet('journey')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="focusLesson" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.journeyModeTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {currentJourneyCopy.subtitle}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {currentJourneyCopy.title}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setLearningSettingsSheet('difficulty')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="star" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.difficultyTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {currentDifficultyCopy.subtitle}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {savingMode
+                        ? t('common.saveInProgress')
+                        : currentDifficultyCopy.title}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+              </View>
+
+              <View style={styles.learningInsight}>
+                <Text style={styles.learningInsightLabel}>
+                  {t('parent.settings.difficultyInsightLabel')}
+                </Text>
+                <Text style={styles.learningInsightText}>
+                  {currentDifficultyCopy.detail}
+                </Text>
+              </View>
+
+              <Modal
+                visible={learningSettingsSheet !== null}
+                transparent
+                animationType="slide"
+                onRequestClose={() => setLearningSettingsSheet(null)}
+              >
+                <Pressable
+                  style={styles.learningSheetOverlay}
+                  onPress={() => setLearningSettingsSheet(null)}
+                >
+                  <Pressable
+                    style={styles.learningSheet}
+                    onPress={event => event.stopPropagation()}
+                  >
+                    <View style={styles.learningSheetHeader}>
+                      <Text style={styles.learningSheetTitle}>
+                        {learningSettingsSheet === 'journey'
+                          ? t('parent.settings.sheetJourneyTitle')
+                          : t('parent.settings.sheetDifficultyTitle')}
+                      </Text>
+                      <Pressable
+                        accessibilityRole="button"
+                        onPress={() => setLearningSettingsSheet(null)}
+                        style={styles.learningSheetClose}
+                      >
+                        <Text style={styles.learningSheetCloseText}>
+                          {t('common.close')}
+                        </Text>
+                      </Pressable>
+                    </View>
+
+                    {learningSettingsSheet === 'journey' ? (
+                      <View style={styles.learningSheetOptions}>
+                        {(['guided', 'free'] as const).map(mode => {
+                          const isSelected = journeyMode === mode;
+                          const title =
+                            mode === 'guided'
+                              ? t('parent.settings.journeyGuidedTitle')
+                              : t('parent.settings.journeyFreeTitle');
+                          const subtitle =
+                            mode === 'guided'
+                              ? t('parent.settings.journeyGuidedSubtitle')
+                              : t('parent.settings.journeyFreeSubtitle');
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              key={mode}
+                              onPress={() => handleUpdateJourneyMode(mode)}
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && styles.pressed,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {title}
+                                </Text>
+                                <Text style={styles.learningSheetOptionText}>
+                                  {subtitle}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    ) : (
+                      <View style={styles.learningSheetOptions}>
+                        {learningDifficultyOptions.map(option => {
+                          const isSelected =
+                            option.learningMode === learningMode;
+                          const isSavingThisMode =
+                            savingMode === option.learningMode;
+                          const optionCopy = getLearningModeCopy(
+                            option.learningMode,
+                            t,
+                          );
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              disabled={Boolean(savingMode)}
+                              key={option.learningMode}
+                              onPress={() =>
+                                handleSelectLearningMode(option.learningMode)
+                              }
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && !savingMode && styles.pressed,
+                                savingMode &&
+                                  !isSavingThisMode &&
+                                  styles.optionDisabled,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {isSavingThisMode
+                                    ? t('common.saveInProgress')
+                                    : optionCopy.title}
+                                </Text>
+                                <Text style={styles.learningSheetOptionText}>
+                                  {optionCopy.detail}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    )}
+                  </Pressable>
+                </Pressable>
+              </Modal>
             </AppCard>
 
             <AppCard style={styles.dailySettingsCard}>
@@ -1630,36 +1775,88 @@ export function ParentScreen({ navigation }: Props) {
                 <Text style={styles.dailySettingsTitle}>
                   {t('parent.settings.dailyTitle')}
                 </Text>
-                <Text style={styles.dailySettingsSubtitle}>
-                  {t('parent.settings.dailySubtitle')}
-                </Text>
               </View>
 
-              <View style={styles.reminderPanel}>
-                <View style={styles.reminderClock}>
-                  <Text style={styles.reminderClockText}>⏰</Text>
+              <View style={styles.learningSummaryPanel}>
+                <View style={styles.learningSummaryIcon}>
+                  <SKidsIcon name="bedtimeStory" size={34} />
                 </View>
-                <Pressable
-                  style={styles.reminderCopy}
-                  onPress={() => setShowTimePicker(true)}
-                >
-                  <Text style={styles.reminderTitle}>
-                    {t('parent.settings.reminderTitle')}
+                <View style={styles.learningSummaryCopy}>
+                  <Text style={styles.learningSummaryLabel}>
+                    {t('parent.settings.dailySummaryLabel')}
                   </Text>
-                  <Text style={styles.reminderSubtitle}>
+                  <Text style={styles.learningSummaryTitle}>
                     {reminderEnabled
-                      ? t('parent.settings.reminderEnabled', {
+                      ? t('parent.settings.dailySummaryEnabled', {
                           time: reminderTime,
                         })
-                      : t('parent.settings.reminderDisabled')}
+                      : t('parent.settings.dailySummaryDisabled')}
                   </Text>
-                </Pressable>
-                <Switch
-                  value={reminderEnabled}
-                  onValueChange={handleToggleReminder}
-                  trackColor={{ false: colors.border, true: colors.primary }}
-                />
+                  <Text style={styles.learningSummarySubtitle}>
+                    {t('parent.settings.dailySummarySubtitle')}
+                  </Text>
+                </View>
               </View>
+
+              <View style={styles.learningSettingsList}>
+                <View style={styles.learningSettingsRow}>
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="star" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.reminderTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {reminderEnabled
+                        ? t('parent.settings.reminderEnabled', {
+                            time: reminderTime,
+                          })
+                        : t('parent.settings.reminderDisabled')}
+                    </Text>
+                  </View>
+                  <Switch
+                    value={reminderEnabled}
+                    onValueChange={handleToggleReminder}
+                    trackColor={{ false: colors.border, true: colors.primary }}
+                  />
+                </View>
+
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setShowTimePicker(true)}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="bedtimeStory" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.reminderTimeTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.settings.reminderTimeSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text style={styles.learningSettingsValueText}>
+                      {reminderTime}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+              </View>
+
               {showTimePicker && (
                 <DateTimePicker
                   value={(() => {
@@ -1674,9 +1871,9 @@ export function ParentScreen({ navigation }: Props) {
                   onChange={handleTimeChange}
                 />
               )}
+            </AppCard>
 
-              <View style={styles.appSettingsDivider} />
-
+            <AppCard style={styles.appExperienceCard}>
               <View style={styles.settingsCardHeader}>
                 <KidBadge tone="sky">
                   {t('parent.settings.appExperienceBadge')}
@@ -1686,201 +1883,275 @@ export function ParentScreen({ navigation }: Props) {
                 </Text>
               </View>
 
-              <View style={styles.preferenceRow}>
-                <View style={styles.preferenceCopy}>
-                  <Text style={styles.preferenceTitle}>
-                    {t('parent.settings.appLanguageTitle')}
-                  </Text>
-                  <Text style={styles.preferenceSubtitle}>
-                    {t('parent.settings.appLanguageSubtitle')}
-                  </Text>
-                </View>
-                <View style={styles.preferenceChoices}>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: appLanguage === 'vi' }}
-                    onPress={() => handleUpdateLanguage('vi')}
-                    style={[
-                      styles.preferenceChoice,
-                      appLanguage === 'vi' && styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        appLanguage === 'vi' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      VI
+              <View style={styles.learningSettingsList}>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setAppSettingsSheet('language')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="parentGate" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.appLanguageTitle')}
                     </Text>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: appLanguage === 'en' }}
-                    onPress={() => handleUpdateLanguage('en')}
-                    style={[
-                      styles.preferenceChoice,
-                      appLanguage === 'en' && styles.preferenceChoiceActive,
-                    ]}
-                  >
                     <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        appLanguage === 'en' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
                     >
-                      EN
+                      {t('parent.settings.appLanguageSubtitle')}
                     </Text>
-                  </Pressable>
-                </View>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {currentLanguageTitle}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setAppSettingsSheet('teacherPrompt')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="teacherInstructions" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.teacherPromptTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.settings.teacherPromptSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {currentTeacherPromptTitle}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => setAppSettingsSheet('theme')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="schoolSupplies" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.themeTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.settings.themeSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {currentThemeTitle}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
               </View>
 
-              <View style={styles.preferenceRow}>
-                <View style={styles.preferenceCopy}>
-                  <Text style={styles.preferenceTitle}>
-                    {t('parent.settings.teacherPromptTitle')}
-                  </Text>
-                  <Text style={styles.preferenceSubtitle}>
-                    {t('parent.settings.teacherPromptSubtitle')}
-                  </Text>
-                </View>
-                <View style={styles.preferenceChoices}>
+              <Modal
+                visible={appSettingsSheet !== null}
+                transparent
+                animationType="slide"
+                onRequestClose={() => setAppSettingsSheet(null)}
+              >
+                <Pressable
+                  style={styles.learningSheetOverlay}
+                  onPress={() => setAppSettingsSheet(null)}
+                >
                   <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: teacherPromptMode === 'vi' }}
-                    onPress={() => handleUpdateTeacherPromptMode('vi')}
-                    style={[
-                      styles.preferenceChoice,
-                      teacherPromptMode === 'vi' &&
-                        styles.preferenceChoiceActive,
-                    ]}
+                    style={styles.learningSheet}
+                    onPress={event => event.stopPropagation()}
                   >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        teacherPromptMode === 'vi' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('parent.settings.teacherPromptVietnamese')}
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: teacherPromptMode === 'en' }}
-                    onPress={() => handleUpdateTeacherPromptMode('en')}
-                    style={[
-                      styles.preferenceChoice,
-                      teacherPromptMode === 'en' &&
-                        styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        teacherPromptMode === 'en' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('parent.settings.teacherPromptEnglish')}
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{
-                      selected: teacherPromptMode === 'bilingual',
-                    }}
-                    onPress={() => handleUpdateTeacherPromptMode('bilingual')}
-                    style={[
-                      styles.preferenceChoice,
-                      teacherPromptMode === 'bilingual' &&
-                        styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        teacherPromptMode === 'bilingual' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('parent.settings.teacherPromptBilingual')}
-                    </Text>
-                  </Pressable>
-                </View>
-              </View>
+                    <View style={styles.learningSheetHeader}>
+                      <Text style={styles.learningSheetTitle}>
+                        {appSettingsSheet === 'language'
+                          ? t('parent.settings.sheetLanguageTitle')
+                          : appSettingsSheet === 'teacherPrompt'
+                          ? t('parent.settings.sheetTeacherPromptTitle')
+                          : t('parent.settings.sheetThemeTitle')}
+                      </Text>
+                      <Pressable
+                        accessibilityRole="button"
+                        onPress={() => setAppSettingsSheet(null)}
+                        style={styles.learningSheetClose}
+                      >
+                        <Text style={styles.learningSheetCloseText}>
+                          {t('common.close')}
+                        </Text>
+                      </Pressable>
+                    </View>
 
-              <View style={styles.preferenceRow}>
-                <View style={styles.preferenceCopy}>
-                  <Text style={styles.preferenceTitle}>
-                    {t('parent.settings.themeTitle')}
-                  </Text>
-                  <Text style={styles.preferenceSubtitle}>
-                    {t('parent.settings.themeSubtitle')}
-                  </Text>
-                </View>
-                <View style={styles.preferenceChoices}>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: appTheme === 'light' }}
-                    onPress={() => handleUpdateTheme('light')}
-                    style={[
-                      styles.preferenceChoice,
-                      appTheme === 'light' && styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        appTheme === 'light' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('parent.settings.themeLight')}
-                    </Text>
+                    {appSettingsSheet === 'language' && (
+                      <View style={styles.learningSheetOptions}>
+                        {(['vi', 'en'] as const).map(language => {
+                          const isSelected = appLanguage === language;
+                          const title =
+                            language === 'vi'
+                              ? t('parent.settings.appLanguageVietnamese')
+                              : t('parent.settings.appLanguageEnglish');
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              key={language}
+                              onPress={() => handleUpdateLanguage(language)}
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && styles.pressed,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {title}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    )}
+
+                    {appSettingsSheet === 'teacherPrompt' && (
+                      <View style={styles.learningSheetOptions}>
+                        {(['vi', 'en', 'bilingual'] as const).map(mode => {
+                          const isSelected = teacherPromptMode === mode;
+                          const title =
+                            mode === 'vi'
+                              ? t('parent.settings.teacherPromptVietnamese')
+                              : mode === 'en'
+                              ? t('parent.settings.teacherPromptEnglish')
+                              : t('parent.settings.teacherPromptBilingual');
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              key={mode}
+                              onPress={() =>
+                                handleUpdateTeacherPromptMode(mode)
+                              }
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && styles.pressed,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {title}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    )}
+
+                    {appSettingsSheet === 'theme' && (
+                      <View style={styles.learningSheetOptions}>
+                        {(['light', 'dark', 'system'] as const).map(theme => {
+                          const isSelected = appTheme === theme;
+                          const title =
+                            theme === 'light'
+                              ? t('parent.settings.themeLight')
+                              : theme === 'dark'
+                              ? t('parent.settings.themeDark')
+                              : t('common.auto');
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              key={theme}
+                              onPress={() => handleUpdateTheme(theme)}
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && styles.pressed,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {title}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    )}
                   </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: appTheme === 'dark' }}
-                    onPress={() => handleUpdateTheme('dark')}
-                    style={[
-                      styles.preferenceChoice,
-                      appTheme === 'dark' && styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        appTheme === 'dark' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('parent.settings.themeDark')}
-                    </Text>
-                  </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ selected: appTheme === 'system' }}
-                    onPress={() => handleUpdateTheme('system')}
-                    style={[
-                      styles.preferenceChoice,
-                      appTheme === 'system' && styles.preferenceChoiceActive,
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.preferenceChoiceText,
-                        appTheme === 'system' &&
-                          styles.preferenceChoiceTextActive,
-                      ]}
-                    >
-                      {t('common.auto')}
-                    </Text>
-                  </Pressable>
-                </View>
-              </View>
+                </Pressable>
+              </Modal>
             </AppCard>
 
             <AppCard style={styles.privacyCard}>
@@ -2122,6 +2393,12 @@ const styles = createThemedStyles(() => ({
   appSettingsTitle: {
     color: colors.text,
     ...typography.subtitle,
+  },
+  appExperienceCard: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.md,
   },
   dailySettingsCard: {
     backgroundColor: colors.surface,
@@ -2435,6 +2712,202 @@ const styles = createThemedStyles(() => ({
   learningSettingsTitle: {
     color: colors.text,
     ...typography.subtitle,
+  },
+  learningInsight: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    padding: spacing.sm,
+  },
+  learningInsightLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  learningInsightText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningSettingsChevron: {
+    color: colors.primaryDark,
+    fontSize: 24,
+    fontWeight: '900',
+    lineHeight: 28,
+  },
+  learningSettingsList: {
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+  learningSettingsRow: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    minHeight: 72,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.sm,
+  },
+  learningSettingsRowCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  learningSettingsRowIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderRadius: radius.md,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  learningSettingsRowLast: {
+    borderBottomWidth: 0,
+  },
+  learningSettingsRowSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningSettingsRowTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  learningSettingsRowValue: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexShrink: 0,
+    gap: spacing.xxs,
+    justifyContent: 'flex-end',
+    maxWidth: '40%',
+    minWidth: 72,
+  },
+  learningSettingsValueText: {
+    color: colors.primaryDark,
+    flexShrink: 1,
+    textAlign: 'right',
+    ...typography.caption,
+  },
+  learningSheet: {
+    backgroundColor: colors.surface,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    gap: spacing.md,
+    maxHeight: '82%',
+    paddingBottom: spacing.xl,
+  },
+  learningSheetCheck: {
+    color: colors.primaryDark,
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  learningSheetClose: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  learningSheetCloseText: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  learningSheetHeader: {
+    alignItems: 'center',
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.sm,
+  },
+  learningSheetOption: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.md,
+    minHeight: 72,
+    padding: spacing.md,
+  },
+  learningSheetOptionCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  learningSheetOptionSelected: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  learningSheetOptionText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningSheetOptionTitle: {
+    color: colors.text,
+    ...typography.body,
+  },
+  learningSheetOptionTitleSelected: {
+    color: colors.primaryDark,
+  },
+  learningSheetOptions: {
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  learningSheetOverlay: {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  learningSheetTitle: {
+    color: colors.text,
+    flex: 1,
+    ...typography.subtitle,
+  },
+  learningSummaryCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  learningSummaryIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.primary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    height: 56,
+    justifyContent: 'center',
+    width: 56,
+  },
+  learningSummaryLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  learningSummaryPanel: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    padding: spacing.sm,
+  },
+  learningSummarySubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  learningSummaryTitle: {
+    color: colors.text,
+    ...typography.body,
   },
   lessonPlanCard: {
     gap: spacing.sm,

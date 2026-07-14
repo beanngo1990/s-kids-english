@@ -58,14 +58,21 @@ export const en: TranslationDictionary = {
   'parent.privacy.title': 'Child-safe',
   'parent.settings.appExperienceBadge': 'App experience',
   'parent.settings.appExperienceTitle': 'For parents',
+  'parent.settings.appLanguageEnglish': 'English',
   'parent.settings.appLanguageSubtitle': 'The display language for the app.',
   'parent.settings.appLanguageTitle': 'Language',
+  'parent.settings.appLanguageVietnamese': 'Vietnamese',
   'parent.settings.birthYearLabel': 'Birth year',
   'parent.settings.birthYearPlaceholder': 'Choose year',
   'parent.settings.childAge': '{age} years old',
   'parent.settings.dailyBadge': 'Daily rhythm',
   'parent.settings.dailySubtitle':
     'Help your child learn regularly without pressure.',
+  'parent.settings.dailySummaryDisabled': 'Reminders are off',
+  'parent.settings.dailySummaryEnabled': 'Reminding at {time}',
+  'parent.settings.dailySummaryLabel': 'Today’s rhythm',
+  'parent.settings.dailySummarySubtitle':
+    'Keep a steady routine while staying gentle.',
   'parent.settings.dailyTitle': 'A small habit',
   'parent.settings.difficultyCurrent': 'Current: {difficulty}',
   'parent.settings.difficultyInsightLabel': 'Good fit now',
@@ -85,13 +92,25 @@ export const en: TranslationDictionary = {
   'parent.settings.journeySubtitle':
     'Choose how your child explores content and the right level of challenge.',
   'parent.settings.journeyTitle': 'Learning journey',
+  'parent.settings.learningSummaryLabel': 'Current setup',
+  'parent.settings.learningSummarySubtitle':
+    'Adjust quickly when your child needs a different pace.',
+  'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
   'parent.settings.profileBadge': 'Child profile',
   'parent.settings.profileMissingBirthYear':
     'Add a birth year to personalize the journey',
   'parent.settings.reminderDisabled':
     'Turn on reminders at your child’s most comfortable time',
   'parent.settings.reminderEnabled': 'Reminding daily at {time} ✎',
+  'parent.settings.reminderTimeSubtitle':
+    'You can choose a time before turning reminders on.',
+  'parent.settings.reminderTimeTitle': 'Reminder time',
   'parent.settings.reminderTitle': 'Learning reminder',
+  'parent.settings.sheetDifficultyTitle': 'Choose difficulty',
+  'parent.settings.sheetJourneyTitle': 'Choose lesson access',
+  'parent.settings.sheetLanguageTitle': 'Choose language',
+  'parent.settings.sheetTeacherPromptTitle': 'Choose teacher voice',
+  'parent.settings.sheetThemeTitle': 'Choose theme',
   'parent.settings.teacherPromptBilingual': 'Bilingual',
   'parent.settings.teacherPromptEnglish': 'English',
   'parent.settings.teacherPromptSubtitle':

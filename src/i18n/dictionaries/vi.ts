@@ -56,14 +56,21 @@ export const vi = {
   'parent.privacy.title': 'An toàn cho trẻ',
   'parent.settings.appExperienceBadge': 'Trải nghiệm ứng dụng',
   'parent.settings.appExperienceTitle': 'Dành cho ba mẹ',
+  'parent.settings.appLanguageEnglish': 'English',
   'parent.settings.appLanguageSubtitle': 'Ngôn ngữ hiển thị của ứng dụng.',
   'parent.settings.appLanguageTitle': 'Ngôn ngữ',
+  'parent.settings.appLanguageVietnamese': 'Tiếng Việt',
   'parent.settings.birthYearLabel': 'Năm sinh',
   'parent.settings.birthYearPlaceholder': 'Chọn năm',
   'parent.settings.childAge': '{age} tuổi',
   'parent.settings.dailyBadge': 'Nhịp học hằng ngày',
   'parent.settings.dailySubtitle':
     'Giúp bé học đều mà không tạo áp lực.',
+  'parent.settings.dailySummaryDisabled': 'Chưa bật nhắc học',
+  'parent.settings.dailySummaryEnabled': 'Nhắc lúc {time}',
+  'parent.settings.dailySummaryLabel': 'Nhịp hôm nay',
+  'parent.settings.dailySummarySubtitle':
+    'Giữ giờ học đều, nhưng vẫn nhẹ nhàng.',
   'parent.settings.dailyTitle': 'Một thói quen nhỏ',
   'parent.settings.difficultyCurrent': 'Đang dùng: {difficulty}',
   'parent.settings.difficultyInsightLabel': 'Phù hợp lúc này',
@@ -83,13 +90,25 @@ export const vi = {
   'parent.settings.journeySubtitle':
     'Chọn cách bé khám phá nội dung và mức thử thách phù hợp.',
   'parent.settings.journeyTitle': 'Hành trình học',
+  'parent.settings.learningSummaryLabel': 'Đang dùng',
+  'parent.settings.learningSummarySubtitle':
+    'Chỉnh nhanh khi bé cần nhịp học khác.',
+  'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
   'parent.settings.profileBadge': 'Hồ sơ bé',
   'parent.settings.profileMissingBirthYear':
     'Thêm năm sinh để cá nhân hoá hành trình',
   'parent.settings.reminderDisabled':
     'Bật nhắc học vào giờ bé thoải mái nhất',
   'parent.settings.reminderEnabled': 'Đang nhắc mỗi ngày lúc {time} ✎',
+  'parent.settings.reminderTimeSubtitle':
+    'Có thể chọn giờ trước khi bật nhắc.',
+  'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
+  'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
+  'parent.settings.sheetJourneyTitle': 'Chọn cách mở bài',
+  'parent.settings.sheetLanguageTitle': 'Chọn ngôn ngữ',
+  'parent.settings.sheetTeacherPromptTitle': 'Chọn giọng hướng dẫn',
+  'parent.settings.sheetThemeTitle': 'Chọn giao diện',
   'parent.settings.teacherPromptBilingual': 'Song ngữ',
   'parent.settings.teacherPromptEnglish': 'English',
   'parent.settings.teacherPromptSubtitle':
