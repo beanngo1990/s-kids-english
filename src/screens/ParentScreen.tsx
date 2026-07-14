@@ -22,6 +22,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { NotificationService } from '../services/NotificationService';
 
+import { AppUiIcon } from '../components/AppUiIcon';
 import { AppCard } from '../components/AppCard';
 import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
@@ -851,7 +852,7 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemCompact,
                   ]}
                 >
-                  <SKidsIcon name="school" size={30} />
+                  <AppUiIcon name="words" size={30} />
                   <Text style={styles.milestoneValue}>{learnedWordCount}</Text>
                   <Text style={styles.milestoneLabel}>
                     {t('parent.stats.wordsLearned')}
@@ -866,7 +867,7 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemCompact,
                   ]}
                 >
-                  <SKidsIcon name="acorn" size={30} />
+                  <AppUiIcon name="lessonComplete" size={30} />
                   <Text style={styles.milestoneValue}>
                     {completedLessonCount}
                   </Text>
@@ -884,7 +885,7 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemLastCompact,
                   ]}
                 >
-                  <SKidsIcon name="sticker" size={30} />
+                  <AppUiIcon name="reward" size={30} />
                   <Text style={styles.milestoneValue}>
                     {earnedStickerCount}
                   </Text>
@@ -919,7 +920,7 @@ export function ParentScreen({ navigation }: Props) {
                   </Text>
                 </View>
                 <View style={styles.reviewIcon}>
-                  <SKidsIcon name="speak" size={56} />
+                  <AppUiIcon name="review" size={56} />
                 </View>
               </View>
 
@@ -1030,7 +1031,7 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.learningSummaryPanel}>
                 <View style={styles.learningSummaryIcon}>
-                  <SKidsIcon name="map" size={34} />
+                  <AppUiIcon name="journey" size={34} />
                 </View>
                 <View style={styles.learningSummaryCopy}>
                   <Text style={styles.learningSummaryLabel}>
@@ -1059,7 +1060,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="map" size={30} />
+                    <AppUiIcon name="journey" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1090,7 +1091,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="focusLesson" size={30} />
+                    <AppUiIcon name="lesson" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1124,7 +1125,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="schoolSupplies" size={30} />
+                    <AppUiIcon name="custom" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1577,7 +1578,7 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.learningSummaryPanel}>
                 <View style={styles.learningSummaryIcon}>
-                  <SKidsIcon name="school" size={34} />
+                  <AppUiIcon name="journey" size={34} />
                 </View>
                 <View style={styles.learningSummaryCopy}>
                   <Text style={styles.learningSummaryLabel}>
@@ -1605,7 +1606,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="focusLesson" size={30} />
+                    <AppUiIcon name="journey" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1639,7 +1640,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="star" size={30} />
+                    <AppUiIcon name="difficulty" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1823,7 +1824,7 @@ export function ParentScreen({ navigation }: Props) {
 
               <View style={styles.learningSummaryPanel}>
                 <View style={styles.learningSummaryIcon}>
-                  <SKidsIcon name="bedtimeStory" size={34} />
+                  <AppUiIcon name="daily" size={34} />
                 </View>
                 <View style={styles.learningSummaryCopy}>
                   <Text style={styles.learningSummaryLabel}>
@@ -1845,7 +1846,7 @@ export function ParentScreen({ navigation }: Props) {
               <View style={styles.learningSettingsList}>
                 <View style={styles.learningSettingsRow}>
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="star" size={30} />
+                    <AppUiIcon name="reminder" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1879,7 +1880,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="bedtimeStory" size={30} />
+                    <AppUiIcon name="clock" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1937,7 +1938,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="parentGate" size={30} />
+                    <AppUiIcon name="language" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -1970,7 +1971,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="teacherInstructions" size={30} />
+                    <AppUiIcon name="teacher" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
@@ -2004,7 +2005,7 @@ export function ParentScreen({ navigation }: Props) {
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
-                    <SKidsIcon name="schoolSupplies" size={30} />
+                    <AppUiIcon name="theme" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
                     <Text style={styles.learningSettingsRowTitle}>
