@@ -365,7 +365,7 @@ export const en: TranslationDictionary = {
   'parent.stats.lesson': 'lesson',
   'parent.stats.stationsProgress': '{completed}/{total} stations',
   'parent.stats.totalLessons': '/{total} lessons',
-  'parent.stats.enabledLessons': '{count} lessons enabled.',
+  'parent.stats.enabledLessons': '{count} lessons',
   'parent.stats.completedEnabledLessons':
     'Completed {completed}/{total} enabled lessons.',
   'parent.stats.selectLearningPaceSubtitle': 'You can choose a suitable pace or manually adjust each lesson.',
