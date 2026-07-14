@@ -276,17 +276,58 @@ export const vi = {
   'reward.replayLesson': 'Chơi lại bài này',
   'reward.viewStickerCollection': 'Xem bộ sưu tập',
   'stickerCollection.badge': 'Album thành tựu',
+  'stickerCollection.albumCover': 'Album Sungy',
   'stickerCollection.title': 'Bộ sưu tập sticker',
   'stickerCollection.subtitle':
-    'Mỗi sticker sáng lên khi bé hoàn thành một bài học và phần ôn tập.',
+    'Mỗi sticker là một khoảnh khắc Sungy đồng hành khi bé hoàn thành bài học và phần ôn tập.',
   'stickerCollection.progress': '{earned}/{total} sticker đã mở',
   'stickerCollection.progressAccessibility':
     'Bé đã mở {earned} trên {total} sticker',
   'stickerCollection.unlocked': 'Đã mở',
   'stickerCollection.locked': 'Đang khóa',
   'stickerCollection.lockedSticker': 'Sticker bí mật',
+  'stickerCollection.tapForDetails': 'Chạm để xem chi tiết sticker',
+  'stickerCollection.closeDetail': 'Đóng',
+  'stickerCollection.detailMeaning': 'Ý nghĩa',
+  'stickerCollection.detailHowToUnlock': 'Cách mở',
+  'stickerCollection.detailProgress': 'Tiến độ',
+  'stickerCollection.detailEarned': 'Ngày nhận',
+  'stickerCollection.lessonMeaning':
+    'Sungy lưu lại khoảnh khắc bé hoàn thành {lessonTitle}.',
+  'stickerCollection.lessonRequirement':
+    'Hoàn thành bài {lessonTitle} và phần ôn tập.',
+  'stickerCollection.earnedOn': 'Nhận ngày {date}',
+  'stickerCollection.earnedLegacy': 'Đã nhận trước đây',
+  'stickerCollection.earnedLegacyShort': 'Trước đây',
+  'stickerCollection.earnedPending': 'Vừa mở khóa',
+  'stickerCollection.lessonStickerTitle': 'Sticker bài học',
+  'stickerCollection.timelineTitle': 'Lịch sử nhận sticker',
+  'stickerCollection.timelineEmpty':
+    'Sticker bé nhận được sẽ xuất hiện ở đây.',
+  'stickerCollection.achievementTitle': 'Sticker thành tựu Sungy',
+  'stickerCollection.achievementFirstSteps': 'Dễ đạt',
+  'stickerCollection.achievementHabits': 'Thói quen',
+  'stickerCollection.achievementBigGoals': 'Mục tiêu lớn',
+  'stickerCollection.achievementWords5': 'Học 5 từ mới',
+  'stickerCollection.achievementWords25': 'Học 25 từ mới',
+  'stickerCollection.achievementStreak3': 'Học 3 ngày liên tiếp',
+  'stickerCollection.achievementStreak7': 'Kỷ lục 7 ngày',
+  'stickerCollection.achievementProgress': '{current}/{target}',
+  'stickerCollection.requirementLearnedWords': 'Học {target} từ mới.',
+  'stickerCollection.requirementCompletedScenes':
+    'Hoàn thành {target} trạm học.',
+  'stickerCollection.requirementCompletedReviews':
+    'Chơi ôn tập {target} lần.',
+  'stickerCollection.requirementCompletedLessons':
+    'Hoàn thành {target} bài học.',
+  'stickerCollection.requirementCurrentStreak':
+    'Học {target} ngày liên tiếp.',
+  'stickerCollection.requirementLongestStreak':
+    'Giữ kỷ lục học {target} ngày.',
   'stickerCollection.keepLearning': 'Tiếp tục học',
   'stickerCollection.unlockedAccessibility': 'Sticker {stickerName} đã mở',
+  'stickerCollection.lockedStickerAccessibility':
+    'Sticker {stickerName} chưa mở khóa',
   'stickerCollection.lockedAccessibility':
     'Sticker của bài {lessonTitle} chưa mở khóa',
   'themeLibrary.badge': 'Thư viện chủ đề',

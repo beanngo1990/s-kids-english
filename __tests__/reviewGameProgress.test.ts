@@ -1,12 +1,17 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import { getLessonReward } from '../src/data/rewards';
 import {
   completeLessonProgress,
   getProgress,
   resetProgress,
+  saveEarnedAchievementRecords,
   saveSceneProgress,
 } from '../src/engine/ProgressManager';
 import { getSceneProgressId } from '../src/utils/lessonProgress';
+
+const PROGRESS_STORAGE_KEY = '@skidsenglish/progress/v1';
 
 beforeEach(async () => {
   await resetProgress();
@@ -51,6 +56,20 @@ test('lesson completion records review game and reward progress', async () => {
   );
   expect(result.unlockedSticker).toEqual(lessonReward);
   expect(progress.earnedStickerIds).toContain(lessonReward.stickerId);
+  expect(progress.earnedStickerRecords).toContainEqual(
+    expect.objectContaining({
+      lessonId: morningRoutineLesson.id,
+      source: 'lesson',
+      stickerId: lessonReward.stickerId,
+    }),
+  );
+
+  const record = progress.earnedStickerRecords.find(
+    item => item.stickerId === lessonReward.stickerId,
+  );
+
+  expect(record?.earnedAt).toEqual(expect.any(String));
+  expect(Number.isNaN(new Date(record?.earnedAt ?? '').getTime())).toBe(false);
 });
 
 test('lesson replay does not duplicate an earned sticker', async () => {
@@ -69,4 +88,48 @@ test('lesson replay does not duplicate an earned sticker', async () => {
   expect(
     progress.earnedStickerIds.filter(id => id === lessonReward.stickerId),
   ).toHaveLength(1);
+  expect(
+    progress.earnedStickerRecords.filter(
+      record => record.stickerId === lessonReward.stickerId,
+    ),
+  ).toHaveLength(1);
+});
+
+test('legacy sticker ids normalize into sticker records', async () => {
+  const lessonReward = getLessonReward(morningRoutineLesson.id);
+
+  expect(lessonReward).toBeDefined();
+  if (!lessonReward) {
+    throw new Error('Morning routine lesson reward is missing.');
+  }
+
+  await AsyncStorage.setItem(
+    PROGRESS_STORAGE_KEY,
+    JSON.stringify({
+      earnedStickerIds: [lessonReward.stickerId],
+    }),
+  );
+
+  const progress = await getProgress();
+
+  expect(progress.earnedStickerIds).toContain(lessonReward.stickerId);
+  expect(progress.earnedStickerRecords).toContainEqual({
+    source: 'legacy',
+    stickerId: lessonReward.stickerId,
+  });
+});
+
+test('achievement records persist without duplicates', async () => {
+  const record = {
+    achievementId: 'achievement-first-word',
+    earnedAt: '2026-07-14T06:00:00.000Z',
+    stickerId: 'achievement-sticker-first-word',
+  };
+
+  await saveEarnedAchievementRecords([record]);
+  await saveEarnedAchievementRecords([record]);
+
+  const progress = await getProgress();
+
+  expect(progress.earnedAchievementRecords).toEqual([record]);
 });
