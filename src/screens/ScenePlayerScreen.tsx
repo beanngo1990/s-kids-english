@@ -19,6 +19,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const openedFromParent = route.params.openedFromParent === true;
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
     : undefined;
@@ -45,7 +46,10 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
           <AppButton
             title={t('scenePlayer.backToPack')}
             onPress={() =>
-              navigation.navigate('LessonPack', { lessonId: lesson.id })
+              navigation.navigate('LessonPack', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         </View>
@@ -59,12 +63,18 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       return;
     }
 
-    navigation.replace('LessonPack', { lessonId: lesson.id });
+    navigation.replace('LessonPack', {
+      lessonId: lesson.id,
+      openedFromParent,
+    });
   };
 
   const handleComplete = async () => {
     if (lesson.reviewGame?.type === 'memory') {
-      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+      navigation.navigate('ReviewGame', {
+        lessonId: lesson.id,
+        openedFromParent,
+      });
       return;
     }
 

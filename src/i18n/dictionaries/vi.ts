@@ -255,6 +255,10 @@ export const vi = {
   'lessonPack.locked': 'Đang khóa',
   'lessonPack.playMemoryAgain': 'Chơi lật thẻ lại',
   'lessonPack.learnFromStart': 'Học từ cảnh đầu',
+  'lessonPack.parentBadge': 'Dành cho ba mẹ',
+  'lessonPack.parentContextText':
+    'Chọn trạm để học cùng bé hoặc dùng nút chính để tiếp tục đúng điểm bé đang dừng.',
+  'lessonPack.parentContextTitle': 'Xem nhanh gói bài học',
   'reward.notFound': 'Không tìm thấy bài học này.',
   'reward.backToList': 'Về danh sách bài học',
   'reward.mascotAccessibility': 'Sungy chúc mừng bé',
@@ -290,6 +294,9 @@ export const vi = {
   'reviewGame.notEnoughImagesTitle': 'Chưa đủ hình để chơi lật thẻ.',
   'reviewGame.notEnoughImagesText':
     'Game cần ít nhất 2 từ có hình minh họa trong bài học.',
+  'reviewGame.parentBadge': 'Ôn cùng bé',
+  'reviewGame.parentHint':
+    'Ba mẹ có thể để bé tự lật thẻ, rồi nhắc bé đọc lại từ sau mỗi cặp đúng.',
   'reviewGame.wordCount': '{count} từ',
   'scenePlayer.lessonNotFound': 'Không tìm thấy bài học này.',
   'scenePlayer.backToList': 'Về danh sách bài học',

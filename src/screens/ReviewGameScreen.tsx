@@ -46,6 +46,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const openedFromParent = route.params.openedFromParent === true;
   const [isCompleting, setIsCompleting] = useState(false);
   const appLanguage = useSavedAppLanguage();
   const [teacherPromptMode, setTeacherPromptMode] =
@@ -176,7 +177,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           <AppButton
             title={t('reviewGame.backToPack')}
             onPress={() =>
-              navigation.replace('LessonPack', { lessonId: lesson.id })
+              navigation.replace('LessonPack', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         </View>
@@ -198,7 +202,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           <AppButton
             title={t('reviewGame.backToPack')}
             onPress={() =>
-              navigation.replace('LessonPack', { lessonId: lesson.id })
+              navigation.replace('LessonPack', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         </View>
@@ -209,9 +216,26 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   return (
     <Screen scroll>
       <View style={styles.container}>
-        <View style={styles.header}>
+        {openedFromParent ? (
+          <View style={styles.parentContext}>
+            <KidBadge tone="sky">{t('reviewGame.parentBadge')}</KidBadge>
+            <Text style={styles.parentContextText}>
+              {t('reviewGame.parentHint')}
+            </Text>
+          </View>
+        ) : null}
+
+        <View
+          style={[
+            styles.header,
+            openedFromParent && styles.headerParent,
+          ]}
+        >
           <View style={styles.iconBox}>
-            <SKidsIcon name={getLessonIconName(lesson)} size={48} />
+            <SKidsIcon
+              name={getLessonIconName(lesson)}
+              size={openedFromParent ? 40 : 48}
+            />
           </View>
           <View style={styles.headerText}>
             <View style={styles.headerTopRow}>
@@ -343,6 +367,13 @@ const styles = createThemedStyles(() => ({
     flexDirection: 'row',
     gap: spacing.md,
   },
+  headerParent: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: 24,
+    borderWidth: 1,
+    padding: spacing.md,
+  },
   headerTopRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -361,6 +392,18 @@ const styles = createThemedStyles(() => ({
     height: 64,
     justifyContent: 'center',
     width: 64,
+  },
+  parentContext: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: 24,
+    borderWidth: 1,
+    gap: spacing.xs,
+    padding: spacing.md,
+  },
+  parentContextText: {
+    color: colors.textSoft,
+    ...typography.caption,
   },
   title: {
     color: colors.text,
