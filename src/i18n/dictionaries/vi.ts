@@ -395,6 +395,7 @@ export const vi = {
   'parent.stats.customPlanTitle': 'Tự chọn',
   'parent.stats.customLessons': 'Từng bài',
   'parent.stats.customLessonsHint': 'Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
+  'parent.stats.currentPlanLabel': 'Đang dùng',
   'parent.stats.lessonToReview': 'Bài bé có thể ôn lại',
   'parent.stats.lessonToLearn': 'Bài bé đang học',
   'parent.stats.openLessonAccessibility': 'Mở {lessonTitle}',

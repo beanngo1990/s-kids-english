@@ -396,6 +396,7 @@ export const en: TranslationDictionary = {
   'parent.stats.customPlanTitle': 'Custom',
   'parent.stats.customLessons': 'Custom lessons',
   'parent.stats.customLessonsHint': 'Manually selecting lessons. Use the toggles below to show or hide lessons.',
+  'parent.stats.currentPlanLabel': 'Current plan',
   'parent.stats.lessonToReview': 'Lesson to review',
   'parent.stats.lessonToLearn': 'Current lesson',
   'parent.stats.openLessonAccessibility': 'Open {lessonTitle}',
