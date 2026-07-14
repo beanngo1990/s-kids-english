@@ -276,6 +276,18 @@ export function ParentScreen({ navigation }: Props) {
   );
   const isCustomPlanActive =
     isCustomPlanMode || (!isFullJourneyEnabled && !isGentlePlanEnabled);
+  const currentLessonPlanTitle = isFullJourneyEnabled
+    ? t('parent.stats.guidedPlanTitle')
+    : isGentlePlanEnabled
+    ? t('parent.stats.gentlePlanTitle')
+    : t('parent.stats.customPlanTitle');
+  const currentLessonPlanSubtitle = isFullJourneyEnabled
+    ? t('parent.stats.guidedPlanSubtitle')
+    : isGentlePlanEnabled
+    ? t('parent.stats.gentleLessons', {
+        count: String(gentleLessonIds.length),
+      })
+    : t('parent.stats.customLessons');
   const focusTheme = themes.find(theme =>
     theme.lessonIds.includes(focusLesson?.id ?? ''),
   );
@@ -993,116 +1005,131 @@ export function ParentScreen({ navigation }: Props) {
             </AppCard>
 
             <AppCard style={styles.lessonPlanCard}>
-              <Text style={styles.lessonPlanTitle}>{t('parent.stats.selectLearningPace')}</Text>
-              <Text style={styles.lessonPlanSubtitle}>
-                {t('parent.stats.selectLearningPaceSubtitle')}
-              </Text>
-              <View
-                style={[
-                  styles.lessonPlanOptions,
-                  isCompactDashboard && styles.lessonPlanOptionsCompact,
-                ]}
-              >
+              <View style={styles.settingsCardHeader}>
+                <Text style={styles.lessonPlanTitle}>
+                  {t('parent.stats.selectLearningPace')}
+                </Text>
+              </View>
+
+              <View style={styles.learningSummaryPanel}>
+                <View style={styles.learningSummaryIcon}>
+                  <SKidsIcon name="map" size={34} />
+                </View>
+                <View style={styles.learningSummaryCopy}>
+                  <Text style={styles.learningSummaryLabel}>
+                    {t('parent.stats.currentPlanLabel')}
+                  </Text>
+                  <Text style={styles.learningSummaryTitle}>
+                    {currentLessonPlanTitle}
+                  </Text>
+                  <Text style={styles.learningSummarySubtitle}>
+                    {currentLessonPlanSubtitle}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.learningSettingsList}>
                 <Pressable
                   accessibilityRole="button"
                   accessibilityState={{ selected: isFullJourneyEnabled }}
                   disabled={!isDashboardReady}
                   onPress={() => handleSelectLessonPlan()}
                   style={({ pressed }) => [
-                    styles.lessonPlanOption,
-                    isCompactDashboard && styles.lessonPlanOptionCompact,
-                    isFullJourneyEnabled && styles.lessonPlanOptionActive,
+                    styles.learningSettingsRow,
+                    isFullJourneyEnabled && styles.learningSettingsRowSelected,
                     !isDashboardReady && styles.optionDisabled,
                     pressed && isDashboardReady && styles.pressed,
                   ]}
                 >
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionTitle,
-                      isFullJourneyEnabled &&
-                        styles.lessonPlanOptionTitleActive,
-                    ]}
-                  >
-                    {t('parent.stats.guidedPlanTitle')}
-                  </Text>
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionSubtitle,
-                      isFullJourneyEnabled &&
-                        styles.lessonPlanOptionSubtitleActive,
-                    ]}
-                  >
-                    {t('parent.stats.guidedPlanSubtitle')}
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="map" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.stats.guidedPlanTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.stats.guidedPlanSubtitle')}
+                    </Text>
+                  </View>
+                  <Text style={styles.learningSettingsChevron}>
+                    {isFullJourneyEnabled ? '✓' : '›'}
                   </Text>
                 </Pressable>
+
                 <Pressable
                   accessibilityRole="button"
                   accessibilityState={{ selected: isGentlePlanEnabled }}
                   disabled={!isDashboardReady}
                   onPress={() => handleSelectLessonPlan(gentleLessonIds)}
                   style={({ pressed }) => [
-                    styles.lessonPlanOption,
-                    isCompactDashboard && styles.lessonPlanOptionCompact,
-                    isGentlePlanEnabled && styles.lessonPlanOptionWarm,
+                    styles.learningSettingsRow,
+                    isGentlePlanEnabled && styles.learningSettingsRowSelected,
                     !isDashboardReady && styles.optionDisabled,
                     pressed && isDashboardReady && styles.pressed,
                   ]}
                 >
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionTitle,
-                      isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
-                    ]}
-                  >
-                    {t('parent.stats.gentlePlanTitle')}
-                  </Text>
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionSubtitle,
-                      isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
-                    ]}
-                  >
-                    {t('parent.stats.gentleLessons', {
-                      count: String(gentleLessonIds.length),
-                    })}
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="focusLesson" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.stats.gentlePlanTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.stats.gentleLessons', {
+                        count: String(gentleLessonIds.length),
+                      })}
+                    </Text>
+                  </View>
+                  <Text style={styles.learningSettingsChevron}>
+                    {isGentlePlanEnabled ? '✓' : '›'}
                   </Text>
                 </Pressable>
+
                 <Pressable
                   accessibilityRole="button"
                   accessibilityState={{ selected: isCustomPlanActive }}
                   disabled={!isDashboardReady}
                   onPress={handleOpenCustomPlan}
                   style={({ pressed }) => [
-                    styles.lessonPlanOption,
-                    isCompactDashboard && styles.lessonPlanOptionCompact,
-                    isCompactDashboard && styles.lessonPlanOptionLastCompact,
-                    isCustomPlanActive && styles.lessonPlanOptionCustom,
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    isCustomPlanActive && styles.learningSettingsRowSelected,
                     !isDashboardReady && styles.optionDisabled,
                     pressed && isDashboardReady && styles.pressed,
                   ]}
                 >
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionTitle,
-                      isCustomPlanActive && styles.lessonPlanOptionCustomText,
-                    ]}
-                  >
-                    {t('parent.stats.customPlanTitle')}
-                  </Text>
-                  <Text
-                    style={[
-                      styles.lessonPlanOptionSubtitle,
-                      isCustomPlanActive && styles.lessonPlanOptionCustomText,
-                    ]}
-                  >
-                    {t('parent.stats.customLessons')}
+                  <View style={styles.learningSettingsRowIcon}>
+                    <SKidsIcon name="schoolSupplies" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.stats.customPlanTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.stats.customLessons')}
+                    </Text>
+                  </View>
+                  <Text style={styles.learningSettingsChevron}>
+                    {isCustomPlanActive ? '✓' : '›'}
                   </Text>
                 </Pressable>
               </View>
+
               {isCustomPlanActive ? (
                 <View style={styles.customPlanNotice}>
                   <View style={styles.customPlanNoticeDot} />
-                  <Text style={styles.lessonPlanOptionSubtitle}>
+                  <Text style={styles.customPlanNoticeText}>
                     {t('parent.stats.customLessonsHint')}
                   </Text>
                 </View>
@@ -1154,11 +1181,12 @@ export function ParentScreen({ navigation }: Props) {
                 <Text style={styles.lessonSectionHeadingTitle}>
                   {t('parent.stats.themeListTitle')}
                 </Text>
-                <Text style={styles.lessonSectionHeadingSubtitle}>
-                  {t('parent.stats.themeListSubtitle')}
-                </Text>
               </View>
-              <KidBadge tone="sky">{t('parent.stats.customPlanBadge')}</KidBadge>
+              {isCustomPlanActive ? (
+                <KidBadge tone="sky">
+                  {t('parent.stats.customPlanBadge')}
+                </KidBadge>
+              ) : null}
             </View>
 
             <View style={styles.lessonSectionList}>
@@ -1286,9 +1314,12 @@ export function ParentScreen({ navigation }: Props) {
                                     />
                                   </View>
                                   <View style={styles.managedLessonCopy}>
+                                    <Text style={styles.managedLessonTitle}>
+                                      {lessonTitle}
+                                    </Text>
                                     <Text
                                       style={[
-                                        styles.managedLessonState,
+                                        styles.managedLessonSubtitle,
                                         isCurrentLesson &&
                                           styles.managedLessonStateCurrent,
                                         isCompleted &&
@@ -1298,11 +1329,7 @@ export function ParentScreen({ navigation }: Props) {
                                       ]}
                                     >
                                       {lessonState}
-                                    </Text>
-                                    <Text style={styles.managedLessonTitle}>
-                                      {lessonTitle}
-                                    </Text>
-                                    <Text style={styles.managedLessonSubtitle}>
+                                      {' · '}
                                       {t('parent.stats.stationsTotal', {
                                         count: String(lesson.scenes.length),
                                       })}
@@ -2646,7 +2673,8 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.surfaceBlue,
     borderColor: colors.primary,
     borderWidth: 1,
-    gap: spacing.md,
+    gap: spacing.sm,
+    padding: spacing.md,
   },
   learningPathCopy: {
     flex: 1,
@@ -2664,7 +2692,7 @@ const styles = createThemedStyles(() => ({
   },
   learningPathCountValue: {
     color: colors.primaryDark,
-    ...typography.title,
+    ...typography.subtitle,
   },
   learningPathFill: {
     backgroundColor: colors.primary,
@@ -2767,6 +2795,9 @@ const styles = createThemedStyles(() => ({
   },
   learningSettingsRowLast: {
     borderBottomWidth: 0,
+  },
+  learningSettingsRowSelected: {
+    backgroundColor: colors.primarySoft,
   },
   learningSettingsRowSubtitle: {
     color: colors.textSoft,
@@ -2910,7 +2941,10 @@ const styles = createThemedStyles(() => ({
     ...typography.body,
   },
   lessonPlanCard: {
-    gap: spacing.sm,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.md,
   },
   lessonPlanOption: {
     backgroundColor: colors.surfaceBlue,
