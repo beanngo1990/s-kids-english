@@ -6,7 +6,10 @@ import { AppButton } from '../components/AppButton';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { useI18n } from '../i18n';
-import { completeLessonProgress } from '../engine/ProgressManager';
+import {
+  completeLessonProgress,
+  type ProgressCompletionResult,
+} from '../engine/ProgressManager';
 import { ScenePlayer } from '../engine/ScenePlayer';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
@@ -78,23 +81,21 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       return;
     }
 
-    let xpGained = 0;
-    let leveledUp = false;
-    let newLevel = 1;
-    let unlockedSticker = undefined;
+    let completionResult: ProgressCompletionResult = {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: 1,
+    };
     try {
-      const result = await completeLessonProgress(lesson);
-      if (result && typeof result === 'object' && 'xpGained' in result) {
-         xpGained = (result as any).xpGained;
-         leveledUp = (result as any).leveledUp;
-         newLevel = (result as any).newLevel;
-         unlockedSticker = (result as any).unlockedSticker;
-      }
+      completionResult = await completeLessonProgress(lesson);
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id, xpGained, leveledUp, newLevel, unlockedSticker });
+    navigation.navigate('Reward', {
+      lessonId: lesson.id,
+      ...completionResult,
+    });
   };
 
   return (

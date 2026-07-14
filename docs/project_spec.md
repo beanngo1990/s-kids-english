@@ -43,8 +43,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
-- **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker, activity/streak, daily reminder,
-  Light/Dark/System theme.
+- **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
+  reminder, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
   mode `vi`/`en`/`bilingual`; chưa phải full-app localization.
 - **Implemented:** local persistence bằng AsyncStorage.
@@ -102,6 +102,7 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `ReviewGame { lessonId, learningMode?, openedFromParent? }`
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
+- `StickerCollection { highlightedStickerId? }`
 - `Parent`
 
 Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
@@ -304,15 +305,18 @@ không bị kẹt. Các primitive như đọc, save/reset toàn bộ progress ho
 throw; caller không được giả định mọi progress operation đều nuốt lỗi. Activity ghi words/scenes
 và ước lượng 3 phút cho mỗi scene event.
 
-- **Open decision:** runtime reward implementation và `reviewGameProgress.test.ts` đang khác nhau
-  về thời điểm trao sticker:
-  - Runtime `saveSceneProgress`: scene mới +3 XP, replay +1 XP và trao level sticker nếu lần gọi đó
-    làm tăng level, kể cả trước review.
-  - Runtime `completeLessonProgress`: review mới +2 XP, replay +1 XP và chỉ trao sticker nếu lần
-    gọi review đó làm tăng level.
-  - Tests hiện yêu cầu chưa có sticker sau khi hoàn tất các scene và phải có sticker sau khi hoàn
-    tất review.
-  - Không thay reward contract hoặc “sửa test cho pass” nếu task chưa xác định semantics mong muốn.
+- Sticker là phần thưởng theo lesson, không phải phần thưởng theo level. `src/data/rewards.ts`
+  khai báo catalog một sticker cho mỗi lesson pack hiện có.
+- `saveSceneProgress`: scene mới +3 XP, replay +1 XP. Với lesson có review game, flow này không
+  trao sticker trước review. Với lesson không có review game, scene cuối cùng có thể đánh dấu lesson
+  complete, nhưng sticker vẫn được trao ở `completeLessonProgress` để reward UI nhận được
+  `unlockedSticker`.
+- `completeLessonProgress`: review mới +2 XP, replay +1 XP; đánh dấu lesson/review complete,
+  thêm learned words và trao sticker của lesson nếu sticker đó chưa có. Replay không duplicate
+  sticker nhưng có thể repair progress cũ đã complete lesson mà thiếu sticker.
+- `RewardScreen` hiển thị sticker mới khi `unlockedSticker` được trả về và có CTA mở
+  `StickerCollection`. `StickerCollectionScreen` hiển thị grid sticker đã mở/đang khóa dựa trên
+  `earnedStickerIds`, với optional `highlightedStickerId` cho sticker vừa nhận.
 
 ### Daily reminders
 
@@ -479,12 +483,12 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng 2026-07-13:
+Tại lần kiểm chứng 2026-07-14:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 65/68 tests pass; failures còn ở speech recording fallback timing và reward/review
-  expectations.
-- ESLint: pass với 4 warnings trong baseline.
+- Jest: 70/71 tests pass; failure còn ở speech recording fallback timing
+  (`SpeakPracticeControls.test.tsx`).
+- ESLint: pass với 2 warnings trong baseline.
 - Repository chưa có tracked CI workflow.
 
 Các con số này là snapshot, không thay thế việc chạy checks. Cập nhật hoặc xóa mục này ngay khi

@@ -17,6 +17,7 @@ import {
 import {
   completeLessonProgress,
   saveVocabularyInteraction,
+  type ProgressCompletionResult,
 } from '../engine/ProgressManager';
 import { useI18n, useSavedAppLanguage } from '../i18n';
 import { GamePlayer } from '../games/GameRegistry';
@@ -127,18 +128,13 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     }
 
     setIsCompleting(true);
-    let xpGained = 0;
-    let leveledUp = false;
-    let newLevel = 1;
-    let unlockedSticker = undefined;
+    let completionResult: ProgressCompletionResult = {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: 1,
+    };
     try {
-      const result = await completeLessonProgress(lesson);
-      if (result && typeof result === 'object' && 'xpGained' in result) {
-         xpGained = (result as any).xpGained;
-         leveledUp = (result as any).leveledUp;
-         newLevel = (result as any).newLevel;
-         unlockedSticker = (result as any).unlockedSticker;
-      }
+      completionResult = await completeLessonProgress(lesson);
     } catch {
       // Progress is best-effort; reward flow should still continue.
     } finally {
@@ -148,10 +144,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     navigation.replace('Reward', {
       lessonId: lesson.id,
       playedWordIds: memoryItems.map(item => item.id),
-      xpGained,
-      leveledUp,
-      newLevel,
-      unlockedSticker,
+      ...completionResult,
     });
   };
 

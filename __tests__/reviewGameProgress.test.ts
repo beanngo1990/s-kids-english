@@ -1,4 +1,5 @@
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
+import { getLessonReward } from '../src/data/rewards';
 import {
   completeLessonProgress,
   getProgress,
@@ -33,7 +34,14 @@ test('scene completion waits for review game before awarding lesson reward', asy
 });
 
 test('lesson completion records review game and reward progress', async () => {
-  await completeLessonProgress(morningRoutineLesson);
+  const lessonReward = getLessonReward(morningRoutineLesson.id);
+
+  expect(lessonReward).toBeDefined();
+  if (!lessonReward) {
+    throw new Error('Morning routine lesson reward is missing.');
+  }
+
+  const result = await completeLessonProgress(morningRoutineLesson);
 
   const progress = await getProgress();
 
@@ -41,5 +49,24 @@ test('lesson completion records review game and reward progress', async () => {
   expect(progress.completedReviewGameIds).toContain(
     morningRoutineLesson.reviewGame?.id,
   );
-  expect(progress.earnedStickerIds.length).toBeGreaterThan(0);
+  expect(result.unlockedSticker).toEqual(lessonReward);
+  expect(progress.earnedStickerIds).toContain(lessonReward.stickerId);
+});
+
+test('lesson replay does not duplicate an earned sticker', async () => {
+  const lessonReward = getLessonReward(morningRoutineLesson.id);
+
+  expect(lessonReward).toBeDefined();
+  if (!lessonReward) {
+    throw new Error('Morning routine lesson reward is missing.');
+  }
+
+  await completeLessonProgress(morningRoutineLesson);
+  const replayResult = await completeLessonProgress(morningRoutineLesson);
+  const progress = await getProgress();
+
+  expect(replayResult.unlockedSticker).toBeUndefined();
+  expect(
+    progress.earnedStickerIds.filter(id => id === lessonReward.stickerId),
+  ).toHaveLength(1);
 });

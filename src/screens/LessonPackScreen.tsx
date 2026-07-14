@@ -17,6 +17,7 @@ import {
   completeLessonProgress,
   getProgress,
   type LocalProgress,
+  type ProgressCompletionResult,
 } from '../engine/ProgressManager';
 import {
   getLocalizedLessonSubtitle,
@@ -139,15 +140,23 @@ export function LessonPackScreen({ navigation, route }: Props) {
     }
 
     setIsCompleting(true);
+    let completionResult: ProgressCompletionResult = {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: 1,
+    };
     try {
-      await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson);
     } catch {
       // Progress is best-effort; reward flow should still be reachable.
     } finally {
       setIsCompleting(false);
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id });
+    navigation.navigate('Reward', {
+      lessonId: lesson.id,
+      ...completionResult,
+    });
   };
 
   if (!lesson) {

@@ -13,6 +13,7 @@ import {
   ReviewGameScreen,
   ReviewLibraryScreen,
   ScenePlayerScreen,
+  StickerCollectionScreen,
   ThemeLibraryScreen,
 } from '../screens';
 import { getParentSettings } from '../engine/ParentSettingsManager';
@@ -120,6 +121,11 @@ export function AppNavigator() {
           name="Reward"
           component={RewardScreen}
           options={{ title: t('nav.reward'), gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="StickerCollection"
+          component={StickerCollectionScreen}
+          options={{ title: t('nav.stickerCollection') }}
         />
         <Stack.Screen
           name="Parent"
