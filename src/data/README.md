@@ -165,6 +165,10 @@ the English word/phrase cue, and add `instructionEn`, `successFeedbackEn` or
 `failFeedbackEn` only when the generated English teacher instruction/feedback
 needs author-written copy.
 
+Lesson and theme titles should keep `titleVi` plus `titleEn`. Use
+`descriptionVi` for Vietnamese app copy and add `descriptionEn` when the
+description is shown in English UI.
+
 ## Validator
 
 `assertValidLessons()` runs automatically when `src/data/lessons.ts` loads in

@@ -15,15 +15,13 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { getParentSettings } from '../engine/ParentSettingsManager';
 import {
   playCompleteSound,
   speakWord,
 } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
-import { useI18n } from '../i18n';
-import type { AppLanguage } from '../i18n/types';
+import { useI18n, useSavedAppLanguage } from '../i18n';
 import type { SceneObject } from '../types/lesson';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -35,10 +33,10 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 export function RewardScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const displayWords = useMemo(() => {
     if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
       const playedSet = new Set(route.params.playedWordIds);
@@ -87,13 +85,6 @@ export function RewardScreen({ navigation, route }: Props) {
       .then(nextProgress => {
         if (isMounted) {
           setProgress(nextProgress);
-        }
-      })
-      .catch(() => undefined);
-    getParentSettings()
-      .then(settings => {
-        if (isMounted) {
-          setAppLanguage(settings.appLanguage);
         }
       })
       .catch(() => undefined);

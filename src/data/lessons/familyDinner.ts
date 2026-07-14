@@ -31,6 +31,8 @@ export const familyDinnerLesson: Lesson = {
   titleEn: 'Family Dinner',
   descriptionVi:
     'Bé học cách chuẩn bị bữa tối, chuyền món trên bàn và dọn nhẹ sau khi ăn cùng cả nhà.',
+  descriptionEn:
+    'Learn preparing dinner, passing dishes, and helping clean up after eating together.',
   thumbnailEmoji: '🍽️',
   ageRange: {
     min: 3,

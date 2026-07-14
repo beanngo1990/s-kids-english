@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { getParentSettings } from '../engine/ParentSettingsManager';
+import {
+  getParentSettings,
+  subscribeParentSettings,
+} from '../engine/ParentSettingsManager';
 import type { AppLanguage } from './types';
 import { en } from './dictionaries/en';
 import {
@@ -53,8 +56,15 @@ export function useSavedAppLanguage() {
       })
       .catch(() => undefined);
 
+    const unsubscribe = subscribeParentSettings(settings => {
+      if (isMounted) {
+        setLanguage(settings.appLanguage || 'vi');
+      }
+    });
+
     return () => {
       isMounted = false;
+      unsubscribe();
     };
   }, []);
 

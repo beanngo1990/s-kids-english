@@ -31,6 +31,8 @@ export const bedtimeLesson: Lesson = {
   titleEn: 'Bedtime',
   descriptionVi:
     'Bé học cách chọn truyện, làm dịu căn phòng và chuẩn bị vào giấc ngủ.',
+  descriptionEn:
+    'Learn choosing a story, calming the room, and getting ready to sleep.',
   thumbnailEmoji: '🌙',
   ageRange: {
     min: 3,

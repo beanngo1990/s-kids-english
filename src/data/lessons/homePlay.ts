@@ -31,6 +31,8 @@ export const homePlayLesson: Lesson = {
   titleEn: 'Playing at Home',
   descriptionVi:
     'Bé học cách chọn đồ chơi, chơi sáng tạo và dọn gọn góc chơi sau khi chơi.',
+  descriptionEn:
+    'Learn choosing toys, creative play, and tidying the play corner afterward.',
   thumbnailEmoji: '🧸',
   ageRange: {
     min: 3,

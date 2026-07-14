@@ -20,6 +20,15 @@ export function getLocalizedLessonSubtitle(
   return language === 'en' ? lesson.titleVi : lesson.titleEn;
 }
 
+export function getLocalizedLessonDescription(
+  lesson: Lesson,
+  language: AppLanguage,
+) {
+  return language === 'en'
+    ? lesson.descriptionEn ?? lesson.titleEn
+    : lesson.descriptionVi;
+}
+
 export function getLocalizedSceneTitle(scene: Scene, language: AppLanguage) {
   return language === 'en' ? scene.titleEn : scene.titleVi;
 }
@@ -35,8 +44,13 @@ export function getLocalizedThemeTitle(
   return language === 'en' && theme.titleEn ? theme.titleEn : theme.titleVi;
 }
 
-export function getLocalizedThemeDescription(theme: LessonTheme) {
-  return theme.descriptionVi;
+export function getLocalizedThemeDescription(
+  theme: LessonTheme,
+  language: AppLanguage,
+) {
+  return language === 'en'
+    ? theme.descriptionEn ?? theme.titleEn ?? theme.titleVi
+    : theme.descriptionVi;
 }
 
 export function getLocalizedReviewGameTitle(

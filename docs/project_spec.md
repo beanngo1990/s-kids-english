@@ -233,16 +233,20 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   Light/Dark/System theme, app-language preference, teacher prompt mode và daily reminder time.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
-  Parent gate/settings, một số ScenePlayer system overlay, bottom tabs và domain titles
-  theme/lesson/scene/review-game ở các màn hình chính. Nhiều screen/copy dài trong Kid Mode,
-  dashboard, mô tả lesson/theme, parent tips và prompt data vẫn Vietnamese-first.
+  Parent gate/settings, navigation titles, một số ScenePlayer system overlay, bottom tabs, Home
+  coach/hub chrome, LessonList chrome, ReviewGame empty states, Parent stats/lesson-management
+  chrome, lesson/theme descriptions và domain titles theme/lesson/scene/review-game ở các màn hình
+  chính. Một số parent tips và prompt data vẫn Vietnamese-first.
+- **Implemented:** thay đổi parent settings về `appLanguage` được phát trong runtime để các màn
+  hình đã dùng i18n foundation cập nhật mà không cần restart app.
 - **Partial:** `teacherPromptMode` (`vi`/`en`/`bilingual`) được persist và chọn trong Parent UI.
   ScenePlayer instruction audio/display dùng `instructionVi` cho Vietnamese và English teacher
   instruction từ `instructionEn` hoặc fallback resolver dựa trên interaction/vocabulary/promptText.
   Scene success/fail feedback, speech-practice prompt/encouragement và memory review intro cũng đi
-  qua teacher prompt resolver. Teach-step feedback có thể tự dựng câu nghĩa từ vocabulary như
-  “It means good morning.”; các feedback English chưa có context rõ vẫn dùng cue an toàn như
-  “Great job!” hoặc “Try again.” khi chỉ có bản Việt.
+  qua teacher prompt resolver và nhận thay đổi `teacherPromptMode` từ parent settings trong
+  runtime. Teach-step feedback có thể tự dựng câu nghĩa từ vocabulary như “It means good
+  morning.”; các feedback English chưa có context rõ vẫn dùng cue an toàn như “Great job!” hoặc
+  “Try again.” khi chỉ có bản Việt.
 
 ### Scene learning
 

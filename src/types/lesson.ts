@@ -173,6 +173,7 @@ export type LessonTheme = {
   titleEn?: string;
   thumbnailEmoji: string;
   descriptionVi?: string;
+  descriptionEn?: string;
   lessonIds: EntityId[];
 };
 
@@ -183,6 +184,7 @@ export type Lesson = {
   titleVi: string;
   titleEn: string;
   descriptionVi: string;
+  descriptionEn?: string;
   thumbnailEmoji?: string;
   ageRange: AgeRange;
   scenes: Scene[];

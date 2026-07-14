@@ -31,6 +31,8 @@ export const snackTimeLesson: Lesson = {
   titleEn: 'Snack Time',
   descriptionVi:
     'Bé học cách chọn món bữa xế, ăn từng miếng nhỏ và dọn vỏ bánh sau khi ăn.',
+  descriptionEn:
+    'Learn choosing a snack, eating small bites, and cleaning up afterward.',
   thumbnailEmoji: '🥨',
   ageRange: {
     min: 3,

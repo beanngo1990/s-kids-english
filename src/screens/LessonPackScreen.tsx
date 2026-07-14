@@ -25,8 +25,7 @@ import {
   getLocalizedSceneTitle,
 } from '../i18n/domainCopy';
 import { getLearningModeCopy } from '../i18n/learningModeCopy';
-import { useI18n } from '../i18n';
-import type { AppLanguage } from '../i18n/types';
+import { useI18n, useSavedAppLanguage } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -43,13 +42,13 @@ type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 export function LessonPackScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -89,12 +88,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
-        setAppLanguage(settings.appLanguage);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
-        setAppLanguage('vi');
       });
   }, []);
 

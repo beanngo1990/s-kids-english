@@ -10,17 +10,20 @@ import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { speakTeacherPromptSegments } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
-import { getParentSettings } from '../engine/ParentSettingsManager';
+import {
+  getParentSettings,
+  subscribeParentSettings,
+} from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
   saveVocabularyInteraction,
 } from '../engine/ProgressManager';
-import { useI18n } from '../i18n';
+import { useI18n, useSavedAppLanguage } from '../i18n';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
 import { getLocalizedReviewGameTitle } from '../i18n/domainCopy';
 import { resolveReviewGameIntroPrompt } from '../i18n/teacherPrompts';
-import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
+import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -44,7 +47,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const [isCompleting, setIsCompleting] = useState(false);
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const appLanguage = useSavedAppLanguage();
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
@@ -53,17 +56,42 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   );
 
   useEffect(() => {
+    let isMounted = true;
+
+    const applyTeacherSettings = (
+      settings: Awaited<ReturnType<typeof getParentSettings>>,
+    ) => {
+      setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
+    };
+
+    const unsubscribe = subscribeParentSettings(settings => {
+      if (isMounted) {
+        applyTeacherSettings(settings);
+      }
+    });
+
     getParentSettings()
       .then(settings => {
-        setAppLanguage(settings.appLanguage);
-        setTeacherPromptMode(settings.teacherPromptMode);
-        if (!learningMode) {
+        if (!isMounted) {
+          return;
+        }
+        applyTeacherSettings(settings);
+        if (!route.params.learningMode) {
           setLearningMode(settings.learningMode);
         }
       })
       .catch(() => undefined)
-      .finally(() => setIsTeacherPromptReady(true));
-  }, [learningMode]);
+      .finally(() => {
+        if (isMounted) {
+          setIsTeacherPromptReady(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
+  }, [route.params.learningMode]);
 
   const memoryItems = useMemo(
     () => (lesson && learningMode ? getMemoryGameItems(lesson, learningMode) : []),
@@ -162,13 +190,13 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       <Screen>
         <View style={styles.errorContainer}>
           <Text style={styles.errorTitle}>
-            Chưa đủ hình để chơi lật thẻ.
+            {t('reviewGame.notEnoughImagesTitle')}
           </Text>
           <Text style={styles.errorText}>
-            Game cần ít nhất 2 từ có hình minh họa trong bài học.
+            {t('reviewGame.notEnoughImagesText')}
           </Text>
           <AppButton
-            title="Về gói bài học"
+            title={t('reviewGame.backToPack')}
             onPress={() =>
               navigation.replace('LessonPack', { lessonId: lesson.id })
             }
