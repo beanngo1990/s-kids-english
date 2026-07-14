@@ -277,17 +277,58 @@ export const en: TranslationDictionary = {
   'reward.replayLesson': 'Replay lesson',
   'reward.viewStickerCollection': 'View sticker collection',
   'stickerCollection.badge': 'Achievement album',
+  'stickerCollection.albumCover': 'Sungy album',
   'stickerCollection.title': 'Sticker collection',
   'stickerCollection.subtitle':
-    'Each sticker lights up when a lesson and its review are complete.',
+    'Each sticker captures Sungy learning with you after a lesson and review are complete.',
   'stickerCollection.progress': '{earned}/{total} stickers unlocked',
   'stickerCollection.progressAccessibility':
     '{earned} of {total} stickers unlocked',
   'stickerCollection.unlocked': 'Unlocked',
   'stickerCollection.locked': 'Locked',
   'stickerCollection.lockedSticker': 'Mystery sticker',
+  'stickerCollection.tapForDetails': 'Tap to see sticker details',
+  'stickerCollection.closeDetail': 'Close',
+  'stickerCollection.detailMeaning': 'Meaning',
+  'stickerCollection.detailHowToUnlock': 'How to unlock',
+  'stickerCollection.detailProgress': 'Progress',
+  'stickerCollection.detailEarned': 'Earned',
+  'stickerCollection.lessonMeaning':
+    'Sungy saves the moment you completed {lessonTitle}.',
+  'stickerCollection.lessonRequirement':
+    'Complete {lessonTitle} and its review.',
+  'stickerCollection.earnedOn': 'Earned on {date}',
+  'stickerCollection.earnedLegacy': 'Earned earlier',
+  'stickerCollection.earnedLegacyShort': 'Earlier',
+  'stickerCollection.earnedPending': 'Just unlocked',
+  'stickerCollection.lessonStickerTitle': 'Lesson stickers',
+  'stickerCollection.timelineTitle': 'Sticker timeline',
+  'stickerCollection.timelineEmpty':
+    'Newly earned stickers will appear here.',
+  'stickerCollection.achievementTitle': 'Sungy achievement stickers',
+  'stickerCollection.achievementFirstSteps': 'Easy wins',
+  'stickerCollection.achievementHabits': 'Habits',
+  'stickerCollection.achievementBigGoals': 'Big goals',
+  'stickerCollection.achievementWords5': 'Learn 5 new words',
+  'stickerCollection.achievementWords25': 'Learn 25 new words',
+  'stickerCollection.achievementStreak3': 'Learn 3 days in a row',
+  'stickerCollection.achievementStreak7': '7-day record',
+  'stickerCollection.achievementProgress': '{current}/{target}',
+  'stickerCollection.requirementLearnedWords': 'Learn {target} new words.',
+  'stickerCollection.requirementCompletedScenes':
+    'Complete {target} learning stops.',
+  'stickerCollection.requirementCompletedReviews':
+    'Play {target} review games.',
+  'stickerCollection.requirementCompletedLessons':
+    'Complete {target} lessons.',
+  'stickerCollection.requirementCurrentStreak':
+    'Learn {target} days in a row.',
+  'stickerCollection.requirementLongestStreak':
+    'Keep a {target}-day learning record.',
   'stickerCollection.keepLearning': 'Keep learning',
   'stickerCollection.unlockedAccessibility': '{stickerName} sticker unlocked',
+  'stickerCollection.lockedStickerAccessibility':
+    '{stickerName} sticker is still locked',
   'stickerCollection.lockedAccessibility':
     'Sticker for {lessonTitle} is still locked',
   'themeLibrary.badge': 'Theme library',

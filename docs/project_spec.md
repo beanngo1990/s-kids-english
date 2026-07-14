@@ -297,6 +297,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - completed lesson, scene và review-game IDs;
 - learned words và per-word mastery counters;
 - earned sticker IDs;
+- earned sticker records `{ stickerId, lessonId?, earnedAt?, source }` để hiển thị timeline;
+- earned achievement records `{ achievementId, stickerId, earnedAt? }` cho sticker thành tựu;
 - total XP;
 - optional current lesson/scene/step pointer.
 
@@ -306,7 +308,15 @@ throw; caller không được giả định mọi progress operation đều nu�
 và ước lượng 3 phút cho mỗi scene event.
 
 - Sticker là phần thưởng theo lesson, không phải phần thưởng theo level. `src/data/rewards.ts`
-  khai báo catalog một sticker cho mỗi lesson pack hiện có.
+  khai báo catalog một sticker cho mỗi lesson pack hiện có, gồm `iconName` và `tone` để render
+  sticker art riêng bằng bundled SKids icons.
+- `src/data/achievementRewards.ts` khai báo 18 sticker thành tựu Sungy ngoài lesson, chia nhóm
+  `firstSteps`, `habits`, `bigGoals`. Unlock condition hiện derive từ progress/activity counters:
+  learned words, completed scenes, completed reviews, completed lessons, current streak và longest
+  streak. Mỗi achievement có `stickerAssetName` trỏ tới PNG sticker riêng trong
+  `src/assets/stickers/achievements/`; renderer ưu tiên hiển thị asset này để mỗi thành tựu có art
+  độc lập gắn với Sungy. Metadata `art` vẫn giữ như fallback/direction cho motif, Sungy pose, icon
+  nhấn, icon phụ và nhãn mốc.
 - `saveSceneProgress`: scene mới +3 XP, replay +1 XP. Với lesson có review game, flow này không
   trao sticker trước review. Với lesson không có review game, scene cuối cùng có thể đánh dấu lesson
   complete, nhưng sticker vẫn được trao ở `completeLessonProgress` để reward UI nhận được
@@ -315,8 +325,15 @@ và ước lượng 3 phút cho mỗi scene event.
   thêm learned words và trao sticker của lesson nếu sticker đó chưa có. Replay không duplicate
   sticker nhưng có thể repair progress cũ đã complete lesson mà thiếu sticker.
 - `RewardScreen` hiển thị sticker mới khi `unlockedSticker` được trả về và có CTA mở
-  `StickerCollection`. `StickerCollectionScreen` hiển thị grid sticker đã mở/đang khóa dựa trên
-  `earnedStickerIds`, với optional `highlightedStickerId` cho sticker vừa nhận.
+  `StickerCollection`. `StickerCollectionScreen` có animation mở album Sungy, grid sticker đã
+  mở/đang khóa dựa trên `earnedStickerIds`, optional `highlightedStickerId`, sticker art dạng
+  huy hiệu Sungy + icon lesson, timeline ngày nhận dựa trên `earnedStickerRecords`, và achievement
+  stickers ngoài lesson được render theo các nhóm dễ đến khó. Card sticker chỉ hiển thị hình, tên
+  ngắn và trạng thái; khi bé bấm card, app phát SFX phản hồi và mở modal chi tiết gồm ý nghĩa,
+  cách mở, tiến độ và ngày nhận. Khi collection phát hiện achievement đã đạt nhưng chưa có record,
+  app ghi `earnedAchievementRecords` best-effort để lưu ngày nhận.
+  Legacy progress chỉ có `earnedStickerIds` được normalize thành record `source: 'legacy'` không có
+  `earnedAt`.
 
 ### Daily reminders
 
@@ -350,8 +367,10 @@ App hiện không có account/cloud sync. Có ba AsyncStorage stores:
 
 - Key: `@skidsenglish/progress/v1`.
 - Manager: `src/engine/ProgressManager.ts`.
-- Lưu completion, review, vocabulary mastery, XP, stickers, active theme và resume pointer.
-- Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ.
+- Lưu completion, review, vocabulary mastery, XP, sticker IDs, sticker records, achievement
+  records, active theme và resume pointer.
+- Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ; legacy
+  `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị.
 
 ### Daily activity
 
@@ -486,7 +505,7 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng 2026-07-14:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 70/71 tests pass; failure còn ở speech recording fallback timing
+- Jest: 73/74 tests pass; failure còn ở speech recording fallback timing
   (`SpeakPracticeControls.test.tsx`).
 - ESLint: pass với 2 warnings trong baseline.
 - Repository chưa có tracked CI workflow.

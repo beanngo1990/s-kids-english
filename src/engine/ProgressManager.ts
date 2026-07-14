@@ -20,6 +20,19 @@ export type WordProgress = {
   lastReviewedAt: string;
 };
 
+export type EarnedStickerRecord = {
+  stickerId: string;
+  lessonId?: string;
+  earnedAt?: string;
+  source: 'legacy' | 'lesson';
+};
+
+export type EarnedAchievementRecord = {
+  achievementId: string;
+  stickerId: string;
+  earnedAt?: string;
+};
+
 export type LocalProgress = {
   activeThemeId: string;
   completedLessonIds: string[];
@@ -27,6 +40,8 @@ export type LocalProgress = {
   completedSceneIds: string[];
   learnedWordIds: string[];
   earnedStickerIds: string[];
+  earnedStickerRecords: EarnedStickerRecord[];
+  earnedAchievementRecords: EarnedAchievementRecord[];
   vocabularyProgress: Record<string, WordProgress>;
   totalXP: number;
   currentLessonProgress?: {
@@ -50,6 +65,8 @@ const emptyProgress: LocalProgress = {
   completedReviewGameIds: [],
   completedSceneIds: [],
   earnedStickerIds: [],
+  earnedStickerRecords: [],
+  earnedAchievementRecords: [],
   learnedWordIds: [],
   vocabularyProgress: {},
   totalXP: 0,
@@ -117,6 +134,7 @@ export async function completeLessonProgress(
       !currentProgress.earnedStickerIds.includes(lessonReward.stickerId)
         ? lessonReward
         : undefined;
+    const earnedAt = unlockedSticker ? new Date().toISOString() : undefined;
     
     await saveProgress({
       ...currentProgress,
@@ -127,6 +145,14 @@ export async function completeLessonProgress(
         currentProgress.earnedStickerIds,
         unlockedSticker ? [unlockedSticker.stickerId] : [],
       ),
+      earnedStickerRecords: unlockedSticker
+        ? addStickerRecord(currentProgress.earnedStickerRecords, {
+            earnedAt,
+            lessonId: lesson.id,
+            source: 'lesson',
+            stickerId: unlockedSticker.stickerId,
+          })
+        : currentProgress.earnedStickerRecords,
       learnedWordIds: addUnique(
         currentProgress.learnedWordIds,
         learnedVocabulary.map(item => item.id),
@@ -147,6 +173,24 @@ export async function saveActiveThemeId(activeThemeId: string) {
   return saveProgress({
     ...currentProgress,
     activeThemeId,
+  });
+}
+
+export async function saveEarnedAchievementRecords(
+  records: EarnedAchievementRecord[],
+) {
+  if (records.length === 0) {
+    return getProgress();
+  }
+
+  const currentProgress = await getProgress();
+
+  return saveProgress({
+    ...currentProgress,
+    earnedAchievementRecords: addAchievementRecords(
+      currentProgress.earnedAchievementRecords,
+      records,
+    ),
   });
 }
 
@@ -305,6 +349,14 @@ export function getLessonVocabulary(lesson: Lesson) {
 
 function normalizeProgress(value: unknown): LocalProgress {
   const progress = value as Partial<LocalProgress>;
+  const earnedStickerRecords = normalizeStickerRecords(
+    progress.earnedStickerRecords,
+    progress.earnedStickerIds,
+  );
+  const earnedStickerIds = addUnique(
+    normalizeStringArray(progress.earnedStickerIds),
+    earnedStickerRecords.map(record => record.stickerId),
+  );
 
   return {
     activeThemeId: normalizeThemeId(progress.activeThemeId),
@@ -313,7 +365,11 @@ function normalizeProgress(value: unknown): LocalProgress {
       progress.completedReviewGameIds,
     ),
     completedSceneIds: normalizeStringArray(progress.completedSceneIds),
-    earnedStickerIds: normalizeStringArray(progress.earnedStickerIds),
+    earnedStickerIds,
+    earnedStickerRecords,
+    earnedAchievementRecords: normalizeAchievementRecords(
+      progress.earnedAchievementRecords,
+    ),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
     vocabularyProgress: progress.vocabularyProgress || {},
     totalXP: typeof progress.totalXP === 'number' && !Number.isNaN(progress.totalXP) ? progress.totalXP : 0,
@@ -361,6 +417,120 @@ function normalizeStringArray(value: unknown) {
 
 function addUnique(existingIds: string[], nextIds: string[]) {
   return Array.from(new Set([...existingIds, ...nextIds]));
+}
+
+function addStickerRecord(
+  existingRecords: EarnedStickerRecord[],
+  nextRecord: EarnedStickerRecord,
+) {
+  if (
+    existingRecords.some(record => record.stickerId === nextRecord.stickerId)
+  ) {
+    return existingRecords;
+  }
+
+  return [...existingRecords, nextRecord];
+}
+
+function addAchievementRecords(
+  existingRecords: EarnedAchievementRecord[],
+  nextRecords: EarnedAchievementRecord[],
+) {
+  const seenAchievementIds = new Set(
+    existingRecords.map(record => record.achievementId),
+  );
+  const addedRecords: EarnedAchievementRecord[] = [];
+
+  nextRecords.forEach(record => {
+    if (seenAchievementIds.has(record.achievementId)) {
+      return;
+    }
+
+    seenAchievementIds.add(record.achievementId);
+    addedRecords.push(record);
+  });
+
+  return [...existingRecords, ...addedRecords];
+}
+
+function normalizeAchievementRecords(value: unknown) {
+  const records: EarnedAchievementRecord[] = [];
+  const seenAchievementIds = new Set<string>();
+
+  if (!Array.isArray(value)) {
+    return records;
+  }
+
+  value.forEach(item => {
+    const record = item as Partial<EarnedAchievementRecord>;
+
+    if (
+      !record ||
+      typeof record !== 'object' ||
+      typeof record.achievementId !== 'string' ||
+      typeof record.stickerId !== 'string' ||
+      seenAchievementIds.has(record.achievementId)
+    ) {
+      return;
+    }
+
+    seenAchievementIds.add(record.achievementId);
+    records.push({
+      achievementId: record.achievementId,
+      earnedAt:
+        typeof record.earnedAt === 'string' ? record.earnedAt : undefined,
+      stickerId: record.stickerId,
+    });
+  });
+
+  return records;
+}
+
+function normalizeStickerRecords(
+  value: unknown,
+  earnedStickerIdsValue: unknown,
+) {
+  const records: EarnedStickerRecord[] = [];
+  const seenStickerIds = new Set<string>();
+
+  if (Array.isArray(value)) {
+    value.forEach(item => {
+      const record = item as Partial<EarnedStickerRecord>;
+
+      if (
+        !record ||
+        typeof record !== 'object' ||
+        typeof record.stickerId !== 'string' ||
+        seenStickerIds.has(record.stickerId)
+      ) {
+        return;
+      }
+
+      seenStickerIds.add(record.stickerId);
+      records.push({
+        earnedAt:
+          typeof record.earnedAt === 'string' ? record.earnedAt : undefined,
+        lessonId:
+          typeof record.lessonId === 'string' ? record.lessonId : undefined,
+        source: record.source === 'lesson' ? 'lesson' : 'legacy',
+        stickerId: record.stickerId,
+      });
+    });
+  }
+
+  normalizeStringArray(earnedStickerIdsValue).forEach(stickerId => {
+    if (seenStickerIds.has(stickerId)) {
+      return;
+    }
+
+    seenStickerIds.add(stickerId);
+    records.push({
+      source: 'legacy',
+      stickerId,
+    });
+  });
+
+  return records;
 }
 
 export function calculateLevelFromXP(xp: number): number {
