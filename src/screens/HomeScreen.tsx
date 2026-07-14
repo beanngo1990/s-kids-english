@@ -28,13 +28,8 @@ import { MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
-import {
-  sungyHomeCompleteTapMessages,
-  sungyHomeGuideTapMessages,
-  sungyHomeReviewTapMessages,
-} from '../data/mascotPrompts';
 import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
-import { playTapSound, speakVi } from '../engine/AudioManager';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import {
@@ -42,6 +37,7 @@ import {
   getLocalizedSceneTitle,
   getLocalizedThemeTitle,
 } from '../i18n/domainCopy';
+import { useI18n, useSavedAppLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
@@ -58,9 +54,10 @@ import {
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
 
-function speakSungyLine(message: string) {
+function speakSungyLine(message: string, language: AppLanguage = 'vi') {
   playTapSound().catch(() => undefined);
-  speakVi(message).catch(() => undefined);
+  const speech = language === 'en' ? speakWord(message) : speakVi(message);
+  speech.catch(() => undefined);
 }
 
 type ThemeMapNode = {
@@ -93,11 +90,12 @@ const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
 
 export function HomeScreen({ navigation }: Props) {
   useThemeSync();
+  const t = useI18n();
   const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const appLanguage = useSavedAppLanguage();
   const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
@@ -165,16 +163,16 @@ export function HomeScreen({ navigation }: Props) {
     shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
   const currentLessonId = ctaNode?.lessonId;
   const homeCoachMessage = isThemeComplete
-    ? 'Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!'
+    ? t('home.coach.complete')
     : hasPendingReviewGame
-      ? `Mình cùng ôn lại ${
-          pendingReviewLesson
+      ? t('home.coach.review', {
+          lessonTitle: pendingReviewLesson
             ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
-            : 'bài vừa học'
-        } nhé!`
+            : t('home.recentLesson'),
+        })
       : ctaNode
-        ? `Đi thôi! Trạm tiếp theo là ${ctaNode.sceneTitle}.`
-        : 'Hôm nay mình học cùng Sungy nhé!';
+        ? t('home.coach.next', { sceneTitle: ctaNode.sceneTitle })
+        : t('home.coach.default');
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
     : hasPendingReviewGame
@@ -186,10 +184,22 @@ export function HomeScreen({ navigation }: Props) {
       ? 'hint'
       : 'guide';
   const homeCoachTapMessages = isThemeComplete
-    ? sungyHomeCompleteTapMessages
+    ? [
+        t('home.coach.completeTapOne'),
+        t('home.coach.completeTapTwo'),
+        t('home.coach.completeTapThree'),
+      ]
     : hasPendingReviewGame
-      ? sungyHomeReviewTapMessages
-      : sungyHomeGuideTapMessages;
+      ? [
+          t('home.coach.reviewTapOne'),
+          t('home.coach.reviewTapTwo'),
+          t('home.coach.reviewTapThree'),
+        ]
+      : [
+          t('home.coach.guideTapOne'),
+          t('home.coach.guideTapTwo'),
+          t('home.coach.guideTapThree'),
+        ];
 
   const updateMapLayoutY = useCallback(
     (
@@ -218,13 +228,11 @@ export function HomeScreen({ navigation }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
-        setAppLanguage(settings.appLanguage);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
-        setAppLanguage('vi');
         setVisibleLessonIds(undefined);
       });
   }, []);
@@ -451,11 +459,13 @@ export function HomeScreen({ navigation }: Props) {
                     <MascotSpeechBubble
                       mascotSize="sm"
                       message={homeCoachMessage}
-                      onMascotPress={speakSungyLine}
+                      onMascotPress={message =>
+                        speakSungyLine(message, appLanguage)
+                      }
                       pose={homeCoachPose}
                       style={styles.mapCoach}
                       tapMessages={homeCoachTapMessages}
-                      title="Sungy dẫn đường"
+                      title={t('home.coach.title')}
                       tone={homeCoachTone}
                     />
                     <View
@@ -574,9 +584,11 @@ export function HomeScreen({ navigation }: Props) {
 
                       {mapNodes.length === 0 ? (
                         <View style={styles.emptyMap}>
-                          <KidBadge tone="alert">Chưa có trạm</KidBadge>
+                          <KidBadge tone="alert">
+                            {t('home.emptyMap.badge')}
+                          </KidBadge>
                           <Text style={styles.emptyMapTitle}>
-                            Chủ đề này chưa có gói bài học.
+                            {t('home.emptyMap.title')}
                           </Text>
                         </View>
                       ) : null}
@@ -907,7 +919,7 @@ export function HomeScreen({ navigation }: Props) {
           activeThemeTitle={
             activeTheme
               ? getLocalizedThemeTitle(activeTheme, appLanguage)
-              : 'Bản đồ S-Kids'
+              : t('home.mapFallbackTitle')
           }
           appLanguage={appLanguage}
           completed={completedSceneCount}
@@ -957,6 +969,7 @@ function SKidsHubSheet({
   total,
   visible,
 }: SKidsHubSheetProps) {
+  const t = useI18n();
   const safeTotal = Math.max(total, 0);
   const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
   const completionPercent =
@@ -968,32 +981,35 @@ function SKidsHubSheet({
       ? 'star'
       : 'focusLesson';
   const heroTitle = hasPendingReviewGame
-    ? `Ôn lại ${
-        pendingReviewLesson
+    ? t('home.hub.reviewTitle', {
+        lessonTitle: pendingReviewLesson
           ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
-          : 'bài vừa học'
-      }`
+          : t('home.recentLesson'),
+      })
     : isComplete
-      ? 'Bản đồ đã đủ sao'
-      : nextNode?.sceneTitle ?? 'Sẵn sàng học tiếp';
+      ? t('home.hub.completeTitle')
+      : nextNode?.sceneTitle ?? t('home.hub.readyTitle');
   const heroSubtitle = hasPendingReviewGame
-    ? 'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.'
+    ? t('home.hub.reviewSubtitle')
     : isComplete
-      ? 'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.'
+      ? t('home.hub.completeSubtitle')
       : nextNode
-        ? `${nextNode.lessonTitle} · Trạm ${nextNode.sceneIndexInLesson + 1}/${nextNode.sceneCountInLesson
-        }`
-        : 'Bản đồ sẽ hiện bài mới khi có nội dung.';
+        ? t('home.hub.nextSubtitle', {
+            current: String(nextNode.sceneIndexInLesson + 1),
+            lessonTitle: nextNode.lessonTitle,
+            total: String(nextNode.sceneCountInLesson),
+          })
+        : t('home.hub.emptySubtitle');
   const primaryLabel = hasPendingReviewGame
-    ? 'Chơi ôn tập'
+    ? t('home.hub.primaryReview')
     : isComplete
-      ? 'Chơi lại trạm đầu'
-      : 'Học tiếp';
+      ? t('home.hub.primaryReplay')
+      : t('home.hub.primaryContinue');
   const giftText = hasPendingReviewGame
-    ? 'Xong phần ôn tập, bé nhận thêm sticker thưởng.'
+    ? t('home.hub.giftReview')
     : isComplete
-      ? 'Chơi lại một trạm để giữ cảm giác tự tin.'
-      : 'Hoàn thành trạm hôm nay để nhận sticker mới.';
+      ? t('home.hub.giftComplete')
+      : t('home.hub.giftNext');
 
   return (
     <Modal
@@ -1004,7 +1020,7 @@ function SKidsHubSheet({
     >
       <View style={styles.hubModalRoot}>
         <Pressable
-          accessibilityLabel="Đóng S-Kids Hub"
+          accessibilityLabel={t('home.hub.closeAccessibility')}
           onPress={onClose}
           style={styles.hubBackdrop}
         />
@@ -1020,10 +1036,10 @@ function SKidsHubSheet({
               </View>
               <View style={styles.hubHeaderText}>
                 <Text style={styles.hubEyebrow}>S-Kids Hub</Text>
-                <Text style={styles.hubTitle}>Hôm nay mình đi đâu?</Text>
+                <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
               </View>
               <Pressable
-                accessibilityLabel="Đóng S-Kids Hub"
+                accessibilityLabel={t('home.hub.closeAccessibility')}
                 accessibilityRole="button"
                 onPress={onClose}
                 style={({ pressed }) => [
@@ -1031,7 +1047,7 @@ function SKidsHubSheet({
                   pressed && styles.hubButtonPressed,
                 ]}
               >
-                <Text style={styles.hubCloseText}>Đóng</Text>
+                <Text style={styles.hubCloseText}>{t('common.close')}</Text>
               </Pressable>
             </View>
 
@@ -1055,7 +1071,9 @@ function SKidsHubSheet({
                 </Text>
               </View>
               <View
-                accessibilityLabel={`Bé đã hoàn thành ${completionPercent} phần trăm bản đồ`}
+                accessibilityLabel={t('home.hub.progressAccessibility', {
+                  percent: String(completionPercent),
+                })}
                 accessibilityRole="progressbar"
                 style={styles.hubProgressTrack}
               >
@@ -1071,13 +1089,17 @@ function SKidsHubSheet({
             <View style={styles.hubStatsRow}>
               <View style={styles.hubStatCard}>
                 <Text style={styles.hubStatValue}>{safeCompleted}</Text>
-                <Text style={styles.hubStatLabel}>Sao đã nhận</Text>
+                <Text style={styles.hubStatLabel}>
+                  {t('home.hub.starsEarned')}
+                </Text>
               </View>
               <View style={styles.hubStatCard}>
                 <Text style={styles.hubStatValue}>
                   {Math.max(safeTotal - safeCompleted, 0)}
                 </Text>
-                <Text style={styles.hubStatLabel}>Trạm còn lại</Text>
+                <Text style={styles.hubStatLabel}>
+                  {t('home.hub.stopsRemaining')}
+                </Text>
               </View>
             </View>
 
@@ -1086,7 +1108,9 @@ function SKidsHubSheet({
                 <SKidsIcon name="sticker" size={40} />
               </View>
               <View style={styles.hubGiftText}>
-                <Text style={styles.hubGiftTitle}>Quà hôm nay</Text>
+                <Text style={styles.hubGiftTitle}>
+                  {t('home.hub.giftTitle')}
+                </Text>
                 <Text style={styles.hubGiftCopy}>{giftText}</Text>
               </View>
             </View>
@@ -1107,7 +1131,7 @@ function SKidsHubSheet({
                 <Text style={styles.hubPrimaryActionText}>{primaryLabel}</Text>
               </Pressable>
               <Pressable
-                accessibilityLabel="Đưa bản đồ về trạm hiện tại"
+                accessibilityLabel={t('home.hub.focusAccessibility')}
                 accessibilityRole="button"
                 accessibilityState={{ disabled: !nextNode }}
                 disabled={!nextNode}
@@ -1119,7 +1143,7 @@ function SKidsHubSheet({
                 ]}
               >
                 <Text style={styles.hubSecondaryActionText}>
-                  Về trạm hiện tại
+                  {t('home.hub.focusCurrent')}
                 </Text>
               </Pressable>
             </View>
@@ -1161,14 +1185,27 @@ function SceneMapStop({
   sceneIndexInLesson,
   sceneTitle,
 }: SceneMapStopProps) {
+  const t = useI18n();
   const isAvailable = !isCompleted && !isCurrent && !isLocked;
-  const lessonPosition = `Bài ${lessonIndex + 1
-    }/${lessonCount}: ${lessonTitle}, trạm ${sceneIndexInLesson + 1
-    }/${sceneCountInLesson}`;
+  const lessonPosition = t('home.mapStop.position', {
+    lesson: String(lessonIndex + 1),
+    lessonTitle,
+    lessonTotal: String(lessonCount),
+    scene: String(sceneIndexInLesson + 1),
+    sceneTotal: String(sceneCountInLesson),
+  });
   const accessibilityLabel = isLocked
-    ? `${lessonPosition}: ${sceneTitle} chưa mở khóa`
-    : `${lessonPosition}: ${isCompleted ? 'Chơi lại' : 'Học tiếp'} ${sceneTitle
-    }`;
+    ? t('home.mapStop.lockedAccessibility', {
+        position: lessonPosition,
+        sceneTitle,
+      })
+    : t('home.mapStop.actionAccessibility', {
+        action: isCompleted
+          ? t('home.mapStop.replayAction')
+          : t('home.mapStop.continueAction'),
+        position: lessonPosition,
+        sceneTitle,
+      });
 
   return (
     <Pressable
@@ -1422,11 +1459,15 @@ function LessonMilestone({
   title,
   onPress,
 }: LessonMilestoneProps) {
+  const t = useI18n();
   const starRating = getLessonStarRating(isCompleted);
 
   return (
     <Pressable
-      accessibilityLabel={`Bài ${title} đạt ${starRating} trên 3 sao`}
+      accessibilityLabel={t('home.lessonMilestone.accessibility', {
+        stars: String(starRating),
+        title,
+      })}
       accessibilityRole="button"
       onPress={onPress}
       style={({ pressed }) => {

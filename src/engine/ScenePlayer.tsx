@@ -23,7 +23,7 @@ import { getViAudioAsset, getWordAudioAsset, type RemoteAudioAsset } from '../da
 import { getRemoteAssetUrl } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { sungyCompletionTapMessages } from '../data/mascotPrompts';
-import { useTranslations } from '../i18n';
+import { useSavedAppLanguage, useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
 import {
   getTeacherInstructionEn,
@@ -33,7 +33,7 @@ import {
   resolveTeacherFeedback,
   resolveTeacherInstruction,
 } from '../i18n/teacherPrompts';
-import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
+import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
@@ -76,7 +76,10 @@ import {
   SceneObjectRenderer,
   type SceneObjectEffect,
 } from './SceneObjectRenderer';
-import { getParentSettings } from './ParentSettingsManager';
+import {
+  getParentSettings,
+  subscribeParentSettings,
+} from './ParentSettingsManager';
 import {
   canPressObjects,
   getInitialStep,
@@ -134,7 +137,7 @@ export function ScenePlayer({
   onComplete,
 }: ScenePlayerProps) {
   useThemeSync();
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const appLanguage = useSavedAppLanguage();
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isLocalizationReady, setIsLocalizationReady] = useState(false);
@@ -228,16 +231,40 @@ export function ScenePlayer({
   }, [initialSceneIndex]);
 
   useEffect(() => {
+    let isMounted = true;
+
+    const applyRuntimeSettings = (
+      settings: Awaited<ReturnType<typeof getParentSettings>>,
+    ) => {
+      setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
+      if (__DEV__) {
+        setShowSceneEditorControl(settings.enableSceneEditor || false);
+      }
+    };
+
+    const unsubscribe = subscribeParentSettings(settings => {
+      if (isMounted) {
+        applyRuntimeSettings(settings);
+      }
+    });
+
     getParentSettings()
       .then(settings => {
-        setAppLanguage(settings.appLanguage ?? 'vi');
-        setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
-        if (__DEV__) {
-          setShowSceneEditorControl(settings.enableSceneEditor || false);
+        if (isMounted) {
+          applyRuntimeSettings(settings);
         }
       })
       .catch(() => undefined)
-      .finally(() => setIsLocalizationReady(true));
+      .finally(() => {
+        if (isMounted) {
+          setIsLocalizationReady(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
 
   useEffect(() => {

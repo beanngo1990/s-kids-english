@@ -20,6 +20,7 @@ import {
 import {
   getParentSettings,
   saveParentSettings,
+  subscribeParentSettings,
 } from '../src/engine/ParentSettingsManager';
 import type { Scene, SceneStep } from '../src/types/lesson';
 
@@ -111,6 +112,24 @@ test('persists teacher prompt mode separately from app language', async () => {
     appLanguage: 'en',
     teacherPromptMode: 'bilingual',
   });
+});
+
+test('notifies parent settings subscribers when localization settings change', async () => {
+  const listener = jest.fn();
+  const unsubscribe = subscribeParentSettings(listener);
+
+  await saveParentSettings({ appLanguage: 'en' });
+
+  expect(listener).toHaveBeenCalledWith(
+    expect.objectContaining({ appLanguage: 'en' }),
+  );
+
+  unsubscribe();
+  listener.mockClear();
+
+  await saveParentSettings({ appLanguage: 'vi' });
+
+  expect(listener).not.toHaveBeenCalled();
 });
 
 test('resolves teacher instructions for vi, en and bilingual modes', () => {

@@ -38,6 +38,8 @@ export type ParentSettings = {
   childProfile: ChildProfile;
 };
 
+export type ParentSettingsListener = (settings: ParentSettings) => void;
+
 export type LearningDifficultyOption = {
   learningMode: LearningMode;
   title: string;
@@ -79,6 +81,16 @@ export const defaultParentSettings: ParentSettings = {
   childProfile: defaultChildProfile,
 };
 
+const parentSettingsListeners = new Set<ParentSettingsListener>();
+
+export function subscribeParentSettings(listener: ParentSettingsListener) {
+  parentSettingsListeners.add(listener);
+
+  return () => {
+    parentSettingsListeners.delete(listener);
+  };
+}
+
 export async function getParentSettings(): Promise<ParentSettings> {
   const rawSettings = await AsyncStorage.getItem(PARENT_SETTINGS_STORAGE_KEY);
 
@@ -103,6 +115,8 @@ export async function saveParentSettings(
     PARENT_SETTINGS_STORAGE_KEY,
     JSON.stringify(nextSettings),
   );
+
+  notifyParentSettingsChanged(nextSettings);
 
   return nextSettings;
 }
@@ -147,6 +161,16 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
     childProfile: normalizeChildProfile(settings.childProfile),
   };
+}
+
+function notifyParentSettingsChanged(settings: ParentSettings) {
+  for (const listener of parentSettingsListeners) {
+    try {
+      listener(settings);
+    } catch {
+      // Settings listeners should not break persistence.
+    }
+  }
 }
 
 function normalizeLearningMode(value: unknown): LearningMode {

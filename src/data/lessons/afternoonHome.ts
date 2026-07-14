@@ -31,6 +31,8 @@ export const afternoonHomeLesson: Lesson = {
   titleEn: 'Going Home in the Afternoon',
   descriptionVi:
     'Bé học cách chuẩn bị ra về, đi đường an toàn và chào gia đình khi về tới nhà.',
+  descriptionEn:
+    'Learn getting ready to leave, traveling safely, and greeting family at home.',
   thumbnailEmoji: '🏠',
   ageRange: {
     min: 3,

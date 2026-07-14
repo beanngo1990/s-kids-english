@@ -31,6 +31,8 @@ export const playtimeLesson: Lesson = {
   titleEn: 'Playtime',
   descriptionVi:
     'Bé học cách chơi ở sân trường, chia sẻ với bạn và nghỉ ngơi sau khi vận động.',
+  descriptionEn:
+    'Learn playground words, sharing with friends, and resting after active play.',
   thumbnailEmoji: '🛝',
   ageRange: {
     min: 3,

@@ -6,9 +6,8 @@ import { KidModeHeader } from '../components/KidModeHeader';
 import { KidModeTabs } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { Screen } from '../components/Screen';
-import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
-import type { AppLanguage } from '../i18n/types';
+import { useSavedAppLanguage } from '../i18n';
 import { layout } from '../theme/spacing';
 import type { RootStackParamList } from '../types/navigation';
 
@@ -16,7 +15,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ReviewLibrary'>;
 
 export function ReviewLibraryScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
-  const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const appLanguage = useSavedAppLanguage();
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -29,9 +28,6 @@ export function ReviewLibraryScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
-    getParentSettings()
-      .then(settings => setAppLanguage(settings.appLanguage))
-      .catch(() => undefined);
   }, []);
 
   useEffect(() => {

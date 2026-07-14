@@ -8,6 +8,8 @@ export const atSchoolLesson: Lesson = {
   titleVi: 'Ở Trường Của Bé',
   titleEn: 'At School',
   descriptionVi: 'Bé học từ vựng và làm theo chỉ dẫn quen thuộc trong lớp học.',
+  descriptionEn:
+    'Learn classroom vocabulary and follow familiar school instructions.',
   thumbnailEmoji: '🏫',
   ageRange: {
     min: 3,

@@ -45,8 +45,13 @@ jest.mock('../src/engine/AssetCacheManager', () => ({
 
 jest.mock('../src/engine/ParentSettingsManager', () => ({
   getParentSettings: jest.fn(() =>
-    Promise.resolve({ enableSceneEditor: false }),
+    Promise.resolve({
+      appLanguage: 'vi',
+      enableSceneEditor: false,
+      teacherPromptMode: 'vi',
+    }),
   ),
+  subscribeParentSettings: jest.fn(() => jest.fn()),
 }));
 
 const mockedSpeakVi = speakVi as jest.MockedFunction<typeof speakVi>;

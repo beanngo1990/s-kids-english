@@ -31,6 +31,8 @@ export const afterDinnerCleanupLesson: Lesson = {
   titleEn: 'After-Dinner Cleanup',
   descriptionVi:
     'Bé học cách gom đồ sau bữa tối, xử lý vết đổ và phân loại đồ cần dọn.',
+  descriptionEn:
+    'Learn clearing dinner items, handling spills, and sorting what needs tidying.',
   thumbnailEmoji: '🧹',
   ageRange: {
     min: 3,

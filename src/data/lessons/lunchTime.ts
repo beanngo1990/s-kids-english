@@ -30,6 +30,8 @@ export const lunchTimeLesson: Lesson = {
   titleVi: 'Bữa trưa của bé',
   titleEn: 'Lunch Time',
   descriptionVi: 'Bé học tên món ăn, cách ăn cùng bạn và dọn dẹp sau bữa trưa.',
+  descriptionEn:
+    'Learn food names, eating with friends, and cleaning up after lunch.',
   thumbnailEmoji: '🍱',
   ageRange: {
     min: 3,

@@ -31,6 +31,8 @@ export const afternoonBathLesson: Lesson = {
   titleEn: 'Afternoon Bath',
   descriptionVi:
     'Bé học cách chuẩn bị đồ tắm, xả sạch người và mặc đồ sau khi tắm chiều.',
+  descriptionEn:
+    'Learn bath-time items, rinsing clean, and getting dressed after an afternoon bath.',
   thumbnailEmoji: '🫧',
   ageRange: {
     min: 3,

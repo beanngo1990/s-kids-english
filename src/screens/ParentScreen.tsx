@@ -53,6 +53,7 @@ import type {
 import {
   getLocalizedLessonSubtitle,
   getLocalizedLessonTitle,
+  getLocalizedThemeDescription,
   getLocalizedThemeTitle,
 } from '../i18n/domainCopy';
 import { getLearningModeCopy } from '../i18n/learningModeCopy';
@@ -274,7 +275,9 @@ export function ParentScreen({ navigation }: Props) {
   );
   const learningPathSubtitle =
     themes.length === 1
-      ? themes[0]?.descriptionVi ?? t('parent.stats.learningPathSubtitleDefault')
+      ? themes[0]
+        ? getLocalizedThemeDescription(themes[0], appLanguage)
+        : t('parent.stats.learningPathSubtitleDefault')
       : t('parent.stats.learningPathSubtitleCustom');
   const completedVisibleLessonCount = visibleLessons.filter(lesson =>
     completedLessonIds.has(lesson.id),
@@ -842,13 +845,17 @@ export function ParentScreen({ navigation }: Props) {
             >
               <View style={styles.reviewHeader}>
                 <View style={styles.reviewCopy}>
-                  <KidBadge tone="sun">Ôn cùng bé · 3 phút</KidBadge>
+                  <KidBadge tone="sun">
+                    {t('parent.stats.reviewBadge')}
+                  </KidBadge>
                   <Text style={styles.reviewTitle}>
                     {isDashboardReady
                       ? reviewLesson
-                        ? `Cùng ôn ${reviewLessonTitle}`
-                        : 'Một hoạt động nhỏ hôm nay'
-                      : 'Đang chuẩn bị gợi ý ôn tập'}
+                        ? t('parent.stats.reviewTitle', {
+                            lessonTitle: reviewLessonTitle,
+                          })
+                        : t('parent.stats.reviewFallbackTitle')
+                      : t('parent.stats.reviewLoadingTitle')}
                   </Text>
                 </View>
                 <View style={styles.reviewIcon}>
@@ -875,7 +882,7 @@ export function ParentScreen({ navigation }: Props) {
               </View>
 
               <Pressable
-                accessibilityLabel="Mở hoạt động ôn tập cùng bé"
+                accessibilityLabel={t('parent.stats.openReviewAccessibility')}
                 accessibilityRole="button"
                 accessibilityState={{ disabled: !canReviewTogether }}
                 disabled={!canReviewTogether}
@@ -888,8 +895,8 @@ export function ParentScreen({ navigation }: Props) {
               >
                 <Text style={styles.reviewActionText}>
                   {isReviewLessonReadyForGame
-                    ? 'Chơi lật thẻ cùng bé'
-                    : 'Mở hoạt động ôn tập'}
+                    ? t('parent.stats.playMemoryTogether')
+                    : t('parent.stats.openReviewActivity')}
                 </Text>
                 <Text style={styles.reviewActionArrow}>→</Text>
               </Pressable>
@@ -902,7 +909,9 @@ export function ParentScreen({ navigation }: Props) {
             <AppCard style={styles.learningPathCard}>
               <View style={styles.learningPathTopRow}>
                 <View style={styles.learningPathCopy}>
-                  <KidBadge tone="teal">Lộ trình học của bé</KidBadge>
+                  <KidBadge tone="teal">
+                    {t('parent.stats.learningPathTitleDefault')}
+                  </KidBadge>
                   <Text style={styles.lessonPlanOptionTitle}>
                     {t('parent.stats.allLessons')}
                   </Text>
@@ -937,8 +946,10 @@ export function ParentScreen({ navigation }: Props) {
                 ) : null}
               </View>
               <Text style={styles.learningPathFootnote}>
-                Đã hoàn thành {completedVisibleLessonCount}/
-                {visibleLessons.length} bài đang bật.
+                {t('parent.stats.completedEnabledLessons', {
+                  completed: String(completedVisibleLessonCount),
+                  total: String(visibleLessons.length),
+                })}
               </Text>
             </AppCard>
 
@@ -973,7 +984,7 @@ export function ParentScreen({ navigation }: Props) {
                         styles.lessonPlanOptionTitleActive,
                     ]}
                   >
-                    Theo lộ trình
+                    {t('parent.stats.guidedPlanTitle')}
                   </Text>
                   <Text
                     style={[
@@ -982,7 +993,7 @@ export function ParentScreen({ navigation }: Props) {
                         styles.lessonPlanOptionSubtitleActive,
                     ]}
                   >
-                    Tất cả bài
+                    {t('parent.stats.guidedPlanSubtitle')}
                   </Text>
                 </Pressable>
                 <Pressable
@@ -1004,7 +1015,7 @@ export function ParentScreen({ navigation }: Props) {
                       isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
                     ]}
                   >
-                    Nhẹ nhàng
+                    {t('parent.stats.gentlePlanTitle')}
                   </Text>
                   <Text
                     style={[
@@ -1012,7 +1023,9 @@ export function ParentScreen({ navigation }: Props) {
                       isGentlePlanEnabled && styles.lessonPlanOptionWarmText,
                     ]}
                   >
-                    {gentleLessonIds.length} bài gần nhất
+                    {t('parent.stats.gentleLessons', {
+                      count: String(gentleLessonIds.length),
+                    })}
                   </Text>
                 </Pressable>
                 <Pressable
@@ -1035,7 +1048,7 @@ export function ParentScreen({ navigation }: Props) {
                       isCustomPlanActive && styles.lessonPlanOptionCustomText,
                     ]}
                   >
-                    Tự chọn
+                    {t('parent.stats.customPlanTitle')}
                   </Text>
                   <Text
                     style={[
@@ -1043,7 +1056,7 @@ export function ParentScreen({ navigation }: Props) {
                       isCustomPlanActive && styles.lessonPlanOptionCustomText,
                     ]}
                   >
-                    Từng bài
+                    {t('parent.stats.customLessons')}
                   </Text>
                 </Pressable>
               </View>
@@ -1060,7 +1073,9 @@ export function ParentScreen({ navigation }: Props) {
             {focusLesson ? (
               <Pressable
                 accessibilityHint={t('parent.stats.openFocusLessonHint')}
-                accessibilityLabel={'Mở ' + focusLessonTitle}
+                accessibilityLabel={t('parent.stats.openLessonAccessibility', {
+                  lessonTitle: focusLessonTitle,
+                })}
                 accessibilityRole="button"
                 accessibilityState={{ disabled: !canOpenFocusLesson }}
                 disabled={!canOpenFocusLesson}
@@ -1098,13 +1113,13 @@ export function ParentScreen({ navigation }: Props) {
             <View style={styles.lessonSectionHeading}>
               <View style={styles.lessonSectionHeadingCopy}>
                 <Text style={styles.lessonSectionHeadingTitle}>
-                  Các chủ đề bé đang học
+                  {t('parent.stats.themeListTitle')}
                 </Text>
                 <Text style={styles.lessonSectionHeadingSubtitle}>
                   {t('parent.stats.themeListSubtitle')}
                 </Text>
               </View>
-              <KidBadge tone="sky">Tự chọn</KidBadge>
+              <KidBadge tone="sky">{t('parent.stats.customPlanBadge')}</KidBadge>
             </View>
 
             <View style={styles.lessonSectionList}>
@@ -1188,18 +1203,18 @@ export function ParentScreen({ navigation }: Props) {
                             .slice(0, 3)
                             .map(item => item.word);
                           const lessonState = !isVisible
-                            ? 'Đang ẩn'
+                            ? t('parent.stats.lessonStateHidden')
                             : isCurrentLesson && hasCompletedAllScenes
-                            ? 'Sẵn sàng ôn'
+                            ? t('parent.stats.lessonStateReadyToReview')
                             : isCurrentLesson
-                            ? 'Đang học'
+                            ? t('parent.stats.lessonStateLearning')
                             : isCompleted
-                            ? 'Đã hoàn thành'
+                            ? t('parent.stats.lessonStateCompleted')
                             : hasCompletedAllScenes
-                            ? 'Chờ ôn tập'
+                            ? t('parent.stats.lessonStateAwaitingReview')
                             : completedSceneCount > 0
-                            ? 'Đang tiếp tục'
-                            : 'Sẵn sàng';
+                            ? t('parent.stats.lessonStateContinuing')
+                            : t('parent.stats.lessonStateReady');
 
                           return (
                             <View
@@ -1249,7 +1264,9 @@ export function ParentScreen({ navigation }: Props) {
                                       {lessonTitle}
                                     </Text>
                                     <Text style={styles.managedLessonSubtitle}>
-                                      {lesson.scenes.length} {t('parent.stats.stationsTotal', { count: String(lesson.scenes.length) })}
+                                      {t('parent.stats.stationsTotal', {
+                                        count: String(lesson.scenes.length),
+                                      })}
                                     </Text>
                                   </View>
                                   <Text style={styles.managedLessonChevron}>
@@ -1258,8 +1275,13 @@ export function ParentScreen({ navigation }: Props) {
                                 </Pressable>
                                 <Switch
                                   accessibilityLabel={
-                                    (isVisible ? 'Ẩn ' : 'Hiện ') +
-                                    lessonTitle
+                                    isVisible
+                                      ? t('parent.stats.hideLessonAccessibility', {
+                                          lessonTitle,
+                                        })
+                                      : t('parent.stats.showLessonAccessibility', {
+                                          lessonTitle,
+                                        })
                                   }
                                   disabled={!isDashboardReady}
                                   value={isVisible}

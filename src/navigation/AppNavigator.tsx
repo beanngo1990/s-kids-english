@@ -16,6 +16,7 @@ import {
   ThemeLibraryScreen,
 } from '../screens';
 import { getParentSettings } from '../engine/ParentSettingsManager';
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
@@ -24,6 +25,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
   useThemeSync();
+  const t = useI18n();
   const [initialRouteName, setInitialRouteName] = useState<
     keyof RootStackParamList | null
   >(null);
@@ -87,17 +89,17 @@ export function AppNavigator() {
         <Stack.Screen
           name="ThemeLibrary"
           component={ThemeLibraryScreen}
-          options={{ title: 'Thư viện chủ đề' }}
+          options={{ title: t('nav.themeLibrary') }}
         />
         <Stack.Screen
           name="LessonList"
           component={LessonListScreen}
-          options={{ title: 'Bài học' }}
+          options={{ title: t('nav.lessonList') }}
         />
         <Stack.Screen
           name="LessonPack"
           component={LessonPackScreen}
-          options={{ title: 'Gói bài học' }}
+          options={{ title: t('nav.lessonPack') }}
         />
         <Stack.Screen
           name="ScenePlayer"
@@ -107,7 +109,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="ReviewGame"
           component={ReviewGameScreen}
-          options={{ title: 'Lật thẻ ôn tập', gestureEnabled: false }}
+          options={{ title: t('nav.reviewGame'), gestureEnabled: false }}
         />
         <Stack.Screen
           name="ReviewLibrary"
@@ -117,14 +119,14 @@ export function AppNavigator() {
         <Stack.Screen
           name="Reward"
           component={RewardScreen}
-          options={{ title: 'Phần thưởng', gestureEnabled: false }}
+          options={{ title: t('nav.reward'), gestureEnabled: false }}
         />
         <Stack.Screen
           name="Parent"
           component={ParentScreen}
           options={{
             headerBackButtonDisplayMode: 'minimal',
-            title: 'Góc phụ huynh',
+            title: t('nav.parent'),
           }}
         />
       </Stack.Navigator>

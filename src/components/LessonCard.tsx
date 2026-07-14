@@ -5,6 +5,7 @@ import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
 import {
+  getLocalizedLessonDescription,
   getLocalizedLessonSubtitle,
   getLocalizedLessonTitle,
 } from '../i18n/domainCopy';
@@ -29,6 +30,10 @@ export function LessonCard({
   useThemeSync();
   const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
   const lessonSubtitle = getLocalizedLessonSubtitle(lesson, appLanguage);
+  const lessonDescription = getLocalizedLessonDescription(
+    lesson,
+    appLanguage,
+  );
 
   return (
     <Pressable
@@ -50,7 +55,7 @@ export function LessonCard({
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.title}>{lessonTitle}</Text>
-            <Text style={styles.subtitle}>{lesson.descriptionVi}</Text>
+            <Text style={styles.subtitle}>{lessonDescription}</Text>
             <Text style={styles.meta}>{lessonSubtitle}</Text>
           </View>
         </View>

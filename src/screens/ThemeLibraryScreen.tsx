@@ -90,7 +90,10 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       <View style={styles.grid}>
         {themes.map(theme => {
           const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
-          const themeDescription = getLocalizedThemeDescription(theme);
+          const themeDescription = getLocalizedThemeDescription(
+            theme,
+            appLanguage,
+          );
           const themeProgress = getThemeProgress(theme, completedSceneIds, visibleLessonIds);
           const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;

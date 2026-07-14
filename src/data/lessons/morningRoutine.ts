@@ -13,6 +13,7 @@ export const morningRoutineLesson: Lesson = {
   titleVi: 'Buổi sáng của bé',
   titleEn: 'My Morning',
   descriptionVi: 'Bé học các từ quen thuộc trong buổi sáng.',
+  descriptionEn: 'Learn familiar words from a child’s morning routine.',
   thumbnailEmoji: '☀️',
   ageRange: {
     min: 3,
