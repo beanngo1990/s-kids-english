@@ -404,6 +404,12 @@ export function HomeScreen({ navigation }: Props) {
     setTimeout(scrollToCurrentNode, 80);
   }, [scrollToCurrentNode]);
 
+  const handleOpenStickerCollection = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    setIsHubOpen(false);
+    navigation.navigate('StickerCollection');
+  }, [navigation]);
+
   return (
     <Screen>
       <View style={styles.shell}>
@@ -929,6 +935,7 @@ export function HomeScreen({ navigation }: Props) {
           onClose={closeHub}
           onFocusCurrent={handleHubFocusPress}
           onOpenPrimary={handleHubPrimaryPress}
+          onOpenStickerCollection={handleOpenStickerCollection}
           pendingReviewLesson={pendingReviewLesson}
           total={mapNodes.length}
           visible={isHubOpen}
@@ -949,6 +956,7 @@ type SKidsHubSheetProps = {
   onClose: () => void;
   onFocusCurrent: () => void;
   onOpenPrimary: () => void;
+  onOpenStickerCollection: () => void;
   pendingReviewLesson: Lesson | undefined;
   total: number;
   visible: boolean;
@@ -965,6 +973,7 @@ function SKidsHubSheet({
   onClose,
   onFocusCurrent,
   onOpenPrimary,
+  onOpenStickerCollection,
   pendingReviewLesson,
   total,
   visible,
@@ -1103,7 +1112,15 @@ function SKidsHubSheet({
               </View>
             </View>
 
-            <View style={styles.hubGiftCard}>
+            <Pressable
+              accessibilityLabel={t('home.hub.openStickerCollection')}
+              accessibilityRole="button"
+              onPress={onOpenStickerCollection}
+              style={({ pressed }) => [
+                styles.hubGiftCard,
+                pressed && styles.hubButtonPressed,
+              ]}
+            >
               <View style={styles.hubGiftIcon}>
                 <SKidsIcon name="sticker" size={40} />
               </View>
@@ -1112,8 +1129,11 @@ function SKidsHubSheet({
                   {t('home.hub.giftTitle')}
                 </Text>
                 <Text style={styles.hubGiftCopy}>{giftText}</Text>
+                <Text style={styles.hubGiftAction}>
+                  {t('home.hub.openStickerCollection')}
+                </Text>
               </View>
-            </View>
+            </Pressable>
 
             <View style={styles.hubActions}>
               <Pressable
@@ -1972,6 +1992,10 @@ const styles = createThemedStyles(() => ({
   hubGiftCopy: {
     color: colors.textSoft,
     flexShrink: 1,
+    ...typography.caption,
+  },
+  hubGiftAction: {
+    color: colors.primaryDark,
     ...typography.caption,
   },
   hubGiftIcon: {

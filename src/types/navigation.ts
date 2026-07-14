@@ -29,5 +29,8 @@ export type RootStackParamList = {
     newLevel?: number;
     unlockedSticker?: { id: string; stickerId: string; stickerName: string; title: string; };
   };
+  StickerCollection: {
+    highlightedStickerId?: string;
+  } | undefined;
   Parent: undefined;
 };

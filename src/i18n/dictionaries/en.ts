@@ -12,6 +12,7 @@ export const en: TranslationDictionary = {
   'nav.lessonPack': 'Lesson Pack',
   'nav.reviewGame': 'Review Cards',
   'nav.reward': 'Reward',
+  'nav.stickerCollection': 'Sticker Collection',
   'nav.parent': 'Parent Mode',
 
   'learningMode.challenge.detail':
@@ -128,7 +129,7 @@ export const en: TranslationDictionary = {
 
   'scene.completion.backToLesson': 'Back to lesson pack',
   'scene.completion.coach.final':
-    'Wonderful! Sungy is ready to give your child a sticker.',
+    'Wonderful! Review one more time to collect the sticker.',
   'scene.completion.coach.next':
     'Great job! Let’s go to the next scene together.',
   'scene.completion.coach.single':
@@ -193,7 +194,7 @@ export const en: TranslationDictionary = {
   'home.coach.review': 'Let’s review {lessonTitle}!',
   'home.coach.next': 'Let’s go! Next stop: {sceneTitle}.',
   'home.coach.default': 'Let’s learn with Sungy today!',
-  'home.coach.completeTapOne': 'Great job! Let’s collect another sticker.',
+  'home.coach.completeTapOne': 'Great job! Let’s look at the sticker collection.',
   'home.coach.completeTapTwo': 'Sungy can see the whole map lighting up!',
   'home.coach.completeTapThree': 'You can replay a stop to review new words.',
   'home.coach.reviewTapOne': 'Let’s flip cards to remember words longer.',
@@ -222,7 +223,8 @@ export const en: TranslationDictionary = {
   'home.hub.primaryContinue': 'Continue',
   'home.hub.giftReview': 'Finish the review to earn an extra sticker.',
   'home.hub.giftComplete': 'Replay a stop to keep confidence high.',
-  'home.hub.giftNext': 'Complete today’s stop to earn a new sticker.',
+  'home.hub.giftNext': 'Finish the lesson and review to unlock a new sticker.',
+  'home.hub.openStickerCollection': 'Open sticker collection',
   'home.hub.progressAccessibility': 'Completed {percent}% of the map',
   'home.hub.starsEarned': 'Stars earned',
   'home.hub.stopsRemaining': 'Stops left',
@@ -240,7 +242,7 @@ export const en: TranslationDictionary = {
   'lessonList.mapTitle': 'Lesson map',
   'lessonList.title': 'English learning journey',
   'lessonList.subtitle':
-    'Each stop is a familiar scene. Go step by step, listen to words, and unlock stickers after finishing.',
+    'Each stop is a familiar scene. Go step by step, listen to words, and unlock stickers after completing the review.',
   'lessonList.stationCount': '{count} stops',
   'lessonList.sceneProgress': '{completed}/{total} scenes',
   'lessonPack.continue': 'Continue',
@@ -273,6 +275,21 @@ export const en: TranslationDictionary = {
   'reward.wordCount': '{count} words',
   'reward.nextLesson': 'Next: {lessonTitle}',
   'reward.replayLesson': 'Replay lesson',
+  'reward.viewStickerCollection': 'View sticker collection',
+  'stickerCollection.badge': 'Achievement album',
+  'stickerCollection.title': 'Sticker collection',
+  'stickerCollection.subtitle':
+    'Each sticker lights up when a lesson and its review are complete.',
+  'stickerCollection.progress': '{earned}/{total} stickers unlocked',
+  'stickerCollection.progressAccessibility':
+    '{earned} of {total} stickers unlocked',
+  'stickerCollection.unlocked': 'Unlocked',
+  'stickerCollection.locked': 'Locked',
+  'stickerCollection.lockedSticker': 'Mystery sticker',
+  'stickerCollection.keepLearning': 'Keep learning',
+  'stickerCollection.unlockedAccessibility': '{stickerName} sticker unlocked',
+  'stickerCollection.lockedAccessibility':
+    'Sticker for {lessonTitle} is still locked',
   'themeLibrary.badge': 'Theme library',
   'themeLibrary.title': 'Choose a learning path',
   'themeLibrary.parentNote': 'Note for parents',

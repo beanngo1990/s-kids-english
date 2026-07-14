@@ -75,6 +75,7 @@ export function RewardScreen({ navigation, route }: Props) {
   const nextLesson = currentLessonIndex !== -1 && currentLessonIndex < lessons.length - 1
     ? lessons[currentLessonIndex + 1]
     : null;
+  const highlightedStickerId = route.params.unlockedSticker?.stickerId;
 
   useEffect(() => {
     let isMounted = true;
@@ -122,7 +123,7 @@ export function RewardScreen({ navigation, route }: Props) {
             />
           </View>
           <View style={styles.badgeRow}>
-            {route.params.leveledUp && route.params.unlockedSticker && (
+            {route.params.unlockedSticker && (
               <KidBadge tone="sun">{t('reward.newSticker')}</KidBadge>
             )}
             {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
@@ -142,7 +143,7 @@ export function RewardScreen({ navigation, route }: Props) {
                 ) })}
           </Text>
           <Text style={styles.subtitle}>
-            {route.params.leveledUp && route.params.unlockedSticker
+            {route.params.unlockedSticker
               ? t('reward.levelUpSubtitle', { stickerName: route.params.unlockedSticker.stickerName })
               : t('reward.completedSubtitle')}
           </Text>
@@ -176,6 +177,16 @@ export function RewardScreen({ navigation, route }: Props) {
         </AppCard>
 
         <View style={styles.actions}>
+          {highlightedStickerId ? (
+            <AppButton
+              title={t('reward.viewStickerCollection')}
+              onPress={() =>
+                navigation.navigate('StickerCollection', {
+                  highlightedStickerId,
+                })
+              }
+            />
+          ) : null}
           {nextLesson ? (
             <>
               <AppButton
@@ -212,7 +223,7 @@ export function RewardScreen({ navigation, route }: Props) {
         </View>
       </View>
       <ConfettiCannon
-        count={route.params.leveledUp ? 200 : 60}
+        count={route.params.unlockedSticker ? 200 : 60}
         origin={{ x: 200, y: -20 }}
         fallSpeed={3000}
         fadeOut={true}

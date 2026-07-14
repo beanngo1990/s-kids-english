@@ -10,6 +10,7 @@ export const vi = {
   'nav.lessonPack': 'Gói bài học',
   'nav.reviewGame': 'Lật thẻ ôn tập',
   'nav.reward': 'Phần thưởng',
+  'nav.stickerCollection': 'Bộ sưu tập',
   'nav.parent': 'Góc phụ huynh',
 
   'learningMode.challenge.detail':
@@ -126,7 +127,7 @@ export const vi = {
 
   'scene.completion.backToLesson': 'Về gói bài học',
   'scene.completion.coach.final':
-    'Tuyệt vời! Sungy đã sẵn sàng trao sticker cho bé.',
+    'Tuyệt vời! Mình ôn tập thêm một chút rồi nhận sticker nhé.',
   'scene.completion.coach.next':
     'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.',
   'scene.completion.coach.single':
@@ -191,7 +192,7 @@ export const vi = {
   'home.coach.review': 'Mình cùng ôn lại {lessonTitle} nhé!',
   'home.coach.next': 'Đi thôi! Trạm tiếp theo là {sceneTitle}.',
   'home.coach.default': 'Hôm nay mình học cùng Sungy nhé!',
-  'home.coach.completeTapOne': 'Bé giỏi quá! Mình cùng nhận thêm sticker nhé.',
+  'home.coach.completeTapOne': 'Bé giỏi quá! Mình cùng ngắm bộ sưu tập sticker nhé.',
   'home.coach.completeTapTwo': 'Sungy đã thấy cả bản đồ sáng lên rồi!',
   'home.coach.completeTapThree': 'Mình có thể chơi lại để ôn từ mới nữa đó.',
   'home.coach.reviewTapOne': 'Mình cùng lật thẻ để nhớ từ lâu hơn nhé.',
@@ -220,7 +221,8 @@ export const vi = {
   'home.hub.primaryContinue': 'Học tiếp',
   'home.hub.giftReview': 'Xong phần ôn tập, bé nhận thêm sticker thưởng.',
   'home.hub.giftComplete': 'Chơi lại một trạm để giữ cảm giác tự tin.',
-  'home.hub.giftNext': 'Hoàn thành trạm hôm nay để nhận sticker mới.',
+  'home.hub.giftNext': 'Đi hết bài và ôn tập để mở sticker mới.',
+  'home.hub.openStickerCollection': 'Mở bộ sưu tập sticker',
   'home.hub.progressAccessibility':
     'Bé đã hoàn thành {percent} phần trăm bản đồ',
   'home.hub.starsEarned': 'Sao đã nhận',
@@ -239,7 +241,7 @@ export const vi = {
   'lessonList.mapTitle': 'Bản đồ bài học',
   'lessonList.title': 'Hành trình tiếng Anh của bé',
   'lessonList.subtitle':
-    'Mỗi trạm là một cảnh quen thuộc. Bé đi từng bước, nghe từng từ và mở khóa sticker sau khi hoàn thành.',
+    'Mỗi trạm là một cảnh quen thuộc. Bé đi từng bước, nghe từng từ và mở khóa sticker sau khi hoàn thành bài ôn tập.',
   'lessonList.stationCount': '{count} trạm',
   'lessonList.sceneProgress': '{completed}/{total} cảnh',
   'lessonPack.continue': 'Học tiếp',
@@ -272,6 +274,21 @@ export const vi = {
   'reward.wordCount': '{count} từ',
   'reward.nextLesson': 'Bài tiếp: {lessonTitle}',
   'reward.replayLesson': 'Chơi lại bài này',
+  'reward.viewStickerCollection': 'Xem bộ sưu tập',
+  'stickerCollection.badge': 'Album thành tựu',
+  'stickerCollection.title': 'Bộ sưu tập sticker',
+  'stickerCollection.subtitle':
+    'Mỗi sticker sáng lên khi bé hoàn thành một bài học và phần ôn tập.',
+  'stickerCollection.progress': '{earned}/{total} sticker đã mở',
+  'stickerCollection.progressAccessibility':
+    'Bé đã mở {earned} trên {total} sticker',
+  'stickerCollection.unlocked': 'Đã mở',
+  'stickerCollection.locked': 'Đang khóa',
+  'stickerCollection.lockedSticker': 'Sticker bí mật',
+  'stickerCollection.keepLearning': 'Tiếp tục học',
+  'stickerCollection.unlockedAccessibility': 'Sticker {stickerName} đã mở',
+  'stickerCollection.lockedAccessibility':
+    'Sticker của bài {lessonTitle} chưa mở khóa',
   'themeLibrary.badge': 'Thư viện chủ đề',
   'themeLibrary.title': 'Chọn lộ trình học',
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',
