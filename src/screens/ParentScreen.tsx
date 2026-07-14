@@ -672,8 +672,12 @@ export function ParentScreen({ navigation }: Props) {
                   <View style={styles.todayEyebrow}>
                     <Text style={styles.todayEyebrowText}>{t('parent.stats.todayProgress')}</Text>
                   </View>
-                  <Text style={styles.todayTitle}>{heroTitle}</Text>
-                  <Text style={styles.todaySummary}>{heroSummary}</Text>
+                  <Text numberOfLines={2} style={styles.todayTitle}>
+                    {heroTitle}
+                  </Text>
+                  <Text numberOfLines={2} style={styles.todaySummary}>
+                    {heroSummary}
+                  </Text>
                   <View style={styles.todayMetrics}>
                     <View style={styles.todayMetric}>
                       <Text style={styles.todayMetricValue}>
@@ -719,7 +723,9 @@ export function ParentScreen({ navigation }: Props) {
                   pressed && styles.pressed,
                 ]}
               >
-                <Text style={styles.todayActionText}>{heroAction}</Text>
+                <Text numberOfLines={1} style={styles.todayActionText}>
+                  {heroAction}
+                </Text>
                 <Text style={styles.todayActionArrow}>→</Text>
               </Pressable>
             </AppCard>
@@ -777,9 +783,14 @@ export function ParentScreen({ navigation }: Props) {
                         ? focusLessonTitle ?? t('parent.stats.firstLesson')
                         : t('parent.stats.preparingPath')}
                     </Text>
-                    <Text style={styles.currentLessonSubtitle}>
-                      {focusLessonSubtitle ?? 'Let’s learn together'}
-                    </Text>
+                    {focusLessonSubtitle ? (
+                      <Text
+                        numberOfLines={2}
+                        style={styles.currentLessonSubtitle}
+                      >
+                        {focusLessonSubtitle}
+                      </Text>
+                    ) : null}
                   </View>
                 </View>
 
@@ -825,15 +836,6 @@ export function ParentScreen({ navigation }: Props) {
                 isCompactDashboard && styles.dashboardCardCompact,
               ]}
             >
-              <View style={styles.achievementHeader}>
-                <View style={styles.achievementCopy}>
-                  <Text style={styles.achievementTitle}>{t('parent.stats.achievementTitle')}</Text>
-                  <Text style={styles.achievementSubtitle}>
-                    {t('parent.stats.achievementSubtitle')}
-                  </Text>
-                </View>
-                <SKidsIcon name="star" size={44} />
-              </View>
               <View
                 style={[
                   styles.milestoneRow,
@@ -846,9 +848,11 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemCompact,
                   ]}
                 >
-                  <SKidsIcon name="school" size={36} />
+                  <SKidsIcon name="school" size={30} />
                   <Text style={styles.milestoneValue}>{learnedWordCount}</Text>
-                  <Text style={styles.milestoneLabel}>{t('parent.stats.wordsLearned')}</Text>
+                  <Text style={styles.milestoneLabel}>
+                    {t('parent.stats.wordsLearned')}
+                  </Text>
                 </View>
                 {!isCompactDashboard ? (
                   <View style={styles.milestoneDivider} />
@@ -859,11 +863,13 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemCompact,
                   ]}
                 >
-                  <SKidsIcon name="acorn" size={36} />
+                  <SKidsIcon name="acorn" size={30} />
                   <Text style={styles.milestoneValue}>
                     {completedLessonCount}
                   </Text>
-                  <Text style={styles.milestoneLabel}>{t('parent.stats.lessonsCompleted')}</Text>
+                  <Text style={styles.milestoneLabel}>
+                    {t('parent.stats.lessonsCompleted')}
+                  </Text>
                 </View>
                 {!isCompactDashboard ? (
                   <View style={styles.milestoneDivider} />
@@ -875,11 +881,13 @@ export function ParentScreen({ navigation }: Props) {
                     isCompactDashboard && styles.milestoneItemLastCompact,
                   ]}
                 >
-                  <SKidsIcon name="sticker" size={36} />
+                  <SKidsIcon name="sticker" size={30} />
                   <Text style={styles.milestoneValue}>
                     {earnedStickerCount}
                   </Text>
-                  <Text style={styles.milestoneLabel}>{t('parent.stats.stickersEarned')}</Text>
+                  <Text style={styles.milestoneLabel}>
+                    {t('parent.stats.stickersEarned')}
+                  </Text>
                 </View>
               </View>
             </AppCard>
@@ -914,7 +922,9 @@ export function ParentScreen({ navigation }: Props) {
 
               {reviewWords.length > 0 ? (
                 <View style={styles.wordSection}>
-                  <Text style={styles.wordSectionLabel}>{t('parent.stats.recentWords')}</Text>
+                  <Text style={styles.wordSectionLabel}>
+                    {t('parent.stats.recentWords')}
+                  </Text>
                   <View style={styles.wordChipRow}>
                     {reviewWords.map((word, index) => (
                       <View key={`${word}-${index}`} style={styles.wordChip}>
@@ -926,8 +936,12 @@ export function ParentScreen({ navigation }: Props) {
               ) : null}
 
               <View style={styles.parentPrompt}>
-                <Text style={styles.parentPromptLabel}>{t('parent.stats.parentTip')}</Text>
-                <Text style={styles.parentPromptText}>{tipText}</Text>
+                <Text style={styles.parentPromptLabel}>
+                  {t('parent.stats.parentTip')}
+                </Text>
+                <Text numberOfLines={3} style={styles.parentPromptText}>
+                  {tipText}
+                </Text>
               </View>
 
               <Pressable
@@ -2292,10 +2306,11 @@ export function ParentScreen({ navigation }: Props) {
 
 const styles = createThemedStyles(() => ({
   achievementCard: {
-    backgroundColor: colors.backgroundWarm,
-    borderColor: colors.borderWarm,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderWidth: 1,
-    gap: spacing.md,
+    gap: spacing.sm,
+    padding: spacing.md,
   },
   actionDisabled: {
     opacity: 0.56,
@@ -2328,7 +2343,8 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.surface,
     borderColor: colors.border,
     borderWidth: 1,
-    gap: spacing.md,
+    gap: spacing.sm,
+    padding: spacing.md,
   },
   currentLessonCopy: {
     flex: 1,
@@ -2347,9 +2363,9 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.secondary,
     borderRadius: radius.lg,
     borderWidth: 1,
-    height: 76,
+    height: 64,
     justifyContent: 'center',
-    width: 76,
+    width: 64,
   },
   currentLessonIconCompact: {
     height: 60,
@@ -3413,13 +3429,13 @@ const styles = createThemedStyles(() => ({
   },
   milestoneDivider: {
     alignSelf: 'stretch',
-    backgroundColor: colors.borderWarm,
+    backgroundColor: colors.border,
     width: 1,
   },
   milestoneItem: {
     alignItems: 'center',
     flex: 1,
-    gap: spacing.xxs,
+    gap: 2,
     minWidth: 0,
   },
   milestoneItemCompact: {
@@ -3453,15 +3469,15 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.md,
     borderWidth: 1,
     gap: spacing.xxs,
-    padding: spacing.md,
+    padding: spacing.sm,
   },
   parentPromptLabel: {
     color: colors.primaryDark,
     ...typography.caption,
   },
   parentPromptText: {
-    color: colors.text,
-    ...typography.body,
+    color: colors.textSoft,
+    ...typography.caption,
   },
   sectionHeader: {
     alignItems: 'center',
@@ -3707,7 +3723,7 @@ const styles = createThemedStyles(() => ({
     borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    minHeight: 56,
+    minHeight: 50,
     paddingHorizontal: spacing.md,
   },
   reviewActionArrow: {
@@ -3718,17 +3734,18 @@ const styles = createThemedStyles(() => ({
   },
   reviewActionText: {
     color: colors.text,
-    ...typography.button,
+    ...typography.body,
   },
   reviewCard: {
     backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderWidth: 1,
-    gap: spacing.md,
+    gap: spacing.sm,
+    padding: spacing.md,
   },
   reviewCopy: {
     flex: 1,
-    gap: spacing.xs,
+    gap: spacing.xxs,
     minWidth: 0,
   },
   reviewHeader: {
@@ -3740,9 +3757,9 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
     borderRadius: radius.lg,
-    height: 68,
+    height: 56,
     justifyContent: 'center',
-    width: 68,
+    width: 56,
   },
   reviewTitle: {
     color: colors.text,
@@ -3756,7 +3773,7 @@ const styles = createThemedStyles(() => ({
     borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    minHeight: 52,
+    minHeight: 48,
     paddingHorizontal: spacing.md,
   },
   todayActionArrow: {
@@ -3767,14 +3784,15 @@ const styles = createThemedStyles(() => ({
   },
   todayActionText: {
     color: colors.text,
-    ...typography.button,
+    ...typography.body,
   },
   todayCard: {
     backgroundColor: colors.primarySoft,
     borderColor: colors.primary,
     borderWidth: 1,
-    gap: spacing.md,
+    gap: spacing.sm,
     overflow: 'hidden',
+    padding: spacing.md,
   },
   todayCopy: {
     flex: 1,
