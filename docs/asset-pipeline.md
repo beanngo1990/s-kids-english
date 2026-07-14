@@ -7,6 +7,8 @@
 - Keep raw/chroma generation inputs in `src/assets/source/lessons/`.
 - Treat `src/assets/lessons/**/images/*.webp` as generated output.
 - Keep bundled UI icons and mascot images outside this lesson pipeline.
+- Bundled app UI PNG icons live in `src/assets/icons/app-ui/`; they are imported
+  with local `require(...)` calls and are not uploaded to R2.
 
 ## Normal workflow
 

@@ -2,7 +2,7 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-13
+**Kiểm chứng gần nhất:** 2026-07-14
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation trong working tree hiện tại.
@@ -49,6 +49,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   mode `vi`/`en`/`bilingual`; chưa phải full-app localization.
 - **Implemented:** local persistence bằng AsyncStorage.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
+- **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
 - **Unsupported:** account, backend sync hoặc cloud progress.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
@@ -110,7 +111,7 @@ cả registration, param types và call sites.
 
 ```text
 src/
-  assets/       lesson/shared assets, source masters và generated outputs
+  assets/       lesson/shared assets, bundled app UI icons, source masters và generated outputs
   components/   reusable UI và mascot components
   config/       remote R2 configuration và generated release revision
   data/         catalogs, prompts, lesson authoring helpers và validators
@@ -404,6 +405,8 @@ cache/prefetch remote lesson audio, không phải lesson images. Không tuyên b
 - Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp`.
 - Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2.
 - Current/next scene image prefetch dùng React Native `Image.prefetch`.
+- App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
+  `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
 
 Không hand-edit WebP, asset manifest hoặc `generatedAssetRelease.ts`. Dùng scripts được mô tả
 trong `docs/asset-pipeline.md`.
