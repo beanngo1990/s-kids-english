@@ -124,6 +124,14 @@ const iconShapes = {
       <path d="M52 59c5-4 19-4 24 0" stroke="${palette.white}" stroke-width="4" stroke-linecap="round" opacity=".75"/>
     </g>
   `,
+  settings: `
+    <g filter="url(#softShadow)">
+      <circle cx="64" cy="64" r="37" fill="${palette.tealSoft}" stroke="${palette.tealDark}" stroke-width="3"/>
+      <path d="M64 34v10M64 84v10M34 64h10M84 64h10M43 43l7 7M78 78l7 7M85 43l-7 7M50 78l-7 7" stroke="${palette.tealDark}" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="64" cy="64" r="18" fill="${palette.paper}" stroke="${palette.tealDark}" stroke-width="3"/>
+      <circle cx="64" cy="64" r="8" fill="url(#yellowBall)" stroke="${palette.yellowDark}" stroke-width="3"/>
+    </g>
+  `,
   stats: `
     <g filter="url(#softShadow)">
       <rect x="27" y="35" width="76" height="70" rx="17" fill="${palette.paper}" stroke="${palette.tealDark}" stroke-width="3"/>

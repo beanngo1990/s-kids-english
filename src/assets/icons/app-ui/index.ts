@@ -10,6 +10,7 @@ export const appUiIcons = {
   reminder: require('./reminder.png'),
   review: require('./review.png'),
   reward: require('./reward.png'),
+  settings: require('./settings.png'),
   stats: require('./stats.png'),
   teacher: require('./teacher.png'),
   theme: require('./theme.png'),

@@ -2257,6 +2257,21 @@ export function ParentScreen({ navigation }: Props) {
               activeTab === 'stats' && styles.bottomTabActive,
             ]}
           >
+            <View
+              style={[
+                styles.bottomTabIconFrame,
+                activeTab === 'stats' && styles.bottomTabIconFrameActive,
+              ]}
+            >
+              <AppUiIcon
+                name="stats"
+                size={24}
+                style={[
+                  styles.bottomTabIcon,
+                  activeTab !== 'stats' && styles.bottomTabIconInactive,
+                ]}
+              />
+            </View>
             <Text
               style={[
                 styles.bottomTabText,
@@ -2275,6 +2290,21 @@ export function ParentScreen({ navigation }: Props) {
               activeTab === 'lessons' && styles.bottomTabActive,
             ]}
           >
+            <View
+              style={[
+                styles.bottomTabIconFrame,
+                activeTab === 'lessons' && styles.bottomTabIconFrameActive,
+              ]}
+            >
+              <AppUiIcon
+                name="lesson"
+                size={24}
+                style={[
+                  styles.bottomTabIcon,
+                  activeTab !== 'lessons' && styles.bottomTabIconInactive,
+                ]}
+              />
+            </View>
             <Text
               style={[
                 styles.bottomTabText,
@@ -2293,6 +2323,21 @@ export function ParentScreen({ navigation }: Props) {
               activeTab === 'settings' && styles.bottomTabActive,
             ]}
           >
+            <View
+              style={[
+                styles.bottomTabIconFrame,
+                activeTab === 'settings' && styles.bottomTabIconFrameActive,
+              ]}
+            >
+              <AppUiIcon
+                name="settings"
+                size={24}
+                style={[
+                  styles.bottomTabIcon,
+                  activeTab !== 'settings' && styles.bottomTabIconInactive,
+                ]}
+              />
+            </View>
             <Text
               style={[
                 styles.bottomTabText,
@@ -3658,14 +3703,30 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.xs,
     gap: spacing.xxs,
     borderRadius: radius.md,
   },
   bottomTabActive: {},
+  bottomTabIcon: {
+    opacity: 1,
+  },
+  bottomTabIconFrame: {
+    alignItems: 'center',
+    borderRadius: radius.pill,
+    height: 30,
+    justifyContent: 'center',
+    width: 42,
+  },
+  bottomTabIconFrameActive: {
+    backgroundColor: colors.surfaceBlue,
+  },
+  bottomTabIconInactive: {
+    opacity: 0.54,
+  },
   bottomTabText: {
     color: colors.muted,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
   },
   bottomTabTextActive: {
