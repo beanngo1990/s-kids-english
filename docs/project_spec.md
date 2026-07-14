@@ -96,9 +96,9 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `Home`
 - `ThemeLibrary`
 - `LessonList`
-- `LessonPack { lessonId }`
-- `ScenePlayer { lessonId, learningMode?, sceneId? }`
-- `ReviewGame { lessonId, learningMode? }`
+- `LessonPack { lessonId, openedFromParent? }`
+- `ScenePlayer { lessonId, learningMode?, openedFromParent?, sceneId? }`
+- `ReviewGame { lessonId, learningMode?, openedFromParent? }`
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
 - `Parent`
@@ -231,6 +231,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** chỉnh difficulty, guided/free journey, visible lessons, child profile,
   Light/Dark/System theme, app-language preference, teacher prompt mode và daily reminder time.
+- **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
+  quay lại trở về Parent Mode mà không phải giữ cổng 3 giây lần nữa.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
   Parent gate/settings, navigation titles, một số ScenePlayer system overlay, bottom tabs, Home

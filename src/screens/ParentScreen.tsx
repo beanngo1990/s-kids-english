@@ -481,8 +481,7 @@ export function ParentScreen({ navigation }: Props) {
   };
 
   const handleOpenLesson = (lessonId: string) => {
-    setIsUnlocked(false);
-    navigation.navigate('LessonPack', { lessonId });
+    navigation.navigate('LessonPack', { lessonId, openedFromParent: true });
   };
 
   const handleOpenFocusLesson = () => {
@@ -499,13 +498,17 @@ export function ParentScreen({ navigation }: Props) {
     }
 
     if (reviewLesson.reviewGame && isReviewLessonReadyForGame) {
-      setIsUnlocked(false);
-      navigation.navigate('ReviewGame', { lessonId: reviewLesson.id });
+      navigation.navigate('ReviewGame', {
+        lessonId: reviewLesson.id,
+        openedFromParent: true,
+      });
       return;
     }
 
-    setIsUnlocked(false);
-    navigation.navigate('LessonPack', { lessonId: reviewLesson.id });
+    navigation.navigate('LessonPack', {
+      lessonId: reviewLesson.id,
+      openedFromParent: true,
+    });
   };
 
   const handleSelectLessonPlan = async (lessonIds?: string[]) => {

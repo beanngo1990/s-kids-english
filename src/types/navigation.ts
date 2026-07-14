@@ -7,15 +7,18 @@ export type RootStackParamList = {
   LessonList: undefined;
   LessonPack: {
     lessonId: string;
+    openedFromParent?: boolean;
   };
   ScenePlayer: {
     lessonId: string;
     learningMode?: LearningMode;
+    openedFromParent?: boolean;
     sceneId?: string;
   };
   ReviewGame: {
     lessonId: string;
     learningMode?: LearningMode;
+    openedFromParent?: boolean;
   };
   ReviewLibrary: undefined;
   Reward: { 

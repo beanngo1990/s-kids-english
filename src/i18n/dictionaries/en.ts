@@ -256,6 +256,10 @@ export const en: TranslationDictionary = {
   'lessonPack.locked': 'Locked',
   'lessonPack.playMemoryAgain': 'Play memory game again',
   'lessonPack.learnFromStart': 'Learn from start',
+  'lessonPack.parentBadge': 'For parents',
+  'lessonPack.parentContextText':
+    'Choose a stop to learn together, or use the main button to continue where your child left off.',
+  'lessonPack.parentContextTitle': 'Quick lesson pack view',
   'reward.notFound': 'Lesson not found.',
   'reward.backToList': 'Back to lessons',
   'reward.mascotAccessibility': 'Sungy congratulates you',
@@ -291,6 +295,9 @@ export const en: TranslationDictionary = {
   'reviewGame.notEnoughImagesTitle': 'Not enough pictures for memory cards.',
   'reviewGame.notEnoughImagesText':
     'The game needs at least 2 words with illustrations in this lesson.',
+  'reviewGame.parentBadge': 'Review together',
+  'reviewGame.parentHint':
+    'Let your child flip the cards, then invite them to say the word after each match.',
   'reviewGame.wordCount': '{count} words',
   'scenePlayer.lessonNotFound': 'Lesson not found.',
   'scenePlayer.backToList': 'Back to lessons',

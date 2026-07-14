@@ -44,6 +44,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const t = useI18n();
   const appLanguage = useSavedAppLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const openedFromParent = route.params.openedFromParent === true;
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
@@ -114,6 +115,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
     navigation.navigate('ScenePlayer', {
       learningMode,
       lessonId: lesson.id,
+      openedFromParent,
       sceneId,
     });
   };
@@ -129,7 +131,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
     }
 
     if (shouldPlayReviewGame) {
-      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+      navigation.navigate('ReviewGame', {
+        lessonId: lesson.id,
+        openedFromParent,
+      });
       return;
     }
 
@@ -161,10 +166,35 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   return (
     <Screen scroll>
-      <AppCard style={styles.headerCard}>
+      {openedFromParent ? (
+        <AppCard style={styles.parentContextCard}>
+          <KidBadge tone="sky">{t('lessonPack.parentBadge')}</KidBadge>
+          <Text style={styles.parentContextTitle}>
+            {t('lessonPack.parentContextTitle')}
+          </Text>
+          <Text style={styles.parentContextText}>
+            {t('lessonPack.parentContextText')}
+          </Text>
+        </AppCard>
+      ) : null}
+
+      <AppCard
+        style={[
+          styles.headerCard,
+          openedFromParent && styles.headerCardParent,
+        ]}
+      >
         <View style={styles.headerTopRow}>
-          <View style={styles.packIcon}>
-            <SKidsIcon name={getLessonIconName(lesson)} size={86} />
+          <View
+            style={[
+              styles.packIcon,
+              openedFromParent && styles.packIconParent,
+            ]}
+          >
+            <SKidsIcon
+              name={getLessonIconName(lesson)}
+              size={openedFromParent ? 62 : 86}
+            />
           </View>
           <View style={styles.headerText}>
             <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
@@ -176,15 +206,26 @@ export function LessonPackScreen({ navigation, route }: Props) {
                     ? t('lessonPack.scenesCompleted')
                     : t('lessonPack.lessonPack')}
             </KidBadge>
-            <Text style={styles.title}>
+            <Text
+              numberOfLines={openedFromParent ? 2 : undefined}
+              style={styles.title}
+            >
               {getLocalizedLessonTitle(lesson, appLanguage)}
             </Text>
-            <Text style={styles.subtitle}>
+            <Text
+              numberOfLines={openedFromParent ? 2 : undefined}
+              style={styles.subtitle}
+            >
               {getLocalizedLessonSubtitle(lesson, appLanguage)}
             </Text>
           </View>
         </View>
-        <View style={styles.headerProgress}>
+        <View
+          style={[
+            styles.headerProgress,
+            openedFromParent && styles.headerProgressParent,
+          ]}
+        >
           <ProgressStars completed={completedSceneCount} total={scenes.length} />
           <Text style={styles.progressText}>
             {t('lessonPack.scenesLearned', { completed: String(completedSceneCount), total: String(scenes.length) })}
@@ -229,6 +270,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
               <AppCard
                 style={[
                   styles.sceneCard,
+                  openedFromParent && styles.sceneCardParent,
                   isCompleted && styles.sceneCardDone,
                   isNext && styles.sceneCardNext,
                   isLocked && styles.sceneCardLocked,
@@ -261,23 +303,35 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   <View
                     style={[
                       styles.sceneIconContainer,
+                      openedFromParent && styles.sceneIconContainerParent,
                       isLocked && styles.sceneIconContainerLocked,
                     ]}
                   >
                     <SKidsIcon
                       name={isLocked ? 'parentLock' : getSceneIconName(scene)}
-                      size={64}
+                      size={openedFromParent ? 48 : 64}
                     />
                   </View>
                   <View style={styles.sceneTextContainer}>
-                    <Text style={styles.sceneTitle}>
+                    <Text
+                      numberOfLines={openedFromParent ? 2 : undefined}
+                      style={styles.sceneTitle}
+                    >
                       {getLocalizedSceneTitle(scene, appLanguage)}
                     </Text>
-                    <Text style={styles.sceneSubtitle}>
+                    <Text
+                      numberOfLines={openedFromParent ? 2 : undefined}
+                      style={styles.sceneSubtitle}
+                    >
                       {getLocalizedSceneSubtitle(scene, appLanguage)}
                     </Text>
                     {vocabularyText ? (
-                      <Text style={styles.vocabulary}>{vocabularyText}</Text>
+                      <Text
+                        numberOfLines={openedFromParent ? 1 : undefined}
+                        style={styles.vocabulary}
+                      >
+                        {vocabularyText}
+                      </Text>
                     ) : null}
                   </View>
                 </View>
@@ -312,7 +366,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
             title={hasCompletedReviewGame ? t('lessonPack.playMemoryAgain') : t('lessonPack.playMemory')}
             variant="secondary"
             onPress={() =>
-              navigation.navigate('ReviewGame', { lessonId: lesson.id })
+              navigation.navigate('ReviewGame', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         ) : null}
@@ -351,6 +408,13 @@ const styles = createThemedStyles(() => ({
     gap: spacing.md,
     marginBottom: spacing.lg,
   },
+  headerCardParent: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+    padding: spacing.md,
+  },
   headerProgress: {
     alignItems: 'center',
     backgroundColor: colors.surface,
@@ -361,6 +425,11 @@ const styles = createThemedStyles(() => ({
     justifyContent: 'space-between',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
+  },
+  headerProgressParent: {
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+    justifyContent: 'flex-start',
   },
   headerText: {
     flex: 1,
@@ -381,6 +450,28 @@ const styles = createThemedStyles(() => ({
     justifyContent: 'center',
     width: 88,
   },
+  packIconParent: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    height: 64,
+    width: 64,
+  },
+  parentContextCard: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.xs,
+    marginBottom: spacing.md,
+    padding: spacing.md,
+  },
+  parentContextText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  parentContextTitle: {
+    color: colors.text,
+    ...typography.body,
+  },
   pressed: {
     opacity: 0.82,
     transform: [{ scale: 0.99 }],
@@ -391,6 +482,10 @@ const styles = createThemedStyles(() => ({
   },
   sceneCard: {
     gap: spacing.sm,
+  },
+  sceneCardParent: {
+    gap: spacing.xs,
+    padding: spacing.md,
   },
   sceneCardDone: {
     backgroundColor: colors.surfaceBlue,
@@ -438,6 +533,10 @@ const styles = createThemedStyles(() => ({
     height: 64,
     justifyContent: 'center',
     width: 64,
+  },
+  sceneIconContainerParent: {
+    height: 52,
+    width: 52,
   },
   sceneStars: {
     alignItems: 'flex-end',
