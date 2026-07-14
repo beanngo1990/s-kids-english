@@ -364,7 +364,7 @@ export const vi = {
   'parent.stats.lesson': 'bài học',
   'parent.stats.stationsProgress': '{completed}/{total} trạm',
   'parent.stats.totalLessons': '/{total} bài',
-  'parent.stats.enabledLessons': '{count} bài đang bật.',
+  'parent.stats.enabledLessons': '{count} bài',
   'parent.stats.completedEnabledLessons':
     'Đã hoàn thành {completed}/{total} bài đang bật.',
   'parent.stats.selectLearningPaceSubtitle': 'Ba mẹ có thể chọn một nhịp phù hợp hoặc tự tinh chỉnh từng bài.',

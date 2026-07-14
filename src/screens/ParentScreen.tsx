@@ -923,9 +923,11 @@ export function ParentScreen({ navigation }: Props) {
                   <Text style={styles.learningPathCountValue}>
                     {t('parent.stats.enabledLessons', { count: String(visibleLessons.length) })}
                   </Text>
-                  <Text style={styles.learningPathCountLabel}>
-                    {t('parent.stats.totalLessons', { total: String(journeyLessons.length) })}
-                  </Text>
+                  {visibleLessons.length < journeyLessons.length ? (
+                    <Text style={styles.learningPathCountLabel}>
+                      {t('parent.stats.totalLessons', { total: String(journeyLessons.length) })}
+                    </Text>
+                  ) : null}
                 </View>
               </View>
               <View style={styles.learningPathTrack}>
@@ -2376,6 +2378,7 @@ const styles = createThemedStyles(() => ({
   },
   learningPathCount: {
     alignItems: 'flex-end',
+    flexShrink: 1,
     gap: spacing.xxs,
   },
   learningPathCountLabel: {
