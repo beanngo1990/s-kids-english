@@ -400,9 +400,10 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   `android/app/google-services.json` và iOS app target `GoogleService-Info.plist`.
 - Android Gradle chỉ apply `com.google.gms.google-services` khi `google-services.json` tồn tại để
   local build không fail trước khi có Firebase config.
-- iOS Podfile khai báo scoped modular headers cho Firebase Auth dependency pods cần module map
-  (`FirebaseAppCheckInterop`, `FirebaseAuthInterop`, `FirebaseCoreInternal`, `GoogleUtilities`,
-  `RecaptchaInterop`).
+- iOS Podfile dùng CocoaPods static frameworks (`use_frameworks! :linkage => :static`) và bật
+  `$RNFirebaseAsStaticFramework` theo cấu hình được React Native Firebase hỗ trợ.
+- Trong khi React Native Firebase `25.1` chưa tích hợp upstream fix cho RN `0.86` prebuilt RNCore,
+  `post_install` cho phép non-modular React headers riêng trên các target `RNFB*`.
 - Root `firebase.json` tắt các React Native Firebase auto-collection knobs cho analytics,
   performance, messaging và ad storage; không thêm Firebase Analytics package.
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider

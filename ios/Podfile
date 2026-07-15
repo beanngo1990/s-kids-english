@@ -8,18 +8,9 @@ require Pod::Executable.execute_command('node', ['-p',
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
-
 target 'SKidsEnglish' do
-  pod 'FirebaseAppCheckInterop', :modular_headers => true
-  pod 'FirebaseAuthInterop', :modular_headers => true
-  pod 'FirebaseCoreInternal', :modular_headers => true
-  pod 'GoogleUtilities', :modular_headers => true
-  pod 'RecaptchaInterop', :modular_headers => true
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
 
   config = use_native_modules!
 
@@ -37,15 +28,13 @@ target 'SKidsEnglish' do
       # :ccache_enabled => true
     )
 
-    firebase_header_path = File.join(installer.sandbox.root, 'Firebase', 'CoreOnly', 'Sources', 'Firebase.h')
-    if File.exist?(firebase_header_path)
-      File.chmod(0o644, firebase_header_path)
-      firebase_header = File.read(firebase_header_path)
-      firebase_header.gsub!(
-        '      #import <FirebaseAuth/FirebaseAuth-Swift.h>',
-        "      #if __has_include(<FirebaseAuth/FirebaseAuth-Swift.h>)\n        #import <FirebaseAuth/FirebaseAuth-Swift.h>\n      #endif"
-      )
-      File.write(firebase_header_path, firebase_header)
+    # RNFirebase 25.1 needs this with React Native 0.86's prebuilt RNCore.
+    installer.pods_project.targets.each do |target|
+      next unless target.name.start_with?('RNFB')
+
+      target.build_configurations.each do |build_config|
+        build_config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      end
     end
   end
 end
