@@ -7,6 +7,10 @@ export const en: TranslationDictionary = {
   'common.loadingProgress': 'Loading progress',
   'common.saveInProgress': 'Saving',
 
+  'notifications.dailyChannel': 'Daily learning reminder',
+  'notifications.dailyTitle': 'Time to learn!',
+  'notifications.dailyBody': 'Let’s learn English together.',
+
   'nav.themeLibrary': 'Theme Library',
   'nav.lessonList': 'Lessons',
   'nav.lessonPack': 'Lesson Pack',
@@ -30,6 +34,12 @@ export const en: TranslationDictionary = {
   'onboarding.coach.message':
     'Sungy will learn alongside your child, guide each stop, and cheer when they finish.',
   'onboarding.coach.title': 'Learning buddy',
+  'onboarding.coach.greeting':
+    'Hi! I am Sungy, your child’s learning buddy.',
+  'onboarding.coach.tapDifficulty':
+    'Choose a difficulty first, then Sungy will guide each stop.',
+  'onboarding.coach.tapCheer':
+    'I will cheer after every scene your child completes.',
   'onboarding.note.text':
     'If your child is just starting, choose Easy first. When the rhythm feels familiar, move up to Medium or Hard.',
   'onboarding.note.title': 'Quick tip',
@@ -54,6 +64,53 @@ export const en: TranslationDictionary = {
   'parent.gate.hold': 'Hold to open',
   'parent.gate.holding': 'Holding...',
   'parent.gate.title': 'Parent area',
+  'parent.account.appleTokenMissing':
+    'Apple did not return the token needed to finish this action. Please sign in again and retry.',
+  'parent.account.appleUnavailable':
+    'Apple sign-in is only available on iOS devices that support Sign in with Apple.',
+  'parent.account.badge': 'Parent account',
+  'parent.account.cancel': 'Cancel',
+  'parent.account.configMissingTitle': 'Firebase setup required',
+  'parent.account.deleteAccount': 'Delete account',
+  'parent.account.deleteConfirmAction': 'Delete account',
+  'parent.account.deleteConfirmText':
+    'The sign-in account will be deleted from Firebase Auth. Local learning progress on this device is not deleted yet.',
+  'parent.account.deleteConfirmTitle': 'Delete parent account?',
+  'parent.account.deletedText':
+    'The account has been deleted. Local learning progress remains on this device.',
+  'parent.account.deletedTitle': 'Account deleted',
+  'parent.account.deleting': 'Deleting...',
+  'parent.account.errorTitle': 'Could not sign in',
+  'parent.account.firebaseConfigMissing':
+    'Native Firebase config files are missing. Add google-services.json for Android and GoogleService-Info.plist for iOS before enabling sign-in.',
+  'parent.account.googleConfigMissing':
+    'Google Web client ID is missing in src/config/firebaseAuth.ts.',
+  'parent.account.playServicesUnavailable':
+    'This Android device needs Google Play Services for Google sign-in.',
+  'parent.account.providerApple': 'Apple',
+  'parent.account.providerGoogle': 'Google',
+  'parent.account.providerSummary': 'Signed in with {provider}',
+  'parent.account.providerUnknown': 'another provider',
+  'parent.account.requiresRecentLogin':
+    'Firebase requires a recent sign-in before deleting this account. Please sign out, sign in again, then retry deletion.',
+  'parent.account.signInApple': 'Continue with Apple',
+  'parent.account.signInGoogle': 'Continue with Google',
+  'parent.account.signInInProgress':
+    'A sign-in flow is already running. Please wait for it to finish and try again.',
+  'parent.account.signInWithProvider': 'Sign in with {provider}',
+  'parent.account.signedIn': 'Signed in',
+  'parent.account.signedOut':
+    'Parents can sign in now to prepare for future data sync.',
+  'parent.account.signingIn': 'Signing in...',
+  'parent.account.signingOut': 'Signing out...',
+  'parent.account.signOut': 'Sign out',
+  'parent.account.subtitle':
+    'Parent-only account access. This step does not enable ads, analytics, or learning-data sync.',
+  'parent.account.syncLater':
+    'Your child’s learning progress still stays on this device; cloud sync will be implemented separately.',
+  'parent.account.title': 'Sign in parent account',
+  'parent.account.unknownError':
+    'Something went wrong during sign-in. Check Firebase/Auth provider setup and try again.',
   'parent.privacy.text':
     'The app has no ads, no external links, and does not collect children’s personal information.',
   'parent.privacy.title': 'Child-safe',
@@ -140,10 +197,22 @@ export const en: TranslationDictionary = {
   'scene.completion.primaryNext': 'Next scene',
   'scene.completion.primaryReward': 'Claim reward',
   'scene.completion.replayScene': 'Replay this scene',
+  'scene.completion.tapDone': 'You just completed this scene!',
+  'scene.completion.tapNext': 'The next scene is waiting. Let’s go!',
+  'scene.completion.tapReward': 'Sungy is keeping a new sticker for you.',
+  'scene.completion.tapContinue': 'Tap the yellow button to continue.',
   'scene.completion.title': 'Great job!',
+  'scene.characterLabel': 'kid',
+  'scene.continue': 'Continue',
+  'scene.continueAccessibility': 'Continue',
   'scene.empty.noScene': 'No scene yet',
   'scene.empty.noStep': 'This scene has no learning step yet',
+  'scene.exitAccessibility': 'Exit lesson',
+  'scene.listeningAccessibility': 'The teacher is speaking. Please listen.',
+  'scene.listeningStatus': 'Teacher is speaking...',
   'scene.loading': 'Preparing the lesson...',
+  'scene.replayInstruction': 'Replay',
+  'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
   'header.openHub': 'Open S-Kids Hub',
@@ -356,7 +425,14 @@ export const en: TranslationDictionary = {
   'reviewGame.parentBadge': 'Review together',
   'reviewGame.parentHint':
     'Let your child flip the cards, then invite them to say the word after each match.',
+  'reviewGame.unsupportedTitle': 'This game is not supported yet.',
+  'reviewGame.unsupportedText':
+    'The app currently supports the picture matching memory game.',
   'reviewGame.wordCount': '{count} words',
+  'memoryGame.pairCount': '{matched}/{total} pairs',
+  'memoryGame.turnCount': '{count} turns',
+  'memoryGame.visibleCardAccessibility': '{word} card',
+  'memoryGame.hiddenCardAccessibility': 'Face-down card',
   'scenePlayer.lessonNotFound': 'Lesson not found.',
   'scenePlayer.backToList': 'Back to lessons',
   'scenePlayer.sceneNotFound': 'Scene not found.',
@@ -373,6 +449,7 @@ export const en: TranslationDictionary = {
   'streak.record': 'Record: {days} days 🏆',
   'childProfile.editAccessibility': 'Edit child profile',
   'childProfile.edit': 'Edit',
+  'childProfile.defaultName': 'Sweet kid',
   'weeklyChart.wordsRemaining': '{remaining} words left to reach 7-day goal.',
   'weeklyChart.startJourney': 'A short lesson today starts a 7-day journey.',
   'weeklyChart.words': '{total}/{target} words',
@@ -399,6 +476,11 @@ export const en: TranslationDictionary = {
   'speakPractice.replayModelAccessibility': 'Hear sample for {word}',
   'speakPractice.stopRecordingAccessibility': 'Stop recording',
   'speakPractice.speakAccessibility': 'Say {word}',
+  'voiceRecorder.permissionNegative': 'Later',
+  'voiceRecorder.permissionPositive': 'Allow',
+  'voiceRecorder.permissionMessage':
+    'S-Kids English needs the microphone so your child can hear their own voice.',
+  'voiceRecorder.permissionTitle': 'Speech practice',
   'mascot.touchAccessibility': 'Touch Sungy',
   'mascot.name': 'Sungy',
   'parent.stats.learningPathTitleDefault': 'Learning Path',

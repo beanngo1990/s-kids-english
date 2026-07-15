@@ -15,6 +15,12 @@ if linkage != nil
 end
 
 target 'SKidsEnglish' do
+  pod 'FirebaseAppCheckInterop', :modular_headers => true
+  pod 'FirebaseAuthInterop', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'RecaptchaInterop', :modular_headers => true
+
   config = use_native_modules!
 
   use_react_native!(
@@ -30,5 +36,16 @@ target 'SKidsEnglish' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    firebase_header_path = File.join(installer.sandbox.root, 'Firebase', 'CoreOnly', 'Sources', 'Firebase.h')
+    if File.exist?(firebase_header_path)
+      File.chmod(0o644, firebase_header_path)
+      firebase_header = File.read(firebase_header_path)
+      firebase_header.gsub!(
+        '      #import <FirebaseAuth/FirebaseAuth-Swift.h>',
+        "      #if __has_include(<FirebaseAuth/FirebaseAuth-Swift.h>)\n        #import <FirebaseAuth/FirebaseAuth-Swift.h>\n      #endif"
+      )
+      File.write(firebase_header_path, firebase_header)
+    end
   end
 end

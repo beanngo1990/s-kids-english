@@ -27,6 +27,7 @@ import { AppCard } from '../components/AppCard';
 import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage } from '../components/mascot';
+import { ParentAccountCard } from '../components/ParentAccountCard';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -129,6 +130,10 @@ export function ParentScreen({ navigation }: Props) {
   const childAge = childProfile.birthYear
     ? new Date().getFullYear() - childProfile.birthYear
     : undefined;
+  const childDisplayName =
+    childProfile.name === defaultChildProfile.name
+      ? t('childProfile.defaultName')
+      : childProfile.name;
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [showYearPicker, setShowYearPicker] = useState(false);
   const [learningSettingsSheet, setLearningSettingsSheet] =
@@ -339,7 +344,7 @@ export function ParentScreen({ navigation }: Props) {
   const focusLessonAction = isFocusLessonComplete ? t('parent.stats.lessonActionReview') : t('parent.stats.lessonActionContinue');
   const heroTitle =
     todayWordCount > 0 || todaySceneCount > 0
-      ? t('parent.stats.heroTitleGreat', { name: childProfile.name })
+      ? t('parent.stats.heroTitleGreat', { name: childDisplayName })
       : t('parent.stats.heroTitleGentle');
   const heroSummary = !isDashboardReady
     ? t('parent.stats.heroSummaryLoading')
@@ -1442,7 +1447,7 @@ export function ParentScreen({ navigation }: Props) {
             <View style={styles.settingsHero}>
               <KidBadge tone="teal">{t('parent.settings.heroBadge')}</KidBadge>
               <Text style={styles.settingsHeroTitle}>
-                {t('parent.settings.heroTitle', { name: childProfile.name })}
+                {t('parent.settings.heroTitle', { name: childDisplayName })}
               </Text>
               <Text style={styles.settingsHeroSubtitle}>
                 {t('parent.settings.heroSubtitle')}
@@ -1459,7 +1464,7 @@ export function ParentScreen({ navigation }: Props) {
                     {t('parent.settings.profileBadge')}
                   </KidBadge>
                   <Text style={styles.profileSummaryName}>
-                    {childProfile.name}
+                    {childDisplayName}
                   </Text>
                   <Text style={styles.profileSummaryMeta}>
                     {childAge && childAge > 0
@@ -2198,6 +2203,8 @@ export function ParentScreen({ navigation }: Props) {
                 </Pressable>
               </Modal>
             </AppCard>
+
+            <ParentAccountCard />
 
             <AppCard style={styles.privacyCard}>
               <Text style={styles.privacyTitle}>

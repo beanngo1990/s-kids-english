@@ -5,6 +5,10 @@ export const vi = {
   'common.loadingProgress': 'Đang tải tiến độ',
   'common.saveInProgress': 'Đang lưu',
 
+  'notifications.dailyChannel': 'Nhắc học hằng ngày',
+  'notifications.dailyTitle': 'Đã đến giờ học rồi!',
+  'notifications.dailyBody': 'Bé ơi, mình cùng học tiếng Anh nhé!',
+
   'nav.themeLibrary': 'Thư viện chủ đề',
   'nav.lessonList': 'Bài học',
   'nav.lessonPack': 'Gói bài học',
@@ -28,6 +32,12 @@ export const vi = {
   'onboarding.coach.message':
     'Sungy sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành.',
   'onboarding.coach.title': 'Bạn học của bé',
+  'onboarding.coach.greeting':
+    'Xin chào! Mình là Sungy, bạn học của bé.',
+  'onboarding.coach.tapDifficulty':
+    'Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.',
+  'onboarding.coach.tapCheer':
+    'Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.',
   'onboarding.note.text':
     'Nếu bé mới bắt đầu, chọn Dễ trước. Khi bé quen nhịp học, ba mẹ tăng lên Vừa hoặc Khó.',
   'onboarding.note.title': 'Gợi ý nhanh',
@@ -52,6 +62,53 @@ export const vi = {
   'parent.gate.hold': 'Giữ để mở',
   'parent.gate.holding': 'Đang giữ...',
   'parent.gate.title': 'Khu vực dành cho ba mẹ',
+  'parent.account.appleTokenMissing':
+    'Apple chưa trả đủ token để hoàn tất thao tác. Ba mẹ thử đăng nhập lại rồi thực hiện lại nhé.',
+  'parent.account.appleUnavailable':
+    'Đăng nhập Apple chỉ khả dụng trên thiết bị iOS hỗ trợ Sign in with Apple.',
+  'parent.account.badge': 'Tài khoản phụ huynh',
+  'parent.account.cancel': 'Hủy',
+  'parent.account.configMissingTitle': 'Cần cấu hình Firebase',
+  'parent.account.deleteAccount': 'Xóa tài khoản',
+  'parent.account.deleteConfirmAction': 'Xóa tài khoản',
+  'parent.account.deleteConfirmText':
+    'Tài khoản đăng nhập sẽ bị xóa khỏi Firebase Auth. Tiến độ học local trên máy hiện chưa bị xóa.',
+  'parent.account.deleteConfirmTitle': 'Xóa tài khoản phụ huynh?',
+  'parent.account.deletedText':
+    'Tài khoản đã được xóa. Tiến độ học local vẫn ở trên thiết bị này.',
+  'parent.account.deletedTitle': 'Đã xóa tài khoản',
+  'parent.account.deleting': 'Đang xóa...',
+  'parent.account.errorTitle': 'Chưa đăng nhập được',
+  'parent.account.firebaseConfigMissing':
+    'Chưa có file cấu hình Firebase native. Thêm google-services.json cho Android và GoogleService-Info.plist cho iOS trước khi bật đăng nhập.',
+  'parent.account.googleConfigMissing':
+    'Chưa khai báo Google Web client ID trong src/config/firebaseAuth.ts.',
+  'parent.account.playServicesUnavailable':
+    'Thiết bị Android cần Google Play Services để đăng nhập Google.',
+  'parent.account.providerApple': 'Apple',
+  'parent.account.providerGoogle': 'Google',
+  'parent.account.providerSummary': 'Đăng nhập bằng {provider}',
+  'parent.account.providerUnknown': 'nhà cung cấp khác',
+  'parent.account.requiresRecentLogin':
+    'Firebase yêu cầu đăng nhập lại gần đây trước khi xóa tài khoản. Ba mẹ đăng xuất, đăng nhập lại rồi thử xóa lần nữa.',
+  'parent.account.signInApple': 'Tiếp tục với Apple',
+  'parent.account.signInGoogle': 'Tiếp tục với Google',
+  'parent.account.signInInProgress':
+    'Một phiên đăng nhập đang chạy. Ba mẹ chờ phiên đó hoàn tất rồi thử lại.',
+  'parent.account.signInWithProvider': 'Đăng nhập bằng {provider}',
+  'parent.account.signedIn': 'Đã đăng nhập',
+  'parent.account.signedOut':
+    'Ba mẹ có thể đăng nhập để chuẩn bị đồng bộ dữ liệu sau này.',
+  'parent.account.signingIn': 'Đang đăng nhập...',
+  'parent.account.signingOut': 'Đang đăng xuất...',
+  'parent.account.signOut': 'Đăng xuất',
+  'parent.account.subtitle':
+    'Chỉ dành cho ba mẹ. Không bật quảng cáo, analytics hay đồng bộ dữ liệu học trong bước này.',
+  'parent.account.syncLater':
+    'Hiện tại tiến độ học của bé vẫn lưu trên thiết bị; phần đồng bộ cloud sẽ được triển khai riêng.',
+  'parent.account.title': 'Đăng nhập tài khoản ba mẹ',
+  'parent.account.unknownError':
+    'Có lỗi khi đăng nhập. Ba mẹ kiểm tra cấu hình Firebase/Auth provider rồi thử lại.',
   'parent.privacy.text':
     'Ứng dụng không có quảng cáo, không có link ngoài và không thu thập thông tin trẻ em.',
   'parent.privacy.title': 'An toàn cho trẻ',
@@ -138,10 +195,22 @@ export const vi = {
   'scene.completion.primaryNext': 'Học cảnh tiếp theo',
   'scene.completion.primaryReward': 'Nhận thưởng',
   'scene.completion.replayScene': 'Học lại cảnh này',
+  'scene.completion.tapDone': 'Bé vừa hoàn thành cảnh này rồi!',
+  'scene.completion.tapNext': 'Cảnh tiếp theo đang chờ mình. Mình đi nhé!',
+  'scene.completion.tapReward': 'Sungy đang giữ sticker mới cho bé đây.',
+  'scene.completion.tapContinue': 'Chạm nút màu vàng để tiếp tục nào!',
   'scene.completion.title': 'Giỏi quá!',
+  'scene.characterLabel': 'bé',
+  'scene.continue': 'Tiếp tục',
+  'scene.continueAccessibility': 'Tiếp tục',
   'scene.empty.noScene': 'Chưa có scene',
   'scene.empty.noStep': 'Scene chưa có bước học',
+  'scene.exitAccessibility': 'Thoát bài học',
+  'scene.listeningAccessibility': 'Cô đang nói. Bé hãy lắng nghe.',
+  'scene.listeningStatus': 'Cô đang nói...',
   'scene.loading': 'Đang chuẩn bị bài học...',
+  'scene.replayInstruction': 'Nghe lại',
+  'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
   'header.openHub': 'Mở S-Kids Hub',
@@ -355,7 +424,14 @@ export const vi = {
   'reviewGame.parentBadge': 'Ôn cùng bé',
   'reviewGame.parentHint':
     'Ba mẹ có thể để bé tự lật thẻ, rồi nhắc bé đọc lại từ sau mỗi cặp đúng.',
+  'reviewGame.unsupportedTitle': 'Game này chưa được hỗ trợ.',
+  'reviewGame.unsupportedText':
+    'Hiện app mới có game lật thẻ hình giống nhau.',
   'reviewGame.wordCount': '{count} từ',
+  'memoryGame.pairCount': '{matched}/{total} cặp',
+  'memoryGame.turnCount': '{count} lượt',
+  'memoryGame.visibleCardAccessibility': 'Thẻ {word}',
+  'memoryGame.hiddenCardAccessibility': 'Thẻ lật hình',
   'scenePlayer.lessonNotFound': 'Không tìm thấy bài học này.',
   'scenePlayer.backToList': 'Về danh sách bài học',
   'scenePlayer.sceneNotFound': 'Không tìm thấy cảnh học này.',
@@ -372,6 +448,7 @@ export const vi = {
   'streak.record': 'Kỷ lục: {days} ngày 🏆',
   'childProfile.editAccessibility': 'Sửa hồ sơ bé',
   'childProfile.edit': 'Sửa',
+  'childProfile.defaultName': 'Bé yêu',
   'weeklyChart.wordsRemaining': 'Còn {remaining} từ để đạt mục tiêu 7 ngày.',
   'weeklyChart.startJourney': 'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.',
   'weeklyChart.words': '{total}/{target} từ',
@@ -398,6 +475,11 @@ export const vi = {
   'speakPractice.replayModelAccessibility': 'Nghe mẫu từ {word}',
   'speakPractice.stopRecordingAccessibility': 'Dừng ghi âm',
   'speakPractice.speakAccessibility': 'Bé nói {word}',
+  'voiceRecorder.permissionNegative': 'Để sau',
+  'voiceRecorder.permissionPositive': 'Cho phép',
+  'voiceRecorder.permissionMessage':
+    'S-Kids English cần micro để bé nghe lại giọng của mình.',
+  'voiceRecorder.permissionTitle': 'Cho bé luyện nói',
   'mascot.touchAccessibility': 'Chạm vào Sungy',
   'mascot.name': 'Sungy',
   'parent.stats.learningPathTitleDefault': 'Lộ trình học của bé',

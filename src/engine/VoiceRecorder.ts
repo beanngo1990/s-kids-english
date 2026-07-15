@@ -2,6 +2,13 @@ import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
 
 import { playAudioUri } from './AudioManager';
 
+type VoiceRecordingPermissionCopy = {
+  buttonNegative: string;
+  buttonPositive: string;
+  message: string;
+  title: string;
+};
+
 type SkidsAudioModule = {
   getVoiceRecordingLevel?: () => Promise<number | null>;
   startVoiceRecording?: () => Promise<string | null>;
@@ -17,7 +24,9 @@ export function isVoiceRecorderAvailable() {
   );
 }
 
-export async function requestVoiceRecordingPermission() {
+export async function requestVoiceRecordingPermission(
+  copy: VoiceRecordingPermissionCopy,
+) {
   if (Platform.OS === 'ios' && nativeAudio?.requestRecordPermission) {
     return nativeAudio.requestRecordPermission();
   }
@@ -33,12 +42,7 @@ export async function requestVoiceRecordingPermission() {
     return true;
   }
 
-  const result = await PermissionsAndroid.request(permission, {
-    buttonNegative: 'Để sau',
-    buttonPositive: 'Cho phép',
-    message: 'S-Kids English cần micro để bé nghe lại giọng của mình.',
-    title: 'Cho bé luyện nói',
-  });
+  const result = await PermissionsAndroid.request(permission, copy);
 
   return result === PermissionsAndroid.RESULTS.GRANTED;
 }

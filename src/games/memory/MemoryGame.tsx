@@ -13,6 +13,7 @@ import {
   playTapSound,
   speakWord,
 } from '../../engine/AudioManager';
+import { useI18n } from '../../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
 import {
   type ResponsiveLayout,
@@ -45,6 +46,7 @@ export function MemoryGame({
   onMatch,
 }: MemoryGameProps) {
   useThemeSync();
+  const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
@@ -142,11 +144,16 @@ export function MemoryGame({
       <View style={styles.statusRow}>
         <View style={styles.statusPill}>
           <Text style={styles.statusText}>
-            {matchedItemIds.length}/{items.length} cặp
+            {t('memoryGame.pairCount', {
+              matched: String(matchedItemIds.length),
+              total: String(items.length),
+            })}
           </Text>
         </View>
         <View style={styles.statusPill}>
-          <Text style={styles.statusText}>{turnCount} lượt</Text>
+          <Text style={styles.statusText}>
+            {t('memoryGame.turnCount', { count: String(turnCount) })}
+          </Text>
         </View>
       </View>
 
@@ -159,7 +166,11 @@ export function MemoryGame({
           return (
             <Pressable
               accessibilityLabel={
-                isVisible ? `Thẻ ${card.word}` : 'Thẻ lật hình'
+                isVisible
+                  ? t('memoryGame.visibleCardAccessibility', {
+                      word: card.word,
+                    })
+                  : t('memoryGame.hiddenCardAccessibility')
               }
               accessibilityRole="button"
               disabled={isCheckingPair || isComplete || isVisible}

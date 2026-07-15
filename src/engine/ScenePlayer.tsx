@@ -22,7 +22,6 @@ import { getSceneForLearningMode } from '../data/learningModes';
 import { getViAudioAsset, getWordAudioAsset, type RemoteAudioAsset } from '../data/audioManifest';
 import { getRemoteAssetUrl } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
-import { sungyCompletionTapMessages } from '../data/mascotPrompts';
 import { useSavedAppLanguage, useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
 import {
@@ -906,7 +905,7 @@ export function ScenePlayer({
       <View style={styles.topHud}>
         {onExit ? (
           <TouchableOpacity
-            accessibilityLabel="Thoát bài học"
+            accessibilityLabel={t('scene.exitAccessibility')}
             accessibilityRole="button"
             activeOpacity={0.82}
             onPress={onExit}
@@ -1018,9 +1017,11 @@ export function ScenePlayer({
             {!speakPracticeWord ? (
               <View style={styles.actionRow}>
                 <KidIconButton
-                  accessibilityLabel="Nghe lại hướng dẫn"
+                  accessibilityLabel={t(
+                    'scene.replayInstructionAccessibility',
+                  )}
                   icon="listen"
-                  label="Nghe lại"
+                  label={t('scene.replayInstruction')}
                   onPress={handleReplayInstruction}
                   style={[styles.actionButton, styles.secondaryActionButton]}
                   tone="quiet"
@@ -1029,17 +1030,19 @@ export function ScenePlayer({
                   isInstructionPlaying ? (
                     <View
                       accessible
-                      accessibilityLabel="Cô đang nói. Bé hãy lắng nghe."
+                      accessibilityLabel={t('scene.listeningAccessibility')}
                       style={[styles.actionButton, styles.listeningStatus]}
                     >
                       <ActivityIndicator color={colors.primary} size="small" />
-                      <Text style={styles.listeningStatusText}>Cô đang nói...</Text>
+                      <Text style={styles.listeningStatusText}>
+                        {t('scene.listeningStatus')}
+                      </Text>
                     </View>
                   ) : (
                     <KidIconButton
-                      accessibilityLabel="Tiếp tục"
+                      accessibilityLabel={t('scene.continueAccessibility')}
                       icon="next"
-                      label="Tiếp tục"
+                      label={t('scene.continue')}
                       onPress={handleContinue}
                       style={[styles.actionButton, styles.primaryActionButton]}
                     />
@@ -1062,11 +1065,11 @@ export function ScenePlayer({
             { transform: floatEditAnim.getTranslateTransform() },
           ]}
         >
-          {/* Vùng kéo thả riêng biệt */}
+          {/* Separate drag surface */}
           <View style={styles.floatDragHandle} {...floatEditPan.panHandlers}>
             <Text style={styles.floatDragIcon}>⠿</Text>
           </View>
-          {/* Vùng bấm riêng biệt */}
+          {/* Separate tap surface */}
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => setIsEditMode(prev => !prev)}
@@ -1136,14 +1139,14 @@ export function ScenePlayer({
             tapMessages={
               nextScene
                 ? [
-                    sungyCompletionTapMessages[0],
-                    sungyCompletionTapMessages[1],
-                    sungyCompletionTapMessages[3],
+                    t('scene.completion.tapDone'),
+                    t('scene.completion.tapNext'),
+                    t('scene.completion.tapContinue'),
                   ]
                 : [
-                    sungyCompletionTapMessages[0],
-                    sungyCompletionTapMessages[2],
-                    sungyCompletionTapMessages[3],
+                    t('scene.completion.tapDone'),
+                    t('scene.completion.tapReward'),
+                    t('scene.completion.tapContinue'),
                   ]
             }
             tone="success"
@@ -1235,7 +1238,11 @@ export function ScenePlayer({
                 isStepTargetObject(currentStep, object.id) ||
                 hintObjectIds.includes(object.id)
               }
-              label={getObjectLabel(currentScene, object)}
+              label={getObjectLabel(
+                currentScene,
+                object,
+                t('scene.characterLabel'),
+              )}
               object={renderObject}
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
@@ -1367,9 +1374,13 @@ function getSceneEnglishAudioTexts(scene: Scene) {
     .map(segment => segment.text);
 }
 
-function getObjectLabel(scene: Scene, object: SceneObject) {
+function getObjectLabel(
+  scene: Scene,
+  object: SceneObject,
+  characterLabel: string,
+) {
   if (object.role === 'character') {
-    return 'bé';
+    return characterLabel;
   }
 
   const vocabularyItem = getObjectVocabulary(scene, object);

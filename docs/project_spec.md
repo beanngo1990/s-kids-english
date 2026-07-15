@@ -5,7 +5,7 @@
 **Kiểm chứng gần nhất:** 2026-07-14
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
-localization foundation trong working tree hiện tại.
+localization foundation và Firebase parent auth trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -50,7 +50,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** local persistence bằng AsyncStorage.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
-- **Unsupported:** account, backend sync hoặc cloud progress.
+- **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
+- **Unsupported:** backend sync hoặc cloud progress.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -66,6 +67,9 @@ URI và không có backend upload trong implementation hiện tại.
 - React Navigation v7: native container + native stack.
 - AsyncStorage `3.x`.
 - Notifee `9.x`.
+- React Native Firebase App/Auth `25.x`.
+- Google Sign-In `16.x`.
+- Apple Authentication `2.x`.
 - Node.js `>=22.11.0`.
 - Jest `29.x`, ESLint `8.x`.
 
@@ -116,7 +120,7 @@ src/
   components/   reusable UI và mascot components
   config/       remote R2 configuration và generated release revision
   data/         catalogs, prompts, lesson authoring helpers và validators
-  engine/       scene, step, progress, persistence, audio, recording và asset logic
+  engine/       scene, step, progress, persistence, parent auth, audio, recording và asset logic
   games/        review-game registry và implementations
   navigation/   navigation container/stack
   screens/      route-level screens
@@ -233,14 +237,17 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** chỉnh difficulty, guided/free journey, visible lessons, child profile,
   Light/Dark/System theme, app-language preference, teacher prompt mode và daily reminder time.
+- **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
+  Google và Apple. Đây là tài khoản phụ huynh; không upload dữ liệu học của bé trong phase hiện tại.
 - **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
   quay lại trở về Parent Mode mà không phải giữ cổng 3 giây lần nữa.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
-  Parent gate/settings, navigation titles, một số ScenePlayer system overlay, bottom tabs, Home
-  coach/hub chrome, LessonList chrome, ReviewGame empty states, Parent stats/lesson-management
-  chrome, lesson/theme descriptions và domain titles theme/lesson/scene/review-game ở các màn hình
-  chính. Một số parent tips và prompt data vẫn Vietnamese-first.
+  Parent gate/settings, navigation titles, ScenePlayer system controls/completion chrome, bottom
+  tabs, Home coach/hub chrome, LessonList chrome, ReviewGame empty states, memory-game chrome,
+  Parent stats/lesson-management chrome, daily reminder copy, microphone permission copy,
+  lesson/theme descriptions và domain titles theme/lesson/scene/review-game ở các màn hình chính.
+  Một số parent tips và prompt data vẫn Vietnamese-first.
 - **Implemented:** thay đổi parent settings về `appLanguage` được phát trong runtime để các màn
   hình đã dùng i18n foundation cập nhật mà không cần restart app.
 - **Partial:** `teacherPromptMode` (`vi`/`en`/`bilingual`) được persist và chọn trong Parent UI.
@@ -351,9 +358,9 @@ và ước lượng 3 phút cho mỗi scene event.
 - `colors.ts` cung cấp token proxy, `createThemedStyles` và `useThemeSync` để styles cập nhật theo
   active scheme.
 
-## 7. Local persistence
+## 7. Local persistence và parent auth
 
-App hiện không có account/cloud sync. Có ba AsyncStorage stores:
+App hiện chưa có cloud sync. Có ba AsyncStorage stores:
 
 ### Parent settings
 
@@ -381,6 +388,26 @@ App hiện không có account/cloud sync. Có ba AsyncStorage stores:
 - Activity calls là best-effort; counters có thể phản ánh replay events thay vì chỉ unique scenes.
 
 Mọi schema/key change cần migration hoặc backward-compatible normalization và tests.
+
+### Parent account auth
+
+- Provider: Firebase Authentication qua `@react-native-firebase/app` và
+  `@react-native-firebase/auth`.
+- Supported sign-in providers: Google và Apple.
+- UI entry: `ParentAccountCard` trong Parent Mode settings.
+- JS boundary: `src/engine/ParentAuthManager.ts`.
+- Config placeholder: `src/config/firebaseAuth.ts`; native files cần nằm ở
+  `android/app/google-services.json` và iOS app target `GoogleService-Info.plist`.
+- Android Gradle chỉ apply `com.google.gms.google-services` khi `google-services.json` tồn tại để
+  local build không fail trước khi có Firebase config.
+- iOS Podfile khai báo scoped modular headers cho Firebase Auth dependency pods cần module map
+  (`FirebaseAppCheckInterop`, `FirebaseAuthInterop`, `FirebaseCoreInternal`, `GoogleUtilities`,
+  `RecaptchaInterop`).
+- Root `firebase.json` tắt các React Native Firebase auto-collection knobs cho analytics,
+  performance, messaging và ad storage; không thêm Firebase Analytics package.
+- Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
+  `apple.com`.
+- **Unsupported:** Firestore/Realtime Database sync, cloud progress, child data upload và analytics.
 
 ## 8. Audio, recording và native modules
 
@@ -521,6 +548,7 @@ Support summary:
 | Matching/listen-and-choose review        | Unsupported     |
 | Parent hold gate                         | Implemented     |
 | Parent PIN/math gate                     | Unsupported     |
+| Parent Google/Apple login                | Implemented     |
 | Theme Light/Dark/System                  | Implemented     |
 | Full VI/EN localization                  | Partial         |
 | Teacher prompt mode vi/en/bilingual      | Partial         |
