@@ -260,6 +260,10 @@ function getErrorMessageForCode(
     return t('parent.account.googleConfigMissing');
   }
 
+  if (code === 'missingGoogleUrlScheme') {
+    return t('parent.account.googleUrlSchemeMissing');
+  }
+
   if (code === 'appleUnavailable') {
     return t('parent.account.appleUnavailable');
   }
