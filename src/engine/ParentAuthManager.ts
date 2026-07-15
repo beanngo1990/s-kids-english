@@ -42,6 +42,7 @@ export type ParentAuthErrorCode =
   | 'missingAppleAuthorizationCode'
   | 'missingAppleIdentityToken'
   | 'missingFirebaseConfig'
+  | 'missingGoogleUrlScheme'
   | 'missingGoogleWebClientId'
   | 'playServicesUnavailable'
   | 'requiresRecentLogin'
@@ -236,6 +237,13 @@ export function getParentAuthErrorCode(error: unknown): ParentAuthErrorCode {
 
   if (code === statusCodes.IN_PROGRESS) {
     return 'signInInProgress';
+  }
+
+  if (
+    message.includes('missing support for the following URL schemes') ||
+    message.includes('missing support for the following URL scheme')
+  ) {
+    return 'missingGoogleUrlScheme';
   }
 
   if (code.includes('requires-recent-login')) {

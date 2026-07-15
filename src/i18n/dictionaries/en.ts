@@ -85,6 +85,8 @@ export const en: TranslationDictionary = {
     'Native Firebase config files are missing. Add google-services.json for Android and GoogleService-Info.plist for iOS before enabling sign-in.',
   'parent.account.googleConfigMissing':
     'Google Web client ID is missing in src/config/firebaseAuth.ts.',
+  'parent.account.googleUrlSchemeMissing':
+    'The iOS Google URL scheme is missing. Add REVERSED_CLIENT_ID from GoogleService-Info.plist to CFBundleURLTypes, then rebuild the app.',
   'parent.account.playServicesUnavailable':
     'This Android device needs Google Play Services for Google sign-in.',
   'parent.account.providerApple': 'Apple',

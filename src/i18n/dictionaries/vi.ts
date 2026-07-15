@@ -83,6 +83,8 @@ export const vi = {
     'Chưa có file cấu hình Firebase native. Thêm google-services.json cho Android và GoogleService-Info.plist cho iOS trước khi bật đăng nhập.',
   'parent.account.googleConfigMissing':
     'Chưa khai báo Google Web client ID trong src/config/firebaseAuth.ts.',
+  'parent.account.googleUrlSchemeMissing':
+    'Cấu hình iOS đang thiếu URL scheme của Google. Thêm REVERSED_CLIENT_ID từ GoogleService-Info.plist vào CFBundleURLTypes rồi build lại ứng dụng.',
   'parent.account.playServicesUnavailable':
     'Thiết bị Android cần Google Play Services để đăng nhập Google.',
   'parent.account.providerApple': 'Apple',
