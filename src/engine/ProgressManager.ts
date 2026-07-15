@@ -59,6 +59,15 @@ export type ProgressCompletionResult = {
   unlockedSticker?: LessonReward;
 };
 
+export type ProgressChangeSource = 'cloud' | 'local';
+
+export type ProgressChange = {
+  progress: LocalProgress;
+  source: ProgressChangeSource;
+};
+
+export type ProgressListener = (change: ProgressChange) => void;
+
 const emptyProgress: LocalProgress = {
   activeThemeId: DEFAULT_THEME_ID,
   completedLessonIds: [],
@@ -72,6 +81,16 @@ const emptyProgress: LocalProgress = {
   totalXP: 0,
 };
 
+const progressListeners = new Set<ProgressListener>();
+
+export function subscribeProgress(listener: ProgressListener) {
+  progressListeners.add(listener);
+
+  return () => {
+    progressListeners.delete(listener);
+  };
+}
+
 export async function getProgress(): Promise<LocalProgress> {
   const rawProgress = await AsyncStorage.getItem(PROGRESS_STORAGE_KEY);
 
@@ -83,6 +102,17 @@ export async function getProgress(): Promise<LocalProgress> {
 }
 
 export async function saveProgress(progress: LocalProgress) {
+  return persistProgress(progress, 'local');
+}
+
+export async function saveProgressFromCloud(progress: LocalProgress) {
+  return persistProgress(progress, 'cloud');
+}
+
+async function persistProgress(
+  progress: LocalProgress,
+  source: ProgressChangeSource,
+) {
   const nextProgress = normalizeProgress({
     ...progress,
     updatedAt: new Date().toISOString(),
@@ -92,6 +122,8 @@ export async function saveProgress(progress: LocalProgress) {
     PROGRESS_STORAGE_KEY,
     JSON.stringify(nextProgress),
   );
+
+  notifyProgressChanged({ progress: nextProgress, source });
 
   return nextProgress;
 }
@@ -347,8 +379,8 @@ export function getLessonVocabulary(lesson: Lesson) {
   return Array.from(vocabularyById.values());
 }
 
-function normalizeProgress(value: unknown): LocalProgress {
-  const progress = value as Partial<LocalProgress>;
+export function normalizeProgress(value: unknown): LocalProgress {
+  const progress = isRecord(value) ? value : {};
   const earnedStickerRecords = normalizeStickerRecords(
     progress.earnedStickerRecords,
     progress.earnedStickerIds,
@@ -371,14 +403,26 @@ function normalizeProgress(value: unknown): LocalProgress {
       progress.earnedAchievementRecords,
     ),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
-    vocabularyProgress: progress.vocabularyProgress || {},
-    totalXP: typeof progress.totalXP === 'number' && !Number.isNaN(progress.totalXP) ? progress.totalXP : 0,
+    vocabularyProgress: normalizeVocabularyProgress(
+      progress.vocabularyProgress,
+    ),
+    totalXP: normalizeNonNegativeNumber(progress.totalXP),
     currentLessonProgress: normalizeCurrentLessonProgress(
       progress.currentLessonProgress,
     ),
     updatedAt:
       typeof progress.updatedAt === 'string' ? progress.updatedAt : undefined,
   };
+}
+
+function notifyProgressChanged(change: ProgressChange) {
+  for (const listener of progressListeners) {
+    try {
+      listener(change);
+    } catch {
+      // Progress persistence must not fail because a sync listener failed.
+    }
+  }
 }
 
 function normalizeThemeId(value: unknown) {
@@ -413,6 +457,54 @@ function normalizeStringArray(value: unknown) {
   }
 
   return value.filter((item): item is string => typeof item === 'string');
+}
+
+function normalizeVocabularyProgress(value: unknown) {
+  if (!isRecord(value)) {
+    return {};
+  }
+
+  const normalized: Record<string, WordProgress> = {};
+
+  Object.entries(value).forEach(([key, item]) => {
+    if (!isRecord(item)) {
+      return;
+    }
+
+    const wordId =
+      typeof item.wordId === 'string' && item.wordId.length > 0
+        ? item.wordId
+        : key;
+    if (wordId.length === 0) {
+      return;
+    }
+
+    normalized[wordId] = {
+      correctCount: normalizeNonNegativeNumber(item.correctCount),
+      lastReviewedAt:
+        typeof item.lastReviewedAt === 'string'
+          ? item.lastReviewedAt
+          : new Date(0).toISOString(),
+      masteryLevel: Math.min(
+        3,
+        normalizeNonNegativeNumber(item.masteryLevel),
+      ),
+      wordId,
+      wrongCount: normalizeNonNegativeNumber(item.wrongCount),
+    };
+  });
+
+  return normalized;
+}
+
+function normalizeNonNegativeNumber(value: unknown) {
+  return typeof value === 'number' && Number.isFinite(value)
+    ? Math.max(0, value)
+    : 0;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
 function addUnique(existingIds: string[], nextIds: string[]) {

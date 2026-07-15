@@ -1,7 +1,9 @@
-# Firebase Auth setup
+# Firebase parent account and progress sync setup
 
-This phase only enables parent account sign-in. Do not enable Firebase Analytics, Crashlytics,
-Performance, Firestore sync, or child learning-data upload as part of this setup.
+Firebase Authentication is used for parent sign-in. Cloud Firestore is used only after an
+authenticated parent explicitly opts in to learning-progress sync from Parent Mode. Do not enable
+Firebase Analytics, Crashlytics, Performance, or upload child profile/activity/voice data as part
+of this setup.
 
 The root `firebase.json` intentionally disables React Native Firebase automatic collection knobs
 for analytics, performance, messaging, and ad storage. Keep those defaults unless a later privacy
@@ -16,6 +18,17 @@ review explicitly approves a new Firebase service.
    - Google
    - Apple
 5. In Authentication settings, keep requested scopes minimal: name and email only.
+6. Create a Cloud Firestore database in Native mode and select the production region deliberately;
+   changing the database location later is not a routine migration.
+7. Deploy `firestore.rules` before enabling sync in a release build:
+
+```sh
+npx firebase deploy --only firestore:rules --project <firebase-project-id>
+```
+
+The repository does not include a real Firebase project ID and the deploy command is not part of
+local verification. Use the Firebase Console rules playground or the emulator test below before
+deploying to production.
 
 ## Android
 
@@ -47,11 +60,67 @@ export const firebaseAuthConfig = {
 `googleWebClientId` is required because Firebase Auth signs in with the Google ID token. The iOS
 client ID should match the iOS client from `GoogleService-Info.plist`.
 
+After adding `@react-native-firebase/firestore`, refresh native dependencies:
+
+```sh
+cd ios && pod install
+```
+
+Android picks up the Firestore native dependency through Gradle autolinking.
+The Podfile currently disables React Native's prebuilt RNCore because React Native Firebase `25.1`
+does not yet compile reliably against that module under static frameworks on React Native `0.86`.
+Remove the workaround only after the upstream compatibility fix is available and both Debug and
+Release iOS builds have been verified.
+
+## Progress sync contract
+
+- Sync is off by default and remains off after sign-in until the parent confirms the disclosure.
+- Consent is stored locally in `@skidsenglish/parent-settings/v1` with the parent UID, consent
+  version and timestamp. A different signed-in UID cannot inherit that consent.
+- The only cloud document is `users/{uid}/progress/current`.
+- Synced fields are lesson/scene/review completion, learned-word IDs, vocabulary mastery counters,
+  XP, sticker/achievement records, active theme and the resume pointer.
+- Child name, avatar, birth year, parent settings, daily activity/streak data and voice recordings
+  are not included in the Firestore payload.
+- Local progress remains the runtime source of truth. Remote and local snapshots merge
+  monotonically: ID sets are unioned and XP/counters use the larger value. The latest snapshot
+  chooses active theme and resume position.
+- A new sync session waits for a server-confirmed initial snapshot before uploading. A cache-only
+  missing document therefore cannot overwrite progress that already exists on another device.
+- Turning sync off can either keep the existing cloud copy or delete it. Deleting the parent
+  account deletes the cloud progress document before deleting Firebase Auth; local progress stays
+  on the device.
+- If a different parent account signs in, the old device consent can be cleared locally before the
+  new account opts in. This does not delete the previous account's cloud copy; that account must
+  sign in again to delete its own data.
+
+This snapshot merge deliberately avoids duplicate rewards and XP inflation. It is not an event-log
+model, so simultaneous independent XP gains on two offline devices are not added together; the
+larger snapshot wins for counters.
+
+## Firestore rules tests
+
+`firestore.rules` denies all unrelated paths, collection list operations and cross-UID access. It
+also validates the document owner, schema/consent versions, server timestamp, allowed fields, basic
+types and bounded list/map sizes.
+
+Run the local emulator test with:
+
+```sh
+npm run test:firestore-rules
+```
+
+The command uses demo project ID `demo-skidsenglish` and cannot contact production Firebase data.
+
 ## Privacy notes
 
 - Firebase Authentication processes parent account identifiers such as email, display name,
   provider UID, IP address, and user agent for authentication/security.
-- The app still keeps child learning progress local in this phase.
+- When a parent opts in, Firebase processes the learning-progress fields listed above and technical
+  request metadata. The cloud copy remains until the parent chooses cloud deletion or account
+  deletion; merely disabling sync can intentionally retain it.
 - Update App Store / Google Play privacy disclosures and the public privacy policy before release.
-- If cloud sync is added later, design a separate consent, retention, deletion, and Firestore rules
-  plan before writing any child progress data to Firebase.
+- Firebase Analytics remains absent and React Native Firebase automatic collection flags remain
+  disabled in the root `firebase.json`.
+- App Check is not implemented in this milestone. Firebase Auth plus owner-only Firestore rules are
+  the current access boundary.

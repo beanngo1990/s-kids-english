@@ -1,0 +1,133 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function hasValidResumePointer(progress) {
+      return !('currentLessonProgress' in progress) ||
+        (progress.currentLessonProgress is map &&
+          progress.currentLessonProgress.keys().hasOnly([
+            'lessonId',
+            'sceneId',
+            'stepId'
+          ]) &&
+          progress.currentLessonProgress.keys().hasAll([
+            'lessonId',
+            'sceneId',
+            'stepId'
+          ]) &&
+          progress.currentLessonProgress.lessonId is string &&
+          progress.currentLessonProgress.lessonId.size() <= 120 &&
+          progress.currentLessonProgress.sceneId is string &&
+          progress.currentLessonProgress.sceneId.size() <= 120 &&
+          progress.currentLessonProgress.stepId is string &&
+          progress.currentLessonProgress.stepId.size() <= 120);
+    }
+
+    function hasValidClientTimestamp(progress) {
+      return !('updatedAt' in progress) ||
+        (progress.updatedAt is string && progress.updatedAt.size() <= 40);
+    }
+
+    function hasValidProgress(progress) {
+      return progress is map &&
+        progress.keys().hasOnly([
+          'activeThemeId',
+          'completedLessonIds',
+          'completedReviewGameIds',
+          'completedSceneIds',
+          'currentLessonProgress',
+          'earnedAchievementRecords',
+          'earnedStickerIds',
+          'earnedStickerRecords',
+          'learnedWordIds',
+          'totalXP',
+          'updatedAt',
+          'vocabularyProgress'
+        ]) &&
+        progress.keys().hasAll([
+          'activeThemeId',
+          'completedLessonIds',
+          'completedReviewGameIds',
+          'completedSceneIds',
+          'earnedAchievementRecords',
+          'earnedStickerIds',
+          'earnedStickerRecords',
+          'learnedWordIds',
+          'totalXP',
+          'vocabularyProgress'
+        ]) &&
+        progress.activeThemeId is string &&
+        progress.activeThemeId.size() <= 120 &&
+        progress.completedLessonIds is list &&
+        progress.completedLessonIds.size() <= 500 &&
+        progress.completedReviewGameIds is list &&
+        progress.completedReviewGameIds.size() <= 500 &&
+        progress.completedSceneIds is list &&
+        progress.completedSceneIds.size() <= 2000 &&
+        progress.earnedAchievementRecords is list &&
+        progress.earnedAchievementRecords.size() <= 500 &&
+        progress.earnedStickerIds is list &&
+        progress.earnedStickerIds.size() <= 500 &&
+        progress.earnedStickerRecords is list &&
+        progress.earnedStickerRecords.size() <= 500 &&
+        progress.learnedWordIds is list &&
+        progress.learnedWordIds.size() <= 2000 &&
+        progress.totalXP is number &&
+        progress.totalXP >= 0 &&
+        progress.totalXP <= 1000000 &&
+        progress.vocabularyProgress is map &&
+        progress.vocabularyProgress.size() <= 2000 &&
+        hasValidResumePointer(progress) &&
+        hasValidClientTimestamp(progress);
+    }
+
+    function hasValidCloudDocument(uid) {
+      return request.resource.data.keys().hasOnly([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'progress',
+          'schemaVersion',
+          'serverUpdatedAt'
+        ]) &&
+        request.resource.data.keys().hasAll([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'progress',
+          'schemaVersion',
+          'serverUpdatedAt'
+        ]) &&
+        request.resource.data.ownerUid == uid &&
+        request.resource.data.ownerUid is string &&
+        request.resource.data.consentVersion == 1 &&
+        request.resource.data.schemaVersion == 1 &&
+        request.resource.data.consentedAt is timestamp &&
+        request.resource.data.serverUpdatedAt == request.time &&
+        hasValidProgress(request.resource.data.progress);
+    }
+
+    match /users/{uid}/progress/{progressId} {
+      allow get: if progressId == 'current' && isOwner(uid);
+      allow list: if false;
+      allow create: if progressId == 'current' &&
+        isOwner(uid) &&
+        hasValidCloudDocument(uid);
+      allow update: if progressId == 'current' &&
+        isOwner(uid) &&
+        hasValidCloudDocument(uid) &&
+        request.resource.data.ownerUid == resource.data.ownerUid &&
+        request.resource.data.consentVersion == resource.data.consentVersion &&
+        request.resource.data.schemaVersion == resource.data.schemaVersion;
+      allow delete: if progressId == 'current' && isOwner(uid);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

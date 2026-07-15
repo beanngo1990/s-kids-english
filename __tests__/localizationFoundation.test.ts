@@ -98,7 +98,42 @@ test('localizes domain titles without changing English learning content', () => 
 test('defaults new localization settings for legacy parent settings', async () => {
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'vi',
+    cloudProgressSync: { enabled: false },
     teacherPromptMode: 'vi',
+  });
+});
+
+test('only enables cloud sync with complete current parent consent', async () => {
+  await saveParentSettings({
+    cloudProgressSync: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      ownerUid: 'parent-a',
+    },
+  });
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    cloudProgressSync: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      ownerUid: 'parent-a',
+    },
+  });
+
+  await saveParentSettings({
+    cloudProgressSync: {
+      enabled: true,
+      ownerUid: 'parent-b',
+    },
+  });
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    cloudProgressSync: {
+      enabled: false,
+      ownerUid: 'parent-b',
+    },
   });
 });
 

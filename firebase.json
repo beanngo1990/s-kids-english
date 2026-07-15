@@ -1,4 +1,16 @@
 {
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "emulators": {
+    "firestore": {
+      "port": 8080
+    },
+    "singleProjectMode": true,
+    "ui": {
+      "enabled": false
+    }
+  },
   "react-native": {
     "analytics_auto_collection_enabled": false,
     "analytics_collection_deactivated": true,

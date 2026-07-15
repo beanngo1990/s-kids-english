@@ -5,6 +5,14 @@ import { AppButton } from './AppButton';
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import {
+  CloudProgressSyncError,
+  deleteCloudProgressForCurrentParent,
+} from '../engine/CloudProgressSyncManager';
+import {
+  getCloudSyncErrorMessage,
+  ParentCloudSyncSection,
+} from './ParentCloudSyncSection';
+import {
   deleteParentAccount,
   getParentAuthErrorCode,
   getParentAuthProviders,
@@ -105,13 +113,21 @@ export function ParentAccountCard() {
   const deleteAccount = useCallback(async () => {
     setPendingAction('delete');
     try {
+      await deleteCloudProgressForCurrentParent();
       await deleteParentAccount();
       Alert.alert(
         t('parent.account.deletedTitle'),
         t('parent.account.deletedText'),
       );
     } catch (error) {
-      handleError(error);
+      if (error instanceof CloudProgressSyncError) {
+        Alert.alert(
+          t('parent.cloudSync.errorTitle'),
+          getCloudSyncErrorMessage(t, error.code),
+        );
+      } else {
+        handleError(error);
+      }
     } finally {
       setPendingAction(null);
     }
@@ -180,7 +196,11 @@ export function ParentAccountCard() {
         <Text style={styles.signedOut}>{t('parent.account.signedOut')}</Text>
       )}
 
-      <Text style={styles.syncNote}>{t('parent.account.syncLater')}</Text>
+      <ParentCloudSyncSection
+        firebaseConfigMissing={firebaseConfigMissing}
+        isAccountBusy={isBusy}
+        isSignedIn={Boolean(user)}
+      />
 
       {user ? (
         <View style={styles.actions}>
@@ -347,10 +367,6 @@ const styles = createThemedStyles(() => ({
   },
   subtitle: {
     ...typography.body,
-    color: colors.textSoft,
-  },
-  syncNote: {
-    ...typography.caption,
     color: colors.textSoft,
   },
   title: {

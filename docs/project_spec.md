@@ -2,10 +2,11 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-14
+**Kiểm chứng gần nhất:** 2026-07-15
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
-localization foundation và Firebase parent auth trong working tree hiện tại.
+localization foundation, Firebase parent auth và opt-in cloud progress sync trong working tree hiện
+tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -51,7 +52,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
-- **Unsupported:** backend sync hoặc cloud progress.
+- **Implemented:** parent opt-in cloud progress sync qua Firestore; mặc định tắt và chỉ sync
+  `LocalProgress`, không sync child profile/activity/voice recordings.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -67,11 +69,13 @@ URI và không có backend upload trong implementation hiện tại.
 - React Navigation v7: native container + native stack.
 - AsyncStorage `3.x`.
 - Notifee `9.x`.
-- React Native Firebase App/Auth `25.x`.
+- React Native Firebase App/Auth/Firestore `25.x`.
 - Google Sign-In `16.x`.
 - Apple Authentication `2.x`.
 - Node.js `>=22.11.0`.
 - Jest `29.x`, ESLint `8.x`.
+- Firestore rules test tooling: Firebase JS SDK `12.15.0`, Rules Unit Testing `5.x` và Firebase CLI
+  `15.x` (dev-only).
 
 `package.json` là nguồn cho declared ranges; `package-lock.json` là nguồn cho exact resolved
 versions nếu các con số trên bị stale.
@@ -82,6 +86,7 @@ versions nếu các con số trên bị stale.
 index.js
   -> App.tsx
      -> configureNativeAudioAdapter()
+     -> startCloudProgressSync()
      -> AppThemeProvider
      -> SafeAreaProvider
      -> AppNavigator
@@ -120,7 +125,7 @@ src/
   components/   reusable UI và mascot components
   config/       remote R2 configuration và generated release revision
   data/         catalogs, prompts, lesson authoring helpers và validators
-  engine/       scene, step, progress, persistence, parent auth, audio, recording và asset logic
+  engine/       scene, step, progress, persistence, parent auth/cloud sync, audio, recording và asset logic
   games/        review-game registry và implementations
   navigation/   navigation container/stack
   screens/      route-level screens
@@ -238,7 +243,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** chỉnh difficulty, guided/free journey, visible lessons, child profile,
   Light/Dark/System theme, app-language preference, teacher prompt mode và daily reminder time.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
-  Google và Apple. Đây là tài khoản phụ huynh; không upload dữ liệu học của bé trong phase hiện tại.
+  Google và Apple. Đây là tài khoản phụ huynh.
+- **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud progress sync. Consent modal
+  liệt kê dữ liệu được sync; opt-out cho phép giữ hoặc xóa bản cloud. Child profile, daily activity
+  và voice recordings không được upload.
 - **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
   quay lại trở về Parent Mode mà không phải giữ cổng 3 giây lần nữa.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
@@ -358,17 +366,21 @@ và ước lượng 3 phút cho mỗi scene event.
 - `colors.ts` cung cấp token proxy, `createThemedStyles` và `useThemeSync` để styles cập nhật theo
   active scheme.
 
-## 7. Local persistence và parent auth
+## 7. Local persistence, parent auth và cloud progress
 
-App hiện chưa có cloud sync. Có ba AsyncStorage stores:
+App luôn dùng ba AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+của learning progress sau parent opt-in:
 
 ### Parent settings
 
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language, teacher prompt mode, app theme, reminder state/time và child profile.
+  app language, teacher prompt mode, app theme, reminder state/time, child profile và
+  `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
+- `cloudProgressSync` mặc định `enabled: false`; chỉ normalize thành enabled khi có owner UID,
+  consent version hiện tại và consent timestamp hợp lệ.
 
 ### Learning progress
 
@@ -378,6 +390,8 @@ App hiện chưa có cloud sync. Có ba AsyncStorage stores:
   records, active theme và resume pointer.
 - Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ; legacy
   `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị.
+- `ProgressManager` phát change source `local | cloud`; cloud-applied merge không bị enqueue lại như
+  một local mutation.
 
 ### Daily activity
 
@@ -402,13 +416,52 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   local build không fail trước khi có Firebase config.
 - iOS Podfile dùng CocoaPods static frameworks (`use_frameworks! :linkage => :static`) và bật
   `$RNFirebaseAsStaticFramework` theo cấu hình được React Native Firebase hỗ trợ.
-- Trong khi React Native Firebase `25.1` chưa tích hợp upstream fix cho RN `0.86` prebuilt RNCore,
-  `post_install` cho phép non-modular React headers riêng trên các target `RNFB*`.
+- Trong khi React Native Firebase `25.1` chưa tích hợp đầy đủ upstream fix cho RN `0.86` prebuilt
+  RNCore với static frameworks, Podfile đặt `RCT_USE_PREBUILT_RNCORE=0` để build RNCore từ source;
+  `post_install` đồng thời cho phép non-modular React headers riêng trên các target `RNFB*`.
 - Root `firebase.json` tắt các React Native Firebase auto-collection knobs cho analytics,
   performance, messaging và ad storage; không thêm Firebase Analytics package.
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
-- **Unsupported:** Firestore/Realtime Database sync, cloud progress, child data upload và analytics.
+- Account deletion UI xóa `users/{uid}/progress/current` trước khi xóa Firebase Auth. Nếu cloud
+  deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập; local
+  progress không bị xóa.
+
+### Cloud progress sync
+
+- Dependency/runtime: `@react-native-firebase/firestore` `25.x`.
+- Lifecycle boundary: `App.tsx` gọi `startCloudProgressSync()`; manager nằm tại
+  `src/engine/CloudProgressSyncManager.ts`.
+- Merge/serialization thuần nằm tại `src/engine/CloudProgressMerge.ts`.
+- Firestore path duy nhất: `users/{uid}/progress/current`; schema version và consent version hiện
+  đều là `1`.
+- Sync mặc định tắt. Đăng nhập không tự bật sync. Consent được bind với UID hiện tại, vì vậy đăng
+  nhập tài khoản khác không kế thừa opt-in cũ. Parent UI cho phép xóa consent cũ khỏi thiết bị để
+  tài khoản hiện tại opt-in lại; thao tác này không xóa cloud document của owner cũ.
+- Payload chỉ gồm `LocalProgress`: completion/review IDs, learned words, vocabulary progress, XP,
+  sticker/achievement records, active theme, resume pointer và client update timestamp.
+- Không sync child profile (name/avatar/birth year), parent settings, daily activity/streak, voice
+  recording URI/file hoặc lesson assets.
+- Local progress tiếp tục là runtime source of truth. Khi nhận remote snapshot, ID arrays/records
+  được union theo key; vocabulary counts/mastery và total XP lấy max; active theme/resume pointer
+  lấy snapshot có `updatedAt` mới hơn. Merge được canonicalize để tránh ping-pong do array order.
+- Khi bắt đầu một sync session, manager chờ initial snapshot được server xác nhận trước khi upload;
+  snapshot cache báo document chưa tồn tại không thể ghi đè dữ liệu đang có từ thiết bị khác.
+- Contract max/union tránh duplicate reward và XP inflation nhưng không cộng hai XP delta độc lập
+  phát sinh đồng thời trên hai thiết bị offline. Event-log/operation-based multi-device accounting
+  vẫn unsupported.
+- Opt-out có hai lựa chọn: dừng listener nhưng giữ cloud document, hoặc dừng và xóa cloud document.
+  Local progress luôn được giữ.
+- `firestore.rules` chỉ cho authenticated owner get/create/update/delete document `current`, cấm
+  list/cross-UID/unrelated paths, whitelist fields và giới hạn basic types/sizes. Dynamic entries
+  bên trong vocabulary map được client normalizer kiểm tra vì Firestore Rules không có generic
+  iteration để validate mọi map value.
+- `npm run test:firestore-rules` chạy Firebase Emulator với demo project và kiểm tra owner access,
+  cross-user/anonymous denial, list denial, owner/schema constraints và unknown-field rejection.
+- Root `firebase.json` vẫn tắt Analytics/Performance/Messaging/ad auto-collection; Firebase
+  Analytics package không được thêm.
+- **Unsupported:** sync parent settings/child profile/activity/recordings, Realtime Database,
+  Analytics và App Check.
 
 ## 8. Audio, recording và native modules
 
@@ -563,7 +616,7 @@ Support summary:
 | iOS audio disk cache                     | Unsupported     |
 | Full offline lesson bundle               | Unsupported     |
 | Native reminder E2E coverage             | Partial         |
-| Cloud progress/account sync              | Unsupported     |
+| Parent opt-in cloud progress sync        | Implemented     |
 
 ## 12. Spec maintenance
 
