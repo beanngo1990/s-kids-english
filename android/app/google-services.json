@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "536861541585",
+    "project_id": "fir-kidsenglish",
+    "storage_bucket": "fir-kidsenglish.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536861541585:android:8512cbf37298019ecf31f0",
+        "android_client_info": {
+          "package_name": "com.seduforge.skidsenglish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536861541585-ctk8ack23sfn9tlr62pjv64rol72oaa3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.seduforge.skidsenglish",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "536861541585-pbk3v0ilmcm6bos8227ovsf78d6eo8qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr69rhZb5yvWy0t8zr-movTUNvN9dBzbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536861541585-pbk3v0ilmcm6bos8227ovsf78d6eo8qs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536861541585-8633ed21a4uujb4ts28bpec0hhol6gsq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.seduforge.skidsenglish"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import { AppCard } from '../components/AppCard';
+import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -25,6 +26,7 @@ export function GamePlayer({
   reviewGame,
 }: GamePlayerProps) {
   useThemeSync();
+  const t = useI18n();
   switch (reviewGame.type) {
     case 'memory':
       return (
@@ -38,10 +40,10 @@ export function GamePlayer({
       return (
         <AppCard style={styles.unsupportedCard}>
           <Text style={styles.unsupportedTitle}>
-            Game này chưa được hỗ trợ.
+            {t('reviewGame.unsupportedTitle')}
           </Text>
           <Text style={styles.unsupportedText}>
-            Hiện app mới có game lật thẻ hình giống nhau.
+            {t('reviewGame.unsupportedText')}
           </Text>
         </AppCard>
       );

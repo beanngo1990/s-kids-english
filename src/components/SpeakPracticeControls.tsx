@@ -226,7 +226,7 @@ export function SpeakPracticeControls({
     const charCount = targetWord.replace(/\s+/g, '').length;
 
     recordingParamsRef.current = {
-      fallbackRecordingDurationMs: Math.max(5000, 3500 + charCount * 350),
+      fallbackRecordingDurationMs: Math.max(5200, 3500 + charCount * 350),
       minListenBeforeSilenceStopMs: wordCount > 1 ? 1200 : 800,
       silenceAfterSpeechMs: wordCount > 1 ? 1100 : 750,
     };
@@ -262,7 +262,12 @@ export function SpeakPracticeControls({
         await playTapSound();
       }
 
-      const hasPermission = await requestVoiceRecordingPermission();
+      const hasPermission = await requestVoiceRecordingPermission({
+        buttonNegative: t('voiceRecorder.permissionNegative'),
+        buttonPositive: t('voiceRecorder.permissionPositive'),
+        message: t('voiceRecorder.permissionMessage'),
+        title: t('voiceRecorder.permissionTitle'),
+      });
       if (!hasPermission) {
         setStatus('unavailable');
         if (playTap) {

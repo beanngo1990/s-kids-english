@@ -8,10 +8,6 @@ import { AppLogo } from '../components/AppLogo';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { Screen } from '../components/Screen';
-import {
-  sungyOnboardingGreeting,
-  sungyOnboardingTapMessages,
-} from '../data/mascotPrompts';
 import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import {
   completeParentOnboarding,
@@ -39,6 +35,12 @@ export function OnboardingScreen({ navigation }: Props) {
   useThemeSync();
   const appLanguage = useSavedAppLanguage();
   const t = useTranslations(appLanguage);
+  const sungyOnboardingGreeting = t('onboarding.coach.greeting');
+  const sungyOnboardingTapMessages = [
+    sungyOnboardingGreeting,
+    t('onboarding.coach.tapDifficulty'),
+    t('onboarding.coach.tapCheer'),
+  ];
   const [selectedMode, setSelectedMode] = useState<LearningMode>('core');
   const [isSaving, setIsSaving] = useState(false);
 
@@ -64,7 +66,9 @@ export function OnboardingScreen({ navigation }: Props) {
             <AppLogo size={76} />
             <MascotImage
               accessibilityLabel={t('onboarding.mascotAccessibility')}
-              onPress={() => speakSungyLine(sungyOnboardingGreeting)}
+              onPress={() =>
+                speakSungyLine(sungyOnboardingGreeting, appLanguage)
+              }
               pose="hello"
               size={132}
               style={styles.heroMascot}

@@ -1,5 +1,8 @@
 import notifee, { TriggerType, RepeatFrequency, AuthorizationStatus } from '@notifee/react-native';
 
+import { getParentSettings } from '../engine/ParentSettingsManager';
+import { createTranslator } from '../i18n';
+
 export class NotificationService {
   static async requestPermissions(): Promise<boolean> {
     const settings = await notifee.requestPermission();
@@ -9,12 +12,13 @@ export class NotificationService {
   static async scheduleDailyReminder(time: string) {
     const hasPermission = await this.requestPermissions();
     if (!hasPermission) return;
+    const t = await getNotificationTranslator();
 
     const [hours, minutes] = time.split(':').map(Number);
     
     const channelId = await notifee.createChannel({
       id: 'daily-reminder',
-      name: 'Daily Reminder Channel',
+      name: t('notifications.dailyChannel'),
     });
 
     const date = new Date(Date.now());
@@ -38,8 +42,8 @@ export class NotificationService {
     await notifee.createTriggerNotification(
       {
         id: 'daily-reminder',
-        title: 'Đã đến giờ học rồi!',
-        body: 'Bé ơi, mình cùng học tiếng Anh nhé!',
+        title: t('notifications.dailyTitle'),
+        body: t('notifications.dailyBody'),
         android: {
           channelId,
           smallIcon: 'ic_launcher',
@@ -54,5 +58,14 @@ export class NotificationService {
 
   static async cancelDailyReminder() {
     await notifee.cancelTriggerNotification('daily-reminder');
+  }
+}
+
+async function getNotificationTranslator() {
+  try {
+    const settings = await getParentSettings();
+    return createTranslator(settings.appLanguage);
+  } catch {
+    return createTranslator('vi');
   }
 }
