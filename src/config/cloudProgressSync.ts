@@ -1,0 +1,4 @@
+export const CLOUD_PROGRESS_SYNC_CONSENT_VERSION = 1;
+export const CLOUD_PROGRESS_SCHEMA_VERSION = 1;
+export const CLOUD_PROGRESS_DOCUMENT_ID = 'current';
+

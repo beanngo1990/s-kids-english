@@ -74,10 +74,10 @@ export const en: TranslationDictionary = {
   'parent.account.deleteAccount': 'Delete account',
   'parent.account.deleteConfirmAction': 'Delete account',
   'parent.account.deleteConfirmText':
-    'The sign-in account will be deleted from Firebase Auth. Local learning progress on this device is not deleted yet.',
+    'The sign-in account and progress synced to Firestore will be deleted. Local progress on this device will remain.',
   'parent.account.deleteConfirmTitle': 'Delete parent account?',
   'parent.account.deletedText':
-    'The account has been deleted. Local learning progress remains on this device.',
+    'The account and cloud progress have been deleted. Local progress remains on this device.',
   'parent.account.deletedTitle': 'Account deleted',
   'parent.account.deleting': 'Deleting...',
   'parent.account.errorTitle': 'Could not sign in',
@@ -102,19 +102,65 @@ export const en: TranslationDictionary = {
   'parent.account.signInWithProvider': 'Sign in with {provider}',
   'parent.account.signedIn': 'Signed in',
   'parent.account.signedOut':
-    'Parents can sign in now to prepare for future data sync.',
+    'A parent must sign in before explicitly enabling progress sync.',
   'parent.account.signingIn': 'Signing in...',
   'parent.account.signingOut': 'Signing out...',
   'parent.account.signOut': 'Sign out',
   'parent.account.subtitle':
-    'Parent-only account access. This step does not enable ads, analytics, or learning-data sync.',
-  'parent.account.syncLater':
-    'Your child’s learning progress still stays on this device; cloud sync will be implemented separately.',
+    'Parent-only account access. Signing in does not automatically enable ads, analytics, or learning-data sync.',
   'parent.account.title': 'Sign in parent account',
   'parent.account.unknownError':
     'Something went wrong during sign-in. Check Firebase/Auth provider setup and try again.',
+  'parent.cloudSync.accessibilityLabel': 'Enable learning progress sync',
+  'parent.cloudSync.cloudDeletedText':
+    'Cloud progress has been deleted. The local copy remains on this device.',
+  'parent.cloudSync.cloudDeletedTitle': 'Cloud data deleted',
+  'parent.cloudSync.clearConsentAction': 'Clear old permission',
+  'parent.cloudSync.clearConsentText':
+    'This removes the previous account’s sync permission from this device only. Its cloud progress is kept and can only be deleted after signing back into that account. You can then enable sync for the current account.',
+  'parent.cloudSync.clearConsentTitle': 'Switch parent account?',
+  'parent.cloudSync.consentAction': 'Enable sync',
+  'parent.cloudSync.consentText':
+    'The app will store completed lessons and scenes, learned words, mastery, XP, stickers, achievements, and the resume position in Firestore. It does not upload the child’s name or birth year, settings, activity log, or voice recordings. Parents can disable sync or delete the cloud copy at any time.',
+  'parent.cloudSync.consentTitle': 'Allow progress sync?',
+  'parent.cloudSync.description':
+    'Save a progress copy to the parent account to continue on another device.',
+  'parent.cloudSync.disableDeleteCloud': 'Disable and delete cloud',
+  'parent.cloudSync.disableKeepCloud': 'Disable sync only',
+  'parent.cloudSync.disableText':
+    'Keep the existing cloud copy or delete it now? Local progress on this device will not be deleted.',
+  'parent.cloudSync.disableTitle': 'Disable progress sync?',
+  'parent.cloudSync.errorAccountMismatch':
+    'Sync consent on this device belongs to a different parent account. Sign back in to that account to manage or delete its cloud data.',
+  'parent.cloudSync.errorFirebaseUnavailable':
+    'Firestore is not configured for this build.',
+  'parent.cloudSync.errorInvalidData':
+    'The cloud progress data has an unsupported version or structure.',
+  'parent.cloudSync.errorNetwork':
+    'Could not reach Firestore. Local progress is safe; retry when the device is online.',
+  'parent.cloudSync.errorNotSignedIn':
+    'A parent must sign in before managing sync.',
+  'parent.cloudSync.errorPermissionDenied':
+    'Firestore denied this action. Check that the rules are deployed and the correct account is signed in.',
+  'parent.cloudSync.errorTitle': 'Could not sync',
+  'parent.cloudSync.errorUnknown':
+    'Progress sync failed. Local progress remains unchanged.',
+  'parent.cloudSync.retry': 'Retry sync',
+  'parent.cloudSync.statusAccountMismatch':
+    'Paused: sync consent belongs to another parent account.',
+  'parent.cloudSync.statusDisabled':
+    'Off. Progress is stored only on this device.',
+  'parent.cloudSync.statusDisabling': 'Disabling sync...',
+  'parent.cloudSync.statusEnabling': 'Enabling sync...',
+  'parent.cloudSync.statusPending':
+    'Saved locally and waiting for Firestore confirmation.',
+  'parent.cloudSync.statusSynced': 'Progress is synced.',
+  'parent.cloudSync.statusSyncing': 'Syncing progress...',
+  'parent.cloudSync.statusWaitingForSignIn':
+    'Sync is paused until the parent account signs in again.',
+  'parent.cloudSync.title': 'Progress sync',
   'parent.privacy.text':
-    'The app has no ads, no external links, and does not collect children’s personal information.',
+    'The app has no ads or external links. Child profile and voice data are not uploaded; learning progress is stored in the cloud only with a parent’s permission.',
   'parent.privacy.title': 'Child-safe',
   'parent.settings.appExperienceBadge': 'App experience',
   'parent.settings.appExperienceTitle': 'For parents',

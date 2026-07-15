@@ -72,10 +72,10 @@ export const vi = {
   'parent.account.deleteAccount': 'Xóa tài khoản',
   'parent.account.deleteConfirmAction': 'Xóa tài khoản',
   'parent.account.deleteConfirmText':
-    'Tài khoản đăng nhập sẽ bị xóa khỏi Firebase Auth. Tiến độ học local trên máy hiện chưa bị xóa.',
+    'Tài khoản đăng nhập và tiến độ đã đồng bộ trên Firestore sẽ bị xóa. Tiến độ local trên thiết bị này vẫn được giữ.',
   'parent.account.deleteConfirmTitle': 'Xóa tài khoản phụ huynh?',
   'parent.account.deletedText':
-    'Tài khoản đã được xóa. Tiến độ học local vẫn ở trên thiết bị này.',
+    'Tài khoản và tiến độ trên cloud đã được xóa. Tiến độ local vẫn ở trên thiết bị này.',
   'parent.account.deletedTitle': 'Đã xóa tài khoản',
   'parent.account.deleting': 'Đang xóa...',
   'parent.account.errorTitle': 'Chưa đăng nhập được',
@@ -100,19 +100,64 @@ export const vi = {
   'parent.account.signInWithProvider': 'Đăng nhập bằng {provider}',
   'parent.account.signedIn': 'Đã đăng nhập',
   'parent.account.signedOut':
-    'Ba mẹ có thể đăng nhập để chuẩn bị đồng bộ dữ liệu sau này.',
+    'Ba mẹ cần đăng nhập trước khi chủ động bật đồng bộ tiến độ.',
   'parent.account.signingIn': 'Đang đăng nhập...',
   'parent.account.signingOut': 'Đang đăng xuất...',
   'parent.account.signOut': 'Đăng xuất',
   'parent.account.subtitle':
-    'Chỉ dành cho ba mẹ. Không bật quảng cáo, analytics hay đồng bộ dữ liệu học trong bước này.',
-  'parent.account.syncLater':
-    'Hiện tại tiến độ học của bé vẫn lưu trên thiết bị; phần đồng bộ cloud sẽ được triển khai riêng.',
+    'Chỉ dành cho ba mẹ. Đăng nhập không tự bật quảng cáo, analytics hay đồng bộ dữ liệu học.',
   'parent.account.title': 'Đăng nhập tài khoản ba mẹ',
   'parent.account.unknownError':
     'Có lỗi khi đăng nhập. Ba mẹ kiểm tra cấu hình Firebase/Auth provider rồi thử lại.',
+  'parent.cloudSync.accessibilityLabel': 'Bật đồng bộ tiến độ học',
+  'parent.cloudSync.cloudDeletedText':
+    'Tiến độ trên cloud đã được xóa. Bản local trên thiết bị vẫn được giữ.',
+  'parent.cloudSync.cloudDeletedTitle': 'Đã xóa dữ liệu cloud',
+  'parent.cloudSync.clearConsentAction': 'Xóa quyền cũ',
+  'parent.cloudSync.clearConsentText':
+    'Thao tác này chỉ xóa quyền đồng bộ của tài khoản trước khỏi thiết bị. Tiến độ cloud của tài khoản đó vẫn được giữ và chỉ có thể xóa sau khi đăng nhập lại. Sau đó ba mẹ có thể bật đồng bộ cho tài khoản hiện tại.',
+  'parent.cloudSync.clearConsentTitle': 'Đổi tài khoản ba mẹ?',
+  'parent.cloudSync.consentAction': 'Bật đồng bộ',
+  'parent.cloudSync.consentText':
+    'Ứng dụng sẽ lưu trên Firestore các bài/cảnh đã hoàn thành, từ đã học, mức độ ghi nhớ, XP, sticker, thành tích và vị trí học tiếp. Không tải lên tên hoặc năm sinh của bé, cài đặt, nhật ký hoạt động hay bản ghi âm. Ba mẹ có thể tắt hoặc xóa bản cloud bất cứ lúc nào.',
+  'parent.cloudSync.consentTitle': 'Cho phép đồng bộ tiến độ?',
+  'parent.cloudSync.description':
+    'Lưu bản sao tiến độ vào tài khoản ba mẹ để tiếp tục trên thiết bị khác.',
+  'parent.cloudSync.disableDeleteCloud': 'Tắt và xóa cloud',
+  'parent.cloudSync.disableKeepCloud': 'Chỉ tắt đồng bộ',
+  'parent.cloudSync.disableText':
+    'Ba mẹ muốn giữ bản tiến độ hiện có trên cloud hay xóa luôn? Bản local trên thiết bị không bị xóa.',
+  'parent.cloudSync.disableTitle': 'Tắt đồng bộ tiến độ?',
+  'parent.cloudSync.errorAccountMismatch':
+    'Quyền đồng bộ trên thiết bị này thuộc một tài khoản ba mẹ khác. Hãy đăng nhập lại tài khoản đó để quản lý hoặc xóa dữ liệu cloud.',
+  'parent.cloudSync.errorFirebaseUnavailable':
+    'Firestore chưa được cấu hình cho bản build này.',
+  'parent.cloudSync.errorInvalidData':
+    'Dữ liệu tiến độ trên cloud có phiên bản hoặc cấu trúc không được hỗ trợ.',
+  'parent.cloudSync.errorNetwork':
+    'Chưa kết nối được Firestore. Tiến độ local vẫn an toàn; ba mẹ thử lại khi có mạng.',
+  'parent.cloudSync.errorNotSignedIn':
+    'Ba mẹ cần đăng nhập trước khi quản lý đồng bộ.',
+  'parent.cloudSync.errorPermissionDenied':
+    'Firestore từ chối thao tác. Hãy kiểm tra đã deploy đúng rules và tài khoản đang đăng nhập.',
+  'parent.cloudSync.errorTitle': 'Chưa đồng bộ được',
+  'parent.cloudSync.errorUnknown':
+    'Có lỗi khi đồng bộ tiến độ. Tiến độ local vẫn được giữ nguyên.',
+  'parent.cloudSync.retry': 'Thử đồng bộ lại',
+  'parent.cloudSync.statusAccountMismatch':
+    'Đang dừng: quyền đồng bộ thuộc tài khoản ba mẹ khác.',
+  'parent.cloudSync.statusDisabled': 'Đang tắt. Tiến độ chỉ lưu trên thiết bị.',
+  'parent.cloudSync.statusDisabling': 'Đang tắt đồng bộ...',
+  'parent.cloudSync.statusEnabling': 'Đang bật đồng bộ...',
+  'parent.cloudSync.statusPending':
+    'Đã lưu local, đang chờ Firestore xác nhận.',
+  'parent.cloudSync.statusSynced': 'Tiến độ đã đồng bộ.',
+  'parent.cloudSync.statusSyncing': 'Đang đồng bộ tiến độ...',
+  'parent.cloudSync.statusWaitingForSignIn':
+    'Đồng bộ đang tạm dừng cho đến khi tài khoản ba mẹ đăng nhập lại.',
+  'parent.cloudSync.title': 'Đồng bộ tiến độ',
   'parent.privacy.text':
-    'Ứng dụng không có quảng cáo, không có link ngoài và không thu thập thông tin trẻ em.',
+    'Ứng dụng không có quảng cáo hay link ngoài. Hồ sơ và bản ghi âm của bé không được tải lên; tiến độ học chỉ lưu trên cloud khi ba mẹ cho phép.',
   'parent.privacy.title': 'An toàn cho trẻ',
   'parent.settings.appExperienceBadge': 'Trải nghiệm ứng dụng',
   'parent.settings.appExperienceTitle': 'Dành cho ba mẹ',

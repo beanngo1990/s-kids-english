@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 import type { LearningMode } from '../types/lesson';
+import { CLOUD_PROGRESS_SYNC_CONSENT_VERSION } from '../config/cloudProgressSync';
 
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
@@ -14,6 +15,13 @@ export type ChildProfile = {
   birthYear?: number;
 };
 
+export type CloudProgressSyncPreference = {
+  consentedAt?: string;
+  consentVersion?: number;
+  enabled: boolean;
+  ownerUid?: string;
+};
+
 export const AVATAR_EMOJI_OPTIONS = [
   '🧒', '👦', '👧', '🐰', '🦊', '🐻', '🐼', '🦁', '🌟', '🦄', '🐬', '🦋',
 ] as const;
@@ -24,6 +32,7 @@ export const defaultChildProfile: ChildProfile = {
 };
 
 export type ParentSettings = {
+  cloudProgressSync: CloudProgressSyncPreference;
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
   journeyMode: 'guided' | 'free';
@@ -69,6 +78,7 @@ export const learningDifficultyOptions: LearningDifficultyOption[] = [
 ];
 
 export const defaultParentSettings: ParentSettings = {
+  cloudProgressSync: { enabled: false },
   enableSceneEditor: false,
   hasCompletedOnboarding: false,
   journeyMode: 'guided',
@@ -144,6 +154,9 @@ function normalizeParentSettings(value: unknown): ParentSettings {
   const settings = value as Partial<ParentSettings>;
 
   return {
+    cloudProgressSync: normalizeCloudProgressSyncPreference(
+      settings.cloudProgressSync,
+    ),
     enableSceneEditor: Boolean(settings.enableSceneEditor),
     hasCompletedOnboarding: Boolean(settings.hasCompletedOnboarding),
     journeyMode: settings.journeyMode === 'free' ? 'free' : 'guided',
@@ -161,6 +174,33 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
     childProfile: normalizeChildProfile(settings.childProfile),
   };
+}
+
+function normalizeCloudProgressSyncPreference(value: unknown) {
+  const preference = value as Partial<CloudProgressSyncPreference> | undefined;
+  const ownerUid =
+    typeof preference?.ownerUid === 'string' &&
+    preference.ownerUid.trim().length > 0
+      ? preference.ownerUid.trim()
+      : undefined;
+  const consentedAt =
+    typeof preference?.consentedAt === 'string' &&
+    !Number.isNaN(new Date(preference.consentedAt).getTime())
+      ? preference.consentedAt
+      : undefined;
+  const consentVersion =
+    preference?.consentVersion === CLOUD_PROGRESS_SYNC_CONSENT_VERSION
+      ? preference.consentVersion
+      : undefined;
+
+  return {
+    ...(consentedAt ? { consentedAt } : {}),
+    ...(consentVersion ? { consentVersion } : {}),
+    enabled: Boolean(
+      preference?.enabled && ownerUid && consentedAt && consentVersion,
+    ),
+    ...(ownerUid ? { ownerUid } : {}),
+  } satisfies CloudProgressSyncPreference;
 }
 
 function notifyParentSettingsChanged(settings: ParentSettings) {

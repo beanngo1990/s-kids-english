@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
+import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { AppThemeProvider, useAppTheme } from './src/theme/AppTheme';
 
 configureNativeAudioAdapter();
 
 function App() {
+  useEffect(() => {
+    startCloudProgressSync();
+  }, []);
+
   return (
     <AppThemeProvider>
       <ThemedApp />
