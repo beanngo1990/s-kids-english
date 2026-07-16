@@ -8,6 +8,7 @@ import React, {
 import {
   Alert,
   FlatList,
+  Linking,
   Modal,
   Pressable,
   Switch,
@@ -32,6 +33,7 @@ import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
+import { APP_SUPPORT_EMAIL, APP_VERSION } from '../config/appInfo';
 import { lessons } from '../data/lessons';
 import { themes } from '../data/themes';
 import {
@@ -575,6 +577,18 @@ export function ParentScreen({ navigation }: Props) {
     setAppTheme(theme);
     await setAppThemePreference(theme);
   };
+
+  const handleContactSupport = useCallback(() => {
+    const subject = encodeURIComponent(t('parent.support.emailSubject'));
+    const url = `mailto:${APP_SUPPORT_EMAIL}?subject=${subject}`;
+
+    Linking.openURL(url).catch(() => {
+      Alert.alert(
+        t('parent.support.emailErrorTitle'),
+        t('parent.support.emailErrorText', { email: APP_SUPPORT_EMAIL }),
+      );
+    });
+  }, [t]);
 
   const handleToggleReminder = async () => {
     const next = !reminderEnabled;
@@ -2211,6 +2225,77 @@ export function ParentScreen({ navigation }: Props) {
                 </Pressable>
               </AppCard>
             )}
+
+            <AppCard style={styles.appExperienceCard}>
+              <View style={styles.settingsCardHeader}>
+                <KidBadge tone="teal">
+                  {t('parent.support.badge')}
+                </KidBadge>
+                <Text style={styles.appSettingsTitle}>
+                  {t('parent.support.title')}
+                </Text>
+              </View>
+
+              <View style={styles.learningSettingsList}>
+                <Pressable
+                  accessibilityLabel={t('parent.support.emailAccessibility')}
+                  accessibilityRole="button"
+                  onPress={handleContactSupport}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="language" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.support.contactTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.support.contactSubtitle')}
+                    </Text>
+                  </View>
+                  <Text style={styles.learningSettingsChevron}>›</Text>
+                </Pressable>
+
+                <View
+                  accessibilityLabel={t('parent.support.versionAccessibility', {
+                    version: APP_VERSION,
+                  })}
+                  style={[
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="settings" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.support.versionTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.support.versionSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text style={styles.learningSettingsValueText}>
+                      {t('parent.support.versionValue', {
+                        version: APP_VERSION,
+                      })}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </AppCard>
           </View>
         )}
       </Screen>

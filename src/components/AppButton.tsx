@@ -46,7 +46,11 @@ export function AppButton({
         style,
       ]}
     >
-      <Text style={[styles.text, styles[`${variant}Text`], textStyle]}>
+      <Text 
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        style={[styles.text, styles[`${variant}Text`], textStyle]}
+      >
         {title}
       </Text>
     </Pressable>
@@ -59,6 +63,7 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.pill,
     justifyContent: 'center',
     minHeight: touchTarget.large,
+    overflow: 'visible',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
     width: '100%',
