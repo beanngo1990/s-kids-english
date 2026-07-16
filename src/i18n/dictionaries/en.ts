@@ -258,7 +258,7 @@ export const en: TranslationDictionary = {
   'scene.exitAccessibility': 'Exit lesson',
   'scene.listeningAccessibility': 'The teacher is speaking. Please listen.',
   'scene.listeningStatus': 'Teacher is speaking...',
-  'scene.loading': 'Preparing the lesson...',
+  'scene.loading': 'Sungy is preparing the lesson...',
   'scene.replayInstruction': 'Replay',
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
