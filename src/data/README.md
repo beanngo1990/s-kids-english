@@ -11,10 +11,12 @@ should be a short mini-scene that can be completed independently.
 3. Add it to `lessonCatalog` in `src/data/lessons.ts`.
 4. Add bundled images to `AssetRegistry.ts` only when the asset is local.
 5. Run `npm run generate:audio:dry-run` to preview missing audio and inspect the
-   printed `Missing files` count; exit code `0` does not mean the count is zero.
-   Run real generation only when Google TTS auth/network access and the file
-   changes are in scope. Newly generated files are trimmed automatically. Run
-   `npm run trim:audio` to apply the same cleanup to existing TTS files.
+   printed `Missing files` and `Invalid files` counts; exit code `0` does not
+   mean the corpus is complete. Run real generation only when Google TTS
+   auth/network access and the file changes are in scope. Production English
+   WAVs are not silence-trimmed; Vietnamese generation keeps its current trim
+   behavior. Do not run `npm run trim:audio` over the production English accent
+   directories.
 6. Run `npm test -- --runInBand`.
 
 ## Asset Layout
@@ -28,8 +30,12 @@ src/assets/lessons/<lesson-pack-id>/<scene-id>/
     baby.webp
     <object>.webp
   audio/
-    en/
-      <word_or_teacher_prompt>.wav
+    en-US/
+      neural2-c-r1/
+        <word_or_teacher_prompt>.wav
+    en-GB/
+      neural2-c-r1/
+        <word_or_teacher_prompt>.wav
     vi/
       intro.wav
       <action_or_feedback>.wav
@@ -39,19 +45,39 @@ Keep reusable assets outside lesson folders:
 
 ```text
 src/assets/shared/audio/sfx/
-src/assets/shared/audio/en/
+src/assets/shared/audio/en-US/neural2-c-r1/
+src/assets/shared/audio/en-GB/neural2-c-r1/
 src/assets/shared/audio/vi/
 ```
 
+`audio/en/` is the legacy en-US corpus. Keep it intact as a compatibility and
+rollback source, but do not write new production English releases there.
+
 ## Audio Generation
 
-`scripts/generateMissingAudio.mjs` scans the registered lesson catalog, builds
-English vocabulary/prompt audio plus Vietnamese instruction/feedback audio,
-skips files that already exist, and rewrites:
+`scripts/generateMissingAudio.mjs` scans the registered lesson catalog, audits
+or builds English vocabulary/prompt audio plus Vietnamese instruction/feedback
+audio, and publishes the generated manifests only after the complete production
+corpus is present and valid. Each file uses atomic replacement; provenance is
+written first and the runtime manifest last as the commit point:
 
 ```text
 src/data/audioManifest.ts
+src/data/englishAudioGenerationManifest.json
 ```
+
+The production English profile is fixed for release `neural2-c-r1`:
+
+- `en-US` uses `en-US-Neural2-C`.
+- `en-GB` uses `en-GB-Neural2-C`.
+- Both accents use LINEAR16 PCM mono WAV at 24 kHz, speaking rate `0.9`.
+- English output is not silence-trimmed.
+
+The provenance manifest records the release, synthesis configuration, voices,
+target keys, byte sizes and SHA-256 values. Do not hand-edit either generated
+manifest. A filtered or limited generation run may create WAVs, but it must not
+publish a partial manifest: publication remains gated on every current en-US,
+en-GB and Vietnamese target passing the full-corpus audit.
 
 English lesson audio comes from vocabulary words, resolved English teacher
 instructions, scene completion cues and shared teacher prompts such as
@@ -73,7 +99,8 @@ audio loads from R2. The generator leaves this registry unchanged by default,
 including in `--manifest-only` mode. Use `--write-bundled-registry` only for a
 task that deliberately changes the delivery model or adds a bundled fallback.
 Routine audio generation should keep the registry empty and update
-`src/data/audioManifest.ts` plus the local WAV files only.
+the local WAV files plus both generated manifests only after the full-corpus
+gate passes.
 
 Use Google Cloud Text-to-Speech auth through one of:
 
@@ -86,16 +113,34 @@ gcloud auth print-access-token
 Optional filters:
 
 ```bash
+npm run generate:audio -- --language=en --accent=en-US
+npm run generate:audio -- --language=en --accent=en-GB
 npm run generate:audio -- --lesson=morning-routine --scene=bathroom
 npm run generate:audio -- --limit=10
 npm run generate:audio -- --manifest-only
 npm run generate:audio -- --manifest-only --write-bundled-registry
 ```
 
+`--audio-release=neural2-c-r1` is the current default. Once a release has been
+published, its R2 keys are immutable: a voice, synthesis, pronunciation or
+post-processing change must use a new release ID instead of overwriting the
+published path. The generator compares published provenance with local bytes
+and refuses `--force`, config/voice drift or a SHA mismatch for an existing
+English release key.
+
 Generated source files that are useful for re-cutting assets should mirror the
 same lesson/scene folder under `src/assets/source/lessons/`. Final lossless PNG
 masters live under `src/assets/source/master/lessons/`; WebP files under
 `src/assets/lessons/` are generated and must not be edited manually.
+
+For the US/UK voice evaluation record, use the isolated 24-word pilot described
+in `docs/audio-accent-pilot.md`. Its preview is read-only and its generated WAVs
+stay under gitignored `build/`; it does not change production audio or R2. The
+approved production voices are the two Neural2-C variants above.
+
+The Parent Mode accent choice changes pronunciation only. It does not change
+app language, teacher prompt mode, vocabulary spelling or lesson/UI copy.
+Missing or legacy persisted settings normalize to en-US.
 
 ## Image Asset Pipeline
 
@@ -126,7 +171,10 @@ overrides live in `scripts/assets/config.mjs`.
 R2 uses the `v1` prefix. Generated URLs include an image manifest revision so
 an iPad does not reuse a stale device cache after the R2/CDN cache is purged.
 Use `npm run r2:clear -- --prefix=v1/` to preview a purge; destructive execution
-requires `--apply` and the confirmation printed by the script.
+requires `--apply` and the confirmation printed by the script. Never clear
+`v1` as part of an English accent rollout: that shared prefix also contains
+production images and Vietnamese audio. Publish the immutable accent/release
+keys in place and verify them without a prefix clear.
 
 ## Prefer Helpers
 

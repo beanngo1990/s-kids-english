@@ -2,11 +2,11 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-15
+**Kiểm chứng gần nhất:** 2026-07-16
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
-localization foundation, Firebase parent auth và opt-in cloud progress sync trong working tree hiện
-tại.
+localization foundation, Firebase parent auth, opt-in cloud progress sync và dual-accent English
+audio rollout trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -48,6 +48,9 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   reminder, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
   mode `vi`/`en`/`bilingual`; chưa phải full-app localization.
+- **Implemented:** Parent Mode persist lựa chọn phát âm English `en-US`/`en-GB`; dữ liệu cũ và
+  setting thiếu mặc định `en-US`. Accent chỉ đổi audio phát âm, không đổi UI, app language,
+  teacher prompt mode, vocabulary spelling hoặc lesson copy.
 - **Implemented:** local persistence bằng AsyncStorage.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
@@ -242,7 +245,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons; tab
   Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
-  mode, daily reminder time, contact support email và app version.
+  mode, English accent, daily reminder time, contact support email và app version.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh.
 - **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud progress sync. Consent modal
@@ -267,6 +270,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   runtime. Teach-step feedback có thể tự dựng câu nghĩa từ vocabulary như “It means good
   morning.”; các feedback English chưa có context rõ vẫn dùng cue an toàn như “Great job!” hoặc
   “Try again.” khi chỉ có bản Việt.
+- **Implemented:** `englishAccent` (`en-US`/`en-GB`) được persist và chọn trong Parent UI, độc lập
+  với `appLanguage` và `teacherPromptMode`. Runtime English vocabulary, teacher prompt, review và
+  replay audio dùng accent đã chọn; persisted data cũ normalize về `en-US`. Lựa chọn này không
+  tự đổi spelling/copy, ví dụ nội dung đang viết `pajamas` không trở thành `pyjamas` khi chọn
+  en-GB.
 
 ### Scene learning
 
@@ -279,7 +287,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary fallback sang câu nghĩa English, còn các feedback khác dùng cue chung cho tới khi
   schema/data có bản dịch chi tiết.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
-  vocabulary và phát âm mục tiêu vẫn luôn là English.
+  vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
+  en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
 - Scene có thể prefetch current/next images và audio.
 - Scene progress dùng composite ID `<lessonId>:<sceneId>` và còn đọc legacy bare scene IDs.
@@ -299,8 +308,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose` để mở rộng data model.
 - **Implemented:** runtime registry chỉ hỗ trợ `memory`.
-- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word khi lật và
-  hoàn tất khi ghép hết cặp.
+- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent
+  đang chọn khi lật và hoàn tất khi ghép hết cặp.
 - Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config
   override trong giới hạn runtime.
 - **Unsupported:** `matching` và `listenAndChoose`; registry hiển thị unsupported UI.
@@ -377,9 +386,11 @@ của learning progress sau parent opt-in:
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language, teacher prompt mode, app theme, reminder state/time, child profile và
-  `cloudProgressSync` consent preference.
+  app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile
+  và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
+- `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
+  giữ hành vi legacy.
 - `cloudProgressSync` mặc định `enabled: false`; chỉ normalize thành enabled khi có owner UID,
   consent version hiện tại và consent timestamp hợp lệ.
 
@@ -493,14 +504,17 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 
 ### Audio layers
 
-1. Lesson vocabulary/prompt audio: generated files, runtime R2-first.
+1. Lesson vocabulary/prompt audio: generated en-US/en-GB English files và Vietnamese files,
+   runtime R2-first.
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 
 `AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
 không được làm lesson flow kẹt. Teacher prompt mode English/bilingual dùng resolved English
-teacher instructions, shared English cues và generated audio manifest khi có asset; nếu English
-prompt audio chưa được generate hoặc chưa có trên R2 thì fallback sang native TTS.
+teacher instructions, shared English cues và generated audio manifest theo `englishAccent` khi có
+asset. Lookup ưu tiên accent được chọn, sau đó default en-US và legacy `audio/en/`; TTS fallback
+nếu có cũng dùng locale được chọn. Native adapter hiện tập trung vào SFX/URI playback, vì vậy
+production không được dựa vào TTS fallback để che một corpus en-GB thiếu.
 
 ### Native support matrix
 
@@ -526,6 +540,8 @@ cache/prefetch remote lesson audio, không phải lesson images. Không tuyên b
 - Current release prefix là generated value `v1`; không hardcode revision hash vào spec.
 - `preferRemoteImages` và `cacheRemoteAssets` hiện bật.
 - Image URLs có manifest revision query để tránh stale device/CDN image cache.
+- English audio cache identity chứa cả accent và immutable release segment
+  `neural2-c-r1`; en-US và en-GB không dùng chung R2/device-cache key.
 
 ### Images
 
@@ -543,16 +559,30 @@ trong `docs/asset-pipeline.md`.
 
 ### Generated lesson audio
 
-- English vocabulary và teacher instruction/prompt/cue audio: `audio/en/*.wav`.
+- Production English vocabulary và teacher instruction/prompt/cue audio:
+  `audio/{en-US,en-GB}/neural2-c-r1/*.wav`.
+- Release profile cố định: `en-US-Neural2-C` và `en-GB-Neural2-C`, LINEAR16 PCM mono 24 kHz,
+  speaking rate `0.9`, không trim silence cho English.
+- `audio/en/*.wav` là legacy en-US compatibility/rollback corpus; giữ nguyên nhưng không ghi
+  production release mới vào đây.
 - Vietnamese instruction/feedback: `audio/vi/*.wav`.
 - Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
-- `generateMissingAudio.mjs` scan registered catalog, tạo missing files và cập nhật
-  `src/data/audioManifest.ts`.
+- `generateMissingAudio.mjs` scan registered catalog, audit/generate theo language/accent và chỉ
+  publish sau khi toàn bộ target en-US, en-GB và Vietnamese hiện hành tồn tại và pass WAV
+  validation. Hai file dùng atomic replacement riêng; provenance được ghi trước và
+  `src/data/audioManifest.ts` được ghi cuối làm runtime commit point. Filtered/limited generation
+  không được publish partial manifest.
+- `englishAudioGenerationManifest.json` là generated provenance: release, synthesis config,
+  voices, target keys, byte sizes và SHA-256. Không sửa tay.
 - `GeneratedAudioRegistry.ts` cố ý để trống cho R2-first lesson audio. Generator giữ file này
   nguyên trạng mặc định, kể cả `--manifest-only`; chỉ rewrite bundled `require(...)` khi chạy với
   `--write-bundled-registry`.
 - TTS generation cần Google auth; luôn preview bằng `npm run generate:audio:dry-run` và đọc số
-  `Missing files`. Dry-run có thể exit `0` dù vẫn còn missing audio.
+  `Missing files` cùng `Invalid files`. Dry-run có thể exit `0` dù corpus vẫn chưa đầy đủ.
+- `neural2-c-r1` là immutable sau khi publish. Thay voice, rate, format, pronunciation input hoặc
+  post-processing phải dùng audio release ID mới, không overwrite key đã publish. Generator đối
+  chiếu provenance config/voice/SHA và từ chối `--force` hoặc bytes drift trên English key đã
+  publish.
 
 ### R2 operations
 
@@ -561,6 +591,8 @@ trong `docs/asset-pipeline.md`.
   credentials, kết nối network và đọc remote manifest. Nếu không được phép/chưa có credentials,
   báo `not run` và lý do.
 - `npm run upload:r2` đã bao gồm `--apply` và sẽ mutate R2.
+- Dual-accent rollout upload các immutable accent/release keys tại chỗ rồi verify; không clear
+  prefix `v1`, vì prefix này còn chứa production images, Vietnamese audio và legacy English audio.
 - Clear/purge có `--apply` còn yêu cầu confirmation do dry-run in ra. Upload thật và clear/purge
   phải được người dùng cho phép rõ ràng.
 - Sau upload/clear, verify R2 trước khi coi release hoàn tất.
@@ -586,6 +618,8 @@ npm test -- --runInBand
 
 Chạy thêm `npm run generate:audio:dry-run` khi lesson change làm đổi vocabulary, prompt hoặc audio
 references. Đọc số `Missing files`; exit code `0` không chứng minh không còn audio thiếu.
+Với production dual-accent corpus, đồng thời đọc `Invalid files`; generated runtime/provenance
+manifest chỉ hợp lệ khi full-corpus gate pass cho en-US, en-GB và Vietnamese.
 
 ### Image changes
 
@@ -609,12 +643,12 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng 2026-07-14:
+Tại lần kiểm chứng 2026-07-16:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 73/74 tests pass; failure còn ở speech recording fallback timing
-  (`SpeakPracticeControls.test.tsx`).
-- ESLint: pass với 2 warnings trong baseline.
+- Jest: 94/94 tests pass.
+- ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
+  component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
 
 Các con số này là snapshot, không thay thế việc chạy checks. Cập nhật hoặc xóa mục này ngay khi
@@ -632,6 +666,7 @@ Support summary:
 | Theme Light/Dark/System                  | Implemented     |
 | Full VI/EN localization                  | Partial         |
 | Teacher prompt mode vi/en/bilingual      | Partial         |
+| English pronunciation en-US/en-GB        | Implemented     |
 | Mode-based lesson filtering              | Implemented     |
 | Age-based runtime filtering              | Partial         |
 | Scene-level resume                       | Implemented     |

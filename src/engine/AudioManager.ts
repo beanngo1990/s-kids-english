@@ -1,13 +1,15 @@
 import {
   getViAudioAsset,
-  getWordAudioAsset,
+  getWordAudioAssets,
   type RemoteAudioAsset,
 } from '../data/audioManifest';
 import type { TeacherPromptSegment } from '../i18n/teacherPrompts';
+import { DEFAULT_ENGLISH_ACCENT, type EnglishAccent } from '../types/audio';
 import type { SceneSoundEffect } from '../types/lesson';
 import { resolveRemoteAssetUri } from './AssetCacheManager';
+import { getParentSettings } from './ParentSettingsManager';
 
-type SpeechLanguage = 'en-US' | 'vi-VN';
+type SpeechLanguage = EnglishAccent | 'vi-VN';
 export type SoundEffect = SceneSoundEffect;
 
 type SpeechOptions = {
@@ -76,16 +78,18 @@ export function configureAudioManager(nextAdapter: AudioAdapter | null) {
   adapter = nextAdapter;
 }
 
-export async function speakWord(word: string) {
-  const audioAsset = getWordAudioAsset(word);
-  if (audioAsset && (await playAudioAsset(audioAsset))) {
-    return;
+export async function speakWord(word: string, accent?: EnglishAccent) {
+  const selectedAccent = accent ?? (await getSelectedEnglishAccent());
+  for (const audioAsset of getWordAudioAssets(word, selectedAccent)) {
+    if (await playAudioAsset(audioAsset)) {
+      return;
+    }
   }
 
   await speak(word, {
-    language: 'en-US',
-    pitch: 1.05,
-    rate: 0.82,
+    language: selectedAccent,
+    pitch: 1,
+    rate: 0.9,
   });
 }
 
@@ -104,13 +108,22 @@ export async function speakVi(text: string) {
 
 export async function speakTeacherPromptSegments(
   segments: TeacherPromptSegment[],
+  accent?: EnglishAccent,
 ) {
   for (const segment of segments) {
     if (segment.language === 'en') {
-      await speakWord(segment.text);
+      await speakWord(segment.text, accent);
     } else {
       await speakVi(segment.text);
     }
+  }
+}
+
+async function getSelectedEnglishAccent(): Promise<EnglishAccent> {
+  try {
+    return (await getParentSettings()).englishAccent;
+  } catch {
+    return DEFAULT_ENGLISH_ACCENT;
   }
 }
 
@@ -161,7 +174,7 @@ async function speak(text: string, options: SpeechOptions) {
       console.warn(
         '[AudioManager] No native AudioAdapter configured for speech. ' +
           'Fallback to Web Speech API (might not work in React Native CLI). ' +
-          'Please configure adapter with react-native-tts or expo-speech.'
+          'Please configure adapter with react-native-tts or expo-speech.',
       );
     }
 
@@ -199,7 +212,7 @@ async function playSound(effect: SoundEffect) {
       console.warn(
         '[AudioManager] No native AudioAdapter configured for sound effects. ' +
           'Fallback to Web Audio API (might not work in React Native CLI). ' +
-          'Please configure adapter with react-native-sound or expo-av.'
+          'Please configure adapter with react-native-sound or expo-av.',
       );
     }
 

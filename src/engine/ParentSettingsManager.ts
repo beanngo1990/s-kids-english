@@ -1,12 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
+import {
+  DEFAULT_ENGLISH_ACCENT,
+  isEnglishAccent,
+  type EnglishAccent,
+} from '../types/audio';
 import type { LearningMode } from '../types/lesson';
 import { CLOUD_PROGRESS_SYNC_CONSENT_VERSION } from '../config/cloudProgressSync';
 
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
 export type { AppLanguage, TeacherPromptMode } from '../i18n/types';
+export type { EnglishAccent } from '../types/audio';
 export type AppTheme = 'light' | 'dark' | 'system';
 
 export type ChildProfile = {
@@ -40,6 +46,7 @@ export type ParentSettings = {
   updatedAt?: string;
   visibleLessonIds?: string[]; // If undefined, all lessons are visible
   appLanguage: AppLanguage;
+  englishAccent: EnglishAccent;
   teacherPromptMode: TeacherPromptMode;
   appTheme: AppTheme;
   reminderEnabled: boolean;
@@ -84,6 +91,7 @@ export const defaultParentSettings: ParentSettings = {
   journeyMode: 'guided',
   learningMode: 'core',
   appLanguage: 'vi',
+  englishAccent: DEFAULT_ENGLISH_ACCENT,
   teacherPromptMode: 'vi',
   appTheme: 'system',
   reminderEnabled: false,
@@ -167,6 +175,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       ? settings.visibleLessonIds.filter(id => typeof id === 'string')
       : undefined,
     appLanguage: normalizeAppLanguage(settings.appLanguage),
+    englishAccent: normalizeEnglishAccent(settings.englishAccent),
     teacherPromptMode: normalizeTeacherPromptMode(settings.teacherPromptMode),
     appTheme: normalizeAppTheme(settings.appTheme),
     reminderEnabled: Boolean(settings.reminderEnabled),
@@ -219,6 +228,10 @@ function normalizeLearningMode(value: unknown): LearningMode {
 
 function normalizeAppLanguage(value: unknown): AppLanguage {
   return value === 'en' ? 'en' : 'vi';
+}
+
+function normalizeEnglishAccent(value: unknown): EnglishAccent {
+  return isEnglishAccent(value) ? value : DEFAULT_ENGLISH_ACCENT;
 }
 
 function normalizeTeacherPromptMode(value: unknown): TeacherPromptMode {

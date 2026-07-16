@@ -180,6 +180,15 @@ export const vi = {
   'parent.settings.appLanguageSubtitle': 'Ngôn ngữ hiển thị của ứng dụng.',
   'parent.settings.appLanguageTitle': 'Ngôn ngữ',
   'parent.settings.appLanguageVietnamese': 'Tiếng Việt',
+  'parent.settings.englishAccentAmerican': 'Anh–Mỹ',
+  'parent.settings.englishAccentAmericanSubtitle':
+    'Phù hợp khi bé học theo chương trình hoặc nội dung Mỹ.',
+  'parent.settings.englishAccentBritish': 'Anh–Anh',
+  'parent.settings.englishAccentBritishSubtitle':
+    'Phù hợp khi bé học theo chương trình hoặc nội dung Anh.',
+  'parent.settings.englishAccentSubtitle':
+    'Chọn phát âm Anh–Mỹ hoặc Anh–Anh cho từ vựng và hướng dẫn tiếng Anh.',
+  'parent.settings.englishAccentTitle': 'Giọng tiếng Anh',
   'parent.settings.birthYearLabel': 'Năm sinh',
   'parent.settings.birthYearPlaceholder': 'Chọn năm',
   'parent.settings.childAge': '{age} tuổi',
@@ -225,6 +234,7 @@ export const vi = {
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
   'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
+  'parent.settings.sheetEnglishAccentTitle': 'Chọn giọng tiếng Anh',
   'parent.settings.sheetJourneyTitle': 'Chọn cách mở bài',
   'parent.settings.sheetLanguageTitle': 'Chọn ngôn ngữ',
   'parent.settings.sheetTeacherPromptTitle': 'Chọn giọng hướng dẫn',

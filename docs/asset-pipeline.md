@@ -1,4 +1,4 @@
-# Image and R2 Asset Pipeline
+# Image, English Audio, and R2 Asset Pipeline
 
 ## Source of truth
 
@@ -9,6 +9,11 @@
 - Keep bundled UI icons and mascot images outside this lesson pipeline.
 - Bundled app UI PNG icons live in `src/assets/icons/app-ui/`; they are imported
   with local `require(...)` calls and are not uploaded to R2.
+- Production English audio uses immutable accent/release directories:
+  `src/assets/lessons/<lesson>/<scene>/audio/{en-US,en-GB}/neural2-c-r1/`
+  and `src/assets/shared/audio/{en-US,en-GB}/neural2-c-r1/`.
+- Keep `audio/en/` as the legacy en-US compatibility and rollback corpus.
+  Vietnamese audio remains under `audio/vi/`.
 
 ## Normal workflow
 
@@ -39,7 +44,55 @@ The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.
 `src/config/generatedAssetRelease.ts` exposes that revision to React Native.
 
+## English dual-accent production release
+
+Release `neural2-c-r1` has one fixed synthesis profile:
+
+- en-US: `en-US-Neural2-C`;
+- en-GB: `en-GB-Neural2-C`;
+- LINEAR16 PCM, mono, 24 kHz;
+- speaking rate `0.9`;
+- no English silence trimming.
+
+`src/data/audioManifest.ts` is the generated runtime lookup. The generated
+`src/data/englishAudioGenerationManifest.json` is the provenance record for the
+release, synthesis config, voices and every English target's byte size and
+SHA-256. Do not hand-edit either file.
+
+The generator enforces an atomic full-corpus gate. It may create a filtered or
+limited set of WAVs for bounded work, but it rewrites neither runtime manifest
+nor provenance until every current en-US target, en-GB target and Vietnamese
+target exists and passes WAV validation. Review both `Missing files` and
+`Invalid files` in the dry-run output; exit code `0` alone is not a completeness
+signal.
+
+Once published, every path containing `neural2-c-r1` is immutable. A change to
+voice, rate, sample format, pronunciation input or post-processing requires a
+new release path instead of replacing bytes at an existing R2 key. Keeping the
+legacy `audio/en/` objects allows an en-US rollback without deleting the new
+accent release. The generator enforces this lock by comparing the published
+provenance config, voice metadata and SHA-256 with local files and rejecting
+`--force` or drift on a published English key.
+
+Parent Mode defaults missing/legacy preferences to en-US. Selecting en-US or
+en-GB changes English playback only; it does not localize the UI or switch
+vocabulary spelling.
+
+For an authorized production rollout, audit/generate locally first, publish the
+generated manifests only after the full-corpus gate passes, review
+`npm run upload:r2:dry-run`, then upload and verify the immutable keys. Generation
+and upload require their own explicit authorization; documentation or local
+verification does not imply permission to call TTS or mutate R2.
+
 ## R2 reset during local testing
+
+Do not clear `v1` for a dual-accent audio rollout. The prefix is shared with
+production images, Vietnamese audio and legacy English audio. New English files
+are cache-safe because accent and immutable release are part of the key; upload
+and verify those changed/new keys in place.
+
+The reset procedure below is reserved for a separately authorized asset-reset
+task, not normal English audio deployment.
 
 Preview the current `v1` prefix:
 

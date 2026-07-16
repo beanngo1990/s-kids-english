@@ -48,6 +48,7 @@ jest.mock('../src/engine/ParentSettingsManager', () => ({
     Promise.resolve({
       appLanguage: 'vi',
       enableSceneEditor: false,
+      englishAccent: 'en-US',
       teacherPromptMode: 'vi',
     }),
   ),
@@ -151,6 +152,10 @@ test('only shows Continue after the required instruction finishes playing', asyn
   });
 
   expect(getTextValues(tree)).toContain('Tiếp tục');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 test('hides Continue while a teach-and-listen instruction is playing', async () => {
@@ -174,7 +179,13 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
 
   expect(getTextValues(tree)).toContain('Cô đang nói...');
   expect(getTextValues(tree)).not.toContain('Tiếp tục');
-  expect(tree?.root.findByType(SceneObjectRenderer).props.isDisabled).toBe(true);
+  expect(tree?.root.findByType(SceneObjectRenderer).props.isDisabled).toBe(
+    true,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 function getTextValues(tree: ReactTestRenderer.ReactTestRenderer | undefined) {
