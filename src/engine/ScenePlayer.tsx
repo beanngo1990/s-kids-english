@@ -15,7 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidIconButton } from '../components/KidIconButton';
-import { MascotSpeechBubble } from '../components/mascot';
+import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
@@ -126,6 +126,101 @@ type ScenePlayerProps = {
   onComplete?: () => void;
 };
 
+function AnimatedLoadingMascot() {
+  const floatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, {
+          toValue: -12,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(floatAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, [floatAnim]);
+
+  const shadowScale = floatAnim.interpolate({
+    inputRange: [-12, 0],
+    outputRange: [0.75, 1],
+  });
+  
+  const shadowOpacity = floatAnim.interpolate({
+    inputRange: [-12, 0],
+    outputRange: [0.08, 0.2],
+  });
+
+  return (
+    <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md }}>
+      {/* Spotlight Faux Gradient */}
+      <View style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, backgroundColor: 'rgba(255, 255, 255, 0.05)', transform: [{ scale: 1.5 }] }} />
+      <View style={{ position: 'absolute', width: 200, height: 200, borderRadius: 100, backgroundColor: 'rgba(255, 255, 255, 0.15)' }} />
+      <View style={{ position: 'absolute', width: 120, height: 120, borderRadius: 60, backgroundColor: 'rgba(255, 255, 255, 0.4)' }} />
+      <View style={{ position: 'absolute', width: 60, height: 60, borderRadius: 30, backgroundColor: 'rgba(255, 255, 255, 0.8)' }} />
+
+      <Animated.View style={{ transform: [{ translateY: floatAnim }], zIndex: 2 }}>
+        <MascotImage pose="learn" size="xl" />
+      </Animated.View>
+      
+      {/* Contact Shadow */}
+      <Animated.View 
+        style={{ 
+          width: 100, 
+          height: 16, 
+          backgroundColor: '#000', 
+          borderRadius: 8, 
+          marginTop: -8,
+          opacity: shadowOpacity,
+          transform: [{ scale: shadowScale }],
+          zIndex: 1
+        }} 
+      />
+    </View>
+  );
+}
+
+function CustomProgressBar({ progress }: { progress: number }) {
+  const [containerWidth, setContainerWidth] = useState(200);
+
+  const pillWidth = Math.max(14, (progress / 100) * containerWidth); // minimum width to show rounding
+
+  return (
+    <View style={{ alignItems: 'center' }}>
+      <View 
+        style={{
+          height: 14,
+          width: 200,
+          backgroundColor: colors.white,
+          borderRadius: radius.pill,
+          overflow: 'hidden',
+          marginTop: spacing.md,
+          borderColor: colors.border,
+          borderWidth: 2,
+        }}
+        onLayout={(e) => setContainerWidth(e.nativeEvent.layout.width)}
+      >
+        <View 
+          style={{
+            height: '100%',
+            width: pillWidth,
+            backgroundColor: colors.primary,
+            borderRadius: radius.pill,
+          }} 
+        />
+      </View>
+      <Text style={{ marginTop: spacing.xs, color: colors.primaryDark, fontWeight: 'bold', fontSize: 14 }}>
+        {Math.round(progress)}%
+      </Text>
+    </View>
+  );
+}
+
 export function ScenePlayer({
   lessonId,
   scene,
@@ -194,6 +289,7 @@ export function ScenePlayer({
   const [sceneCompletion, setSceneCompletion] =
     useState<SceneCompletionState | null>(null);
   const [isPreloading, setIsPreloading] = useState(true);
+  const [loadProgress, setLoadProgress] = useState(0);
   const [completedListenInstructionKey, setCompletedListenInstructionKey] =
     useState<string | null>(null);
 
@@ -280,6 +376,7 @@ export function ScenePlayer({
     setCompletedListenInstructionKey(null);
     setSceneCompletion(null);
     setIsPreloading(true);
+    setLoadProgress(0);
   }, [currentScene]);
 
   useEffect(() => {
@@ -293,12 +390,34 @@ export function ScenePlayer({
 
     const preloadCurrentScene = async () => {
       try {
-        await Promise.all([
-          prefetchAssets(getSceneImageSources(currentScene)),
-          prefetchRemoteAssets(getSceneAudioAssets(currentScene)),
-        ]);
+        const imageAssets = getSceneImageSources(currentScene);
+        const audioAssets = getSceneAudioAssets(currentScene);
+        
+        let loaded = 0;
+        const total = imageAssets.length + (audioAssets.length > 0 ? 1 : 0);
+
+        if (total === 0) {
+          setLoadProgress(100);
+        }
+
+        const updateProgress = () => {
+          loaded++;
+          setLoadProgress(Math.min(99, Math.round((loaded / total) * 100)));
+        };
+
+        const imagePromises = imageAssets.map(asset => 
+          prefetchAssets([asset]).then(updateProgress).catch(updateProgress)
+        );
+        const audioPromise = audioAssets.length > 0
+          ? prefetchRemoteAssets(audioAssets).then(updateProgress).catch(updateProgress)
+          : Promise.resolve();
+
+        await Promise.all([...imagePromises, audioPromise]);
+        
+        setLoadProgress(100);
       } catch {
         // Ignore errors to let scene continue even if some assets fail
+        setLoadProgress(100);
       } finally {
         if (isMounted) {
           setIsPreloading(false);
@@ -392,7 +511,8 @@ export function ScenePlayer({
   if (isPreloading) {
     return (
       <View style={[styles.root, styles.emptyState]}>
-        <ActivityIndicator size="large" color={colors.primary} />
+        <AnimatedLoadingMascot />
+        <CustomProgressBar progress={loadProgress} />
         <Text style={[styles.emptyTitle, { marginTop: spacing.md }]}>
           {t('scene.loading')}
         </Text>

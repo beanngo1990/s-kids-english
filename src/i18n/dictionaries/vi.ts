@@ -255,7 +255,7 @@ export const vi = {
   'scene.exitAccessibility': 'Thoát bài học',
   'scene.listeningAccessibility': 'Cô đang nói. Bé hãy lắng nghe.',
   'scene.listeningStatus': 'Cô đang nói...',
-  'scene.loading': 'Đang chuẩn bị bài học...',
+  'scene.loading': 'Sungy đang chuẩn bị bài cho bé...',
   'scene.replayInstruction': 'Nghe lại',
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
