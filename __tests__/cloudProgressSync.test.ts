@@ -2,10 +2,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
   areProgressSnapshotsEqual,
+  getCloudProgressFingerprint,
   mergeProgressSnapshots,
   toCloudProgressData,
 } from '../src/engine/CloudProgressMerge';
 import {
+  clearCloudProgressSyncState,
+  getCloudProgressSyncState,
+  saveCloudProgressSyncState,
+} from '../src/engine/CloudProgressSyncState';
+import {
+  getProgress,
   normalizeProgress,
   saveProgress,
   saveProgressFromCloud,
@@ -117,6 +124,92 @@ test('cloud serialization is deterministic and removes undefined record fields',
   expect(JSON.stringify(serialized)).not.toContain('undefined');
 });
 
+test('cloud fingerprint ignores client timestamps but detects progress changes', () => {
+  const first = normalizeProgress({
+    totalXP: 4,
+    updatedAt: '2026-07-15T08:00:00.000Z',
+  });
+  const timestampOnlyChange = normalizeProgress({
+    totalXP: 4,
+    updatedAt: '2026-07-15T09:00:00.000Z',
+  });
+  const progressChange = normalizeProgress({
+    totalXP: 5,
+    updatedAt: '2026-07-15T09:00:00.000Z',
+  });
+
+  expect(getCloudProgressFingerprint(timestampOnlyChange)).toBe(
+    getCloudProgressFingerprint(first),
+  );
+  expect(getCloudProgressFingerprint(progressChange)).not.toBe(
+    getCloudProgressFingerprint(first),
+  );
+});
+
+test('cloud fingerprint canonicalizes the resume pointer key order', () => {
+  const first = normalizeProgress({
+    currentLessonProgress: {
+      lessonId: 'lesson-a',
+      sceneId: 'scene-a',
+      stepId: 'step-a',
+    },
+  });
+  const reordered = normalizeProgress({
+    currentLessonProgress: {
+      stepId: 'step-a',
+      sceneId: 'scene-a',
+      lessonId: 'lesson-a',
+    },
+  });
+
+  expect(getCloudProgressFingerprint(reordered)).toBe(
+    getCloudProgressFingerprint(first),
+  );
+});
+
+test('persists the last confirmed cloud fingerprint for its owner only', async () => {
+  await saveCloudProgressSyncState({
+    failureCount: 2,
+    lastRemoteCheckedAt: '2026-07-15T07:59:00.000Z',
+    lastSyncedAt: '2026-07-15T08:00:00.000Z',
+    lastSyncedFingerprint: '{"totalXP":4}',
+    lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
+    nextRetryAt: '2026-07-15T08:02:00.000Z',
+    ownerUid: 'parent-a',
+  });
+
+  await clearCloudProgressSyncState('parent-b');
+  await expect(getCloudProgressSyncState()).resolves.toMatchObject({
+    failureCount: 2,
+    lastRemoteCheckedAt: '2026-07-15T07:59:00.000Z',
+    lastSyncedFingerprint: '{"totalXP":4}',
+    lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
+    nextRetryAt: '2026-07-15T08:02:00.000Z',
+    ownerUid: 'parent-a',
+  });
+
+  await clearCloudProgressSyncState('parent-a');
+  await expect(getCloudProgressSyncState()).resolves.toEqual({});
+});
+
+test('persists sync scheduler state before a confirmed checkpoint exists', async () => {
+  await saveCloudProgressSyncState({
+    failureCount: 1,
+    lastRemoteCheckedAt: '2026-07-15T08:00:00.000Z',
+    lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
+    nextRetryAt: '2026-07-15T08:02:00.000Z',
+    ownerUid: 'parent-a',
+  });
+
+  await expect(getCloudProgressSyncState()).resolves.toEqual({
+    failureCount: 1,
+    lastRemoteCheckedAt: '2026-07-15T08:00:00.000Z',
+    lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
+    nextRetryAt: '2026-07-15T08:02:00.000Z',
+    ownerUid: 'parent-a',
+  });
+});
+
 test('merge tie-breaking is commutative for equal client timestamps', () => {
   const first = normalizeProgress({
     currentLessonProgress: {
@@ -157,6 +250,20 @@ test('progress subscribers can distinguish local writes from cloud merges', asyn
     2,
     expect.objectContaining({ source: 'cloud' }),
   );
+});
+
+test('cloud merges preserve the source update timestamp', async () => {
+  const progress = normalizeProgress({
+    totalXP: 4,
+    updatedAt: '2026-07-15T08:00:00.000Z',
+  });
+
+  await saveProgressFromCloud(progress);
+
+  await expect(getProgress()).resolves.toMatchObject({
+    totalXP: 4,
+    updatedAt: '2026-07-15T08:00:00.000Z',
+  });
 });
 
 test('normalizes malformed remote vocabulary data before runtime use', () => {

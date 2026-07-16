@@ -197,11 +197,13 @@ Không tuyên bố offline support hoặc iOS asset-cache parity nếu chưa tri
 
 ## 9. Persistence và notifications
 
-Ba local stores hiện tại:
+Bốn local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
 - `@skidsenglish/daily-activity/v1` qua `DailyActivityTracker.ts`.
+- `@skidsenglish/cloud-progress-sync-state/v1` qua `CloudProgressSyncState.ts`, gồm checkpoint
+  cloud progress và metadata cooldown/backoff cho sync.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.

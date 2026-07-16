@@ -113,10 +113,11 @@ async function persistProgress(
   progress: LocalProgress,
   source: ProgressChangeSource,
 ) {
-  const nextProgress = normalizeProgress({
-    ...progress,
-    updatedAt: new Date().toISOString(),
-  });
+  const nextProgress = normalizeProgress(
+    source === 'local'
+      ? { ...progress, updatedAt: new Date().toISOString() }
+      : progress,
+  );
 
   await AsyncStorage.setItem(
     PROGRESS_STORAGE_KEY,

@@ -119,7 +119,7 @@ export const vi = {
   'parent.cloudSync.clearConsentTitle': 'Đổi tài khoản ba mẹ?',
   'parent.cloudSync.consentAction': 'Bật đồng bộ',
   'parent.cloudSync.consentText':
-    'Ứng dụng sẽ lưu trên Firestore các bài/cảnh đã hoàn thành, từ đã học, mức độ ghi nhớ, XP, sticker, thành tích và vị trí học tiếp. Không tải lên tên hoặc năm sinh của bé, cài đặt, nhật ký hoạt động hay bản ghi âm. Ba mẹ có thể tắt hoặc xóa bản cloud bất cứ lúc nào.',
+    'Ứng dụng sẽ lưu trên Firestore các bài/cảnh đã hoàn thành, từ đã học, mức độ ghi nhớ, XP, sticker, thành tích và vị trí học tiếp. Không tải lên tên hoặc năm sinh của bé, cài đặt, nhật ký hoạt động hay bản ghi âm. Tiến độ được đồng bộ khi mở ứng dụng và khi ứng dụng chuyển sang nền, kèm cooldown để tránh gửi request lặp lại. Ba mẹ có thể tắt hoặc xóa bản cloud bất cứ lúc nào.',
   'parent.cloudSync.consentTitle': 'Cho phép đồng bộ tiến độ?',
   'parent.cloudSync.description':
     'Lưu bản sao tiến độ vào tài khoản ba mẹ để tiếp tục trên thiết bị khác.',
@@ -150,7 +150,7 @@ export const vi = {
   'parent.cloudSync.statusDisabling': 'Đang tắt đồng bộ...',
   'parent.cloudSync.statusEnabling': 'Đang bật đồng bộ...',
   'parent.cloudSync.statusPending':
-    'Đã lưu local, đang chờ Firestore xác nhận.',
+    'Đã lưu trên thiết bị; đang chờ lần đồng bộ cloud tiếp theo.',
   'parent.cloudSync.statusSynced': 'Tiến độ đã đồng bộ.',
   'parent.cloudSync.statusSyncing': 'Đang đồng bộ tiến độ...',
   'parent.cloudSync.statusWaitingForSignIn':
