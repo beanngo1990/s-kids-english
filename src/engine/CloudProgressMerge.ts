@@ -61,6 +61,14 @@ export function areProgressSnapshotsEqual(
   );
 }
 
+export function getCloudProgressFingerprint(progress: LocalProgress) {
+  const semanticEntries = Object.entries(toCloudProgressData(progress)).filter(
+    ([key]) => key !== 'updatedAt',
+  );
+
+  return JSON.stringify(Object.fromEntries(semanticEntries));
+}
+
 export function toCloudProgressData(progress: LocalProgress) {
   const normalized = mergeProgressSnapshots(progress, progress);
 
@@ -70,7 +78,13 @@ export function toCloudProgressData(progress: LocalProgress) {
     completedReviewGameIds: normalized.completedReviewGameIds,
     completedSceneIds: normalized.completedSceneIds,
     ...(normalized.currentLessonProgress
-      ? { currentLessonProgress: normalized.currentLessonProgress }
+      ? {
+          currentLessonProgress: {
+            lessonId: normalized.currentLessonProgress.lessonId,
+            sceneId: normalized.currentLessonProgress.sceneId,
+            stepId: normalized.currentLessonProgress.stepId,
+          },
+        }
       : {}),
     earnedAchievementRecords: normalized.earnedAchievementRecords.map(
       record => ({

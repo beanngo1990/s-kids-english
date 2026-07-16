@@ -8,6 +8,7 @@ import {
   setDoc,
   type DocumentSnapshot,
 } from '@react-native-firebase/firestore';
+import { AppState, type AppStateStatus } from 'react-native';
 
 import {
   CLOUD_PROGRESS_DOCUMENT_ID,
@@ -16,9 +17,17 @@ import {
 } from '../config/cloudProgressSync';
 import {
   areProgressSnapshotsEqual,
+  getCloudProgressFingerprint,
   mergeProgressSnapshots,
   toCloudProgressData,
 } from './CloudProgressMerge';
+import {
+  clearCloudProgressSyncState,
+  getCloudProgressSyncState,
+  initialCloudProgressSyncState,
+  saveCloudProgressSyncState,
+  type CloudProgressSyncState,
+} from './CloudProgressSyncState';
 import {
   getParentSettings,
   saveParentSettings,
@@ -94,11 +103,24 @@ export class CloudProgressSyncError extends Error {
 
 type SyncListener = (snapshot: CloudProgressSyncSnapshot) => void;
 
+export const CLOUD_PROGRESS_REMOTE_READ_COOLDOWN_MS = 5 * 60 * 1000;
+export const CLOUD_PROGRESS_BACKGROUND_WRITE_COOLDOWN_MS = 90 * 1000;
+export const CLOUD_PROGRESS_ACTIVE_SUBSCRIBE_DELAY_MS = 1500;
+export const CLOUD_PROGRESS_INITIAL_BACKOFF_MS = 60 * 1000;
+export const CLOUD_PROGRESS_MAX_BACKOFF_MS = 15 * 60 * 1000;
+
 const syncListeners = new Set<SyncListener>();
 
 let authSnapshot: ParentAuthSnapshot = initialParentAuthSnapshot;
+let appIsActive = AppState.currentState !== 'background';
+let shouldDelayNextRemoteStart = false;
 let currentSettings: ParentSettings | null = null;
+let localSyncState: CloudProgressSyncState = initialCloudProgressSyncState;
+let localSyncStateLoading = false;
+let localSyncStateReady = false;
 let remoteUnsubscribe: (() => void) | null = null;
+let remoteStartTimer: ReturnType<typeof setTimeout> | null = null;
+let remoteStartTimerUid: string | null = null;
 let activeUid: string | null = null;
 let pendingProgress: LocalProgress | null = null;
 let remoteGeneration = 0;
@@ -114,6 +136,9 @@ export function startCloudProgressSync() {
   }
 
   started = true;
+  appIsActive = AppState.currentState !== 'background';
+
+  AppState.addEventListener('change', handleAppStateChange);
 
   subscribeParentAuth(nextAuthSnapshot => {
     authSnapshot = nextAuthSnapshot;
@@ -127,9 +152,15 @@ export function startCloudProgressSync() {
 
   subscribeProgress(change => {
     if (change.source === 'local' && activeUid) {
-      enqueueCloudWrite(change.progress, remoteGeneration);
+      updatePendingLocalProgress(
+        activeUid,
+        change.progress,
+        remoteGeneration,
+      );
     }
   });
+
+  loadLocalSyncState();
 
   getParentSettings()
     .then(settings => {
@@ -215,6 +246,7 @@ export async function disableAndDeleteCloudProgress() {
 
   try {
     await deleteDoc(getCloudProgressReference(user.uid));
+    await clearLocalSyncCheckpoint(user.uid);
   } catch (error) {
     throw normalizeCloudProgressSyncError(error);
   }
@@ -235,12 +267,22 @@ export async function deleteCloudProgressForCurrentParent() {
 
   try {
     await deleteDoc(getCloudProgressReference(user.uid));
+    await clearLocalSyncCheckpoint(user.uid);
   } catch (error) {
     throw normalizeCloudProgressSyncError(error);
   }
 }
 
 export function retryCloudProgressSync() {
+  if (!localSyncStateReady) {
+    loadLocalSyncState();
+    return;
+  }
+
+  if (!appIsActive) {
+    return;
+  }
+
   if (!activeUid) {
     reconcileSyncState();
     return;
@@ -248,7 +290,7 @@ export function retryCloudProgressSync() {
 
   const uid = activeUid;
   stopRemoteSync();
-  startRemoteSync(uid);
+  requestRemoteSync(uid, { force: true });
 }
 
 export function getCloudProgressSyncErrorCode(error: unknown) {
@@ -275,8 +317,70 @@ export function getCloudProgressSyncErrorCode(error: unknown) {
   return 'unknown';
 }
 
+function loadLocalSyncState() {
+  if (localSyncStateLoading) {
+    return;
+  }
+
+  localSyncStateLoading = true;
+  getCloudProgressSyncState()
+    .then(state => {
+      localSyncState = state;
+      localSyncStateReady = true;
+      reconcileSyncState();
+    })
+    .catch(error => {
+      updateSyncSnapshot({
+        errorCode: getCloudProgressSyncErrorCode(error),
+        isReady: true,
+        status: 'error',
+      });
+    })
+    .finally(() => {
+      localSyncStateLoading = false;
+    });
+}
+
+function handleAppStateChange(nextState: AppStateStatus) {
+  if (nextState === 'background' && appIsActive) {
+    appIsActive = false;
+    flushSessionAndStopRemoteSync();
+    return;
+  }
+
+  if (nextState === 'active' && !appIsActive) {
+    appIsActive = true;
+    shouldDelayNextRemoteStart = true;
+    reconcileSyncState();
+  }
+}
+
+function flushSessionAndStopRemoteSync() {
+  const uid = activeUid;
+  const generation = remoteGeneration;
+  const hasPendingProgress = Boolean(pendingProgress);
+  const hasWriteInFlight = flushingGeneration === generation;
+
+  if (
+    uid &&
+    hasPendingProgress &&
+    initializedGeneration === generation
+  ) {
+    flushCloudWrites(uid, generation);
+  }
+
+  stopRemoteSync();
+
+  if (currentSettings?.cloudProgressSync.enabled) {
+    updateSyncSnapshot({
+      status:
+        hasPendingProgress || hasWriteInFlight ? 'pending' : 'synced',
+    });
+  }
+}
+
 function reconcileSyncState() {
-  if (!currentSettings || !authSnapshot.isReady) {
+  if (!currentSettings || !authSnapshot.isReady || !localSyncStateReady) {
     updateSyncSnapshot({
       hasStoredConsent: Boolean(
         currentSettings?.cloudProgressSync.enabled,
@@ -336,11 +440,91 @@ function reconcileSyncState() {
     hasStoredConsent: true,
     isEnabledForCurrentAccount: true,
     isReady: true,
+    lastSyncedAt:
+      localSyncState.ownerUid === user.uid
+        ? localSyncState.lastSyncedAt
+        : undefined,
   });
 
-  if (activeUid !== user.uid) {
-    startRemoteSync(user.uid);
+  if (!appIsActive) {
+    stopRemoteSync();
+    updateSyncSnapshot({
+      status: hasConfirmedCheckpointForUid(user.uid)
+        ? 'synced'
+        : 'pending',
+    });
+    return;
   }
+
+  if (activeUid !== user.uid) {
+    const delayMs = shouldDelayNextRemoteStart
+      ? CLOUD_PROGRESS_ACTIVE_SUBSCRIBE_DELAY_MS
+      : 0;
+    shouldDelayNextRemoteStart = false;
+    requestRemoteSync(user.uid, { delayMs });
+  }
+}
+
+function requestRemoteSync(
+  uid: string,
+  options: { delayMs?: number; force?: boolean } = {},
+) {
+  if (!appIsActive || !isConsentActiveForUid(uid)) {
+    return;
+  }
+
+  if (activeUid === uid || remoteStartTimerUid === uid) {
+    return;
+  }
+
+  if (!options.force) {
+    const backoffUntil = getCloudSyncBackoffUntil(uid);
+    if (backoffUntil && backoffUntil > Date.now()) {
+      scheduleRemoteStartTimer(uid, backoffUntil - Date.now(), false);
+      return;
+    }
+
+    const remoteReadCooldownUntil = getRemoteReadCooldownUntil(uid);
+    if (
+      remoteReadCooldownUntil &&
+      remoteReadCooldownUntil > Date.now()
+    ) {
+      updateLocalDirtyStatus(uid);
+      scheduleRemoteStartTimer(
+        uid,
+        remoteReadCooldownUntil - Date.now(),
+        false,
+      );
+      return;
+    }
+  }
+
+  const delayMs = options.delayMs ?? 0;
+  if (delayMs <= 0) {
+    startRemoteSync(uid);
+    return;
+  }
+
+  updateSyncSnapshot({
+    errorCode: undefined,
+    isEnabledForCurrentAccount: true,
+    status: 'connecting',
+  });
+  scheduleRemoteStartTimer(uid, delayMs, Boolean(options.force));
+}
+
+function scheduleRemoteStartTimer(
+  uid: string,
+  delayMs: number,
+  force: boolean,
+) {
+  clearRemoteStartTimer();
+  remoteStartTimerUid = uid;
+  remoteStartTimer = setTimeout(() => {
+    remoteStartTimer = null;
+    remoteStartTimerUid = null;
+    requestRemoteSync(uid, { force });
+  }, delayMs);
 }
 
 function startRemoteSync(uid: string) {
@@ -377,6 +561,7 @@ function startRemoteSync(uid: string) {
 }
 
 function stopRemoteSync() {
+  clearRemoteStartTimer();
   remoteGeneration += 1;
   remoteUnsubscribe?.();
   remoteUnsubscribe = null;
@@ -384,6 +569,14 @@ function stopRemoteSync() {
   pendingProgress = null;
   initializedGeneration = null;
   remoteHandling = Promise.resolve();
+}
+
+function clearRemoteStartTimer() {
+  if (remoteStartTimer) {
+    clearTimeout(remoteStartTimer);
+  }
+  remoteStartTimer = null;
+  remoteStartTimerUid = null;
 }
 
 async function handleRemoteSnapshot(
@@ -407,10 +600,25 @@ async function handleRemoteSnapshot(
     return;
   }
 
+  const wasInitialized = initializedGeneration === generation;
+
   if (!snapshot.exists()) {
     initializedGeneration = generation;
+    await markRemoteChecked(uid);
     const localProgress = await getProgress();
-    enqueueCloudWrite(localProgress, generation);
+    if (!isActiveSync(uid, generation)) {
+      return;
+    }
+
+    const progressToUpload = pendingProgress
+      ? mergeProgressSnapshots(localProgress, pendingProgress)
+      : localProgress;
+    queueCloudWrite(progressToUpload, generation);
+    if (!wasInitialized) {
+      flushCloudWrites(uid, generation, {
+        respectCooldown: hasConfirmedCheckpointForUid(uid),
+      });
+    }
     return;
   }
 
@@ -421,6 +629,8 @@ async function handleRemoteSnapshot(
       'The cloud progress document has an unsupported schema.',
     );
   }
+
+  await markRemoteChecked(uid);
 
   const localProgress = await getProgress();
   if (!isActiveSync(uid, generation)) {
@@ -445,24 +655,43 @@ async function handleRemoteSnapshot(
     ? mergeProgressSnapshots(mergedProgress, pendingProgress)
     : mergedProgress;
 
-  if (!areProgressSnapshotsEqual(remoteProgress, progressToUpload)) {
-    enqueueCloudWrite(progressToUpload, generation);
+  if (!haveSameCloudProgress(remoteProgress, progressToUpload)) {
+    queueCloudWrite(progressToUpload, generation);
+    if (!wasInitialized) {
+      flushCloudWrites(uid, generation);
+    }
     return;
   }
 
   pendingProgress = null;
 
   const hasPendingWrites = snapshot.metadata.hasPendingWrites;
+  const serverSyncedAt = getServerTimestampIso(
+    snapshot.data()?.serverUpdatedAt,
+  );
+  if (!hasPendingWrites) {
+    await markLocalSyncCheckpoint(
+      uid,
+      progressToUpload,
+      serverSyncedAt ?? new Date().toISOString(),
+    );
+    if (pendingProgress && !isProgressDirty(uid, pendingProgress)) {
+      pendingProgress = null;
+    }
+  }
+
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
   updateSyncSnapshot({
     errorCode: undefined,
-    lastSyncedAt:
-      getServerTimestampIso(snapshot.data()?.serverUpdatedAt) ??
-      syncSnapshot.lastSyncedAt,
-    status: hasPendingWrites ? 'pending' : 'synced',
+    lastSyncedAt: serverSyncedAt ?? syncSnapshot.lastSyncedAt,
+    status: hasPendingWrites || pendingProgress ? 'pending' : 'synced',
   });
 }
 
-function enqueueCloudWrite(progress: LocalProgress, generation: number) {
+function queueCloudWrite(progress: LocalProgress, generation: number) {
   if (!activeUid || generation !== remoteGeneration) {
     return;
   }
@@ -470,51 +699,308 @@ function enqueueCloudWrite(progress: LocalProgress, generation: number) {
   pendingProgress = pendingProgress
     ? mergeProgressSnapshots(pendingProgress, progress)
     : progress;
-  if (initializedGeneration === generation) {
-    flushCloudWrites(activeUid, generation);
-  }
+  updateSyncSnapshot({ errorCode: undefined, status: 'pending' });
 }
 
-async function flushCloudWrites(uid: string, generation: number) {
-  if (flushingGeneration === generation) {
+function updatePendingLocalProgress(
+  uid: string,
+  progress: LocalProgress,
+  generation: number,
+) {
+  if (activeUid !== uid || generation !== remoteGeneration) {
+    return;
+  }
+
+  const nextPendingProgress = pendingProgress
+    ? mergeProgressSnapshots(pendingProgress, progress)
+    : progress;
+
+  if (!isProgressDirty(uid, nextPendingProgress)) {
+    pendingProgress = null;
+    if (flushingGeneration !== generation) {
+      updateSyncSnapshot({ errorCode: undefined, status: 'synced' });
+    }
+    return;
+  }
+
+  pendingProgress = nextPendingProgress;
+  updateSyncSnapshot({ errorCode: undefined, status: 'pending' });
+}
+
+async function flushCloudWrites(
+  uid: string,
+  generation: number,
+  options: { respectCooldown?: boolean } = {},
+) {
+  if (
+    flushingGeneration === generation ||
+    !pendingProgress ||
+    !isActiveSync(uid, generation)
+  ) {
+    return;
+  }
+
+  if (isAutomaticSyncBackedOff(uid)) {
+    updateSyncSnapshot({ status: 'pending' });
+    return;
+  }
+
+  if (
+    options.respectCooldown !== false &&
+    getBackgroundWriteCooldownRemainingMs(uid) > 0
+  ) {
+    updateSyncSnapshot({ status: 'pending' });
     return;
   }
 
   flushingGeneration = generation;
+  const progress = pendingProgress;
+  pendingProgress = null;
+  let writeCompleted = false;
 
   try {
-    while (pendingProgress && isActiveSync(uid, generation)) {
-      const progress = pendingProgress;
-      pendingProgress = null;
-      const preference = getActivePreference(uid);
+    const preference = getActivePreference(uid);
+    updateSyncSnapshot({ errorCode: undefined, status: 'syncing' });
+    await markCloudWriteAttempted(uid);
 
-      updateSyncSnapshot({ errorCode: undefined, status: 'syncing' });
+    await setDoc(getCloudProgressReference(uid), {
+      consentedAt: new Date(preference.consentedAt ?? Date.now()),
+      consentVersion: CLOUD_PROGRESS_SYNC_CONSENT_VERSION,
+      ownerUid: uid,
+      progress: toCloudProgressData(progress),
+      schemaVersion: CLOUD_PROGRESS_SCHEMA_VERSION,
+      serverUpdatedAt: serverTimestamp(),
+    });
+    writeCompleted = true;
 
-      await setDoc(getCloudProgressReference(uid), {
-        consentedAt: new Date(preference.consentedAt ?? Date.now()),
-        consentVersion: CLOUD_PROGRESS_SYNC_CONSENT_VERSION,
-        ownerUid: uid,
-        progress: toCloudProgressData(progress),
-        schemaVersion: CLOUD_PROGRESS_SCHEMA_VERSION,
-        serverUpdatedAt: serverTimestamp(),
+    const lastSyncedAt = new Date().toISOString();
+    if (isConsentActiveForUid(uid)) {
+      await markLocalSyncCheckpoint(uid, progress, lastSyncedAt);
+      await clearCloudSyncBackoff(uid);
+    }
+
+    if (isActiveSync(uid, generation)) {
+      updateSyncSnapshot({
+        errorCode: undefined,
+        lastSyncedAt,
+        status: pendingProgress ? 'pending' : 'synced',
       });
-
-      if (isActiveSync(uid, generation)) {
-        updateSyncSnapshot({
-          errorCode: undefined,
-          lastSyncedAt: new Date().toISOString(),
-          status: 'synced',
-        });
-      }
     }
   } catch (error) {
     if (isActiveSync(uid, generation)) {
+      if (!writeCompleted) {
+        pendingProgress = pendingProgress
+          ? mergeProgressSnapshots(progress, pendingProgress)
+          : progress;
+      }
       handleRemoteError(error, generation);
     }
   } finally {
     if (flushingGeneration === generation) {
       flushingGeneration = null;
     }
+  }
+}
+
+function haveSameCloudProgress(
+  first: LocalProgress,
+  second: LocalProgress,
+) {
+  return (
+    getCloudProgressFingerprint(first) ===
+    getCloudProgressFingerprint(second)
+  );
+}
+
+function isProgressDirty(uid: string, progress: LocalProgress) {
+  return (
+    !hasConfirmedCheckpointForUid(uid) ||
+    localSyncState.lastSyncedFingerprint !==
+      getCloudProgressFingerprint(progress)
+  );
+}
+
+function hasConfirmedCheckpointForUid(uid: string) {
+  return Boolean(
+    localSyncState.ownerUid === uid &&
+      localSyncState.lastSyncedFingerprint,
+  );
+}
+
+function getCloudSyncBackoffUntil(uid: string) {
+  if (localSyncState.ownerUid !== uid) {
+    return null;
+  }
+
+  const retryAt = getTimestampMs(localSyncState.nextRetryAt);
+  return retryAt;
+}
+
+function getRemoteReadCooldownUntil(uid: string) {
+  if (localSyncState.ownerUid !== uid) {
+    return null;
+  }
+
+  if (!hasConfirmedCheckpointForUid(uid)) {
+    return null;
+  }
+
+  const lastRemoteCheckedAt = getTimestampMs(
+    localSyncState.lastRemoteCheckedAt,
+  );
+  if (!lastRemoteCheckedAt) {
+    return null;
+  }
+
+  return lastRemoteCheckedAt + CLOUD_PROGRESS_REMOTE_READ_COOLDOWN_MS;
+}
+
+function isAutomaticSyncBackedOff(uid: string) {
+  if (localSyncState.ownerUid !== uid) {
+    return false;
+  }
+
+  const nextRetryAt = getTimestampMs(localSyncState.nextRetryAt);
+  return Boolean(nextRetryAt && nextRetryAt > Date.now());
+}
+
+function getBackgroundWriteCooldownRemainingMs(uid: string) {
+  if (localSyncState.ownerUid !== uid) {
+    return 0;
+  }
+
+  const lastWriteAttemptedAt = getTimestampMs(
+    localSyncState.lastWriteAttemptedAt,
+  );
+  if (!lastWriteAttemptedAt) {
+    return 0;
+  }
+
+  return Math.max(
+    0,
+    lastWriteAttemptedAt +
+      CLOUD_PROGRESS_BACKGROUND_WRITE_COOLDOWN_MS -
+      Date.now(),
+  );
+}
+
+async function updateLocalDirtyStatus(uid: string) {
+  try {
+    const localProgress = await getProgress();
+    if (
+      appIsActive &&
+      activeUid !== uid &&
+      remoteStartTimerUid !== uid &&
+      isConsentActiveForUid(uid)
+    ) {
+      updateSyncSnapshot({
+        status: isProgressDirty(uid, localProgress)
+          ? 'pending'
+          : 'synced',
+      });
+    }
+  } catch (error) {
+    updateSyncSnapshot({
+      errorCode: getCloudProgressSyncErrorCode(error),
+      status: 'error',
+    });
+  }
+}
+
+function isConsentActiveForUid(uid: string) {
+  const preference = currentSettings?.cloudProgressSync;
+  return Boolean(preference?.enabled && preference.ownerUid === uid);
+}
+
+async function saveLocalSyncState(nextState: CloudProgressSyncState) {
+  const savedState = await saveCloudProgressSyncState(nextState);
+  if (
+    !savedState.ownerUid ||
+    savedState.ownerUid === currentSettings?.cloudProgressSync.ownerUid
+  ) {
+    localSyncState = savedState;
+  }
+  return savedState;
+}
+
+async function markLocalSyncCheckpoint(
+  uid: string,
+  progress: LocalProgress,
+  lastSyncedAt: string,
+) {
+  if (!isConsentActiveForUid(uid)) {
+    return;
+  }
+
+  const savedState = await saveLocalSyncState({
+    ...getStateForUid(uid),
+    lastSyncedAt,
+    lastSyncedFingerprint: getCloudProgressFingerprint(progress),
+    ownerUid: uid,
+  });
+
+  if (isConsentActiveForUid(uid)) {
+    localSyncState = savedState;
+  }
+}
+
+async function markRemoteChecked(uid: string) {
+  await saveLocalSyncState({
+    ...getStateForUid(uid),
+    failureCount: undefined,
+    lastRemoteCheckedAt: new Date().toISOString(),
+    nextRetryAt: undefined,
+    ownerUid: uid,
+  });
+}
+
+async function markCloudWriteAttempted(uid: string) {
+  await saveLocalSyncState({
+    ...getStateForUid(uid),
+    lastWriteAttemptedAt: new Date().toISOString(),
+    ownerUid: uid,
+  });
+}
+
+async function clearCloudSyncBackoff(uid: string) {
+  await saveLocalSyncState({
+    ...getStateForUid(uid),
+    failureCount: undefined,
+    nextRetryAt: undefined,
+    ownerUid: uid,
+  });
+}
+
+function markCloudSyncFailure(uid: string) {
+  const failureCount = Math.min(
+    (localSyncState.ownerUid === uid
+      ? localSyncState.failureCount ?? 0
+      : 0) + 1,
+    10,
+  );
+  const delayMs = Math.min(
+    CLOUD_PROGRESS_INITIAL_BACKOFF_MS * 2 ** (failureCount - 1),
+    CLOUD_PROGRESS_MAX_BACKOFF_MS,
+  );
+
+  saveLocalSyncState({
+    ...getStateForUid(uid),
+    failureCount,
+    nextRetryAt: new Date(Date.now() + delayMs).toISOString(),
+    ownerUid: uid,
+  }).catch(() => {
+    // The user-visible sync error is already emitted by the caller.
+  });
+}
+
+function getStateForUid(uid: string): CloudProgressSyncState {
+  return localSyncState.ownerUid === uid ? localSyncState : {};
+}
+
+async function clearLocalSyncCheckpoint(uid: string) {
+  const nextState = await clearCloudProgressSyncState(uid);
+  if (localSyncState.ownerUid === uid) {
+    localSyncState = nextState;
   }
 }
 
@@ -573,6 +1059,10 @@ function handleRemoteError(error: unknown, generation: number) {
     return;
   }
 
+  if (activeUid) {
+    markCloudSyncFailure(activeUid);
+  }
+
   updateSyncSnapshot({
     errorCode: getCloudProgressSyncErrorCode(error),
     isReady: true,
@@ -610,6 +1100,15 @@ function getServerTimestampIso(value: unknown) {
   }
 
   return undefined;
+}
+
+function getTimestampMs(value: string | undefined) {
+  if (!value) {
+    return null;
+  }
+
+  const timestamp = new Date(value).getTime();
+  return Number.isNaN(timestamp) ? null : timestamp;
 }
 
 function getErrorCode(error: unknown) {

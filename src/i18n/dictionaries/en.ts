@@ -121,7 +121,7 @@ export const en: TranslationDictionary = {
   'parent.cloudSync.clearConsentTitle': 'Switch parent account?',
   'parent.cloudSync.consentAction': 'Enable sync',
   'parent.cloudSync.consentText':
-    'The app will store completed lessons and scenes, learned words, mastery, XP, stickers, achievements, and the resume position in Firestore. It does not upload the child’s name or birth year, settings, activity log, or voice recordings. Parents can disable sync or delete the cloud copy at any time.',
+    'The app will store completed lessons and scenes, learned words, mastery, XP, stickers, achievements, and the resume position in Firestore. It does not upload the child’s name or birth year, settings, activity log, or voice recordings. Progress syncs when the app opens and when it moves to the background, with cooldowns to avoid repeated requests. Parents can disable sync or delete the cloud copy at any time.',
   'parent.cloudSync.consentTitle': 'Allow progress sync?',
   'parent.cloudSync.description':
     'Save a progress copy to the parent account to continue on another device.',
@@ -153,7 +153,7 @@ export const en: TranslationDictionary = {
   'parent.cloudSync.statusDisabling': 'Disabling sync...',
   'parent.cloudSync.statusEnabling': 'Enabling sync...',
   'parent.cloudSync.statusPending':
-    'Saved locally and waiting for Firestore confirmation.',
+    'Saved on this device and waiting for the next cloud sync.',
   'parent.cloudSync.statusSynced': 'Progress is synced.',
   'parent.cloudSync.statusSyncing': 'Syncing progress...',
   'parent.cloudSync.statusWaitingForSignIn':

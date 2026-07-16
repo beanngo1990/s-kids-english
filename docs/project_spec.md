@@ -368,7 +368,7 @@ và ước lượng 3 phút cho mỗi scene event.
 
 ## 7. Local persistence, parent auth và cloud progress
 
-App luôn dùng ba AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng bốn AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress sau parent opt-in:
 
 ### Parent settings
@@ -391,7 +391,19 @@ của learning progress sau parent opt-in:
 - Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ; legacy
   `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị.
 - `ProgressManager` phát change source `local | cloud`; cloud-applied merge không bị enqueue lại như
-  một local mutation.
+  một local mutation và giữ nguyên source `updatedAt` thay vì tạo client timestamp mới.
+
+### Cloud sync checkpoint
+
+- Key: `@skidsenglish/cloud-progress-sync-state/v1`.
+- Manager: `src/engine/CloudProgressSyncState.ts`.
+- Lưu owner UID, semantic fingerprint, thời điểm sync gần nhất đã được server xác nhận và metadata
+  scheduler cho cloud sync: lần remote check gần nhất, lần write attempt gần nhất, failure count và
+  thời điểm retry kế tiếp.
+- Fingerprint canonicalize cloud payload nhưng bỏ `updatedAt`; một local save chỉ đổi timestamp
+  không làm phát sinh cloud write.
+- State thiếu owner được normalize về empty. State có owner nhưng chưa có fingerprint vẫn được giữ
+  để cooldown/backoff hoạt động trước khi checkpoint đầu tiên được xác nhận.
 
 ### Daily activity
 
@@ -447,6 +459,19 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   lấy snapshot có `updatedAt` mới hơn. Merge được canonicalize để tránh ping-pong do array order.
 - Khi bắt đầu một sync session, manager chờ initial snapshot được server xác nhận trước khi upload;
   snapshot cache báo document chưa tồn tại không thể ghi đè dữ liệu đang có từ thiết bị khác.
+- Firestore listener chỉ tồn tại khi app foreground. Initial snapshot và remote update được merge
+  vào local; các local interaction trong phiên chỉ cập nhật AsyncStorage và pending snapshot, không
+  write Firestore riêng lẻ.
+- Khi `AppState` chuyển sang `background`, manager gọi tối đa một write cho pending snapshot rồi tháo
+  listener. Đây là best-effort flush; nếu OS suspend trước khi hoàn tất, fingerprint persisted vẫn
+  khác local và phiên foreground sau sẽ merge/retry.
+- Mỗi lần app trở lại foreground thực hiện server reconciliation có throttle: listener được delay
+  ngắn để tránh transient foreground, remote read được cooldown tối thiểu 5 phút khi đã có checkpoint
+  server-confirmed gần đây, và các lỗi Firestore dùng exponential backoff từ 1 phút đến tối đa 15
+  phút. App chỉ write lúc mở khi local từ phiên trước chưa có trong cloud và write cooldown/backoff
+  cho phép.
+- Background write có cooldown tối thiểu 90 giây theo parent UID. Nếu user ẩn/bật app liên tục,
+  progress vẫn lưu local ngay nhưng cloud write được defer; phiên không đổi dữ liệu không tạo write.
 - Contract max/union tránh duplicate reward và XP inflation nhưng không cộng hai XP delta độc lập
   phát sinh đồng thời trên hai thiết bị offline. Event-log/operation-based multi-device accounting
   vẫn unsupported.

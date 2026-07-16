@@ -77,6 +77,10 @@ Release iOS builds have been verified.
 - Sync is off by default and remains off after sign-in until the parent confirms the disclosure.
 - Consent is stored locally in `@skidsenglish/parent-settings/v1` with the parent UID, consent
   version and timestamp. A different signed-in UID cannot inherit that consent.
+- The last server-confirmed semantic fingerprint is stored in
+  `@skidsenglish/cloud-progress-sync-state/v1`, bound to the same parent UID. It deliberately
+  ignores client `updatedAt`, so timestamp-only local saves do not trigger cloud writes. The same
+  store keeps sync scheduler metadata for cooldowns and retry backoff.
 - The only cloud document is `users/{uid}/progress/current`.
 - Synced fields are lesson/scene/review completion, learned-word IDs, vocabulary mastery counters,
   XP, sticker/achievement records, active theme and the resume pointer.
@@ -87,6 +91,19 @@ Release iOS builds have been verified.
   chooses active theme and resume position.
 - A new sync session waits for a server-confirmed initial snapshot before uploading. A cache-only
   missing document therefore cannot overwrite progress that already exists on another device.
+- While the app is in the foreground, the Firestore listener receives the initial snapshot and
+  remote changes, but local learning interactions only update AsyncStorage and an in-memory pending
+  snapshot. They do not write to Firestore individually.
+- When the app enters the background, the manager invokes at most one write for the pending session
+  snapshot and then removes the listener. Background delivery is best-effort; if the operating
+  system suspends the process first, the persisted fingerprint causes the next foreground session
+  to retry safely after merging with the server.
+- Opening the app performs throttled server reconciliation. A recent server-confirmed read suppresses
+  foreground listener churn for 5 minutes, background writes are limited to one attempt per 90
+  seconds per parent UID, and Firestore failures use exponential backoff from 1 to 15 minutes.
+  Local progress remains saved immediately while a cloud write is deferred.
+- Opening the app only writes immediately when local data from an earlier session is not represented
+  by the confirmed cloud fingerprint and the write cooldown/backoff allows the attempt.
 - Turning sync off can either keep the existing cloud copy or delete it. Deleting the parent
   account deletes the cloud progress document before deleting Firebase Auth; local progress stays
   on the device.
