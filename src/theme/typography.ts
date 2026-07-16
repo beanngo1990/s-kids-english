@@ -27,7 +27,7 @@ export const typography = {
     fontSize: 20,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 24,
+    lineHeight: 28,
   },
   caption: {
     fontSize: 14,

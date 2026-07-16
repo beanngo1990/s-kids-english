@@ -242,7 +242,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons; tab
   Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
-  mode và daily reminder time.
+  mode, daily reminder time, contact support email và app version.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh.
 - **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud progress sync. Consent modal
