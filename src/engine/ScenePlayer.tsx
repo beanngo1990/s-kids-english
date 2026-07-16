@@ -221,6 +221,46 @@ function CustomProgressBar({ progress }: { progress: number }) {
   );
 }
 
+function AnimatedAudioWave() {
+  const anim1 = useRef(new Animated.Value(0)).current;
+  const anim2 = useRef(new Animated.Value(0)).current;
+  const anim3 = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const startAnim = (anim: Animated.Value, duration: number, delay: number) => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(anim, {
+            toValue: 1,
+            duration,
+            useNativeDriver: true,
+            delay,
+          }),
+          Animated.timing(anim, {
+            toValue: 0,
+            duration,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    };
+
+    startAnim(anim1, 400, 0);
+    startAnim(anim2, 350, 150);
+    startAnim(anim3, 450, 50);
+  }, [anim1, anim2, anim3]);
+
+  const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1.2] });
+
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, height: 18 }}>
+      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim1) }] }} />
+      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim2) }] }} />
+      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim3) }] }} />
+    </View>
+  );
+}
+
 export function ScenePlayer({
   lessonId,
   scene,
@@ -1153,7 +1193,7 @@ export function ScenePlayer({
                       accessibilityLabel={t('scene.listeningAccessibility')}
                       style={[styles.actionButton, styles.listeningStatus]}
                     >
-                      <ActivityIndicator color={colors.primary} size="small" />
+                      <AnimatedAudioWave />
                       <Text style={styles.listeningStatusText}>
                         {t('scene.listeningStatus')}
                       </Text>

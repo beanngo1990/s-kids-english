@@ -59,6 +59,75 @@ const levelPollIntervalMs = 120;
 const minVoiceLevel = 0.065;
 const noiseFloorMultiplier = 2.35;
 
+function AnimatedAudioWave({ color }: { color: string }) {
+  const anim1 = useRef(new Animated.Value(0)).current;
+  const anim2 = useRef(new Animated.Value(0)).current;
+  const anim3 = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const startAnim = (anim: Animated.Value, duration: number, delay: number) => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(anim, {
+            toValue: 1,
+            duration,
+            useNativeDriver: true,
+            delay,
+          }),
+          Animated.timing(anim, {
+            toValue: 0,
+            duration,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    };
+
+    startAnim(anim1, 400, 0);
+    startAnim(anim2, 350, 150);
+    startAnim(anim3, 450, 50);
+  }, [anim1, anim2, anim3]);
+
+  const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1.2] });
+
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3, height: 16 }}>
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim1) }] }} />
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim2) }] }} />
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim3) }] }} />
+    </View>
+  );
+}
+
+function AnimatedRecordingDot() {
+  const pulse = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, { toValue: 1, duration: 600, useNativeDriver: true }),
+        Animated.timing(pulse, { toValue: 0, duration: 600, useNativeDriver: true }),
+      ])
+    ).start();
+  }, [pulse]);
+
+  const opacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] });
+  const scale = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.15] });
+
+  return (
+    <Animated.View 
+      style={{ 
+        width: 14, 
+        height: 14, 
+        backgroundColor: colors.alert, 
+        borderRadius: 7, 
+        opacity, 
+        transform: [{ scale }] 
+      }} 
+    />
+  );
+}
+
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
@@ -413,17 +482,22 @@ export function SpeakPracticeControls({
   return (
     <View style={styles.root}>
       <View style={styles.promptRow}>
-        {!isRecording ? (
-          <View
-            style={[
-              styles.statusIcon,
-              isPrompting && styles.promptingStatusIcon,
-              hasRecording && styles.recordedStatusIcon,
-            ]}
-          >
+        <View
+          style={[
+            styles.statusIcon,
+            (isPrompting || isInstructionPlaying) && styles.promptingStatusIcon,
+            isRecording && styles.recordingStatusIcon,
+            hasRecording && styles.recordedStatusIcon,
+          ]}
+        >
+          {isPrompting || isInstructionPlaying ? (
+            <AnimatedAudioWave color={colors.primaryDark} />
+          ) : isRecording ? (
+            <AnimatedRecordingDot />
+          ) : (
             <SKidsIcon name={hasRecording ? 'star' : 'speak'} size={26} />
-          </View>
-        ) : null}
+          )}
+        </View>
         <Text numberOfLines={2} style={styles.prompt}>
           {promptText}
         </Text>
@@ -665,6 +739,9 @@ const styles = createThemedStyles(() => ({
   },
   promptingStatusIcon: {
     backgroundColor: colors.secondarySoft,
+  },
+  recordingStatusIcon: {
+    backgroundColor: colors.accentSoft,
   },
   recordButton: {
     alignItems: 'center',
