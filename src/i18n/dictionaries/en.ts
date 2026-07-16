@@ -19,6 +19,8 @@ export const en: TranslationDictionary = {
   'nav.stickerCollection': 'Sticker Collection',
   'nav.parent': 'Parent Mode',
 
+  'splash.loading': 'The fun learning journey begins!',
+
   'learningMode.challenge.detail':
     'More words, plus drag-and-drop and phrase challenges.',
   'learningMode.challenge.subtitle': 'More challenge',

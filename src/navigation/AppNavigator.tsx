@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { Animated, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -16,6 +16,7 @@ import {
   StickerCollectionScreen,
   ThemeLibraryScreen,
 } from '../screens';
+import { MascotImage } from '../components/mascot';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -53,10 +54,41 @@ export function AppNavigator() {
     };
   }, []);
 
+function AnimatedSplashMascot() {
+  const floatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, {
+          toValue: -15,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(floatAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        })
+      ])
+    ).start();
+  }, [floatAnim]);
+
+  return (
+    <Animated.View style={{ transform: [{ translateY: floatAnim }], alignItems: 'center' }}>
+      <MascotImage pose="hello" size="xl" />
+      <View style={{ marginTop: -10, backgroundColor: 'rgba(0,0,0,0.06)', width: 80, height: 12, borderRadius: 50, transform: [{ scale: 1 }] }} />
+    </Animated.View>
+  );
+}
+
   if (!initialRouteName) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator color={colors.primary} size="large" />
+        <AnimatedSplashMascot />
+        <Text style={{ marginTop: 32, fontSize: 18, color: colors.primaryDark, fontWeight: '800' }}>
+          {t('splash.loading')}
+        </Text>
       </View>
     );
   }

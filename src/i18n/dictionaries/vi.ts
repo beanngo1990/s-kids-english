@@ -17,6 +17,8 @@ export const vi = {
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.parent': 'Góc phụ huynh',
 
+  'splash.loading': 'Hành trình vui học bắt đầu!',
+
   'learningMode.challenge.detail':
     'Nhiều từ hơn, có thêm thử thách kéo thả/cụm từ.',
   'learningMode.challenge.subtitle': 'Thử thách hơn',
