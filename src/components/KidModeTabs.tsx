@@ -75,12 +75,8 @@ export function KidModeTabs({
                 pressed && styles.tabPressed,
               ]}
             >
-              <View
-                style={[
-                  styles.iconBubble,
-                  isActive && styles.iconActive,
-                ]}
-              >
+              <View style={styles.iconContainer}>
+                {isActive && <View style={styles.iconActiveBg} />}
                 <SKidsIcon name={tab.icon} size={28} />
               </View>
               <Text
@@ -104,17 +100,21 @@ const styles = createThemedStyles(() => ({
     right: layout.screenPadding,
     zIndex: 30,
   },
-  iconActive: {
+  iconActiveBg: {
     backgroundColor: colors.secondary,
     borderColor: colors.white,
+    borderRadius: 22,
     borderWidth: 2,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
   },
-  iconBubble: {
+  iconContainer: {
     alignItems: 'center',
-    borderRadius: 22, // Fix Android bug: using exact half of width/height instead of 999 for perfect circle
     height: 44,
     justifyContent: 'center',
-    overflow: 'hidden',
     width: 44,
   },
   label: {
