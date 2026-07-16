@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   Animated,
   ImageBackground,
   type LayoutChangeEvent,
@@ -46,6 +45,10 @@ import type {
   SceneObject,
   SceneStep,
 } from '../types/lesson';
+import {
+  DEFAULT_ENGLISH_ACCENT,
+  type EnglishAccent,
+} from '../types/audio';
 import {
   playCorrectSound,
   playSoundEffect,
@@ -130,7 +133,7 @@ function AnimatedLoadingMascot() {
   const floatAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    Animated.loop(
+    const animation = Animated.loop(
       Animated.sequence([
         Animated.timing(floatAnim, {
           toValue: -12,
@@ -142,8 +145,11 @@ function AnimatedLoadingMascot() {
           duration: 1000,
           useNativeDriver: true,
         }),
-      ])
-    ).start();
+      ]),
+    );
+    animation.start();
+
+    return () => animation.stop();
   }, [floatAnim]);
 
   const shadowScale = floatAnim.interpolate({
@@ -227,27 +233,37 @@ function AnimatedAudioWave() {
   const anim3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    const startAnim = (anim: Animated.Value, duration: number, delay: number) => {
-      Animated.loop(
+    const startAnim = (
+      anim: Animated.Value,
+      duration: number,
+      animationDelay: number,
+    ) => {
+      const animation = Animated.loop(
         Animated.sequence([
           Animated.timing(anim, {
             toValue: 1,
             duration,
             useNativeDriver: true,
-            delay,
+            delay: animationDelay,
           }),
           Animated.timing(anim, {
             toValue: 0,
             duration,
             useNativeDriver: true,
           }),
-        ])
-      ).start();
+        ]),
+      );
+      animation.start();
+      return animation;
     };
 
-    startAnim(anim1, 400, 0);
-    startAnim(anim2, 350, 150);
-    startAnim(anim3, 450, 50);
+    const animations = [
+      startAnim(anim1, 400, 0),
+      startAnim(anim2, 350, 150),
+      startAnim(anim3, 450, 50),
+    ];
+
+    return () => animations.forEach(animation => animation.stop());
   }, [anim1, anim2, anim3]);
 
   const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1.2] });
@@ -274,6 +290,9 @@ export function ScenePlayer({
   const appLanguage = useSavedAppLanguage();
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
+  const [englishAccent, setEnglishAccent] = useState<EnglishAccent>(
+    DEFAULT_ENGLISH_ACCENT,
+  );
   const [isLocalizationReady, setIsLocalizationReady] = useState(false);
   const t = useTranslations(appLanguage);
   const insets = useSafeAreaInsets();
@@ -372,6 +391,7 @@ export function ScenePlayer({
       settings: Awaited<ReturnType<typeof getParentSettings>>,
     ) => {
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
+      setEnglishAccent(settings.englishAccent ?? DEFAULT_ENGLISH_ACCENT);
       if (__DEV__) {
         setShowSceneEditorControl(settings.enableSceneEditor || false);
       }
@@ -425,13 +445,17 @@ export function ScenePlayer({
       return;
     }
 
+    if (!isLocalizationReady) {
+      return;
+    }
+
     let isMounted = true;
     setIsPreloading(true);
 
     const preloadCurrentScene = async () => {
       try {
         const imageAssets = getSceneImageSources(currentScene);
-        const audioAssets = getSceneAudioAssets(currentScene);
+        const audioAssets = getSceneAudioAssets(currentScene, englishAccent);
         
         let loaded = 0;
         const total = imageAssets.length + (audioAssets.length > 0 ? 1 : 0);
@@ -474,14 +498,16 @@ export function ScenePlayer({
 
     const timer = setTimeout(() => {
       prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
-      prefetchRemoteAssets(getSceneAudioAssets(nextScene)).catch(() => undefined);
+      prefetchRemoteAssets(getSceneAudioAssets(nextScene, englishAccent)).catch(
+        () => undefined,
+      );
     }, 350);
 
     return () => {
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [currentScene, sceneIndex, scenes]);
+  }, [currentScene, englishAccent, isLocalizationReady, sceneIndex, scenes]);
 
   useEffect(() => {
     return () => {
@@ -1445,7 +1471,7 @@ function getSceneImageSources(scene: Scene) {
   return Array.from(new Set(sources));
 }
 
-function getSceneAudioAssets(scene: Scene) {
+function getSceneAudioAssets(scene: Scene, englishAccent: EnglishAccent) {
   const assets: RemoteAudioAsset[] = [];
 
   if (scene.titleVi) {
@@ -1454,13 +1480,16 @@ function getSceneAudioAssets(scene: Scene) {
   }
 
   for (const vocab of scene.vocabulary ?? []) {
-    const wordAsset = getWordAudioAsset(vocab.word);
+    const wordAsset = getWordAudioAsset(vocab.word, englishAccent);
     if (wordAsset) assets.push(wordAsset);
   }
 
   for (const step of scene.steps) {
     for (const segment of resolveTeacherInstruction(step, 'en', scene).segments) {
-      const instructionAsset = getWordAudioAsset(segment.text);
+      const instructionAsset = getWordAudioAsset(
+        segment.text,
+        englishAccent,
+      );
       if (instructionAsset) assets.push(instructionAsset);
     }
     for (const segment of resolveTeacherFeedback({
@@ -1470,7 +1499,7 @@ function getSceneAudioAssets(scene: Scene) {
       step,
       type: 'success',
     }).segments) {
-      const feedbackAsset = getWordAudioAsset(segment.text);
+      const feedbackAsset = getWordAudioAsset(segment.text, englishAccent);
       if (feedbackAsset) assets.push(feedbackAsset);
     }
     for (const segment of resolveTeacherFeedback({
@@ -1480,7 +1509,7 @@ function getSceneAudioAssets(scene: Scene) {
       step,
       type: 'fail',
     }).segments) {
-      const feedbackAsset = getWordAudioAsset(segment.text);
+      const feedbackAsset = getWordAudioAsset(segment.text, englishAccent);
       if (feedbackAsset) assets.push(feedbackAsset);
     }
     if (step.instructionVi) {
@@ -1498,7 +1527,7 @@ function getSceneAudioAssets(scene: Scene) {
   }
 
   for (const text of getSceneEnglishAudioTexts(scene)) {
-    const englishAsset = getWordAudioAsset(text);
+    const englishAsset = getWordAudioAsset(text, englishAccent);
     if (englishAsset) assets.push(englishAsset);
   }
 

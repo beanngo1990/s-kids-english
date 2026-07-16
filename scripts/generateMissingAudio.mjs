@@ -3,8 +3,10 @@ import { createHash } from 'node:crypto';
 import {
   existsSync,
   mkdirSync,
+  renameSync,
   readdirSync,
   readFileSync,
+  unlinkSync,
   writeFileSync,
 } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -18,16 +20,39 @@ import { trimWavSilence } from './audioSilence.mjs';
 const nodeRequire = createRequire(import.meta.url);
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
+const englishGenerationManifestPath = join(
+  repoRoot,
+  'src/data/englishAudioGenerationManifest.json',
+);
+const ENGLISH_ACCENTS = ['en-US', 'en-GB'];
+const DEFAULT_AUDIO_RELEASE = 'neural2-c-r1';
+const DEFAULT_CONCURRENCY = 4;
+const MAX_CONCURRENCY = 8;
+const MAX_TTS_ATTEMPTS = 3;
+const MIN_WAV_DURATION_SECONDS = 0.1;
 
 const args = parseArgs(process.argv.slice(2));
-const audioConfig = {
+const englishAudioConfig = {
   audioEncoding: 'LINEAR16',
-  sampleRateHertz: Number(process.env.GOOGLE_TTS_SAMPLE_RATE ?? 24000),
+  sampleRateHertz: 24000,
+  speakingRate: 0.9,
+};
+const viSampleRateHertz = Number(process.env.GOOGLE_TTS_SAMPLE_RATE ?? 24000);
+if (!Number.isInteger(viSampleRateHertz) || viSampleRateHertz <= 0) {
+  throw new Error('GOOGLE_TTS_SAMPLE_RATE must be a positive integer.');
+}
+const viAudioConfig = {
+  audioEncoding: 'LINEAR16',
+  sampleRateHertz: viSampleRateHertz,
 };
 const voices = {
-  en: {
+  'en-US': {
     languageCode: 'en-US',
-    name: process.env.GOOGLE_TTS_EN_VOICE ?? 'en-US-Chirp3-HD-Aoede',
+    name: 'en-US-Neural2-C',
+  },
+  'en-GB': {
+    languageCode: 'en-GB',
+    name: 'en-GB-Neural2-C',
   },
   vi: {
     languageCode: 'vi-VN',
@@ -295,6 +320,7 @@ if (!Array.isArray(lessons) || lessons.length === 0) {
 }
 
 const audioTargets = collectAudioTargets(lessons, {
+  audioRelease: args.audioRelease,
   existingViAudio,
   existingWordAudio,
   mascotPrompts: mascotPromptsModule,
@@ -302,7 +328,15 @@ const audioTargets = collectAudioTargets(lessons, {
   speechPrompts: speechPromptsModule,
   teacherPrompts: teacherPromptsModule,
 });
+const publishedEnglishGenerationManifest =
+  loadPublishedEnglishGenerationManifest();
+validatePublishedEnglishTargets(
+  audioTargets,
+  publishedEnglishGenerationManifest,
+  args,
+);
 const selectedAudioTargets = collectAudioTargets(lessons, {
+  audioRelease: args.audioRelease,
   existingViAudio,
   existingWordAudio,
   lessonId: args.lesson,
@@ -312,56 +346,75 @@ const selectedAudioTargets = collectAudioTargets(lessons, {
   speechPrompts: speechPromptsModule,
   teacherPrompts: teacherPromptsModule,
 });
-const missingTargets = selectedAudioTargets.filter(
-  target => args.force || !existsSync(join(repoRoot, 'src/assets', target.key)),
+const filteredAudioTargets = filterAudioTargets(selectedAudioTargets, args);
+assertUniqueTargetKeys(filteredAudioTargets);
+assertNoPublishedEnglishOverwrite(
+  filteredAudioTargets,
+  publishedEnglishGenerationManifest,
+  args,
+);
+const pendingTargets = filteredAudioTargets.filter(
+  target => args.force || !auditTarget(target).valid,
 );
 
-printSummary(selectedAudioTargets, missingTargets);
+printSummary(filteredAudioTargets, pendingTargets);
 
 if (args.dryRun) {
-  printMissingTargets(missingTargets);
+  printPendingTargets(pendingTargets);
   process.exit(0);
 }
 
 if (!args.manifestOnly) {
   const limitedTargets =
     args.limit === undefined
-      ? missingTargets
-      : missingTargets.slice(0, args.limit);
+      ? pendingTargets
+      : pendingTargets.slice(0, args.limit);
 
   if (limitedTargets.length > 0) {
     const auth = getGoogleAuth();
-
-    for (const [index, target] of limitedTargets.entries()) {
-      await synthesizeTarget(target, auth);
-      console.log(
-        `wrote ${target.key} (${index + 1}/${limitedTargets.length})`,
-      );
-    }
+    await generateTargets(limitedTargets, auth, args.concurrency);
   }
 
-  if (args.limit !== undefined && missingTargets.length > args.limit) {
+  if (args.limit !== undefined && pendingTargets.length > args.limit) {
     console.log(
-      `Skipped ${missingTargets.length - args.limit} file(s) because --limit=${
+      `Skipped ${pendingTargets.length - args.limit} file(s) because --limit=${
         args.limit
       }.`,
     );
   }
 }
 
-writeAudioManifest(audioTargets);
-if (args.writeBundledRegistry) {
-  writeGeneratedAudioRegistry();
-} else {
+const productionAudit = auditProductionTargets(audioTargets);
+printProductionAudit(productionAudit);
+
+if (!productionAudit.complete) {
   console.log(
-    'kept src/engine/GeneratedAudioRegistry.ts unchanged (R2-first audio)',
+    'kept audioManifest and English provenance unchanged because the production corpus is incomplete',
   );
+  if (args.manifestOnly) {
+    throw new Error(
+      'Cannot publish manifests: production audio has missing or invalid files.',
+    );
+  }
+} else {
+  publishGeneratedAudioManifests(audioTargets);
+  if (args.writeBundledRegistry) {
+    writeGeneratedAudioRegistry();
+  } else {
+    console.log(
+      'kept src/engine/GeneratedAudioRegistry.ts unchanged (R2-first audio)',
+    );
+  }
 }
 
 function parseArgs(rawArgs) {
   const options = {
+    accent: 'all',
+    audioRelease: DEFAULT_AUDIO_RELEASE,
+    concurrency: DEFAULT_CONCURRENCY,
     dryRun: false,
     force: false,
+    language: 'all',
     lesson: undefined,
     limit: undefined,
     manifestOnly: false,
@@ -384,6 +437,46 @@ function parseArgs(rawArgs) {
     }
     if (arg === '--write-bundled-registry') {
       options.writeBundledRegistry = true;
+      continue;
+    }
+    if (arg.startsWith('--language=')) {
+      const language = arg.slice('--language='.length);
+      if (!['all', 'en', 'vi'].includes(language)) {
+        throw new Error('--language must be all, en, or vi.');
+      }
+      options.language = language;
+      continue;
+    }
+    if (arg.startsWith('--accent=')) {
+      const accent = arg.slice('--accent='.length);
+      if (accent !== 'all' && !ENGLISH_ACCENTS.includes(accent)) {
+        throw new Error('--accent must be all, en-US, or en-GB.');
+      }
+      options.accent = accent;
+      continue;
+    }
+    if (arg.startsWith('--audio-release=')) {
+      const audioRelease = arg.slice('--audio-release='.length);
+      if (!/^[a-z0-9][a-z0-9-]*$/u.test(audioRelease)) {
+        throw new Error(
+          '--audio-release must contain only lowercase letters, numbers, and hyphens.',
+        );
+      }
+      options.audioRelease = audioRelease;
+      continue;
+    }
+    if (arg.startsWith('--concurrency=')) {
+      const concurrency = Number(arg.slice('--concurrency='.length));
+      if (
+        !Number.isInteger(concurrency) ||
+        concurrency < 1 ||
+        concurrency > MAX_CONCURRENCY
+      ) {
+        throw new Error(
+          `--concurrency must be an integer from 1 to ${MAX_CONCURRENCY}.`,
+        );
+      }
+      options.concurrency = concurrency;
       continue;
     }
     if (arg.startsWith('--lesson=')) {
@@ -413,6 +506,9 @@ function parseArgs(rawArgs) {
   if (options.dryRun && options.manifestOnly) {
     throw new Error('Use either --dry-run or --manifest-only, not both.');
   }
+  if (options.manifestOnly && options.limit !== undefined) {
+    throw new Error('--manifest-only cannot be combined with --limit.');
+  }
 
   return options;
 }
@@ -425,16 +521,23 @@ Generate missing lesson audio with Google Cloud Text-to-Speech.
 Usage:
   npm run generate:audio
   npm run generate:audio:dry-run
+  node scripts/generateMissingAudio.mjs --language=en --accent=en-US
   node scripts/generateMissingAudio.mjs --lesson=morning-routine --scene=bathroom
 
 Options:
   --dry-run, -n       List missing files without writing or calling Google TTS.
-  --manifest-only    Rewrite audioManifest only; pair with --write-bundled-registry
-                     to also rewrite GeneratedAudioRegistry.
+  --manifest-only    Audit the complete production corpus, then rewrite manifests.
+  --language=<value> Generate all, en, or vi targets (default: all).
+  --accent=<value>   Generate all, en-US, or en-GB English targets (default: all).
+  --audio-release=<id>
+                     Immutable English audio release path segment
+                     (default: ${DEFAULT_AUDIO_RELEASE}).
+  --concurrency=<n>  Concurrent Google TTS requests, 1-${MAX_CONCURRENCY}
+                     (default: ${DEFAULT_CONCURRENCY}).
   --write-bundled-registry
                      Rewrite GeneratedAudioRegistry with bundled require() entries.
                      Default leaves it unchanged for R2-first lesson audio.
-  --force            Regenerate files even if they already exist.
+  --force            Regenerate files that are not published immutable English keys.
   --lesson=<id>      Limit to one lesson pack.
   --scene=<id>       Limit to one scene.
   --limit=<n>        Generate at most n missing files.
@@ -449,6 +552,7 @@ Auth:
 function collectAudioTargets(
   lessonCatalog,
   {
+    audioRelease,
     existingViAudio,
     existingWordAudio,
     lessonId,
@@ -473,6 +577,7 @@ function collectAudioTargets(
 
       for (const vocabularyItem of scene.vocabulary ?? []) {
         addWordTarget(targets, {
+          audioRelease,
           existingWordAudio,
           lesson,
           scene,
@@ -485,6 +590,7 @@ function collectAudioTargets(
           teacherPrompts.resolveTeacherInstruction(step, 'en', scene),
         );
         addEnglishPromptTarget(targets, {
+          audioRelease,
           defaultKey: getEnglishStepAudioKey(
             lesson.id,
             scene.id,
@@ -538,6 +644,7 @@ function collectAudioTargets(
         );
         if (successFeedbackEn?.trim()) {
           addEnglishPromptTarget(targets, {
+            audioRelease,
             defaultKey: getEnglishStepFeedbackAudioKey(
               lesson.id,
               scene.id,
@@ -561,6 +668,7 @@ function collectAudioTargets(
             }),
           );
           addEnglishPromptTarget(targets, {
+            audioRelease,
             defaultKey: getEnglishStepFeedbackAudioKey(
               lesson.id,
               scene.id,
@@ -590,6 +698,7 @@ function collectAudioTargets(
         teacherPrompts.resolveSceneCompletionPrompt(scene, 'en'),
       );
       addEnglishPromptTarget(targets, {
+        audioRelease,
         defaultKey: getEnglishCompletionAudioKey(
           lesson.id,
           scene.id,
@@ -627,11 +736,13 @@ function collectAudioTargets(
   );
 
   addSharedEnglishTarget(targets, {
+    audioRelease,
     defaultKey: getSharedEnglishAudioKey('speak_prompt', speechPromptEn),
     existingWordAudio,
     text: speechPromptEn,
   });
   addSharedEnglishTarget(targets, {
+    audioRelease,
     defaultKey: getSharedEnglishAudioKey(
       'recording_encouragement',
       recordingEncouragementEn,
@@ -640,22 +751,32 @@ function collectAudioTargets(
     text: recordingEncouragementEn,
   });
   addSharedEnglishTarget(targets, {
+    audioRelease,
     defaultKey: getSharedEnglishAudioKey('feedback_success', successFeedbackEn),
     existingWordAudio,
     text: successFeedbackEn,
   });
   addSharedEnglishTarget(targets, {
+    audioRelease,
     defaultKey: getSharedEnglishAudioKey('feedback_fail', failFeedbackEn),
     existingWordAudio,
     text: failFeedbackEn,
   });
   addSharedEnglishTarget(targets, {
-    defaultKey: getSharedEnglishAudioKey('memory_game_intro', memoryGameIntroEn),
+    audioRelease,
+    defaultKey: getSharedEnglishAudioKey(
+      'memory_game_intro',
+      memoryGameIntroEn,
+    ),
     existingWordAudio,
     text: memoryGameIntroEn,
   });
   addSharedEnglishTarget(targets, {
-    defaultKey: getSharedEnglishAudioKey('review_game_intro', reviewGameIntroEn),
+    audioRelease,
+    defaultKey: getSharedEnglishAudioKey(
+      'review_game_intro',
+      reviewGameIntroEn,
+    ),
     existingWordAudio,
     text: reviewGameIntroEn,
   });
@@ -693,33 +814,44 @@ function collectAudioTargets(
   );
 }
 
-function addWordTarget(targets, { existingWordAudio, lesson, scene, text }) {
+function addWordTarget(
+  targets,
+  { audioRelease, existingWordAudio, lesson, scene, text },
+) {
   addEnglishPromptTarget(targets, {
+    audioRelease,
     defaultKey: `lessons/${lesson.id}/${scene.id}/audio/en/${slug(text)}.wav`,
     existingWordAudio,
     text,
   });
 }
 
-function addEnglishPromptTarget(targets, { defaultKey, existingWordAudio, text }) {
+function addEnglishPromptTarget(
+  targets,
+  { audioRelease, defaultKey, existingWordAudio, text },
+) {
   if (!text?.trim()) {
     return;
   }
 
   const existingAsset = existingWordAudio?.(text);
-  const key = existingAsset?.key ?? defaultKey;
+  const legacyKey = getLegacyEnglishAudioKey(existingAsset?.key, defaultKey);
 
-  if (!key) {
+  if (!legacyKey) {
     throw new Error(`Missing English audio key for "${text}".`);
   }
 
-  addTarget(targets, {
-    key,
-    kind: 'word',
-    language: 'en',
-    lookupText: text,
-    text: existingAsset?.text ?? text,
-  });
+  for (const accent of ENGLISH_ACCENTS) {
+    addTarget(targets, {
+      accent,
+      key: getAccentEnglishAudioKey(legacyKey, accent, audioRelease),
+      kind: 'word',
+      language: 'en',
+      legacyKey,
+      lookupText: text,
+      text: existingAsset?.text ?? text,
+    });
+  }
 }
 
 function addSharedEnglishTarget(targets, input) {
@@ -747,12 +879,42 @@ function addSharedViTarget(targets, input) {
 }
 
 function addTarget(targets, target) {
-  const mapKey = `${target.kind}:${normalizeText(target.lookupText)}`;
+  const mapKey = `${target.kind}:${target.accent ?? ''}:${normalizeText(
+    target.lookupText,
+  )}`;
   if (targets.has(mapKey)) {
     return;
   }
 
   targets.set(mapKey, target);
+}
+
+function getLegacyEnglishAudioKey(existingKey, defaultKey) {
+  if (existingKey?.includes('/audio/en/')) {
+    return existingKey;
+  }
+
+  if (existingKey) {
+    const legacyKey = existingKey.replace(
+      /\/audio\/en-(?:US|GB)\/[^/]+\//u,
+      '/audio/en/',
+    );
+    if (legacyKey !== existingKey) {
+      return legacyKey;
+    }
+  }
+
+  return defaultKey;
+}
+
+function getAccentEnglishAudioKey(legacyKey, accent, audioRelease) {
+  if (!legacyKey.includes('/audio/en/')) {
+    throw new Error(
+      `English audio key is not in an audio/en directory: ${legacyKey}`,
+    );
+  }
+
+  return legacyKey.replace('/audio/en/', `/audio/${accent}/${audioRelease}/`);
 }
 
 function getLegacyViAudioKey(text) {
@@ -871,12 +1033,66 @@ function getGcloudAccessToken() {
   }
 }
 
+async function generateTargets(targets, auth, concurrency) {
+  const errors = [];
+  let nextIndex = 0;
+  let completed = 0;
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, targets.length) }, async () => {
+      while (nextIndex < targets.length) {
+        const target = targets[nextIndex];
+        nextIndex += 1;
+
+        try {
+          await synthesizeTargetWithRetry(target, auth);
+          completed += 1;
+          console.log(`wrote ${target.key} (${completed}/${targets.length})`);
+        } catch (error) {
+          errors.push({ error, target });
+        }
+      }
+    }),
+  );
+
+  if (errors.length > 0) {
+    for (const { error, target } of errors) {
+      console.error(
+        `ERROR [${formatTargetLanguage(target)}] ${target.key}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+    throw new Error(`Google TTS failed for ${errors.length} target(s).`);
+  }
+}
+
+async function synthesizeTargetWithRetry(target, auth) {
+  let lastError;
+  for (let attempt = 1; attempt <= MAX_TTS_ATTEMPTS; attempt += 1) {
+    try {
+      await synthesizeTarget(target, auth);
+      return;
+    } catch (error) {
+      lastError = error;
+      const retryable = error?.retryable !== false;
+      if (!retryable || attempt === MAX_TTS_ATTEMPTS) {
+        break;
+      }
+
+      await delay(250 * 2 ** (attempt - 1));
+    }
+  }
+
+  throw lastError;
+}
+
 async function synthesizeTarget(target, auth) {
   const response = await fetch(auth.endpoint, {
     body: JSON.stringify({
-      audioConfig,
+      audioConfig: getTargetAudioConfig(target),
       input: { text: target.text },
-      voice: voices[target.language],
+      voice: getTargetVoice(target),
     }),
     headers: {
       ...auth.headers,
@@ -886,39 +1102,222 @@ async function synthesizeTarget(target, auth) {
   });
 
   if (!response.ok) {
-    throw new Error(
+    const error = new Error(
       `${response.status} ${response.statusText}: ${await response.text()}`,
     );
+    error.retryable =
+      response.status === 408 ||
+      response.status === 429 ||
+      response.status >= 500;
+    throw error;
   }
 
   const responseBody = await response.json();
   const outputPath = join(repoRoot, 'src/assets', target.key);
+  const audioBuffer = Buffer.from(responseBody.audioContent ?? '', 'base64');
+  const outputBuffer =
+    target.language === 'en' ? audioBuffer : trimWavSilence(audioBuffer);
+  const validation = validateWavBuffer(outputBuffer, target);
 
-  mkdirSync(dirname(outputPath), { recursive: true });
-  const audioBuffer = Buffer.from(responseBody.audioContent, 'base64');
-  writeFileSync(outputPath, trimWavSilence(audioBuffer));
+  if (!validation.valid) {
+    const error = new Error(`Invalid Google TTS WAV: ${validation.reason}`);
+    error.retryable = true;
+    throw error;
+  }
+
+  writeFileAtomically(outputPath, outputBuffer);
 }
 
-function writeAudioManifest(targets) {
+function getTargetAudioConfig(target) {
+  return target.language === 'en' ? englishAudioConfig : viAudioConfig;
+}
+
+function getTargetVoice(target) {
+  return target.language === 'en' ? voices[target.accent] : voices.vi;
+}
+
+function delay(durationMs) {
+  return new Promise(resolve => setTimeout(resolve, durationMs));
+}
+
+function loadPublishedEnglishGenerationManifest() {
+  if (!existsSync(englishGenerationManifestPath)) {
+    return undefined;
+  }
+
+  try {
+    return JSON.parse(readFileSync(englishGenerationManifestPath, 'utf8'));
+  } catch (error) {
+    throw new Error(
+      `Unable to read ${formatRepoPath(englishGenerationManifestPath)}: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
+  }
+}
+
+function validatePublishedEnglishTargets(targets, manifest, options) {
+  if (!manifest || manifest.release !== options.audioRelease) {
+    return;
+  }
+
+  const expectedConfig = getEnglishGenerationConfig();
+  if (JSON.stringify(manifest.config) !== JSON.stringify(expectedConfig)) {
+    throwImmutableReleaseError(
+      `published config does not match the ${options.audioRelease} generator config`,
+      options.audioRelease,
+    );
+  }
+
+  for (const accent of ENGLISH_ACCENTS) {
+    const publishedVoice = manifest.voices?.[accent];
+    if (
+      publishedVoice?.languageCode !== voices[accent].languageCode ||
+      publishedVoice?.name !== voices[accent].name
+    ) {
+      throwImmutableReleaseError(
+        `published ${accent} voice does not match ${voices[accent].name}`,
+        options.audioRelease,
+      );
+    }
+  }
+
+  const publishedTargets = new Map();
+  for (const entry of manifest.targets ?? []) {
+    if (typeof entry?.key !== 'string' || publishedTargets.has(entry.key)) {
+      throwImmutableReleaseError(
+        'published provenance has a missing or duplicate target key',
+        options.audioRelease,
+      );
+    }
+    publishedTargets.set(entry.key, entry);
+  }
+
+  for (const target of targets) {
+    if (target.language !== 'en') {
+      continue;
+    }
+    const publishedTarget = publishedTargets.get(target.key);
+    if (!publishedTarget) {
+      continue;
+    }
+
+    const filePath = join(repoRoot, 'src/assets', target.key);
+    if (!existsSync(filePath)) {
+      throwImmutableReleaseError(
+        `published target is missing locally: ${target.key}`,
+        options.audioRelease,
+      );
+    }
+    const content = readFileSync(filePath);
+    const sha256 = createHash('sha256').update(content).digest('hex');
+    if (
+      publishedTarget.accent !== target.accent ||
+      publishedTarget.bytes !== content.length ||
+      publishedTarget.sha256 !== sha256 ||
+      publishedTarget.voice !== voices[target.accent].name
+    ) {
+      throwImmutableReleaseError(
+        `published target bytes or metadata changed: ${target.key}`,
+        options.audioRelease,
+      );
+    }
+  }
+}
+
+function assertNoPublishedEnglishOverwrite(targets, manifest, options) {
+  if (
+    !options.force ||
+    !manifest ||
+    manifest.release !== options.audioRelease
+  ) {
+    return;
+  }
+
+  const publishedKeys = new Set(
+    (manifest.targets ?? []).map(target => target?.key).filter(Boolean),
+  );
+  const publishedTarget = targets.find(
+    target => target.language === 'en' && publishedKeys.has(target.key),
+  );
+  if (publishedTarget) {
+    throwImmutableReleaseError(
+      `--force would overwrite ${publishedTarget.key}`,
+      options.audioRelease,
+    );
+  }
+}
+
+function throwImmutableReleaseError(reason, audioRelease) {
+  throw new Error(
+    `English audio release ${audioRelease} is immutable: ${reason}. ` +
+      'Use a new --audio-release value instead of replacing published bytes.',
+  );
+}
+
+function publishGeneratedAudioManifests(targets) {
+  const provenance = buildEnglishAudioGenerationManifest(targets);
+  const runtimeManifest = buildAudioManifest(targets);
+
+  writeFileAtomically(provenance.path, provenance.content);
+  console.log(`wrote ${formatRepoPath(provenance.path)}`);
+  writeFileAtomically(runtimeManifest.path, runtimeManifest.content);
+  console.log(`wrote ${formatRepoPath(runtimeManifest.path)}`);
+}
+
+function buildAudioManifest(targets) {
   const enTargets = targets.filter(target => target.language === 'en');
   const viTargets = targets.filter(target => target.language === 'vi');
+  const englishEntries = groupEnglishTargets(enTargets);
   const manifestPath = join(repoRoot, 'src/data/audioManifest.ts');
   const lines = [
+    'import {',
+    '  DEFAULT_ENGLISH_ACCENT,',
+    '  type EnglishAccent,',
+    "} from '../types/audio';",
+    '',
     'export type RemoteAudioAsset = {',
     '  key: string;',
     '  text: string;',
     '};',
     '',
-    'const enAudioByText: Record<string, RemoteAudioAsset> = {',
-    ...enTargets.map(formatAudioMapEntry),
+    'type EnglishAudioAssets = Partial<Record<EnglishAccent, RemoteAudioAsset>> & {',
+    '  legacy?: RemoteAudioAsset;',
+    '};',
+    '',
+    'const enAudioByText: Record<string, EnglishAudioAssets> = {',
+    ...englishEntries.map(formatEnglishAudioMapEntry),
     '};',
     '',
     'const viAudioByText: Record<string, RemoteAudioAsset> = {',
     ...viTargets.map(formatAudioMapEntry),
     '};',
     '',
-    'export function getWordAudioAsset(word: string) {',
-    '  return enAudioByText[normalizeText(word)];',
+    'export function getWordAudioAssets(',
+    '  word: string,',
+    '  accent: EnglishAccent = DEFAULT_ENGLISH_ACCENT,',
+    ') {',
+    '  const assets = enAudioByText[normalizeText(word)];',
+    '  const candidates: Array<RemoteAudioAsset | undefined> = [',
+    '    assets?.[accent],',
+    '    assets?.[DEFAULT_ENGLISH_ACCENT],',
+    '    assets?.legacy,',
+    '  ];',
+    '  const seenKeys = new Set<string>();',
+    '  return candidates.filter((asset): asset is RemoteAudioAsset => {',
+    '    if (!asset || seenKeys.has(asset.key)) {',
+    '      return false;',
+    '    }',
+    '    seenKeys.add(asset.key);',
+    '    return true;',
+    '  });',
+    '}',
+    '',
+    'export function getWordAudioAsset(',
+    '  word: string,',
+    '  accent: EnglishAccent = DEFAULT_ENGLISH_ACCENT,',
+    ') {',
+    '  return getWordAudioAssets(word, accent)[0];',
     '}',
     '',
     'export function getViAudioAsset(text: string) {',
@@ -931,8 +1330,58 @@ function writeAudioManifest(targets) {
     '',
   ];
 
-  writeFileSync(manifestPath, lines.join('\n'));
-  console.log(`wrote ${formatRepoPath(manifestPath)}`);
+  return { content: lines.join('\n'), path: manifestPath };
+}
+
+function groupEnglishTargets(targets) {
+  const entriesByText = new Map();
+
+  for (const target of targets) {
+    const mapKey = normalizeText(target.lookupText);
+    const entry = entriesByText.get(mapKey) ?? {
+      assets: {},
+      legacyKey: target.legacyKey,
+      lookupText: target.lookupText,
+      text: target.text,
+    };
+    entry.assets[target.accent] = target;
+    entriesByText.set(mapKey, entry);
+  }
+
+  return Array.from(entriesByText.values()).sort((left, right) =>
+    normalizeText(left.lookupText).localeCompare(
+      normalizeText(right.lookupText),
+    ),
+  );
+}
+
+function formatEnglishAudioMapEntry(entry) {
+  const lines = [`  [normalizeText(${formatString(entry.lookupText)})]: {`];
+
+  for (const accent of ENGLISH_ACCENTS) {
+    const target = entry.assets[accent];
+    if (!target) {
+      continue;
+    }
+    lines.push(
+      `    ${formatString(accent)}: {`,
+      `      key: ${formatString(target.key)},`,
+      `      text: ${formatString(target.text)},`,
+      '    },',
+    );
+  }
+
+  if (entry.legacyKey) {
+    lines.push(
+      '    legacy: {',
+      `      key: ${formatString(entry.legacyKey)},`,
+      `      text: ${formatString(entry.text)},`,
+      '    },',
+    );
+  }
+
+  lines.push('  },');
+  return lines.join('\n');
 }
 
 function formatAudioMapEntry(target) {
@@ -942,6 +1391,47 @@ function formatAudioMapEntry(target) {
     `    text: ${formatString(target.text)},`,
     '  },',
   ].join('\n');
+}
+
+function buildEnglishAudioGenerationManifest(targets) {
+  const englishTargets = targets
+    .filter(target => target.language === 'en')
+    .sort((left, right) => left.key.localeCompare(right.key));
+  const generationManifest = {
+    schemaVersion: 1,
+    release: args.audioRelease,
+    config: getEnglishGenerationConfig(),
+    voices: Object.fromEntries(
+      ENGLISH_ACCENTS.map(accent => [accent, voices[accent]]),
+    ),
+    targets: englishTargets.map(target => {
+      const filePath = join(repoRoot, 'src/assets', target.key);
+      const content = readFileSync(filePath);
+      return {
+        accent: target.accent,
+        bytes: content.length,
+        key: target.key,
+        sha256: createHash('sha256').update(content).digest('hex'),
+        text: target.text,
+        voice: voices[target.accent].name,
+      };
+    }),
+  };
+
+  return {
+    content: `${JSON.stringify(generationManifest, null, 2)}\n`,
+    path: englishGenerationManifestPath,
+  };
+}
+
+function getEnglishGenerationConfig() {
+  return {
+    audioEncoding: englishAudioConfig.audioEncoding,
+    channels: 1,
+    sampleRateHertz: englishAudioConfig.sampleRateHertz,
+    speakingRate: englishAudioConfig.speakingRate,
+    trimSilence: false,
+  };
 }
 
 function writeGeneratedAudioRegistry() {
@@ -962,7 +1452,7 @@ function writeGeneratedAudioRegistry() {
     '',
   ];
 
-  writeFileSync(registryPath, lines.join('\n'));
+  writeFileAtomically(registryPath, lines.join('\n'));
   console.log(`wrote ${formatRepoPath(registryPath)}`);
 }
 
@@ -987,9 +1477,250 @@ function formatAssetKey(filePath) {
     .replaceAll('\\', '/');
 }
 
-function printSummary(targets, missingTargets) {
+function filterAudioTargets(targets, options) {
+  return targets.filter(target => {
+    if (options.language !== 'all' && target.language !== options.language) {
+      return false;
+    }
+    if (
+      target.language === 'en' &&
+      options.accent !== 'all' &&
+      target.accent !== options.accent
+    ) {
+      return false;
+    }
+    return true;
+  });
+}
+
+function auditProductionTargets(targets) {
+  const issues = [];
+  const keys = new Map();
+
+  for (const target of targets) {
+    const existingTarget = keys.get(target.key);
+    if (existingTarget) {
+      issues.push({
+        reason: `duplicate key also used by ${formatTargetLanguage(
+          existingTarget,
+        )}:${existingTarget.lookupText}`,
+        target,
+      });
+      continue;
+    }
+    keys.set(target.key, target);
+
+    const result = auditTarget(target);
+    if (!result.valid) {
+      issues.push({ reason: result.reason, target });
+    }
+  }
+
+  const legacyKeys = new Set();
+  let legacyTargets = 0;
+  for (const target of targets) {
+    if (
+      target.language !== 'en' ||
+      !target.legacyKey ||
+      legacyKeys.has(target.legacyKey)
+    ) {
+      continue;
+    }
+    legacyKeys.add(target.legacyKey);
+    legacyTargets += 1;
+    const legacyTarget = {
+      ...target,
+      accent: 'legacy-en-US',
+      key: target.legacyKey,
+    };
+    const result = auditTarget(legacyTarget);
+    if (!result.valid) {
+      issues.push({
+        reason: `legacy fallback ${result.reason}`,
+        target: legacyTarget,
+      });
+    }
+  }
+
+  return {
+    complete: issues.length === 0,
+    issues,
+    legacyTargets,
+    targets: targets.length,
+  };
+}
+
+function assertUniqueTargetKeys(targets) {
+  const targetsByKey = new Map();
+  for (const target of targets) {
+    const existingTarget = targetsByKey.get(target.key);
+    if (existingTarget) {
+      throw new Error(
+        `Duplicate audio key ${target.key} for "${existingTarget.lookupText}" and "${target.lookupText}".`,
+      );
+    }
+    targetsByKey.set(target.key, target);
+  }
+}
+
+function auditTarget(target) {
+  const filePath = join(repoRoot, 'src/assets', target.key);
+  if (!existsSync(filePath)) {
+    return { reason: 'missing', valid: false };
+  }
+
+  try {
+    return validateWavBuffer(readFileSync(filePath), target);
+  } catch (error) {
+    return {
+      reason: error instanceof Error ? error.message : String(error),
+      valid: false,
+    };
+  }
+}
+
+function validateWavBuffer(input, target) {
+  const wav = inspectWav(input);
+  if (!wav.valid) {
+    return wav;
+  }
+
+  const expectedSampleRate =
+    target.language === 'en'
+      ? englishAudioConfig.sampleRateHertz
+      : viAudioConfig.sampleRateHertz;
+  if (wav.audioFormat !== 1) {
+    return {
+      reason: `audioFormat=${wav.audioFormat}, expected PCM 1`,
+      valid: false,
+    };
+  }
+  if (wav.channels !== 1) {
+    return {
+      reason: `channels=${wav.channels}, expected mono 1`,
+      valid: false,
+    };
+  }
+  if (wav.sampleRate !== expectedSampleRate) {
+    return {
+      reason: `sampleRate=${wav.sampleRate}, expected ${expectedSampleRate}`,
+      valid: false,
+    };
+  }
+  if (wav.bitsPerSample !== 16) {
+    return {
+      reason: `bitsPerSample=${wav.bitsPerSample}, expected 16`,
+      valid: false,
+    };
+  }
+  if (wav.dataSize <= 0) {
+    return { reason: 'empty data chunk', valid: false };
+  }
+
+  const expectedBlockAlign = wav.channels * (wav.bitsPerSample / 8);
+  if (wav.blockAlign !== expectedBlockAlign) {
+    return {
+      reason: `blockAlign=${wav.blockAlign}, expected ${expectedBlockAlign}`,
+      valid: false,
+    };
+  }
+  if (wav.dataSize % wav.blockAlign !== 0) {
+    return {
+      reason: `dataSize=${wav.dataSize} is not aligned to ${wav.blockAlign}`,
+      valid: false,
+    };
+  }
+  const durationSeconds = wav.dataSize / (wav.sampleRate * wav.blockAlign);
+  if (durationSeconds < MIN_WAV_DURATION_SECONDS) {
+    return {
+      reason: `duration=${durationSeconds.toFixed(
+        4,
+      )}s, expected at least ${MIN_WAV_DURATION_SECONDS}s`,
+      valid: false,
+    };
+  }
+
+  return { valid: true };
+}
+
+function inspectWav(input) {
+  if (
+    !Buffer.isBuffer(input) ||
+    input.length < 44 ||
+    input.toString('ascii', 0, 4) !== 'RIFF' ||
+    input.toString('ascii', 8, 12) !== 'WAVE'
+  ) {
+    return { reason: 'not a RIFF/WAVE buffer', valid: false };
+  }
+
+  const declaredFileSize = input.readUInt32LE(4) + 8;
+  if (declaredFileSize !== input.length) {
+    return {
+      reason: `RIFF size=${declaredFileSize}, actual=${input.length}`,
+      valid: false,
+    };
+  }
+
+  let offset = 12;
+  let format;
+  let dataSize;
+  while (offset + 8 <= input.length) {
+    const chunkId = input.toString('ascii', offset, offset + 4);
+    const chunkSize = input.readUInt32LE(offset + 4);
+    const chunkDataOffset = offset + 8;
+    if (chunkDataOffset + chunkSize > input.length) {
+      return { reason: `truncated ${chunkId} chunk`, valid: false };
+    }
+
+    if (chunkId === 'fmt ' && chunkSize >= 16) {
+      format = {
+        audioFormat: input.readUInt16LE(chunkDataOffset),
+        bitsPerSample: input.readUInt16LE(chunkDataOffset + 14),
+        blockAlign: input.readUInt16LE(chunkDataOffset + 12),
+        channels: input.readUInt16LE(chunkDataOffset + 2),
+        sampleRate: input.readUInt32LE(chunkDataOffset + 4),
+      };
+    } else if (chunkId === 'data') {
+      dataSize = chunkSize;
+    }
+
+    offset = chunkDataOffset + chunkSize + (chunkSize % 2);
+  }
+
+  if (!format) {
+    return { reason: 'missing fmt chunk', valid: false };
+  }
+  if (dataSize === undefined) {
+    return { reason: 'missing data chunk', valid: false };
+  }
+
+  return { ...format, dataSize, valid: true };
+}
+
+function writeFileAtomically(filePath, content) {
+  mkdirSync(dirname(filePath), { recursive: true });
+  const tempPath = `${filePath}.${process.pid}.tmp`;
+  try {
+    writeFileSync(tempPath, content);
+    renameSync(tempPath, filePath);
+  } finally {
+    if (existsSync(tempPath)) {
+      unlinkSync(tempPath);
+    }
+  }
+}
+
+function printSummary(targets, pendingTargets) {
+  const missingFiles = pendingTargets.filter(
+    target => !existsSync(join(repoRoot, 'src/assets', target.key)),
+  ).length;
   console.log(`Audio targets: ${targets.length}`);
-  console.log(`Missing files: ${missingTargets.length}`);
+  console.log(`Missing files: ${missingFiles}`);
+  console.log(`Invalid files: ${pendingTargets.length - missingFiles}`);
+  console.log(`Language filter: ${args.language}`);
+  console.log(`Accent filter: ${args.accent}`);
+  console.log(`Audio release: ${args.audioRelease}`);
+  console.log(`Concurrency: ${args.concurrency}`);
 
   if (args.lesson) {
     console.log(`Lesson filter: ${args.lesson}`);
@@ -1000,15 +1731,46 @@ function printSummary(targets, missingTargets) {
   }
 }
 
-function printMissingTargets(missingTargets) {
-  if (missingTargets.length === 0) {
+function printPendingTargets(pendingTargets) {
+  if (pendingTargets.length === 0) {
     return;
   }
 
   console.log('');
-  for (const target of missingTargets) {
-    console.log(`[${target.language}] ${target.key} <- ${target.text}`);
+  for (const target of pendingTargets) {
+    const audit = auditTarget(target);
+    const reason = args.force && audit.valid ? 'forced' : audit.reason;
+    console.log(
+      `[${formatTargetLanguage(target)}] ${target.key} (${reason}) <- ${
+        target.text
+      }`,
+    );
   }
+}
+
+function printProductionAudit(audit) {
+  console.log(`Production targets: ${audit.targets}`);
+  console.log(`Legacy English fallbacks: ${audit.legacyTargets}`);
+  console.log(`Production audit errors: ${audit.issues.length}`);
+  if (audit.complete) {
+    return;
+  }
+
+  const displayedIssues = audit.issues.slice(0, 25);
+  for (const { reason, target } of displayedIssues) {
+    console.error(
+      `AUDIT [${formatTargetLanguage(target)}] ${target.key}: ${reason}`,
+    );
+  }
+  if (audit.issues.length > displayedIssues.length) {
+    console.error(
+      `AUDIT ... ${audit.issues.length - displayedIssues.length} more issue(s)`,
+    );
+  }
+}
+
+function formatTargetLanguage(target) {
+  return target.language === 'en' ? target.accent : 'vi';
 }
 
 function loadTsModule(filePath) {

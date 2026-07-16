@@ -24,6 +24,8 @@ import {
 } from '../src/engine/ParentSettingsManager';
 import type { Scene, SceneStep } from '../src/types/lesson';
 
+const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
+
 const step: SceneStep = {
   id: 'tap-bed',
   instructionVi: 'Chạm vào cái giường nhé.',
@@ -65,10 +67,12 @@ test('translates typed keys and interpolates params', () => {
   expect(translate('en', 'parent.settings.heroTitle', { name: 'Sunny' })).toBe(
     'Settings for Sunny',
   );
-  expect(createTranslator('vi')('scene.completion.eyebrow', {
-    current: 1,
-    total: 3,
-  })).toBe('Cảnh 1/3');
+  expect(
+    createTranslator('vi')('scene.completion.eyebrow', {
+      current: 1,
+      total: 3,
+    }),
+  ).toBe('Cảnh 1/3');
 });
 
 test('localizes domain titles without changing English learning content', () => {
@@ -99,7 +103,33 @@ test('defaults new localization settings for legacy parent settings', async () =
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'vi',
     cloudProgressSync: { enabled: false },
+    englishAccent: 'en-US',
     teacherPromptMode: 'vi',
+  });
+
+  await AsyncStorage.setItem(
+    PARENT_SETTINGS_STORAGE_KEY,
+    JSON.stringify({
+      appLanguage: 'en',
+      teacherPromptMode: 'bilingual',
+    }),
+  );
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    appLanguage: 'en',
+    englishAccent: 'en-US',
+    teacherPromptMode: 'bilingual',
+  });
+});
+
+test('normalizes an unsupported English accent to en-US', async () => {
+  await AsyncStorage.setItem(
+    PARENT_SETTINGS_STORAGE_KEY,
+    JSON.stringify({ englishAccent: 'en-AU' }),
+  );
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    englishAccent: 'en-US',
   });
 });
 
@@ -137,15 +167,28 @@ test('only enables cloud sync with complete current parent consent', async () =>
   });
 });
 
-test('persists teacher prompt mode separately from app language', async () => {
+test('persists English accent separately from app language and teacher prompt mode', async () => {
   await saveParentSettings({
     appLanguage: 'en',
+    englishAccent: 'en-GB',
     teacherPromptMode: 'bilingual',
   });
 
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'en',
+    englishAccent: 'en-GB',
     teacherPromptMode: 'bilingual',
+  });
+
+  await saveParentSettings({
+    appLanguage: 'vi',
+    teacherPromptMode: 'vi',
+  });
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    appLanguage: 'vi',
+    englishAccent: 'en-GB',
+    teacherPromptMode: 'vi',
   });
 });
 
@@ -163,6 +206,24 @@ test('notifies parent settings subscribers when localization settings change', a
   listener.mockClear();
 
   await saveParentSettings({ appLanguage: 'vi' });
+
+  expect(listener).not.toHaveBeenCalled();
+});
+
+test('notifies parent settings subscribers when the English accent changes', async () => {
+  const listener = jest.fn();
+  const unsubscribe = subscribeParentSettings(listener);
+
+  await saveParentSettings({ englishAccent: 'en-GB' });
+
+  expect(listener).toHaveBeenCalledWith(
+    expect.objectContaining({ englishAccent: 'en-GB' }),
+  );
+
+  unsubscribe();
+  listener.mockClear();
+
+  await saveParentSettings({ englishAccent: 'en-US' });
 
   expect(listener).not.toHaveBeenCalled();
 });

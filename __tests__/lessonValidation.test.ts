@@ -18,6 +18,7 @@ import { snackTimeLesson } from '../src/data/lessons/snackTime';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import { validateThemes } from '../src/data/themeValidation';
 import { themes } from '../src/data/themes';
+import { ENGLISH_ACCENTS } from '../src/types/audio';
 import type { Lesson } from '../src/types/lesson';
 
 test('lesson catalog has valid data links', () => {
@@ -2604,7 +2605,7 @@ test('bedroom extended steps keep prompts aligned with the required action', () 
   expect(socksDrag?.vocabId).toBe('vocab-socks');
 });
 
-test('bedroom extended steps have bundled audio for their spoken prompts', () => {
+test('bedroom extended steps have remote audio for both English accents', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',
   );
@@ -2634,7 +2635,11 @@ test('bedroom extended steps have bundled audio for their spoken prompts', () =>
     'good morning',
     'make the bed',
   ].forEach(word => {
-    expect(getWordAudioAsset(word)?.key).toBeTruthy();
+    ENGLISH_ACCENTS.forEach(accent => {
+      expect(getWordAudioAsset(word, accent)?.key).toContain(
+        `/audio/${accent}/neural2-c-r1/`,
+      );
+    });
   });
 });
 

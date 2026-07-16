@@ -137,9 +137,8 @@ Quy tắc bắt buộc:
   `promptText` để English audio đọc đúng phần.
 - Mọi reference (`vocabId`, target object, correct objects, drop zone, next step) phải tồn tại.
 - Không hand-edit `src/data/audioManifest.ts`; dùng audio script khi pipeline task cho phép.
-- `GeneratedAudioRegistry.ts` hiện cố ý để trống cho R2-first runtime, nhưng generator vẫn có thể
-  ghi lại bundled `require(...)`. Xem open conflict ở mục Audio; không chạy generation chỉ để
-  “refresh registry”.
+- `GeneratedAudioRegistry.ts` hiện cố ý để trống cho R2-first runtime. Generator giữ nguyên file
+  này theo mặc định; chỉ dùng `--write-bundled-registry` khi task chủ động đổi delivery model.
 - Khi thêm lesson, cập nhật theme order nếu cần và giữ invariant được kiểm tra trong
   `__tests__/lessonValidation.test.ts`.
 
@@ -157,16 +156,27 @@ Quy tắc bắt buộc:
 
 ### Audio
 
-- English vocabulary và Vietnamese prompt audio theo layout
-  `src/assets/lessons/<lesson>/<scene>/audio/{en,vi}/`.
+- English production audio dùng các key immutable theo accent/release:
+  `src/assets/lessons/<lesson>/<scene>/audio/{en-US,en-GB}/neural2-c-r1/`.
+  Thư mục `audio/en/` là legacy en-US để giữ compatibility, không phải output production mới.
+  Vietnamese prompt audio tiếp tục nằm trong `audio/vi/`.
 - `src/data/audioManifest.ts` được tạo/cập nhật bởi audio script; không sửa tay.
+- `src/data/englishAudioGenerationManifest.json` là provenance generated cho English audio;
+  không sửa tay.
 - `src/engine/GeneratedAudioRegistry.ts` hiện cố ý để trống để lesson audio không bị bundle.
-  `generateMissingAudio.mjs` hiện vẫn rewrite file này bằng bundled `require(...)`, kể cả
-  `--manifest-only`. Đây là open pipeline conflict: không chạy/commit generation output nếu task
-  chưa quyết định remote-only hay bundled fallback và chưa xử lý generator tương ứng.
+  `generateMissingAudio.mjs` giữ file này nguyên trạng, kể cả `--manifest-only`, trừ khi truyền
+  `--write-bundled-registry` một cách có chủ ý.
+- English production dùng `en-US-Neural2-C` và `en-GB-Neural2-C`, LINEAR16 mono 24 kHz,
+  speaking rate `0.9`, không trim silence. Manifest chỉ được publish sau khi audit đủ cả hai
+  accent và toàn bộ Vietnamese target hiện hành.
+- Release English đã publish được khóa bằng provenance: generator từ chối `--force`, config/voice
+  drift hoặc SHA mismatch trên key đã publish. Muốn thay bytes phải dùng `--audio-release` mới.
+- Runtime thử English audio theo thứ tự accent được chọn, en-US mặc định, rồi legacy `audio/en/`
+  trước khi dùng TTS best-effort.
 - Lesson audio hiện ưu tiên R2; native short SFX (`tap`, `correct`, `wrong`, ...) vẫn bundled.
-- Luôn chạy dry-run trước và đọc số `Missing files`; exit code `0` không có nghĩa là không thiếu
-  audio. Generate thật cần Google TTS auth, tạo file và có thể dùng network.
+- Luôn chạy dry-run trước và đọc cả `Missing files` lẫn `Invalid files`; exit code `0` của dry-run
+  không có nghĩa là corpus đã đầy đủ. Generate thật cần Google TTS auth, tạo file và có thể dùng
+  network.
 
 Chi tiết đầy đủ nằm trong `src/data/README.md` và `docs/asset-pipeline.md`.
 

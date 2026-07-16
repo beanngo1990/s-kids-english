@@ -52,6 +52,7 @@ import {
 import type {
   AppLanguage,
   AppTheme,
+  EnglishAccent,
   TeacherPromptMode,
 } from '../engine/ParentSettingsManager';
 import {
@@ -89,7 +90,11 @@ function haveSameLessonIds(first: string[], second: string[]) {
 
 type ParentTab = 'stats' | 'lessons' | 'settings';
 type LearningSettingsSheet = 'journey' | 'difficulty';
-type AppSettingsSheet = 'language' | 'teacherPrompt' | 'theme';
+type AppSettingsSheet =
+  | 'englishAccent'
+  | 'language'
+  | 'teacherPrompt'
+  | 'theme';
 type Props = NativeStackScreenProps<RootStackParamList, 'Parent'>;
 
 function getLocalDateString() {
@@ -119,6 +124,8 @@ export function ParentScreen({ navigation }: Props) {
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
+  const [englishAccent, setEnglishAccent] =
+    useState<EnglishAccent>('en-US');
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
@@ -388,6 +395,10 @@ export function ParentScreen({ navigation }: Props) {
       : teacherPromptMode === 'en'
       ? t('parent.settings.teacherPromptEnglish')
       : t('parent.settings.teacherPromptBilingual');
+  const currentEnglishAccentTitle =
+    englishAccent === 'en-GB'
+      ? t('parent.settings.englishAccentBritish')
+      : t('parent.settings.englishAccentAmerican');
   const currentThemeTitle =
     appTheme === 'light'
       ? t('parent.settings.themeLight')
@@ -444,6 +455,7 @@ export function ParentScreen({ navigation }: Props) {
         setJourneyMode(settings.journeyMode);
         setEnableSceneEditor(settings.enableSceneEditor || false);
         setAppLanguage(settings.appLanguage);
+        setEnglishAccent(settings.englishAccent);
         setTeacherPromptMode(settings.teacherPromptMode);
         setAppTheme(settings.appTheme);
         setReminderEnabled(settings.reminderEnabled);
@@ -570,6 +582,12 @@ export function ParentScreen({ navigation }: Props) {
     setAppSettingsSheet(null);
     setTeacherPromptMode(mode);
     await saveParentSettings({ teacherPromptMode: mode });
+  };
+
+  const handleUpdateEnglishAccent = async (accent: EnglishAccent) => {
+    setAppSettingsSheet(null);
+    setEnglishAccent(accent);
+    await saveParentSettings({ englishAccent: accent });
   };
 
   const handleUpdateTheme = async (theme: AppTheme) => {
@@ -1978,6 +1996,39 @@ export function ParentScreen({ navigation }: Props) {
 
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => setAppSettingsSheet('englishAccent')}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    pressed && styles.pressed,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="language" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.englishAccentTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {t('parent.settings.englishAccentSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsValueText}
+                    >
+                      {currentEnglishAccentTitle}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => setAppSettingsSheet('theme')}
                   style={({ pressed }) => [
                     styles.learningSettingsRow,
@@ -2031,6 +2082,8 @@ export function ParentScreen({ navigation }: Props) {
                           ? t('parent.settings.sheetLanguageTitle')
                           : appSettingsSheet === 'teacherPrompt'
                           ? t('parent.settings.sheetTeacherPromptTitle')
+                          : appSettingsSheet === 'englishAccent'
+                          ? t('parent.settings.sheetEnglishAccentTitle')
                           : t('parent.settings.sheetThemeTitle')}
                       </Text>
                       <Pressable
@@ -2121,6 +2174,60 @@ export function ParentScreen({ navigation }: Props) {
                                   ]}
                                 >
                                   {title}
+                                </Text>
+                              </View>
+                              {isSelected && (
+                                <Text style={styles.learningSheetCheck}>✓</Text>
+                              )}
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    )}
+
+                    {appSettingsSheet === 'englishAccent' && (
+                      <View style={styles.learningSheetOptions}>
+                        {(['en-US', 'en-GB'] as const).map(accent => {
+                          const isSelected = englishAccent === accent;
+                          const isAmerican = accent === 'en-US';
+                          const title = isAmerican
+                            ? t('parent.settings.englishAccentAmerican')
+                            : t('parent.settings.englishAccentBritish');
+                          const subtitle = isAmerican
+                            ? t(
+                                'parent.settings.englishAccentAmericanSubtitle',
+                              )
+                            : t(
+                                'parent.settings.englishAccentBritishSubtitle',
+                              );
+
+                          return (
+                            <Pressable
+                              accessibilityRole="button"
+                              accessibilityState={{ selected: isSelected }}
+                              key={accent}
+                              onPress={() =>
+                                handleUpdateEnglishAccent(accent)
+                              }
+                              style={({ pressed }) => [
+                                styles.learningSheetOption,
+                                isSelected &&
+                                  styles.learningSheetOptionSelected,
+                                pressed && styles.pressed,
+                              ]}
+                            >
+                              <View style={styles.learningSheetOptionCopy}>
+                                <Text
+                                  style={[
+                                    styles.learningSheetOptionTitle,
+                                    isSelected &&
+                                      styles.learningSheetOptionTitleSelected,
+                                  ]}
+                                >
+                                  {title}
+                                </Text>
+                                <Text style={styles.learningSheetOptionText}>
+                                  {subtitle}
                                 </Text>
                               </View>
                               {isSelected && (

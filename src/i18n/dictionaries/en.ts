@@ -183,6 +183,15 @@ export const en: TranslationDictionary = {
   'parent.settings.appLanguageSubtitle': 'The display language for the app.',
   'parent.settings.appLanguageTitle': 'Language',
   'parent.settings.appLanguageVietnamese': 'Vietnamese',
+  'parent.settings.englishAccentAmerican': 'American English',
+  'parent.settings.englishAccentAmericanSubtitle':
+    'Best when your child follows American learning materials.',
+  'parent.settings.englishAccentBritish': 'British English',
+  'parent.settings.englishAccentBritishSubtitle':
+    'Best when your child follows British learning materials.',
+  'parent.settings.englishAccentSubtitle':
+    'Choose American or British pronunciation for vocabulary and English guidance.',
+  'parent.settings.englishAccentTitle': 'English accent',
   'parent.settings.birthYearLabel': 'Birth year',
   'parent.settings.birthYearPlaceholder': 'Choose year',
   'parent.settings.childAge': '{age} years old',
@@ -228,6 +237,7 @@ export const en: TranslationDictionary = {
   'parent.settings.reminderTimeTitle': 'Reminder time',
   'parent.settings.reminderTitle': 'Learning reminder',
   'parent.settings.sheetDifficultyTitle': 'Choose difficulty',
+  'parent.settings.sheetEnglishAccentTitle': 'Choose English accent',
   'parent.settings.sheetJourneyTitle': 'Choose lesson access',
   'parent.settings.sheetLanguageTitle': 'Choose language',
   'parent.settings.sheetTeacherPromptTitle': 'Choose teacher voice',
