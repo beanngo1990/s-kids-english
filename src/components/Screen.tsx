@@ -8,22 +8,29 @@ import { useResponsiveLayout } from '../theme/responsive';
 type ScreenProps = {
   children: ReactNode;
   scroll?: boolean;
+  withBottomSpace?: boolean;
+  safeAreaEdges?: ('top' | 'right' | 'bottom' | 'left')[];
 };
 
-export function Screen({ children, scroll = false }: ScreenProps) {
+export function Screen({
+  children,
+  scroll = false,
+  withBottomSpace = true,
+  safeAreaEdges = ['bottom', 'left', 'right'],
+}: ScreenProps) {
   useThemeSync();
   const responsiveLayout = useResponsiveLayout();
   const scrollContentStyle = {
     alignSelf: 'center' as const,
     maxWidth: responsiveLayout.contentMaxWidth,
     padding: responsiveLayout.screenPadding,
-    paddingBottom: responsiveLayout.screenPadding + 76,
+    paddingBottom: responsiveLayout.screenPadding + (withBottomSpace ? 76 : 0),
     width: '100%' as const,
   };
 
   if (scroll) {
     return (
-      <SafeAreaView edges={['bottom', 'left', 'right']} style={styles.safeArea}>
+      <SafeAreaView edges={safeAreaEdges} style={styles.safeArea}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
@@ -35,7 +42,7 @@ export function Screen({ children, scroll = false }: ScreenProps) {
   }
 
   return (
-    <SafeAreaView edges={['bottom', 'left', 'right']} style={styles.safeArea}>
+    <SafeAreaView edges={safeAreaEdges} style={styles.safeArea}>
       <View style={styles.content}>{children}</View>
     </SafeAreaView>
   );

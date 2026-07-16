@@ -662,7 +662,7 @@ export function ParentScreen({ navigation }: Props) {
 
   return (
     <View style={styles.screenContainer}>
-      <Screen scroll>
+      <Screen scroll withBottomSpace={false} safeAreaEdges={['left', 'right']}>
         {activeTab === 'stats' && (
           <View style={styles.tabContent}>
             <ChildProfileCard
@@ -2272,7 +2272,7 @@ export function ParentScreen({ navigation }: Props) {
             >
               <AppUiIcon
                 name="stats"
-                size={24}
+                size={28}
                 style={[
                   styles.bottomTabIcon,
                   activeTab !== 'stats' && styles.bottomTabIconInactive,
@@ -2305,7 +2305,7 @@ export function ParentScreen({ navigation }: Props) {
             >
               <AppUiIcon
                 name="lesson"
-                size={24}
+                size={28}
                 style={[
                   styles.bottomTabIcon,
                   activeTab !== 'lessons' && styles.bottomTabIconInactive,
@@ -2338,7 +2338,7 @@ export function ParentScreen({ navigation }: Props) {
             >
               <AppUiIcon
                 name="settings"
-                size={24}
+                size={28}
                 style={[
                   styles.bottomTabIcon,
                   activeTab !== 'settings' && styles.bottomTabIconInactive,
@@ -3703,14 +3703,15 @@ const styles = createThemedStyles(() => ({
   },
   bottomBar: {
     flexDirection: 'row',
-    paddingVertical: spacing.xs,
+    paddingTop: spacing.xs,
+    paddingBottom: spacing.xxs,
     paddingHorizontal: spacing.md,
   },
   bottomTab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing.xs,
+    paddingVertical: spacing.xxs,
     gap: spacing.xxs,
     borderRadius: radius.md,
   },
@@ -3721,9 +3722,9 @@ const styles = createThemedStyles(() => ({
   bottomTabIconFrame: {
     alignItems: 'center',
     borderRadius: radius.pill,
-    height: 30,
+    height: 32,
     justifyContent: 'center',
-    width: 42,
+    width: 48,
   },
   bottomTabIconFrameActive: {
     backgroundColor: colors.surfaceBlue,
