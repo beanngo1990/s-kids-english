@@ -3,14 +3,18 @@ import { Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
+import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
+import { canAccessReview } from '../engine/ContentAccessPolicy';
 import { useI18n } from '../i18n';
+import { getMonetizationSnapshot } from '../engine/MonetizationManager';
 import {
   completeLessonProgress,
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
 import { ScenePlayer } from '../engine/ScenePlayer';
+import { useContentAccess } from '../engine/useContentAccess';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -26,6 +30,14 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
     : undefined;
+  const { isAccessGranted, isResolving } = useContentAccess(
+    {
+      kind: 'scene',
+      lessonId: route.params.lessonId,
+      sceneId: route.params.sceneId ?? '__full_lesson__',
+    },
+    { latchWhenGranted: true },
+  );
 
   if (!lesson) {
     return (
@@ -60,6 +72,22 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     );
   }
 
+  const openParentPremium = () => {
+    navigation.navigate('Parent', {
+      intent: 'premium',
+      lessonId: lesson.id,
+    });
+  };
+
+  if (!isAccessGranted) {
+    return (
+      <PremiumContentGate
+        isResolving={isResolving}
+        onAskParent={openParentPremium}
+      />
+    );
+  }
+
   const handleExitToPack = () => {
     if (navigation.canGoBack()) {
       navigation.goBack();
@@ -74,6 +102,11 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
 
   const handleComplete = async () => {
     if (lesson.reviewGame?.type === 'memory') {
+      if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
+        openParentPremium();
+        return;
+      }
+
       navigation.navigate('ReviewGame', {
         lessonId: lesson.id,
         openedFromParent,

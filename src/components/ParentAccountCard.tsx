@@ -1,19 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Alert, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, Linking, Text, View } from 'react-native';
 
 import { AppButton } from './AppButton';
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
-import {
-  CloudProgressSyncError,
-  deleteCloudProgressForCurrentParent,
-} from '../engine/CloudProgressSyncManager';
+import { CloudProgressSyncError } from '../engine/CloudProgressSyncManager';
 import {
   getCloudSyncErrorMessage,
   ParentCloudSyncSection,
 } from './ParentCloudSyncSection';
 import {
-  deleteParentAccount,
   getParentAuthErrorCode,
   getParentAuthProviders,
   initialParentAuthSnapshot,
@@ -26,6 +22,8 @@ import {
   type ParentAuthErrorCode,
   type ParentAuthProvider,
 } from '../engine/ParentAuthManager';
+import { useMonetizationSnapshot } from '../engine/MonetizationManager';
+import { deleteCurrentParentAccountData } from '../services/RevenueCatDataDeletion';
 import { useI18n } from '../i18n';
 import type { Translator } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -37,6 +35,7 @@ type PendingAction = 'apple' | 'delete' | 'google' | 'signOut';
 export function ParentAccountCard() {
   useThemeSync();
   const t = useI18n();
+  const monetization = useMonetizationSnapshot();
   const [authSnapshot, setAuthSnapshot] = useState(initialParentAuthSnapshot);
   const [pendingAction, setPendingAction] = useState<PendingAction | null>(
     null,
@@ -110,11 +109,29 @@ export function ParentAccountCard() {
     }
   }, [handleError]);
 
+  const handleManageSubscription = useCallback(async () => {
+    if (!monetization.managementUrl) {
+      return;
+    }
+
+    try {
+      await Linking.openURL(monetization.managementUrl);
+    } catch {
+      Alert.alert(
+        t('premium.legal.linkErrorTitle'),
+        t('premium.legal.linkErrorText'),
+      );
+    }
+  }, [monetization.managementUrl, t]);
+
   const deleteAccount = useCallback(async () => {
     setPendingAction('delete');
     try {
-      await deleteCloudProgressForCurrentParent();
-      await deleteParentAccount();
+      const deletionResult = await deleteCurrentParentAccountData();
+      if (deletionResult !== 'success') {
+        throw new Error('RevenueCat customer deletion could not be confirmed.');
+      }
+
       Alert.alert(
         t('parent.account.deletedTitle'),
         t('parent.account.deletedText'),
@@ -204,6 +221,16 @@ export function ParentAccountCard() {
 
       {user ? (
         <View style={styles.actions}>
+          {monetization.managementUrl &&
+          (monetization.activeProductType === 'monthly' ||
+            monetization.activeProductType === 'annual') ? (
+            <AppButton
+              disabled={isBusy}
+              onPress={handleManageSubscription}
+              title={t('premium.manage')}
+              variant="secondary"
+            />
+          ) : null}
           <AppButton
             disabled={isBusy || firebaseConfigMissing}
             onPress={handleSignOutPress}
@@ -268,10 +295,7 @@ function getProviderLabel(t: Translator, provider: ParentAuthProvider) {
   return t('parent.account.providerUnknown');
 }
 
-function getErrorMessageForCode(
-  t: Translator,
-  code: ParentAuthErrorCode,
-) {
+function getErrorMessageForCode(t: Translator, code: ParentAuthErrorCode) {
   if (code === 'missingFirebaseConfig') {
     return t('parent.account.firebaseConfigMissing');
   }

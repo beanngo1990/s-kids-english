@@ -1,10 +1,15 @@
 import React, { useMemo } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Alert, Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
 import { lessons } from '../data/lessons';
+import { canAccessReview } from '../engine/ContentAccessPolicy';
+import {
+  getMonetizationSnapshot,
+  useMonetizationSnapshot,
+} from '../engine/MonetizationManager';
 import {
   getLocalizedLessonTitle,
   getLocalizedReviewGameTitle,
@@ -26,6 +31,7 @@ type KidPlayPanelProps = {
   completedReviewGameIds: Set<string>;
   completedSceneIds: Set<string>;
   journeyMode?: 'guided' | 'free';
+  onOpenPremium: (lessonId: string) => void;
   onOpenReviewGame: (lessonId: string) => void;
 };
 
@@ -34,23 +40,29 @@ export function KidPlayPanel({
   completedReviewGameIds,
   completedSceneIds,
   journeyMode = 'guided',
+  onOpenPremium,
   onOpenReviewGame,
 }: KidPlayPanelProps) {
   useThemeSync();
   const t = useI18n();
+  const monetizationSnapshot = useMonetizationSnapshot();
   const reviewLessons = useMemo(
     () => lessons.filter(lesson => lesson.reviewGame),
     [],
   );
-  const unlockedCount = reviewLessons.filter(lesson =>
-    journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds),
+  const unlockedCount = reviewLessons.filter(
+    lesson =>
+      (journeyMode === 'free' ||
+        isReviewGameUnlocked(lesson, completedSceneIds)) &&
+      canAccessReview(lesson.id, monetizationSnapshot),
   ).length;
   const pendingReviewLesson = useMemo(
     () =>
       reviewLessons.find(
         lesson =>
           lesson.reviewGame &&
-          (journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds)) &&
+          (journeyMode === 'free' ||
+            isReviewGameUnlocked(lesson, completedSceneIds)) &&
           !completedReviewGameIds.has(lesson.reviewGame.id),
       ),
     [completedReviewGameIds, completedSceneIds, journeyMode, reviewLessons],
@@ -65,6 +77,32 @@ export function KidPlayPanel({
       ...reviewLessons.filter(lesson => lesson.id !== pendingReviewLesson.id),
     ];
   }, [pendingReviewLesson, reviewLessons]);
+
+  const handleOpenReviewGame = (
+    lessonId: string,
+    isProgressUnlocked: boolean,
+  ) => {
+    const latestMonetizationSnapshot = getMonetizationSnapshot();
+    if (canAccessReview(lessonId, latestMonetizationSnapshot)) {
+      if (isProgressUnlocked) {
+        onOpenReviewGame(lessonId);
+      }
+      return;
+    }
+
+    if (latestMonetizationSnapshot.status === 'initializing') {
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+      return;
+    }
+
+    Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+      { style: 'cancel', text: t('common.close') },
+      {
+        onPress: () => onOpenPremium(lessonId),
+        text: t('premium.askParent'),
+      },
+    ]);
+  };
 
   return (
     <>
@@ -86,7 +124,17 @@ export function KidPlayPanel({
             lesson.reviewGame,
             appLanguage,
           );
-          const isUnlocked = journeyMode === 'free' || isReviewGameUnlocked(lesson, completedSceneIds);
+          const isProgressUnlocked =
+            journeyMode === 'free' ||
+            isReviewGameUnlocked(lesson, completedSceneIds);
+          const hasContentAccess = canAccessReview(
+            lesson.id,
+            monetizationSnapshot,
+          );
+          const isPremiumLocked = !hasContentAccess;
+          const isResolvingPremium =
+            isPremiumLocked && monetizationSnapshot.status === 'initializing';
+          const isProgressOnlyLocked = !isProgressUnlocked && !isPremiumLocked;
           const isCompleted = Boolean(
             lesson.reviewGame &&
               completedReviewGameIds.has(lesson.reviewGame.id),
@@ -97,54 +145,65 @@ export function KidPlayPanel({
             completedSceneIds,
             lesson.id,
           );
-          const statusLabel = isPending
+          const statusLabel = isResolvingPremium
+            ? t('premium.resolving')
+            : isPremiumLocked
+            ? t('premium.askParent')
+            : !isProgressUnlocked
+            ? t('playPanel.locked')
+            : isPending
             ? t('playPanel.playNow')
-            : isUnlocked
-            ? isCompleted
-              ? t('playPanel.playAgain')
-              : t('playPanel.unlocked')
-            : t('playPanel.locked');
-          const actionIcon = !isUnlocked
-            ? 'parentLock'
             : isCompleted
-            ? 'star'
-            : 'replay';
+            ? t('playPanel.playAgain')
+            : t('playPanel.unlocked');
+          const actionIcon =
+            !isProgressUnlocked || isPremiumLocked
+              ? 'parentLock'
+              : isCompleted
+              ? 'star'
+              : 'replay';
 
           return (
             <Pressable
-              accessibilityLabel={`${lessonTitle}. ${
-                reviewGameTitle
-              }. ${statusLabel}. ${completedSceneCount}/${
+              accessibilityLabel={`${lessonTitle}. ${reviewGameTitle}. ${statusLabel}. ${completedSceneCount}/${
                 lesson.scenes.length
               } ${t('playPanel.scene')}.`}
               accessibilityRole="button"
-              accessibilityState={{ disabled: !isUnlocked }}
-              disabled={!isUnlocked}
+              accessibilityState={{ disabled: isProgressOnlyLocked }}
+              disabled={isProgressOnlyLocked}
               key={lesson.id}
-              onPress={() => onOpenReviewGame(lesson.id)}
+              onPress={() =>
+                handleOpenReviewGame(lesson.id, isProgressUnlocked)
+              }
               style={({ pressed }) => [
                 styles.cardPressable,
-                pressed && isUnlocked && styles.pressed,
+                pressed && !isProgressOnlyLocked && styles.pressed,
               ]}
             >
               <AppCard
                 style={[
                   styles.reviewCard,
-                  isUnlocked && styles.reviewCardUnlocked,
+                  isProgressUnlocked &&
+                    hasContentAccess &&
+                    styles.reviewCardUnlocked,
                   isPending && styles.reviewCardPending,
-                  !isUnlocked && styles.reviewCardLocked,
+                  (!isProgressUnlocked || isPremiumLocked) &&
+                    styles.reviewCardLocked,
                 ]}
               >
                 <View style={styles.cardMain}>
                   <View
                     style={[
                       styles.iconBox,
-                      !isUnlocked && styles.iconBoxLocked,
+                      (!isProgressUnlocked || isPremiumLocked) &&
+                        styles.iconBoxLocked,
                     ]}
                   >
                     <SKidsIcon
                       name={
-                        isUnlocked ? getLessonIconName(lesson) : 'parentLock'
+                        isProgressUnlocked && hasContentAccess
+                          ? getLessonIconName(lesson)
+                          : 'parentLock'
                       }
                       size={68}
                     />
@@ -153,7 +212,15 @@ export function KidPlayPanel({
                   <View style={styles.cardText}>
                     <View style={styles.badgeRow}>
                       <KidBadge
-                        tone={isPending ? 'alert' : isUnlocked ? 'teal' : 'sky'}
+                        tone={
+                          isPremiumLocked
+                            ? 'alert'
+                            : isPending
+                            ? 'alert'
+                            : isProgressUnlocked
+                            ? 'teal'
+                            : 'sky'
+                        }
                       >
                         {statusLabel}
                       </KidBadge>
@@ -162,15 +229,14 @@ export function KidPlayPanel({
                       </KidBadge>
                     </View>
                     <Text style={styles.lessonTitle}>{lessonTitle}</Text>
-                    <Text style={styles.gameTitle}>
-                      {reviewGameTitle}
-                    </Text>
+                    <Text style={styles.gameTitle}>{reviewGameTitle}</Text>
                   </View>
 
                   <View
                     style={[
                       styles.actionBox,
-                      !isUnlocked && styles.actionBoxLocked,
+                      (!isProgressUnlocked || isPremiumLocked) &&
+                        styles.actionBoxLocked,
                     ]}
                   >
                     <SKidsIcon name={actionIcon} size={42} />

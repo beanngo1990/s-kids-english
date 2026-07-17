@@ -20,3 +20,43 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
     }),
   },
 }));
+
+const mockPurchases = {
+  ENTITLEMENT_VERIFICATION_MODE: {
+    INFORMATIONAL: 'INFORMATIONAL',
+  },
+  PACKAGE_TYPE: {
+    ANNUAL: 'ANNUAL',
+    LIFETIME: 'LIFETIME',
+    MONTHLY: 'MONTHLY',
+  },
+  PURCHASES_ERROR_CODE: {
+    CONFIGURATION_ERROR: 'CONFIGURATION_ERROR',
+    INSUFFICIENT_PERMISSIONS_ERROR: 'INSUFFICIENT_PERMISSIONS_ERROR',
+    INVALID_CREDENTIALS_ERROR: 'INVALID_CREDENTIALS_ERROR',
+    NETWORK_ERROR: 'NETWORK_ERROR',
+    OFFLINE_CONNECTION_ERROR: 'OFFLINE_CONNECTION_ERROR',
+    PAYMENT_PENDING_ERROR: 'PAYMENT_PENDING_ERROR',
+    PRODUCT_REQUEST_TIMED_OUT_ERROR: 'PRODUCT_REQUEST_TIMED_OUT_ERROR',
+    PURCHASE_CANCELLED_ERROR: 'PURCHASE_CANCELLED_ERROR',
+    PURCHASE_NOT_ALLOWED_ERROR: 'PURCHASE_NOT_ALLOWED_ERROR',
+  },
+  VERIFICATION_RESULT: {
+    FAILED: 'FAILED',
+  },
+  addCustomerInfoUpdateListener: jest.fn(),
+  configure: jest.fn(),
+  getCustomerInfo: jest.fn(),
+  getOfferings: jest.fn(),
+  invalidateCustomerInfoCache: jest.fn(),
+  logIn: jest.fn(),
+  logOut: jest.fn(),
+  purchasePackage: jest.fn(),
+  removeCustomerInfoUpdateListener: jest.fn(),
+  restorePurchases: jest.fn(),
+};
+
+jest.mock('react-native-purchases', () => ({
+  __esModule: true,
+  default: mockPurchases,
+}));

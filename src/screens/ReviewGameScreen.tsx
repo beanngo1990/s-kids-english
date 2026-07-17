@@ -5,6 +5,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { KidBadge } from '../components/KidBadge';
+import { PremiumContentGate } from '../components/PremiumContentGate';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
@@ -19,6 +20,7 @@ import {
   saveVocabularyInteraction,
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
+import { useContentAccess } from '../engine/useContentAccess';
 import { useI18n, useSavedAppLanguage } from '../i18n';
 import { GamePlayer } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
@@ -55,6 +57,13 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
     route.params.learningMode,
+  );
+  const { isAccessGranted, isResolving } = useContentAccess(
+    {
+      kind: 'review',
+      lessonId: route.params.lessonId,
+    },
+    { latchWhenGranted: true },
   );
 
   useEffect(() => {
@@ -96,15 +105,23 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   }, [route.params.learningMode]);
 
   const memoryItems = useMemo(
-    () => (lesson && learningMode ? getMemoryGameItems(lesson, learningMode) : []),
-    [lesson, learningMode],
+    () =>
+      lesson && learningMode && isAccessGranted
+        ? getMemoryGameItems(lesson, learningMode)
+        : [],
+    [isAccessGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
     lesson?.reviewGame?.type === 'memory' && memoryItems.length >= 2,
   );
 
   useEffect(() => {
-    if (!shouldPlayIntro || !isTeacherPromptReady || !lesson?.reviewGame) {
+    if (
+      !isAccessGranted ||
+      !shouldPlayIntro ||
+      !isTeacherPromptReady ||
+      !lesson?.reviewGame
+    ) {
       return;
     }
 
@@ -115,6 +132,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       ).segments,
     ).catch(() => undefined);
   }, [
+    isAccessGranted,
     isTeacherPromptReady,
     lesson?.reviewGame,
     route.params.lessonId,
@@ -159,6 +177,20 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           />
         </View>
       </Screen>
+    );
+  }
+
+  if (!isAccessGranted) {
+    return (
+      <PremiumContentGate
+        isResolving={isResolving}
+        onAskParent={() =>
+          navigation.navigate('Parent', {
+            intent: 'premium',
+            lessonId: lesson.id,
+          })
+        }
+      />
     );
   }
 

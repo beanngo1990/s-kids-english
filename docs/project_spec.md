@@ -2,11 +2,11 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-16
+**Kiểm chứng gần nhất:** 2026-07-17
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
-localization foundation, Firebase parent auth, opt-in cloud progress sync và dual-accent English
-audio rollout trong working tree hiện tại.
+localization foundation, Firebase parent auth, opt-in cloud progress sync, dual-accent English
+audio rollout và monetization Phase 1-3 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -57,6 +57,12 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
 - **Implemented:** parent opt-in cloud progress sync qua Firestore; mặc định tắt và chỉ sync
   `LocalProgress`, không sync child profile/activity/voice recordings.
+- **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
+  adult gate, màn Premium và RevenueCat entitlement lifecycle.
+- **Implemented trong repository:** Remote Config purchase kill switch/founder-campaign flags và
+  backend claim/outbox/quota Founder Premium đã có code cùng unit/emulator tests. Functions/secret/
+  IAM/campaign production chưa được deploy; RevenueCat public SDK keys và legal URLs cũng chưa được
+  điền.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -72,7 +78,8 @@ URI và không có backend upload trong implementation hiện tại.
 - React Navigation v7: native container + native stack.
 - AsyncStorage `3.x`.
 - Notifee `9.x`.
-- React Native Firebase App/Auth/Firestore `25.x`.
+- React Native Firebase App/Auth/Firestore/App Check/Functions/Remote Config `25.x`.
+- RevenueCat React Native SDK `react-native-purchases` `10.4.3`.
 - Google Sign-In `16.x`.
 - Apple Authentication `2.x`.
 - Node.js `>=22.11.0`.
@@ -89,7 +96,11 @@ versions nếu các con số trên bị stale.
 index.js
   -> App.tsx
      -> configureNativeAudioAdapter()
+     -> startFirebaseAppCheck()
      -> startCloudProgressSync()
+     -> startRemoteMonetizationConfig()
+     -> startMonetization()
+     -> startParentAccessSessionLifecycle()
      -> AppThemeProvider
      -> SafeAreaProvider
      -> AppNavigator
@@ -115,7 +126,8 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
 - `StickerCollection { highlightedStickerId? }`
-- `Parent`
+- `Parent { intent?: 'dashboard' | 'premium' | 'founderPromo', lessonId? }`
+- `Premium`
 
 Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
 cả registration, param types và call sites.
@@ -126,13 +138,13 @@ cả registration, param types và call sites.
 src/
   assets/       lesson/shared assets, bundled app UI icons, source masters và generated outputs
   components/   reusable UI và mascot components
-  config/       remote R2 configuration và generated release revision
+  config/       remote R2, Firebase auth, monetization và generated release configuration
   data/         catalogs, prompts, lesson authoring helpers và validators
-  engine/       scene, step, progress, persistence, parent auth/cloud sync, audio, recording và asset logic
+  engine/       scene, progress, parent auth/cloud sync/access, monetization, audio, recording và asset logic
   games/        review-game registry và implementations
   navigation/   navigation container/stack
   screens/      route-level screens
-  services/     local notification service
+  services/     local notification và Firebase Remote Config services
   theme/        colors, theme provider, typography, spacing, shadows, responsive helpers
   types/        shared lesson/navigation/progress contracts
   utils/        progress/theme/icon helpers
@@ -240,8 +252,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Parent Mode
 
-- **Implemented:** parent gate bằng thao tác giữ nút trong 3 giây.
-- **Unsupported:** PIN hoặc câu hỏi toán/bảo mật; không mô tả hai cơ chế này là đã có.
+- **Implemented:** adult gate hai bước gồm giữ nút trong 3 giây rồi trả lời phép tính đơn giản.
+  Sau ba câu trả lời sai, gate cooldown 10 giây trước khi cho thử tiếp; PIN vẫn unsupported.
+- Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
+  trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons; tab
   Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
@@ -253,6 +267,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   và voice recordings không được upload.
 - **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
   quay lại trở về Parent Mode mà không phải giữ cổng 3 giây lần nữa.
+- **Implemented:** entry từ Kid Mode có thể mở `Parent` với intent `premium`/`founderPromo`; sau
+  khi adult gate pass, Parent Mode điều hướng sang `Premium`. `PremiumScreen` cũng tự trả về Parent
+  gate nếu session chưa được cấp.
 - **Implemented:** development-only scene editor flag; không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
   Parent gate/settings, navigation titles, ScenePlayer system controls/completion chrome, bottom
@@ -275,6 +292,37 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   replay audio dùng accent đã chọn; persisted data cũ normalize về `en-US`. Lựa chọn này không
   tự đổi spelling/copy, ví dụ nội dung đang viết `pajamas` không trở thành `pyjamas` khi chọn
   en-GB.
+
+### Premium access và in-app purchases (Phase 1)
+
+- Free tier được xác định bằng stable lesson IDs trong `src/engine/ContentAccessPolicy.ts`:
+  `morning-routine` và `at-school`. Hai lesson này cùng scene/review của chúng luôn mở, kể cả khi
+  monetization đang khởi tạo, signed out hoặc tạm unavailable; các lesson còn lại cần entitlement
+  `premium` active.
+- Caller entry points và destination screens đều guard access. `LessonPackScreen`,
+  `ScenePlayerScreen` và `ReviewGameScreen` không mount nội dung/audio premium trước khi quyền
+  được xác nhận; `openedFromParent` không bypass entitlement. Kid-facing gate không hiển thị giá,
+  chỉ đề nghị nhờ ba mẹ và mở Parent intent.
+- Scene/review đã bắt đầu latch access cho phiên hiện tại để entitlement hết hạn giữa hoạt động
+  không đẩy bé ra ngoài. Quyền được kiểm tra lại tại boundary mới, ví dụ từ scene sang review.
+- `PremiumScreen` chỉ mở sau adult gate và hỗ trợ parent Firebase sign-in, hiển thị packages từ
+  RevenueCat offering, mua, restore, subscription management URL, trạng thái gói đang active và
+  retry. UI hỗ trợ package monthly/annual/lifetime; giá/currency hiển thị lấy từ store metadata,
+  không lấy các giá tư vấn hardcode trong app.
+- `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Runtime
+  `CustomerInfo.entitlements.active.premium` là source of truth cho quyền Premium; listener và
+  explicit refresh cập nhật trạng thái. Verification result `FAILED` không được coi là Premium,
+  và entitlement không được persist thành một local boolean để tự cấp quyền.
+- `premium_purchase_enabled` có thể tạm dừng mua mới mà không thay đổi entitlement đã có. Mọi
+  purchase/restore đều yêu cầu parent account đã sign in; RevenueCat diagnostics và automatic
+  device-identifier collection được tắt trong client config.
+- **Launch blocker:** `src/config/monetization.ts` vẫn để trống RevenueCat Apple/Google public SDK
+  keys, Privacy Policy URL và Terms of Use URL. Vì vậy code path đã có nhưng chưa sẵn sàng store
+  testing/release cho tới khi điền cấu hình thật và tạo products/offering/entitlement tương ứng.
+- **Implemented trong repository:** client đọc Remote Config flags, nhận `founderPromo` intent và
+  gọi callable backend có Firestore transaction, quota/ledger 500 lượt, outbox worker, retry và
+  reconciliation. Default campaign flag là `false`; production vẫn chưa có deployment/secret/IAM/
+  campaign seed nên không được bật flag trước khi hoàn tất closed testing và external setup.
 
 ### Scene learning
 
@@ -451,6 +499,51 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập; local
   progress không bị xóa.
 
+### Monetization lifecycle, Remote Config và App Check
+
+- Lifecycle entry nằm trong `App.tsx`. `src/engine/MonetizationManager.ts` sở hữu RevenueCat
+  identity, offering/packages, purchase/restore, `CustomerInfo` listener và normalized snapshot;
+  `src/config/monetization.ts` sở hữu entitlement/offering/product IDs, Remote Config key names và
+  public client configuration.
+- Remote Config service nằm tại `src/services/RemoteMonetizationConfig.ts`. Client set defaults,
+  fetch/activate lúc app khởi động, refresh khi mở Premium và lắng nghe realtime updates trong lúc
+  màn Premium có focus. Các key/default hiện tại:
+  - `premium_purchase_enabled = true`;
+  - `founder_premium_campaign_enabled = false`;
+  - `founder_premium_campaign_id = founder-premium-2026-v1`.
+- Remote Config chỉ điều khiển availability/campaign metadata, không phải entitlement source of
+  truth. `src/engine/FounderPremiumManager.ts` gọi `claimFounderPremium`/
+  `getFounderPremiumStatus` tại `asia-southeast1` mà không gửi UID/campaign ID, normalize response,
+  rồi invalidate/poll RevenueCat; Premium chỉ mở khi verified `CustomerInfo` thật sự active.
+- `functions/` là Node.js 22 Firebase Functions v2 backend riêng. Callable bật `enforceAppCheck`,
+  đọc published Remote Config default/global values, kiểm tra RevenueCat customer, rồi reserve bằng
+  Firestore transaction. Create-trigger xử lý hashed outbox bằng lease; scheduler 5 phút retry/
+  reconcile timeout, 423, 429, 5xx và response không chắc chắn mà không trả quota. Thành công tăng
+  `grantedCount` đúng một lần. RevenueCat REST v2 dùng internal entitlement ID `entl...`; campaign
+  lưu thêm lookup key `premium` để phân biệt hai identifier.
+- Mobile client bị deny toàn bộ read/write với `monetizationCampaigns`, claims,
+  `monetizationGrantOutbox` và `monetizationCustomerDeletionTombstones`; chỉ callable trả normalized
+  status. Seed script mặc định dry-run và tạo `founder-premium-2026-v1` ready/capacity 500 khi admin
+  chủ động truyền `--apply` sau khi xác minh RevenueCat mapping. Repository chưa deploy Functions,
+  chưa tạo secret/IAM, chưa seed Firestore production và Remote Config campaign default vẫn
+  `false`.
+- `src/engine/FirebaseAppCheckManager.ts` bật token auto-refresh và dùng debug provider trong dev,
+  Play Integrity trên Android production, App Attest với DeviceCheck fallback trên Apple
+  production. Đây là client initialization; enforcement cho Firebase products vẫn cần cấu hình
+  trong Firebase Console/backend và không được suy diễn chỉ từ client code.
+- Android manifest có billing permission và `MainActivity` dùng `launchMode="singleTop"`. iOS pods
+  đã autolink RevenueCat, Remote Config, Functions và App Check; `AppDelegate.swift` pre-initialize
+  `RNFBAppCheckModule` trước `FirebaseApp.configure()` để custom provider được đăng ký đúng thứ tự.
+- Monetization/App Check không thêm AsyncStorage key. Parent access session nằm trong memory tại
+  `src/engine/ParentAccessSession.ts`; RevenueCat `CustomerInfo` được refresh/lắng nghe thay vì
+  cache thành quyền Premium do app tự quản lý.
+- Account deletion hiện chạy cloud progress deletion -> callable xóa RevenueCat customer ->
+  Firebase Auth deletion -> local RevenueCat cache/logout. Callable tạo tombstone ID SHA-256 trước
+  khi DELETE, chặn claim/worker mới, đợi active worker lease và chỉ scrub claim/outbox chứa raw UID
+  sau khi RevenueCat xác nhận xóa. Nếu backend cleanup chưa được xác nhận, Firebase Auth được giữ để
+  retry; campaign counters/reservation không bị trả quota và tombstone hashed được giữ để ngăn
+  regrant.
+
 ### Cloud progress sync
 
 - Dependency/runtime: `@react-native-firebase/firestore` `25.x`.
@@ -497,8 +590,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   cross-user/anonymous denial, list denial, owner/schema constraints và unknown-field rejection.
 - Root `firebase.json` vẫn tắt Analytics/Performance/Messaging/ad auto-collection; Firebase
   Analytics package không được thêm.
-- **Unsupported:** sync parent settings/child profile/activity/recordings, Realtime Database,
-  Analytics và App Check.
+- **Unsupported:** sync parent settings/child profile/activity/recordings, Realtime Database và
+  Analytics. App Check client initialization đã implemented, nhưng enforcement chưa được chứng
+  minh/cấu hình trong repository.
 
 ## 8. Audio, recording và native modules
 
@@ -643,10 +737,14 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng 2026-07-16:
+Tại lần kiểm chứng 2026-07-17:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 94/94 tests pass.
+- Jest: 183/183 tests pass trong 24 suites.
+- Functions unit: 20/20 tests pass, gồm Auth rejection và pure 550/500 quota matrix.
+- Firestore emulator: rules tests và founder quota/outbox/deletion integration tests pass.
+- Native build-only: Android Debug và iOS Simulator arm64 pass; store sandbox/physical-device
+  purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
@@ -660,9 +758,16 @@ Support summary:
 | ---------------------------------------- | --------------- |
 | Memory review game                       | Implemented     |
 | Matching/listen-and-choose review        | Unsupported     |
-| Parent hold gate                         | Implemented     |
-| Parent PIN/math gate                     | Unsupported     |
+| Parent 3-second hold + math adult gate   | Implemented     |
+| Parent PIN gate                          | Unsupported     |
 | Parent Google/Apple login                | Implemented     |
+| Free tier + Premium content guards       | Implemented     |
+| RevenueCat client entitlement lifecycle  | Implemented     |
+| Store-ready keys/products/legal config   | Partial         |
+| Remote Config monetization switches      | Implemented     |
+| Founder 500-user claim backend           | Implemented     |
+| Firebase App Check client initialization | Implemented     |
+| Firebase App Check backend enforcement   | Partial         |
 | Theme Light/Dark/System                  | Implemented     |
 | Full VI/EN localization                  | Partial         |
 | Teacher prompt mode vi/en/bilingual      | Partial         |

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Alert, Image, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
@@ -10,15 +10,17 @@ import { MascotImage } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { canAccessLesson } from '../engine/ContentAccessPolicy';
+import {
+  getMonetizationSnapshot,
+  useMonetizationSnapshot,
+} from '../engine/MonetizationManager';
 import {
   getLessonVocabulary,
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import {
-  playCompleteSound,
-  speakWord,
-} from '../engine/AudioManager';
+import { playCompleteSound, speakWord } from '../engine/AudioManager';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { useI18n, useSavedAppLanguage } from '../i18n';
@@ -34,8 +36,12 @@ export function RewardScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
   const appLanguage = useSavedAppLanguage();
+  const monetizationSnapshot = useMonetizationSnapshot();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
-  const lessonVocabulary = useMemo(() => lesson ? getLessonVocabulary(lesson) : [], [lesson]);
+  const lessonVocabulary = useMemo(
+    () => (lesson ? getLessonVocabulary(lesson) : []),
+    [lesson],
+  );
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const displayWords = useMemo(() => {
     if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
@@ -61,7 +67,9 @@ export function RewardScreen({ navigation, route }: Props) {
     }
     const objectByVocabId = new Map<string, SceneObject>();
     lesson.scenes.forEach(scene => {
-      const renderables = scene.character ? [scene.character, ...scene.objects] : scene.objects;
+      const renderables = scene.character
+        ? [scene.character, ...scene.objects]
+        : scene.objects;
       renderables.forEach(object => {
         if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
           objectByVocabId.set(object.vocabId, object);
@@ -71,11 +79,55 @@ export function RewardScreen({ navigation, route }: Props) {
     return objectByVocabId;
   }, [lesson]);
 
-  const currentLessonIndex = lesson ? lessons.findIndex(l => l.id === lesson.id) : -1;
-  const nextLesson = currentLessonIndex !== -1 && currentLessonIndex < lessons.length - 1
-    ? lessons[currentLessonIndex + 1]
-    : null;
+  const currentLessonIndex = lesson
+    ? lessons.findIndex(l => l.id === lesson.id)
+    : -1;
+  const nextLesson =
+    currentLessonIndex !== -1 && currentLessonIndex < lessons.length - 1
+      ? lessons[currentLessonIndex + 1]
+      : null;
   const highlightedStickerId = route.params.unlockedSticker?.stickerId;
+  const canReplayLesson = lesson
+    ? canAccessLesson(lesson.id, monetizationSnapshot)
+    : false;
+  const canOpenNextLesson = nextLesson
+    ? canAccessLesson(nextLesson.id, monetizationSnapshot)
+    : false;
+
+  const handleOpenLesson = (lessonId: string, openLesson: () => void) => {
+    const latestMonetizationSnapshot = getMonetizationSnapshot();
+    if (canAccessLesson(lessonId, latestMonetizationSnapshot)) {
+      openLesson();
+      return;
+    }
+
+    if (latestMonetizationSnapshot.status === 'initializing') {
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+      return;
+    }
+
+    Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+      { style: 'cancel', text: t('common.close') },
+      {
+        onPress: () =>
+          navigation.navigate('Parent', {
+            intent: 'premium',
+            lessonId,
+          }),
+        text: t('premium.askParent'),
+      },
+    ]);
+  };
+
+  const getPremiumActionLabel = (hasAccess: boolean) => {
+    if (hasAccess) {
+      return null;
+    }
+
+    return monetizationSnapshot.status === 'initializing'
+      ? t('premium.resolving')
+      : t('premium.askParent');
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -126,48 +178,62 @@ export function RewardScreen({ navigation, route }: Props) {
             {route.params.unlockedSticker && (
               <KidBadge tone="sun">{t('reward.newSticker')}</KidBadge>
             )}
-            {route.params.xpGained !== undefined && route.params.xpGained > 0 && (
-              <View style={styles.xpBadge}>
-                <Text style={styles.xpBadgeText}>+{route.params.xpGained}</Text>
-                <SKidsIcon name="acorn" size={16} />
-                <Text style={styles.xpBadgeText}>{t('reward.acorn')}</Text>
-              </View>
-            )}
+            {route.params.xpGained !== undefined &&
+              route.params.xpGained > 0 && (
+                <View style={styles.xpBadge}>
+                  <Text style={styles.xpBadgeText}>
+                    +{route.params.xpGained}
+                  </Text>
+                  <SKidsIcon name="acorn" size={16} />
+                  <Text style={styles.xpBadgeText}>{t('reward.acorn')}</Text>
+                </View>
+              )}
           </View>
           <Text style={styles.title}>
             {route.params.leveledUp
-              ? t('reward.levelUpTitle', { level: String(route.params.newLevel) })
-              : t('reward.completedTitle', { lessonTitle: getLocalizedLessonTitle(
-                  lesson,
-                  appLanguage,
-                ) })}
+              ? t('reward.levelUpTitle', {
+                  level: String(route.params.newLevel),
+                })
+              : t('reward.completedTitle', {
+                  lessonTitle: getLocalizedLessonTitle(lesson, appLanguage),
+                })}
           </Text>
           <Text style={styles.subtitle}>
             {route.params.unlockedSticker
-              ? t('reward.levelUpSubtitle', { stickerName: route.params.unlockedSticker.stickerName })
+              ? t('reward.levelUpSubtitle', {
+                  stickerName: route.params.unlockedSticker.stickerName,
+                })
               : t('reward.completedSubtitle')}
           </Text>
-
         </AppCard>
 
         <AppCard style={styles.wordsCard}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>{t('reward.wordsLearned')}</Text>
-            <KidBadge tone="teal">{t('reward.wordCount', { count: String(displayWords.length) })}</KidBadge>
+            <KidBadge tone="teal">
+              {t('reward.wordCount', { count: String(displayWords.length) })}
+            </KidBadge>
           </View>
           <View style={styles.wordList}>
             {displayWords.map(item => {
               const obj = vocabImages.get(item.id);
               const imgSource = obj ? resolveAsset(obj.asset.source) : null;
-              
+
               return (
                 <Pressable
                   key={item.id}
-                  style={({ pressed }) => [styles.wordChip, pressed && styles.wordChipPressed]}
+                  style={({ pressed }) => [
+                    styles.wordChip,
+                    pressed && styles.wordChipPressed,
+                  ]}
                   onPress={() => speakWord(item.word).catch(() => undefined)}
                 >
                   {imgSource && (
-                    <Image source={imgSource as any} style={styles.wordImage} resizeMode="contain" />
+                    <Image
+                      source={imgSource as any}
+                      style={styles.wordImage}
+                      resizeMode="contain"
+                    />
                   )}
                   <Text style={styles.word}>{item.word}</Text>
                 </Pressable>
@@ -190,11 +256,20 @@ export function RewardScreen({ navigation, route }: Props) {
           {nextLesson ? (
             <>
               <AppButton
-                title={t('reward.nextLesson', { lessonTitle: getLocalizedLessonTitle(
-                  nextLesson,
-                  appLanguage,
-                ) })}
-                onPress={() => navigation.replace('LessonPack', { lessonId: nextLesson.id })}
+                title={`${t('reward.nextLesson', {
+                  lessonTitle: getLocalizedLessonTitle(nextLesson, appLanguage),
+                })}${
+                  getPremiumActionLabel(canOpenNextLesson)
+                    ? ` · ${getPremiumActionLabel(canOpenNextLesson)}`
+                    : ''
+                }`}
+                onPress={() =>
+                  handleOpenLesson(nextLesson.id, () =>
+                    navigation.replace('LessonPack', {
+                      lessonId: nextLesson.id,
+                    }),
+                  )
+                }
               />
               <AppButton
                 title={t('reward.backToList')}
@@ -202,9 +277,17 @@ export function RewardScreen({ navigation, route }: Props) {
                 onPress={() => navigation.navigate('LessonList')}
               />
               <AppButton
-                title={t('reward.replayLesson')}
+                title={`${t('reward.replayLesson')}${
+                  getPremiumActionLabel(canReplayLesson)
+                    ? ` · ${getPremiumActionLabel(canReplayLesson)}`
+                    : ''
+                }`}
                 variant="outlined"
-                onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
+                onPress={() =>
+                  handleOpenLesson(lesson.id, () =>
+                    navigation.replace('LessonPack', { lessonId: lesson.id }),
+                  )
+                }
               />
             </>
           ) : (
@@ -214,9 +297,17 @@ export function RewardScreen({ navigation, route }: Props) {
                 onPress={() => navigation.navigate('LessonList')}
               />
               <AppButton
-                title={t('reward.replayLesson')}
+                title={`${t('reward.replayLesson')}${
+                  getPremiumActionLabel(canReplayLesson)
+                    ? ` · ${getPremiumActionLabel(canReplayLesson)}`
+                    : ''
+                }`}
                 variant="secondary"
-                onPress={() => navigation.replace('LessonPack', { lessonId: lesson.id })}
+                onPress={() =>
+                  handleOpenLesson(lesson.id, () =>
+                    navigation.replace('LessonPack', { lessonId: lesson.id }),
+                  )
+                }
               />
             </>
           )}

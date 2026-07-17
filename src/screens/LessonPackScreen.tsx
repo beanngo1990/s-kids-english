@@ -5,6 +5,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
+import { PremiumContentGate } from '../components/PremiumContentGate';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -37,6 +38,7 @@ import {
   isSceneProgressComplete,
   isSceneUnlocked,
 } from '../utils/lessonProgress';
+import { useContentAccess } from '../engine/useContentAccess';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
@@ -46,6 +48,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const appLanguage = useSavedAppLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const openedFromParent = route.params.openedFromParent === true;
+  const { isAccessGranted, isResolving } = useContentAccess({
+    kind: 'lesson',
+    lessonId: route.params.lessonId,
+  });
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
@@ -170,6 +176,20 @@ export function LessonPackScreen({ navigation, route }: Props) {
           />
         </View>
       </Screen>
+    );
+  }
+
+  if (!isAccessGranted) {
+    return (
+      <PremiumContentGate
+        isResolving={isResolving}
+        onAskParent={() =>
+          navigation.navigate('Parent', {
+            intent: 'premium',
+            lessonId: lesson.id,
+          })
+        }
+      />
     );
   }
 

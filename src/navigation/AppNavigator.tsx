@@ -16,6 +16,7 @@ import {
   StickerCollectionScreen,
   ThemeLibraryScreen,
 } from '../screens';
+import { PremiumScreen } from '../screens/PremiumScreen';
 import { MascotImage } from '../components/mascot';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { useI18n } from '../i18n';
@@ -165,6 +166,14 @@ function AnimatedSplashMascot() {
           options={{
             headerBackButtonDisplayMode: 'minimal',
             title: t('nav.parent'),
+          }}
+        />
+        <Stack.Screen
+          name="Premium"
+          component={PremiumScreen}
+          options={{
+            headerBackButtonDisplayMode: 'minimal',
+            title: t('nav.premium'),
           }}
         />
       </Stack.Navigator>

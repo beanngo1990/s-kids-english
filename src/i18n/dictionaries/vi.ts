@@ -16,6 +16,7 @@ export const vi = {
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.parent': 'Góc phụ huynh',
+  'nav.premium': 'S-Kids Premium',
 
   'splash.loading': 'Hành trình vui học bắt đầu!',
 
@@ -64,6 +65,149 @@ export const vi = {
   'parent.gate.hold': 'Giữ để mở',
   'parent.gate.holding': 'Đang giữ...',
   'parent.gate.title': 'Khu vực dành cho ba mẹ',
+  'parent.gate.challengeTitle': 'Xác nhận dành cho ba mẹ',
+  'parent.gate.challengeHint':
+    'Ba mẹ giải phép tính này để tiếp tục vào khu vực quản lý.',
+  'parent.gate.challengePlaceholder': 'Nhập kết quả',
+  'parent.gate.challengeSubmit': 'Xác nhận',
+  'parent.gate.challengeWrong': 'Kết quả chưa đúng. Ba mẹ thử lại nhé.',
+  'parent.gate.challengeCooldown':
+    'Đã thử sai nhiều lần. Vui lòng chờ một chút rồi thử lại.',
+
+  'premium.badge': 'Dành cho ba mẹ',
+  'premium.title': 'Mở trọn hành trình S-Kids',
+  'premium.subtitle':
+    'Chọn gói phù hợp để bé học toàn bộ bài học và nội dung ôn tập hiện có.',
+  'premium.benefit.journeyTitle': 'Toàn bộ lộ trình học',
+  'premium.benefit.journeyText':
+    'Mở các bài học, cảnh tương tác và từ vựng ngoài nội dung miễn phí.',
+  'premium.benefit.reviewTitle': 'Ôn tập không giới hạn bài',
+  'premium.benefit.reviewText':
+    'Bé có thể quay lại bài và chơi nội dung ôn tập của mọi bài đã mở.',
+  'premium.benefit.accountTitle': 'Khôi phục bằng tài khoản ba mẹ',
+  'premium.benefit.accountText':
+    'Quyền mua được RevenueCat kiểm tra với tài khoản phụ huynh đã đăng nhập.',
+  'premium.signInTitle': 'Đăng nhập trước khi mua',
+  'premium.signInText':
+    'Đăng nhập tài khoản ba mẹ để gắn và khôi phục quyền Premium an toàn.',
+  'premium.founder.badge': 'Quà dành cho phụ huynh đầu tiên',
+  'premium.founder.title': 'Nhận Premium miễn phí trong 1 năm',
+  'premium.founder.marketingText':
+    '500 tài khoản phụ huynh đủ điều kiện đầu tiên nhấn “Nhận Premium 1 năm” sau khi chương trình mở sẽ nhận Premium miễn phí trong 365 ngày.',
+  'premium.founder.terms':
+    'Mỗi tài khoản một suất, không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
+  'premium.founder.availableText':
+    'Chương trình đang mở. Hệ thống sẽ xác nhận suất theo thứ tự yêu cầu hợp lệ.',
+  'premium.founder.checkingText': 'Đang kiểm tra tình trạng chương trình...',
+  'premium.founder.processingText':
+    'Suất của ba mẹ đang được xử lý. Premium chỉ mở sau khi RevenueCat xác nhận quyền đang hoạt động.',
+  'premium.founder.alreadyPremiumText':
+    'Tài khoản này đã có Premium. Ứng dụng đang xác nhận lại quyền truy cập.',
+  'premium.founder.soldOutText':
+    'Chương trình đã hết suất ở thời điểm hiện tại. Quyền Premium đã có không bị ảnh hưởng.',
+  'premium.founder.notAvailableText':
+    'Chương trình hiện chưa mở hoặc đang tạm dừng.',
+  'premium.founder.signInText':
+    'Ba mẹ cần đăng nhập tài khoản trước khi nhận quà.',
+  'premium.founder.retryableText':
+    'Chưa kiểm tra được chương trình. Ba mẹ hãy kiểm tra kết nối rồi thử lại.',
+  'premium.founder.claim': 'Nhận Premium 1 năm',
+  'premium.founder.claiming': 'Đang giữ suất...',
+  'premium.founder.checking': 'Đang kiểm tra...',
+  'premium.founder.confirming': 'Đang xác nhận Premium...',
+  'premium.founder.retry': 'Kiểm tra lại',
+  'premium.founder.soldOutAction': 'Đã hết suất',
+  'premium.founder.notAvailableAction': 'Chương trình chưa mở',
+  'premium.founder.signInAction': 'Đăng nhập để nhận',
+  'premium.founder.successTitle': 'Đã nhận Premium 1 năm',
+  'premium.founder.successText':
+    'RevenueCat đã xác nhận Premium đang hoạt động cho tài khoản ba mẹ. Quà này không tự động gia hạn và không phát sinh phí.',
+  'premium.package.monthly': '1 tháng',
+  'premium.package.annual': '1 năm',
+  'premium.package.lifetime': 'Trọn đời',
+  'premium.package.bestValue': 'Đề xuất',
+  'premium.package.savePercent': 'Tiết kiệm {percent}%',
+  'premium.package.perMonth': '{price}/tháng',
+  'premium.package.billingMonthly': 'Gia hạn mỗi tháng',
+  'premium.package.billingAnnual': 'Gia hạn mỗi năm',
+  'premium.package.billingLifetime': 'Thanh toán một lần',
+  'premium.purchase': 'Tiếp tục với {package}',
+  'premium.purchasing': 'Đang mở cửa hàng...',
+  'premium.restore': 'Khôi phục giao dịch mua',
+  'premium.restoring': 'Đang khôi phục...',
+  'premium.manage': 'Quản lý gói đăng ký',
+  'premium.retry': 'Thử tải lại',
+  'premium.close': 'Quay lại Góc phụ huynh',
+  'premium.purchasePausedTitle': 'Tạm dừng giao dịch mua mới',
+  'premium.purchasePausedText':
+    'Các quyền Premium hiện có vẫn giữ nguyên. Ba mẹ có thể khôi phục hoặc quản lý gói đã mua.',
+  'premium.offeringUnavailableTitle': 'Chưa tải được các gói Premium',
+  'premium.offeringUnavailableText':
+    'Không có giá thay thế. Ba mẹ hãy kiểm tra kết nối hoặc cấu hình RevenueCat rồi thử lại.',
+  'premium.currentTitle': 'Premium đang hoạt động',
+  'premium.currentMonthly': 'Gói Premium theo tháng',
+  'premium.currentAnnual': 'Gói Premium theo năm',
+  'premium.currentLifetime': 'Premium trọn đời',
+  'premium.currentPromotional': 'Premium được tặng',
+  'premium.currentUntil': 'Có hiệu lực đến {date}',
+  'premium.currentRenews': 'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
+  'premium.currentNoRenew': 'Gói sẽ không tự động gia hạn.',
+  'premium.currentLifetimeText': 'Quyền Premium này không hết hạn.',
+  'premium.disclosure.subscription':
+    'Khoản thanh toán được tính vào tài khoản cửa hàng. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký của Apple hoặc Google.',
+  'premium.disclosure.lifetime':
+    'Đây là giao dịch mua một lần, không tự động gia hạn.',
+  'premium.alert.purchasedTitle': 'Đã mở Premium',
+  'premium.alert.purchasedText':
+    'RevenueCat đã xác nhận quyền Premium cho tài khoản ba mẹ.',
+  'premium.alert.pendingTitle': 'Giao dịch đang chờ xử lý',
+  'premium.alert.pendingText':
+    'Cửa hàng hoặc người phê duyệt còn phải hoàn tất giao dịch. Premium sẽ mở sau khi quyền được xác nhận.',
+  'premium.alert.restoredTitle': 'Đã khôi phục Premium',
+  'premium.alert.restoredText':
+    'Quyền Premium đang hoạt động đã được khôi phục cho tài khoản này.',
+  'premium.alert.withoutPremiumTitle': 'Chưa có quyền Premium đang hoạt động',
+  'premium.alert.withoutPremiumText':
+    'Cửa hàng đã hoàn tất kiểm tra nhưng chưa trả về quyền Premium đang hoạt động cho tài khoản này.',
+  'premium.alert.alreadyPremium': 'Tài khoản này đã có Premium đang hoạt động.',
+  'premium.error.title': 'Chưa thể hoàn tất',
+  'premium.error.configurationMissing':
+    'Bản build này chưa có cấu hình RevenueCat phù hợp.',
+  'premium.error.firebaseUnavailable':
+    'Firebase Auth chưa sẵn sàng cho bản build này.',
+  'premium.error.identityFailed':
+    'Chưa liên kết được tài khoản ba mẹ với dịch vụ giao dịch mua.',
+  'premium.error.network': 'Chưa kết nối được cửa hàng. Ba mẹ thử lại khi có mạng.',
+  'premium.error.offeringsUnavailable':
+    'Cửa hàng chưa trả về gói Premium khả dụng.',
+  'premium.error.purchaseNotAllowed':
+    'Thiết bị hoặc tài khoản cửa hàng hiện không cho phép giao dịch mua.',
+  'premium.error.store': 'Cửa hàng chưa thể xử lý yêu cầu này.',
+  'premium.error.verificationFailed':
+    'Chưa xác minh được quyền Premium. Ba mẹ hãy thử tải lại.',
+  'premium.error.unknown': 'Có lỗi chưa xác định. Ba mẹ vui lòng thử lại.',
+  'premium.legal.privacy': 'Chính sách quyền riêng tư',
+  'premium.legal.terms': 'Điều khoản sử dụng',
+  'premium.legal.support': 'Liên hệ hỗ trợ',
+  'premium.legal.supportSubject': 'Hỗ trợ S-Kids Premium',
+  'premium.legal.linkErrorTitle': 'Không mở được liên kết',
+  'premium.legal.linkErrorText':
+    'Ba mẹ vui lòng thử lại hoặc liên hệ hỗ trợ sau.',
+  'premium.kidLockedTitle': 'Bài này cần Premium',
+  'premium.kidLockedText': 'Hãy nhờ ba mẹ mở khóa để bé tiếp tục học nhé.',
+  'premium.askParent': 'Nhờ ba mẹ mở khóa',
+  'premium.resolving': 'Đang kiểm tra quyền Premium...',
+  'premium.parentLockedMessage':
+    'Bài học này cần Premium. Ba mẹ có thể xem các gói để mở khóa.',
+  'premium.openPlans': 'Xem các gói Premium',
+  'premium.gate.loading': 'Đang kiểm tra Premium',
+  'premium.gate.loadingMessage':
+    'Ứng dụng đang xác nhận quyền truy cập của tài khoản ba mẹ.',
+  'premium.gate.title': 'Nội dung Premium',
+  'premium.gate.message':
+    'Nội dung này cần Premium. Hãy nhờ ba mẹ mở khóa để tiếp tục.',
+  'premium.gate.askParent': 'Nhờ ba mẹ mở khóa',
+  'premium.gate.back': 'Quay lại',
   'parent.account.appleTokenMissing':
     'Apple chưa trả đủ token để hoàn tất thao tác. Ba mẹ thử đăng nhập lại rồi thực hiện lại nhé.',
   'parent.account.appleUnavailable':
@@ -74,7 +218,7 @@ export const vi = {
   'parent.account.deleteAccount': 'Xóa tài khoản',
   'parent.account.deleteConfirmAction': 'Xóa tài khoản',
   'parent.account.deleteConfirmText':
-    'Tài khoản đăng nhập và tiến độ đã đồng bộ trên Firestore sẽ bị xóa. Tiến độ local trên thiết bị này vẫn được giữ.',
+    'Tài khoản đăng nhập và tiến độ đã đồng bộ trên Firestore sẽ bị xóa. Tiến độ local trên thiết bị này vẫn được giữ. Việc xóa tài khoản không hủy gói đang gia hạn qua Apple hoặc Google; ba mẹ hãy dùng Quản lý gói đăng ký trước nếu muốn hủy gia hạn.',
   'parent.account.deleteConfirmTitle': 'Xóa tài khoản phụ huynh?',
   'parent.account.deletedText':
     'Tài khoản và tiến độ trên cloud đã được xóa. Tiến độ local vẫn ở trên thiết bị này.',
