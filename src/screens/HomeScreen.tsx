@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import {
+  Alert,
   Animated,
   Easing,
   LayoutChangeEvent,
@@ -30,6 +31,14 @@ import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
 import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  canAccessLesson,
+  canAccessReview,
+} from '../engine/ContentAccessPolicy';
+import {
+  getMonetizationSnapshot,
+  useMonetizationSnapshot,
+} from '../engine/MonetizationManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import {
@@ -91,12 +100,15 @@ const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
 export function HomeScreen({ navigation }: Props) {
   useThemeSync();
   const t = useI18n();
+  const monetizationSnapshot = useMonetizationSnapshot();
   const [activeTab, setActiveTab] = useState<KidModeTab>('map');
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const appLanguage = useSavedAppLanguage();
-  const [visibleLessonIds, setVisibleLessonIds] = useState<string[] | undefined>(undefined);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<
+    string[] | undefined
+  >(undefined);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
   const [isHubOpen, setIsHubOpen] = useState(false);
@@ -151,10 +163,10 @@ export function HomeScreen({ navigation }: Props) {
   const pendingProgress = progress?.currentLessonProgress;
   const pendingNode = pendingProgress
     ? mapNodes.find(
-      node =>
-        node.lessonId === pendingProgress.lessonId &&
-        node.scene.id === pendingProgress.sceneId,
-    )
+        node =>
+          node.lessonId === pendingProgress.lessonId &&
+          node.scene.id === pendingProgress.sceneId,
+      )
     : undefined;
   const shouldResumeProgress = Boolean(
     pendingNode && !isThemeNodeComplete(pendingNode, completedSceneIds),
@@ -162,27 +174,35 @@ export function HomeScreen({ navigation }: Props) {
   const ctaNode =
     shouldResumeProgress && pendingNode ? pendingNode : nextNode ?? mapNodes[0];
   const currentLessonId = ctaNode?.lessonId;
+  const hubPrimaryLessonId = pendingReviewLesson?.id ?? ctaNode?.lessonId;
+  const isHubPrimaryPremiumLocked = Boolean(
+    hubPrimaryLessonId &&
+      !canAccessLesson(hubPrimaryLessonId, monetizationSnapshot),
+  );
+  const isHubPrimaryPremiumResolving = Boolean(
+    isHubPrimaryPremiumLocked && monetizationSnapshot.status === 'initializing',
+  );
   const homeCoachMessage = isThemeComplete
     ? t('home.coach.complete')
     : hasPendingReviewGame
-      ? t('home.coach.review', {
-          lessonTitle: pendingReviewLesson
-            ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
-            : t('home.recentLesson'),
-        })
-      : ctaNode
-        ? t('home.coach.next', { sceneTitle: ctaNode.sceneTitle })
-        : t('home.coach.default');
+    ? t('home.coach.review', {
+        lessonTitle: pendingReviewLesson
+          ? getLocalizedLessonTitle(pendingReviewLesson, appLanguage)
+          : t('home.recentLesson'),
+      })
+    : ctaNode
+    ? t('home.coach.next', { sceneTitle: ctaNode.sceneTitle })
+    : t('home.coach.default');
   const homeCoachPose = isThemeComplete
     ? 'greatJob'
     : hasPendingReviewGame
-      ? 'learn'
-      : 'letsGo';
+    ? 'learn'
+    : 'letsGo';
   const homeCoachTone = isThemeComplete
     ? 'success'
     : hasPendingReviewGame
-      ? 'hint'
-      : 'guide';
+    ? 'hint'
+    : 'guide';
   const homeCoachTapMessages = isThemeComplete
     ? [
         t('home.coach.completeTapOne'),
@@ -190,16 +210,16 @@ export function HomeScreen({ navigation }: Props) {
         t('home.coach.completeTapThree'),
       ]
     : hasPendingReviewGame
-      ? [
-          t('home.coach.reviewTapOne'),
-          t('home.coach.reviewTapTwo'),
-          t('home.coach.reviewTapThree'),
-        ]
-      : [
-          t('home.coach.guideTapOne'),
-          t('home.coach.guideTapTwo'),
-          t('home.coach.guideTapThree'),
-        ];
+    ? [
+        t('home.coach.reviewTapOne'),
+        t('home.coach.reviewTapTwo'),
+        t('home.coach.reviewTapThree'),
+      ]
+    : [
+        t('home.coach.guideTapOne'),
+        t('home.coach.guideTapTwo'),
+        t('home.coach.guideTapThree'),
+      ];
 
   const updateMapLayoutY = useCallback(
     (
@@ -362,15 +382,68 @@ export function HomeScreen({ navigation }: Props) {
     [ctaNode, showFocusButton],
   );
 
+  const openParentPremium = useCallback(
+    (lessonId: string) => {
+      navigation.navigate('Parent', {
+        intent: 'premium',
+        lessonId,
+      });
+    },
+    [navigation],
+  );
+
+  const showPremiumLock = useCallback(
+    (lessonId: string) => {
+      const latestMonetizationSnapshot = getMonetizationSnapshot();
+      if (canAccessLesson(lessonId, latestMonetizationSnapshot)) {
+        return;
+      }
+
+      if (latestMonetizationSnapshot.status === 'initializing') {
+        Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+        return;
+      }
+
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+        { style: 'cancel', text: t('common.close') },
+        {
+          onPress: () => openParentPremium(lessonId),
+          text: t('premium.askParent'),
+        },
+      ]);
+    },
+    [openParentPremium, t],
+  );
+
   const openNode = useCallback(
     (node: ThemeMapNode) => {
+      if (!canAccessLesson(node.lessonId, getMonetizationSnapshot())) {
+        showPremiumLock(node.lessonId);
+        return;
+      }
+
       navigation.navigate('ScenePlayer', {
         learningMode,
         lessonId: node.lessonId,
         sceneId: node.scene.id,
       });
     },
-    [learningMode, navigation],
+    [learningMode, navigation, showPremiumLock],
+  );
+
+  const openReviewGame = useCallback(
+    (lessonId: string) => {
+      if (!canAccessReview(lessonId, getMonetizationSnapshot())) {
+        showPremiumLock(lessonId);
+        return;
+      }
+
+      navigation.navigate('ReviewGame', {
+        lessonId,
+        learningMode,
+      });
+    },
+    [learningMode, navigation, showPremiumLock],
   );
 
   const closeHub = useCallback(() => {
@@ -386,17 +459,14 @@ export function HomeScreen({ navigation }: Props) {
     setIsHubOpen(false);
 
     if (pendingReviewLesson?.reviewGame) {
-      navigation.navigate('ReviewGame', {
-        learningMode,
-        lessonId: pendingReviewLesson.id,
-      });
+      openReviewGame(pendingReviewLesson.id);
       return;
     }
 
     if (ctaNode) {
       openNode(ctaNode);
     }
-  }, [ctaNode, learningMode, navigation, openNode, pendingReviewLesson]);
+  }, [ctaNode, openNode, openReviewGame, pendingReviewLesson]);
 
   const handleHubFocusPress = useCallback(() => {
     setIsHubOpen(false);
@@ -610,21 +680,33 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isLessonCompleted = Boolean(
                           lessonProgress.total > 0 &&
-                          lessonProgress.completed === lessonProgress.total,
+                            lessonProgress.completed === lessonProgress.total,
                         );
                         const isReviewGameCompleted = Boolean(
                           section.lesson.reviewGame &&
-                          completedReviewGameIds.has(
-                            section.lesson.reviewGame.id,
-                          ),
+                            completedReviewGameIds.has(
+                              section.lesson.reviewGame.id,
+                            ),
                         );
                         const isReviewGameCurrent = Boolean(
                           isLessonCompleted && !isReviewGameCompleted,
                         );
+                        const isReviewProgressUnlocked =
+                          journeyMode === 'free' ||
+                          isReviewGameCompleted ||
+                          isReviewGameCurrent;
                         const isLessonCurrent = Boolean(
                           !isThemeComplete &&
-                          currentLessonId === section.lesson.id,
+                            currentLessonId === section.lesson.id,
                         );
+                        const hasLessonAccess = canAccessLesson(
+                          section.lesson.id,
+                          monetizationSnapshot,
+                        );
+                        const isLessonPremiumLocked = !hasLessonAccess;
+                        const isLessonPremiumResolving =
+                          isLessonPremiumLocked &&
+                          monetizationSnapshot.status === 'initializing';
                         const lessonMonumentAlignment =
                           getLessonMonumentAlignment();
                         const firstNode = section.nodes[0];
@@ -634,12 +716,12 @@ export function HomeScreen({ navigation }: Props) {
                         );
                         const isFirstNodePathActive = Boolean(
                           firstNode &&
-                          (isThemeNodeComplete(
-                            firstNode,
-                            completedSceneIds,
-                          ) ||
-                            ctaNode?.key === firstNode.key ||
-                            isThemeComplete),
+                            (isThemeNodeComplete(
+                              firstNode,
+                              completedSceneIds,
+                            ) ||
+                              ctaNode?.key === firstNode.key ||
+                              isThemeComplete),
                         );
 
                         return (
@@ -773,7 +855,7 @@ export function HomeScreen({ navigation }: Props) {
                                 );
                                 const isCurrent =
                                   !isThemeComplete && ctaNode?.key === node.key;
-                                const isUnlocked =
+                                const isProgressUnlocked =
                                   journeyMode === 'free' ||
                                   isCompleted ||
                                   ctaNode?.key === node.key ||
@@ -786,7 +868,14 @@ export function HomeScreen({ navigation }: Props) {
                                       alignment={alignment}
                                       isCompleted={isCompleted}
                                       isCurrent={isCurrent}
-                                      isLocked={!isUnlocked}
+                                      isLocked={
+                                        !isProgressUnlocked &&
+                                        !isLessonPremiumLocked
+                                      }
+                                      isPremiumLocked={isLessonPremiumLocked}
+                                      isPremiumResolving={
+                                        isLessonPremiumResolving
+                                      }
                                       lessonCount={themeLessons.length}
                                       lessonIndex={node.lessonIndex}
                                       lessonTitle={node.lessonTitle}
@@ -809,7 +898,15 @@ export function HomeScreen({ navigation }: Props) {
                                         )
                                       }
                                       onPress={() => {
-                                        if (!isUnlocked) {
+                                        if (!isProgressUnlocked) {
+                                          if (
+                                            !canAccessLesson(
+                                              node.lessonId,
+                                              getMonetizationSnapshot(),
+                                            )
+                                          ) {
+                                            showPremiumLock(node.lessonId);
+                                          }
                                           return;
                                         }
 
@@ -844,27 +941,37 @@ export function HomeScreen({ navigation }: Props) {
                                     iconName={lessonIconName}
                                     isCompleted={isReviewGameCompleted}
                                     isCurrent={isReviewGameCurrent}
-                                    isUnlocked={journeyMode === 'free' || isReviewGameCompleted || isReviewGameCurrent}
+                                    isPremiumLocked={isLessonPremiumLocked}
+                                    isPremiumResolving={
+                                      isLessonPremiumResolving
+                                    }
+                                    isUnlocked={
+                                      isReviewProgressUnlocked ||
+                                      isLessonPremiumLocked
+                                    }
                                     title={getLocalizedLessonTitle(
                                       section.lesson,
                                       appLanguage,
                                     )}
                                     onPress={() => {
+                                      if (isReviewProgressUnlocked) {
+                                        openReviewGame(section.lesson.id);
+                                        return;
+                                      }
+
                                       if (
-                                        journeyMode === 'free' ||
-                                        isReviewGameCompleted ||
-                                        isReviewGameCurrent
+                                        !canAccessReview(
+                                          section.lesson.id,
+                                          getMonetizationSnapshot(),
+                                        )
                                       ) {
-                                        navigation.navigate('ReviewGame', {
-                                          lessonId: section.lesson.id,
-                                          learningMode,
-                                        });
+                                        showPremiumLock(section.lesson.id);
                                       }
                                     }}
                                   />
 
                                   {section.lessonIndex <
-                                    mapSections.length - 1 ? (
+                                  mapSections.length - 1 ? (
                                     <MapConnector
                                       from={lessonMonumentAlignment}
                                       isComplete={isLessonCompleted}
@@ -908,9 +1015,8 @@ export function HomeScreen({ navigation }: Props) {
                 completedReviewGameIds={completedReviewGameIds}
                 completedSceneIds={completedSceneIds}
                 journeyMode={journeyMode}
-                onOpenReviewGame={lessonId =>
-                  navigation.navigate('ReviewGame', { lessonId, learningMode })
-                }
+                onOpenPremium={openParentPremium}
+                onOpenReviewGame={openReviewGame}
               />
             </ScrollView>
           </View>
@@ -931,6 +1037,8 @@ export function HomeScreen({ navigation }: Props) {
           completed={completedSceneCount}
           hasPendingReviewGame={hasPendingReviewGame}
           isComplete={isThemeComplete}
+          isPrimaryPremiumLocked={isHubPrimaryPremiumLocked}
+          isPrimaryPremiumResolving={isHubPrimaryPremiumResolving}
           nextNode={ctaNode}
           onClose={closeHub}
           onFocusCurrent={handleHubFocusPress}
@@ -952,6 +1060,8 @@ type SKidsHubSheetProps = {
   completed: number;
   hasPendingReviewGame: boolean;
   isComplete: boolean;
+  isPrimaryPremiumLocked: boolean;
+  isPrimaryPremiumResolving: boolean;
   nextNode: ThemeMapNode | undefined;
   onClose: () => void;
   onFocusCurrent: () => void;
@@ -969,6 +1079,8 @@ function SKidsHubSheet({
   completed,
   hasPendingReviewGame,
   isComplete,
+  isPrimaryPremiumLocked,
+  isPrimaryPremiumResolving,
   nextNode,
   onClose,
   onFocusCurrent,
@@ -984,11 +1096,13 @@ function SKidsHubSheet({
   const completionPercent =
     safeTotal > 0 ? Math.round((safeCompleted / safeTotal) * 100) : 0;
   const primaryActionDisabled = !hasPendingReviewGame && !nextNode;
-  const heroIconName: SKidsIconName = hasPendingReviewGame
+  const heroIconName: SKidsIconName = isPrimaryPremiumLocked
+    ? 'parentLock'
+    : hasPendingReviewGame
     ? 'replay'
     : isComplete
-      ? 'star'
-      : 'focusLesson';
+    ? 'star'
+    : 'focusLesson';
   const heroTitle = hasPendingReviewGame
     ? t('home.hub.reviewTitle', {
         lessonTitle: pendingReviewLesson
@@ -996,29 +1110,37 @@ function SKidsHubSheet({
           : t('home.recentLesson'),
       })
     : isComplete
-      ? t('home.hub.completeTitle')
-      : nextNode?.sceneTitle ?? t('home.hub.readyTitle');
-  const heroSubtitle = hasPendingReviewGame
+    ? t('home.hub.completeTitle')
+    : nextNode?.sceneTitle ?? t('home.hub.readyTitle');
+  const heroSubtitle = isPrimaryPremiumLocked
+    ? t(
+        isPrimaryPremiumResolving
+          ? 'premium.resolving'
+          : 'premium.kidLockedText',
+      )
+    : hasPendingReviewGame
     ? t('home.hub.reviewSubtitle')
     : isComplete
-      ? t('home.hub.completeSubtitle')
-      : nextNode
-        ? t('home.hub.nextSubtitle', {
-            current: String(nextNode.sceneIndexInLesson + 1),
-            lessonTitle: nextNode.lessonTitle,
-            total: String(nextNode.sceneCountInLesson),
-          })
-        : t('home.hub.emptySubtitle');
-  const primaryLabel = hasPendingReviewGame
+    ? t('home.hub.completeSubtitle')
+    : nextNode
+    ? t('home.hub.nextSubtitle', {
+        current: String(nextNode.sceneIndexInLesson + 1),
+        lessonTitle: nextNode.lessonTitle,
+        total: String(nextNode.sceneCountInLesson),
+      })
+    : t('home.hub.emptySubtitle');
+  const primaryLabel = isPrimaryPremiumLocked
+    ? t(isPrimaryPremiumResolving ? 'premium.resolving' : 'premium.askParent')
+    : hasPendingReviewGame
     ? t('home.hub.primaryReview')
     : isComplete
-      ? t('home.hub.primaryReplay')
-      : t('home.hub.primaryContinue');
+    ? t('home.hub.primaryReplay')
+    : t('home.hub.primaryContinue');
   const giftText = hasPendingReviewGame
     ? t('home.hub.giftReview')
     : isComplete
-      ? t('home.hub.giftComplete')
-      : t('home.hub.giftNext');
+    ? t('home.hub.giftComplete')
+    : t('home.hub.giftNext');
 
   return (
     <Modal
@@ -1180,6 +1302,8 @@ type SceneMapStopProps = {
   isCompleted: boolean;
   isCurrent: boolean;
   isLocked: boolean;
+  isPremiumLocked: boolean;
+  isPremiumResolving: boolean;
   lessonCount: number;
   lessonIndex: number;
   lessonTitle: string;
@@ -1196,6 +1320,8 @@ function SceneMapStop({
   isCompleted,
   isCurrent,
   isLocked,
+  isPremiumLocked,
+  isPremiumResolving,
   lessonCount,
   lessonIndex,
   lessonTitle,
@@ -1206,7 +1332,9 @@ function SceneMapStop({
   sceneTitle,
 }: SceneMapStopProps) {
   const t = useI18n();
-  const isAvailable = !isCompleted && !isCurrent && !isLocked;
+  const isVisuallyLocked = isLocked || isPremiumLocked;
+  const isProgressOnlyLocked = isLocked && !isPremiumLocked;
+  const isAvailable = !isCompleted && !isCurrent && !isVisuallyLocked;
   const lessonPosition = t('home.mapStop.position', {
     lesson: String(lessonIndex + 1),
     lessonTitle,
@@ -1214,7 +1342,11 @@ function SceneMapStop({
     scene: String(sceneIndexInLesson + 1),
     sceneTotal: String(sceneCountInLesson),
   });
-  const accessibilityLabel = isLocked
+  const accessibilityLabel = isPremiumLocked
+    ? `${sceneTitle}. ${t(
+        isPremiumResolving ? 'premium.resolving' : 'premium.kidLockedTitle',
+      )}`
+    : isLocked
     ? t('home.mapStop.lockedAccessibility', {
         position: lessonPosition,
         sceneTitle,
@@ -1231,18 +1363,18 @@ function SceneMapStop({
     <Pressable
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="button"
-      accessibilityState={{ disabled: isLocked }}
-      disabled={isLocked}
+      accessibilityState={{ disabled: isProgressOnlyLocked }}
+      disabled={isProgressOnlyLocked}
       onLayout={onLayout}
       onPress={onPress}
       style={({ pressed }) => {
-        const isPressed = pressed && !isLocked;
+        const isPressed = pressed && !isProgressOnlyLocked;
         return [
           styles.mapStop,
           alignment === 'left' && styles.mapStopLeft,
           alignment === 'center' && styles.mapStopCenter,
           alignment === 'right' && styles.mapStopRight,
-          isLocked && styles.mapStopLocked,
+          isVisuallyLocked && styles.mapStopLocked,
           isPressed && { opacity: 0.92 },
           {
             transform: [
@@ -1254,7 +1386,7 @@ function SceneMapStop({
         ];
       }}
     >
-      {isCurrent ? (
+      {isCurrent && !isPremiumLocked ? (
         <CurrentStopNode>
           <SKidsIcon name={iconName} size={64} />
           <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
@@ -1267,29 +1399,29 @@ function SceneMapStop({
             styles.stopNode,
             isAvailable && styles.stopNodeAvailable,
             isCompleted && styles.stopNodeDone,
-            isLocked && styles.stopNodeLocked,
+            isVisuallyLocked && styles.stopNodeLocked,
           ]}
         >
-          {isLocked ? (
+          {isVisuallyLocked ? (
             <View pointerEvents="none" style={styles.lockedOverlay} />
           ) : null}
           <SKidsIcon
             name={iconName}
-            size={isLocked ? 44 : 52}
-            style={isLocked ? styles.lockedIcon : undefined}
+            size={isVisuallyLocked ? 44 : 52}
+            style={isVisuallyLocked ? styles.lockedIcon : undefined}
           />
           <View
             style={[
               styles.stopNumber,
               isCompleted && styles.stopNumberDone,
-              isLocked && styles.stopNumberLocked,
+              isVisuallyLocked && styles.stopNumberLocked,
             ]}
           >
             <Text
               style={[
                 styles.stopNumberText,
                 isCompleted && styles.stopNumberTextDone,
-                isLocked && styles.stopNumberTextLocked,
+                isVisuallyLocked && styles.stopNumberTextLocked,
               ]}
             >
               {sceneIndexInLesson + 1}
@@ -1300,7 +1432,7 @@ function SceneMapStop({
               <Text style={styles.doneBadgeText}>✓</Text>
             </View>
           ) : null}
-          {isLocked ? (
+          {isVisuallyLocked ? (
             <View style={styles.lockBadge}>
               <SKidsIcon name="parentLock" size={28} />
             </View>
@@ -1387,6 +1519,8 @@ type LessonMilestoneProps = {
   iconName: SKidsIconName;
   isCompleted: boolean;
   isCurrent: boolean;
+  isPremiumLocked: boolean;
+  isPremiumResolving: boolean;
   isUnlocked?: boolean;
   title: string;
   onPress: () => void;
@@ -1475,23 +1609,37 @@ function LessonMilestone({
   iconName,
   isCompleted,
   isCurrent,
+  isPremiumLocked,
+  isPremiumResolving,
   isUnlocked,
   title,
   onPress,
 }: LessonMilestoneProps) {
   const t = useI18n();
   const starRating = getLessonStarRating(isCompleted);
+  const isActionAvailable = Boolean(isUnlocked && !isPremiumLocked);
+  const isProgressOnlyLocked = !isUnlocked && !isPremiumLocked;
 
   return (
     <Pressable
-      accessibilityLabel={t('home.lessonMilestone.accessibility', {
-        stars: String(starRating),
-        title,
-      })}
+      accessibilityLabel={
+        isPremiumLocked
+          ? `${title}. ${t(
+              isPremiumResolving
+                ? 'premium.resolving'
+                : 'premium.kidLockedTitle',
+            )}`
+          : t('home.lessonMilestone.accessibility', {
+              stars: String(starRating),
+              title,
+            })
+      }
       accessibilityRole="button"
+      accessibilityState={{ disabled: isProgressOnlyLocked }}
+      disabled={isProgressOnlyLocked}
       onPress={onPress}
       style={({ pressed }) => {
-        const isPressed = pressed && isUnlocked;
+        const isPressed = pressed && !isProgressOnlyLocked;
         return [
           styles.lessonMilestone,
           alignment === 'left' && styles.lessonMilestoneLeft,
@@ -1508,7 +1656,7 @@ function LessonMilestone({
           isCompleted && styles.lessonMonumentStageDone,
         ]}
       >
-        {isUnlocked ? (
+        {isActionAvailable ? (
           <View
             style={[
               styles.lessonMonumentGlow,
@@ -1516,7 +1664,7 @@ function LessonMilestone({
             ]}
           />
         ) : null}
-        {isUnlocked ? (
+        {isActionAvailable ? (
           <>
             <Text
               style={[
@@ -1542,11 +1690,11 @@ function LessonMilestone({
             size={isCompleted ? 92 : isCurrent ? 88 : 82}
             style={[
               styles.lessonMonumentIcon,
-              !isUnlocked && styles.lessonMonumentIconIdle,
+              !isActionAvailable && styles.lessonMonumentIconIdle,
               styles.lessonMonumentIconPedestalElevated,
             ]}
           />
-          {!isUnlocked ? (
+          {!isActionAvailable ? (
             <View style={styles.lessonMonumentLockBadge}>
               <SKidsIcon name="parentLock" size={28} />
             </View>

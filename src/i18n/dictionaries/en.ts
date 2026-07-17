@@ -18,6 +18,7 @@ export const en: TranslationDictionary = {
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
   'nav.parent': 'Parent Mode',
+  'nav.premium': 'S-Kids Premium',
 
   'splash.loading': 'The fun learning journey begins!',
 
@@ -66,6 +67,148 @@ export const en: TranslationDictionary = {
   'parent.gate.hold': 'Hold to open',
   'parent.gate.holding': 'Holding...',
   'parent.gate.title': 'Parent area',
+  'parent.gate.challengeTitle': 'Parent check',
+  'parent.gate.challengeHint':
+    'Solve this calculation to continue to the parent management area.',
+  'parent.gate.challengePlaceholder': 'Enter the answer',
+  'parent.gate.challengeSubmit': 'Confirm',
+  'parent.gate.challengeWrong': 'That answer is not correct. Please try again.',
+  'parent.gate.challengeCooldown':
+    'There were several incorrect attempts. Please wait a moment and retry.',
+
+  'premium.badge': 'For parents',
+  'premium.title': 'Unlock the full S-Kids journey',
+  'premium.subtitle':
+    'Choose a plan to open every available lesson and review activity.',
+  'premium.benefit.journeyTitle': 'The full learning journey',
+  'premium.benefit.journeyText':
+    'Open the lessons, interactive scenes, and vocabulary beyond the free content.',
+  'premium.benefit.reviewTitle': 'Review every unlocked lesson',
+  'premium.benefit.reviewText':
+    'Your child can revisit lessons and play the review content for every open lesson.',
+  'premium.benefit.accountTitle': 'Restore with the parent account',
+  'premium.benefit.accountText':
+    'RevenueCat verifies purchase access for the signed-in parent account.',
+  'premium.signInTitle': 'Sign in before purchasing',
+  'premium.signInText':
+    'Sign in a parent account so Premium access can be safely linked and restored.',
+  'premium.founder.badge': 'Early parent gift',
+  'premium.founder.title': 'Get one year of Premium free',
+  'premium.founder.marketingText':
+    'The first 500 eligible parent accounts to tap “Get 1 year of Premium” after the campaign opens will receive Premium free for 365 days.',
+  'premium.founder.terms':
+    'One grant per account. No payment details are required, it will not renew automatically, and there is no charge.',
+  'premium.founder.availableText':
+    'The campaign is open. Eligible requests are assigned in the order the backend confirms them.',
+  'premium.founder.checkingText': 'Checking the campaign status...',
+  'premium.founder.processingText':
+    'Your request is being processed. Premium will open only after RevenueCat confirms active access.',
+  'premium.founder.alreadyPremiumText':
+    'This account already has Premium. The app is confirming access again.',
+  'premium.founder.soldOutText':
+    'The campaign has no remaining grants right now. Existing Premium access is unchanged.',
+  'premium.founder.notAvailableText':
+    'The campaign has not opened yet or is temporarily paused.',
+  'premium.founder.signInText':
+    'Sign in a parent account before claiming this gift.',
+  'premium.founder.retryableText':
+    'The campaign could not be checked. Check the connection and try again.',
+  'premium.founder.claim': 'Get 1 year of Premium',
+  'premium.founder.claiming': 'Reserving your grant...',
+  'premium.founder.checking': 'Checking...',
+  'premium.founder.confirming': 'Confirming Premium...',
+  'premium.founder.retry': 'Check again',
+  'premium.founder.soldOutAction': 'No grants remaining',
+  'premium.founder.notAvailableAction': 'Campaign unavailable',
+  'premium.founder.signInAction': 'Sign in to claim',
+  'premium.founder.successTitle': 'One year of Premium is active',
+  'premium.founder.successText':
+    'RevenueCat confirmed active Premium for the parent account. This gift will not renew automatically and has no charge.',
+  'premium.package.monthly': '1 month',
+  'premium.package.annual': '1 year',
+  'premium.package.lifetime': 'Lifetime',
+  'premium.package.bestValue': 'Recommended',
+  'premium.package.savePercent': 'Save {percent}%',
+  'premium.package.perMonth': '{price}/month',
+  'premium.package.billingMonthly': 'Renews monthly',
+  'premium.package.billingAnnual': 'Renews yearly',
+  'premium.package.billingLifetime': 'One-time payment',
+  'premium.purchase': 'Continue with {package}',
+  'premium.purchasing': 'Opening the store...',
+  'premium.restore': 'Restore purchases',
+  'premium.restoring': 'Restoring...',
+  'premium.manage': 'Manage subscription',
+  'premium.retry': 'Try loading again',
+  'premium.close': 'Back to Parent Mode',
+  'premium.purchasePausedTitle': 'New purchases are temporarily paused',
+  'premium.purchasePausedText':
+    'Existing Premium access is unchanged. Parents can still restore or manage a purchased plan.',
+  'premium.offeringUnavailableTitle': 'Premium plans could not be loaded',
+  'premium.offeringUnavailableText':
+    'No fallback price is shown. Check the connection or RevenueCat setup, then retry.',
+  'premium.currentTitle': 'Premium is active',
+  'premium.currentMonthly': 'Monthly Premium plan',
+  'premium.currentAnnual': 'Annual Premium plan',
+  'premium.currentLifetime': 'Lifetime Premium',
+  'premium.currentPromotional': 'Promotional Premium',
+  'premium.currentUntil': 'Active until {date}',
+  'premium.currentRenews': 'This plan will renew under the store terms.',
+  'premium.currentNoRenew': 'This plan will not renew automatically.',
+  'premium.currentLifetimeText': 'This Premium access does not expire.',
+  'premium.disclosure.subscription':
+    'Payment is charged to the store account. The plan renews automatically for the selected period unless a parent cancels it in Apple or Google subscription management.',
+  'premium.disclosure.lifetime':
+    'This is a one-time purchase and does not renew automatically.',
+  'premium.alert.purchasedTitle': 'Premium unlocked',
+  'premium.alert.purchasedText':
+    'RevenueCat confirmed Premium access for the parent account.',
+  'premium.alert.pendingTitle': 'Purchase pending',
+  'premium.alert.pendingText':
+    'The store or an approver still needs to complete this purchase. Premium will open after access is confirmed.',
+  'premium.alert.restoredTitle': 'Premium restored',
+  'premium.alert.restoredText':
+    'Active Premium access has been restored for this account.',
+  'premium.alert.withoutPremiumTitle': 'No active Premium access found',
+  'premium.alert.withoutPremiumText':
+    'The store finished checking but did not return active Premium access for this account.',
+  'premium.alert.alreadyPremium': 'This account already has active Premium access.',
+  'premium.error.title': 'Could not complete the action',
+  'premium.error.configurationMissing':
+    'This build does not have valid RevenueCat configuration yet.',
+  'premium.error.firebaseUnavailable':
+    'Firebase Auth is not ready for this build.',
+  'premium.error.identityFailed':
+    'The parent account could not be linked to the purchase service.',
+  'premium.error.network': 'The store could not be reached. Retry when online.',
+  'premium.error.offeringsUnavailable':
+    'The store did not return an available Premium package.',
+  'premium.error.purchaseNotAllowed':
+    'This device or store account does not currently allow purchases.',
+  'premium.error.store': 'The store could not process this request.',
+  'premium.error.verificationFailed':
+    'Premium access could not be verified. Please try loading it again.',
+  'premium.error.unknown': 'An unknown error occurred. Please try again.',
+  'premium.legal.privacy': 'Privacy Policy',
+  'premium.legal.terms': 'Terms of Use',
+  'premium.legal.support': 'Contact support',
+  'premium.legal.supportSubject': 'S-Kids Premium support',
+  'premium.legal.linkErrorTitle': 'Could not open the link',
+  'premium.legal.linkErrorText': 'Please try again or contact support later.',
+  'premium.kidLockedTitle': 'This lesson needs Premium',
+  'premium.kidLockedText': 'Ask a parent to unlock it so learning can continue.',
+  'premium.askParent': 'Ask a parent to unlock',
+  'premium.resolving': 'Checking Premium access...',
+  'premium.parentLockedMessage':
+    'This lesson needs Premium. A parent can view the plans to unlock it.',
+  'premium.openPlans': 'View Premium plans',
+  'premium.gate.loading': 'Checking Premium',
+  'premium.gate.loadingMessage':
+    'The app is confirming access for the parent account.',
+  'premium.gate.title': 'Premium content',
+  'premium.gate.message':
+    'This content needs Premium. Ask a parent to unlock it to continue.',
+  'premium.gate.askParent': 'Ask a parent to unlock',
+  'premium.gate.back': 'Go back',
   'parent.account.appleTokenMissing':
     'Apple did not return the token needed to finish this action. Please sign in again and retry.',
   'parent.account.appleUnavailable':
@@ -76,7 +219,7 @@ export const en: TranslationDictionary = {
   'parent.account.deleteAccount': 'Delete account',
   'parent.account.deleteConfirmAction': 'Delete account',
   'parent.account.deleteConfirmText':
-    'The sign-in account and progress synced to Firestore will be deleted. Local progress on this device will remain.',
+    'The sign-in account and progress synced to Firestore will be deleted. Local progress on this device will remain. Deleting the account does not cancel an Apple or Google subscription; use Manage subscription first if you want to stop renewal.',
   'parent.account.deleteConfirmTitle': 'Delete parent account?',
   'parent.account.deletedText':
     'The account and cloud progress have been deleted. Local progress remains on this device.',

@@ -52,6 +52,12 @@ export function ReviewLibraryScreen({ navigation }: Props) {
             appLanguage={appLanguage}
             completedReviewGameIds={completedReviewGameIds}
             completedSceneIds={completedSceneIds}
+            onOpenPremium={lessonId =>
+              navigation.navigate('Parent', {
+                intent: 'premium',
+                lessonId,
+              })
+            }
             onOpenReviewGame={lessonId =>
               navigation.navigate('ReviewGame', { lessonId })
             }

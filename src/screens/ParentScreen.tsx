@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import {
   Alert,
+  AppState,
   FlatList,
   Linking,
   Modal,
@@ -42,6 +43,10 @@ import {
   type ActivityLog,
 } from '../engine/DailyActivityTracker';
 import {
+  canAccessLesson,
+  canAccessReview,
+} from '../engine/ContentAccessPolicy';
+import {
   getParentSettings,
   learningDifficultyOptions,
   saveParentLearningMode,
@@ -49,6 +54,12 @@ import {
   type ChildProfile,
   defaultChildProfile,
 } from '../engine/ParentSettingsManager';
+import { useMonetizationSnapshot } from '../engine/MonetizationManager';
+import {
+  grantParentAccess,
+  revokeParentAccess,
+  useParentAccessSnapshot,
+} from '../engine/ParentAccessSession';
 import type {
   AppLanguage,
   AppTheme,
@@ -80,7 +91,33 @@ import { getLessonIconName } from '../utils/lessonIcons';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
 
 const GATE_DURATION_MS = 3000;
+const GATE_COOLDOWN_MS = 10000;
 const WEEKLY_WORD_TARGET = 30;
+
+type ParentGateChallenge = Readonly<{
+  answer: number;
+  expression: string;
+}>;
+
+function createParentGateChallenge(): ParentGateChallenge {
+  const first = 10 + Math.floor(Math.random() * 90);
+  const second = 10 + Math.floor(Math.random() * 90);
+  const shouldAdd = Math.random() >= 0.5;
+
+  if (shouldAdd) {
+    return {
+      answer: first + second,
+      expression: `${first} + ${second}`,
+    };
+  }
+
+  const larger = Math.max(first, second);
+  const smaller = Math.min(first, second);
+  return {
+    answer: larger - smaller,
+    expression: `${larger} − ${smaller}`,
+  };
+}
 
 function haveSameLessonIds(first: string[], second: string[]) {
   return (
@@ -106,12 +143,21 @@ function getLocalDateString() {
   return `${year}-${month}-${day}`;
 }
 
-export function ParentScreen({ navigation }: Props) {
+export function ParentScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
   const { appThemePreference, setAppThemePreference } = useAppTheme();
   const responsiveLayout = useResponsiveLayout();
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const { isGranted: isUnlocked } = useParentAccessSnapshot();
+  const monetizationSnapshot = useMonetizationSnapshot();
+  const [gateStep, setGateStep] = useState<'challenge' | 'hold'>('hold');
+  const [gateChallenge, setGateChallenge] = useState(
+    createParentGateChallenge,
+  );
+  const [gateAnswer, setGateAnswer] = useState('');
+  const [gateError, setGateError] = useState(false);
+  const [gateWrongAttemptCount, setGateWrongAttemptCount] = useState(0);
+  const [isGateCoolingDown, setIsGateCoolingDown] = useState(false);
   const [isDashboardReady, setIsDashboardReady] = useState(false);
   const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
@@ -156,6 +202,10 @@ export function ParentScreen({ navigation }: Props) {
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
   const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const gateCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const handledIntentRef = useRef<string | null>(null);
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
   const earnedStickerCount = progress?.earnedStickerIds.length ?? 0;
@@ -318,6 +368,12 @@ export function ParentScreen({ navigation }: Props) {
   const reviewLesson =
     visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
     focusLesson;
+  const hasFocusLessonAccess = focusLesson
+    ? canAccessLesson(focusLesson.id, monetizationSnapshot)
+    : false;
+  const hasReviewLessonAccess = reviewLesson
+    ? canAccessReview(reviewLesson.id, monetizationSnapshot)
+    : false;
   const reviewWords = useMemo(() => {
     if (!reviewLesson) {
       return [];
@@ -335,8 +391,10 @@ export function ParentScreen({ navigation }: Props) {
 
     return learnedWordsInLesson.length > 0
       ? learnedWordsInLesson
-      : vocabulary.slice(0, 3).map(item => item.word);
-  }, [progress?.learnedWordIds, reviewLesson]);
+      : hasReviewLessonAccess
+      ? vocabulary.slice(0, 3).map(item => item.word)
+      : [];
+  }, [hasReviewLessonAccess, progress?.learnedWordIds, reviewLesson]);
   const isFocusLessonComplete =
     focusSceneCount > 0 && completedFocusSceneCount === focusSceneCount;
   const isReviewLessonReadyForGame = Boolean(
@@ -345,12 +403,18 @@ export function ParentScreen({ navigation }: Props) {
         isSceneProgressComplete(completedSceneIds, reviewLesson.id, scene.id),
       ),
   );
-  const focusLessonBadge = isFocusLessonComplete
+  const focusLessonBadge = !hasFocusLessonAccess
+    ? t('premium.badge')
+    : isFocusLessonComplete
     ? t('parent.stats.lessonBadgeReview')
     : completedFocusSceneCount > 0
     ? t('parent.stats.lessonBadgeLearning')
     : t('parent.stats.lessonBadgeNext');
-  const focusLessonAction = isFocusLessonComplete ? t('parent.stats.lessonActionReview') : t('parent.stats.lessonActionContinue');
+  const focusLessonAction = !hasFocusLessonAccess
+    ? t('premium.openPlans')
+    : isFocusLessonComplete
+    ? t('parent.stats.lessonActionReview')
+    : t('parent.stats.lessonActionContinue');
   const heroTitle =
     todayWordCount > 0 || todaySceneCount > 0
       ? t('parent.stats.heroTitleGreat', { name: childDisplayName })
@@ -415,7 +479,9 @@ export function ParentScreen({ navigation }: Props) {
     ? getLocalizedLessonTitle(reviewLesson, appLanguage)
     : undefined;
   const tipText =
-    reviewLesson?.metadata?.parentTipVi ??
+    !hasReviewLessonAccess && reviewWords.length === 0
+      ? t('premium.parentLockedMessage')
+      : reviewLesson?.metadata?.parentTipVi ??
     (reviewWords.length > 0
       ? t('parent.stats.tipReviewWords', { word: reviewWords[0] })
       : t('parent.stats.tipEmpty'));
@@ -437,6 +503,13 @@ export function ParentScreen({ navigation }: Props) {
     if (gateTimerRef.current) {
       clearTimeout(gateTimerRef.current);
       gateTimerRef.current = null;
+    }
+  }
+
+  function clearGateCooldownTimer() {
+    if (gateCooldownTimerRef.current) {
+      clearTimeout(gateCooldownTimerRef.current);
+      gateCooldownTimerRef.current = null;
     }
   }
 
@@ -483,11 +556,76 @@ export function ParentScreen({ navigation }: Props) {
     return clearGateTimer;
   }, []);
 
+  useEffect(() => {
+    return clearGateCooldownTimer;
+  }, []);
+
+  useEffect(
+    () => () => {
+      revokeParentAccess();
+    },
+    [],
+  );
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active' || isUnlocked) {
+        return;
+      }
+
+      clearGateTimer();
+      clearGateCooldownTimer();
+      setIsHolding(false);
+      setGateStep('hold');
+      setGateAnswer('');
+      setGateError(false);
+      setGateWrongAttemptCount(0);
+      setIsGateCoolingDown(false);
+    });
+
+    return () => subscription.remove();
+  }, [isUnlocked]);
+
+  useEffect(() => {
+    if (isUnlocked) {
+      return;
+    }
+
+    setGateStep('hold');
+    setGateAnswer('');
+    setGateError(false);
+    setGateWrongAttemptCount(0);
+    setIsGateCoolingDown(false);
+    clearGateCooldownTimer();
+  }, [isUnlocked]);
+
+  useEffect(() => {
+    if (!isUnlocked || !route.params?.intent) {
+      return;
+    }
+
+    const intentKey = `${route.params.intent}:${route.params.lessonId ?? ''}`;
+    if (handledIntentRef.current === intentKey) {
+      return;
+    }
+
+    handledIntentRef.current = intentKey;
+    if (
+      route.params.intent === 'premium' ||
+      route.params.intent === 'founderPromo'
+    ) {
+      navigation.navigate('Premium');
+    }
+  }, [isUnlocked, navigation, route.params?.intent, route.params?.lessonId]);
+
   const handleHoldStart = () => {
     clearGateTimer();
     setIsHolding(true);
     gateTimerRef.current = setTimeout(() => {
-      setIsUnlocked(true);
+      setGateChallenge(createParentGateChallenge());
+      setGateAnswer('');
+      setGateError(false);
+      setGateStep('challenge');
       setIsHolding(false);
     }, GATE_DURATION_MS);
   };
@@ -500,7 +638,44 @@ export function ParentScreen({ navigation }: Props) {
     clearGateTimer();
   };
 
+  const handleGateChallengeSubmit = () => {
+    if (isGateCoolingDown || gateAnswer.trim().length === 0) {
+      return;
+    }
+
+    if (Number(gateAnswer.trim()) === gateChallenge.answer) {
+      setGateError(false);
+      setGateWrongAttemptCount(0);
+      grantParentAccess();
+      return;
+    }
+
+    const nextWrongAttemptCount = gateWrongAttemptCount + 1;
+    setGateError(true);
+    setGateAnswer('');
+    setGateWrongAttemptCount(nextWrongAttemptCount);
+    setGateChallenge(createParentGateChallenge());
+
+    if (nextWrongAttemptCount < 3) {
+      return;
+    }
+
+    setGateWrongAttemptCount(0);
+    setIsGateCoolingDown(true);
+    clearGateCooldownTimer();
+    gateCooldownTimerRef.current = setTimeout(() => {
+      setIsGateCoolingDown(false);
+      setGateError(false);
+      gateCooldownTimerRef.current = null;
+    }, GATE_COOLDOWN_MS);
+  };
+
   const handleOpenLesson = (lessonId: string) => {
+    if (!canAccessLesson(lessonId, monetizationSnapshot)) {
+      navigation.navigate('Premium');
+      return;
+    }
+
     navigation.navigate('LessonPack', { lessonId, openedFromParent: true });
   };
 
@@ -514,6 +689,11 @@ export function ParentScreen({ navigation }: Props) {
 
   const handleReviewTogether = () => {
     if (!reviewLesson) {
+      return;
+    }
+
+    if (!hasReviewLessonAccess) {
+      navigation.navigate('Premium');
       return;
     }
 
@@ -917,23 +1097,80 @@ export function ParentScreen({ navigation }: Props) {
         <View style={styles.gateContainer}>
           <AppCard style={styles.gateCard}>
             <KidBadge tone="teal">{t('parent.gate.badge')}</KidBadge>
-            <Text style={styles.title}>{t('parent.gate.title')}</Text>
-            <Text style={styles.gateHint}>
-              {t('parent.gate.hint')}
-            </Text>
-            <Pressable
-              accessibilityRole="button"
-              onPressIn={handleHoldStart}
-              onPressOut={handleHoldEnd}
-              style={({ pressed }) => [
-                styles.holdButton,
-                (pressed || isHolding) && styles.holdButtonActive,
-              ]}
-            >
-              <Text style={styles.holdButtonText}>
-                {isHolding ? t('parent.gate.holding') : t('parent.gate.hold')}
-              </Text>
-            </Pressable>
+            {gateStep === 'hold' ? (
+              <>
+                <Text style={styles.title}>{t('parent.gate.title')}</Text>
+                <Text style={styles.gateHint}>{t('parent.gate.hint')}</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPressIn={handleHoldStart}
+                  onPressOut={handleHoldEnd}
+                  style={({ pressed }) => [
+                    styles.holdButton,
+                    (pressed || isHolding) && styles.holdButtonActive,
+                  ]}
+                >
+                  <Text style={styles.holdButtonText}>
+                    {isHolding
+                      ? t('parent.gate.holding')
+                      : t('parent.gate.hold')}
+                  </Text>
+                </Pressable>
+              </>
+            ) : (
+              <>
+                <Text style={styles.title}>
+                  {t('parent.gate.challengeTitle')}
+                </Text>
+                <Text style={styles.gateHint}>
+                  {t('parent.gate.challengeHint')}
+                </Text>
+                <Text style={styles.gateQuestion}>
+                  {gateChallenge.expression} = ?
+                </Text>
+                <TextInput
+                  accessibilityLabel={t('parent.gate.challengePlaceholder')}
+                  editable={!isGateCoolingDown}
+                  keyboardType="number-pad"
+                  onChangeText={value => {
+                    setGateAnswer(value.replace(/[^0-9-]/g, ''));
+                    setGateError(false);
+                  }}
+                  onSubmitEditing={handleGateChallengeSubmit}
+                  placeholder={t('parent.gate.challengePlaceholder')}
+                  placeholderTextColor={colors.muted}
+                  returnKeyType="done"
+                  style={styles.gateAnswerInput}
+                  value={gateAnswer}
+                />
+                {isGateCoolingDown ? (
+                  <Text style={styles.gateError}>
+                    {t('parent.gate.challengeCooldown')}
+                  </Text>
+                ) : gateError ? (
+                  <Text style={styles.gateError}>
+                    {t('parent.gate.challengeWrong')}
+                  </Text>
+                ) : null}
+                <Pressable
+                  accessibilityRole="button"
+                  disabled={
+                    isGateCoolingDown || gateAnswer.trim().length === 0
+                  }
+                  onPress={handleGateChallengeSubmit}
+                  style={({ pressed }) => [
+                    styles.holdButton,
+                    (isGateCoolingDown || gateAnswer.trim().length === 0) &&
+                      styles.actionDisabled,
+                    pressed && styles.holdButtonActive,
+                  ]}
+                >
+                  <Text style={styles.holdButtonText}>
+                    {t('parent.gate.challengeSubmit')}
+                  </Text>
+                </Pressable>
+              </>
+            )}
           </AppCard>
         </View>
       </Screen>
@@ -1246,7 +1483,9 @@ export function ParentScreen({ navigation }: Props) {
                 ]}
               >
                 <Text style={styles.reviewActionText}>
-                  {isReviewLessonReadyForGame
+                  {!hasReviewLessonAccess
+                    ? t('premium.openPlans')
+                    : isReviewLessonReadyForGame
                     ? t('parent.stats.playMemoryTogether')
                     : t('parent.stats.openReviewActivity')}
                 </Text>
@@ -1531,10 +1770,18 @@ export function ParentScreen({ navigation }: Props) {
                           const isCurrentLesson = focusLesson?.id === lesson.id;
                           const isSelected = selectedLessonId === lesson.id;
                           const isLast = index === themeLessons.length - 1;
-                          const lessonWords = getLessonVocabulary(lesson)
-                            .slice(0, 3)
-                            .map(item => item.word);
-                          const lessonState = !isVisible
+                          const hasLessonAccess = canAccessLesson(
+                            lesson.id,
+                            monetizationSnapshot,
+                          );
+                          const lessonWords = hasLessonAccess
+                            ? getLessonVocabulary(lesson)
+                                .slice(0, 3)
+                                .map(item => item.word)
+                            : [];
+                          const lessonState = !hasLessonAccess
+                            ? t('premium.badge')
+                            : !isVisible
                             ? t('parent.stats.lessonStateHidden')
                             : isCurrentLesson && hasCompletedAllScenes
                             ? t('parent.stats.lessonStateReadyToReview')
@@ -1629,7 +1876,9 @@ export function ParentScreen({ navigation }: Props) {
                               {isSelected && isVisible ? (
                                 <View style={styles.lessonPreview}>
                                   <Text style={styles.lessonPreviewLabel}>
-                                    {t('parent.stats.lessonPreviewLabel')}
+                                    {hasLessonAccess
+                                      ? t('parent.stats.lessonPreviewLabel')
+                                      : t('premium.parentLockedMessage')}
                                   </Text>
                                   <View style={styles.lessonPreviewWords}>
                                     {lessonWords.map((word, wordIndex) => (
@@ -1662,7 +1911,9 @@ export function ParentScreen({ navigation }: Props) {
                                     <Text
                                       style={styles.lessonPreviewActionText}
                                     >
-                                      {t('parent.stats.viewLesson')}
+                                      {hasLessonAccess
+                                        ? t('parent.stats.viewLesson')
+                                        : t('premium.openPlans')}
                                     </Text>
                                     <Text
                                       style={styles.lessonPreviewActionArrow}
@@ -2790,6 +3041,27 @@ const styles = createThemedStyles(() => ({
   gateHint: {
     color: colors.textSoft,
     ...typography.body,
+  },
+  gateQuestion: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.hero,
+  },
+  gateAnswerInput: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    color: colors.text,
+    minHeight: 56,
+    paddingHorizontal: spacing.md,
+    textAlign: 'center',
+    ...typography.title,
+  },
+  gateError: {
+    color: colors.alert,
+    textAlign: 'center',
+    ...typography.caption,
   },
   header: {
     gap: spacing.sm,

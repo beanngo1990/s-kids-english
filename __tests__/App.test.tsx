@@ -9,6 +9,14 @@ import ReactTestRenderer from 'react-test-renderer';
 import { HomeScreen } from '../src/screens/HomeScreen';
 import { OnboardingScreen } from '../src/screens/OnboardingScreen';
 
+jest.mock('../src/engine/MonetizationManager', () => {
+  const snapshot = { status: 'free' };
+  return {
+    getMonetizationSnapshot: () => snapshot,
+    useMonetizationSnapshot: () => snapshot,
+  };
+});
+
 test('renders the home screen', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
 

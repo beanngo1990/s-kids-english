@@ -32,5 +32,9 @@ export type RootStackParamList = {
   StickerCollection: {
     highlightedStickerId?: string;
   } | undefined;
-  Parent: undefined;
+  Parent: {
+    intent?: 'dashboard' | 'premium' | 'founderPromo';
+    lessonId?: string;
+  } | undefined;
+  Premium: undefined;
 };

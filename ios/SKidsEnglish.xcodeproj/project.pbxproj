@@ -166,6 +166,9 @@
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.SignInWithApple = {
 								enabled = 1;
 							};
@@ -339,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seduforge.skidsenglish.app;
 				PRODUCT_NAME = SKidsEnglish;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OBJC_BRIDGING_HEADER = "SKidsEnglish/SKidsEnglish-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,6 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seduforge.skidsenglish.app;
 				PRODUCT_NAME = SKidsEnglish;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OBJC_BRIDGING_HEADER = "SKidsEnglish/SKidsEnglish-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
