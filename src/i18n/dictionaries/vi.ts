@@ -127,10 +127,15 @@ export const vi = {
   'premium.currentLifetime': 'Premium trọn đời',
   'premium.currentFounder': 'Premium quà tặng 1 năm',
   'premium.currentPromotional': 'Premium được tặng',
+  'premium.currentGeneric': 'S-Kids Premium',
   'premium.currentUntil': 'Có hiệu lực đến {date}',
   'premium.currentRenews': 'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
   'premium.currentNoRenew': 'Gói sẽ không tự động gia hạn.',
   'premium.currentLifetimeText': 'Quyền Premium này không hết hạn.',
+  'premium.status.badge': 'Premium',
+  'premium.status.accountBadge': 'Tài khoản Premium',
+  'premium.status.accessibility': 'S-Kids Premium đang hoạt động',
+  'premium.status.viewDetails': 'Xem chi tiết Premium',
   'premium.disclosure.subscription':
     'Khoản thanh toán được tính vào tài khoản cửa hàng. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký của Apple hoặc Google.',
   'premium.disclosure.lifetime':

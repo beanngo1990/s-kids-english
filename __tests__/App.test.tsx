@@ -9,12 +9,17 @@ import ReactTestRenderer from 'react-test-renderer';
 import { HomeScreen } from '../src/screens/HomeScreen';
 import { OnboardingScreen } from '../src/screens/OnboardingScreen';
 
+let mockMonetizationStatus = 'free';
+
 jest.mock('../src/engine/MonetizationManager', () => {
-  const snapshot = { status: 'free' };
   return {
-    getMonetizationSnapshot: () => snapshot,
-    useMonetizationSnapshot: () => snapshot,
+    getMonetizationSnapshot: () => ({ status: mockMonetizationStatus }),
+    useMonetizationSnapshot: () => ({ status: mockMonetizationStatus }),
   };
+});
+
+beforeEach(() => {
+  mockMonetizationStatus = 'free';
 });
 
 test('renders the home screen', async () => {
@@ -43,6 +48,7 @@ test('renders the home screen', async () => {
   });
 
   expect(textValues).toContain('S-Kids');
+  expect(textValues).not.toContain('Premium');
   expect(textValues).toContain('Bản đồ');
   expect(textValues).toContain('Chơi');
   expect(textValues).not.toContain('Chơi ngay');
@@ -56,6 +62,41 @@ test('renders the home screen', async () => {
   expect(textValues).toContain('Bữa tối của gia đình');
   expect(textValues).toContain('Dọn dẹp sau bữa tối');
   expect(textValues).toContain('Giờ đi ngủ');
+});
+
+test('shows the Premium badge in the home header for active access', async () => {
+  mockMonetizationStatus = 'premium';
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(() => {
+    tree = ReactTestRenderer.create(
+      <HomeScreen
+        navigation={
+          {
+            addListener: jest.fn(() => jest.fn()),
+            navigate: jest.fn(),
+          } as never
+        }
+        route={{ key: 'Home', name: 'Home' } as never}
+      />,
+    );
+  });
+
+  const hasPremiumAccessibilityLabel = tree?.root
+    .findAll(
+      node =>
+        typeof node.props.accessibilityLabel === 'string' &&
+        node.props.accessibilityLabel.includes(
+          'S-Kids Premium đang hoạt động',
+        ),
+    )
+    .some(Boolean);
+
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
+
+  expect(hasPremiumAccessibilityLabel).toBe(true);
 });
 
 test('renders parent onboarding before first use', async () => {

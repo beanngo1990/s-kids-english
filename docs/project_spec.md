@@ -309,6 +309,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   RevenueCat offering, mua, restore, subscription management URL, trạng thái gói đang active và
   retry. UI hỗ trợ package monthly/annual/lifetime; giá/currency hiển thị lấy từ store metadata,
   không lấy các giá tư vấn hardcode trong app.
+- Khi normalized monetization status là `premium`, Kid Mode hiển thị chip Premium nhỏ trong
+  header mà không đưa giá, hạn dùng hoặc chi tiết mua hàng vào UI của bé. Parent dashboard hiển
+  thị indicator Premium gọn với icon crown riêng, trạng thái, loại quyền và entry mở
+  `PremiumScreen`; hạn dùng/gia hạn nằm trong màn Premium chi tiết. Phần tài khoản phụ huynh cũng
+  gắn badge Premium với account đang đăng nhập. Các dấu hiệu này đều ẩn khi status là
+  `initializing`, `signedOut`, `free` hoặc `unavailable`.
 - `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Verified
   `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên;
   listener và explicit refresh cập nhật trạng thái. Founder access là nhánh local riêng, được tính
@@ -739,10 +745,10 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng gần nhất sau thay đổi Founder cutoff:
+Tại lần kiểm chứng gần nhất sau thay đổi hiển thị trạng thái Premium:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 194/194 tests pass trong 25 suites.
+- Jest: 202/202 tests pass trong 26 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì

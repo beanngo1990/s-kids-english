@@ -30,6 +30,7 @@ import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage } from '../components/mascot';
 import { ParentAccountCard } from '../components/ParentAccountCard';
+import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -1185,6 +1186,11 @@ export function ParentScreen({ navigation, route }: Props) {
             <ChildProfileCard
               profile={childProfile}
               onEditPress={() => setActiveTab('settings')}
+            />
+
+            <PremiumStatusCard
+              onPress={() => navigation.navigate('Premium')}
+              snapshot={monetizationSnapshot}
             />
 
             <AppCard
