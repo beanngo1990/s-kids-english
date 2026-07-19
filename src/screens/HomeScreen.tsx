@@ -484,6 +484,7 @@ export function HomeScreen({ navigation }: Props) {
     <Screen>
       <View style={styles.shell}>
         <KidModeHeader
+          isPremium={monetizationSnapshot.status === 'premium'}
           totalXP={progress?.totalXP ?? 0}
           onOpenHub={handleOpenHub}
           onOpenParent={() => navigation.navigate('Parent')}

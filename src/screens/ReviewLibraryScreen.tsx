@@ -6,6 +6,7 @@ import { KidModeHeader } from '../components/KidModeHeader';
 import { KidModeTabs } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { Screen } from '../components/Screen';
+import { useMonetizationSnapshot } from '../engine/MonetizationManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { useSavedAppLanguage } from '../i18n';
 import { layout } from '../theme/spacing';
@@ -14,6 +15,7 @@ import type { RootStackParamList } from '../types/navigation';
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewLibrary'>;
 
 export function ReviewLibraryScreen({ navigation }: Props) {
+  const monetizationSnapshot = useMonetizationSnapshot();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const appLanguage = useSavedAppLanguage();
   const completedSceneIds = useMemo(
@@ -39,6 +41,7 @@ export function ReviewLibraryScreen({ navigation }: Props) {
     <Screen>
       <View style={styles.shell}>
         <KidModeHeader
+          isPremium={monetizationSnapshot.status === 'premium'}
           onOpenParent={() => navigation.navigate('Parent')}
           totalXP={progress?.totalXP ?? 0}
         />

@@ -129,10 +129,15 @@ export const en: TranslationDictionary = {
   'premium.currentLifetime': 'Lifetime Premium',
   'premium.currentFounder': 'One-year Founder Premium',
   'premium.currentPromotional': 'Promotional Premium',
+  'premium.currentGeneric': 'S-Kids Premium',
   'premium.currentUntil': 'Active until {date}',
   'premium.currentRenews': 'This plan will renew under the store terms.',
   'premium.currentNoRenew': 'This plan will not renew automatically.',
   'premium.currentLifetimeText': 'This Premium access does not expire.',
+  'premium.status.badge': 'Premium',
+  'premium.status.accountBadge': 'Premium account',
+  'premium.status.accessibility': 'S-Kids Premium is active',
+  'premium.status.viewDetails': 'View Premium details',
   'premium.disclosure.subscription':
     'Payment is charged to the store account. The plan renews automatically for the selected period unless a parent cancels it in Apple or Google subscription management.',
   'premium.disclosure.lifetime':

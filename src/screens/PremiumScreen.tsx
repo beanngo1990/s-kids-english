@@ -43,7 +43,11 @@ import {
   setParentExternalFlowActive,
   useParentAccessSnapshot,
 } from '../engine/ParentAccessSession';
-import { useI18n, type Translator } from '../i18n';
+import {
+  useSavedAppLanguage,
+  useTranslations,
+  type Translator,
+} from '../i18n';
 import {
   refreshRemoteMonetizationConfig,
   subscribeRemoteMonetizationConfigUpdates,
@@ -52,7 +56,12 @@ import {
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
+import type { AppLanguage } from '../i18n/types';
 import type { RootStackParamList } from '../types/navigation';
+import {
+  getPremiumProductTypeTitle,
+  getPremiumStatusDetailLines,
+} from '../utils/premiumStatus';
 import { Screen } from '../components/Screen';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Premium'>;
@@ -60,7 +69,8 @@ type SignInAction = 'apple' | 'google' | null;
 
 export function PremiumScreen({ navigation }: Props) {
   useThemeSync();
-  const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
+  const t = useTranslations(appLanguage);
   const { isGranted } = useParentAccessSnapshot();
   const monetization = useMonetizationSnapshot();
   const remoteConfig = useRemoteMonetizationConfig();
@@ -345,6 +355,7 @@ export function PremiumScreen({ navigation }: Props) {
 
       {monetization.status === 'premium' && (
         <CurrentPremiumCard
+          appLanguage={appLanguage}
           expirationDate={monetization.expirationDate}
           productType={monetization.activeProductType}
           t={t}
@@ -658,41 +669,35 @@ function PackageOption({
 }
 
 function CurrentPremiumCard({
+  appLanguage,
   expirationDate,
   productType,
   t,
   willRenew,
 }: {
+  appLanguage: AppLanguage;
   expirationDate?: string;
   productType?: MonetizationProductType;
   t: Translator;
   willRenew: boolean;
 }) {
-  const isLifetime = productType === 'lifetime';
-  const formattedExpirationDate = formatExpirationDate(expirationDate);
+  const detailLines = getPremiumStatusDetailLines(
+    t,
+    { expirationDate, productType, willRenew },
+    appLanguage,
+  );
 
   return (
     <AppCard style={styles.activeCard}>
       <Text style={styles.sectionTitle}>{t('premium.currentTitle')}</Text>
       <Text style={styles.activePlan}>
-        {getProductTypeTitle(t, productType)}
+        {getPremiumProductTypeTitle(t, productType)}
       </Text>
-      {isLifetime ? (
-        <Text style={styles.bodyText}>{t('premium.currentLifetimeText')}</Text>
-      ) : (
-        <>
-          {formattedExpirationDate ? (
-            <Text style={styles.bodyText}>
-              {t('premium.currentUntil', { date: formattedExpirationDate })}
-            </Text>
-          ) : null}
-          <Text style={styles.bodyText}>
-            {willRenew
-              ? t('premium.currentRenews')
-              : t('premium.currentNoRenew')}
-          </Text>
-        </>
-      )}
+      {detailLines.map(line => (
+        <Text key={line} style={styles.bodyText}>
+          {line}
+        </Text>
+      ))}
     </AppCard>
   );
 }
@@ -740,42 +745,6 @@ function getPackageBillingCopy(
   }
 
   return t('premium.package.billingLifetime');
-}
-
-function getProductTypeTitle(
-  t: Translator,
-  productType: MonetizationProductType | undefined,
-) {
-  if (productType === 'monthly') {
-    return t('premium.currentMonthly');
-  }
-
-  if (productType === 'annual') {
-    return t('premium.currentAnnual');
-  }
-
-  if (productType === 'lifetime') {
-    return t('premium.currentLifetime');
-  }
-
-  if (productType === 'founder') {
-    return t('premium.currentFounder');
-  }
-
-  return t('premium.currentPromotional');
-}
-
-function formatExpirationDate(expirationDate: string | undefined) {
-  if (!expirationDate) {
-    return '';
-  }
-
-  const parsedDate = new Date(expirationDate);
-  if (Number.isNaN(parsedDate.getTime())) {
-    return '';
-  }
-
-  return parsedDate.toLocaleDateString();
 }
 
 function getMonetizationErrorMessage(

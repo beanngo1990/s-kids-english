@@ -4,6 +4,7 @@ import { ActivityIndicator, Alert, Linking, Text, View } from 'react-native';
 import { AppButton } from './AppButton';
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
+import { PremiumStatusBadge } from './PremiumStatusBadge';
 import { CloudProgressSyncError } from '../engine/CloudProgressSyncManager';
 import {
   getCloudSyncErrorMessage,
@@ -197,9 +198,14 @@ export function ParentAccountCard() {
 
       {user ? (
         <View style={styles.accountBox}>
-          <Text style={styles.accountLabel}>
-            {t('parent.account.signedIn')}
-          </Text>
+          <View style={styles.accountTopRow}>
+            <Text style={styles.accountLabel}>
+              {t('parent.account.signedIn')}
+            </Text>
+            {monetization.status === 'premium' ? (
+              <PremiumStatusBadge compact variant="account" />
+            ) : null}
+          </View>
           <Text style={styles.accountName}>{displayName}</Text>
           {providerLabel ? (
             <Text style={styles.accountMeta}>
@@ -354,6 +360,13 @@ const styles = createThemedStyles(() => ({
   accountName: {
     ...typography.body,
     color: colors.text,
+  },
+  accountTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+    justifyContent: 'space-between',
   },
   actions: {
     gap: spacing.sm,

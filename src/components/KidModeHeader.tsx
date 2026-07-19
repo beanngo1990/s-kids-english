@@ -1,9 +1,10 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppLogo } from './AppLogo';
 import { KidIconButton } from './KidIconButton';
+import { PremiumStatusBadge } from './PremiumStatusBadge';
 import { SKidsIcon } from './SKidsIcon';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
@@ -11,22 +12,35 @@ import { shadows } from '../theme/shadows';
 import { useI18n } from '../i18n';
 
 type KidModeHeaderProps = {
+  isPremium?: boolean;
   totalXP: number;
   onOpenHub?: () => void;
   onOpenParent: () => void;
 };
 
 export function KidModeHeader({
+  isPremium = false,
   totalXP,
   onOpenHub,
   onOpenParent,
 }: KidModeHeaderProps) {
   useThemeSync();
   const t = useI18n();
+  const { fontScale, width } = useWindowDimensions();
+  const useIconOnlyPremiumBadge = width < 360 || fontScale > 1.3;
   const brandContent = (
     <>
       <AppLogo size={40} />
-      <Text style={styles.title}>S-Kids</Text>
+      <View style={styles.brandCopy}>
+        <Text style={styles.title}>S-Kids</Text>
+        {isPremium ? (
+          <PremiumStatusBadge
+            accessible={!onOpenHub}
+            compact
+            iconOnly={useIconOnlyPremiumBadge}
+          />
+        ) : null}
+      </View>
     </>
   );
 
@@ -35,7 +49,13 @@ export function KidModeHeader({
       <View style={styles.topBar}>
         {onOpenHub ? (
           <Pressable
-            accessibilityLabel={t('header.openHub')}
+            accessibilityLabel={
+              isPremium
+                ? `${t('header.openHub')}. ${t(
+                    'premium.status.accessibility',
+                  )}`
+                : t('header.openHub')
+            }
             accessibilityRole="button"
             hitSlop={8}
             onPress={onOpenHub}
@@ -115,6 +135,12 @@ const styles = createThemedStyles(() => ({
   brandClusterPressed: {
     opacity: 0.9,
     transform: [{ translateY: 1 }, { scale: 0.99 }],
+  },
+  brandCopy: {
+    alignItems: 'flex-start',
+    flexShrink: 1,
+    gap: 1,
+    minWidth: 0,
   },
   header: {
     backgroundColor: colors.background,
