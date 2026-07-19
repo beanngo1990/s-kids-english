@@ -28,7 +28,6 @@
     "monetization:audit:closed-testing": "node scripts/monetization/auditClosedTesting.mjs",
     "start": "react-native start",
     "test": "jest",
-    "test:founder-quota": "npm run functions:build && firebase emulators:exec --only firestore --project demo-skidsenglish \"npm --prefix functions run test:quota\"",
     "test:firestore-rules": "firebase emulators:exec --only firestore --project demo-skidsenglish \"node scripts/testFirestoreRules.mjs\""
   },
   "dependencies": {

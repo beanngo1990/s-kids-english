@@ -90,38 +90,15 @@ export const vi = {
   'premium.signInTitle': 'Đăng nhập trước khi mua',
   'premium.signInText':
     'Đăng nhập tài khoản ba mẹ để gắn và khôi phục quyền Premium an toàn.',
-  'premium.founder.badge': 'Quà dành cho phụ huynh đầu tiên',
-  'premium.founder.title': 'Nhận Premium miễn phí trong 1 năm',
+  'premium.founder.badge': 'Quà ra mắt dành cho phụ huynh sớm',
+  'premium.founder.title': 'Premium miễn phí trong 1 năm',
   'premium.founder.marketingText':
-    '500 tài khoản phụ huynh đủ điều kiện đầu tiên nhấn “Nhận Premium 1 năm” sau khi chương trình mở sẽ nhận Premium miễn phí trong 365 ngày.',
+    'Tài khoản đủ điều kiện được mở Premium trong 365 ngày, tính từ lần đầu RevenueCat ghi nhận ứng dụng, sau khi ba mẹ đăng nhập.',
   'premium.founder.terms':
-    'Mỗi tài khoản một suất, không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
-  'premium.founder.availableText':
-    'Chương trình đang mở. Hệ thống sẽ xác nhận suất theo thứ tự yêu cầu hợp lệ.',
-  'premium.founder.checkingText': 'Đang kiểm tra tình trạng chương trình...',
-  'premium.founder.processingText':
-    'Suất của ba mẹ đang được xử lý. Premium chỉ mở sau khi RevenueCat xác nhận quyền đang hoạt động.',
-  'premium.founder.alreadyPremiumText':
-    'Tài khoản này đã có Premium. Ứng dụng đang xác nhận lại quyền truy cập.',
-  'premium.founder.soldOutText':
-    'Chương trình đã hết suất ở thời điểm hiện tại. Quyền Premium đã có không bị ảnh hưởng.',
-  'premium.founder.notAvailableText':
-    'Chương trình hiện chưa mở hoặc đang tạm dừng.',
+    'Không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
   'premium.founder.signInText':
-    'Ba mẹ cần đăng nhập tài khoản trước khi nhận quà.',
-  'premium.founder.retryableText':
-    'Chưa kiểm tra được chương trình. Ba mẹ hãy kiểm tra kết nối rồi thử lại.',
-  'premium.founder.claim': 'Nhận Premium 1 năm',
-  'premium.founder.claiming': 'Đang giữ suất...',
-  'premium.founder.checking': 'Đang kiểm tra...',
-  'premium.founder.confirming': 'Đang xác nhận Premium...',
-  'premium.founder.retry': 'Kiểm tra lại',
-  'premium.founder.soldOutAction': 'Đã hết suất',
-  'premium.founder.notAvailableAction': 'Chương trình chưa mở',
-  'premium.founder.signInAction': 'Đăng nhập để nhận',
-  'premium.founder.successTitle': 'Đã nhận Premium 1 năm',
-  'premium.founder.successText':
-    'RevenueCat đã xác nhận Premium đang hoạt động cho tài khoản ba mẹ. Quà này không tự động gia hạn và không phát sinh phí.',
+    'Lần mở ứng dụng này đủ điều kiện. Ba mẹ hãy đăng nhập để kích hoạt quà tặng.',
+  'premium.founder.signInAction': 'Đăng nhập và kích hoạt',
   'premium.package.monthly': '1 tháng',
   'premium.package.annual': '1 năm',
   'premium.package.lifetime': 'Trọn đời',
@@ -148,6 +125,7 @@ export const vi = {
   'premium.currentMonthly': 'Gói Premium theo tháng',
   'premium.currentAnnual': 'Gói Premium theo năm',
   'premium.currentLifetime': 'Premium trọn đời',
+  'premium.currentFounder': 'Premium quà tặng 1 năm',
   'premium.currentPromotional': 'Premium được tặng',
   'premium.currentUntil': 'Có hiệu lực đến {date}',
   'premium.currentRenews': 'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
@@ -244,6 +222,8 @@ export const vi = {
   'parent.account.signInInProgress':
     'Một phiên đăng nhập đang chạy. Ba mẹ chờ phiên đó hoàn tất rồi thử lại.',
   'parent.account.signInWithProvider': 'Đăng nhập bằng {provider}',
+  'parent.account.signInCancelled':
+    'Phiên đăng nhập chưa hoàn tất. Ba mẹ mở lại cửa sổ đăng nhập và thử lần nữa.',
   'parent.account.signedIn': 'Đã đăng nhập',
   'parent.account.signedOut':
     'Ba mẹ cần đăng nhập trước khi chủ động bật đồng bộ tiến độ.',

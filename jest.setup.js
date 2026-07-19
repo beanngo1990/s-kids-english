@@ -25,6 +25,10 @@ const mockPurchases = {
   ENTITLEMENT_VERIFICATION_MODE: {
     INFORMATIONAL: 'INFORMATIONAL',
   },
+  LOG_LEVEL: {
+    ERROR: 'ERROR',
+    WARN: 'WARN',
+  },
   PACKAGE_TYPE: {
     ANNUAL: 'ANNUAL',
     LIFETIME: 'LIFETIME',
@@ -54,6 +58,7 @@ const mockPurchases = {
   purchasePackage: jest.fn(),
   removeCustomerInfoUpdateListener: jest.fn(),
   restorePurchases: jest.fn(),
+  setLogHandler: jest.fn(),
 };
 
 jest.mock('react-native-purchases', () => ({

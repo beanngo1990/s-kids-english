@@ -29,8 +29,11 @@ jest.mock('../src/engine/ParentAccessSession', () => ({
 
 jest.mock('../src/services/RemoteMonetizationConfig', () => ({
   getRemoteMonetizationConfigSnapshot: jest.fn(() => ({
+    founderPremiumCutoffAt: '',
+    founderPremiumDurationDays: 365,
     premiumPurchaseEnabled: true,
   })),
+  subscribeRemoteMonetizationConfig: jest.fn(() => jest.fn()),
 }));
 
 import Purchases from 'react-native-purchases';
@@ -66,7 +69,9 @@ test('account deletion shares one RevenueCat logout with the auth observer', asy
   let authListener: ((snapshot: ParentAuthSnapshot) => void) | undefined;
   const customerInfo = {
     entitlements: { active: {}, verification: 'VERIFIED' },
+    firstSeen: '2026-07-01T00:00:00.000Z',
     managementURL: null,
+    requestDate: '2026-07-16T00:00:00.000Z',
   } as unknown as CustomerInfo;
   let resolveLogout: ((value: CustomerInfo) => void) | undefined;
 
@@ -102,6 +107,7 @@ test('account deletion shares one RevenueCat logout with the auth observer', asy
   expect(mockInvalidateCustomerInfoCache).toHaveBeenCalledTimes(1);
   expect(mockLogOut).toHaveBeenCalledTimes(1);
   expect(getMonetizationSnapshot()).toEqual({
+    founderAccessActive: false,
     isAuthReady: true,
     isConfigured: true,
     isSignedIn: false,

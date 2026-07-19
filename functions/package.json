@@ -9,9 +9,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "tsc -p tsconfig.json --noEmit",
-    "seed:founder": "node scripts/seedFounderCampaign.mjs",
-    "test": "npm run build && node --test lib/__tests__/*.test.js",
-    "test:quota": "node scripts/testFounderQuota.mjs"
+    "test": "npm run build && node --test lib/__tests__/*.test.js"
   },
   "dependencies": {
     "firebase-admin": "13.10.0",

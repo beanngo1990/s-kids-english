@@ -2,7 +2,6 @@ import React, {
   useCallback,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from 'react';
 import {
@@ -22,13 +21,6 @@ import { KidBadge } from '../components/KidBadge';
 import { APP_SUPPORT_EMAIL } from '../config/appInfo';
 import { monetizationConfig } from '../config/monetization';
 import {
-  claimFounderPremium,
-  confirmFounderPremiumEntitlement,
-  getFounderPremiumStatus,
-  shouldConfirmFounderPremiumStatus,
-  type FounderPremiumResponse,
-} from '../engine/FounderPremiumManager';
-import {
   getMonetizationSnapshot,
   purchaseMonetizationPackage,
   refreshMonetization,
@@ -47,7 +39,10 @@ import {
   signInParentWithGoogle,
   type ParentAuthErrorCode,
 } from '../engine/ParentAuthManager';
-import { useParentAccessSnapshot } from '../engine/ParentAccessSession';
+import {
+  setParentExternalFlowActive,
+  useParentAccessSnapshot,
+} from '../engine/ParentAccessSession';
 import { useI18n, type Translator } from '../i18n';
 import {
   refreshRemoteMonetizationConfig,
@@ -62,7 +57,6 @@ import { Screen } from '../components/Screen';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Premium'>;
 type SignInAction = 'apple' | 'google' | null;
-type FounderAction = 'checking' | 'claiming' | 'confirming' | null;
 
 export function PremiumScreen({ navigation }: Props) {
   useThemeSync();
@@ -74,23 +68,12 @@ export function PremiumScreen({ navigation }: Props) {
     null,
   );
   const [signInAction, setSignInAction] = useState<SignInAction>(null);
-  const [founderAction, setFounderAction] = useState<FounderAction>(null);
-  const [founderResponse, setFounderResponse] =
-    useState<FounderPremiumResponse | null>(null);
-  const founderOperation = useRef(0);
 
   useEffect(() => {
     if (!isGranted) {
       navigation.replace('Parent', { intent: 'premium' });
     }
   }, [isGranted, navigation]);
-
-  useEffect(
-    () => () => {
-      founderOperation.current += 1;
-    },
-    [],
-  );
 
   useFocusEffect(
     useCallback(() => {
@@ -122,12 +105,6 @@ export function PremiumScreen({ navigation }: Props) {
     setSelectedPackageId(preferredPackage?.identifier ?? null);
   }, [packages, selectedPackageId]);
 
-  useEffect(() => {
-    founderOperation.current += 1;
-    setFounderAction(null);
-    setFounderResponse(null);
-  }, [monetization.userId, remoteConfig.founderCampaignId]);
-
   const selectedPackage =
     packages.find(item => item.identifier === selectedPackageId) ?? null;
   const annualSavings = useMemo(
@@ -138,7 +115,6 @@ export function PremiumScreen({ navigation }: Props) {
   const googleSignInConfigured = isGoogleSignInConfigured();
   const isBusy =
     signInAction !== null ||
-    founderAction !== null ||
     monetization.pendingAction !== null;
   const canPurchase = Boolean(
     selectedPackage &&
@@ -153,79 +129,13 @@ export function PremiumScreen({ navigation }: Props) {
     (monetization.status !== 'premium' &&
       monetization.status !== 'initializing' &&
       packages.length === 0);
-
-  const resolveFounderResponse = useCallback(
-    async (
-      response: FounderPremiumResponse,
-      operation: number,
-      showSuccessAlert: boolean,
-    ) => {
-      if (operation !== founderOperation.current) {
-        return;
-      }
-
-      setFounderResponse(response);
-
-      if (!shouldConfirmFounderPremiumStatus(response.status)) {
-        setFounderAction(null);
-        return;
-      }
-
-      setFounderAction('confirming');
-      const confirmation = await confirmFounderPremiumEntitlement(response);
-      if (operation !== founderOperation.current) {
-        return;
-      }
-
-      setFounderResponse(confirmation.response);
-      setFounderAction(null);
-
-      if (confirmation.entitlementActive && showSuccessAlert) {
-        Alert.alert(
-          t('premium.founder.successTitle'),
-          t('premium.founder.successText'),
-        );
-      }
-    },
-    [t],
+  const canFounderSignIn = Boolean(
+    monetization.founderAccessActive &&
+      !monetization.isSignedIn &&
+      monetization.isAuthReady &&
+      monetization.errorCode !== 'firebaseUnavailable' &&
+      (googleSignInConfigured || appleSignInAvailable),
   );
-
-  const loadFounderStatus = useCallback(async () => {
-    const operation = ++founderOperation.current;
-    setFounderAction('checking');
-    const response = await getFounderPremiumStatus();
-    await resolveFounderResponse(response, operation, false);
-  }, [resolveFounderResponse]);
-
-  useEffect(() => {
-    if (
-      !remoteConfig.founderCampaignEnabled ||
-      monetization.status === 'premium' ||
-      founderResponse ||
-      founderAction
-    ) {
-      return;
-    }
-
-    if (!monetization.isSignedIn) {
-      setFounderResponse({ status: 'signInRequired' });
-      return;
-    }
-
-    if (!monetization.isConfigured || monetization.status !== 'free') {
-      return;
-    }
-
-    loadFounderStatus().catch(() => undefined);
-  }, [
-    founderAction,
-    founderResponse,
-    loadFounderStatus,
-    monetization.isConfigured,
-    monetization.isSignedIn,
-    monetization.status,
-    remoteConfig.founderCampaignEnabled,
-  ]);
 
   const openLink = useCallback(
     async (url: string) => {
@@ -243,22 +153,52 @@ export function PremiumScreen({ navigation }: Props) {
 
   const handleGoogleSignIn = useCallback(async () => {
     setSignInAction('google');
+    setParentExternalFlowActive(true);
     try {
       await signInParentWithGoogle();
     } catch (error) {
       showParentAuthError(t, error);
     } finally {
+      setParentExternalFlowActive(false);
       setSignInAction(null);
     }
   }, [t]);
 
+  const handleFounderSignIn = useCallback(async () => {
+    if (googleSignInConfigured) {
+      setSignInAction('google');
+      setParentExternalFlowActive(true);
+      try {
+        await signInParentWithGoogle();
+      } catch (error) {
+        showParentAuthError(t, error, { showCancelled: true });
+      } finally {
+        setParentExternalFlowActive(false);
+        setSignInAction(null);
+      }
+    } else {
+      setSignInAction('apple');
+      setParentExternalFlowActive(true);
+      try {
+        await signInParentWithApple();
+      } catch (error) {
+        showParentAuthError(t, error, { showCancelled: true });
+      } finally {
+        setParentExternalFlowActive(false);
+        setSignInAction(null);
+      }
+    }
+  }, [googleSignInConfigured, t]);
+
   const handleAppleSignIn = useCallback(async () => {
     setSignInAction('apple');
+    setParentExternalFlowActive(true);
     try {
       await signInParentWithApple();
     } catch (error) {
       showParentAuthError(t, error);
     } finally {
+      setParentExternalFlowActive(false);
       setSignInAction(null);
     }
   }, [t]);
@@ -312,6 +252,10 @@ export function PremiumScreen({ navigation }: Props) {
   const handleRestore = useCallback(async () => {
     const result = await restoreMonetizationPurchases();
 
+    if (result === 'cancelled') {
+      return;
+    }
+
     if (result === 'restored') {
       Alert.alert(
         t('premium.alert.restoredTitle'),
@@ -339,45 +283,6 @@ export function PremiumScreen({ navigation }: Props) {
       getMonetizationErrorMessage(t, latestSnapshot.errorCode),
     );
   }, [t]);
-
-  const handleFounderPress = useCallback(async () => {
-    if (
-      founderAction ||
-      !monetization.isConfigured ||
-      !monetization.isSignedIn ||
-      monetization.status !== 'free'
-    ) {
-      return;
-    }
-
-    if (!founderResponse || founderResponse.status === 'retryableError') {
-      await loadFounderStatus();
-      return;
-    }
-
-    if (shouldConfirmFounderPremiumStatus(founderResponse.status)) {
-      const operation = ++founderOperation.current;
-      await resolveFounderResponse(founderResponse, operation, false);
-      return;
-    }
-
-    if (founderResponse.status !== 'available') {
-      return;
-    }
-
-    const operation = ++founderOperation.current;
-    setFounderAction('claiming');
-    const response = await claimFounderPremium();
-    await resolveFounderResponse(response, operation, true);
-  }, [
-    founderAction,
-    founderResponse,
-    loadFounderStatus,
-    monetization.isConfigured,
-    monetization.isSignedIn,
-    monetization.status,
-    resolveFounderResponse,
-  ]);
 
   const handleRetry = useCallback(async () => {
     await Promise.all([
@@ -447,24 +352,20 @@ export function PremiumScreen({ navigation }: Props) {
         />
       )}
 
-      {remoteConfig.founderCampaignEnabled &&
+      {monetization.founderAccessActive &&
+        !monetization.isSignedIn &&
         monetization.status !== 'premium' && (
           <FounderCampaignCard
-            action={founderAction}
-            canInteract={Boolean(
-              monetization.isConfigured &&
-                monetization.isSignedIn &&
-                monetization.status === 'free' &&
-                !signInAction &&
-                !monetization.pendingAction,
-            )}
-            onPress={handleFounderPress}
-            response={founderResponse}
+            canInteract={canFounderSignIn && !isBusy}
+            onPress={handleFounderSignIn}
+            signInAction={signInAction}
             t={t}
           />
         )}
 
-      {!monetization.isSignedIn && monetization.isAuthReady && (
+      {!monetization.isSignedIn &&
+        monetization.isAuthReady &&
+        !monetization.founderAccessActive && (
         <AppCard style={styles.statusCard}>
           <Text style={styles.sectionTitle}>{t('premium.signInTitle')}</Text>
           <Text style={styles.bodyText}>{t('premium.signInText')}</Text>
@@ -644,27 +545,16 @@ export function PremiumScreen({ navigation }: Props) {
 }
 
 function FounderCampaignCard({
-  action,
   canInteract,
   onPress,
-  response,
+  signInAction,
   t,
 }: {
-  action: FounderAction;
   canInteract: boolean;
   onPress: () => void;
-  response: FounderPremiumResponse | null;
+  signInAction: SignInAction;
   t: Translator;
 }) {
-  const status = response?.status;
-  const canPress = Boolean(
-    canInteract &&
-      !action &&
-      (status === 'available' ||
-        status === 'retryableError' ||
-        (status && shouldConfirmFounderPremiumStatus(status))),
-  );
-
   return (
     <AppCard style={styles.founderCard}>
       <KidBadge tone="sun">{t('premium.founder.badge')}</KidBadge>
@@ -672,12 +562,16 @@ function FounderCampaignCard({
       <Text style={styles.bodyText}>{t('premium.founder.marketingText')}</Text>
       <Text style={styles.founderTerms}>{t('premium.founder.terms')}</Text>
       <Text style={styles.founderStatus}>
-        {getFounderStatusText(t, status)}
+        {t('premium.founder.signInText')}
       </Text>
       <AppButton
-        disabled={!canPress}
+        disabled={!canInteract}
         onPress={onPress}
-        title={getFounderButtonTitle(t, action, status)}
+        title={
+          signInAction
+            ? t('parent.account.signingIn')
+            : t('premium.founder.signInAction')
+        }
       />
     </AppCard>
   );
@@ -761,81 +655,6 @@ function PackageOption({
       </View>
     </Pressable>
   );
-}
-
-function getFounderStatusText(
-  t: Translator,
-  status: FounderPremiumResponse['status'] | undefined,
-) {
-  if (status === 'available') {
-    return t('premium.founder.availableText');
-  }
-
-  if (
-    status === 'processing' ||
-    status === 'granted' ||
-    status === 'alreadyClaimed'
-  ) {
-    return t('premium.founder.processingText');
-  }
-
-  if (status === 'alreadyPremium') {
-    return t('premium.founder.alreadyPremiumText');
-  }
-
-  if (status === 'soldOut') {
-    return t('premium.founder.soldOutText');
-  }
-
-  if (status === 'notAvailable') {
-    return t('premium.founder.notAvailableText');
-  }
-
-  if (status === 'signInRequired') {
-    return t('premium.founder.signInText');
-  }
-
-  if (status === 'retryableError') {
-    return t('premium.founder.retryableText');
-  }
-
-  return t('premium.founder.checkingText');
-}
-
-function getFounderButtonTitle(
-  t: Translator,
-  action: FounderAction,
-  status: FounderPremiumResponse['status'] | undefined,
-) {
-  if (action === 'claiming') {
-    return t('premium.founder.claiming');
-  }
-
-  if (action === 'checking') {
-    return t('premium.founder.checking');
-  }
-
-  if (action === 'confirming') {
-    return t('premium.founder.confirming');
-  }
-
-  if (status === 'available') {
-    return t('premium.founder.claim');
-  }
-
-  if (status === 'soldOut') {
-    return t('premium.founder.soldOutAction');
-  }
-
-  if (status === 'notAvailable') {
-    return t('premium.founder.notAvailableAction');
-  }
-
-  if (status === 'signInRequired') {
-    return t('premium.founder.signInAction');
-  }
-
-  return t('premium.founder.retry');
 }
 
 function CurrentPremiumCard({
@@ -939,6 +758,10 @@ function getProductTypeTitle(
     return t('premium.currentLifetime');
   }
 
+  if (productType === 'founder') {
+    return t('premium.currentFounder');
+  }
+
   return t('premium.currentPromotional');
 }
 
@@ -994,9 +817,13 @@ function getMonetizationErrorMessage(
   return t('premium.error.unknown');
 }
 
-function showParentAuthError(t: Translator, error: unknown) {
+function showParentAuthError(
+  t: Translator,
+  error: unknown,
+  options?: { showCancelled?: boolean },
+) {
   const code = getParentAuthErrorCode(error);
-  if (code === 'cancelled') {
+  if (code === 'cancelled' && !options?.showCancelled) {
     return;
   }
 
@@ -1007,6 +834,10 @@ function showParentAuthError(t: Translator, error: unknown) {
 }
 
 function getParentAuthErrorMessage(t: Translator, code: ParentAuthErrorCode) {
+  if (code === 'cancelled') {
+    return t('parent.account.signInCancelled');
+  }
+
   if (code === 'missingFirebaseConfig') {
     return t('parent.account.firebaseConfigMissing');
   }

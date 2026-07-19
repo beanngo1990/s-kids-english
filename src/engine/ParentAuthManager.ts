@@ -73,40 +73,32 @@ export class ParentAuthError extends Error {
 }
 
 let configuredGoogleWebClientId: string | null = null;
+let authObserverInitialized = false;
+let authObserverUnsubscribe: (() => void) | null = null;
+let parentAuthSnapshot = initialParentAuthSnapshot;
+const parentAuthListeners = new Set<
+  (snapshot: ParentAuthSnapshot) => void
+>();
 
 export function subscribeParentAuth(
   listener: (snapshot: ParentAuthSnapshot) => void,
 ) {
-  let auth: Auth;
+  parentAuthListeners.add(listener);
+  listener(parentAuthSnapshot);
+  ensureParentAuthObserver();
 
-  try {
-    auth = getConfiguredAuth();
-  } catch (error) {
-    const code = getParentAuthErrorCode(error);
-    listener({
-      configurationError: code,
-      isReady: true,
-      user: null,
-    });
-    return () => undefined;
-  }
+  return () => {
+    parentAuthListeners.delete(listener);
 
-  return onAuthStateChanged(
-    auth,
-    user => {
-      listener({
-        isReady: true,
-        user: mapFirebaseUser(user),
-      });
-    },
-    error => {
-      listener({
-        configurationError: getParentAuthErrorCode(error),
-        isReady: true,
-        user: null,
-      });
-    },
-  );
+    if (parentAuthListeners.size > 0) {
+      return;
+    }
+
+    authObserverUnsubscribe?.();
+    authObserverUnsubscribe = null;
+    authObserverInitialized = false;
+    parentAuthSnapshot = initialParentAuthSnapshot;
+  };
 }
 
 export async function signInParentWithGoogle() {
@@ -144,7 +136,9 @@ export async function signInParentWithGoogle() {
     const { accessToken } = await GoogleSignin.getTokens();
     const credential = GoogleAuthProvider.credential(idToken, accessToken);
     const result = await signInWithCredential(auth, credential);
-    return mapFirebaseUser(result.user);
+    const user = mapFirebaseUser(result.user);
+    publishParentAuthSnapshot({ isReady: true, user });
+    return user;
   } catch (error) {
     throw normalizeParentAuthError(error);
   }
@@ -178,7 +172,9 @@ export async function signInParentWithApple() {
       response.nonce,
     );
     const result = await signInWithCredential(auth, credential);
-    return mapFirebaseUser(result.user);
+    const user = mapFirebaseUser(result.user);
+    publishParentAuthSnapshot({ isReady: true, user });
+    return user;
   } catch (error) {
     throw normalizeParentAuthError(error);
   }
@@ -187,6 +183,7 @@ export async function signInParentWithApple() {
 export async function signOutParent() {
   const auth = getConfiguredAuth();
   await signOut(auth);
+  publishParentAuthSnapshot({ isReady: true, user: null });
 
   try {
     await GoogleSignin.signOut();
@@ -209,6 +206,7 @@ export async function deleteParentAccount() {
     }
 
     await deleteUser(user);
+    publishParentAuthSnapshot({ isReady: true, user: null });
   } catch (error) {
     throw normalizeParentAuthError(error);
   }
@@ -277,6 +275,71 @@ export function getParentAuthProviders(user: ParentAuthUser) {
 
     return 'unknown';
   }) satisfies ParentAuthProvider[];
+}
+
+function ensureParentAuthObserver() {
+  if (authObserverInitialized) {
+    return;
+  }
+
+  authObserverInitialized = true;
+
+  try {
+    const auth = getConfiguredAuth();
+
+    // Native Firebase may restore a persisted account before it sends the
+    // observer event. Reading currentUser here prevents an already-signed-in
+    // parent from being rendered as signed out during that gap.
+    publishParentAuthSnapshot({
+      isReady: true,
+      user: mapFirebaseUser(auth.currentUser),
+    });
+
+    authObserverUnsubscribe = onAuthStateChanged(
+      auth,
+      user => {
+        publishParentAuthSnapshot({
+          isReady: true,
+          user: mapFirebaseUser(user),
+        });
+      },
+      error => {
+        publishParentAuthSnapshot({
+          configurationError: getParentAuthErrorCode(error),
+          isReady: true,
+          user: null,
+        });
+      },
+    );
+  } catch (error) {
+    publishParentAuthSnapshot({
+      configurationError: getParentAuthErrorCode(error),
+      isReady: true,
+      user: null,
+    });
+  }
+}
+
+function publishParentAuthSnapshot(nextSnapshot: ParentAuthSnapshot) {
+  if (isSameParentAuthSnapshot(parentAuthSnapshot, nextSnapshot)) {
+    return;
+  }
+
+  parentAuthSnapshot = nextSnapshot;
+  for (const listener of parentAuthListeners) {
+    listener(parentAuthSnapshot);
+  }
+}
+
+function isSameParentAuthSnapshot(
+  first: ParentAuthSnapshot,
+  second: ParentAuthSnapshot,
+) {
+  return (
+    first.configurationError === second.configurationError &&
+    first.isReady === second.isReady &&
+    first.user?.uid === second.user?.uid
+  );
 }
 
 function getConfiguredAuth() {

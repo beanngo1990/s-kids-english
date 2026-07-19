@@ -10,7 +10,7 @@ const listeners = new Set<() => void>();
 let snapshot: ParentAccessSnapshot = { isGranted: false };
 let lifecycleSubscriberCount = 0;
 let appStateSubscription: { remove: () => void } | null = null;
-let purchaseFlowActive = false;
+let externalFlowActive = false;
 
 export function getParentAccessSnapshot(): ParentAccessSnapshot {
   return snapshot;
@@ -37,8 +37,12 @@ export function revokeParentAccess() {
   updateSnapshot({ isGranted: false });
 }
 
+export function setParentExternalFlowActive(isActive: boolean) {
+  externalFlowActive = isActive;
+}
+
 export function setParentPurchaseFlowActive(isActive: boolean) {
-  purchaseFlowActive = isActive;
+  setParentExternalFlowActive(isActive);
 }
 
 export function startParentAccessSessionLifecycle() {
@@ -61,7 +65,7 @@ export function startParentAccessSessionLifecycle() {
 }
 
 function handleAppStateChange(nextState: AppStateStatus) {
-  if (nextState !== 'active' && !purchaseFlowActive) {
+  if (nextState !== 'active' && !externalFlowActive) {
     revokeParentAccess();
   }
 }

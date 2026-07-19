@@ -1,6 +1,6 @@
 # Phase 3 - Monetization closed testing
 
-**Ngày cập nhật:** 2026-07-17
+**Ngày cập nhật:** 2026-07-18
 
 **Phạm vi:** checklist và evidence cho RevenueCat Test Store, Apple sandbox/TestFlight, Google
 Play closed testing, Founder Premium và account deletion. Tài liệu này không phải bằng chứng rằng
@@ -13,8 +13,8 @@ giao dịch sandbox/store thật đã chạy.
 - `NOT RUN`: prerequisite có thể đã có nhưng kịch bản chưa được thực hiện hoặc chưa có evidence.
 - `MANUAL`: script local không thể xác minh trạng thái console, IAM, certificate hoặc external
   service.
-- Không đổi `founder_premium_campaign_enabled` trên production trong Phase 3. Local fallback phải
-  là `false`; published value trên Firebase phải được người có quyền console kiểm tra riêng.
+- Không publish `founder_premium_cutoff_at` trên production trong Phase 3. Local fallback phải rỗng
+  để fail closed; published value trên Firebase phải được người có quyền console kiểm tra riêng.
 - Không ghi API key, secret, raw receipt, Firebase UID, child profile hoặc store account vào file
   evidence. Dùng scenario alias như `ios-sandbox-01`/`android-license-01`.
 
@@ -42,21 +42,21 @@ setup hoàn tất.
 | Test Store release/runtime guard                  | PASS       | Resolver và key selector tests xác minh release fallback, đồng thời reject `test_` khi `__DEV__` false.                               |
 | Privacy Policy và Terms URLs                      | BLOCKED    | Hai public HTTPS URL chưa được cấu hình.                                                                                              |
 | Firebase project selection                        | BLOCKED    | Repository chưa có `.firebaserc` đã review. Không deploy chỉ bằng phỏng đoán project ID.                                              |
-| Functions secret/IAM/deploy                       | NOT RUN    | Code có parameter/Secret Manager binding; deployed secret, IAM, App Check registration và deployment chưa được audit từ service thật. |
-| Founder campaign local fallback                   | PASS       | Client default và initial snapshot đều `false`.                                                                                       |
-| Founder campaign published production value       | MANUAL     | Phải kiểm tra Firebase Console vẫn là `false`; local source không chứng minh remote state.                                            |
+| Account-deletion Function/secret/IAM              | NOT RUN    | Deployed secret, IAM, App Check registration và `deleteRevenueCatCustomerData` chưa được audit từ service thật.                       |
+| Founder cutoff local fallback                     | PASS       | Client default là chuỗi rỗng nên Founder access fail closed.                                                                         |
+| Founder cutoff published production value         | MANUAL     | Phải kiểm tra Firebase Console vẫn rỗng; local source không chứng minh remote state.                                                   |
 | Android release signing prerequisites             | PASS       | Ignored upload keystore/properties và Gradle release wiring hiện diện; script không đọc credentials. Signed AAB vẫn cần build/verify. |
 | iOS In-App Purchase target capability             | PASS       | Xcode project bật In-App Purchase và có development team. Distribution signing vẫn cần kiểm tra trong Apple account.                  |
 | RevenueCat Test Store transaction matrix          | BLOCKED    | Debug channel đã an toàn nhưng chưa có local Test Store key và chưa chạy giao dịch thật.                                              |
 | Apple sandbox/TestFlight trên physical device     | NOT RUN    | Chưa có evidence product, sandbox account, build và device run.                                                                       |
 | Google Play closed testing trên physical device   | NOT RUN    | Chưa có evidence closed-track build, tester opt-in và device run.                                                                     |
-| Deployed 550-call concurrency/App Check rejection | NOT RUN    | Local unit/emulator không thay thế callable staging có Auth/App Check thật.                                                           |
+| Deployed deletion/App Check rejection             | NOT RUN    | Local unit test không thay thế callable staging có Auth/App Check thật.                                                               |
 
 `PASS` ở bảng trên chỉ nói về prerequisite/source local được chỉ rõ. Nó không phải store approval,
 không phải RevenueCat dashboard validation và không phải device purchase evidence.
 
-Preflight local ngày 2026-07-17 hiện báo **10 PASS / 6 BLOCKED / 5 MANUAL** và exit `1` đúng dự
-kiến. Targeted guard tests cho resolver/key selection pass; chưa có giao dịch Test Store thật.
+Preflight phải chạy lại sau thay đổi Founder cutoff; không giữ count cũ làm evidence hiện hành.
+Targeted guard tests cho resolver/key selection trước đó pass; chưa có giao dịch Test Store thật.
 
 ### Local execution evidence - 2026-07-17
 
@@ -65,9 +65,8 @@ kiến. Targeted guard tests cho resolver/key selection pass; chưa có giao d�
 | TypeScript                                | PASS                                                                                       |
 | ESLint                                    | PASS, 0 errors; 26 baseline warnings                                                       |
 | Full Jest                                 | PASS, 183 tests trong 24 suites                                                            |
-| Functions unit                            | PASS, 20 tests; gồm missing Auth và pure 550/500 matrix                                    |
+| Functions unit                            | STALE; cần chạy lại sau khi backend chỉ còn account deletion                               |
 | Firestore rules                           | PASS                                                                                       |
-| Founder quota/outbox/deletion emulator    | PASS; transaction smoke 10/12, retry/idempotency và deletion race                          |
 | Test Store debug/release resolver bundles | PASS; debug marker hiện diện, release marker vắng dù local module tồn tại trong test       |
 | Android Debug build                       | PASS                                                                                       |
 | iOS Simulator arm64 build                 | PASS                                                                                       |
@@ -88,20 +87,19 @@ npx tsc --noEmit
 npm run lint
 npm test -- --runInBand
 npm run functions:test
-npm run test:founder-quota
 npm run test:firestore-rules
 ./android/gradlew -p android assembleDebug
 ```
 
 Nếu môi trường iOS sẵn sàng, chạy thêm build-only với scheme `SKidsEnglish`. Local automation cần
 bao phủ purchase success/no-entitlement, cancel, pending, lỗi store/network, restore, logout/account
-switch, expiration/refund boundary, giữ progress, campaign disabled/expired/sold-out, worker retry,
-idempotency và quota 550/500.
+switch, expiration/refund boundary, giữ progress, Founder cutoff/date/duration boundary và account
+deletion retry.
 
 Phân biệt ba tầng bằng chứng:
 
 1. Pure/unit test xác minh mapping và state machine.
-2. Emulator test xác minh Firestore transaction/rules với project `demo-*`.
+2. Emulator test xác minh Firestore rules/account deletion boundary nếu áp dụng.
 3. Sandbox/closed-track test xác minh SDK, store sheet, receipt, RevenueCat CustomerInfo và lifecycle
    thật. Hai tầng đầu không được dùng để tuyên bố tầng thứ ba đã pass.
 
@@ -219,27 +217,28 @@ renewal và pending purchase. Pending chỉ được cấp quyền sau khi chuy�
 | Refund and revoke                | RevenueCat update, Premium khóa, progress giữ nguyên         | NOT RUN    |
 | Account deletion                 | Backend cleanup xác nhận trước khi Firebase Auth bị xóa      | NOT RUN    |
 
-## 7. Founder Premium staging matrix
+## 7. Founder Premium cutoff matrix
 
-Không bật production flag để chạy bảng này. Dùng staging Firebase project/campaign riêng hoặc
-emulator; production campaign luôn giữ `false` cho đến Phase 5.
+Không publish production cutoff để chạy bảng này. Dùng debug/Test Store customer và staging Remote
+Config project, hoặc pure test với injected dates. Không có callable Founder, quota hay outbox.
 
-| Scenario                                        | Expected                                                           | Trạng thái                    |
-| ----------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- |
-| Missing Firebase Auth                           | Callable reject `unauthenticated`                                  | NOT RUN trên deployed staging |
-| Missing/invalid App Check                       | Callable bị platform reject trước handler                          | NOT RUN trên deployed staging |
-| 550 unique claims, capacity 500                 | `reservedCount` đúng 500, không có reservation thứ 501             | NOT RUN trên deployed staging |
-| Same UID retry/concurrency                      | Chỉ một reservation/outbox                                         | NOT RUN trên deployed staging |
-| RevenueCat timeout/423/429/5xx                  | Retry/backoff, không trả slot hoặc double grant                    | NOT RUN trên deployed staging |
-| Duplicate worker event                          | `grantedCount` chỉ tăng một lần                                    | NOT RUN trên deployed staging |
-| Campaign draft/paused/closed/expired/sold out   | Trả normalized status đúng                                         | NOT RUN trên deployed staging |
-| Existing active Premium                         | Không dùng quota                                                   | NOT RUN trên deployed staging |
-| Remote Config client on/backend off             | Backend từ chối; existing Premium không đổi                        | NOT RUN trên deployed staging |
-| Account deletion khi outbox pending/leased/done | Không re-grant sau deletion; quota reservation không được tái dùng | NOT RUN trên deployed staging |
+| Scenario                                      | Expected                                                                    | Trạng thái |
+| --------------------------------------------- | --------------------------------------------------------------------------- | ---------- |
+| Parent chưa Firebase sign-in                  | Không mở nội dung bằng Founder access                                       | NOT RUN    |
+| `firstSeen` trước cutoff                      | Eligible; expiry là `firstSeen + durationDays`                              | NOT RUN    |
+| `firstSeen` đúng cutoff                       | Eligible theo điều kiện `<=`                                                | NOT RUN    |
+| `firstSeen` sau cutoff                        | Không eligible                                                              | NOT RUN    |
+| Effective now đúng/sau expiry                 | Founder access hết hạn, progress giữ nguyên                                 | NOT RUN    |
+| Device clock lùi trước `requestDate`          | Dùng `requestDate` làm lower bound; client-only vẫn không chống rollback tuyệt đối sau response | NOT RUN    |
+| Cutoff/firstSeen/requestDate invalid hoặc thiếu | Fail closed; free tier và retry/config copy vẫn an toàn                   | NOT RUN    |
+| Duration invalid/không dương                  | Fail closed                                                                 | NOT RUN    |
+| Verified paid `premium` và Founder cùng active | Paid entitlement/product state ưu tiên                                     | NOT RUN    |
+| Remote Config fetch tạm lỗi                   | Paid entitlement giữ nguyên; dùng activated value hợp lệ hoặc default rỗng  | NOT RUN    |
+| Reinstall/đổi thiết bị, đăng nhập cùng UID    | Đánh giá lại từ RevenueCat `firstSeen`; không dựa local boolean             | NOT RUN    |
 
-Staging evidence tối thiểu gồm Firebase project alias (không phải credential), deployed function
-revision, campaign alias/capacity, test start/end time, aggregate counts và sanitized error codes.
-Không lưu UID/outbox hash/RevenueCat secret trong tài liệu.
+Staging evidence tối thiểu gồm build/revision, scenario alias, sanitized `firstSeen`/cutoff/
+requestDate timestamps và expected/actual. Không ghi Firebase UID, API key hay RevenueCat secret.
+Kết quả không được diễn giải thành quota đúng 500 hoặc “lượt tải đầu tiên”.
 
 ## 8. Exit criteria Phase 3
 
@@ -251,8 +250,9 @@ Không lưu UID/outbox hash/RevenueCat secret trong tài liệu.
   ghi theo từng build/platform.
 - Restore, pending, refund/expiration và account deletion không làm mất progress hoặc mở entitlement
   trước khi RevenueCat `CustomerInfo` xác nhận.
-- Staging 550/500 và Auth/App Check rejection có aggregate evidence; không dùng production campaign.
-- Firebase Console xác nhận `founder_premium_campaign_enabled=false` sau toàn bộ test.
+- Founder cutoff matrix pass, gồm date boundary, effective-now và invalid config fail closed.
+- Account-deletion callable staging xác minh Auth/App Check/retry mà không xóa account production.
+- Firebase Console xác nhận `founder_premium_cutoff_at` vẫn rỗng sau toàn bộ test.
 
 Chỉ sau các mục trên mới chuyển Phase 4. Không dùng unit test, emulator screenshot hoặc source
 review làm bằng chứng rằng store purchase đã pass.

@@ -1,5 +1,8 @@
 import type { CustomerInfo } from 'react-native-purchases';
 
+let mockFounderPremiumCutoffAt = '';
+let mockFounderPremiumDurationDays = 365;
+
 jest.mock('../src/engine/ParentAuthManager', () => ({
   initialParentAuthSnapshot: { isReady: false, user: null },
   subscribeParentAuth: jest.fn(() => jest.fn()),
@@ -7,8 +10,11 @@ jest.mock('../src/engine/ParentAuthManager', () => ({
 
 jest.mock('../src/services/RemoteMonetizationConfig', () => ({
   getRemoteMonetizationConfigSnapshot: jest.fn(() => ({
+    founderPremiumCutoffAt: mockFounderPremiumCutoffAt,
+    founderPremiumDurationDays: mockFounderPremiumDurationDays,
     premiumPurchaseEnabled: true,
   })),
+  subscribeRemoteMonetizationConfig: jest.fn(() => jest.fn()),
 }));
 
 import {
@@ -35,6 +41,7 @@ const signedInAuthSnapshot: ParentAuthSnapshot = {
 };
 
 const baseSnapshot: MonetizationSnapshot = {
+  founderAccessActive: false,
   isAuthReady: true,
   isConfigured: true,
   isSignedIn: true,
@@ -45,6 +52,11 @@ const baseSnapshot: MonetizationSnapshot = {
 };
 
 describe('RevenueCat CustomerInfo mapping', () => {
+  beforeEach(() => {
+    mockFounderPremiumCutoffAt = '';
+    mockFounderPremiumDurationDays = 365;
+  });
+
   test.each<{
     entitlement: Partial<TestEntitlement>;
     expectedProductType: MonetizationProductType;
@@ -206,6 +218,76 @@ describe('RevenueCat CustomerInfo mapping', () => {
     expect(result.userId).toBeUndefined();
   });
 
+  test('opens Founder Premium for a signed-in customer first seen by the cutoff', () => {
+    mockFounderPremiumCutoffAt = '2026-07-10T00:00:00.000Z';
+    const customerInfo = makeCustomerInfo(null, 'VERIFIED', {
+      firstSeen: '2026-07-09T00:00:00.000Z',
+      requestDate: '2026-07-12T00:00:00.000Z',
+    });
+
+    const result = mapCustomerInfoToMonetizationSnapshot(
+      baseSnapshot,
+      customerInfo,
+      signedInAuthSnapshot,
+      Date.parse('2026-07-12T00:00:00.000Z'),
+    );
+
+    expect(result).toMatchObject({
+      activeProductType: 'founder',
+      expirationDate: '2027-07-09T00:00:00.000Z',
+      founderAccessActive: true,
+      premiumSource: 'founder',
+      status: 'premium',
+      willRenew: false,
+    });
+    expect(canAccessLesson('bedtime', result)).toBe(true);
+  });
+
+  test('keeps an eligible Founder record signed out until a parent signs in', () => {
+    mockFounderPremiumCutoffAt = '2026-07-10T00:00:00.000Z';
+    const customerInfo = makeCustomerInfo(null, 'VERIFIED', {
+      firstSeen: '2026-07-09T00:00:00.000Z',
+      requestDate: '2026-07-12T00:00:00.000Z',
+    });
+
+    const result = mapCustomerInfoToMonetizationSnapshot(
+      baseSnapshot,
+      customerInfo,
+      { isReady: true, user: null },
+      Date.parse('2026-07-12T00:00:00.000Z'),
+    );
+
+    expect(result).toMatchObject({
+      activeProductType: undefined,
+      founderAccessActive: true,
+      premiumSource: undefined,
+      status: 'signedOut',
+    });
+  });
+
+  test('keeps a verified store entitlement ahead of Founder access', () => {
+    mockFounderPremiumCutoffAt = '2026-07-10T00:00:00.000Z';
+    const customerInfo = makeCustomerInfo({}, 'VERIFIED', {
+      firstSeen: '2026-07-09T00:00:00.000Z',
+      requestDate: '2026-07-12T00:00:00.000Z',
+    });
+
+    const result = mapCustomerInfoToMonetizationSnapshot(
+      baseSnapshot,
+      customerInfo,
+      signedInAuthSnapshot,
+      Date.parse('2026-07-12T00:00:00.000Z'),
+    );
+
+    expect(result).toMatchObject({
+      activeProductType: 'monthly',
+      founderAccessActive: true,
+      premiumSource: 'revenueCat',
+      status: 'premium',
+      willRenew: true,
+    });
+  });
+
   test.each([
     ['expiration', makeCustomerInfo({ isActive: false })],
     ['refund', makeCustomerInfo(null)],
@@ -268,6 +350,10 @@ type TestEntitlement = {
 function makeCustomerInfo(
   entitlementOverrides: Partial<TestEntitlement> | null = {},
   containerVerification = 'VERIFIED',
+  dates: Readonly<{ firstSeen: string; requestDate: string }> = {
+    firstSeen: '2026-07-01T00:00:00.000Z',
+    requestDate: '2026-07-16T00:00:00.000Z',
+  },
 ): CustomerInfo {
   const entitlement = entitlementOverrides
     ? {
@@ -287,7 +373,9 @@ function makeCustomerInfo(
       active: entitlement ? { premium: entitlement } : {},
       verification: containerVerification,
     },
+    firstSeen: dates.firstSeen,
     managementURL: 'https://store.example/manage',
+    requestDate: dates.requestDate,
   } as unknown as CustomerInfo;
 }
 

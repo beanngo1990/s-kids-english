@@ -23,6 +23,7 @@ import {
   getParentAccessSnapshot,
   grantParentAccess,
   revokeParentAccess,
+  setParentExternalFlowActive,
   setParentPurchaseFlowActive,
   startParentAccessSessionLifecycle,
   subscribeParentAccess,
@@ -34,6 +35,7 @@ afterEach(() => {
   for (const cleanup of lifecycleCleanups.splice(0)) {
     cleanup();
   }
+  setParentExternalFlowActive(false);
   setParentPurchaseFlowActive(false);
   revokeParentAccess();
   mockAppStateListener = null;
@@ -83,6 +85,21 @@ test('keeps access during a purchase flow and revokes it after that exception en
   expect(getParentAccessSnapshot()).toEqual({ isGranted: true });
 
   setParentPurchaseFlowActive(false);
+  mockAppStateListener?.('background');
+
+  expect(getParentAccessSnapshot()).toEqual({ isGranted: false });
+});
+
+test('keeps access during an external sign-in flow and revokes it after that exception ends', () => {
+  startLifecycle();
+  grantParentAccess();
+  setParentExternalFlowActive(true);
+
+  mockAppStateListener?.('background');
+
+  expect(getParentAccessSnapshot()).toEqual({ isGranted: true });
+
+  setParentExternalFlowActive(false);
   mockAppStateListener?.('background');
 
   expect(getParentAccessSnapshot()).toEqual({ isGranted: false });
