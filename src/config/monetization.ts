@@ -28,12 +28,12 @@ export const storeProductIds = {
 } as const;
 
 export const remoteMonetizationConfigKeys = {
-  founderCampaignEnabled: 'founder_premium_campaign_enabled',
-  founderCampaignId: 'founder_premium_campaign_id',
+  founderPremiumCutoffAt: 'founder_premium_cutoff_at',
+  founderPremiumDurationDays: 'founder_premium_duration_days',
   premiumPurchaseEnabled: 'premium_purchase_enabled',
 } as const;
 
-export const defaultFounderCampaignId = 'founder-premium-2026-v1';
+export const DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS = 365;
 
 export type RevenueCatPlatform = 'android' | 'ios';
 

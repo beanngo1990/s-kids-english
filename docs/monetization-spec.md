@@ -1,15 +1,15 @@
 # Đặc tả Monetization - SKidsEnglish
 
-**Trạng thái:** product/architecture contract đã chốt, chưa được implement
+**Trạng thái:** product/architecture contract hiện hành; implementation state nằm trong
+`docs/project_spec.md`
 
 **Ngày chốt:** 2026-07-16
 
 **Phạm vi:** Premium access, RevenueCat, mua hàng trong ứng dụng, parental gate, Firebase Remote
 Config và chiến dịch tặng Premium 1 năm cho nhóm người dùng đầu tiên.
 
-Tài liệu này mô tả hành vi mục tiêu để triển khai. Nó không thay đổi trạng thái implementation
-hiện tại trong `docs/project_spec.md`. Khi code tương ứng được triển khai, phải cập nhật
-`docs/project_spec.md` trong cùng task.
+Tài liệu này là contract hành vi. Trạng thái code và verification thực tế tiếp tục được ghi trong
+`docs/project_spec.md`.
 
 ## 1. Mục tiêu và nguyên tắc
 
@@ -17,9 +17,10 @@ hiện tại trong `docs/project_spec.md`. Khi code tương ứng được tri�
 
 - Cung cấp free tier đủ để phụ huynh và bé đánh giá trọn vẹn trải nghiệm học.
 - Cung cấp ba lựa chọn Premium: một tháng, một năm và trọn đời.
-- Dùng RevenueCat làm source of truth cho entitlement và purchase lifecycle trên iOS/Android.
+- Dùng RevenueCat làm source of truth cho paid entitlement và purchase lifecycle trên iOS/Android.
 - Cho phép bật chiến dịch tặng Premium 365 ngày mà không cần phát hành binary mới.
-- Giới hạn chính xác quota chiến dịch trên backend, kể cả khi nhiều người claim đồng thời.
+- Cho phép chốt nhóm Founder xấp xỉ bằng thời điểm RevenueCat lần đầu thấy App User ID, không dựng
+  backend claim/quota khi ứng dụng vẫn chưa phát hành production.
 - Giữ toàn bộ purchase opportunity sau parental gate và tách khỏi Kid Mode.
 - Giữ progress/reward của bé khi Premium hết hạn hoặc phụ huynh hủy gia hạn.
 - Không dùng quảng cáo, vật phẩm ngẫu nhiên, tiền ảo hoặc cơ chế gây áp lực mua hàng cho trẻ.
@@ -57,12 +58,13 @@ Các chức năng sau luôn miễn phí, kể cả khi Premium hết hạn:
 
 ### Premium tier
 
-Entitlement `premium` mở:
+Premium access, từ verified entitlement `premium` hoặc Founder policy hợp lệ, mở:
 
 - tất cả lesson/theme hiện có ngoài free tier;
 - mọi lesson/theme Premium được bổ sung sau này;
 - review, recording, reward và replay của các lesson Premium;
-- quyền dùng cùng tài khoản phụ huynh trên iOS/Android khi RevenueCat xác nhận entitlement.
+- với paid purchase, quyền dùng cùng tài khoản phụ huynh trên iOS/Android khi RevenueCat xác nhận
+  entitlement.
 
 Premium không bao gồm lời hứa về speech recognition, pronunciation scoring, full offline hoặc
 tính năng chưa được implement. Store copy không được hứa một lịch phát hành nội dung cố định nếu
@@ -109,8 +111,9 @@ Các nguyên tắc hiển thị giá:
   đó tại thời điểm hiển thị.
 - Annual là lựa chọn được nhấn mạnh, nhưng không được pre-purchase hoặc mở store sheet khi chưa có
   thao tác rõ ràng từ phụ huynh.
-- V1 không dùng free trial hoặc introductory offer có auto-renew. Quà 365 ngày là granted
-  entitlement riêng, không phải store trial.
+- V1 không dùng free trial hoặc introductory offer có auto-renew. Founder access 365 ngày là quyền
+  local được suy ra từ RevenueCat customer metadata, không phải store trial hay granted
+  entitlement.
 
 ## 4. Store và RevenueCat mapping
 
@@ -145,9 +148,10 @@ Các identifier trên là immutable contract sau khi product được tạo. And
 - Current/default Offering identifier: `default`.
 - Dùng standard package type `MONTHLY`, `ANNUAL`, `LIFETIME`.
 - Tất cả store products/base plans ở trên map vào cùng entitlement `premium`.
-- Granted entitlement của chiến dịch cũng cấp chính entitlement `premium`.
+- Founder access không được ghi thành RevenueCat entitlement; paid products vẫn map vào
+  entitlement `premium` như trên.
 - Client chỉ chứa public platform SDK key. RevenueCat secret API key chỉ tồn tại trong backend
-  secret storage.
+  secret storage để xóa RevenueCat customer khi parent account bị xóa.
 
 ### Store behavior đã chốt
 
@@ -170,15 +174,17 @@ Các identifier trên là immutable contract sau khi product được tạo. And
 - Không dùng email, tên phụ huynh, child name, birth year, advertising ID hoặc progress làm App
   User ID/customer attribute.
 - Free mode không bắt buộc đăng nhập.
-- Đăng nhập Firebase là bắt buộc trước purchase, restore, manage subscription hoặc claim quà.
+- Đăng nhập Firebase là bắt buộc trước purchase, restore, manage subscription hoặc mở nội dung bằng
+  Founder access.
 - Nếu Firebase đã restore session lúc app khởi động, configure RevenueCat với UID đó.
 - Nếu chưa đăng nhập, configure RevenueCat một lần ở anonymous state; sau sign-in gọi
   `Purchases.logIn(firebaseUid)`.
 - Khi sign-out gọi `Purchases.logOut()` và xóa Premium snapshot của account cũ khỏi React state.
 - Khi chuyển trực tiếp account, gọi `logIn(newUid)`; không reuse entitlement snapshot của UID cũ.
 
-Promotional entitlement không nằm trong Apple/Google receipt. Người nhận quà phải đăng nhập lại
-đúng Firebase account để khôi phục quà sau khi cài lại hoặc đổi thiết bị.
+Founder access không nằm trong Apple/Google receipt hay RevenueCat entitlement. Người dùng phải
+đăng nhập đúng Firebase account; client đánh giá lại từ `CustomerInfo.firstSeen` của RevenueCat App
+User ID đó sau khi cài lại hoặc đổi thiết bị.
 
 ### Runtime state
 
@@ -196,14 +202,16 @@ type MonetizationStatus =
 Snapshot còn có:
 
 - active entitlement và expiration date nếu có;
-- product/period type (`monthly`, `annual`, `lifetime`, `promotional`);
+- product/period type (`monthly`, `annual`, `lifetime`, `promotional`, `founder`);
 - `willRenew` và `managementURL` nếu store cung cấp;
 - current Offering/packages;
-- purchase/restore/claim pending state;
+- purchase/restore pending state;
 - normalized error code không chứa secret hoặc raw receipt.
 
-`CustomerInfo.entitlements.active.premium` là entitlement source of truth. Không ghi boolean
-`isPremium` vào `ParentSettings`, `LocalProgress`, Firestore progress document hoặc Remote Config.
+`CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên.
+Founder access là nhánh local riêng được tính từ `CustomerInfo.firstSeen` và Remote Config; không
+ghi boolean `isPremium` vào `ParentSettings`, `LocalProgress`, Firestore progress document hoặc
+Remote Config.
 
 ### Cache, verification và lỗi mạng
 
@@ -217,6 +225,8 @@ Snapshot còn có:
 - Khi không có CustomerInfo cache và fetch thất bại, chỉ free tier được mở; UI cho retry thay vì
   khẳng định người dùng chưa mua.
 - Không tự kéo dài entitlement ngoài hành vi cache/grace period chính thức của RevenueCat.
+- Với Founder access, effective now là thời điểm muộn hơn giữa `Date.now()` và
+  `CustomerInfo.requestDate`; dữ liệu ngày/config không hợp lệ phải fail closed.
 - Không mô tả Premium là full offline vì lesson assets hiện vẫn R2-first.
 
 ## 6. Content access policy
@@ -247,7 +257,8 @@ Stable IDs được dùng thay vì catalog index để reorder/add lesson không
 
 ## 7. Parental gate và navigation
 
-Purchase opportunity, campaign claim, restore và manage subscription chỉ xuất hiện sau adult gate.
+Purchase opportunity, Founder information, restore và manage subscription chỉ xuất hiện sau adult
+gate.
 Gate v1 gồm hai bước:
 
 1. giữ nút ba giây như flow hiện tại;
@@ -333,8 +344,8 @@ testing.
 - Lifetime owner không thấy subscription purchase CTA.
 - Active subscriber không thấy lifetime CTA để tránh mua trùng trong khi subscription vẫn gia hạn.
 - Việc đổi monthly/annual trong v1 đi qua store management flow, không tự dựng proration logic.
-- Người đang có promotional Premium không được mua subscription/lifetime cho đến khi quà hết hạn;
-  UI hiển thị ngày hết hạn và giải thích quà không tự động gia hạn.
+- Người đang có promotional hoặc Founder access không được mua subscription/lifetime cho đến khi
+  quyền đó hết hạn; UI hiển thị ngày hết hạn và giải thích quà không tự động gia hạn.
 
 ## 9. Chiến dịch Founder Premium 365 ngày
 
@@ -342,177 +353,81 @@ testing.
 
 Copy chuẩn:
 
-> 500 tài khoản phụ huynh đủ điều kiện đầu tiên nhấn “Nhận Premium 1 năm” sau khi chương trình mở
-> sẽ nhận Premium miễn phí trong 365 ngày. Mỗi tài khoản một suất, không cần thông tin thanh toán,
+> Tài khoản phụ huynh được RevenueCat ghi nhận trước thời điểm chương trình kết thúc sẽ nhận quyền
+> truy cập Premium trong 365 ngày tính từ lần đầu được ghi nhận. Không cần thông tin thanh toán,
 > không tự động gia hạn và không phát sinh phí.
 
-Không dùng “500 lượt tải đầu tiên”. Download/install không phải identity bền vững và không thể xác
-định chính xác sau khi chương trình được bật muộn.
-
-Quota ban đầu là 500 account trên **tổng iOS và Android**, không phải 500 mỗi platform. Admin có thể
-tăng capacity trên backend sau này mà không release app.
+Không quảng cáo “500 lượt tải đầu tiên” hoặc cam kết quota chính xác 500. `firstSeen` là lúc
+RevenueCat lần đầu thấy một App User ID; nó không phải số download/install tuyệt đối và có thể bị
+ảnh hưởng bởi thời điểm SDK configure, anonymous identity, reinstall hoặc account merge. Admin theo
+dõi số New Customers rồi publish cutoff khi lượng user đã phù hợp; kết quả chỉ xấp xỉ mục tiêu.
 
 Không gắn quà với rating, review, share, referral hoặc thao tác marketing khác.
 
 ### Eligibility
 
-Một claim hợp lệ khi tất cả điều kiện sau đúng:
+Founder access active khi tất cả điều kiện sau đúng:
 
 - parental gate đã mở trong app;
 - Firebase parent đã đăng nhập;
 - RevenueCat đã identify bằng đúng Firebase UID;
-- Firebase App Check token hợp lệ;
-- campaign đang enabled trong Remote Config và `ready` trên backend;
-- thời gian server nằm trong `startsAt`/`endsAt` nếu có;
-- campaign còn capacity;
-- UID chưa có claim/reservation cho campaign;
-- account không có active `premium` entitlement tại thời điểm kiểm tra.
+- `CustomerInfo.firstSeen` và `CustomerInfo.requestDate` là ISO date hợp lệ;
+- `founder_premium_cutoff_at` là ISO UTC date hợp lệ;
+- `CustomerInfo.firstSeen <= founder_premium_cutoff_at`;
+- effective now còn trước `firstSeen + founder_premium_duration_days`.
 
-Người có active monthly, annual, lifetime hoặc promotional Premium không tiêu quota. Expired
-subscriber có thể claim nếu đáp ứng các điều kiện khác và chưa claim campaign này.
+Effective now là `max(Date.now(), CustomerInfo.requestDate)` để đồng hồ thiết bị không thể lùi về
+trước RevenueCat response gần nhất. Đây không phải trusted time hoàn chỉnh: sau một response trước
+expiry, client bị giữ offline và đồng hồ bị lùi về một thời điểm giữa `requestDate`/expiry vẫn có
+thể kéo dài local access. Cutoff, firstSeen, requestDate hoặc duration thiếu/không hợp lệ đều fail
+closed. Verified active RevenueCat entitlement `premium` luôn ưu tiên Founder access; khi
+entitlement đó hết hạn, client có thể dùng Founder access nếu nhánh này vẫn còn hiệu lực. Nếu cần
+expiry chống can thiệp tuyệt đối thì phải dùng trusted backend hoặc RevenueCat entitlement.
+
+Đây là quyết định local trong app, không phải RevenueCat entitlement, receipt hay granted
+entitlement. Client không gọi claim/status backend và không persist một boolean Founder riêng.
 
 ### Remote Config contract
 
-| Key                                | Type    | In-app default            | Ý nghĩa                             |
-| ---------------------------------- | ------- | ------------------------- | ----------------------------------- |
-| `premium_purchase_enabled`         | Boolean | `true`                    | Kill switch chỉ cho purchase mới    |
-| `founder_premium_campaign_enabled` | Boolean | `false`                   | Bật visibility và server claim gate |
-| `founder_premium_campaign_id`      | String  | `founder-premium-2026-v1` | Campaign đang active                |
+| Key                            | Type    | In-app default | Ý nghĩa                                  |
+| ------------------------------ | ------- | -------------- | ---------------------------------------- |
+| `premium_purchase_enabled`     | Boolean | `true`         | Kill switch chỉ cho purchase mới         |
+| `founder_premium_cutoff_at`    | String  | `""`           | ISO UTC cutoff; rỗng/invalid là tắt      |
+| `founder_premium_duration_days`| Number  | `365`          | Số ngày từ `firstSeen`; invalid fail closed |
 
-Các key campaign phải dùng global/default value, không dùng Analytics audience/personalization.
-Backend tự đọc published Remote Config template; không tin boolean hoặc campaign ID do client gửi.
+Các key Founder dùng global/default value, không dùng Analytics audience/personalization. Remote
+Config không chứa secret, giá giao dịch hay paid entitlement.
 
 Client gọi `fetchAndActivate()` lúc app start và khi Parent Mode/Paywall focus, với production
-minimum fetch interval hợp lý. Campaign CTA có thể attach real-time listener chỉ trong Parent
-surface nếu cần activation gần như tức thời; listener phải được tháo khi rời surface.
+minimum fetch interval hợp lý, đồng thời lắng nghe update để tính lại snapshot khi cutoff đổi.
 
 Remote Config failure:
 
-- không làm mất entitlement đã có;
-- campaign mặc định tắt;
+- không làm mất verified paid entitlement đã có;
+- cutoff mặc định rỗng nên Founder fail closed nếu chưa từng activate config hợp lệ;
 - purchase dùng last activated/default `premium_purchase_enabled`;
-- server vẫn là quyết định cuối cùng cho claim;
-- cached CTA có thể hiện sau khi campaign hết chỗ, nhưng response `soldOut` phải cập nhật UI ngay.
+- valid cached cutoff tiếp tục được dùng khi fetch tạm lỗi.
 
-Không lưu RevenueCat secret, quota authoritative, customer eligibility, entitlement hoặc giá giao
-dịch trong Remote Config.
+Cutoff không được xóa hoặc đổi lùi sau khi chiến dịch đóng, vì các account đủ điều kiện vẫn cần nó
+để tính quyền tới ngày hết hạn cuối cùng. Với duration 365 ngày, giữ nguyên config ít nhất 365 ngày
+sau `founder_premium_cutoff_at` và qua toàn bộ rollout còn hỗ trợ binary này.
 
-### Backend data model
+Mô hình cutoff-only không tái dùng tốt cho campaign mới: đổi cutoff thành ngày tương lai sẽ làm mọi
+RevenueCat customer có `firstSeen` trước đó đủ điều kiện lại. Campaign độc lập trong tương lai cần
+versioned policy/ledger hoặc backend grant riêng; không overload hai key hiện tại.
 
-```text
-monetizationCampaigns/{campaignId}
-  kind: "revenuecat_granted_entitlement"
-  entitlementLookupKey: "premium"
-  revenueCatEntitlementId: "entl..."
-  status: "draft" | "ready" | "paused" | "closed"
-  capacity: 500
-  reservedCount: number
-  grantedCount: number
-  durationDays: 365
-  startsAt?: Timestamp
-  endsAt?: Timestamp
-  createdAt: Timestamp
-  updatedAt: Timestamp
-
-monetizationCampaigns/{campaignId}/claims/{firebaseUid}
-  status: "reserved" | "granting" | "granted" | "manualReview"
-  reservedAt: Timestamp
-  grantedAt?: Timestamp
-  expiresAt: Timestamp
-  revenueCatEntitlementId: "entl..."
-  revenueCatCustomerId: string
-  attemptCount: number
-  nextAttemptAt?: Timestamp
-  lastErrorCode?: string
-
-monetizationGrantOutbox/{stableHash}
-  campaignId: string
-  firebaseUid: string
-  status: "pending" | "processing" | "done" | "manualReview"
-  attemptCount: number
-  nextAttemptAt?: Timestamp
-  processAfter?: Timestamp
-  leaseExpiresAt?: Timestamp
-
-monetizationCustomerDeletionTombstones/{sha256FirebaseUid}
-  status: "requested" | "deleting" | "completed"
-  requestedAt: Timestamp
-  updatedAt: Timestamp
-  safeAfter?: Timestamp
-  deletionLeaseId?: string
-  deletionLeaseExpiresAt?: Timestamp
-  completedAt?: Timestamp
-```
-
-RevenueCat SDK dùng lookup key `premium`, nhưng RevenueCat REST API v2 grant và
-active-entitlements dùng internal entitlement ID dạng `entl...`. Campaign phải lưu cả hai và seed
-script phải xác minh mapping một lần trước khi ghi Firestore; worker không resolve entitlement list
-trên mỗi claim. Outbox ID là hash ổn định của campaign + Firebase UID để không lộ raw UID trong
-document ID và vẫn giữ idempotency.
-
-Deletion tombstone dùng document ID SHA-256 của Firebase UID và không lưu raw UID, email, child
-data, receipt hoặc RevenueCat payload. Tombstone được tạo trước external DELETE để transaction
-claim/worker fail closed; trạng thái `deleting` dùng lease ngắn để serialize callable đồng thời và
-có thể recover nếu invocation crash.
-
-Claim/campaign/outbox/tombstone documents không cho mobile client đọc hoặc ghi trực tiếp. Callable
-Function trả về normalized status cần thiết cho UI.
-
-### Claim algorithm
-
-1. Callable `claimFounderPremium` xác thực Firebase Auth và App Check; function không nhận UID từ
-   request body.
-2. Backend đọc global Remote Config values và campaign document.
-3. Backend xác nhận RevenueCat customer đã tồn tại và không có active `premium`.
-4. Firestore transaction:
-   - trả claim hiện có theo hướng idempotent;
-   - kiểm tra `status`, time window và `reservedCount < capacity`;
-   - tạo claim `reserved`, tăng `reservedCount` và tạo outbox trong cùng transaction.
-5. Không gọi RevenueCat bên trong transaction callback vì Firestore có thể retry callback.
-6. Worker lấy outbox, chuyển claim sang `granting`, rồi gọi RevenueCat API v2 grant entitlement với
-   internal `revenueCatEntitlementId` và `expires_at = reservedAt + 365 ngày`.
-7. Thành công: claim `granted`, outbox `done`, tăng `grantedCount` một lần.
-8. App invalidate CustomerInfo cache, fetch lại và chỉ mở Premium khi entitlement active.
-
-Response UI tối thiểu:
-
-- `available`
-- `granted`
-- `processing`
-- `alreadyClaimed`
-- `alreadyPremium`
-- `notAvailable`
-- `soldOut`
-- `signInRequired`
-- `retryableError`
-
-### Retry và quota safety
-
-- RevenueCat timeout/423/429/5xx giữ reservation và retry với exponential backoff, đồng thời tôn
-  trọng `Retry-After`/`backoff_ms` nếu server trả về.
-- Không tự trả slot khi chưa xác minh grant chắc chắn thất bại; tránh double grant khi response bị
-  mất sau khi RevenueCat đã xử lý.
-- Grant `409` hoặc response bị mất phải query active entitlements lại. Chỉ finalize khi internal
-  entitlement ID hiện diện và expiry chứng minh grant mong muốn; expiry không khớp chuyển ledger
-  sang `manualReview` nhưng không trả reservation.
-- Worker/reconciliation job kiểm tra các claim stuck.
-- Chỉ admin operation có audit mới chuyển `manualReview` hoặc giải phóng reservation.
-- `reservedCount` ngăn vượt capacity; `grantedCount` dùng báo cáo, không dùng một mình làm gate.
-- Tắt Remote Config không thu hồi quà đã cấp.
-- Hết capacity thì backend trả `soldOut`; admin sau đó tắt flag hoặc tăng `capacity`.
-
-### Granted entitlement semantics
+### Access semantics
 
 - Không charge và không yêu cầu payment method.
 - Không auto-renew và không tự biến thành subscription.
-- Hết hạn đúng `expiresAt` do backend cấp.
-- Chạy song song thay vì cộng nối tiếp với store subscription; vì vậy active Premium account bị
-  loại khỏi eligibility.
+- Hết hạn tại `firstSeen + durationDays`, không phải cutoff + duration.
+- Chạy song song với store subscription nhưng verified paid entitlement được ưu tiên trong snapshot.
 - Không restore sang Firebase UID khác bằng Apple/Google receipt.
+- Không có quota, claim ledger, outbox, server grant hay RevenueCat promotional entitlement.
 
 ## 10. Firebase backend và security
 
-### Client dependencies dự kiến
+### Client dependencies
 
 - `react-native-purchases`
 - `@react-native-firebase/remote-config`
@@ -526,48 +441,35 @@ hiện privacy/Kids Category review trước khi tiếp tục.
 ### Backend implementation
 
 `functions/` dùng Node.js 22, Firebase Functions v2 và Firebase Admin SDK, với package lock/tests
-riêng. Backend sở hữu:
-
-- callable claim/status;
-- Firestore reservation transaction;
-- outbox worker/reconciliation;
-- RevenueCat secret API calls;
-- RevenueCat customer deletion khi xóa parent account;
-- structured operational logs không chứa raw receipt, child data hoặc secret.
+riêng. Backend chỉ sở hữu callable `deleteRevenueCatCustomerData` để xóa RevenueCat customer khi
+xóa parent account, cùng structured operational logs không chứa raw receipt, child data hoặc
+secret. Founder access không gọi Cloud Functions.
 
 RevenueCat secret key lưu bằng Google Secret Manager/Cloud Functions secret binding. Không commit
 secret vào repo, `.env`, Remote Config hay mobile binary.
 
-Các callable/worker chạy tại `asia-southeast1`. `claimFounderPremium`,
-`getFounderPremiumStatus` và `deleteRevenueCatCustomerData` bật `enforceAppCheck`; Firestore create
-trigger dùng lease và scheduled reconciliation chạy mỗi 5 phút. Remote Config backend đọc
-published client template default/global values và fail closed; conditional value không được dùng
-cho campaign gate.
-
-Repository có seed script an toàn cho `founder-premium-2026-v1`, mặc định dry-run, từ chối
-overwrite campaign đã tồn tại và xác minh internal RevenueCat entitlement trước khi `--apply`.
-Implementation task không đồng nghĩa campaign thật đã được seed/deploy hoặc secret/IAM/App Check
-production đã được cấu hình.
+`deleteRevenueCatCustomerData` chạy tại `asia-southeast1`, bật `enforceAppCheck`, lấy UID từ Firebase
+Auth context và không nhận UID tùy ý từ request body. Bốn Founder functions
+`claimFounderPremium`, `getFounderPremiumStatus`, `processFounderGrant` và
+`reconcileFounderGrants` không còn thuộc kiến trúc và phải được xóa khỏi deployment.
 
 ### App Check
 
 - iOS: App Attest, có DeviceCheck fallback theo support matrix thực tế.
 - Android: Play Integrity.
-- Callable claim bật `enforceAppCheck`.
+- Callable account deletion bật `enforceAppCheck`.
 - Debug provider/token chỉ dùng local/emulator và không commit.
 - App Check giảm scripted abuse nhưng không chứng minh một người chỉ có một account; không thêm
   fingerprint mạnh hoặc thu thập child data để theo dõi người dùng.
 
 ### Firestore Rules
 
-Mobile client tiếp tục chỉ có quyền owner-scoped với cloud progress hiện tại. Explicit tests phải
-chứng minh client không thể:
+Mobile client tiếp tục chỉ có quyền owner-scoped với cloud progress hiện tại. Founder access không
+tạo Firestore campaign/claim/outbox data. Rules và tests không được mở thêm collection cho client.
 
-- đọc/ghi campaign counter;
-- tạo/sửa claim;
-- ghi outbox;
-- tăng capacity hoặc đổi status;
-- claim thay UID khác.
+Các collection Founder legacy từng được tạo bởi build/backend cũ không tự bị xóa khi source và
+Functions được dọn. Trước production phải kiểm kê rồi recursive-delete chúng bằng admin migration
+có preview/xác nhận; callable account deletion mới không được giữ code legacy chỉ để làm migration.
 
 Admin SDK bypass Rules nên IAM/service account phải dùng least privilege phù hợp.
 
@@ -604,7 +506,8 @@ Delete-account UI phải cảnh báo rõ:
 - xóa account không tự hủy Apple/Google subscription;
 - phụ huynh nên mở Manage Subscription để hủy gia hạn nếu muốn;
 - store purchase có thể được restore sang account mới theo restore policy;
-- promotional Premium không có store receipt và sẽ mất khi account/RevenueCat customer bị xóa.
+- Founder/promotional Premium không có store receipt và sẽ mất khi account/RevenueCat customer bị
+  xóa.
 
 Deletion flow:
 
@@ -617,21 +520,11 @@ Deletion flow:
 Không chặn yêu cầu xóa chỉ vì subscription còn active. Xóa RevenueCat customer không hủy mobile
 subscription; copy và support flow phải nói rõ điều đó.
 
-Campaign reservation đã dùng không được tự trả lại quota sau account deletion. Nếu cần giữ bằng
-chứng chống double counting, backend chỉ giữ tombstone tối thiểu theo retention policy đã công bố;
-không giữ email, child data hoặc raw purchase data.
-
-Backend hiện tạo tombstone trước khi tìm ledger, chặn reservation và outbox worker mới, đồng thời
-chuyển claim/outbox chưa hoàn tất sang `manualReview`. Nếu worker đang giữ lease, deletion trả
-`retryableError` cho tới safe boundary để grant đang bay không thể tạo lại RevenueCat customer sau
-DELETE. Sau khi RevenueCat xác nhận xóa, backend scrub mọi outbox/claim chứa raw Firebase UID, kể
-cả orphan claim không còn outbox; campaign counters vẫn giữ nguyên và tombstone hashed chuyển sang
-`completed`. Concurrent/repeated deletion được serialize bằng lease và idempotent.
-
 Client hiện thực thi đúng thứ tự trên: backend chỉ trả success khi RevenueCat DELETE thành công,
 được queue (`202`) hoặc customer đã không còn (`404`); nếu cleanup không được xác nhận thì Firebase
 Auth account được giữ lại để phụ huynh retry. RevenueCat SDK cache/logout được dọn sau Auth deletion
-và dùng một shared in-flight operation để tránh logout trùng với auth observer.
+và dùng một shared in-flight operation để tránh logout trùng với auth observer. Không có Founder
+ledger/outbox/tombstone cần phối hợp với deletion.
 
 ## 12. Kiến trúc code mục tiêu
 
@@ -641,15 +534,15 @@ App.tsx
   -> MonetizationManager
        -> RevenueCat SDK
        -> RemoteMonetizationConfig
+       -> FounderAccessPolicy
        -> CustomerInfo listeners
   -> AppNavigator
        -> ContentAccessPolicy
        -> Parent gate/session
        -> PremiumScreen
-       -> FounderPremiumManager
-            -> Firebase callable Function
-                 -> Firestore transaction/outbox
-                 -> RevenueCat REST API
+  -> RevenueCatDataDeletion
+       -> Firebase callable deleteRevenueCatCustomerData
+            -> RevenueCat REST API
 ```
 
 Modules/files dự kiến:
@@ -658,12 +551,12 @@ Modules/files dự kiến:
 - `src/engine/MonetizationManager.ts`: configure/login/logout, CustomerInfo, Offering,
   purchase/restore/manage và snapshot subscription.
 - `src/engine/ContentAccessPolicy.ts`: pure access decisions.
+- `src/engine/FounderAccessPolicy.ts`: pure cutoff/duration/date validation và Founder access.
 - `src/engine/ParentAccessSession.ts`: in-memory adult gate session.
 - `src/services/RemoteMonetizationConfig.ts`: defaults, fetch/activate và optional listener.
-- `src/engine/FounderPremiumManager.ts`: callable claim/status client và xác nhận entitlement qua
-  RevenueCat CustomerInfo.
 - `src/screens/PremiumScreen.tsx`: custom paywall/status UI.
-- `functions/`: claim, outbox worker, reconciliation và account-deletion integration.
+- `src/services/RevenueCatDataDeletion.ts`: account-deletion callable client.
+- `functions/`: chỉ còn account-deletion integration.
 
 Existing integration points tối thiểu:
 
@@ -714,24 +607,21 @@ Current minimums Android API 24 và iOS 15.1 đáp ứng RevenueCat SDK minimum 
 
 - Access matrix cho free/premium/initializing/signed-out/unavailable.
 - Stable free lesson IDs không đổi khi catalog reorder.
-- CustomerInfo mapping cho monthly/annual/lifetime/promotional/expired/refunded.
+- CustomerInfo mapping cho monthly/annual/lifetime/promotional/founder/expired/refunded.
 - Trusted entitlement verification handling.
 - Purchase cancel/pending/failure/success normalization.
 - Login/logout/account switch không leak Premium state.
 - Remote Config defaults/fetch failure/cached values.
-- Campaign claim response mapping và idempotent retry.
+- Founder policy: before/equal/after cutoff, expiry boundary, invalid dates/duration và device clock
+  rollback qua `requestDate`.
+- Verified paid entitlement luôn ưu tiên Founder access; signed-out user chưa mở nội dung.
 
 ### Backend/emulator tests
 
-- Auth/App Check missing bị reject.
-- Client không thể đọc/ghi campaign/claim/outbox.
-- Cùng UID gọi nhiều lần chỉ dùng một reservation.
-- Ít nhất 550 concurrent claim với capacity 500 không vượt `reservedCount = 500`.
-- Transaction retry không gọi RevenueCat nhiều lần.
-- Worker timeout/429/5xx retry và không trả slot sai.
-- Duplicate worker/event không tăng `grantedCount` hai lần.
-- Disabled/paused/expired/sold-out campaign trả đúng status.
-- Active Premium account không dùng quota.
+- `deleteRevenueCatCustomerData` reject Auth/App Check thiếu hoặc UID tùy ý từ request body.
+- RevenueCat DELETE success/queued/not-found được normalize thành success.
+- Timeout/429/5xx trả retryable result và giữ Firebase Auth account để phụ huynh thử lại.
+- Firestore Rules không mở thêm campaign/claim/outbox collection cho client.
 
 ### UI/native matrix
 
@@ -742,9 +632,10 @@ Current minimums Android API 24 và iOS 15.1 đáp ứng RevenueCat SDK minimum 
 - Cancel không hiện lỗi; pending chưa mở entitlement.
 - App-to-banking-to-app round-trip không hủy flow trên Android.
 - Restore trên reinstall/account switch đúng restore policy.
-- Active promo/subscription/lifetime hiển thị đúng CTA và ngày hết hạn.
+- Active founder/promo/subscription/lifetime hiển thị đúng CTA và ngày hết hạn.
 - Refund/expiration giữ progress nhưng khóa content Premium ở boundary tiếp theo.
-- Remote Config bật/tắt campaign không cần binary release.
+- Publish cutoff hợp lệ cập nhật Founder access không cần binary release; cutoff rỗng/invalid fail
+  closed.
 - Quà không yêu cầu payment và không auto-renew.
 
 ### Repository verification
@@ -766,13 +657,12 @@ thiết bị/platform tương ứng.
 
 - Ba products được approved/available ở cả hai store và map đúng `premium`.
 - Giá luôn lấy từ store.
-- RevenueCat CustomerInfo là entitlement source of truth.
-- Adult gate bảo vệ paywall, claim, restore và manage.
+- RevenueCat CustomerInfo là source cho paid entitlement và Founder metadata.
+- Adult gate bảo vệ paywall, Founder entry, restore và manage.
 - Không có Premium bypass qua navigation target.
-- 500 concurrent reservations không vượt quota.
 - Secret không có trong client/repo/log.
-- Campaign có thể bật bằng Remote Config và backend xác nhận cùng flag.
-- Existing Premium không mất khi Remote Config/claim backend lỗi.
+- Founder cutoff/duration có thể publish bằng Remote Config và invalid config fail closed.
+- Existing paid Premium không mất khi Remote Config lỗi.
 - Privacy/Terms/store disclosures và account deletion flow hoàn tất.
 - TypeScript, lint, Jest, Firestore/backend tests và native builds liên quan pass.
 - Sandbox/TestFlight/Play closed-track matrix được ghi nhận rõ.
@@ -783,7 +673,8 @@ thiết bị/platform tương ứng.
 
 - Tạo RevenueCat Project/apps/entitlement/Offering/products.
 - Tạo store products và subscription metadata.
-- Thiết lập Firebase Blaze/Functions/App Check/Remote Config.
+- Thiết lập Firebase Blaze/Functions/App Check cho account deletion và Remote Config cho
+  purchase/Founder policy.
 - Chuẩn bị Privacy Policy, Terms và deletion web resource.
 
 ### Phase 1 - Foundation
@@ -791,51 +682,52 @@ thiết bị/platform tương ứng.
 - Cài SDK/dependencies và native config.
 - Implement identity, CustomerInfo snapshot, access policy và strengthened parental gate.
 - Implement custom Premium screen, purchase/restore/manage.
-- Campaign flag vẫn `false`.
+- Founder cutoff default vẫn rỗng.
 
-### Phase 2 - Backend campaign
+### Phase 2 - Founder policy và account deletion backend
 
-- Implement callable, Firestore transaction, outbox worker, retry và reconciliation.
-- Repository đã có seed script cho campaign `founder-premium-2026-v1` trạng thái `ready`, capacity
-  `500`; chỉ chạy `--apply` sau khi có internal entitlement ID và project production.
-- Code đã bật App Check enforcement/secret binding; việc tạo secret, IAM, deploy và enforcement
-  production vẫn là external setup có chủ ý.
+- Implement client-side Founder policy từ `firstSeen`, cutoff, duration và effective now.
+- Chỉ giữ `deleteRevenueCatCustomerData`; xóa bốn Founder functions khỏi source/deployment.
+- Cấu hình secret/IAM/App Check chỉ cho account deletion callable.
 
 ### Phase 3 - Closed testing
 
 - RevenueCat Test Store/unit tests trước.
 - Apple sandbox/TestFlight và Google closed testing trên physical devices.
-- Test account deletion, restore, pending, refund/expiration và 550 concurrent claims.
-- Campaign production flag vẫn `false`.
+- Test account deletion, restore, pending, refund/expiration và Founder date boundary/invalid config.
+- Founder cutoff production vẫn rỗng.
 
 ### Phase 4 - Store release
 
-- Submit IAP cùng binary đầu tiên và giải thích đầy đủ monetization/campaign trong review notes.
-- Paid purchase flow hoạt động; founder campaign vẫn tắt cho tới khi production health ổn định.
+- Submit IAP cùng binary đầu tiên và giải thích đầy đủ monetization/Founder policy trong review
+  notes.
+- Paid purchase flow hoạt động; Founder cutoff vẫn rỗng cho tới khi production health ổn định.
 - Không dùng Remote Config để che purchase behavior khỏi reviewer.
 
-### Phase 5 - Campaign launch
+### Phase 5 - Founder launch
 
-- Xác nhận campaign document `ready`, capacity/time window đúng.
-- Bật `founder_premium_campaign_enabled=true` và publish Remote Config.
-- Theo dõi reserved/granted/manualReview và RevenueCat customer status.
-- Khi hết suất: tắt flag hoặc tăng capacity bằng admin change có audit.
+- Theo dõi RevenueCat New Customers và xác nhận client production đang gửi `firstSeen` đúng identity.
+- Trong thời gian nhận Founder, publish cutoff ở tương lai đủ gần hoặc thời điểm kết thúc dự kiến.
+- Khi lượng account xấp xỉ mục tiêu, publish `founder_premium_cutoff_at` bằng UTC hiện tại và giữ
+  `founder_premium_duration_days=365`.
+- Giữ nguyên cutoff ít nhất tới expiry cuối cùng; không xóa key để “tắt” vì sẽ thu hồi quyền local.
 
 ### Rollback
 
-- `founder_premium_campaign_enabled=false`: dừng claim mới, không thu hồi quà đã cấp.
+- Nếu chưa launch, cutoff rỗng fail closed. Sau launch không rollback bằng cách xóa/đổi lùi cutoff;
+  cần release policy mới nếu config sai đã ảnh hưởng người dùng.
 - `premium_purchase_enabled=false`: dừng purchase mới, vẫn giữ CustomerInfo, restore/manage và
   quyền đã mua.
-- Backend `status=paused`: chặn claim kể cả client còn cached CTA.
-- Rollback không xóa transaction, entitlement, progress hoặc campaign audit data.
+- Rollback không xóa transaction, entitlement hoặc progress.
 
 ## 16. External prerequisites còn thiếu
 
 Các giá trị sau không được đoán hoặc commit trong spec:
 
-- RevenueCat Project ID, public iOS/Android SDK keys và secret API key;
+- RevenueCat Project ID, public iOS/Android SDK keys và secret API key dùng cho account deletion;
 - App Store Connect/Google Play product approval và territory availability;
-- Firebase production project/deployment, Secret Manager value/IAM và App Check registrations;
+- Firebase production Remote Config values; account-deletion Function, Secret Manager value/IAM
+  và App Check registrations;
 - public Privacy Policy URL, Terms URL và account-deletion URL;
 - final store tax category, seller/business metadata và localized subscription copy.
 
@@ -850,7 +742,7 @@ Những mục này là configuration/launch prerequisites, không thay đổi pr
   [Restore behavior](https://www.revenuecat.com/docs/projects/restore-behavior),
   [Developer API](https://www.revenuecat.com/docs/api-v2).
 - Firebase: [Remote Config parameters](https://firebase.google.com/docs/remote-config/parameters),
-  [Firestore transactions](https://firebase.google.com/docs/firestore/manage-data/transactions),
+  [Callable Functions](https://firebase.google.com/docs/functions/callable),
   [App Check](https://firebase.google.com/docs/app-check).
 - Apple: [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/),
   [Kids guidance](https://developer.apple.com/kids/),

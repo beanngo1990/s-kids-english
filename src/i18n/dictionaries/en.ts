@@ -92,38 +92,15 @@ export const en: TranslationDictionary = {
   'premium.signInTitle': 'Sign in before purchasing',
   'premium.signInText':
     'Sign in a parent account so Premium access can be safely linked and restored.',
-  'premium.founder.badge': 'Early parent gift',
-  'premium.founder.title': 'Get one year of Premium free',
+  'premium.founder.badge': 'Launch gift for early parents',
+  'premium.founder.title': 'One year of Premium free',
   'premium.founder.marketingText':
-    'The first 500 eligible parent accounts to tap “Get 1 year of Premium” after the campaign opens will receive Premium free for 365 days.',
+    'Eligible accounts receive 365 days of Premium from the first time RevenueCat recorded the app, after a parent signs in.',
   'premium.founder.terms':
-    'One grant per account. No payment details are required, it will not renew automatically, and there is no charge.',
-  'premium.founder.availableText':
-    'The campaign is open. Eligible requests are assigned in the order the backend confirms them.',
-  'premium.founder.checkingText': 'Checking the campaign status...',
-  'premium.founder.processingText':
-    'Your request is being processed. Premium will open only after RevenueCat confirms active access.',
-  'premium.founder.alreadyPremiumText':
-    'This account already has Premium. The app is confirming access again.',
-  'premium.founder.soldOutText':
-    'The campaign has no remaining grants right now. Existing Premium access is unchanged.',
-  'premium.founder.notAvailableText':
-    'The campaign has not opened yet or is temporarily paused.',
+    'No payment details are required, it will not renew automatically, and there is no charge.',
   'premium.founder.signInText':
-    'Sign in a parent account before claiming this gift.',
-  'premium.founder.retryableText':
-    'The campaign could not be checked. Check the connection and try again.',
-  'premium.founder.claim': 'Get 1 year of Premium',
-  'premium.founder.claiming': 'Reserving your grant...',
-  'premium.founder.checking': 'Checking...',
-  'premium.founder.confirming': 'Confirming Premium...',
-  'premium.founder.retry': 'Check again',
-  'premium.founder.soldOutAction': 'No grants remaining',
-  'premium.founder.notAvailableAction': 'Campaign unavailable',
-  'premium.founder.signInAction': 'Sign in to claim',
-  'premium.founder.successTitle': 'One year of Premium is active',
-  'premium.founder.successText':
-    'RevenueCat confirmed active Premium for the parent account. This gift will not renew automatically and has no charge.',
+    'This app record is eligible. Sign in a parent account to activate the gift.',
+  'premium.founder.signInAction': 'Sign in and activate',
   'premium.package.monthly': '1 month',
   'premium.package.annual': '1 year',
   'premium.package.lifetime': 'Lifetime',
@@ -150,6 +127,7 @@ export const en: TranslationDictionary = {
   'premium.currentMonthly': 'Monthly Premium plan',
   'premium.currentAnnual': 'Annual Premium plan',
   'premium.currentLifetime': 'Lifetime Premium',
+  'premium.currentFounder': 'One-year Founder Premium',
   'premium.currentPromotional': 'Promotional Premium',
   'premium.currentUntil': 'Active until {date}',
   'premium.currentRenews': 'This plan will renew under the store terms.',
@@ -245,6 +223,8 @@ export const en: TranslationDictionary = {
   'parent.account.signInInProgress':
     'A sign-in flow is already running. Please wait for it to finish and try again.',
   'parent.account.signInWithProvider': 'Sign in with {provider}',
+  'parent.account.signInCancelled':
+    'The sign-in flow was not completed. Open the sign-in window and try again.',
   'parent.account.signedIn': 'Signed in',
   'parent.account.signedOut':
     'A parent must sign in before explicitly enabling progress sync.',

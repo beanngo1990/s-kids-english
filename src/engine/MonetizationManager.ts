@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react';
+import { AppState, type AppStateStatus } from 'react-native';
 import Purchases, {
   type CustomerInfo,
   type CustomerInfoUpdateListener,
@@ -18,7 +19,11 @@ import {
   type ParentAuthSnapshot,
 } from './ParentAuthManager';
 import { setParentPurchaseFlowActive } from './ParentAccessSession';
-import { getRemoteMonetizationConfigSnapshot } from '../services/RemoteMonetizationConfig';
+import {
+  getRemoteMonetizationConfigSnapshot,
+  subscribeRemoteMonetizationConfig,
+} from '../services/RemoteMonetizationConfig';
+import { evaluateFounderAccess } from './FounderAccessPolicy';
 
 export type MonetizationStatus =
   | 'initializing'
@@ -31,7 +36,10 @@ export type MonetizationProductType =
   | 'monthly'
   | 'annual'
   | 'lifetime'
+  | 'founder'
   | 'promotional';
+
+export type MonetizationPremiumSource = 'founder' | 'revenueCat';
 
 export type MonetizationPendingAction =
   | 'identity'
@@ -69,12 +77,15 @@ export type MonetizationSnapshot = Readonly<{
   activeProductType?: MonetizationProductType;
   errorCode?: MonetizationErrorCode;
   expirationDate?: string;
+  founderAccessActive: boolean;
+  founderAccessExpirationDate?: string;
   isAuthReady: boolean;
   isConfigured: boolean;
   isSignedIn: boolean;
   managementUrl?: string;
   packages: readonly MonetizationPackage[];
   pendingAction: MonetizationPendingAction;
+  premiumSource?: MonetizationPremiumSource;
   status: MonetizationStatus;
   userId?: string;
   willRenew: boolean;
@@ -90,6 +101,7 @@ export type PurchaseResult =
   | 'unavailable';
 
 export type RestoreResult =
+  | 'cancelled'
   | 'failed'
   | 'restored'
   | 'signInRequired'
@@ -99,6 +111,7 @@ export type RestoreResult =
 export type PurchaseErrorDisposition = 'cancelled' | 'failed' | 'pending';
 
 const initialSnapshot: MonetizationSnapshot = {
+  founderAccessActive: false,
   isAuthReady: false,
   isConfigured: false,
   isSignedIn: false,
@@ -116,10 +129,17 @@ let latestAuthSnapshot = initialParentAuthSnapshot;
 let configured = false;
 let configuredUserId: string | null = null;
 let authUnsubscribe: (() => void) | null = null;
+let remoteConfigUnsubscribe: (() => void) | null = null;
+let appStateSubscription: { remove(): void } | null = null;
 let customerInfoListener: CustomerInfoUpdateListener | null = null;
+let latestCustomerInfo: CustomerInfo | null = null;
 let lifecycleSubscriberCount = 0;
 let identityOperation = 0;
+let revenueCatLogHandlerConfigured = false;
 let revenueCatLogoutOperation: Promise<CustomerInfo> | null = null;
+let founderExpirationTimer: ReturnType<typeof setTimeout> | null = null;
+
+const MAX_EXPIRATION_TIMER_MILLIS = 2_147_000_000;
 
 export function getMonetizationSnapshot(): MonetizationSnapshot {
   return snapshot;
@@ -143,6 +163,14 @@ export function startMonetization() {
 
   if (lifecycleSubscriberCount === 1) {
     attachCustomerInfoListener();
+    reapplyLatestCustomerInfo();
+    remoteConfigUnsubscribe = subscribeRemoteMonetizationConfig(() => {
+      reapplyLatestCustomerInfo();
+    });
+    appStateSubscription = AppState.addEventListener(
+      'change',
+      handleAppStateChange,
+    );
     authUnsubscribe = subscribeParentAuth(nextAuthSnapshot => {
       latestAuthSnapshot = nextAuthSnapshot;
       handleAuthSnapshot(nextAuthSnapshot).catch(() => undefined);
@@ -154,7 +182,12 @@ export function startMonetization() {
     if (lifecycleSubscriberCount === 0) {
       authUnsubscribe?.();
       authUnsubscribe = null;
+      remoteConfigUnsubscribe?.();
+      remoteConfigUnsubscribe = null;
+      appStateSubscription?.remove();
+      appStateSubscription = null;
       detachCustomerInfoListener();
+      clearFounderExpirationTimer();
     }
   };
 }
@@ -164,6 +197,8 @@ export async function refreshMonetization(options?: { invalidate?: boolean }) {
     return snapshot;
   }
 
+  const operation = identityOperation;
+  const authSnapshot = latestAuthSnapshot;
   updateSnapshot({ ...snapshot, pendingAction: 'refresh' });
 
   try {
@@ -175,13 +210,31 @@ export async function refreshMonetization(options?: { invalidate?: boolean }) {
       Purchases.getCustomerInfo(),
       refreshOfferings(),
     ]);
-    applyCustomerInfo(customerInfo, latestAuthSnapshot);
+    if (operation !== identityOperation) {
+      return snapshot;
+    }
+
+    applyCustomerInfo(customerInfo, authSnapshot);
   } catch (error) {
+    if (operation !== identityOperation) {
+      return snapshot;
+    }
+
+    const currentAccessSnapshot = latestCustomerInfo
+      ? mapCustomerInfoToMonetizationSnapshot(
+          snapshot,
+          latestCustomerInfo,
+          latestAuthSnapshot,
+        )
+      : snapshot;
     updateSnapshot({
-      ...snapshot,
+      ...currentAccessSnapshot,
       errorCode: normalizeErrorCode(error),
       pendingAction: null,
-      status: snapshot.status === 'premium' ? snapshot.status : 'unavailable',
+      status:
+        currentAccessSnapshot.status === 'premium'
+          ? currentAccessSnapshot.status
+          : 'unavailable',
     });
   }
 
@@ -206,6 +259,8 @@ export async function purchaseMonetizationPackage(
     return 'alreadyPremium';
   }
 
+  const operation = identityOperation;
+  const authSnapshot = latestAuthSnapshot;
   const packageToPurchase = nativePackages.get(packageIdentifier);
   if (!packageToPurchase) {
     updateSnapshot({ ...snapshot, errorCode: 'offeringsUnavailable' });
@@ -221,11 +276,19 @@ export async function purchaseMonetizationPackage(
 
   try {
     const result = await Purchases.purchasePackage(packageToPurchase);
-    applyCustomerInfo(result.customerInfo, latestAuthSnapshot);
+    if (operation !== identityOperation) {
+      return 'cancelled';
+    }
+
+    applyCustomerInfo(result.customerInfo, authSnapshot);
     return getMonetizationSnapshot().status === 'premium'
       ? 'purchased'
       : 'failed';
   } catch (error) {
+    if (operation !== identityOperation) {
+      return 'cancelled';
+    }
+
     const errorDisposition = classifyPurchaseError(error);
 
     if (errorDisposition === 'cancelled') {
@@ -258,6 +321,8 @@ export async function restoreMonetizationPurchases(): Promise<RestoreResult> {
     return 'unavailable';
   }
 
+  const operation = identityOperation;
+  const authSnapshot = latestAuthSnapshot;
   updateSnapshot({
     ...snapshot,
     errorCode: undefined,
@@ -267,9 +332,19 @@ export async function restoreMonetizationPurchases(): Promise<RestoreResult> {
 
   try {
     const customerInfo = await Purchases.restorePurchases();
-    applyCustomerInfo(customerInfo, latestAuthSnapshot);
-    return snapshot.status === 'premium' ? 'restored' : 'withoutPremium';
+    if (operation !== identityOperation) {
+      return 'cancelled';
+    }
+
+    applyCustomerInfo(customerInfo, authSnapshot);
+    return snapshot.premiumSource === 'revenueCat'
+      ? 'restored'
+      : 'withoutPremium';
   } catch (error) {
+    if (operation !== identityOperation) {
+      return 'cancelled';
+    }
+
     updateSnapshot({
       ...snapshot,
       errorCode: normalizeErrorCode(error),
@@ -289,6 +364,8 @@ export async function restoreMonetizationPurchases(): Promise<RestoreResult> {
 export async function resetMonetizationAfterAccountDeletion(): Promise<void> {
   identityOperation += 1;
   latestAuthSnapshot = { isReady: true, user: null };
+  latestCustomerInfo = null;
+  clearFounderExpirationTimer();
   nativePackages.clear();
   updateSnapshot(createSignedOutSnapshot());
 
@@ -320,10 +397,13 @@ export async function resetMonetizationAfterAccountDeletion(): Promise<void> {
 async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
   const operation = ++identityOperation;
   const userId = authSnapshot.user?.uid;
+  latestCustomerInfo = null;
+  clearFounderExpirationTimer();
+  detachCustomerInfoListener();
 
   if (!authSnapshot.isReady) {
     updateSnapshot({
-      ...snapshot,
+      ...clearPremiumAccessMetadata(snapshot),
       isAuthReady: false,
       pendingAction: 'identity',
       status: 'initializing',
@@ -334,7 +414,7 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
   const apiKey = getRevenueCatPlatformApiKey();
   if (!apiKey) {
     updateSnapshot({
-      ...snapshot,
+      ...clearPremiumAccessMetadata(snapshot),
       errorCode: 'configurationMissing',
       isAuthReady: true,
       isConfigured: false,
@@ -348,7 +428,7 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
 
   if (authSnapshot.configurationError && !userId) {
     updateSnapshot({
-      ...snapshot,
+      ...clearPremiumAccessMetadata(snapshot),
       errorCode: 'firebaseUnavailable',
       isAuthReady: true,
       isSignedIn: false,
@@ -360,7 +440,7 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
   }
 
   updateSnapshot({
-    ...snapshot,
+    ...clearPremiumAccessMetadata(snapshot),
     errorCode: undefined,
     isAuthReady: true,
     isSignedIn: Boolean(userId),
@@ -371,6 +451,7 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
 
   try {
     if (!configured) {
+      configureRevenueCatLogHandler();
       Purchases.configure({
         apiKey,
         appUserID: userId ?? null,
@@ -426,8 +507,22 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
       return;
     }
 
+    if (latestCustomerInfo) {
+      const resolvedSnapshot = mapCustomerInfoToMonetizationSnapshot(
+        snapshot,
+        latestCustomerInfo,
+        authSnapshot,
+      );
+      updateSnapshot({
+        ...resolvedSnapshot,
+        errorCode: normalizeErrorCode(error),
+        pendingAction: null,
+      });
+      return;
+    }
+
     updateSnapshot({
-      ...snapshot,
+      ...clearPremiumAccessMetadata(snapshot),
       errorCode: configured ? 'identityFailed' : normalizeErrorCode(error),
       isAuthReady: true,
       isConfigured: configured,
@@ -436,6 +531,10 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
       status: 'unavailable',
       userId,
     });
+  } finally {
+    if (operation === identityOperation) {
+      attachCustomerInfoListener();
+    }
   }
 }
 
@@ -469,12 +568,28 @@ async function logOutRevenueCatIdentity(): Promise<CustomerInfo | undefined> {
 
 function createSignedOutSnapshot(): MonetizationSnapshot {
   return {
+    founderAccessActive: false,
     isAuthReady: true,
     isConfigured: configured,
     isSignedIn: false,
     packages: [],
     pendingAction: null,
     status: 'signedOut',
+    willRenew: false,
+  };
+}
+
+function clearPremiumAccessMetadata(
+  currentSnapshot: MonetizationSnapshot,
+): MonetizationSnapshot {
+  return {
+    ...currentSnapshot,
+    activeProductType: undefined,
+    expirationDate: undefined,
+    founderAccessActive: false,
+    founderAccessExpirationDate: undefined,
+    managementUrl: undefined,
+    premiumSource: undefined,
     willRenew: false,
   };
 }
@@ -563,6 +678,7 @@ function applyCustomerInfo(
   customerInfo: CustomerInfo,
   authSnapshot: ParentAuthSnapshot,
 ) {
+  latestCustomerInfo = customerInfo;
   updateSnapshot(
     mapCustomerInfoToMonetizationSnapshot(snapshot, customerInfo, authSnapshot),
   );
@@ -572,6 +688,7 @@ export function mapCustomerInfoToMonetizationSnapshot(
   currentSnapshot: MonetizationSnapshot,
   customerInfo: CustomerInfo,
   authSnapshot: ParentAuthSnapshot,
+  deviceNowMillis = Date.now(),
 ): MonetizationSnapshot {
   const entitlement = customerInfo.entitlements.active[PREMIUM_ENTITLEMENT_ID];
   const verificationFailed = Boolean(
@@ -579,22 +696,53 @@ export function mapCustomerInfoToMonetizationSnapshot(
       customerInfo.entitlements.verification ===
         Purchases.VERIFICATION_RESULT.FAILED,
   );
-  const hasPremium = Boolean(entitlement?.isActive && !verificationFailed);
+  const hasRevenueCatPremium = Boolean(
+    entitlement?.isActive && !verificationFailed,
+  );
+  const remoteConfig = getRemoteMonetizationConfigSnapshot();
+  const founderAccess = evaluateFounderAccess(
+    customerInfo,
+    {
+      cutoffAt: remoteConfig.founderPremiumCutoffAt,
+      durationDays: remoteConfig.founderPremiumDurationDays,
+    },
+    deviceNowMillis,
+  );
+  const founderAccessActive = founderAccess.isActive && !verificationFailed;
+  const hasFounderPremium = Boolean(
+    authSnapshot.user && founderAccessActive && !hasRevenueCatPremium,
+  );
+  const hasPremium = Boolean(
+    authSnapshot.user && (hasRevenueCatPremium || hasFounderPremium),
+  );
 
   return {
     ...currentSnapshot,
     activeProductType: hasPremium
-      ? getActiveProductType(entitlement)
+      ? hasRevenueCatPremium
+        ? getActiveProductType(entitlement)
+        : 'founder'
       : undefined,
     errorCode: verificationFailed ? 'verificationFailed' : undefined,
     expirationDate: hasPremium
-      ? entitlement?.expirationDate ?? undefined
+      ? hasRevenueCatPremium
+        ? entitlement?.expirationDate ?? undefined
+        : founderAccess.expirationDate
+      : undefined,
+    founderAccessActive,
+    founderAccessExpirationDate: founderAccessActive
+      ? founderAccess.expirationDate
       : undefined,
     isAuthReady: authSnapshot.isReady,
     isConfigured: true,
     isSignedIn: Boolean(authSnapshot.user),
     managementUrl: customerInfo.managementURL ?? undefined,
     pendingAction: null,
+    premiumSource: hasPremium
+      ? hasRevenueCatPremium
+        ? 'revenueCat'
+        : 'founder'
+      : undefined,
     status: !authSnapshot.user
       ? 'signedOut'
       : verificationFailed
@@ -603,7 +751,10 @@ export function mapCustomerInfoToMonetizationSnapshot(
       ? 'premium'
       : 'free',
     userId: authSnapshot.user?.uid,
-    willRenew: hasPremium ? Boolean(entitlement?.willRenew) : false,
+    willRenew:
+      hasPremium && hasRevenueCatPremium
+        ? Boolean(entitlement?.willRenew)
+        : false,
   };
 }
 
@@ -638,12 +789,36 @@ function getActiveProductType(
   return 'monthly';
 }
 
+function configureRevenueCatLogHandler() {
+  if (revenueCatLogHandlerConfigured || !__DEV__) {
+    return;
+  }
+
+  Purchases.setLogHandler((logLevel, message) => {
+    const formattedMessage = `[RevenueCat] ${message}`;
+    if (logLevel === Purchases.LOG_LEVEL.ERROR) {
+      console.warn(formattedMessage);
+      return;
+    }
+
+    if (logLevel === Purchases.LOG_LEVEL.WARN) {
+      console.warn(formattedMessage);
+    }
+  });
+  revenueCatLogHandlerConfigured = true;
+}
+
 function attachCustomerInfoListener() {
   if (!configured || customerInfoListener) {
     return;
   }
 
+  const listenerIdentityOperation = identityOperation;
   customerInfoListener = customerInfo => {
+    if (listenerIdentityOperation !== identityOperation) {
+      return;
+    }
+
     applyCustomerInfo(customerInfo, latestAuthSnapshot);
   };
   Purchases.addCustomerInfoUpdateListener(customerInfoListener);
@@ -735,6 +910,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function updateSnapshot(nextSnapshot: MonetizationSnapshot) {
   snapshot = nextSnapshot;
+  scheduleFounderExpiration(nextSnapshot);
   for (const listener of listeners) {
     try {
       listener();
@@ -742,4 +918,56 @@ function updateSnapshot(nextSnapshot: MonetizationSnapshot) {
       // Monetization observers must not break the shared purchase lifecycle.
     }
   }
+}
+
+function handleAppStateChange(nextState: AppStateStatus) {
+  if (nextState === 'active') {
+    reapplyLatestCustomerInfo();
+  }
+}
+
+function reapplyLatestCustomerInfo() {
+  if (!latestCustomerInfo) {
+    return;
+  }
+
+  updateSnapshot(
+    mapCustomerInfoToMonetizationSnapshot(
+      snapshot,
+      latestCustomerInfo,
+      latestAuthSnapshot,
+    ),
+  );
+}
+
+function scheduleFounderExpiration(nextSnapshot: MonetizationSnapshot) {
+  clearFounderExpirationTimer();
+  if (
+    !nextSnapshot.founderAccessActive ||
+    !nextSnapshot.founderAccessExpirationDate
+  ) {
+    return;
+  }
+
+  const expirationMillis = Date.parse(
+    nextSnapshot.founderAccessExpirationDate,
+  );
+  if (!Number.isFinite(expirationMillis)) {
+    return;
+  }
+
+  const remainingMillis = expirationMillis - Date.now();
+  founderExpirationTimer = setTimeout(
+    reapplyLatestCustomerInfo,
+    Math.max(0, Math.min(remainingMillis, MAX_EXPIRATION_TIMER_MILLIS)),
+  );
+}
+
+function clearFounderExpirationTimer() {
+  if (!founderExpirationTimer) {
+    return;
+  }
+
+  clearTimeout(founderExpirationTimer);
+  founderExpirationTimer = null;
 }

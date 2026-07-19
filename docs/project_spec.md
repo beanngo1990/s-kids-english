@@ -59,10 +59,10 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   `LocalProgress`, không sync child profile/activity/voice recordings.
 - **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
   adult gate, màn Premium và RevenueCat entitlement lifecycle.
-- **Implemented trong repository:** Remote Config purchase kill switch/founder-campaign flags và
-  backend claim/outbox/quota Founder Premium đã có code cùng unit/emulator tests. Functions/secret/
-  IAM/campaign production chưa được deploy; RevenueCat public SDK keys và legal URLs cũng chưa được
-  điền.
+- **Implemented trong repository:** Remote Config purchase kill switch và Founder cutoff/duration;
+  client tính Founder access từ RevenueCat `CustomerInfo.firstSeen` mà không dùng claim/quota/
+  outbox. Backend chỉ còn callable xóa RevenueCat customer khi xóa parent account. RevenueCat
+  public SDK keys và legal URLs vẫn chưa được điền.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -309,20 +309,21 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   RevenueCat offering, mua, restore, subscription management URL, trạng thái gói đang active và
   retry. UI hỗ trợ package monthly/annual/lifetime; giá/currency hiển thị lấy từ store metadata,
   không lấy các giá tư vấn hardcode trong app.
-- `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Runtime
-  `CustomerInfo.entitlements.active.premium` là source of truth cho quyền Premium; listener và
-  explicit refresh cập nhật trạng thái. Verification result `FAILED` không được coi là Premium,
-  và entitlement không được persist thành một local boolean để tự cấp quyền.
+- `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Verified
+  `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên;
+  listener và explicit refresh cập nhật trạng thái. Founder access là nhánh local riêng, được tính
+  từ metadata RevenueCat và Remote Config, không phải RevenueCat entitlement. Không persist quyền
+  thành một local boolean.
 - `premium_purchase_enabled` có thể tạm dừng mua mới mà không thay đổi entitlement đã có. Mọi
   purchase/restore đều yêu cầu parent account đã sign in; RevenueCat diagnostics và automatic
   device-identifier collection được tắt trong client config.
 - **Launch blocker:** `src/config/monetization.ts` vẫn để trống RevenueCat Apple/Google public SDK
   keys, Privacy Policy URL và Terms of Use URL. Vì vậy code path đã có nhưng chưa sẵn sàng store
   testing/release cho tới khi điền cấu hình thật và tạo products/offering/entitlement tương ứng.
-- **Implemented trong repository:** client đọc Remote Config flags, nhận `founderPromo` intent và
-  gọi callable backend có Firestore transaction, quota/ledger 500 lượt, outbox worker, retry và
-  reconciliation. Default campaign flag là `false`; production vẫn chưa có deployment/secret/IAM/
-  campaign seed nên không được bật flag trước khi hoàn tất closed testing và external setup.
+- **Implemented trong repository:** client đọc `founder_premium_cutoff_at` và
+  `founder_premium_duration_days`, so sánh với RevenueCat `CustomerInfo.firstSeen` và chỉ mở nội
+  dung sau khi Firebase parent sign-in. Cutoff rỗng/date không hợp lệ fail closed; cơ chế này không
+  phải quota chính xác 500 và không được mô tả là “500 lượt tải đầu tiên”.
 
 ### Scene learning
 
@@ -509,24 +510,25 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   fetch/activate lúc app khởi động, refresh khi mở Premium và lắng nghe realtime updates trong lúc
   màn Premium có focus. Các key/default hiện tại:
   - `premium_purchase_enabled = true`;
-  - `founder_premium_campaign_enabled = false`;
-  - `founder_premium_campaign_id = founder-premium-2026-v1`.
-- Remote Config chỉ điều khiển availability/campaign metadata, không phải entitlement source of
-  truth. `src/engine/FounderPremiumManager.ts` gọi `claimFounderPremium`/
-  `getFounderPremiumStatus` tại `asia-southeast1` mà không gửi UID/campaign ID, normalize response,
-  rồi invalidate/poll RevenueCat; Premium chỉ mở khi verified `CustomerInfo` thật sự active.
-- `functions/` là Node.js 22 Firebase Functions v2 backend riêng. Callable bật `enforceAppCheck`,
-  đọc published Remote Config default/global values, kiểm tra RevenueCat customer, rồi reserve bằng
-  Firestore transaction. Create-trigger xử lý hashed outbox bằng lease; scheduler 5 phút retry/
-  reconcile timeout, 423, 429, 5xx và response không chắc chắn mà không trả quota. Thành công tăng
-  `grantedCount` đúng một lần. RevenueCat REST v2 dùng internal entitlement ID `entl...`; campaign
-  lưu thêm lookup key `premium` để phân biệt hai identifier.
-- Mobile client bị deny toàn bộ read/write với `monetizationCampaigns`, claims,
-  `monetizationGrantOutbox` và `monetizationCustomerDeletionTombstones`; chỉ callable trả normalized
-  status. Seed script mặc định dry-run và tạo `founder-premium-2026-v1` ready/capacity 500 khi admin
-  chủ động truyền `--apply` sau khi xác minh RevenueCat mapping. Repository chưa deploy Functions,
-  chưa tạo secret/IAM, chưa seed Firestore production và Remote Config campaign default vẫn
-  `false`.
+  - `founder_premium_cutoff_at = ""` (rỗng nghĩa là tắt/fail closed);
+  - `founder_premium_duration_days = 365`.
+- Founder access được tính local khi `CustomerInfo.firstSeen <= founder_premium_cutoff_at` và còn
+  trước `firstSeen + duration`. Effective now là thời điểm muộn hơn giữa `Date.now()` trên thiết bị
+  và `CustomerInfo.requestDate`; cutoff, `firstSeen`, `requestDate` hoặc duration không hợp lệ đều
+  fail closed. Parent phải Firebase sign-in trước khi nội dung được mở. Verified paid RevenueCat
+  entitlement luôn ưu tiên nhánh Founder.
+- Founder access không phải RevenueCat entitlement, không cấp receipt và không đảm bảo quota đúng
+  500. `firstSeen` là lúc RevenueCat lần đầu thấy App User ID, không phải số download/install tuyệt
+  đối. Remote Config cutoff phải được giữ ít nhất tới khi Founder access cuối cùng hết hạn; mô hình
+  một cutoff cũng không phù hợp để tái dùng trực tiếp cho nhiều campaign độc lập.
+- `max(Date.now(), CustomerInfo.requestDate)` chỉ neo thời gian vào response RevenueCat gần nhất;
+  client-only policy không thể ngăn tuyệt đối việc giữ thiết bị offline rồi lùi đồng hồ sau response
+  đó. Muốn expiry chống can thiệp chặt chẽ phải quay lại trusted backend/RevenueCat entitlement.
+- `functions/` là Node.js 22 Firebase Functions v2 backend riêng nhưng chỉ còn
+  `deleteRevenueCatCustomerData` tại `asia-southeast1`, dùng RevenueCat secret phía server để hỗ trợ
+  account deletion. Bốn Founder function `claimFounderPremium`, `getFounderPremiumStatus`,
+  `processFounderGrant` và `reconcileFounderGrants` cùng quota/ledger/outbox đã được loại khỏi kiến
+  trúc mục tiêu.
 - `src/engine/FirebaseAppCheckManager.ts` bật token auto-refresh và dùng debug provider trong dev,
   Play Integrity trên Android production, App Attest với DeviceCheck fallback trên Apple
   production. Đây là client initialization; enforcement cho Firebase products vẫn cần cấu hình
@@ -537,12 +539,12 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Monetization/App Check không thêm AsyncStorage key. Parent access session nằm trong memory tại
   `src/engine/ParentAccessSession.ts`; RevenueCat `CustomerInfo` được refresh/lắng nghe thay vì
   cache thành quyền Premium do app tự quản lý.
-- Account deletion hiện chạy cloud progress deletion -> callable xóa RevenueCat customer ->
-  Firebase Auth deletion -> local RevenueCat cache/logout. Callable tạo tombstone ID SHA-256 trước
-  khi DELETE, chặn claim/worker mới, đợi active worker lease và chỉ scrub claim/outbox chứa raw UID
-  sau khi RevenueCat xác nhận xóa. Nếu backend cleanup chưa được xác nhận, Firebase Auth được giữ để
-  retry; campaign counters/reservation không bị trả quota và tombstone hashed được giữ để ngăn
-  regrant.
+- Account deletion chạy cloud progress deletion -> callable xóa RevenueCat customer -> Firebase
+  Auth deletion -> local RevenueCat cache/logout. Nếu backend cleanup chưa được xác nhận, Firebase
+  Auth được giữ để phụ huynh retry. Founder access không có ledger/outbox/tombstone cần scrub.
+- Các document Founder legacy từng được tạo trên project test không tự mất khi xóa Functions/code;
+  phải kiểm kê và purge bằng admin migration có xác nhận trước production, không giao việc đó cho
+  callable account deletion mới.
 
 ### Cloud progress sync
 
@@ -737,14 +739,14 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng 2026-07-17:
+Tại lần kiểm chứng gần nhất sau thay đổi Founder cutoff:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 183/183 tests pass trong 24 suites.
-- Functions unit: 20/20 tests pass, gồm Auth rejection và pure 550/500 quota matrix.
-- Firestore emulator: rules tests và founder quota/outbox/deletion integration tests pass.
-- Native build-only: Android Debug và iOS Simulator arm64 pass; store sandbox/physical-device
-  purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
+- Jest: 194/194 tests pass trong 25 suites.
+- Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
+- Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
+  chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
+  external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
@@ -765,7 +767,7 @@ Support summary:
 | RevenueCat client entitlement lifecycle  | Implemented     |
 | Store-ready keys/products/legal config   | Partial         |
 | Remote Config monetization switches      | Implemented     |
-| Founder 500-user claim backend           | Implemented     |
+| Founder cutoff/duration local access     | Implemented     |
 | Firebase App Check client initialization | Implemented     |
 | Firebase App Check backend enforcement   | Partial         |
 | Theme Light/Dark/System                  | Implemented     |

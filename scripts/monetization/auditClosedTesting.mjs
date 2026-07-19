@@ -289,30 +289,39 @@ function auditTestStoreDebugConfiguration() {
 
 function auditCampaignSafetyDefaults() {
   const remoteConfigSource = source('src/services/RemoteMonetizationConfig.ts');
-  const defaultIsOff =
-    /\[remoteMonetizationConfigKeys\.founderCampaignEnabled\]\s*:\s*false\b/.test(
+  const monetizationSource = source('src/config/monetization.ts');
+  const defaultCutoffIsEmpty =
+    /\[remoteMonetizationConfigKeys\.founderPremiumCutoffAt\]\s*:\s*['"]{2}/.test(
       remoteConfigSource,
     );
-  const initialSnapshotIsOff =
-    /let snapshot[\s\S]{0,400}?founderCampaignEnabled\s*:\s*false\b/.test(
+  const initialCutoffIsEmpty =
+    /let snapshot[\s\S]{0,400}?founderPremiumCutoffAt\s*:\s*['"]{2}/.test(
       remoteConfigSource,
+    );
+  const durationDefaultsTo365 =
+    /DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS\s*=\s*365\b/.test(
+      monetizationSource,
     );
 
-  if (defaultIsOff && initialSnapshotIsOff) {
+  if (
+    defaultCutoffIsEmpty &&
+    initialCutoffIsEmpty &&
+    durationDefaultsTo365
+  ) {
     pass(
-      'Founder campaign client fallback',
-      'The local default and initial snapshot keep the campaign disabled.',
+      'Founder access client fallback',
+      'The cutoff defaults to empty (disabled) and the configured gift duration defaults to 365 days.',
     );
   } else {
     blocked(
-      'Founder campaign client fallback',
-      'The campaign must default to false in both Remote Config defaults and the initial snapshot.',
+      'Founder access client fallback',
+      'The cutoff must be empty in both Remote Config defaults and the initial snapshot, with a 365-day duration default.',
     );
   }
 
   manual(
-    'Founder campaign published value',
-    'Verify in Firebase Console that the production global/default value remains false; this local audit does not contact Firebase.',
+    'Founder access published values',
+    'Verify founder_premium_cutoff_at is a reviewed ISO-8601 UTC timestamp (or empty to disable) and founder_premium_duration_days is 365; this local audit does not contact Firebase.',
   );
 }
 
@@ -351,13 +360,13 @@ function auditFirebaseProjectAndFunctionsConfiguration() {
 
   if (declaresProjectId && declaresSecret) {
     pass(
-      'Functions RevenueCat bindings',
-      'The backend declares a non-secret project parameter and a Secret Manager binding.',
+      'Account-deletion Function RevenueCat bindings',
+      'The account-deletion callable declares a non-secret project parameter and a Secret Manager binding.',
     );
   } else {
     blocked(
-      'Functions RevenueCat bindings',
-      'Declare the RevenueCat project parameter and Secret Manager binding in Functions.',
+      'Account-deletion Function RevenueCat bindings',
+      'Declare the RevenueCat project parameter and Secret Manager binding for the account-deletion callable.',
     );
   }
 

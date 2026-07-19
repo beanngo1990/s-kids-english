@@ -2,7 +2,7 @@ import { useSyncExternalStore } from 'react';
 import remoteConfig from '@react-native-firebase/remote-config';
 
 import {
-  defaultFounderCampaignId,
+  DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS,
   remoteMonetizationConfigKeys,
 } from '../config/monetization';
 
@@ -12,23 +12,24 @@ export type RemoteMonetizationConfigErrorCode =
 
 export type RemoteMonetizationConfigSnapshot = Readonly<{
   errorCode?: RemoteMonetizationConfigErrorCode;
-  founderCampaignEnabled: boolean;
-  founderCampaignId: string;
+  founderPremiumCutoffAt: string;
+  founderPremiumDurationDays: number;
   isReady: boolean;
   premiumPurchaseEnabled: boolean;
 }>;
 
 const defaults = {
-  [remoteMonetizationConfigKeys.founderCampaignEnabled]: false,
-  [remoteMonetizationConfigKeys.founderCampaignId]: defaultFounderCampaignId,
+  [remoteMonetizationConfigKeys.founderPremiumCutoffAt]: '',
+  [remoteMonetizationConfigKeys.founderPremiumDurationDays]:
+    DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS,
   [remoteMonetizationConfigKeys.premiumPurchaseEnabled]: true,
 };
 
 const listeners = new Set<() => void>();
 
 let snapshot: RemoteMonetizationConfigSnapshot = {
-  founderCampaignEnabled: false,
-  founderCampaignId: defaultFounderCampaignId,
+  founderPremiumCutoffAt: '',
+  founderPremiumDurationDays: DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS,
   isReady: false,
   premiumPurchaseEnabled: true,
 };
@@ -127,17 +128,17 @@ async function initializeRemoteConfig() {
 }
 
 function applyRemoteValues(instance: ReturnType<typeof remoteConfig>) {
-  const campaignId = instance
-    .getValue(remoteMonetizationConfigKeys.founderCampaignId)
+  const founderPremiumCutoffAt = instance
+    .getValue(remoteMonetizationConfigKeys.founderPremiumCutoffAt)
     .asString()
     .trim();
 
   updateSnapshot({
     errorCode: undefined,
-    founderCampaignEnabled: instance
-      .getValue(remoteMonetizationConfigKeys.founderCampaignEnabled)
-      .asBoolean(),
-    founderCampaignId: campaignId || defaultFounderCampaignId,
+    founderPremiumCutoffAt,
+    founderPremiumDurationDays: instance
+      .getValue(remoteMonetizationConfigKeys.founderPremiumDurationDays)
+      .asNumber(),
     isReady: true,
     premiumPurchaseEnabled: instance
       .getValue(remoteMonetizationConfigKeys.premiumPurchaseEnabled)

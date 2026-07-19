@@ -1,10 +1,17 @@
-import type { CustomerInfo, PurchasesPackage } from 'react-native-purchases';
+import type {
+  CustomerInfo,
+  MakePurchaseResult,
+  PurchasesPackage,
+} from 'react-native-purchases';
 
 import type { ParentAuthSnapshot } from '../src/engine/ParentAuthManager';
 
 let mockAuthListener:
   | ((snapshot: ParentAuthSnapshot) => void)
   | undefined;
+let mockRemoteConfigListener: (() => void) | undefined;
+let mockFounderPremiumCutoffAt = '';
+let mockFounderPremiumDurationDays = 365;
 let mockPremiumPurchaseEnabled = true;
 let mockRevenueCatApiKey: string | null = 'test-public-sdk-key';
 
@@ -42,8 +49,14 @@ jest.mock('../src/engine/ParentAccessSession', () => ({
 
 jest.mock('../src/services/RemoteMonetizationConfig', () => ({
   getRemoteMonetizationConfigSnapshot: jest.fn(() => ({
+    founderPremiumCutoffAt: mockFounderPremiumCutoffAt,
+    founderPremiumDurationDays: mockFounderPremiumDurationDays,
     premiumPurchaseEnabled: mockPremiumPurchaseEnabled,
   })),
+  subscribeRemoteMonetizationConfig: jest.fn((listener: () => void) => {
+    mockRemoteConfigListener = listener;
+    return jest.fn();
+  }),
 }));
 
 type MonetizationManagerModule =
@@ -64,6 +77,9 @@ describe('Monetization purchase and identity lifecycle', () => {
     jest.resetModules();
     jest.clearAllMocks();
     mockAuthListener = undefined;
+    mockRemoteConfigListener = undefined;
+    mockFounderPremiumCutoffAt = '';
+    mockFounderPremiumDurationDays = 365;
     mockPremiumPurchaseEnabled = true;
     mockRevenueCatApiKey = 'test-public-sdk-key';
   });
@@ -255,6 +271,74 @@ describe('Monetization purchase and identity lifecycle', () => {
   });
 
   describe('account identity isolation', () => {
+    test('discards a refresh result from the previous identity', async () => {
+      const harness = await startSignedInHarness();
+      const refreshResult = deferred<CustomerInfo>();
+      harness.purchases.getCustomerInfo.mockReturnValueOnce(
+        refreshResult.promise,
+      );
+      harness.purchases.logIn.mockReturnValue(new Promise(() => undefined));
+
+      const refreshPromise = harness.manager.refreshMonetization();
+      mockAuthListener?.(signedIn('parent-b'));
+      refreshResult.resolve(makeCustomerInfo('premium'));
+      await refreshPromise;
+
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        activeProductType: undefined,
+        pendingAction: 'identity',
+        status: 'initializing',
+        userId: 'parent-b',
+      });
+      harness.stop();
+    });
+
+    test('discards a purchase result from the previous identity', async () => {
+      const harness = await startSignedInHarness();
+      const purchaseResult = deferred<MakePurchaseResult>();
+      harness.purchases.purchasePackage.mockReturnValue(purchaseResult.promise);
+      harness.purchases.logIn.mockReturnValue(new Promise(() => undefined));
+
+      const purchasePromise = harness.manager.purchaseMonetizationPackage(
+        'monthly-package',
+      );
+      mockAuthListener?.(signedIn('parent-b'));
+      purchaseResult.resolve({
+        customerInfo: makeCustomerInfo('premium'),
+        productIdentifier: 'premium.monthly',
+        transaction: {} as never,
+      });
+
+      await expect(purchasePromise).resolves.toBe('cancelled');
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        activeProductType: undefined,
+        pendingAction: 'identity',
+        status: 'initializing',
+        userId: 'parent-b',
+      });
+      harness.stop();
+    });
+
+    test('discards a restore result from the previous identity', async () => {
+      const harness = await startSignedInHarness();
+      const restoreResult = deferred<CustomerInfo>();
+      harness.purchases.restorePurchases.mockReturnValue(restoreResult.promise);
+      harness.purchases.logIn.mockReturnValue(new Promise(() => undefined));
+
+      const restorePromise = harness.manager.restoreMonetizationPurchases();
+      mockAuthListener?.(signedIn('parent-b'));
+      restoreResult.resolve(makeCustomerInfo('premium'));
+
+      await expect(restorePromise).resolves.toBe('cancelled');
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        activeProductType: undefined,
+        pendingAction: 'identity',
+        status: 'initializing',
+        userId: 'parent-b',
+      });
+      harness.stop();
+    });
+
     test('locks access during account switch and applies only the new account result', async () => {
       const harness = await startSignedInHarness({
         initialCustomerInfo: makeCustomerInfo('premium'),
@@ -298,6 +382,23 @@ describe('Monetization purchase and identity lifecycle', () => {
         willRenew: false,
       });
       expect(harness.purchases.logIn).toHaveBeenCalledWith('parent-b');
+      harness.stop();
+    });
+
+    test('ignores a late CustomerInfo callback from the previous identity', async () => {
+      const harness = await startSignedInHarness();
+      const previousIdentityListener =
+        harness.purchases.addCustomerInfoUpdateListener.mock.calls.at(-1)?.[0];
+      harness.purchases.logIn.mockReturnValue(new Promise(() => undefined));
+
+      mockAuthListener?.(signedIn('parent-b'));
+      previousIdentityListener?.(makeCustomerInfo('premium'));
+
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        pendingAction: 'identity',
+        status: 'initializing',
+        userId: 'parent-b',
+      });
       harness.stop();
     });
 
@@ -345,6 +446,27 @@ describe('Monetization purchase and identity lifecycle', () => {
       ).toBe(false);
       harness.stop();
     });
+  });
+
+  test('re-evaluates cached CustomerInfo when Founder Remote Config changes', async () => {
+    const now = Date.parse('2026-07-16T00:00:00.000Z');
+    const dateNow = jest.spyOn(Date, 'now').mockReturnValue(now);
+    const harness = await startSignedInHarness();
+
+    expect(harness.manager.getMonetizationSnapshot().status).toBe('free');
+
+    mockFounderPremiumCutoffAt = '2026-07-10T00:00:00.000Z';
+    mockRemoteConfigListener?.();
+
+    expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+      activeProductType: 'founder',
+      founderAccessActive: true,
+      premiumSource: 'founder',
+      status: 'premium',
+    });
+
+    harness.stop();
+    dateNow.mockRestore();
   });
 });
 
@@ -431,7 +553,9 @@ function makeCustomerInfo(status: 'free' | 'premium'): CustomerInfo {
       active: status === 'premium' ? { premium: entitlement } : {},
       verification: 'VERIFIED',
     },
+    firstSeen: '2026-07-01T00:00:00.000Z',
     managementURL: 'https://store.example/manage',
+    requestDate: '2026-07-16T00:00:00.000Z',
   } as unknown as CustomerInfo;
 }
 
@@ -439,4 +563,12 @@ function flushPromises() {
   return new Promise<void>(resolve => {
     setImmediate(resolve);
   });
+}
+
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>(promiseResolve => {
+    resolve = promiseResolve;
+  });
+  return { promise, resolve };
 }
