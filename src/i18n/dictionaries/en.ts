@@ -208,6 +208,13 @@ export const en: TranslationDictionary = {
     'The account and cloud progress have been deleted. Local progress remains on this device.',
   'parent.account.deletedTitle': 'Account deleted',
   'parent.account.deleting': 'Deleting...',
+  'parent.account.deleteAppCheckRequired':
+    'The app could not verify App Check with Firebase. If this is a debug build, add this device’s App Check debug token in Firebase Console, then try again.',
+  'parent.account.deleteAuthRequired':
+    'The sign-in or security session is not ready. Please sign out, sign in again, then retry account deletion.',
+  'parent.account.deleteErrorTitle': 'Could not delete account',
+  'parent.account.deleteErrorUnknown':
+    'Something went wrong during account deletion. Please try again.',
   'parent.account.errorTitle': 'Could not sign in',
   'parent.account.firebaseConfigMissing':
     'Native Firebase config files are missing. Add google-services.json for Android and GoogleService-Info.plist for iOS before enabling sign-in.',
@@ -236,6 +243,9 @@ export const en: TranslationDictionary = {
   'parent.account.signingIn': 'Signing in...',
   'parent.account.signingOut': 'Signing out...',
   'parent.account.signOut': 'Sign out',
+  'parent.account.signOutErrorTitle': 'Could not sign out',
+  'parent.account.signOutErrorUnknown':
+    'Something went wrong during sign-out. Please try again.',
   'parent.account.subtitle':
     'Parent-only account access. Signing in does not automatically enable ads, analytics, or learning-data sync.',
   'parent.account.title': 'Sign in parent account',

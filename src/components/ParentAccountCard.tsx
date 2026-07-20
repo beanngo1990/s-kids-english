@@ -63,16 +63,31 @@ export function ParentAccountCard() {
   }, [authSnapshot.user, t]);
 
   const handleError = useCallback(
-    (error: unknown) => {
+    (error: unknown, action: 'signIn' | 'signOut' | 'delete' = 'signIn') => {
       const code = getParentAuthErrorCode(error);
       if (code === 'cancelled') {
         return;
       }
 
-      Alert.alert(
-        t('parent.account.errorTitle'),
-        getErrorMessageForCode(t, code),
-      );
+      let title = t('parent.account.errorTitle');
+      let message = getErrorMessageForCode(t, code);
+
+      if (action === 'delete') {
+        title = t('parent.account.deleteErrorTitle');
+        if (code === 'unknown') {
+          message =
+            __DEV__ && error instanceof Error
+              ? `${t('parent.account.deleteErrorUnknown')} (${error.message})`
+              : t('parent.account.deleteErrorUnknown');
+        }
+      } else if (action === 'signOut') {
+        title = t('parent.account.signOutErrorTitle');
+        if (code === 'unknown') {
+          message = t('parent.account.signOutErrorUnknown');
+        }
+      }
+
+      Alert.alert(title, message);
     },
     [t],
   );
@@ -104,7 +119,7 @@ export function ParentAccountCard() {
     try {
       await signOutParent();
     } catch (error) {
-      handleError(error);
+      handleError(error, 'signOut');
     } finally {
       setPendingAction(null);
     }
@@ -129,6 +144,22 @@ export function ParentAccountCard() {
     setPendingAction('delete');
     try {
       const deletionResult = await deleteCurrentParentAccountData();
+      if (deletionResult === 'authRequired') {
+        Alert.alert(
+          t('parent.account.deleteErrorTitle'),
+          t('parent.account.deleteAuthRequired'),
+        );
+        return;
+      }
+
+      if (deletionResult === 'appCheckRequired') {
+        Alert.alert(
+          t('parent.account.deleteErrorTitle'),
+          t('parent.account.deleteAppCheckRequired'),
+        );
+        return;
+      }
+
       if (deletionResult !== 'success') {
         throw new Error('RevenueCat customer deletion could not be confirmed.');
       }
@@ -144,7 +175,7 @@ export function ParentAccountCard() {
           getCloudSyncErrorMessage(t, error.code),
         );
       } else {
-        handleError(error);
+        handleError(error, 'delete');
       }
     } finally {
       setPendingAction(null);
