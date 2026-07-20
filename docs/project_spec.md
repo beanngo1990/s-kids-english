@@ -245,6 +245,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 - `HomeScreen` là trải nghiệm Kid Mode chính với Map và Play tabs.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
+- Mỗi scene node trên theme map dùng đúng bundled icon riêng của scene; icon milestone đại diện
+  lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện

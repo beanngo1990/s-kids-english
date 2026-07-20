@@ -60,7 +60,10 @@ import { typography } from '../theme/typography';
 import type { LearningMode, Lesson, LessonTheme, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getFreeContentProgress } from '../utils/freeContentProgress';
-import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
+import {
+  getLessonIconName,
+  getMapSceneIconName,
+} from '../utils/lessonIcons';
 import {
   getSceneProgressId,
   isSceneProgressComplete,
@@ -98,11 +101,6 @@ const connectorDots = Array.from({ length: 9 }, (_, index) => index);
 const connectorHeight = 56;
 const connectorLongHeight = 72;
 const connectorShortHeight = 44;
-const duplicateSceneIconFallbacks: Partial<Record<string, SKidsIconName>> = {
-  classroom: 'teacherInstructions',
-  'go-to-school': 'schoolSupplies',
-  school: 'schoolSupplies',
-};
 
 export function HomeScreen({ navigation }: Props) {
   useThemeSync();
@@ -943,7 +941,6 @@ export function HomeScreen({ navigation }: Props) {
                                       lessonTitle={node.lessonTitle}
                                       iconName={getMapSceneIconName(
                                         node.scene,
-                                        lessonIconName,
                                       )}
                                       sceneCountInLesson={
                                         node.sceneCountInLesson
@@ -2038,19 +2035,6 @@ function getLessonNodeProgress(
 
 function getLessonStarRating(isCompleted: boolean) {
   return isCompleted ? 3 : 0;
-}
-
-function getMapSceneIconName(
-  scene: Pick<Scene, 'id'>,
-  lessonIconName: SKidsIconName,
-): SKidsIconName {
-  const sceneIconName = getSceneIconName(scene);
-
-  if (sceneIconName !== lessonIconName) {
-    return sceneIconName;
-  }
-
-  return duplicateSceneIconFallbacks[scene.id] ?? 'schoolSupplies';
 }
 
 function isThemeNodeComplete(

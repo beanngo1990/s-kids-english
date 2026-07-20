@@ -60,3 +60,9 @@ export function getLessonIconName(lesson: Pick<Lesson, 'id'>): SKidsIconName {
 export function getSceneIconName(scene: Pick<Scene, 'id'>): SKidsIconName {
   return sceneIconById[scene.id] ?? 'star';
 }
+
+export function getMapSceneIconName(
+  scene: Pick<Scene, 'id'>,
+): SKidsIconName {
+  return getSceneIconName(scene);
+}
