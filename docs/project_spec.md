@@ -247,6 +247,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
+- **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
+  giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
+  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry và được throttle để tránh
+  phát lặp khi bé chạm liên tục.
 - `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả.
 - `ThemeLibrary` đã có infrastructure nhưng catalog hiện chỉ có một theme.
 
@@ -261,7 +265,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
   mode, English accent, daily reminder time, contact support email và app version.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
-  Google và Apple. Đây là tài khoản phụ huynh.
+  Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
+  Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
 - **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud progress sync. Consent modal
   liệt kê dữ liệu được sync; opt-out cho phép giữ hoặc xóa bản cloud. Child profile, daily activity
   và voice recordings không được upload.
@@ -755,7 +760,7 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 213/213 tests pass trong 27 suites.
+- Jest: 214/214 tests pass trong 27 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì

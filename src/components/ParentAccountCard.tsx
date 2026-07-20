@@ -203,7 +203,7 @@ export function ParentAccountCard() {
   const displayName = user?.displayName || user?.email || user?.uid;
   const configWarning = firebaseConfigMissing
     ? t('parent.account.firebaseConfigMissing')
-    : googleConfigMissing
+    : googleConfigMissing && !appleAvailable
     ? t('parent.account.googleConfigMissing')
     : '';
 
@@ -292,16 +292,6 @@ export function ParentAccountCard() {
         </View>
       ) : (
         <View style={styles.actions}>
-          <AppButton
-            disabled={isBusy || firebaseConfigMissing || googleConfigMissing}
-            onPress={handleGooglePress}
-            title={
-              pendingAction === 'google'
-                ? t('parent.account.signingIn')
-                : t('parent.account.signInGoogle')
-            }
-            variant="secondary"
-          />
           {appleAvailable && (
             <AppButton
               disabled={isBusy || firebaseConfigMissing}
@@ -311,9 +301,19 @@ export function ParentAccountCard() {
                   ? t('parent.account.signingIn')
                   : t('parent.account.signInApple')
               }
-              variant="outlined"
+              variant="secondary"
             />
           )}
+          <AppButton
+            disabled={isBusy || firebaseConfigMissing || googleConfigMissing}
+            onPress={handleGooglePress}
+            title={
+              pendingAction === 'google'
+                ? t('parent.account.signingIn')
+                : t('parent.account.signInGoogle')
+            }
+            variant={appleAvailable ? 'outlined' : 'secondary'}
+          />
         </View>
       )}
     </AppCard>

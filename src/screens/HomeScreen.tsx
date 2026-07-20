@@ -29,6 +29,10 @@ import { MascotSpeechBubble } from '../components/mascot';
 import { PremiumIcon } from '../components/PremiumIcon';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
 import { DEFAULT_THEME_ID, getThemeById, themes } from '../data/themes';
 import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
@@ -64,6 +68,7 @@ import {
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
+const KID_LOCK_PROMPT_THROTTLE_MS = 1500;
 
 function speakSungyLine(message: string, language: AppLanguage = 'vi') {
   playTapSound().catch(() => undefined);
@@ -120,6 +125,7 @@ export function HomeScreen({ navigation }: Props) {
   const mapSectionBodyYByKeyRef = useRef<Record<string, number>>({});
   const mapNodeYByKeyRef = useRef<Record<string, number>>({});
   const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
+  const lastKidLockPromptAtRef = useRef(0);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const activeTheme =
     getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
@@ -412,6 +418,28 @@ export function HomeScreen({ navigation }: Props) {
     [navigation],
   );
 
+  const playKidLockPrompt = useCallback(
+    (reason: KidLockReason) => {
+      const now = Date.now();
+      if (now - lastKidLockPromptAtRef.current < KID_LOCK_PROMPT_THROTTLE_MS) {
+        return;
+      }
+
+      lastKidLockPromptAtRef.current = now;
+      speakSungyLine(getKidLockAudioPrompt(reason, appLanguage), appLanguage);
+    },
+    [appLanguage],
+  );
+
+  const showProgressLock = useCallback(() => {
+    playKidLockPrompt('progress');
+    Alert.alert(
+      t('home.progressLockedTitle'),
+      t('home.progressLockedText'),
+      [{ style: 'cancel', text: t('common.close') }],
+    );
+  }, [playKidLockPrompt, t]);
+
   const showPremiumLock = useCallback(
     (lessonId: string) => {
       const latestMonetizationSnapshot = getMonetizationSnapshot();
@@ -420,10 +448,12 @@ export function HomeScreen({ navigation }: Props) {
       }
 
       if (latestMonetizationSnapshot.status === 'initializing') {
+        playKidLockPrompt('resolving');
         Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
         return;
       }
 
+      playKidLockPrompt('premium');
       Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
         { style: 'cancel', text: t('common.close') },
         {
@@ -432,7 +462,7 @@ export function HomeScreen({ navigation }: Props) {
         },
       ]);
     },
-    [openParentPremium, t],
+    [openParentPremium, playKidLockPrompt, t],
   );
 
   const openNode = useCallback(
@@ -938,6 +968,8 @@ export function HomeScreen({ navigation }: Props) {
                                             )
                                           ) {
                                             showPremiumLock(node.lessonId);
+                                          } else {
+                                            showProgressLock();
                                           }
                                           return;
                                         }
@@ -998,6 +1030,8 @@ export function HomeScreen({ navigation }: Props) {
                                         )
                                       ) {
                                         showPremiumLock(section.lesson.id);
+                                      } else {
+                                        showProgressLock();
                                       }
                                     }}
                                   />
@@ -1420,7 +1454,6 @@ function SceneMapStop({
 }: SceneMapStopProps) {
   const t = useI18n();
   const isVisuallyLocked = isLocked || isPremiumLocked;
-  const isProgressOnlyLocked = isLocked && !isPremiumLocked;
   const isAvailable = !isCompleted && !isCurrent && !isVisuallyLocked;
   const lessonPosition = t('home.mapStop.position', {
     lesson: String(lessonIndex + 1),
@@ -1450,12 +1483,10 @@ function SceneMapStop({
     <Pressable
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="button"
-      accessibilityState={{ disabled: isProgressOnlyLocked }}
-      disabled={isProgressOnlyLocked}
       onLayout={onLayout}
       onPress={onPress}
       style={({ pressed }) => {
-        const isPressed = pressed && !isProgressOnlyLocked;
+        const isPressed = pressed;
         return [
           styles.mapStop,
           alignment === 'left' && styles.mapStopLeft,
@@ -1716,17 +1747,17 @@ function LessonMilestone({
                 ? 'premium.resolving'
                 : 'premium.kidLockedTitle',
             )}`
+          : isProgressOnlyLocked
+          ? `${title}. ${t('home.progressLockedText')}`
           : t('home.lessonMilestone.accessibility', {
               stars: String(starRating),
               title,
             })
       }
       accessibilityRole="button"
-      accessibilityState={{ disabled: isProgressOnlyLocked }}
-      disabled={isProgressOnlyLocked}
       onPress={onPress}
       style={({ pressed }) => {
-        const isPressed = pressed && !isProgressOnlyLocked;
+        const isPressed = pressed;
         return [
           styles.lessonMilestone,
           alignment === 'left' && styles.lessonMilestoneLeft,

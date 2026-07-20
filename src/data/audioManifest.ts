@@ -2687,6 +2687,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Find two matching pictures.",
     },
   },
+  [normalizeText("Finish the lesson before this one to unlock it.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/kid_lock_progress_d762101e.wav",
+      text: "Finish the lesson before this one to unlock it.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/kid_lock_progress_d762101e.wav",
+      text: "Finish the lesson before this one to unlock it.",
+    },
+  },
   [normalizeText("fish")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/fish.wav",
@@ -10961,6 +10971,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sun",
     },
   },
+  [normalizeText("Sungy is checking. Please wait a moment!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/kid_lock_resolving_804ccf69.wav",
+      text: "Sungy is checking. Please wait a moment!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/kid_lock_resolving_804ccf69.wav",
+      text: "Sungy is checking. Please wait a moment!",
+    },
+  },
   [normalizeText("swing")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/swing.wav",
@@ -15145,6 +15165,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_yogurt_d11644db.wav",
       text: "This is the yogurt.",
+    },
+  },
+  [normalizeText("This lesson needs a parent to unlock it. Ask a parent for help!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
+      text: "This lesson needs a parent to unlock it. Ask a parent for help!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
+      text: "This lesson needs a parent to unlock it. Ask a parent for help!",
     },
   },
   [normalizeText("throw away wrapper")]: {
@@ -21851,6 +21881,18 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Xin chào! Mình là Sungy, bạn học của bé.")]: {
     key: "shared/audio/vi/sungy/xin_chao_minh_la_sungy_ban_hoc_cua_be_967fe8c4.wav",
     text: "Xin chào! Mình là Sungy, bạn học của bé.",
+  },
+  [normalizeText("Bài này cần ba mẹ mở khóa. Con gọi ba mẹ nhé!")]: {
+    key: "ui/audio/vi/kid_lock_premium_9eb2b4f6.wav",
+    text: "Bài này cần ba mẹ mở khóa. Con gọi ba mẹ nhé!",
+  },
+  [normalizeText("Con hãy hoàn thành bài phía trước để mở bài này nhé!")]: {
+    key: "ui/audio/vi/kid_lock_progress_d8b53f77.wav",
+    text: "Con hãy hoàn thành bài phía trước để mở bài này nhé!",
+  },
+  [normalizeText("Sungy đang kiểm tra. Con chờ một chút nhé!")]: {
+    key: "ui/audio/vi/kid_lock_resolving_7b714a40.wav",
+    text: "Sungy đang kiểm tra. Con chờ một chút nhé!",
   },
 };
 

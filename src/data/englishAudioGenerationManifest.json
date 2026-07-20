@@ -17970,6 +17970,54 @@
       "sha256": "02ef310939523310bb2ffc4934bff3018d032e5abfbf5910c5874d87ee55545a",
       "text": "Say it with me.",
       "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 253892,
+      "key": "ui/audio/en-GB/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
+      "sha256": "a3b64be577cea64ad4e8a64067acb1326a13505e2dad0c08430def2c074ee669",
+      "text": "This lesson needs a parent to unlock it. Ask a parent for help!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 163172,
+      "key": "ui/audio/en-GB/neural2-c-r1/kid_lock_progress_d762101e.wav",
+      "sha256": "e2456d367d5a9dfea01d8433ff2c542ae6bba7fa3af6b2294d7e2c404674544c",
+      "text": "Finish the lesson before this one to unlock it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 161904,
+      "key": "ui/audio/en-GB/neural2-c-r1/kid_lock_resolving_804ccf69.wav",
+      "sha256": "83d099ca94010939916c5513ada3a6c624ea81bdd6eee700e50666f67b6f53fb",
+      "text": "Sungy is checking. Please wait a moment!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 222518,
+      "key": "ui/audio/en-US/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
+      "sha256": "5a4333598c5cfdb77ad05999a5f33f03a54182a06f7a22e9993c4f681a3cba36",
+      "text": "This lesson needs a parent to unlock it. Ask a parent for help!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 147340,
+      "key": "ui/audio/en-US/neural2-c-r1/kid_lock_progress_d762101e.wav",
+      "sha256": "8729a0db7b090a0336ec43cc917b29df1370f6eaeb2e43d6e9bde1b8b1d611d2",
+      "text": "Finish the lesson before this one to unlock it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 142876,
+      "key": "ui/audio/en-US/neural2-c-r1/kid_lock_resolving_804ccf69.wav",
+      "sha256": "aa8146231b543a807cfd7ff8e54fcb273a40521fee883bc82da7f894c1311995",
+      "text": "Sungy is checking. Please wait a moment!",
+      "voice": "en-US-Neural2-C"
     }
   ]
 }

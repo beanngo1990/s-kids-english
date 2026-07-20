@@ -14,10 +14,15 @@ const nativeAssetCache = NativeModules.SkidsAssetCache as
   | undefined;
 
 export async function resolveRemoteAssetUri(assetKey: string) {
+  const bundledAudioUri = resolveBundledAudioUri(assetKey);
+  if (bundledAudioUri) {
+    return bundledAudioUri;
+  }
+
   const remoteUrl = getRemoteAssetUrl(assetKey);
 
   if (!remoteUrl) {
-    return resolveBundledAudioUri(assetKey);
+    return undefined;
   }
 
   if (!remoteAssetsConfig.cacheRemoteAssets || !nativeAssetCache?.getCachedAssetUrl) {
@@ -27,7 +32,7 @@ export async function resolveRemoteAssetUri(assetKey: string) {
   try {
     return await nativeAssetCache.getCachedAssetUrl(remoteUrl, assetKey);
   } catch {
-    return resolveBundledAudioUri(assetKey) ?? remoteUrl;
+    return remoteUrl;
   }
 }
 

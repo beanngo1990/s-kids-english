@@ -24,6 +24,10 @@ const englishGenerationManifestPath = join(
   repoRoot,
   'src/data/englishAudioGenerationManifest.json',
 );
+const uiAudioRegistryPath = join(
+  repoRoot,
+  'src/engine/GeneratedUiAudioRegistry.ts',
+);
 const ENGLISH_ACCENTS = ['en-US', 'en-GB'];
 const DEFAULT_AUDIO_RELEASE = 'neural2-c-r1';
 const DEFAULT_CONCURRENCY = 4;
@@ -311,6 +315,9 @@ const teacherPromptsModule = loadTsModule(
 const mascotPromptsModule = loadTsModule(
   join(repoRoot, 'src/data/mascotPrompts.ts'),
 );
+const kidLockAudioPromptsModule = loadTsModule(
+  join(repoRoot, 'src/data/kidLockAudioPrompts.ts'),
+);
 const lessons = lessonsModule.lessons ?? [];
 const existingWordAudio = audioManifestModule.getWordAudioAsset;
 const existingViAudio = audioManifestModule.getViAudioAsset;
@@ -323,6 +330,7 @@ const audioTargets = collectAudioTargets(lessons, {
   audioRelease: args.audioRelease,
   existingViAudio,
   existingWordAudio,
+  kidLockAudioPrompts: kidLockAudioPromptsModule.kidLockAudioPrompts,
   mascotPrompts: mascotPromptsModule,
   reviewGamePrompts: reviewGamePromptsModule,
   speechPrompts: speechPromptsModule,
@@ -339,6 +347,7 @@ const selectedAudioTargets = collectAudioTargets(lessons, {
   audioRelease: args.audioRelease,
   existingViAudio,
   existingWordAudio,
+  kidLockAudioPrompts: kidLockAudioPromptsModule.kidLockAudioPrompts,
   lessonId: args.lesson,
   mascotPrompts: mascotPromptsModule,
   reviewGamePrompts: reviewGamePromptsModule,
@@ -555,6 +564,7 @@ function collectAudioTargets(
     audioRelease,
     existingViAudio,
     existingWordAudio,
+    kidLockAudioPrompts,
     lessonId,
     mascotPrompts,
     reviewGamePrompts,
@@ -809,6 +819,23 @@ function collectAudioTargets(
     });
   }
 
+  for (const [reason, prompt] of Object.entries(kidLockAudioPrompts ?? {})) {
+    addSharedEnglishTarget(targets, {
+      audioRelease,
+      defaultKey: getUiEnglishAudioKey(reason, prompt.en),
+      existingWordAudio,
+      includeLegacyFallback: false,
+      kind: 'ui',
+      text: prompt.en,
+    });
+    addSharedViTarget(targets, {
+      defaultKey: getUiViAudioKey(reason, prompt.vi),
+      existingViAudio,
+      kind: 'ui',
+      text: prompt.vi,
+    });
+  }
+
   return Array.from(targets.values()).sort((left, right) =>
     left.key.localeCompare(right.key),
   );
@@ -828,26 +855,33 @@ function addWordTarget(
 
 function addEnglishPromptTarget(
   targets,
-  { audioRelease, defaultKey, existingWordAudio, text },
+  {
+    audioRelease,
+    defaultKey,
+    existingWordAudio,
+    includeLegacyFallback = true,
+    kind = 'word',
+    text,
+  },
 ) {
   if (!text?.trim()) {
     return;
   }
 
   const existingAsset = existingWordAudio?.(text);
-  const legacyKey = getLegacyEnglishAudioKey(existingAsset?.key, defaultKey);
+  const audioBaseKey = getLegacyEnglishAudioKey(existingAsset?.key, defaultKey);
 
-  if (!legacyKey) {
+  if (!audioBaseKey) {
     throw new Error(`Missing English audio key for "${text}".`);
   }
 
   for (const accent of ENGLISH_ACCENTS) {
     addTarget(targets, {
       accent,
-      key: getAccentEnglishAudioKey(legacyKey, accent, audioRelease),
-      kind: 'word',
+      key: getAccentEnglishAudioKey(audioBaseKey, accent, audioRelease),
+      kind,
       language: 'en',
-      legacyKey,
+      legacyKey: includeLegacyFallback ? audioBaseKey : undefined,
       lookupText: text,
       text: existingAsset?.text ?? text,
     });
@@ -858,7 +892,10 @@ function addSharedEnglishTarget(targets, input) {
   addEnglishPromptTarget(targets, input);
 }
 
-function addViTarget(targets, { defaultKey, existingViAudio, text }) {
+function addViTarget(
+  targets,
+  { defaultKey, existingViAudio, kind = 'vi', text },
+) {
   if (!text?.trim()) {
     return;
   }
@@ -867,7 +904,7 @@ function addViTarget(targets, { defaultKey, existingViAudio, text }) {
   const existingAsset = existingViAudio?.(text);
   addTarget(targets, {
     key: legacyKey ?? existingAsset?.key ?? defaultKey,
-    kind: 'vi',
+    kind,
     language: 'vi',
     lookupText: text,
     text: existingAsset?.text ?? text,
@@ -962,6 +999,14 @@ function getEnglishCompletionAudioKey(lessonId, sceneId, text) {
 
 function getSharedEnglishAudioKey(name, text) {
   return `shared/audio/en/${name}_${textDigest(text)}.wav`;
+}
+
+function getUiEnglishAudioKey(reason, text) {
+  return `ui/audio/en/kid_lock_${slug(reason)}_${textDigest(text)}.wav`;
+}
+
+function getUiViAudioKey(reason, text) {
+  return `ui/audio/vi/kid_lock_${slug(reason)}_${textDigest(text)}.wav`;
 }
 
 function getSungyAudioKey(text) {
@@ -1257,12 +1302,37 @@ function throwImmutableReleaseError(reason, audioRelease) {
 
 function publishGeneratedAudioManifests(targets) {
   const provenance = buildEnglishAudioGenerationManifest(targets);
+  const uiAudioRegistry = buildGeneratedUiAudioRegistry(targets);
   const runtimeManifest = buildAudioManifest(targets);
 
   writeFileAtomically(provenance.path, provenance.content);
   console.log(`wrote ${formatRepoPath(provenance.path)}`);
+  writeFileAtomically(uiAudioRegistry.path, uiAudioRegistry.content);
+  console.log(`wrote ${formatRepoPath(uiAudioRegistry.path)}`);
   writeFileAtomically(runtimeManifest.path, runtimeManifest.content);
   console.log(`wrote ${formatRepoPath(runtimeManifest.path)}`);
+}
+
+function buildGeneratedUiAudioRegistry(targets) {
+  const uiTargets = targets
+    .filter(target => target.kind === 'ui')
+    .sort((left, right) => left.key.localeCompare(right.key));
+  const lines = [
+    "import type { ImageRequireSource } from 'react-native';",
+    '',
+    '/** Generated by scripts/generateMissingAudio.mjs. Do not edit manually. */',
+    'export const generatedUiAudioRegistry: Record<string, ImageRequireSource> = {',
+    ...uiTargets.map(
+      target =>
+        `  ${formatString(target.key)}: require(${formatString(
+          `../assets/${target.key}`,
+        )}),`,
+    ),
+    '};',
+    '',
+  ];
+
+  return { content: lines.join('\n'), path: uiAudioRegistryPath };
 }
 
 function buildAudioManifest(targets) {
