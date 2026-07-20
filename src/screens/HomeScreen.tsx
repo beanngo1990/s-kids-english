@@ -61,7 +61,7 @@ import type { LearningMode, Lesson, LessonTheme, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getFreeContentProgress } from '../utils/freeContentProgress';
 import {
-  getLessonIconName,
+  getLessonMilestoneIconName,
   getMapSceneIconName,
 } from '../utils/lessonIcons';
 import {
@@ -730,9 +730,8 @@ export function HomeScreen({ navigation }: Props) {
                       ) : null}
 
                       {mapSections.map(section => {
-                        const lessonIconName = getLessonIconName({
-                          id: section.lesson.id,
-                        });
+                        const lessonMilestoneIconName =
+                          getLessonMilestoneIconName(section.lesson);
                         const lessonProgress = getLessonNodeProgress(
                           mapNodes,
                           section.lesson.id,
@@ -999,7 +998,7 @@ export function HomeScreen({ navigation }: Props) {
 
                                   <LessonMilestone
                                     alignment={lessonMonumentAlignment}
-                                    iconName={lessonIconName}
+                                    iconName={lessonMilestoneIconName}
                                     isCompleted={isReviewGameCompleted}
                                     isCurrent={isReviewGameCurrent}
                                     isPremiumLocked={isLessonPremiumLocked}
