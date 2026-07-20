@@ -6,7 +6,14 @@ import { resolveBundledAudioUri } from './AudioAssetRegistry';
 type SkidsAssetCacheModule = {
   clearCache?: () => Promise<boolean>;
   getCachedAssetUrl?: (remoteUrl: string, cacheKey: string) => Promise<string>;
-  prefetchAssets?: (assets: {remoteUrl: string, cacheKey: string}[]) => Promise<boolean>;
+  prefetchAssets?: (
+    assets: { remoteUrl: string; cacheKey: string }[],
+  ) => Promise<boolean>;
+};
+
+export type RemoteAssetCacheEntry = {
+  cacheKey: string;
+  remoteUrl: string;
 };
 
 const nativeAssetCache = NativeModules.SkidsAssetCache as
@@ -25,7 +32,10 @@ export async function resolveRemoteAssetUri(assetKey: string) {
     return undefined;
   }
 
-  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeAssetCache?.getCachedAssetUrl) {
+  if (
+    !remoteAssetsConfig.cacheRemoteAssets ||
+    !nativeAssetCache?.getCachedAssetUrl
+  ) {
     return remoteUrl;
   }
 
@@ -41,14 +51,17 @@ export async function clearRemoteAssetCache() {
 }
 
 export async function prefetchRemoteAssets(
-  assets: { remoteUrl: string; cacheKey: string }[],
+  assets: RemoteAssetCacheEntry[],
 ) {
-  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeAssetCache?.prefetchAssets) {
+  if (
+    !remoteAssetsConfig.cacheRemoteAssets ||
+    !nativeAssetCache?.prefetchAssets
+  ) {
     return false;
   }
 
-  const validAssets = assets.filter(asset => Boolean(asset.remoteUrl && asset.cacheKey));
-  
+  const validAssets = getUniqueValidAssets(assets);
+
   if (validAssets.length === 0) {
     return false;
   }
@@ -58,4 +71,51 @@ export async function prefetchRemoteAssets(
   } catch {
     return false;
   }
+}
+
+/**
+ * Downloads assets through the foreground native path. Use this only for the
+ * small set of files that the current/next UI action needs immediately; bulk
+ * warming should continue to use prefetchRemoteAssets.
+ */
+export async function prepareRemoteAssets(
+  assets: RemoteAssetCacheEntry[],
+) {
+  if (
+    !remoteAssetsConfig.cacheRemoteAssets ||
+    !nativeAssetCache?.getCachedAssetUrl
+  ) {
+    return false;
+  }
+
+  const validAssets = getUniqueValidAssets(assets);
+  if (validAssets.length === 0) {
+    return false;
+  }
+
+  const preparedAssets = await Promise.all(
+    validAssets.map(async asset => {
+      try {
+        const uri = await nativeAssetCache.getCachedAssetUrl?.(
+          asset.remoteUrl,
+          asset.cacheKey,
+        );
+        return uri?.startsWith('file:') === true;
+      } catch {
+        return false;
+      }
+    }),
+  );
+
+  return preparedAssets.every(Boolean);
+}
+
+function getUniqueValidAssets(assets: RemoteAssetCacheEntry[]) {
+  return Array.from(
+    new Map(
+      assets
+        .filter(asset => Boolean(asset.remoteUrl && asset.cacheKey))
+        .map(asset => [`${asset.cacheKey}\n${asset.remoteUrl}`, asset]),
+    ).values(),
+  );
 }

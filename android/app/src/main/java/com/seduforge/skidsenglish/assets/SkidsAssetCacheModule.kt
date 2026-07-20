@@ -6,47 +6,35 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableArray
 import java.io.File
+import java.io.IOException
 import java.net.URL
 import java.security.MessageDigest
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
 class SkidsAssetCacheModule(
   private val reactContext: ReactApplicationContext,
 ) : ReactContextBaseJavaModule(reactContext) {
 
-  private val executor = Executors.newSingleThreadExecutor()
+  private val foregroundExecutor = Executors.newFixedThreadPool(4)
+  private val prefetchExecutor = Executors.newSingleThreadExecutor()
+  private val assetLocks = ConcurrentHashMap<String, Any>()
   private val cacheRoot = File(reactContext.cacheDir, "skids_remote_assets")
 
   override fun getName() = "SkidsAssetCache"
 
   @ReactMethod
   fun getCachedAssetUrl(remoteUrl: String, cacheKey: String, promise: Promise) {
-    executor.execute {
+    cacheRoot.mkdirs()
+    val cachedFile = targetFile(cacheKey, remoteUrl)
+    if (isUsable(cachedFile)) {
+      promise.resolve(cachedFile.toURI().toString())
+      return
+    }
+
+    foregroundExecutor.execute {
       try {
-        cacheRoot.mkdirs()
-
-        val targetFile = File(cacheRoot, cacheFileName(cacheKey, remoteUrl))
-        if (targetFile.exists() && targetFile.length() > 0) {
-          promise.resolve(targetFile.toURI().toString())
-          return@execute
-        }
-
-        val tempFile = File(cacheRoot, "${targetFile.name}.tmp")
-        URL(remoteUrl).openConnection().apply {
-          connectTimeout = 15000
-          readTimeout = 20000
-        }.getInputStream().use { input ->
-          tempFile.outputStream().use { output ->
-            input.copyTo(output)
-          }
-        }
-
-        if (targetFile.exists()) {
-          targetFile.delete()
-        }
-        tempFile.renameTo(targetFile)
-
-        promise.resolve(targetFile.toURI().toString())
+        promise.resolve(cacheAsset(remoteUrl, cacheKey).toURI().toString())
       } catch (error: Exception) {
         promise.reject("SKIDS_ASSET_CACHE_ERROR", error)
       }
@@ -55,41 +43,27 @@ class SkidsAssetCacheModule(
 
   @ReactMethod
   fun prefetchAssets(assets: ReadableArray, promise: Promise) {
-    executor.execute {
+    prefetchExecutor.execute {
       try {
         cacheRoot.mkdirs()
+        var attemptedAsset = false
+        var allAssetsReady = true
+
         for (i in 0 until assets.size()) {
           val asset = assets.getMap(i) ?: continue
           val remoteUrl = asset.getString("remoteUrl")
           val cacheKey = asset.getString("cacheKey")
 
           if (remoteUrl != null && cacheKey != null) {
+            attemptedAsset = true
             try {
-              val targetFile = File(cacheRoot, cacheFileName(cacheKey, remoteUrl))
-              if (targetFile.exists() && targetFile.length() > 0L) {
-                continue
-              }
-
-              val tempFile = File(cacheRoot, "${targetFile.name}.tmp")
-              URL(remoteUrl).openConnection().apply {
-                connectTimeout = 15000
-                readTimeout = 20000
-              }.getInputStream().use { input ->
-                tempFile.outputStream().use { output ->
-                  input.copyTo(output)
-                }
-              }
-
-              if (targetFile.exists()) {
-                targetFile.delete()
-              }
-              tempFile.renameTo(targetFile)
-            } catch (e: Exception) {
-               // Ignore errors for individual prefetch so others can proceed
+              cacheAsset(remoteUrl, cacheKey)
+            } catch (_: Exception) {
+              allAssetsReady = false
             }
           }
         }
-        promise.resolve(true)
+        promise.resolve(attemptedAsset && allAssetsReady)
       } catch (error: Exception) {
         promise.reject("SKIDS_ASSET_CACHE_PREFETCH_ERROR", error)
       }
@@ -98,7 +72,7 @@ class SkidsAssetCacheModule(
 
   @ReactMethod
   fun clearCache(promise: Promise) {
-    executor.execute {
+    prefetchExecutor.execute {
       try {
         cacheRoot.deleteRecursively()
         promise.resolve(true)
@@ -115,5 +89,58 @@ class SkidsAssetCacheModule(
       .joinToString("") { "%02x".format(it) }
 
     return "$digest.$extension"
+  }
+
+  private fun targetFile(cacheKey: String, remoteUrl: String) =
+    File(cacheRoot, cacheFileName(cacheKey, remoteUrl))
+
+  private fun isUsable(file: File) = file.exists() && file.length() > 0L
+
+  private fun cacheAsset(remoteUrl: String, cacheKey: String): File {
+    cacheRoot.mkdirs()
+    val targetFile = targetFile(cacheKey, remoteUrl)
+    if (isUsable(targetFile)) {
+      return targetFile
+    }
+
+    val assetLock = assetLocks.computeIfAbsent(targetFile.name) { Any() }
+    return synchronized(assetLock) {
+      if (isUsable(targetFile)) {
+        return@synchronized targetFile
+      }
+
+      val tempFile = File(
+        cacheRoot,
+        "${targetFile.name}.${System.nanoTime()}.tmp",
+      )
+      try {
+        URL(remoteUrl).openConnection().apply {
+          connectTimeout = 15000
+          readTimeout = 20000
+        }.getInputStream().use { input ->
+          tempFile.outputStream().use { output ->
+            input.copyTo(output)
+          }
+        }
+
+        if (!isUsable(tempFile)) {
+          throw IOException("Downloaded asset is empty: $remoteUrl")
+        }
+
+        if (targetFile.exists() && !targetFile.delete()) {
+          throw IOException("Unable to replace cached asset: ${targetFile.name}")
+        }
+        if (!tempFile.renameTo(targetFile)) {
+          tempFile.copyTo(targetFile, overwrite = true)
+        }
+        if (!isUsable(targetFile)) {
+          throw IOException("Cached asset is empty: ${targetFile.name}")
+        }
+
+        targetFile
+      } finally {
+        tempFile.delete()
+      }
+    }
   }
 }

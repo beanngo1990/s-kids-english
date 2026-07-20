@@ -356,7 +356,15 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
-- Scene có thể prefetch current/next images và audio.
+- Scene loading chờ current-scene images và audio cần cho opening step được cache xong trước khi
+  bắt đầu phát instruction. Mỗi step sau dùng foreground cache path cho đúng audio sắp phát và
+  warm trước audio của next step; trong khoảng chờ UI hiển thị trạng thái chuẩn bị, chỉ đổi sang
+  trạng thái cô đang nói sau khi prepare hoàn tất. Audio còn lại của current scene và assets của
+  next scene tiếp tục được prefetch nền; lỗi audio vẫn là best-effort để lesson flow không bị kẹt.
+- Success/fail feedback audio của current step được warm trong lúc instruction đang phát. Với
+  listen step, nút Continue chỉ xuất hiện sau khi success feedback đã prepare xong. Khi trả lời
+  đúng, UI hiển thị feedback text và trạng thái chuẩn bị/phát ngay; transition watchdog chỉ bắt
+  đầu sau prepare để không tự chuyển step trong lúc audio còn đang tải.
 - Scene progress dùng composite ID `<lessonId>:<sceneId>` và còn đọc legacy bare scene IDs.
 - Current step ID được persist, nhưng resume flow hiện chỉ sử dụng lesson/scene; **Partial:** chưa
   resume trực tiếp đúng step trong scene.
@@ -636,15 +644,18 @@ production không được dựa vào TTS fallback để che một corpus en-GB 
 | ----------------------------------- | ----------------------------- | ----------------------------- | --------------------------------- |
 | `SkidsAudio` SFX/URI playback       | Implemented                   | Implemented                   | AudioManager best-effort          |
 | Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
-| `SkidsAssetCache` disk cache        | Implemented                   | Unsupported                   | JS trả remote URL khi module vắng |
+| `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
 
 `SkidsAudio` contract được nối qua `NativeAudioAdapter.ts` và `VoiceRecorder.ts`. Android
 implementation nằm trong package `audio`; iOS implementation là `SkidsAudio.swift` với Objective-C
 bridge `SkidsAudio.m`.
 
-`SkidsAssetCache` hiện chỉ có Kotlin/Android implementation. Current JS call sites dùng nó để
-cache/prefetch remote lesson audio, không phải lesson images. Không tuyên bố iOS disk cache parity.
+`SkidsAssetCache` có implementation Kotlin/Android và Swift/iOS. Current JS call sites dùng nó để
+cache/prefetch remote lesson audio, không phải lesson images. Native prefetch chỉ báo ready khi
+mọi asset hợp lệ trong batch đã có file cache khác rỗng; lỗi từng file trả trạng thái chưa sẵn sàng
+nhưng không làm lesson flow bị kẹt vĩnh viễn. Android tách foreground executor cho audio sắp phát
+khỏi hàng đợi bulk prefetch và khóa theo cache key để không tải trùng cùng file.
 
 ## 9. Asset delivery và authoring pipeline
 

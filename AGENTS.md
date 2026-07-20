@@ -196,18 +196,21 @@ Khi đổi public contract phải đồng bộ:
 - iOS: `ios/SKidsEnglish/SkidsAudio.swift`, `ios/SKidsEnglish/SkidsAudio.m`.
 - Android/iOS permissions nếu capability thay đổi.
 
-### `SkidsAssetCache` - hiện chỉ Android
+### `SkidsAssetCache` - Android và iOS
 
 - JavaScript boundary: `src/engine/AssetCacheManager.ts`.
 - Android implementation: `android/app/src/main/java/com/seduforge/skidsenglish/assets/`.
-- Chưa có Swift/iOS implementation. Khi module vắng, JS trả remote URL để native audio phát
-  trực tiếp.
+- iOS implementation: `ios/SKidsEnglish/SkidsAssetCache.swift` với Objective-C bridge
+  `ios/SKidsEnglish/SkidsAssetCache.m`.
+- Khi module vắng hoặc cache lỗi, JS trả remote URL để native audio phát trực tiếp.
 - Current JS call sites dùng native disk cache/prefetch cho lesson audio. Images dùng
   `Image.prefetch`, không đi qua `SkidsAssetCache`.
-- Không yêu cầu sửa iOS cho caller/config-only change. Chỉ đồng bộ platform khi thay native
-  bridge contract hoặc khi task chủ động thêm iOS parity.
+- Audio sắp phát dùng foreground prepare path; bulk prefetch chạy nền. Android phải giữ hai hàng
+  đợi này tách biệt và đồng bộ download trùng theo cache key.
+- Khi đổi native bridge contract, phải đồng bộ Kotlin/Android, Swift/iOS và JavaScript boundary.
 
-Không tuyên bố offline support hoặc iOS asset-cache parity nếu chưa triển khai và kiểm tra.
+Không tuyên bố offline support chỉ dựa trên asset cache; lesson vẫn cần fallback/network cho asset
+chưa có trên disk.
 
 ## 9. Persistence và notifications
 

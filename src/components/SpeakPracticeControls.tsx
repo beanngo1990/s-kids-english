@@ -46,6 +46,7 @@ type RecordingStatus =
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
   disabled?: boolean;
+  isInstructionPreparing?: boolean;
   isInstructionPlaying?: boolean;
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
@@ -131,6 +132,7 @@ function AnimatedRecordingDot() {
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
+  isInstructionPreparing = false,
   isInstructionPlaying = false,
   onAudioStart,
   onBusyChange,
@@ -467,7 +469,9 @@ export function SpeakPracticeControls({
     inputRange: [0, 0.5, 1],
     outputRange: [0.24, 0.16, 0],
   });
-  const promptText = isInstructionPlaying
+  const promptText = isInstructionPreparing
+    ? t('speakPractice.promptPreparingAudio')
+    : isInstructionPlaying
     ? t('speakPractice.promptInstruction')
     : isPrompting
     ? t('speakPractice.promptPrepare')
@@ -485,13 +489,18 @@ export function SpeakPracticeControls({
         <View
           style={[
             styles.statusIcon,
-            (isPrompting || isInstructionPlaying) && styles.promptingStatusIcon,
+            (isPrompting ||
+              isInstructionPreparing ||
+              isInstructionPlaying) &&
+              styles.promptingStatusIcon,
             isRecording && styles.recordingStatusIcon,
             hasRecording && styles.recordedStatusIcon,
           ]}
         >
           {isPrompting || isInstructionPlaying ? (
             <AnimatedAudioWave color={colors.primaryDark} />
+          ) : isInstructionPreparing ? (
+            <SKidsIcon name="listen" size={26} />
           ) : isRecording ? (
             <AnimatedRecordingDot />
           ) : (

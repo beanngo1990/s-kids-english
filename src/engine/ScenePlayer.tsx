@@ -18,7 +18,11 @@ import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
-import { getViAudioAsset, getWordAudioAsset, type RemoteAudioAsset } from '../data/audioManifest';
+import {
+  getViAudioAsset,
+  getWordAudioAsset,
+  type RemoteAudioAsset,
+} from '../data/audioManifest';
 import { getRemoteAssetUrl } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { useSavedAppLanguage, useTranslations } from '../i18n';
@@ -45,10 +49,7 @@ import type {
   SceneObject,
   SceneStep,
 } from '../types/lesson';
-import {
-  DEFAULT_ENGLISH_ACCENT,
-  type EnglishAccent,
-} from '../types/audio';
+import { DEFAULT_ENGLISH_ACCENT, type EnglishAccent } from '../types/audio';
 import {
   playCorrectSound,
   playSoundEffect,
@@ -60,7 +61,7 @@ import {
 } from './AudioManager';
 import { getSceneFallbackPalette } from './AssetFallbacks';
 import { prefetchAssets, resolveAsset } from './AssetRegistry';
-import { prefetchRemoteAssets } from './AssetCacheManager';
+import { prefetchRemoteAssets, prepareRemoteAssets } from './AssetCacheManager';
 import {
   type DragTranslation,
   getDraggedRect,
@@ -100,6 +101,8 @@ type FeedbackState = {
   type: 'success' | 'fail' | 'info';
   text: string;
 };
+
+type FeedbackAudioStatus = 'playing' | 'preparing';
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
@@ -156,36 +159,77 @@ function AnimatedLoadingMascot() {
     inputRange: [-12, 0],
     outputRange: [0.75, 1],
   });
-  
+
   const shadowOpacity = floatAnim.interpolate({
     inputRange: [-12, 0],
     outputRange: [0.08, 0.2],
   });
 
   return (
-    <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md }}>
+    <View
+      style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: spacing.md,
+      }}
+    >
       {/* Spotlight Faux Gradient */}
-      <View style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, backgroundColor: 'rgba(255, 255, 255, 0.05)', transform: [{ scale: 1.5 }] }} />
-      <View style={{ position: 'absolute', width: 200, height: 200, borderRadius: 100, backgroundColor: 'rgba(255, 255, 255, 0.15)' }} />
-      <View style={{ position: 'absolute', width: 120, height: 120, borderRadius: 60, backgroundColor: 'rgba(255, 255, 255, 0.4)' }} />
-      <View style={{ position: 'absolute', width: 60, height: 60, borderRadius: 30, backgroundColor: 'rgba(255, 255, 255, 0.8)' }} />
+      <View
+        style={{
+          position: 'absolute',
+          width: 280,
+          height: 280,
+          borderRadius: 140,
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          transform: [{ scale: 1.5 }],
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          width: 200,
+          height: 200,
+          borderRadius: 100,
+          backgroundColor: 'rgba(255, 255, 255, 0.15)',
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          width: 120,
+          height: 120,
+          borderRadius: 60,
+          backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        }}
+      />
+      <View
+        style={{
+          position: 'absolute',
+          width: 60,
+          height: 60,
+          borderRadius: 30,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        }}
+      />
 
-      <Animated.View style={{ transform: [{ translateY: floatAnim }], zIndex: 2 }}>
+      <Animated.View
+        style={{ transform: [{ translateY: floatAnim }], zIndex: 2 }}
+      >
         <MascotImage pose="learn" size="xl" />
       </Animated.View>
-      
+
       {/* Contact Shadow */}
-      <Animated.View 
-        style={{ 
-          width: 100, 
-          height: 16, 
-          backgroundColor: '#000', 
-          borderRadius: 8, 
+      <Animated.View
+        style={{
+          width: 100,
+          height: 16,
+          backgroundColor: '#000',
+          borderRadius: 8,
           marginTop: -8,
           opacity: shadowOpacity,
           transform: [{ scale: shadowScale }],
-          zIndex: 1
-        }} 
+          zIndex: 1,
+        }}
       />
     </View>
   );
@@ -198,7 +242,7 @@ function CustomProgressBar({ progress }: { progress: number }) {
 
   return (
     <View style={{ alignItems: 'center' }}>
-      <View 
+      <View
         style={{
           height: 14,
           width: 200,
@@ -209,18 +253,25 @@ function CustomProgressBar({ progress }: { progress: number }) {
           borderColor: colors.border,
           borderWidth: 2,
         }}
-        onLayout={(e) => setContainerWidth(e.nativeEvent.layout.width)}
+        onLayout={e => setContainerWidth(e.nativeEvent.layout.width)}
       >
-        <View 
+        <View
           style={{
             height: '100%',
             width: pillWidth,
             backgroundColor: colors.primary,
             borderRadius: radius.pill,
-          }} 
+          }}
         />
       </View>
-      <Text style={{ marginTop: spacing.xs, color: colors.primaryDark, fontWeight: 'bold', fontSize: 14 }}>
+      <Text
+        style={{
+          marginTop: spacing.xs,
+          color: colors.primaryDark,
+          fontWeight: 'bold',
+          fontSize: 14,
+        }}
+      >
         {Math.round(progress)}%
       </Text>
     </View>
@@ -266,13 +317,40 @@ function AnimatedAudioWave() {
     return () => animations.forEach(animation => animation.stop());
   }, [anim1, anim2, anim3]);
 
-  const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1.2] });
+  const scaleY = (anim: Animated.Value) =>
+    anim.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1.2] });
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, height: 18 }}>
-      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim1) }] }} />
-      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim2) }] }} />
-      <Animated.View style={{ width: 4, height: 18, backgroundColor: colors.primary, borderRadius: 2, transform: [{ scaleY: scaleY(anim3) }] }} />
+    <View
+      style={{ flexDirection: 'row', alignItems: 'center', gap: 4, height: 18 }}
+    >
+      <Animated.View
+        style={{
+          width: 4,
+          height: 18,
+          backgroundColor: colors.primary,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim1) }],
+        }}
+      />
+      <Animated.View
+        style={{
+          width: 4,
+          height: 18,
+          backgroundColor: colors.primary,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim2) }],
+        }}
+      />
+      <Animated.View
+        style={{
+          width: 4,
+          height: 18,
+          backgroundColor: colors.primary,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim3) }],
+        }}
+      />
     </View>
   );
 }
@@ -349,6 +427,14 @@ export function ScenePlayer({
     useState<SceneCompletionState | null>(null);
   const [isPreloading, setIsPreloading] = useState(true);
   const [loadProgress, setLoadProgress] = useState(0);
+  const [preparedStepAudioKey, setPreparedStepAudioKey] = useState<
+    string | null
+  >(null);
+  const [preparedFeedbackAudioKey, setPreparedFeedbackAudioKey] = useState<
+    string | null
+  >(null);
+  const [feedbackAudioStatus, setFeedbackAudioStatus] =
+    useState<FeedbackAudioStatus | null>(null);
   const [completedListenInstructionKey, setCompletedListenInstructionKey] =
     useState<string | null>(null);
 
@@ -360,7 +446,10 @@ export function ScenePlayer({
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: () => {
-        floatEditStart.current = { x: floatEditPos.current.x, y: floatEditPos.current.y };
+        floatEditStart.current = {
+          x: floatEditPos.current.x,
+          y: floatEditPos.current.y,
+        };
       },
       onPanResponderMove: (_, state) => {
         const newX = floatEditStart.current.x + state.dx;
@@ -368,8 +457,8 @@ export function ScenePlayer({
         floatEditPos.current = { x: newX, y: newY };
         floatEditAnim.setValue({ x: newX, y: newY });
       },
-      onPanResponderRelease: () => { },
-    })
+      onPanResponderRelease: () => {},
+    }),
   ).current;
 
   const advanceRequestIdRef = useRef(0);
@@ -437,6 +526,9 @@ export function ScenePlayer({
     setSceneCompletion(null);
     setIsPreloading(true);
     setLoadProgress(0);
+    setPreparedStepAudioKey(null);
+    setPreparedFeedbackAudioKey(null);
+    setFeedbackAudioStatus(null);
   }, [currentScene]);
 
   useEffect(() => {
@@ -455,8 +547,16 @@ export function ScenePlayer({
     const preloadCurrentScene = async () => {
       try {
         const imageAssets = getSceneImageSources(currentScene);
-        const audioAssets = getSceneAudioAssets(currentScene, englishAccent);
-        
+        const initialStep = getInitialStep(currentScene);
+        const audioAssets = initialStep
+          ? getStepAudioAssets(
+              currentScene,
+              initialStep,
+              teacherPromptMode,
+              englishAccent,
+            )
+          : [];
+
         let loaded = 0;
         const total = imageAssets.length + (audioAssets.length > 0 ? 1 : 0);
 
@@ -469,15 +569,18 @@ export function ScenePlayer({
           setLoadProgress(Math.min(99, Math.round((loaded / total) * 100)));
         };
 
-        const imagePromises = imageAssets.map(asset => 
-          prefetchAssets([asset]).then(updateProgress).catch(updateProgress)
+        const imagePromises = imageAssets.map(asset =>
+          prefetchAssets([asset]).then(updateProgress).catch(updateProgress),
         );
-        const audioPromise = audioAssets.length > 0
-          ? prefetchRemoteAssets(audioAssets).then(updateProgress).catch(updateProgress)
-          : Promise.resolve();
+        const audioPromise =
+          audioAssets.length > 0
+            ? prepareRemoteAssets(audioAssets)
+                .then(updateProgress)
+                .catch(updateProgress)
+            : Promise.resolve();
 
         await Promise.all([...imagePromises, audioPromise]);
-        
+
         setLoadProgress(100);
       } catch {
         // Ignore errors to let scene continue even if some assets fail
@@ -490,24 +593,42 @@ export function ScenePlayer({
     };
 
     preloadCurrentScene();
-    
-    const nextScene = scenes[sceneIndex + 1];
-    if (!nextScene) {
-      return () => { isMounted = false; };
-    }
-
-    const timer = setTimeout(() => {
-      prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
-      prefetchRemoteAssets(getSceneAudioAssets(nextScene, englishAccent)).catch(
-        () => undefined,
-      );
-    }, 350);
 
     return () => {
       isMounted = false;
+    };
+  }, [currentScene, englishAccent, isLocalizationReady, teacherPromptMode]);
+
+  useEffect(() => {
+    if (!currentScene || isPreloading || !isLocalizationReady) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const nextScene = scenes[sceneIndex + 1];
+      const backgroundAudioAssets = [
+        ...getSceneAudioAssets(currentScene, englishAccent),
+        ...(nextScene ? getSceneAudioAssets(nextScene, englishAccent) : []),
+      ];
+
+      if (nextScene) {
+        prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
+      }
+      prefetchRemoteAssets(backgroundAudioAssets).catch(() => undefined);
+    }, 500);
+
+    return () => {
       clearTimeout(timer);
     };
-  }, [currentScene, englishAccent, isLocalizationReady, sceneIndex, scenes]);
+  }, [
+    currentScene,
+    englishAccent,
+    isLocalizationReady,
+    isPreloading,
+    sceneIndex,
+    scenes,
+    teacherPromptMode,
+  ]);
 
   useEffect(() => {
     return () => {
@@ -520,41 +641,116 @@ export function ScenePlayer({
   const currentStep = currentScene
     ? getStepById(currentScene, stepId) ?? getInitialStep(currentScene)
     : undefined;
+  const stepAudioPreparationKey =
+    currentScene && currentStep
+      ? getStepAudioPreparationKey(
+          currentScene,
+          currentStep,
+          teacherPromptMode,
+          englishAccent,
+        )
+      : null;
+  const feedbackAudioPreparationKey =
+    currentScene && currentStep
+      ? getFeedbackAudioPreparationKey(
+          currentScene,
+          currentStep,
+          teacherPromptMode,
+          englishAccent,
+        )
+      : null;
 
   useEffect(() => {
     if (!currentScene || !currentStep || isPreloading || !isLocalizationReady) {
       return;
     }
 
+    let isActive = true;
     setIsSpeechPracticeBusy(false);
     const isListeningStep = isListenStep(currentStep);
     const instructionKey = getListenInstructionKey(currentScene, currentStep);
     if (isListeningStep) {
       setCompletedListenInstructionKey(null);
     }
-    playAudioForStep(currentScene, currentStep, teacherPromptMode, {
-      onAudioComplete: () => {
-        if (isListeningStep) {
-          setCompletedListenInstructionKey(instructionKey);
-        }
-      },
-      onTeachAudioComplete: () => {
-        setAutoRecordRequest(previousRequest => ({
-          requestId: (previousRequest?.requestId ?? 0) + 1,
-          stepId: currentStep.id,
-        }));
-      },
-    });
 
     if (lessonId) {
       saveCurrentStepProgress(lessonId, currentScene.id, currentStep.id);
     }
+
+    const prepareAndPlayStepAudio = async () => {
+      await prepareRemoteAssets(
+        getStepAudioAssets(
+          currentScene,
+          currentStep,
+          teacherPromptMode,
+          englishAccent,
+        ),
+      );
+      if (!isActive || !stepAudioPreparationKey) {
+        return;
+      }
+
+      setPreparedStepAudioKey(stepAudioPreparationKey);
+      playAudioForStep(currentScene, currentStep, teacherPromptMode, {
+        onAudioComplete: () => {
+          if (isListeningStep) {
+            setCompletedListenInstructionKey(instructionKey);
+          }
+        },
+        onTeachAudioComplete: () => {
+          setAutoRecordRequest(previousRequest => ({
+            requestId: (previousRequest?.requestId ?? 0) + 1,
+            stepId: currentStep.id,
+          }));
+        },
+      });
+
+      if (feedbackAudioPreparationKey) {
+        prepareRemoteAssets(
+          getStepFeedbackAudioAssets(
+            currentScene,
+            currentStep,
+            teacherPromptMode,
+            englishAccent,
+          ),
+        )
+          .then(() => {
+            if (isActive) {
+              setPreparedFeedbackAudioKey(feedbackAudioPreparationKey);
+            }
+          })
+          .catch(() => undefined);
+      }
+
+      const nextStep = currentStep.nextStepId
+        ? getStepById(currentScene, currentStep.nextStepId)
+        : undefined;
+      if (nextStep) {
+        prepareRemoteAssets(
+          getStepAudioAssets(
+            currentScene,
+            nextStep,
+            teacherPromptMode,
+            englishAccent,
+          ),
+        ).catch(() => undefined);
+      }
+    };
+
+    prepareAndPlayStepAudio().catch(() => undefined);
+
+    return () => {
+      isActive = false;
+    };
   }, [
     currentScene,
     currentStep,
+    englishAccent,
+    feedbackAudioPreparationKey,
     isLocalizationReady,
     isPreloading,
     lessonId,
+    stepAudioPreparationKey,
     teacherPromptMode,
   ]);
 
@@ -590,14 +786,23 @@ export function ScenePlayer({
     currentScene,
     currentStep,
   );
-  const isInstructionPlaying =
+  const isInstructionPending =
     isListenStep(currentStep) &&
     completedListenInstructionKey !== currentListenInstructionKey;
+  const isInstructionPreparing =
+    isInstructionPending && preparedStepAudioKey !== stepAudioPreparationKey;
+  const isInstructionPlaying = isInstructionPending && !isInstructionPreparing;
+  const isFeedbackAudioReady =
+    preparedFeedbackAudioKey === feedbackAudioPreparationKey;
+  const isContinuePreparingFeedback =
+    isListenStep(currentStep) && !isInstructionPending && !isFeedbackAudioReady;
   const allObjects = getRenderableObjects(currentScene);
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const totalStepCount = Math.max(1, currentScene.steps.length);
-  const progressPercent =
-    `${Math.max(5, (currentStepIndex / totalStepCount) * 100)}%` as `${number}%`;
+  const progressPercent = `${Math.max(
+    5,
+    (currentStepIndex / totalStepCount) * 100,
+  )}%` as `${number}%`;
   const rootPaddingTop = Math.max(spacing.xs, insets.top + spacing.xs);
   const rootPaddingHorizontal = isTabletLandscapeLayout
     ? spacing.lg
@@ -615,10 +820,11 @@ export function ScenePlayer({
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
   const backgroundSource = resolveAsset(currentScene.background.source);
   const shouldUseBackgroundFallback =
-    !backgroundSource || failedBackgroundIds[currentScene.background.id] === true;
+    !backgroundSource ||
+    failedBackgroundIds[currentScene.background.id] === true;
 
   const handleReplayInstruction = () => {
-    if (isAdvancing || isSceneComplete) {
+    if (isAdvancing || isSceneComplete || isInstructionPreparing) {
       return;
     }
 
@@ -641,9 +847,12 @@ export function ScenePlayer({
         : undefined,
     );
 
-    const targetIds = currentStep.targetObjectIds.length > 0
-      ? currentStep.targetObjectIds
-      : (currentScene.character ? [currentScene.character.id] : []);
+    const targetIds =
+      currentStep.targetObjectIds.length > 0
+        ? currentStep.targetObjectIds
+        : currentScene.character
+        ? [currentScene.character.id]
+        : [];
 
     setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
@@ -673,7 +882,12 @@ export function ScenePlayer({
   };
 
   const handleContinue = () => {
-    if (isAdvancing || isInstructionPlaying || isSceneComplete) {
+    if (
+      isAdvancing ||
+      isInstructionPending ||
+      isContinuePreparingFeedback ||
+      isSceneComplete
+    ) {
       return;
     }
 
@@ -689,7 +903,7 @@ export function ScenePlayer({
   };
 
   const handleObjectPress = (objectId: EntityId) => {
-    if (isAdvancing || isInstructionPlaying || isSceneComplete) {
+    if (isAdvancing || isInstructionPending || isSceneComplete) {
       return;
     }
 
@@ -715,7 +929,7 @@ export function ScenePlayer({
   };
 
   const handleObjectAudioPress = (object: SceneObject) => {
-    if (isInstructionPlaying || isSpeechPracticeBusy) {
+    if (isInstructionPending || isSpeechPracticeBusy) {
       return;
     }
 
@@ -896,18 +1110,36 @@ export function ScenePlayer({
 
       advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
+      setFeedbackAudioStatus(null);
       goToNextStep(activeScene, result);
     };
 
     clearTimer(advanceTimerRef);
-    advanceTimerRef.current = setTimeout(() => {
-      advanceIfCurrent();
-    }, getFeedbackFallbackDelay(feedbackPrompt.displayText));
+    setFeedbackAudioStatus('preparing');
 
-    playInteractionFeedbackAudio('success', feedbackPrompt, result.soundEffect)
-      .then(() => delay(260))
-      .then(advanceIfCurrent)
-      .catch(advanceIfCurrent);
+    const prepareAndPlayFeedback = async () => {
+      await prepareRemoteAssets(
+        getPromptAudioAssets(feedbackPrompt.segments, englishAccent),
+      );
+      if (advanceRequestIdRef.current !== requestId) {
+        return;
+      }
+
+      setFeedbackAudioStatus('playing');
+      advanceTimerRef.current = setTimeout(() => {
+        advanceIfCurrent();
+      }, getFeedbackFallbackDelay(feedbackPrompt.displayText));
+
+      await playInteractionFeedbackAudio(
+        'success',
+        feedbackPrompt,
+        result.soundEffect,
+      );
+      await delay(260);
+      advanceIfCurrent();
+    };
+
+    prepareAndPlayFeedback().catch(advanceIfCurrent);
   };
 
   const showTemporaryFeedback = (nextFeedback: FeedbackState) => {
@@ -928,9 +1160,10 @@ export function ScenePlayer({
     setHintObjectIds([]);
 
     if (lessonId && currentStep) {
-      const vocabItem = (currentStep.type === 'teach' || currentStep.type === 'practice')
-        ? getStepVocabulary(activeScene, currentStep)
-        : undefined;
+      const vocabItem =
+        currentStep.type === 'teach' || currentStep.type === 'practice'
+          ? getStepVocabulary(activeScene, currentStep)
+          : undefined;
 
       if (vocabItem) {
         saveLearnedWord(vocabItem.id);
@@ -994,7 +1227,12 @@ export function ScenePlayer({
     saveSceneProgressPromise?: Promise<unknown>,
   ) => {
     const showCompletion = (result?: any) => {
-      const xpGained = result && typeof result === 'object' && typeof result.xpGained === 'number' ? result.xpGained : 0;
+      const xpGained =
+        result &&
+        typeof result === 'object' &&
+        typeof result.xpGained === 'number'
+          ? result.xpGained
+          : 0;
       if (isFinalScene && !completeCurrentSceneOnly) {
         onComplete?.();
         return;
@@ -1108,11 +1346,12 @@ export function ScenePlayer({
             {getLocalizedSceneTitle(currentScene, appLanguage)}
           </Text>
           <View style={styles.hudProgressTrack}>
-            <View style={[styles.hudProgressFill, { width: progressPercent }]} />
+            <View
+              style={[styles.hudProgressFill, { width: progressPercent }]}
+            />
           </View>
         </View>
       </View>
-
 
       <View
         style={[
@@ -1164,78 +1403,126 @@ export function ScenePlayer({
           <AppCard
             style={[
               styles.instructionCard,
-              isTabletLandscapeLayout &&
-                styles.instructionCardTabletLandscape,
+              isTabletLandscapeLayout && styles.instructionCardTabletLandscape,
             ]}
           >
-            {speakPracticeWord ? (
-              <SpeakPracticeControls
-                autoStartRequestId={
-                  autoRecordRequest?.stepId === currentStep.id
-                    ? autoRecordRequest.requestId
-                    : 0
-                }
-                disabled={
-                  isAdvancing || isInstructionPlaying || isSceneComplete
-                }
-                isInstructionPlaying={isInstructionPlaying}
-                onAudioStart={cancelStepAudioSequence}
-                onBusyChange={setIsSpeechPracticeBusy}
-                onContinue={
-                  isListenStep(currentStep) && !isInstructionPlaying
-                    ? handleContinue
-                    : undefined
-                }
-                onReplayModel={handleReplayModelWord}
-                teacherPromptMode={teacherPromptMode}
-                word={speakPracticeWord}
-              />
-            ) : getStepVocabulary(currentScene, currentStep) ? (
-              <Text
-                adjustsFontSizeToFit
-                numberOfLines={1}
-                style={styles.targetWord}
-              >
-                {getStepVocabulary(currentScene, currentStep)?.word}
-              </Text>
-            ) : null}
-
-            {!speakPracticeWord ? (
-              <View style={styles.actionRow}>
-                <KidIconButton
-                  accessibilityLabel={t(
-                    'scene.replayInstructionAccessibility',
-                  )}
-                  icon="listen"
-                  label={t('scene.replayInstruction')}
-                  onPress={handleReplayInstruction}
-                  style={[styles.actionButton, styles.secondaryActionButton]}
-                  tone="quiet"
-                />
-                {isListenStep(currentStep) ? (
-                  isInstructionPlaying ? (
-                    <View
-                      accessible
-                      accessibilityLabel={t('scene.listeningAccessibility')}
-                      style={[styles.actionButton, styles.listeningStatus]}
-                    >
-                      <AnimatedAudioWave />
-                      <Text style={styles.listeningStatusText}>
-                        {t('scene.listeningStatus')}
-                      </Text>
-                    </View>
+            {isAdvancing && feedback ? (
+              <View accessible style={styles.feedbackPanel}>
+                <View style={styles.feedbackStatusRow}>
+                  {feedbackAudioStatus === 'preparing' ? (
+                    <SKidsIcon name="listen" size={28} />
                   ) : (
-                    <KidIconButton
-                      accessibilityLabel={t('scene.continueAccessibility')}
-                      icon="next"
-                      label={t('scene.continue')}
-                      onPress={handleContinue}
-                      style={[styles.actionButton, styles.primaryActionButton]}
-                    />
-                  )
-                ) : null}
+                    <AnimatedAudioWave />
+                  )}
+                  <Text style={styles.feedbackStatusText}>
+                    {feedbackAudioStatus === 'preparing'
+                      ? t('scene.preparingFeedback')
+                      : t('scene.feedbackSpeaking')}
+                  </Text>
+                </View>
+                <Text style={styles.feedbackText}>{feedback.text}</Text>
               </View>
-            ) : null}
+            ) : (
+              <>
+                {speakPracticeWord ? (
+                  <SpeakPracticeControls
+                    autoStartRequestId={
+                      autoRecordRequest?.stepId === currentStep.id
+                        ? autoRecordRequest.requestId
+                        : 0
+                    }
+                    disabled={isInstructionPending || isSceneComplete}
+                    isInstructionPreparing={isInstructionPreparing}
+                    isInstructionPlaying={isInstructionPlaying}
+                    onAudioStart={cancelStepAudioSequence}
+                    onBusyChange={setIsSpeechPracticeBusy}
+                    onContinue={
+                      isListenStep(currentStep) &&
+                      !isInstructionPending &&
+                      !isContinuePreparingFeedback
+                        ? handleContinue
+                        : undefined
+                    }
+                    onReplayModel={handleReplayModelWord}
+                    teacherPromptMode={teacherPromptMode}
+                    word={speakPracticeWord}
+                  />
+                ) : getStepVocabulary(currentScene, currentStep) ? (
+                  <Text
+                    adjustsFontSizeToFit
+                    numberOfLines={1}
+                    style={styles.targetWord}
+                  >
+                    {getStepVocabulary(currentScene, currentStep)?.word}
+                  </Text>
+                ) : null}
+
+                {!speakPracticeWord ? (
+                  <View style={styles.actionRow}>
+                    <KidIconButton
+                      accessibilityLabel={t(
+                        'scene.replayInstructionAccessibility',
+                      )}
+                      icon="listen"
+                      label={t('scene.replayInstruction')}
+                      onPress={handleReplayInstruction}
+                      style={[
+                        styles.actionButton,
+                        styles.secondaryActionButton,
+                      ]}
+                      tone="quiet"
+                    />
+                    {isListenStep(currentStep) ? (
+                      isInstructionPreparing ? (
+                        <View
+                          accessible
+                          accessibilityLabel={t('scene.preparingAudio')}
+                          style={[styles.actionButton, styles.listeningStatus]}
+                        >
+                          <SKidsIcon name="listen" size={24} />
+                          <Text style={styles.listeningStatusText}>
+                            {t('scene.preparingAudio')}
+                          </Text>
+                        </View>
+                      ) : isInstructionPlaying ? (
+                        <View
+                          accessible
+                          accessibilityLabel={t('scene.listeningAccessibility')}
+                          style={[styles.actionButton, styles.listeningStatus]}
+                        >
+                          <AnimatedAudioWave />
+                          <Text style={styles.listeningStatusText}>
+                            {t('scene.listeningStatus')}
+                          </Text>
+                        </View>
+                      ) : isContinuePreparingFeedback ? (
+                        <View
+                          accessible
+                          accessibilityLabel={t('scene.preparingFeedback')}
+                          style={[styles.actionButton, styles.listeningStatus]}
+                        >
+                          <SKidsIcon name="listen" size={24} />
+                          <Text style={styles.listeningStatusText}>
+                            {t('scene.preparingFeedback')}
+                          </Text>
+                        </View>
+                      ) : (
+                        <KidIconButton
+                          accessibilityLabel={t('scene.continueAccessibility')}
+                          icon="next"
+                          label={t('scene.continue')}
+                          onPress={handleContinue}
+                          style={[
+                            styles.actionButton,
+                            styles.primaryActionButton,
+                          ]}
+                        />
+                      )
+                    ) : null}
+                  </View>
+                ) : null}
+              </>
+            )}
           </AppCard>
         </View>
       </View>
@@ -1281,8 +1568,8 @@ export function ScenePlayer({
     const primaryTitle = hasNextScene
       ? t('scene.completion.primaryNext')
       : completeCurrentSceneOnly
-        ? t('scene.completion.backToLesson')
-        : t('scene.completion.primaryReward');
+      ? t('scene.completion.backToLesson')
+      : t('scene.completion.primaryReward');
     const secondaryTitle =
       completion.isFinalScene && !completeCurrentSceneOnly
         ? t('scene.completion.replayScene')
@@ -1290,10 +1577,12 @@ export function ScenePlayer({
     const completionCoachMessage = hasNextScene
       ? t('scene.completion.coach.next')
       : completeCurrentSceneOnly
-        ? t('scene.completion.coach.single')
-        : t('scene.completion.coach.final');
-    const completionSceneTitle =
-      getLocalizedSceneTitle(completion.scene, appLanguage);
+      ? t('scene.completion.coach.single')
+      : t('scene.completion.coach.final');
+    const completionSceneTitle = getLocalizedSceneTitle(
+      completion.scene,
+      appLanguage,
+    );
     const completionMessage =
       appLanguage === 'vi' && reward?.messageVi
         ? reward.messageVi
@@ -1353,14 +1642,11 @@ export function ScenePlayer({
               </Text>
             ))}
           </View>
-          <Text style={styles.completionMessage}>
-            {completionMessage}
-          </Text>
+          <Text style={styles.completionMessage}>{completionMessage}</Text>
           {nextScene ? (
             <Text style={styles.nextSceneText}>
               {t('scene.completion.nextScene', {
-                sceneTitle:
-                  getLocalizedSceneTitle(nextScene, appLanguage),
+                sceneTitle: getLocalizedSceneTitle(nextScene, appLanguage),
               })}
             </Text>
           ) : null}
@@ -1410,7 +1696,7 @@ export function ScenePlayer({
               isDimmed={false}
               isDisabled={
                 isAdvancing ||
-                isInstructionPlaying ||
+                isInstructionPending ||
                 isSpeechPracticeBusy ||
                 (!canPressObjects(currentStep) && !canTapToHear)
               }
@@ -1479,17 +1765,10 @@ function getSceneAudioAssets(scene: Scene, englishAccent: EnglishAccent) {
     if (titleAsset) assets.push(titleAsset);
   }
 
-  for (const vocab of scene.vocabulary ?? []) {
-    const wordAsset = getWordAudioAsset(vocab.word, englishAccent);
-    if (wordAsset) assets.push(wordAsset);
-  }
-
   for (const step of scene.steps) {
-    for (const segment of resolveTeacherInstruction(step, 'en', scene).segments) {
-      const instructionAsset = getWordAudioAsset(
-        segment.text,
-        englishAccent,
-      );
+    for (const segment of resolveTeacherInstruction(step, 'en', scene)
+      .segments) {
+      const instructionAsset = getWordAudioAsset(segment.text, englishAccent);
       if (instructionAsset) assets.push(instructionAsset);
     }
     for (const segment of resolveTeacherFeedback({
@@ -1526,11 +1805,145 @@ function getSceneAudioAssets(scene: Scene, englishAccent: EnglishAccent) {
     }
   }
 
+  for (const vocab of scene.vocabulary ?? []) {
+    const wordAsset = getWordAudioAsset(vocab.word, englishAccent);
+    if (wordAsset) assets.push(wordAsset);
+  }
+
   for (const text of getSceneEnglishAudioTexts(scene)) {
     const englishAsset = getWordAudioAsset(text, englishAccent);
     if (englishAsset) assets.push(englishAsset);
   }
 
+  return getRemoteAudioCacheEntries(assets);
+}
+
+function getStepAudioAssets(
+  scene: Scene,
+  step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
+  englishAccent: EnglishAccent,
+) {
+  const assets: RemoteAudioAsset[] = [];
+  const vocabularyItem = getStepVocabulary(scene, step);
+
+  addPromptAudioAssets(
+    assets,
+    resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
+    englishAccent,
+  );
+
+  if (step.type === 'teach' && vocabularyItem) {
+    if (
+      shouldPlayVocabularyAfterInstruction(
+        step,
+        teacherPromptMode,
+        vocabularyItem.word,
+        scene,
+      )
+    ) {
+      const wordAsset = getWordAudioAsset(vocabularyItem.word, englishAccent);
+      if (wordAsset) assets.push(wordAsset);
+    }
+
+    addPromptAudioAssets(
+      assets,
+      resolveSpeechPracticePrompt(teacherPromptMode).segments,
+      englishAccent,
+    );
+
+    const modelWordAsset = getWordAudioAsset(
+      vocabularyItem.word,
+      englishAccent,
+    );
+    if (modelWordAsset) assets.push(modelWordAsset);
+  } else if (
+    step.vocabId &&
+    vocabularyItem &&
+    shouldPlayVocabularyAfterInstruction(
+      step,
+      teacherPromptMode,
+      vocabularyItem.word,
+      scene,
+    )
+  ) {
+    const wordAsset = getWordAudioAsset(vocabularyItem.word, englishAccent);
+    if (wordAsset) assets.push(wordAsset);
+  }
+
+  return getRemoteAudioCacheEntries(assets);
+}
+
+function getStepAudioPreparationKey(
+  scene: Scene,
+  step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
+  englishAccent: EnglishAccent,
+) {
+  return `${scene.id}:${step.id}:${teacherPromptMode}:${englishAccent}`;
+}
+
+function getFeedbackAudioPreparationKey(
+  scene: Scene,
+  step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
+  englishAccent: EnglishAccent,
+) {
+  return `${getStepAudioPreparationKey(
+    scene,
+    step,
+    teacherPromptMode,
+    englishAccent,
+  )}:feedback`;
+}
+
+function getStepFeedbackAudioAssets(
+  scene: Scene,
+  step: SceneStep,
+  teacherPromptMode: TeacherPromptMode,
+  englishAccent: EnglishAccent,
+) {
+  const assets: RemoteAudioAsset[] = [];
+
+  for (const type of ['success', 'fail'] as const) {
+    const feedbackPrompt = resolveTeacherFeedback({
+      enText: type === 'success' ? step.successFeedbackEn : step.failFeedbackEn,
+      mode: teacherPromptMode,
+      scene,
+      step,
+      type,
+      viText: type === 'success' ? step.successFeedbackVi : step.failFeedbackVi,
+    });
+    addPromptAudioAssets(assets, feedbackPrompt.segments, englishAccent);
+  }
+
+  return getRemoteAudioCacheEntries(assets);
+}
+
+function getPromptAudioAssets(
+  segments: ReturnType<typeof resolveTeacherInstruction>['segments'],
+  englishAccent: EnglishAccent,
+) {
+  const assets: RemoteAudioAsset[] = [];
+  addPromptAudioAssets(assets, segments, englishAccent);
+  return getRemoteAudioCacheEntries(assets);
+}
+
+function addPromptAudioAssets(
+  assets: RemoteAudioAsset[],
+  segments: ReturnType<typeof resolveTeacherInstruction>['segments'],
+  englishAccent: EnglishAccent,
+) {
+  for (const segment of segments) {
+    const asset =
+      segment.language === 'en'
+        ? getWordAudioAsset(segment.text, englishAccent)
+        : getViAudioAsset(segment.text);
+    if (asset) assets.push(asset);
+  }
+}
+
+function getRemoteAudioCacheEntries(assets: RemoteAudioAsset[]) {
   const urlsToKeys = new Map<string, string>();
   for (const asset of assets) {
     const remoteUrl = getRemoteAssetUrl(asset.key);
@@ -1982,6 +2395,32 @@ const styles = createThemedStyles(() => ({
     borderWidth: 5,
     opacity: 0.78,
     ...shadows.warm,
+  },
+  feedbackPanel: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.xl,
+    borderWidth: 3,
+    gap: spacing.sm,
+    justifyContent: 'center',
+    minHeight: 148,
+    padding: spacing.md,
+  },
+  feedbackStatusRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  feedbackStatusText: {
+    color: colors.textSoft,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  feedbackText: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.subtitle,
   },
   emptyState: {
     alignItems: 'center',
