@@ -1,9 +1,24 @@
 import { skidsIcons } from '../src/assets/icons/skids';
 import { lessons } from '../src/data/lessons';
 import {
+  getLessonMilestoneIconName,
   getMapSceneIconName,
   getSceneIconName,
 } from '../src/utils/lessonIcons';
+
+const expectedLessonMilestoneIcons = [
+  ['morning-routine', 'milestoneMorningRoutine'],
+  ['at-school', 'milestoneAtSchool'],
+  ['playtime', 'milestonePlaytime'],
+  ['lunch-time', 'milestoneLunchTime'],
+  ['afternoon-home', 'milestoneAfternoonHome'],
+  ['snack-time', 'milestoneSnackTime'],
+  ['home-play', 'milestoneHomePlay'],
+  ['afternoon-bath', 'milestoneAfternoonBath'],
+  ['family-dinner', 'milestoneFamilyDinner'],
+  ['after-dinner-cleanup', 'milestoneAfterDinnerCleanup'],
+  ['bedtime', 'milestoneBedtime'],
+] as const;
 
 test('map scene icons preserve each scene semantic icon', () => {
   lessons.forEach(lesson => {
@@ -33,4 +48,21 @@ test('at-school map nodes use three distinct matching icons', () => {
     'schoolSupplies',
     'teacherInstructions',
   ]);
+});
+
+test('lesson milestones use dedicated icons that never repeat scene icons', () => {
+  const milestoneEntries = lessons.map(
+    lesson => [lesson.id, getLessonMilestoneIconName(lesson)] as const,
+  );
+  const milestoneIconNames = milestoneEntries.map(([, iconName]) => iconName);
+  const sceneIconNames = new Set(
+    lessons.flatMap(lesson => lesson.scenes.map(getMapSceneIconName)),
+  );
+
+  expect(milestoneEntries).toEqual(expectedLessonMilestoneIcons);
+  expect(new Set(milestoneIconNames).size).toBe(lessons.length);
+  milestoneIconNames.forEach(iconName => {
+    expect(iconName in skidsIcons).toBe(true);
+    expect(sceneIconNames.has(iconName)).toBe(false);
+  });
 });

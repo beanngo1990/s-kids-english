@@ -247,6 +247,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
 - Mỗi scene node trên theme map dùng đúng bundled icon riêng của scene; icon milestone đại diện
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
+- Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
+  không dùng lại icon của bất kỳ scene nào.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
@@ -686,6 +688,8 @@ cùng file.
 - Current/next scene image prefetch dùng React Native `Image.prefetch`.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
+- Kid-facing S-Kids icons, gồm scene và lesson milestone icons, nằm trong
+  `src/assets/icons/skids/`, import qua static registry và cũng nằm ngoài lesson WebP/R2 pipeline.
 
 Không hand-edit WebP, asset manifest hoặc `generatedAssetRelease.ts`. Dùng scripts được mô tả
 trong `docs/asset-pipeline.md`.
