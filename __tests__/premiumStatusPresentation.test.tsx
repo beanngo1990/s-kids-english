@@ -2,7 +2,9 @@ import React from 'react';
 import { Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
+import { PremiumLessonLockIndicator } from '../src/components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../src/components/PremiumStatusCard';
+import { PremiumUpgradeCard } from '../src/components/PremiumUpgradeCard';
 import type { MonetizationStatus } from '../src/engine/MonetizationManager';
 import { createTranslator } from '../src/i18n';
 import {
@@ -92,6 +94,84 @@ test('shows compact lifetime access without expiry or renewal copy', async () =>
   expect(textValues.some(value => value.startsWith('Có hiệu lực đến '))).toBe(
     false,
   );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test.each<MonetizationStatus>(['initializing', 'premium'])(
+  'does not render the Premium teaser for %s status',
+  async status => {
+    let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+    await ReactTestRenderer.act(async () => {
+      tree = ReactTestRenderer.create(
+        <PremiumUpgradeCard
+          onPress={jest.fn()}
+          snapshot={{ status }}
+        />,
+      );
+    });
+
+    expect(tree?.toJSON()).toBeNull();
+
+    await ReactTestRenderer.act(async () => {
+      tree?.unmount();
+    });
+  },
+);
+
+test.each<MonetizationStatus>(['signedOut', 'free', 'unavailable'])(
+  'shows the Premium teaser for %s status and opens Premium details',
+  async status => {
+    const onPress = jest.fn();
+    let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+    await ReactTestRenderer.act(async () => {
+      tree = ReactTestRenderer.create(
+        <PremiumUpgradeCard
+          onPress={onPress}
+          snapshot={{ status }}
+        />,
+      );
+    });
+
+    const textValues = getRenderedText(tree);
+    expect(textValues).toContain('Mở khóa toàn bộ bài học Premium');
+    expect(textValues).toContain('Toàn bộ bài học');
+    expect(textValues).toContain('Ôn tập không giới hạn');
+    expect(textValues).toContain('Xem gói Premium');
+
+    tree?.root
+      .find(node => node.props.accessibilityRole === 'button')
+      .props.onPress();
+    expect(onPress).toHaveBeenCalledTimes(1);
+
+    await ReactTestRenderer.act(async () => {
+      tree?.unmount();
+    });
+  },
+);
+
+test('shows a compact Premium unlock affordance for locked lesson rows', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(<PremiumLessonLockIndicator />);
+  });
+
+  expect(getRenderedText(tree)).toEqual(
+    expect.arrayContaining(['Mở khóa Premium', '→']),
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.update(<PremiumLessonLockIndicator compact />);
+  });
+
+  const compactTextValues = getRenderedText(tree);
+  expect(compactTextValues).toEqual(expect.arrayContaining(['Premium', '→']));
+  expect(compactTextValues).not.toContain('Mở khóa Premium');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

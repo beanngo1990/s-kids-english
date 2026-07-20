@@ -30,7 +30,9 @@ import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage } from '../components/mascot';
 import { ParentAccountCard } from '../components/ParentAccountCard';
+import { PremiumLessonLockIndicator } from '../components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
+import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -1193,6 +1195,11 @@ export function ParentScreen({ navigation, route }: Props) {
               snapshot={monetizationSnapshot}
             />
 
+            <PremiumUpgradeCard
+              onPress={() => navigation.navigate('Premium')}
+              snapshot={monetizationSnapshot}
+            />
+
             <AppCard
               style={[
                 styles.todayCard,
@@ -1786,7 +1793,7 @@ export function ParentScreen({ navigation, route }: Props) {
                                 .map(item => item.word)
                             : [];
                           const lessonState = !hasLessonAccess
-                            ? t('premium.badge')
+                            ? t('premium.lessonRow.badge')
                             : !isVisible
                             ? t('parent.stats.lessonStateHidden')
                             : isCurrentLesson && hasCompletedAllScenes
@@ -1813,13 +1820,30 @@ export function ParentScreen({ navigation, route }: Props) {
                             >
                               <View style={styles.managedLessonRow}>
                                 <Pressable
+                                  accessibilityLabel={
+                                    hasLessonAccess
+                                      ? undefined
+                                      : t(
+                                          'premium.lessonRow.openPlansAccessibility',
+                                          { lessonTitle },
+                                        )
+                                  }
                                   accessibilityRole="button"
-                                  accessibilityState={{ expanded: isSelected }}
-                                  onPress={() =>
+                                  accessibilityState={{
+                                    expanded: hasLessonAccess
+                                      ? isSelected
+                                      : false,
+                                  }}
+                                  onPress={() => {
+                                    if (!hasLessonAccess) {
+                                      handleOpenLesson(lesson.id);
+                                      return;
+                                    }
+
                                     setSelectedLessonId(
                                       isSelected ? null : lesson.id,
-                                    )
-                                  }
+                                    );
+                                  }}
                                   style={({ pressed }) => [
                                     styles.managedLessonPressable,
                                     pressed && styles.pressed,
@@ -1852,6 +1876,11 @@ export function ParentScreen({ navigation, route }: Props) {
                                         count: String(lesson.scenes.length),
                                       })}
                                     </Text>
+                                    {!hasLessonAccess ? (
+                                      <PremiumLessonLockIndicator
+                                        compact={isCompactDashboard}
+                                      />
+                                    ) : null}
                                   </View>
                                   <Text style={styles.managedLessonChevron}>
                                     {isSelected ? '⌃' : '›'}
@@ -1902,7 +1931,13 @@ export function ParentScreen({ navigation, route }: Props) {
                                   </View>
                                   <Pressable
                                     accessibilityLabel={
-                                      t('parent.stats.viewLessonPrefix') + lessonTitle
+                                      hasLessonAccess
+                                        ? t('parent.stats.viewLessonPrefix') +
+                                          lessonTitle
+                                        : t(
+                                            'premium.lessonRow.openPlansAccessibility',
+                                            { lessonTitle },
+                                          )
                                     }
                                     accessibilityRole="button"
                                     disabled={!isDashboardReady}

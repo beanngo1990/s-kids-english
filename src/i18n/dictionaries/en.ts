@@ -89,6 +89,19 @@ export const en: TranslationDictionary = {
   'premium.benefit.accountTitle': 'Restore with the parent account',
   'premium.benefit.accountText':
     'RevenueCat verifies purchase access for the signed-in parent account.',
+  'premium.teaser.badge': 'Premium for the next step',
+  'premium.teaser.title': 'Unlock every Premium lesson',
+  'premium.teaser.subtitle':
+    'Once your child is comfortable with the free lessons, Premium opens the full path, review, and next themes for steadier learning.',
+  'premium.teaser.benefit.lessons': 'All lessons',
+  'premium.teaser.benefit.review': 'Unlimited review',
+  'premium.teaser.benefit.themes': 'Next themes',
+  'premium.teaser.action': 'View Premium plans',
+  'premium.lessonRow.badge': 'Premium',
+  'premium.lessonRow.action': 'Unlock Premium',
+  'premium.lessonRow.compactAction': 'Premium',
+  'premium.lessonRow.openPlansAccessibility':
+    'View Premium plans to unlock {lessonTitle}',
   'premium.signInTitle': 'Sign in before purchasing',
   'premium.signInText':
     'Sign in a parent account so Premium access can be safely linked and restored.',
@@ -487,6 +500,13 @@ export const en: TranslationDictionary = {
   'home.emptyMap.title': 'This theme has no lesson packs yet.',
   'home.mapFallbackTitle': 'S-Kids Map',
   'home.recentLesson': 'the recent lesson',
+  'home.freePremiumCta.badge': 'Free path complete',
+  'home.freePremiumCta.title': 'Ready for the next step',
+  'home.freePremiumCta.subtitle':
+    '{completed}/{total} free lessons are complete. A parent can unlock Premium so learning can continue with {lessonTitle} and the lessons after it.',
+  'home.freePremiumCta.action': 'Ask a parent to unlock',
+  'home.freePremiumCta.accessibility':
+    'Free content is complete. Ask a parent to unlock Premium and continue with {lessonTitle}',
   'home.hub.title': 'Where to today?',
   'home.hub.closeAccessibility': 'Close S-Kids Hub',
   'home.hub.reviewTitle': 'Review {lessonTitle}',
