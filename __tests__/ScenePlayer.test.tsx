@@ -5,10 +5,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ScenePlayer } from '../src/engine/ScenePlayer';
 import { speakVi } from '../src/engine/AudioManager';
+import { prefetchAssets } from '../src/engine/AssetRegistry';
 import {
   prefetchRemoteAssets,
   prepareRemoteAssets,
 } from '../src/engine/AssetCacheManager';
+import { AppButton } from '../src/components/AppButton';
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import { KidIconButton } from '../src/components/KidIconButton';
 import type { Scene } from '../src/types/lesson';
@@ -40,7 +42,7 @@ jest.mock('../src/engine/AudioManager', () => {
 });
 
 jest.mock('../src/engine/AssetRegistry', () => ({
-  prefetchAssets: jest.fn(() => Promise.resolve()),
+  prefetchAssets: jest.fn(() => Promise.resolve(true)),
   resolveAsset: jest.fn(() => undefined),
 }));
 
@@ -73,6 +75,9 @@ jest.mock('../src/engine/ParentSettingsManager', () => ({
 }));
 
 const mockedSpeakVi = speakVi as jest.MockedFunction<typeof speakVi>;
+const mockedPrefetchAssets = prefetchAssets as jest.MockedFunction<
+  typeof prefetchAssets
+>;
 const mockedPrefetchRemoteAssets = prefetchRemoteAssets as jest.MockedFunction<
   typeof prefetchRemoteAssets
 >;
@@ -144,6 +149,8 @@ const teachListenScene: Scene = {
 beforeEach(() => {
   mockedSpeakVi.mockReset();
   mockedSpeakVi.mockResolvedValue();
+  mockedPrefetchAssets.mockReset();
+  mockedPrefetchAssets.mockResolvedValue(true);
   mockedPrefetchRemoteAssets.mockReset();
   mockedPrefetchRemoteAssets.mockResolvedValue(true);
   mockedPrepareRemoteAssets.mockReset();
@@ -154,7 +161,7 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-test('keeps loading visible until the opening audio is cached', async () => {
+test('keeps loading visible until the required scene audio is cached', async () => {
   let finishAudioPreload: (() => void) | undefined;
   mockedPrepareRemoteAssets.mockImplementationOnce(
     () =>
@@ -195,15 +202,98 @@ test('keeps loading visible until the opening audio is cached', async () => {
   });
 });
 
+test('blocks the lesson when required audio fails and retries the preload', async () => {
+  mockedPrepareRemoteAssets.mockResolvedValueOnce(false);
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={listenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+  expect(mockedSpeakVi).not.toHaveBeenCalled();
+
+  const retryButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Thử lại');
+  expect(retryButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    retryButton?.props.onPress();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedPrepareRemoteAssets.mock.calls.length).toBeGreaterThanOrEqual(2);
+  expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
+  expect(mockedSpeakVi).toHaveBeenCalledWith('Con hãy nghe cô nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('blocks the lesson when a required image is unavailable', async () => {
+  mockedPrefetchAssets.mockResolvedValue(false);
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={listenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedPrefetchAssets).toHaveBeenCalledWith(['background']);
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+  expect(getTextValues(tree)).not.toContain('Tiếp tục');
+  expect(mockedSpeakVi).not.toHaveBeenCalled();
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('does not say the teacher is speaking while step audio is still preparing', async () => {
   let finishStepPreparation: (() => void) | undefined;
   let finishInstruction: (() => void) | undefined;
-  mockedPrepareRemoteAssets.mockResolvedValueOnce(true).mockImplementationOnce(
-    () =>
-      new Promise<boolean>(resolve => {
-        finishStepPreparation = () => resolve(true);
-      }),
-  );
+  let instructionPreparationCount = 0;
+  mockedPrepareRemoteAssets.mockImplementation(assets => {
+    const includesInstruction = assets.some(asset =>
+      asset.cacheKey.includes('Con hãy nghe cô nhé.'),
+    );
+    if (includesInstruction) {
+      instructionPreparationCount += 1;
+      if (instructionPreparationCount === 2) {
+        return new Promise<boolean>(resolve => {
+          finishStepPreparation = () => resolve(true);
+        });
+      }
+    }
+    return Promise.resolve(true);
+  });
   mockedSpeakVi.mockImplementationOnce(
     () =>
       new Promise<void>(resolve => {
@@ -250,7 +340,10 @@ test('does not say the teacher is speaking while step audio is still preparing',
 test('keeps Continue unavailable until success feedback audio is prepared', async () => {
   let finishFeedbackPreparation: (() => void) | undefined;
   mockedPrepareRemoteAssets.mockImplementation(assets => {
-    if (assets.some(asset => asset.cacheKey.includes('Giỏi lắm!'))) {
+    const isStepFeedbackPreparation =
+      assets.length > 1 &&
+      assets.some(asset => asset.cacheKey.includes('Giỏi lắm!'));
+    if (isStepFeedbackPreparation) {
       return new Promise<boolean>(resolve => {
         finishFeedbackPreparation = () => resolve(true);
       });
@@ -307,24 +400,7 @@ test('does not start the step transition timer while success feedback is prepari
       },
     ],
   };
-  let feedbackPreparationCount = 0;
   let finishClickedFeedbackPreparation: (() => void) | undefined;
-  mockedPrepareRemoteAssets.mockImplementation(assets => {
-    const includesSuccessFeedback = assets.some(asset =>
-      asset.cacheKey.includes('Giỏi lắm!'),
-    );
-    if (!includesSuccessFeedback) {
-      return Promise.resolve(true);
-    }
-
-    feedbackPreparationCount += 1;
-    if (feedbackPreparationCount === 2) {
-      return new Promise<boolean>(resolve => {
-        finishClickedFeedbackPreparation = () => resolve(true);
-      });
-    }
-    return Promise.resolve(true);
-  });
 
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
   await ReactTestRenderer.act(async () => {
@@ -347,6 +423,13 @@ test('does not start the step transition timer while success feedback is prepari
     .findAllByType(KidIconButton)
     .find(node => node.props.accessibilityLabel === 'Tiếp tục');
   expect(continueButton).toBeDefined();
+
+  mockedPrepareRemoteAssets.mockImplementationOnce(
+    () =>
+      new Promise<boolean>(resolve => {
+        finishClickedFeedbackPreparation = () => resolve(true);
+      }),
+  );
 
   await ReactTestRenderer.act(async () => {
     continueButton?.props.onPress();
@@ -388,7 +471,68 @@ test('does not start the step transition timer while success feedback is prepari
   });
 });
 
-test('only blocks initial loading on audio used by the opening step', async () => {
+test('does not advance when required success feedback audio is unavailable', async () => {
+  jest.useFakeTimers();
+  const sceneWithNextStep: Scene = {
+    ...listenScene,
+    steps: [
+      {
+        ...listenScene.steps[0],
+        nextStepId: 'next-listen-step',
+      },
+      {
+        ...listenScene.steps[0],
+        id: 'next-listen-step',
+        instructionVi: 'Đây là bước tiếp theo.',
+      },
+    ],
+  };
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={sceneWithNextStep} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const continueButton = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Tiếp tục');
+  expect(continueButton).toBeDefined();
+
+  mockedPrepareRemoteAssets.mockResolvedValueOnce(false);
+  await ReactTestRenderer.act(async () => {
+    continueButton?.props.onPress();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(10000);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('blocks initial loading on required audio across the current scene', async () => {
   const sceneWithLaterAudio: Scene = {
     ...listenScene,
     steps: [
@@ -417,9 +561,14 @@ test('only blocks initial loading on audio used by the opening step', async () =
     await flushPromises();
   });
 
-  expect(
-    mockedPrepareRemoteAssets.mock.calls[0][0].map(asset => asset.cacheKey),
-  ).toEqual(['test/audio/vi/Con hãy nghe cô nhé..wav']);
+  const initialAudioKeys = mockedPrepareRemoteAssets.mock.calls.flatMap(
+    ([assets]) => assets.map(asset => asset.cacheKey),
+  );
+  expect(initialAudioKeys).toContain('test/audio/vi/Con hãy nghe cô nhé..wav');
+  expect(initialAudioKeys).toContain(
+    'test/audio/vi/Câu hướng dẫn tải nền..wav',
+  );
+  expect(initialAudioKeys).toContain('test/audio/vi/Giỏi lắm!.wav');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

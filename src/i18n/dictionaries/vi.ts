@@ -431,6 +431,11 @@ export const vi = {
   'scene.preparingAudio': 'Đang chuẩn bị giọng cô...',
   'scene.preparingFeedback': 'Đang chuẩn bị lời cô...',
   'scene.feedbackSpeaking': 'Cô đang phản hồi...',
+  'scene.resourcesUnavailableTitle': 'Bài học chưa sẵn sàng',
+  'scene.resourcesUnavailableBody':
+    'Một số hình ảnh hoặc âm thanh chưa tải xong. Ba mẹ kiểm tra kết nối rồi thử lại nhé.',
+  'scene.resourcesRetry': 'Thử lại',
+  'scene.resourcesExit': 'Thoát bài',
   'scene.replayInstruction': 'Nghe lại',
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',

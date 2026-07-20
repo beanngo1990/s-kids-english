@@ -433,6 +433,11 @@ export const en: TranslationDictionary = {
   'scene.preparingAudio': 'Preparing the teacher voice...',
   'scene.preparingFeedback': 'Preparing feedback...',
   'scene.feedbackSpeaking': 'Teacher is responding...',
+  'scene.resourcesUnavailableTitle': 'Lesson not ready yet',
+  'scene.resourcesUnavailableBody':
+    'Some images or audio have not finished loading. Please check the connection and try again.',
+  'scene.resourcesRetry': 'Try again',
+  'scene.resourcesExit': 'Exit lesson',
   'scene.replayInstruction': 'Replay',
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
