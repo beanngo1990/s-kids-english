@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
@@ -36,6 +37,25 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.useRealTimers();
+});
+
+test('shows audio preparation separately from active speech', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls isInstructionPreparing word="jacket" />,
+    );
+    await flushPromises();
+  });
+
+  const textValues =
+    tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
+  expect(textValues).toContain('Đang chuẩn bị giọng cô...');
+  expect(textValues).not.toContain('Cô đang nói...');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 test('auto-stops recording after speech followed by silence', async () => {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45508575BE9ABA334A71E23 /* SkidsAudio.swift */; };
+		9F71A001AE834AF883CB1001 /* SkidsAssetCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */; };
+		9F71A002AE834AF883CB1002 /* SkidsAssetCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F71A004AE834AF883CB1004 /* SkidsAssetCache.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		26142D856EE9BF3E68464642 /* sfx_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF85A6E2DA29E4948141 /* sfx_tap.wav */; };
 		2BF9B38AB8B5B03F169B929B /* sfx_yay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2B2EC4B01265D9502528AE9B /* sfx_yay.wav */; };
@@ -41,6 +43,8 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SKidsEnglish/AppDelegate.swift; sourceTree = "<group>"; };
 		7A9ABB1F300730D900D50806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SKidsEnglish/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAssetCache.swift; path = SKidsEnglish/SkidsAssetCache.swift; sourceTree = "<group>"; };
+		9F71A004AE834AF883CB1004 /* SkidsAssetCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAssetCache.m; path = SKidsEnglish/SkidsAssetCache.m; sourceTree = "<group>"; };
 		A2D5E5821AE6610845C5EB5D /* sfx_correct.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_correct.wav; path = ../src/assets/shared/audio/sfx/sfx_correct.wav; sourceTree = "<group>"; };
 		CED10C39E60445C54255317B /* sfx_ding.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_ding.wav; path = ../src/assets/shared/audio/sfx/sfx_ding.wav; sourceTree = "<group>"; };
 		DF55217C8A99849D57208CBB /* SkidsAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAudio.m; path = SKidsEnglish/SkidsAudio.m; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				E45508575BE9ABA334A71E23 /* SkidsAudio.swift */,
 				DF55217C8A99849D57208CBB /* SkidsAudio.m */,
+				9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */,
+				9F71A004AE834AF883CB1004 /* SkidsAssetCache.m */,
 				CED10C39E60445C54255317B /* sfx_ding.wav */,
 				71E9704A19E2BD8D668187FC /* sfx_complete.wav */,
 				326BF4E71E08D1E97824F2BB /* sfx_clap.wav */,
@@ -311,6 +317,8 @@
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */,
 				E701EF0FF40040455674891C /* SkidsAudio.m in Sources */,
+				9F71A001AE834AF883CB1001 /* SkidsAssetCache.swift in Sources */,
+				9F71A002AE834AF883CB1002 /* SkidsAssetCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
