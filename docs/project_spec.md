@@ -313,8 +313,14 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   header mà không đưa giá, hạn dùng hoặc chi tiết mua hàng vào UI của bé. Parent dashboard hiển
   thị indicator Premium gọn với icon crown riêng, trạng thái, loại quyền và entry mở
   `PremiumScreen`; hạn dùng/gia hạn nằm trong màn Premium chi tiết. Phần tài khoản phụ huynh cũng
-  gắn badge Premium với account đang đăng nhập. Các dấu hiệu này đều ẩn khi status là
-  `initializing`, `signedOut`, `free` hoặc `unavailable`.
+  gắn badge Premium với account đang đăng nhập. Khi status là `signedOut`, `free` hoặc
+  `unavailable`, Parent dashboard hiển thị teaser card mềm để ba mẹ xem gói Premium; teaser ẩn
+  trong lúc `initializing` để tránh nhấp nháy. Trong tab Bài học của Parent Mode, các bài ngoài
+  free tier hiển thị trạng thái Premium và affordance mở khóa ngay trên dòng bài; bấm dòng bài bị
+  khóa mở `PremiumScreen` thay vì chỉ mở preview. Kid Home Map cũng hiển thị CTA Premium theo
+  tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn với tài khoản
+  Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium` cho bài Premium
+  kế tiếp.
 - `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Verified
   `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên;
   listener và explicit refresh cập nhật trạng thái. Founder access là nhánh local riêng, được tính

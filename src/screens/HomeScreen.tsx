@@ -26,6 +26,7 @@ import { KidModeHeader } from '../components/KidModeHeader';
 import { KidModeTabs, type KidModeTab } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { MascotSpeechBubble } from '../components/mascot';
+import { PremiumIcon } from '../components/PremiumIcon';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
@@ -54,6 +55,7 @@ import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import type { LearningMode, Lesson, LessonTheme, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
+import { getFreeContentProgress } from '../utils/freeContentProgress';
 import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
 import {
   getSceneProgressId,
@@ -181,6 +183,24 @@ export function HomeScreen({ navigation }: Props) {
   );
   const isHubPrimaryPremiumResolving = Boolean(
     isHubPrimaryPremiumLocked && monetizationSnapshot.status === 'initializing',
+  );
+  const freeContentProgress = useMemo(
+    () => getFreeContentProgress(progress),
+    [progress],
+  );
+  const nextPremiumLesson = useMemo(
+    () =>
+      themeLessons.find(
+        lesson => !canAccessLesson(lesson.id, monetizationSnapshot),
+      ) ??
+      lessons.find(lesson => !canAccessLesson(lesson.id, monetizationSnapshot)),
+    [monetizationSnapshot, themeLessons],
+  );
+  const shouldShowFreeProgressPremiumCta = Boolean(
+    freeContentProgress.isComplete &&
+      monetizationSnapshot.status !== 'premium' &&
+      monetizationSnapshot.status !== 'initializing' &&
+      nextPremiumLesson,
   );
   const homeCoachMessage = isThemeComplete
     ? t('home.coach.complete')
@@ -545,6 +565,17 @@ export function HomeScreen({ navigation }: Props) {
                       title={t('home.coach.title')}
                       tone={homeCoachTone}
                     />
+                    {shouldShowFreeProgressPremiumCta && nextPremiumLesson ? (
+                      <FreeProgressPremiumCta
+                        completed={freeContentProgress.completed}
+                        nextLessonTitle={getLocalizedLessonTitle(
+                          nextPremiumLesson,
+                          appLanguage,
+                        )}
+                        onPress={() => openParentPremium(nextPremiumLesson.id)}
+                        total={freeContentProgress.total}
+                      />
+                    ) : null}
                     <View
                       onLayout={(event: LayoutChangeEvent) =>
                         updateMapLayoutY(
@@ -1051,6 +1082,61 @@ export function HomeScreen({ navigation }: Props) {
         />
       </View>
     </Screen>
+  );
+}
+
+type FreeProgressPremiumCtaProps = {
+  completed: number;
+  nextLessonTitle: string;
+  onPress: () => void;
+  total: number;
+};
+
+function FreeProgressPremiumCta({
+  completed,
+  nextLessonTitle,
+  onPress,
+  total,
+}: FreeProgressPremiumCtaProps) {
+  const t = useI18n();
+
+  return (
+    <Pressable
+      accessibilityLabel={t('home.freePremiumCta.accessibility', {
+        lessonTitle: nextLessonTitle,
+      })}
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.freePremiumCta,
+        pressed && styles.freePremiumCtaPressed,
+      ]}
+    >
+      <View style={styles.freePremiumCtaIcon}>
+        <PremiumIcon size={34} />
+      </View>
+      <View style={styles.freePremiumCtaCopy}>
+        <Text style={styles.freePremiumCtaBadge}>
+          {t('home.freePremiumCta.badge')}
+        </Text>
+        <Text numberOfLines={2} style={styles.freePremiumCtaTitle}>
+          {t('home.freePremiumCta.title')}
+        </Text>
+        <Text numberOfLines={3} style={styles.freePremiumCtaSubtitle}>
+          {t('home.freePremiumCta.subtitle', {
+            completed: String(completed),
+            lessonTitle: nextLessonTitle,
+            total: String(total),
+          })}
+        </Text>
+        <View style={styles.freePremiumCtaAction}>
+          <Text style={styles.freePremiumCtaActionText}>
+            {t('home.freePremiumCta.action')}
+          </Text>
+          <Text style={styles.freePremiumCtaActionArrow}>→</Text>
+        </View>
+      </View>
+    </Pressable>
   );
 }
 
@@ -2083,6 +2169,83 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.subtitle,
+  },
+  freePremiumCta: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.xl,
+    borderWidth: 2,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginHorizontal: spacing.xs,
+    padding: spacing.md,
+    ...shadows.warm,
+  },
+  freePremiumCtaAction: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    marginTop: spacing.xs,
+    minHeight: 36,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+  },
+  freePremiumCtaActionArrow: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '900',
+    lineHeight: 20,
+  },
+  freePremiumCtaActionText: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  freePremiumCtaBadge: {
+    alignSelf: 'flex-start',
+    backgroundColor: colors.surface,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    color: colors.primaryDark,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+    ...typography.caption,
+  },
+  freePremiumCtaCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  freePremiumCtaIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.white,
+    borderRadius: radius.lg,
+    borderWidth: 2,
+    height: 62,
+    justifyContent: 'center',
+    width: 62,
+  },
+  freePremiumCtaPressed: {
+    opacity: 0.92,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
+  },
+  freePremiumCtaSubtitle: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  freePremiumCtaTitle: {
+    color: colors.text,
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: 0,
+    lineHeight: 25,
   },
   hubActionDisabled: {
     opacity: 0.48,

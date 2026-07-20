@@ -87,6 +87,19 @@ export const vi = {
   'premium.benefit.accountTitle': 'Khôi phục bằng tài khoản ba mẹ',
   'premium.benefit.accountText':
     'Quyền mua được RevenueCat kiểm tra với tài khoản phụ huynh đã đăng nhập.',
+  'premium.teaser.badge': 'Premium cho bé học tiếp',
+  'premium.teaser.title': 'Mở khóa toàn bộ bài học Premium',
+  'premium.teaser.subtitle':
+    'Khi bé đã quen với bài miễn phí, Premium mở thêm lộ trình, ôn tập và chủ đề tiếp theo để bé học đều hơn.',
+  'premium.teaser.benefit.lessons': 'Toàn bộ bài học',
+  'premium.teaser.benefit.review': 'Ôn tập không giới hạn',
+  'premium.teaser.benefit.themes': 'Chủ đề tiếp theo',
+  'premium.teaser.action': 'Xem gói Premium',
+  'premium.lessonRow.badge': 'Premium',
+  'premium.lessonRow.action': 'Mở khóa Premium',
+  'premium.lessonRow.compactAction': 'Premium',
+  'premium.lessonRow.openPlansAccessibility':
+    'Xem gói Premium để mở khóa bài {lessonTitle}',
   'premium.signInTitle': 'Đăng nhập trước khi mua',
   'premium.signInText':
     'Đăng nhập tài khoản ba mẹ để gắn và khôi phục quyền Premium an toàn.',
@@ -485,6 +498,13 @@ export const vi = {
   'home.emptyMap.title': 'Chủ đề này chưa có gói bài học.',
   'home.mapFallbackTitle': 'Bản đồ S-Kids',
   'home.recentLesson': 'bài vừa học',
+  'home.freePremiumCta.badge': 'Hoàn thành phần miễn phí',
+  'home.freePremiumCta.title': 'Bé đã sẵn sàng cho chặng tiếp theo',
+  'home.freePremiumCta.subtitle':
+    'Bé đã hoàn thành {completed}/{total} bài miễn phí. Ba mẹ có thể mở Premium để bé học tiếp {lessonTitle} và các bài sau.',
+  'home.freePremiumCta.action': 'Nhờ ba mẹ mở khóa',
+  'home.freePremiumCta.accessibility':
+    'Bé đã hoàn thành phần miễn phí. Nhờ ba mẹ mở Premium để học tiếp {lessonTitle}',
   'home.hub.title': 'Hôm nay mình đi đâu?',
   'home.hub.closeAccessibility': 'Đóng S-Kids Hub',
   'home.hub.reviewTitle': 'Ôn lại {lessonTitle}',
