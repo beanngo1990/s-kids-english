@@ -62,11 +62,6 @@ export const en: TranslationDictionary = {
     'Shows the Edit button inside lessons for adjusting object coordinates.',
   'parent.dev.internalTools': 'Internal tools',
   'parent.gate.badge': 'Parent Mode',
-  'parent.gate.hint':
-    'Hold the button for 3 seconds to open stats and learning settings.',
-  'parent.gate.hold': 'Hold to open',
-  'parent.gate.holding': 'Holding...',
-  'parent.gate.title': 'Parent area',
   'parent.gate.challengeTitle': 'Parent check',
   'parent.gate.challengeHint':
     'Solve this calculation to continue to the parent management area.',

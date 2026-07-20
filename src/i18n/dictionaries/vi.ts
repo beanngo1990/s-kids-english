@@ -60,11 +60,6 @@ export const vi = {
     'Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.',
   'parent.dev.internalTools': 'Công cụ nội bộ',
   'parent.gate.badge': 'Góc phụ huynh',
-  'parent.gate.hint':
-    'Giữ nút trong 3 giây để mở thống kê và cài đặt học tập.',
-  'parent.gate.hold': 'Giữ để mở',
-  'parent.gate.holding': 'Đang giữ...',
-  'parent.gate.title': 'Khu vực dành cho ba mẹ',
   'parent.gate.challengeTitle': 'Xác nhận dành cho ba mẹ',
   'parent.gate.challengeHint':
     'Ba mẹ giải phép tính này để tiếp tục vào khu vực quản lý.',

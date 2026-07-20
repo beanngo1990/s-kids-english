@@ -80,7 +80,7 @@ Catalog hiện có một theme `mot-ngay-cua-be` và 11 lesson packs, theo thứ
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 
 - Onboarding hiện chỉ chọn `learningMode`; profile của bé được chỉnh sau trong Parent Mode.
-- Parent Mode được mở bằng cách giữ nút 3 giây; chưa có PIN hoặc câu hỏi toán.
+- Parent Mode được mở bằng cách trả lời phép tính đơn giản; chưa có PIN hoặc biometric gate.
 - `journeyMode` gồm `guided` và `free`.
 - `learningMode` gồm `core`, `expanded`, `challenge`.
 - Lesson interaction types là `listen`, `tap`, `drag`, `find`.

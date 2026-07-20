@@ -252,8 +252,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Parent Mode
 
-- **Implemented:** adult gate hai bước gồm giữ nút trong 3 giây rồi trả lời phép tính đơn giản.
-  Sau ba câu trả lời sai, gate cooldown 10 giây trước khi cho thử tiếp; PIN vẫn unsupported.
+- **Implemented:** adult gate yêu cầu trả lời phép tính đơn giản. Sau ba câu trả lời sai, gate
+  cooldown 10 giây trước khi cho thử tiếp; PIN vẫn unsupported.
 - Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
   trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
@@ -266,7 +266,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   liệt kê dữ liệu được sync; opt-out cho phép giữ hoặc xóa bản cloud. Child profile, daily activity
   và voice recordings không được upload.
 - **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
-  quay lại trở về Parent Mode mà không phải giữ cổng 3 giây lần nữa.
+  quay lại trở về Parent Mode mà không phải vượt qua adult gate lần nữa.
 - **Implemented:** entry từ Kid Mode có thể mở `Parent` với intent `premium`/`founderPromo`; sau
   khi adult gate pass, Parent Mode điều hướng sang `Premium`. `PremiumScreen` cũng tự trả về Parent
   gate nếu session chưa được cấp.
@@ -752,10 +752,10 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 
 ## 11. Known health và implementation limits
 
-Tại lần kiểm chứng gần nhất sau thay đổi hiển thị trạng thái Premium:
+Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 202/202 tests pass trong 26 suites.
+- Jest: 213/213 tests pass trong 27 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
@@ -773,7 +773,7 @@ Support summary:
 | ---------------------------------------- | --------------- |
 | Memory review game                       | Implemented     |
 | Matching/listen-and-choose review        | Unsupported     |
-| Parent 3-second hold + math adult gate   | Implemented     |
+| Parent math adult gate                   | Implemented     |
 | Parent PIN gate                          | Unsupported     |
 | Parent Google/Apple login                | Implemented     |
 | Free tier + Premium content guards       | Implemented     |

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -10,6 +10,8 @@ type ScreenProps = {
   scroll?: boolean;
   withBottomSpace?: boolean;
   safeAreaEdges?: ('top' | 'right' | 'bottom' | 'left')[];
+  keyboardAvoiding?: boolean;
+  keyboardOffset?: number;
 };
 
 export function Screen({
@@ -17,6 +19,8 @@ export function Screen({
   scroll = false,
   withBottomSpace = true,
   safeAreaEdges = ['bottom', 'left', 'right'],
+  keyboardAvoiding = false,
+  keyboardOffset = 0,
 }: ScreenProps) {
   useThemeSync();
   const responsiveLayout = useResponsiveLayout();
@@ -28,22 +32,33 @@ export function Screen({
     width: '100%' as const,
   };
 
-  if (scroll) {
-    return (
-      <SafeAreaView edges={safeAreaEdges} style={styles.safeArea}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
-        >
-          {children}
-        </ScrollView>
-      </SafeAreaView>
+  let content = scroll ? (
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
+      keyboardShouldPersistTaps="handled"
+    >
+      {children}
+    </ScrollView>
+  ) : (
+    <View style={styles.content}>{children}</View>
+  );
+
+  if (keyboardAvoiding) {
+    content = (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={keyboardOffset}
+        style={styles.content}
+      >
+        {content}
+      </KeyboardAvoidingView>
     );
   }
 
   return (
     <SafeAreaView edges={safeAreaEdges} style={styles.safeArea}>
-      <View style={styles.content}>{children}</View>
+      {content}
     </SafeAreaView>
   );
 }

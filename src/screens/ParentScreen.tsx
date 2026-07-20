@@ -93,7 +93,6 @@ import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName } from '../utils/lessonIcons';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
 
-const GATE_DURATION_MS = 3000;
 const GATE_COOLDOWN_MS = 10000;
 const WEEKLY_WORD_TARGET = 30;
 
@@ -153,7 +152,6 @@ export function ParentScreen({ navigation, route }: Props) {
   const responsiveLayout = useResponsiveLayout();
   const { isGranted: isUnlocked } = useParentAccessSnapshot();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [gateStep, setGateStep] = useState<'challenge' | 'hold'>('hold');
   const [gateChallenge, setGateChallenge] = useState(
     createParentGateChallenge,
   );
@@ -162,7 +160,6 @@ export function ParentScreen({ navigation, route }: Props) {
   const [gateWrongAttemptCount, setGateWrongAttemptCount] = useState(0);
   const [isGateCoolingDown, setIsGateCoolingDown] = useState(false);
   const [isDashboardReady, setIsDashboardReady] = useState(false);
-  const [isHolding, setIsHolding] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
   const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
@@ -204,7 +201,6 @@ export function ParentScreen({ navigation, route }: Props) {
 
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
-  const gateTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const gateCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
@@ -502,13 +498,6 @@ export function ParentScreen({ navigation, route }: Props) {
     setAppTheme(appThemePreference);
   }, [appThemePreference]);
 
-  function clearGateTimer() {
-    if (gateTimerRef.current) {
-      clearTimeout(gateTimerRef.current);
-      gateTimerRef.current = null;
-    }
-  }
-
   function clearGateCooldownTimer() {
     if (gateCooldownTimerRef.current) {
       clearTimeout(gateCooldownTimerRef.current);
@@ -556,10 +545,6 @@ export function ParentScreen({ navigation, route }: Props) {
   }, [isUnlocked, navigation, refreshParentData]);
 
   useEffect(() => {
-    return clearGateTimer;
-  }, []);
-
-  useEffect(() => {
     return clearGateCooldownTimer;
   }, []);
 
@@ -576,10 +561,8 @@ export function ParentScreen({ navigation, route }: Props) {
         return;
       }
 
-      clearGateTimer();
       clearGateCooldownTimer();
-      setIsHolding(false);
-      setGateStep('hold');
+      setGateChallenge(createParentGateChallenge());
       setGateAnswer('');
       setGateError(false);
       setGateWrongAttemptCount(0);
@@ -594,7 +577,7 @@ export function ParentScreen({ navigation, route }: Props) {
       return;
     }
 
-    setGateStep('hold');
+    setGateChallenge(createParentGateChallenge());
     setGateAnswer('');
     setGateError(false);
     setGateWrongAttemptCount(0);
@@ -620,26 +603,6 @@ export function ParentScreen({ navigation, route }: Props) {
       navigation.navigate('Premium');
     }
   }, [isUnlocked, navigation, route.params?.intent, route.params?.lessonId]);
-
-  const handleHoldStart = () => {
-    clearGateTimer();
-    setIsHolding(true);
-    gateTimerRef.current = setTimeout(() => {
-      setGateChallenge(createParentGateChallenge());
-      setGateAnswer('');
-      setGateError(false);
-      setGateStep('challenge');
-      setIsHolding(false);
-    }, GATE_DURATION_MS);
-  };
-
-  const handleHoldEnd = () => {
-    if (!isUnlocked) {
-      setIsHolding(false);
-    }
-
-    clearGateTimer();
-  };
 
   const handleGateChallengeSubmit = () => {
     if (isGateCoolingDown || gateAnswer.trim().length === 0) {
@@ -1096,84 +1059,58 @@ export function ParentScreen({ navigation, route }: Props) {
 
   if (!isUnlocked) {
     return (
-      <Screen>
+      <Screen scroll withBottomSpace={false} keyboardAvoiding keyboardOffset={90}>
         <View style={styles.gateContainer}>
           <AppCard style={styles.gateCard}>
             <KidBadge tone="teal">{t('parent.gate.badge')}</KidBadge>
-            {gateStep === 'hold' ? (
-              <>
-                <Text style={styles.title}>{t('parent.gate.title')}</Text>
-                <Text style={styles.gateHint}>{t('parent.gate.hint')}</Text>
-                <Pressable
-                  accessibilityRole="button"
-                  onPressIn={handleHoldStart}
-                  onPressOut={handleHoldEnd}
-                  style={({ pressed }) => [
-                    styles.holdButton,
-                    (pressed || isHolding) && styles.holdButtonActive,
-                  ]}
-                >
-                  <Text style={styles.holdButtonText}>
-                    {isHolding
-                      ? t('parent.gate.holding')
-                      : t('parent.gate.hold')}
-                  </Text>
-                </Pressable>
-              </>
-            ) : (
-              <>
-                <Text style={styles.title}>
-                  {t('parent.gate.challengeTitle')}
-                </Text>
-                <Text style={styles.gateHint}>
-                  {t('parent.gate.challengeHint')}
-                </Text>
-                <Text style={styles.gateQuestion}>
-                  {gateChallenge.expression} = ?
-                </Text>
-                <TextInput
-                  accessibilityLabel={t('parent.gate.challengePlaceholder')}
-                  editable={!isGateCoolingDown}
-                  keyboardType="number-pad"
-                  onChangeText={value => {
-                    setGateAnswer(value.replace(/[^0-9-]/g, ''));
-                    setGateError(false);
-                  }}
-                  onSubmitEditing={handleGateChallengeSubmit}
-                  placeholder={t('parent.gate.challengePlaceholder')}
-                  placeholderTextColor={colors.muted}
-                  returnKeyType="done"
-                  style={styles.gateAnswerInput}
-                  value={gateAnswer}
-                />
-                {isGateCoolingDown ? (
-                  <Text style={styles.gateError}>
-                    {t('parent.gate.challengeCooldown')}
-                  </Text>
-                ) : gateError ? (
-                  <Text style={styles.gateError}>
-                    {t('parent.gate.challengeWrong')}
-                  </Text>
-                ) : null}
-                <Pressable
-                  accessibilityRole="button"
-                  disabled={
-                    isGateCoolingDown || gateAnswer.trim().length === 0
-                  }
-                  onPress={handleGateChallengeSubmit}
-                  style={({ pressed }) => [
-                    styles.holdButton,
-                    (isGateCoolingDown || gateAnswer.trim().length === 0) &&
-                      styles.actionDisabled,
-                    pressed && styles.holdButtonActive,
-                  ]}
-                >
-                  <Text style={styles.holdButtonText}>
-                    {t('parent.gate.challengeSubmit')}
-                  </Text>
-                </Pressable>
-              </>
-            )}
+            <Text style={styles.title}>
+              {t('parent.gate.challengeTitle')}
+            </Text>
+            <Text style={styles.gateHint}>
+              {t('parent.gate.challengeHint')}
+            </Text>
+            <Text style={styles.gateQuestion}>
+              {gateChallenge.expression} = ?
+            </Text>
+            <TextInput
+              accessibilityLabel={t('parent.gate.challengePlaceholder')}
+              editable={!isGateCoolingDown}
+              keyboardType="number-pad"
+              onChangeText={value => {
+                setGateAnswer(value.replace(/[^0-9-]/g, ''));
+                setGateError(false);
+              }}
+              onSubmitEditing={handleGateChallengeSubmit}
+              placeholder={t('parent.gate.challengePlaceholder')}
+              placeholderTextColor={colors.muted}
+              returnKeyType="done"
+              style={styles.gateAnswerInput}
+              value={gateAnswer}
+            />
+            {isGateCoolingDown ? (
+              <Text style={styles.gateError}>
+                {t('parent.gate.challengeCooldown')}
+              </Text>
+            ) : gateError ? (
+              <Text style={styles.gateError}>
+                {t('parent.gate.challengeWrong')}
+              </Text>
+            ) : null}
+            <Pressable
+              accessibilityRole="button"
+              disabled={isGateCoolingDown || gateAnswer.trim().length === 0}
+              onPress={handleGateChallengeSubmit}
+              style={({ pressed }) => [
+                styles.gateButton,
+                (isGateCoolingDown || gateAnswer.trim().length === 0) &&
+                  styles.actionDisabled,
+                pressed && styles.gateButtonActive,
+              ]}
+            >
+              <Text style={styles.gateButtonText}>
+                {t('parent.gate.challengeSubmit')}
+              </Text>
+            </Pressable>
           </AppCard>
         </View>
       </Screen>
@@ -3075,7 +3012,7 @@ const styles = createThemedStyles(() => ({
     gap: spacing.lg,
   },
   gateContainer: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     padding: spacing.lg,
   },
@@ -3868,7 +3805,7 @@ const styles = createThemedStyles(() => ({
     textAlign: 'right',
     ...typography.caption,
   },
-  holdButton: {
+  gateButton: {
     alignItems: 'center',
     backgroundColor: colors.secondary,
     borderColor: colors.white,
@@ -3879,10 +3816,10 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
   },
-  holdButtonActive: {
+  gateButtonActive: {
     backgroundColor: colors.secondaryDark,
   },
-  holdButtonText: {
+  gateButtonText: {
     color: colors.text,
     textAlign: 'center',
     ...typography.button,
