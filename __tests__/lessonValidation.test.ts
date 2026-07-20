@@ -95,6 +95,36 @@ test('validator catches missing object references', () => {
   );
 });
 
+test('validator rejects a non-interactive drag target', () => {
+  const invalidLesson: Lesson = {
+    ...afternoonBathLesson,
+    scenes: afternoonBathLesson.scenes.map(scene =>
+      scene.id === 'bath-rinse'
+        ? {
+            ...scene,
+            objects: scene.objects.map(object =>
+              object.id === 'bath-rinse-sponge'
+                ? { ...object, isInteractive: false }
+                : object,
+            ),
+          }
+        : scene,
+    ),
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message:
+          'Drag target "bath-rinse-sponge" must be interactive.',
+        severity: 'error',
+      }),
+    ]),
+  );
+});
+
 test('bedroom scene keeps core short and unlocks older-child content by mode', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',
@@ -1624,6 +1654,11 @@ test('afternoon-bath rinse scene combines body-part and rinsing actions', () => 
       step => step.id === 'bath-rinse-drag-sponge-to-knee',
     )?.interaction.dropZoneId,
   ).toBe('bath-rinse-knee-zone');
+  expect(
+    challengeScene.objects.find(
+      object => object.id === 'bath-rinse-sponge',
+    )?.isInteractive,
+  ).toBe(true);
   expect(
     challengeScene.steps.find(
       step => step.id === 'bath-rinse-drag-shower-head-to-hair',

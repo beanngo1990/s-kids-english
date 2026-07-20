@@ -221,6 +221,19 @@ function validateStep({
   });
 
   if (step.interaction.type === 'drag') {
+    const dragTarget = renderableObjects.find(
+      object => object.id === step.interaction.targetObjectId,
+    );
+
+    if (dragTarget && !dragTarget.isInteractive) {
+      issues.push(
+        error(
+          `${stepPath}.interaction`,
+          `Drag target "${dragTarget.id}" must be interactive.`,
+        ),
+      );
+    }
+
     if (!step.interaction.dropZoneId) {
       issues.push(error(`${stepPath}.interaction`, 'Drag step must include dropZoneId.'));
     } else if (!dropZoneIds.has(step.interaction.dropZoneId)) {

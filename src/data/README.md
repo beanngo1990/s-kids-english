@@ -241,6 +241,7 @@ dev. It catches common mistakes:
 
 - duplicated lesson, scene, object, drop zone, or step ids
 - missing `targetObjectId`, `correctObjectIds`, `dropZoneId`, or `nextStepId`
+- drag targets marked as non-interactive
 - object `vocabId` not listed in scene vocabulary
 - invalid percent positions
 - unreachable steps
