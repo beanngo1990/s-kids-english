@@ -61,7 +61,11 @@ import {
 } from './AudioManager';
 import { getSceneFallbackPalette } from './AssetFallbacks';
 import { prefetchAssets, resolveAsset } from './AssetRegistry';
-import { prefetchRemoteAssets, prepareRemoteAssets } from './AssetCacheManager';
+import {
+  prefetchRemoteAssets,
+  prepareRemoteAssets,
+  type RemoteAssetCacheEntry,
+} from './AssetCacheManager';
 import {
   type DragTranslation,
   getDraggedRect,
@@ -103,6 +107,8 @@ type FeedbackState = {
 };
 
 type FeedbackAudioStatus = 'playing' | 'preparing';
+
+type RequiredAssetFailure = 'feedback' | 'scene' | 'step';
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
@@ -435,6 +441,9 @@ export function ScenePlayer({
   >(null);
   const [feedbackAudioStatus, setFeedbackAudioStatus] =
     useState<FeedbackAudioStatus | null>(null);
+  const [requiredAssetFailure, setRequiredAssetFailure] =
+    useState<RequiredAssetFailure | null>(null);
+  const [assetRetryNonce, setAssetRetryNonce] = useState(0);
   const [completedListenInstructionKey, setCompletedListenInstructionKey] =
     useState<string | null>(null);
 
@@ -529,6 +538,7 @@ export function ScenePlayer({
     setPreparedStepAudioKey(null);
     setPreparedFeedbackAudioKey(null);
     setFeedbackAudioStatus(null);
+    setRequiredAssetFailure(null);
   }, [currentScene]);
 
   useEffect(() => {
@@ -547,18 +557,14 @@ export function ScenePlayer({
     const preloadCurrentScene = async () => {
       try {
         const imageAssets = getSceneImageSources(currentScene);
-        const initialStep = getInitialStep(currentScene);
-        const audioAssets = initialStep
-          ? getStepAudioAssets(
-              currentScene,
-              initialStep,
-              teacherPromptMode,
-              englishAccent,
-            )
-          : [];
+        const audioAssets = getSceneRequiredAudioAssets(
+          currentScene,
+          teacherPromptMode,
+          englishAccent,
+        );
 
         let loaded = 0;
-        const total = imageAssets.length + (audioAssets.length > 0 ? 1 : 0);
+        const total = imageAssets.length + audioAssets.length;
 
         if (total === 0) {
           setLoadProgress(100);
@@ -566,25 +572,49 @@ export function ScenePlayer({
 
         const updateProgress = () => {
           loaded++;
-          setLoadProgress(Math.min(99, Math.round((loaded / total) * 100)));
+          if (isMounted) {
+            setLoadProgress(Math.min(99, Math.round((loaded / total) * 100)));
+          }
         };
 
-        const imagePromises = imageAssets.map(asset =>
-          prefetchAssets([asset]).then(updateProgress).catch(updateProgress),
-        );
-        const audioPromise =
-          audioAssets.length > 0
-            ? prepareRemoteAssets(audioAssets)
-                .then(updateProgress)
-                .catch(updateProgress)
-            : Promise.resolve();
+        const imagePromises = imageAssets.map(async asset => {
+          try {
+            return await prefetchAssets([asset]);
+          } catch {
+            return false;
+          } finally {
+            updateProgress();
+          }
+        });
+        const audioPromises = audioAssets.map(async asset => {
+          try {
+            return await prepareRemoteAssets([asset]);
+          } catch {
+            return false;
+          } finally {
+            updateProgress();
+          }
+        });
 
-        await Promise.all([...imagePromises, audioPromise]);
+        const readiness = await Promise.all([
+          ...imagePromises,
+          ...audioPromises,
+        ]);
+        if (!readiness.every(Boolean)) {
+          if (isMounted) {
+            setRequiredAssetFailure('scene');
+          }
+          return;
+        }
 
-        setLoadProgress(100);
+        if (isMounted) {
+          setRequiredAssetFailure(null);
+          setLoadProgress(100);
+        }
       } catch {
-        // Ignore errors to let scene continue even if some assets fail
-        setLoadProgress(100);
+        if (isMounted) {
+          setRequiredAssetFailure('scene');
+        }
       } finally {
         if (isMounted) {
           setIsPreloading(false);
@@ -597,18 +627,39 @@ export function ScenePlayer({
     return () => {
       isMounted = false;
     };
-  }, [currentScene, englishAccent, isLocalizationReady, teacherPromptMode]);
+  }, [
+    assetRetryNonce,
+    currentScene,
+    englishAccent,
+    isLocalizationReady,
+    teacherPromptMode,
+  ]);
 
   useEffect(() => {
-    if (!currentScene || isPreloading || !isLocalizationReady) {
+    if (
+      !currentScene ||
+      isPreloading ||
+      !isLocalizationReady ||
+      requiredAssetFailure
+    ) {
       return;
     }
 
     const timer = setTimeout(() => {
       const nextScene = scenes[sceneIndex + 1];
       const backgroundAudioAssets = [
-        ...getSceneAudioAssets(currentScene, englishAccent),
-        ...(nextScene ? getSceneAudioAssets(nextScene, englishAccent) : []),
+        ...getSceneRequiredAudioAssets(
+          currentScene,
+          teacherPromptMode,
+          englishAccent,
+        ),
+        ...(nextScene
+          ? getSceneRequiredAudioAssets(
+              nextScene,
+              teacherPromptMode,
+              englishAccent,
+            )
+          : []),
       ];
 
       if (nextScene) {
@@ -625,10 +676,22 @@ export function ScenePlayer({
     englishAccent,
     isLocalizationReady,
     isPreloading,
+    requiredAssetFailure,
     sceneIndex,
     scenes,
     teacherPromptMode,
   ]);
+
+  useEffect(() => {
+    if (!requiredAssetFailure) {
+      return;
+    }
+
+    advanceRequestIdRef.current += 1;
+    clearTimer(advanceTimerRef);
+    clearTimer(clearFeedbackTimerRef);
+    cancelStepAudioSequence();
+  }, [requiredAssetFailure]);
 
   useEffect(() => {
     return () => {
@@ -661,7 +724,13 @@ export function ScenePlayer({
       : null;
 
   useEffect(() => {
-    if (!currentScene || !currentStep || isPreloading || !isLocalizationReady) {
+    if (
+      !currentScene ||
+      !currentStep ||
+      isPreloading ||
+      !isLocalizationReady ||
+      requiredAssetFailure
+    ) {
       return;
     }
 
@@ -678,15 +747,20 @@ export function ScenePlayer({
     }
 
     const prepareAndPlayStepAudio = async () => {
-      await prepareRemoteAssets(
-        getStepAudioAssets(
-          currentScene,
-          currentStep,
-          teacherPromptMode,
-          englishAccent,
-        ),
+      const stepAudioAssets = getStepAudioAssets(
+        currentScene,
+        currentStep,
+        teacherPromptMode,
+        englishAccent,
       );
+      const isStepAudioReady =
+        stepAudioAssets.length === 0 ||
+        (await prepareRemoteAssets(stepAudioAssets));
       if (!isActive || !stepAudioPreparationKey) {
+        return;
+      }
+      if (!isStepAudioReady) {
+        setRequiredAssetFailure('step');
         return;
       }
 
@@ -706,20 +780,29 @@ export function ScenePlayer({
       });
 
       if (feedbackAudioPreparationKey) {
-        prepareRemoteAssets(
-          getStepFeedbackAudioAssets(
-            currentScene,
-            currentStep,
-            teacherPromptMode,
-            englishAccent,
-          ),
-        )
-          .then(() => {
-            if (isActive) {
+        const feedbackAssets = getStepFeedbackAudioAssets(
+          currentScene,
+          currentStep,
+          teacherPromptMode,
+          englishAccent,
+        );
+        const feedbackPreparation =
+          feedbackAssets.length === 0
+            ? Promise.resolve(true)
+            : prepareRemoteAssets(feedbackAssets);
+        feedbackPreparation
+          .then(isReady => {
+            if (isActive && isReady) {
               setPreparedFeedbackAudioKey(feedbackAudioPreparationKey);
+            } else if (isActive) {
+              setRequiredAssetFailure('feedback');
             }
           })
-          .catch(() => undefined);
+          .catch(() => {
+            if (isActive) {
+              setRequiredAssetFailure('feedback');
+            }
+          });
       }
 
       const nextStep = currentStep.nextStepId
@@ -737,7 +820,11 @@ export function ScenePlayer({
       }
     };
 
-    prepareAndPlayStepAudio().catch(() => undefined);
+    prepareAndPlayStepAudio().catch(() => {
+      if (isActive) {
+        setRequiredAssetFailure('step');
+      }
+    });
 
     return () => {
       isActive = false;
@@ -750,9 +837,26 @@ export function ScenePlayer({
     isLocalizationReady,
     isPreloading,
     lessonId,
+    requiredAssetFailure,
     stepAudioPreparationKey,
     teacherPromptMode,
   ]);
+
+  const handleRequiredAssetRetry = () => {
+    advanceRequestIdRef.current += 1;
+    clearTimer(advanceTimerRef);
+    clearTimer(clearFeedbackTimerRef);
+    cancelStepAudioSequence();
+    setFeedback(null);
+    setFeedbackAudioStatus(null);
+    setPreparedStepAudioKey(null);
+    setPreparedFeedbackAudioKey(null);
+    setCompletedListenInstructionKey(null);
+    setRequiredAssetFailure(null);
+    setIsPreloading(true);
+    setLoadProgress(0);
+    setAssetRetryNonce(value => value + 1);
+  };
 
   if (!currentScene) {
     return (
@@ -766,6 +870,33 @@ export function ScenePlayer({
     return (
       <View style={styles.emptyState}>
         <Text style={styles.emptyTitle}>{t('scene.empty.noStep')}</Text>
+      </View>
+    );
+  }
+
+  if (requiredAssetFailure) {
+    return (
+      <View style={[styles.root, styles.emptyState]}>
+        <MascotImage pose="tryAgain" size="lg" />
+        <Text style={styles.resourceErrorTitle}>
+          {t('scene.resourcesUnavailableTitle')}
+        </Text>
+        <Text style={styles.resourceErrorBody}>
+          {t('scene.resourcesUnavailableBody')}
+        </Text>
+        <View style={styles.resourceErrorActions}>
+          <AppButton
+            onPress={handleRequiredAssetRetry}
+            title={t('scene.resourcesRetry')}
+          />
+          {onExit ? (
+            <AppButton
+              onPress={onExit}
+              title={t('scene.resourcesExit')}
+              variant="secondary"
+            />
+          ) : null}
+        </View>
       </View>
     );
   }
@@ -1118,10 +1249,19 @@ export function ScenePlayer({
     setFeedbackAudioStatus('preparing');
 
     const prepareAndPlayFeedback = async () => {
-      await prepareRemoteAssets(
-        getPromptAudioAssets(feedbackPrompt.segments, englishAccent),
+      const feedbackAssets = getPromptAudioAssets(
+        feedbackPrompt.segments,
+        englishAccent,
       );
+      const isFeedbackReady =
+        feedbackAssets.length === 0 ||
+        (await prepareRemoteAssets(feedbackAssets));
       if (advanceRequestIdRef.current !== requestId) {
+        return;
+      }
+      if (!isFeedbackReady) {
+        setFeedbackAudioStatus(null);
+        setRequiredAssetFailure('feedback');
         return;
       }
 
@@ -1139,7 +1279,12 @@ export function ScenePlayer({
       advanceIfCurrent();
     };
 
-    prepareAndPlayFeedback().catch(advanceIfCurrent);
+    prepareAndPlayFeedback().catch(() => {
+      if (advanceRequestIdRef.current === requestId) {
+        setFeedbackAudioStatus(null);
+        setRequiredAssetFailure('feedback');
+      }
+    });
   };
 
   const showTemporaryFeedback = (nextFeedback: FeedbackState) => {
@@ -1757,65 +1902,44 @@ function getSceneImageSources(scene: Scene) {
   return Array.from(new Set(sources));
 }
 
-function getSceneAudioAssets(scene: Scene, englishAccent: EnglishAccent) {
-  const assets: RemoteAudioAsset[] = [];
-
-  if (scene.titleVi) {
-    const titleAsset = getViAudioAsset(scene.titleVi);
-    if (titleAsset) assets.push(titleAsset);
-  }
+function getSceneRequiredAudioAssets(
+  scene: Scene,
+  teacherPromptMode: TeacherPromptMode,
+  englishAccent: EnglishAccent,
+) {
+  const assets: RemoteAssetCacheEntry[] = [];
 
   for (const step of scene.steps) {
-    for (const segment of resolveTeacherInstruction(step, 'en', scene)
-      .segments) {
-      const instructionAsset = getWordAudioAsset(segment.text, englishAccent);
-      if (instructionAsset) assets.push(instructionAsset);
-    }
-    for (const segment of resolveTeacherFeedback({
-      enText: step.successFeedbackEn,
-      mode: 'en',
-      scene,
-      step,
-      type: 'success',
-    }).segments) {
-      const feedbackAsset = getWordAudioAsset(segment.text, englishAccent);
-      if (feedbackAsset) assets.push(feedbackAsset);
-    }
-    for (const segment of resolveTeacherFeedback({
-      enText: step.failFeedbackEn,
-      mode: 'en',
-      scene,
-      step,
-      type: 'fail',
-    }).segments) {
-      const feedbackAsset = getWordAudioAsset(segment.text, englishAccent);
-      if (feedbackAsset) assets.push(feedbackAsset);
-    }
-    if (step.instructionVi) {
-      const instructionAsset = getViAudioAsset(step.instructionVi);
-      if (instructionAsset) assets.push(instructionAsset);
-    }
-    if (step.successFeedbackVi) {
-      const feedbackAsset = getViAudioAsset(step.successFeedbackVi);
-      if (feedbackAsset) assets.push(feedbackAsset);
-    }
-    if (step.failFeedbackVi) {
-      const failFeedbackAsset = getViAudioAsset(step.failFeedbackVi);
-      if (failFeedbackAsset) assets.push(failFeedbackAsset);
+    assets.push(
+      ...getStepAudioAssets(scene, step, teacherPromptMode, englishAccent),
+      ...getStepFeedbackAudioAssets(
+        scene,
+        step,
+        teacherPromptMode,
+        englishAccent,
+      ),
+    );
+  }
+
+  for (const vocabularyItem of scene.vocabulary ?? []) {
+    const wordAsset = getWordAudioAsset(vocabularyItem.word, englishAccent);
+    if (wordAsset) {
+      assets.push(...getRemoteAudioCacheEntries([wordAsset]));
     }
   }
 
-  for (const vocab of scene.vocabulary ?? []) {
-    const wordAsset = getWordAudioAsset(vocab.word, englishAccent);
-    if (wordAsset) assets.push(wordAsset);
-  }
+  assets.push(
+    ...getPromptAudioAssets(
+      resolveRecordingEncouragementPrompt(teacherPromptMode).segments,
+      englishAccent,
+    ),
+    ...getPromptAudioAssets(
+      resolveSceneCompletionPrompt(scene, teacherPromptMode).segments,
+      englishAccent,
+    ),
+  );
 
-  for (const text of getSceneEnglishAudioTexts(scene)) {
-    const englishAsset = getWordAudioAsset(text, englishAccent);
-    if (englishAsset) assets.push(englishAsset);
-  }
-
-  return getRemoteAudioCacheEntries(assets);
+  return dedupeRemoteAssetCacheEntries(assets);
 }
 
 function getStepAudioAssets(
@@ -1958,22 +2082,12 @@ function getRemoteAudioCacheEntries(assets: RemoteAudioAsset[]) {
   }));
 }
 
-function getSceneEnglishAudioTexts(scene: Scene) {
-  return [
-    ...resolveSceneCompletionPrompt(scene, 'en').segments,
-    ...resolveSpeechPracticePrompt('en').segments,
-    ...resolveRecordingEncouragementPrompt('en').segments,
-    ...resolveTeacherFeedback({
-      mode: 'en',
-      type: 'success',
-    }).segments,
-    ...resolveTeacherFeedback({
-      mode: 'en',
-      type: 'fail',
-    }).segments,
-  ]
-    .filter(segment => segment.language === 'en')
-    .map(segment => segment.text);
+function dedupeRemoteAssetCacheEntries(assets: RemoteAssetCacheEntry[]) {
+  return Array.from(
+    new Map(
+      assets.map(asset => [`${asset.cacheKey}\n${asset.remoteUrl}`, asset]),
+    ).values(),
+  );
 }
 
 function getObjectLabel(
@@ -2432,6 +2546,24 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.subtitle,
+  },
+  resourceErrorActions: {
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+    maxWidth: 360,
+    width: '100%',
+  },
+  resourceErrorBody: {
+    color: colors.textSoft,
+    maxWidth: 480,
+    textAlign: 'center',
+    ...typography.body,
+  },
+  resourceErrorTitle: {
+    color: colors.text,
+    marginTop: spacing.sm,
+    textAlign: 'center',
+    ...typography.title,
   },
   exitButton: {
     alignItems: 'center',

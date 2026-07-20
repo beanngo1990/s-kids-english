@@ -36,7 +36,7 @@ export function resolveAsset(source: string): ImageSourcePropType | undefined {
 
 export async function prefetchAssets(sources: string[]) {
   if (!remoteAssetsConfig.preferRemoteImages) {
-    return;
+    return true;
   }
 
   const remoteUrls = Array.from(
@@ -47,5 +47,14 @@ export async function prefetchAssets(sources: string[]) {
     ),
   );
 
-  await Promise.allSettled(remoteUrls.map(remoteUrl => Image.prefetch(remoteUrl)));
+  if (remoteUrls.length === 0) {
+    return true;
+  }
+
+  const results = await Promise.allSettled(
+    remoteUrls.map(remoteUrl => Image.prefetch(remoteUrl)),
+  );
+  return results.every(
+    result => result.status === 'fulfilled' && result.value === true,
+  );
 }

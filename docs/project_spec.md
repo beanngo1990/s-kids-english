@@ -356,11 +356,14 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
-- Scene loading chờ current-scene images và audio cần cho opening step được cache xong trước khi
-  bắt đầu phát instruction. Mỗi step sau dùng foreground cache path cho đúng audio sắp phát và
-  warm trước audio của next step; trong khoảng chờ UI hiển thị trạng thái chuẩn bị, chỉ đổi sang
-  trạng thái cô đang nói sau khi prepare hoàn tất. Audio còn lại của current scene và assets của
-  next scene tiếp tục được prefetch nền; lỗi audio vẫn là best-effort để lesson flow không bị kẹt.
+- Trước khi vào bài, ScenePlayer chuẩn bị gói tài nguyên bắt buộc của current scene: toàn bộ ảnh
+  scene cần render/effect và audio đúng với `teacherPromptMode` cùng `englishAccent` đang chọn.
+  Instruction và tương tác chỉ bắt đầu sau khi toàn bộ gói này báo sẵn sàng hoặc đã có trong cache.
+- Cache hit có thể giúp scene chạy khi mất mạng, nhưng `Image.prefetch` dùng cache do React Native/
+  hệ điều hành quản lý nên không được xem là một offline lesson pack bền vững hay được bảo đảm.
+- Nếu một tài nguyên bắt buộc chưa sẵn sàng, lesson dừng ở màn lỗi có `Thử lại` và `Thoát bài`;
+  step/feedback không tự chuyển tiếp trong im lặng. Prefetch nền cho next scene và các tài nguyên
+  không bắt buộc vẫn là best-effort và không chặn current scene.
 - Success/fail feedback audio của current step được warm trong lúc instruction đang phát. Với
   listen step, nút Continue chỉ xuất hiện sau khi success feedback đã prepare xong. Khi trả lời
   đúng, UI hiển thị feedback text và trạng thái chuẩn bị/phát ngay; transition watchdog chỉ bắt
@@ -631,12 +634,14 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 
-`AudioManager` xử lý phát English/Vietnamese audio và effects theo kiểu best-effort; audio failure
-không được làm lesson flow kẹt. Teacher prompt mode English/bilingual dùng resolved English
-teacher instructions, shared English cues và generated audio manifest theo `englishAccent` khi có
-asset. Lookup ưu tiên accent được chọn, sau đó default en-US và legacy `audio/en/`; TTS fallback
-nếu có cũng dùng locale được chọn. Native adapter hiện tập trung vào SFX/URI playback, vì vậy
-production không được dựa vào TTS fallback để che một corpus en-GB thiếu.
+`AudioManager` giữ playback primitive và effects theo hướng best-effort, còn `ScenePlayer` áp dụng
+readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa sẵn sàng, scene hiển thị lựa chọn
+thử lại/thoát bài thay vì tiếp tục hoặc tự chuyển step trong im lặng. Teacher prompt mode English/
+bilingual dùng resolved English teacher instructions, shared English cues và generated audio
+manifest theo `englishAccent` khi có asset. Lookup ưu tiên accent được chọn, sau đó default en-US
+và legacy `audio/en/`; TTS fallback nếu có cũng dùng locale được chọn. Native adapter hiện tập
+trung vào SFX/URI playback, vì vậy production không được dựa vào TTS fallback để che một corpus
+en-GB thiếu.
 
 ### Native support matrix
 
@@ -654,8 +659,9 @@ bridge `SkidsAudio.m`.
 `SkidsAssetCache` có implementation Kotlin/Android và Swift/iOS. Current JS call sites dùng nó để
 cache/prefetch remote lesson audio, không phải lesson images. Native prefetch chỉ báo ready khi
 mọi asset hợp lệ trong batch đã có file cache khác rỗng; lỗi từng file trả trạng thái chưa sẵn sàng
-nhưng không làm lesson flow bị kẹt vĩnh viễn. Android tách foreground executor cho audio sắp phát
-khỏi hàng đợi bulk prefetch và khóa theo cache key để không tải trùng cùng file.
+để ScenePlayer chuyển sang màn thử lại/thoát bài thay vì tự động bỏ qua. Android tách foreground
+executor cho audio sắp phát khỏi hàng đợi bulk prefetch và khóa theo cache key để không tải trùng
+cùng file.
 
 ## 9. Asset delivery và authoring pipeline
 
