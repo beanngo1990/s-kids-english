@@ -545,8 +545,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Monetization/App Check không thêm AsyncStorage key. Parent access session nằm trong memory tại
   `src/engine/ParentAccessSession.ts`; RevenueCat `CustomerInfo` được refresh/lắng nghe thay vì
   cache thành quyền Premium do app tự quản lý.
-- Account deletion chạy cloud progress deletion -> callable xóa RevenueCat customer -> Firebase
-  Auth deletion -> local RevenueCat cache/logout. Nếu backend cleanup chưa được xác nhận, Firebase
+- Account deletion refresh Firebase Auth token và App Check token trước khi chạy cloud progress
+  deletion -> callable xóa RevenueCat customer -> Firebase Auth deletion -> local RevenueCat
+  cache/logout. Nếu token bảo mật chưa sẵn sàng hoặc backend cleanup chưa được xác nhận, Firebase
   Auth được giữ để phụ huynh retry. Founder access không có ledger/outbox/tombstone cần scrub.
 - Các document Founder legacy từng được tạo trên project test không tự mất khi xóa Functions/code;
   phải kiểm kê và purge bằng admin migration có xác nhận trước production, không giao việc đó cho

@@ -1,22 +1,42 @@
 import { getApps } from '@react-native-firebase/app';
 import {
+  getToken,
+  type AppCheck,
   initializeAppCheck,
   ReactNativeFirebaseAppCheckProvider,
 } from '@react-native-firebase/app-check';
 
-let initializationPromise: Promise<void> | null = null;
+let initializationPromise: Promise<AppCheck | null> | null = null;
 
 export function startFirebaseAppCheck() {
   if (!initializationPromise) {
-    initializationPromise = initialize().catch(() => undefined);
+    initializationPromise = initialize().catch(() => null);
   }
 
-  return initializationPromise;
+  return initializationPromise.then(() => undefined);
+}
+
+export async function ensureFirebaseAppCheckToken() {
+  if (!initializationPromise) {
+    initializationPromise = initialize().catch(() => null);
+  }
+
+  const appCheck = await initializationPromise;
+  if (!appCheck) {
+    return false;
+  }
+
+  try {
+    const tokenResult = await getToken(appCheck, true);
+    return tokenResult.token.trim().length > 0;
+  } catch {
+    return false;
+  }
 }
 
 async function initialize() {
   if (getApps().length === 0) {
-    return;
+    return null;
   }
 
   const provider = new ReactNativeFirebaseAppCheckProvider();
@@ -27,7 +47,7 @@ async function initialize() {
     },
   });
 
-  await initializeAppCheck(undefined, {
+  return initializeAppCheck(undefined, {
     isTokenAutoRefreshEnabled: true,
     provider,
   });

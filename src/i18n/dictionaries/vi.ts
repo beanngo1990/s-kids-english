@@ -207,6 +207,13 @@ export const vi = {
     'Tài khoản và tiến độ trên cloud đã được xóa. Tiến độ local vẫn ở trên thiết bị này.',
   'parent.account.deletedTitle': 'Đã xóa tài khoản',
   'parent.account.deleting': 'Đang xóa...',
+  'parent.account.deleteAppCheckRequired':
+    'Ứng dụng chưa xác thực được App Check với Firebase. Nếu đang test debug build, hãy thêm App Check debug token của thiết bị vào Firebase Console rồi thử lại.',
+  'parent.account.deleteAuthRequired':
+    'Phiên đăng nhập hoặc xác thực bảo mật chưa sẵn sàng. Ba mẹ đăng xuất, đăng nhập lại rồi thử xóa tài khoản lần nữa nhé.',
+  'parent.account.deleteErrorTitle': 'Chưa xóa được tài khoản',
+  'parent.account.deleteErrorUnknown':
+    'Có lỗi khi xóa tài khoản. Ba mẹ vui lòng thử lại.',
   'parent.account.errorTitle': 'Chưa đăng nhập được',
   'parent.account.firebaseConfigMissing':
     'Chưa có file cấu hình Firebase native. Thêm google-services.json cho Android và GoogleService-Info.plist cho iOS trước khi bật đăng nhập.',
@@ -235,6 +242,9 @@ export const vi = {
   'parent.account.signingIn': 'Đang đăng nhập...',
   'parent.account.signingOut': 'Đang đăng xuất...',
   'parent.account.signOut': 'Đăng xuất',
+  'parent.account.signOutErrorTitle': 'Chưa đăng xuất được',
+  'parent.account.signOutErrorUnknown':
+    'Có lỗi khi đăng xuất. Ba mẹ vui lòng thử lại.',
   'parent.account.subtitle':
     'Chỉ dành cho ba mẹ. Đăng nhập không tự bật quảng cáo, analytics hay đồng bộ dữ liệu học.',
   'parent.account.title': 'Đăng nhập tài khoản ba mẹ',
