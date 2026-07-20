@@ -152,7 +152,9 @@ Quy tắc bắt buộc:
   `src/config/generatedAssetRelease.ts` là generated output; không sửa tay.
 - Runtime lesson images hiện R2-first. `src/engine/AssetRegistry.ts` dùng remote URL và React
   Native `Image.prefetch`; bundled lesson image registry hiện trống.
-- Bundled UI icons/mascot không thuộc lesson image pipeline.
+- Bundled UI icons/mascot không thuộc lesson image pipeline. Kid-facing map-lock audio nằm trong
+  `src/assets/ui/audio/`, được Google TTS generator tạo và đăng ký qua generated
+  `src/engine/GeneratedUiAudioRegistry.ts`; không sửa registry này bằng tay.
 
 ### Audio
 
@@ -166,6 +168,8 @@ Quy tắc bắt buộc:
 - `src/engine/GeneratedAudioRegistry.ts` hiện cố ý để trống để lesson audio không bị bundle.
   `generateMissingAudio.mjs` giữ file này nguyên trạng, kể cả `--manifest-only`, trừ khi truyền
   `--write-bundled-registry` một cách có chủ ý.
+- `GeneratedUiAudioRegistry.ts` là ngoại lệ chỉ cho các prompt khóa trên Kid Mode map; generator
+  luôn cập nhật registry nhỏ này sau khi full-corpus audit pass để phản hồi khóa phát ngay từ app.
 - English production dùng `en-US-Neural2-C` và `en-GB-Neural2-C`, LINEAR16 mono 24 kHz,
   speaking rate `0.9`, không trim silence. Manifest chỉ được publish sau khi audit đủ cả hai
   accent và toàn bộ Vietnamese target hiện hành.

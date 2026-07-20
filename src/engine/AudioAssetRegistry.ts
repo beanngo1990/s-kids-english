@@ -1,8 +1,10 @@
 import { Image, type ImageRequireSource } from 'react-native';
 
 import { generatedAudioRegistry } from './GeneratedAudioRegistry';
+import { generatedUiAudioRegistry } from './GeneratedUiAudioRegistry';
 
 const bundledAudioRegistry: Record<string, ImageRequireSource> = {
+  ...generatedUiAudioRegistry,
   ...generatedAudioRegistry,
 };
 

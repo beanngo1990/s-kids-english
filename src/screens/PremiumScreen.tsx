@@ -174,31 +174,25 @@ export function PremiumScreen({ navigation }: Props) {
     }
   }, [t]);
 
-  const handleFounderSignIn = useCallback(async () => {
-    if (googleSignInConfigured) {
-      setSignInAction('google');
+  const handleFounderSignIn = useCallback(
+    async (provider: Exclude<SignInAction, null>) => {
+      setSignInAction(provider);
       setParentExternalFlowActive(true);
       try {
-        await signInParentWithGoogle();
+        if (provider === 'apple') {
+          await signInParentWithApple();
+        } else {
+          await signInParentWithGoogle();
+        }
       } catch (error) {
         showParentAuthError(t, error, { showCancelled: true });
       } finally {
         setParentExternalFlowActive(false);
         setSignInAction(null);
       }
-    } else {
-      setSignInAction('apple');
-      setParentExternalFlowActive(true);
-      try {
-        await signInParentWithApple();
-      } catch (error) {
-        showParentAuthError(t, error, { showCancelled: true });
-      } finally {
-        setParentExternalFlowActive(false);
-        setSignInAction(null);
-      }
-    }
-  }, [googleSignInConfigured, t]);
+    },
+    [t],
+  );
 
   const handleAppleSignIn = useCallback(async () => {
     setSignInAction('apple');
@@ -367,8 +361,11 @@ export function PremiumScreen({ navigation }: Props) {
         !monetization.isSignedIn &&
         monetization.status !== 'premium' && (
           <FounderCampaignCard
+            appleSignInAvailable={appleSignInAvailable}
             canInteract={canFounderSignIn && !isBusy}
-            onPress={handleFounderSignIn}
+            googleSignInConfigured={googleSignInConfigured}
+            onApplePress={() => handleFounderSignIn('apple')}
+            onGooglePress={() => handleFounderSignIn('google')}
             signInAction={signInAction}
             t={t}
           />
@@ -386,6 +383,20 @@ export function PremiumScreen({ navigation }: Props) {
             </Text>
           ) : null}
           <View style={styles.actions}>
+            {appleSignInAvailable && (
+              <AppButton
+                disabled={
+                  isBusy || monetization.errorCode === 'firebaseUnavailable'
+                }
+                onPress={handleAppleSignIn}
+                title={
+                  signInAction === 'apple'
+                    ? t('parent.account.signingIn')
+                    : t('parent.account.signInApple')
+                }
+                variant="secondary"
+              />
+            )}
             <AppButton
               disabled={
                 isBusy ||
@@ -398,22 +409,8 @@ export function PremiumScreen({ navigation }: Props) {
                   ? t('parent.account.signingIn')
                   : t('parent.account.signInGoogle')
               }
-              variant="secondary"
+              variant={appleSignInAvailable ? 'outlined' : 'secondary'}
             />
-            {appleSignInAvailable && (
-              <AppButton
-                disabled={
-                  isBusy || monetization.errorCode === 'firebaseUnavailable'
-                }
-                onPress={handleAppleSignIn}
-                title={
-                  signInAction === 'apple'
-                    ? t('parent.account.signingIn')
-                    : t('parent.account.signInApple')
-                }
-                variant="outlined"
-              />
-            )}
           </View>
         </AppCard>
       )}
@@ -556,13 +553,19 @@ export function PremiumScreen({ navigation }: Props) {
 }
 
 function FounderCampaignCard({
+  appleSignInAvailable,
   canInteract,
-  onPress,
+  googleSignInConfigured,
+  onApplePress,
+  onGooglePress,
   signInAction,
   t,
 }: {
+  appleSignInAvailable: boolean;
   canInteract: boolean;
-  onPress: () => void;
+  googleSignInConfigured: boolean;
+  onApplePress: () => void;
+  onGooglePress: () => void;
   signInAction: SignInAction;
   t: Translator;
 }) {
@@ -575,15 +578,30 @@ function FounderCampaignCard({
       <Text style={styles.founderStatus}>
         {t('premium.founder.signInText')}
       </Text>
-      <AppButton
-        disabled={!canInteract}
-        onPress={onPress}
-        title={
-          signInAction
-            ? t('parent.account.signingIn')
-            : t('premium.founder.signInAction')
-        }
-      />
+      <View style={styles.actions}>
+        {appleSignInAvailable && (
+          <AppButton
+            disabled={!canInteract}
+            onPress={onApplePress}
+            title={
+              signInAction === 'apple'
+                ? t('parent.account.signingIn')
+                : t('parent.account.signInApple')
+            }
+            variant="secondary"
+          />
+        )}
+        <AppButton
+          disabled={!canInteract || !googleSignInConfigured}
+          onPress={onGooglePress}
+          title={
+            signInAction === 'google'
+              ? t('parent.account.signingIn')
+              : t('parent.account.signInGoogle')
+          }
+          variant={appleSignInAvailable ? 'outlined' : 'secondary'}
+        />
+      </View>
     </AppCard>
   );
 }

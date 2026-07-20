@@ -526,6 +526,9 @@ export const en: TranslationDictionary = {
   'home.hub.giftTitle': 'Today’s reward',
   'home.hub.focusAccessibility': 'Move the map to the current stop',
   'home.hub.focusCurrent': 'Current stop',
+  'home.progressLockedTitle': 'This lesson is still locked',
+  'home.progressLockedText':
+    'Finish the lesson before this one to unlock it.',
   'home.mapStop.position':
     'Lesson {lesson}/{lessonTotal}: {lessonTitle}, stop {scene}/{sceneTotal}',
   'home.mapStop.lockedAccessibility': '{position}: {sceneTitle} locked',

@@ -1,4 +1,9 @@
-import { getWordAudioAsset } from '../src/data/audioManifest';
+import {
+  getViAudioAsset,
+  getWordAudioAsset,
+} from '../src/data/audioManifest';
+import { kidLockAudioPrompts } from '../src/data/kidLockAudioPrompts';
+import { generatedUiAudioRegistry } from '../src/engine/GeneratedUiAudioRegistry';
 import { ENGLISH_ACCENTS, type EnglishAccent } from '../src/types/audio';
 
 declare const __dirname: string;
@@ -98,7 +103,27 @@ test('English Neural2-C corpus is complete and matches its provenance', () => {
     );
   }
 
-  expect(manifest.targets).toHaveLength(2244);
-  expect(Object.fromEntries(counts)).toEqual({ 'en-GB': 1122, 'en-US': 1122 });
+  expect(manifest.targets).toHaveLength(2250);
+  expect(Object.fromEntries(counts)).toEqual({ 'en-GB': 1125, 'en-US': 1125 });
   expect(uniqueKeys.size).toBe(manifest.targets.length);
+});
+
+test('kid-facing map lock prompts have bundled production audio', () => {
+  for (const prompt of Object.values(kidLockAudioPrompts)) {
+    const viAsset = getViAudioAsset(prompt.vi);
+    expect(viAsset?.key).toMatch(/^ui\/audio\/vi\//u);
+    expect(generatedUiAudioRegistry[viAsset?.key ?? '']).toBeDefined();
+    expect(
+      readFileSync(join(repoRoot, 'src/assets', viAsset?.key ?? '')).length,
+    ).toBeGreaterThan(44);
+
+    for (const accent of ENGLISH_ACCENTS) {
+      const enAsset = getWordAudioAsset(prompt.en, accent);
+      expect(enAsset?.key).toContain(`ui/audio/${accent}/`);
+      expect(generatedUiAudioRegistry[enAsset?.key ?? '']).toBeDefined();
+      expect(
+        readFileSync(join(repoRoot, 'src/assets', enAsset?.key ?? '')).length,
+      ).toBeGreaterThan(44);
+    }
+  }
 });

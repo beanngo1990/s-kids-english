@@ -525,6 +525,9 @@ export const vi = {
   'home.hub.giftTitle': 'Quà hôm nay',
   'home.hub.focusAccessibility': 'Đưa bản đồ về trạm hiện tại',
   'home.hub.focusCurrent': 'Về trạm hiện tại',
+  'home.progressLockedTitle': 'Bài này chưa mở',
+  'home.progressLockedText':
+    'Con hãy hoàn thành bài phía trước để mở bài này nhé!',
   'home.mapStop.position':
     'Bài {lesson}/{lessonTotal}: {lessonTitle}, trạm {scene}/{sceneTotal}',
   'home.mapStop.lockedAccessibility': '{position}: {sceneTitle} chưa mở khóa',
