@@ -73,17 +73,25 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const hasCompletedLesson = Boolean(
     lesson && progress?.completedLessonIds.includes(lesson.id),
   );
-  const hasReviewGame = lesson?.reviewGame?.type === 'memory';
+  const hasReviewGame = Boolean(
+    lesson?.reviewGame &&
+      (lesson.reviewGame.type === 'memory' ||
+        lesson.reviewGame.type === 'listenAndChoose'),
+  );
   const hasCompletedReviewGame = Boolean(
     lesson?.reviewGame &&
       progress?.completedReviewGameIds.includes(lesson.reviewGame.id),
   );
   const shouldPlayReviewGame =
     isPackComplete && hasReviewGame && !hasCompletedReviewGame;
+  const reviewGameActionTitle =
+    lesson?.reviewGame?.type === 'listenAndChoose'
+      ? t('reviewGame.listenAndChooseBadge')
+      : t('lessonPack.playMemory');
   const primaryActionTitle = !isPackComplete
     ? t('lessonPack.continue')
     : shouldPlayReviewGame
-      ? t('lessonPack.playMemory')
+      ? reviewGameActionTitle
       : t('lessonPack.claimSticker');
 
   const difficultyOption = getLearningModeCopy(learningMode, t);
@@ -392,7 +400,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
         />
         {(journeyMode === 'free' || isPackComplete) && hasReviewGame && !shouldPlayReviewGame ? (
           <AppButton
-            title={hasCompletedReviewGame ? t('lessonPack.playMemoryAgain') : t('lessonPack.playMemory')}
+            title={hasCompletedReviewGame ? `${reviewGameActionTitle} (${t('reviewGame.parentBadge')})` : reviewGameActionTitle}
             variant="secondary"
             onPress={() =>
               navigation.navigate('ReviewGame', {
