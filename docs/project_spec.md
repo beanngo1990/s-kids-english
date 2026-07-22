@@ -353,9 +353,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `teacherPromptMode`; English instruction ưu tiên `SceneStep.instructionEn`, sau đó tự dựng câu
   từ interaction/vocabulary/promptText để tránh đọc cue cụt như chỉ “book”.
 - Teacher feedback resolver hỗ trợ success/fail display/audio theo `teacherPromptMode`; feedback
-  cụ thể từ lesson có thể dùng `successFeedbackEn`/`failFeedbackEn`; khi thiếu, teach step có
-  vocabulary fallback sang câu nghĩa English, còn các feedback khác dùng cue chung cho tới khi
-  schema/data có bản dịch chi tiết.
+  cụ thể từ lesson có thể dùng `successFeedbackEn`/`failFeedbackEn`; khi thiếu, resolver dùng
+  context của step như vocabulary, interaction, action prompt và drop zone để dựng English
+  feedback cụ thể trước khi rơi về cue chung. Teach step vẫn có vocabulary fallback sang câu nghĩa
+  English như `It means good morning.`.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
@@ -704,7 +705,8 @@ trong `docs/asset-pipeline.md`.
 - Release profile cố định: `en-US-Neural2-C` và `en-GB-Neural2-C`, LINEAR16 PCM mono 24 kHz,
   speaking rate `0.9`, không trim silence cho English.
 - `audio/en/*.wav` là legacy en-US compatibility/rollback corpus; giữ nguyên nhưng không ghi
-  production release mới vào đây.
+  production release mới vào đây. Manifest chỉ thêm `legacy` fallback cho target đã có file legacy
+  tương ứng.
 - Vietnamese instruction/feedback: `audio/vi/*.wav`.
 - Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
 - `generateMissingAudio.mjs` scan registered catalog, audit/generate theo language/accent và chỉ

@@ -751,7 +751,7 @@ test.each(['vi', 'bilingual'] as const)(
     });
     if (teacherPromptMode === 'bilingual') {
       expect(mockedSpeakWord.mock.calls.map(([text]) => text)).toContain(
-        'Great job!',
+        'The pencil is on the table.',
       );
     }
     await ReactTestRenderer.act(async () => {
@@ -829,7 +829,7 @@ test('drops stale bilingual failure audio when a quick retry succeeds', async ()
     mockedPlayTeacherPromptNarration.mock.calls.some(([segments]) =>
       segments.some(
         segment =>
-          segment.language === 'en' && segment.text === 'Try again.',
+          segment.language === 'en' && segment.text === 'Tap the pencil.',
       ),
     ),
   ).toBe(true);
@@ -846,7 +846,7 @@ test('drops stale bilingual failure audio when a quick retry succeeds', async ()
 
   expect(mockedSpeakVi).toHaveBeenCalledWith('Bút chì đã ở trên bàn.');
   expect(mockedSpeakWord.mock.calls.map(([text]) => text)).not.toContain(
-    'Try again.',
+    'Tap the pencil.',
   );
 
   await ReactTestRenderer.act(async () => {

@@ -64,7 +64,9 @@ Their copy lives in `src/data/kidLockAudioPrompts.ts`; the generator owns
 hand.
 
 `audio/en/` is the legacy en-US corpus. Keep it intact as a compatibility and
-rollback source, but do not write new production English releases there.
+rollback source, but do not write new production English releases there. New
+dual-accent targets omit the legacy manifest fallback unless a legacy file
+already exists.
 
 ## Audio Generation
 
@@ -97,9 +99,11 @@ instructions, scene completion cues and shared teacher prompts such as
 speech-practice and generic feedback. A step can provide `instructionEn`,
 `successFeedbackEn` or `failFeedbackEn` for author-written English copy; when
 `instructionEn` is absent, the teacher prompt resolver builds a child-friendly
-English instruction from the interaction, vocabulary and `promptText`. Teach-step
-success feedback can also fall back to a vocabulary meaning sentence such as
-`It means good morning.` instead of the generic success cue.
+English instruction from the interaction, vocabulary and `promptText`. Missing
+English feedback first uses contextual lesson data, such as vocabulary,
+interaction, action prompt and drop zone, before falling back to generic cues.
+Teach-step success feedback can also fall back to a vocabulary meaning sentence
+such as `It means good morning.`.
 Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
 `failFeedbackVi`, completion messages and shared Vietnamese prompts. Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese

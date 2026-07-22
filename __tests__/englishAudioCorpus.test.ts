@@ -103,8 +103,8 @@ test('English Neural2-C corpus is complete and matches its provenance', () => {
     );
   }
 
-  expect(manifest.targets).toHaveLength(2250);
-  expect(Object.fromEntries(counts)).toEqual({ 'en-GB': 1125, 'en-US': 1125 });
+  expect(manifest.targets).toHaveLength(3140);
+  expect(Object.fromEntries(counts)).toEqual({ 'en-GB': 1570, 'en-US': 1570 });
   expect(uniqueKeys.size).toBe(manifest.targets.length);
 });
 

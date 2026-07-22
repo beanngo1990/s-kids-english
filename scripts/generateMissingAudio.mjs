@@ -667,16 +667,12 @@ function collectAudioTargets(
           });
         }
 
-        if (step.failFeedbackEn?.trim()) {
-          const failFeedbackEn = getEnglishSegment(
-            teacherPrompts.resolveTeacherFeedback({
-              enText: step.failFeedbackEn,
-              mode: 'en',
-              scene,
-              step,
-              type: 'fail',
-            }),
-          );
+        const failFeedbackEn = teacherPrompts.getTeacherFeedbackEn(
+          'fail',
+          step,
+          scene,
+        );
+        if (failFeedbackEn?.trim()) {
           addEnglishPromptTarget(targets, {
             audioRelease,
             defaultKey: getEnglishStepFeedbackAudioKey(
@@ -876,12 +872,17 @@ function addEnglishPromptTarget(
   }
 
   for (const accent of ENGLISH_ACCENTS) {
+    const legacyKey =
+      includeLegacyFallback &&
+      existsSync(join(repoRoot, 'src/assets', audioBaseKey))
+        ? audioBaseKey
+        : undefined;
     addTarget(targets, {
       accent,
       key: getAccentEnglishAudioKey(audioBaseKey, accent, audioRelease),
       kind,
       language: 'en',
-      legacyKey: includeLegacyFallback ? audioBaseKey : undefined,
+      legacyKey,
       lookupText: text,
       text: existingAsset?.text ?? text,
     });
