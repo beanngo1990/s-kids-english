@@ -13,22 +13,50 @@ import {
 } from './memory/MemoryGame';
 import { ListenChooseGame } from './listenChoose/ListenChooseGame';
 
+export const SUPPORTED_REVIEW_GAMES = ['memory', 'listenAndChoose'] as const;
+export type ExecutableReviewGameType = (typeof SUPPORTED_REVIEW_GAMES)[number];
+
+export function resolveReviewGameType(
+  configuredType?: ReviewGame['type'],
+  requestedType?: ReviewGame['type'],
+): ExecutableReviewGameType {
+  if (
+    requestedType &&
+    SUPPORTED_REVIEW_GAMES.includes(requestedType as ExecutableReviewGameType)
+  ) {
+    return requestedType as ExecutableReviewGameType;
+  }
+  if (
+    configuredType &&
+    SUPPORTED_REVIEW_GAMES.includes(configuredType as ExecutableReviewGameType)
+  ) {
+    return configuredType as ExecutableReviewGameType;
+  }
+  // Random or fallback: pick randomly between memory and listenAndChoose
+  const randomIndex = Math.floor(Math.random() * SUPPORTED_REVIEW_GAMES.length);
+  return SUPPORTED_REVIEW_GAMES[randomIndex];
+}
+
 type GamePlayerProps = {
   memoryItems: MemoryGameItem[];
   onComplete: () => void;
   onWordInteraction?: (wordId: string, isFirstTry: boolean) => void;
   reviewGame: ReviewGame;
+  overrideType?: ExecutableReviewGameType;
 };
 
 export function GamePlayer({
   memoryItems,
   onComplete,
   onWordInteraction,
+  overrideType,
   reviewGame,
 }: GamePlayerProps) {
   useThemeSync();
   const t = useI18n();
-  switch (reviewGame.type) {
+  const activeType = overrideType ?? resolveReviewGameType(reviewGame.type);
+
+  switch (activeType) {
     case 'memory':
       return (
         <MemoryGame

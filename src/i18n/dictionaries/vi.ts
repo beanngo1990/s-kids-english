@@ -656,6 +656,9 @@ export const vi = {
   'reviewGame.backToPack': 'Về gói bài học',
   'reviewGame.memoryBadge': 'Lật thẻ',
   'reviewGame.listenAndChooseBadge': 'Nghe & Chọn',
+  'reviewGame.randomBadge': 'Ngẫu nhiên 🎲',
+  'reviewGame.selectMemory': '🃏 Lật thẻ',
+  'reviewGame.selectListenChoose': '🎈 Nghe & Chọn',
   'reviewGame.notEnoughImagesTitle': 'Chưa đủ hình để chơi lật thẻ.',
   'reviewGame.notEnoughImagesText':
     'Game cần ít nhất 2 từ có hình minh họa trong bài học.',

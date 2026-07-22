@@ -19,6 +19,7 @@ export type RootStackParamList = {
     lessonId: string;
     learningMode?: LearningMode;
     openedFromParent?: boolean;
+    gameType?: 'matching' | 'memory' | 'listenAndChoose' | 'random';
   };
   ReviewLibrary: undefined;
   Reward: { 

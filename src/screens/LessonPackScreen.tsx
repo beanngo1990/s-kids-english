@@ -76,7 +76,8 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const hasReviewGame = Boolean(
     lesson?.reviewGame &&
       (lesson.reviewGame.type === 'memory' ||
-        lesson.reviewGame.type === 'listenAndChoose'),
+        lesson.reviewGame.type === 'listenAndChoose' ||
+        lesson.reviewGame.type === 'random'),
   );
   const hasCompletedReviewGame = Boolean(
     lesson?.reviewGame &&
@@ -87,7 +88,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const reviewGameActionTitle =
     lesson?.reviewGame?.type === 'listenAndChoose'
       ? t('reviewGame.listenAndChooseBadge')
-      : t('lessonPack.playMemory');
+      : lesson?.reviewGame?.type === 'random'
+        ? t('reviewGame.randomBadge')
+        : t('lessonPack.playMemory');
   const primaryActionTitle = !isPackComplete
     ? t('lessonPack.continue')
     : shouldPlayReviewGame
