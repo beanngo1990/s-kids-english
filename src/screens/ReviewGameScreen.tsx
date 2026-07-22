@@ -256,11 +256,6 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
-  const gameBadgeKey =
-    activeGameType === 'listenAndChoose'
-      ? 'reviewGame.listenAndChooseBadge'
-      : 'reviewGame.memoryBadge';
-
   return (
     <Screen scroll>
       <View style={styles.container}>
@@ -272,29 +267,6 @@ export function ReviewGameScreen({ navigation, route }: Props) {
             </Text>
           </View>
         ) : null}
-
-        <View
-          style={[
-            styles.header,
-            openedFromParent && styles.headerParent,
-          ]}
-        >
-          <View style={styles.iconBox}>
-            <SKidsIcon
-              name={getLessonIconName(lesson)}
-              size={openedFromParent ? 40 : 48}
-            />
-          </View>
-          <View style={styles.headerText}>
-            <View style={styles.headerTopRow}>
-              <KidBadge tone="teal">{t(gameBadgeKey)}</KidBadge>
-              <KidBadge tone="sun">{t('reviewGame.wordCount', { count: String(memoryItems.length) })}</KidBadge>
-            </View>
-            <Text numberOfLines={2} style={styles.title}>
-              {getLocalizedReviewGameTitle(lesson.reviewGame, appLanguage)}
-            </Text>
-          </View>
-        </View>
 
         {/* Game Type Switcher Bar */}
         <View style={styles.gameSelectorContainer}>
@@ -310,6 +282,8 @@ export function ReviewGameScreen({ navigation, route }: Props) {
             ]}
           >
             <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
               style={[
                 styles.selectorTabText,
                 activeGameType === 'memory' && styles.selectorTabTextActive,
@@ -331,12 +305,37 @@ export function ReviewGameScreen({ navigation, route }: Props) {
             ]}
           >
             <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
               style={[
                 styles.selectorTabText,
                 activeGameType === 'listenAndChoose' && styles.selectorTabTextActive,
               ]}
             >
               {t('reviewGame.selectListenChoose')}
+            </Text>
+          </Pressable>
+
+          <Pressable
+            accessibilityLabel={t('reviewGame.selectMatching')}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeGameType === 'matching' }}
+            onPress={() => setSelectedGameType('matching')}
+            style={({ pressed }) => [
+              styles.selectorTab,
+              activeGameType === 'matching' && styles.selectorTabActive,
+              pressed && styles.selectorTabPressed,
+            ]}
+          >
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={[
+                styles.selectorTabText,
+                activeGameType === 'matching' && styles.selectorTabTextActive,
+              ]}
+            >
+              {t('reviewGame.selectMatching')}
             </Text>
           </Pressable>
         </View>
@@ -520,7 +519,8 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.pill,
     flex: 1,
     justifyContent: 'center',
-    paddingVertical: spacing.xs,
+    paddingHorizontal: 2,
+    paddingVertical: 6,
   },
   selectorTabActive: {
     backgroundColor: colors.primaryDark,
@@ -531,8 +531,9 @@ const styles = createThemedStyles(() => ({
   selectorTabText: {
     ...typography.subtitle,
     color: colors.primaryDark,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
+    textAlign: 'center',
   },
   selectorTabTextActive: {
     color: colors.white,

@@ -1,5 +1,6 @@
 import {
   listenChooseGameIntroPromptVi,
+  matchingGameIntroPromptVi,
   memoryGameIntroPromptVi,
 } from '../data/reviewGamePrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
@@ -246,12 +247,16 @@ export function resolveReviewGameIntroPrompt(
   const viText =
     reviewGameType === 'listenAndChoose'
       ? listenChooseGameIntroPromptVi
+      : reviewGameType === 'matching'
+      ? matchingGameIntroPromptVi
       : memoryGameIntroPromptVi;
   const enText =
     reviewGameType === 'memory'
       ? 'Find two matching pictures.'
       : reviewGameType === 'listenAndChoose'
       ? 'Listen to the word and choose the right picture.'
+      : reviewGameType === 'matching'
+      ? 'Match each picture with the correct word.'
       : 'Let’s review together.';
 
   if (mode === 'en') {
