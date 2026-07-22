@@ -206,6 +206,31 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   return (
     <Screen scroll>
+      {/* Custom Kid Mode Top Navigation Header */}
+      <View style={styles.topHud}>
+        <Pressable
+          accessibilityLabel={t('common.close')}
+          accessibilityRole="button"
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Home')
+          }
+          style={styles.exitButton}
+        >
+          <View style={styles.exitIcon}>
+            <View style={styles.exitStroke} />
+            <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
+          </View>
+        </Pressable>
+
+        <View style={styles.topHudPill}>
+          <Text numberOfLines={1} style={styles.topHudTitle}>
+            {t('nav.lessonPack')}
+          </Text>
+        </View>
+      </View>
+
       {openedFromParent ? (
         <AppCard style={styles.parentContextCard}>
           <KidBadge tone="sky">{t('lessonPack.parentBadge')}</KidBadge>
@@ -237,15 +262,20 @@ export function LessonPackScreen({ navigation, route }: Props) {
             />
           </View>
           <View style={styles.headerText}>
-            <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
-              {hasCompletedLesson
-                ? t('lessonPack.rewardClaimed')
-                : shouldPlayReviewGame
-                  ? t('lessonPack.readyToReview')
-                  : isPackComplete
-                    ? t('lessonPack.scenesCompleted')
-                    : t('lessonPack.lessonPack')}
-            </KidBadge>
+            <View style={styles.badgeRow}>
+              <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
+                {hasCompletedLesson
+                  ? t('lessonPack.rewardClaimed')
+                  : shouldPlayReviewGame
+                    ? t('lessonPack.readyToReview')
+                    : isPackComplete
+                      ? t('lessonPack.scenesCompleted')
+                      : t('lessonPack.lessonPack')}
+              </KidBadge>
+              <KidBadge tone="sky">
+                {t('lessonPack.difficulty', { difficulty: difficultyOption.title })}
+              </KidBadge>
+            </View>
             <Text
               numberOfLines={openedFromParent ? 2 : undefined}
               style={styles.title}
@@ -260,17 +290,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
             </Text>
           </View>
         </View>
-        <View
-          style={[
-            styles.headerProgress,
-            openedFromParent && styles.headerProgressParent,
-          ]}
-        >
+        <View style={styles.headerProgress}>
           <ProgressStars completed={completedSceneCount} total={scenes.length} />
           <Text style={styles.progressText}>
             {t('lessonPack.scenesLearned', { completed: String(completedSceneCount), total: String(scenes.length) })}
           </Text>
-          <KidBadge tone="sky">{t('lessonPack.difficulty', { difficulty: difficultyOption.title })}</KidBadge>
         </View>
       </AppCard>
 
@@ -471,6 +495,12 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
     justifyContent: 'flex-start',
   },
+  badgeRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
   headerText: {
     flex: 1,
     gap: spacing.xs,
@@ -479,6 +509,56 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.md,
+  },
+  topHud: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  exitButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  exitIcon: {
+    alignItems: 'center',
+    height: 20,
+    justifyContent: 'center',
+    width: 20,
+  },
+  exitStroke: {
+    backgroundColor: colors.accentDark,
+    borderRadius: radius.pill,
+    height: 4,
+    position: 'absolute',
+    transform: [{ rotate: '45deg' }],
+    width: 20,
+  },
+  exitStrokeReverse: {
+    transform: [{ rotate: '-45deg' }],
+  },
+  topHudPill: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flex: 1,
+    height: 48,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+  },
+  topHudTitle: {
+    color: colors.primaryDark,
+    ...typography.subtitle,
+    fontSize: 16,
+    fontWeight: '800',
   },
   packIcon: {
     alignItems: 'center',
