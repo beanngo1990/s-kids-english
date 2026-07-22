@@ -139,6 +139,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "arrive home",
     },
   },
+  [normalizeText("Arrive home.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_drag_bus_to_house_9df86f88.wav",
+      text: "Arrive home.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_drag_bus_to_house_9df86f88.wav",
+      text: "Arrive home.",
+    },
+  },
   [normalizeText("Arriving Home is complete.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/completion_1f092d14.wav",
@@ -557,6 +567,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/brush_teeth.wav",
       text: "brush teeth",
+    },
+  },
+  [normalizeText("Brush teeth.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_drag_toothbrush_c4a68dc5.wav",
+      text: "Brush teeth.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/prompt_drag_toothbrush_c4a68dc5.wav",
+      text: "Brush teeth.",
     },
   },
   [normalizeText("bubble")]: {
@@ -1231,6 +1251,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "close curtains",
     },
   },
+  [normalizeText("Close curtains.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_drag_close_curtains_f39f86b9.wav",
+      text: "Close curtains.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/prompt_drag_close_curtains_f39f86b9.wav",
+      text: "Close curtains.",
+    },
+  },
   [normalizeText("cloth")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/cloth.wav",
@@ -1889,20 +1919,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the crumbs.",
     },
   },
-  [normalizeText("Drag the curtain.")]: {
-    "en-US": {
-      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_drag_close_curtains_82084aca.wav",
-      text: "Drag the curtain.",
-    },
-    "en-GB": {
-      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/prompt_drag_close_curtains_82084aca.wav",
-      text: "Drag the curtain.",
-    },
-    legacy: {
-      key: "lessons/bedtime/calm-room/audio/en/prompt_drag_close_curtains_82084aca.wav",
-      text: "Drag the curtain.",
-    },
-  },
   [normalizeText("Drag the dirty clothes.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_drag_clothes_to_basket_d32dcc9f.wav",
@@ -2281,20 +2297,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the straw.",
     },
   },
-  [normalizeText("Drag the toothbrush.")]: {
-    "en-US": {
-      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_drag_toothbrush_c70cc9e9.wav",
-      text: "Drag the toothbrush.",
-    },
-    "en-GB": {
-      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/prompt_drag_toothbrush_c70cc9e9.wav",
-      text: "Drag the toothbrush.",
-    },
-    legacy: {
-      key: "lessons/morning-routine/bathroom/audio/en/prompt_drag_toothbrush_c70cc9e9.wav",
-      text: "Drag the toothbrush.",
-    },
-  },
   [normalizeText("Drag the towel.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_drag_towel_to_face_a55eae98.wav",
@@ -2419,6 +2421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/drink_water.wav",
       text: "drink water",
+    },
+  },
+  [normalizeText("Drink water.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_drag_bottle_to_mouth_c4b97770.wav",
+      text: "Drink water.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/prompt_rest_drag_bottle_to_mouth_c4b97770.wav",
+      text: "Drink water.",
     },
   },
   [normalizeText("drum")]: {
@@ -6855,6 +6867,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "jump",
     },
   },
+  [normalizeText("Jump.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_jump_hoop_3ed7a0a0.wav",
+      text: "Jump.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_tap_jump_hoop_3ed7a0a0.wav",
+      text: "Jump.",
+    },
+  },
   [normalizeText("kitchen counter")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/kitchen_counter.wav",
@@ -8689,6 +8711,656 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Move cart.",
     },
   },
+  [normalizeText("Move the apple onto the plate.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_apple_to_plate_fail_1adf012c.wav",
+      text: "Move the apple onto the plate.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_apple_to_plate_fail_1adf012c.wav",
+      text: "Move the apple onto the plate.",
+    },
+  },
+  [normalizeText("Move the apple to the Drag apple.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_apple_fail_efeb097f.wav",
+      text: "Move the apple to the Drag apple.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_apple_fail_efeb097f.wav",
+      text: "Move the apple to the Drag apple.",
+    },
+  },
+  [normalizeText("Move the bag next to the door.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bag_to_door_fail_8d76d627.wav",
+      text: "Move the bag next to the door.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bag_to_door_fail_8d76d627.wav",
+      text: "Move the bag next to the door.",
+    },
+  },
+  [normalizeText("Move the bag to the Drag bag.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_bag_fail_503db47f.wav",
+      text: "Move the bag to the Drag bag.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_bag_fail_503db47f.wav",
+      text: "Move the bag to the Drag bag.",
+    },
+  },
+  [normalizeText("Move the ball into the yard.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/drag_ball_to_yard_fail_32bc0abd.wav",
+      text: "Move the ball into the yard.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/drag_ball_to_yard_fail_32bc0abd.wav",
+      text: "Move the ball into the yard.",
+    },
+  },
+  [normalizeText("Move the banana onto the plate.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_banana_to_plate_fail_811968ac.wav",
+      text: "Move the banana onto the plate.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_banana_to_plate_fail_811968ac.wav",
+      text: "Move the banana onto the plate.",
+    },
+  },
+  [normalizeText("Move the bath mat next to the bathtub.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/drag_mat_to_bathtub_fail_45cd499c.wav",
+      text: "Move the bath mat next to the bathtub.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/drag_mat_to_bathtub_fail_45cd499c.wav",
+      text: "Move the bath mat next to the bathtub.",
+    },
+  },
+  [normalizeText("Move the blanket into the Drag blanket.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_blanket_fail_240a84f6.wav",
+      text: "Move the blanket into the Drag blanket.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_blanket_fail_240a84f6.wav",
+      text: "Move the blanket into the Drag blanket.",
+    },
+  },
+  [normalizeText("Move the blocks onto the mat.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_blocks_to_mat_fail_11dafa8a.wav",
+      text: "Move the blocks onto the mat.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_blocks_to_mat_fail_11dafa8a.wav",
+      text: "Move the blocks onto the mat.",
+    },
+  },
+  [normalizeText("Move the blocks to the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_blocks_to_basket_fail_1d49fdf9.wav",
+      text: "Move the blocks to the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_blocks_to_basket_fail_1d49fdf9.wav",
+      text: "Move the blocks to the basket.",
+    },
+  },
+  [normalizeText("Move the blocks to the box.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_blocks_to_box_fail_7f8b35e5.wav",
+      text: "Move the blocks to the box.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_blocks_to_box_fail_7f8b35e5.wav",
+      text: "Move the blocks to the box.",
+    },
+  },
+  [normalizeText("Move the body wash to the bath sponge.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/drag_body_wash_to_sponge_fail_11fa8e18.wav",
+      text: "Move the body wash to the bath sponge.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/drag_body_wash_to_sponge_fail_11fa8e18.wav",
+      text: "Move the body wash to the bath sponge.",
+    },
+  },
+  [normalizeText("Move the book into the bag.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_book_to_bag_fail_1f07176f.wav",
+      text: "Move the book into the bag.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_book_to_bag_fail_1f07176f.wav",
+      text: "Move the book into the bag.",
+    },
+  },
+  [normalizeText("Move the book onto the desk.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_book_to_desk_fail_92fc6d3c.wav",
+      text: "Move the book onto the desk.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_book_to_desk_fail_92fc6d3c.wav",
+      text: "Move the book onto the desk.",
+    },
+  },
+  [normalizeText("Move the book to the shelf.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_book_to_shelf_fail_19ca1f47.wav",
+      text: "Move the book to the shelf.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_book_to_shelf_fail_19ca1f47.wav",
+      text: "Move the book to the shelf.",
+    },
+  },
+  [normalizeText("Move the bookmark into the storybook.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_place_bookmark_fail_67eb3bae.wav",
+      text: "Move the bookmark into the storybook.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_place_bookmark_fail_67eb3bae.wav",
+      text: "Move the bookmark into the storybook.",
+    },
+  },
+  [normalizeText("Move the bottle into the bag.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bottle_to_bag_fail_3ea7c7a2.wav",
+      text: "Move the bottle into the bag.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bottle_to_bag_fail_3ea7c7a2.wav",
+      text: "Move the bottle into the bag.",
+    },
+  },
+  [normalizeText("Move the bus to the road.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_bus_to_road_fail_841e2e84.wav",
+      text: "Move the bus to the road.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_bus_to_road_fail_841e2e84.wav",
+      text: "Move the bus to the road.",
+    },
+  },
+  [normalizeText("Move the car onto the car.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_car_to_floor_fail_4b04bc2b.wav",
+      text: "Move the car onto the car.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_car_to_floor_fail_4b04bc2b.wav",
+      text: "Move the car onto the car.",
+    },
+  },
+  [normalizeText("Move the car to the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_car_to_basket_fail_366088ea.wav",
+      text: "Move the car to the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_car_to_basket_fail_366088ea.wav",
+      text: "Move the car to the basket.",
+    },
+  },
+  [normalizeText("Move the carafe to the serving cart.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_carafe_to_cart_fail_3ce9ee75.wav",
+      text: "Move the carafe to the serving cart.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_carafe_to_cart_fail_3ce9ee75.wav",
+      text: "Move the carafe to the serving cart.",
+    },
+  },
+  [normalizeText("Move the chair next to the desk.")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/drag_chair_to_desk_fail_b3c9e8ef.wav",
+      text: "Move the chair next to the desk.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/drag_chair_to_desk_fail_b3c9e8ef.wav",
+      text: "Move the chair next to the desk.",
+    },
+  },
+  [normalizeText("Move the chair next to the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_chair_to_table_fail_164f7601.wav",
+      text: "Move the chair next to the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_chair_to_table_fail_164f7601.wav",
+      text: "Move the chair next to the table.",
+    },
+  },
+  [normalizeText("Move the cleaning brush to the spill.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_brush_to_spill_fail_5637be35.wav",
+      text: "Move the cleaning brush to the spill.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_brush_to_spill_fail_5637be35.wav",
+      text: "Move the cleaning brush to the spill.",
+    },
+  },
+  [normalizeText("Move the coaster to the serving cart.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_coaster_to_cart_fail_da7ab176.wav",
+      text: "Move the coaster to the serving cart.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_coaster_to_cart_fail_da7ab176.wav",
+      text: "Move the coaster to the serving cart.",
+    },
+  },
+  [normalizeText("Move the cookie to the snack.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_cookie_to_snack_fail_4effbaae.wav",
+      text: "Move the cookie to the snack.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_cookie_to_snack_fail_4effbaae.wav",
+      text: "Move the cookie to the snack.",
+    },
+  },
+  [normalizeText("Move the cracker to the small table.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_cracker_to_table_fail_76185d56.wav",
+      text: "Move the cracker to the small table.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_cracker_to_table_fail_76185d56.wav",
+      text: "Move the cracker to the small table.",
+    },
+  },
+  [normalizeText("Move the crayon to the paper.")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_crayon_to_paper_fail_fc4d7476.wav",
+      text: "Move the crayon to the paper.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_crayon_to_paper_fail_fc4d7476.wav",
+      text: "Move the crayon to the paper.",
+    },
+  },
+  [normalizeText("Move the crumbs into the trash bin.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_crumbs_to_trash_fail_a9ecb731.wav",
+      text: "Move the crumbs into the trash bin.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_crumbs_to_trash_fail_a9ecb731.wav",
+      text: "Move the crumbs into the trash bin.",
+    },
+  },
+  [normalizeText("Move the dirty clothes to the laundry basket.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_clothes_to_basket_fail_a6ad6828.wav",
+      text: "Move the dirty clothes to the laundry basket.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_clothes_to_basket_fail_a6ad6828.wav",
+      text: "Move the dirty clothes to the laundry basket.",
+    },
+  },
+  [normalizeText("Move the drying mat next to the dish rack.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_drying_mat_fail_85b54c90.wav",
+      text: "Move the drying mat next to the dish rack.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_drying_mat_fail_85b54c90.wav",
+      text: "Move the drying mat next to the dish rack.",
+    },
+  },
+  [normalizeText("Move the food cover to the leftovers.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_cover_to_leftovers_fail_c8be5582.wav",
+      text: "Move the food cover to the leftovers.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_cover_to_leftovers_fail_c8be5582.wav",
+      text: "Move the food cover to the leftovers.",
+    },
+  },
+  [normalizeText("Move the fruit onto the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_fruit_to_table_fail_507cdf2a.wav",
+      text: "Move the fruit onto the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_fruit_to_table_fail_507cdf2a.wav",
+      text: "Move the fruit onto the table.",
+    },
+  },
+  [normalizeText("Move the glow sticker onto the wall.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_glow_sticker_fail_5e59d467.wav",
+      text: "Move the glow sticker onto the wall.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_glow_sticker_fail_5e59d467.wav",
+      text: "Move the glow sticker onto the wall.",
+    },
+  },
+  [normalizeText("Move the humidifier next to the air.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_humidifier_fail_7163dee1.wav",
+      text: "Move the humidifier next to the air.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_humidifier_fail_7163dee1.wav",
+      text: "Move the humidifier next to the air.",
+    },
+  },
+  [normalizeText("Move the kite into the sky.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_kite_to_sky_fail_22a2f81e.wav",
+      text: "Move the kite into the sky.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_kite_to_sky_fail_22a2f81e.wav",
+      text: "Move the kite into the sky.",
+    },
+  },
+  [normalizeText("Move the ladle to the serving tray.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_ladle_to_tray_fail_6a3f4268.wav",
+      text: "Move the ladle to the serving tray.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_ladle_to_tray_fail_6a3f4268.wav",
+      text: "Move the ladle to the serving tray.",
+    },
+  },
+  [normalizeText("Move the leftovers to the kitchen counter.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_leftovers_to_counter_fail_90798e81.wav",
+      text: "Move the leftovers to the kitchen counter.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_leftovers_to_counter_fail_90798e81.wav",
+      text: "Move the leftovers to the kitchen counter.",
+    },
+  },
+  [normalizeText("Move the lunchbox into the bag.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_lunchbox_to_bag_fail_8494eea9.wav",
+      text: "Move the lunchbox into the bag.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_lunchbox_to_bag_fail_8494eea9.wav",
+      text: "Move the lunchbox into the bag.",
+    },
+  },
+  [normalizeText("Move the napkin onto the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_napkin_to_table_fail_ee61b0aa.wav",
+      text: "Move the napkin onto the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_napkin_to_table_fail_ee61b0aa.wav",
+      text: "Move the napkin onto the table.",
+    },
+  },
+  [normalizeText("Move the noodles to the meal.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_noodles_to_meal_fail_a54bfea2.wav",
+      text: "Move the noodles to the meal.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_noodles_to_meal_fail_a54bfea2.wav",
+      text: "Move the noodles to the meal.",
+    },
+  },
+  [normalizeText("Move the page tab to the storybook.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_page_tab_fail_a48be7af.wav",
+      text: "Move the page tab to the storybook.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_page_tab_fail_a48be7af.wav",
+      text: "Move the page tab to the storybook.",
+    },
+  },
+  [normalizeText("Move the pencil to the notebook.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_pencil_to_notebook_fail_da3507b3.wav",
+      text: "Move the pencil to the notebook.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_pencil_to_notebook_fail_da3507b3.wav",
+      text: "Move the pencil to the notebook.",
+    },
+  },
+  [normalizeText("Move the pencil to the table.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_pencil_to_table_fail_5aecdb1f.wav",
+      text: "Move the pencil to the table.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_pencil_to_table_fail_5aecdb1f.wav",
+      text: "Move the pencil to the table.",
+    },
+  },
+  [normalizeText("Move the pillow into the box.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_pillow_to_box_fail_790377ac.wav",
+      text: "Move the pillow into the box.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_pillow_to_box_fail_790377ac.wav",
+      text: "Move the pillow into the box.",
+    },
+  },
+  [normalizeText("Move the placemat to the dinner.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_placemat_to_spot_fail_500405a0.wav",
+      text: "Move the placemat to the dinner.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_placemat_to_spot_fail_500405a0.wav",
+      text: "Move the placemat to the dinner.",
+    },
+  },
+  [normalizeText("Move the ruler onto the notebook.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_ruler_to_paper_fail_88c21e97.wav",
+      text: "Move the ruler onto the notebook.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_ruler_to_paper_fail_88c21e97.wav",
+      text: "Move the ruler onto the notebook.",
+    },
+  },
+  [normalizeText("Move the salad to the meal.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_salad_to_meal_fail_99a4f155.wav",
+      text: "Move the salad to the meal.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_salad_to_meal_fail_99a4f155.wav",
+      text: "Move the salad to the meal.",
+    },
+  },
+  [normalizeText("Move the seat belt to the ride home baby asset.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_seat_belt_to_seat_fail_e8aa2b8a.wav",
+      text: "Move the seat belt to the ride home baby asset.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_to_seat_fail_e8aa2b8a.wav",
+      text: "Move the seat belt to the ride home baby asset.",
+    },
+  },
+  [normalizeText("Move the shoes into the door.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/drag_shoes_to_door_fail_5ff60d64.wav",
+      text: "Move the shoes into the door.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/drag_shoes_to_door_fail_5ff60d64.wav",
+      text: "Move the shoes into the door.",
+    },
+  },
+  [normalizeText("Move the sleep mask next to the nightstand.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_mask_to_nightstand_fail_2249ef57.wav",
+      text: "Move the sleep mask next to the nightstand.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_mask_to_nightstand_fail_2249ef57.wav",
+      text: "Move the sleep mask next to the nightstand.",
+    },
+  },
+  [normalizeText("Move the slippers to your feet.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_slippers_to_feet_fail_677e5527.wav",
+      text: "Move the slippers to your feet.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_slippers_to_feet_fail_677e5527.wav",
+      text: "Move the slippers to your feet.",
+    },
+  },
+  [normalizeText("Move the snack onto the table.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_snack_to_table_fail_a85a8cdb.wav",
+      text: "Move the snack onto the table.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_snack_to_table_fail_a85a8cdb.wav",
+      text: "Move the snack onto the table.",
+    },
+  },
+  [normalizeText("Move the soap to the bathroom baby asset.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_soap_to_hand_fail_fd3dfb07.wav",
+      text: "Move the soap to the bathroom baby asset.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_soap_to_hand_fail_fd3dfb07.wav",
+      text: "Move the soap to the bathroom baby asset.",
+    },
+  },
+  [normalizeText("Move the socks into the box.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_socks_to_box_fail_2b02589f.wav",
+      text: "Move the socks into the box.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_socks_to_box_fail_2b02589f.wav",
+      text: "Move the socks into the box.",
+    },
+  },
+  [normalizeText("Move the sound machine to the quiet corner.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_sound_machine_fail_cea10065.wav",
+      text: "Move the sound machine to the quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_sound_machine_fail_cea10065.wav",
+      text: "Move the sound machine to the quiet corner.",
+    },
+  },
+  [normalizeText("Move the soup into the bowl.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_soup_to_bowl_fail_a2b3542b.wav",
+      text: "Move the soup into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_soup_to_bowl_fail_a2b3542b.wav",
+      text: "Move the soup into the bowl.",
+    },
+  },
+  [normalizeText("Move the spoon to the soup.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_spoon_to_soup_fail_9818af4d.wav",
+      text: "Move the spoon to the soup.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_spoon_to_soup_fail_9818af4d.wav",
+      text: "Move the spoon to the soup.",
+    },
+  },
+  [normalizeText("Move the storybook to the reading nook.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_storybook_to_nook_fail_f6f3ebea.wav",
+      text: "Move the storybook to the reading nook.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_storybook_to_nook_fail_f6f3ebea.wav",
+      text: "Move the storybook to the reading nook.",
+    },
+  },
+  [normalizeText("Move the straw to the juice.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_straw_to_juice_fail_d421a39c.wav",
+      text: "Move the straw to the juice.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_straw_to_juice_fail_d421a39c.wav",
+      text: "Move the straw to the juice.",
+    },
+  },
+  [normalizeText("Move the toothpaste to the toothbrush.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_toothpaste_to_brush_fail_9e14975a.wav",
+      text: "Move the toothpaste to the toothbrush.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_toothpaste_to_brush_fail_9e14975a.wav",
+      text: "Move the toothpaste to the toothbrush.",
+    },
+  },
+  [normalizeText("Move the towel to your face.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_towel_to_face_fail_32f2007c.wav",
+      text: "Move the towel to your face.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_towel_to_face_fail_32f2007c.wav",
+      text: "Move the towel to your face.",
+    },
+  },
+  [normalizeText("Move the toy to the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_toy_to_basket_fail_b55e6bf5.wav",
+      text: "Move the toy to the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_toy_to_basket_fail_b55e6bf5.wav",
+      text: "Move the toy to the basket.",
+    },
+  },
+  [normalizeText("Move the wrapper to the trash bin.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_to_trash_fail_3e5b359b.wav",
+      text: "Move the wrapper to the trash bin.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_to_trash_fail_3e5b359b.wav",
+      text: "Move the wrapper to the trash bin.",
+    },
+  },
+  [normalizeText("Move the wrapper to the tray.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_to_tray_fail_3edb3d0f.wav",
+      text: "Move the wrapper to the tray.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_to_tray_fail_3edb3d0f.wav",
+      text: "Move the wrapper to the tray.",
+    },
+  },
   [normalizeText("music")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/music.wav",
@@ -9641,6 +10313,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Rest After Play is complete.",
     },
   },
+  [normalizeText("Rest.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_tap_bench_rest_cf74c97d.wav",
+      text: "Rest.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/prompt_rest_tap_bench_rest_cf74c97d.wav",
+      text: "Rest.",
+    },
+  },
   [normalizeText("rice")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/rice.wav",
@@ -9779,6 +10461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/run.wav",
       text: "run",
+    },
+  },
+  [normalizeText("Run.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_run_path_a5553b96.wav",
+      text: "Run.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_tap_run_path_a5553b96.wav",
+      text: "Run.",
     },
   },
   [normalizeText("salad")]: {
@@ -10479,6 +11171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/sleep_mask.wav",
       text: "sleep mask",
+    },
+  },
+  [normalizeText("Sleep mask.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_tap_sleep_mask_4ba7e8e4.wav",
+      text: "Sleep mask.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_tap_sleep_mask_4ba7e8e4.wav",
+      text: "Sleep mask.",
     },
   },
   [normalizeText("slide")]: {
@@ -11429,6 +12131,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the coaster.",
     },
   },
+  [normalizeText("Tap the comb.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_comb_fail_569cb3d7.wav",
+      text: "Tap the comb.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_comb_fail_569cb3d7.wav",
+      text: "Tap the comb.",
+    },
+  },
   [normalizeText("Tap the comfort plush.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_tap_comfort_plush_f76e72bf.wav",
@@ -11863,20 +12575,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the juice.",
     },
   },
-  [normalizeText("Tap the jump.")]: {
-    "en-US": {
-      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_jump_hoop_1c8ba64c.wav",
-      text: "Tap the jump.",
-    },
-    "en-GB": {
-      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_tap_jump_hoop_1c8ba64c.wav",
-      text: "Tap the jump.",
-    },
-    legacy: {
-      key: "lessons/playtime/playground/audio/en/prompt_tap_jump_hoop_1c8ba64c.wav",
-      text: "Tap the jump.",
-    },
-  },
   [normalizeText("Tap the knee.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_tap_knee_50f37221.wav",
@@ -11889,6 +12587,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_knee_50f37221.wav",
       text: "Tap the knee.",
+    },
+  },
+  [normalizeText("Tap the label.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_label_fail_d0d38c52.wav",
+      text: "Tap the label.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_label_fail_d0d38c52.wav",
+      text: "Tap the label.",
     },
   },
   [normalizeText("Tap the lamp.")]: {
@@ -12197,20 +12905,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_rubber_gloves_49af111b.wav",
       text: "Tap the rubber gloves.",
-    },
-  },
-  [normalizeText("Tap the run.")]: {
-    "en-US": {
-      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_run_path_001421f0.wav",
-      text: "Tap the run.",
-    },
-    "en-GB": {
-      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_tap_run_path_001421f0.wav",
-      text: "Tap the run.",
-    },
-    legacy: {
-      key: "lessons/playtime/playground/audio/en/prompt_tap_run_path_001421f0.wav",
-      text: "Tap the run.",
     },
   },
   [normalizeText("Tap the sandbox.")]: {
@@ -12535,6 +13229,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the spill.",
     },
   },
+  [normalizeText("Tap the spray bottle.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_spray_bottle_fail_621b1caa.wav",
+      text: "Tap the spray bottle.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_spray_bottle_fail_621b1caa.wav",
+      text: "Tap the spray bottle.",
+    },
+  },
   [normalizeText("Tap the stain.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/prompt_tap_stain_c9a86ad6.wav",
@@ -12773,20 +13477,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the vegetables.",
     },
   },
-  [normalizeText("Tap the wait.")]: {
-    "en-US": {
-      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_tap_wait_clock_771a4aa0.wav",
-      text: "Tap the wait.",
-    },
-    "en-GB": {
-      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_tap_wait_clock_771a4aa0.wav",
-      text: "Tap the wait.",
-    },
-    legacy: {
-      key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_wait_clock_771a4aa0.wav",
-      text: "Tap the wait.",
-    },
-  },
   [normalizeText("Tap the water.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_tap_water_13b6b394.wav",
@@ -12827,6 +13517,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_yogurt_a490217c.wav",
       text: "Tap the yogurt.",
+    },
+  },
+  [normalizeText("Tap your family.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_fail_4dda8d86.wav",
+      text: "Tap your family.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_family_fail_4dda8d86.wav",
+      text: "Tap your family.",
+    },
+  },
+  [normalizeText("Tap your friend.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_friend_fail_3f24c40e.wav",
+      text: "Tap your friend.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_friend_fail_3f24c40e.wav",
+      text: "Tap your friend.",
     },
   },
   [normalizeText("teacher")]: {
@@ -12871,6 +13581,2606 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Teacher says!",
     },
   },
+  [normalizeText("That's right, you air-dried dry the dishes!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_dishes_to_rack_success_b0df9eec.wav",
+      text: "That's right, you air-dried dry the dishes!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_dishes_to_rack_success_b0df9eec.wav",
+      text: "That's right, you air-dried dry the dishes!",
+    },
+  },
+  [normalizeText("That's right, you arrived the home!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_bus_to_house_success_d08654e8.wav",
+      text: "That's right, you arrived the home!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_bus_to_house_success_d08654e8.wav",
+      text: "That's right, you arrived the home!",
+    },
+  },
+  [normalizeText("That's right, you ate the breakfast!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_bread_to_mouth_success_434a68dc.wav",
+      text: "That's right, you ate the breakfast!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_bread_to_mouth_success_434a68dc.wav",
+      text: "That's right, you ate the breakfast!",
+    },
+  },
+  [normalizeText("That's right, you ate the lunch!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_rice_to_mouth_success_971cea81.wav",
+      text: "That's right, you ate the lunch!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_rice_to_mouth_success_971cea81.wav",
+      text: "That's right, you ate the lunch!",
+    },
+  },
+  [normalizeText("That's right, you ate the snack!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_snack_to_mouth_success_67dec7f8.wav",
+      text: "That's right, you ate the snack!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_snack_to_mouth_success_67dec7f8.wav",
+      text: "That's right, you ate the snack!",
+    },
+  },
+  [normalizeText("That's right, you brushed your teeth!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_toothbrush_success_932edbb9.wav",
+      text: "That's right, you brushed your teeth!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_toothbrush_success_932edbb9.wav",
+      text: "That's right, you brushed your teeth!",
+    },
+  },
+  [normalizeText("That's right, you buckled up!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_seat_belt_buckle_success_ad5dd271.wav",
+      text: "That's right, you buckled up!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_buckle_success_ad5dd271.wav",
+      text: "That's right, you buckled up!",
+    },
+  },
+  [normalizeText("That's right, you built the tower!")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_blocks_to_tower_success_3bc475f5.wav",
+      text: "That's right, you built the tower!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_blocks_to_tower_success_3bc475f5.wav",
+      text: "That's right, you built the tower!",
+    },
+  },
+  [normalizeText("That's right, you called the everyone!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_call_everyone_success_6bf4e180.wav",
+      text: "That's right, you called the everyone!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_call_everyone_success_6bf4e180.wav",
+      text: "That's right, you called the everyone!",
+    },
+  },
+  [normalizeText("That's right, you carried the tray!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_carry_tray_success_c9ef4a84.wav",
+      text: "That's right, you carried the tray!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_carry_tray_success_c9ef4a84.wav",
+      text: "That's right, you carried the tray!",
+    },
+  },
+  [normalizeText("That's right, you checked the dream journal!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_check_dream_journal_success_e8367f22.wav",
+      text: "That's right, you checked the dream journal!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_check_dream_journal_success_e8367f22.wav",
+      text: "That's right, you checked the dream journal!",
+    },
+  },
+  [normalizeText("That's right, you checked the temperature!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_check_temperature_success_c5ae907a.wav",
+      text: "That's right, you checked the temperature!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_check_temperature_success_c5ae907a.wav",
+      text: "That's right, you checked the temperature!",
+    },
+  },
+  [normalizeText("That's right, you chose the snack!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_choice_success_f2e416bf.wav",
+      text: "That's right, you chose the snack!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_choice_success_f2e416bf.wav",
+      text: "That's right, you chose the snack!",
+    },
+  },
+  [normalizeText("That's right, you chose the story!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_choose_story_success_3547c766.wav",
+      text: "That's right, you chose the story!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_choose_story_success_3547c766.wav",
+      text: "That's right, you chose the story!",
+    },
+  },
+  [normalizeText("That's right, you chose the toy!")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_choice_success_f0125f55.wav",
+      text: "That's right, you chose the toy!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/tap_choice_success_f0125f55.wav",
+      text: "That's right, you chose the toy!",
+    },
+  },
+  [normalizeText("That's right, you cleaned up the toys!")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_toy_clean_up_success_58f20335.wav",
+      text: "That's right, you cleaned up the toys!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_toy_clean_up_success_58f20335.wav",
+      text: "That's right, you cleaned up the toys!",
+    },
+  },
+  [normalizeText("That's right, you cleaned up!")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_book_to_box_success_6d6ab734.wav",
+      text: "That's right, you cleaned up!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_book_to_box_success_6d6ab734.wav",
+      text: "That's right, you cleaned up!",
+    },
+  },
+  [normalizeText("That's right, you closed the curtains!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_close_curtains_success_fc684d8b.wav",
+      text: "That's right, you closed the curtains!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_close_curtains_success_fc684d8b.wav",
+      text: "That's right, you closed the curtains!",
+    },
+  },
+  [normalizeText("That's right, you combed your hair!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_comb_to_hair_success_2f95294c.wav",
+      text: "That's right, you combed your hair!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_comb_to_hair_success_2f95294c.wav",
+      text: "That's right, you combed your hair!",
+    },
+  },
+  [normalizeText("That's right, you drank the water!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_bottle_to_mouth_success_92cff481.wav",
+      text: "That's right, you drank the water!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_bottle_to_mouth_success_92cff481.wav",
+      text: "That's right, you drank the water!",
+    },
+  },
+  [normalizeText("That's right, you drew a circle!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_crayon_to_paper_success_e96daaa1.wav",
+      text: "That's right, you drew a circle!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_crayon_to_paper_success_e96daaa1.wav",
+      text: "That's right, you drew a circle!",
+    },
+  },
+  [normalizeText("That's right, you drew the picture!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_crayon_draw_success_4b990770.wav",
+      text: "That's right, you drew the picture!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_crayon_draw_success_4b990770.wav",
+      text: "That's right, you drew the picture!",
+    },
+  },
+  [normalizeText("That's right, you dried the surface!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_dry_surface_success_a58ac6ba.wav",
+      text: "That's right, you dried the surface!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_dry_surface_success_a58ac6ba.wav",
+      text: "That's right, you dried the surface!",
+    },
+  },
+  [normalizeText("That's right, you dried your face!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/review_towel_success_eaf26cde.wav",
+      text: "That's right, you dried your face!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/review_towel_success_eaf26cde.wav",
+      text: "That's right, you dried your face!",
+    },
+  },
+  [normalizeText("That's right, you found the apron!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_apron_success_ed340634.wav",
+      text: "That's right, you found the apron!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_apron_success_ed340634.wav",
+      text: "That's right, you found the apron!",
+    },
+  },
+  [normalizeText("That's right, you found the bag!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_bag_success_d9e42764.wav",
+      text: "That's right, you found the bag!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_bag_success_d9e42764.wav",
+      text: "That's right, you found the bag!",
+    },
+  },
+  [normalizeText("That's right, you found the basket!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_basket_success_a441dd57.wav",
+      text: "That's right, you found the basket!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_basket_success_a441dd57.wav",
+      text: "That's right, you found the basket!",
+    },
+  },
+  [normalizeText("That's right, you found the bath sponge!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_bath_sponge_success_3226cbe4.wav",
+      text: "That's right, you found the bath sponge!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_bath_sponge_success_3226cbe4.wav",
+      text: "That's right, you found the bath sponge!",
+    },
+  },
+  [normalizeText("That's right, you found the bathtub!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_bathtub_success_0fa23552.wav",
+      text: "That's right, you found the bathtub!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_bathtub_success_0fa23552.wav",
+      text: "That's right, you found the bathtub!",
+    },
+  },
+  [normalizeText("That's right, you found the bed!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_bed_success_14687f72.wav",
+      text: "That's right, you found the bed!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_bed_success_14687f72.wav",
+      text: "That's right, you found the bed!",
+    },
+  },
+  [normalizeText("That's right, you found the bench!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_bench_success_32df18f9.wav",
+      text: "That's right, you found the bench!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_bench_success_32df18f9.wav",
+      text: "That's right, you found the bench!",
+    },
+  },
+  [normalizeText("That's right, you found the bite!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_bite_success_ae6d3f70.wav",
+      text: "That's right, you found the bite!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_bite_success_ae6d3f70.wav",
+      text: "That's right, you found the bite!",
+    },
+  },
+  [normalizeText("That's right, you found the blocks!")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_blocks_success_3c7acc53.wav",
+      text: "That's right, you found the blocks!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/tap_blocks_success_3c7acc53.wav",
+      text: "That's right, you found the blocks!",
+    },
+  },
+  [normalizeText("That's right, you found the board!")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_board_success_cbce6c33.wav",
+      text: "That's right, you found the board!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_board_success_cbce6c33.wav",
+      text: "That's right, you found the board!",
+    },
+  },
+  [normalizeText("That's right, you found the book!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_tap_book_success_ed3802fd.wav",
+      text: "That's right, you found the book!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_tap_book_success_ed3802fd.wav",
+      text: "That's right, you found the book!",
+    },
+  },
+  [normalizeText("That's right, you found the bookmark!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_bookmark_success_6bdd50ac.wav",
+      text: "That's right, you found the bookmark!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_bookmark_success_6bdd50ac.wav",
+      text: "That's right, you found the bookmark!",
+    },
+  },
+  [normalizeText("That's right, you found the bottle!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_bottle_success_2144288e.wav",
+      text: "That's right, you found the bottle!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_bottle_success_2144288e.wav",
+      text: "That's right, you found the bottle!",
+    },
+  },
+  [normalizeText("That's right, you found the box!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_box_success_7fd087c1.wav",
+      text: "That's right, you found the box!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_box_success_7fd087c1.wav",
+      text: "That's right, you found the box!",
+    },
+  },
+  [normalizeText("That's right, you found the bread!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/review_bread_success_374e1cdb.wav",
+      text: "That's right, you found the bread!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/review_bread_success_374e1cdb.wav",
+      text: "That's right, you found the bread!",
+    },
+  },
+  [normalizeText("That's right, you found the bubble!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_bubble_success_b44f8689.wav",
+      text: "That's right, you found the bubble!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_bubble_success_b44f8689.wav",
+      text: "That's right, you found the bubble!",
+    },
+  },
+  [normalizeText("That's right, you found the bucket!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_bucket_success_ce6e1afe.wav",
+      text: "That's right, you found the bucket!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_bucket_success_ce6e1afe.wav",
+      text: "That's right, you found the bucket!",
+    },
+  },
+  [normalizeText("That's right, you found the bus!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_tap_bus_success_427cac31.wav",
+      text: "That's right, you found the bus!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_tap_bus_success_427cac31.wav",
+      text: "That's right, you found the bus!",
+    },
+  },
+  [normalizeText("That's right, you found the cabinet!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_cabinet_success_8b69fef9.wav",
+      text: "That's right, you found the cabinet!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_cabinet_success_8b69fef9.wav",
+      text: "That's right, you found the cabinet!",
+    },
+  },
+  [normalizeText("That's right, you found the chicken!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_chicken_success_27342973.wav",
+      text: "That's right, you found the chicken!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/tap_chicken_success_27342973.wav",
+      text: "That's right, you found the chicken!",
+    },
+  },
+  [normalizeText("That's right, you found the clock!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_clock_success_ad12be8e.wav",
+      text: "That's right, you found the clock!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_clock_success_ad12be8e.wav",
+      text: "That's right, you found the clock!",
+    },
+  },
+  [normalizeText("That's right, you found the cloth!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_cloth_success_29c4220b.wav",
+      text: "That's right, you found the cloth!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_cloth_success_29c4220b.wav",
+      text: "That's right, you found the cloth!",
+    },
+  },
+  [normalizeText("That's right, you found the coaster!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_coaster_success_121cb8a7.wav",
+      text: "That's right, you found the coaster!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_coaster_success_121cb8a7.wav",
+      text: "That's right, you found the coaster!",
+    },
+  },
+  [normalizeText("That's right, you found the comb!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_comb_success_9533aa99.wav",
+      text: "That's right, you found the comb!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_comb_success_9533aa99.wav",
+      text: "That's right, you found the comb!",
+    },
+  },
+  [normalizeText("That's right, you found the comfort plush!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_comfort_plush_success_326190e9.wav",
+      text: "That's right, you found the comfort plush!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_comfort_plush_success_326190e9.wav",
+      text: "That's right, you found the comfort plush!",
+    },
+  },
+  [normalizeText("That's right, you found the compost bin!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_compost_bin_success_89abafac.wav",
+      text: "That's right, you found the compost bin!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_compost_bin_success_89abafac.wav",
+      text: "That's right, you found the compost bin!",
+    },
+  },
+  [normalizeText("That's right, you found the cracker!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_cracker_success_22e98c83.wav",
+      text: "That's right, you found the cracker!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_cracker_success_22e98c83.wav",
+      text: "That's right, you found the cracker!",
+    },
+  },
+  [normalizeText("That's right, you found the crayon!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_tap_crayon_success_55952d5a.wav",
+      text: "That's right, you found the crayon!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_tap_crayon_success_55952d5a.wav",
+      text: "That's right, you found the crayon!",
+    },
+  },
+  [normalizeText("That's right, you found the crumbs!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_crumbs_success_061240c7.wav",
+      text: "That's right, you found the crumbs!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_crumbs_success_061240c7.wav",
+      text: "That's right, you found the crumbs!",
+    },
+  },
+  [normalizeText("That's right, you found the cup!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_tap_cup_success_7581b87f.wav",
+      text: "That's right, you found the cup!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_cup_success_7581b87f.wav",
+      text: "That's right, you found the cup!",
+    },
+  },
+  [normalizeText("That's right, you found the curtain!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_curtain_success_4cf77242.wav",
+      text: "That's right, you found the curtain!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_curtain_success_4cf77242.wav",
+      text: "That's right, you found the curtain!",
+    },
+  },
+  [normalizeText("That's right, you found the desk!")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_desk_success_bbf9d5e5.wav",
+      text: "That's right, you found the desk!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_desk_success_bbf9d5e5.wav",
+      text: "That's right, you found the desk!",
+    },
+  },
+  [normalizeText("That's right, you found the dessert!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_dessert_success_af24cc56.wav",
+      text: "That's right, you found the dessert!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_dessert_success_af24cc56.wav",
+      text: "That's right, you found the dessert!",
+    },
+  },
+  [normalizeText("That's right, you found the dining light!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_dining_light_success_7bcdfd7e.wav",
+      text: "That's right, you found the dining light!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_dining_light_success_7bcdfd7e.wav",
+      text: "That's right, you found the dining light!",
+    },
+  },
+  [normalizeText("That's right, you found the dinner bell!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_dinner_bell_success_0ed08fec.wav",
+      text: "That's right, you found the dinner bell!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_dinner_bell_success_0ed08fec.wav",
+      text: "That's right, you found the dinner bell!",
+    },
+  },
+  [normalizeText("That's right, you found the dinner!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_dinner_success_4c155bad.wav",
+      text: "That's right, you found the dinner!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_dinner_success_4c155bad.wav",
+      text: "That's right, you found the dinner!",
+    },
+  },
+  [normalizeText("That's right, you found the dish rack!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_dish_rack_success_d776a318.wav",
+      text: "That's right, you found the dish rack!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_dish_rack_success_d776a318.wav",
+      text: "That's right, you found the dish rack!",
+    },
+  },
+  [normalizeText("That's right, you found the dishwasher!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_dishwasher_success_3215b6d9.wav",
+      text: "That's right, you found the dishwasher!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_dishwasher_success_3215b6d9.wav",
+      text: "That's right, you found the dishwasher!",
+    },
+  },
+  [normalizeText("That's right, you found the doll!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_doll_success_ceae7c2e.wav",
+      text: "That's right, you found the doll!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_doll_success_ceae7c2e.wav",
+      text: "That's right, you found the doll!",
+    },
+  },
+  [normalizeText("That's right, you found the dream journal!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_dream_journal_success_410fc5fd.wav",
+      text: "That's right, you found the dream journal!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_dream_journal_success_410fc5fd.wav",
+      text: "That's right, you found the dream journal!",
+    },
+  },
+  [normalizeText("That's right, you found the drum!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_drum_success_ee9ec67f.wav",
+      text: "That's right, you found the drum!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_drum_success_ee9ec67f.wav",
+      text: "That's right, you found the drum!",
+    },
+  },
+  [normalizeText("That's right, you found the egg!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/tap_egg_success_9e28fc2a.wav",
+      text: "That's right, you found the egg!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/tap_egg_success_9e28fc2a.wav",
+      text: "That's right, you found the egg!",
+    },
+  },
+  [normalizeText("That's right, you found the elbow!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_elbow_success_2221bb42.wav",
+      text: "That's right, you found the elbow!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_elbow_success_2221bb42.wav",
+      text: "That's right, you found the elbow!",
+    },
+  },
+  [normalizeText("That's right, you found the eraser!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_tap_eraser_success_dcb65704.wav",
+      text: "That's right, you found the eraser!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_tap_eraser_success_dcb65704.wav",
+      text: "That's right, you found the eraser!",
+    },
+  },
+  [normalizeText("That's right, you found the fish!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_fish_success_b377c50d.wav",
+      text: "That's right, you found the fish!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/tap_fish_success_b377c50d.wav",
+      text: "That's right, you found the fish!",
+    },
+  },
+  [normalizeText("That's right, you found the floor!")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/tap_floor_success_2220912a.wav",
+      text: "That's right, you found the floor!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/tap_floor_success_2220912a.wav",
+      text: "That's right, you found the floor!",
+    },
+  },
+  [normalizeText("That's right, you found the foam!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_foam_success_456bcdf1.wav",
+      text: "That's right, you found the foam!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_foam_success_456bcdf1.wav",
+      text: "That's right, you found the foam!",
+    },
+  },
+  [normalizeText("That's right, you found the folder!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_folder_success_cfb5a5b2.wav",
+      text: "That's right, you found the folder!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_folder_success_cfb5a5b2.wav",
+      text: "That's right, you found the folder!",
+    },
+  },
+  [normalizeText("That's right, you found the fork!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_fork_success_367dc643.wav",
+      text: "That's right, you found the fork!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_fork_success_367dc643.wav",
+      text: "That's right, you found the fork!",
+    },
+  },
+  [normalizeText("That's right, you found the home!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_home_success_c7c0a7ff.wav",
+      text: "That's right, you found the home!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_home_success_c7c0a7ff.wav",
+      text: "That's right, you found the home!",
+    },
+  },
+  [normalizeText("That's right, you found the hook!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_hook_success_f98ea2b9.wav",
+      text: "That's right, you found the hook!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_hook_success_f98ea2b9.wav",
+      text: "That's right, you found the hook!",
+    },
+  },
+  [normalizeText("That's right, you found the jacket!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_jacket_success_069b9163.wav",
+      text: "That's right, you found the jacket!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_jacket_success_069b9163.wav",
+      text: "That's right, you found the jacket!",
+    },
+  },
+  [normalizeText("That's right, you found the juice!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_juice_success_a4d3b787.wav",
+      text: "That's right, you found the juice!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_juice_success_a4d3b787.wav",
+      text: "That's right, you found the juice!",
+    },
+  },
+  [normalizeText("That's right, you found the knee!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_knee_success_9453d1c6.wav",
+      text: "That's right, you found the knee!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_knee_success_9453d1c6.wav",
+      text: "That's right, you found the knee!",
+    },
+  },
+  [normalizeText("That's right, you found the label!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_label_success_584837d5.wav",
+      text: "That's right, you found the label!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_label_success_584837d5.wav",
+      text: "That's right, you found the label!",
+    },
+  },
+  [normalizeText("That's right, you found the lamp!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_lamp_success_4919078e.wav",
+      text: "That's right, you found the lamp!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_lamp_success_4919078e.wav",
+      text: "That's right, you found the lamp!",
+    },
+  },
+  [normalizeText("That's right, you found the leftovers!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_leftovers_success_7989a567.wav",
+      text: "That's right, you found the leftovers!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_leftovers_success_7989a567.wav",
+      text: "That's right, you found the leftovers!",
+    },
+  },
+  [normalizeText("That's right, you found the lullaby!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_lullaby_success_907be158.wav",
+      text: "That's right, you found the lullaby!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_lullaby_success_907be158.wav",
+      text: "That's right, you found the lullaby!",
+    },
+  },
+  [normalizeText("That's right, you found the lunchbox!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_lunchbox_success_0253bea3.wav",
+      text: "That's right, you found the lunchbox!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_lunchbox_success_0253bea3.wav",
+      text: "That's right, you found the lunchbox!",
+    },
+  },
+  [normalizeText("That's right, you found the milk!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/tap_milk_success_94c341b7.wav",
+      text: "That's right, you found the milk!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/tap_milk_success_94c341b7.wav",
+      text: "That's right, you found the milk!",
+    },
+  },
+  [normalizeText("That's right, you found the mirror!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/review_mirror_success_9b003749.wav",
+      text: "That's right, you found the mirror!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/review_mirror_success_9b003749.wav",
+      text: "That's right, you found the mirror!",
+    },
+  },
+  [normalizeText("That's right, you found the moon mobile!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_moon_mobile_success_1a66cc6f.wav",
+      text: "That's right, you found the moon mobile!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_moon_mobile_success_1a66cc6f.wav",
+      text: "That's right, you found the moon mobile!",
+    },
+  },
+  [normalizeText("That's right, you found the music!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_music_success_e06838b4.wav",
+      text: "That's right, you found the music!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_music_success_e06838b4.wav",
+      text: "That's right, you found the music!",
+    },
+  },
+  [normalizeText("That's right, you found the napkin!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_napkin_success_dee6822e.wav",
+      text: "That's right, you found the napkin!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_napkin_success_dee6822e.wav",
+      text: "That's right, you found the napkin!",
+    },
+  },
+  [normalizeText("That's right, you found the night light!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_night_light_success_63958269.wav",
+      text: "That's right, you found the night light!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_night_light_success_63958269.wav",
+      text: "That's right, you found the night light!",
+    },
+  },
+  [normalizeText("That's right, you found the pajamas!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_pajamas_success_119746ba.wav",
+      text: "That's right, you found the pajamas!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_pajamas_success_119746ba.wav",
+      text: "That's right, you found the pajamas!",
+    },
+  },
+  [normalizeText("That's right, you found the pencil!")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_tap_pencil_success_27e9b530.wav",
+      text: "That's right, you found the pencil!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_tap_pencil_success_27e9b530.wav",
+      text: "That's right, you found the pencil!",
+    },
+  },
+  [normalizeText("That's right, you found the pillow!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_pillow_success_f47ab65a.wav",
+      text: "That's right, you found the pillow!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_pillow_success_f47ab65a.wav",
+      text: "That's right, you found the pillow!",
+    },
+  },
+  [normalizeText("That's right, you found the plate!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_tap_plate_success_a12dc4b5.wav",
+      text: "That's right, you found the plate!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_tap_plate_success_a12dc4b5.wav",
+      text: "That's right, you found the plate!",
+    },
+  },
+  [normalizeText("That's right, you found the pot holder!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_pot_holder_success_f7836e87.wav",
+      text: "That's right, you found the pot holder!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_pot_holder_success_f7836e87.wav",
+      text: "That's right, you found the pot holder!",
+    },
+  },
+  [normalizeText("That's right, you found the puzzle!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_puzzle_success_5ca14781.wav",
+      text: "That's right, you found the puzzle!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_puzzle_success_5ca14781.wav",
+      text: "That's right, you found the puzzle!",
+    },
+  },
+  [normalizeText("That's right, you found the raisins!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_raisins_success_b21af350.wav",
+      text: "That's right, you found the raisins!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_raisins_success_b21af350.wav",
+      text: "That's right, you found the raisins!",
+    },
+  },
+  [normalizeText("That's right, you found the recycling bin!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_recycling_bin_success_d27cbbeb.wav",
+      text: "That's right, you found the recycling bin!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_recycling_bin_success_d27cbbeb.wav",
+      text: "That's right, you found the recycling bin!",
+    },
+  },
+  [normalizeText("That's right, you found the rice!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_rice_success_3ab4af48.wav",
+      text: "That's right, you found the rice!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_rice_success_3ab4af48.wav",
+      text: "That's right, you found the rice!",
+    },
+  },
+  [normalizeText("That's right, you found the robe!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_robe_success_634ebb4e.wav",
+      text: "That's right, you found the robe!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_robe_success_634ebb4e.wav",
+      text: "That's right, you found the robe!",
+    },
+  },
+  [normalizeText("That's right, you found the rope!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_rope_success_5978803c.wav",
+      text: "That's right, you found the rope!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_rope_success_5978803c.wav",
+      text: "That's right, you found the rope!",
+    },
+  },
+  [normalizeText("That's right, you found the rubber gloves!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_rubber_gloves_success_cb79977b.wav",
+      text: "That's right, you found the rubber gloves!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_rubber_gloves_success_cb79977b.wav",
+      text: "That's right, you found the rubber gloves!",
+    },
+  },
+  [normalizeText("That's right, you found the sandbox!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_sandbox_success_826fcf9e.wav",
+      text: "That's right, you found the sandbox!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_sandbox_success_826fcf9e.wav",
+      text: "That's right, you found the sandbox!",
+    },
+  },
+  [normalizeText("That's right, you found the sauce!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_sauce_success_fb8e426e.wav",
+      text: "That's right, you found the sauce!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/tap_sauce_success_fb8e426e.wav",
+      text: "That's right, you found the sauce!",
+    },
+  },
+  [normalizeText("That's right, you found the school!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_review_school_success_ff3e2bef.wav",
+      text: "That's right, you found the school!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_review_school_success_ff3e2bef.wav",
+      text: "That's right, you found the school!",
+    },
+  },
+  [normalizeText("That's right, you found the scraper!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_scraper_success_6dc18236.wav",
+      text: "That's right, you found the scraper!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_scraper_success_6dc18236.wav",
+      text: "That's right, you found the scraper!",
+    },
+  },
+  [normalizeText("That's right, you found the seesaw!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_seesaw_success_241c873b.wav",
+      text: "That's right, you found the seesaw!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_seesaw_success_241c873b.wav",
+      text: "That's right, you found the seesaw!",
+    },
+  },
+  [normalizeText("That's right, you found the serving tray!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_serving_tray_success_b21b1701.wav",
+      text: "That's right, you found the serving tray!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_serving_tray_success_b21b1701.wav",
+      text: "That's right, you found the serving tray!",
+    },
+  },
+  [normalizeText("That's right, you found the shade!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_shade_success_784428d5.wav",
+      text: "That's right, you found the shade!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_shade_success_784428d5.wav",
+      text: "That's right, you found the shade!",
+    },
+  },
+  [normalizeText("That's right, you found the shampoo!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_shampoo_success_5d8b6eed.wav",
+      text: "That's right, you found the shampoo!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_shampoo_success_5d8b6eed.wav",
+      text: "That's right, you found the shampoo!",
+    },
+  },
+  [normalizeText("That's right, you found the shelf!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_shelf_success_106e3e3d.wav",
+      text: "That's right, you found the shelf!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_shelf_success_106e3e3d.wav",
+      text: "That's right, you found the shelf!",
+    },
+  },
+  [normalizeText("That's right, you found the shoes!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_tap_shoes_success_dac154d7.wav",
+      text: "That's right, you found the shoes!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_tap_shoes_success_dac154d7.wav",
+      text: "That's right, you found the shoes!",
+    },
+  },
+  [normalizeText("That's right, you found the shoulder!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_shoulder_success_96802a45.wav",
+      text: "That's right, you found the shoulder!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_shoulder_success_96802a45.wav",
+      text: "That's right, you found the shoulder!",
+    },
+  },
+  [normalizeText("That's right, you found the shower head!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_shower_head_success_e9fa9107.wav",
+      text: "That's right, you found the shower head!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_shower_head_success_e9fa9107.wav",
+      text: "That's right, you found the shower head!",
+    },
+  },
+  [normalizeText("That's right, you found the shower!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_shower_success_9e6aab43.wav",
+      text: "That's right, you found the shower!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_shower_success_9e6aab43.wav",
+      text: "That's right, you found the shower!",
+    },
+  },
+  [normalizeText("That's right, you found the sink!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/tap_sink_success_77a1e1ab.wav",
+      text: "That's right, you found the sink!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/tap_sink_success_77a1e1ab.wav",
+      text: "That's right, you found the sink!",
+    },
+  },
+  [normalizeText("That's right, you found the sleep mask!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_sleep_mask_success_7c92afa8.wav",
+      text: "That's right, you found the sleep mask!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_sleep_mask_success_7c92afa8.wav",
+      text: "That's right, you found the sleep mask!",
+    },
+  },
+  [normalizeText("That's right, you found the slide!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_slide_success_c8df2a9d.wav",
+      text: "That's right, you found the slide!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_slide_success_c8df2a9d.wav",
+      text: "That's right, you found the slide!",
+    },
+  },
+  [normalizeText("That's right, you found the snack box!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_snack_box_success_6370e298.wav",
+      text: "That's right, you found the snack box!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_snack_box_success_6370e298.wav",
+      text: "That's right, you found the snack box!",
+    },
+  },
+  [normalizeText("That's right, you found the snack!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_snack_success_50f1b4cb.wav",
+      text: "That's right, you found the snack!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_snack_success_50f1b4cb.wav",
+      text: "That's right, you found the snack!",
+    },
+  },
+  [normalizeText("That's right, you found the soap!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_tap_soap_success_db86fae0.wav",
+      text: "That's right, you found the soap!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_tap_soap_success_db86fae0.wav",
+      text: "That's right, you found the soap!",
+    },
+  },
+  [normalizeText("That's right, you found the socks!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_socks_success_e12d24ec.wav",
+      text: "That's right, you found the socks!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_socks_success_e12d24ec.wav",
+      text: "That's right, you found the socks!",
+    },
+  },
+  [normalizeText("That's right, you found the soft voice!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_soft_voice_success_b69262d3.wav",
+      text: "That's right, you found the soft voice!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_soft_voice_success_b69262d3.wav",
+      text: "That's right, you found the soft voice!",
+    },
+  },
+  [normalizeText("That's right, you found the soup!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_soup_success_f1a4fc89.wav",
+      text: "That's right, you found the soup!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_soup_success_f1a4fc89.wav",
+      text: "That's right, you found the soup!",
+    },
+  },
+  [normalizeText("That's right, you found the spill!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_spill_success_db1897cd.wav",
+      text: "That's right, you found the spill!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_spill_success_db1897cd.wav",
+      text: "That's right, you found the spill!",
+    },
+  },
+  [normalizeText("That's right, you found the spray bottle!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_spray_bottle_success_e576a449.wav",
+      text: "That's right, you found the spray bottle!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_spray_bottle_success_e576a449.wav",
+      text: "That's right, you found the spray bottle!",
+    },
+  },
+  [normalizeText("That's right, you found the stain!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_stain_success_7ab087d0.wav",
+      text: "That's right, you found the stain!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_stain_success_7ab087d0.wav",
+      text: "That's right, you found the stain!",
+    },
+  },
+  [normalizeText("That's right, you found the star projector!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_star_projector_success_2ec86739.wav",
+      text: "That's right, you found the star projector!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_star_projector_success_2ec86739.wav",
+      text: "That's right, you found the star projector!",
+    },
+  },
+  [normalizeText("That's right, you found the story shelf!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_story_shelf_success_b4e70ae0.wav",
+      text: "That's right, you found the story shelf!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_story_shelf_success_b4e70ae0.wav",
+      text: "That's right, you found the story shelf!",
+    },
+  },
+  [normalizeText("That's right, you found the storybook!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_storybook_success_a2f29106.wav",
+      text: "That's right, you found the storybook!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_storybook_success_a2f29106.wav",
+      text: "That's right, you found the storybook!",
+    },
+  },
+  [normalizeText("That's right, you found the sun!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/review_sun_success_3f712d22.wav",
+      text: "That's right, you found the sun!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/review_sun_success_3f712d22.wav",
+      text: "That's right, you found the sun!",
+    },
+  },
+  [normalizeText("That's right, you found the swing!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_swing_success_1ba21cf6.wav",
+      text: "That's right, you found the swing!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_swing_success_1ba21cf6.wav",
+      text: "That's right, you found the swing!",
+    },
+  },
+  [normalizeText("That's right, you found the table!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_tap_table_success_25a23fc3.wav",
+      text: "That's right, you found the table!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_table_success_25a23fc3.wav",
+      text: "That's right, you found the table!",
+    },
+  },
+  [normalizeText("That's right, you found the teacher!")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_teacher_success_9ec7db6a.wav",
+      text: "That's right, you found the teacher!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_teacher_success_9ec7db6a.wav",
+      text: "That's right, you found the teacher!",
+    },
+  },
+  [normalizeText("That's right, you found the timer!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_timer_success_f7c38fd2.wav",
+      text: "That's right, you found the timer!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_timer_success_f7c38fd2.wav",
+      text: "That's right, you found the timer!",
+    },
+  },
+  [normalizeText("That's right, you found the tongs!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_tongs_success_ce3b597f.wav",
+      text: "That's right, you found the tongs!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_tongs_success_ce3b597f.wav",
+      text: "That's right, you found the tongs!",
+    },
+  },
+  [normalizeText("That's right, you found the toothbrush!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/tap_toothbrush_success_33bee41a.wav",
+      text: "That's right, you found the toothbrush!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/tap_toothbrush_success_33bee41a.wav",
+      text: "That's right, you found the toothbrush!",
+    },
+  },
+  [normalizeText("That's right, you found the towel!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_tap_towel_success_c34e396f.wav",
+      text: "That's right, you found the towel!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_tap_towel_success_c34e396f.wav",
+      text: "That's right, you found the towel!",
+    },
+  },
+  [normalizeText("That's right, you found the toy!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_toy_success_30cc3292.wav",
+      text: "That's right, you found the toy!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_toy_success_30cc3292.wav",
+      text: "That's right, you found the toy!",
+    },
+  },
+  [normalizeText("That's right, you found the traffic light!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_traffic_light_success_11d3fad9.wav",
+      text: "That's right, you found the traffic light!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_traffic_light_success_11d3fad9.wav",
+      text: "That's right, you found the traffic light!",
+    },
+  },
+  [normalizeText("That's right, you found the tray!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_tray_success_874e55a1.wav",
+      text: "That's right, you found the tray!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_tray_success_874e55a1.wav",
+      text: "That's right, you found the tray!",
+    },
+  },
+  [normalizeText("That's right, you found the uniform!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_tap_uniform_success_4e0a4481.wav",
+      text: "That's right, you found the uniform!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_tap_uniform_success_4e0a4481.wav",
+      text: "That's right, you found the uniform!",
+    },
+  },
+  [normalizeText("That's right, you found the vegetables!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_vegetables_success_6566086c.wav",
+      text: "That's right, you found the vegetables!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/tap_vegetables_success_6566086c.wav",
+      text: "That's right, you found the vegetables!",
+    },
+  },
+  [normalizeText("That's right, you found the water!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/tap_water_success_297b6eb2.wav",
+      text: "That's right, you found the water!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/tap_water_success_297b6eb2.wav",
+      text: "That's right, you found the water!",
+    },
+  },
+  [normalizeText("That's right, you found the window!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_window_success_7052f354.wav",
+      text: "That's right, you found the window!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_window_success_7052f354.wav",
+      text: "That's right, you found the window!",
+    },
+  },
+  [normalizeText("That's right, you found the yogurt!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_yogurt_success_b8f25b75.wav",
+      text: "That's right, you found the yogurt!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_yogurt_success_b8f25b75.wav",
+      text: "That's right, you found the yogurt!",
+    },
+  },
+  [normalizeText("That's right, you found your family!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_success_95ac7ebe.wav",
+      text: "That's right, you found your family!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_family_success_95ac7ebe.wav",
+      text: "That's right, you found your family!",
+    },
+  },
+  [normalizeText("That's right, you found your friend!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_friend_success_aae34f10.wav",
+      text: "That's right, you found your friend!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_friend_success_aae34f10.wav",
+      text: "That's right, you found your friend!",
+    },
+  },
+  [normalizeText("That's right, you got on the bus!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_bus_door_success_b3db1ec9.wav",
+      text: "That's right, you got on the bus!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_bus_door_success_b3db1ec9.wav",
+      text: "That's right, you got on the bus!",
+    },
+  },
+  [normalizeText("That's right, you hugged the comfort plush!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_hug_comfort_plush_success_e040e122.wav",
+      text: "That's right, you hugged the comfort plush!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_hug_comfort_plush_success_e040e122.wav",
+      text: "That's right, you hugged the comfort plush!",
+    },
+  },
+  [normalizeText("That's right, you hugged your family!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_hug_success_f260fcc4.wav",
+      text: "That's right, you hugged your family!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_family_hug_success_f260fcc4.wav",
+      text: "That's right, you hugged your family!",
+    },
+  },
+  [normalizeText("That's right, you hung the robe!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_robe_to_hook_success_e0124e28.wav",
+      text: "That's right, you hung the robe!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_robe_to_hook_success_e0124e28.wav",
+      text: "That's right, you hung the robe!",
+    },
+  },
+  [normalizeText("That's right, you jumped!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_jump_hoop_success_0bfc6ac6.wav",
+      text: "That's right, you jumped!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_jump_hoop_success_0bfc6ac6.wav",
+      text: "That's right, you jumped!",
+    },
+  },
+  [normalizeText("That's right, you labeled the container!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_label_to_container_success_4a176de5.wav",
+      text: "That's right, you labeled the container!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_label_to_container_success_4a176de5.wav",
+      text: "That's right, you labeled the container!",
+    },
+  },
+  [normalizeText("That's right, you lined up!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bag_to_line_success_54919447.wav",
+      text: "That's right, you lined up!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bag_to_line_success_54919447.wav",
+      text: "That's right, you lined up!",
+    },
+  },
+  [normalizeText("That's right, you listened!")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_tap_teacher_listen_success_537fc2e5.wav",
+      text: "That's right, you listened!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_tap_teacher_listen_success_537fc2e5.wav",
+      text: "That's right, you listened!",
+    },
+  },
+  [normalizeText("That's right, you loaded the dishwasher!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_dish_to_dishwasher_success_ef330cc5.wav",
+      text: "That's right, you loaded the dishwasher!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_dish_to_dishwasher_success_ef330cc5.wav",
+      text: "That's right, you loaded the dishwasher!",
+    },
+  },
+  [normalizeText("That's right, you made the bed!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_blanket_to_box_success_d7eda030.wav",
+      text: "That's right, you made the bed!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_blanket_to_box_success_d7eda030.wav",
+      text: "That's right, you made the bed!",
+    },
+  },
+  [normalizeText("That's right, you made the bubbles!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_foam_to_bubbles_success_875aaa1f.wav",
+      text: "That's right, you made the bubbles!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_foam_to_bubbles_success_875aaa1f.wav",
+      text: "That's right, you made the bubbles!",
+    },
+  },
+  [normalizeText("That's right, you moved the cart!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_move_cart_success_63524359.wav",
+      text: "That's right, you moved the cart!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_move_cart_success_63524359.wav",
+      text: "That's right, you moved the cart!",
+    },
+  },
+  [normalizeText("That's right, you opened the book!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_tap_book_open_success_83688121.wav",
+      text: "That's right, you opened the book!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_tap_book_open_success_83688121.wav",
+      text: "That's right, you opened the book!",
+    },
+  },
+  [normalizeText("That's right, you opened the lunchbox!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_open_lunchbox_success_e7085100.wav",
+      text: "That's right, you opened the lunchbox!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_open_lunchbox_success_e7085100.wav",
+      text: "That's right, you opened the lunchbox!",
+    },
+  },
+  [normalizeText("That's right, you opened the snack box!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_box_open_success_7c757582.wav",
+      text: "That's right, you opened the snack box!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_box_open_success_7c757582.wav",
+      text: "That's right, you opened the snack box!",
+    },
+  },
+  [normalizeText("That's right, you packed the bag!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_folder_to_bag_success_63a339f6.wav",
+      text: "That's right, you packed the bag!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_folder_to_bag_success_63a339f6.wav",
+      text: "That's right, you packed the bag!",
+    },
+  },
+  [normalizeText("That's right, you passed the dish!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_dish_to_grownup_success_35296115.wav",
+      text: "That's right, you passed the dish!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_dish_to_grownup_success_35296115.wav",
+      text: "That's right, you passed the dish!",
+    },
+  },
+  [normalizeText("That's right, you played the gently!")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_doll_gently_success_8ee881e9.wav",
+      text: "That's right, you played the gently!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/tap_doll_gently_success_8ee881e9.wav",
+      text: "That's right, you played the gently!",
+    },
+  },
+  [normalizeText("That's right, you played the lullaby!")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_play_lullaby_success_85f3e018.wav",
+      text: "That's right, you played the lullaby!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_play_lullaby_success_85f3e018.wav",
+      text: "That's right, you played the lullaby!",
+    },
+  },
+  [normalizeText("That's right, you played together!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_blocks_play_together_success_fd6ba466.wav",
+      text: "That's right, you played together!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_blocks_play_together_success_fd6ba466.wav",
+      text: "That's right, you played together!",
+    },
+  },
+  [normalizeText("That's right, you poured the juice!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_juice_to_container_success_16f3fb11.wav",
+      text: "That's right, you poured the juice!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_juice_to_container_success_16f3fb11.wav",
+      text: "That's right, you poured the juice!",
+    },
+  },
+  [normalizeText("That's right, you poured the milk!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_milk_to_cup_success_f4d86b07.wav",
+      text: "That's right, you poured the milk!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_milk_to_cup_success_f4d86b07.wav",
+      text: "That's right, you poured the milk!",
+    },
+  },
+  [normalizeText("That's right, you put away the book!")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_book_away_success_8595c7b3.wav",
+      text: "That's right, you put away the book!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_book_away_success_8595c7b3.wav",
+      text: "That's right, you put away the book!",
+    },
+  },
+  [normalizeText("That's right, you put away the tray!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_tray_away_success_7fe0fa04.wav",
+      text: "That's right, you put away the tray!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_tray_away_success_7fe0fa04.wav",
+      text: "That's right, you put away the tray!",
+    },
+  },
+  [normalizeText("That's right, you put on the pajamas!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_pajamas_to_baby_success_81d315e7.wav",
+      text: "That's right, you put on the pajamas!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_pajamas_to_baby_success_81d315e7.wav",
+      text: "That's right, you put on the pajamas!",
+    },
+  },
+  [normalizeText("That's right, you put on the shoes!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_shoes_to_feet_success_5a919fc6.wav",
+      text: "That's right, you put on the shoes!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_shoes_to_feet_success_5a919fc6.wav",
+      text: "That's right, you put on the shoes!",
+    },
+  },
+  [normalizeText("That's right, you raised your hand!")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_hand_success_81941c28.wav",
+      text: "That's right, you raised your hand!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_hand_success_81941c28.wav",
+      text: "That's right, you raised your hand!",
+    },
+  },
+  [normalizeText("That's right, you ran!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_run_path_success_991ccca4.wav",
+      text: "That's right, you ran!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_run_path_success_991ccca4.wav",
+      text: "That's right, you ran!",
+    },
+  },
+  [normalizeText("That's right, you read the book!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_book_read_success_8dc2d492.wav",
+      text: "That's right, you read the book!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_book_read_success_8dc2d492.wav",
+      text: "That's right, you read the book!",
+    },
+  },
+  [normalizeText("That's right, you read the softly!")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_read_softly_success_ba191458.wav",
+      text: "That's right, you read the softly!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_read_softly_success_ba191458.wav",
+      text: "That's right, you read the softly!",
+    },
+  },
+  [normalizeText("That's right, you rested!")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_bench_rest_success_e8898fab.wav",
+      text: "That's right, you rested!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_bench_rest_success_e8898fab.wav",
+      text: "That's right, you rested!",
+    },
+  },
+  [normalizeText("That's right, you rinsed your hair!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_shower_head_to_hair_success_db01f4c6.wav",
+      text: "That's right, you rinsed your hair!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_shower_head_to_hair_success_db01f4c6.wav",
+      text: "That's right, you rinsed your hair!",
+    },
+  },
+  [normalizeText("That's right, you said thank you!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_tap_thanks_card_success_0476f6dd.wav",
+      text: "That's right, you said thank you!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_thanks_card_success_0476f6dd.wav",
+      text: "That's right, you said thank you!",
+    },
+  },
+  [normalizeText("That's right, you said the good night!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_good_night_success_d5396309.wav",
+      text: "That's right, you said the good night!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_good_night_success_d5396309.wav",
+      text: "That's right, you said the good night!",
+    },
+  },
+  [normalizeText("That's right, you said the goodbye!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_goodbye_card_success_4fc79454.wav",
+      text: "That's right, you said the goodbye!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_goodbye_card_success_4fc79454.wav",
+      text: "That's right, you said the goodbye!",
+    },
+  },
+  [normalizeText("That's right, you sat at the table!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_chair_to_seat_success_cb309607.wav",
+      text: "That's right, you sat at the table!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_chair_to_seat_success_cb309607.wav",
+      text: "That's right, you sat at the table!",
+    },
+  },
+  [normalizeText("That's right, you sat down!")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_chair_sit_down_success_33f6e078.wav",
+      text: "That's right, you sat down!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_chair_sit_down_success_33f6e078.wav",
+      text: "That's right, you sat down!",
+    },
+  },
+  [normalizeText("That's right, you saved the leftovers!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_save_leftovers_success_ded19891.wav",
+      text: "That's right, you saved the leftovers!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_save_leftovers_success_ded19891.wav",
+      text: "That's right, you saved the leftovers!",
+    },
+  },
+  [normalizeText("That's right, you scrubbed the knees!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_sponge_to_knee_success_0a9cde19.wav",
+      text: "That's right, you scrubbed the knees!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_sponge_to_knee_success_0a9cde19.wav",
+      text: "That's right, you scrubbed the knees!",
+    },
+  },
+  [normalizeText("That's right, you scrubbed the spot!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_brush_scrub_spot_success_94cdab52.wav",
+      text: "That's right, you scrubbed the spot!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_brush_scrub_spot_success_94cdab52.wav",
+      text: "That's right, you scrubbed the spot!",
+    },
+  },
+  [normalizeText("That's right, you served the noodles!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_serve_noodles_success_c1fe31e5.wav",
+      text: "That's right, you served the noodles!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_serve_noodles_success_c1fe31e5.wav",
+      text: "That's right, you served the noodles!",
+    },
+  },
+  [normalizeText("That's right, you set the placemat!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_set_placemat_success_7c103253.wav",
+      text: "That's right, you set the placemat!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_set_placemat_success_7c103253.wav",
+      text: "That's right, you set the placemat!",
+    },
+  },
+  [normalizeText("That's right, you shared the food!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_fruit_to_friend_success_46230a46.wav",
+      text: "That's right, you shared the food!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_fruit_to_friend_success_46230a46.wav",
+      text: "That's right, you shared the food!",
+    },
+  },
+  [normalizeText("That's right, you shared the toys!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_toy_to_friend_success_98315e27.wav",
+      text: "That's right, you shared the toys!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_toy_to_friend_success_98315e27.wav",
+      text: "That's right, you shared the toys!",
+    },
+  },
+  [normalizeText("That's right, you sipped the juice!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_sip_to_mouth_success_3eaceb3e.wav",
+      text: "That's right, you sipped the juice!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_sip_to_mouth_success_3eaceb3e.wav",
+      text: "That's right, you sipped the juice!",
+    },
+  },
+  [normalizeText("That's right, you sipped!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_sip_success_20da4d1f.wav",
+      text: "That's right, you sipped!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_sip_success_20da4d1f.wav",
+      text: "That's right, you sipped!",
+    },
+  },
+  [normalizeText("That's right, you solved the puzzle!")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_puzzle_piece_success_d57cace3.wav",
+      text: "That's right, you solved the puzzle!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_puzzle_piece_success_d57cace3.wav",
+      text: "That's right, you solved the puzzle!",
+    },
+  },
+  [normalizeText("That's right, you sorted the recycling!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_carton_to_recycling_success_3b5a80ce.wav",
+      text: "That's right, you sorted the recycling!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_carton_to_recycling_success_3b5a80ce.wav",
+      text: "That's right, you sorted the recycling!",
+    },
+  },
+  [normalizeText("That's right, you sprayed the stain!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_spray_to_stain_success_c9fb71a8.wav",
+      text: "That's right, you sprayed the stain!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_spray_to_stain_success_c9fb71a8.wav",
+      text: "That's right, you sprayed the stain!",
+    },
+  },
+  [normalizeText("That's right, you stacked the coasters!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_stack_coasters_success_8fd7a5a4.wav",
+      text: "That's right, you stacked the coasters!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_stack_coasters_success_8fd7a5a4.wav",
+      text: "That's right, you stacked the coasters!",
+    },
+  },
+  [normalizeText("That's right, you started the timer!")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_start_timer_success_c5ec434d.wav",
+      text: "That's right, you started the timer!",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_start_timer_success_c5ec434d.wav",
+      text: "That's right, you started the timer!",
+    },
+  },
+  [normalizeText("That's right, you stepped onto the mat!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_step_onto_mat_success_ec5d3bef.wav",
+      text: "That's right, you stepped onto the mat!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_step_onto_mat_success_ec5d3bef.wav",
+      text: "That's right, you stepped onto the mat!",
+    },
+  },
+  [normalizeText("That's right, you threw away the wrapper!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_away_success_9825c23f.wav",
+      text: "That's right, you threw away the wrapper!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_away_success_9825c23f.wav",
+      text: "That's right, you threw away the wrapper!",
+    },
+  },
+  [normalizeText("That's right, you tidied the room!")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_basket_to_shelf_success_356f4d73.wav",
+      text: "That's right, you tidied the room!",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_basket_to_shelf_success_356f4d73.wav",
+      text: "That's right, you tidied the room!",
+    },
+  },
+  [normalizeText("That's right, you took a bite!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_cracker_to_mouth_success_e7ed3a5c.wav",
+      text: "That's right, you took a bite!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_cracker_to_mouth_success_e7ed3a5c.wav",
+      text: "That's right, you took a bite!",
+    },
+  },
+  [normalizeText("That's right, you took the off shoes!")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/drag_shoes_to_shelf_success_72751012.wav",
+      text: "That's right, you took the off shoes!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/drag_shoes_to_shelf_success_72751012.wav",
+      text: "That's right, you took the off shoes!",
+    },
+  },
+  [normalizeText("That's right, you took turns!")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/drag_ball_to_turn_success_d60a9fa7.wav",
+      text: "That's right, you took turns!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/drag_ball_to_turn_success_d60a9fa7.wav",
+      text: "That's right, you took turns!",
+    },
+  },
+  [normalizeText("That's right, you tried the vegetables!")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_vegetables_to_child_success_624702a4.wav",
+      text: "That's right, you tried the vegetables!",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_vegetables_to_child_success_624702a4.wav",
+      text: "That's right, you tried the vegetables!",
+    },
+  },
+  [normalizeText("That's right, you turned on the shower!")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_turn_on_shower_success_7fecd5af.wav",
+      text: "That's right, you turned on the shower!",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_turn_on_shower_success_7fecd5af.wav",
+      text: "That's right, you turned on the shower!",
+    },
+  },
+  [normalizeText("That's right, you used the spoon!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_spoon_to_mouth_success_a4b70051.wav",
+      text: "That's right, you used the spoon!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_spoon_to_mouth_success_a4b70051.wav",
+      text: "That's right, you used the spoon!",
+    },
+  },
+  [normalizeText("That's right, you waited!")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_wait_clock_success_55f4a789.wav",
+      text: "That's right, you waited!",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_wait_clock_success_55f4a789.wav",
+      text: "That's right, you waited!",
+    },
+  },
+  [normalizeText("That's right, you washed your face!")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_water_to_face_success_0b3dcc74.wav",
+      text: "That's right, you washed your face!",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_water_to_face_success_0b3dcc74.wav",
+      text: "That's right, you washed your face!",
+    },
+  },
+  [normalizeText("That's right, you washed your hands!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_soap_to_hands_success_668189f6.wav",
+      text: "That's right, you washed your hands!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_soap_to_hands_success_668189f6.wav",
+      text: "That's right, you washed your hands!",
+    },
+  },
+  [normalizeText("That's right, you wiped the table!")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_towel_to_table_success_c62062e4.wav",
+      text: "That's right, you wiped the table!",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_towel_to_table_success_c62062e4.wav",
+      text: "That's right, you wiped the table!",
+    },
+  },
+  [normalizeText("That's right, you wiped your mouth!")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_napkin_to_mouth_success_5dd219f3.wav",
+      text: "That's right, you wiped your mouth!",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_napkin_to_mouth_success_5dd219f3.wav",
+      text: "That's right, you wiped your mouth!",
+    },
+  },
+  [normalizeText("That's right, you wore the sleep mask!")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_wear_sleep_mask_success_9e6712d5.wav",
+      text: "That's right, you wore the sleep mask!",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_wear_sleep_mask_success_9e6712d5.wav",
+      text: "That's right, you wore the sleep mask!",
+    },
+  },
+  [normalizeText("That's right, you wrote your name!")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_pencil_to_paper_success_37f83435.wav",
+      text: "That's right, you wrote your name!",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_pencil_to_paper_success_37f83435.wav",
+      text: "That's right, you wrote your name!",
+    },
+  },
+  [normalizeText("The apple is on the Drag apple.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_apple_success_874ec56f.wav",
+      text: "The apple is on the Drag apple.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_apple_success_874ec56f.wav",
+      text: "The apple is on the Drag apple.",
+    },
+  },
+  [normalizeText("The apple is on the plate.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_apple_to_plate_success_0e481ce0.wav",
+      text: "The apple is on the plate.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_apple_to_plate_success_0e481ce0.wav",
+      text: "The apple is on the plate.",
+    },
+  },
+  [normalizeText("The bag is in the right place.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_bag_success_36649ab5.wav",
+      text: "The bag is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_bag_success_36649ab5.wav",
+      text: "The bag is in the right place.",
+    },
+  },
+  [normalizeText("The bag is near the door.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bag_to_door_success_5e266a8f.wav",
+      text: "The bag is near the door.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bag_to_door_success_5e266a8f.wav",
+      text: "The bag is near the door.",
+    },
+  },
+  [normalizeText("The ball is in the yard.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/drag_ball_to_yard_success_e0447bde.wav",
+      text: "The ball is in the yard.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/drag_ball_to_yard_success_e0447bde.wav",
+      text: "The ball is in the yard.",
+    },
+  },
+  [normalizeText("The banana is on the plate.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_banana_to_plate_success_87fef1fd.wav",
+      text: "The banana is on the plate.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_banana_to_plate_success_87fef1fd.wav",
+      text: "The banana is on the plate.",
+    },
+  },
+  [normalizeText("The bath mat is in the right place.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/drag_mat_to_bathtub_success_932fe474.wav",
+      text: "The bath mat is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/drag_mat_to_bathtub_success_932fe474.wav",
+      text: "The bath mat is in the right place.",
+    },
+  },
+  [normalizeText("The blanket is in the right place.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_blanket_success_161b9b2a.wav",
+      text: "The blanket is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_blanket_success_161b9b2a.wav",
+      text: "The blanket is in the right place.",
+    },
+  },
+  [normalizeText("The blocks are in the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_blocks_to_basket_success_6431e165.wav",
+      text: "The blocks are in the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_blocks_to_basket_success_6431e165.wav",
+      text: "The blocks are in the basket.",
+    },
+  },
+  [normalizeText("The blocks are in the box.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_blocks_to_box_success_0b47970c.wav",
+      text: "The blocks are in the box.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_blocks_to_box_success_0b47970c.wav",
+      text: "The blocks are in the box.",
+    },
+  },
+  [normalizeText("The blocks are on the mat.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_blocks_to_mat_success_c2a17ae8.wav",
+      text: "The blocks are on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_blocks_to_mat_success_c2a17ae8.wav",
+      text: "The blocks are on the mat.",
+    },
+  },
+  [normalizeText("The body wash is in the right place.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/drag_body_wash_to_sponge_success_7ceb2a63.wav",
+      text: "The body wash is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/drag_body_wash_to_sponge_success_7ceb2a63.wav",
+      text: "The body wash is in the right place.",
+    },
+  },
+  [normalizeText("The book is in the bag.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_book_to_bag_success_05f2b449.wav",
+      text: "The book is in the bag.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_book_to_bag_success_05f2b449.wav",
+      text: "The book is in the bag.",
+    },
+  },
+  [normalizeText("The book is on the desk.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_book_to_desk_success_55df2e4b.wav",
+      text: "The book is on the desk.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_book_to_desk_success_55df2e4b.wav",
+      text: "The book is on the desk.",
+    },
+  },
+  [normalizeText("The book is on the shelf.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_book_to_shelf_success_13a6b449.wav",
+      text: "The book is on the shelf.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_book_to_shelf_success_13a6b449.wav",
+      text: "The book is on the shelf.",
+    },
+  },
+  [normalizeText("The bookmark is in the storybook.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_place_bookmark_success_2472a83e.wav",
+      text: "The bookmark is in the storybook.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_place_bookmark_success_2472a83e.wav",
+      text: "The bookmark is in the storybook.",
+    },
+  },
+  [normalizeText("The bottle is in the bag.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bottle_to_bag_success_09bd0027.wav",
+      text: "The bottle is in the bag.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bottle_to_bag_success_09bd0027.wav",
+      text: "The bottle is in the bag.",
+    },
+  },
+  [normalizeText("The bus is on the road.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_bus_to_road_success_247cdc21.wav",
+      text: "The bus is on the road.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_bus_to_road_success_247cdc21.wav",
+      text: "The bus is on the road.",
+    },
+  },
+  [normalizeText("The car is in the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_car_to_basket_success_3baf6c41.wav",
+      text: "The car is in the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_car_to_basket_success_3baf6c41.wav",
+      text: "The car is in the basket.",
+    },
+  },
+  [normalizeText("The car is in the right place.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_car_to_floor_success_8f47eea3.wav",
+      text: "The car is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_car_to_floor_success_8f47eea3.wav",
+      text: "The car is in the right place.",
+    },
+  },
+  [normalizeText("The carafe is on the serving cart.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_carafe_to_cart_success_11fb8ff0.wav",
+      text: "The carafe is on the serving cart.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_carafe_to_cart_success_11fb8ff0.wav",
+      text: "The carafe is on the serving cart.",
+    },
+  },
+  [normalizeText("The chair is next to the desk.")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/drag_chair_to_desk_success_61c2d105.wav",
+      text: "The chair is next to the desk.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/drag_chair_to_desk_success_61c2d105.wav",
+      text: "The chair is next to the desk.",
+    },
+  },
+  [normalizeText("The chair is next to the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_chair_to_table_success_a32fdac7.wav",
+      text: "The chair is next to the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_chair_to_table_success_a32fdac7.wav",
+      text: "The chair is next to the table.",
+    },
+  },
+  [normalizeText("The cleaning brush is in the right place.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_brush_to_spill_success_f034be90.wav",
+      text: "The cleaning brush is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_brush_to_spill_success_f034be90.wav",
+      text: "The cleaning brush is in the right place.",
+    },
+  },
+  [normalizeText("The coaster is on the serving cart.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_coaster_to_cart_success_d7504ff4.wav",
+      text: "The coaster is on the serving cart.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_coaster_to_cart_success_d7504ff4.wav",
+      text: "The coaster is on the serving cart.",
+    },
+  },
+  [normalizeText("The cookie is in the right place.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_cookie_to_snack_success_2f704653.wav",
+      text: "The cookie is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_cookie_to_snack_success_2f704653.wav",
+      text: "The cookie is in the right place.",
+    },
+  },
+  [normalizeText("The cracker is on the small table.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_cracker_to_table_success_6175ebed.wav",
+      text: "The cracker is on the small table.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_cracker_to_table_success_6175ebed.wav",
+      text: "The cracker is on the small table.",
+    },
+  },
+  [normalizeText("The crayon is on the paper.")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_crayon_to_paper_success_dc8065c9.wav",
+      text: "The crayon is on the paper.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_crayon_to_paper_success_dc8065c9.wav",
+      text: "The crayon is on the paper.",
+    },
+  },
+  [normalizeText("The crumbs are in the trash bin.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_crumbs_to_trash_success_26c386eb.wav",
+      text: "The crumbs are in the trash bin.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_crumbs_to_trash_success_26c386eb.wav",
+      text: "The crumbs are in the trash bin.",
+    },
+  },
+  [normalizeText("The dirty clothes are in the laundry basket.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_clothes_to_basket_success_de4aa669.wav",
+      text: "The dirty clothes are in the laundry basket.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_clothes_to_basket_success_de4aa669.wav",
+      text: "The dirty clothes are in the laundry basket.",
+    },
+  },
+  [normalizeText("The drying mat is in the right place.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_drying_mat_success_a5fdbb47.wav",
+      text: "The drying mat is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_drying_mat_success_a5fdbb47.wav",
+      text: "The drying mat is in the right place.",
+    },
+  },
+  [normalizeText("The food cover is in the right place.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_cover_to_leftovers_success_8663fa73.wav",
+      text: "The food cover is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_cover_to_leftovers_success_8663fa73.wav",
+      text: "The food cover is in the right place.",
+    },
+  },
+  [normalizeText("The fruit is in the right place.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_fruit_to_table_success_95b637ec.wav",
+      text: "The fruit is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_fruit_to_table_success_95b637ec.wav",
+      text: "The fruit is in the right place.",
+    },
+  },
+  [normalizeText("The glow sticker is in the right place.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_glow_sticker_success_496cb50c.wav",
+      text: "The glow sticker is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_glow_sticker_success_496cb50c.wav",
+      text: "The glow sticker is in the right place.",
+    },
+  },
+  [normalizeText("The humidifier is in the right place.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_humidifier_success_b7bc6b59.wav",
+      text: "The humidifier is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_humidifier_success_b7bc6b59.wav",
+      text: "The humidifier is in the right place.",
+    },
+  },
+  [normalizeText("The kite is in the sky.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_kite_to_sky_success_f4bb2d59.wav",
+      text: "The kite is in the sky.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_kite_to_sky_success_f4bb2d59.wav",
+      text: "The kite is in the sky.",
+    },
+  },
+  [normalizeText("The ladle is on the serving tray.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_ladle_to_tray_success_0aae7ef9.wav",
+      text: "The ladle is on the serving tray.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_ladle_to_tray_success_0aae7ef9.wav",
+      text: "The ladle is on the serving tray.",
+    },
+  },
+  [normalizeText("The leftovers are on the kitchen counter.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_leftovers_to_counter_success_625bd1f5.wav",
+      text: "The leftovers are on the kitchen counter.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_leftovers_to_counter_success_625bd1f5.wav",
+      text: "The leftovers are on the kitchen counter.",
+    },
+  },
+  [normalizeText("The lunchbox is in the bag.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_lunchbox_to_bag_success_26d60636.wav",
+      text: "The lunchbox is in the bag.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_lunchbox_to_bag_success_26d60636.wav",
+      text: "The lunchbox is in the bag.",
+    },
+  },
+  [normalizeText("The napkin is on the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_napkin_to_table_success_fb825013.wav",
+      text: "The napkin is on the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_napkin_to_table_success_fb825013.wav",
+      text: "The napkin is on the table.",
+    },
+  },
+  [normalizeText("The noodles are in the meal.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_noodles_to_meal_success_696c6758.wav",
+      text: "The noodles are in the meal.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_noodles_to_meal_success_696c6758.wav",
+      text: "The noodles are in the meal.",
+    },
+  },
+  [normalizeText("The page tab is in the right place.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_page_tab_success_55bf892f.wav",
+      text: "The page tab is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_page_tab_success_55bf892f.wav",
+      text: "The page tab is in the right place.",
+    },
+  },
+  [normalizeText("The pencil is in the right place.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_pencil_to_notebook_success_d12c1c5d.wav",
+      text: "The pencil is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_pencil_to_notebook_success_d12c1c5d.wav",
+      text: "The pencil is in the right place.",
+    },
+  },
+  [normalizeText("The pencil is on the table.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_pencil_to_table_success_c5db4079.wav",
+      text: "The pencil is on the table.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_pencil_to_table_success_c5db4079.wav",
+      text: "The pencil is on the table.",
+    },
+  },
+  [normalizeText("The pillow is in the box.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_pillow_to_box_success_602438ac.wav",
+      text: "The pillow is in the box.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_pillow_to_box_success_602438ac.wav",
+      text: "The pillow is in the box.",
+    },
+  },
+  [normalizeText("The placemat is in the right place.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_placemat_to_spot_success_f8a013a4.wav",
+      text: "The placemat is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_placemat_to_spot_success_f8a013a4.wav",
+      text: "The placemat is in the right place.",
+    },
+  },
   [normalizeText("The Ride Home is complete.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/completion_41252568.wav",
@@ -12883,6 +16193,196 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/ride-home/audio/en/completion_41252568.wav",
       text: "The Ride Home is complete.",
+    },
+  },
+  [normalizeText("The ruler is on the notebook.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_ruler_to_paper_success_6cf69b2c.wav",
+      text: "The ruler is on the notebook.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_ruler_to_paper_success_6cf69b2c.wav",
+      text: "The ruler is on the notebook.",
+    },
+  },
+  [normalizeText("The salad is next to the meal.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_salad_to_meal_success_4fc3542a.wav",
+      text: "The salad is next to the meal.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_salad_to_meal_success_4fc3542a.wav",
+      text: "The salad is next to the meal.",
+    },
+  },
+  [normalizeText("The seat belt is in the right place.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_seat_belt_to_seat_success_9661f3b0.wav",
+      text: "The seat belt is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_to_seat_success_9661f3b0.wav",
+      text: "The seat belt is in the right place.",
+    },
+  },
+  [normalizeText("The shoes are in the right place.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/drag_shoes_to_door_success_70ff4498.wav",
+      text: "The shoes are in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/drag_shoes_to_door_success_70ff4498.wav",
+      text: "The shoes are in the right place.",
+    },
+  },
+  [normalizeText("The sleep mask is on the nightstand.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_mask_to_nightstand_success_f3ecdf9c.wav",
+      text: "The sleep mask is on the nightstand.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_mask_to_nightstand_success_f3ecdf9c.wav",
+      text: "The sleep mask is on the nightstand.",
+    },
+  },
+  [normalizeText("The slippers are on your feet.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_slippers_to_feet_success_6474c709.wav",
+      text: "The slippers are on your feet.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_slippers_to_feet_success_6474c709.wav",
+      text: "The slippers are on your feet.",
+    },
+  },
+  [normalizeText("The snack is on the table.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_snack_to_table_success_5b5749ad.wav",
+      text: "The snack is on the table.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_snack_to_table_success_5b5749ad.wav",
+      text: "The snack is on the table.",
+    },
+  },
+  [normalizeText("The soap is in the right place.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_soap_to_hand_success_d4212aea.wav",
+      text: "The soap is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_soap_to_hand_success_d4212aea.wav",
+      text: "The soap is in the right place.",
+    },
+  },
+  [normalizeText("The socks are in the box.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_socks_to_box_success_84527b47.wav",
+      text: "The socks are in the box.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_socks_to_box_success_84527b47.wav",
+      text: "The socks are in the box.",
+    },
+  },
+  [normalizeText("The sound machine is in the right place.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_sound_machine_success_2648a76d.wav",
+      text: "The sound machine is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_sound_machine_success_2648a76d.wav",
+      text: "The sound machine is in the right place.",
+    },
+  },
+  [normalizeText("The soup is in the bowl.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_soup_to_bowl_success_a169bf21.wav",
+      text: "The soup is in the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_soup_to_bowl_success_a169bf21.wav",
+      text: "The soup is in the bowl.",
+    },
+  },
+  [normalizeText("The spoon is next to the soup.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_spoon_to_soup_success_a896c3d1.wav",
+      text: "The spoon is next to the soup.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_spoon_to_soup_success_a896c3d1.wav",
+      text: "The spoon is next to the soup.",
+    },
+  },
+  [normalizeText("The storybook is in the right place.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_storybook_to_nook_success_e6a97162.wav",
+      text: "The storybook is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_storybook_to_nook_success_e6a97162.wav",
+      text: "The storybook is in the right place.",
+    },
+  },
+  [normalizeText("The straw is in the right place.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_straw_to_juice_success_571a21d4.wav",
+      text: "The straw is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_straw_to_juice_success_571a21d4.wav",
+      text: "The straw is in the right place.",
+    },
+  },
+  [normalizeText("The toothpaste is in the right place.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_toothpaste_to_brush_success_8b77df0b.wav",
+      text: "The toothpaste is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_toothpaste_to_brush_success_8b77df0b.wav",
+      text: "The toothpaste is in the right place.",
+    },
+  },
+  [normalizeText("The towel is in the right place.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_towel_to_face_success_c31894c3.wav",
+      text: "The towel is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_towel_to_face_success_c31894c3.wav",
+      text: "The towel is in the right place.",
+    },
+  },
+  [normalizeText("The toy is in the basket.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_toy_to_basket_success_126ab1b8.wav",
+      text: "The toy is in the basket.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_toy_to_basket_success_126ab1b8.wav",
+      text: "The toy is in the basket.",
+    },
+  },
+  [normalizeText("The wrapper is in the trash bin.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_to_trash_success_45882f5b.wav",
+      text: "The wrapper is in the trash bin.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_to_trash_success_45882f5b.wav",
+      text: "The wrapper is in the trash bin.",
+    },
+  },
+  [normalizeText("The wrapper is on the tray.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_to_tray_success_850ed934.wav",
+      text: "The wrapper is on the tray.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_to_tray_success_850ed934.wav",
+      text: "The wrapper is on the tray.",
     },
   },
   [normalizeText("This is the apple.")]: {
@@ -15387,6 +18887,916 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Try again.",
     },
   },
+  [normalizeText("Try to air dry the dishes.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_dishes_to_rack_fail_75b8496a.wav",
+      text: "Try to air dry the dishes.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_dishes_to_rack_fail_75b8496a.wav",
+      text: "Try to air dry the dishes.",
+    },
+  },
+  [normalizeText("Try to arrive the home.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_bus_to_house_fail_d6f6256b.wav",
+      text: "Try to arrive the home.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_bus_to_house_fail_d6f6256b.wav",
+      text: "Try to arrive the home.",
+    },
+  },
+  [normalizeText("Try to brush your teeth.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_toothbrush_fail_fb5a4415.wav",
+      text: "Try to brush your teeth.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_toothbrush_fail_fb5a4415.wav",
+      text: "Try to brush your teeth.",
+    },
+  },
+  [normalizeText("Try to buckle up.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/drag_seat_belt_buckle_fail_2fc08d82.wav",
+      text: "Try to buckle up.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_buckle_fail_2fc08d82.wav",
+      text: "Try to buckle up.",
+    },
+  },
+  [normalizeText("Try to build the tower.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/drag_blocks_to_tower_fail_e19d3c8a.wav",
+      text: "Try to build the tower.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/drag_blocks_to_tower_fail_e19d3c8a.wav",
+      text: "Try to build the tower.",
+    },
+  },
+  [normalizeText("Try to call the everyone.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_call_everyone_fail_cda40a52.wav",
+      text: "Try to call the everyone.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/tap_call_everyone_fail_cda40a52.wav",
+      text: "Try to call the everyone.",
+    },
+  },
+  [normalizeText("Try to carry the tray.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_carry_tray_fail_791a5c3f.wav",
+      text: "Try to carry the tray.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_carry_tray_fail_791a5c3f.wav",
+      text: "Try to carry the tray.",
+    },
+  },
+  [normalizeText("Try to check the dream journal.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_check_dream_journal_fail_caed1713.wav",
+      text: "Try to check the dream journal.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_check_dream_journal_fail_caed1713.wav",
+      text: "Try to check the dream journal.",
+    },
+  },
+  [normalizeText("Try to check the temperature.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_check_temperature_fail_73780bc5.wav",
+      text: "Try to check the temperature.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_check_temperature_fail_73780bc5.wav",
+      text: "Try to check the temperature.",
+    },
+  },
+  [normalizeText("Try to choose the snack.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_choice_fail_3c467c0b.wav",
+      text: "Try to choose the snack.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_choice_fail_3c467c0b.wav",
+      text: "Try to choose the snack.",
+    },
+  },
+  [normalizeText("Try to choose the story.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_choose_story_fail_ebc0aa77.wav",
+      text: "Try to choose the story.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/drag_choose_story_fail_ebc0aa77.wav",
+      text: "Try to choose the story.",
+    },
+  },
+  [normalizeText("Try to choose the toy.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_choice_fail_c60ea3f6.wav",
+      text: "Try to choose the toy.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/tap_choice_fail_c60ea3f6.wav",
+      text: "Try to choose the toy.",
+    },
+  },
+  [normalizeText("Try to clean up the toys.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_toy_clean_up_fail_f4a4a4d2.wav",
+      text: "Try to clean up the toys.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_toy_clean_up_fail_f4a4a4d2.wav",
+      text: "Try to clean up the toys.",
+    },
+  },
+  [normalizeText("Try to clean up.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_book_to_box_fail_0b0c6457.wav",
+      text: "Try to clean up.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_drag_book_to_box_fail_0b0c6457.wav",
+      text: "Try to clean up.",
+    },
+  },
+  [normalizeText("Try to close the curtains.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_close_curtains_fail_3c2aa4a8.wav",
+      text: "Try to close the curtains.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_close_curtains_fail_3c2aa4a8.wav",
+      text: "Try to close the curtains.",
+    },
+  },
+  [normalizeText("Try to comb your hair.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_comb_to_hair_fail_43821c3c.wav",
+      text: "Try to comb your hair.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_comb_to_hair_fail_43821c3c.wav",
+      text: "Try to comb your hair.",
+    },
+  },
+  [normalizeText("Try to draw a circle.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_crayon_to_paper_fail_404db895.wav",
+      text: "Try to draw a circle.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_crayon_to_paper_fail_404db895.wav",
+      text: "Try to draw a circle.",
+    },
+  },
+  [normalizeText("Try to draw the picture.")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_crayon_draw_fail_8d4c8999.wav",
+      text: "Try to draw the picture.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_crayon_draw_fail_8d4c8999.wav",
+      text: "Try to draw the picture.",
+    },
+  },
+  [normalizeText("Try to drink the water.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_bottle_to_mouth_fail_2aad757c.wav",
+      text: "Try to drink the water.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_bottle_to_mouth_fail_2aad757c.wav",
+      text: "Try to drink the water.",
+    },
+  },
+  [normalizeText("Try to dry the surface.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_dry_surface_fail_313b1a40.wav",
+      text: "Try to dry the surface.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_dry_surface_fail_313b1a40.wav",
+      text: "Try to dry the surface.",
+    },
+  },
+  [normalizeText("Try to dry your face.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/review_towel_fail_5c547cbc.wav",
+      text: "Try to dry your face.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/review_towel_fail_5c547cbc.wav",
+      text: "Try to dry your face.",
+    },
+  },
+  [normalizeText("Try to eat the breakfast.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_bread_to_mouth_fail_6deaea98.wav",
+      text: "Try to eat the breakfast.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_bread_to_mouth_fail_6deaea98.wav",
+      text: "Try to eat the breakfast.",
+    },
+  },
+  [normalizeText("Try to eat the lunch.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_rice_to_mouth_fail_43bec4fa.wav",
+      text: "Try to eat the lunch.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_rice_to_mouth_fail_43bec4fa.wav",
+      text: "Try to eat the lunch.",
+    },
+  },
+  [normalizeText("Try to eat the snack.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_drag_snack_to_mouth_fail_4f74c30b.wav",
+      text: "Try to eat the snack.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_drag_snack_to_mouth_fail_4f74c30b.wav",
+      text: "Try to eat the snack.",
+    },
+  },
+  [normalizeText("Try to get on the bus.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_bus_door_fail_c4de9a4f.wav",
+      text: "Try to get on the bus.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_bus_door_fail_c4de9a4f.wav",
+      text: "Try to get on the bus.",
+    },
+  },
+  [normalizeText("Try to hang the robe.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_robe_to_hook_fail_fe634e8a.wav",
+      text: "Try to hang the robe.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_robe_to_hook_fail_fe634e8a.wav",
+      text: "Try to hang the robe.",
+    },
+  },
+  [normalizeText("Try to hug the comfort plush.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_hug_comfort_plush_fail_4faafe4c.wav",
+      text: "Try to hug the comfort plush.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_hug_comfort_plush_fail_4faafe4c.wav",
+      text: "Try to hug the comfort plush.",
+    },
+  },
+  [normalizeText("Try to hug your family.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_hug_fail_6548f1e0.wav",
+      text: "Try to hug your family.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_family_hug_fail_6548f1e0.wav",
+      text: "Try to hug your family.",
+    },
+  },
+  [normalizeText("Try to jump.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_jump_hoop_fail_8c7afdc0.wav",
+      text: "Try to jump.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_jump_hoop_fail_8c7afdc0.wav",
+      text: "Try to jump.",
+    },
+  },
+  [normalizeText("Try to label the container.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_label_to_container_fail_4518ce4c.wav",
+      text: "Try to label the container.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_label_to_container_fail_4518ce4c.wav",
+      text: "Try to label the container.",
+    },
+  },
+  [normalizeText("Try to line up.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_bag_to_line_fail_848f649d.wav",
+      text: "Try to line up.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_bag_to_line_fail_848f649d.wav",
+      text: "Try to line up.",
+    },
+  },
+  [normalizeText("Try to listen.")]: {
+    "en-US": {
+      key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_tap_teacher_listen_fail_319662d9.wav",
+      text: "Try to listen.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_tap_teacher_listen_fail_319662d9.wav",
+      text: "Try to listen.",
+    },
+  },
+  [normalizeText("Try to load the dishwasher.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_dish_to_dishwasher_fail_dab5fb24.wav",
+      text: "Try to load the dishwasher.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_dish_to_dishwasher_fail_dab5fb24.wav",
+      text: "Try to load the dishwasher.",
+    },
+  },
+  [normalizeText("Try to make the bed.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/drag_blanket_to_box_fail_c5eec2ff.wav",
+      text: "Try to make the bed.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/drag_blanket_to_box_fail_c5eec2ff.wav",
+      text: "Try to make the bed.",
+    },
+  },
+  [normalizeText("Try to make the bubbles.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_foam_to_bubbles_fail_9d8b47b7.wav",
+      text: "Try to make the bubbles.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_foam_to_bubbles_fail_9d8b47b7.wav",
+      text: "Try to make the bubbles.",
+    },
+  },
+  [normalizeText("Try to move the cart.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_move_cart_fail_c3b1eeb7.wav",
+      text: "Try to move the cart.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_move_cart_fail_c3b1eeb7.wav",
+      text: "Try to move the cart.",
+    },
+  },
+  [normalizeText("Try to open the book.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_tap_book_open_fail_f0855c50.wav",
+      text: "Try to open the book.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_tap_book_open_fail_f0855c50.wav",
+      text: "Try to open the book.",
+    },
+  },
+  [normalizeText("Try to open the lunchbox.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_open_lunchbox_fail_6f2735ac.wav",
+      text: "Try to open the lunchbox.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_open_lunchbox_fail_6f2735ac.wav",
+      text: "Try to open the lunchbox.",
+    },
+  },
+  [normalizeText("Try to open the snack box.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_box_open_fail_f82bccc7.wav",
+      text: "Try to open the snack box.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_box_open_fail_f82bccc7.wav",
+      text: "Try to open the snack box.",
+    },
+  },
+  [normalizeText("Try to pack the bag.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/drag_folder_to_bag_fail_440d16c1.wav",
+      text: "Try to pack the bag.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/drag_folder_to_bag_fail_440d16c1.wav",
+      text: "Try to pack the bag.",
+    },
+  },
+  [normalizeText("Try to pass the dish.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_dish_to_grownup_fail_807fc263.wav",
+      text: "Try to pass the dish.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_dish_to_grownup_fail_807fc263.wav",
+      text: "Try to pass the dish.",
+    },
+  },
+  [normalizeText("Try to play the gently.")]: {
+    "en-US": {
+      key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_doll_gently_fail_cc96c757.wav",
+      text: "Try to play the gently.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/tap_doll_gently_fail_cc96c757.wav",
+      text: "Try to play the gently.",
+    },
+  },
+  [normalizeText("Try to play the lullaby.")]: {
+    "en-US": {
+      key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_play_lullaby_fail_dd2f47c0.wav",
+      text: "Try to play the lullaby.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_play_lullaby_fail_dd2f47c0.wav",
+      text: "Try to play the lullaby.",
+    },
+  },
+  [normalizeText("Try to play together.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_blocks_play_together_fail_21608c9a.wav",
+      text: "Try to play together.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_blocks_play_together_fail_21608c9a.wav",
+      text: "Try to play together.",
+    },
+  },
+  [normalizeText("Try to pour the juice.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_juice_to_container_fail_edeee213.wav",
+      text: "Try to pour the juice.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/drag_juice_to_container_fail_edeee213.wav",
+      text: "Try to pour the juice.",
+    },
+  },
+  [normalizeText("Try to pour the milk.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_milk_to_cup_fail_1d81a1fa.wav",
+      text: "Try to pour the milk.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_milk_to_cup_fail_1d81a1fa.wav",
+      text: "Try to pour the milk.",
+    },
+  },
+  [normalizeText("Try to put away the book.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_book_away_fail_b020256d.wav",
+      text: "Try to put away the book.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_book_away_fail_b020256d.wav",
+      text: "Try to put away the book.",
+    },
+  },
+  [normalizeText("Try to put away the tray.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_tray_away_fail_fb3e99c5.wav",
+      text: "Try to put away the tray.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_tray_away_fail_fb3e99c5.wav",
+      text: "Try to put away the tray.",
+    },
+  },
+  [normalizeText("Try to put on the pajamas.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_pajamas_to_baby_fail_a6cc4e99.wav",
+      text: "Try to put on the pajamas.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_pajamas_to_baby_fail_a6cc4e99.wav",
+      text: "Try to put on the pajamas.",
+    },
+  },
+  [normalizeText("Try to put on the shoes.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_drag_shoes_to_feet_fail_59fb2834.wav",
+      text: "Try to put on the shoes.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_drag_shoes_to_feet_fail_59fb2834.wav",
+      text: "Try to put on the shoes.",
+    },
+  },
+  [normalizeText("Try to raise your hand.")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_hand_fail_900d434f.wav",
+      text: "Try to raise your hand.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_hand_fail_900d434f.wav",
+      text: "Try to raise your hand.",
+    },
+  },
+  [normalizeText("Try to read the book.")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_book_read_fail_4d808b99.wav",
+      text: "Try to read the book.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_book_read_fail_4d808b99.wav",
+      text: "Try to read the book.",
+    },
+  },
+  [normalizeText("Try to read the softly.")]: {
+    "en-US": {
+      key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_read_softly_fail_a5aa796e.wav",
+      text: "Try to read the softly.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_read_softly_fail_a5aa796e.wav",
+      text: "Try to read the softly.",
+    },
+  },
+  [normalizeText("Try to rest.")]: {
+    "en-US": {
+      key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_bench_rest_fail_cdb4f6d0.wav",
+      text: "Try to rest.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_bench_rest_fail_cdb4f6d0.wav",
+      text: "Try to rest.",
+    },
+  },
+  [normalizeText("Try to rinse your hair.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_shower_head_to_hair_fail_f33816f8.wav",
+      text: "Try to rinse your hair.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_shower_head_to_hair_fail_f33816f8.wav",
+      text: "Try to rinse your hair.",
+    },
+  },
+  [normalizeText("Try to run.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_run_path_fail_0a1b5c69.wav",
+      text: "Try to run.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_run_path_fail_0a1b5c69.wav",
+      text: "Try to run.",
+    },
+  },
+  [normalizeText("Try to save the leftovers.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/drag_save_leftovers_fail_ac325c8b.wav",
+      text: "Try to save the leftovers.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/drag_save_leftovers_fail_ac325c8b.wav",
+      text: "Try to save the leftovers.",
+    },
+  },
+  [normalizeText("Try to say thank you.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_tap_thanks_card_fail_93c0b9df.wav",
+      text: "Try to say thank you.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_thanks_card_fail_93c0b9df.wav",
+      text: "Try to say thank you.",
+    },
+  },
+  [normalizeText("Try to say the good night.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_good_night_fail_dfc3069b.wav",
+      text: "Try to say the good night.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/tap_good_night_fail_dfc3069b.wav",
+      text: "Try to say the good night.",
+    },
+  },
+  [normalizeText("Try to say the goodbye.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_goodbye_card_fail_c9fc194f.wav",
+      text: "Try to say the goodbye.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_goodbye_card_fail_c9fc194f.wav",
+      text: "Try to say the goodbye.",
+    },
+  },
+  [normalizeText("Try to scrub the knees.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/drag_sponge_to_knee_fail_b9211401.wav",
+      text: "Try to scrub the knees.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/drag_sponge_to_knee_fail_b9211401.wav",
+      text: "Try to scrub the knees.",
+    },
+  },
+  [normalizeText("Try to scrub the spot.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_brush_scrub_spot_fail_60389afe.wav",
+      text: "Try to scrub the spot.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_brush_scrub_spot_fail_60389afe.wav",
+      text: "Try to scrub the spot.",
+    },
+  },
+  [normalizeText("Try to serve the noodles.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_serve_noodles_fail_ada62b54.wav",
+      text: "Try to serve the noodles.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_serve_noodles_fail_ada62b54.wav",
+      text: "Try to serve the noodles.",
+    },
+  },
+  [normalizeText("Try to set the placemat.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/drag_set_placemat_fail_2c9ffbf3.wav",
+      text: "Try to set the placemat.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/drag_set_placemat_fail_2c9ffbf3.wav",
+      text: "Try to set the placemat.",
+    },
+  },
+  [normalizeText("Try to share the food.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_fruit_to_friend_fail_429d9264.wav",
+      text: "Try to share the food.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_fruit_to_friend_fail_429d9264.wav",
+      text: "Try to share the food.",
+    },
+  },
+  [normalizeText("Try to share the toys.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_drag_toy_to_friend_fail_f5e6ee6d.wav",
+      text: "Try to share the toys.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_toy_to_friend_fail_f5e6ee6d.wav",
+      text: "Try to share the toys.",
+    },
+  },
+  [normalizeText("Try to sip the juice.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_sip_to_mouth_fail_372739c8.wav",
+      text: "Try to sip the juice.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_sip_to_mouth_fail_372739c8.wav",
+      text: "Try to sip the juice.",
+    },
+  },
+  [normalizeText("Try to sip.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_sip_fail_270ff10a.wav",
+      text: "Try to sip.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_sip_fail_270ff10a.wav",
+      text: "Try to sip.",
+    },
+  },
+  [normalizeText("Try to sit at the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_drag_chair_to_seat_fail_b747c414.wav",
+      text: "Try to sit at the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_drag_chair_to_seat_fail_b747c414.wav",
+      text: "Try to sit at the table.",
+    },
+  },
+  [normalizeText("Try to sit down.")]: {
+    "en-US": {
+      key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_chair_sit_down_fail_64989c8d.wav",
+      text: "Try to sit down.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/classroom/audio/en-GB/neural2-c-r1/tap_chair_sit_down_fail_64989c8d.wav",
+      text: "Try to sit down.",
+    },
+  },
+  [normalizeText("Try to solve the puzzle.")]: {
+    "en-US": {
+      key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/drag_puzzle_piece_fail_31b9eff3.wav",
+      text: "Try to solve the puzzle.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/drag_puzzle_piece_fail_31b9eff3.wav",
+      text: "Try to solve the puzzle.",
+    },
+  },
+  [normalizeText("Try to sort the recycling.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_carton_to_recycling_fail_2175f0da.wav",
+      text: "Try to sort the recycling.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_carton_to_recycling_fail_2175f0da.wav",
+      text: "Try to sort the recycling.",
+    },
+  },
+  [normalizeText("Try to spray the stain.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_spray_to_stain_fail_9c2e4da1.wav",
+      text: "Try to spray the stain.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_spray_to_stain_fail_9c2e4da1.wav",
+      text: "Try to spray the stain.",
+    },
+  },
+  [normalizeText("Try to stack the coasters.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_stack_coasters_fail_52255017.wav",
+      text: "Try to stack the coasters.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_stack_coasters_fail_52255017.wav",
+      text: "Try to stack the coasters.",
+    },
+  },
+  [normalizeText("Try to start the timer.")]: {
+    "en-US": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_start_timer_fail_b94ccfd9.wav",
+      text: "Try to start the timer.",
+    },
+    "en-GB": {
+      key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_start_timer_fail_b94ccfd9.wav",
+      text: "Try to start the timer.",
+    },
+  },
+  [normalizeText("Try to step onto the mat.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_step_onto_mat_fail_48c00abe.wav",
+      text: "Try to step onto the mat.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_step_onto_mat_fail_48c00abe.wav",
+      text: "Try to step onto the mat.",
+    },
+  },
+  [normalizeText("Try to take a bite.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_cracker_to_mouth_fail_3c6dbd29.wav",
+      text: "Try to take a bite.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_cracker_to_mouth_fail_3c6dbd29.wav",
+      text: "Try to take a bite.",
+    },
+  },
+  [normalizeText("Try to take the off shoes.")]: {
+    "en-US": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/drag_shoes_to_shelf_fail_ed984c08.wav",
+      text: "Try to take the off shoes.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/drag_shoes_to_shelf_fail_ed984c08.wav",
+      text: "Try to take the off shoes.",
+    },
+  },
+  [normalizeText("Try to take turns.")]: {
+    "en-US": {
+      key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/drag_ball_to_turn_fail_69ac0ab4.wav",
+      text: "Try to take turns.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/drag_ball_to_turn_fail_69ac0ab4.wav",
+      text: "Try to take turns.",
+    },
+  },
+  [normalizeText("Try to throw away the wrapper.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/drag_wrapper_away_fail_90f1527f.wav",
+      text: "Try to throw away the wrapper.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/drag_wrapper_away_fail_90f1527f.wav",
+      text: "Try to throw away the wrapper.",
+    },
+  },
+  [normalizeText("Try to tidy the room.")]: {
+    "en-US": {
+      key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_basket_to_shelf_fail_b6fe6cec.wav",
+      text: "Try to tidy the room.",
+    },
+    "en-GB": {
+      key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_basket_to_shelf_fail_b6fe6cec.wav",
+      text: "Try to tidy the room.",
+    },
+  },
+  [normalizeText("Try to try the vegetables.")]: {
+    "en-US": {
+      key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/drag_vegetables_to_child_fail_31f88121.wav",
+      text: "Try to try the vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_vegetables_to_child_fail_31f88121.wav",
+      text: "Try to try the vegetables.",
+    },
+  },
+  [normalizeText("Try to turn on the shower.")]: {
+    "en-US": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_turn_on_shower_fail_46b49851.wav",
+      text: "Try to turn on the shower.",
+    },
+    "en-GB": {
+      key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_turn_on_shower_fail_46b49851.wav",
+      text: "Try to turn on the shower.",
+    },
+  },
+  [normalizeText("Try to use the spoon.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_drag_spoon_to_mouth_fail_ba038689.wav",
+      text: "Try to use the spoon.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_spoon_to_mouth_fail_ba038689.wav",
+      text: "Try to use the spoon.",
+    },
+  },
+  [normalizeText("Try to wait.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_wait_clock_fail_e081f562.wav",
+      text: "Try to wait.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_tap_wait_clock_fail_e081f562.wav",
+      text: "Try to wait.",
+    },
+  },
+  [normalizeText("Try to wash your face.")]: {
+    "en-US": {
+      key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/drag_water_to_face_fail_37255a36.wav",
+      text: "Try to wash your face.",
+    },
+    "en-GB": {
+      key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/drag_water_to_face_fail_37255a36.wav",
+      text: "Try to wash your face.",
+    },
+  },
+  [normalizeText("Try to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_soap_to_hands_fail_a7c92df1.wav",
+      text: "Try to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_soap_to_hands_fail_a7c92df1.wav",
+      text: "Try to wash your hands.",
+    },
+  },
+  [normalizeText("Try to wear the sleep mask.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_wear_sleep_mask_fail_c6f2acca.wav",
+      text: "Try to wear the sleep mask.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_wear_sleep_mask_fail_c6f2acca.wav",
+      text: "Try to wear the sleep mask.",
+    },
+  },
+  [normalizeText("Try to wipe the table.")]: {
+    "en-US": {
+      key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_towel_to_table_fail_5ed95aaa.wav",
+      text: "Try to wipe the table.",
+    },
+    "en-GB": {
+      key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_drag_towel_to_table_fail_5ed95aaa.wav",
+      text: "Try to wipe the table.",
+    },
+  },
+  [normalizeText("Try to wipe your mouth.")]: {
+    "en-US": {
+      key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/drag_napkin_to_mouth_fail_00c82a10.wav",
+      text: "Try to wipe your mouth.",
+    },
+    "en-GB": {
+      key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/drag_napkin_to_mouth_fail_00c82a10.wav",
+      text: "Try to wipe your mouth.",
+    },
+  },
+  [normalizeText("Try to write your name.")]: {
+    "en-US": {
+      key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_pencil_to_paper_fail_b3e99b69.wav",
+      text: "Try to write your name.",
+    },
+    "en-GB": {
+      key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_pencil_to_paper_fail_b3e99b69.wav",
+      text: "Try to write your name.",
+    },
+  },
   [normalizeText("try vegetables")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/try_vegetables.wav",
@@ -15513,6 +19923,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wait",
     },
   },
+  [normalizeText("Wait.")]: {
+    "en-US": {
+      key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_tap_wait_clock_c6fcc4d5.wav",
+      text: "Wait.",
+    },
+    "en-GB": {
+      key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_tap_wait_clock_c6fcc4d5.wav",
+      text: "Wait.",
+    },
+  },
   [normalizeText("Wash and rinse!")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_intro_05ccd00c.wav",
@@ -15623,6 +20043,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/wear_sleep_mask.wav",
       text: "wear sleep mask",
+    },
+  },
+  [normalizeText("Wear sleep mask.")]: {
+    "en-US": {
+      key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_drag_wear_sleep_mask_0b60bc68.wav",
+      text: "Wear sleep mask.",
+    },
+    "en-GB": {
+      key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_drag_wear_sleep_mask_0b60bc68.wav",
+      text: "Wear sleep mask.",
     },
   },
   [normalizeText("window")]: {

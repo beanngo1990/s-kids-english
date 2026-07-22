@@ -306,6 +306,56 @@ test('resolves feedback, recording encouragement and review intro by teacher pro
     segments: [{ language: 'en', text: 'It means good morning.' }],
   });
 
+  const openBookStep: SceneStep = {
+    id: 'open-book',
+    instructionVi: 'Mở quyển sách theo lời cô.',
+    interaction: { targetObjectId: 'book', type: 'tap' },
+    promptText: 'open book',
+    successFeedbackVi: 'Bé mở sách đúng rồi!',
+    targetObjectIds: ['book'],
+    type: 'practice',
+    vocabId: 'open-book',
+  };
+  const openBookScene: Scene = {
+    ...scene,
+    objects: [
+      {
+        asset: { id: 'book', source: 'book', type: 'image' },
+        id: 'book',
+        isInteractive: true,
+        position: { height: 20, width: 20, x: 20, y: 20 },
+        role: 'learning',
+        vocabId: 'open-book',
+      },
+    ],
+    steps: [openBookStep],
+    vocabulary: [
+      {
+        id: 'open-book',
+        level: 'medium',
+        meaningVi: 'mở sách',
+        type: 'phrase',
+        word: 'open book',
+      },
+    ],
+  };
+
+  expect(
+    resolveTeacherFeedback({
+      mode: 'bilingual',
+      scene: openBookScene,
+      step: openBookStep,
+      type: 'success',
+      viText: openBookStep.successFeedbackVi,
+    }),
+  ).toEqual({
+    displayText: 'Bé mở sách đúng rồi!\nThat\'s right, you opened the book!',
+    segments: [
+      { language: 'vi', text: 'Bé mở sách đúng rồi!' },
+      { language: 'en', text: "That's right, you opened the book!" },
+    ],
+  });
+
   expect(
     resolveTeacherFeedback({
       mode: 'bilingual',

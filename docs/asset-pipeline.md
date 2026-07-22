@@ -79,10 +79,12 @@ signal.
 Once published, every path containing `neural2-c-r1` is immutable. A change to
 voice, rate, sample format, pronunciation input or post-processing requires a
 new release path instead of replacing bytes at an existing R2 key. Keeping the
-legacy `audio/en/` objects allows an en-US rollback without deleting the new
-accent release. The generator enforces this lock by comparing the published
-provenance config, voice metadata and SHA-256 with local files and rejecting
-`--force` or drift on a published English key.
+legacy `audio/en/` objects allows an en-US rollback for targets that already
+have legacy files, but new production English targets do not create new
+`audio/en/` files. The generator includes a manifest `legacy` fallback only
+when that legacy file exists, and still enforces the immutable release lock by
+comparing the published provenance config, voice metadata and SHA-256 with
+local files and rejecting `--force` or drift on a published English key.
 
 Parent Mode defaults missing/legacy preferences to en-US. Selecting en-US or
 en-GB changes English playback only; it does not localize the UI or switch
