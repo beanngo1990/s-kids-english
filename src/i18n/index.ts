@@ -4,7 +4,7 @@ import {
   getParentSettings,
   subscribeParentSettings,
 } from '../engine/ParentSettingsManager';
-import type { AppLanguage } from './types';
+import type { AppLanguage, TeacherPromptMode } from './types';
 import { en } from './dictionaries/en';
 import {
   vi,
@@ -69,6 +69,48 @@ export function useSavedAppLanguage() {
   }, []);
 
   return language || 'vi';
+}
+
+export function useSavedTeacherPromptMode() {
+  const [mode, setMode] = useState<TeacherPromptMode>('vi');
+
+  useEffect(() => {
+    let isMounted = true;
+
+    getParentSettings()
+      .then(settings => {
+        if (isMounted) {
+          setMode(settings?.teacherPromptMode || 'vi');
+        }
+      })
+      .catch(() => undefined);
+
+    const unsubscribe = subscribeParentSettings(settings => {
+      if (isMounted) {
+        setMode(settings.teacherPromptMode || 'vi');
+      }
+    });
+
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
+  }, []);
+
+  return mode || 'vi';
+}
+
+export function useSavedPromptLanguage(): AppLanguage {
+  const appLanguage = useSavedAppLanguage();
+  const teacherPromptMode = useSavedTeacherPromptMode();
+
+  if (teacherPromptMode === 'en') {
+    return 'en';
+  }
+  if (teacherPromptMode === 'vi') {
+    return 'vi';
+  }
+  return appLanguage;
 }
 
 export function useSavedTranslations() {

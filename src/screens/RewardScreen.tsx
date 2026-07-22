@@ -20,10 +20,14 @@ import {
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { playCompleteSound, speakWord } from '../engine/AudioManager';
+import { playCompleteSound, playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
-import { useI18n, useSavedAppLanguage } from '../i18n';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import type { SceneObject } from '../types/lesson';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -94,6 +98,16 @@ export function RewardScreen({ navigation, route }: Props) {
     ? canAccessLesson(nextLesson.id, monetizationSnapshot)
     : false;
 
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
   const handleOpenLesson = (lessonId: string, openLesson: () => void) => {
     const latestMonetizationSnapshot = getMonetizationSnapshot();
     if (canAccessLesson(lessonId, latestMonetizationSnapshot)) {
@@ -102,10 +116,12 @@ export function RewardScreen({ navigation, route }: Props) {
     }
 
     if (latestMonetizationSnapshot.status === 'initializing') {
+      playKidLockPrompt('resolving');
       Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
       return;
     }
 
+    playKidLockPrompt('premium');
     Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
       { style: 'cancel', text: t('common.close') },
       {

@@ -51,7 +51,7 @@ import {
   getLocalizedSceneTitle,
   getLocalizedThemeTitle,
 } from '../i18n/domainCopy';
-import { useI18n, useSavedAppLanguage } from '../i18n';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
@@ -73,10 +73,10 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
 const KID_LOCK_PROMPT_THROTTLE_MS = 1500;
 
-function speakSungyLine(message: string, language: AppLanguage = 'vi') {
-  playTapSound().catch(() => undefined);
+async function speakSungyLine(message: string, language: AppLanguage = 'vi') {
+  await playTapSound().catch(() => undefined);
   const speech = language === 'en' ? speakWord(message) : speakVi(message);
-  speech.catch(() => undefined);
+  await speech.catch(() => undefined);
 }
 
 type ThemeMapNode = {
@@ -406,15 +406,7 @@ export function HomeScreen({ navigation }: Props) {
     [ctaNode, showFocusButton],
   );
 
-  const openParentPremium = useCallback(
-    (lessonId: string) => {
-      navigation.navigate('Parent', {
-        intent: 'premium',
-        lessonId,
-      });
-    },
-    [navigation],
-  );
+  const promptLanguage = useSavedPromptLanguage();
 
   const playKidLockPrompt = useCallback(
     (reason: KidLockReason) => {
@@ -424,9 +416,23 @@ export function HomeScreen({ navigation }: Props) {
       }
 
       lastKidLockPromptAtRef.current = now;
-      speakSungyLine(getKidLockAudioPrompt(reason, appLanguage), appLanguage);
+      speakSungyLine(
+        getKidLockAudioPrompt(reason, promptLanguage),
+        promptLanguage,
+      );
     },
-    [appLanguage],
+    [promptLanguage],
+  );
+
+  const openParentPremium = useCallback(
+    (lessonId: string) => {
+      playKidLockPrompt('premium');
+      navigation.navigate('Parent', {
+        intent: 'premium',
+        lessonId,
+      });
+    },
+    [navigation, playKidLockPrompt],
   );
 
   const showProgressLock = useCallback(() => {

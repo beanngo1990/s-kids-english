@@ -4,6 +4,11 @@ import { Alert, Pressable, Text, View } from 'react-native';
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
 import { canAccessReview } from '../engine/ContentAccessPolicy';
 import {
@@ -14,7 +19,7 @@ import {
   getLocalizedLessonTitle,
   getLocalizedReviewGameTitle,
 } from '../i18n/domainCopy';
-import { useI18n } from '../i18n';
+import { useI18n, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -78,6 +83,16 @@ export function KidPlayPanel({
     ];
   }, [pendingReviewLesson, reviewLessons]);
 
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
   const handleOpenReviewGame = (
     lessonId: string,
     isProgressUnlocked: boolean,
@@ -91,10 +106,12 @@ export function KidPlayPanel({
     }
 
     if (latestMonetizationSnapshot.status === 'initializing') {
+      playKidLockPrompt('resolving');
       Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
       return;
     }
 
+    playKidLockPrompt('premium');
     Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
       { style: 'cancel', text: t('common.close') },
       {
