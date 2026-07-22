@@ -51,13 +51,18 @@ import type {
 } from '../types/lesson';
 import { DEFAULT_ENGLISH_ACCENT, type EnglishAccent } from '../types/audio';
 import {
+  cancelNarration,
   playCorrectSound,
+  playTeacherPromptNarration,
+  playWordNarration,
   playSoundEffect,
   playTapSound,
   playWrongSound,
-  speakTeacherPromptSegments,
   speakVi,
   speakWord,
+  startNarrationSession,
+  type NarrationPlaybackResult,
+  type NarrationSession,
 } from './AudioManager';
 import { getSceneFallbackPalette } from './AssetFallbacks';
 import { prefetchAssets, resolveAsset } from './AssetRegistry';
@@ -127,6 +132,7 @@ type SceneCompletionState = {
 
 const objectAudioCooldownMs = 900;
 const interactionCooldownMs = 400;
+const feedbackPlaybackTimeoutMs = 15000;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -698,6 +704,7 @@ export function ScenePlayer({
       advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
       clearTimer(clearFeedbackTimerRef);
+      cancelStepAudioSequence();
     };
   }, []);
 
@@ -766,6 +773,11 @@ export function ScenePlayer({
 
       setPreparedStepAudioKey(stepAudioPreparationKey);
       playAudioForStep(currentScene, currentStep, teacherPromptMode, {
+        onAudioFailure: () => {
+          if (isActive) {
+            setRequiredAssetFailure('step');
+          }
+        },
         onAudioComplete: () => {
           if (isListeningStep) {
             setCompletedListenInstructionKey(instructionKey);
@@ -970,12 +982,15 @@ export function ScenePlayer({
       currentScene,
       currentStep,
       teacherPromptMode,
-      isListenStep(currentStep) && isInstructionPlaying
-        ? {
+      {
+        onAudioFailure: () => setRequiredAssetFailure('step'),
+        ...(isListenStep(currentStep) && isInstructionPlaying
+          ? {
             onAudioComplete: () =>
               setCompletedListenInstructionKey(currentListenInstructionKey),
-          }
-        : undefined,
+            }
+          : {}),
+      },
     );
 
     const targetIds =
@@ -1009,7 +1024,9 @@ export function ScenePlayer({
 
     cancelStepAudioSequence();
     clearTimer(clearFeedbackTimerRef);
-    runAudio(playObjectVocabularyAudio(speakPracticeWord));
+    runAudio(
+      playObjectVocabularyAudio(speakPracticeWord, startNarrationSession()),
+    );
   };
 
   const handleContinue = () => {
@@ -1017,6 +1034,7 @@ export function ScenePlayer({
       isAdvancing ||
       isInstructionPending ||
       isContinuePreparingFeedback ||
+      isSpeechPracticeBusy ||
       isSceneComplete
     ) {
       return;
@@ -1087,7 +1105,9 @@ export function ScenePlayer({
       text: vocabularyItem.word,
       type: 'info',
     });
-    runAudio(playObjectVocabularyAudio(vocabularyItem.word));
+    runAudio(
+      playObjectVocabularyAudio(vocabularyItem.word, startNarrationSession()),
+    );
   };
 
   const handleObjectDrop = (
@@ -1168,6 +1188,7 @@ export function ScenePlayer({
       return;
     }
 
+    cancelStepAudioSequence();
     clearTimer(clearFeedbackTimerRef);
 
     if (result.status === 'incorrect') {
@@ -1199,7 +1220,21 @@ export function ScenePlayer({
         text: feedbackPrompt.displayText,
         type: 'fail',
       });
-      runAudio(playInteractionFeedbackAudio('fail', feedbackPrompt));
+      const narrationSession = startNarrationSession();
+      runAudio(
+        playInteractionFeedbackAudio(
+          'fail',
+          feedbackPrompt,
+          narrationSession,
+        ).then(playbackResult => {
+          if (
+            playbackResult === 'failed' &&
+            narrationSession.isActive()
+          ) {
+            setRequiredAssetFailure('feedback');
+          }
+        }),
+      );
       clearFeedbackTimerRef.current = setTimeout(() => {
         setShakeObjectIds([]);
         setHintObjectIds([]);
@@ -1266,16 +1301,47 @@ export function ScenePlayer({
       }
 
       setFeedbackAudioStatus('playing');
+      const narrationSession = startNarrationSession();
       advanceTimerRef.current = setTimeout(() => {
-        advanceIfCurrent();
-      }, getFeedbackFallbackDelay(feedbackPrompt.displayText));
+        if (
+          advanceRequestIdRef.current !== requestId ||
+          !narrationSession.isActive()
+        ) {
+          return;
+        }
 
-      await playInteractionFeedbackAudio(
+        cancelStepAudioSequence();
+        setFeedbackAudioStatus(null);
+        setRequiredAssetFailure('feedback');
+      }, feedbackPlaybackTimeoutMs);
+
+      const playbackResult = await playInteractionFeedbackAudio(
         'success',
         feedbackPrompt,
+        narrationSession,
         result.soundEffect,
       );
+      if (
+        advanceRequestIdRef.current !== requestId ||
+        !narrationSession.isActive()
+      ) {
+        return;
+      }
+      clearTimer(advanceTimerRef);
+      if (playbackResult !== 'completed') {
+        if (playbackResult === 'failed') {
+          setFeedbackAudioStatus(null);
+          setRequiredAssetFailure('feedback');
+        }
+        return;
+      }
       await delay(260);
+      if (
+        advanceRequestIdRef.current !== requestId ||
+        !narrationSession.isActive()
+      ) {
+        return;
+      }
       advanceIfCurrent();
     };
 
@@ -1389,7 +1455,13 @@ export function ScenePlayer({
         sceneIndex: completedSceneIndex,
         xpGained,
       });
-      runAudio(playSceneCompletionAudio(completedScene, teacherPromptMode));
+      runAudio(
+        playSceneCompletionAudio(
+          completedScene,
+          teacherPromptMode,
+          startNarrationSession(),
+        ),
+      );
     };
 
     if (saveSceneProgressPromise) {
@@ -1407,6 +1479,7 @@ export function ScenePlayer({
       return;
     }
 
+    cancelStepAudioSequence();
     runAudio(playTapSound());
     advanceRequestIdRef.current += 1;
     clearTimer(advanceTimerRef);
@@ -1750,8 +1823,11 @@ export function ScenePlayer({
             message={completionCoachMessage}
             onMascotPress={message => {
               runAudio(playTapSound());
+              const narrationSession = startNarrationSession();
               runAudio(
-                appLanguage === 'en' ? speakWord(message) : speakVi(message),
+                appLanguage === 'en'
+                  ? speakWord(message, undefined, narrationSession)
+                  : speakVi(message, narrationSession),
               );
             }}
             pose="greatJob"
@@ -2155,6 +2231,7 @@ function getListenInstructionKey(scene: Scene, step: SceneStep) {
 }
 
 type PlayStepAudioOptions = {
+  onAudioFailure?: () => void;
   onAudioComplete?: () => void;
   onTeachAudioComplete?: () => void;
 };
@@ -2167,41 +2244,64 @@ function playAudioForStep(
 ) {
   globalAudioSequenceId += 1;
   const currentId = globalAudioSequenceId;
-  const isActive = () => globalAudioSequenceId === currentId;
+  const narrationSession = startNarrationSession();
+  const isActive = () =>
+    globalAudioSequenceId === currentId && narrationSession.isActive();
 
   runAudio(
-    playStepAudioSequence(scene, step, teacherPromptMode, isActive, options),
+    playStepAudioSequence(
+      scene,
+      step,
+      teacherPromptMode,
+      narrationSession,
+      isActive,
+      options,
+    ).then(playbackResult => {
+      if (playbackResult === 'failed') {
+        options.onAudioFailure?.();
+      }
+    }),
   );
 }
 
 function cancelStepAudioSequence() {
   globalAudioSequenceId += 1;
+  cancelNarration().catch(() => undefined);
 }
 
-async function playObjectVocabularyAudio(word: string) {
+async function playObjectVocabularyAudio(
+  word: string,
+  narrationSession: NarrationSession,
+) {
+  await narrationSession.ready;
+  if (!narrationSession.isActive()) return;
   runAudio(playTapSound());
-  await speakWord(word);
+  await speakWord(word, undefined, narrationSession);
 }
 
 async function playStepAudioSequence(
   scene: Scene,
   step: SceneStep,
   teacherPromptMode: TeacherPromptMode,
+  narrationSession: NarrationSession,
   isActive: () => boolean,
   options: PlayStepAudioOptions,
-) {
+): Promise<NarrationPlaybackResult> {
   const vocabularyItem = getStepVocabulary(scene, step);
 
   if (step.type === 'teach' && vocabularyItem) {
-    if (!isActive()) return;
-    await speakTeacherPromptSegments(
+    if (!isActive()) return 'cancelled';
+    const instructionResult = await playTeacherPromptNarration(
       resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
+      undefined,
+      narrationSession,
     );
+    if (instructionResult !== 'completed') return instructionResult;
 
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     await delay(100);
 
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     if (
       shouldPlayVocabularyAfterInstruction(
         step,
@@ -2210,33 +2310,49 @@ async function playStepAudioSequence(
         scene,
       )
     ) {
-      await speakWord(vocabularyItem.word);
+      const vocabularyResult = await playWordNarration(
+        vocabularyItem.word,
+        undefined,
+        narrationSession,
+      );
+      if (vocabularyResult !== 'completed') return vocabularyResult;
     }
 
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     await delay(120);
 
-    if (!isActive()) return;
-    await speakTeacherPromptSegments(
+    if (!isActive()) return 'cancelled';
+    const practicePromptResult = await playTeacherPromptNarration(
       resolveSpeechPracticePrompt(teacherPromptMode).segments,
+      undefined,
+      narrationSession,
     );
+    if (practicePromptResult !== 'completed') return practicePromptResult;
 
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     await delay(60);
 
-    if (!isActive()) return;
-    await speakWord(vocabularyItem.word);
+    if (!isActive()) return 'cancelled';
+    const modelResult = await playWordNarration(
+      vocabularyItem.word,
+      undefined,
+      narrationSession,
+    );
+    if (modelResult !== 'completed') return modelResult;
 
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     options.onTeachAudioComplete?.();
     options.onAudioComplete?.();
-    return;
+    return 'completed';
   }
 
-  if (!isActive()) return;
-  await speakTeacherPromptSegments(
+  if (!isActive()) return 'cancelled';
+  const instructionResult = await playTeacherPromptNarration(
     resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
+    undefined,
+    narrationSession,
   );
+  if (instructionResult !== 'completed') return instructionResult;
 
   if (
     step.vocabId &&
@@ -2248,15 +2364,21 @@ async function playStepAudioSequence(
       scene,
     )
   ) {
-    if (!isActive()) return;
+    if (!isActive()) return 'cancelled';
     await delay(100);
 
-    if (!isActive()) return;
-    await speakWord(vocabularyItem.word);
+    if (!isActive()) return 'cancelled';
+    const vocabularyResult = await playWordNarration(
+      vocabularyItem.word,
+      undefined,
+      narrationSession,
+    );
+    if (vocabularyResult !== 'completed') return vocabularyResult;
   }
 
-  if (!isActive()) return;
+  if (!isActive()) return 'cancelled';
   options.onAudioComplete?.();
+  return 'completed';
 }
 
 function shouldPlayVocabularyAfterInstruction(
@@ -2278,15 +2400,19 @@ function normalizePromptText(value: string | undefined) {
   return value?.trim().toLocaleLowerCase('en-US') ?? '';
 }
 
-function runAudio(audioPromise: Promise<void>) {
+function runAudio(audioPromise: Promise<unknown>) {
   audioPromise.catch(() => undefined);
 }
 
 async function playInteractionFeedbackAudio(
   type: FeedbackState['type'],
   feedbackPrompt: ReturnType<typeof resolveTeacherFeedback>,
+  narrationSession: NarrationSession,
   successSoundEffect?: StepInteractionResult['soundEffect'],
-) {
+): Promise<NarrationPlaybackResult> {
+  await narrationSession.ready;
+  if (!narrationSession.isActive()) return 'cancelled';
+
   if (type === 'success') {
     if (successSoundEffect) {
       await playSoundEffect(successSoundEffect);
@@ -2297,23 +2423,32 @@ async function playInteractionFeedbackAudio(
     await playWrongSound();
   }
 
+  if (!narrationSession.isActive()) return 'cancelled';
   await delay(120);
-  await speakTeacherPromptSegments(feedbackPrompt.segments);
+  if (!narrationSession.isActive()) return 'cancelled';
+  return playTeacherPromptNarration(
+    feedbackPrompt.segments,
+    undefined,
+    narrationSession,
+  );
 }
 
 async function playSceneCompletionAudio(
   scene: Scene,
   teacherPromptMode: TeacherPromptMode,
-) {
+  narrationSession: NarrationSession,
+): Promise<NarrationPlaybackResult> {
+  await narrationSession.ready;
+  if (!narrationSession.isActive()) return 'cancelled';
   await playSoundEffect('complete');
+  if (!narrationSession.isActive()) return 'cancelled';
   await delay(140);
-  await speakTeacherPromptSegments(
+  if (!narrationSession.isActive()) return 'cancelled';
+  return playTeacherPromptNarration(
     resolveSceneCompletionPrompt(scene, teacherPromptMode).segments,
+    undefined,
+    narrationSession,
   );
-}
-
-function getFeedbackFallbackDelay(feedbackText: string) {
-  return Math.min(5200, Math.max(2800, 1500 + feedbackText.length * 70));
 }
 
 function delay(durationMs: number) {

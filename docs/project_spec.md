@@ -370,8 +370,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   không bắt buộc vẫn là best-effort và không chặn current scene.
 - Success/fail feedback audio của current step được warm trong lúc instruction đang phát. Với
   listen step, nút Continue chỉ xuất hiện sau khi success feedback đã prepare xong. Khi trả lời
-  đúng, UI hiển thị feedback text và trạng thái chuẩn bị/phát ngay; transition watchdog chỉ bắt
-  đầu sau prepare để không tự chuyển step trong lúc audio còn đang tải.
+  đúng, UI hiển thị feedback text và trạng thái chuẩn bị/phát ngay. Step chỉ chuyển tiếp sau khi
+  native playback xác nhận phát xong; native playback failure hoặc hard timeout đều dừng narration
+  và hiện lựa chọn thử lại/thoát bài, không tự chuyển step khi feedback bị thiếu hoặc vẫn đang phát.
 - Scene progress dùng composite ID `<lessonId>:<sceneId>` và còn đọc legacy bare scene IDs.
 - Current step ID được persist, nhưng resume flow hiện chỉ sử dụng lesson/scene; **Partial:** chưa
   resume trực tiếp đúng step trong scene.
@@ -645,7 +646,9 @@ bilingual dùng resolved English teacher instructions, shared English cues và g
 manifest theo `englishAccent` khi có asset. Lookup ưu tiên accent được chọn, sau đó default en-US
 và legacy `audio/en/`; TTS fallback nếu có cũng dùng locale được chọn. Native adapter hiện tập
 trung vào SFX/URI playback, vì vậy production không được dựa vào TTS fallback để che một corpus
-en-GB thiếu.
+en-GB thiếu. Narration dùng session latest-wins: session mới dừng session cũ, và session đã bị hủy
+không được tiếp tục segment hoặc accent/legacy fallback sau khi cache lookup hay native playback
+trả về.
 
 ### Native support matrix
 

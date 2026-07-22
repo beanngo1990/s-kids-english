@@ -17,7 +17,7 @@ const nativeAudio = NativeModules.SkidsAudio as SkidsAudioModule | undefined;
 const nativeAudioAdapter: AudioAdapter = {
   playAudioUri: async uri => {
     const didPlay = await nativeAudio?.playUri?.(uri);
-    if (didPlay === false) {
+    if (didPlay !== true) {
       throw new Error(`Unable to play audio uri: ${uri}`);
     }
   },
@@ -30,7 +30,7 @@ const nativeAudioAdapter: AudioAdapter = {
 };
 
 export function configureNativeAudioAdapter() {
-  if (nativeAudio?.play) {
+  if (nativeAudio?.play && nativeAudio.playUri) {
     configureAudioManager(nativeAudioAdapter);
   }
 }

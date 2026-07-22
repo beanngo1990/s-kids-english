@@ -18,6 +18,13 @@ type SpeechOptions = {
   rate: number;
 };
 
+export type NarrationSession = {
+  isActive: () => boolean;
+  ready: Promise<void>;
+};
+
+export type NarrationPlaybackResult = 'completed' | 'cancelled' | 'failed';
+
 export type AudioAdapter = {
   playAudioUri?: (uri: string) => Promise<void> | void;
   speak?: (text: string, options: SpeechOptions) => Promise<void> | void;
@@ -73,50 +80,148 @@ type AudioGlobal = typeof globalThis & {
 };
 
 let adapter: AudioAdapter | null = null;
+let narrationGeneration = 0;
+let stopSpeechQueue = Promise.resolve();
 
 export function configureAudioManager(nextAdapter: AudioAdapter | null) {
+  narrationGeneration += 1;
+  stopSpeechQueue = Promise.resolve();
   adapter = nextAdapter;
 }
 
-export async function speakWord(word: string, accent?: EnglishAccent) {
+export function startNarrationSession(): NarrationSession {
+  const generation = narrationGeneration + 1;
+  narrationGeneration = generation;
+
+  return {
+    isActive: () => narrationGeneration === generation,
+    ready: queueStopSpeech(),
+  };
+}
+
+export function cancelNarration() {
+  narrationGeneration += 1;
+  return queueStopSpeech();
+}
+
+export async function speakWord(
+  word: string,
+  accent?: EnglishAccent,
+  requestedSession?: NarrationSession,
+) {
+  await playWordNarration(word, accent, requestedSession);
+}
+
+export async function playWordNarration(
+  word: string,
+  accent?: EnglishAccent,
+  requestedSession?: NarrationSession,
+): Promise<NarrationPlaybackResult> {
+  const session = requestedSession ?? startNarrationSession();
+  await session.ready;
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+
   const selectedAccent = accent ?? (await getSelectedEnglishAccent());
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+
   for (const audioAsset of getWordAudioAssets(word, selectedAccent)) {
-    if (await playAudioAsset(audioAsset)) {
-      return;
+    if (!session.isActive()) {
+      return 'cancelled';
+    }
+    const playbackResult = await playAudioAsset(audioAsset, session);
+    if (playbackResult === 'completed' || playbackResult === 'cancelled') {
+      return playbackResult;
     }
   }
 
-  await speak(word, {
-    language: selectedAccent,
-    pitch: 1,
-    rate: 0.9,
-  });
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+  return speakWithResult(
+    word,
+    {
+      language: selectedAccent,
+      pitch: 1,
+      rate: 0.9,
+    },
+    session,
+  );
 }
 
-export async function speakVi(text: string) {
-  const audioAsset = getViAudioAsset(text);
-  if (audioAsset && (await playAudioAsset(audioAsset))) {
-    return;
+export async function speakVi(
+  text: string,
+  requestedSession?: NarrationSession,
+) {
+  await playVietnameseNarration(text, requestedSession);
+}
+
+export async function playVietnameseNarration(
+  text: string,
+  requestedSession?: NarrationSession,
+): Promise<NarrationPlaybackResult> {
+  const session = requestedSession ?? startNarrationSession();
+  await session.ready;
+  if (!session.isActive()) {
+    return 'cancelled';
   }
 
-  await speak(text, {
-    language: 'vi-VN',
-    pitch: 1,
-    rate: 0.9,
-  });
+  const audioAsset = getViAudioAsset(text);
+  if (audioAsset) {
+    const playbackResult = await playAudioAsset(audioAsset, session);
+    if (playbackResult === 'completed' || playbackResult === 'cancelled') {
+      return playbackResult;
+    }
+  }
+
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+  return speakWithResult(
+    text,
+    {
+      language: 'vi-VN',
+      pitch: 1,
+      rate: 0.9,
+    },
+    session,
+  );
 }
 
 export async function speakTeacherPromptSegments(
   segments: TeacherPromptSegment[],
   accent?: EnglishAccent,
+  requestedSession?: NarrationSession,
 ) {
+  await playTeacherPromptNarration(segments, accent, requestedSession);
+}
+
+export async function playTeacherPromptNarration(
+  segments: TeacherPromptSegment[],
+  accent?: EnglishAccent,
+  requestedSession?: NarrationSession,
+): Promise<NarrationPlaybackResult> {
+  const session = requestedSession ?? startNarrationSession();
+  await session.ready;
+
   for (const segment of segments) {
-    if (segment.language === 'en') {
-      await speakWord(segment.text, accent);
-    } else {
-      await speakVi(segment.text);
+    if (!session.isActive()) {
+      return 'cancelled';
+    }
+
+    const playbackResult =
+      segment.language === 'en'
+        ? await playWordNarration(segment.text, accent, session)
+        : await playVietnameseNarration(segment.text, session);
+    if (playbackResult !== 'completed') {
+      return playbackResult;
     }
   }
+
+  return session.isActive() ? 'completed' : 'cancelled';
 }
 
 async function getSelectedEnglishAccent(): Promise<EnglishAccent> {
@@ -147,27 +252,56 @@ export async function playSoundEffect(effect: SoundEffect) {
   await playSound(effect);
 }
 
-export async function playAudioUri(uri: string) {
-  await safely(async () => {
-    if (!adapter?.playAudioUri) {
-      return;
-    }
-
-    await adapter.playAudioUri(uri);
-  });
+export async function playAudioUri(
+  uri: string,
+  requestedSession?: NarrationSession,
+) {
+  await playAudioUriWithResult(uri, requestedSession);
 }
 
-async function speak(text: string, options: SpeechOptions) {
+async function playAudioUriWithResult(
+  uri: string,
+  requestedSession?: NarrationSession,
+): Promise<NarrationPlaybackResult> {
+  const session = requestedSession ?? startNarrationSession();
+  await session.ready;
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+
+  const audioAdapter = adapter;
+  if (!audioAdapter?.playAudioUri) {
+    return 'failed';
+  }
+
+  try {
+    await audioAdapter.playAudioUri(uri);
+    return session.isActive() ? 'completed' : 'cancelled';
+  } catch {
+    return session.isActive() ? 'failed' : 'cancelled';
+  }
+}
+
+async function speakWithResult(
+  text: string,
+  options: SpeechOptions,
+  session: NarrationSession,
+): Promise<NarrationPlaybackResult> {
   const trimmedText = text.trim();
 
   if (!trimmedText) {
-    return;
+    return session.isActive() ? 'completed' : 'cancelled';
   }
 
-  await safely(async () => {
-    if (adapter?.speak) {
-      await adapter.speak(trimmedText, options);
-      return;
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
+
+  const audioAdapter = adapter;
+  try {
+    if (audioAdapter?.speak) {
+      await audioAdapter.speak(trimmedText, options);
+      return session.isActive() ? 'completed' : 'cancelled';
     }
 
     if (__DEV__) {
@@ -178,27 +312,56 @@ async function speak(text: string, options: SpeechOptions) {
       );
     }
 
-    await speakWithWebSpeech(trimmedText, options);
-  });
+    const didSpeak = await speakWithWebSpeech(trimmedText, options);
+    if (!session.isActive()) {
+      return 'cancelled';
+    }
+    return didSpeak ? 'completed' : 'failed';
+  } catch {
+    return session.isActive() ? 'failed' : 'cancelled';
+  }
 }
 
-async function playAudioAsset(asset: RemoteAudioAsset) {
+async function playAudioAsset(
+  asset: RemoteAudioAsset,
+  session: NarrationSession,
+): Promise<NarrationPlaybackResult> {
   const audioAdapter = adapter;
-  if (!audioAdapter?.playAudioUri) {
-    return false;
+  if (!audioAdapter?.playAudioUri || !session.isActive()) {
+    return session.isActive() ? 'failed' : 'cancelled';
   }
 
   const audioUri = await resolveRemoteAssetUri(asset.key);
+  if (!session.isActive()) {
+    return 'cancelled';
+  }
   if (!audioUri) {
-    return false;
+    return 'failed';
   }
 
   try {
     await audioAdapter.playAudioUri(audioUri);
-    return true;
+    return session.isActive() ? 'completed' : 'cancelled';
   } catch {
-    return false;
+    return session.isActive() ? 'failed' : 'cancelled';
   }
+}
+
+function queueStopSpeech() {
+  const stopRequest = stopSpeechQueue.then(async () => {
+    try {
+      await adapter?.stopSpeech?.();
+    } catch {
+      // A newer narration can still proceed when native stop is unavailable.
+    }
+    try {
+      (globalThis as AudioGlobal).speechSynthesis?.cancel();
+    } catch {
+      // Web speech is only a development fallback.
+    }
+  });
+  stopSpeechQueue = stopRequest.catch(() => undefined);
+  return stopRequest;
 }
 
 async function playSound(effect: SoundEffect) {
@@ -234,22 +397,22 @@ function speakWithWebSpeech(text: string, options: SpeechOptions) {
   const speechSynthesis = audioGlobal.speechSynthesis;
 
   if (!speechSynthesis || !SpeechSynthesisUtteranceClass) {
-    return Promise.resolve();
+    return Promise.resolve(false);
   }
 
-  return new Promise<void>(resolve => {
+  return new Promise<boolean>(resolve => {
     try {
       const utterance = new SpeechSynthesisUtteranceClass(text);
       utterance.lang = options.language;
       utterance.pitch = options.pitch;
       utterance.rate = options.rate;
-      utterance.onend = resolve;
-      utterance.onerror = resolve;
+      utterance.onend = () => resolve(true);
+      utterance.onerror = () => resolve(false);
 
       speechSynthesis.cancel();
       speechSynthesis.speak(utterance);
     } catch {
-      resolve();
+      resolve(false);
     }
   });
 }

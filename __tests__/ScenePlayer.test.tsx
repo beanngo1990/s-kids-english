@@ -4,7 +4,12 @@ import ReactTestRenderer from 'react-test-renderer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { ScenePlayer } from '../src/engine/ScenePlayer';
-import { speakVi } from '../src/engine/AudioManager';
+import {
+  cancelNarration,
+  playTeacherPromptNarration,
+  speakVi,
+  speakWord,
+} from '../src/engine/AudioManager';
 import { prefetchAssets } from '../src/engine/AssetRegistry';
 import {
   prefetchRemoteAssets,
@@ -13,31 +18,93 @@ import {
 import { AppButton } from '../src/components/AppButton';
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import { KidIconButton } from '../src/components/KidIconButton';
+import {
+  defaultParentSettings,
+  getParentSettings,
+} from '../src/engine/ParentSettingsManager';
 import type { Scene } from '../src/types/lesson';
 
 jest.mock('../src/engine/AudioManager', () => {
   const speakViMock = jest.fn((_text: string) => Promise.resolve());
   const speakWordMock = jest.fn((_text: string) => Promise.resolve());
+  let narrationGeneration = 0;
+
+  const playSegment = async (
+    language: 'en' | 'vi',
+    text: string,
+    session: { isActive: () => boolean } | undefined,
+  ): Promise<'completed' | 'cancelled' | 'failed'> => {
+    if (session && !session.isActive()) {
+      return 'cancelled';
+    }
+
+    try {
+      await (language === 'en' ? speakWordMock(text) : speakViMock(text));
+    } catch {
+      return session && !session.isActive() ? 'cancelled' : 'failed';
+    }
+
+    return session && !session.isActive() ? 'cancelled' : 'completed';
+  };
+
+  const playTeacherPromptNarrationMock = jest.fn(
+    async (
+      segments: Array<{ language: 'en' | 'vi'; text: string }>,
+      _accent?: string,
+      session?: { isActive: () => boolean },
+    ): Promise<'completed' | 'cancelled' | 'failed'> => {
+      for (const segment of segments) {
+        const playbackResult = await playSegment(
+          segment.language,
+          segment.text,
+          session,
+        );
+        if (playbackResult !== 'completed') {
+          return playbackResult;
+        }
+      }
+
+      return session && !session.isActive() ? 'cancelled' : 'completed';
+    },
+  );
 
   return {
+    cancelNarration: jest.fn(() => {
+      narrationGeneration += 1;
+      return Promise.resolve();
+    }),
     playCorrectSound: jest.fn(() => Promise.resolve()),
     playSoundEffect: jest.fn(() => Promise.resolve()),
     playTapSound: jest.fn(() => Promise.resolve()),
+    playTeacherPromptNarration: playTeacherPromptNarrationMock,
+    playWordNarration: jest.fn(
+      (
+        text: string,
+        _accent?: string,
+        session?: { isActive: () => boolean },
+      ) =>
+        playSegment('en', text, session),
+    ),
     playWrongSound: jest.fn(() => Promise.resolve()),
     speakTeacherPromptSegments: jest.fn(
-      (segments: Array<{ language: 'en' | 'vi'; text: string }>) =>
-        segments.reduce<Promise<void>>(
-          (promise, segment) =>
-            promise.then(() =>
-              segment.language === 'en'
-                ? speakWordMock(segment.text)
-                : speakViMock(segment.text),
-            ),
-          Promise.resolve(),
-        ),
+      async (
+        segments: Array<{ language: 'en' | 'vi'; text: string }>,
+        accent?: string,
+        session?: { isActive: () => boolean },
+      ) => {
+        await playTeacherPromptNarrationMock(segments, accent, session);
+      },
     ),
     speakVi: speakViMock,
     speakWord: speakWordMock,
+    startNarrationSession: jest.fn(() => {
+      const generation = narrationGeneration + 1;
+      narrationGeneration = generation;
+      return {
+        isActive: () => narrationGeneration === generation,
+        ready: Promise.resolve(),
+      };
+    }),
   };
 });
 
@@ -62,19 +129,32 @@ jest.mock('../src/engine/AssetCacheManager', () => ({
   prepareRemoteAssets: jest.fn(() => Promise.resolve(true)),
 }));
 
-jest.mock('../src/engine/ParentSettingsManager', () => ({
-  getParentSettings: jest.fn(() =>
-    Promise.resolve({
-      appLanguage: 'vi',
-      enableSceneEditor: false,
-      englishAccent: 'en-US',
-      teacherPromptMode: 'vi',
-    }),
-  ),
-  subscribeParentSettings: jest.fn(() => jest.fn()),
-}));
+jest.mock('../src/engine/ParentSettingsManager', () => {
+  const actual = jest.requireActual<
+    typeof import('../src/engine/ParentSettingsManager')
+  >('../src/engine/ParentSettingsManager');
+
+  return {
+    ...actual,
+    getParentSettings: jest.fn(() =>
+      Promise.resolve(actual.defaultParentSettings),
+    ),
+    subscribeParentSettings: jest.fn(() => jest.fn()),
+  };
+});
 
 const mockedSpeakVi = speakVi as jest.MockedFunction<typeof speakVi>;
+const mockedSpeakWord = speakWord as jest.MockedFunction<typeof speakWord>;
+const mockedCancelNarration = cancelNarration as jest.MockedFunction<
+  typeof cancelNarration
+>;
+const mockedPlayTeacherPromptNarration =
+  playTeacherPromptNarration as jest.MockedFunction<
+    typeof playTeacherPromptNarration
+  >;
+const mockedGetParentSettings = getParentSettings as jest.MockedFunction<
+  typeof getParentSettings
+>;
 const mockedPrefetchAssets = prefetchAssets as jest.MockedFunction<
   typeof prefetchAssets
 >;
@@ -146,9 +226,113 @@ const teachListenScene: Scene = {
   ],
 };
 
+const practiceDragScene: Scene = {
+  background: {
+    id: 'background',
+    source: 'background',
+    type: 'image',
+  },
+  dropZones: [
+    {
+      id: 'table-zone',
+      position: { height: 30, width: 40, x: 15, y: 15 },
+    },
+  ],
+  id: 'practice-drag-scene',
+  objects: [
+    {
+      asset: {
+        id: 'pencil',
+        source: 'pencil',
+        type: 'image',
+      },
+      id: 'pencil',
+      isInteractive: true,
+      position: { height: 20, width: 20, x: 20, y: 20 },
+      role: 'learning',
+      vocabId: 'vocab-pencil',
+    },
+  ],
+  steps: [
+    {
+      id: 'place-pencil',
+      instructionVi: 'Đặt bút chì lên bàn.',
+      interaction: {
+        correctObjectIds: ['pencil'],
+        dropZoneId: 'table-zone',
+        targetObjectId: 'pencil',
+        type: 'drag',
+      },
+      nextStepId: 'next-step',
+      promptText: 'pencil',
+      successFeedbackVi: 'Bút chì đã ở trên bàn.',
+      targetObjectIds: ['pencil'],
+      type: 'practice',
+      vocabId: 'vocab-pencil',
+    },
+    {
+      id: 'next-step',
+      instructionVi: 'Đây là bước tiếp theo.',
+      interaction: { type: 'listen' },
+      successFeedbackVi: 'Giỏi lắm!',
+      targetObjectIds: [],
+      type: 'intro',
+    },
+  ],
+  titleEn: 'Practice',
+  titleVi: 'Luyện tập',
+  vocabulary: [
+    {
+      id: 'vocab-pencil',
+      level: 'easy',
+      meaningVi: 'bút chì',
+      type: 'noun',
+      word: 'pencil',
+    },
+  ],
+};
+
+const practiceRetryScene: Scene = {
+  ...practiceDragScene,
+  dropZones: undefined,
+  id: 'practice-retry-scene',
+  objects: [
+    ...practiceDragScene.objects,
+    {
+      asset: {
+        id: 'eraser',
+        source: 'eraser',
+        type: 'image',
+      },
+      id: 'eraser',
+      isInteractive: true,
+      position: { height: 20, width: 20, x: 60, y: 20 },
+      role: 'learning',
+    },
+  ],
+  steps: [
+    {
+      ...practiceDragScene.steps[0],
+      failFeedbackVi: 'Chưa đúng, thử lại nhé.',
+      interaction: {
+        correctObjectIds: ['pencil'],
+        targetObjectId: 'pencil',
+        type: 'tap',
+      },
+    },
+    practiceDragScene.steps[1],
+  ],
+};
+
 beforeEach(() => {
+  mockedCancelNarration.mockClear();
+  mockedPlayTeacherPromptNarration.mockClear();
   mockedSpeakVi.mockReset();
   mockedSpeakVi.mockResolvedValue();
+  mockedSpeakWord.mockReset();
+  mockedSpeakWord.mockResolvedValue();
+  mockedGetParentSettings.mockReset();
+  mockedGetParentSettings.mockResolvedValue(defaultParentSettings);
   mockedPrefetchAssets.mockReset();
   mockedPrefetchAssets.mockResolvedValue(true);
   mockedPrefetchRemoteAssets.mockReset();
@@ -465,6 +649,303 @@ test('does not start the step transition timer while success feedback is prepari
   });
 
   expect(mockedSpeakVi).toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test.each(['vi', 'bilingual'] as const)(
+  'cancels in-flight step audio before playing success feedback in %s mode',
+  async teacherPromptMode => {
+    jest.useFakeTimers();
+    mockedGetParentSettings.mockResolvedValue({
+      ...defaultParentSettings,
+      teacherPromptMode,
+    });
+    let finishInstruction: (() => void) | undefined;
+    let finishFeedback: (() => void) | undefined;
+    mockedSpeakVi.mockImplementation(text => {
+      if (text === 'Đặt bút chì lên bàn.') {
+        return new Promise<void>(resolve => {
+          finishInstruction = resolve;
+        });
+      }
+
+      if (text === 'Bút chì đã ở trên bàn.') {
+        finishInstruction?.();
+        return new Promise<void>(resolve => {
+          finishFeedback = resolve;
+        });
+      }
+
+      return Promise.resolve();
+    });
+
+    let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+    await ReactTestRenderer.act(async () => {
+      tree = ReactTestRenderer.create(
+        <SafeAreaProvider
+          initialMetrics={{
+            frame: { height: 800, width: 400, x: 0, y: 0 },
+            insets: { bottom: 0, left: 0, right: 0, top: 0 },
+          }}
+        >
+          <ScenePlayer scene={practiceDragScene} />
+        </SafeAreaProvider>,
+      );
+      await flushPromises();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedSpeakVi).toHaveBeenCalledWith('Đặt bút chì lên bàn.');
+
+    const pencil = tree?.root
+      .findAllByType(SceneObjectRenderer)
+      .find(node => node.props.object.id === 'pencil');
+    expect(pencil).toBeDefined();
+
+    await ReactTestRenderer.act(async () => {
+      pencil?.props.onDragEnd('pencil', { dx: 0, dy: 0 });
+      await flushPromises();
+    });
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(120);
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedSpeakVi).toHaveBeenCalledWith('Bút chì đã ở trên bàn.');
+
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(100);
+      await flushPromises();
+      await flushPromises();
+    });
+
+    const spokenWords = mockedSpeakWord.mock.calls.map(([text]) => text);
+    expect(spokenWords).not.toContain('pencil');
+    expect(spokenWords).not.toContain('Drag the pencil.');
+    expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(4000);
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
+    expect(
+      getTextValues(tree).some(
+        value =>
+          typeof value === 'string' &&
+          value.includes('Bút chì đã ở trên bàn.'),
+      ),
+    ).toBe(true);
+
+    await ReactTestRenderer.act(async () => {
+      finishFeedback?.();
+      await flushPromises();
+      await flushPromises();
+    });
+    if (teacherPromptMode === 'bilingual') {
+      expect(mockedSpeakWord.mock.calls.map(([text]) => text)).toContain(
+        'Great job!',
+      );
+    }
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(260);
+      await flushPromises();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedSpeakVi).toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+    await ReactTestRenderer.act(async () => {
+      tree?.unmount();
+    });
+  },
+);
+
+test('drops stale bilingual failure audio when a quick retry succeeds', async () => {
+  jest.useFakeTimers();
+  mockedGetParentSettings.mockResolvedValue({
+    ...defaultParentSettings,
+    teacherPromptMode: 'bilingual',
+  });
+  let finishFailure: (() => void) | undefined;
+  mockedSpeakVi.mockImplementation(text => {
+    if (text === 'Chưa đúng, thử lại nhé.') {
+      return new Promise<void>(resolve => {
+        finishFailure = resolve;
+      });
+    }
+
+    if (text === 'Bút chì đã ở trên bàn.') {
+      finishFailure?.();
+      return new Promise<void>(() => undefined);
+    }
+
+    return Promise.resolve();
+  });
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  mockedSpeakVi.mockClear();
+  mockedSpeakWord.mockClear();
+  const objects = tree?.root.findAllByType(SceneObjectRenderer) ?? [];
+  const eraser = objects.find(node => node.props.object.id === 'eraser');
+  const pencil = objects.find(node => node.props.object.id === 'pencil');
+
+  await ReactTestRenderer.act(async () => {
+    eraser?.props.onPress('eraser');
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(400);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).toHaveBeenCalledWith('Chưa đúng, thử lại nhé.');
+  expect(
+    mockedPlayTeacherPromptNarration.mock.calls.some(([segments]) =>
+      segments.some(
+        segment =>
+          segment.language === 'en' && segment.text === 'Try again.',
+      ),
+    ),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    pencil?.props.onPress('pencil');
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(120);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).toHaveBeenCalledWith('Bút chì đã ở trên bàn.');
+  expect(mockedSpeakWord.mock.calls.map(([text]) => text)).not.toContain(
+    'Try again.',
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('shows retry instead of advancing when success narration times out', async () => {
+  jest.useFakeTimers();
+  mockedSpeakVi.mockImplementation(text =>
+    text === 'Bút chì đã ở trên bàn.'
+      ? new Promise<void>(() => undefined)
+      : Promise.resolve(),
+  );
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceDragScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const pencil = tree?.root
+    .findAllByType(SceneObjectRenderer)
+    .find(node => node.props.object.id === 'pencil');
+  await ReactTestRenderer.act(async () => {
+    pencil?.props.onDragEnd('pencil', { dx: 0, dy: 0 });
+    await flushPromises();
+    await flushPromises();
+  });
+  const cancelCallsBeforeTimeout = mockedCancelNarration.mock.calls.length;
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(15120);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+  expect(mockedCancelNarration.mock.calls.length).toBeGreaterThan(
+    cancelCallsBeforeTimeout,
+  );
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('shows retry instead of advancing when native feedback playback fails', async () => {
+  jest.useFakeTimers();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceDragScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  mockedPlayTeacherPromptNarration.mockResolvedValueOnce('failed');
+  const pencil = tree?.root
+    .findAllByType(SceneObjectRenderer)
+    .find(node => node.props.object.id === 'pencil');
+  await ReactTestRenderer.act(async () => {
+    pencil?.props.onDragEnd('pencil', { dx: 0, dy: 0 });
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(120);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(15260);
+    await flushPromises();
+  });
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith('Đây là bước tiếp theo.');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

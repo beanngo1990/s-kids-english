@@ -1,5 +1,16 @@
-import { configureAudioManager, speakWord } from '../src/engine/AudioManager';
-import { getWordAudioAssets } from '../src/data/audioManifest';
+import {
+  cancelNarration,
+  configureAudioManager,
+  playTeacherPromptNarration,
+  playVietnameseNarration,
+  playWordNarration,
+  speakWord,
+  startNarrationSession,
+} from '../src/engine/AudioManager';
+import {
+  getViAudioAsset,
+  getWordAudioAssets,
+} from '../src/data/audioManifest';
 import { resolveRemoteAssetUri } from '../src/engine/AssetCacheManager';
 import {
   defaultParentSettings,
@@ -32,6 +43,9 @@ const mockedGetParentSettings = getParentSettings as jest.MockedFunction<
 >;
 const mockedGetWordAudioAssets = getWordAudioAssets as jest.MockedFunction<
   typeof getWordAudioAssets
+>;
+const mockedGetViAudioAsset = getViAudioAsset as jest.MockedFunction<
+  typeof getViAudioAsset
 >;
 const mockedResolveRemoteAssetUri =
   resolveRemoteAssetUri as jest.MockedFunction<typeof resolveRemoteAssetUri>;
@@ -130,4 +144,118 @@ test('falls back from the selected accent to en-US and legacy assets', async () 
     `file:///cache/${enUsWaterKey}`,
     `file:///cache/${legacyWaterKey}`,
   ]);
+});
+
+test('does not retry fallback assets after narration is cancelled', async () => {
+  mockedGetWordAudioAssets.mockReturnValue([
+    { key: enGbWaterKey, text: 'water' },
+    { key: enUsWaterKey, text: 'water' },
+    { key: legacyWaterKey, text: 'water' },
+  ]);
+  mockedResolveRemoteAssetUri.mockImplementation(key =>
+    Promise.resolve(`file:///cache/${key}`),
+  );
+
+  let rejectPlayback: ((reason?: unknown) => void) | undefined;
+  let markPlaybackStarted: (() => void) | undefined;
+  const playbackStarted = new Promise<void>(resolve => {
+    markPlaybackStarted = resolve;
+  });
+  playAudioUri.mockImplementationOnce(
+    () =>
+      new Promise<void>((_, reject) => {
+        rejectPlayback = reject;
+        markPlaybackStarted?.();
+      }),
+  );
+
+  const narrationSession = startNarrationSession();
+  const playback = speakWord('water', 'en-GB', narrationSession);
+  await playbackStarted;
+  await cancelNarration();
+  rejectPlayback?.(new Error('interrupted by newer narration'));
+  await playback;
+
+  expect(playAudioUri).toHaveBeenCalledTimes(1);
+  expect(playAudioUri).toHaveBeenCalledWith(`file:///cache/${enGbWaterKey}`);
+});
+
+test('reports failure when native candidates fail and no speech fallback exists', async () => {
+  const consoleWarning = jest
+    .spyOn(console, 'warn')
+    .mockImplementation(() => undefined);
+  mockedGetWordAudioAssets.mockReturnValue([
+    { key: enUsWaterKey, text: 'water' },
+  ]);
+  mockedResolveRemoteAssetUri.mockResolvedValue(
+    'file:///cache/en-US-water.wav',
+  );
+  playAudioUri.mockRejectedValueOnce(new Error('decoder failed'));
+
+  await expect(playWordNarration('water', 'en-US')).resolves.toBe('failed');
+  consoleWarning.mockRestore();
+});
+
+test('reports failure when Vietnamese native playback fails', async () => {
+  const viKey = 'lessons/test/audio/vi/feedback.wav';
+  const consoleWarning = jest
+    .spyOn(console, 'warn')
+    .mockImplementation(() => undefined);
+  mockedGetViAudioAsset.mockReturnValue({
+    key: viKey,
+    text: 'Bút chì đã ở trên bàn.',
+  });
+  mockedResolveRemoteAssetUri.mockResolvedValue(
+    'file:///cache/vi-feedback.wav',
+  );
+  playAudioUri.mockRejectedValueOnce(new Error('decoder failed'));
+
+  await expect(
+    playVietnameseNarration('Bút chì đã ở trên bàn.'),
+  ).resolves.toBe('failed');
+  consoleWarning.mockRestore();
+});
+
+test('cancels a bilingual sequence before its stale English segment starts', async () => {
+  const viKey = 'lessons/test/audio/vi/feedback.wav';
+  mockedGetViAudioAsset.mockReturnValue({
+    key: viKey,
+    text: 'Tốt lắm.',
+  });
+  mockedGetWordAudioAssets.mockReturnValue([
+    { key: enUsWaterKey, text: 'Great job!' },
+  ]);
+  mockedResolveRemoteAssetUri.mockImplementation(key =>
+    Promise.resolve(`file:///cache/${key}`),
+  );
+
+  let rejectVietnamesePlayback: ((reason?: unknown) => void) | undefined;
+  let markVietnamesePlaybackStarted: (() => void) | undefined;
+  const vietnamesePlaybackStarted = new Promise<void>(resolve => {
+    markVietnamesePlaybackStarted = resolve;
+  });
+  playAudioUri.mockImplementationOnce(
+    () =>
+      new Promise<void>((_, reject) => {
+        rejectVietnamesePlayback = reject;
+        markVietnamesePlaybackStarted?.();
+      }),
+  );
+
+  const narrationSession = startNarrationSession();
+  const playback = playTeacherPromptNarration(
+    [
+      { language: 'vi', text: 'Tốt lắm.' },
+      { language: 'en', text: 'Great job!' },
+    ],
+    'en-US',
+    narrationSession,
+  );
+  await vietnamesePlaybackStarted;
+  await cancelNarration();
+  rejectVietnamesePlayback?.(new Error('interrupted by newer narration'));
+
+  await expect(playback).resolves.toBe('cancelled');
+  expect(mockedGetWordAudioAssets).not.toHaveBeenCalled();
+  expect(playAudioUri).toHaveBeenCalledTimes(1);
 });
