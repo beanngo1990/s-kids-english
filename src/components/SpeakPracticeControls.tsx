@@ -915,7 +915,7 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     ...typography.title,
     fontSize: 32,
-    lineHeight: 38,
+    lineHeight: 40,
     textAlign: 'center',
   },
   wordPanel: {
