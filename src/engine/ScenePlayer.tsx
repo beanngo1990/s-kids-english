@@ -2892,6 +2892,7 @@ const styles = createThemedStyles(() => ({
     textAlign: 'center',
     ...typography.title,
     fontSize: 42,
+    lineHeight: 52,
     marginVertical: spacing.sm,
   },
   topHud: {
