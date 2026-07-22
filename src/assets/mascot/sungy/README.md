@@ -3,7 +3,7 @@
 This folder contains the phase-1 mascot asset contract for Sungy.
 
 Current pose files are transparent PNG cutouts generated from a new 3D mascot
-sheet for S-Kids English:
+sheet for Sungy English:
 
 - `sungy-source-poster.png`: stable source reference used by the app manifest.
 - `sungy-3d-sheet-source.png`: generated 3D character sheet with chroma-key background.

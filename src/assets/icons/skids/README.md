@@ -1,6 +1,6 @@
-# S-Kids Icon Pack
+# Sungy Icon Pack
 
-Custom icon pack for S-Kids English.
+Custom icon pack for Sungy English.
 
 Style:
 

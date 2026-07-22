@@ -1283,7 +1283,7 @@ function SKidsHubSheet({
                 <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
               </View>
               <View style={styles.hubHeaderText}>
-                <Text style={styles.hubEyebrow}>S-Kids Hub</Text>
+                <Text style={styles.hubEyebrow}>Sungy Hub</Text>
                 <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
               </View>
               <Pressable

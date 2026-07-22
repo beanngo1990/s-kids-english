@@ -18,7 +18,7 @@ export const en: TranslationDictionary = {
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
   'nav.parent': 'Parent Mode',
-  'nav.premium': 'S-Kids Premium',
+  'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'The fun learning journey begins!',
 
@@ -72,7 +72,7 @@ export const en: TranslationDictionary = {
     'There were several incorrect attempts. Please wait a moment and retry.',
 
   'premium.badge': 'For parents',
-  'premium.title': 'Unlock the full S-Kids journey',
+  'premium.title': 'Unlock the full Sungy journey',
   'premium.subtitle':
     'Choose a plan to open every available lesson and review activity.',
   'premium.benefit.journeyTitle': 'The full learning journey',
@@ -137,14 +137,14 @@ export const en: TranslationDictionary = {
   'premium.currentLifetime': 'Lifetime Premium',
   'premium.currentFounder': 'One-year Founder Premium',
   'premium.currentPromotional': 'Promotional Premium',
-  'premium.currentGeneric': 'S-Kids Premium',
+  'premium.currentGeneric': 'Sungy Premium',
   'premium.currentUntil': 'Active until {date}',
   'premium.currentRenews': 'This plan will renew under the store terms.',
   'premium.currentNoRenew': 'This plan will not renew automatically.',
   'premium.currentLifetimeText': 'This Premium access does not expire.',
   'premium.status.badge': 'Premium',
   'premium.status.accountBadge': 'Premium account',
-  'premium.status.accessibility': 'S-Kids Premium is active',
+  'premium.status.accessibility': 'Sungy Premium is active',
   'premium.status.viewDetails': 'View Premium details',
   'premium.disclosure.subscription':
     'Payment is charged to the store account. The plan renews automatically for the selected period unless a parent cancels it in Apple or Google subscription management.',
@@ -182,7 +182,7 @@ export const en: TranslationDictionary = {
   'premium.legal.privacy': 'Privacy Policy',
   'premium.legal.terms': 'Terms of Use',
   'premium.legal.support': 'Contact support',
-  'premium.legal.supportSubject': 'S-Kids Premium support',
+  'premium.legal.supportSubject': 'Sungy Premium support',
   'premium.legal.linkErrorTitle': 'Could not open the link',
   'premium.legal.linkErrorText': 'Please try again or contact support later.',
   'premium.kidLockedTitle': 'This lesson needs Premium',
@@ -317,7 +317,7 @@ export const en: TranslationDictionary = {
   'parent.support.emailErrorText':
     'Could not open an email app. You can send a message to {email}.',
   'parent.support.emailErrorTitle': 'Could not open email',
-  'parent.support.emailSubject': 'S-Kids English support',
+  'parent.support.emailSubject': 'Sungy support',
   'parent.support.title': 'Contact & app info',
   'parent.support.versionAccessibility': 'App version {version}',
   'parent.support.versionSubtitle': 'The version installed on this device.',
@@ -442,7 +442,7 @@ export const en: TranslationDictionary = {
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
-  'header.openHub': 'Open S-Kids Hub',
+  'header.openHub': 'Open Sungy Hub',
   'header.parentGate': 'Parent mode',
   'header.level': 'Level {level}',
   'streak.notLearnedToday': 'Not learned today',
@@ -501,7 +501,7 @@ export const en: TranslationDictionary = {
   'home.coach.guideTapThree': 'Let’s earn more stars!',
   'home.emptyMap.badge': 'No stops yet',
   'home.emptyMap.title': 'This theme has no lesson packs yet.',
-  'home.mapFallbackTitle': 'S-Kids Map',
+  'home.mapFallbackTitle': 'Sungy Map',
   'home.recentLesson': 'the recent lesson',
   'home.freePremiumCta.badge': 'Free path complete',
   'home.freePremiumCta.title': 'Ready for the next step',
@@ -511,7 +511,7 @@ export const en: TranslationDictionary = {
   'home.freePremiumCta.accessibility':
     'Free content is complete. Ask a parent to unlock Premium and continue with {lessonTitle}',
   'home.hub.title': 'Where to today?',
-  'home.hub.closeAccessibility': 'Close S-Kids Hub',
+  'home.hub.closeAccessibility': 'Close Sungy Hub',
   'home.hub.reviewTitle': 'Review {lessonTitle}',
   'home.hub.completeTitle': 'Map complete',
   'home.hub.readyTitle': 'Ready to keep learning',
@@ -730,7 +730,7 @@ export const en: TranslationDictionary = {
   'voiceRecorder.permissionNegative': 'Later',
   'voiceRecorder.permissionPositive': 'Allow',
   'voiceRecorder.permissionMessage':
-    'S-Kids English needs the microphone so your child can hear their own voice.',
+    'Sungy needs the microphone so your child can hear their own voice.',
   'voiceRecorder.permissionTitle': 'Speech practice',
   'mascot.touchAccessibility': 'Touch Sungy',
   'mascot.name': 'Sungy',

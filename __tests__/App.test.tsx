@@ -57,7 +57,7 @@ test('renders the home screen', async () => {
     tree?.unmount();
   });
 
-  expect(textValues).toContain('S-Kids');
+  expect(textValues).toContain('Sungy');
   expect(textValues).not.toContain('Premium');
   expect(textValues).toContain('Bản đồ');
   expect(textValues).toContain('Chơi');
@@ -97,7 +97,7 @@ test('shows the Premium badge in the home header for active access', async () =>
       node =>
         typeof node.props.accessibilityLabel === 'string' &&
         node.props.accessibilityLabel.includes(
-          'S-Kids Premium đang hoạt động',
+          'Sungy Premium đang hoạt động',
         ),
     )
     .some(Boolean);

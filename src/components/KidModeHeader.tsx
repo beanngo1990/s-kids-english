@@ -32,7 +32,7 @@ export function KidModeHeader({
     <>
       <AppLogo size={40} />
       <View style={styles.brandCopy}>
-        <Text style={styles.title}>S-Kids</Text>
+        <Text style={styles.title}>Sungy</Text>
         {isPremium ? (
           <PremiumStatusBadge
             accessible={!onOpenHub}
