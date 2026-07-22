@@ -143,7 +143,7 @@ function AnimatedSplashMascot() {
         <Stack.Screen
           name="ReviewGame"
           component={ReviewGameScreen}
-          options={{ title: t('nav.reviewGame'), gestureEnabled: false }}
+          options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
           name="ReviewLibrary"

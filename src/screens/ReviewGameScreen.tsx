@@ -28,7 +28,10 @@ import {
   type ExecutableReviewGameType,
 } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
-import { getLocalizedReviewGameTitle } from '../i18n/domainCopy';
+import {
+  getLocalizedLessonTitle,
+  getLocalizedReviewGameTitle,
+} from '../i18n/domainCopy';
 import { resolveReviewGameIntroPrompt } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -259,6 +262,32 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   return (
     <Screen scroll>
       <View style={styles.container}>
+        {/* Custom Kid Mode Top Navigation Header */}
+        <View style={styles.topHud}>
+          <Pressable
+            accessibilityLabel={t('common.close')}
+            accessibilityRole="button"
+            onPress={() =>
+              navigation.replace('LessonPack', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
+            }
+            style={styles.exitButton}
+          >
+            <View style={styles.exitIcon}>
+              <View style={styles.exitStroke} />
+              <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
+            </View>
+          </Pressable>
+
+          <View style={styles.topHudPill}>
+            <Text numberOfLines={1} style={styles.topHudTitle}>
+              {getLocalizedLessonTitle(lesson, appLanguage)}
+            </Text>
+          </View>
+        </View>
+
         {openedFromParent ? (
           <View style={styles.parentContext}>
             <KidBadge tone="sky">{t('reviewGame.parentBadge')}</KidBadge>
@@ -538,5 +567,55 @@ const styles = createThemedStyles(() => ({
   selectorTabTextActive: {
     color: colors.white,
     fontWeight: '900',
+  },
+  topHud: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  exitButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  exitIcon: {
+    alignItems: 'center',
+    height: 20,
+    justifyContent: 'center',
+    width: 20,
+  },
+  exitStroke: {
+    backgroundColor: colors.accentDark,
+    borderRadius: radius.pill,
+    height: 4,
+    position: 'absolute',
+    transform: [{ rotate: '45deg' }],
+    width: 20,
+  },
+  exitStrokeReverse: {
+    transform: [{ rotate: '-45deg' }],
+  },
+  topHudPill: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flex: 1,
+    height: 48,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+  },
+  topHudTitle: {
+    color: colors.primaryDark,
+    ...typography.subtitle,
+    fontSize: 16,
+    fontWeight: '800',
   },
 }));
