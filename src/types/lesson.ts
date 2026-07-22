@@ -161,7 +161,7 @@ export type AgeRange = {
 /** Game ôn tập cuối bài, có thể mở rộng bằng config riêng cho từng game. */
 export type ReviewGame = {
   id: EntityId;
-  type: 'matching' | 'memory' | 'listenAndChoose';
+  type: 'matching' | 'memory' | 'listenAndChoose' | 'random';
   titleVi: string;
   config?: Record<string, unknown>;
 };

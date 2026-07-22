@@ -104,7 +104,8 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     if (
       lesson.reviewGame &&
       (lesson.reviewGame.type === 'memory' ||
-        lesson.reviewGame.type === 'listenAndChoose')
+        lesson.reviewGame.type === 'listenAndChoose' ||
+        lesson.reviewGame.type === 'random')
     ) {
       if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
         openParentPremium();

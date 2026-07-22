@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -22,13 +22,17 @@ import {
 } from '../engine/ProgressManager';
 import { useContentAccess } from '../engine/useContentAccess';
 import { useI18n, useSavedAppLanguage } from '../i18n';
-import { GamePlayer } from '../games/GameRegistry';
+import {
+  GamePlayer,
+  resolveReviewGameType,
+  type ExecutableReviewGameType,
+} from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
 import { getLocalizedReviewGameTitle } from '../i18n/domainCopy';
 import { resolveReviewGameIntroPrompt } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
-import { spacing } from '../theme/spacing';
+import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type {
   LearningMode,
@@ -58,6 +62,20 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
     route.params.learningMode,
   );
+  const [selectedGameType, setSelectedGameType] =
+    useState<ExecutableReviewGameType | null>(
+      route.params.gameType && route.params.gameType !== 'random'
+        ? (route.params.gameType as ExecutableReviewGameType)
+        : null,
+    );
+
+  const activeGameType = useMemo(
+    () =>
+      selectedGameType ??
+      resolveReviewGameType(lesson?.reviewGame?.type, route.params.gameType),
+    [lesson?.reviewGame?.type, route.params.gameType, selectedGameType],
+  );
+
   const { isAccessGranted, isResolving } = useContentAccess(
     {
       kind: 'review',
@@ -112,9 +130,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     [isAccessGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
-    (lesson?.reviewGame?.type === 'memory' ||
-      lesson?.reviewGame?.type === 'listenAndChoose') &&
-      memoryItems.length >= 2,
+    lesson?.reviewGame && memoryItems.length >= 2,
   );
 
   useEffect(() => {
@@ -129,11 +145,12 @@ export function ReviewGameScreen({ navigation, route }: Props) {
 
     speakTeacherPromptSegments(
       resolveReviewGameIntroPrompt(
-        lesson.reviewGame.type,
+        activeGameType,
         teacherPromptMode,
       ).segments,
     ).catch(() => undefined);
   }, [
+    activeGameType,
     isAccessGranted,
     isTeacherPromptReady,
     lesson?.reviewGame,
@@ -215,10 +232,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
-  const needsItems =
-    lesson.reviewGame.type === 'memory' ||
-    lesson.reviewGame.type === 'listenAndChoose';
-  if (needsItems && memoryItems.length < 2) {
+  if (memoryItems.length < 2) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
@@ -243,7 +257,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   }
 
   const gameBadgeKey =
-    lesson.reviewGame.type === 'listenAndChoose'
+    activeGameType === 'listenAndChoose'
       ? 'reviewGame.listenAndChooseBadge'
       : 'reviewGame.memoryBadge';
 
@@ -282,10 +296,56 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           </View>
         </View>
 
+        {/* Game Type Switcher Bar */}
+        <View style={styles.gameSelectorContainer}>
+          <Pressable
+            accessibilityLabel={t('reviewGame.selectMemory')}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeGameType === 'memory' }}
+            onPress={() => setSelectedGameType('memory')}
+            style={({ pressed }) => [
+              styles.selectorTab,
+              activeGameType === 'memory' && styles.selectorTabActive,
+              pressed && styles.selectorTabPressed,
+            ]}
+          >
+            <Text
+              style={[
+                styles.selectorTabText,
+                activeGameType === 'memory' && styles.selectorTabTextActive,
+              ]}
+            >
+              {t('reviewGame.selectMemory')}
+            </Text>
+          </Pressable>
+
+          <Pressable
+            accessibilityLabel={t('reviewGame.selectListenChoose')}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: activeGameType === 'listenAndChoose' }}
+            onPress={() => setSelectedGameType('listenAndChoose')}
+            style={({ pressed }) => [
+              styles.selectorTab,
+              activeGameType === 'listenAndChoose' && styles.selectorTabActive,
+              pressed && styles.selectorTabPressed,
+            ]}
+          >
+            <Text
+              style={[
+                styles.selectorTabText,
+                activeGameType === 'listenAndChoose' && styles.selectorTabTextActive,
+              ]}
+            >
+              {t('reviewGame.selectListenChoose')}
+            </Text>
+          </Pressable>
+        </View>
+
         <GamePlayer
           memoryItems={memoryItems}
           onComplete={handleComplete}
           onWordInteraction={saveVocabularyInteraction}
+          overrideType={activeGameType}
           reviewGame={lesson.reviewGame}
         />
       </View>
@@ -445,5 +505,37 @@ const styles = createThemedStyles(() => ({
     fontWeight: '900',
     letterSpacing: 0,
     lineHeight: 29,
+  },
+  gameSelectorContainer: {
+    backgroundColor: colors.cream,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flexDirection: 'row',
+    marginVertical: spacing.xs,
+    padding: 4,
+  },
+  selectorTab: {
+    alignItems: 'center',
+    borderRadius: radius.pill,
+    flex: 1,
+    justifyContent: 'center',
+    paddingVertical: spacing.xs,
+  },
+  selectorTabActive: {
+    backgroundColor: colors.primaryDark,
+  },
+  selectorTabPressed: {
+    opacity: 0.8,
+  },
+  selectorTabText: {
+    ...typography.subtitle,
+    color: colors.primaryDark,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  selectorTabTextActive: {
+    color: colors.white,
+    fontWeight: '900',
   },
 }));

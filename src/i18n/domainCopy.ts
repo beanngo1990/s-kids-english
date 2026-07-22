@@ -69,6 +69,8 @@ export function getLocalizedReviewGameTitle(
         return 'Listen and Choose';
       case 'matching':
         return 'Matching Game';
+      case 'random':
+        return 'Random Game';
       default:
         return 'Review Game';
     }

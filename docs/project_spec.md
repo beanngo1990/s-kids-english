@@ -391,10 +391,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Review games
 
-- `ReviewGame.type` khai báo `matching | memory | listenAndChoose` để mở rộng data model.
-- **Implemented:** runtime registry hỗ trợ `memory` và `listenAndChoose`.
+- `ReviewGame.type` khai báo `matching | memory | listenAndChoose | random` để mở rộng data model.
+- **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose` và chế độ xoay tua ngẫu nhiên `random`.
+- Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ** vs 🎈 **Nghe & Chọn**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
 - Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
-- Listen & Choose game phát âm từ tiếng Anh và hiển thị các thẻ hình minh họa để bé nghe và chọn đáp án đúng.
+- Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
 - Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
 - **Unsupported:** `matching`; registry hiển thị unsupported UI cho type chưa triển khai.
 

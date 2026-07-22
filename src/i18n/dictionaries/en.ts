@@ -657,6 +657,9 @@ export const en: TranslationDictionary = {
   'reviewGame.backToPack': 'Back to lesson pack',
   'reviewGame.memoryBadge': 'Memory',
   'reviewGame.listenAndChooseBadge': 'Listen & Choose',
+  'reviewGame.randomBadge': 'Random 🎲',
+  'reviewGame.selectMemory': '🃏 Memory Cards',
+  'reviewGame.selectListenChoose': '🎈 Listen & Choose',
   'reviewGame.notEnoughImagesTitle': 'Not enough pictures for memory cards.',
   'reviewGame.notEnoughImagesText':
     'The game needs at least 2 words with illustrations in this lesson.',
