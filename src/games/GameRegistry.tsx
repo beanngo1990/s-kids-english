@@ -12,8 +12,13 @@ import {
   type MemoryGameItem,
 } from './memory/MemoryGame';
 import { ListenChooseGame } from './listenChoose/ListenChooseGame';
+import { MatchingGame } from './matching/MatchingGame';
 
-export const SUPPORTED_REVIEW_GAMES = ['memory', 'listenAndChoose'] as const;
+export const SUPPORTED_REVIEW_GAMES = [
+  'memory',
+  'listenAndChoose',
+  'matching',
+] as const;
 export type ExecutableReviewGameType = (typeof SUPPORTED_REVIEW_GAMES)[number];
 
 export function resolveReviewGameType(
@@ -32,7 +37,7 @@ export function resolveReviewGameType(
   ) {
     return configuredType as ExecutableReviewGameType;
   }
-  // Random or fallback: pick randomly between memory and listenAndChoose
+  // Random or fallback: pick randomly between supported games
   const randomIndex = Math.floor(Math.random() * SUPPORTED_REVIEW_GAMES.length);
   return SUPPORTED_REVIEW_GAMES[randomIndex];
 }
@@ -68,6 +73,14 @@ export function GamePlayer({
     case 'listenAndChoose':
       return (
         <ListenChooseGame
+          items={memoryItems}
+          onComplete={onComplete}
+          onMatch={onWordInteraction}
+        />
+      );
+    case 'matching':
+      return (
+        <MatchingGame
           items={memoryItems}
           onComplete={onComplete}
           onMatch={onWordInteraction}

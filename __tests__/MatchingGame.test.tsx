@@ -1,0 +1,141 @@
+import React from 'react';
+import { Pressable } from 'react-native';
+import ReactTestRenderer, { act } from 'react-test-renderer';
+
+import { MatchingGame, type MatchingItem } from '../src/games/matching/MatchingGame';
+import { playCorrectSound, playWrongSound, speakWord } from '../src/engine/AudioManager';
+
+jest.mock('../src/engine/AudioManager', () => ({
+  playCorrectSound: jest.fn(() => Promise.resolve()),
+  playTapSound: jest.fn(() => Promise.resolve()),
+  playWrongSound: jest.fn(() => Promise.resolve()),
+  speakWord: jest.fn(() => Promise.resolve()),
+}));
+
+const mockItems: MatchingItem[] = [
+  {
+    id: 'vocab-swing',
+    imageSource: { uri: 'file://swing.png' },
+    meaningVi: 'xích đu',
+    word: 'swing',
+  },
+  {
+    id: 'vocab-slide',
+    imageSource: { uri: 'file://slide.png' },
+    meaningVi: 'cầu trượt',
+    word: 'slide',
+  },
+];
+
+describe('MatchingGame', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    act(() => {
+      jest.clearAllTimers();
+    });
+    jest.useRealTimers();
+  });
+
+  it('renders correctly with 2 columns of items', () => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <MatchingGame items={mockItems} onComplete={jest.fn()} />,
+      );
+    });
+
+    const cards = renderer!.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'swing' ||
+        node.props.accessibilityLabel === 'slide',
+    );
+    expect(cards.length).toBeGreaterThanOrEqual(4); // 2 swing cards + 2 slide cards
+  });
+
+  it('handles correct match and triggers completion when all matched', () => {
+    const onCompleteMock = jest.fn();
+    const onMatchMock = jest.fn();
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <MatchingGame
+          items={mockItems}
+          onComplete={onCompleteMock}
+          onMatch={onMatchMock}
+        />,
+      );
+    });
+
+    const swingCards = renderer!.root.findAll(
+      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+    );
+    expect(swingCards.length).toBe(2);
+
+    // Tap swing image card then swing word card
+    act(() => {
+      swingCards[0].props.onPress();
+    });
+
+    act(() => {
+      swingCards[1].props.onPress();
+    });
+
+    expect(playCorrectSound).toHaveBeenCalledTimes(1);
+    expect(speakWord).toHaveBeenCalledWith('swing');
+    expect(onMatchMock).toHaveBeenCalledWith('vocab-swing', true);
+
+    const slideCards = renderer!.root.findAll(
+      node => node.props.accessibilityLabel === 'slide' && typeof node.props.onPress === 'function',
+    );
+    // Tap slide image card then slide word card
+    act(() => {
+      slideCards[0].props.onPress();
+    });
+
+    act(() => {
+      slideCards[1].props.onPress();
+    });
+
+    expect(playCorrectSound).toHaveBeenCalledTimes(2);
+
+    // Advance completion timer
+    act(() => {
+      jest.advanceTimersByTime(1100);
+    });
+
+    expect(onCompleteMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('handles wrong match with sound and error feedback', () => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <MatchingGame items={mockItems} onComplete={jest.fn()} />,
+      );
+    });
+
+    const swingCards = renderer!.root.findAll(
+      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+    );
+    const slideCards = renderer!.root.findAll(
+      node => node.props.accessibilityLabel === 'slide' && typeof node.props.onPress === 'function',
+    );
+
+    // Tap swing image card then slide word card (mismatch)
+    act(() => {
+      swingCards[0].props.onPress();
+    });
+
+    act(() => {
+      slideCards[1].props.onPress();
+    });
+
+    expect(playWrongSound).toHaveBeenCalledTimes(1);
+  });
+});
