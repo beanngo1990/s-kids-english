@@ -16,7 +16,7 @@ export const vi = {
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.parent': 'Góc phụ huynh',
-  'nav.premium': 'S-Kids Premium',
+  'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'Hành trình vui học bắt đầu!',
 
@@ -70,7 +70,7 @@ export const vi = {
     'Đã thử sai nhiều lần. Vui lòng chờ một chút rồi thử lại.',
 
   'premium.badge': 'Dành cho ba mẹ',
-  'premium.title': 'Mở trọn hành trình S-Kids',
+  'premium.title': 'Mở trọn hành trình Sungy',
   'premium.subtitle':
     'Chọn gói phù hợp để bé học toàn bộ bài học và nội dung ôn tập hiện có.',
   'premium.benefit.journeyTitle': 'Toàn bộ lộ trình học',
@@ -135,14 +135,14 @@ export const vi = {
   'premium.currentLifetime': 'Premium trọn đời',
   'premium.currentFounder': 'Premium quà tặng 1 năm',
   'premium.currentPromotional': 'Premium được tặng',
-  'premium.currentGeneric': 'S-Kids Premium',
+  'premium.currentGeneric': 'Sungy Premium',
   'premium.currentUntil': 'Có hiệu lực đến {date}',
   'premium.currentRenews': 'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
   'premium.currentNoRenew': 'Gói sẽ không tự động gia hạn.',
   'premium.currentLifetimeText': 'Quyền Premium này không hết hạn.',
   'premium.status.badge': 'Premium',
   'premium.status.accountBadge': 'Tài khoản Premium',
-  'premium.status.accessibility': 'S-Kids Premium đang hoạt động',
+  'premium.status.accessibility': 'Sungy Premium đang hoạt động',
   'premium.status.viewDetails': 'Xem chi tiết Premium',
   'premium.disclosure.subscription':
     'Khoản thanh toán được tính vào tài khoản cửa hàng. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký của Apple hoặc Google.',
@@ -180,7 +180,7 @@ export const vi = {
   'premium.legal.privacy': 'Chính sách quyền riêng tư',
   'premium.legal.terms': 'Điều khoản sử dụng',
   'premium.legal.support': 'Liên hệ hỗ trợ',
-  'premium.legal.supportSubject': 'Hỗ trợ S-Kids Premium',
+  'premium.legal.supportSubject': 'Hỗ trợ Sungy Premium',
   'premium.legal.linkErrorTitle': 'Không mở được liên kết',
   'premium.legal.linkErrorText':
     'Ba mẹ vui lòng thử lại hoặc liên hệ hỗ trợ sau.',
@@ -315,7 +315,7 @@ export const vi = {
   'parent.support.emailErrorText':
     'Không mở được ứng dụng email. Bạn có thể gửi thư tới {email}.',
   'parent.support.emailErrorTitle': 'Không mở được email',
-  'parent.support.emailSubject': 'Hỗ trợ S-Kids English',
+  'parent.support.emailSubject': 'Hỗ trợ Sungy',
   'parent.support.title': 'Liên hệ & thông tin',
   'parent.support.versionAccessibility': 'Phiên bản ứng dụng {version}',
   'parent.support.versionSubtitle': 'Phiên bản đang cài đặt trên thiết bị.',
@@ -440,7 +440,7 @@ export const vi = {
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
-  'header.openHub': 'Mở S-Kids Hub',
+  'header.openHub': 'Mở Sungy Hub',
   'header.parentGate': 'Góc phụ huynh',
   'header.level': 'Cấp {level}',
   'streak.notLearnedToday': 'Bé chưa học hôm nay',
@@ -499,7 +499,7 @@ export const vi = {
   'home.coach.guideTapThree': 'Mình kiếm thêm sao nào!',
   'home.emptyMap.badge': 'Chưa có trạm',
   'home.emptyMap.title': 'Chủ đề này chưa có gói bài học.',
-  'home.mapFallbackTitle': 'Bản đồ S-Kids',
+  'home.mapFallbackTitle': 'Bản đồ Sungy',
   'home.recentLesson': 'bài vừa học',
   'home.freePremiumCta.badge': 'Hoàn thành phần miễn phí',
   'home.freePremiumCta.title': 'Bé đã sẵn sàng cho chặng tiếp theo',
@@ -509,7 +509,7 @@ export const vi = {
   'home.freePremiumCta.accessibility':
     'Bé đã hoàn thành phần miễn phí. Nhờ ba mẹ mở Premium để học tiếp {lessonTitle}',
   'home.hub.title': 'Hôm nay mình đi đâu?',
-  'home.hub.closeAccessibility': 'Đóng S-Kids Hub',
+  'home.hub.closeAccessibility': 'Đóng Sungy Hub',
   'home.hub.reviewTitle': 'Ôn lại {lessonTitle}',
   'home.hub.completeTitle': 'Bản đồ đã đủ sao',
   'home.hub.readyTitle': 'Sẵn sàng học tiếp',
@@ -729,7 +729,7 @@ export const vi = {
   'voiceRecorder.permissionNegative': 'Để sau',
   'voiceRecorder.permissionPositive': 'Cho phép',
   'voiceRecorder.permissionMessage':
-    'S-Kids English cần micro để bé nghe lại giọng của mình.',
+    'Sungy cần micro để bé nghe lại giọng của mình.',
   'voiceRecorder.permissionTitle': 'Cho bé luyện nói',
   'mascot.touchAccessibility': 'Chạm vào Sungy',
   'mascot.name': 'Sungy',

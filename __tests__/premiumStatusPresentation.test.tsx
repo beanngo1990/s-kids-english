@@ -191,7 +191,7 @@ test('shares product labels and safely formats localized expiration details', ()
   expect(getPremiumProductTypeTitle(t, 'promotional')).toBe(
     'Premium được tặng',
   );
-  expect(getPremiumProductTypeTitle(t, undefined)).toBe('S-Kids Premium');
+  expect(getPremiumProductTypeTitle(t, undefined)).toBe('Sungy Premium');
   expect(formatPremiumExpirationDate('not-a-date', 'vi')).toBe('');
   expect(formatPremiumExpirationDate('2027-07-18T12:00:00.000Z', 'vi')).toBe(
     '18/7/2027',
