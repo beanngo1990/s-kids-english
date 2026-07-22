@@ -8,17 +8,17 @@ export const DEFAULT_PREMIUM_OFFERING_ID = 'default';
 export const monetizationConfig = {
   // RevenueCat public SDK keys are safe to ship in the app, but must be supplied
   // from the SKidsEnglish RevenueCat project before store testing.
-  revenueCatAppleApiKey: '',
-  revenueCatGoogleApiKey: '',
-  privacyPolicyUrl: '',
-  termsOfUseUrl: '',
+  revenueCatAppleApiKey: 'appl_QDRUfgpIRmhFkHzCNPeRjNyTpmA',
+  revenueCatGoogleApiKey: 'goog_ZfmDfBvEtMWozpqJQZikZvivXhF',
+  privacyPolicyUrl: 'https://beanngo1990.github.io/s-eduforge-legal/sungy/privacy-policy.html',
+  termsOfUseUrl: 'https://beanngo1990.github.io/s-eduforge-legal/sungy/terms-of-use.html',
 } as const;
 
 export const storeProductIds = {
   android: {
-    annual: 'premium:annual',
+    annual: 'annual:annual',
     lifetime: 'premium_lifetime',
-    monthly: 'premium:monthly',
+    monthly: 'monthly:monthly',
   },
   ios: {
     annual: 'com.seduforge.skidsenglish.premium.annual',
