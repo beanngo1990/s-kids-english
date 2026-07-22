@@ -11,6 +11,7 @@ import {
   MemoryGame,
   type MemoryGameItem,
 } from './memory/MemoryGame';
+import { ListenChooseGame } from './listenChoose/ListenChooseGame';
 
 type GamePlayerProps = {
   memoryItems: MemoryGameItem[];
@@ -31,6 +32,14 @@ export function GamePlayer({
     case 'memory':
       return (
         <MemoryGame
+          items={memoryItems}
+          onComplete={onComplete}
+          onMatch={onWordInteraction}
+        />
+      );
+    case 'listenAndChoose':
+      return (
+        <ListenChooseGame
           items={memoryItems}
           onComplete={onComplete}
           onMatch={onWordInteraction}

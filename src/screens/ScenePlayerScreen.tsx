@@ -101,7 +101,11 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   };
 
   const handleComplete = async () => {
-    if (lesson.reviewGame?.type === 'memory') {
+    if (
+      lesson.reviewGame &&
+      (lesson.reviewGame.type === 'memory' ||
+        lesson.reviewGame.type === 'listenAndChoose')
+    ) {
       if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
         openParentPremium();
         return;

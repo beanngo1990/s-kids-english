@@ -1,4 +1,7 @@
-import { memoryGameIntroPromptVi } from '../data/reviewGamePrompts';
+import {
+  listenChooseGameIntroPromptVi,
+  memoryGameIntroPromptVi,
+} from '../data/reviewGamePrompts';
 import { speakPracticePromptVi } from '../data/speechPrompts';
 import type { ReviewGame, Scene, SceneObject, SceneStep } from '../types/lesson';
 import type { TeacherPromptMode } from './types';
@@ -240,9 +243,15 @@ export function resolveReviewGameIntroPrompt(
   reviewGameType: ReviewGame['type'] | undefined,
   mode: TeacherPromptMode,
 ): TeacherPromptResolution {
+  const viText =
+    reviewGameType === 'listenAndChoose'
+      ? listenChooseGameIntroPromptVi
+      : memoryGameIntroPromptVi;
   const enText =
     reviewGameType === 'memory'
       ? 'Find two matching pictures.'
+      : reviewGameType === 'listenAndChoose'
+      ? 'Listen to the word and choose the right picture.'
       : 'Let’s review together.';
 
   if (mode === 'en') {
@@ -254,17 +263,17 @@ export function resolveReviewGameIntroPrompt(
 
   if (mode === 'bilingual') {
     return {
-      displayText: `${memoryGameIntroPromptVi}\n${enText}`,
+      displayText: `${viText}\n${enText}`,
       segments: [
-        { language: 'vi', text: memoryGameIntroPromptVi },
+        { language: 'vi', text: viText },
         { language: 'en', text: enText },
       ],
     };
   }
 
   return {
-    displayText: memoryGameIntroPromptVi,
-    segments: [{ language: 'vi', text: memoryGameIntroPromptVi }],
+    displayText: viText,
+    segments: [{ language: 'vi', text: viText }],
   };
 }
 

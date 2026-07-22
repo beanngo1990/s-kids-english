@@ -392,12 +392,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 ### Review games
 
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose` để mở rộng data model.
-- **Implemented:** runtime registry chỉ hỗ trợ `memory`.
-- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent
-  đang chọn khi lật và hoàn tất khi ghép hết cặp.
-- Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config
-  override trong giới hạn runtime.
-- **Unsupported:** `matching` và `listenAndChoose`; registry hiển thị unsupported UI.
+- **Implemented:** runtime registry hỗ trợ `memory` và `listenAndChoose`.
+- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
+- Listen & Choose game phát âm từ tiếng Anh và hiển thị các thẻ hình minh họa để bé nghe và chọn đáp án đúng.
+- Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
+- **Unsupported:** `matching`; registry hiển thị unsupported UI cho type chưa triển khai.
 
 ### Rewards và progress
 
@@ -806,8 +805,8 @@ Support summary:
 
 | Area                                     | Status hiện tại |
 | ---------------------------------------- | --------------- |
-| Memory review game                       | Implemented     |
-| Matching/listen-and-choose review        | Unsupported     |
+| Memory & ListenAndChoose review games    | Implemented     |
+| Matching review game                     | Unsupported     |
 | Parent math adult gate                   | Implemented     |
 | Parent PIN gate                          | Unsupported     |
 | Parent Google/Apple login                | Implemented     |

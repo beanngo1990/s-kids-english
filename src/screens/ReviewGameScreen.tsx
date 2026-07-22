@@ -112,7 +112,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     [isAccessGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
-    lesson?.reviewGame?.type === 'memory' && memoryItems.length >= 2,
+    (lesson?.reviewGame?.type === 'memory' ||
+      lesson?.reviewGame?.type === 'listenAndChoose') &&
+      memoryItems.length >= 2,
   );
 
   useEffect(() => {
@@ -213,8 +215,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
-  const needsMemoryItems = lesson.reviewGame.type === 'memory';
-  if (needsMemoryItems && memoryItems.length < 2) {
+  const needsItems =
+    lesson.reviewGame.type === 'memory' ||
+    lesson.reviewGame.type === 'listenAndChoose';
+  if (needsItems && memoryItems.length < 2) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
@@ -237,6 +241,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       </Screen>
     );
   }
+
+  const gameBadgeKey =
+    lesson.reviewGame.type === 'listenAndChoose'
+      ? 'reviewGame.listenAndChooseBadge'
+      : 'reviewGame.memoryBadge';
 
   return (
     <Screen scroll>
@@ -264,7 +273,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           </View>
           <View style={styles.headerText}>
             <View style={styles.headerTopRow}>
-              <KidBadge tone="teal">{t('reviewGame.memoryBadge')}</KidBadge>
+              <KidBadge tone="teal">{t(gameBadgeKey)}</KidBadge>
               <KidBadge tone="sun">{t('reviewGame.wordCount', { count: String(memoryItems.length) })}</KidBadge>
             </View>
             <Text numberOfLines={2} style={styles.title}>
