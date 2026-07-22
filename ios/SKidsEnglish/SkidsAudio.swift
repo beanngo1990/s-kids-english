@@ -4,12 +4,22 @@ import AVFoundation
 
 @objc(SkidsAudio)
 class SkidsAudio: NSObject, AVAudioRecorderDelegate {
+
+  private final class SpeechPlayback {
+    let player: AVPlayer
+    let resolve: RCTPromiseResolveBlock
+    var endObserver: NSObjectProtocol?
+    var failObserver: NSObjectProtocol?
+
+    init(player: AVPlayer, resolve: @escaping RCTPromiseResolveBlock) {
+      self.player = player
+      self.resolve = resolve
+    }
+  }
   
   private var audioPlayers: [String: AVAudioPlayer] = [:]
-  private var speechPlayer: AVPlayer?
-  private var speechResolve: RCTPromiseResolveBlock?
-  private var speechEndObserver: NSObjectProtocol?
-  private var speechFailObserver: NSObjectProtocol?
+  private let speechPlaybackLock = NSLock()
+  private var speechPlayback: SpeechPlayback?
   private var voiceRecorder: AVAudioRecorder?
   private var recordingSession: AVAudioSession!
   
@@ -74,9 +84,8 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
     
     let playerItem = AVPlayerItem(url: url)
     let player = AVPlayer(playerItem: playerItem)
-    speechPlayer = player
-    speechResolve = resolve
-    speechEndObserver = NotificationCenter.default.addObserver(
+    let playback = SpeechPlayback(player: player, resolve: resolve)
+    playback.endObserver = NotificationCenter.default.addObserver(
       forName: .AVPlayerItemDidPlayToEndTime,
       object: playerItem,
       queue: .main
@@ -86,7 +95,7 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
       }
       self.finishSpeechPlayer(player, didPlay: true)
     }
-    speechFailObserver = NotificationCenter.default.addObserver(
+    playback.failObserver = NotificationCenter.default.addObserver(
       forName: .AVPlayerItemFailedToPlayToEndTime,
       object: playerItem,
       queue: .main
@@ -97,7 +106,10 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
       self.finishSpeechPlayer(player, didPlay: false)
     }
     
+    speechPlaybackLock.lock()
+    speechPlayback = playback
     player.play()
+    speechPlaybackLock.unlock()
   }
   
   @objc func stopSpeech(_ resolve: @escaping RCTPromiseResolveBlock,
@@ -169,39 +181,51 @@ class SkidsAudio: NSObject, AVAudioRecorderDelegate {
   }
 
   private func finishSpeechPlayer(_ player: AVPlayer, didPlay: Bool) {
-    guard speechPlayer === player else {
+    guard let playback = detachSpeechPlayback(matching: player) else {
       return
     }
 
-    speechPlayer = nil
-    removeSpeechObservers()
-    resolveSpeechPromise(didPlay)
+    removeSpeechObservers(playback)
+    playback.resolve(didPlay)
   }
 
   private func stopSpeechPlayer(resolvePendingPromise: Bool = false) {
-    speechPlayer?.pause()
-    speechPlayer = nil
-    removeSpeechObservers()
+    speechPlaybackLock.lock()
+    let playback = speechPlayback
+    speechPlayback = nil
+    speechPlaybackLock.unlock()
 
-    if resolvePendingPromise {
-      resolveSpeechPromise(false)
+    playback?.player.pause()
+    if let playback = playback {
+      removeSpeechObservers(playback)
+    }
+
+    if resolvePendingPromise, let playback = playback {
+      playback.resolve(false)
     }
   }
 
-  private func removeSpeechObservers() {
-    if let observer = speechEndObserver {
-      NotificationCenter.default.removeObserver(observer)
-      speechEndObserver = nil
+  private func detachSpeechPlayback(matching player: AVPlayer) -> SpeechPlayback? {
+    speechPlaybackLock.lock()
+    defer { speechPlaybackLock.unlock() }
+
+    guard let playback = speechPlayback, playback.player === player else {
+      return nil
     }
 
-    if let observer = speechFailObserver {
-      NotificationCenter.default.removeObserver(observer)
-      speechFailObserver = nil
-    }
+    speechPlayback = nil
+    return playback
   }
 
-  private func resolveSpeechPromise(_ value: Bool) {
-    speechResolve?(value)
-    speechResolve = nil
+  private func removeSpeechObservers(_ playback: SpeechPlayback) {
+    if let observer = playback.endObserver {
+      NotificationCenter.default.removeObserver(observer)
+      playback.endObserver = nil
+    }
+
+    if let observer = playback.failObserver {
+      NotificationCenter.default.removeObserver(observer)
+      playback.failObserver = nil
+    }
   }
 }

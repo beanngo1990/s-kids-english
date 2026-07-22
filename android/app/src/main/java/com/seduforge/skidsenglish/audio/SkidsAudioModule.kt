@@ -20,10 +20,15 @@ class SkidsAudioModule(
 
   private val tag = "SkidsAudio"
 
+  private data class SpeechPlayback(
+    val player: MediaPlayer,
+    val promise: Promise,
+  )
+
   private val soundPool: SoundPool
   private val soundIds = mutableMapOf<String, Int>()
-  private var speechPlayer: MediaPlayer? = null
-  private var speechPromise: Promise? = null
+  private val speechPlaybackLock = Any()
+  private var speechPlayback: SpeechPlayback? = null
   private var voiceRecorder: MediaRecorder? = null
   private var voiceRecordingFile: File? = null
   private var isReleased = false
@@ -77,11 +82,13 @@ class SkidsAudioModule(
       return
     }
 
+    var createdPlayer: MediaPlayer? = null
+    var installedPlayback = false
     try {
       stopSpeechPlayer(resolvePendingPromise = true)
 
       val player = MediaPlayer()
-      speechPromise = promise
+      createdPlayer = player
       val attributes = AudioAttributes.Builder()
         .setUsage(AudioAttributes.USAGE_MEDIA)
         .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
@@ -94,33 +101,35 @@ class SkidsAudioModule(
         player.setDataSource(reactContext, Uri.parse(uri))
       }
       player.setOnPreparedListener {
-        it.start()
+        try {
+          if (!startSpeechPlayerIfCurrent(it)) {
+            safelyReleasePlayer(it)
+          }
+        } catch (error: Exception) {
+          Log.w(tag, "Unable to start audio uri: $uri", error)
+          finishSpeechPlayer(it, didPlay = false)
+        }
       }
       player.setOnCompletionListener {
-        if (speechPlayer === it) {
-          speechPlayer = null
-          resolveSpeechPromise(true)
-        }
-        it.release()
+        finishSpeechPlayer(it, didPlay = true)
       }
       player.setOnErrorListener { mediaPlayer, _, _ ->
-        if (speechPlayer === mediaPlayer) {
-          speechPlayer = null
-        }
         Log.w(tag, "Unable to play audio uri: $uri")
-        mediaPlayer.release()
-        resolveSpeechPromise(false)
+        finishSpeechPlayer(mediaPlayer, didPlay = false)
         true
       }
 
-      speechPlayer = player
+      synchronized(speechPlaybackLock) {
+        speechPlayback = SpeechPlayback(player, promise)
+      }
+      installedPlayback = true
       player.prepareAsync()
     } catch (error: Exception) {
-      stopSpeechPlayer(resolvePendingPromise = false)
-      if (speechPromise === promise) {
-        speechPromise = null
+      val pendingPlayback = detachSpeechPlaybackForPromise(promise)
+      safelyReleasePlayer(pendingPlayback?.player ?: createdPlayer)
+      if (pendingPlayback != null || !installedPlayback) {
+        promise.reject("SKIDS_AUDIO_PLAY_URI_ERROR", error)
       }
-      promise.reject("SKIDS_AUDIO_PLAY_URI_ERROR", error)
     }
   }
 
@@ -223,25 +232,73 @@ class SkidsAudioModule(
   override fun onHostDestroy() = Unit
 
   private fun stopSpeechPlayer(resolvePendingPromise: Boolean = false) {
-    speechPlayer?.let { player ->
+    val pendingPlayback = synchronized(speechPlaybackLock) {
+      val playback = speechPlayback
+      speechPlayback = null
+      playback
+    }
+
+    pendingPlayback?.let { playback ->
       try {
-        if (player.isPlaying) {
-          player.stop()
+        if (playback.player.isPlaying) {
+          playback.player.stop()
         }
       } catch (_: Exception) {
       } finally {
-        player.release()
+        safelyReleasePlayer(playback.player)
       }
-    }
-    speechPlayer = null
-    if (resolvePendingPromise) {
-      resolveSpeechPromise(false)
+
+      if (resolvePendingPromise) {
+        playback.promise.resolve(false)
+      }
     }
   }
 
-  private fun resolveSpeechPromise(value: Boolean) {
-    speechPromise?.resolve(value)
-    speechPromise = null
+  private fun startSpeechPlayerIfCurrent(player: MediaPlayer): Boolean =
+    synchronized(speechPlaybackLock) {
+      if (speechPlayback?.player !== player) {
+        return@synchronized false
+      }
+
+      player.start()
+      true
+    }
+
+  private fun finishSpeechPlayer(player: MediaPlayer, didPlay: Boolean) {
+    val completedPlayback = synchronized(speechPlaybackLock) {
+      val playback = speechPlayback
+      if (playback?.player !== player) {
+        return@synchronized null
+      }
+
+      speechPlayback = null
+      playback
+    }
+
+    safelyReleasePlayer(player)
+    completedPlayback?.promise?.resolve(didPlay)
+  }
+
+  private fun detachSpeechPlaybackForPromise(promise: Promise): SpeechPlayback? =
+    synchronized(speechPlaybackLock) {
+      val playback = speechPlayback
+      if (playback?.promise !== promise) {
+        return@synchronized null
+      }
+
+      speechPlayback = null
+      playback
+    }
+
+  private fun safelyReleasePlayer(player: MediaPlayer?) {
+    if (player == null) {
+      return
+    }
+
+    try {
+      player.release()
+    } catch (_: Exception) {
+    }
   }
 
   @Suppress("DEPRECATION")
