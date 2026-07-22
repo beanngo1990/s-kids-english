@@ -7,6 +7,11 @@ import { KidBadge } from '../components/KidBadge';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import { canAccessLesson } from '../engine/ContentAccessPolicy';
@@ -20,7 +25,7 @@ import {
   saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { useI18n, useSavedAppLanguage } from '../i18n';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import {
   getLocalizedThemeDescription,
   getLocalizedThemeTitle,
@@ -62,6 +67,16 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       .catch(() => undefined);
   }, []);
 
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
   const handleSelectTheme = async (theme: LessonTheme) => {
     if (savingThemeId) {
       return;
@@ -70,10 +85,12 @@ export function ThemeLibraryScreen({ navigation }: Props) {
     const latestMonetizationSnapshot = getMonetizationSnapshot();
     if (!canAccessAnyThemeLesson(theme, latestMonetizationSnapshot)) {
       if (latestMonetizationSnapshot.status === 'initializing') {
+        playKidLockPrompt('resolving');
         Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
         return;
       }
 
+      playKidLockPrompt('premium');
       Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
         { style: 'cancel', text: t('common.close') },
         {

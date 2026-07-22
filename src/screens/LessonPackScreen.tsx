@@ -9,6 +9,11 @@ import { PremiumContentGate } from '../components/PremiumContentGate';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import {
@@ -27,7 +32,7 @@ import {
   getLocalizedSceneTitle,
 } from '../i18n/domainCopy';
 import { getLearningModeCopy } from '../i18n/learningModeCopy';
-import { useI18n, useSavedAppLanguage } from '../i18n';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -119,6 +124,16 @@ export function LessonPackScreen({ navigation, route }: Props) {
     return navigation.addListener('focus', refreshScreenData);
   }, [navigation, refreshScreenData]);
 
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
   const openScene = (sceneId: string) => {
     if (!lesson) {
       return;
@@ -126,7 +141,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     const scene = scenes.find(item => item.id === sceneId);
 
-    if (!scene || (journeyMode === 'guided' && !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id))) {
+    if (!scene) {
+      return;
+    }
+
+    if (journeyMode === 'guided' && !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
+      playKidLockPrompt('progress');
       return;
     }
 
@@ -322,8 +342,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
           return (
             <Pressable
               accessibilityRole="button"
-              accessibilityState={{ disabled: isLocked }}
-              disabled={isLocked}
+              accessibilityState={{ disabled: false }}
               key={scene.id}
               onPress={() => openScene(scene.id)}
               style={({ pressed }) => [
