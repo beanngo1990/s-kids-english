@@ -86,10 +86,13 @@ export function learningObject({
 type BaseStepInput = {
   id: EntityId;
   effects?: SceneEffect[];
+  failFeedbackEn?: string;
   failFeedbackVi?: string;
+  instructionEn?: string;
   instructionVi: string;
   nextStepId?: EntityId;
   promptText?: string;
+  successFeedbackEn?: string;
   successFeedbackVi: string;
   targetObjectIds: EntityId[];
   type: SceneStepType;

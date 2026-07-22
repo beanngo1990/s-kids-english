@@ -145,9 +145,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-prep-intro',
           type: 'intro',
           targetObjectIds: ['bath-prep-baby'],
+          instructionEn: "It's afternoon. Let's get ready for a bath.",
           instructionVi: 'Chiều rồi, mình chuẩn bị tắm nhé.',
           nextStepId: 'bath-prep-teach-shower',
           promptText: 'Bath time!',
+          successFeedbackEn:
+            'Getting ready first helps you bathe safely and neatly.',
           successFeedbackVi: 'Chuẩn bị trước giúp bé tắm an toàn và gọn gàng.',
           effects: [bounce('bath-prep-baby')],
         }),
@@ -371,6 +374,7 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-prep-star',
+        messageEn: 'You got ready for your bath so carefully!',
         messageVi: 'Bé đã chuẩn bị tắm thật cẩn thận!',
       },
     },
@@ -493,9 +497,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-rinse-intro',
           type: 'intro',
           targetObjectIds: ['bath-rinse-baby'],
+          instructionEn: "Let's wash up after playing.",
           instructionVi: 'Mình tắm sạch sau khi chơi nhé.',
           nextStepId: 'bath-rinse-teach-bubble',
           promptText: 'Wash and rinse!',
+          successFeedbackEn:
+            'A bath helps you feel fresh after an active afternoon.',
           successFeedbackVi: 'Tắm sạch giúp bé dễ chịu sau buổi chiều.',
           effects: [bounce('bath-rinse-baby')],
         }),
@@ -718,6 +725,7 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-rinse-star',
+        messageEn: 'You washed and rinsed yourself so well!',
         messageVi: 'Bé đã tắm và xả sạch thật khéo!',
       },
     },
@@ -861,9 +869,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-finish-intro',
           type: 'intro',
           targetObjectIds: ['bath-finish-baby'],
+          instructionEn: "Bath time is over. Let's put on clean clothes.",
           instructionVi: 'Tắm xong rồi, mình mặc đồ sạch nhé.',
           nextStepId: 'bath-finish-teach-pajamas',
           promptText: 'After bath!',
+          successFeedbackEn:
+            'After a bath, put on dry clothes to keep warm.',
           successFeedbackVi: 'Sau khi tắm, bé mặc đồ khô để giữ ấm.',
           effects: [bounce('bath-finish-baby')],
         }),
@@ -1093,6 +1104,7 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-finish-star',
+        messageEn: 'You got dressed so neatly after your bath!',
         messageVi: 'Bé đã mặc đồ sau tắm thật gọn gàng!',
       },
     },

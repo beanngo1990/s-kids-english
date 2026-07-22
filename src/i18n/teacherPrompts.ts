@@ -78,27 +78,34 @@ export function getTeacherInstructionEn(
 
   if (step.type === 'teach' && vocabularyItem) {
     if (vocabularyItem.type === 'noun') {
-      return `This is the ${vocabularyItem.word}.`;
+      return getNounIntroductionSentence(vocabularyItem.word);
     }
 
-    return `Let's learn ${vocabularyItem.word}.`;
+    const label = vocabularyItem.type === 'verb' ? 'word' : 'phrase';
+    return `Let's learn the ${label} ${vocabularyItem.word}.`;
   }
 
   if (step.interaction.type === 'listen') {
-    return promptSentence ?? 'Listen carefully.';
+    return getActionInstructionSentence(promptText) ?? promptSentence ?? 'Listen carefully.';
   }
 
   if (step.interaction.type === 'find') {
-    return `Find the ${getInstructionTargetText(scene, step)}.`;
+    return `Find ${formatNounPhrase(getInstructionTargetText(scene, step))}.`;
   }
 
   if (step.interaction.type === 'tap') {
-    const tapPrompt = getTapPromptSentence(promptText);
+    const isNounLabelPrompt =
+      vocabularyItem?.type === 'noun' &&
+      promptText?.toLocaleLowerCase('en-US') ===
+        vocabularyItem.word.toLocaleLowerCase('en-US');
+    const tapPrompt = isNounLabelPrompt
+      ? undefined
+      : getTapPromptSentence(promptText);
     if (tapPrompt) {
       return tapPrompt;
     }
 
-    return `Tap the ${getInstructionTargetText(scene, step)}.`;
+    return `Tap ${formatNounPhrase(getInstructionTargetText(scene, step))}.`;
   }
 
   if (step.interaction.type === 'drag') {
@@ -107,7 +114,22 @@ export function getTeacherInstructionEn(
       return dragPrompt;
     }
 
-    return `Drag the ${getInstructionTargetText(scene, step)}.`;
+    const targetText = getFeedbackTargetText(scene, step);
+    const destinationText = getFeedbackDestinationText(
+      scene,
+      step,
+      targetText,
+    );
+    if (targetText && destinationText) {
+      return `Drag ${formatNounPhrase(
+        targetText,
+      )} ${getFailPlacementPreposition(
+        step.instructionVi,
+        destinationText,
+      )} ${formatNounPhrase(destinationText)}.`;
+    }
+
+    return `Drag ${formatNounPhrase(getInstructionTargetText(scene, step))}.`;
   }
 
   return promptSentence;
@@ -404,6 +426,17 @@ function inferSuccessFeedbackEn(
   if (step.interaction.type === 'tap' || step.interaction.type === 'find') {
     const targetText = getFeedbackTargetText(scene, step);
     if (targetText) {
+      if (/^Đúng rồi[!.]?$/iu.test(viText.trim())) {
+        return "That's right!";
+      }
+
+      if (/đó là/iu.test(viText)) {
+        const nounPhrase = formatNounPhrase(targetText);
+        return isPluralNoun(targetText)
+          ? `That's right, those are ${nounPhrase}!`
+          : `That's right, that's ${nounPhrase}!`;
+      }
+
       return `That's right, you found ${formatNounPhrase(targetText)}!`;
     }
   }
@@ -417,10 +450,19 @@ function inferFailFeedbackEn(
   viText: string,
   vocabularyItem: ReturnType<typeof getStepVocabulary>,
 ) {
+  const locationFeedback = inferLocationFeedbackEn(step, scene, viText);
+  if (locationFeedback) {
+    return locationFeedback;
+  }
+
   const actionPhrase = shouldUseActionFeedback(step, scene, vocabularyItem)
     ? getPresentActionPhrase(step.promptText)
     : undefined;
   if (actionPhrase) {
+    if (actionPhrase.startsWith('try ')) {
+      return `${capitalizeFirst(actionPhrase)}.`;
+    }
+
     return `Try to ${actionPhrase}.`;
   }
 
@@ -456,6 +498,187 @@ function inferFailFeedbackEn(
 
   return undefined;
 }
+
+function inferLocationFeedbackEn(
+  step: SceneStep,
+  scene: Scene,
+  viText: string,
+) {
+  if (!/(?:^|\s)(?:ở|nằm|đứng|treo|đang)(?:\s|$)/iu.test(viText)) {
+    return undefined;
+  }
+
+  const targetText = getFeedbackTargetText(scene, step);
+  if (!targetText) {
+    return undefined;
+  }
+
+  const referenceText = getVietnameseLocationReference(scene, step, viText);
+  const locationPhrase = getEnglishLocationPhrase(viText, referenceText);
+  if (!locationPhrase) {
+    return undefined;
+  }
+
+  return `${capitalizeFirst(formatNounPhrase(targetText))} ${getBeVerb(
+    targetText,
+  )} ${locationPhrase}.`;
+}
+
+function getVietnameseLocationReference(
+  scene: Scene,
+  step: SceneStep,
+  viText: string,
+) {
+  const targetObjectId = getTargetObject(scene, step)?.id;
+  const normalizedViText = normalizeVietnameseText(viText);
+  const candidates = getRenderableObjects(scene)
+    .filter(object => object.id !== targetObjectId)
+    .map(object => {
+      const vocabularyItem = getObjectVocabulary(scene, object);
+      const meaningVi = vocabularyItem?.meaningVi;
+      const normalizedMeaning = meaningVi
+        ? stripVietnameseClassifier(normalizeVietnameseText(meaningVi))
+        : '';
+      return {
+        english:
+          vocabularyItem?.word ?? getObjectFallbackName(object),
+        vietnamese: normalizedMeaning,
+      };
+    })
+    .filter(candidate => candidate.vietnamese.length >= 2)
+    .sort((left, right) => right.vietnamese.length - left.vietnamese.length);
+
+  return candidates.find(candidate =>
+    normalizedViText.includes(candidate.vietnamese),
+  )?.english;
+}
+
+function normalizeVietnameseText(text: string) {
+  return text
+    .toLocaleLowerCase('vi-VN')
+    .replace(/[,.!?]/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+function stripVietnameseClassifier(text: string) {
+  return text.replace(
+    /^(?:bộ|cái|cây|chai|chiếc|con|đôi|hộp|hũ|ly|miếng|món|quyển|thẻ)\s+/iu,
+    '',
+  );
+}
+
+function getEnglishLocationPhrase(
+  viText: string,
+  referenceText: string | undefined,
+) {
+  const text = normalizeVietnameseText(viText);
+  const reference = referenceText
+    ? formatNounPhrase(referenceText)
+    : undefined;
+  const fixedLocation = vietnameseLocationPhrases.find(({ pattern }) =>
+    pattern.test(text),
+  );
+  if (fixedLocation) {
+    return fixedLocation.english;
+  }
+
+  if (/(?:bên|phía).*(?:trái)/iu.test(text)) {
+    return reference ? `to the left of ${reference}` : 'on the left';
+  }
+
+  if (/(?:bên|phía).*(?:phải)/iu.test(text)) {
+    return reference ? `to the right of ${reference}` : 'on the right';
+  }
+
+  if (/phía sau/iu.test(text)) {
+    return reference ? `behind ${reference}` : 'at the back';
+  }
+
+  if (/trước mặt/iu.test(text)) {
+    return reference ? `in front of ${reference}` : 'in front of you';
+  }
+
+  if (/trên cao/iu.test(text)) {
+    return 'up high';
+  }
+
+  if (/dưới chân|gần chân/iu.test(text)) {
+    return 'by your feet';
+  }
+
+  if (/(?:ở|gần|nằm) giữa/iu.test(text)) {
+    return reference ? `in the middle of ${reference}` : 'in the middle';
+  }
+
+  if (/phía trên/iu.test(text)) {
+    return reference ? `above ${reference}` : 'at the top';
+  }
+
+  if (/phía dưới/iu.test(text)) {
+    return reference ? `below ${reference}` : 'at the bottom';
+  }
+
+  if (/\b(?:bên )?cạnh\b/iu.test(text)) {
+    return reference ? `next to ${reference}` : 'nearby';
+  }
+
+  if (/\bgần\b/iu.test(text)) {
+    return reference ? `near ${reference}` : 'nearby';
+  }
+
+  if (/\btrong\b/iu.test(text)) {
+    return reference ? `in ${reference}` : undefined;
+  }
+
+  if (/\btrên\b/iu.test(text)) {
+    return reference ? `on ${reference}` : undefined;
+  }
+
+  if (/\bdưới\b/iu.test(text)) {
+    return reference ? `under ${reference}` : undefined;
+  }
+
+  if (/\btreo\b/iu.test(text)) {
+    return reference ? `near ${reference}` : 'hanging up';
+  }
+
+  return undefined;
+}
+
+const vietnameseLocationPhrases: Array<{
+  english: string;
+  pattern: RegExp;
+}> = [
+  { english: 'between the two small bottles', pattern: /giữa hai chai nhỏ/iu },
+  { english: 'near the middle of the playground', pattern: /gần giữa sân/iu },
+  { english: 'in the middle of the bathroom', pattern: /giữa phòng tắm/iu },
+  { english: 'in the middle of the classroom', pattern: /giữa lớp/iu },
+  { english: 'in the middle of the clean-up area', pattern: /giữa khu dọn/iu },
+  { english: 'in the middle of the dining table', pattern: /giữa bàn ăn/iu },
+  { english: 'near the middle of the room', pattern: /gần giữa phòng/iu },
+  { english: 'in the middle of the room', pattern: /giữa phòng/iu },
+  { english: 'at the top of the classroom', pattern: /phía trên lớp/iu },
+  { english: 'above the small container', pattern: /phía trên hộp nhỏ/iu },
+  { english: 'next to the cleaning brush', pattern: /cạnh bàn chải/iu },
+  { english: 'next to the storybook', pattern: /cạnh sách truyện/iu },
+  { english: 'near the handwashing area', pattern: /gần chỗ rửa tay/iu },
+  { english: 'near the edge of the table', pattern: /gần mép bàn/iu },
+  { english: 'near the bathtub', pattern: /gần bồn tắm/iu },
+  { english: 'near the sink', pattern: /gần bồn/iu },
+  { english: 'near the school', pattern: /gần trường/iu },
+  { english: 'near your neck', pattern: /gần cổ bé/iu },
+  { english: 'next to you', pattern: /(?:cạnh|gần) bé/iu },
+  { english: 'by your body', pattern: /cạnh người bé/iu },
+  { english: 'under the play table', pattern: /dưới bàn chơi/iu },
+  { english: 'on the play table', pattern: /trên bàn chơi/iu },
+  { english: 'on the small table', pattern: /trên bàn nhỏ/iu },
+  { english: 'on the small shelf', pattern: /trên kệ nhỏ/iu },
+  { english: 'in the bathtub', pattern: /trong bồn tắm/iu },
+  { english: 'on the wall', pattern: /trên tường/iu },
+  { english: 'on the mat', pattern: /trên thảm/iu },
+  { english: 'on the table', pattern: /trên bàn/iu },
+];
 
 function isMeaningFeedback(text: string) {
   return /^(Từ|Câu) này nghĩa là\b/iu.test(text.trim());
@@ -509,7 +732,9 @@ function getFeedbackDestinationText(
     .map(id => getRenderableObjects(scene).find(object => object.id === id))
     .find(
       (object): object is SceneObject =>
-        object !== undefined && object.id !== targetObjectId,
+        object !== undefined &&
+        object.id !== targetObjectId &&
+        object.id !== scene.character?.id,
     );
   if (secondaryObject) {
     const vocabularyItem = getObjectVocabulary(scene, secondaryObject);
@@ -531,6 +756,11 @@ function getFeedbackDestinationText(
 }
 
 function getDropZoneFallbackName(dropZoneId: string) {
+  const explicitName = dropZoneFallbackNames[dropZoneId];
+  if (explicitName) {
+    return explicitName;
+  }
+
   const words = dropZoneId
     .replace(/[-_]?zone$/iu, '')
     .split(/[-_]/u)
@@ -543,6 +773,10 @@ function getDropZoneFallbackName(dropZoneId: string) {
 
   return lastWord;
 }
+
+const dropZoneFallbackNames: Record<string, string> = {
+  'dinner-table-meal-zone': 'meal area',
+};
 
 function getSuccessPlacementPreposition(text: string, destinationText: string) {
   if (/\bcạnh\b/iu.test(text)) {
@@ -614,10 +848,11 @@ function getCompletedActionPhrase(text: string | undefined) {
     return undefined;
   }
 
-  const pastVerb =
-    action.verb === 'air' && action.remainder.startsWith('dry ')
-      ? 'air-dried'
-      : pastVerbByBase[action.verb] ?? `${action.verb}ed`;
+  if (action.verb === 'air' && action.remainder.startsWith('dry ')) {
+    return `air-dried ${action.remainder.slice('dry '.length)}`;
+  }
+
+  const pastVerb = pastVerbByBase[action.verb] ?? `${action.verb}ed`;
   return action.remainder ? `${pastVerb} ${action.remainder}` : pastVerb;
 }
 
@@ -625,6 +860,10 @@ function getPresentActionPhrase(text: string | undefined) {
   const action = getActionParts(text);
   if (!action) {
     return undefined;
+  }
+
+  if (action.verb === 'air' && action.remainder.startsWith('dry ')) {
+    return `air-dry ${action.remainder.slice('dry '.length)}`;
   }
 
   return action.remainder ? `${action.verb} ${action.remainder}` : action.verb;
@@ -662,6 +901,7 @@ const pastVerbByBase: Record<string, string> = {
   close: 'closed',
   comb: 'combed',
   draw: 'drew',
+  drag: 'dragged',
   drink: 'drank',
   dry: 'dried',
   eat: 'ate',
@@ -723,8 +963,21 @@ function formatActionRemainder(verb: string, text: string) {
     return '';
   }
 
+  const override = actionRemainderOverrides[`${verb} ${text}`];
+  if (override) {
+    return override;
+  }
+
   if (verb === 'air' && text.startsWith('dry ')) {
     return `dry ${formatNounPhrase(text.slice('dry '.length))}`;
+  }
+
+  if (
+    (/^(eat|have)$/iu.test(verb) && /^(breakfast|dinner|lunch)$/iu.test(text)) ||
+    (/^(arrive|go|ride)$/iu.test(verb) && text === 'home') ||
+    (/^(go|walk)$/iu.test(verb) && /^(to bed|to school)$/iu.test(text))
+  ) {
+    return text;
   }
 
   if (/^(a|an|the|my|our|your)\b/iu.test(text)) {
@@ -776,11 +1029,79 @@ function formatActionRemainder(verb: string, text: string) {
   return formatNounPhrase(text);
 }
 
+const actionRemainderOverrides: Record<string, string> = {
+  'brush teeth': 'your teeth',
+  'build tower': 'a tower',
+  'call everyone': 'everyone',
+  'carry tray': 'the tray',
+  'check dream journal': 'your dream journal',
+  'check temperature': 'the temperature',
+  'choose snack': 'a snack',
+  'choose story': 'a story',
+  'choose toy': 'a toy',
+  'clean up toys': 'up the toys',
+  'close curtains': 'the curtains',
+  'comb hair': 'your hair',
+  'dim lights': 'the lights',
+  'draw picture': 'a picture',
+  'dry face': 'your face',
+  'dry surface': 'the surface',
+  'eat snack': 'a snack',
+  'get on bus': 'on the bus',
+  'hang robe': 'the robe',
+  'hug comfort plush': 'your soft toy',
+  'hug family': 'your family',
+  'label container': 'the container',
+  'load dishwasher': 'the dishwasher',
+  'move cart': 'the cart',
+  'open book': 'the book',
+  'open lunchbox': 'your lunchbox',
+  'open snack box': 'the snack box',
+  'pack bag': 'your bag',
+  'pass dish': 'the dish',
+  'place bookmark': 'the bookmark',
+  'play gently': 'gently',
+  'play lullaby': 'a lullaby',
+  'put away book': 'away the book',
+  'put away tray': 'away the tray',
+  'put on pajamas': 'on your pajamas',
+  'put on shoes': 'on your shoes',
+  'raise hand': 'your hand',
+  'read book': 'a book',
+  'read softly': 'softly',
+  'rinse hair': 'your hair',
+  'say good night': 'good night',
+  'say goodbye': 'goodbye',
+  'scrub knees': 'your knees',
+  'scrub spot': 'the spot',
+  'set placemat': 'the placemat',
+  'sit at table': 'at the table',
+  'solve puzzle': 'a puzzle',
+  'sort recycling': 'the recycling',
+  'spray stain': 'the stain',
+  'start timer': 'the timer',
+  'step onto mat': 'onto the mat',
+  'take off shoes': 'off your shoes',
+  'throw away wrapper': 'away the wrapper',
+  'tidy room': 'the room',
+  'turn on shower': 'on the shower',
+  'use spoon': 'a spoon',
+  'wash face': 'your face',
+  'wash hands': 'your hands',
+  'wear sleep mask': 'a sleep mask',
+  'wipe mouth': 'your mouth',
+  'wipe table': 'the table',
+};
+
 function formatNounPhrase(text: string) {
   const normalizedText = text.toLocaleLowerCase('en-US');
   const pronounPhrase = pronounNounPhrases[normalizedText];
   if (pronounPhrase) {
     return pronounPhrase;
+  }
+
+  if (zeroArticleNounPhrases.has(normalizedText)) {
+    return normalizedText;
   }
 
   if (/^(a|an|the|my|our|your)\b/iu.test(text)) {
@@ -799,9 +1120,17 @@ const pronounNounPhrases: Record<string, string> = {
   hair: 'your hair',
   hand: 'your hand',
   hands: 'your hands',
+  home: 'your home',
   mouth: 'your mouth',
   teeth: 'your teeth',
 };
+
+const zeroArticleNounPhrases = new Set([
+  'breakfast',
+  'dinner',
+  'lunch',
+  'music',
+]);
 
 function getBeVerb(text: string) {
   return isPluralNoun(text) ? 'are' : 'is';
@@ -845,11 +1174,11 @@ function getTapPromptSentence(text: string | undefined) {
 
   const tapMatch = normalizedText.match(/^tap\s+(.+)$/iu);
   if (tapMatch?.[1]) {
-    return `Tap the ${lowercaseFirst(tapMatch[1])}.`;
+    return `Tap ${formatNounPhrase(lowercaseFirst(tapMatch[1]))}.`;
   }
 
   if (looksLikeInstruction(normalizedText)) {
-    return toSentence(normalizedText);
+    return getActionInstructionSentence(normalizedText);
   }
 
   return undefined;
@@ -863,11 +1192,11 @@ function getDragPromptSentence(text: string | undefined) {
 
   const dragMatch = normalizedText.match(/^drag\s+(.+)$/iu);
   if (dragMatch?.[1]) {
-    return `Drag the ${lowercaseFirst(dragMatch[1])}.`;
+    return `Drag ${formatNounPhrase(lowercaseFirst(dragMatch[1]))}.`;
   }
 
   if (looksLikeInstruction(normalizedText)) {
-    return toSentence(normalizedText);
+    return getActionInstructionSentence(normalizedText);
   }
 
   const inMatch = normalizedText.match(/^(.+)\s+in\s+(.+)$/iu);
@@ -887,8 +1216,20 @@ function getDragPromptSentence(text: string | undefined) {
   return undefined;
 }
 
+function getActionInstructionSentence(text: string | undefined) {
+  const actionPhrase = getPresentActionPhrase(text);
+  return actionPhrase ? `${capitalizeFirst(actionPhrase)}.` : undefined;
+}
+
+function getNounIntroductionSentence(text: string) {
+  const nounPhrase = formatNounPhrase(text);
+  return isPluralNoun(text)
+    ? `These are ${nounPhrase}.`
+    : `This is ${nounPhrase}.`;
+}
+
 function looksLikeInstruction(text: string) {
-  return /^(air|arrive|brush|buckle|build|call|carry|check|choose|clean|close|comb|draw|drink|dry|eat|find|get|go|hang|hug|jump|label|line|listen|load|make|move|open|pack|pass|play|pour|put|raise|read|rest|ride|rinse|rub|run|save|say|scrub|serve|set|share|sip|sit|sleep|solve|sort|spray|stack|start|step|take|throw|tidy|try|turn|use|wait|wash|wear|wipe|write)\b/iu.test(
+  return /^(air|arrive|brush|buckle|build|call|carry|check|choose|clean|close|comb|drag|draw|drink|dry|eat|find|get|go|hang|hug|jump|label|line|listen|load|make|move|open|pack|pass|play|pour|put|raise|read|rest|ride|rinse|rub|run|save|say|scrub|serve|set|share|sip|sit|sleep|solve|sort|spray|stack|start|step|take|throw|tidy|try|turn|use|wait|wash|wear|wipe|write)\b/iu.test(
     text,
   );
 }

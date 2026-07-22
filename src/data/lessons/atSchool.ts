@@ -226,12 +226,14 @@ export const atSchoolLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: "Let's go into the classroom.",
           instructionVi: 'Mình vào lớp học nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'classroom-teach-teacher',
           promptText: 'At school!',
+          successFeedbackEn: "Let's go in!",
           successFeedbackVi: 'Vào lớp thôi!',
           targetObjectIds: ['classroom-baby'],
           type: 'intro',
@@ -489,6 +491,7 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'teacher',
+          successFeedbackEn: "You're ready to learn with your teacher!",
           successFeedbackVi: 'Con đã sẵn sàng học với cô giáo!',
           targetObjectIds: ['classroom-teacher'],
           type: 'review',
@@ -497,6 +500,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'classroom-star',
+        messageEn: 'You got to know your classroom.',
         messageVi: 'Bé đã làm quen với lớp học.',
         stars: 3,
       },
@@ -740,12 +744,14 @@ export const atSchoolLesson: Lesson = {
       steps: [
         {
           id: 'supplies-intro',
+          instructionEn: "Let's get your school supplies ready.",
           instructionVi: 'Mình chuẩn bị đồ dùng học tập nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'supplies-teach-book',
           promptText: 'School supplies!',
+          successFeedbackEn: "Let's get ready!",
           successFeedbackVi: 'Cùng chuẩn bị nào!',
           targetObjectIds: ['supplies-baby'],
           type: 'intro',
@@ -1059,6 +1065,7 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'book',
+          successFeedbackEn: 'You remembered the school supplies very well!',
           successFeedbackVi: 'Bé nhớ đồ dùng học tập rất tốt!',
           targetObjectIds: ['supplies-book'],
           type: 'review',
@@ -1067,6 +1074,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'supplies-star',
+        messageEn: 'You got your school supplies ready.',
         messageVi: 'Bé đã chuẩn bị đồ dùng học tập.',
         stars: 3,
       },
@@ -1332,12 +1340,14 @@ export const atSchoolLesson: Lesson = {
       steps: [
         {
           id: 'instructions-intro',
+          instructionEn: "I'll guide you.",
           instructionVi: 'Cô giáo sẽ hướng dẫn bé nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'instructions-teach-listen',
           promptText: 'Teacher says!',
+          successFeedbackEn: "Let's listen together.",
           successFeedbackVi: 'Mình cùng lắng nghe nào.',
           targetObjectIds: ['instructions-teacher', 'instructions-baby'],
           type: 'intro',
@@ -1472,6 +1482,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-open-book',
+          instructionEn: 'The teacher says, "Open the book."',
           instructionVi: 'Cô giáo bảo mình mở sách nhé.',
           interaction: {
             targetObjectId: 'instructions-book',
@@ -1510,6 +1521,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-draw-circle',
+          instructionEn: 'The teacher says, "Draw a circle."',
           instructionVi: 'Cô giáo bảo mình vẽ hình tròn.',
           interaction: {
             targetObjectId: 'instructions-crayon',
@@ -1549,6 +1561,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-write-name',
+          instructionEn: 'The teacher says, "Write your name."',
           instructionVi: 'Cô giáo bảo mình viết tên.',
           interaction: {
             targetObjectId: 'instructions-pencil',
@@ -1588,6 +1601,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-raise-hand',
+          instructionEn: 'The teacher says, "Raise your hand."',
           instructionVi: 'Cô giáo bảo mình giơ tay.',
           interaction: {
             targetObjectId: 'instructions-hand',
@@ -1705,6 +1719,8 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'teacher',
+          successFeedbackEn:
+            "You followed the teacher's instructions very well!",
           successFeedbackVi: 'Bé đã làm theo cô giáo rất tốt!',
           targetObjectIds: ['instructions-teacher'],
           type: 'review',
@@ -1713,6 +1729,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'instructions-star',
+        messageEn: "You followed the teacher's instructions very well.",
         messageVi: 'Bé đã làm theo cô giáo thật tốt.',
         stars: 3,
       },
