@@ -38,6 +38,7 @@ import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
 import { APP_SUPPORT_EMAIL, APP_VERSION } from '../config/appInfo';
+import { monetizationConfig } from '../config/monetization';
 import { lessons } from '../data/lessons';
 import { themes } from '../data/themes';
 import {
@@ -2525,6 +2526,36 @@ export function ParentScreen({ navigation, route }: Props) {
               <Text style={styles.privacyText}>
                 {t('parent.privacy.text')}
               </Text>
+              <View style={styles.legalLinksRow}>
+                {monetizationConfig.privacyPolicyUrl.trim() ? (
+                  <Pressable
+                    accessibilityRole="link"
+                    onPress={() => {
+                      Linking.openURL(monetizationConfig.privacyPolicyUrl).catch(
+                        () => undefined,
+                      );
+                    }}
+                  >
+                    <Text style={styles.legalLinkText}>
+                      {t('premium.legal.privacy')}
+                    </Text>
+                  </Pressable>
+                ) : null}
+                {monetizationConfig.termsOfUseUrl.trim() ? (
+                  <Pressable
+                    accessibilityRole="link"
+                    onPress={() => {
+                      Linking.openURL(monetizationConfig.termsOfUseUrl).catch(
+                        () => undefined,
+                      );
+                    }}
+                  >
+                    <Text style={styles.legalLinkText}>
+                      {t('premium.legal.terms')}
+                    </Text>
+                  </Pressable>
+                ) : null}
+              </View>
             </AppCard>
 
             {__DEV__ && (
@@ -3836,6 +3867,16 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     marginBottom: spacing.xs,
     ...typography.subtitle,
+  },
+  legalLinksRow: {
+    flexDirection: 'row',
+    gap: spacing.lg,
+    marginTop: spacing.md,
+  },
+  legalLinkText: {
+    color: colors.primary,
+    textDecorationLine: 'underline',
+    ...typography.caption,
   },
   pressed: {
     opacity: 0.9,
