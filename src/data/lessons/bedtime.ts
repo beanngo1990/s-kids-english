@@ -145,10 +145,13 @@ export const bedtimeLesson: Lesson = {
           id: 'bedtime-story-intro',
           type: 'intro',
           targetObjectIds: ['bedtime-story-baby'],
+          instructionEn: "It's bedtime. Let's choose a gentle story.",
           instructionVi:
             'Đến giờ ngủ rồi, mình chọn truyện thật nhẹ nhàng nhé.',
           nextStepId: 'bedtime-story-teach-storybook',
           promptText: 'Bedtime story!',
+          successFeedbackEn:
+            'A soothing story helps you get ready for sleep.',
           successFeedbackVi: 'Một câu chuyện êm dịu giúp bé chuẩn bị ngủ.',
           effects: [bounce('bedtime-story-baby')],
         }),
@@ -273,6 +276,7 @@ export const bedtimeLesson: Lesson = {
           instructionVi: 'Chạm vào giọng nói nhẹ nhàng nhé.',
           nextStepId: 'bedtime-story-teach-story-shelf',
           promptText: 'soft voice',
+          successFeedbackEn: "That's right, you used a soft voice.",
           successFeedbackVi: 'Đúng rồi, mình đọc bằng giọng thật nhẹ.',
           vocab: bedtimeVocabulary.softVoice,
         }),
@@ -393,6 +397,7 @@ export const bedtimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bedtime-story-star',
+        messageEn: 'You chose such a soothing bedtime story!',
         messageVi: 'Bé đã chọn truyện trước khi ngủ thật nhẹ nhàng!',
       },
     },
@@ -514,9 +519,13 @@ export const bedtimeLesson: Lesson = {
           id: 'calm-room-intro',
           type: 'intro',
           targetObjectIds: ['calm-room-baby'],
+          instructionEn:
+            "Let's make the room calmer so you can sleep more easily.",
           instructionVi: 'Căn phòng cần dịu lại để bé dễ ngủ hơn.',
           nextStepId: 'calm-room-teach-night-light',
           promptText: 'Calm room!',
+          successFeedbackEn:
+            'Soft light and gentle sounds make bedtime more relaxing.',
           successFeedbackVi:
             'Ánh sáng dịu và âm thanh êm giúp giờ ngủ nhẹ hơn.',
           effects: [bounce('calm-room-baby')],
@@ -634,7 +643,10 @@ export const bedtimeLesson: Lesson = {
           targetObjectId: 'calm-room-humidifier',
           targetObjectIds: ['calm-room-humidifier'],
           dropZoneId: 'calm-room-air-zone',
+          failFeedbackEn:
+            'Move the humidifier to the area next to the bed.',
           failFeedbackVi: 'Kéo máy tạo ẩm vào vùng cạnh giường nhé.',
+          instructionEn: 'Place the humidifier in the corner of the room.',
           instructionVi: 'Đặt máy tạo ẩm vào góc phòng.',
           nextStepId: 'calm-room-teach-lullaby',
           promptText: 'humidifier',
@@ -687,6 +699,7 @@ export const bedtimeLesson: Lesson = {
           instructionVi: 'Làm đèn dịu xuống.',
           nextStepId: 'calm-room-teach-close-curtains',
           promptText: 'dim lights',
+          successFeedbackEn: 'The lights are softer now.',
           successFeedbackVi: 'Ánh sáng đã dịu hơn rồi.',
           effects: [sparkle('calm-room-night-light')],
           vocab: bedtimeVocabulary.dimLights,
@@ -745,6 +758,7 @@ export const bedtimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'calm-room-star',
+        messageEn: 'You made the room calm and ready for sleep!',
         messageVi: 'Bé đã làm căn phòng dịu xuống để chuẩn bị ngủ!',
       },
     },
@@ -858,9 +872,12 @@ export const bedtimeLesson: Lesson = {
           id: 'sleep-ready-intro',
           type: 'intro',
           targetObjectIds: ['sleep-ready-baby'],
+          instructionEn: "The room is calm. Let's get ready to sleep.",
           instructionVi: 'Căn phòng đã dịu rồi, mình chuẩn bị vào giấc nhé.',
           nextStepId: 'sleep-ready-teach-sleep-mask',
           promptText: 'Ready to sleep!',
+          successFeedbackEn:
+            "Each little step tells your body it's time to sleep.",
           successFeedbackVi: 'Từng việc nhỏ giúp cơ thể biết đã đến giờ ngủ.',
           effects: [bounce('sleep-ready-baby')],
         }),
@@ -1086,6 +1103,7 @@ export const bedtimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'sleep-ready-star',
+        messageEn: "You're ready for a peaceful sleep!",
         messageVi: 'Bé đã sẵn sàng vào giấc ngủ thật êm!',
       },
     },

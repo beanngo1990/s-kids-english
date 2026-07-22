@@ -164,6 +164,7 @@ export const lunchTimeLesson: Lesson = {
           id: 'lunchbox-intro',
           type: 'intro',
           targetObjectIds: ['lunchbox-baby'],
+          instructionEn: "Let's get ready for lunch.",
           instructionVi: 'Mình chuẩn bị ăn trưa nhé.',
           interaction: {
             targetObjectId: 'lunchbox-baby',
@@ -171,6 +172,7 @@ export const lunchTimeLesson: Lesson = {
           },
           nextStepId: 'lunchbox-teach-rice',
           promptText: 'Lunch time!',
+          successFeedbackEn: "It's lunchtime!",
           successFeedbackVi: 'Bữa trưa bắt đầu rồi!',
           effects: [bounce('lunchbox-baby')],
         }),
@@ -285,6 +287,7 @@ export const lunchTimeLesson: Lesson = {
           id: 'lunchbox-tap-lunchbox',
           type: 'practice',
           targetObjectIds: ['lunchbox-box'],
+          failFeedbackEn: 'The lunchbox is in the middle of the tray.',
           failFeedbackVi: 'Hộp cơm nằm ở giữa khay đó.',
           instructionVi: 'Chạm vào hộp cơm nhé.',
           interaction: {
@@ -466,6 +469,7 @@ export const lunchTimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'lunch-box-star',
+        messageEn: 'You got your lunch box ready.',
         messageVi: 'Bé đã chuẩn bị hộp cơm trưa.',
         stars: 3,
       },
@@ -592,6 +596,7 @@ export const lunchTimeLesson: Lesson = {
           id: 'lunchtable-intro',
           type: 'intro',
           targetObjectIds: ['lunchtable-baby', 'lunchtable-friend'],
+          instructionEn: "Let's have lunch with a friend.",
           instructionVi: 'Mình ăn trưa cùng bạn nhé.',
           interaction: {
             targetObjectId: 'lunchtable-baby',
@@ -599,6 +604,7 @@ export const lunchTimeLesson: Lesson = {
           },
           nextStepId: 'lunchtable-teach-table',
           promptText: 'Lunch with friends!',
+          successFeedbackEn: "Let's sit at the table!",
           successFeedbackVi: 'Cùng ngồi vào bàn nào!',
           effects: [bounce('lunchtable-baby'), bounce('lunchtable-friend')],
         }),
@@ -897,6 +903,7 @@ export const lunchTimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'lunch-table-star',
+        messageEn: 'You learned to have lunch with a friend.',
         messageVi: 'Bé đã biết ăn trưa cùng bạn.',
         stars: 3,
       },
@@ -1024,6 +1031,7 @@ export const lunchTimeLesson: Lesson = {
           id: 'cleanup-intro',
           type: 'intro',
           targetObjectIds: ['cleanup-baby'],
+          instructionEn: "Let's tidy up after lunch.",
           instructionVi: 'Ăn xong mình dọn gọn nhé.',
           interaction: {
             targetObjectId: 'cleanup-baby',
@@ -1031,6 +1039,7 @@ export const lunchTimeLesson: Lesson = {
           },
           nextStepId: 'cleanup-teach-plate',
           promptText: 'Clean up!',
+          successFeedbackEn: "Let's clean up after lunch!",
           successFeedbackVi: 'Dọn dẹp sau bữa trưa nào!',
           effects: [bounce('cleanup-baby')],
         }),
@@ -1310,6 +1319,7 @@ export const lunchTimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'after-lunch-star',
+        messageEn: 'You tidied up after lunch.',
         messageVi: 'Bé đã dọn gọn sau bữa trưa.',
         stars: 3,
       },

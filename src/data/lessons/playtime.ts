@@ -171,6 +171,7 @@ export const playtimeLesson: Lesson = {
           id: 'playground-intro',
           type: 'intro',
           targetObjectIds: ['playground-baby'],
+          instructionEn: "Let's go to the playground.",
           instructionVi: 'Mình ra sân chơi nhé.',
           interaction: {
             targetObjectId: 'playground-baby',
@@ -178,6 +179,7 @@ export const playtimeLesson: Lesson = {
           },
           nextStepId: 'playground-teach-swing',
           promptText: 'Playtime!',
+          successFeedbackEn: 'The playground is so much fun!',
           successFeedbackVi: 'Sân chơi vui quá!',
           effects: [bounce('playground-baby')],
         }),
@@ -403,6 +405,7 @@ export const playtimeLesson: Lesson = {
           id: 'playground-tap-jump-hoop',
           type: 'practice',
           targetObjectIds: ['playground-jump-hoop'],
+          failFeedbackEn: 'The hoop is at the bottom of the playground.',
           failFeedbackVi: 'Vòng nhảy ở phía dưới sân đó.',
           instructionVi: 'Chạm vào vòng để nhảy nhé.',
           interaction: {
@@ -452,6 +455,7 @@ export const playtimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'playground-star',
+        messageEn: 'You had a great time on the school playground.',
         messageVi: 'Bé đã chơi ở sân trường thật vui.',
         stars: 3,
       },
@@ -583,6 +587,7 @@ export const playtimeLesson: Lesson = {
           id: 'games-intro',
           type: 'intro',
           targetObjectIds: ['games-baby', 'games-friend'],
+          instructionEn: "Let's play with a friend.",
           instructionVi: 'Mình chơi cùng bạn nhé.',
           interaction: {
             targetObjectId: 'games-baby',
@@ -590,6 +595,7 @@ export const playtimeLesson: Lesson = {
           },
           nextStepId: 'games-teach-friend',
           promptText: 'Play together!',
+          successFeedbackEn: "It's fun to have a friend to play with!",
           successFeedbackVi: 'Có bạn chơi cùng thật vui!',
           effects: [bounce('games-baby'), bounce('games-friend')],
         }),
@@ -836,6 +842,7 @@ export const playtimeLesson: Lesson = {
           id: 'games-tap-wait-clock',
           type: 'practice',
           targetObjectIds: ['games-wait-clock'],
+          failFeedbackEn: 'The wait icon is next to the sharing card.',
           failFeedbackVi: 'Biểu tượng chờ nằm cạnh thẻ chia sẻ đó.',
           instructionVi: 'Chạm biểu tượng chờ đến lượt.',
           interaction: {
@@ -885,6 +892,7 @@ export const playtimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'friend-games-star',
+        messageEn: 'You learned to play and share with a friend.',
         messageVi: 'Bé đã biết chơi vui và chia sẻ với bạn.',
         stars: 3,
       },
@@ -1003,6 +1011,7 @@ export const playtimeLesson: Lesson = {
           id: 'rest-intro',
           type: 'intro',
           targetObjectIds: ['rest-baby'],
+          instructionEn: "Let's take a little break after playing.",
           instructionVi: 'Chơi xong mình nghỉ một chút nhé.',
           interaction: {
             targetObjectId: 'rest-baby',
@@ -1010,6 +1019,7 @@ export const playtimeLesson: Lesson = {
           },
           nextStepId: 'rest-teach-water',
           promptText: 'Take a break!',
+          successFeedbackEn: "Let's rest and recharge!",
           successFeedbackVi: 'Nghỉ một chút cho khỏe nào!',
           effects: [bounce('rest-baby')],
         }),
@@ -1200,6 +1210,7 @@ export const playtimeLesson: Lesson = {
           learningScope: expandedScope,
           nextStepId: 'rest-teach-drink-water',
           promptText: 'shade',
+          successFeedbackEn: "You're in the shade now!",
           successFeedbackVi: 'Bé đứng dưới bóng râm rồi!',
           vocab: playtimeVocabulary.shade,
         }),
@@ -1306,6 +1317,7 @@ export const playtimeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'playtime-rest-star',
+        messageEn: 'You learned to rest after playing.',
         messageVi: 'Bé đã biết nghỉ ngơi sau khi chơi.',
         stars: 3,
       },

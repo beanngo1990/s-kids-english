@@ -2,7 +2,7 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-17
+**Kiểm chứng gần nhất:** 2026-07-22
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud progress sync, dual-accent English
@@ -294,8 +294,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   Scene success/fail feedback, speech-practice prompt/encouragement và memory review intro cũng đi
   qua teacher prompt resolver và nhận thay đổi `teacherPromptMode` từ parent settings trong
   runtime. Teach-step feedback có thể tự dựng câu nghĩa từ vocabulary như “It means good
-  morning.”; các feedback English chưa có context rõ vẫn dùng cue an toàn như “Great job!” hoặc
-  “Try again.” khi chỉ có bản Việt.
+  morning.”; intro/completion có sắc thái riêng dùng English copy viết tay, còn resolver dựng câu
+  theo action, object, vị trí và số ít/số nhiều cho các step còn lại. Gợi ý vị trí tiếng Việt được
+  giữ thành gợi ý vị trí tiếng Anh thay vì rút thành “Tap ...”. Các feedback English chưa có
+  context rõ vẫn dùng cue an toàn như “Great job!” hoặc “Try again.” khi chỉ có bản Việt.
 - **Implemented:** `englishAccent` (`en-US`/`en-GB`) được persist và chọn trong Parent UI, độc lập
   với `appLanguage` và `teacherPromptMode`. Runtime English vocabulary, teacher prompt, review và
   replay audio dùng accent đã chọn; persisted data cũ normalize về `en-US`. Lựa chọn này không

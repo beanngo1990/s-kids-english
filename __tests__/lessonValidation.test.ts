@@ -18,6 +18,12 @@ import { snackTimeLesson } from '../src/data/lessons/snackTime';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import { validateThemes } from '../src/data/themeValidation';
 import { themes } from '../src/data/themes';
+import {
+  getTeacherFeedbackEn,
+  getTeacherInstructionEn,
+  resolveTeacherFeedback,
+  resolveTeacherInstruction,
+} from '../src/i18n/teacherPrompts';
 import { ENGLISH_ACCENTS } from '../src/types/audio';
 import type { Lesson } from '../src/types/lesson';
 
@@ -25,6 +31,90 @@ test('lesson catalog has valid data links', () => {
   const issues = validateLessons(lessons);
 
   expect(issues.filter(issue => issue.severity === 'error')).toEqual([]);
+});
+
+test('lesson teacher copy stays contextual and natural in bilingual mode', () => {
+  const malformedEnglish =
+    /\b(?:air-dried dry|arrived the home|draged|the everyone|the gently|the softly|the good night|the goodbye|the off shoes)\b/iu;
+
+  for (const lesson of lessons) {
+    for (const scene of lesson.scenes) {
+      if (scene.completionReward?.messageVi) {
+        expect(scene.completionReward.messageEn?.trim()).toBeTruthy();
+      }
+
+      for (const step of scene.steps) {
+        const instructionEn = getTeacherInstructionEn(step, scene);
+        const successEn = getTeacherFeedbackEn('success', step, scene);
+        const failEn = getTeacherFeedbackEn('fail', step, scene);
+
+        for (const englishText of [instructionEn, successEn, failEn]) {
+          if (englishText) {
+            expect(englishText).not.toMatch(malformedEnglish);
+          }
+        }
+
+        if (step.type === 'intro') {
+          expect(step.instructionEn?.trim()).toBeTruthy();
+          expect(step.successFeedbackEn?.trim()).toBeTruthy();
+          expect(instructionEn).not.toBe(successEn);
+        }
+
+        const promptVocabulary = scene.vocabulary?.find(
+          item => item.id === step.vocabId,
+        );
+        if (
+          step.interaction.type === 'tap' &&
+          promptVocabulary?.type === 'noun' &&
+          step.promptText?.trim().toLocaleLowerCase('en-US') ===
+            promptVocabulary.word.toLocaleLowerCase('en-US')
+        ) {
+          expect(instructionEn).toMatch(/^Tap\b/u);
+        }
+
+        if (
+          step.failFeedbackVi &&
+          /(?:^|\s)(?:ở|nằm|đứng|treo|đang)(?:\s|$)/iu.test(
+            step.failFeedbackVi,
+          )
+        ) {
+          expect(failEn).not.toMatch(/^(?:Move|Tap|Try)\b/u);
+        }
+      }
+    }
+  }
+});
+
+test('teacher-instructions intro uses equivalent Vietnamese and English copy', () => {
+  const scene = atSchoolLesson.scenes.find(
+    item => item.id === 'teacher-instructions',
+  );
+  const step = scene?.steps.find(item => item.id === 'instructions-intro');
+
+  expect(scene).toBeDefined();
+  expect(step).toBeDefined();
+  expect(resolveTeacherInstruction(step!, 'bilingual', scene)).toEqual({
+    displayText: "Cô giáo sẽ hướng dẫn bé nhé.\nI'll guide you.",
+    segments: [
+      { language: 'vi', text: 'Cô giáo sẽ hướng dẫn bé nhé.' },
+      { language: 'en', text: "I'll guide you." },
+    ],
+  });
+  expect(
+    resolveTeacherFeedback({
+      mode: 'bilingual',
+      scene,
+      step,
+      type: 'success',
+      viText: step!.successFeedbackVi,
+    }),
+  ).toEqual({
+    displayText: "Mình cùng lắng nghe nào.\nLet's listen together.",
+    segments: [
+      { language: 'vi', text: 'Mình cùng lắng nghe nào.' },
+      { language: 'en', text: "Let's listen together." },
+    ],
+  });
 });
 
 test('theme catalog references valid lesson routes', () => {
@@ -281,9 +371,9 @@ test('bathroom scene unlocks basic, expanded, and challenge content by mode', ()
     'soap',
     'mirror',
     'toothpaste',
-    'brush teeth',
-    'wash face',
-    'dry face',
+    'brush your teeth',
+    'wash your face',
+    'dry your face',
   ]);
   expect(challengeScene.steps.map(step => step.id)).toEqual(
     expect.arrayContaining([
@@ -521,7 +611,7 @@ test('at-school lesson unlocks classroom content by mode', () => {
     'board',
     'classroom',
     'sit down',
-    'raise hand',
+    'raise your hand',
   ]);
   expect(challengeScene.steps.map(step => step.id)).toEqual(
     expect.arrayContaining([
@@ -564,7 +654,7 @@ test('at-school supplies scene builds from objects to school actions', () => {
     'eraser',
     'ruler',
     'notebook',
-    'open book',
+    'open the book',
     'draw a circle',
     'write your name',
   ]);
@@ -804,7 +894,7 @@ test('playtime rest scene follows a recovery sequence after active play', () => 
     'towel',
     'shade',
     'drink water',
-    'eat snack',
+    'eat a snack',
     'rest',
   ]);
 
@@ -878,8 +968,8 @@ test('lunch-time lunch-box scene builds from food words to eating actions', () =
     'lunchbox',
     'bowl',
     'fork',
-    'open lunchbox',
-    'use spoon',
+    'open your lunchbox',
+    'use a spoon',
     'eat lunch',
   ]);
   expect(
@@ -924,7 +1014,7 @@ test('lunch-time table scene teaches sitting, sharing, and thanking in order', (
     'cup',
     'napkin',
     'fruit',
-    'sit at table',
+    'sit at the table',
     'share food',
     'say thank you',
   ]);
@@ -981,8 +1071,8 @@ test('lunch-time cleanup scene follows a realistic after-lunch routine', () => {
     'towel',
     'soap',
     'clean up',
-    'wipe table',
-    'wash hands',
+    'wipe the table',
+    'wash your hands',
   ]);
 
   expect(
@@ -1044,7 +1134,7 @@ test('afternoon-home going-home scene builds from packing objects to dismissal a
     'bottle',
     'folder',
     'teacher',
-    'pack bag',
+    'pack your bag',
     'say goodbye',
     'line up',
   ]);
@@ -1100,7 +1190,7 @@ test('afternoon-home ride-home scene teaches safe travel steps', () => {
     'window',
     'seat belt',
     'traffic light',
-    'get on bus',
+    'get on the bus',
     'buckle up',
     'arrive home',
   ]);
@@ -1156,9 +1246,9 @@ test('afternoon-home arrival scene follows the home arrival routine', () => {
     'shelf',
     'soap',
     'towel',
-    'take off shoes',
-    'wash hands',
-    'hug family',
+    'take off your shoes',
+    'wash your hands',
+    'hug your family',
   ]);
 
   expect(
@@ -1222,8 +1312,8 @@ test('snack-time prep scene focuses on snack-specific foods and snack box action
     'juice',
     'straw',
     'snack box',
-    'choose snack',
-    'open snack box',
+    'choose a snack',
+    'open the snack box',
     'pour juice',
   ]);
 
@@ -1260,12 +1350,12 @@ test('snack-time eating scene teaches small bites and sips', () => {
 
   expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
     'bite',
-    'sip',
+    'small sip',
     'napkin',
   ]);
   expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
     'bite',
-    'sip',
+    'small sip',
     'napkin',
     'cracker',
     'raisins',
@@ -1273,14 +1363,14 @@ test('snack-time eating scene teaches small bites and sips', () => {
   ]);
   expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
     'bite',
-    'sip',
+    'small sip',
     'napkin',
     'cracker',
     'raisins',
     'small table',
     'take a bite',
     'sip juice',
-    'wipe mouth',
+    'wipe your mouth',
   ]);
 
   expect(
@@ -1331,9 +1421,9 @@ test('snack-time cleanup scene follows a realistic after-snack routine', () => {
     'trash bin',
     'cloth',
     'basket',
-    'throw away wrapper',
-    'wipe table',
-    'put away tray',
+    'throw away the wrapper',
+    'wipe the table',
+    'put away the tray',
   ]);
 
   expect(
@@ -1403,8 +1493,8 @@ test('home-play toy corner scene moves from toy names to careful play actions', 
     'doll',
     'car',
     'shelf',
-    'choose toy',
-    'build tower',
+    'choose a toy',
+    'build a tower',
     'play gently',
   ]);
 
@@ -1464,9 +1554,9 @@ test('home-play creative scene teaches reading drawing and puzzle actions', () =
     'puzzle',
     'drum',
     'music',
-    'read book',
-    'draw picture',
-    'solve puzzle',
+    'read a book',
+    'draw a picture',
+    'solve a puzzle',
   ]);
 
   expect(
@@ -1521,9 +1611,9 @@ test('home-play cleanup scene keeps the after-play routine realistic', () => {
     'book',
     'blocks',
     'car',
-    'clean up toys',
-    'put away book',
-    'tidy room',
+    'clean up the toys',
+    'put away the book',
+    'tidy the room',
   ]);
 
   expect(
@@ -1587,9 +1677,9 @@ test('afternoon-bath prep scene uses new bath setup vocabulary', () => {
     'shampoo',
     'bath sponge',
     'body wash',
-    'step onto mat',
-    'turn on shower',
-    'check temperature',
+    'step onto the mat',
+    'turn on the shower',
+    'check the temperature',
   ]);
 
   expect(
@@ -1640,8 +1730,8 @@ test('afternoon-bath rinse scene combines body-part and rinsing actions', () => 
     'knee',
     'shoulder',
     'make bubbles',
-    'scrub knees',
-    'rinse hair',
+    'scrub your knees',
+    'rinse your hair',
   ]);
 
   expect(
@@ -1697,9 +1787,9 @@ test('afternoon-bath finish scene moves from clothes to after-bath care', () => 
     'laundry basket',
     'hook',
     'slippers',
-    'put on pajamas',
-    'comb hair',
-    'hang robe',
+    'put on your pajamas',
+    'comb your hair',
+    'hang the robe',
   ]);
 
   expect(
@@ -1790,8 +1880,8 @@ test('family-dinner prep scene builds dinner setup without old meal words', () =
     'serving tray',
     'ladle',
     'dinner bell',
-    'set placemat',
-    'carry tray',
+    'set the placemat',
+    'carry the tray',
     'call everyone',
   ]);
 
@@ -1847,7 +1937,7 @@ test('family-dinner table scene teaches new dinner foods and sharing actions', (
     'chicken',
     'salad',
     'sauce',
-    'pass dish',
+    'pass the dish',
     'try vegetables',
     'serve noodles',
   ]);
@@ -1906,7 +1996,7 @@ test('family-dinner cleanup scene covers leftovers and evening closeout', () => 
     'kitchen counter',
     'dining light',
     'save leftovers',
-    'load dishwasher',
+    'load the dishwasher',
     'say good night',
   ]);
 
@@ -1974,7 +2064,7 @@ test('family-dinner avoids exact repeats from earlier meal lessons', () => {
     'straw',
     'snack box',
     'bite',
-    'sip',
+    'small sip',
     'cracker',
     'raisins',
     'small table',
@@ -2032,8 +2122,8 @@ test('after-dinner-cleanup clear scene teaches new clearing tools', () => {
     'carafe',
     'label',
     'stack coasters',
-    'move cart',
-    'label container',
+    'move the cart',
+    'label the container',
   ]);
 
   expect(
@@ -2089,9 +2179,9 @@ test('after-dinner-cleanup spot scene handles spills with new cleaning words', (
     'scraper',
     'cleaning brush',
     'rubber gloves',
-    'spray stain',
-    'scrub spot',
-    'dry surface',
+    'spray the stain',
+    'scrub the spot',
+    'dry the surface',
   ]);
 
   expect(
@@ -2146,9 +2236,9 @@ test('after-dinner-cleanup sort scene finishes with recycling and drying actions
     'drying mat',
     'timer',
     'cabinet',
-    'sort recycling',
-    'start timer',
-    'air dry dishes',
+    'sort the recycling',
+    'start the timer',
+    'air-dry the dishes',
   ]);
 
   expect(
@@ -2256,8 +2346,8 @@ test('bedtime story scene builds a quiet story routine with new words', () => {
     'page tab',
     'soft voice',
     'story shelf',
-    'choose story',
-    'place bookmark',
+    'choose a story',
+    'place the bookmark',
     'read softly',
   ]);
 
@@ -2318,9 +2408,9 @@ test('bedtime calm-room scene dims the room with new light and sound words', () 
     'star projector',
     'humidifier',
     'lullaby',
-    'dim lights',
-    'close curtains',
-    'play lullaby',
+    'dim the lights',
+    'close the curtains',
+    'play a lullaby',
   ]);
 
   expect(
@@ -2359,12 +2449,12 @@ test('bedtime sleep-ready scene settles the child with new sleep words', () => {
 
   expect(coreScene.vocabulary?.map(item => item.word)).toEqual([
     'sleep mask',
-    'comfort plush',
+    'soft toy',
     'nightstand',
   ]);
   expect(expandedScene.vocabulary?.map(item => item.word)).toEqual([
     'sleep mask',
-    'comfort plush',
+    'soft toy',
     'nightstand',
     'dream journal',
     'glow sticker',
@@ -2372,14 +2462,14 @@ test('bedtime sleep-ready scene settles the child with new sleep words', () => {
   ]);
   expect(challengeScene.vocabulary?.map(item => item.word)).toEqual([
     'sleep mask',
-    'comfort plush',
+    'soft toy',
     'nightstand',
     'dream journal',
     'glow sticker',
     'moon mobile',
-    'wear sleep mask',
-    'hug comfort plush',
-    'check dream journal',
+    'wear a sleep mask',
+    'hug your soft toy',
+    'check your dream journal',
   ]);
 
   expect(
@@ -2508,8 +2598,8 @@ test('school scene unlocks basic, expanded, and challenge content by mode', () =
     'lunchbox',
     'uniform',
     'bus',
-    'pack bag',
-    'put on shoes',
+    'pack your bag',
+    'put on your shoes',
     'go to school',
   ]);
   expect(challengeScene.steps.map(step => step.id)).toEqual(

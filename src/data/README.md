@@ -104,6 +104,11 @@ English feedback first uses contextual lesson data, such as vocabulary,
 interaction, action prompt and drop zone, before falling back to generic cues.
 Teach-step success feedback can also fall back to a vocabulary meaning sentence
 such as `It means good morning.`.
+Scene intros and completion messages with child-facing narrative meaning should
+provide explicit English copy (`instructionEn`, `successFeedbackEn`, and
+`completionReward.messageEn`) instead of reusing a scene title as a translation.
+Location hints are resolved as English hints rather than being collapsed into a
+generic tap instruction.
 Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
 `failFeedbackVi`, completion messages and shared Vietnamese prompts. Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese
@@ -233,6 +238,9 @@ Vietnamese instruction and feedback text Vietnamese-only. Use `promptText` for
 the English word/phrase cue, and add `instructionEn`, `successFeedbackEn` or
 `failFeedbackEn` only when the generated English teacher instruction/feedback
 needs author-written copy.
+Keep `VocabularyItem.word` natural when spoken aloud: action phrases should
+include required articles or possessives, such as `open the book`,
+`raise your hand`, and `wash your hands`.
 
 Lesson and theme titles should keep `titleVi` plus `titleEn`. Use
 `descriptionVi` for Vietnamese app copy and add `descriptionEn` when the

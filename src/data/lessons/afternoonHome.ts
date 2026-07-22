@@ -166,6 +166,7 @@ export const afternoonHomeLesson: Lesson = {
           id: 'going-home-intro',
           type: 'intro',
           targetObjectIds: ['going-home-baby'],
+          instructionEn: "It's afternoon. Let's get ready to go home.",
           instructionVi: 'Chiều rồi, mình chuẩn bị về nhà nhé.',
           interaction: {
             targetObjectId: 'going-home-baby',
@@ -173,6 +174,7 @@ export const afternoonHomeLesson: Lesson = {
           },
           nextStepId: 'going-home-teach-bag',
           promptText: 'Going home!',
+          successFeedbackEn: "Let's get ready to leave!",
           successFeedbackVi: 'Mình sẵn sàng ra về nào!',
           effects: [bounce('going-home-baby')],
         }),
@@ -469,6 +471,7 @@ export const afternoonHomeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'going-home-star',
+        messageEn: 'You got ready to go home so neatly.',
         messageVi: 'Bé đã chuẩn bị ra về thật gọn gàng.',
         stars: 3,
       },
@@ -583,6 +586,7 @@ export const afternoonHomeLesson: Lesson = {
           id: 'ride-home-intro',
           type: 'intro',
           targetObjectIds: ['ride-home-baby', 'ride-home-bus'],
+          instructionEn: "Let's head home.",
           instructionVi: 'Mình đi đường về nhà nhé.',
           interaction: {
             targetObjectId: 'ride-home-baby',
@@ -590,6 +594,7 @@ export const afternoonHomeLesson: Lesson = {
           },
           nextStepId: 'ride-home-teach-bus',
           promptText: 'Ride home!',
+          successFeedbackEn: 'Our trip home has begun!',
           successFeedbackVi: 'Đường về nhà bắt đầu rồi!',
           effects: [bounce('ride-home-bus')],
         }),
@@ -736,7 +741,9 @@ export const afternoonHomeLesson: Lesson = {
           id: 'ride-home-drag-seat-belt-to-seat',
           type: 'practice',
           targetObjectIds: ['ride-home-seat-belt', 'ride-home-baby'],
+          failFeedbackEn: 'Move the seat belt to the seat.',
           failFeedbackVi: 'Đưa dây an toàn tới chỗ ngồi nhé.',
+          instructionEn: 'Move the seat belt to the seat.',
           instructionVi: 'Đưa dây an toàn tới chỗ ngồi.',
           interaction: {
             correctObjectIds: ['ride-home-seat-belt'],
@@ -802,6 +809,7 @@ export const afternoonHomeLesson: Lesson = {
           id: 'ride-home-tap-bus-door',
           type: 'practice',
           targetObjectIds: ['ride-home-bus-door'],
+          failFeedbackEn: 'The bus door is on the right side of the bus.',
           failFeedbackVi: 'Cửa xe buýt ở bên phải thân xe đó.',
           instructionVi: 'Chạm cửa xe để lên xe buýt.',
           interaction: {
@@ -885,6 +893,7 @@ export const afternoonHomeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'ride-home-star',
+        messageEn: 'You traveled home safely.',
         messageVi: 'Bé đã đi đường về nhà an toàn.',
         stars: 3,
       },
@@ -1009,6 +1018,7 @@ export const afternoonHomeLesson: Lesson = {
           id: 'home-arrival-intro',
           type: 'intro',
           targetObjectIds: ['home-arrival-baby', 'home-arrival-house'],
+          instructionEn: "We're home now.",
           instructionVi: 'Mình đã về tới nhà rồi.',
           interaction: {
             targetObjectId: 'home-arrival-baby',
@@ -1016,6 +1026,7 @@ export const afternoonHomeLesson: Lesson = {
           },
           nextStepId: 'home-arrival-teach-home',
           promptText: 'Home!',
+          successFeedbackEn: "There's our home!",
           successFeedbackVi: 'Nhà mình đây rồi!',
           effects: [bounce('home-arrival-baby')],
         }),
@@ -1097,7 +1108,9 @@ export const afternoonHomeLesson: Lesson = {
           id: 'home-arrival-drag-shoes-to-door',
           type: 'practice',
           targetObjectIds: ['home-arrival-shoes'],
+          failFeedbackEn: 'Move the shoes to the corner by the door.',
           failFeedbackVi: 'Đưa giày vào góc cửa nhé.',
+          instructionEn: 'Place the shoes in the corner by the door.',
           instructionVi: 'Đặt giày vào góc cửa.',
           interaction: {
             correctObjectIds: ['home-arrival-shoes'],
@@ -1310,6 +1323,7 @@ export const afternoonHomeLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'home-arrival-star',
+        messageEn: 'You came home and completed your afternoon routine.',
         messageVi: 'Bé đã về nhà và làm các bước chiều về.',
         stars: 3,
       },
