@@ -133,7 +133,7 @@ function AnimatedSplashMascot() {
         <Stack.Screen
           name="LessonPack"
           component={LessonPackScreen}
-          options={{ title: t('nav.lessonPack') }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="ScenePlayer"

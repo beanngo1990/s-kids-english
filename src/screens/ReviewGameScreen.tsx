@@ -268,10 +268,12 @@ export function ReviewGameScreen({ navigation, route }: Props) {
             accessibilityLabel={t('common.close')}
             accessibilityRole="button"
             onPress={() =>
-              navigation.replace('LessonPack', {
-                lessonId: lesson.id,
-                openedFromParent,
-              })
+              navigation.canGoBack()
+                ? navigation.goBack()
+                : navigation.replace('LessonPack', {
+                    lessonId: lesson.id,
+                    openedFromParent,
+                  })
             }
             style={styles.exitButton}
           >
