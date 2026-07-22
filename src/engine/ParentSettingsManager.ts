@@ -1,3 +1,4 @@
+import { NativeModules, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
@@ -84,20 +85,48 @@ export const learningDifficultyOptions: LearningDifficultyOption[] = [
   },
 ];
 
-export const defaultParentSettings: ParentSettings = {
-  cloudProgressSync: { enabled: false },
-  enableSceneEditor: false,
-  hasCompletedOnboarding: false,
-  journeyMode: 'guided',
-  learningMode: 'core',
-  appLanguage: 'vi',
-  englishAccent: DEFAULT_ENGLISH_ACCENT,
-  teacherPromptMode: 'vi',
-  appTheme: 'system',
-  reminderEnabled: false,
-  reminderTime: '19:30',
-  childProfile: defaultChildProfile,
-};
+export function detectDeviceLanguage(): AppLanguage {
+  try {
+    const locale =
+      Platform.OS === 'ios'
+        ? NativeModules.SettingsManager?.settings?.AppleLocale ||
+          NativeModules.SettingsManager?.settings?.AppleLanguages?.[0]
+        : NativeModules.I18nManager?.localeIdentifier;
+
+    if (typeof locale === 'string') {
+      const lower = locale.toLowerCase();
+      if (lower.startsWith('en')) {
+        return 'en';
+      }
+      if (lower.startsWith('vi')) {
+        return 'vi';
+      }
+    }
+  } catch {
+    // Fallback safely to Vietnamese
+  }
+  return 'vi';
+}
+
+export function getDefaultParentSettings(): ParentSettings {
+  const initialLanguage = detectDeviceLanguage();
+  return {
+    cloudProgressSync: { enabled: false },
+    enableSceneEditor: false,
+    hasCompletedOnboarding: false,
+    journeyMode: 'guided',
+    learningMode: 'core',
+    appLanguage: initialLanguage,
+    englishAccent: DEFAULT_ENGLISH_ACCENT,
+    teacherPromptMode: initialLanguage,
+    appTheme: 'system',
+    reminderEnabled: false,
+    reminderTime: '19:30',
+    childProfile: defaultChildProfile,
+  };
+}
+
+export const defaultParentSettings: ParentSettings = getDefaultParentSettings();
 
 const parentSettingsListeners = new Set<ParentSettingsListener>();
 
@@ -227,7 +256,10 @@ function normalizeLearningMode(value: unknown): LearningMode {
 }
 
 function normalizeAppLanguage(value: unknown): AppLanguage {
-  return value === 'en' ? 'en' : 'vi';
+  if (value === 'en' || value === 'vi') {
+    return value;
+  }
+  return detectDeviceLanguage();
 }
 
 function normalizeEnglishAccent(value: unknown): EnglishAccent {
@@ -235,7 +267,10 @@ function normalizeEnglishAccent(value: unknown): EnglishAccent {
 }
 
 function normalizeTeacherPromptMode(value: unknown): TeacherPromptMode {
-  return value === 'en' || value === 'bilingual' ? value : 'vi';
+  if (value === 'en' || value === 'vi' || value === 'bilingual') {
+    return value;
+  }
+  return detectDeviceLanguage();
 }
 
 function normalizeAppTheme(value: unknown): AppTheme {
