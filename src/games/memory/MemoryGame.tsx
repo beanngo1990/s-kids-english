@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 
+import { MascotImage } from '../../components/mascot';
 import {
   playCorrectSound,
   playTapSound,
@@ -194,7 +195,7 @@ export function MemoryGame({
                 </View>
               ) : (
                 <View style={styles.cardBack}>
-                  <Text style={styles.cardBackMark}>★</Text>
+                  <MascotImage decorative pose="avatar" size={56} />
                 </View>
               )}
             </Pressable>
@@ -289,12 +290,6 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.primary,
     flex: 1,
     justifyContent: 'center',
-  },
-  cardBackMark: {
-    color: colors.white,
-    fontSize: 42,
-    fontWeight: '900',
-    lineHeight: 48,
   },
   cardClosed: {
     borderColor: colors.primaryDark,
