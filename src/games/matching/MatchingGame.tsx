@@ -150,6 +150,8 @@ export function MatchingGame({
     if (isTransitioning || matchedSet.has(item.id)) {
       return;
     }
+    speakWord(item.word).catch(() => undefined);
+
     const nextImageId = selectedImageId === item.id ? null : item.id;
     setSelectedImageId(nextImageId);
 

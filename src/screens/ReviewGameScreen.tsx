@@ -72,6 +72,12 @@ export function ReviewGameScreen({ navigation, route }: Props) {
         : null,
     );
 
+  useEffect(() => {
+    if (route.params.gameType && route.params.gameType !== 'random') {
+      setSelectedGameType(route.params.gameType as ExecutableReviewGameType);
+    }
+  }, [route.params.gameType]);
+
   const activeGameType = useMemo(
     () =>
       selectedGameType ??
@@ -182,8 +188,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     }
 
     navigation.replace('Reward', {
+      gameType: activeGameType,
       lessonId: lesson.id,
       playedWordIds: memoryItems.map(item => item.id),
+      sourceScreen: 'ReviewGame',
       ...completionResult,
     });
   };

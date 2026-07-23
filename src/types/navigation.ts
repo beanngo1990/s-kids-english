@@ -2,7 +2,7 @@ import type { LearningMode } from './lesson';
 
 export type RootStackParamList = {
   Onboarding: undefined;
-  Home: undefined;
+  Home: { activeTab?: 'map' | 'play' } | undefined;
   ThemeLibrary: undefined;
   LessonList: undefined;
   LessonPack: {
@@ -29,6 +29,8 @@ export type RootStackParamList = {
     leveledUp?: boolean;
     newLevel?: number;
     unlockedSticker?: { id: string; stickerId: string; stickerName: string; title: string; };
+    gameType?: 'matching' | 'memory' | 'listenAndChoose' | 'random';
+    sourceScreen?: 'ScenePlayer' | 'ReviewGame' | 'LessonPack';
   };
   StickerCollection: {
     highlightedStickerId?: string;

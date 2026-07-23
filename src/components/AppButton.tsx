@@ -4,9 +4,12 @@ import {
   StyleProp,
   Text,
   TextStyle,
+  View,
   ViewStyle,
 } from 'react-native';
 
+import { SKidsIcon } from './SKidsIcon';
+import type { SKidsIconName } from '../assets/icons/skids';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing, touchTarget } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -19,6 +22,8 @@ type AppButtonProps = {
   onPress: () => void;
   variant?: ButtonVariant;
   disabled?: boolean;
+  iconName?: SKidsIconName;
+  iconSize?: number;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 };
@@ -28,6 +33,8 @@ export function AppButton({
   onPress,
   variant = 'primary',
   disabled = false,
+  iconName,
+  iconSize = 24,
   style,
   textStyle,
 }: AppButtonProps) {
@@ -46,13 +53,16 @@ export function AppButton({
         style,
       ]}
     >
-      <Text 
-        numberOfLines={1}
-        adjustsFontSizeToFit
-        style={[styles.text, styles[`${variant}Text`], textStyle]}
-      >
-        {title}
-      </Text>
+      <View style={styles.contentRow}>
+        {iconName ? <SKidsIcon name={iconName} size={iconSize} /> : null}
+        <Text 
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          style={[styles.text, styles[`${variant}Text`], textStyle]}
+        >
+          {title}
+        </Text>
+      </View>
     </Pressable>
   );
 }
@@ -67,6 +77,12 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
     width: '100%',
+  },
+  contentRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+    justifyContent: 'center',
   },
   disabled: {
     opacity: 0.5,
