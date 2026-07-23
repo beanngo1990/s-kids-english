@@ -23,6 +23,7 @@ import {
   type ParentAuthErrorCode,
   type ParentAuthProvider,
 } from '../engine/ParentAuthManager';
+import { setParentExternalFlowActive } from '../engine/ParentAccessSession';
 import { useMonetizationSnapshot } from '../engine/MonetizationManager';
 import { deleteCurrentParentAccountData } from '../services/RevenueCatDataDeletion';
 import { useI18n } from '../i18n';
@@ -66,6 +67,12 @@ export function ParentAccountCard() {
     (error: unknown, action: 'signIn' | 'signOut' | 'delete' = 'signIn') => {
       const code = getParentAuthErrorCode(error);
       if (code === 'cancelled') {
+        if (action === 'delete') {
+          Alert.alert(
+            t('parent.account.deleteErrorTitle'),
+            t('parent.account.deleteCancelledText'),
+          );
+        }
         return;
       }
 
@@ -94,22 +101,26 @@ export function ParentAccountCard() {
 
   const handleGooglePress = useCallback(async () => {
     setPendingAction('google');
+    setParentExternalFlowActive(true);
     try {
       await signInParentWithGoogle();
     } catch (error) {
       handleError(error);
     } finally {
+      setParentExternalFlowActive(false);
       setPendingAction(null);
     }
   }, [handleError]);
 
   const handleApplePress = useCallback(async () => {
     setPendingAction('apple');
+    setParentExternalFlowActive(true);
     try {
       await signInParentWithApple();
     } catch (error) {
       handleError(error);
     } finally {
+      setParentExternalFlowActive(false);
       setPendingAction(null);
     }
   }, [handleError]);
@@ -130,6 +141,7 @@ export function ParentAccountCard() {
       return;
     }
 
+    setParentExternalFlowActive(true);
     try {
       await Linking.openURL(monetization.managementUrl);
     } catch {
@@ -137,11 +149,14 @@ export function ParentAccountCard() {
         t('premium.legal.linkErrorTitle'),
         t('premium.legal.linkErrorText'),
       );
+    } finally {
+      setParentExternalFlowActive(false);
     }
   }, [monetization.managementUrl, t]);
 
   const deleteAccount = useCallback(async () => {
     setPendingAction('delete');
+    setParentExternalFlowActive(true);
     try {
       const deletionResult = await deleteCurrentParentAccountData();
       if (deletionResult === 'authRequired') {
@@ -178,6 +193,7 @@ export function ParentAccountCard() {
         handleError(error, 'delete');
       }
     } finally {
+      setParentExternalFlowActive(false);
       setPendingAction(null);
     }
   }, [handleError, t]);
@@ -358,6 +374,10 @@ function getErrorMessageForCode(t: Translator, code: ParentAuthErrorCode) {
 
   if (code === 'requiresRecentLogin') {
     return t('parent.account.requiresRecentLogin');
+  }
+
+  if (code === 'operationNotAllowed') {
+    return t('parent.account.operationNotAllowed');
   }
 
   if (code === 'playServicesUnavailable') {
