@@ -19,6 +19,7 @@ export const vi = {
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'Hành trình vui học bắt đầu!',
+  'splash.tagline': 'Học Tiếng Anh Cùng Bé',
 
   'learningMode.challenge.detail':
     'Nhiều từ hơn, có thêm thử thách kéo thả/cụm từ.',
