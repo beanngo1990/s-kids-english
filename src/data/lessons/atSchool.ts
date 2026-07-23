@@ -1738,7 +1738,7 @@ export const atSchoolLesson: Lesson = {
   reviewGame: {
     id: 'at-school-review',
     titleVi: 'Tìm đồ ở trường',
-    type: 'memory',
+    type: 'listenAndChoose',
     config: {
       vocabularyIds: [
         atSchoolVocabulary.teacher.id,

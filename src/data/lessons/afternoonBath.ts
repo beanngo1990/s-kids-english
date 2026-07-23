@@ -1111,7 +1111,7 @@ export const afternoonBathLesson: Lesson = {
   ],
   reviewGame: {
     id: 'afternoon-bath-review',
-    type: 'memory',
+    type: 'listenAndChoose',
     titleVi: 'Tìm đồ tắm buổi chiều',
     config: {
       vocabularyIds: [
