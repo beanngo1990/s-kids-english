@@ -1,5 +1,4 @@
 import React from 'react';
-import { Pressable } from 'react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { MatchingGame, type MatchingItem } from '../src/games/matching/MatchingGame';
