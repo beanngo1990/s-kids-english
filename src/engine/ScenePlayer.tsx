@@ -1788,10 +1788,17 @@ export function ScenePlayer({
       : completeCurrentSceneOnly
       ? t('scene.completion.backToLesson')
       : t('scene.completion.primaryReward');
+    const primaryIcon: import('../assets/icons/skids').SKidsIconName = hasNextScene
+      ? 'next'
+      : completeCurrentSceneOnly
+      ? 'map'
+      : 'sticker';
     const secondaryTitle =
       completion.isFinalScene && !completeCurrentSceneOnly
         ? t('scene.completion.replayScene')
         : t('scene.completion.backToLesson');
+    const secondaryIcon: import('../assets/icons/skids').SKidsIconName =
+      completion.isFinalScene && !completeCurrentSceneOnly ? 'replay' : 'map';
     const completionCoachMessage = hasNextScene
       ? t('scene.completion.coach.next')
       : completeCurrentSceneOnly
@@ -1873,14 +1880,20 @@ export function ScenePlayer({
           ) : null}
           <View style={styles.completionActions}>
             <AppButton
+              iconName={primaryIcon}
+              iconSize={26}
               title={primaryTitle}
               onPress={handleCompletionPrimaryAction}
             />
-            <AppButton
-              title={secondaryTitle}
-              variant="secondary"
-              onPress={handleCompletionSecondaryAction}
-            />
+            {!(completeCurrentSceneOnly && !hasNextScene) && (
+              <AppButton
+                iconName={secondaryIcon}
+                iconSize={22}
+                title={secondaryTitle}
+                variant="secondary"
+                onPress={handleCompletionSecondaryAction}
+              />
+            )}
           </View>
         </AppCard>
       </View>
