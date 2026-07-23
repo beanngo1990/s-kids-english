@@ -98,27 +98,35 @@ export function KidPlayPanel({
     isProgressUnlocked: boolean,
   ) => {
     const latestMonetizationSnapshot = getMonetizationSnapshot();
-    if (canAccessReview(lessonId, latestMonetizationSnapshot)) {
-      if (isProgressUnlocked) {
-        onOpenReviewGame(lessonId);
+    if (!canAccessReview(lessonId, latestMonetizationSnapshot)) {
+      if (latestMonetizationSnapshot.status === 'initializing') {
+        playKidLockPrompt('resolving');
+        Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+        return;
       }
+
+      playKidLockPrompt('premium');
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+        { style: 'cancel', text: t('common.close') },
+        {
+          onPress: () => onOpenPremium(lessonId),
+          text: t('premium.askParent'),
+        },
+      ]);
       return;
     }
 
-    if (latestMonetizationSnapshot.status === 'initializing') {
-      playKidLockPrompt('resolving');
-      Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+    if (!isProgressUnlocked) {
+      playKidLockPrompt('progress');
+      Alert.alert(
+        t('home.progressLockedTitle'),
+        t('home.progressLockedText'),
+        [{ style: 'cancel', text: t('common.close') }],
+      );
       return;
     }
 
-    playKidLockPrompt('premium');
-    Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
-      { style: 'cancel', text: t('common.close') },
-      {
-        onPress: () => onOpenPremium(lessonId),
-        text: t('premium.askParent'),
-      },
-    ]);
+    onOpenReviewGame(lessonId);
   };
 
   return (
@@ -151,7 +159,6 @@ export function KidPlayPanel({
           const isPremiumLocked = !hasContentAccess;
           const isResolvingPremium =
             isPremiumLocked && monetizationSnapshot.status === 'initializing';
-          const isProgressOnlyLocked = !isProgressUnlocked && !isPremiumLocked;
           const isCompleted = Boolean(
             lesson.reviewGame &&
               completedReviewGameIds.has(lesson.reviewGame.id),
@@ -186,15 +193,14 @@ export function KidPlayPanel({
                 lesson.scenes.length
               } ${t('playPanel.scene')}.`}
               accessibilityRole="button"
-              accessibilityState={{ disabled: isProgressOnlyLocked }}
-              disabled={isProgressOnlyLocked}
+              accessibilityState={{ disabled: false }}
               key={lesson.id}
               onPress={() =>
                 handleOpenReviewGame(lesson.id, isProgressUnlocked)
               }
               style={({ pressed }) => [
                 styles.cardPressable,
-                pressed && !isProgressOnlyLocked && styles.pressed,
+                pressed && styles.pressed,
               ]}
             >
               <AppCard
