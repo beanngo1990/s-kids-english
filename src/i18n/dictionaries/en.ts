@@ -21,6 +21,7 @@ export const en: TranslationDictionary = {
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'The fun learning journey begins!',
+  'splash.tagline': 'Fun English for Kids',
 
   'learningMode.challenge.detail':
     'More words, plus drag-and-drop and phrase challenges.',

@@ -87,7 +87,13 @@ function AnimatedSplashMascot() {
     return (
       <View style={styles.loading}>
         <AnimatedSplashMascot />
-        <Text style={{ marginTop: 32, fontSize: 18, color: colors.primaryDark, fontWeight: '800' }}>
+        <Text style={{ marginTop: 24, fontSize: 32, color: colors.primaryDark, fontWeight: '900', letterSpacing: 0.5 }}>
+          Sungy
+        </Text>
+        <Text style={{ marginTop: 4, fontSize: 16, color: colors.textSoft, fontWeight: '600' }}>
+          {t('splash.tagline')}
+        </Text>
+        <Text style={{ marginTop: 28, fontSize: 14, color: colors.primary, fontWeight: '700' }}>
           {t('splash.loading')}
         </Text>
       </View>
