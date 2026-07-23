@@ -42,7 +42,7 @@ type OptionState = 'correct' | 'wrong' | null;
 
 const BUBBLE_PALETTES = [
   { bg: '#E0F2FE', border: '#38BDF8', shine: '#F0F9FF' }, // Sky Blue
-  { bg: '#FFE4E6', border: '#FB7185', shine: '#FFF1F2' }, // Pink
+  { bg: '#F3E8FF', border: '#C084FC', shine: '#FAF5FF' }, // Soft Purple (Replaced Red/Pink)
   { bg: '#DCFCE7', border: '#34D399', shine: '#F0FDF4' }, // Mint Green
   { bg: '#FEF9C3', border: '#FACC15', shine: '#FEFCE8' }, // Sunny Yellow
 ];

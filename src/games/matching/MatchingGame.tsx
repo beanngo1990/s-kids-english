@@ -37,9 +37,9 @@ type MatchingGameProps = {
 };
 
 const MATCH_PAIR_PALETTES = [
-  { bg: '#E0F2FE', border: '#0EA5E9', badge: '#0284C7', text: '#0369A1' }, // Sky Blue
-  { bg: '#FFE4E6', border: '#FB7185', badge: '#E11D48', text: '#BE123C' }, // Rose Pink
   { bg: '#DCFCE7', border: '#34D399', badge: '#059669', text: '#047857' }, // Mint Green
+  { bg: '#E0F2FE', border: '#0EA5E9', badge: '#0284C7', text: '#0369A1' }, // Sky Blue
+  { bg: '#CCFBF1', border: '#2DD4BF', badge: '#0D9488', text: '#0F766E' }, // Brand Teal (Replaced Red/Rose)
   { bg: '#FEF9C3', border: '#FACC15', badge: '#CA8A04', text: '#A16207' }, // Sunny Yellow
   { bg: '#F3E8FF', border: '#C084FC', badge: '#9333EA', text: '#7E22CE' }, // Soft Purple
   { bg: '#FFEDD5', border: '#FB923C', badge: '#EA580C', text: '#C2410C' }, // Warm Orange
@@ -193,43 +193,9 @@ export function MatchingGame({
         </Text>
       </AppCard>
 
-      {/* Two Columns: Left Images, Right Words */}
+      {/* Two Columns: Left Words, Right Images */}
       <View style={[styles.columnsRow, isTablet && styles.columnsRowTablet]}>
-        {/* Left Column: Images */}
-        <View style={styles.column}>
-          <Text style={styles.columnHeader}>{t('matchingGame.imageColumn')}</Text>
-          {leftItems.map(item => {
-            const pairIndex = matchedOrder.indexOf(item.id);
-            const isMatched = pairIndex !== -1;
-            const isSelected = selectedImageId === item.id;
-            const isWrong = wrongImageId === item.id;
-            const palette = isMatched
-              ? MATCH_PAIR_PALETTES[pairIndex % MATCH_PAIR_PALETTES.length]
-              : null;
-
-            return (
-              <MatchingCardItem
-                key={`img-${item.id}`}
-                isMatched={isMatched}
-                isSelected={isSelected}
-                isWrong={isWrong}
-                label={item.word}
-                onPress={() => handleImagePress(item)}
-                palette={palette}
-                pairIndex={pairIndex}
-                side="left"
-              >
-                <Image
-                  resizeMode="contain"
-                  source={item.imageSource}
-                  style={styles.cardImage}
-                />
-              </MatchingCardItem>
-            );
-          })}
-        </View>
-
-        {/* Right Column: Words */}
+        {/* Left Column: Words */}
         <View style={styles.column}>
           <Text style={styles.columnHeader}>{t('matchingGame.wordColumn')}</Text>
           {rightItems.map(item => {
@@ -251,7 +217,7 @@ export function MatchingGame({
                 onPress={() => handleWordPress(item)}
                 palette={palette}
                 pairIndex={pairIndex}
-                side="right"
+                side="left"
               >
                 <View style={styles.wordCardContent}>
                   <Text style={[styles.wordText, isMatched && palette && { color: palette.text }]}>
@@ -259,6 +225,40 @@ export function MatchingGame({
                   </Text>
                   <SKidsIcon name="listen" size={20} />
                 </View>
+              </MatchingCardItem>
+            );
+          })}
+        </View>
+
+        {/* Right Column: Images */}
+        <View style={styles.column}>
+          <Text style={styles.columnHeader}>{t('matchingGame.imageColumn')}</Text>
+          {leftItems.map(item => {
+            const pairIndex = matchedOrder.indexOf(item.id);
+            const isMatched = pairIndex !== -1;
+            const isSelected = selectedImageId === item.id;
+            const isWrong = wrongImageId === item.id;
+            const palette = isMatched
+              ? MATCH_PAIR_PALETTES[pairIndex % MATCH_PAIR_PALETTES.length]
+              : null;
+
+            return (
+              <MatchingCardItem
+                key={`img-${item.id}`}
+                isMatched={isMatched}
+                isSelected={isSelected}
+                isWrong={isWrong}
+                label={item.word}
+                onPress={() => handleImagePress(item)}
+                palette={palette}
+                pairIndex={pairIndex}
+                side="right"
+              >
+                <Image
+                  resizeMode="contain"
+                  source={item.imageSource}
+                  style={styles.cardImage}
+                />
               </MatchingCardItem>
             );
           })}
