@@ -218,9 +218,11 @@ export const en: TranslationDictionary = {
   'parent.account.deletedTitle': 'Account deleted',
   'parent.account.deleting': 'Deleting...',
   'parent.account.deleteAppCheckRequired':
-    'The app could not verify App Check with Firebase. If this is a debug build, add this device’s App Check debug token in Firebase Console, then try again.',
+    'The app could not verify Firebase App Check security (or the device/environment is not registered in Firebase Console). Please try again after configuration is complete.',
   'parent.account.deleteAuthRequired':
-    'The sign-in or security session is not ready. Please sign out, sign in again, then retry account deletion.',
+    'For security reasons, deleting an account requires a recent sign-in session. Please sign out, sign in again, and retry.',
+  'parent.account.deleteCancelledText':
+    'Account deletion was cancelled.',
   'parent.account.deleteErrorTitle': 'Could not delete account',
   'parent.account.deleteErrorUnknown':
     'Something went wrong during account deletion. Please try again.',
@@ -231,6 +233,8 @@ export const en: TranslationDictionary = {
     'Google Web client ID is missing in src/config/firebaseAuth.ts.',
   'parent.account.googleUrlSchemeMissing':
     'The iOS Google URL scheme is missing. Add REVERSED_CLIENT_ID from GoogleService-Info.plist to CFBundleURLTypes, then rebuild the app.',
+  'parent.account.operationNotAllowed':
+    'This sign-in provider is not enabled in Firebase Console (Authentication > Sign-in method). Please enable Apple Sign-In in Firebase Console and try again.',
   'parent.account.playServicesUnavailable':
     'This Android device needs Google Play Services for Google sign-in.',
   'parent.account.providerApple': 'Apple',

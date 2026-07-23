@@ -44,6 +44,7 @@ export type ParentAuthErrorCode =
   | 'missingFirebaseConfig'
   | 'missingGoogleUrlScheme'
   | 'missingGoogleWebClientId'
+  | 'operationNotAllowed'
   | 'playServicesUnavailable'
   | 'requiresRecentLogin'
   | 'signInInProgress'
@@ -202,7 +203,18 @@ export async function deleteParentAccount() {
 
   try {
     if (hasProvider(user, AppleAuthProvider.PROVIDER_ID)) {
-      await revokeAppleToken(auth);
+      try {
+        await revokeAppleToken(auth);
+      } catch (appleError) {
+        const code = getParentAuthErrorCode(appleError);
+        if (code === 'cancelled') {
+          throw appleError;
+        }
+        console.warn(
+          'Apple token revocation failed, proceeding with Firebase account deletion:',
+          appleError,
+        );
+      }
     }
 
     await deleteUser(user);
@@ -246,6 +258,13 @@ export function getParentAuthErrorCode(error: unknown): ParentAuthErrorCode {
 
   if (code.includes('requires-recent-login')) {
     return 'requiresRecentLogin';
+  }
+
+  if (
+    code.includes('operation-not-allowed') ||
+    message.includes('operation-not-allowed')
+  ) {
+    return 'operationNotAllowed';
   }
 
   if (isFirebaseConfigError(error)) {

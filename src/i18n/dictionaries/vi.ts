@@ -217,9 +217,11 @@ export const vi = {
   'parent.account.deletedTitle': 'Đã xóa tài khoản',
   'parent.account.deleting': 'Đang xóa...',
   'parent.account.deleteAppCheckRequired':
-    'Ứng dụng chưa xác thực được App Check với Firebase. Nếu đang test debug build, hãy thêm App Check debug token của thiết bị vào Firebase Console rồi thử lại.',
+    'Ứng dụng chưa xác thực được bảo mật App Check với Firebase (hoặc thiết bị/môi trường chưa được đăng ký trong Firebase Console). Vui lòng thử lại sau khi hệ thống hoàn tất cấu hình.',
   'parent.account.deleteAuthRequired':
-    'Phiên đăng nhập hoặc xác thực bảo mật chưa sẵn sàng. Ba mẹ đăng xuất, đăng nhập lại rồi thử xóa tài khoản lần nữa nhé.',
+    'Vì lý do bảo mật, thao tác xóa tài khoản yêu cầu ba mẹ phải vừa mới xác thực/đăng nhập lại gần đây. Ba mẹ vui lòng đăng xuất, đăng nhập lại rồi thử lại nhé.',
+  'parent.account.deleteCancelledText':
+    'Thao tác xóa tài khoản đã bị hủy.',
   'parent.account.deleteErrorTitle': 'Chưa xóa được tài khoản',
   'parent.account.deleteErrorUnknown':
     'Có lỗi khi xóa tài khoản. Ba mẹ vui lòng thử lại.',
@@ -230,6 +232,8 @@ export const vi = {
     'Chưa khai báo Google Web client ID trong src/config/firebaseAuth.ts.',
   'parent.account.googleUrlSchemeMissing':
     'Cấu hình iOS đang thiếu URL scheme của Google. Thêm REVERSED_CLIENT_ID từ GoogleService-Info.plist vào CFBundleURLTypes rồi build lại ứng dụng.',
+  'parent.account.operationNotAllowed':
+    'Phương thức đăng nhập này chưa được bật trên Firebase Console (Authentication > Sign-in method). Vui lòng bật Apple Sign-In trong Firebase Console rồi thử lại.',
   'parent.account.playServicesUnavailable':
     'Thiết bị Android cần Google Play Services để đăng nhập Google.',
   'parent.account.providerApple': 'Apple',
