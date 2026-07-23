@@ -722,7 +722,20 @@ export function ParentScreen({ navigation, route }: Props) {
   const handleUpdateLanguage = async (lang: AppLanguage) => {
     setAppSettingsSheet(null);
     setAppLanguage(lang);
-    await saveParentSettings({ appLanguage: lang });
+    const nextTeacherMode =
+      lang === 'en' && teacherPromptMode === 'bilingual'
+        ? 'en'
+        : teacherPromptMode;
+
+    if (nextTeacherMode !== teacherPromptMode) {
+      setTeacherPromptMode(nextTeacherMode);
+      await saveParentSettings({
+        appLanguage: lang,
+        teacherPromptMode: nextTeacherMode,
+      });
+    } else {
+      await saveParentSettings({ appLanguage: lang });
+    }
   };
 
   const handleUpdateTeacherPromptMode = async (mode: TeacherPromptMode) => {
@@ -2371,7 +2384,10 @@ export function ParentScreen({ navigation, route }: Props) {
 
                     {appSettingsSheet === 'teacherPrompt' && (
                       <View style={styles.learningSheetOptions}>
-                        {(['vi', 'en', 'bilingual'] as const).map(mode => {
+                        {(appLanguage === 'en'
+                          ? (['en', 'vi'] as const)
+                          : (['vi', 'en', 'bilingual'] as const)
+                        ).map(mode => {
                           const isSelected = teacherPromptMode === mode;
                           const title =
                             mode === 'vi'

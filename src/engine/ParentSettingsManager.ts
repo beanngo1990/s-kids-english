@@ -189,6 +189,7 @@ export function getLearningDifficultyOption(learningMode: LearningMode) {
 
 function normalizeParentSettings(value: unknown): ParentSettings {
   const settings = value as Partial<ParentSettings>;
+  const appLanguage = normalizeAppLanguage(settings.appLanguage);
 
   return {
     cloudProgressSync: normalizeCloudProgressSyncPreference(
@@ -203,7 +204,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     visibleLessonIds: Array.isArray(settings.visibleLessonIds)
       ? settings.visibleLessonIds.filter(id => typeof id === 'string')
       : undefined,
-    appLanguage: normalizeAppLanguage(settings.appLanguage),
+    appLanguage,
     englishAccent: normalizeEnglishAccent(settings.englishAccent),
     teacherPromptMode: normalizeTeacherPromptMode(settings.teacherPromptMode),
     appTheme: normalizeAppTheme(settings.appTheme),
