@@ -102,11 +102,19 @@ const connectorHeight = 56;
 const connectorLongHeight = 72;
 const connectorShortHeight = 44;
 
-export function HomeScreen({ navigation }: Props) {
+export function HomeScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [activeTab, setActiveTab] = useState<KidModeTab>('map');
+  const [activeTab, setActiveTab] = useState<KidModeTab>(
+    route?.params?.activeTab ?? 'map',
+  );
+
+  useEffect(() => {
+    if (route?.params?.activeTab) {
+      setActiveTab(route.params.activeTab);
+    }
+  }, [route?.params?.activeTab]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');

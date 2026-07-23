@@ -132,6 +132,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
 
     navigation.navigate('Reward', {
       lessonId: lesson.id,
+      sourceScreen: 'ScenePlayer',
       ...completionResult,
     });
   };

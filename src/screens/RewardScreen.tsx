@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Alert, Image, Pressable, Text, View } from 'react-native';
+import { Alert, Image, Pressable, ScrollView, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
@@ -30,6 +30,7 @@ import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import type { SceneObject } from '../types/lesson';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
@@ -39,6 +40,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Reward'>;
 export function RewardScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const responsiveLayout = useResponsiveLayout();
   const appLanguage = useSavedAppLanguage();
   const monetizationSnapshot = useMonetizationSnapshot();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
@@ -163,6 +165,14 @@ export function RewardScreen({ navigation, route }: Props) {
     };
   }, []);
 
+  const handleGoHome = () => {
+    if (route.params.sourceScreen === 'ReviewGame') {
+      navigation.navigate('Home', { activeTab: 'play' });
+    } else {
+      navigation.navigate('Home', { activeTab: 'map' });
+    }
+  };
+
   if (!lesson) {
     return (
       <Screen>
@@ -170,165 +180,217 @@ export function RewardScreen({ navigation, route }: Props) {
           <Text style={styles.title}>{t('reward.notFound')}</Text>
           <AppButton
             title={t('reward.backToList')}
-            onPress={() => navigation.navigate('LessonList')}
+            onPress={handleGoHome}
           />
         </View>
       </Screen>
     );
   }
 
+  const handleReplayCurrent = () => {
+    handleOpenLesson(lesson.id, () => {
+      if (route.params.sourceScreen === 'ReviewGame' || route.params.gameType) {
+        navigation.replace('ReviewGame', {
+          gameType: route.params.gameType,
+          lessonId: lesson.id,
+        });
+      } else {
+        navigation.replace('ScenePlayer', { lessonId: lesson.id });
+      }
+    });
+  };
+
+  const handleNextLesson = () => {
+    if (!nextLesson) {
+      return;
+    }
+    handleOpenLesson(nextLesson.id, () => {
+      if (route.params.sourceScreen === 'ReviewGame' && route.params.gameType) {
+        navigation.replace('ReviewGame', {
+          gameType: route.params.gameType,
+          lessonId: nextLesson.id,
+        });
+      } else {
+        navigation.replace('ScenePlayer', { lessonId: nextLesson.id });
+      }
+    });
+  };
+
   return (
-    <Screen scroll>
-      <View style={styles.container}>
-        <AppCard style={styles.rewardBox}>
-          <View style={styles.rewardMascotStage}>
-            <View style={styles.rewardGlow} />
-            <MascotImage
-              accessibilityLabel={t('reward.mascotAccessibility')}
-              pose="greatJob"
-              size={210}
-              style={styles.rewardMascot}
-            />
-          </View>
-          <View style={styles.badgeRow}>
-            {route.params.unlockedSticker && (
-              <KidBadge tone="sun">{t('reward.newSticker')}</KidBadge>
-            )}
-            {route.params.xpGained !== undefined &&
-              route.params.xpGained > 0 && (
-                <View style={styles.xpBadge}>
-                  <Text style={styles.xpBadgeText}>
-                    +{route.params.xpGained}
-                  </Text>
-                  <SKidsIcon name="acorn" size={16} />
-                  <Text style={styles.xpBadgeText}>{t('reward.acorn')}</Text>
-                </View>
-              )}
-          </View>
-          <Text style={styles.title}>
-            {route.params.leveledUp
-              ? t('reward.levelUpTitle', {
-                  level: String(route.params.newLevel),
-                })
-              : t('reward.completedTitle', {
-                  lessonTitle: getLocalizedLessonTitle(lesson, appLanguage),
-                })}
-          </Text>
-          <Text style={styles.subtitle}>
-            {route.params.unlockedSticker
-              ? t('reward.levelUpSubtitle', {
-                  stickerName: route.params.unlockedSticker.stickerName,
-                })
-              : t('reward.completedSubtitle')}
-          </Text>
-        </AppCard>
-
-        <AppCard style={styles.wordsCard}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>{t('reward.wordsLearned')}</Text>
-            <KidBadge tone="teal">
-              {t('reward.wordCount', { count: String(displayWords.length) })}
-            </KidBadge>
-          </View>
-          <View style={styles.wordList}>
-            {displayWords.map(item => {
-              const obj = vocabImages.get(item.id);
-              const imgSource = obj ? resolveAsset(obj.asset.source) : null;
-
-              return (
-                <Pressable
-                  key={item.id}
-                  style={({ pressed }) => [
-                    styles.wordChip,
-                    pressed && styles.wordChipPressed,
-                  ]}
-                  onPress={() => speakWord(item.word).catch(() => undefined)}
-                >
-                  {imgSource && (
-                    <Image
-                      source={imgSource as any}
-                      style={styles.wordImage}
-                      resizeMode="contain"
-                    />
+    <Screen scroll={false} withBottomSpace={false}>
+      <View style={styles.shell}>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          contentContainerStyle={[
+            styles.scrollContent,
+            {
+              maxWidth: responsiveLayout.contentMaxWidth,
+              padding: responsiveLayout.screenPadding,
+            },
+          ]}
+          showsVerticalScrollIndicator={false}
+          style={styles.scrollArea}
+        >
+          <View style={styles.container}>
+            <AppCard style={styles.rewardBox}>
+              <View style={styles.rewardMascotStage}>
+                <View style={styles.rewardGlow} />
+                <MascotImage
+                  accessibilityLabel={t('reward.mascotAccessibility')}
+                  pose="greatJob"
+                  size={210}
+                  style={styles.rewardMascot}
+                />
+              </View>
+              <View style={styles.badgeRow}>
+                {route.params.unlockedSticker && (
+                  <KidBadge tone="sun">{t('reward.newSticker')}</KidBadge>
+                )}
+                {route.params.xpGained !== undefined &&
+                  route.params.xpGained > 0 && (
+                    <View style={styles.xpBadge}>
+                      <Text style={styles.xpBadgeText}>
+                        +{route.params.xpGained}
+                      </Text>
+                      <SKidsIcon name="acorn" size={16} />
+                      <Text style={styles.xpBadgeText}>{t('reward.acorn')}</Text>
+                    </View>
                   )}
-                  <Text style={styles.word}>{item.word}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
-        </AppCard>
+              </View>
+              <Text style={styles.title}>
+                {route.params.leveledUp
+                  ? t('reward.levelUpTitle', {
+                    level: String(route.params.newLevel),
+                  })
+                  : t('reward.completedTitle', {
+                    lessonTitle: getLocalizedLessonTitle(lesson, appLanguage),
+                  })}
+              </Text>
+              <Text style={styles.subtitle}>
+                {route.params.unlockedSticker
+                  ? t('reward.levelUpSubtitle', {
+                    stickerName: route.params.unlockedSticker.stickerName,
+                  })
+                  : t('reward.completedSubtitle')}
+              </Text>
+            </AppCard>
 
-        <View style={styles.actions}>
-          {highlightedStickerId ? (
-            <AppButton
-              title={t('reward.viewStickerCollection')}
-              onPress={() =>
-                navigation.navigate('StickerCollection', {
-                  highlightedStickerId,
-                })
-              }
-            />
-          ) : null}
-          {nextLesson ? (
-            <>
-              <AppButton
-                title={`${t('reward.nextLesson', {
-                  lessonTitle: getLocalizedLessonTitle(nextLesson, appLanguage),
-                })}${
-                  getPremiumActionLabel(canOpenNextLesson)
-                    ? ` · ${getPremiumActionLabel(canOpenNextLesson)}`
-                    : ''
-                }`}
-                onPress={() =>
-                  handleOpenLesson(nextLesson.id, () =>
-                    navigation.replace('LessonPack', {
-                      lessonId: nextLesson.id,
-                    }),
-                  )
-                }
-              />
-              <AppButton
-                title={t('reward.backToList')}
-                variant="secondary"
-                onPress={() => navigation.navigate('LessonList')}
-              />
-              <AppButton
-                title={`${t('reward.replayLesson')}${
-                  getPremiumActionLabel(canReplayLesson)
-                    ? ` · ${getPremiumActionLabel(canReplayLesson)}`
-                    : ''
-                }`}
-                variant="outlined"
-                onPress={() =>
-                  handleOpenLesson(lesson.id, () =>
-                    navigation.replace('LessonPack', { lessonId: lesson.id }),
-                  )
-                }
-              />
-            </>
-          ) : (
-            <>
-              <AppButton
-                title={t('reward.backToList')}
-                onPress={() => navigation.navigate('LessonList')}
-              />
-              <AppButton
-                title={`${t('reward.replayLesson')}${
-                  getPremiumActionLabel(canReplayLesson)
-                    ? ` · ${getPremiumActionLabel(canReplayLesson)}`
-                    : ''
-                }`}
-                variant="secondary"
-                onPress={() =>
-                  handleOpenLesson(lesson.id, () =>
-                    navigation.replace('LessonPack', { lessonId: lesson.id }),
-                  )
-                }
-              />
-            </>
-          )}
+            <AppCard style={styles.wordsCard}>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>{t('reward.wordsLearned')}</Text>
+                <KidBadge tone="teal">
+                  {t('reward.wordCount', { count: String(displayWords.length) })}
+                </KidBadge>
+              </View>
+              <View style={styles.wordList}>
+                {displayWords.map(item => {
+                  const obj = vocabImages.get(item.id);
+                  const imgSource = obj ? resolveAsset(obj.asset.source) : null;
+
+                  return (
+                    <Pressable
+                      key={item.id}
+                      style={({ pressed }) => [
+                        styles.wordChip,
+                        pressed && styles.wordChipPressed,
+                      ]}
+                      onPress={() => speakWord(item.word).catch(() => undefined)}
+                    >
+                      {imgSource && (
+                        <Image
+                          source={imgSource as any}
+                          style={styles.wordImage}
+                          resizeMode="contain"
+                        />
+                      )}
+                      <Text style={styles.word}>{item.word}</Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </AppCard>
+          </View>
+        </ScrollView>
+
+        <View style={styles.footerContainer}>
+          <View
+            style={[
+              styles.footerInner,
+              { maxWidth: responsiveLayout.contentMaxWidth },
+            ]}
+          >
+            <View style={styles.actions}>
+              {highlightedStickerId ? (
+                <AppButton
+                  iconName="sticker"
+                  title={t('reward.viewStickerCollection')}
+                  onPress={() =>
+                    navigation.navigate('StickerCollection', {
+                      highlightedStickerId,
+                    })
+                  }
+                />
+              ) : null}
+              {nextLesson ? (
+                <>
+                  <AppButton
+                    iconName="next"
+                    iconSize={30}
+                    title={`${t('reward.nextLesson')}${getPremiumActionLabel(canOpenNextLesson)
+                      ? ` · ${getPremiumActionLabel(canOpenNextLesson)}`
+                      : ''
+                      }`}
+                    onPress={handleNextLesson}
+                  />
+                  <View style={styles.secondaryRow}>
+                    <View style={styles.flexItem}>
+                      <AppButton
+                        iconName="map"
+                        iconSize={22}
+                        title={t('reward.backToList')}
+                        variant="secondary"
+                        onPress={handleGoHome}
+                      />
+                    </View>
+                    <View style={styles.flexItem}>
+                      <AppButton
+                        iconName="replay"
+                        iconSize={22}
+                        title={`${t('reward.replayLesson')}${getPremiumActionLabel(canReplayLesson)
+                          ? ` · ${getPremiumActionLabel(canReplayLesson)}`
+                          : ''
+                          }`}
+                        variant="outlined"
+                        onPress={handleReplayCurrent}
+                      />
+                    </View>
+                  </View>
+                </>
+              ) : (
+                <>
+                  <AppButton
+                    iconName="map"
+                    iconSize={26}
+                    title={t('reward.backToList')}
+                    onPress={handleGoHome}
+                  />
+                  <AppButton
+                    iconName="replay"
+                    iconSize={22}
+                    title={`${t('reward.replayLesson')}${getPremiumActionLabel(canReplayLesson)
+                      ? ` · ${getPremiumActionLabel(canReplayLesson)}`
+                      : ''
+                      }`}
+                    variant="secondary"
+                    onPress={handleReplayCurrent}
+                  />
+                </>
+              )}
+            </View>
+          </View>
         </View>
       </View>
+
       <ConfettiCannon
         count={route.params.unlockedSticker ? 200 : 60}
         origin={{ x: 200, y: -20 }}
@@ -341,7 +403,7 @@ export function RewardScreen({ navigation, route }: Props) {
 
 const styles = createThemedStyles(() => ({
   actions: {
-    gap: spacing.md,
+    gap: spacing.xs,
   },
   container: {
     gap: spacing.lg,
@@ -352,6 +414,25 @@ const styles = createThemedStyles(() => ({
     gap: spacing.lg,
     justifyContent: 'center',
     padding: spacing.lg,
+  },
+  flexItem: {
+    flex: 1,
+  },
+  footerContainer: {
+    backgroundColor: colors.background,
+    borderTopColor: colors.border,
+    borderTopWidth: 1.5,
+    elevation: 8,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    shadowColor: colors.shadow,
+    shadowOffset: { height: -3, width: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+  },
+  footerInner: {
+    alignSelf: 'center',
+    width: '100%',
   },
   meaning: {
     color: colors.textSoft,
@@ -395,6 +476,17 @@ const styles = createThemedStyles(() => ({
     position: 'relative',
     width: '100%',
   },
+  scrollArea: {
+    flex: 1,
+  },
+  scrollContent: {
+    alignSelf: 'center',
+    width: '100%',
+  },
+  secondaryRow: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
   sectionHeader: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -403,6 +495,9 @@ const styles = createThemedStyles(() => ({
   sectionTitle: {
     color: colors.text,
     ...typography.subtitle,
+  },
+  shell: {
+    flex: 1,
   },
   subtitle: {
     color: colors.textSoft,
