@@ -27893,6 +27893,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 178918,
+      "key": "shared/audio/en-GB/neural2-c-r1/recording_try_next_word_44ea0a64.wav",
+      "sha256": "e5883dd6757a1ddb2dbc97190ff46d4f93e0767284012abd364f9bb8f755d239",
+      "text": "That's okay. Try saying the next word with me.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 79192,
       "key": "shared/audio/en-GB/neural2-c-r1/review_game_intro_33982bd2.wav",
       "sha256": "37e47ed33f7b37a3d4b9b277e0e3571a26b1b8c664e638eb4702fb03a5467d7a",
@@ -27941,6 +27949,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 168802,
+      "key": "shared/audio/en-US/neural2-c-r1/recording_try_next_word_44ea0a64.wav",
+      "sha256": "aa1c1202825136dea8ee8f8a7dfc0ead4cf8cdeb58ff8d3bb58a2de2b452e713",
+      "text": "That's okay. Try saying the next word with me.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 72036,
       "key": "shared/audio/en-US/neural2-c-r1/review_game_intro_33982bd2.wav",
       "sha256": "cb165a979e5446270c8f512cbdfce63f0ff36553762dda26b7a6d9c464c79a7d",
@@ -27954,6 +27970,94 @@
       "sha256": "02ef310939523310bb2ffc4934bff3018d032e5abfbf5910c5874d87ee55545a",
       "text": "Say it with me.",
       "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 253180,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_coach_complete.wav",
+      "sha256": "76a1c9b1f05a3feade5b41eba8834a83a16767cc4cd448566adb43ec70d030b3",
+      "text": "Wonderful! The whole map is complete. Let’s collect more stars!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 113468,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_coach_default.wav",
+      "sha256": "481fe9c88e72955a1af56f6674325efedc2fc4e44bd3ef700e9740781ad1db13",
+      "text": "Let’s learn with Sungy today!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 171746,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_complete_tap_one.wav",
+      "sha256": "9459fad8582e86aa8a7c6b6bde9fe1ea9cb957eca2eb9f9c0d8540244a7841e4",
+      "text": "Great job! Let’s look at the sticker collection.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 161428,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_complete_tap_three.wav",
+      "sha256": "c200273b9a1540f2217b660497d54ef57a57dc92ff60545a6dd76512b88e0a82",
+      "text": "You can replay a stop to review new words.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 148942,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_complete_tap_two.wav",
+      "sha256": "6cad5c6ded9d7d34fa2e56109d9974cb24102eecc47a8a6867144148363660a8",
+      "text": "Sungy can see the whole map lighting up!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 135296,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_guide_tap_one.wav",
+      "sha256": "265e795e0111e7658377e90e1995e140ae374ae05c3a6b2468fb3a6437f36289",
+      "text": "Tap the glowing stop to keep learning.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 90968,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_guide_tap_three.wav",
+      "sha256": "49b94b0e0477023a18500afacf39b52366fc662953144128993a7a53338a6bff",
+      "text": "Let’s earn more stars!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 101438,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_guide_tap_two.wav",
+      "sha256": "46b70ca32deeee6523ebd2e8785dd2348ac7a8b4e3b008f9a61be857ed938439",
+      "text": "Sungy is going with you!",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 151848,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_review_tap_one.wav",
+      "sha256": "3063fe56924ad256944afeeb2fe5aa477126a14bbed3f04dc43d50327cd371b3",
+      "text": "Let’s flip cards to remember words longer.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 132914,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_review_tap_three.wav",
+      "sha256": "b3c134dbd9cb0a93f19b79a001a8b38f9f3e9dd058cb0d36f704a85a2dbc3cec",
+      "text": "Tap Play to open the unlocked game.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 161032,
+      "key": "ui/audio/en-GB/neural2-c-r1/home_review_tap_two.wav",
+      "sha256": "4597a0e9cd66185f5f187247a836512430df953a6f02f922af0ab89f750b00eb",
+      "text": "Finish the review and Sungy will give a sticker!",
+      "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
@@ -27980,6 +28084,102 @@
       "voice": "en-GB-Neural2-C"
     },
     {
+      "accent": "en-GB",
+      "bytes": 203038,
+      "key": "ui/audio/en-GB/neural2-c-r1/sungy_onboarding_greeting.wav",
+      "sha256": "2c2d48ce405cb8f8115e881821501da05b9fca98a24be1c66a853248c093be6f",
+      "text": "Hi! I am Sungy, your child’s learning buddy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 235018,
+      "key": "ui/audio/en-US/neural2-c-r1/home_coach_complete.wav",
+      "sha256": "0f6a66ba0add38d56df6729a95a25f63e2ed0bd5ff644a4dd2cd846ae0dded86",
+      "text": "Wonderful! The whole map is complete. Let’s collect more stars!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 103020,
+      "key": "ui/audio/en-US/neural2-c-r1/home_coach_default.wav",
+      "sha256": "4eb8ca2c2a55cdb6f98117751dfbef74ec85ce66385a7eddd838565a1369d382",
+      "text": "Let’s learn with Sungy today!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 159672,
+      "key": "ui/audio/en-US/neural2-c-r1/home_complete_tap_one.wav",
+      "sha256": "9f6c2bfd0a76143118659f967384bfae7101278261a927dea53961a646187862",
+      "text": "Great job! Let’s look at the sticker collection.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 148008,
+      "key": "ui/audio/en-US/neural2-c-r1/home_complete_tap_three.wav",
+      "sha256": "5c8444338820c42ab45c2cfc471fdb5ca2e9e09dc3dc5845b3dca0cb4080dd4d",
+      "text": "You can replay a stop to review new words.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 134476,
+      "key": "ui/audio/en-US/neural2-c-r1/home_complete_tap_two.wav",
+      "sha256": "376b8c1d07790329971c84bac74271a315e918073c493d4d45859dfa0c235829",
+      "text": "Sungy can see the whole map lighting up!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 125874,
+      "key": "ui/audio/en-US/neural2-c-r1/home_guide_tap_one.wav",
+      "sha256": "d1ce9b0527d005fc097e7a9292e74ca6bf458b0a3f0942742002c16caa0346f8",
+      "text": "Tap the glowing stop to keep learning.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 82278,
+      "key": "ui/audio/en-US/neural2-c-r1/home_guide_tap_three.wav",
+      "sha256": "473559563f251f430e0a90bc8b3fe756afe3883a4d0286d8cb4bdc5134981262",
+      "text": "Let’s earn more stars!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 93982,
+      "key": "ui/audio/en-US/neural2-c-r1/home_guide_tap_two.wav",
+      "sha256": "e93b90541701f52169a6e083bd4d0f2aab13e0c3320f90e741c575d60661310f",
+      "text": "Sungy is going with you!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 142696,
+      "key": "ui/audio/en-US/neural2-c-r1/home_review_tap_one.wav",
+      "sha256": "86de1d80aa57cf3759bcadd363f739ff94ed286bb6ced9157a261a3c418d70f6",
+      "text": "Let’s flip cards to remember words longer.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 119804,
+      "key": "ui/audio/en-US/neural2-c-r1/home_review_tap_three.wav",
+      "sha256": "9f4645ccf6ae9b3e25b79c0936a0fd5ee197fe1407fa26df057725ebf0c56cec",
+      "text": "Tap Play to open the unlocked game.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 158180,
+      "key": "ui/audio/en-US/neural2-c-r1/home_review_tap_two.wav",
+      "sha256": "d40f73a406586bde77482354402ab7685104cd315db86ce56d587a6d2a6f034b",
+      "text": "Finish the review and Sungy will give a sticker!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
       "accent": "en-US",
       "bytes": 222518,
       "key": "ui/audio/en-US/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
@@ -28001,6 +28201,14 @@
       "key": "ui/audio/en-US/neural2-c-r1/kid_lock_resolving_804ccf69.wav",
       "sha256": "aa8146231b543a807cfd7ff8e54fcb273a40521fee883bc82da7f894c1311995",
       "text": "Sungy is checking. Please wait a moment!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 174636,
+      "key": "ui/audio/en-US/neural2-c-r1/sungy_onboarding_greeting.wav",
+      "sha256": "cf6d21f1104406e6b9518448924734912dd44e966d683e45fb15a6b976db7fdc",
+      "text": "Hi! I am Sungy, your child’s learning buddy.",
       "voice": "en-US-Neural2-C"
     }
   ]

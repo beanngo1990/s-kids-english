@@ -738,6 +738,7 @@ export const vi = {
   'speakPractice.promptPrepare': 'Chuẩn bị đọc...',
   'speakPractice.promptRecording': 'Cô đang nghe...',
   'speakPractice.promptRecorded': 'Giỏi quá! Từ này đọc là:',
+  'speakPractice.promptRecordedQuiet': 'Không sao, từ sau mình thử đọc cùng cô nhé.',
   'speakPractice.promptNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
   'speakPractice.replayVoiceAccessibility': 'Nghe lại giọng bé',

@@ -318,6 +318,9 @@ const mascotPromptsModule = loadTsModule(
 const kidLockAudioPromptsModule = loadTsModule(
   join(repoRoot, 'src/data/kidLockAudioPrompts.ts'),
 );
+const enDictionaryModule = loadTsModule(
+  join(repoRoot, 'src/i18n/dictionaries/en.ts'),
+);
 const lessons = lessonsModule.lessons ?? [];
 const existingWordAudio = audioManifestModule.getWordAudioAsset;
 const existingViAudio = audioManifestModule.getViAudioAsset;
@@ -328,6 +331,7 @@ if (!Array.isArray(lessons) || lessons.length === 0) {
 
 const audioTargets = collectAudioTargets(lessons, {
   audioRelease: args.audioRelease,
+  enDictionary: enDictionaryModule.en,
   existingViAudio,
   existingWordAudio,
   kidLockAudioPrompts: kidLockAudioPromptsModule.kidLockAudioPrompts,
@@ -345,6 +349,7 @@ validatePublishedEnglishTargets(
 );
 const selectedAudioTargets = collectAudioTargets(lessons, {
   audioRelease: args.audioRelease,
+  enDictionary: enDictionaryModule.en,
   existingViAudio,
   existingWordAudio,
   kidLockAudioPrompts: kidLockAudioPromptsModule.kidLockAudioPrompts,
@@ -562,6 +567,7 @@ function collectAudioTargets(
   lessonCatalog,
   {
     audioRelease,
+    enDictionary,
     existingViAudio,
     existingWordAudio,
     kidLockAudioPrompts,
@@ -722,6 +728,12 @@ function collectAudioTargets(
   const recordingEncouragementEn = getEnglishSegment(
     teacherPrompts.resolveRecordingEncouragementPrompt('en'),
   );
+  const recordingTryNextWordEn = getEnglishSegment(
+    teacherPrompts.resolveRecordingEncouragementPrompt('en', 'tryNextWord'),
+  );
+  const recordingTryNextWordVi = getViSegment(
+    teacherPrompts.resolveRecordingEncouragementPrompt('vi', 'tryNextWord'),
+  );
   const successFeedbackEn = getEnglishSegment(
     teacherPrompts.resolveTeacherFeedback({
       mode: 'en',
@@ -755,6 +767,15 @@ function collectAudioTargets(
     ),
     existingWordAudio,
     text: recordingEncouragementEn,
+  });
+  addSharedEnglishTarget(targets, {
+    audioRelease,
+    defaultKey: getSharedEnglishAudioKey(
+      'recording_try_next_word',
+      recordingTryNextWordEn,
+    ),
+    existingWordAudio,
+    text: recordingTryNextWordEn,
   });
   addSharedEnglishTarget(targets, {
     audioRelease,
@@ -798,6 +819,13 @@ function collectAudioTargets(
     text: 'Cô nghe rồi! Giỏi quá!',
   });
   addSharedViTarget(targets, {
+    defaultKey: `shared/audio/vi/recording_try_next_word_${textDigest(
+      recordingTryNextWordVi,
+    )}.wav`,
+    existingViAudio,
+    text: recordingTryNextWordVi,
+  });
+  addSharedViTarget(targets, {
     defaultKey: 'shared/audio/vi/correct.wav',
     existingViAudio,
     text: 'Đúng rồi! Bé giỏi quá!',
@@ -832,9 +860,51 @@ function collectAudioTargets(
     });
   }
 
+  addBundledEnglishUiTargets(targets, {
+    audioRelease,
+    enDictionary,
+    existingWordAudio,
+  });
+
   return Array.from(targets.values()).sort((left, right) =>
     left.key.localeCompare(right.key),
   );
+}
+
+function addBundledEnglishUiTargets(
+  targets,
+  { audioRelease, enDictionary, existingWordAudio },
+) {
+  const uiPromptKeys = [
+    ['onboarding.coach.greeting', 'sungy_onboarding_greeting'],
+    ['home.coach.default', 'home_coach_default'],
+    ['home.coach.complete', 'home_coach_complete'],
+    ['home.coach.completeTapOne', 'home_complete_tap_one'],
+    ['home.coach.completeTapTwo', 'home_complete_tap_two'],
+    ['home.coach.completeTapThree', 'home_complete_tap_three'],
+    ['home.coach.reviewTapOne', 'home_review_tap_one'],
+    ['home.coach.reviewTapTwo', 'home_review_tap_two'],
+    ['home.coach.reviewTapThree', 'home_review_tap_three'],
+    ['home.coach.guideTapOne', 'home_guide_tap_one'],
+    ['home.coach.guideTapTwo', 'home_guide_tap_two'],
+    ['home.coach.guideTapThree', 'home_guide_tap_three'],
+  ];
+
+  for (const [translationKey, fileStem] of uiPromptKeys) {
+    const text = enDictionary?.[translationKey];
+    if (typeof text !== 'string') {
+      throw new Error(`Missing English UI prompt ${translationKey}.`);
+    }
+
+    addSharedEnglishTarget(targets, {
+      audioRelease,
+      defaultKey: getNamedUiEnglishAudioKey(fileStem),
+      existingWordAudio,
+      includeLegacyFallback: false,
+      kind: 'ui',
+      text,
+    });
+  }
 }
 
 function addWordTarget(
@@ -1006,6 +1076,10 @@ function getUiEnglishAudioKey(reason, text) {
   return `ui/audio/en/kid_lock_${slug(reason)}_${textDigest(text)}.wav`;
 }
 
+function getNamedUiEnglishAudioKey(fileStem) {
+  return `ui/audio/en/${fileStem}.wav`;
+}
+
 function getUiViAudioKey(reason, text) {
   return `ui/audio/vi/kid_lock_${slug(reason)}_${textDigest(text)}.wav`;
 }
@@ -1021,6 +1095,18 @@ function getEnglishSegment(resolution) {
 
   if (!text?.trim()) {
     throw new Error('Teacher prompt resolution did not include English text.');
+  }
+
+  return text;
+}
+
+function getViSegment(resolution) {
+  const text = resolution.segments.find(
+    segment => segment.language === 'vi',
+  )?.text;
+
+  if (!text?.trim()) {
+    throw new Error('Teacher prompt resolution did not include Vietnamese text.');
   }
 
   return text;

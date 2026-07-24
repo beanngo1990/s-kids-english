@@ -739,6 +739,7 @@ export const en: TranslationDictionary = {
   'speakPractice.promptPrepare': 'Get ready...',
   'speakPractice.promptRecording': 'I am listening...',
   'speakPractice.promptRecorded': 'Great! This word is:',
+  'speakPractice.promptRecordedQuiet': 'That is okay. Try saying the next word with me.',
   'speakPractice.promptNoMic': 'Mic permission needed. This word is:',
   'speakPractice.promptSpeak': 'Repeat after me:',
   'speakPractice.replayVoiceAccessibility': 'Replay your voice',
