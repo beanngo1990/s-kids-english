@@ -52,6 +52,20 @@ export const en: TranslationDictionary = {
   'onboarding.startSaving': 'Saving...',
   'onboarding.subtitle':
     'Your child will only see the learning map. Parents can change this later in Parent Mode.',
+  'onboarding.step1.title': 'Fun English learning with Sungy!',
+  'onboarding.step1.subtitle':
+    'Explore language through everyday life situations.',
+  'onboarding.step1.feature1.title': 'Everyday routines',
+  'onboarding.step1.feature1.text':
+    'Lessons connected to your child’s daily activities.',
+  'onboarding.step1.feature2.title': 'Playful interactions',
+  'onboarding.step1.feature2.text':
+    'Learn words by listening, tapping, dragging & speaking.',
+  'onboarding.step1.feature3.title': 'Sungy buddy',
+  'onboarding.step1.feature3.text':
+    'Sungy cheers your child at every stop on the map.',
+  'onboarding.step1.continue': 'Continue',
+  'onboarding.step2.back': 'Back',
   'onboarding.title': 'Choose a difficulty',
 
   'parent.alert.keepOneLesson':

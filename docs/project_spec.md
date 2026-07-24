@@ -236,7 +236,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Onboarding
 
-- **Implemented:** lần đầu mở app, phụ huynh chọn `core`, `expanded` hoặc `challenge`.
+- **Implemented:** lần đầu mở app, phụ huynh/bé trải nghiệm luồng Onboarding 2 bước sinh động:
+  - **Bước 1:** Làm quen với linh vật Sungy, phát âm thanh chào đón và xem 3 điểm nổi bật của phương pháp học.
+  - **Bước 2:** Chọn độ khó (`core`, `expanded` hoặc `challenge`), mặc định được chọn sẵn ở mức Vừa (`expanded`).
 - **Implemented:** hoàn tất ghi `hasCompletedOnboarding` và `learningMode`, sau đó vào `Home`.
 - **Unsupported trong onboarding:** nhập tên, avatar hoặc năm sinh. Child profile được chỉnh sau
   trong Parent Mode.

@@ -170,14 +170,26 @@ test('renders parent onboarding before first use', async () => {
     .findAllByType(Text)
     .map(node => node.props.children);
 
+  expect(textValues).toContain('Học Tiếng Anh thật vui cùng Sungy!');
+  expect(textValues).toContain('Tiếp tục');
+
+  const continueButton = tree?.root.findByProps({ title: 'Tiếp tục' });
+  await ReactTestRenderer.act(() => {
+    continueButton?.props.onPress();
+  });
+
+  const step2TextValues = tree?.root
+    .findAllByType(Text)
+    .map(node => node.props.children);
+
   await ReactTestRenderer.act(() => {
     tree?.unmount();
   });
 
-  expect(textValues).toContain('Chọn độ khó cho bé');
-  expect(textValues).toContain('Dễ');
-  expect(textValues).toContain('Vừa');
-  expect(textValues).toContain('Khó');
+  expect(step2TextValues).toContain('Chọn độ khó cho bé');
+  expect(step2TextValues).toContain('Dễ');
+  expect(step2TextValues).toContain('Vừa');
+  expect(step2TextValues).toContain('Khó');
 });
 
 function createCompletedFreeProgress(): LocalProgress {
