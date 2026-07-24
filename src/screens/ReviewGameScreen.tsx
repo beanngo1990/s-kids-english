@@ -4,6 +4,7 @@ import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
+import { AppUiIcon } from '../components/AppUiIcon';
 import { KidBadge } from '../components/KidBadge';
 import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
@@ -333,8 +334,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
               pressed && styles.selectorTabPressed,
             ]}
           >
+            <AppUiIcon name="gameMemory" size={16} />
             <Text
               adjustsFontSizeToFit
+              minimumFontScale={0.85}
               numberOfLines={1}
               style={[
                 styles.selectorTabText,
@@ -356,8 +359,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
               pressed && styles.selectorTabPressed,
             ]}
           >
+            <AppUiIcon name="gameListen" size={16} />
             <Text
               adjustsFontSizeToFit
+              minimumFontScale={0.85}
               numberOfLines={1}
               style={[
                 styles.selectorTabText,
@@ -379,8 +384,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
               pressed && styles.selectorTabPressed,
             ]}
           >
+            <AppUiIcon name="gameMatching" size={16} />
             <Text
               adjustsFontSizeToFit
+              minimumFontScale={0.85}
               numberOfLines={1}
               style={[
                 styles.selectorTabText,
@@ -559,21 +566,25 @@ const styles = createThemedStyles(() => ({
     lineHeight: 29,
   },
   gameSelectorContainer: {
+    alignItems: 'center',
     backgroundColor: colors.cream,
     borderColor: colors.borderWarm,
     borderRadius: radius.pill,
     borderWidth: 2,
     flexDirection: 'row',
+    height: 48,
     marginVertical: spacing.xs,
-    padding: 4,
+    padding: 3,
   },
   selectorTab: {
     alignItems: 'center',
     borderRadius: radius.pill,
     flex: 1,
+    flexDirection: 'row',
+    gap: 4,
+    height: '100%',
     justifyContent: 'center',
-    paddingHorizontal: 2,
-    paddingVertical: 6,
+    paddingHorizontal: 4,
   },
   selectorTabActive: {
     backgroundColor: colors.primaryDark,
