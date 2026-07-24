@@ -12,6 +12,7 @@ import { Appearance, type ColorSchemeName } from 'react-native';
 import {
   getParentSettings,
   saveParentSettings,
+  subscribeParentSettings,
   type AppTheme,
 } from '../engine/ParentSettingsManager';
 import {
@@ -64,8 +65,15 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
         }
       });
 
+    const unsubscribe = subscribeParentSettings(settings => {
+      if (isMounted) {
+        setAppThemePreferenceState(settings.appTheme);
+      }
+    });
+
     return () => {
       isMounted = false;
+      unsubscribe();
     };
   }, []);
 

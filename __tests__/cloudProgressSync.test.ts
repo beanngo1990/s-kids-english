@@ -1,6 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
+  getCloudParentSettingsFingerprint,
+  parseCloudParentSettingsData,
+  toCloudParentSettingsData,
+} from '../src/engine/CloudParentSettingsMerge';
+import {
   areProgressSnapshotsEqual,
   getCloudProgressFingerprint,
   mergeProgressSnapshots,
@@ -11,6 +16,12 @@ import {
   getCloudProgressSyncState,
   saveCloudProgressSyncState,
 } from '../src/engine/CloudProgressSyncState';
+import {
+  getParentSettings,
+  saveParentSettings,
+  saveParentSettingsFromCloud,
+  type ParentSettings,
+} from '../src/engine/ParentSettingsManager';
 import {
   getProgress,
   normalizeProgress,
@@ -167,12 +178,150 @@ test('cloud fingerprint canonicalizes the resume pointer key order', () => {
   );
 });
 
+test('cloud parent settings serialization excludes local-only fields', () => {
+  const settings: ParentSettings = {
+    cloudProgressSync: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      ownerUid: 'parent-a',
+    },
+    enableSceneEditor: true,
+    hasCompletedOnboarding: true,
+    journeyMode: 'free',
+    learningMode: 'expanded',
+    updatedAt: '2026-07-15T08:00:00.000Z',
+    visibleLessonIds: ['lesson-b', 'lesson-a', 'lesson-a'],
+    appLanguage: 'en',
+    englishAccent: 'en-GB',
+    teacherPromptMode: 'en',
+    appTheme: 'dark',
+    reminderEnabled: true,
+    reminderTime: '20:15',
+    childProfile: {
+      avatarEmoji: ':)',
+      birthYear: 2021,
+      name: 'Sweet kid',
+    },
+  };
+
+  const serialized = toCloudParentSettingsData(settings);
+
+  expect(serialized).toEqual({
+    appLanguage: 'en',
+    appTheme: 'dark',
+    childProfile: {
+      avatarEmoji: ':)',
+      birthYear: 2021,
+      name: 'Sweet kid',
+    },
+    englishAccent: 'en-GB',
+    hasCompletedOnboarding: true,
+    journeyMode: 'free',
+    learningMode: 'expanded',
+    reminderEnabled: true,
+    reminderTime: '20:15',
+    teacherPromptMode: 'en',
+    updatedAt: '2026-07-15T08:00:00.000Z',
+    visibleLessonIds: ['lesson-a', 'lesson-b'],
+  });
+  expect(JSON.stringify(serialized)).not.toContain('cloudProgressSync');
+  expect(JSON.stringify(serialized)).not.toContain('enableSceneEditor');
+});
+
+test('cloud parent settings parser rejects unsupported shapes', () => {
+  const validSettings = toCloudParentSettingsData({
+    ...getTestParentSettings(),
+    updatedAt: '2026-07-15T08:00:00.000Z',
+  });
+
+  expect(parseCloudParentSettingsData(validSettings)).toEqual(validSettings);
+  expect(
+    parseCloudParentSettingsData({
+      ...validSettings,
+      appTheme: 'sepia',
+    }),
+  ).toBeNull();
+  expect(
+    parseCloudParentSettingsData({
+      ...validSettings,
+      childProfile: {
+        ...validSettings.childProfile,
+        name: '',
+      },
+    }),
+  ).toBeNull();
+});
+
+test('cloud parent settings fingerprint ignores timestamp-only writes', () => {
+  const settings = toCloudParentSettingsData({
+    ...getTestParentSettings(),
+    appTheme: 'dark',
+    updatedAt: '2026-07-15T08:00:00.000Z',
+  });
+  const timestampOnlyChange = {
+    ...settings,
+    updatedAt: '2026-07-15T09:00:00.000Z',
+  };
+
+  expect(getCloudParentSettingsFingerprint(timestampOnlyChange)).toBe(
+    getCloudParentSettingsFingerprint(settings),
+  );
+});
+
+test('cloud-applied parent settings preserve local-only fields', async () => {
+  await saveParentSettings({
+    cloudProgressSync: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      ownerUid: 'parent-a',
+    },
+    enableSceneEditor: true,
+    appTheme: 'dark',
+    updatedAt: '2026-07-15T08:00:00.000Z',
+    visibleLessonIds: ['lesson-a'],
+  });
+
+  const nextSettings = await saveParentSettingsFromCloud({
+    cloudProgressSync: { enabled: false },
+    enableSceneEditor: false,
+    appTheme: 'light',
+    childProfile: {
+      avatarEmoji: ':)',
+      birthYear: 2020,
+      name: 'Cloud kid',
+    },
+    updatedAt: '2026-07-16T08:00:00.000Z',
+    visibleLessonIds: undefined,
+  });
+
+  expect(nextSettings).toMatchObject({
+    cloudProgressSync: {
+      enabled: true,
+      ownerUid: 'parent-a',
+    },
+    enableSceneEditor: true,
+    appTheme: 'light',
+    childProfile: {
+      avatarEmoji: ':)',
+      birthYear: 2020,
+      name: 'Cloud kid',
+    },
+    updatedAt: '2026-07-16T08:00:00.000Z',
+    visibleLessonIds: undefined,
+  });
+  await expect(getParentSettings()).resolves.toMatchObject(nextSettings);
+});
+
 test('persists the last confirmed cloud fingerprint for its owner only', async () => {
   await saveCloudProgressSyncState({
     failureCount: 2,
     lastRemoteCheckedAt: '2026-07-15T07:59:00.000Z',
     lastSyncedAt: '2026-07-15T08:00:00.000Z',
     lastSyncedFingerprint: '{"totalXP":4}',
+    lastSyncedSettingsFingerprint: '{"appTheme":"dark"}',
+    lastSyncedSettingsUpdatedAt: '2026-07-15T08:00:00.000Z',
     lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
     nextRetryAt: '2026-07-15T08:02:00.000Z',
     ownerUid: 'parent-a',
@@ -183,6 +332,8 @@ test('persists the last confirmed cloud fingerprint for its owner only', async (
     failureCount: 2,
     lastRemoteCheckedAt: '2026-07-15T07:59:00.000Z',
     lastSyncedFingerprint: '{"totalXP":4}',
+    lastSyncedSettingsFingerprint: '{"appTheme":"dark"}',
+    lastSyncedSettingsUpdatedAt: '2026-07-15T08:00:00.000Z',
     lastWriteAttemptedAt: '2026-07-15T08:01:00.000Z',
     nextRetryAt: '2026-07-15T08:02:00.000Z',
     ownerUid: 'parent-a',
@@ -265,6 +416,26 @@ test('cloud merges preserve the source update timestamp', async () => {
     updatedAt: '2026-07-15T08:00:00.000Z',
   });
 });
+
+function getTestParentSettings(): ParentSettings {
+  return {
+    cloudProgressSync: { enabled: false },
+    enableSceneEditor: false,
+    hasCompletedOnboarding: false,
+    journeyMode: 'guided',
+    learningMode: 'core',
+    appLanguage: 'vi',
+    englishAccent: 'en-US',
+    teacherPromptMode: 'vi',
+    appTheme: 'system',
+    reminderEnabled: false,
+    reminderTime: '19:30',
+    childProfile: {
+      avatarEmoji: ':)',
+      name: 'Sweet kid',
+    },
+  };
+}
 
 test('normalizes malformed remote vocabulary data before runtime use', () => {
   const progress = normalizeProgress({

@@ -1,9 +1,8 @@
-# Firebase parent account and progress sync setup
+# Firebase parent account and learning data sync setup
 
 Firebase Authentication is used for parent sign-in. Cloud Firestore is used only after an
-authenticated parent explicitly opts in to learning-progress sync from Parent Mode. Do not enable
-Firebase Analytics, Crashlytics, Performance, or upload child profile/activity/voice data as part
-of this setup.
+authenticated parent explicitly opts in to learning-data sync from Parent Mode. Do not enable
+Firebase Analytics, Crashlytics, Performance, or upload activity/voice data as part of this setup.
 
 The root `firebase.json` intentionally disables React Native Firebase automatic collection knobs
 for analytics, performance, messaging, and ad storage. Keep those defaults unless a later privacy
@@ -72,20 +71,29 @@ does not yet compile reliably against that module under static frameworks on Rea
 Remove the workaround only after the upstream compatibility fix is available and both Debug and
 Release iOS builds have been verified.
 
-## Progress sync contract
+## Learning data sync contract
 
 - Sync is off by default and remains off after sign-in until the parent confirms the disclosure.
 - Consent is stored locally in `@skidsenglish/parent-settings/v1` with the parent UID, consent
   version and timestamp. A different signed-in UID cannot inherit that consent.
 - The last server-confirmed semantic fingerprint is stored in
   `@skidsenglish/cloud-progress-sync-state/v1`, bound to the same parent UID. It deliberately
-  ignores client `updatedAt`, so timestamp-only local saves do not trigger cloud writes. The same
-  store keeps sync scheduler metadata for cooldowns and retry backoff.
-- The only cloud document is `users/{uid}/progress/current`.
-- Synced fields are lesson/scene/review completion, learned-word IDs, vocabulary mastery counters,
-  XP, sticker/achievement records, active theme and the resume pointer.
-- Child name, avatar, birth year, parent settings, daily activity/streak data and voice recordings
-  are not included in the Firestore payload.
+  ignores client `updatedAt` for progress, so timestamp-only local saves do not trigger cloud
+  writes. The same store keeps sync scheduler metadata for cooldowns/retry backoff and a separate
+  checkpoint for synced parent settings.
+- Cloud documents:
+  - `users/{uid}/progress/current` for learning progress.
+  - `users/{uid}/settings/current` for selected parent settings.
+- Synced progress fields are lesson/scene/review completion, learned-word IDs, vocabulary mastery
+  counters, XP, sticker/achievement records, active theme and the resume pointer.
+- Synced parent settings are onboarding completion, journey/learning mode, visible lessons, app
+  language, teacher prompt mode, English accent, app theme, child profile, reminder enabled state
+  and reminder time.
+- Local-only fields are the cloud-sync consent itself and the scene editor flag. Daily
+  activity/streak data, voice recordings, lesson asset files and per-device notification
+  permission/schedule state are not included in the Firestore payload.
+- Reminder preference sync only updates the saved setting. Each device still needs its own
+  notification permission and local schedule when the parent enables reminders there.
 - Local progress remains the runtime source of truth. Remote and local snapshots merge
   monotonically: ID sets are unioned and XP/counters use the larger value. The latest snapshot
   chooses active theme and resume position.
@@ -108,8 +116,9 @@ Release iOS builds have been verified.
   option to clear local settings, progress, daily activity and the cloud-sync checkpoint after
   Firebase sign-out succeeds.
 - Turning sync off can either keep the existing cloud copy or delete it. Deleting the parent
-  account deletes the cloud progress document before deleting Firebase Auth, then clears the
-  app's local settings, progress, daily activity and cloud-sync checkpoint stores on the device.
+  account deletes the cloud progress and synced settings documents before deleting Firebase Auth,
+  then clears the app's local settings, progress, daily activity and cloud-sync checkpoint stores
+  on the device.
 - If a different parent account signs in, the old device consent can be cleared locally before the
   new account opts in. This does not delete the previous account's cloud copy; that account must
   sign in again to delete its own data.
@@ -122,7 +131,7 @@ larger snapshot wins for counters.
 
 `firestore.rules` denies all unrelated paths, collection list operations and cross-UID access. It
 also validates the document owner, schema/consent versions, server timestamp, allowed fields, basic
-types and bounded list/map sizes.
+types and bounded list/map sizes for both progress and settings documents.
 
 Run the local emulator test with:
 

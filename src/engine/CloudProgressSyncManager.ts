@@ -2,6 +2,7 @@ import { getApps } from '@react-native-firebase/app';
 import {
   deleteDoc,
   doc,
+  getDoc,
   getFirestore,
   onSnapshot,
   serverTimestamp,
@@ -11,10 +12,20 @@ import {
 import { AppState, type AppStateStatus } from 'react-native';
 
 import {
+  CLOUD_PARENT_SETTINGS_DOCUMENT_ID,
+  CLOUD_PARENT_SETTINGS_SCHEMA_VERSION,
   CLOUD_PROGRESS_DOCUMENT_ID,
   CLOUD_PROGRESS_SCHEMA_VERSION,
   CLOUD_PROGRESS_SYNC_CONSENT_VERSION,
 } from '../config/cloudProgressSync';
+import {
+  areCloudParentSettingsEqual,
+  getCloudParentSettingsFingerprint,
+  getCloudParentSettingsUpdatedAtMs,
+  parseCloudParentSettingsData,
+  toCloudParentSettingsData,
+  type CloudParentSettingsData,
+} from './CloudParentSettingsMerge';
 import {
   areProgressSnapshotsEqual,
   getCloudProgressFingerprint,
@@ -31,6 +42,7 @@ import {
 } from './CloudProgressSyncState';
 import {
   getParentSettings,
+  saveParentSettingsFromCloud,
   saveParentSettings,
   subscribeParentSettings,
   type CloudProgressSyncPreference,
@@ -124,10 +136,14 @@ let remoteStartTimer: ReturnType<typeof setTimeout> | null = null;
 let remoteStartTimerUid: string | null = null;
 let activeUid: string | null = null;
 let pendingProgress: LocalProgress | null = null;
+let pendingParentSettings: ParentSettings | null = null;
 let remoteGeneration = 0;
 let initializedGeneration: number | null = null;
 let flushingGeneration: number | null = null;
+let isApplyingCloudParentSettings = false;
+let parentSettingsWriting = false;
 let remoteHandling = Promise.resolve();
+let parentSettingsHandling = Promise.resolve();
 let started = false;
 let syncSnapshot = initialCloudProgressSyncSnapshot;
 
@@ -149,6 +165,13 @@ export function startCloudProgressSync() {
   subscribeParentSettings(settings => {
     currentSettings = settings;
     reconcileSyncState();
+    if (!isApplyingCloudParentSettings && activeUid) {
+      requestParentSettingsWrite(
+        activeUid,
+        settings,
+        remoteGeneration,
+      );
+    }
   });
 
   subscribeProgress(change => {
@@ -214,13 +237,13 @@ export async function enableCloudProgressSync() {
       enabled: true,
       ownerUid: user.uid,
     },
-  });
+  }, { touchUpdatedAt: false });
 }
 
 export async function disableCloudProgressSync() {
   await saveParentSettings({
     cloudProgressSync: { enabled: false },
-  });
+  }, { touchUpdatedAt: false });
 }
 
 export async function disableAndDeleteCloudProgress() {
@@ -228,7 +251,7 @@ export async function disableAndDeleteCloudProgress() {
   if (!user) {
     throw new CloudProgressSyncError(
       'notSignedIn',
-      'A parent account must be signed in before deleting cloud progress.',
+      'A parent account must be signed in before deleting cloud data.',
     );
   }
 
@@ -247,6 +270,7 @@ export async function disableAndDeleteCloudProgress() {
 
   try {
     await deleteDoc(getCloudProgressReference(user.uid));
+    await deleteDoc(getCloudParentSettingsReference(user.uid));
     await clearLocalSyncCheckpoint(user.uid);
   } catch (error) {
     throw normalizeCloudProgressSyncError(error);
@@ -258,16 +282,17 @@ export async function deleteCloudProgressForCurrentParent() {
   if (!user) {
     throw new CloudProgressSyncError(
       'notSignedIn',
-      'A parent account must be signed in before deleting cloud progress.',
+      'A parent account must be signed in before deleting cloud data.',
     );
   }
 
   await saveParentSettings({
     cloudProgressSync: { enabled: false },
-  });
+  }, { touchUpdatedAt: false });
 
   try {
     await deleteDoc(getCloudProgressReference(user.uid));
+    await deleteDoc(getCloudParentSettingsReference(user.uid));
     await clearLocalSyncCheckpoint(user.uid);
   } catch (error) {
     throw normalizeCloudProgressSyncError(error);
@@ -276,6 +301,8 @@ export async function deleteCloudProgressForCurrentParent() {
 
 export async function clearLocalCloudProgressSyncData() {
   stopRemoteSync();
+  pendingParentSettings = null;
+  parentSettingsHandling = Promise.resolve();
   localSyncState = initialCloudProgressSyncState;
   localSyncStateReady = true;
   updateSyncSnapshot({
@@ -572,6 +599,11 @@ function startRemoteSync(uid: string) {
         handleRemoteError(error, generation);
       },
     );
+    parentSettingsHandling = parentSettingsHandling
+      .then(() => syncRemoteParentSettings(uid, generation))
+      .catch(error => {
+        handleRemoteError(error, generation);
+      });
   } catch (error) {
     handleRemoteError(error, generation);
   }
@@ -584,8 +616,10 @@ function stopRemoteSync() {
   remoteUnsubscribe = null;
   activeUid = null;
   pendingProgress = null;
+  pendingParentSettings = null;
   initializedGeneration = null;
   remoteHandling = Promise.resolve();
+  parentSettingsHandling = Promise.resolve();
 }
 
 function clearRemoteStartTimer() {
@@ -705,6 +739,229 @@ async function handleRemoteSnapshot(
     errorCode: undefined,
     lastSyncedAt: serverSyncedAt ?? syncSnapshot.lastSyncedAt,
     status: hasPendingWrites || pendingProgress ? 'pending' : 'synced',
+  });
+}
+
+async function syncRemoteParentSettings(uid: string, generation: number) {
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
+  const initialLocalSettings =
+    currentSettings ?? (await getParentSettings());
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
+  const snapshot = await getDoc(getCloudParentSettingsReference(uid));
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
+  if (!snapshot.exists()) {
+    await writeCloudParentSettings(uid, initialLocalSettings);
+    const cloudSettings = toCloudParentSettingsData(initialLocalSettings);
+    const lastSyncedAt = new Date().toISOString();
+    await markParentSettingsSyncCheckpoint(
+      uid,
+      cloudSettings,
+      lastSyncedAt,
+    );
+    updateParentSettingsSyncStatus(uid, generation, lastSyncedAt);
+    return;
+  }
+
+  const remoteSettings = parseCloudParentSettingsDocument(
+    snapshot.data(),
+    uid,
+  );
+  if (!remoteSettings) {
+    throw new CloudProgressSyncError(
+      'invalidRemoteData',
+      'The cloud parent settings document has an unsupported schema.',
+    );
+  }
+
+  const latestLocalSettings = currentSettings ?? (await getParentSettings());
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
+  const localSettings = toCloudParentSettingsData(latestLocalSettings);
+  const hasCheckpoint = hasConfirmedParentSettingsCheckpointForUid(uid);
+  const settingsAreEqual = areCloudParentSettingsEqual(
+    localSettings,
+    remoteSettings,
+  );
+
+  if (!hasCheckpoint) {
+    const cloudSettings = settingsAreEqual
+      ? localSettings
+      : toCloudParentSettingsData(
+          await applyCloudParentSettings(remoteSettings),
+        );
+    const serverSyncedAt =
+      getServerTimestampIso(snapshot.data()?.serverUpdatedAt) ??
+      new Date().toISOString();
+    await markParentSettingsSyncCheckpoint(
+      uid,
+      cloudSettings,
+      serverSyncedAt,
+    );
+    updateParentSettingsSyncStatus(uid, generation, serverSyncedAt);
+    return;
+  }
+
+  if (settingsAreEqual) {
+    const lastSyncedAt =
+      getServerTimestampIso(snapshot.data()?.serverUpdatedAt) ??
+      new Date().toISOString();
+    await markParentSettingsSyncCheckpoint(
+      uid,
+      localSettings,
+      lastSyncedAt,
+    );
+    updateParentSettingsSyncStatus(uid, generation, lastSyncedAt);
+    return;
+  }
+
+  const remoteUpdatedAtMs =
+    getCloudParentSettingsUpdatedAtMs(remoteSettings);
+  const localUpdatedAtMs = getCloudParentSettingsUpdatedAtMs(localSettings);
+
+  if (remoteUpdatedAtMs > localUpdatedAtMs) {
+    const appliedSettings = await applyCloudParentSettings(remoteSettings);
+    const cloudSettings = toCloudParentSettingsData(appliedSettings);
+    const serverSyncedAt =
+      getServerTimestampIso(snapshot.data()?.serverUpdatedAt) ??
+      new Date().toISOString();
+    await markParentSettingsSyncCheckpoint(
+      uid,
+      cloudSettings,
+      serverSyncedAt,
+    );
+    updateParentSettingsSyncStatus(uid, generation, serverSyncedAt);
+    return;
+  }
+
+  await writeCloudParentSettings(uid, latestLocalSettings);
+  const lastSyncedAt = new Date().toISOString();
+  await markParentSettingsSyncCheckpoint(uid, localSettings, lastSyncedAt);
+  updateParentSettingsSyncStatus(uid, generation, lastSyncedAt);
+}
+
+function requestParentSettingsWrite(
+  uid: string,
+  settings: ParentSettings,
+  generation: number,
+) {
+  if (
+    !isActiveSync(uid, generation) ||
+    !isConsentActiveForUid(uid) ||
+    !isParentSettingsDirty(uid, settings)
+  ) {
+    return;
+  }
+
+  pendingParentSettings = settings;
+  updateSyncSnapshot({ errorCode: undefined, status: 'pending' });
+
+  if (parentSettingsWriting) {
+    return;
+  }
+
+  parentSettingsHandling = parentSettingsHandling
+    .then(() => flushPendingParentSettingsWrites(uid, generation))
+    .catch(error => {
+      handleRemoteError(error, generation);
+    });
+}
+
+async function flushPendingParentSettingsWrites(
+  uid: string,
+  generation: number,
+) {
+  if (parentSettingsWriting) {
+    return;
+  }
+
+  parentSettingsWriting = true;
+
+  try {
+    while (pendingParentSettings && isActiveSync(uid, generation)) {
+      const settingsToWrite = pendingParentSettings;
+      pendingParentSettings = null;
+
+      if (!isParentSettingsDirty(uid, settingsToWrite)) {
+        continue;
+      }
+
+      updateSyncSnapshot({ errorCode: undefined, status: 'syncing' });
+      await writeCloudParentSettings(uid, settingsToWrite);
+
+      const cloudSettings = toCloudParentSettingsData(settingsToWrite);
+      const lastSyncedAt = new Date().toISOString();
+      await markParentSettingsSyncCheckpoint(
+        uid,
+        cloudSettings,
+        lastSyncedAt,
+      );
+      updateParentSettingsSyncStatus(uid, generation, lastSyncedAt);
+    }
+  } finally {
+    parentSettingsWriting = false;
+  }
+}
+
+async function applyCloudParentSettings(
+  settings: CloudParentSettingsData,
+) {
+  isApplyingCloudParentSettings = true;
+  try {
+    const nextSettings = await saveParentSettingsFromCloud({
+      ...settings,
+      visibleLessonIds: settings.visibleLessonIds,
+    });
+    currentSettings = nextSettings;
+    return nextSettings;
+  } finally {
+    isApplyingCloudParentSettings = false;
+  }
+}
+
+async function writeCloudParentSettings(
+  uid: string,
+  settings: ParentSettings,
+) {
+  const preference = getActivePreference(uid);
+  await setDoc(getCloudParentSettingsReference(uid), {
+    consentedAt: new Date(preference.consentedAt ?? Date.now()),
+    consentVersion: CLOUD_PROGRESS_SYNC_CONSENT_VERSION,
+    ownerUid: uid,
+    schemaVersion: CLOUD_PARENT_SETTINGS_SCHEMA_VERSION,
+    serverUpdatedAt: serverTimestamp(),
+    settings: toCloudParentSettingsData(settings),
+  });
+}
+
+function updateParentSettingsSyncStatus(
+  uid: string,
+  generation: number,
+  lastSyncedAt: string,
+) {
+  if (!isActiveSync(uid, generation)) {
+    return;
+  }
+
+  updateSyncSnapshot({
+    errorCode: undefined,
+    lastSyncedAt,
+    status:
+      pendingProgress || pendingParentSettings
+        ? 'pending'
+        : initializedGeneration === generation
+          ? 'synced'
+          : 'connecting',
   });
 }
 
@@ -837,10 +1094,27 @@ function isProgressDirty(uid: string, progress: LocalProgress) {
   );
 }
 
+function isParentSettingsDirty(uid: string, settings: ParentSettings) {
+  return (
+    !hasConfirmedParentSettingsCheckpointForUid(uid) ||
+    localSyncState.lastSyncedSettingsFingerprint !==
+      getCloudParentSettingsFingerprint(
+        toCloudParentSettingsData(settings),
+      )
+  );
+}
+
 function hasConfirmedCheckpointForUid(uid: string) {
   return Boolean(
     localSyncState.ownerUid === uid &&
       localSyncState.lastSyncedFingerprint,
+  );
+}
+
+function hasConfirmedParentSettingsCheckpointForUid(uid: string) {
+  return Boolean(
+    localSyncState.ownerUid === uid &&
+      localSyncState.lastSyncedSettingsFingerprint,
   );
 }
 
@@ -961,6 +1235,29 @@ async function markLocalSyncCheckpoint(
   }
 }
 
+async function markParentSettingsSyncCheckpoint(
+  uid: string,
+  settings: CloudParentSettingsData,
+  lastSyncedAt: string,
+) {
+  if (!isConsentActiveForUid(uid)) {
+    return;
+  }
+
+  const savedState = await saveLocalSyncState({
+    ...getStateForUid(uid),
+    lastSyncedAt,
+    lastSyncedSettingsFingerprint:
+      getCloudParentSettingsFingerprint(settings),
+    lastSyncedSettingsUpdatedAt: settings.updatedAt,
+    ownerUid: uid,
+  });
+
+  if (isConsentActiveForUid(uid)) {
+    localSyncState = savedState;
+  }
+}
+
 async function markRemoteChecked(uid: string) {
   await saveLocalSyncState({
     ...getStateForUid(uid),
@@ -1054,6 +1351,23 @@ function getCloudProgressReference(uid: string) {
   );
 }
 
+function getCloudParentSettingsReference(uid: string) {
+  if (getApps().length === 0) {
+    throw new CloudProgressSyncError(
+      'firebaseUnavailable',
+      'Firebase native configuration is missing.',
+    );
+  }
+
+  return doc(
+    getFirestore(),
+    'users',
+    uid,
+    'settings',
+    CLOUD_PARENT_SETTINGS_DOCUMENT_ID,
+  );
+}
+
 function parseCloudProgressDocument(value: unknown, uid: string) {
   if (!isRecord(value)) {
     return null;
@@ -1069,6 +1383,23 @@ function parseCloudProgressDocument(value: unknown, uid: string) {
   }
 
   return normalizeProgress(value.progress);
+}
+
+function parseCloudParentSettingsDocument(value: unknown, uid: string) {
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  if (
+    value.schemaVersion !== CLOUD_PARENT_SETTINGS_SCHEMA_VERSION ||
+    value.consentVersion !== CLOUD_PROGRESS_SYNC_CONSENT_VERSION ||
+    value.ownerUid !== uid ||
+    !isRecord(value.settings)
+  ) {
+    return null;
+  }
+
+  return parseCloudParentSettingsData(value.settings);
 }
 
 function handleRemoteError(error: unknown, generation: number) {

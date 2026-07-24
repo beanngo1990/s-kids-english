@@ -5,7 +5,7 @@
 **Kiểm chứng gần nhất:** 2026-07-22
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
-localization foundation, Firebase parent auth, opt-in cloud progress sync, dual-accent English
+localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout và monetization Phase 1-3 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
@@ -55,8 +55,9 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
-- **Implemented:** parent opt-in cloud progress sync qua Firestore; mặc định tắt và chỉ sync
-  `LocalProgress`, không sync child profile/activity/voice recordings.
+- **Implemented:** parent opt-in cloud learning data sync qua Firestore; mặc định tắt và sync
+  `LocalProgress` cùng selected parent settings/child profile, không sync activity/voice
+  recordings.
 - **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
   adult gate, màn Premium và RevenueCat entitlement lifecycle.
 - **Implemented trong repository:** Remote Config purchase kill switch và Founder cutoff/duration;
@@ -273,9 +274,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
   Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
-- **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud progress sync. Consent modal
-  liệt kê dữ liệu được sync; opt-out cho phép giữ hoặc xóa bản cloud. Child profile, daily activity
-  và voice recordings không được upload.
+- **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud learning data sync. Consent
+  modal liệt kê progress và selected settings được sync; opt-out cho phép giữ hoặc xóa bản cloud.
+  Daily activity, voice recordings, lesson assets và per-device notification permission/schedule
+  không được upload.
 - **Implemented:** khi Parent Mode mở bài học hoặc game ôn tập, phiên phụ huynh được giữ để nút
   quay lại trở về Parent Mode mà không phải vượt qua adult gate lần nữa.
 - **Implemented:** entry từ Kid Mode có thể mở `Parent` với intent `premium`/`founderPromo`; sau
@@ -466,10 +468,10 @@ và ước lượng 3 phút cho mỗi scene event.
 - `colors.ts` cung cấp token proxy, `createThemedStyles` và `useThemeSync` để styles cập nhật theo
   active scheme.
 
-## 7. Local persistence, parent auth và cloud progress
+## 7. Local persistence, parent auth và cloud learning data
 
 App luôn dùng bốn AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
-của learning progress sau parent opt-in:
+của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
 
@@ -483,6 +485,11 @@ của learning progress sau parent opt-in:
   giữ hành vi legacy.
 - `cloudProgressSync` mặc định `enabled: false`; chỉ normalize thành enabled khi có owner UID,
   consent version hiện tại và consent timestamp hợp lệ.
+- Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
+  mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
+  enabled/time và child profile. `cloudProgressSync` consent và `enableSceneEditor` là local-only.
+- Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
+  trạng thái riêng trên từng thiết bị.
 
 ### Learning progress
 
@@ -499,9 +506,9 @@ của learning progress sau parent opt-in:
 
 - Key: `@skidsenglish/cloud-progress-sync-state/v1`.
 - Manager: `src/engine/CloudProgressSyncState.ts`.
-- Lưu owner UID, semantic fingerprint, thời điểm sync gần nhất đã được server xác nhận và metadata
-  scheduler cho cloud sync: lần remote check gần nhất, lần write attempt gần nhất, failure count và
-  thời điểm retry kế tiếp.
+- Lưu owner UID, semantic fingerprint progress, semantic fingerprint selected settings, thời điểm
+  sync gần nhất đã được server xác nhận và metadata scheduler cho cloud sync: lần remote check gần
+  nhất, lần write attempt gần nhất, failure count và thời điểm retry kế tiếp.
 - Fingerprint canonicalize cloud payload nhưng bỏ `updatedAt`; một local save chỉ đổi timestamp
   không làm phát sinh cloud write.
 - State thiếu owner được normalize về empty. State có owner nhưng chưa có fingerprint vẫn được giữ
@@ -540,10 +547,10 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
   xuất rồi xóa local settings/progress/daily activity/cloud-sync checkpoint. Nhánh giữ local là mặc
   định để tránh mất tiến độ ngoài ý muốn.
-- Account deletion UI xóa `users/{uid}/progress/current` trước khi xóa Firebase Auth. Nếu cloud
-  deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập. Sau khi
-  xóa cloud progress, RevenueCat customer và Firebase Auth thành công, app xóa các local stores
-  `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
+- Account deletion UI xóa `users/{uid}/progress/current` và `users/{uid}/settings/current` trước
+  khi xóa Firebase Auth. Nếu cloud deletion thất bại, auth deletion dừng để tránh để lại document
+  không còn owner đăng nhập. Sau khi xóa cloud data, RevenueCat customer và Firebase Auth thành
+  công, app xóa các local stores `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
   `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1` và hủy daily
   reminder local.
 
@@ -586,7 +593,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Monetization/App Check không thêm AsyncStorage key. Parent access session nằm trong memory tại
   `src/engine/ParentAccessSession.ts`; RevenueCat `CustomerInfo` được refresh/lắng nghe thay vì
   cache thành quyền Premium do app tự quản lý.
-- Account deletion refresh Firebase Auth token và App Check token trước khi chạy cloud progress
+- Account deletion refresh Firebase Auth token và App Check token trước khi chạy cloud data
   deletion -> callable xóa RevenueCat customer -> Firebase Auth deletion -> local RevenueCat
   cache/logout -> local account data wipe. Nếu token bảo mật chưa sẵn sàng hoặc backend cleanup
   chưa được xác nhận, Firebase Auth được giữ để phụ huynh retry. Founder access không có
@@ -595,24 +602,34 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   phải kiểm kê và purge bằng admin migration có xác nhận trước production, không giao việc đó cho
   callable account deletion mới.
 
-### Cloud progress sync
+### Cloud learning data sync
 
 - Dependency/runtime: `@react-native-firebase/firestore` `25.x`.
 - Lifecycle boundary: `App.tsx` gọi `startCloudProgressSync()`; manager nằm tại
   `src/engine/CloudProgressSyncManager.ts`.
-- Merge/serialization thuần nằm tại `src/engine/CloudProgressMerge.ts`.
-- Firestore path duy nhất: `users/{uid}/progress/current`; schema version và consent version hiện
+- Merge/serialization thuần nằm tại `src/engine/CloudProgressMerge.ts` cho progress và
+  `src/engine/CloudParentSettingsMerge.ts` cho selected settings.
+- Firestore paths: `users/{uid}/progress/current` cho progress và `users/{uid}/settings/current`
+  cho selected parent settings. Consent version là `1`; schema version progress và settings hiện
   đều là `1`.
 - Sync mặc định tắt. Đăng nhập không tự bật sync. Consent được bind với UID hiện tại, vì vậy đăng
   nhập tài khoản khác không kế thừa opt-in cũ. Parent UI cho phép xóa consent cũ khỏi thiết bị để
   tài khoản hiện tại opt-in lại; thao tác này không xóa cloud document của owner cũ.
-- Payload chỉ gồm `LocalProgress`: completion/review IDs, learned words, vocabulary progress, XP,
-  sticker/achievement records, active theme, resume pointer và client update timestamp.
-- Không sync child profile (name/avatar/birth year), parent settings, daily activity/streak, voice
-  recording URI/file hoặc lesson assets.
+- Progress payload gồm `LocalProgress`: completion/review IDs, learned words, vocabulary progress,
+  XP, sticker/achievement records, active theme, resume pointer và client update timestamp.
+- Settings payload gồm onboarding flag, journey/learning mode, visible lessons, app language,
+  teacher prompt mode, English accent, app theme, child profile, reminder enabled state/time và
+  client update timestamp. Không sync `cloudProgressSync` consent hoặc `enableSceneEditor`.
+- Không sync daily activity/streak, voice recording URI/file, lesson asset files hoặc native
+  notification permission/schedule state. Reminder preference từ cloud chỉ cập nhật saved setting;
+  từng thiết bị vẫn cần parent bật/cấp quyền reminder để native schedule được tạo tại chỗ.
 - Local progress tiếp tục là runtime source of truth. Khi nhận remote snapshot, ID arrays/records
   được union theo key; vocabulary counts/mastery và total XP lấy max; active theme/resume pointer
   lấy snapshot có `updatedAt` mới hơn. Merge được canonicalize để tránh ping-pong do array order.
+- Selected settings dùng last-write-wins theo client `updatedAt` sau khi thiết bị đã có checkpoint.
+  Nếu một thiết bị opt-in vào account đã có cloud settings nhưng chưa có checkpoint local, remote
+  settings thắng để tránh onboarding/default local ghi đè cấu hình đã có. Local-only fields được
+  giữ nguyên khi apply remote settings.
 - Khi bắt đầu một sync session, manager chờ initial snapshot được server xác nhận trước khi upload;
   snapshot cache báo document chưa tồn tại không thể ghi đè dữ liệu đang có từ thiết bị khác.
 - Firestore listener chỉ tồn tại khi app foreground. Initial snapshot và remote update được merge
@@ -628,22 +645,23 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   cho phép.
 - Background write có cooldown tối thiểu 90 giây theo parent UID. Nếu user ẩn/bật app liên tục,
   progress vẫn lưu local ngay nhưng cloud write được defer; phiên không đổi dữ liệu không tạo write.
+- Local parent settings change được ghi lên settings document khi sync đang active và semantic
+  fingerprint thay đổi; timestamp-only hoặc consent-only changes không tạo settings write.
 - Contract max/union tránh duplicate reward và XP inflation nhưng không cộng hai XP delta độc lập
   phát sinh đồng thời trên hai thiết bị offline. Event-log/operation-based multi-device accounting
   vẫn unsupported.
-- Opt-out có hai lựa chọn: dừng listener nhưng giữ cloud document, hoặc dừng và xóa cloud document.
-  Local progress luôn được giữ.
+- Opt-out có hai lựa chọn: dừng listener nhưng giữ cloud documents, hoặc dừng và xóa progress cùng
+  settings documents. Local progress/settings luôn được giữ.
 - `firestore.rules` chỉ cho authenticated owner get/create/update/delete document `current`, cấm
-  list/cross-UID/unrelated paths, whitelist fields và giới hạn basic types/sizes. Dynamic entries
-  bên trong vocabulary map được client normalizer kiểm tra vì Firestore Rules không có generic
-  iteration để validate mọi map value.
+  list/cross-UID/unrelated paths, whitelist fields và giới hạn basic types/sizes cho cả progress và
+  settings. Dynamic entries bên trong vocabulary map được client normalizer kiểm tra vì Firestore
+  Rules không có generic iteration để validate mọi map value.
 - `npm run test:firestore-rules` chạy Firebase Emulator với demo project và kiểm tra owner access,
   cross-user/anonymous denial, list denial, owner/schema constraints và unknown-field rejection.
 - Root `firebase.json` vẫn tắt Analytics/Performance/Messaging/ad auto-collection; Firebase
   Analytics package không được thêm.
-- **Unsupported:** sync parent settings/child profile/activity/recordings, Realtime Database và
-  Analytics. App Check client initialization đã implemented, nhưng enforcement chưa được chứng
-  minh/cấu hình trong repository.
+- **Unsupported:** sync daily activity/recordings, Realtime Database và Analytics. App Check client
+  initialization đã implemented, nhưng enforcement chưa được chứng minh/cấu hình trong repository.
 
 ## 8. Audio, recording và native modules
 
@@ -843,7 +861,7 @@ Support summary:
 | iOS audio disk cache                     | Unsupported     |
 | Full offline lesson bundle               | Unsupported     |
 | Native reminder E2E coverage             | Partial         |
-| Parent opt-in cloud progress sync        | Implemented     |
+| Parent opt-in cloud learning data sync   | Implemented     |
 
 ## 12. Spec maintenance
 
