@@ -2542,36 +2542,6 @@ export function ParentScreen({ navigation, route }: Props) {
               <Text style={styles.privacyText}>
                 {t('parent.privacy.text')}
               </Text>
-              <View style={styles.legalLinksRow}>
-                {monetizationConfig.privacyPolicyUrl.trim() ? (
-                  <Pressable
-                    accessibilityRole="link"
-                    onPress={() => {
-                      Linking.openURL(monetizationConfig.privacyPolicyUrl).catch(
-                        () => undefined,
-                      );
-                    }}
-                  >
-                    <Text style={styles.legalLinkText}>
-                      {t('premium.legal.privacy')}
-                    </Text>
-                  </Pressable>
-                ) : null}
-                {monetizationConfig.termsOfUseUrl.trim() ? (
-                  <Pressable
-                    accessibilityRole="link"
-                    onPress={() => {
-                      Linking.openURL(monetizationConfig.termsOfUseUrl).catch(
-                        () => undefined,
-                      );
-                    }}
-                  >
-                    <Text style={styles.legalLinkText}>
-                      {t('premium.legal.terms')}
-                    </Text>
-                  </Pressable>
-                ) : null}
-              </View>
             </AppCard>
 
             {__DEV__ && (
@@ -2677,6 +2647,37 @@ export function ParentScreen({ navigation, route }: Props) {
                     </Text>
                   </View>
                 </View>
+              </View>
+
+              <View style={styles.legalLinksRow}>
+                {monetizationConfig.privacyPolicyUrl.trim() ? (
+                  <Pressable
+                    accessibilityRole="link"
+                    onPress={() => {
+                      Linking.openURL(monetizationConfig.privacyPolicyUrl).catch(
+                        () => undefined,
+                      );
+                    }}
+                  >
+                    <Text style={styles.legalLinkText}>
+                      {t('premium.legal.privacy')}
+                    </Text>
+                  </Pressable>
+                ) : null}
+                {monetizationConfig.termsOfUseUrl.trim() ? (
+                  <Pressable
+                    accessibilityRole="link"
+                    onPress={() => {
+                      Linking.openURL(monetizationConfig.termsOfUseUrl).catch(
+                        () => undefined,
+                      );
+                    }}
+                  >
+                    <Text style={styles.legalLinkText}>
+                      {t('premium.legal.terms')}
+                    </Text>
+                  </Pressable>
+                ) : null}
               </View>
             </AppCard>
           </View>
@@ -3886,6 +3887,7 @@ const styles = createThemedStyles(() => ({
   },
   legalLinksRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.lg,
     marginTop: spacing.md,
   },
