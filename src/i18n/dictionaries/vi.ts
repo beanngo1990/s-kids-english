@@ -250,6 +250,10 @@ export const vi = {
     'Phương thức đăng nhập này chưa được bật trên Firebase Console (Authentication > Sign-in method). Vui lòng bật Apple Sign-In trong Firebase Console rồi thử lại.',
   'parent.account.playServicesUnavailable':
     'Thiết bị Android cần Google Play Services để đăng nhập Google.',
+  'parent.account.localDataDeleteErrorTitle':
+    'Đã đăng xuất, nhưng dữ liệu local vẫn còn',
+  'parent.account.localDataDeleteErrorText':
+    'Có lỗi khi xóa dữ liệu học local trên thiết bị này. Ba mẹ vui lòng đăng nhập lại rồi thử lại, hoặc dùng Xóa tài khoản nếu muốn dọn sạch toàn bộ.',
   'parent.account.providerApple': 'Apple',
   'parent.account.providerGoogle': 'Google',
   'parent.account.providerSummary': 'Đăng nhập bằng {provider}',
@@ -269,9 +273,15 @@ export const vi = {
   'parent.account.signingIn': 'Đang đăng nhập...',
   'parent.account.signingOut': 'Đang đăng xuất...',
   'parent.account.signOut': 'Đăng xuất',
+  'parent.account.signOutConfirmTitle': 'Đăng xuất?',
+  'parent.account.signOutConfirmText':
+    'Đăng xuất sẽ giữ dữ liệu học local trên thiết bị này, trừ khi ba mẹ chọn xoá dữ liệu local.',
+  'parent.account.signOutDeleteLocalAction':
+    'Đăng xuất và xoá dữ liệu local',
   'parent.account.signOutErrorTitle': 'Chưa đăng xuất được',
   'parent.account.signOutErrorUnknown':
     'Có lỗi khi đăng xuất. Ba mẹ vui lòng thử lại.',
+  'parent.account.signOutKeepLocalAction': 'Đăng xuất, giữ dữ liệu',
   'parent.account.subtitle':
     'Chỉ dành cho ba mẹ. Đăng nhập không tự bật quảng cáo, analytics hay đồng bộ dữ liệu học.',
   'parent.account.title': 'Đăng nhập tài khoản ba mẹ',

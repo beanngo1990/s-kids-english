@@ -537,6 +537,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   performance, messaging và ad storage; không thêm Firebase Analytics package.
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
+- Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
+  xuất rồi xóa local settings/progress/daily activity/cloud-sync checkpoint. Nhánh giữ local là mặc
+  định để tránh mất tiến độ ngoài ý muốn.
 - Account deletion UI xóa `users/{uid}/progress/current` trước khi xóa Firebase Auth. Nếu cloud
   deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập. Sau khi
   xóa cloud progress, RevenueCat customer và Firebase Auth thành công, app xóa các local stores
@@ -799,7 +802,7 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 257/257 tests pass trong 32 suites.
+- Jest: 259/259 tests pass trong 33 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì

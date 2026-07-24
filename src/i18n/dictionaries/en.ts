@@ -251,6 +251,10 @@ export const en: TranslationDictionary = {
     'This sign-in provider is not enabled in Firebase Console (Authentication > Sign-in method). Please enable Apple Sign-In in Firebase Console and try again.',
   'parent.account.playServicesUnavailable':
     'This Android device needs Google Play Services for Google sign-in.',
+  'parent.account.localDataDeleteErrorTitle':
+    'Signed out, but local data remains',
+  'parent.account.localDataDeleteErrorText':
+    'Something went wrong while deleting local learning data on this device. Please sign in again and retry, or use Delete account if you want a full cleanup.',
   'parent.account.providerApple': 'Apple',
   'parent.account.providerGoogle': 'Google',
   'parent.account.providerSummary': 'Signed in with {provider}',
@@ -270,9 +274,15 @@ export const en: TranslationDictionary = {
   'parent.account.signingIn': 'Signing in...',
   'parent.account.signingOut': 'Signing out...',
   'parent.account.signOut': 'Sign out',
+  'parent.account.signOutConfirmTitle': 'Sign out?',
+  'parent.account.signOutConfirmText':
+    'Signing out keeps local learning data on this device unless you choose to delete it too.',
+  'parent.account.signOutDeleteLocalAction':
+    'Sign out and delete local data',
   'parent.account.signOutErrorTitle': 'Could not sign out',
   'parent.account.signOutErrorUnknown':
     'Something went wrong during sign-out. Please try again.',
+  'parent.account.signOutKeepLocalAction': 'Sign out, keep data',
   'parent.account.subtitle':
     'Parent-only account access. Signing in does not automatically enable ads, analytics, or learning-data sync.',
   'parent.account.title': 'Sign in parent account',

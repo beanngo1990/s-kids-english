@@ -25,6 +25,7 @@ import {
 } from '../engine/ParentAuthManager';
 import { setParentExternalFlowActive } from '../engine/ParentAccessSession';
 import { useMonetizationSnapshot } from '../engine/MonetizationManager';
+import { deleteLocalAccountData } from '../services/LocalAccountDataDeletion';
 import { deleteCurrentParentAccountData } from '../services/RevenueCatDataDeletion';
 import { useI18n } from '../i18n';
 import type { Translator } from '../i18n';
@@ -32,7 +33,12 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
-type PendingAction = 'apple' | 'delete' | 'google' | 'signOut';
+type PendingAction =
+  | 'apple'
+  | 'delete'
+  | 'google'
+  | 'signOut'
+  | 'signOutClearLocal';
 
 export function ParentAccountCard() {
   useThemeSync();
@@ -46,6 +52,8 @@ export function ParentAccountCard() {
   useEffect(() => subscribeParentAuth(setAuthSnapshot), []);
 
   const isBusy = pendingAction !== null;
+  const isSigningOut =
+    pendingAction === 'signOut' || pendingAction === 'signOutClearLocal';
   const firebaseConfigMissing =
     authSnapshot.configurationError === 'missingFirebaseConfig';
   const googleConfigMissing = !isGoogleSignInConfigured();
@@ -125,16 +133,49 @@ export function ParentAccountCard() {
     }
   }, [handleError]);
 
-  const handleSignOutPress = useCallback(async () => {
-    setPendingAction('signOut');
-    try {
-      await signOutParent();
-    } catch (error) {
-      handleError(error, 'signOut');
-    } finally {
-      setPendingAction(null);
-    }
-  }, [handleError]);
+  const signOut = useCallback(
+    async (options?: { clearLocalData?: boolean }) => {
+      const shouldClearLocalData = options?.clearLocalData === true;
+      setPendingAction(shouldClearLocalData ? 'signOutClearLocal' : 'signOut');
+      try {
+        await signOutParent();
+        if (shouldClearLocalData) {
+          try {
+            await deleteLocalAccountData();
+          } catch {
+            Alert.alert(
+              t('parent.account.localDataDeleteErrorTitle'),
+              t('parent.account.localDataDeleteErrorText'),
+            );
+          }
+        }
+      } catch (error) {
+        handleError(error, 'signOut');
+      } finally {
+        setPendingAction(null);
+      }
+    },
+    [handleError, t],
+  );
+
+  const handleSignOutPress = useCallback(() => {
+    Alert.alert(
+      t('parent.account.signOutConfirmTitle'),
+      t('parent.account.signOutConfirmText'),
+      [
+        { style: 'cancel', text: t('parent.account.cancel') },
+        {
+          onPress: () => signOut({ clearLocalData: false }),
+          text: t('parent.account.signOutKeepLocalAction'),
+        },
+        {
+          onPress: () => signOut({ clearLocalData: true }),
+          style: 'destructive',
+          text: t('parent.account.signOutDeleteLocalAction'),
+        },
+      ],
+    );
+  }, [signOut, t]);
 
   const handleManageSubscription = useCallback(async () => {
     if (!monetization.managementUrl) {
@@ -288,7 +329,7 @@ export function ParentAccountCard() {
             disabled={isBusy || firebaseConfigMissing}
             onPress={handleSignOutPress}
             title={
-              pendingAction === 'signOut'
+              isSigningOut
                 ? t('parent.account.signingOut')
                 : t('parent.account.signOut')
             }
