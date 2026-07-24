@@ -29,12 +29,27 @@ const mockSetDoc = jest.fn((_reference: unknown, _data: unknown) =>
   Promise.resolve(),
 );
 const mockSettings = {
+  appLanguage: 'vi',
+  appTheme: 'system',
+  childProfile: {
+    avatarEmoji: ':)',
+    name: 'Sweet kid',
+  },
   cloudProgressSync: {
     consentedAt: '2026-07-15T08:00:00.000Z',
     consentVersion: 1,
     enabled: true,
     ownerUid: PARENT_UID,
   },
+  enableSceneEditor: false,
+  englishAccent: 'en-US',
+  hasCompletedOnboarding: true,
+  journeyMode: 'guided',
+  learningMode: 'core',
+  reminderEnabled: false,
+  reminderTime: '19:30',
+  teacherPromptMode: 'vi',
+  updatedAt: '2026-07-15T08:00:00.000Z',
 };
 
 jest.mock('react-native', () => ({
@@ -55,7 +70,10 @@ jest.mock('@react-native-firebase/app', () => ({
 
 jest.mock('@react-native-firebase/firestore', () => ({
   deleteDoc: jest.fn(() => Promise.resolve()),
-  doc: jest.fn(() => ({ path: 'users/parent-session-sync/progress/current' })),
+  doc: jest.fn((_db: unknown, ...segments: string[]) => ({
+    path: segments.join('/'),
+  })),
+  getDoc: jest.fn(() => Promise.resolve(mockCreateRemoteSettingsSnapshot())),
   getFirestore: jest.fn(() => ({})),
   onSnapshot: jest.fn(
     (
@@ -82,6 +100,14 @@ jest.mock('../src/engine/ParentAuthManager', () => ({
 
 jest.mock('../src/engine/ParentSettingsManager', () => ({
   getParentSettings: jest.fn(() => Promise.resolve(mockSettings)),
+  saveParentSettingsFromCloud: jest.fn(settings =>
+    Promise.resolve({
+      ...mockSettings,
+      ...settings,
+      cloudProgressSync: mockSettings.cloudProgressSync,
+      enableSceneEditor: mockSettings.enableSceneEditor,
+    }),
+  ),
   saveParentSettings: jest.fn(settings => Promise.resolve(settings)),
   subscribeParentSettings: jest.fn(
     (listener: typeof mockSettingsListener) => {
@@ -254,6 +280,37 @@ function createRemoteSnapshot(progress: ReturnType<typeof normalizeProgress>) {
     schemaVersion: 1,
     serverUpdatedAt: {
       toDate: () => new Date('2026-07-15T08:00:00.000Z'),
+    },
+  };
+
+  return {
+    data: () => data,
+    exists: () => true,
+    metadata: { fromCache: false, hasPendingWrites: false },
+  };
+}
+
+function mockCreateRemoteSettingsSnapshot() {
+  const data = {
+    consentedAt: new Date('2026-07-15T08:00:00.000Z'),
+    consentVersion: 1,
+    ownerUid: PARENT_UID,
+    schemaVersion: 1,
+    serverUpdatedAt: {
+      toDate: () => new Date('2026-07-15T08:00:00.000Z'),
+    },
+    settings: {
+      appLanguage: mockSettings.appLanguage,
+      appTheme: mockSettings.appTheme,
+      childProfile: mockSettings.childProfile,
+      englishAccent: mockSettings.englishAccent,
+      hasCompletedOnboarding: mockSettings.hasCompletedOnboarding,
+      journeyMode: mockSettings.journeyMode,
+      learningMode: mockSettings.learningMode,
+      reminderEnabled: mockSettings.reminderEnabled,
+      reminderTime: mockSettings.reminderTime,
+      teacherPromptMode: mockSettings.teacherPromptMode,
+      updatedAt: mockSettings.updatedAt,
     },
   };
 

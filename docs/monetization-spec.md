@@ -51,7 +51,7 @@ Các chức năng sau luôn miễn phí, kể cả khi Premium hết hạn:
 - onboarding và parental gate;
 - Parent Mode, child profile và learning settings;
 - đăng nhập/đăng xuất/xóa tài khoản;
-- quản lý consent cloud progress và dữ liệu riêng tư;
+- quản lý consent cloud learning data và dữ liệu riêng tư;
 - reminder, theme, app language, teacher prompt mode và English accent;
 - xem progress, activity, sticker đã nhận và nội dung free tier;
 - restore purchase, manage subscription, Privacy Policy, Terms và contact support.
@@ -72,7 +72,7 @@ tính năng chưa được implement. Store copy không được hứa một l�
 
 ### Khi Premium hết hạn
 
-- Không xóa hoặc giảm XP, sticker, learned words, progress hay cloud progress.
+- Không xóa hoặc giảm XP, sticker, learned words, progress hay cloud learning data.
 - Sticker đã nhận vẫn xem được trong collection.
 - Free lessons vẫn học/replay bình thường.
 - Premium lessons bị khóa khi bắt đầu hoặc tiếp tục phiên mới.
@@ -210,8 +210,8 @@ Snapshot còn có:
 
 `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên.
 Founder access là nhánh local riêng được tính từ `CustomerInfo.firstSeen` và Remote Config; không
-ghi boolean `isPremium` vào `ParentSettings`, `LocalProgress`, Firestore progress document hoặc
-Remote Config.
+ghi boolean `isPremium` vào `ParentSettings`, `LocalProgress`, Firestore learning data documents
+hoặc Remote Config.
 
 ### Cache, verification và lỗi mạng
 
@@ -464,8 +464,9 @@ Auth context và không nhận UID tùy ý từ request body. Bốn Founder func
 
 ### Firestore Rules
 
-Mobile client tiếp tục chỉ có quyền owner-scoped với cloud progress hiện tại. Founder access không
-tạo Firestore campaign/claim/outbox data. Rules và tests không được mở thêm collection cho client.
+Mobile client tiếp tục chỉ có quyền owner-scoped với cloud learning data hiện tại. Founder access
+không tạo Firestore campaign/claim/outbox data. Rules và tests không được mở thêm collection cho
+client.
 
 Các collection Founder legacy từng được tạo bởi build/backend cũ không tự bị xóa khi source và
 Functions được dọn. Trước production phải kiểm kê rồi recursive-delete chúng bằng admin migration
@@ -512,7 +513,7 @@ Delete-account UI phải cảnh báo rõ:
 Deletion flow:
 
 1. hiển thị trạng thái subscription và link Manage Subscription;
-2. xóa cloud progress theo flow hiện tại;
+2. xóa cloud learning data theo flow hiện tại;
 3. backend xóa RevenueCat customer data;
 4. xóa Firebase Auth account;
 5. xóa local monetization/customer cache và log out RevenueCat.
@@ -578,7 +579,7 @@ Existing integration points tối thiểu:
 - `scripts/testFirestoreRules.mjs`
 - Android/iOS native configuration và lockfiles.
 
-Entitlement không được thêm vào `ProgressManager` hoặc cloud progress merge payload.
+Entitlement không được thêm vào `ProgressManager` hoặc cloud learning data payload.
 
 ## 13. Native requirements
 

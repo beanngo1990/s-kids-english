@@ -57,6 +57,10 @@ export type ParentSettings = {
 
 export type ParentSettingsListener = (settings: ParentSettings) => void;
 
+type SaveParentSettingsOptions = {
+  touchUpdatedAt?: boolean;
+};
+
 export type LearningDifficultyOption = {
   learningMode: LearningMode;
   title: string;
@@ -172,12 +176,43 @@ export async function getParentSettings(): Promise<ParentSettings> {
 
 export async function saveParentSettings(
   settings: Partial<ParentSettings>,
+  options: SaveParentSettingsOptions = {},
+): Promise<ParentSettings> {
+  const currentSettings = await getParentSettings();
+  const mergedSettings = {
+    ...currentSettings,
+    ...settings,
+  };
+  const nextRawSettings =
+    options.touchUpdatedAt === false
+      ? mergedSettings
+      : {
+          ...mergedSettings,
+          updatedAt: new Date().toISOString(),
+        };
+  const nextSettings = normalizeParentSettings({
+    ...nextRawSettings,
+  });
+
+  await AsyncStorage.setItem(
+    PARENT_SETTINGS_STORAGE_KEY,
+    JSON.stringify(nextSettings),
+  );
+
+  notifyParentSettingsChanged(nextSettings);
+
+  return nextSettings;
+}
+
+export async function saveParentSettingsFromCloud(
+  settings: Partial<ParentSettings>,
 ): Promise<ParentSettings> {
   const currentSettings = await getParentSettings();
   const nextSettings = normalizeParentSettings({
     ...currentSettings,
     ...settings,
-    updatedAt: new Date().toISOString(),
+    cloudProgressSync: currentSettings.cloudProgressSync,
+    enableSceneEditor: currentSettings.enableSceneEditor,
   });
 
   await AsyncStorage.setItem(

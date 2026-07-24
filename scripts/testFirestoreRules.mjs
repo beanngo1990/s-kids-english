@@ -35,18 +35,33 @@ try {
   const otherDb = testEnvironment.authenticatedContext(OTHER_UID).firestore();
   const anonymousDb = testEnvironment.unauthenticatedContext().firestore();
   const ownerProgress = doc(ownerDb, 'users', OWNER_UID, 'progress', 'current');
+  const ownerSettings = doc(ownerDb, 'users', OWNER_UID, 'settings', 'current');
 
   await assertSucceeds(setDoc(ownerProgress, validCloudDocument()));
   await assertSucceeds(getDoc(ownerProgress));
   await assertSucceeds(
     setDoc(ownerProgress, validCloudDocument({ totalXP: 12 })),
   );
+  await assertSucceeds(setDoc(ownerSettings, validSettingsDocument()));
+  await assertSucceeds(getDoc(ownerSettings));
+  await assertSucceeds(
+    setDoc(
+      ownerSettings,
+      validSettingsDocument({ appTheme: 'dark', reminderEnabled: true }),
+    ),
+  );
 
   await assertFails(
     getDoc(doc(otherDb, 'users', OWNER_UID, 'progress', 'current')),
   );
   await assertFails(
+    getDoc(doc(otherDb, 'users', OWNER_UID, 'settings', 'current')),
+  );
+  await assertFails(
     getDoc(doc(anonymousDb, 'users', OWNER_UID, 'progress', 'current')),
+  );
+  await assertFails(
+    getDoc(doc(anonymousDb, 'users', OWNER_UID, 'settings', 'current')),
   );
   await assertFails(
     setDoc(
@@ -56,12 +71,27 @@ try {
   );
   await assertFails(
     setDoc(
+      doc(otherDb, 'users', OWNER_UID, 'settings', 'current'),
+      validSettingsDocument(),
+    ),
+  );
+  await assertFails(
+    setDoc(
       doc(anonymousDb, 'users', OWNER_UID, 'progress', 'current'),
       validCloudDocument(),
     ),
   );
   await assertFails(
+    setDoc(
+      doc(anonymousDb, 'users', OWNER_UID, 'settings', 'current'),
+      validSettingsDocument(),
+    ),
+  );
+  await assertFails(
     getDocs(collection(ownerDb, 'users', OWNER_UID, 'progress')),
+  );
+  await assertFails(
+    getDocs(collection(ownerDb, 'users', OWNER_UID, 'settings')),
   );
   await assertFails(
     setDoc(doc(ownerDb, 'users', OWNER_UID, 'progress', 'other'), {
@@ -69,9 +99,23 @@ try {
     }),
   );
   await assertFails(
+    setDoc(doc(ownerDb, 'users', OWNER_UID, 'settings', 'other'), {
+      ...validSettingsDocument(),
+    }),
+  );
+  await assertFails(
     setDoc(ownerProgress, {
       ...validCloudDocument(),
       childName: 'must-not-be-accepted',
+    }),
+  );
+  await assertFails(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
+      settings: {
+        ...validParentSettings(),
+        enableSceneEditor: true,
+      },
     }),
   );
   await assertFails(
@@ -93,8 +137,20 @@ try {
     }),
   );
   await assertFails(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
+      schemaVersion: 2,
+    }),
+  );
+  await assertFails(
     setDoc(ownerProgress, {
       ...validCloudDocument(),
+      serverUpdatedAt: new Date('2026-07-15T08:00:00.000Z'),
+    }),
+  );
+  await assertFails(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
       serverUpdatedAt: new Date('2026-07-15T08:00:00.000Z'),
     }),
   );
@@ -107,9 +163,24 @@ try {
       },
     }),
   );
+  await assertFails(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
+      settings: {
+        ...validParentSettings(),
+        appTheme: 'sepia',
+      },
+    }),
+  );
   await assertSucceeds(
     setDoc(ownerProgress, {
       ...validCloudDocument(),
+      consentedAt: new Date('2026-07-15T09:00:00.000Z'),
+    }),
+  );
+  await assertSucceeds(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
       consentedAt: new Date('2026-07-15T09:00:00.000Z'),
     }),
   );
@@ -119,9 +190,16 @@ try {
       consentedAt: 'not-a-timestamp',
     }),
   );
+  await assertFails(
+    setDoc(ownerSettings, {
+      ...validSettingsDocument(),
+      consentedAt: 'not-a-timestamp',
+    }),
+  );
   await assertFails(getDoc(doc(ownerDb, 'unrelated', 'document')));
 
   await assertSucceeds(deleteDoc(ownerProgress));
+  await assertSucceeds(deleteDoc(ownerSettings));
   console.log('Firestore rules tests passed.');
 } finally {
   await testEnvironment.cleanup();
@@ -150,6 +228,39 @@ function validProgress(overrides = {}) {
     learnedWordIds: [],
     totalXP: 0,
     vocabularyProgress: {},
+    ...overrides,
+  };
+}
+
+function validSettingsDocument(settingsOverrides = {}) {
+  return {
+    consentedAt: CONSENTED_AT,
+    consentVersion: 1,
+    ownerUid: OWNER_UID,
+    schemaVersion: 1,
+    serverUpdatedAt: serverTimestamp(),
+    settings: validParentSettings(settingsOverrides),
+  };
+}
+
+function validParentSettings(overrides = {}) {
+  return {
+    appLanguage: 'vi',
+    appTheme: 'system',
+    childProfile: {
+      avatarEmoji: ':)',
+      birthYear: 2020,
+      name: 'Sweet kid',
+    },
+    englishAccent: 'en-US',
+    hasCompletedOnboarding: true,
+    journeyMode: 'guided',
+    learningMode: 'core',
+    reminderEnabled: false,
+    reminderTime: '19:30',
+    teacherPromptMode: 'vi',
+    updatedAt: '2026-07-15T08:00:00.000Z',
+    visibleLessonIds: ['lesson-a', 'lesson-b'],
     ...overrides,
   };
 }

@@ -111,6 +111,102 @@ service cloud.firestore {
         hasValidProgress(request.resource.data.progress);
     }
 
+    function hasValidChildProfile(profile) {
+      return profile is map &&
+        profile.keys().hasOnly([
+          'avatarEmoji',
+          'birthYear',
+          'name'
+        ]) &&
+        profile.keys().hasAll([
+          'avatarEmoji',
+          'name'
+        ]) &&
+        profile.avatarEmoji is string &&
+        profile.avatarEmoji.size() > 0 &&
+        profile.avatarEmoji.size() <= 16 &&
+        profile.name is string &&
+        profile.name.size() > 0 &&
+        profile.name.size() <= 80 &&
+        (!('birthYear' in profile) ||
+          (profile.birthYear is int &&
+            profile.birthYear >= 1900 &&
+            profile.birthYear <= 2200));
+    }
+
+    function hasValidParentSettings(settings) {
+      return settings is map &&
+        settings.keys().hasOnly([
+          'appLanguage',
+          'appTheme',
+          'childProfile',
+          'englishAccent',
+          'hasCompletedOnboarding',
+          'journeyMode',
+          'learningMode',
+          'reminderEnabled',
+          'reminderTime',
+          'teacherPromptMode',
+          'updatedAt',
+          'visibleLessonIds'
+        ]) &&
+        settings.keys().hasAll([
+          'appLanguage',
+          'appTheme',
+          'childProfile',
+          'englishAccent',
+          'hasCompletedOnboarding',
+          'journeyMode',
+          'learningMode',
+          'reminderEnabled',
+          'reminderTime',
+          'teacherPromptMode',
+          'updatedAt'
+        ]) &&
+        settings.appLanguage in ['en', 'vi'] &&
+        settings.appTheme in ['light', 'dark', 'system'] &&
+        settings.englishAccent in ['en-US', 'en-GB'] &&
+        settings.hasCompletedOnboarding is bool &&
+        settings.journeyMode in ['guided', 'free'] &&
+        settings.learningMode in ['core', 'expanded', 'challenge'] &&
+        settings.reminderEnabled is bool &&
+        settings.reminderTime is string &&
+        settings.reminderTime.size() <= 20 &&
+        settings.teacherPromptMode in ['en', 'vi', 'bilingual'] &&
+        settings.updatedAt is string &&
+        settings.updatedAt.size() <= 40 &&
+        (!('visibleLessonIds' in settings) ||
+          (settings.visibleLessonIds is list &&
+            settings.visibleLessonIds.size() <= 500)) &&
+        hasValidChildProfile(settings.childProfile);
+    }
+
+    function hasValidSettingsDocument(uid) {
+      return request.resource.data.keys().hasOnly([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'schemaVersion',
+          'serverUpdatedAt',
+          'settings'
+        ]) &&
+        request.resource.data.keys().hasAll([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'schemaVersion',
+          'serverUpdatedAt',
+          'settings'
+        ]) &&
+        request.resource.data.ownerUid == uid &&
+        request.resource.data.ownerUid is string &&
+        request.resource.data.consentVersion == 1 &&
+        request.resource.data.schemaVersion == 1 &&
+        request.resource.data.consentedAt is timestamp &&
+        request.resource.data.serverUpdatedAt == request.time &&
+        hasValidParentSettings(request.resource.data.settings);
+    }
+
     match /users/{uid}/progress/{progressId} {
       allow get: if progressId == 'current' && isOwner(uid);
       allow list: if false;
@@ -124,6 +220,21 @@ service cloud.firestore {
         request.resource.data.consentVersion == resource.data.consentVersion &&
         request.resource.data.schemaVersion == resource.data.schemaVersion;
       allow delete: if progressId == 'current' && isOwner(uid);
+    }
+
+    match /users/{uid}/settings/{settingsId} {
+      allow get: if settingsId == 'current' && isOwner(uid);
+      allow list: if false;
+      allow create: if settingsId == 'current' &&
+        isOwner(uid) &&
+        hasValidSettingsDocument(uid);
+      allow update: if settingsId == 'current' &&
+        isOwner(uid) &&
+        hasValidSettingsDocument(uid) &&
+        request.resource.data.ownerUid == resource.data.ownerUid &&
+        request.resource.data.consentVersion == resource.data.consentVersion &&
+        request.resource.data.schemaVersion == resource.data.schemaVersion;
+      allow delete: if settingsId == 'current' && isOwner(uid);
     }
 
     match /{document=**} {

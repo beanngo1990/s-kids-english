@@ -8,6 +8,8 @@ export type CloudProgressSyncState = {
   lastRemoteCheckedAt?: string;
   lastSyncedAt?: string;
   lastSyncedFingerprint?: string;
+  lastSyncedSettingsFingerprint?: string;
+  lastSyncedSettingsUpdatedAt?: string;
   lastWriteAttemptedAt?: string;
   nextRetryAt?: string;
   ownerUid?: string;
@@ -69,6 +71,12 @@ function normalizeCloudProgressSyncState(
   const lastSyncedFingerprint = normalizeNonEmptyString(
     value.lastSyncedFingerprint,
   );
+  const lastSyncedSettingsFingerprint = normalizeNonEmptyString(
+    value.lastSyncedSettingsFingerprint,
+  );
+  const lastSyncedSettingsUpdatedAt = normalizeIsoTimestamp(
+    value.lastSyncedSettingsUpdatedAt,
+  );
   const lastWriteAttemptedAt = normalizeIsoTimestamp(
     value.lastWriteAttemptedAt,
   );
@@ -83,6 +91,12 @@ function normalizeCloudProgressSyncState(
     ...(lastRemoteCheckedAt ? { lastRemoteCheckedAt } : {}),
     ...(lastSyncedAt ? { lastSyncedAt } : {}),
     ...(lastSyncedFingerprint ? { lastSyncedFingerprint } : {}),
+    ...(lastSyncedSettingsFingerprint
+      ? { lastSyncedSettingsFingerprint }
+      : {}),
+    ...(lastSyncedSettingsUpdatedAt
+      ? { lastSyncedSettingsUpdatedAt }
+      : {}),
     ...(lastWriteAttemptedAt ? { lastWriteAttemptedAt } : {}),
     ...(nextRetryAt ? { nextRetryAt } : {}),
     ownerUid,
