@@ -224,10 +224,10 @@ export const vi = {
   'parent.account.deleteAccount': 'Xóa tài khoản',
   'parent.account.deleteConfirmAction': 'Xóa tài khoản',
   'parent.account.deleteConfirmText':
-    'Tài khoản đăng nhập và tiến độ đã đồng bộ trên Firestore sẽ bị xóa. Tiến độ local trên thiết bị này vẫn được giữ. Việc xóa tài khoản không hủy gói đang gia hạn qua Apple hoặc Google; ba mẹ hãy dùng Quản lý gói đăng ký trước nếu muốn hủy gia hạn.',
+    'Tài khoản đăng nhập, tiến độ cloud và dữ liệu học local trên thiết bị này sẽ bị xóa. Việc xóa tài khoản không hủy gói đang gia hạn qua Apple hoặc Google; ba mẹ hãy dùng Quản lý gói đăng ký trước nếu muốn hủy gia hạn.',
   'parent.account.deleteConfirmTitle': 'Xóa tài khoản phụ huynh?',
   'parent.account.deletedText':
-    'Tài khoản và tiến độ trên cloud đã được xóa. Tiến độ local vẫn ở trên thiết bị này.',
+    'Tài khoản, tiến độ cloud và dữ liệu học local trên thiết bị này đã được xóa.',
   'parent.account.deletedTitle': 'Đã xóa tài khoản',
   'parent.account.deleting': 'Đang xóa...',
   'parent.account.deleteAppCheckRequired':

@@ -23,6 +23,10 @@ jest.mock('../src/engine/ParentAuthManager', () => ({
   deleteParentAccount: jest.fn(),
 }));
 
+jest.mock('../src/services/LocalAccountDataDeletion', () => ({
+  deleteLocalAccountData: jest.fn(),
+}));
+
 import { getFunctions, httpsCallable } from '@react-native-firebase/functions';
 import { getAuth } from '@react-native-firebase/auth';
 
@@ -30,6 +34,7 @@ import { deleteCloudProgressForCurrentParent } from '../src/engine/CloudProgress
 import { ensureFirebaseAppCheckToken } from '../src/engine/FirebaseAppCheckManager';
 import { resetMonetizationAfterAccountDeletion } from '../src/engine/MonetizationManager';
 import { deleteParentAccount } from '../src/engine/ParentAuthManager';
+import { deleteLocalAccountData } from '../src/services/LocalAccountDataDeletion';
 import {
   deleteCurrentParentAccountData,
   deleteRevenueCatCustomerData,
@@ -61,6 +66,8 @@ const mockResetMonetization =
   resetMonetizationAfterAccountDeletion as jest.MockedFunction<
     typeof resetMonetizationAfterAccountDeletion
   >;
+const mockDeleteLocalAccountData =
+  deleteLocalAccountData as jest.MockedFunction<typeof deleteLocalAccountData>;
 
 describe('RevenueCat account deletion', () => {
   let consoleWarnSpy: jest.SpyInstance;
@@ -80,6 +87,7 @@ describe('RevenueCat account deletion', () => {
     mockDeleteCloudProgress.mockResolvedValue(undefined);
     mockDeleteParentAccount.mockResolvedValue(undefined);
     mockResetMonetization.mockResolvedValue(undefined);
+    mockDeleteLocalAccountData.mockResolvedValue(undefined);
   });
 
   afterEach(() => {
@@ -155,7 +163,7 @@ describe('RevenueCat account deletion', () => {
     );
   });
 
-  test('deletes cloud data and RevenueCat before Auth, then clears the SDK', async () => {
+  test('deletes remote account data before Auth, then clears local data', async () => {
     const events: string[] = [];
     mockGetIdToken.mockImplementation(async () => {
       events.push('authToken');
@@ -178,6 +186,9 @@ describe('RevenueCat account deletion', () => {
     mockResetMonetization.mockImplementation(async () => {
       events.push('localSdk');
     });
+    mockDeleteLocalAccountData.mockImplementation(async () => {
+      events.push('localData');
+    });
 
     await expect(deleteCurrentParentAccountData()).resolves.toBe('success');
 
@@ -188,6 +199,7 @@ describe('RevenueCat account deletion', () => {
       'revenueCat',
       'auth',
       'localSdk',
+      'localData',
     ]);
   });
 
@@ -200,6 +212,7 @@ describe('RevenueCat account deletion', () => {
 
     expect(mockDeleteParentAccount).not.toHaveBeenCalled();
     expect(mockResetMonetization).not.toHaveBeenCalled();
+    expect(mockDeleteLocalAccountData).not.toHaveBeenCalled();
   });
 
   test('keeps cloud and Firebase Auth when the security context is unavailable', async () => {
@@ -213,5 +226,6 @@ describe('RevenueCat account deletion', () => {
     expect(mockCallable).not.toHaveBeenCalled();
     expect(mockDeleteParentAccount).not.toHaveBeenCalled();
     expect(mockResetMonetization).not.toHaveBeenCalled();
+    expect(mockDeleteLocalAccountData).not.toHaveBeenCalled();
   });
 });

@@ -190,6 +190,14 @@ export async function saveParentSettings(
   return nextSettings;
 }
 
+export async function resetParentSettings(): Promise<ParentSettings> {
+  await AsyncStorage.removeItem(PARENT_SETTINGS_STORAGE_KEY);
+
+  const nextSettings = getDefaultParentSettings();
+  notifyParentSettingsChanged(nextSettings);
+  return nextSettings;
+}
+
 export function completeParentOnboarding(learningMode: LearningMode) {
   return saveParentSettings({
     hasCompletedOnboarding: true,

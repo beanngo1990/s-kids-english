@@ -225,10 +225,10 @@ export const en: TranslationDictionary = {
   'parent.account.deleteAccount': 'Delete account',
   'parent.account.deleteConfirmAction': 'Delete account',
   'parent.account.deleteConfirmText':
-    'The sign-in account and progress synced to Firestore will be deleted. Local progress on this device will remain. Deleting the account does not cancel an Apple or Google subscription; use Manage subscription first if you want to stop renewal.',
+    'The sign-in account, cloud progress, and local learning data on this device will be deleted. Deleting the account does not cancel an Apple or Google subscription; use Manage subscription first if you want to stop renewal.',
   'parent.account.deleteConfirmTitle': 'Delete parent account?',
   'parent.account.deletedText':
-    'The account and cloud progress have been deleted. Local progress remains on this device.',
+    'The account, cloud progress, and local learning data on this device have been deleted.',
   'parent.account.deletedTitle': 'Account deleted',
   'parent.account.deleting': 'Deleting...',
   'parent.account.deleteAppCheckRequired':

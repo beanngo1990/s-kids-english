@@ -105,8 +105,8 @@ Release iOS builds have been verified.
 - Opening the app only writes immediately when local data from an earlier session is not represented
   by the confirmed cloud fingerprint and the write cooldown/backoff allows the attempt.
 - Turning sync off can either keep the existing cloud copy or delete it. Deleting the parent
-  account deletes the cloud progress document before deleting Firebase Auth; local progress stays
-  on the device.
+  account deletes the cloud progress document before deleting Firebase Auth, then clears the
+  app's local settings, progress, daily activity and cloud-sync checkpoint stores on the device.
 - If a different parent account signs in, the old device consent can be cleared locally before the
   new account opts in. This does not delete the previous account's cloud copy; that account must
   sign in again to delete its own data.

@@ -5,6 +5,7 @@ import { deleteCloudProgressForCurrentParent } from '../engine/CloudProgressSync
 import { ensureFirebaseAppCheckToken } from '../engine/FirebaseAppCheckManager';
 import { resetMonetizationAfterAccountDeletion } from '../engine/MonetizationManager';
 import { deleteParentAccount } from '../engine/ParentAuthManager';
+import { deleteLocalAccountData } from './LocalAccountDataDeletion';
 
 export const REVENUE_CAT_DATA_DELETION_FUNCTIONS_REGION = 'asia-southeast1';
 
@@ -67,6 +68,7 @@ export async function deleteCurrentParentAccountData(): Promise<RevenueCatDataDe
 
   await deleteParentAccount();
   await resetMonetizationAfterAccountDeletion();
+  await deleteLocalAccountData();
   return 'success';
 }
 
