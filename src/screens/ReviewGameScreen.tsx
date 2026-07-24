@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -6,7 +6,6 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { KidBadge } from '../components/KidBadge';
 import { PremiumContentGate } from '../components/PremiumContentGate';
-import { SKidsIcon } from '../components/SKidsIcon';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { speakTeacherPromptSegments } from '../engine/AudioManager';
@@ -28,10 +27,7 @@ import {
   type ExecutableReviewGameType,
 } from '../games/GameRegistry';
 import type { MemoryGameItem } from '../games/memory/MemoryGame';
-import {
-  getLocalizedLessonTitle,
-  getLocalizedReviewGameTitle,
-} from '../i18n/domainCopy';
+import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { resolveReviewGameIntroPrompt } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -45,7 +41,6 @@ import type {
   VocabularyItem,
 } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
-import { getLessonIconName } from '../utils/lessonIcons';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
 
@@ -58,7 +53,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const openedFromParent = route.params.openedFromParent === true;
   const [isCompleting, setIsCompleting] = useState(false);
+  const [isIntroPlaying, setIsIntroPlaying] = useState(false);
   const appLanguage = useSavedAppLanguage();
+  const introPlaybackIdRef = useRef(0);
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
@@ -143,21 +140,37 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   );
 
   useEffect(() => {
+    const playbackId = introPlaybackIdRef.current + 1;
+    introPlaybackIdRef.current = playbackId;
+
     if (
       !isAccessGranted ||
       !shouldPlayIntro ||
       !isTeacherPromptReady ||
       !lesson?.reviewGame
     ) {
+      setIsIntroPlaying(false);
       return;
     }
 
+    let isCancelled = false;
+    setIsIntroPlaying(true);
     speakTeacherPromptSegments(
       resolveReviewGameIntroPrompt(
         activeGameType,
         teacherPromptMode,
       ).segments,
-    ).catch(() => undefined);
+    )
+      .catch(() => undefined)
+      .finally(() => {
+        if (!isCancelled && introPlaybackIdRef.current === playbackId) {
+          setIsIntroPlaying(false);
+        }
+      });
+
+    return () => {
+      isCancelled = true;
+    };
   }, [
     activeGameType,
     isAccessGranted,
@@ -380,6 +393,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
         </View>
 
         <GamePlayer
+          isIntroPlaying={isIntroPlaying}
           memoryItems={memoryItems}
           onComplete={handleComplete}
           onWordInteraction={saveVocabularyInteraction}

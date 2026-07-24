@@ -396,12 +396,13 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 ### Review games
 
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose | random` để mở rộng data model.
-- **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose` và chế độ xoay tua ngẫu nhiên `random`.
-- Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ** vs 🎈 **Nghe & Chọn**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
+- **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching` và chế độ xoay tua ngẫu nhiên `random`.
+- Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ**, 🎈 **Nghe & Chọn**, 🔗 **Nối hình**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
+- Khi vào game hoặc đổi tab game, màn hình phát lời hướng dẫn theo game và `teacherPromptMode`; các game khóa thao tác trong lúc intro đang phát. Listen & Choose chỉ tự phát từ đầu tiên sau khi intro kết thúc.
 - Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
 - Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
+- Matching game hiển thị cột hình và cột từ để bé nối từng hình với từ tiếng Anh tương ứng.
 - Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
-- **Unsupported:** `matching`; registry hiển thị unsupported UI cho type chưa triển khai.
 
 ### Rewards và progress
 
@@ -799,7 +800,7 @@ Tại lần kiểm chứng gần nhất:
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
   external keys/products/test accounts chưa có.
-- ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
+- ESLint: pass với 28 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
 
@@ -808,16 +809,15 @@ baseline thay đổi.
 
 Support summary:
 
-| Area                                     | Status hiện tại |
-| ---------------------------------------- | --------------- |
-| Memory & ListenAndChoose review games    | Implemented     |
-| Matching review game                     | Unsupported     |
-| Parent math adult gate                   | Implemented     |
-| Parent PIN gate                          | Unsupported     |
-| Parent Google/Apple login                | Implemented     |
-| Free tier + Premium content guards       | Implemented     |
-| RevenueCat client entitlement lifecycle  | Implemented     |
-| Store-ready keys/products/legal config   | Partial         |
+| Area                                             | Status hiện tại |
+| ------------------------------------------------ | --------------- |
+| Memory, ListenAndChoose & Matching review games  | Implemented     |
+| Parent math adult gate                           | Implemented     |
+| Parent PIN gate                                  | Unsupported     |
+| Parent Google/Apple login                        | Implemented     |
+| Free tier + Premium content guards               | Implemented     |
+| RevenueCat client entitlement lifecycle          | Implemented     |
+| Store-ready keys/products/legal config           | Partial         |
 | Remote Config monetization switches      | Implemented     |
 | Founder cutoff/duration local access     | Implemented     |
 | Firebase App Check client initialization | Implemented     |

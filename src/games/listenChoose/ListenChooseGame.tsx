@@ -33,6 +33,7 @@ export type ListenChooseItem = {
 };
 
 type ListenChooseGameProps = {
+  isIntroPlaying?: boolean;
   items: ListenChooseItem[];
   onComplete: () => void;
   onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
@@ -48,6 +49,7 @@ const BUBBLE_PALETTES = [
 ];
 
 export function ListenChooseGame({
+  isIntroPlaying = false,
   items,
   onComplete,
   onMatch,
@@ -80,10 +82,10 @@ export function ListenChooseGame({
   }, [currentTarget, items]);
 
   const handlePlayAudio = useCallback(() => {
-    if (currentTarget) {
+    if (currentTarget && !isIntroPlaying) {
       speakWord(currentTarget.word).catch(() => undefined);
     }
-  }, [currentTarget]);
+  }, [currentTarget, isIntroPlaying]);
 
   // Play audio on round start
   useEffect(() => {
@@ -92,13 +94,13 @@ export function ListenChooseGame({
     setOptionState(null);
     setIsTransitioning(false);
 
-    if (currentTarget) {
+    if (currentTarget && !isIntroPlaying) {
       const timer = setTimeout(() => {
         handlePlayAudio();
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, currentTarget, handlePlayAudio]);
+  }, [currentIndex, currentTarget, handlePlayAudio, isIntroPlaying]);
 
   useEffect(() => {
     return () => {
@@ -113,7 +115,7 @@ export function ListenChooseGame({
     triggerPopAnim?: () => void,
     triggerShakeAnim?: () => void,
   ) => {
-    if (isTransitioning || !currentTarget) {
+    if (isIntroPlaying || isTransitioning || !currentTarget) {
       return;
     }
 
@@ -172,6 +174,7 @@ export function ListenChooseGame({
           <KidIconButton
             accessibilityLabel={t('listenChooseGame.listenAgain')}
             icon="listen"
+            disabled={isIntroPlaying}
             onPress={handlePlayAudio}
             size="md"
             tone="primary"
@@ -203,7 +206,7 @@ export function ListenChooseGame({
             key={option.id}
             index={index}
             isCorrect={selectedOptionId === option.id && optionState === 'correct'}
-            isDisabled={isTransitioning}
+            isDisabled={isIntroPlaying || isTransitioning}
             isSelected={selectedOptionId === option.id}
             isTablet={isTablet}
             isWrong={selectedOptionId === option.id && optionState === 'wrong'}
@@ -500,4 +503,3 @@ const styles = createThemedStyles(() => ({
     lineHeight: 20,
   },
 }));
-

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Pressable } from 'react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
 import { ListenChooseGame, type ListenChooseItem } from '../src/games/listenChoose/ListenChooseGame';
@@ -60,6 +59,40 @@ describe('ListenChooseGame', () => {
         node.props.accessibilityLabel === 'slide',
     );
     expect(cards.length).toBeGreaterThanOrEqual(2);
+
+    act(() => {
+      renderer!.unmount();
+    });
+  });
+
+  it('waits for the intro instruction before playing the first word', () => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <ListenChooseGame
+          isIntroPlaying
+          items={mockItems}
+          onComplete={jest.fn()}
+        />,
+      );
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(350);
+    });
+    expect(speakWord).not.toHaveBeenCalled();
+
+    act(() => {
+      renderer!.update(
+        <ListenChooseGame items={mockItems} onComplete={jest.fn()} />,
+      );
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(350);
+    });
+
+    expect(speakWord).toHaveBeenCalledWith('swing');
 
     act(() => {
       renderer!.unmount();

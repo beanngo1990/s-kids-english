@@ -7463,6 +7463,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "listen",
     },
   },
+  [normalizeText("Listen to the word and choose the right picture.")]: {
+    "en-US": {
+      key: "shared/audio/en-US/neural2-c-r1/listen_choose_game_intro_681d6155.wav",
+      text: "Listen to the word and choose the right picture.",
+    },
+    "en-GB": {
+      key: "shared/audio/en-GB/neural2-c-r1/listen_choose_game_intro_681d6155.wav",
+      text: "Listen to the word and choose the right picture.",
+    },
+  },
   [normalizeText("Listen.")]: {
     "en-US": {
       key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/prompt_instructions_tap_teacher_listen_d4d11a3b.wav",
@@ -7575,6 +7585,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/prompt_drag_foam_to_bubbles_8a1b8f3f.wav",
       text: "Make the bubbles.",
+    },
+  },
+  [normalizeText("Match each picture with the correct word.")]: {
+    "en-US": {
+      key: "shared/audio/en-US/neural2-c-r1/matching_game_intro_4d265559.wav",
+      text: "Match each picture with the correct word.",
+    },
+    "en-GB": {
+      key: "shared/audio/en-GB/neural2-c-r1/matching_game_intro_4d265559.wav",
+      text: "Match each picture with the correct word.",
     },
   },
   [normalizeText("milk")]: {
@@ -26471,6 +26491,14 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi! Bé giỏi quá!")]: {
     key: "shared/audio/vi/correct.wav",
     text: "Đúng rồi! Bé giỏi quá!",
+  },
+  [normalizeText("Bé hãy nghe từ và chọn hình đúng nhé.")]: {
+    key: "shared/audio/vi/listen_choose_game_intro_b4d866de.wav",
+    text: "Bé hãy nghe từ và chọn hình đúng nhé.",
+  },
+  [normalizeText("Bé hãy nối hình với từ tương ứng nhé.")]: {
+    key: "shared/audio/vi/matching_game_intro_f4c7e47b.wav",
+    text: "Bé hãy nối hình với từ tương ứng nhé.",
   },
   [normalizeText("Con hãy tìm hai hình giống nhau nhé.")]: {
     key: "shared/audio/vi/memory_game_intro.wav",

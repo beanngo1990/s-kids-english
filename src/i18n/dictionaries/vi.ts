@@ -689,10 +689,10 @@ export const vi = {
     'Game cần ít nhất 2 từ có hình minh họa trong bài học.',
   'reviewGame.parentBadge': 'Ôn cùng bé',
   'reviewGame.parentHint':
-    'Ba mẹ có thể để bé tự lật thẻ, rồi nhắc bé đọc lại từ sau mỗi cặp đúng.',
+    'Ba mẹ có thể để bé nghe hướng dẫn game, rồi nhắc bé đọc lại từ sau mỗi đáp án đúng.',
   'reviewGame.unsupportedTitle': 'Game này chưa được hỗ trợ.',
   'reviewGame.unsupportedText':
-    'Hiện app mới có game lật thẻ hình giống nhau.',
+    'Bé có thể chơi Lật thẻ, Nghe & Chọn hoặc Nối hình nhé.',
   'reviewGame.wordCount': '{count} từ',
   'memoryGame.pairCount': '{matched}/{total} cặp',
   'memoryGame.turnCount': '{count} lượt',

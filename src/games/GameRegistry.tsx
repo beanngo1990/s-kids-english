@@ -43,6 +43,7 @@ export function resolveReviewGameType(
 }
 
 type GamePlayerProps = {
+  isIntroPlaying?: boolean;
   memoryItems: MemoryGameItem[];
   onComplete: () => void;
   onWordInteraction?: (wordId: string, isFirstTry: boolean) => void;
@@ -51,6 +52,7 @@ type GamePlayerProps = {
 };
 
 export function GamePlayer({
+  isIntroPlaying = false,
   memoryItems,
   onComplete,
   onWordInteraction,
@@ -65,6 +67,7 @@ export function GamePlayer({
     case 'memory':
       return (
         <MemoryGame
+          isIntroPlaying={isIntroPlaying}
           items={memoryItems}
           onComplete={onComplete}
           onMatch={onWordInteraction}
@@ -73,6 +76,7 @@ export function GamePlayer({
     case 'listenAndChoose':
       return (
         <ListenChooseGame
+          isIntroPlaying={isIntroPlaying}
           items={memoryItems}
           onComplete={onComplete}
           onMatch={onWordInteraction}
@@ -81,6 +85,7 @@ export function GamePlayer({
     case 'matching':
       return (
         <MatchingGame
+          isIntroPlaying={isIntroPlaying}
           items={memoryItems}
           onComplete={onComplete}
           onMatch={onWordInteraction}
