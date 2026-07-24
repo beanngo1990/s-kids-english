@@ -50,6 +50,20 @@ export const vi = {
   'onboarding.startSaving': 'Đang lưu...',
   'onboarding.subtitle':
     'Bé sẽ chỉ thấy bản đồ học tập. Ba mẹ có thể đổi lại trong Góc phụ huynh bất cứ lúc nào.',
+  'onboarding.step1.title': 'Học Tiếng Anh thật vui cùng Sungy!',
+  'onboarding.step1.subtitle':
+    'Khám phá ngôn ngữ qua các tình huống sinh hoạt hàng ngày.',
+  'onboarding.step1.feature1.title': 'Tình huống sinh hoạt',
+  'onboarding.step1.feature1.text':
+    'Bài học gắn liền với sinh hoạt quen thuộc của bé mỗi ngày.',
+  'onboarding.step1.feature2.title': 'Tương tác sinh động',
+  'onboarding.step1.feature2.text':
+    'Vừa chơi vừa nhớ từ qua chạm, kéo thả và luyện nói.',
+  'onboarding.step1.feature3.title': 'Sungy đồng hành',
+  'onboarding.step1.feature3.text':
+    'Sungy cổ vũ bé trên từng trạm học của bản đồ.',
+  'onboarding.step1.continue': 'Tiếp tục',
+  'onboarding.step2.back': 'Quay lại',
   'onboarding.title': 'Chọn độ khó cho bé',
 
   'parent.alert.keepOneLesson':
