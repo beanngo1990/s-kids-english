@@ -13,6 +13,26 @@ type EnglishAudioAssets = Partial<Record<EnglishAccent, RemoteAudioAsset>> & {
 };
 
 const enAudioByText: Record<string, EnglishAudioAssets> = {
+  [normalizeText("Hi! I am Sungy, your child’s learning buddy.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/sungy_onboarding_greeting.wav",
+      text: "Hi! I am Sungy, your child’s learning buddy.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/sungy_onboarding_greeting.wav",
+      text: "Hi! I am Sungy, your child’s learning buddy.",
+    },
+  },
+  [normalizeText("Hi! I am Sungy, your child's learning buddy.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/sungy_onboarding_greeting.wav",
+      text: "Hi! I am Sungy, your child's learning buddy.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/sungy_onboarding_greeting.wav",
+      text: "Hi! I am Sungy, your child's learning buddy.",
+    },
+  },
   [normalizeText("A bath helps you feel fresh after an active afternoon.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/intro_success_0cd0848e.wav",

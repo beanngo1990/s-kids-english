@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import {
+  detectDeviceLanguage,
   getParentSettings,
   subscribeParentSettings,
 } from '../engine/ParentSettingsManager';
@@ -43,7 +44,7 @@ export function useTranslations(language: AppLanguage): Translator {
 }
 
 export function useSavedAppLanguage() {
-  const [language, setLanguage] = useState<AppLanguage>('vi');
+  const [language, setLanguage] = useState<AppLanguage>(() => detectDeviceLanguage());
 
   useEffect(() => {
     let isMounted = true;
@@ -51,14 +52,14 @@ export function useSavedAppLanguage() {
     getParentSettings()
       .then(settings => {
         if (isMounted) {
-          setLanguage(settings?.appLanguage || 'vi');
+          setLanguage(settings?.appLanguage || detectDeviceLanguage());
         }
       })
       .catch(() => undefined);
 
     const unsubscribe = subscribeParentSettings(settings => {
       if (isMounted) {
-        setLanguage(settings.appLanguage || 'vi');
+        setLanguage(settings.appLanguage || detectDeviceLanguage());
       }
     });
 
@@ -68,7 +69,7 @@ export function useSavedAppLanguage() {
     };
   }, []);
 
-  return language || 'vi';
+  return language || detectDeviceLanguage();
 }
 
 export function useSavedTeacherPromptMode() {
