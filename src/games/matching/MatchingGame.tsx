@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import { AppCard } from '../../components/AppCard';
+import { AppUiIcon } from '../../components/AppUiIcon';
 import { KidBadge } from '../../components/KidBadge';
 import { SKidsIcon } from '../../components/SKidsIcon';
 import {
@@ -192,9 +193,17 @@ export function MatchingGame({
             total: String(items.length),
           })}
         </KidBadge>
-        <Text numberOfLines={1} style={styles.promptTitle}>
-          🔗 {t('matchingGame.prompt')}
-        </Text>
+        <View style={styles.promptTitleRow}>
+          <AppUiIcon name="gameMatching" size={20} />
+          <Text
+            adjustsFontSizeToFit
+            minimumFontScale={0.85}
+            numberOfLines={1}
+            style={styles.promptTitle}
+          >
+            {t('matchingGame.prompt')}
+          </Text>
+        </View>
       </AppCard>
 
       {/* Two Columns: Left Words, Right Images */}
@@ -318,10 +327,10 @@ function MatchingCardItem({
           styles.card,
           isMatched && palette
             ? {
-                backgroundColor: palette.bg,
-                borderColor: palette.border,
-                borderWidth: 3,
-              }
+              backgroundColor: palette.bg,
+              borderColor: palette.border,
+              borderWidth: 3,
+            }
             : null,
           isSelected && styles.cardSelected,
           isWrong && styles.cardWrong,
@@ -443,18 +452,23 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.xl,
     borderWidth: 2,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    gap: spacing.sm,
+    justifyContent: 'flex-start',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
   },
   promptTitle: {
     color: colors.primaryDark,
-    flex: 1,
-    paddingLeft: spacing.sm,
-    textAlign: 'right',
     ...typography.subtitle,
     fontSize: 15,
     lineHeight: 20,
+  },
+  promptTitleRow: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: spacing.xs,
+    justifyContent: 'center',
   },
   wordCardContent: {
     alignItems: 'center',

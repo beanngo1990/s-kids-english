@@ -172,6 +172,31 @@ const iconShapes = {
       <path d="M74 51h12M74 66h12" stroke="${palette.white}" stroke-width="5" stroke-linecap="round"/>
     </g>
   `,
+  gameMemory: `
+    <g filter="url(#softShadow)">
+      <rect x="26" y="38" width="46" height="60" rx="12" fill="url(#cardBlue)" stroke="${palette.skyDark}" stroke-width="3" transform="rotate(-10 49 68)"/>
+      <rect x="56" y="30" width="46" height="60" rx="12" fill="${palette.paper}" stroke="${palette.tealDark}" stroke-width="3" transform="rotate(8 79 60)"/>
+      <path d="M71 52h16M70 66h18" stroke="${palette.coral}" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="47" cy="67" r="10" fill="url(#yellowBall)" stroke="${palette.yellowDark}" stroke-width="3"/>
+      <circle cx="79" cy="76" r="6" fill="url(#tealBall)"/>
+    </g>
+  `,
+  gameListen: `
+    <g filter="url(#softShadow)">
+      <circle cx="64" cy="64" r="38" fill="url(#globeFill)" stroke="${palette.skyDark}" stroke-width="3"/>
+      <path d="M42 55h12l16-14v46l-16-14H42z" fill="url(#yellowBall)" stroke="${palette.yellowDark}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M78 48c6 6 6 26 0 32" fill="none" stroke="${palette.white}" stroke-width="5" stroke-linecap="round"/>
+      <path d="M87 40c11 11 11 37 0 48" fill="none" stroke="${palette.paper}" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+    </g>
+  `,
+  gameMatching: `
+    <g filter="url(#softShadow)">
+      <path d="M30 40h24c0 7 6 12 12 12s12-5 12-12h24v24c-7 0-12 6-12 12s5 12 12 12v24H78c0-7-6-12-12-12s-12 5-12 12H30V88c7 0 12-6 12-12s-5-12-12-12V40z" fill="${palette.paper}" stroke="${palette.tealDark}" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="48" cy="58" r="8" fill="url(#yellowBall)" stroke="${palette.yellowDark}" stroke-width="2"/>
+      <circle cx="78" cy="80" r="8" fill="url(#coralBall)" stroke="${palette.coralDark}" stroke-width="2"/>
+      <path d="M54 64c6 6 12 6 18 10" fill="none" stroke="${palette.skyDark}" stroke-width="4" stroke-linecap="round" stroke-dasharray="3 5"/>
+    </g>
+  `,
 };
 
 function svgFor(shape) {

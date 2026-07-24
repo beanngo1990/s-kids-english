@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { AppCard } from '../../components/AppCard';
+import { AppUiIcon } from '../../components/AppUiIcon';
 import { KidBadge } from '../../components/KidBadge';
 import { KidIconButton } from '../../components/KidIconButton';
 import { SKidsIcon } from '../../components/SKidsIcon';
@@ -188,9 +189,17 @@ export function ListenChooseGame({
               total: String(items.length),
             })}
           </KidBadge>
-          <Text numberOfLines={1} style={styles.promptTitle}>
-            🎈 {t('listenChooseGame.prompt')}
-          </Text>
+          <View style={styles.promptTitleRow}>
+            <AppUiIcon name="gameListen" size={20} />
+            <Text
+              adjustsFontSizeToFit
+              minimumFontScale={0.85}
+              numberOfLines={1}
+              style={styles.promptTitle}
+            >
+              {t('listenChooseGame.prompt')}
+            </Text>
+          </View>
         </View>
       </AppCard>
 
@@ -501,5 +510,10 @@ const styles = createThemedStyles(() => ({
     ...typography.subtitle,
     fontSize: 15,
     lineHeight: 20,
+  },
+  promptTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
   },
 }));
