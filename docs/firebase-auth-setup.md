@@ -104,6 +104,9 @@ Release iOS builds have been verified.
   Local progress remains saved immediately while a cloud write is deferred.
 - Opening the app only writes immediately when local data from an earlier session is not represented
   by the confirmed cloud fingerprint and the write cooldown/backoff allows the attempt.
+- Signing out keeps local learning data by default. The sign-out dialog also offers a destructive
+  option to clear local settings, progress, daily activity and the cloud-sync checkpoint after
+  Firebase sign-out succeeds.
 - Turning sync off can either keep the existing cloud copy or delete it. Deleting the parent
   account deletes the cloud progress document before deleting Firebase Auth, then clears the
   app's local settings, progress, daily activity and cloud-sync checkpoint stores on the device.
