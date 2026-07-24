@@ -48,6 +48,11 @@ export async function clearCloudProgressSyncState(ownerUid: string) {
   return initialCloudProgressSyncState;
 }
 
+export async function clearAllCloudProgressSyncState() {
+  await AsyncStorage.removeItem(CLOUD_PROGRESS_SYNC_STATE_STORAGE_KEY);
+  return initialCloudProgressSyncState;
+}
+
 function normalizeCloudProgressSyncState(
   value: unknown,
 ): CloudProgressSyncState {

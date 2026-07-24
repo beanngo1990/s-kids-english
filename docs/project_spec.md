@@ -538,8 +538,11 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
 - Account deletion UI xóa `users/{uid}/progress/current` trước khi xóa Firebase Auth. Nếu cloud
-  deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập; local
-  progress không bị xóa.
+  deletion thất bại, auth deletion dừng để tránh để lại document không còn owner đăng nhập. Sau khi
+  xóa cloud progress, RevenueCat customer và Firebase Auth thành công, app xóa các local stores
+  `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
+  `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1` và hủy daily
+  reminder local.
 
 ### Monetization lifecycle, Remote Config và App Check
 
@@ -582,8 +585,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   cache thành quyền Premium do app tự quản lý.
 - Account deletion refresh Firebase Auth token và App Check token trước khi chạy cloud progress
   deletion -> callable xóa RevenueCat customer -> Firebase Auth deletion -> local RevenueCat
-  cache/logout. Nếu token bảo mật chưa sẵn sàng hoặc backend cleanup chưa được xác nhận, Firebase
-  Auth được giữ để phụ huynh retry. Founder access không có ledger/outbox/tombstone cần scrub.
+  cache/logout -> local account data wipe. Nếu token bảo mật chưa sẵn sàng hoặc backend cleanup
+  chưa được xác nhận, Firebase Auth được giữ để phụ huynh retry. Founder access không có
+  ledger/outbox/tombstone cần scrub.
 - Các document Founder legacy từng được tạo trên project test không tự mất khi xóa Functions/code;
   phải kiểm kê và purge bằng admin migration có xác nhận trước production, không giao việc đó cho
   callable account deletion mới.
@@ -795,7 +799,7 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 214/214 tests pass trong 27 suites.
+- Jest: 257/257 tests pass trong 32 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì

@@ -173,6 +173,10 @@ export async function recordActivity(
   }
 }
 
+export async function resetActivityLog(): Promise<void> {
+  await AsyncStorage.removeItem(ACTIVITY_STORAGE_KEY);
+}
+
 export function getWeeklyData(
   entries: DailyActivity[],
 ): Array<{ label: string; date: string; wordsLearned: number; scenesCompleted: number }> {

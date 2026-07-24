@@ -131,6 +131,7 @@ async function persistProgress(
 
 export async function resetProgress() {
   await AsyncStorage.removeItem(PROGRESS_STORAGE_KEY);
+  notifyProgressChanged({ progress: emptyProgress, source: 'local' });
 }
 
 export async function completeLessonProgress(

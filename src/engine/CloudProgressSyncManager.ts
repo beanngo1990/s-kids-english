@@ -22,6 +22,7 @@ import {
   toCloudProgressData,
 } from './CloudProgressMerge';
 import {
+  clearAllCloudProgressSyncState,
   clearCloudProgressSyncState,
   getCloudProgressSyncState,
   initialCloudProgressSyncState,
@@ -271,6 +272,22 @@ export async function deleteCloudProgressForCurrentParent() {
   } catch (error) {
     throw normalizeCloudProgressSyncError(error);
   }
+}
+
+export async function clearLocalCloudProgressSyncData() {
+  stopRemoteSync();
+  localSyncState = initialCloudProgressSyncState;
+  localSyncStateReady = true;
+  updateSyncSnapshot({
+    consentOwnerUid: undefined,
+    errorCode: undefined,
+    hasStoredConsent: false,
+    isEnabledForCurrentAccount: false,
+    isReady: true,
+    lastSyncedAt: undefined,
+    status: 'disabled',
+  });
+  localSyncState = await clearAllCloudProgressSyncState();
 }
 
 export function retryCloudProgressSync() {
