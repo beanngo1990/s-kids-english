@@ -4,7 +4,10 @@ import ReactTestRenderer from 'react-test-renderer';
 
 import { KidIconButton } from '../src/components/KidIconButton';
 import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
-import { speakTeacherPromptSegments } from '../src/engine/AudioManager';
+import {
+  playSoundEffect,
+  speakTeacherPromptSegments,
+} from '../src/engine/AudioManager';
 import {
   getVoiceRecordingLevel,
   requestVoiceRecordingPermission,
@@ -44,6 +47,8 @@ const mockedRequestVoiceRecordingPermission =
   >;
 const mockedStartVoiceRecording =
   startVoiceRecording as jest.MockedFunction<typeof startVoiceRecording>;
+const mockedPlaySoundEffect =
+  playSoundEffect as jest.MockedFunction<typeof playSoundEffect>;
 const mockedSpeakTeacherPromptSegments =
   speakTeacherPromptSegments as jest.MockedFunction<
     typeof speakTeacherPromptSegments
@@ -100,6 +105,12 @@ test('auto-stops recording after speech followed by silence', async () => {
   await advanceRecordingClock(1500);
 
   expect(mockedStopVoiceRecording).toHaveBeenCalledTimes(1);
+  expect(mockedPlaySoundEffect).toHaveBeenCalledWith('yay');
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+    [{ language: 'vi', text: 'Cô nghe rồi! Giỏi quá!' }],
+    undefined,
+    expect.anything(),
+  );
 });
 
 test('falls back to a max recording window when voice levels are unavailable', async () => {
@@ -166,6 +177,66 @@ test('keeps lesson controls busy until recording encouragement finishes', async 
     tree?.unmount();
   });
 });
+
+test('uses a try-next prompt when stopping without detected speech', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  try {
+    await ReactTestRenderer.act(async () => {
+      tree = ReactTestRenderer.create(
+        <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+      );
+      await flushPromises();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    const stopButton = findByAccessibilityLabel(tree, 'Dừng ghi âm');
+
+    await ReactTestRenderer.act(async () => {
+      await stopButton.props.onPress();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+    expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+      [
+        {
+          language: 'vi',
+          text: 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+        },
+      ],
+      undefined,
+      expect.anything(),
+    );
+
+    const textValues =
+      tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
+    expect(textValues).toContain(
+      'Không sao, từ sau mình thử đọc cùng cô nhé.',
+    );
+  } finally {
+    await ReactTestRenderer.act(async () => {
+      tree?.unmount();
+    });
+  }
+});
+
+function findByAccessibilityLabel(
+  tree: ReactTestRenderer.ReactTestRenderer | undefined,
+  accessibilityLabel: string,
+) {
+  const node = tree?.root.findAll(
+    candidate => candidate.props.accessibilityLabel === accessibilityLabel,
+  )[0];
+
+  if (!node) {
+    throw new Error(`${accessibilityLabel} button was not rendered`);
+  }
+
+  return node;
+}
 
 test('stops a recorder that starts after the practice controls unmount', async () => {
   let finishStartingRecorder:

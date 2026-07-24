@@ -255,8 +255,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
-  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry và được throttle để tránh
-  phát lặp khi bé chạm liên tục.
+  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
+  Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
 - `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả.
 - `ThemeLibrary` đã có infrastructure nhưng catalog hiện chỉ có một theme.
 
@@ -388,8 +388,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, theo dõi audio level/silence,
   auto-stop và hỗ trợ phát lại local recording theo yêu cầu.
 - Speech practice không phải một `SceneInteractionType` riêng.
-- **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Current
-  feedback chỉ khuyến khích sau recording, không xác nhận phát âm đúng.
+- **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Feedback sau
+  recording chỉ khuyến khích, không xác nhận phát âm đúng; nếu lượt ghi âm không phát hiện
+  speech-level, app vẫn cho dừng và dùng lời nhắc tích cực để bé thử đọc ở từ sau thay vì khen là
+  đã đọc tốt.
 
 ### Review games
 

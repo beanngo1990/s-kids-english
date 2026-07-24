@@ -2023,6 +2023,13 @@ function getSceneRequiredAudioAssets(
       englishAccent,
     ),
     ...getPromptAudioAssets(
+      resolveRecordingEncouragementPrompt(
+        teacherPromptMode,
+        'tryNextWord',
+      ).segments,
+      englishAccent,
+    ),
+    ...getPromptAudioAssets(
       resolveSceneCompletionPrompt(scene, teacherPromptMode).segments,
       englishAccent,
     ),

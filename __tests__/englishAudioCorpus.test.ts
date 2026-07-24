@@ -56,6 +56,21 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
+const expectedEnglishTargetCountPerAccent = 1762;
+const bundledEnglishUiPrompts = [
+  'Hi! I am Sungy, your child’s learning buddy.',
+  'Let’s learn with Sungy today!',
+  'Wonderful! The whole map is complete. Let’s collect more stars!',
+  'Great job! Let’s look at the sticker collection.',
+  'Sungy can see the whole map lighting up!',
+  'You can replay a stop to review new words.',
+  'Let’s flip cards to remember words longer.',
+  'Finish the review and Sungy will give a sticker!',
+  'Tap Play to open the unlocked game.',
+  'Tap the glowing stop to keep learning.',
+  'Sungy is going with you!',
+  'Let’s earn more stars!',
+];
 
 test('English Neural2-C corpus is complete and matches its provenance', () => {
   expect(manifest).toMatchObject({
@@ -103,9 +118,50 @@ test('English Neural2-C corpus is complete and matches its provenance', () => {
     );
   }
 
-  expect(manifest.targets).toHaveLength(3498);
-  expect(Object.fromEntries(counts)).toEqual({ 'en-GB': 1749, 'en-US': 1749 });
+  expect(manifest.targets).toHaveLength(
+    expectedEnglishTargetCountPerAccent * ENGLISH_ACCENTS.length,
+  );
+  expect(Object.fromEntries(counts)).toEqual({
+    'en-GB': expectedEnglishTargetCountPerAccent,
+    'en-US': expectedEnglishTargetCountPerAccent,
+  });
   expect(uniqueKeys.size).toBe(manifest.targets.length);
+});
+
+test('recording try-next prompt has generated shared audio', () => {
+  const viAsset = getViAudioAsset('Không sao, từ sau mình thử đọc cùng cô nhé.');
+  expect(viAsset?.key).toBe(
+    'shared/audio/vi/recording_try_next_word_cc8c9ffc.wav',
+  );
+  expect(
+    readFileSync(join(repoRoot, 'src/assets', viAsset?.key ?? '')).length,
+  ).toBeGreaterThan(44);
+
+  for (const accent of ENGLISH_ACCENTS) {
+    const enAsset = getWordAudioAsset(
+      "That's okay. Try saying the next word with me.",
+      accent,
+    );
+    expect(enAsset?.key).toBe(
+      `shared/audio/${accent}/neural2-c-r1/recording_try_next_word_44ea0a64.wav`,
+    );
+    expect(
+      readFileSync(join(repoRoot, 'src/assets', enAsset?.key ?? '')).length,
+    ).toBeGreaterThan(44);
+  }
+});
+
+test('Sungy UI prompts keep bundled English audio', () => {
+  for (const prompt of bundledEnglishUiPrompts) {
+    for (const accent of ENGLISH_ACCENTS) {
+      const enAsset = getWordAudioAsset(prompt, accent);
+      expect(enAsset?.key).toContain(`ui/audio/${accent}/`);
+      expect(generatedUiAudioRegistry[enAsset?.key ?? '']).toBeDefined();
+      expect(
+        readFileSync(join(repoRoot, 'src/assets', enAsset?.key ?? '')).length,
+      ).toBeGreaterThan(44);
+    }
+  }
 });
 
 test('kid-facing map lock prompts have bundled production audio', () => {

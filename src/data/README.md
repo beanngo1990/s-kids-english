@@ -50,8 +50,8 @@ src/assets/shared/audio/en-GB/neural2-c-r1/
 src/assets/shared/audio/vi/
 ```
 
-Child-facing map-lock voice prompts are generated with the same production
-Google TTS profiles but bundled as UI assets for immediate playback:
+Child-facing UI prompts are generated with the same production Google TTS
+profiles but bundled as UI assets for immediate playback:
 
 ```text
 src/assets/ui/audio/en-US/neural2-c-r1/
@@ -59,9 +59,10 @@ src/assets/ui/audio/en-GB/neural2-c-r1/
 src/assets/ui/audio/vi/
 ```
 
-Their copy lives in `src/data/kidLockAudioPrompts.ts`; the generator owns
-`src/engine/GeneratedUiAudioRegistry.ts`. Do not edit the generated registry by
-hand.
+Their copy currently comes from `src/data/kidLockAudioPrompts.ts` plus selected
+Sungy Home/Onboarding English lines in `src/i18n/dictionaries/en.ts`; the
+generator owns `src/engine/GeneratedUiAudioRegistry.ts`. Do not edit the
+generated registry by hand.
 
 `audio/en/` is the legacy en-US corpus. Keep it intact as a compatibility and
 rollback source, but do not write new production English releases there. New
@@ -114,9 +115,9 @@ Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
 teacher mode does not have its own generated files; runtime plays the Vietnamese
 segment and then the English segment.
 
-The generator also audits and builds the localized Kid Mode map-lock prompts.
-These UI clips are bundled instead of uploaded as lesson audio so locked-map
-feedback remains immediate and does not depend on R2 availability.
+The generator also audits and builds localized Kid Mode UI prompts. These UI
+clips are bundled instead of uploaded as lesson audio so locked-map and Sungy
+coach feedback remains immediate and does not depend on R2 availability.
 
 ### R2-first registry mode
 

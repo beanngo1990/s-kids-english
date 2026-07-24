@@ -373,6 +373,14 @@ test('resolves feedback, recording encouragement and review intro by teacher pro
   expect(resolveRecordingEncouragementPrompt('en').displayText).toBe(
     'I heard you! Great job!',
   );
+  expect(
+    resolveRecordingEncouragementPrompt('vi', 'tryNextWord').segments,
+  ).toEqual([
+    {
+      language: 'vi',
+      text: 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+    },
+  ]);
   expect(resolveReviewGameIntroPrompt('memory', 'en').segments).toEqual([
     { language: 'en', text: 'Find two matching pictures.' },
   ]);

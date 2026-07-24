@@ -18,6 +18,7 @@ export type TeacherPromptResolution = {
 };
 
 type TeacherFeedbackType = 'fail' | 'success';
+export type RecordingEncouragementVariant = 'heardSpeech' | 'tryNextWord';
 
 type ResolveTeacherFeedbackOptions = {
   enText?: string;
@@ -231,13 +232,38 @@ export function resolveSpeechPracticePrompt(
 
 export function resolveRecordingEncouragementPrompt(
   mode: TeacherPromptMode,
+  variant: RecordingEncouragementVariant = 'heardSpeech',
 ): TeacherPromptResolution {
-  return resolveTeacherFeedback({
-    enText: 'I heard you! Great job!',
-    mode,
-    type: 'success',
-    viText: 'Cô nghe rồi! Giỏi quá!',
-  });
+  const viText =
+    variant === 'heardSpeech'
+      ? 'Cô nghe rồi! Giỏi quá!'
+      : 'Không sao, từ sau mình thử đọc cùng cô nhé.';
+  const enText =
+    variant === 'heardSpeech'
+      ? 'I heard you! Great job!'
+      : "That's okay. Try saying the next word with me.";
+
+  if (mode === 'en') {
+    return {
+      displayText: enText,
+      segments: [{ language: 'en', text: enText }],
+    };
+  }
+
+  if (mode === 'bilingual') {
+    return {
+      displayText: `${viText}\n${enText}`,
+      segments: [
+        { language: 'vi', text: viText },
+        { language: 'en', text: enText },
+      ],
+    };
+  }
+
+  return {
+    displayText: viText,
+    segments: [{ language: 'vi', text: viText }],
+  };
 }
 
 export function resolveReviewGameIntroPrompt(

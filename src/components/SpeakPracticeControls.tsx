@@ -148,6 +148,8 @@ export function SpeakPracticeControls({
   const [status, setStatus] = useState<RecordingStatus>(() =>
     isVoiceRecorderAvailable() ? 'idle' : 'unavailable',
   );
+  const [lastRecordingHadDetectedSpeech, setLastRecordingHadDetectedSpeech] =
+    useState(true);
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const levelPollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -232,6 +234,7 @@ export function SpeakPracticeControls({
       return;
     }
     const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
+    const didDetectSpeech = hasDetectedSpeechRef.current;
 
     if (!nextRecordingUri) {
       setStatus('idle');
@@ -241,6 +244,7 @@ export function SpeakPracticeControls({
 
     recordingUriRef.current = nextRecordingUri;
     setRecordingUri(nextRecordingUri);
+    setLastRecordingHadDetectedSpeech(didDetectSpeech);
     setStatus('encouraging');
     const narrationSession = startNarrationSession();
     try {
@@ -248,12 +252,17 @@ export function SpeakPracticeControls({
       if (!narrationSession.isActive()) {
         return;
       }
-      await playSoundEffect('yay');
-      if (!narrationSession.isActive()) {
-        return;
+      if (didDetectSpeech) {
+        await playSoundEffect('yay');
+        if (!narrationSession.isActive()) {
+          return;
+        }
       }
       await speakTeacherPromptSegments(
-        resolveRecordingEncouragementPrompt(teacherPromptMode).segments,
+        resolveRecordingEncouragementPrompt(
+          teacherPromptMode,
+          didDetectSpeech ? 'heardSpeech' : 'tryNextWord',
+        ).segments,
         undefined,
         narrationSession,
       );
@@ -570,7 +579,9 @@ export function SpeakPracticeControls({
     : isRecording
       ? t('speakPractice.promptRecording')
       : hasRecording
-        ? t('speakPractice.promptRecorded')
+        ? lastRecordingHadDetectedSpeech
+          ? t('speakPractice.promptRecorded')
+          : t('speakPractice.promptRecordedQuiet')
         : isUnavailable
           ? t('speakPractice.promptNoMic')
           : t('speakPractice.promptSpeak');
