@@ -13,6 +13,166 @@ type EnglishAudioAssets = Partial<Record<EnglishAccent, RemoteAudioAsset>> & {
 };
 
 const enAudioByText: Record<string, EnglishAudioAssets> = {
+  [normalizeText("Tap the glowing stop to keep learning.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_guide_tap_one.wav",
+      text: "Tap the glowing stop to keep learning.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_one.wav",
+      text: "Tap the glowing stop to keep learning.",
+    },
+  },
+  [normalizeText("Sungy is going with you!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_guide_tap_two.wav",
+      text: "Sungy is going with you!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_two.wav",
+      text: "Sungy is going with you!",
+    },
+  },
+  [normalizeText("Let’s earn more stars!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_guide_tap_three.wav",
+      text: "Let’s earn more stars!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_three.wav",
+      text: "Let’s earn more stars!",
+    },
+  },
+  [normalizeText("Let's earn more stars!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_guide_tap_three.wav",
+      text: "Let's earn more stars!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_three.wav",
+      text: "Let's earn more stars!",
+    },
+  },
+  [normalizeText("Let’s flip cards to remember words longer.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_review_tap_one.wav",
+      text: "Let’s flip cards to remember words longer.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_one.wav",
+      text: "Let’s flip cards to remember words longer.",
+    },
+  },
+  [normalizeText("Let's flip cards to remember words longer.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_review_tap_one.wav",
+      text: "Let's flip cards to remember words longer.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_one.wav",
+      text: "Let's flip cards to remember words longer.",
+    },
+  },
+  [normalizeText("Finish the review and Sungy will give a sticker!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_review_tap_two.wav",
+      text: "Finish the review and Sungy will give a sticker!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_two.wav",
+      text: "Finish the review and Sungy will give a sticker!",
+    },
+  },
+  [normalizeText("Tap Play to open the unlocked game.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_review_tap_three.wav",
+      text: "Tap Play to open the unlocked game.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_three.wav",
+      text: "Tap Play to open the unlocked game.",
+    },
+  },
+  [normalizeText("Great job! Let’s look at the sticker collection.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_complete_tap_one.wav",
+      text: "Great job! Let’s look at the sticker collection.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_complete_tap_one.wav",
+      text: "Great job! Let’s look at the sticker collection.",
+    },
+  },
+  [normalizeText("Great job! Let's look at the sticker collection.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_complete_tap_one.wav",
+      text: "Great job! Let's look at the sticker collection.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_complete_tap_one.wav",
+      text: "Great job! Let's look at the sticker collection.",
+    },
+  },
+  [normalizeText("Sungy can see the whole map lighting up!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_complete_tap_two.wav",
+      text: "Sungy can see the whole map lighting up!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_complete_tap_two.wav",
+      text: "Sungy can see the whole map lighting up!",
+    },
+  },
+  [normalizeText("You can replay a stop to review new words.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_complete_tap_three.wav",
+      text: "You can replay a stop to review new words.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_complete_tap_three.wav",
+      text: "You can replay a stop to review new words.",
+    },
+  },
+  [normalizeText("Let’s learn with Sungy today!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_coach_default.wav",
+      text: "Let’s learn with Sungy today!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_coach_default.wav",
+      text: "Let’s learn with Sungy today!",
+    },
+  },
+  [normalizeText("Let's learn with Sungy today!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_coach_default.wav",
+      text: "Let's learn with Sungy today!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_coach_default.wav",
+      text: "Let's learn with Sungy today!",
+    },
+  },
+  [normalizeText("Wonderful! The whole map is complete. Let’s collect more stars!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_coach_complete.wav",
+      text: "Wonderful! The whole map is complete. Let’s collect more stars!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_coach_complete.wav",
+      text: "Wonderful! The whole map is complete. Let’s collect more stars!",
+    },
+  },
+  [normalizeText("Wonderful! The whole map is complete. Let's collect more stars!")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/home_coach_complete.wav",
+      text: "Wonderful! The whole map is complete. Let's collect more stars!",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/home_coach_complete.wav",
+      text: "Wonderful! The whole map is complete. Let's collect more stars!",
+    },
+  },
   [normalizeText("Hi! I am Sungy, your child’s learning buddy.")]: {
     "en-US": {
       key: "ui/audio/en-US/neural2-c-r1/sungy_onboarding_greeting.wav",
