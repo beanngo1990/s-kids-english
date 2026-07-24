@@ -27877,6 +27877,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 141926,
+      "key": "shared/audio/en-GB/neural2-c-r1/listen_choose_game_intro_681d6155.wav",
+      "sha256": "3a34fdfd4a7b4c812d3262ce7255f21e705a03da2696fd00372581abd86b49f9",
+      "text": "Listen to the word and choose the right picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 140542,
+      "key": "shared/audio/en-GB/neural2-c-r1/matching_game_intro_4d265559.wav",
+      "sha256": "7b1e7b57c3051a72b19e91bbeac3d83c0fa805a27f7aaed63b2b5f4be62ec9e9",
+      "text": "Match each picture with the correct word.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 109922,
       "key": "shared/audio/en-GB/neural2-c-r1/memory_game_intro_2480d4dc.wav",
       "sha256": "9c481447728e6f3ff4c1359abc38ca7de8bd7bcdb6e23952a884af651f406ce5",
@@ -27929,6 +27945,22 @@
       "key": "shared/audio/en-US/neural2-c-r1/feedback_success_fcd6d5ea.wav",
       "sha256": "7bd1eaf32679223f49432fa84eaf1fdb9acbfe682cccd39387466f683039ba6b",
       "text": "Great job!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 140322,
+      "key": "shared/audio/en-US/neural2-c-r1/listen_choose_game_intro_681d6155.wav",
+      "sha256": "dd0b460f9501197caa0c187e68a2e8b2cbcf24c141282b58c915aae70f370a8e",
+      "text": "Listen to the word and choose the right picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 128524,
+      "key": "shared/audio/en-US/neural2-c-r1/matching_game_intro_4d265559.wav",
+      "sha256": "c8e72585eafe0752980d3cbfff0d63cb8f067e92eefd50fffbdb2f62a94c669b",
+      "text": "Match each picture with the correct word.",
       "voice": "en-US-Neural2-C"
     },
     {

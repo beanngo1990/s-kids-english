@@ -690,10 +690,10 @@ export const en: TranslationDictionary = {
     'The game needs at least 2 words with illustrations in this lesson.',
   'reviewGame.parentBadge': 'Review together',
   'reviewGame.parentHint':
-    'Let your child flip the cards, then invite them to say the word after each match.',
+    'Let your child follow the game prompt, then invite them to say each word after a correct answer.',
   'reviewGame.unsupportedTitle': 'This game is not supported yet.',
   'reviewGame.unsupportedText':
-    'The app currently supports the picture matching memory game.',
+    'Try Memory, Listen & Choose, or Match instead.',
   'reviewGame.wordCount': '{count} words',
   'memoryGame.pairCount': '{matched}/{total} pairs',
   'memoryGame.turnCount': '{count} turns',

@@ -55,6 +55,32 @@ describe('MatchingGame', () => {
     expect(cards.length).toBeGreaterThanOrEqual(4); // 2 swing cards + 2 slide cards
   });
 
+  it('ignores card taps while the intro instruction is playing', () => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <MatchingGame
+          isIntroPlaying
+          items={mockItems}
+          onComplete={jest.fn()}
+        />,
+      );
+    });
+
+    const swingCards = renderer!.root.findAll(
+      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+    );
+    expect(swingCards.length).toBe(2);
+
+    act(() => {
+      swingCards[0].props.onPress();
+      swingCards[1].props.onPress();
+    });
+
+    expect(speakWord).not.toHaveBeenCalled();
+    expect(playCorrectSound).not.toHaveBeenCalled();
+  });
+
   it('handles correct match and triggers completion when all matched', () => {
     const onCompleteMock = jest.fn();
     const onMatchMock = jest.fn();

@@ -749,6 +749,12 @@ function collectAudioTargets(
   const memoryGameIntroEn = getEnglishSegment(
     teacherPrompts.resolveReviewGameIntroPrompt('memory', 'en'),
   );
+  const listenChooseGameIntroEn = getEnglishSegment(
+    teacherPrompts.resolveReviewGameIntroPrompt('listenAndChoose', 'en'),
+  );
+  const matchingGameIntroEn = getEnglishSegment(
+    teacherPrompts.resolveReviewGameIntroPrompt('matching', 'en'),
+  );
   const reviewGameIntroEn = getEnglishSegment(
     teacherPrompts.resolveReviewGameIntroPrompt(undefined, 'en'),
   );
@@ -801,6 +807,24 @@ function collectAudioTargets(
   addSharedEnglishTarget(targets, {
     audioRelease,
     defaultKey: getSharedEnglishAudioKey(
+      'listen_choose_game_intro',
+      listenChooseGameIntroEn,
+    ),
+    existingWordAudio,
+    text: listenChooseGameIntroEn,
+  });
+  addSharedEnglishTarget(targets, {
+    audioRelease,
+    defaultKey: getSharedEnglishAudioKey(
+      'matching_game_intro',
+      matchingGameIntroEn,
+    ),
+    existingWordAudio,
+    text: matchingGameIntroEn,
+  });
+  addSharedEnglishTarget(targets, {
+    audioRelease,
+    defaultKey: getSharedEnglishAudioKey(
       'review_game_intro',
       reviewGameIntroEn,
     ),
@@ -834,6 +858,20 @@ function collectAudioTargets(
     defaultKey: 'shared/audio/vi/memory_game_intro.wav',
     existingViAudio,
     text: reviewGamePrompts.memoryGameIntroPromptVi,
+  });
+  addSharedViTarget(targets, {
+    defaultKey: `shared/audio/vi/listen_choose_game_intro_${textDigest(
+      reviewGamePrompts.listenChooseGameIntroPromptVi,
+    )}.wav`,
+    existingViAudio,
+    text: reviewGamePrompts.listenChooseGameIntroPromptVi,
+  });
+  addSharedViTarget(targets, {
+    defaultKey: `shared/audio/vi/matching_game_intro_${textDigest(
+      reviewGamePrompts.matchingGameIntroPromptVi,
+    )}.wav`,
+    existingViAudio,
+    text: reviewGamePrompts.matchingGameIntroPromptVi,
   });
   for (const text of mascotPrompts.sungySpeechLines ?? []) {
     addSharedViTarget(targets, {

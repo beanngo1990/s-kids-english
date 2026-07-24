@@ -36,12 +36,14 @@ type MemoryCard = MemoryGameItem & {
 };
 
 type MemoryGameProps = {
+  isIntroPlaying?: boolean;
   items: MemoryGameItem[];
   onComplete: () => void;
   onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
 };
 
 export function MemoryGame({
+  isIntroPlaying = false,
   items,
   onComplete,
   onMatch,
@@ -91,7 +93,7 @@ export function MemoryGame({
     const isCardVisible =
       openCardIds.includes(card.cardId) || matchedItemIds.includes(card.itemId);
 
-    if (isCheckingPair || isComplete || isCardVisible) {
+    if (isIntroPlaying || isCheckingPair || isComplete || isCardVisible) {
       return;
     }
 
@@ -174,7 +176,9 @@ export function MemoryGame({
                   : t('memoryGame.hiddenCardAccessibility')
               }
               accessibilityRole="button"
-              disabled={isCheckingPair || isComplete || isVisible}
+              disabled={
+                isIntroPlaying || isCheckingPair || isComplete || isVisible
+              }
               key={card.cardId}
               onPress={() => handleCardPress(card)}
               style={({ pressed }) => [

@@ -31,6 +31,7 @@ export type MatchingItem = {
 };
 
 type MatchingGameProps = {
+  isIntroPlaying?: boolean;
   items: MatchingItem[];
   onComplete: () => void;
   onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
@@ -46,6 +47,7 @@ const MATCH_PAIR_PALETTES = [
 ];
 
 export function MatchingGame({
+  isIntroPlaying = false,
   items,
   onComplete,
   onMatch,
@@ -147,7 +149,7 @@ export function MatchingGame({
   );
 
   const handleImagePress = (item: MatchingItem) => {
-    if (isTransitioning || matchedSet.has(item.id)) {
+    if (isIntroPlaying || isTransitioning || matchedSet.has(item.id)) {
       return;
     }
     speakWord(item.word).catch(() => undefined);
@@ -161,7 +163,7 @@ export function MatchingGame({
   };
 
   const handleWordPress = (item: MatchingItem) => {
-    if (isTransitioning || matchedSet.has(item.id)) {
+    if (isIntroPlaying || isTransitioning || matchedSet.has(item.id)) {
       return;
     }
     speakWord(item.word).catch(() => undefined);
@@ -213,6 +215,7 @@ export function MatchingGame({
               <MatchingCardItem
                 key={`word-${item.id}`}
                 isMatched={isMatched}
+                isDisabled={isIntroPlaying || isTransitioning}
                 isSelected={isSelected}
                 isWrong={isWrong}
                 label={item.word}
@@ -248,6 +251,7 @@ export function MatchingGame({
               <MatchingCardItem
                 key={`img-${item.id}`}
                 isMatched={isMatched}
+                isDisabled={isIntroPlaying || isTransitioning}
                 isSelected={isSelected}
                 isWrong={isWrong}
                 label={item.word}
@@ -273,6 +277,7 @@ export function MatchingGame({
 type MatchingCardItemProps = {
   children: React.ReactNode;
   isMatched: boolean;
+  isDisabled: boolean;
   isSelected: boolean;
   isWrong: boolean;
   label: string;
@@ -285,6 +290,7 @@ type MatchingCardItemProps = {
 function MatchingCardItem({
   children,
   isMatched,
+  isDisabled,
   isSelected,
   isWrong,
   label,
@@ -306,7 +312,7 @@ function MatchingCardItem({
       <Pressable
         accessibilityLabel={label}
         accessibilityRole="button"
-        disabled={isMatched}
+        disabled={isDisabled || isMatched}
         onPress={onPress}
         style={({ pressed }) => [
           styles.card,
@@ -319,7 +325,8 @@ function MatchingCardItem({
             : null,
           isSelected && styles.cardSelected,
           isWrong && styles.cardWrong,
-          pressed && !isMatched && styles.cardPressed,
+          isDisabled && !isMatched && styles.cardDisabled,
+          pressed && !isDisabled && !isMatched && styles.cardPressed,
         ]}
       >
         {children}
@@ -368,6 +375,9 @@ const styles = createThemedStyles(() => ({
   cardPressed: {
     opacity: 0.85,
     transform: [{ scale: 0.96 }],
+  },
+  cardDisabled: {
+    opacity: 0.55,
   },
   cardSelected: {
     backgroundColor: '#E0F2FE',
@@ -461,4 +471,3 @@ const styles = createThemedStyles(() => ({
     fontWeight: '800',
   },
 }));
-

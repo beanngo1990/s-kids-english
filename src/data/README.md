@@ -111,7 +111,8 @@ provide explicit English copy (`instructionEn`, `successFeedbackEn`, and
 Location hints are resolved as English hints rather than being collapsed into a
 generic tap instruction.
 Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
-`failFeedbackVi`, completion messages and shared Vietnamese prompts. Bilingual
+`failFeedbackVi`, completion messages and shared Vietnamese prompts such as
+speech-practice feedback and review-game intros. Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese
 segment and then the English segment.
 

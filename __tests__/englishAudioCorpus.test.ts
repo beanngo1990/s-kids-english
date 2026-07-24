@@ -56,7 +56,7 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const expectedEnglishTargetCountPerAccent = 1762;
+const expectedEnglishTargetCountPerAccent = 1764;
 const bundledEnglishUiPrompts = [
   'Hi! I am Sungy, your child’s learning buddy.',
   'Let’s learn with Sungy today!',
@@ -148,6 +148,41 @@ test('recording try-next prompt has generated shared audio', () => {
     expect(
       readFileSync(join(repoRoot, 'src/assets', enAsset?.key ?? '')).length,
     ).toBeGreaterThan(44);
+  }
+});
+
+test('review game intro prompts have generated shared audio', () => {
+  const prompts = [
+    {
+      en: 'Listen to the word and choose the right picture.',
+      enKey: 'listen_choose_game_intro_681d6155.wav',
+      vi: 'Bé hãy nghe từ và chọn hình đúng nhé.',
+      viKey: 'shared/audio/vi/listen_choose_game_intro_b4d866de.wav',
+    },
+    {
+      en: 'Match each picture with the correct word.',
+      enKey: 'matching_game_intro_4d265559.wav',
+      vi: 'Bé hãy nối hình với từ tương ứng nhé.',
+      viKey: 'shared/audio/vi/matching_game_intro_f4c7e47b.wav',
+    },
+  ];
+
+  for (const prompt of prompts) {
+    const viAsset = getViAudioAsset(prompt.vi);
+    expect(viAsset?.key).toBe(prompt.viKey);
+    expect(
+      readFileSync(join(repoRoot, 'src/assets', viAsset?.key ?? '')).length,
+    ).toBeGreaterThan(44);
+
+    for (const accent of ENGLISH_ACCENTS) {
+      const enAsset = getWordAudioAsset(prompt.en, accent);
+      expect(enAsset?.key).toBe(
+        `shared/audio/${accent}/neural2-c-r1/${prompt.enKey}`,
+      );
+      expect(
+        readFileSync(join(repoRoot, 'src/assets', enAsset?.key ?? '')).length,
+      ).toBeGreaterThan(44);
+    }
   }
 });
 
