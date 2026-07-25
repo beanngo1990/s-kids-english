@@ -9,6 +9,7 @@ type SkidsAssetCacheModule = {
   prefetchAssets?: (
     assets: { remoteUrl: string; cacheKey: string }[],
   ) => Promise<boolean>;
+  setAppCheckToken?: (token: string) => void;
 };
 
 export type RemoteAssetCacheEntry = {
@@ -16,9 +17,41 @@ export type RemoteAssetCacheEntry = {
   remoteUrl: string;
 };
 
-const nativeAssetCache = NativeModules.SkidsAssetCache as
-  | SkidsAssetCacheModule
-  | undefined;
+function getNativeAssetCache() {
+  return NativeModules.SkidsAssetCache as SkidsAssetCacheModule | undefined;
+}
+
+export function setNativeAssetCacheAppCheckToken(token: string) {
+  const nativeCache = getNativeAssetCache();
+  if (token && nativeCache?.setAppCheckToken) {
+    try {
+      nativeCache.setAppCheckToken(token);
+    } catch {
+      // Native module might be unavailable or unlinked in certain dev environments
+    }
+  }
+}
+
+export async function syncAppCheckTokenToNativeCache(
+  getTokenFn?: () => Promise<string | null>,
+) {
+  try {
+    const fetchToken =
+      getTokenFn ??
+      (async () => {
+        const { getFirebaseAppCheckToken } = await import(
+          './FirebaseAppCheckManager'
+        );
+        return getFirebaseAppCheckToken(false);
+      });
+    const token = await fetchToken();
+    if (token) {
+      setNativeAssetCacheAppCheckToken(token);
+    }
+  } catch {
+    // App Check is optional and best-effort
+  }
+}
 
 export async function resolveRemoteAssetUri(assetKey: string) {
   const bundledAudioUri = resolveBundledAudioUri(assetKey);
@@ -32,31 +65,27 @@ export async function resolveRemoteAssetUri(assetKey: string) {
     return undefined;
   }
 
-  if (
-    !remoteAssetsConfig.cacheRemoteAssets ||
-    !nativeAssetCache?.getCachedAssetUrl
-  ) {
+  const nativeCache = getNativeAssetCache();
+  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeCache?.getCachedAssetUrl) {
     return remoteUrl;
   }
 
   try {
-    return await nativeAssetCache.getCachedAssetUrl(remoteUrl, assetKey);
+    return await nativeCache.getCachedAssetUrl(remoteUrl, assetKey);
   } catch {
     return remoteUrl;
   }
 }
 
 export async function clearRemoteAssetCache() {
-  return nativeAssetCache?.clearCache?.() ?? false;
+  return getNativeAssetCache()?.clearCache?.() ?? false;
 }
 
 export async function prefetchRemoteAssets(
   assets: RemoteAssetCacheEntry[],
 ) {
-  if (
-    !remoteAssetsConfig.cacheRemoteAssets ||
-    !nativeAssetCache?.prefetchAssets
-  ) {
+  const nativeCache = getNativeAssetCache();
+  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeCache?.prefetchAssets) {
     return false;
   }
 
@@ -67,7 +96,7 @@ export async function prefetchRemoteAssets(
   }
 
   try {
-    return await nativeAssetCache.prefetchAssets(validAssets);
+    return await nativeCache.prefetchAssets(validAssets);
   } catch {
     return false;
   }
@@ -81,10 +110,8 @@ export async function prefetchRemoteAssets(
 export async function prepareRemoteAssets(
   assets: RemoteAssetCacheEntry[],
 ) {
-  if (
-    !remoteAssetsConfig.cacheRemoteAssets ||
-    !nativeAssetCache?.getCachedAssetUrl
-  ) {
+  const nativeCache = getNativeAssetCache();
+  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeCache?.getCachedAssetUrl) {
     return false;
   }
 
@@ -96,7 +123,7 @@ export async function prepareRemoteAssets(
   const preparedAssets = await Promise.all(
     validAssets.map(async asset => {
       try {
-        const uri = await nativeAssetCache.getCachedAssetUrl?.(
+        const uri = await nativeCache.getCachedAssetUrl?.(
           asset.remoteUrl,
           asset.cacheKey,
         );

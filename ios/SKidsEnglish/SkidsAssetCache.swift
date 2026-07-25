@@ -4,6 +4,7 @@ import React
 
 @objc(SkidsAssetCache)
 class SkidsAssetCache: NSObject {
+  private var appCheckToken: String?
   private let fileLock = NSLock()
   private let workQueue = DispatchQueue(
     label: "com.seduforge.skidsenglish.asset-cache",
@@ -18,6 +19,13 @@ class SkidsAssetCache: NSObject {
   @objc static func requiresMainQueueSetup() -> Bool {
     return false
   }
+
+  @objc func setAppCheckToken(_ token: String) {
+    fileLock.lock()
+    defer { fileLock.unlock() }
+    self.appCheckToken = token.isEmpty ? nil : token
+  }
+
 
   @objc func getCachedAssetUrl(
     _ remoteUrl: String,
@@ -170,6 +178,12 @@ class SkidsAssetCache: NSObject {
 
     var request = URLRequest(url: sourceUrl)
     request.timeoutInterval = 35
+    fileLock.lock()
+    if let token = appCheckToken {
+      request.setValue(token, forHTTPHeaderField: "X-Firebase-AppCheck")
+    }
+    fileLock.unlock()
+
     URLSession.shared.downloadTask(with: request) { [weak self] temporaryUrl, response, error in
       guard let self else {
         completion(.failure(cacheError("Asset cache was released.")))
