@@ -17,22 +17,31 @@ export function startFirebaseAppCheck() {
 }
 
 export async function ensureFirebaseAppCheckToken() {
+  const token = await getFirebaseAppCheckToken(true);
+  return Boolean(token && token.length > 0);
+}
+
+export async function getFirebaseAppCheckToken(
+  forceRefresh = false,
+): Promise<string | null> {
   if (!initializationPromise) {
     initializationPromise = initialize().catch(() => null);
   }
 
   const appCheck = await initializationPromise;
   if (!appCheck) {
-    return false;
+    return null;
   }
 
   try {
-    const tokenResult = await getToken(appCheck, true);
-    return tokenResult.token.trim().length > 0;
+    const tokenResult = await getToken(appCheck, forceRefresh);
+    const token = tokenResult.token.trim();
+    return token.length > 0 ? token : null;
   } catch {
-    return false;
+    return null;
   }
 }
+
 
 async function initialize() {
   if (getApps().length === 0) {

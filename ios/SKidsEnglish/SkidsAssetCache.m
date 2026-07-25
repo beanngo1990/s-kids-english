@@ -2,6 +2,8 @@
 
 @interface RCT_EXTERN_MODULE(SkidsAssetCache, NSObject)
 
+RCT_EXTERN_METHOD(setAppCheckToken:(NSString *)token)
+
 RCT_EXTERN_METHOD(getCachedAssetUrl:(NSString *)remoteUrl
                   cacheKey:(NSString *)cacheKey
                   resolver:(RCTPromiseResolveBlock)resolve

@@ -16,12 +16,20 @@ class SkidsAssetCacheModule(
   private val reactContext: ReactApplicationContext,
 ) : ReactContextBaseJavaModule(reactContext) {
 
+  @Volatile
+  private var appCheckToken: String? = null
   private val foregroundExecutor = Executors.newFixedThreadPool(4)
   private val prefetchExecutor = Executors.newSingleThreadExecutor()
   private val assetLocks = ConcurrentHashMap<String, Any>()
   private val cacheRoot = File(reactContext.cacheDir, "skids_remote_assets")
 
   override fun getName() = "SkidsAssetCache"
+
+  @ReactMethod
+  fun setAppCheckToken(token: String) {
+    appCheckToken = token.trim().ifEmpty { null }
+  }
+
 
   @ReactMethod
   fun getCachedAssetUrl(remoteUrl: String, cacheKey: String, promise: Promise) {
@@ -117,6 +125,9 @@ class SkidsAssetCacheModule(
         URL(remoteUrl).openConnection().apply {
           connectTimeout = 15000
           readTimeout = 20000
+          appCheckToken?.let { token ->
+            setRequestProperty("X-Firebase-AppCheck", token)
+          }
         }.getInputStream().use { input ->
           tempFile.outputStream().use { output ->
             input.copyTo(output)

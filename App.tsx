@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
 import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
 import { startFirebaseAppCheck } from './src/engine/FirebaseAppCheckManager';
@@ -15,8 +16,11 @@ configureNativeAudioAdapter();
 
 function App() {
   useEffect(() => {
-    startFirebaseAppCheck().catch(() => undefined);
+    startFirebaseAppCheck()
+      .then(() => syncAppCheckTokenToNativeCache())
+      .catch(() => undefined);
     startCloudProgressSync();
+
     startRemoteMonetizationConfig().catch(() => undefined);
     const stopMonetization = startMonetization();
     const stopParentAccessLifecycle = startParentAccessSessionLifecycle();
