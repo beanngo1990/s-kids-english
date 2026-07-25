@@ -122,3 +122,10 @@ to prefer remote images.
 Purging Cloudflare cache does not clear the image cache already stored on a
 device. The manifest revision query parameter changes whenever generated image
 content changes, while keeping the R2 prefix at `v1`.
+
+## Custom domain and Level 1 security setup
+
+- Production R2 CDN base URL is configured to custom domain `https://assets.sungy.net`.
+- Public R2 dev domain (`*.r2.dev`) must be disabled in Cloudflare R2 bucket settings.
+- WAF rate limiting and hotlink protection rules are enabled on Cloudflare Dashboard for `assets.sungy.net`.
+

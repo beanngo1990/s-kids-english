@@ -3,8 +3,7 @@ import {
   remoteImageRevision,
 } from './generatedAssetRelease';
 
-const publicAssetRoot =
-  'https://pub-4b4ed99067d94d3f8d25b7270982970a.r2.dev';
+const publicAssetRoot = 'https://assets.sungy.net';
 
 export const remoteAssetsConfig = {
   /**
