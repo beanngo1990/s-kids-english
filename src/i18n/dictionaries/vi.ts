@@ -96,7 +96,7 @@ export const vi = {
     'Bé có thể quay lại bài và chơi nội dung ôn tập của mọi bài đã mở.',
   'premium.benefit.accountTitle': 'Khôi phục bằng tài khoản ba mẹ',
   'premium.benefit.accountText':
-    'Quyền mua được RevenueCat kiểm tra với tài khoản phụ huynh đã đăng nhập.',
+    'Quyền mua gói được xác thực an toàn với tài khoản phụ huynh đã đăng nhập.',
   'premium.teaser.badge': 'Premium cho bé học tiếp',
   'premium.teaser.title': 'Mở khóa toàn bộ bài học Premium',
   'premium.teaser.subtitle':
@@ -116,7 +116,7 @@ export const vi = {
   'premium.founder.badge': 'Quà ra mắt dành cho phụ huynh sớm',
   'premium.founder.title': 'Premium miễn phí trong 1 năm',
   'premium.founder.marketingText':
-    'Tài khoản đủ điều kiện được mở Premium trong 365 ngày, tính từ lần đầu RevenueCat ghi nhận ứng dụng, sau khi ba mẹ đăng nhập.',
+    'Tài khoản đủ điều kiện được mở Premium trong 365 ngày, tính từ lần đầu mở ứng dụng sau khi ba mẹ đăng nhập.',
   'premium.founder.terms':
     'Không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
   'premium.founder.signInText':
@@ -143,7 +143,7 @@ export const vi = {
     'Các quyền Premium hiện có vẫn giữ nguyên. Ba mẹ có thể khôi phục hoặc quản lý gói đã mua.',
   'premium.offeringUnavailableTitle': 'Chưa tải được các gói Premium',
   'premium.offeringUnavailableText':
-    'Không có giá thay thế. Ba mẹ hãy kiểm tra kết nối hoặc cấu hình RevenueCat rồi thử lại.',
+    'Chưa thể tải danh sách gói học. Ba mẹ hãy kiểm tra kết nối mạng rồi thử lại.',
   'premium.currentTitle': 'Premium đang hoạt động',
   'premium.currentMonthly': 'Gói Premium theo tháng',
   'premium.currentAnnual': 'Gói Premium theo năm',
@@ -160,12 +160,16 @@ export const vi = {
   'premium.status.accessibility': 'Sungy Premium đang hoạt động',
   'premium.status.viewDetails': 'Xem chi tiết Premium',
   'premium.disclosure.subscription':
-    'Khoản thanh toán được tính vào tài khoản cửa hàng. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký của Apple hoặc Google.',
+    'Khoản thanh toán được tính vào tài khoản cửa hàng. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký của cửa hàng.',
+  'premium.disclosure.subscription.ios':
+    'Khoản thanh toán được tính vào tài khoản App Store của ba mẹ. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần cài đặt tài khoản App Store.',
+  'premium.disclosure.subscription.android':
+    'Khoản thanh toán được tính vào tài khoản Google Play của ba mẹ. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký trên Google Play.',
   'premium.disclosure.lifetime':
     'Đây là giao dịch mua một lần, không tự động gia hạn.',
   'premium.alert.purchasedTitle': 'Đã mở Premium',
   'premium.alert.purchasedText':
-    'RevenueCat đã xác nhận quyền Premium cho tài khoản ba mẹ.',
+    'Hệ thống đã xác nhận thành công quyền Premium cho tài khoản ba mẹ.',
   'premium.alert.pendingTitle': 'Giao dịch đang chờ xử lý',
   'premium.alert.pendingText':
     'Cửa hàng hoặc người phê duyệt còn phải hoàn tất giao dịch. Premium sẽ mở sau khi quyền được xác nhận.',
@@ -178,9 +182,9 @@ export const vi = {
   'premium.alert.alreadyPremium': 'Tài khoản này đã có Premium đang hoạt động.',
   'premium.error.title': 'Chưa thể hoàn tất',
   'premium.error.configurationMissing':
-    'Bản build này chưa có cấu hình RevenueCat phù hợp.',
+    'Gói mua chưa khả dụng trên phiên bản ứng dụng này. Ba mẹ vui lòng thử lại sau.',
   'premium.error.firebaseUnavailable':
-    'Firebase Auth chưa sẵn sàng cho bản build này.',
+    'Dịch vụ tài khoản chưa sẵn sàng. Ba mẹ vui lòng thử lại sau.',
   'premium.error.identityFailed':
     'Chưa liên kết được tài khoản ba mẹ với dịch vụ giao dịch mua.',
   'premium.error.network': 'Chưa kết nối được cửa hàng. Ba mẹ thử lại khi có mạng.',
@@ -220,18 +224,22 @@ export const vi = {
     'Đăng nhập Apple chỉ khả dụng trên thiết bị iOS hỗ trợ Sign in with Apple.',
   'parent.account.badge': 'Tài khoản phụ huynh',
   'parent.account.cancel': 'Hủy',
-  'parent.account.configMissingTitle': 'Cần cấu hình Firebase',
+  'parent.account.configMissingTitle': 'Dịch vụ tài khoản chưa sẵn sàng',
   'parent.account.deleteAccount': 'Xóa tài khoản',
   'parent.account.deleteConfirmAction': 'Xóa tài khoản',
   'parent.account.deleteConfirmText':
-    'Tài khoản đăng nhập, dữ liệu cloud và dữ liệu học local trên thiết bị này sẽ bị xóa. Việc xóa tài khoản không hủy gói đang gia hạn qua Apple hoặc Google; ba mẹ hãy dùng Quản lý gói đăng ký trước nếu muốn hủy gia hạn.',
+    'Tài khoản đăng nhập, dữ liệu cloud và dữ liệu học local trên thiết bị này sẽ bị xóa. Việc xóa tài khoản không tự động hủy gói gia hạn qua cửa hàng; ba mẹ hãy dùng Quản lý gói đăng ký của cửa hàng trước nếu muốn hủy gia hạn.',
+  'parent.account.deleteConfirmText.ios':
+    'Tài khoản đăng nhập, dữ liệu cloud và dữ liệu học local trên thiết bị này sẽ bị xóa. Việc xóa tài khoản không tự động hủy gói gia hạn trên App Store; ba mẹ hãy vào cài đặt tài khoản App Store để hủy gia hạn trước nếu cần.',
+  'parent.account.deleteConfirmText.android':
+    'Tài khoản đăng nhập, dữ liệu cloud và dữ liệu học local trên thiết bị này sẽ bị xóa. Việc xóa tài khoản không tự động hủy gói gia hạn trên Google Play; ba mẹ hãy vào Quản lý gói đăng ký trên Google Play để hủy gia hạn trước nếu cần.',
   'parent.account.deleteConfirmTitle': 'Xóa tài khoản phụ huynh?',
   'parent.account.deletedText':
     'Tài khoản, dữ liệu cloud và dữ liệu học local trên thiết bị này đã được xóa.',
   'parent.account.deletedTitle': 'Đã xóa tài khoản',
   'parent.account.deleting': 'Đang xóa...',
   'parent.account.deleteAppCheckRequired':
-    'Ứng dụng chưa xác thực được bảo mật App Check với Firebase (hoặc thiết bị/môi trường chưa được đăng ký trong Firebase Console). Vui lòng thử lại sau khi hệ thống hoàn tất cấu hình.',
+    'Hệ thống chưa xác thực được kết nối bảo mật với thiết bị. Ba mẹ vui lòng kiểm tra kết nối mạng và thử lại sau.',
   'parent.account.deleteAuthRequired':
     'Vì lý do bảo mật, thao tác xóa tài khoản yêu cầu ba mẹ phải vừa mới xác thực/đăng nhập lại gần đây. Ba mẹ vui lòng đăng xuất, đăng nhập lại rồi thử lại nhé.',
   'parent.account.deleteCancelledText':
@@ -241,13 +249,13 @@ export const vi = {
     'Có lỗi khi xóa tài khoản. Ba mẹ vui lòng thử lại.',
   'parent.account.errorTitle': 'Chưa đăng nhập được',
   'parent.account.firebaseConfigMissing':
-    'Chưa có file cấu hình Firebase native. Thêm google-services.json cho Android và GoogleService-Info.plist cho iOS trước khi bật đăng nhập.',
+    'Tính năng đăng nhập chưa sẵn sàng trên phiên bản ứng dụng này. Ba mẹ vui lòng thử lại sau.',
   'parent.account.googleConfigMissing':
-    'Chưa khai báo Google Web client ID trong src/config/firebaseAuth.ts.',
+    'Đăng nhập Google chưa sẵn sàng trên phiên bản này. Ba mẹ vui lòng thử lại sau.',
   'parent.account.googleUrlSchemeMissing':
-    'Cấu hình iOS đang thiếu URL scheme của Google. Thêm REVERSED_CLIENT_ID từ GoogleService-Info.plist vào CFBundleURLTypes rồi build lại ứng dụng.',
+    'Đăng nhập Google gặp sự cố trên thiết bị này. Ba mẹ vui lòng thử lại sau.',
   'parent.account.operationNotAllowed':
-    'Phương thức đăng nhập này chưa được bật trên Firebase Console (Authentication > Sign-in method). Vui lòng bật Apple Sign-In trong Firebase Console rồi thử lại.',
+    'Phương thức đăng nhập này tạm thời chưa khả dụng. Ba mẹ vui lòng chọn phương thức khác hoặc thử lại sau.',
   'parent.account.playServicesUnavailable':
     'Thiết bị Android cần Google Play Services để đăng nhập Google.',
   'parent.account.localDataDeleteErrorTitle':
@@ -259,7 +267,7 @@ export const vi = {
   'parent.account.providerSummary': 'Đăng nhập bằng {provider}',
   'parent.account.providerUnknown': 'nhà cung cấp khác',
   'parent.account.requiresRecentLogin':
-    'Firebase yêu cầu đăng nhập lại gần đây trước khi xóa tài khoản. Ba mẹ đăng xuất, đăng nhập lại rồi thử xóa lần nữa.',
+    'Vì lý do bảo mật, ứng dụng yêu cầu ba mẹ đăng nhập lại gần đây trước khi xóa tài khoản. Ba mẹ vui lòng đăng xuất, đăng nhập lại rồi thao tác nhé.',
   'parent.account.signInApple': 'Tiếp tục với Apple',
   'parent.account.signInGoogle': 'Tiếp tục với Google',
   'parent.account.signInInProgress':
@@ -286,7 +294,7 @@ export const vi = {
     'Chỉ dành cho ba mẹ. Đăng nhập không tự bật quảng cáo, analytics hay đồng bộ dữ liệu học.',
   'parent.account.title': 'Đăng nhập tài khoản ba mẹ',
   'parent.account.unknownError':
-    'Có lỗi khi đăng nhập. Ba mẹ kiểm tra cấu hình Firebase/Auth provider rồi thử lại.',
+    'Có lỗi khi đăng nhập. Ba mẹ kiểm tra kết nối mạng rồi thử lại.',
   'parent.cloudSync.accessibilityLabel': 'Bật đồng bộ dữ liệu học',
   'parent.cloudSync.cloudDeletedText':
     'Tiến độ và cài đặt đã đồng bộ trên cloud đã được xóa. Bản local trên thiết bị vẫn được giữ.',
@@ -297,7 +305,7 @@ export const vi = {
   'parent.cloudSync.clearConsentTitle': 'Đổi tài khoản ba mẹ?',
   'parent.cloudSync.consentAction': 'Bật đồng bộ',
   'parent.cloudSync.consentText':
-    'Ứng dụng sẽ lưu trên Firestore tiến độ học cùng một số cài đặt phụ huynh: chế độ học, bài hiển thị, ngôn ngữ/giọng đọc, giao diện, hồ sơ bé và lựa chọn nhắc học. Không tải lên nhật ký hoạt động, bản ghi âm, file audio/asset hay quyền thông báo của từng thiết bị. Thông báo nhắc học vẫn cần được bật/cấp quyền trên từng thiết bị. Ba mẹ có thể tắt hoặc xóa bản cloud bất cứ lúc nào.',
+    'Ứng dụng sẽ lưu an toàn trên máy chủ tiến độ học cùng một số cài đặt phụ huynh: chế độ học, bài hiển thị, ngôn ngữ/giọng đọc, giao diện, hồ sơ bé và lựa chọn nhắc học. Không tải lên nhật ký hoạt động, bản ghi âm, file audio/asset hay quyền thông báo của từng thiết bị. Thông báo nhắc học vẫn cần được bật/cấp quyền trên từng thiết bị. Ba mẹ có thể tắt hoặc xóa bản cloud bất cứ lúc nào.',
   'parent.cloudSync.consentTitle': 'Cho phép đồng bộ dữ liệu học?',
   'parent.cloudSync.description':
     'Lưu bản sao tiến độ và cài đặt vào tài khoản ba mẹ để tiếp tục trên thiết bị khác.',
@@ -309,15 +317,15 @@ export const vi = {
   'parent.cloudSync.errorAccountMismatch':
     'Quyền đồng bộ trên thiết bị này thuộc một tài khoản ba mẹ khác. Hãy đăng nhập lại tài khoản đó để quản lý hoặc xóa dữ liệu cloud.',
   'parent.cloudSync.errorFirebaseUnavailable':
-    'Firestore chưa được cấu hình cho bản build này.',
+    'Dịch vụ lưu trữ cloud chưa sẵn sàng cho phiên bản này.',
   'parent.cloudSync.errorInvalidData':
     'Dữ liệu cloud có phiên bản hoặc cấu trúc không được hỗ trợ.',
   'parent.cloudSync.errorNetwork':
-    'Chưa kết nối được Firestore. Dữ liệu local vẫn an toàn; ba mẹ thử lại khi có mạng.',
+    'Chưa kết nối được máy chủ cloud. Dữ liệu local vẫn an toàn; ba mẹ thử lại khi có mạng.',
   'parent.cloudSync.errorNotSignedIn':
     'Ba mẹ cần đăng nhập trước khi quản lý đồng bộ.',
   'parent.cloudSync.errorPermissionDenied':
-    'Firestore từ chối thao tác. Hãy kiểm tra đã deploy đúng rules và tài khoản đang đăng nhập.',
+    'Thao tác đồng bộ bị từ chối. Ba mẹ vui lòng kiểm tra lại tài khoản và thử lại sau.',
   'parent.cloudSync.errorTitle': 'Chưa đồng bộ được',
   'parent.cloudSync.errorUnknown':
     'Có lỗi khi đồng bộ dữ liệu học. Dữ liệu local vẫn được giữ nguyên.',

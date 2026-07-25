@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Platform } from 'react-native';
 
 import {
   detectDeviceLanguage,
@@ -31,7 +32,9 @@ export function translate(
   params?: TranslationParams,
 ) {
   const dict = dictionaries[language] ?? vi;
-  const template = dict[key] ?? vi[key] ?? key;
+  const platformKey = `${key}.${Platform.OS}` as TranslationKey;
+  const template =
+    dict[platformKey] ?? dict[key] ?? vi[platformKey] ?? vi[key] ?? key;
   return interpolate(template, params);
 }
 

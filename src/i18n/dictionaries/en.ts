@@ -98,7 +98,7 @@ export const en: TranslationDictionary = {
     'Your child can revisit lessons and play the review content for every open lesson.',
   'premium.benefit.accountTitle': 'Restore with the parent account',
   'premium.benefit.accountText':
-    'RevenueCat verifies purchase access for the signed-in parent account.',
+    'Purchase access is securely verified for the signed-in parent account.',
   'premium.teaser.badge': 'Premium for the next step',
   'premium.teaser.title': 'Unlock every Premium lesson',
   'premium.teaser.subtitle':
@@ -118,7 +118,7 @@ export const en: TranslationDictionary = {
   'premium.founder.badge': 'Launch gift for early parents',
   'premium.founder.title': 'One year of Premium free',
   'premium.founder.marketingText':
-    'Eligible accounts receive 365 days of Premium from the first time RevenueCat recorded the app, after a parent signs in.',
+    'Eligible accounts receive 365 days of Premium from the first app session after a parent signs in.',
   'premium.founder.terms':
     'No payment details are required, it will not renew automatically, and there is no charge.',
   'premium.founder.signInText':
@@ -145,7 +145,7 @@ export const en: TranslationDictionary = {
     'Existing Premium access is unchanged. Parents can still restore or manage a purchased plan.',
   'premium.offeringUnavailableTitle': 'Premium plans could not be loaded',
   'premium.offeringUnavailableText':
-    'No fallback price is shown. Check the connection or RevenueCat setup, then retry.',
+    'Could not load plan details. Please check your network connection and try again.',
   'premium.currentTitle': 'Premium is active',
   'premium.currentMonthly': 'Monthly Premium plan',
   'premium.currentAnnual': 'Annual Premium plan',
@@ -162,12 +162,16 @@ export const en: TranslationDictionary = {
   'premium.status.accessibility': 'Sungy Premium is active',
   'premium.status.viewDetails': 'View Premium details',
   'premium.disclosure.subscription':
-    'Payment is charged to the store account. The plan renews automatically for the selected period unless a parent cancels it in Apple or Google subscription management.',
+    'Payment is charged to your store account. The plan renews automatically for the selected period unless cancelled in your store subscription settings.',
+  'premium.disclosure.subscription.ios':
+    'Payment is charged to your App Store account. The plan renews automatically for the selected period unless cancelled in your App Store account settings.',
+  'premium.disclosure.subscription.android':
+    'Payment is charged to your Google Play account. The plan renews automatically for the selected period unless cancelled in your Google Play subscription settings.',
   'premium.disclosure.lifetime':
     'This is a one-time purchase and does not renew automatically.',
   'premium.alert.purchasedTitle': 'Premium unlocked',
   'premium.alert.purchasedText':
-    'RevenueCat confirmed Premium access for the parent account.',
+    'Premium access has been successfully confirmed for the parent account.',
   'premium.alert.pendingTitle': 'Purchase pending',
   'premium.alert.pendingText':
     'The store or an approver still needs to complete this purchase. Premium will open after access is confirmed.',
@@ -180,9 +184,9 @@ export const en: TranslationDictionary = {
   'premium.alert.alreadyPremium': 'This account already has active Premium access.',
   'premium.error.title': 'Could not complete the action',
   'premium.error.configurationMissing':
-    'This build does not have valid RevenueCat configuration yet.',
+    'Purchases are not available on this version. Please try again later.',
   'premium.error.firebaseUnavailable':
-    'Firebase Auth is not ready for this build.',
+    'The account service is not ready for this build. Please try again later.',
   'premium.error.identityFailed':
     'The parent account could not be linked to the purchase service.',
   'premium.error.network': 'The store could not be reached. Retry when online.',
@@ -221,18 +225,22 @@ export const en: TranslationDictionary = {
     'Apple sign-in is only available on iOS devices that support Sign in with Apple.',
   'parent.account.badge': 'Parent account',
   'parent.account.cancel': 'Cancel',
-  'parent.account.configMissingTitle': 'Firebase setup required',
+  'parent.account.configMissingTitle': 'Account service unavailable',
   'parent.account.deleteAccount': 'Delete account',
   'parent.account.deleteConfirmAction': 'Delete account',
   'parent.account.deleteConfirmText':
-    'The sign-in account, cloud data, and local learning data on this device will be deleted. Deleting the account does not cancel an Apple or Google subscription; use Manage subscription first if you want to stop renewal.',
+    'The sign-in account, cloud data, and local learning data on this device will be deleted. Deleting the account does not automatically cancel a store subscription; please use store subscription settings first if you want to cancel renewal.',
+  'parent.account.deleteConfirmText.ios':
+    'The sign-in account, cloud data, and local learning data on this device will be deleted. Deleting the account does not automatically cancel an App Store subscription; please use App Store account settings first if you want to cancel renewal.',
+  'parent.account.deleteConfirmText.android':
+    'The sign-in account, cloud data, and local learning data on this device will be deleted. Deleting the account does not automatically cancel a Google Play subscription; please use Google Play subscription settings first if you want to cancel renewal.',
   'parent.account.deleteConfirmTitle': 'Delete parent account?',
   'parent.account.deletedText':
     'The account, cloud data, and local learning data on this device have been deleted.',
   'parent.account.deletedTitle': 'Account deleted',
   'parent.account.deleting': 'Deleting...',
   'parent.account.deleteAppCheckRequired':
-    'The app could not verify Firebase App Check security (or the device/environment is not registered in Firebase Console). Please try again after configuration is complete.',
+    'The app could not verify a secure connection with your device. Please check your connection and try again later.',
   'parent.account.deleteAuthRequired':
     'For security reasons, deleting an account requires a recent sign-in session. Please sign out, sign in again, and retry.',
   'parent.account.deleteCancelledText':
@@ -242,13 +250,13 @@ export const en: TranslationDictionary = {
     'Something went wrong during account deletion. Please try again.',
   'parent.account.errorTitle': 'Could not sign in',
   'parent.account.firebaseConfigMissing':
-    'Native Firebase config files are missing. Add google-services.json for Android and GoogleService-Info.plist for iOS before enabling sign-in.',
+    'Sign-in is not ready on this app version. Please try again later.',
   'parent.account.googleConfigMissing':
-    'Google Web client ID is missing in src/config/firebaseAuth.ts.',
+    'Google sign-in is not ready on this build. Please try again later.',
   'parent.account.googleUrlSchemeMissing':
-    'The iOS Google URL scheme is missing. Add REVERSED_CLIENT_ID from GoogleService-Info.plist to CFBundleURLTypes, then rebuild the app.',
+    'Google sign-in encountered an issue on this device. Please try again later.',
   'parent.account.operationNotAllowed':
-    'This sign-in provider is not enabled in Firebase Console (Authentication > Sign-in method). Please enable Apple Sign-In in Firebase Console and try again.',
+    'This sign-in method is currently unavailable. Please try another method or retry later.',
   'parent.account.playServicesUnavailable':
     'This Android device needs Google Play Services for Google sign-in.',
   'parent.account.localDataDeleteErrorTitle':
@@ -260,7 +268,7 @@ export const en: TranslationDictionary = {
   'parent.account.providerSummary': 'Signed in with {provider}',
   'parent.account.providerUnknown': 'another provider',
   'parent.account.requiresRecentLogin':
-    'Firebase requires a recent sign-in before deleting this account. Please sign out, sign in again, then retry deletion.',
+    'For security reasons, deleting this account requires a recent sign-in. Please sign out, sign in again, and retry.',
   'parent.account.signInApple': 'Continue with Apple',
   'parent.account.signInGoogle': 'Continue with Google',
   'parent.account.signInInProgress':
@@ -287,7 +295,7 @@ export const en: TranslationDictionary = {
     'Parent-only account access. Signing in does not automatically enable ads, analytics, or learning-data sync.',
   'parent.account.title': 'Sign in parent account',
   'parent.account.unknownError':
-    'Something went wrong during sign-in. Check Firebase/Auth provider setup and try again.',
+    'Something went wrong during sign-in. Please check your network connection and try again.',
   'parent.cloudSync.accessibilityLabel': 'Enable learning data sync',
   'parent.cloudSync.cloudDeletedText':
     'Cloud progress and synced settings have been deleted. The local copy remains on this device.',
@@ -298,7 +306,7 @@ export const en: TranslationDictionary = {
   'parent.cloudSync.clearConsentTitle': 'Switch parent account?',
   'parent.cloudSync.consentAction': 'Enable sync',
   'parent.cloudSync.consentText':
-    'The app will store learning progress and selected parent settings in Firestore: learning mode, visible lessons, language/voice preferences, theme, child profile, and the reminder preference. It does not upload the activity log, voice recordings, audio/asset files, or each device’s notification permission. Reminder notifications still need to be enabled and permitted on each device. Parents can disable sync or delete the cloud copy at any time.',
+    'The app will securely store learning progress and selected parent settings on the server: learning mode, visible lessons, language/voice preferences, theme, child profile, and the reminder preference. It does not upload the activity log, voice recordings, audio/asset files, or each device’s notification permission. Reminder notifications still need to be enabled and permitted on each device. Parents can disable sync or delete the cloud copy at any time.',
   'parent.cloudSync.consentTitle': 'Allow learning data sync?',
   'parent.cloudSync.description':
     'Save progress and settings to the parent account to continue on another device.',
@@ -310,15 +318,15 @@ export const en: TranslationDictionary = {
   'parent.cloudSync.errorAccountMismatch':
     'Sync consent on this device belongs to a different parent account. Sign back in to that account to manage or delete its cloud data.',
   'parent.cloudSync.errorFirebaseUnavailable':
-    'Firestore is not configured for this build.',
+    'Cloud storage is not ready for this build.',
   'parent.cloudSync.errorInvalidData':
     'The cloud data has an unsupported version or structure.',
   'parent.cloudSync.errorNetwork':
-    'Could not reach Firestore. Local data is safe; retry when the device is online.',
+    'Could not connect to cloud storage. Local data is safe; please retry when online.',
   'parent.cloudSync.errorNotSignedIn':
     'A parent must sign in before managing sync.',
   'parent.cloudSync.errorPermissionDenied':
-    'Firestore denied this action. Check that the rules are deployed and the correct account is signed in.',
+    'Sync action was denied. Please check your account and try again later.',
   'parent.cloudSync.errorTitle': 'Could not sync',
   'parent.cloudSync.errorUnknown':
     'Learning data sync failed. Local data remains unchanged.',
