@@ -6,6 +6,11 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>vi</string>
+		<string>en</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>Sungy</string>
 	<key>CFBundleExecutable</key>

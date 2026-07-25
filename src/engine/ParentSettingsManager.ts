@@ -91,41 +91,46 @@ export const learningDifficultyOptions: LearningDifficultyOption[] = [
 
 export function detectDeviceLanguage(): AppLanguage {
   try {
-    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'test') {
-      return 'vi';
+    let nativeLocale: string | undefined;
+
+    if (Platform.OS === 'ios') {
+      const appleLanguages =
+        NativeModules.SettingsManager?.settings?.AppleLanguages;
+      const primaryAppleLang = Array.isArray(appleLanguages)
+        ? appleLanguages[0]
+        : undefined;
+      nativeLocale =
+        primaryAppleLang ||
+        NativeModules.SettingsManager?.settings?.AppleLocale;
+    } else if (Platform.OS === 'android') {
+      nativeLocale = NativeModules.I18nManager?.localeIdentifier;
     }
 
-    if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
-      const intlLocale = Intl.DateTimeFormat().resolvedOptions().locale;
-      if (typeof intlLocale === 'string') {
-        const lower = intlLocale.toLowerCase();
-        if (lower.startsWith('en')) {
-          return 'en';
-        }
-        if (lower.startsWith('vi')) {
-          return 'vi';
-        }
-      }
-    }
-
-    const appleLanguages =
-      NativeModules.SettingsManager?.settings?.AppleLanguages;
-    const primaryAppleLang = Array.isArray(appleLanguages)
-      ? appleLanguages[0]
-      : undefined;
-
-    const locale =
-      Platform.OS === 'ios'
-        ? primaryAppleLang || NativeModules.SettingsManager?.settings?.AppleLocale
-        : NativeModules.I18nManager?.localeIdentifier;
-
-    if (typeof locale === 'string') {
-      const lower = locale.toLowerCase();
+    if (typeof nativeLocale === 'string' && nativeLocale.length > 0) {
+      const lower = nativeLocale.toLowerCase();
       if (lower.startsWith('en')) {
         return 'en';
       }
       if (lower.startsWith('vi')) {
         return 'vi';
+      }
+    }
+
+    if (
+      typeof process === 'undefined' ||
+      process.env.NODE_ENV !== 'test'
+    ) {
+      if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+        const intlLocale = Intl.DateTimeFormat().resolvedOptions().locale;
+        if (typeof intlLocale === 'string' && intlLocale.length > 0) {
+          const lower = intlLocale.toLowerCase();
+          if (lower.startsWith('en')) {
+            return 'en';
+          }
+          if (lower.startsWith('vi')) {
+            return 'vi';
+          }
+        }
       }
     }
   } catch {

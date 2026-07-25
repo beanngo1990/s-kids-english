@@ -17,7 +17,10 @@ import {
   resolveTeacherFeedback,
   resolveTeacherInstruction,
 } from '../src/i18n/teacherPrompts';
+import { NativeModules, Platform } from 'react-native';
+
 import {
+  detectDeviceLanguage,
   getParentSettings,
   saveParentSettings,
   subscribeParentSettings,
@@ -97,6 +100,43 @@ test('localizes domain titles without changing English learning content', () => 
       'en',
     ),
   ).toBe('Memory Game');
+});
+
+test('detects device language prioritizing native OS preferences on iOS and Android', () => {
+  const originalPlatformOS = Platform.OS;
+  const originalSettingsManager = NativeModules.SettingsManager;
+  const originalI18n = NativeModules.I18nManager;
+
+  try {
+    Platform.OS = 'ios';
+    NativeModules.SettingsManager = {
+      settings: {
+        AppleLanguages: ['vi-VN', 'en-US'],
+      },
+    };
+
+    expect(detectDeviceLanguage()).toBe('vi');
+
+    NativeModules.SettingsManager = {
+      settings: {
+        AppleLanguages: ['en-US', 'vi-VN'],
+      },
+    };
+
+    expect(detectDeviceLanguage()).toBe('en');
+
+    Platform.OS = 'android';
+    delete NativeModules.SettingsManager;
+    NativeModules.I18nManager = { localeIdentifier: 'vi_VN' };
+    expect(detectDeviceLanguage()).toBe('vi');
+
+    NativeModules.I18nManager = { localeIdentifier: 'en_US' };
+    expect(detectDeviceLanguage()).toBe('en');
+  } finally {
+    Platform.OS = originalPlatformOS;
+    NativeModules.SettingsManager = originalSettingsManager;
+    NativeModules.I18nManager = originalI18n;
+  }
 });
 
 test('defaults new localization settings for legacy parent settings', async () => {
