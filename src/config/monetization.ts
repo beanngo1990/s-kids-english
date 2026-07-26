@@ -10,8 +10,8 @@ export const monetizationConfig = {
   // from the SKidsEnglish RevenueCat project before store testing.
   revenueCatAppleApiKey: 'appl_QDRUfgpIRmhFkHzCNPeRjNyTpmA',
   revenueCatGoogleApiKey: 'goog_ZfmDfBvEtMWozpqJQZikZvivXhF',
-  privacyPolicyUrl: 'https://beanngo1990.github.io/s-eduforge-legal/sungy/privacy-policy.html',
-  termsOfUseUrl: 'https://beanngo1990.github.io/s-eduforge-legal/sungy/terms-of-use.html',
+  privacyPolicyUrl: 'https://support.sungy.net/privacy-policy.html',
+  termsOfUseUrl: 'https://support.sungy.net/terms-of-use.html',
 } as const;
 
 export const storeProductIds = {
