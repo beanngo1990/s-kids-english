@@ -53,7 +53,12 @@ import {
 } from '../i18n/domainCopy';
 import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
-import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import {
+  colors,
+  createThemedStyles,
+  getActiveColorScheme,
+  useThemeSync,
+} from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -1744,6 +1749,7 @@ function LessonMilestone({
   onPress,
 }: LessonMilestoneProps) {
   const t = useI18n();
+  const isDarkMode = getActiveColorScheme() === 'dark';
   const starRating = getLessonStarRating(isCompleted);
   const isActionAvailable = Boolean(isUnlocked && !isPremiumLocked);
   const isProgressOnlyLocked = !isUnlocked && !isPremiumLocked;
@@ -1788,6 +1794,7 @@ function LessonMilestone({
           <View
             style={[
               styles.lessonMonumentGlow,
+              isDarkMode && styles.lessonMonumentGlowDark,
               isCompleted && styles.lessonMonumentGlowDone,
             ]}
           />
@@ -1819,16 +1826,29 @@ function LessonMilestone({
             style={[
               styles.lessonMonumentIcon,
               !isActionAvailable && styles.lessonMonumentIconIdle,
+              isDarkMode &&
+                !isActionAvailable &&
+                styles.lessonMonumentIconIdleDark,
               styles.lessonMonumentIconPedestalElevated,
             ]}
           />
           {!isActionAvailable ? (
-            <View style={styles.lessonMonumentLockBadge}>
+            <View
+              style={[
+                styles.lessonMonumentLockBadge,
+                isDarkMode && styles.lessonMonumentLockBadgeDark,
+              ]}
+            >
               <SKidsIcon name="parentLock" size={28} />
             </View>
           ) : null}
         </View>
-        <View style={styles.lessonMonumentIslandShadow} />
+        <View
+          style={[
+            styles.lessonMonumentIslandShadow,
+            isDarkMode && styles.lessonMonumentIslandShadowDark,
+          ]}
+        />
         <View
           style={[
             styles.lessonPedestal,
@@ -1836,24 +1856,65 @@ function LessonMilestone({
             isCompleted && styles.lessonPedestalDone,
           ]}
         >
-          <View style={styles.lessonPedestalRing} />
-          <View style={styles.lessonPedestalBody}>
-            <View style={styles.lessonPedestalBodyHighlight} />
-            <View style={styles.lessonPedestalBodyShadow} />
+          <View
+            style={[
+              styles.lessonPedestalRing,
+              isDarkMode && styles.lessonPedestalRingDark,
+            ]}
+          />
+          <View
+            style={[
+              styles.lessonPedestalBody,
+              isDarkMode && styles.lessonPedestalBodyDark,
+            ]}
+          >
+            <View
+              style={[
+                styles.lessonPedestalBodyHighlight,
+                isDarkMode && styles.lessonPedestalBodyHighlightDark,
+              ]}
+            />
+            <View
+              style={[
+                styles.lessonPedestalBodyShadow,
+                isDarkMode && styles.lessonPedestalBodyShadowDark,
+              ]}
+            />
           </View>
-          <View style={styles.lessonPedestalSurface}>
-            <View style={styles.lessonPedestalSurfaceShine} />
+          <View
+            style={[
+              styles.lessonPedestalSurface,
+              isDarkMode && styles.lessonPedestalSurfaceDark,
+            ]}
+          >
+            <View
+              style={[
+                styles.lessonPedestalSurfaceShine,
+                isDarkMode && styles.lessonPedestalSurfaceShineDark,
+              ]}
+            />
           </View>
         </View>
         <View
           style={[
             styles.lessonMonumentBase,
+            isDarkMode && styles.lessonMonumentBaseDark,
             isCurrent && styles.lessonMonumentBaseCurrent,
             isCompleted && styles.lessonMonumentBaseDone,
           ]}
         >
-          <View style={styles.lessonMonumentBaseShine} />
-          <View style={styles.lessonMilestoneStars}>
+          <View
+            style={[
+              styles.lessonMonumentBaseShine,
+              isDarkMode && styles.lessonMonumentBaseShineDark,
+            ]}
+          />
+          <View
+            style={[
+              styles.lessonMilestoneStars,
+              isDarkMode && styles.lessonMilestoneStarsDark,
+            ]}
+          >
             {Array.from({ length: 3 }).map((_, index) => {
               const isFilled = index < starRating;
 
@@ -1865,6 +1926,9 @@ function LessonMilestone({
                     isFilled
                       ? styles.lessonMilestoneStarFilled
                       : styles.lessonMilestoneStarEmpty,
+                    isDarkMode &&
+                      !isFilled &&
+                      styles.lessonMilestoneStarEmptyDark,
                   ]}
                 >
                   ★
@@ -2798,6 +2862,10 @@ const styles = createThemedStyles(() => ({
     color: colors.borderWarm,
     opacity: 0.48,
   },
+  lessonMilestoneStarEmptyDark: {
+    color: '#F8E7A5',
+    opacity: 0.58,
+  },
   lessonMilestoneStarFilled: {
     color: colors.secondary,
     textShadowColor: colors.white,
@@ -2822,6 +2890,10 @@ const styles = createThemedStyles(() => ({
     position: 'relative',
     ...shadows.soft,
   },
+  lessonMilestoneStarsDark: {
+    backgroundColor: '#23304A',
+    borderColor: '#F8E7A5',
+  },
   lessonMonumentBase: {
     alignItems: 'center',
     backgroundColor: colors.borderWarm,
@@ -2836,6 +2908,13 @@ const styles = createThemedStyles(() => ({
     width: 132,
     zIndex: 4,
     ...shadows.soft,
+  },
+  lessonMonumentBaseDark: {
+    backgroundColor: '#BFAE73',
+    borderColor: '#F8FAFC',
+    shadowColor: '#FACC15',
+    shadowOpacity: 0.2,
+    shadowRadius: 18,
   },
   lessonMonumentBaseCurrent: {
     backgroundColor: colors.secondary,
@@ -2856,6 +2935,9 @@ const styles = createThemedStyles(() => ({
     right: 12,
     top: 6,
   },
+  lessonMonumentBaseShineDark: {
+    backgroundColor: 'rgba(255, 255, 255, 0.52)',
+  },
   lessonMonumentGlow: {
     backgroundColor: colors.skyDeep,
     borderRadius: radius.pill,
@@ -2864,6 +2946,13 @@ const styles = createThemedStyles(() => ({
     opacity: 0.18,
     position: 'absolute',
     width: 152,
+  },
+  lessonMonumentGlowDark: {
+    backgroundColor: '#FACC15',
+    opacity: 0.24,
+    shadowColor: '#FACC15',
+    shadowOpacity: 0.36,
+    shadowRadius: 24,
   },
   lessonMonumentGlowDone: {
     backgroundColor: colors.secondary,
@@ -2891,6 +2980,10 @@ const styles = createThemedStyles(() => ({
     width: 90,
     zIndex: 2,
   },
+  lessonPedestalBodyDark: {
+    backgroundColor: '#FFE08A',
+    borderColor: '#F2B84B',
+  },
   lessonPedestalBodyHighlight: {
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
     height: '100%',
@@ -2899,12 +2992,18 @@ const styles = createThemedStyles(() => ({
     transform: [{ skewX: '-10deg' }],
     width: 14,
   },
+  lessonPedestalBodyHighlightDark: {
+    backgroundColor: 'rgba(255, 255, 255, 0.68)',
+  },
   lessonPedestalBodyShadow: {
     backgroundColor: 'rgba(212, 175, 55, 0.2)',
     height: '100%',
     position: 'absolute',
     right: 0,
     width: 20,
+  },
+  lessonPedestalBodyShadowDark: {
+    backgroundColor: 'rgba(137, 94, 18, 0.22)',
   },
   lessonPedestalCurrent: {
     transform: [{ scale: 1.05 }],
@@ -2920,6 +3019,10 @@ const styles = createThemedStyles(() => ({
     top: 36,
     width: 106,
     zIndex: 1,
+  },
+  lessonPedestalRingDark: {
+    backgroundColor: '#D89F42',
+    borderColor: '#FFF4BF',
   },
   lessonPedestalSurface: {
     backgroundColor: '#FFFDF9',
@@ -2939,6 +3042,12 @@ const styles = createThemedStyles(() => ({
     width: 90,
     zIndex: 3,
   },
+  lessonPedestalSurfaceDark: {
+    backgroundColor: '#FFF9E6',
+    borderColor: '#FACC15',
+    shadowColor: '#FACC15',
+    shadowOpacity: 0.92,
+  },
   lessonPedestalSurfaceShine: {
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: 50,
@@ -2947,6 +3056,9 @@ const styles = createThemedStyles(() => ({
     position: 'absolute',
     top: 4,
     width: 30,
+  },
+  lessonPedestalSurfaceShineDark: {
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
   },
   lessonMonumentIslandShadow: {
     backgroundColor: colors.shadow,
@@ -2957,6 +3069,10 @@ const styles = createThemedStyles(() => ({
     position: 'absolute',
     width: 150,
     zIndex: 1,
+  },
+  lessonMonumentIslandShadowDark: {
+    backgroundColor: '#020617',
+    opacity: 0.38,
   },
   lessonMonumentIcon: {
     shadowColor: colors.shadow,
@@ -2969,6 +3085,9 @@ const styles = createThemedStyles(() => ({
   },
   lessonMonumentIconIdle: {
     opacity: 0.48,
+  },
+  lessonMonumentIconIdleDark: {
+    opacity: 0.74,
   },
   lessonMonumentIconPedestalElevated: {
     bottom: -10,
@@ -3046,6 +3165,13 @@ const styles = createThemedStyles(() => ({
     right: 15,
     width: 40,
     ...shadows.soft,
+  },
+  lessonMonumentLockBadgeDark: {
+    backgroundColor: '#F8FEFF',
+    borderColor: '#67E8F9',
+    shadowColor: '#67E8F9',
+    shadowOpacity: 0.24,
+    shadowRadius: 14,
   },
   lockedIcon: {
     opacity: 0.48,
