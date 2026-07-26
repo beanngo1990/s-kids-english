@@ -79,7 +79,7 @@ import {
 import { getLearningModeCopy } from '../i18n/learningModeCopy';
 import { useI18n } from '../i18n';
 import {
-  getLessonVocabulary,
+  getLessonVocabularyForLearningMode,
   getProgress,
   type LocalProgress,
 } from '../engine/ProgressManager';
@@ -93,6 +93,10 @@ import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName } from '../utils/lessonIcons';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
+import {
+  getParentReviewTipText,
+  getParentReviewWords,
+} from '../utils/parentReviewWords';
 
 const GATE_COOLDOWN_MS = 10000;
 const WEEKLY_WORD_TARGET = 30;
@@ -375,26 +379,18 @@ export function ParentScreen({ navigation, route }: Props) {
     ? canAccessReview(reviewLesson.id, monetizationSnapshot)
     : false;
   const reviewWords = useMemo(() => {
-    if (!reviewLesson) {
-      return [];
-    }
-
-    const vocabulary = getLessonVocabulary(reviewLesson);
-    const vocabularyById = new Map(
-      vocabulary.map(item => [item.id, item.word]),
-    );
-    const learnedWordsInLesson = (progress?.learnedWordIds ?? [])
-      .filter(id => vocabularyById.has(id))
-      .slice(-3)
-      .map(id => vocabularyById.get(id))
-      .filter((word): word is string => Boolean(word));
-
-    return learnedWordsInLesson.length > 0
-      ? learnedWordsInLesson
-      : hasReviewLessonAccess
-      ? vocabulary.slice(0, 3).map(item => item.word)
-      : [];
-  }, [hasReviewLessonAccess, progress?.learnedWordIds, reviewLesson]);
+    return getParentReviewWords({
+      hasReviewLessonAccess,
+      learnedWordIds: progress?.learnedWordIds ?? [],
+      learningMode,
+      lesson: reviewLesson,
+    });
+  }, [
+    hasReviewLessonAccess,
+    learningMode,
+    progress?.learnedWordIds,
+    reviewLesson,
+  ]);
   const isFocusLessonComplete =
     focusSceneCount > 0 && completedFocusSceneCount === focusSceneCount;
   const isReviewLessonReadyForGame = Boolean(
@@ -478,13 +474,14 @@ export function ParentScreen({ navigation, route }: Props) {
   const reviewLessonTitle = reviewLesson
     ? getLocalizedLessonTitle(reviewLesson, appLanguage)
     : undefined;
-  const tipText =
-    !hasReviewLessonAccess && reviewWords.length === 0
-      ? t('premium.parentLockedMessage')
-      : reviewLesson?.metadata?.parentTipVi ??
-    (reviewWords.length > 0
-      ? t('parent.stats.tipReviewWords', { word: reviewWords[0] })
-      : t('parent.stats.tipEmpty'));
+  const tipText = getParentReviewTipText({
+    emptyText: t('parent.stats.tipEmpty'),
+    hasReviewLessonAccess,
+    lockedText: t('premium.parentLockedMessage'),
+    metadataTip: reviewLesson?.metadata?.parentTipVi,
+    reviewWordText: word => t('parent.stats.tipReviewWords', { word }),
+    reviewWords,
+  });
 
   useEffect(() => {
     if (!isDashboardReady || !focusTheme?.id || !focusLesson?.id) {
@@ -666,6 +663,7 @@ export function ParentScreen({ navigation, route }: Props) {
 
     if (reviewLesson.reviewGame && isReviewLessonReadyForGame) {
       navigation.navigate('ReviewGame', {
+        learningMode,
         lessonId: reviewLesson.id,
         openedFromParent: true,
       });
@@ -1449,7 +1447,8 @@ export function ParentScreen({ navigation, route }: Props) {
                 <Text style={styles.reviewActionText}>
                   {!hasReviewLessonAccess
                     ? t('premium.openPlans')
-                    : isReviewLessonReadyForGame
+                    : isReviewLessonReadyForGame &&
+                      reviewLesson?.reviewGame?.type === 'memory'
                     ? t('parent.stats.playMemoryTogether')
                     : t('parent.stats.openReviewActivity')}
                 </Text>
@@ -1739,7 +1738,10 @@ export function ParentScreen({ navigation, route }: Props) {
                             monetizationSnapshot,
                           );
                           const lessonWords = hasLessonAccess
-                            ? getLessonVocabulary(lesson)
+                            ? getLessonVocabularyForLearningMode(
+                                lesson,
+                                learningMode,
+                              )
                                 .slice(0, 3)
                                 .map(item => item.word)
                             : [];

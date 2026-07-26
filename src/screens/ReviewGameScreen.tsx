@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import type { ImageSourcePropType } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
@@ -10,7 +9,6 @@ import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
 import { speakTeacherPromptSegments } from '../engine/AudioManager';
-import { resolveAsset } from '../engine/AssetRegistry';
 import {
   getParentSettings,
   subscribeParentSettings,
@@ -27,26 +25,17 @@ import {
   resolveReviewGameType,
   type ExecutableReviewGameType,
 } from '../games/GameRegistry';
-import type { MemoryGameItem } from '../games/memory/MemoryGame';
+import { getReviewGameItems } from '../games/reviewItems';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { resolveReviewGameIntroPrompt } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
-import type {
-  LearningMode,
-  Lesson,
-  Scene,
-  SceneObject,
-  VocabularyItem,
-} from '../types/lesson';
+import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
-
-const defaultMemoryPairCount = 4;
-const maxMemoryPairCount = 6;
 
 export function ReviewGameScreen({ navigation, route }: Props) {
   useThemeSync();
@@ -129,15 +118,15 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     };
   }, [route.params.learningMode]);
 
-  const memoryItems = useMemo(
+  const reviewItems = useMemo(
     () =>
       lesson && learningMode && isAccessGranted
-        ? getMemoryGameItems(lesson, learningMode)
+        ? getReviewGameItems(lesson, learningMode)
         : [],
     [isAccessGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
-    lesson?.reviewGame && memoryItems.length >= 2,
+    lesson?.reviewGame && reviewItems.length >= 2,
   );
 
   useEffect(() => {
@@ -194,7 +183,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       newLevel: 1,
     };
     try {
-      completionResult = await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson, {
+        learningMode,
+      });
     } catch {
       // Progress is best-effort; reward flow should still continue.
     } finally {
@@ -204,7 +195,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     navigation.replace('Reward', {
       gameType: activeGameType,
       lessonId: lesson.id,
-      playedWordIds: memoryItems.map(item => item.id),
+      playedWordIds: reviewItems.map(item => item.id),
       sourceScreen: 'ReviewGame',
       ...completionResult,
     });
@@ -257,7 +248,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
-  if (memoryItems.length < 2) {
+  if (reviewItems.length < 2) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
@@ -401,7 +392,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
 
         <GamePlayer
           isIntroPlaying={isIntroPlaying}
-          memoryItems={memoryItems}
+          memoryItems={reviewItems}
           onComplete={handleComplete}
           onWordInteraction={saveVocabularyInteraction}
           overrideType={activeGameType}
@@ -410,88 +401,6 @@ export function ReviewGameScreen({ navigation, route }: Props) {
       </View>
     </Screen>
   );
-}
-
-function getMemoryGameItems(
-  lesson: Lesson,
-  learningMode: LearningMode,
-): MemoryGameItem[] {
-  const vocabularyById = new Map<string, VocabularyItem>();
-  const objectByVocabId = new Map<string, SceneObject>();
-
-  lesson.scenes.forEach(scene => {
-    scene.vocabulary?.forEach(item => {
-      vocabularyById.set(item.id, item);
-    });
-
-    getRenderableObjects(scene).forEach(object => {
-      if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
-        objectByVocabId.set(object.vocabId, object);
-      }
-    });
-  });
-
-  let selectedIds = Array.from(vocabularyById.keys());
-
-  // Randomize all available vocabulary to ensure the child reviews different words
-  selectedIds = selectedIds.sort(() => Math.random() - 0.5);
-
-  const maxPairs = getMemoryPairCount(lesson.reviewGame?.config, learningMode);
-
-  return selectedIds
-    .map(vocabId =>
-      createMemoryGameItem(
-        vocabularyById.get(vocabId),
-        objectByVocabId.get(vocabId),
-      ),
-    )
-    .filter((item): item is MemoryGameItem => Boolean(item))
-    .slice(0, maxPairs);
-}
-
-function createMemoryGameItem(
-  vocabularyItem: VocabularyItem | undefined,
-  object: SceneObject | undefined,
-) {
-  if (!vocabularyItem || !object) {
-    return undefined;
-  }
-
-  const imageSource = resolveAsset(object.asset.source);
-  if (!imageSource) {
-    return undefined;
-  }
-
-  return {
-    id: vocabularyItem.id,
-    imageSource: imageSource as ImageSourcePropType,
-    meaningVi: vocabularyItem.meaningVi,
-    word: vocabularyItem.word,
-  };
-}
-
-function getMemoryPairCount(
-  config: Record<string, unknown> | undefined,
-  learningMode: LearningMode,
-) {
-  const pairCount = config?.pairCount ?? config?.maxPairs;
-
-  if (typeof pairCount === 'number' && Number.isFinite(pairCount)) {
-    return Math.max(2, Math.min(maxMemoryPairCount, Math.floor(pairCount)));
-  }
-
-  if (learningMode === 'expanded') {
-    return 5;
-  }
-  if (learningMode === 'challenge') {
-    return 6;
-  }
-  
-  return defaultMemoryPairCount; // 4
-}
-
-function getRenderableObjects(scene: Scene) {
-  return scene.character ? [scene.character, ...scene.objects] : scene.objects;
 }
 
 const styles = createThemedStyles(() => ({

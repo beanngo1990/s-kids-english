@@ -44,6 +44,7 @@ import {
   isSceneUnlocked,
 } from '../utils/lessonProgress';
 import { useContentAccess } from '../engine/useContentAccess';
+import { hasPlayableReviewGame } from '../games/GameRegistry';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
@@ -78,12 +79,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const hasCompletedLesson = Boolean(
     lesson && progress?.completedLessonIds.includes(lesson.id),
   );
-  const hasReviewGame = Boolean(
-    lesson?.reviewGame &&
-      (lesson.reviewGame.type === 'memory' ||
-        lesson.reviewGame.type === 'listenAndChoose' ||
-        lesson.reviewGame.type === 'random'),
-  );
+  const hasReviewGame = Boolean(hasPlayableReviewGame(lesson?.reviewGame));
   const hasCompletedReviewGame = Boolean(
     lesson?.reviewGame &&
       progress?.completedReviewGameIds.includes(lesson.reviewGame.id),
@@ -93,9 +89,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const reviewGameActionTitle =
     lesson?.reviewGame?.type === 'listenAndChoose'
       ? t('reviewGame.listenAndChooseBadge')
-      : lesson?.reviewGame?.type === 'random'
-        ? t('reviewGame.randomBadge')
-        : t('lessonPack.playMemory');
+      : lesson?.reviewGame?.type === 'matching'
+        ? t('reviewGame.matchingBadge')
+        : lesson?.reviewGame?.type === 'random'
+          ? t('reviewGame.randomBadge')
+          : t('lessonPack.playMemory');
   const primaryActionTitle = !isPackComplete
     ? t('lessonPack.continue')
     : shouldPlayReviewGame
@@ -170,6 +168,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     if (shouldPlayReviewGame) {
       navigation.navigate('ReviewGame', {
+        learningMode,
         lessonId: lesson.id,
         openedFromParent,
       });
@@ -183,7 +182,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
       newLevel: 1,
     };
     try {
-      completionResult = await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson, {
+        learningMode,
+      });
     } catch {
       // Progress is best-effort; reward flow should still be reachable.
     } finally {
@@ -450,6 +451,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
             variant="secondary"
             onPress={() =>
               navigation.navigate('ReviewGame', {
+                learningMode,
                 lessonId: lesson.id,
                 openedFromParent,
               })

@@ -15,6 +15,7 @@ import {
 } from '../engine/ProgressManager';
 import { ScenePlayer } from '../engine/ScenePlayer';
 import { useContentAccess } from '../engine/useContentAccess';
+import { hasPlayableReviewGame } from '../games/GameRegistry';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
@@ -101,18 +102,14 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   };
 
   const handleComplete = async () => {
-    if (
-      lesson.reviewGame &&
-      (lesson.reviewGame.type === 'memory' ||
-        lesson.reviewGame.type === 'listenAndChoose' ||
-        lesson.reviewGame.type === 'random')
-    ) {
+    if (hasPlayableReviewGame(lesson.reviewGame)) {
       if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
         openParentPremium();
         return;
       }
 
       navigation.navigate('ReviewGame', {
+        learningMode: route.params.learningMode,
         lessonId: lesson.id,
         openedFromParent,
       });
@@ -125,7 +122,9 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       newLevel: 1,
     };
     try {
-      completionResult = await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson, {
+        learningMode: route.params.learningMode,
+      });
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
     }
