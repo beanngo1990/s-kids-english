@@ -342,6 +342,87 @@ export const vi = {
   'parent.cloudSync.statusWaitingForSignIn':
     'Đồng bộ đang tạm dừng cho đến khi tài khoản ba mẹ đăng nhập lại.',
   'parent.cloudSync.title': 'Đồng bộ dữ liệu học',
+  'parent.info.childImpactLabel': 'Ảnh hưởng tới bé',
+  'parent.info.appLanguage.childImpact':
+    'Đổi ngôn ngữ giúp ba mẹ đọc màn hình dễ hơn. Một số nội dung học của bé vẫn giữ tiếng Anh để đúng mục tiêu học.',
+  'parent.info.appLanguage.privacy':
+    'Lựa chọn này lưu trong cài đặt phụ huynh và chỉ sync cloud nếu ba mẹ bật đồng bộ dữ liệu học.',
+  'parent.info.appLanguage.title': 'Ngôn ngữ ứng dụng',
+  'parent.info.appLanguage.what':
+    'Chọn ngôn ngữ hiển thị chính cho giao diện ứng dụng.',
+  'parent.info.cloudSync.childImpact':
+    'Bé có thể tiếp tục tiến độ và một số cài đặt trên thiết bị khác khi ba mẹ đăng nhập cùng tài khoản.',
+  'parent.info.cloudSync.privacy':
+    'Chỉ đồng bộ tiến độ học và cài đặt đã chọn. Không tải lên ghi âm, nhật ký hoạt động chi tiết, file audio/asset hay quyền thông báo của từng thiết bị.',
+  'parent.info.cloudSync.title': 'Đồng bộ dữ liệu học',
+  'parent.info.cloudSync.what':
+    'Lưu một bản sao dữ liệu học lên cloud sau khi ba mẹ cho phép.',
+  'parent.info.crashReporting.childImpact':
+    'Không thay đổi bài học của bé. Báo cáo chỉ giúp đội ngũ sửa lỗi làm app bị crash hoặc hoạt động không ổn định.',
+  'parent.info.crashReporting.privacy':
+    'Không gửi tên bé, ghi âm, nội dung học, câu trả lời, email hay mã mua hàng. Nếu phụ huynh chưa bật, app chỉ hỏi khi có báo cáo lỗi đang chờ.',
+  'parent.info.crashReporting.title': 'Gửi báo cáo lỗi',
+  'parent.info.crashReporting.what':
+    'Cho phép gửi báo cáo kỹ thuật khi app gặp lỗi nghiêm trọng.',
+  'parent.info.difficulty.childImpact':
+    'Đổi độ khó sẽ làm danh sách từ và một số hoạt động nhiều hoặc thử thách hơn, nhưng không xoá tiến độ cũ.',
+  'parent.info.difficulty.privacy':
+    'Cài đặt này lưu local và chỉ sync cloud nếu ba mẹ bật đồng bộ dữ liệu học.',
+  'parent.info.difficulty.title': 'Độ khó của bé',
+  'parent.info.difficulty.what':
+    'Chọn phạm vi từ vựng phù hợp: dễ, mở rộng hoặc thử thách.',
+  'parent.info.englishAccent.childImpact':
+    'Bé sẽ nghe phát âm Anh-Mỹ hoặc Anh-Anh cho từ vựng và phần hướng dẫn tiếng Anh.',
+  'parent.info.englishAccent.privacy':
+    'Không ghi âm hay đánh giá phát âm. Đây chỉ là lựa chọn giọng phát audio.',
+  'parent.info.englishAccent.title': 'Giọng tiếng Anh',
+  'parent.info.englishAccent.what':
+    'Chọn accent tiếng Anh chính mà app dùng khi phát từ vựng.',
+  'parent.info.journey.childImpact':
+    'Theo lộ trình giúp bé đi từng bước; Tự do cho phép mở bài không cần theo thứ tự.',
+  'parent.info.journey.privacy':
+    'Cài đặt này chỉ điều khiển cách mở bài, không thu thập thêm dữ liệu.',
+  'parent.info.journey.title': 'Cách mở bài học',
+  'parent.info.journey.what':
+    'Quyết định bé học theo thứ tự gợi ý hay được mở bài linh hoạt hơn.',
+  'parent.info.lessonPace.childImpact':
+    'Tất cả bài bật toàn bộ lộ trình; Nhẹ nhàng chỉ bật vài bài gần bài bé đang học; Tự chọn để ba mẹ ẩn/hiện từng bài.',
+  'parent.info.lessonPace.privacy':
+    'Danh sách bài đang bật lưu trong cài đặt phụ huynh và chỉ sync cloud nếu ba mẹ bật đồng bộ.',
+  'parent.info.lessonPace.title': 'Chọn nhịp học',
+  'parent.info.lessonPace.what':
+    'Điều chỉnh số bài xuất hiện trong khu vực học của bé.',
+  'parent.info.openAccessibility': 'Xem giải thích',
+  'parent.info.privacyLabel': 'Dữ liệu & quyền riêng tư',
+  'parent.info.reminder.childImpact':
+    'Bé chỉ nhận lời nhắc nhẹ vào giờ ba mẹ chọn. Có thể tắt bất cứ lúc nào.',
+  'parent.info.reminder.privacy':
+    'Lịch nhắc và quyền thông báo là local trên từng thiết bị, không tự bật ở thiết bị khác.',
+  'parent.info.reminder.title': 'Nhắc bé học',
+  'parent.info.reminder.what':
+    'Tạo lời nhắc học hằng ngày để giữ nhịp học đều mà không gây áp lực.',
+  'parent.info.reminderTime.childImpact':
+    'Giờ nhắc nên là lúc bé thoải mái, ví dụ sau ăn tối hoặc trước giờ đọc sách.',
+  'parent.info.reminderTime.privacy':
+    'Giờ nhắc chỉ lưu trên thiết bị này; quyền thông báo vẫn do hệ điều hành kiểm soát.',
+  'parent.info.reminderTime.title': 'Giờ nhắc',
+  'parent.info.reminderTime.what':
+    'Chọn thời điểm app gửi lời nhắc học hằng ngày khi tính năng nhắc học đang bật.',
+  'parent.info.teacherPrompt.childImpact':
+    'Ảnh hưởng đến ngôn ngữ cô giáo dùng để hướng dẫn bé trong bài học.',
+  'parent.info.teacherPrompt.privacy':
+    'Không ghi âm hay gửi dữ liệu mới; đây chỉ là cài đặt cách phát lời hướng dẫn.',
+  'parent.info.teacherPrompt.title': 'Giọng hướng dẫn',
+  'parent.info.teacherPrompt.what':
+    'Chọn hướng dẫn bằng tiếng Việt, tiếng Anh hoặc song ngữ.',
+  'parent.info.theme.childImpact':
+    'Chỉ thay đổi màu giao diện, không thay đổi bài học hay tiến độ của bé.',
+  'parent.info.theme.privacy':
+    'Cài đặt giao diện lưu local và có thể sync cloud nếu ba mẹ bật đồng bộ dữ liệu học.',
+  'parent.info.theme.title': 'Giao diện',
+  'parent.info.theme.what':
+    'Chọn giao diện sáng, tối hoặc theo cài đặt hệ thống của thiết bị.',
+  'parent.info.whatLabel': 'Tính năng này là gì?',
   'parent.privacy.text':
     'Khu vực học của bé không có quảng cáo hay link ngoài. Bản ghi âm của bé không được tải lên; dữ liệu học chỉ lưu trên cloud khi ba mẹ cho phép.',
   'parent.privacy.title': 'An toàn cho trẻ',

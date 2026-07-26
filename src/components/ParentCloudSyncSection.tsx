@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Alert, Switch, Text, View } from 'react-native';
+import { Alert, Pressable, Switch, Text, View } from 'react-native';
 
 import { AppButton } from './AppButton';
 import {
@@ -15,13 +15,14 @@ import {
 } from '../engine/CloudProgressSyncManager';
 import { useI18n, type Translator } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
-import { spacing } from '../theme/spacing';
+import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
 type ParentCloudSyncSectionProps = {
   firebaseConfigMissing: boolean;
   isAccountBusy: boolean;
   isSignedIn: boolean;
+  onInfoPress?: () => void;
 };
 
 type PendingSyncAction = 'delete' | 'disable' | 'enable';
@@ -30,6 +31,7 @@ export function ParentCloudSyncSection({
   firebaseConfigMissing,
   isAccountBusy,
   isSignedIn,
+  onInfoPress,
 }: ParentCloudSyncSectionProps) {
   useThemeSync();
   const t = useI18n();
@@ -163,7 +165,23 @@ export function ParentCloudSyncSection({
     <View style={styles.section}>
       <View style={styles.toggleRow}>
         <View style={styles.toggleCopy}>
-          <Text style={styles.title}>{t('parent.cloudSync.title')}</Text>
+          <View style={styles.titleRow}>
+            <Text style={styles.title}>{t('parent.cloudSync.title')}</Text>
+            {onInfoPress ? (
+              <Pressable
+                accessibilityLabel={t('parent.info.openAccessibility')}
+                accessibilityRole="button"
+                hitSlop={8}
+                onPress={onInfoPress}
+                style={({ pressed }) => [
+                  styles.infoButton,
+                  pressed && styles.pressed,
+                ]}
+              >
+                <Text style={styles.infoButtonText}>i</Text>
+              </Pressable>
+            ) : null}
+          </View>
           <Text style={styles.description}>
             {t('parent.cloudSync.description')}
           </Text>
@@ -290,6 +308,25 @@ const styles = createThemedStyles(() => ({
   errorStatus: {
     color: colors.alert,
   },
+  infoButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    height: 28,
+    justifyContent: 'center',
+    width: 28,
+  },
+  infoButtonText: {
+    color: colors.primaryDark,
+    fontSize: 15,
+    fontWeight: '900',
+    lineHeight: 18,
+  },
+  pressed: {
+    opacity: 0.72,
+  },
   section: {
     borderTopColor: colors.border,
     borderTopWidth: 1,
@@ -303,6 +340,12 @@ const styles = createThemedStyles(() => ({
   title: {
     ...typography.body,
     color: colors.text,
+    flexShrink: 1,
+  },
+  titleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
   },
   toggleCopy: {
     flex: 1,

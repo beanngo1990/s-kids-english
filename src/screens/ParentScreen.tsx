@@ -16,6 +16,7 @@ import {
   Text,
   TextInput,
   type DimensionValue,
+  type GestureResponderEvent,
   View,
 } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -142,6 +143,24 @@ type AppSettingsSheet =
   | 'language'
   | 'teacherPrompt'
   | 'theme';
+type ParentInfoTopic =
+  | 'appLanguage'
+  | 'cloudSync'
+  | 'crashReporting'
+  | 'difficulty'
+  | 'englishAccent'
+  | 'journey'
+  | 'lessonPace'
+  | 'reminder'
+  | 'reminderTime'
+  | 'theme'
+  | 'teacherPrompt';
+type ParentInfoContent = {
+  childImpact: string;
+  privacy: string;
+  title: string;
+  what: string;
+};
 type Props = NativeStackScreenProps<RootStackParamList, 'Parent'>;
 
 function getLocalDateString() {
@@ -208,6 +227,7 @@ export function ParentScreen({ navigation, route }: Props) {
     useState<LearningSettingsSheet | null>(null);
   const [appSettingsSheet, setAppSettingsSheet] =
     useState<AppSettingsSheet | null>(null);
+  const [infoTopic, setInfoTopic] = useState<ParentInfoTopic | null>(null);
 
   // Activity State
   const [activityLog, setActivityLog] = useState<ActivityLog | null>(null);
@@ -471,6 +491,34 @@ export function ParentScreen({ navigation, route }: Props) {
       : t('common.auto');
   const shouldShowCrashReportPrompt =
     isDashboardReady && hasPendingCrashReport && !crashReportingEnabled;
+  const getParentInfoContent = useCallback(
+    (topic: ParentInfoTopic): ParentInfoContent => ({
+      childImpact: t(`parent.info.${topic}.childImpact`),
+      privacy: t(`parent.info.${topic}.privacy`),
+      title: t(`parent.info.${topic}.title`),
+      what: t(`parent.info.${topic}.what`),
+    }),
+    [t],
+  );
+  const infoSheetContent = useMemo(() => {
+    if (!infoTopic) {
+      return null;
+    }
+
+    return getParentInfoContent(infoTopic);
+  }, [getParentInfoContent, infoTopic]);
+
+  const renderEmbeddedInfoPanel = (topic: ParentInfoTopic) => {
+    const content = getParentInfoContent(topic);
+
+    return (
+      <View style={styles.embeddedInfoPanel}>
+        <Text style={styles.embeddedInfoText}>{content.what}</Text>
+        <Text style={styles.embeddedInfoText}>{content.childImpact}</Text>
+        <Text style={styles.embeddedInfoPrivacy}>{content.privacy}</Text>
+      </View>
+    );
+  };
   const focusLessonTitle = focusLesson
     ? getLocalizedLessonTitle(focusLesson, appLanguage)
     : undefined;
@@ -507,6 +555,58 @@ export function ParentScreen({ navigation, route }: Props) {
     refreshPendingCrashReport().catch(() => undefined);
     return unsubscribe;
   }, []);
+
+  const openInfoSheet = useCallback(
+    (topic: ParentInfoTopic, event?: GestureResponderEvent) => {
+      event?.stopPropagation();
+      setInfoTopic(topic);
+    },
+    [],
+  );
+
+  const renderInfoButton = (
+    topic: ParentInfoTopic,
+    variant: 'compact' | 'default' = 'default',
+  ) => (
+    <Pressable
+      accessibilityLabel={t('parent.info.openAccessibility')}
+      accessibilityRole="button"
+      hitSlop={8}
+      onPress={event => openInfoSheet(topic, event)}
+      style={({ pressed }) => [
+        variant === 'compact' ? styles.infoButtonCompact : styles.infoButton,
+        pressed && styles.pressed,
+      ]}
+    >
+      <Text
+        style={
+          variant === 'compact'
+            ? styles.infoButtonCompactText
+            : styles.infoButtonText
+        }
+      >
+        i
+      </Text>
+    </Pressable>
+  );
+
+  const renderSettingsRowTitle = (
+    title: string,
+    topic: ParentInfoTopic,
+  ) => (
+    <View style={styles.settingTitleRow}>
+      <Text
+        numberOfLines={2}
+        style={[
+          styles.learningSettingsRowTitle,
+          styles.settingTitleText,
+        ]}
+      >
+        {title}
+      </Text>
+      {renderInfoButton(topic, 'compact')}
+    </View>
+  );
 
   function clearGateCooldownTimer() {
     if (gateCooldownTimerRef.current) {
@@ -1074,6 +1174,12 @@ export function ParentScreen({ navigation, route }: Props) {
               </Pressable>
             </View>
 
+            {learningSettingsSheet === 'journey'
+              ? renderEmbeddedInfoPanel('journey')
+              : learningSettingsSheet === 'difficulty'
+              ? renderEmbeddedInfoPanel('difficulty')
+              : null}
+
             {learningSettingsSheet === 'journey' ? (
               <View style={styles.learningSheetOptions}>
                 {(['guided', 'free'] as const).map(mode => {
@@ -1518,9 +1624,12 @@ export function ParentScreen({ navigation, route }: Props) {
 
             <AppCard style={styles.lessonPlanCard}>
               <View style={styles.settingsCardHeader}>
-                <Text style={styles.lessonPlanTitle}>
-                  {t('parent.stats.selectLearningPace')}
-                </Text>
+                <View style={styles.configTitleRow}>
+                  <Text style={styles.lessonPlanTitle}>
+                    {t('parent.stats.selectLearningPace')}
+                  </Text>
+                  {renderInfoButton('lessonPace')}
+                </View>
               </View>
 
               <View style={styles.learningSummaryPanel}>
@@ -2100,9 +2209,10 @@ export function ParentScreen({ navigation, route }: Props) {
                     <AppUiIcon name="reminder" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.settings.reminderTitle')}
-                    </Text>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.reminderTitle'),
+                      'reminder',
+                    )}
                     <Text
                       numberOfLines={2}
                       style={styles.learningSettingsRowSubtitle}
@@ -2134,9 +2244,10 @@ export function ParentScreen({ navigation, route }: Props) {
                     <AppUiIcon name="clock" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.settings.reminderTimeTitle')}
-                    </Text>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.reminderTimeTitle'),
+                      'reminderTime',
+                    )}
                     <Text
                       numberOfLines={2}
                       style={styles.learningSettingsRowSubtitle}
@@ -2323,9 +2434,10 @@ export function ParentScreen({ navigation, route }: Props) {
                     <AppUiIcon name="settings" size={30} />
                   </View>
                   <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.settings.crashReportingTitle')}
-                    </Text>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.crashReportingTitle'),
+                      'crashReporting',
+                    )}
                     <Text
                       numberOfLines={3}
                       style={styles.learningSettingsRowSubtitle}
@@ -2438,6 +2550,16 @@ export function ParentScreen({ navigation, route }: Props) {
                         </Text>
                       </Pressable>
                     </View>
+
+                    {appSettingsSheet === 'language'
+                      ? renderEmbeddedInfoPanel('appLanguage')
+                      : appSettingsSheet === 'teacherPrompt'
+                      ? renderEmbeddedInfoPanel('teacherPrompt')
+                      : appSettingsSheet === 'englishAccent'
+                      ? renderEmbeddedInfoPanel('englishAccent')
+                      : appSettingsSheet === 'theme'
+                      ? renderEmbeddedInfoPanel('theme')
+                      : null}
 
                     {appSettingsSheet === 'language' && (
                       <View style={styles.learningSheetOptions}>
@@ -2632,7 +2754,9 @@ export function ParentScreen({ navigation, route }: Props) {
               </Modal>
             </AppCard>
 
-            <ParentAccountCard />
+            <ParentAccountCard
+              onCloudSyncInfoPress={() => setInfoTopic('cloudSync')}
+            />
 
             <AppCard style={styles.privacyCard}>
               <Text style={styles.privacyTitle}>
@@ -2782,6 +2906,67 @@ export function ParentScreen({ navigation, route }: Props) {
           </View>
         )}
       </Screen>
+
+      <Modal
+        animationType="slide"
+        onRequestClose={() => setInfoTopic(null)}
+        transparent
+        visible={infoSheetContent !== null}
+      >
+        <Pressable
+          style={styles.learningSheetOverlay}
+          onPress={() => setInfoTopic(null)}
+        >
+          <Pressable
+            style={styles.infoSheet}
+            onPress={event => event.stopPropagation()}
+          >
+            <View style={styles.learningSheetHeader}>
+              <Text style={styles.learningSheetTitle}>
+                {infoSheetContent?.title}
+              </Text>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setInfoTopic(null)}
+                style={styles.learningSheetClose}
+              >
+                <Text style={styles.learningSheetCloseText}>
+                  {t('common.close')}
+                </Text>
+              </Pressable>
+            </View>
+
+            {infoSheetContent ? (
+              <View style={styles.infoSheetBody}>
+                <View style={styles.infoSheetSection}>
+                  <Text style={styles.infoSheetLabel}>
+                    {t('parent.info.whatLabel')}
+                  </Text>
+                  <Text style={styles.infoSheetText}>
+                    {infoSheetContent.what}
+                  </Text>
+                </View>
+                <View style={styles.infoSheetSection}>
+                  <Text style={styles.infoSheetLabel}>
+                    {t('parent.info.childImpactLabel')}
+                  </Text>
+                  <Text style={styles.infoSheetText}>
+                    {infoSheetContent.childImpact}
+                  </Text>
+                </View>
+                <View style={styles.infoSheetSection}>
+                  <Text style={styles.infoSheetLabel}>
+                    {t('parent.info.privacyLabel')}
+                  </Text>
+                  <Text style={styles.infoSheetText}>
+                    {infoSheetContent.privacy}
+                  </Text>
+                </View>
+              </View>
+            ) : null}
+          </Pressable>
+        </Pressable>
+      </Modal>
 
       <SafeAreaView edges={['bottom']} style={styles.bottomBarSafe}>
         <View style={styles.bottomBar}>
@@ -3083,6 +3268,23 @@ const styles = createThemedStyles(() => ({
     ...typography.caption,
     textTransform: 'uppercase',
   },
+  embeddedInfoPanel: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    marginHorizontal: spacing.md,
+    padding: spacing.sm,
+  },
+  embeddedInfoPrivacy: {
+    color: colors.muted,
+    ...typography.caption,
+  },
+  embeddedInfoText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -3104,6 +3306,12 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.hero,
+  },
+  configTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+    justifyContent: 'space-between',
   },
   gateAnswerInput: {
     backgroundColor: colors.surface,
@@ -3164,6 +3372,68 @@ const styles = createThemedStyles(() => ({
   journeyChoiceWarm: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
+  },
+  infoButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexShrink: 0,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  infoButtonCompact: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flexShrink: 0,
+    height: 24,
+    justifyContent: 'center',
+    width: 24,
+  },
+  infoButtonCompactText: {
+    color: colors.primaryDark,
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 16,
+  },
+  infoButtonText: {
+    color: colors.primaryDark,
+    fontSize: 16,
+    fontWeight: '900',
+    lineHeight: 20,
+  },
+  infoSheet: {
+    backgroundColor: colors.surface,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    gap: spacing.md,
+    maxHeight: '82%',
+    paddingBottom: spacing.xl,
+  },
+  infoSheetBody: {
+    gap: spacing.md,
+    paddingHorizontal: spacing.md,
+  },
+  infoSheetLabel: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  infoSheetSection: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    padding: spacing.sm,
+  },
+  infoSheetText: {
+    color: colors.textSoft,
+    ...typography.caption,
   },
   learningPathCard: {
     backgroundColor: colors.surfaceBlue,
@@ -3560,6 +3830,7 @@ const styles = createThemedStyles(() => ({
   },
   lessonPlanTitle: {
     color: colors.text,
+    flex: 1,
     ...typography.subtitle,
   },
   lessonPreview: {
@@ -3871,6 +4142,14 @@ const styles = createThemedStyles(() => ({
   settingSectionTitle: {
     color: colors.text,
     ...typography.body,
+  },
+  settingTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  settingTitleText: {
+    flexShrink: 1,
   },
   settingsCardHeader: {
     gap: spacing.xs,
