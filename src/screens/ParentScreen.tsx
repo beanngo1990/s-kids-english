@@ -96,6 +96,10 @@ import { useResponsiveLayout } from '../theme/responsive';
 import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName } from '../utils/lessonIcons';
+import {
+  getLessonCompletionPercent,
+  haveSameLessonIds,
+} from '../utils/lessonPlan';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
 import {
   getParentReviewTipText,
@@ -129,12 +133,6 @@ function createParentGateChallenge(): ParentGateChallenge {
     answer: larger - smaller,
     expression: `${larger} − ${smaller}`,
   };
-}
-
-function haveSameLessonIds(first: string[], second: string[]) {
-  return (
-    first.length === second.length && first.every(id => second.includes(id))
-  );
 }
 
 type ParentTab = 'stats' | 'lessons' | 'settings';
@@ -365,7 +363,7 @@ export function ParentScreen({ navigation, route }: Props) {
   const focusTheme = themes.find(theme =>
     theme.lessonIds.includes(focusLesson?.id ?? ''),
   );
-  const learningPathSubtitle =
+  const fullLearningPathSubtitle =
     themes.length === 1
       ? themes[0]
         ? getLocalizedThemeDescription(themes[0], appLanguage)
@@ -374,6 +372,17 @@ export function ParentScreen({ navigation, route }: Props) {
   const completedVisibleLessonCount = visibleLessons.filter(lesson =>
     completedLessonIds.has(lesson.id),
   ).length;
+  const lessonPlanCompletionPercent = getLessonCompletionPercent(
+    completedVisibleLessonCount,
+    visibleLessons.length,
+  );
+  const learningPathSubtitle = isGentlePlanEnabled
+    ? t('parent.stats.gentlePlanSubtitle', {
+        count: String(gentleLessonIds.length),
+      })
+    : isCustomPlanActive
+    ? t('parent.stats.learningPathSubtitleCustom')
+    : fullLearningPathSubtitle;
   const reviewLesson =
     visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
     focusLesson;
@@ -1469,7 +1478,7 @@ export function ParentScreen({ navigation, route }: Props) {
                     {t('parent.stats.learningPathTitleDefault')}
                   </KidBadge>
                   <Text style={styles.lessonPlanOptionTitle}>
-                    {t('parent.stats.allLessons')}
+                    {currentLessonPlanTitle}
                   </Text>
                   <Text style={styles.learningPathSubtitle}>
                     {learningPathSubtitle}
@@ -1492,12 +1501,8 @@ export function ParentScreen({ navigation, route }: Props) {
                     style={[
                       styles.learningPathFill,
                       {
-                        width: (String(
-                          Math.round(
-                            (visibleLessons.length / journeyLessons.length) *
-                              100,
-                          ),
-                        ) + '%') as DimensionValue,
+                        width:
+                          `${lessonPlanCompletionPercent}%` as DimensionValue,
                       },
                     ]}
                   />

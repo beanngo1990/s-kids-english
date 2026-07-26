@@ -276,9 +276,13 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
-- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons; tab
-  Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
-  mode, English accent, daily reminder time, contact support email và app version.
+- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Card
+  "Lộ trình học của bé" hiển thị số bài đang bật và thanh tiến độ theo
+  `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
+  lesson trong plan, còn guided/free journey vẫn là setting riêng. Nhịp "Nhẹ nhàng" bật 3 bài gần
+  bài focus hiện tại, không phải 3 bài vừa học gần nhất. Tab Cài đặt chỉnh child profile,
+  Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
+  reminder time, contact support email và app version.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
   Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
