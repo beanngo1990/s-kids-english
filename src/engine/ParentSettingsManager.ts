@@ -40,6 +40,7 @@ export const defaultChildProfile: ChildProfile = {
 
 export type ParentSettings = {
   cloudProgressSync: CloudProgressSyncPreference;
+  crashReportingEnabled: boolean;
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
   journeyMode: 'guided' | 'free';
@@ -143,6 +144,7 @@ export function getDefaultParentSettings(): ParentSettings {
   const initialLanguage = detectDeviceLanguage();
   return {
     cloudProgressSync: { enabled: false },
+    crashReportingEnabled: false,
     enableSceneEditor: false,
     hasCompletedOnboarding: false,
     journeyMode: 'guided',
@@ -265,6 +267,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     cloudProgressSync: normalizeCloudProgressSyncPreference(
       settings.cloudProgressSync,
     ),
+    crashReportingEnabled: Boolean(settings.crashReportingEnabled),
     enableSceneEditor: Boolean(settings.enableSceneEditor),
     hasCompletedOnboarding: Boolean(settings.hasCompletedOnboarding),
     journeyMode: settings.journeyMode === 'free' ? 'free' : 'guided',

@@ -143,6 +143,7 @@ test('defaults new localization settings for legacy parent settings', async () =
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'vi',
     cloudProgressSync: { enabled: false },
+    crashReportingEnabled: false,
     englishAccent: 'en-US',
     teacherPromptMode: 'vi',
   });
@@ -157,6 +158,7 @@ test('defaults new localization settings for legacy parent settings', async () =
 
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'en',
+    crashReportingEnabled: false,
     englishAccent: 'en-US',
     teacherPromptMode: 'bilingual',
   });

@@ -492,8 +492,8 @@ của learning progress và selected parent settings sau parent opt-in:
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile
-  và `cloudProgressSync` consent preference.
+  app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile,
+  crash reporting opt-in và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 - `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
   giữ hành vi legacy.
@@ -501,7 +501,8 @@ của learning progress và selected parent settings sau parent opt-in:
   consent version hiện tại và consent timestamp hợp lệ.
 - Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
   mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
-  enabled/time và child profile. `cloudProgressSync` consent và `enableSceneEditor` là local-only.
+  enabled/time và child profile. `cloudProgressSync` consent, `crashReportingEnabled` và
+  `enableSceneEditor` là local-only.
 - Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
   trạng thái riêng trên từng thiết bị.
 
@@ -555,7 +556,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   RNCore với static frameworks, Podfile đặt `RCT_USE_PREBUILT_RNCORE=0` để build RNCore từ source;
   `post_install` đồng thời cho phép non-modular React headers riêng trên các target `RNFB*`.
 - Root `firebase.json` tắt các React Native Firebase auto-collection knobs cho analytics,
-  performance, messaging và ad storage; không thêm Firebase Analytics package.
+  performance, messaging, ad storage và Crashlytics; không thêm Firebase Analytics package.
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
 - Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
@@ -567,6 +568,38 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   công, app xóa các local stores `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
   `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1` và hủy daily
   reminder local.
+
+### Crash reporting
+
+- Provider/runtime: Firebase Crashlytics qua `@react-native-firebase/crashlytics` `25.x`; không
+  thêm Google Analytics for Firebase package.
+- Lifecycle boundary: `App.tsx` gọi `startCrashReporting()`, manager nằm tại
+  `src/services/CrashReportingService.ts`.
+- Parent setting local-only: `crashReportingEnabled` trong
+  `@skidsenglish/parent-settings/v1`, mặc định `false` cho cả install mới và persisted settings
+  legacy. Setting này không sync qua tài khoản/cloud.
+- Parent UI entry: tab Settings, nhóm "Dành cho ba mẹ", toggle "Gửi báo cáo lỗi". Khi Crashlytics
+  đang tắt và native báo có unsent crash report, Settings hiển thị thêm CTA inline chỉ cho report
+  đó: "Gửi báo cáo lỗi" hoặc "Không gửi". Mọi hành động đều đi qua parent gate vì nằm trong Parent
+  Mode.
+- `firebase.json` đặt `crashlytics_auto_collection_enabled=false` và
+  `crashlytics_debug_enabled=false`; JS sync runtime theo parent opt-in bằng
+  `setCrashlyticsCollectionEnabled`.
+- Khi saved opt-in đang tắt, app tắt collection, clear Crashlytics user id và kiểm tra
+  `checkForUnsentReports`; app không xóa report tự động để phụ huynh có thể quyết định khi vào
+  Parent Mode. Nếu phụ huynh chọn gửi, app gọi `sendUnsentReports`, bật collection cho các lần sau
+  và lưu `crashReportingEnabled=true`. Nếu phụ huynh chọn không gửi hoặc chủ động tắt toggle, app
+  xóa unsent reports trên thiết bị và giữ collection off. Khi native đã enabled từ opt-in trước đó,
+  app không kiểm tra/xóa pending reports vì Crashlytics tự gửi theo cấu hình đã consent.
+- App không set Crashlytics `userId` thật và không log tên bé, ghi âm, nội dung học, câu trả lời,
+  email, purchase id hoặc free-text của user. Custom keys chỉ giới hạn dữ liệu kỹ thuật coarse như
+  app version, platform và reporting scope.
+- iOS FirebaseCrashlytics pod có privacy manifest riêng cho crash/diagnostic data; checklist phát
+  hành/App Store privacy labels vẫn phải disclose diagnostics đúng phạm vi opt-in, không tracking,
+  không linked to user.
+- Android build apply `com.google.firebase.crashlytics` chỉ khi `google-services.json` tồn tại cùng
+  `com.google.gms.google-services`, để local build thiếu Firebase config không fail. iOS autolink
+  qua CocoaPods/RNFirebase static frameworks.
 
 ### Monetization lifecycle, Remote Config và App Check
 
@@ -633,7 +666,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   XP, sticker/achievement records, active theme, resume pointer và client update timestamp.
 - Settings payload gồm onboarding flag, journey/learning mode, visible lessons, app language,
   teacher prompt mode, English accent, app theme, child profile, reminder enabled state/time và
-  client update timestamp. Không sync `cloudProgressSync` consent hoặc `enableSceneEditor`.
+  client update timestamp. Không sync `cloudProgressSync` consent, `crashReportingEnabled` hoặc
+  `enableSceneEditor`.
 - Không sync daily activity/streak, voice recording URI/file, lesson asset files hoặc native
   notification permission/schedule state. Reminder preference từ cloud chỉ cập nhật saved setting;
   từng thiết bị vẫn cần parent bật/cấp quyền reminder để native schedule được tạo tại chỗ.
@@ -672,8 +706,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   Rules không có generic iteration để validate mọi map value.
 - `npm run test:firestore-rules` chạy Firebase Emulator với demo project và kiểm tra owner access,
   cross-user/anonymous denial, list denial, owner/schema constraints và unknown-field rejection.
-- Root `firebase.json` vẫn tắt Analytics/Performance/Messaging/ad auto-collection; Firebase
-  Analytics package không được thêm.
+- Root `firebase.json` vẫn tắt Analytics/Performance/Messaging/ad/Crashlytics auto-collection;
+  Firebase Analytics package không được thêm.
 - **Unsupported:** sync daily activity/recordings, Realtime Database và Analytics. App Check client
   initialization đã implemented, nhưng enforcement chưa được chứng minh/cấu hình trong repository.
 

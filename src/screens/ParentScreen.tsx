@@ -23,6 +23,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { NotificationService } from '../services/NotificationService';
+import {
+  applyCrashReportingConsent,
+  discardPendingCrashReports,
+  refreshPendingCrashReport,
+  subscribeCrashReportingState,
+} from '../services/CrashReportingService';
 
 import { AppUiIcon } from '../components/AppUiIcon';
 import { AppCard } from '../components/AppCard';
@@ -179,6 +185,11 @@ export function ParentScreen({ navigation, route }: Props) {
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
+  const [crashReportingEnabled, setCrashReportingEnabled] =
+    useState(false);
+  const [hasPendingCrashReport, setHasPendingCrashReport] = useState(false);
+  const [isCrashReportActionPending, setIsCrashReportActionPending] =
+    useState(false);
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTime, setReminderTime] = useState('19:30');
   const [visibleLessonIds, setVisibleLessonIds] = useState<
@@ -449,6 +460,8 @@ export function ParentScreen({ navigation, route }: Props) {
       : appTheme === 'dark'
       ? t('parent.settings.themeDark')
       : t('common.auto');
+  const shouldShowCrashReportPrompt =
+    isDashboardReady && hasPendingCrashReport && !crashReportingEnabled;
   const focusLessonTitle = focusLesson
     ? getLocalizedLessonTitle(focusLesson, appLanguage)
     : undefined;
@@ -477,6 +490,15 @@ export function ParentScreen({ navigation, route }: Props) {
     setAppTheme(appThemePreference);
   }, [appThemePreference]);
 
+  useEffect(() => {
+    const unsubscribe = subscribeCrashReportingState(state => {
+      setHasPendingCrashReport(state.hasPendingCrashReport);
+    });
+
+    refreshPendingCrashReport().catch(() => undefined);
+    return unsubscribe;
+  }, []);
+
   function clearGateCooldownTimer() {
     if (gateCooldownTimerRef.current) {
       clearTimeout(gateCooldownTimerRef.current);
@@ -502,6 +524,7 @@ export function ParentScreen({ navigation, route }: Props) {
         setEnglishAccent(settings.englishAccent);
         setTeacherPromptMode(settings.teacherPromptMode);
         setAppTheme(settings.appTheme);
+        setCrashReportingEnabled(settings.crashReportingEnabled);
         setReminderEnabled(settings.reminderEnabled);
         setReminderTime(settings.reminderTime);
         setVisibleLessonIds(settings.visibleLessonIds);
@@ -746,6 +769,104 @@ export function ParentScreen({ navigation, route }: Props) {
       );
     });
   }, [t]);
+
+  const handleToggleCrashReporting = async (nextValue?: boolean) => {
+    const next = nextValue ?? !crashReportingEnabled;
+    const previous = crashReportingEnabled;
+    setCrashReportingEnabled(next);
+
+    try {
+      const isApplied = await applyCrashReportingConsent(next, {
+        discardUnsentReports: !next,
+        sendPendingReports: next,
+      });
+      if (!isApplied) {
+        throw new Error('Crashlytics unavailable');
+      }
+      await saveParentSettings(
+        { crashReportingEnabled: next },
+        { touchUpdatedAt: false },
+      );
+    } catch {
+      setCrashReportingEnabled(previous);
+      await applyCrashReportingConsent(previous, {
+        sendPendingReports: previous,
+      }).catch(() => undefined);
+      await saveParentSettings(
+        { crashReportingEnabled: previous },
+        { touchUpdatedAt: false },
+      ).catch(() => undefined);
+      Alert.alert(
+        t('parent.settings.crashReportingErrorTitle'),
+        t('parent.settings.crashReportingErrorText'),
+      );
+    }
+  };
+
+  const handleSendPendingCrashReport = async () => {
+    if (isCrashReportActionPending) {
+      return;
+    }
+
+    const previous = crashReportingEnabled;
+    setIsCrashReportActionPending(true);
+    setCrashReportingEnabled(true);
+
+    try {
+      const isApplied = await applyCrashReportingConsent(true, {
+        sendPendingReports: true,
+      });
+      if (!isApplied) {
+        throw new Error('Crashlytics unavailable');
+      }
+      await saveParentSettings(
+        { crashReportingEnabled: true },
+        { touchUpdatedAt: false },
+      );
+    } catch {
+      setCrashReportingEnabled(previous);
+      await applyCrashReportingConsent(previous, {
+        sendPendingReports: previous,
+      }).catch(() => undefined);
+      await saveParentSettings(
+        { crashReportingEnabled: previous },
+        { touchUpdatedAt: false },
+      ).catch(() => undefined);
+      Alert.alert(
+        t('parent.settings.crashReportingErrorTitle'),
+        t('parent.settings.crashReportingErrorText'),
+      );
+    } finally {
+      setIsCrashReportActionPending(false);
+    }
+  };
+
+  const handleDiscardPendingCrashReport = async () => {
+    if (isCrashReportActionPending) {
+      return;
+    }
+
+    setIsCrashReportActionPending(true);
+
+    try {
+      const isApplied = await discardPendingCrashReports();
+      if (!isApplied) {
+        throw new Error('Crashlytics unavailable');
+      }
+      await saveParentSettings(
+        { crashReportingEnabled: false },
+        { touchUpdatedAt: false },
+      );
+      setCrashReportingEnabled(false);
+    } catch {
+      Alert.alert(
+        t('parent.settings.crashReportingErrorTitle'),
+        t('parent.settings.crashReportingErrorText'),
+      );
+    } finally {
+      setIsCrashReportActionPending(false);
+    }
+  };
 
   const handleToggleReminder = async () => {
     const next = !reminderEnabled;
@@ -2158,7 +2279,6 @@ export function ParentScreen({ navigation, route }: Props) {
                   onPress={() => setAppSettingsSheet('theme')}
                   style={({ pressed }) => [
                     styles.learningSettingsRow,
-                    styles.learningSettingsRowLast,
                     pressed && styles.pressed,
                   ]}
                 >
@@ -2186,6 +2306,97 @@ export function ParentScreen({ navigation, route }: Props) {
                     <Text style={styles.learningSettingsChevron}>›</Text>
                   </View>
                 </Pressable>
+
+                <View
+                  style={[
+                    styles.learningSettingsRow,
+                    !shouldShowCrashReportPrompt &&
+                      styles.learningSettingsRowLast,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="settings" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.crashReportingTitle')}
+                    </Text>
+                    <Text
+                      numberOfLines={3}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {crashReportingEnabled
+                        ? t('parent.settings.crashReportingEnabled')
+                        : t('parent.settings.crashReportingDisabled')}
+                    </Text>
+                  </View>
+                  <Switch
+                    disabled={isCrashReportActionPending}
+                    value={crashReportingEnabled}
+                    onValueChange={handleToggleCrashReporting}
+                    trackColor={{ false: colors.border, true: colors.primary }}
+                  />
+                </View>
+
+                {shouldShowCrashReportPrompt ? (
+                  <View
+                    style={[
+                      styles.crashReportPromptRow,
+                      styles.learningSettingsRowLast,
+                    ]}
+                  >
+                    <View style={styles.crashReportPromptCopy}>
+                      <Text style={styles.crashReportPromptTitle}>
+                        {t('parent.settings.crashReportPromptTitle')}
+                      </Text>
+                      <Text style={styles.crashReportPromptText}>
+                        {t('parent.settings.crashReportPromptText')}
+                      </Text>
+                    </View>
+                    <View style={styles.crashReportPromptActions}>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleSendPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportPrimaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportPrimaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptSend')}
+                        </Text>
+                      </Pressable>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleDiscardPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportSecondaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportSecondaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptDiscard')}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                ) : null}
               </View>
 
               <Modal
@@ -3042,6 +3253,61 @@ const styles = createThemedStyles(() => ({
     fontSize: 24,
     fontWeight: '900',
     lineHeight: 28,
+  },
+  crashReportPrimaryAction: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 44,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  crashReportPrimaryActionText: {
+    color: colors.surface,
+    textAlign: 'center',
+    ...typography.caption,
+  },
+  crashReportPromptActions: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  crashReportPromptCopy: {
+    gap: spacing.xxs,
+  },
+  crashReportPromptRow: {
+    backgroundColor: colors.surfaceBlue,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.md,
+  },
+  crashReportPromptText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  crashReportPromptTitle: {
+    color: colors.text,
+    ...typography.caption,
+  },
+  crashReportSecondaryAction: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    minHeight: 44,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  crashReportSecondaryActionText: {
+    color: colors.primaryDark,
+    textAlign: 'center',
+    ...typography.caption,
   },
   learningSettingsList: {
     borderColor: colors.border,

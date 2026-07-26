@@ -9,6 +9,7 @@ import { startFirebaseAppCheck } from './src/engine/FirebaseAppCheckManager';
 import { startMonetization } from './src/engine/MonetizationManager';
 import { startParentAccessSessionLifecycle } from './src/engine/ParentAccessSession';
 import { AppNavigator } from './src/navigation/AppNavigator';
+import { startCrashReporting } from './src/services/CrashReportingService';
 import { startRemoteMonetizationConfig } from './src/services/RemoteMonetizationConfig';
 import { AppThemeProvider, useAppTheme } from './src/theme/AppTheme';
 
@@ -22,10 +23,12 @@ function App() {
     startCloudProgressSync();
 
     startRemoteMonetizationConfig().catch(() => undefined);
+    const stopCrashReporting = startCrashReporting();
     const stopMonetization = startMonetization();
     const stopParentAccessLifecycle = startParentAccessSessionLifecycle();
 
     return () => {
+      stopCrashReporting();
       stopMonetization();
       stopParentAccessLifecycle();
     };

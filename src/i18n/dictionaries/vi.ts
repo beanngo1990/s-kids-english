@@ -376,6 +376,21 @@ export const vi = {
   'parent.settings.birthYearLabel': 'Năm sinh',
   'parent.settings.birthYearPlaceholder': 'Chọn năm',
   'parent.settings.childAge': '{age} tuổi',
+  'parent.settings.crashReportingDisabled':
+    'Đang tắt. Ứng dụng không gửi báo cáo lỗi kỹ thuật.',
+  'parent.settings.crashReportingEnabled':
+    'Đang bật. Chỉ gửi thông tin kỹ thuật khi app gặp lỗi, không gửi tên bé, ghi âm hoặc nội dung học.',
+  'parent.settings.crashReportingErrorText':
+    'Chưa thể cập nhật tuỳ chọn gửi báo cáo lỗi. Ba mẹ thử lại sau nhé.',
+  'parent.settings.crashReportingErrorTitle':
+    'Chưa bật được báo cáo lỗi',
+  'parent.settings.crashReportingTitle': 'Gửi báo cáo lỗi',
+  'parent.settings.crashReportPromptDiscard': 'Không gửi',
+  'parent.settings.crashReportPromptSend': 'Gửi báo cáo lỗi',
+  'parent.settings.crashReportPromptText':
+    'Ba mẹ có thể gửi báo cáo kỹ thuật để tụi mình sửa lỗi. Không gửi tên bé, ghi âm hoặc nội dung học.',
+  'parent.settings.crashReportPromptTitle':
+    'Ứng dụng vừa gặp lỗi kỹ thuật',
   'parent.settings.dailyBadge': 'Nhịp học hằng ngày',
   'parent.settings.dailySubtitle':
     'Giúp bé học đều mà không tạo áp lực.',

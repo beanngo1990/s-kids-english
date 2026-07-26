@@ -378,6 +378,21 @@ export const en: TranslationDictionary = {
   'parent.settings.birthYearLabel': 'Birth year',
   'parent.settings.birthYearPlaceholder': 'Choose year',
   'parent.settings.childAge': '{age} years old',
+  'parent.settings.crashReportingDisabled':
+    'Off. The app does not send technical crash reports.',
+  'parent.settings.crashReportingEnabled':
+    'On. Sends technical crash details only, without child names, recordings, or learning content.',
+  'parent.settings.crashReportingErrorText':
+    'Crash reporting could not be updated. Please try again later.',
+  'parent.settings.crashReportingErrorTitle':
+    'Crash reporting is not available',
+  'parent.settings.crashReportingTitle': 'Send crash reports',
+  'parent.settings.crashReportPromptDiscard': 'Do not send',
+  'parent.settings.crashReportPromptSend': 'Send crash report',
+  'parent.settings.crashReportPromptText':
+    'You can send a technical report to help us fix it. It does not include child names, recordings, or learning content.',
+  'parent.settings.crashReportPromptTitle':
+    'The app recently hit a technical issue',
   'parent.settings.dailyBadge': 'Daily rhythm',
   'parent.settings.dailySubtitle':
     'Help your child learn regularly without pressure.',
