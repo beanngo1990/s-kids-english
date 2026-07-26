@@ -33,7 +33,6 @@ import { ParentAccountCard } from '../components/ParentAccountCard';
 import { PremiumLessonLockIndicator } from '../components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
-import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
@@ -71,7 +70,6 @@ import type {
   TeacherPromptMode,
 } from '../engine/ParentSettingsManager';
 import {
-  getLocalizedLessonSubtitle,
   getLocalizedLessonTitle,
   getLocalizedThemeDescription,
   getLocalizedThemeTitle,
@@ -312,11 +310,6 @@ export function ParentScreen({ navigation, route }: Props) {
       isSceneProgressComplete(completedSceneIds, focusLesson.id, scene.id),
     ).length;
   }, [completedSceneIds, focusLesson]);
-  const focusSceneCount = focusLesson?.scenes.length ?? 0;
-  const focusProgress =
-    focusSceneCount > 0
-      ? Math.round((completedFocusSceneCount / focusSceneCount) * 100)
-      : 0;
   const allLessonIds = useMemo(
     () => journeyLessons.map(lesson => lesson.id),
     [journeyLessons],
@@ -373,9 +366,6 @@ export function ParentScreen({ navigation, route }: Props) {
   const reviewLesson =
     visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
     focusLesson;
-  const hasFocusLessonAccess = focusLesson
-    ? canAccessLesson(focusLesson.id, monetizationSnapshot)
-    : false;
   const hasReviewLessonAccess = reviewLesson
     ? canAccessReview(reviewLesson.id, monetizationSnapshot)
     : false;
@@ -392,26 +382,12 @@ export function ParentScreen({ navigation, route }: Props) {
     progress?.learnedWordIds,
     reviewLesson,
   ]);
-  const isFocusLessonComplete =
-    focusSceneCount > 0 && completedFocusSceneCount === focusSceneCount;
   const isReviewLessonReadyForGame = Boolean(
     reviewLesson?.reviewGame &&
       reviewLesson.scenes.every(scene =>
         isSceneProgressComplete(completedSceneIds, reviewLesson.id, scene.id),
       ),
   );
-  const focusLessonBadge = !hasFocusLessonAccess
-    ? t('premium.badge')
-    : isFocusLessonComplete
-    ? t('parent.stats.lessonBadgeReview')
-    : completedFocusSceneCount > 0
-    ? t('parent.stats.lessonBadgeLearning')
-    : t('parent.stats.lessonBadgeNext');
-  const focusLessonAction = !hasFocusLessonAccess
-    ? t('premium.openPlans')
-    : isFocusLessonComplete
-    ? t('parent.stats.lessonActionReview')
-    : t('parent.stats.lessonActionContinue');
   const heroTitle =
     todayWordCount > 0 || todaySceneCount > 0
       ? t('parent.stats.heroTitleGreat', { name: childDisplayName })
@@ -419,7 +395,14 @@ export function ParentScreen({ navigation, route }: Props) {
   const heroSummary = !isDashboardReady
     ? t('parent.stats.heroSummaryLoading')
     : todayWordCount > 0
-    ? (todaySceneCount > 0 ? t('parent.stats.heroSummaryWordsAndScenes', { words: String(todayWordCount), scenes: String(todaySceneCount) }) : t('parent.stats.heroSummaryWords', { words: String(todayWordCount) }))
+    ? todaySceneCount > 0
+      ? t('parent.stats.heroSummaryWordsAndScenes', {
+          scenes: String(todaySceneCount),
+          words: String(todayWordCount),
+        })
+      : t('parent.stats.heroSummaryWords', {
+          words: String(todayWordCount),
+        })
     : todaySceneCount > 0
     ? t('parent.stats.heroSummaryScenes', { scenes: String(todaySceneCount) })
     : t('parent.stats.heroSummaryEmpty');
@@ -468,9 +451,6 @@ export function ParentScreen({ navigation, route }: Props) {
       : t('common.auto');
   const focusLessonTitle = focusLesson
     ? getLocalizedLessonTitle(focusLesson, appLanguage)
-    : undefined;
-  const focusLessonSubtitle = focusLesson
-    ? getLocalizedLessonSubtitle(focusLesson, appLanguage)
     : undefined;
   const reviewLessonTitle = reviewLesson
     ? getLocalizedLessonTitle(reviewLesson, appLanguage)
@@ -1164,7 +1144,7 @@ export function ParentScreen({ navigation, route }: Props) {
                   <Text numberOfLines={2} style={styles.todayTitle}>
                     {heroTitle}
                   </Text>
-                  <Text numberOfLines={2} style={styles.todaySummary}>
+                  <Text numberOfLines={3} style={styles.todaySummary}>
                     {heroSummary}
                   </Text>
                   <View style={styles.todayMetrics}>
@@ -1218,106 +1198,6 @@ export function ParentScreen({ navigation, route }: Props) {
                 <Text style={styles.todayActionArrow}>→</Text>
               </Pressable>
             </AppCard>
-
-            <Pressable
-              accessibilityHint={t('parent.stats.openFocusLessonHint')}
-              accessibilityLabel={`${focusLessonAction} ${
-                focusLessonTitle ?? t('parent.stats.lesson')
-              }`}
-              accessibilityRole="button"
-              accessibilityState={{ disabled: !canOpenFocusLesson }}
-              disabled={!canOpenFocusLesson}
-              onPress={handleOpenFocusLesson}
-              style={({ pressed }) => [
-                styles.cardPressable,
-                pressed && styles.pressed,
-              ]}
-            >
-              <AppCard
-                style={[
-                  styles.currentLessonCard,
-                  isCompactDashboard && styles.dashboardCardCompact,
-                ]}
-              >
-                <View
-                  style={[
-                    styles.currentLessonTopRow,
-                    isCompactDashboard && styles.currentLessonTopRowCompact,
-                  ]}
-                >
-                  <View
-                    style={[
-                      styles.currentLessonIcon,
-                      isCompactDashboard && styles.currentLessonIconCompact,
-                    ]}
-                  >
-                    {focusLesson ? (
-                      <SKidsIcon
-                        name={getLessonIconName(focusLesson)}
-                        size={isCompactDashboard ? 52 : 64}
-                      />
-                    ) : (
-                      <SKidsIcon
-                        name="focusLesson"
-                        size={isCompactDashboard ? 52 : 64}
-                      />
-                    )}
-                  </View>
-                  <View style={styles.currentLessonCopy}>
-                    <KidBadge tone={isFocusLessonComplete ? 'teal' : 'sun'}>
-                      {focusLessonBadge}
-                    </KidBadge>
-                    <Text style={styles.currentLessonTitle}>
-                      {isDashboardReady
-                        ? focusLessonTitle ?? t('parent.stats.firstLesson')
-                        : t('parent.stats.preparingPath')}
-                    </Text>
-                    {focusLessonSubtitle ? (
-                      <Text
-                        numberOfLines={2}
-                        style={styles.currentLessonSubtitle}
-                      >
-                        {focusLessonSubtitle}
-                      </Text>
-                    ) : null}
-                  </View>
-                </View>
-
-                <View style={styles.lessonProgressMeta}>
-                  <Text style={styles.currentLessonProgressText}>
-                    {isDashboardReady
-                      ? t('parent.stats.stationsProgress', { completed: String(completedFocusSceneCount), total: String(focusSceneCount) })
-                      : t('parent.stats.loadingProgress')}
-                  </Text>
-                  <Text style={styles.currentLessonPercent}>
-                    {focusProgress}%
-                  </Text>
-                </View>
-
-                <View style={styles.lessonProgressTrack}>
-                  {focusProgress > 0 ? (
-                    <View
-                      style={[
-                        styles.lessonProgressFill,
-                        { width: `${focusProgress}%` },
-                      ]}
-                    />
-                  ) : null}
-                </View>
-
-                <View style={styles.currentLessonFooter}>
-                  <View style={styles.currentLessonStars}>
-                    <ProgressStars
-                      completed={completedFocusSceneCount}
-                      total={focusSceneCount}
-                    />
-                  </View>
-                  <Text style={styles.currentLessonAction}>
-                    {focusLessonAction} →
-                  </Text>
-                </View>
-              </AppCard>
-            </Pressable>
 
             <AppCard
               style={[
@@ -2825,73 +2705,6 @@ const styles = createThemedStyles(() => ({
   cardPressable: {
     borderRadius: radius.xl,
   },
-  currentLessonAction: {
-    color: colors.primaryDark,
-    ...typography.caption,
-  },
-  currentLessonCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.sm,
-    padding: spacing.md,
-  },
-  currentLessonCopy: {
-    flex: 1,
-    gap: spacing.xxs,
-    minWidth: 0,
-  },
-  currentLessonFooter: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-    justifyContent: 'space-between',
-  },
-  currentLessonIcon: {
-    alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    height: 64,
-    justifyContent: 'center',
-    width: 64,
-  },
-  currentLessonIconCompact: {
-    height: 60,
-    width: 60,
-  },
-  currentLessonPercent: {
-    color: colors.primaryDark,
-    ...typography.subtitle,
-  },
-  currentLessonProgressText: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  currentLessonStars: {
-    alignItems: 'center',
-    flex: 1,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    minWidth: 0,
-  },
-  currentLessonSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  currentLessonTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  currentLessonTopRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  currentLessonTopRowCompact: {
-    alignItems: 'flex-start',
-  },
   customPlanNotice: {
     alignItems: 'flex-start',
     backgroundColor: colors.primarySoft,
@@ -3099,23 +2912,6 @@ const styles = createThemedStyles(() => ({
   headerCopy: {
     color: colors.textSoft,
     ...typography.body,
-  },
-  lessonProgressFill: {
-    backgroundColor: colors.primary,
-    borderRadius: radius.pill,
-    height: '100%',
-  },
-  lessonProgressMeta: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  lessonProgressTrack: {
-    backgroundColor: colors.primarySoft,
-    borderRadius: radius.pill,
-    height: 12,
-    overflow: 'hidden',
-    width: '100%',
   },
   journeyChoice: {
     backgroundColor: colors.surfaceBlue,
