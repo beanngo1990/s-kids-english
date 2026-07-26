@@ -283,6 +283,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   bài focus hiện tại, không phải 3 bài vừa học gần nhất. Tab Cài đặt chỉnh child profile,
   Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
   reminder time, contact support email và app version.
+- Các config chính trong Góc phụ huynh có giải thích ngắn theo ba ý: tính năng là gì, ảnh hưởng
+  tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
+  sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
+  cách mở bài học, độ khó, nhịp học, nhắc học, giờ nhắc, ngôn ngữ app, giọng hướng dẫn, giọng
+  tiếng Anh, giao diện, crash reporting và cloud learning data sync.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
   Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.

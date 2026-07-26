@@ -40,7 +40,13 @@ type PendingAction =
   | 'signOut'
   | 'signOutClearLocal';
 
-export function ParentAccountCard() {
+type ParentAccountCardProps = {
+  onCloudSyncInfoPress?: () => void;
+};
+
+export function ParentAccountCard({
+  onCloudSyncInfoPress,
+}: ParentAccountCardProps) {
   useThemeSync();
   const t = useI18n();
   const monetization = useMonetizationSnapshot();
@@ -311,6 +317,7 @@ export function ParentAccountCard() {
         firebaseConfigMissing={firebaseConfigMissing}
         isAccountBusy={isBusy}
         isSignedIn={Boolean(user)}
+        onInfoPress={onCloudSyncInfoPress}
       />
 
       {user ? (

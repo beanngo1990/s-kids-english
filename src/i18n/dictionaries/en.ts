@@ -344,6 +344,87 @@ export const en: TranslationDictionary = {
   'parent.cloudSync.statusWaitingForSignIn':
     'Sync is paused until the parent account signs in again.',
   'parent.cloudSync.title': 'Learning data sync',
+  'parent.info.childImpactLabel': 'Impact on your child',
+  'parent.info.appLanguage.childImpact':
+    'Changing language helps parents read the app more comfortably. Some child learning content stays in English to match the learning goal.',
+  'parent.info.appLanguage.privacy':
+    'This choice is stored in parent settings and only syncs to cloud if learning data sync is enabled.',
+  'parent.info.appLanguage.title': 'App language',
+  'parent.info.appLanguage.what':
+    'Chooses the main display language for the app interface.',
+  'parent.info.cloudSync.childImpact':
+    'Your child can continue progress and selected settings on another device when the same parent account is signed in.',
+  'parent.info.cloudSync.privacy':
+    'Only learning progress and selected settings are synced. Recordings, detailed activity logs, audio/asset files, and each device’s notification permission are not uploaded.',
+  'parent.info.cloudSync.title': 'Learning data sync',
+  'parent.info.cloudSync.what':
+    'Keeps a cloud copy of learning data after a parent allows it.',
+  'parent.info.crashReporting.childImpact':
+    'It does not change lessons. Reports only help the team fix crashes or stability issues.',
+  'parent.info.crashReporting.privacy':
+    'It does not send child names, recordings, learning content, answers, email, or purchase IDs. If it is off, the app only asks when a report is waiting.',
+  'parent.info.crashReporting.title': 'Send crash reports',
+  'parent.info.crashReporting.what':
+    'Allows technical reports to be sent when the app hits a serious error.',
+  'parent.info.difficulty.childImpact':
+    'Changing difficulty adjusts the vocabulary range and some activities, without deleting old progress.',
+  'parent.info.difficulty.privacy':
+    'This setting is stored locally and only syncs to cloud if learning data sync is enabled.',
+  'parent.info.difficulty.title': 'Difficulty',
+  'parent.info.difficulty.what':
+    'Chooses the right vocabulary scope: easy, expanded, or challenge.',
+  'parent.info.englishAccent.childImpact':
+    'Your child hears American or British pronunciation for vocabulary and English guidance.',
+  'parent.info.englishAccent.privacy':
+    'No recording or pronunciation scoring is involved. This only changes the playback voice.',
+  'parent.info.englishAccent.title': 'English accent',
+  'parent.info.englishAccent.what':
+    'Chooses the main English accent used for vocabulary audio.',
+  'parent.info.journey.childImpact':
+    'Guided keeps lessons step by step; Free lets your child open lessons without following order.',
+  'parent.info.journey.privacy':
+    'This only controls lesson access. It does not collect additional data.',
+  'parent.info.journey.title': 'Lesson access',
+  'parent.info.journey.what':
+    'Decides whether your child follows the suggested order or can open lessons more freely.',
+  'parent.info.lessonPace.childImpact':
+    'All lessons enables the full path; Gentle keeps a few lessons near the current one; Custom lets parents show or hide each lesson.',
+  'parent.info.lessonPace.privacy':
+    'The enabled lesson list is stored in parent settings and only syncs to cloud if learning data sync is enabled.',
+  'parent.info.lessonPace.title': 'Learning pace',
+  'parent.info.lessonPace.what':
+    'Adjusts how many lessons appear in the child learning area.',
+  'parent.info.openAccessibility': 'Show explanation',
+  'parent.info.privacyLabel': 'Data & privacy',
+  'parent.info.reminder.childImpact':
+    'Your child gets a gentle reminder at the time parents choose. It can be turned off anytime.',
+  'parent.info.reminder.privacy':
+    'The reminder schedule and notification permission stay local to each device and do not turn on automatically elsewhere.',
+  'parent.info.reminder.title': 'Learning reminder',
+  'parent.info.reminder.what':
+    'Creates a daily reminder to keep learning regular without pressure.',
+  'parent.info.reminderTime.childImpact':
+    'The reminder time should match a comfortable moment, such as after dinner or before reading time.',
+  'parent.info.reminderTime.privacy':
+    'The reminder time stays on this device; notification permission is still controlled by the operating system.',
+  'parent.info.reminderTime.title': 'Reminder time',
+  'parent.info.reminderTime.what':
+    'Chooses when the app sends the daily learning reminder if reminders are enabled.',
+  'parent.info.teacherPrompt.childImpact':
+    'Changes the language the teacher voice uses to guide your child during lessons.',
+  'parent.info.teacherPrompt.privacy':
+    'No new recording or data upload is added. This only changes guidance playback.',
+  'parent.info.teacherPrompt.title': 'Teacher voice',
+  'parent.info.teacherPrompt.what':
+    'Chooses Vietnamese, English, or bilingual guidance.',
+  'parent.info.theme.childImpact':
+    'Only changes app colors. It does not change lessons or learning progress.',
+  'parent.info.theme.privacy':
+    'Theme preference is stored locally and can sync to cloud if learning data sync is enabled.',
+  'parent.info.theme.title': 'Theme',
+  'parent.info.theme.what':
+    'Chooses light, dark, or the device system theme.',
+  'parent.info.whatLabel': 'What is this?',
   'parent.privacy.text':
     'The child learning area has no ads or external links. Voice data is not uploaded; learning data is stored in the cloud only with a parent’s permission.',
   'parent.privacy.title': 'Child-safe',
