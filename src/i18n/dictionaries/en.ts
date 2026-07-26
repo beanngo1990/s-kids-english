@@ -802,7 +802,7 @@ export const en: TranslationDictionary = {
   'parent.stats.loadingProgress': 'Loading progress',
   'parent.stats.achievementTitle': 'Learning Journey',
   'parent.stats.achievementSubtitle': 'Every lesson is a lovely step forward.',
-  'parent.stats.wordsLearned': 'Words learned',
+  'parent.stats.wordsLearned': 'Total words learned',
   'parent.stats.lessonsCompleted': 'Lessons completed',
   'parent.stats.stickersEarned': 'Stickers earned',
   'parent.stats.reviewBadge': 'Review together · 3 min',

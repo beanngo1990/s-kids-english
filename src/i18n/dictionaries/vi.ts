@@ -801,7 +801,7 @@ export const vi = {
   'parent.stats.loadingProgress': 'Đang tải tiến độ',
   'parent.stats.achievementTitle': 'Hành trình của bé',
   'parent.stats.achievementSubtitle': 'Mỗi lần học là một bước tiến đáng yêu.',
-  'parent.stats.wordsLearned': 'Từ đã học',
+  'parent.stats.wordsLearned': 'Tổng từ đã học',
   'parent.stats.lessonsCompleted': 'Bài hoàn thành',
   'parent.stats.stickersEarned': 'Sticker nhận được',
   'parent.stats.reviewBadge': 'Ôn cùng bé · 3 phút',

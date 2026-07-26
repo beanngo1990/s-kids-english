@@ -268,6 +268,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
   trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
+- Parent stats tổng quan là chỉ số lịch sử/all-time, không reset hay lọc lại theo `learningMode`
+  hiện tại. `Tổng từ đã học` dùng unique learned word IDs; `Sticker nhận được` bao gồm sticker
+  lesson đã nhận và achievement stickers đã unlock/đã có record.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.

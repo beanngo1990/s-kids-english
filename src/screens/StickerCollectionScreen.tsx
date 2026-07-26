@@ -22,10 +22,8 @@ import { SKidsIcon } from '../components/SKidsIcon';
 import {
   achievementRewards,
   getAchievementProgress,
-  isAchievementUnlocked,
   type AchievementCategory,
   type AchievementReward,
-  type AchievementStats,
 } from '../data/achievementRewards';
 import { lessons } from '../data/lessons';
 import type { MascotPoseId } from '../data/mascot';
@@ -53,6 +51,10 @@ import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
+import {
+  getAchievementStats,
+  isAchievementStickerEarned,
+} from '../utils/stickerStats';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'StickerCollection'>;
 
@@ -151,6 +153,10 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
 
     return records;
   }, [progress?.earnedAchievementRecords]);
+  const earnedAchievementIds = useMemo(
+    () => new Set(earnedAchievementRecordById.keys()),
+    [earnedAchievementRecordById],
+  );
 
   const collectionItems = useMemo(
     () =>
@@ -163,29 +169,19 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
       })),
     [earnedRecordByStickerId, earnedStickerIds, highlightedStickerId],
   );
-  const achievementStats: AchievementStats = useMemo(
-    () => ({
-      completedLessons: progress?.completedLessonIds.length ?? 0,
-      completedReviews: progress?.completedReviewGameIds.length ?? 0,
-      completedScenes: progress?.completedSceneIds.length ?? 0,
-      currentStreak: activityLog?.currentStreak ?? 0,
-      learnedWords: progress?.learnedWordIds.length ?? 0,
-      longestStreak: activityLog?.longestStreak ?? 0,
-    }),
-    [
-      activityLog?.currentStreak,
-      activityLog?.longestStreak,
-      progress?.completedLessonIds.length,
-      progress?.completedReviewGameIds.length,
-      progress?.completedSceneIds.length,
-      progress?.learnedWordIds.length,
-    ],
+  const achievementStats = useMemo(
+    () => getAchievementStats(progress, activityLog),
+    [activityLog, progress],
   );
   const achievementItems = useMemo(
     () =>
       achievementRewards.map(reward => {
         const current = getAchievementProgress(reward, achievementStats);
-        const isUnlocked = isAchievementUnlocked(reward, achievementStats);
+        const isUnlocked = isAchievementStickerEarned(
+          reward,
+          achievementStats,
+          earnedAchievementIds,
+        );
 
         return {
           current: Math.min(current, reward.target),
@@ -194,7 +190,7 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
           reward,
         };
       }),
-    [achievementStats, earnedAchievementRecordById],
+    [achievementStats, earnedAchievementIds, earnedAchievementRecordById],
   );
   const missingAchievementIds = useMemo(
     () =>
