@@ -39,6 +39,7 @@ export const defaultChildProfile: ChildProfile = {
 };
 
 export type ParentSettings = {
+  backgroundMusicEnabled: boolean;
   cloudProgressSync: CloudProgressSyncPreference;
   crashReportingEnabled: boolean;
   enableSceneEditor?: boolean;
@@ -143,6 +144,7 @@ export function detectDeviceLanguage(): AppLanguage {
 export function getDefaultParentSettings(): ParentSettings {
   const initialLanguage = detectDeviceLanguage();
   return {
+    backgroundMusicEnabled: false,
     cloudProgressSync: { enabled: false },
     crashReportingEnabled: false,
     enableSceneEditor: false,
@@ -264,6 +266,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
   const appLanguage = normalizeAppLanguage(settings.appLanguage);
 
   return {
+    backgroundMusicEnabled: Boolean(settings.backgroundMusicEnabled),
     cloudProgressSync: normalizeCloudProgressSyncPreference(
       settings.cloudProgressSync,
     ),

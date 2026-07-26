@@ -350,6 +350,13 @@ export const vi = {
   'parent.info.appLanguage.title': 'Ngôn ngữ ứng dụng',
   'parent.info.appLanguage.what':
     'Chọn ngôn ngữ hiển thị chính cho giao diện ứng dụng.',
+  'parent.info.backgroundMusic.childImpact':
+    'Khi bật, bé nghe nhạc nền nhỏ ở các màn ngoài bài học. Nhạc không phát trong bài học hoặc game ôn tập để bé tập trung nghe cô giáo và từ vựng.',
+  'parent.info.backgroundMusic.privacy':
+    'Nhạc nền là file bundled trong app, không tải thêm dữ liệu và không ghi âm. Lựa chọn này lưu local trên thiết bị.',
+  'parent.info.backgroundMusic.title': 'Nhạc nền',
+  'parent.info.backgroundMusic.what':
+    'Bật hoặc tắt bài nhạc nền nhẹ cho trải nghiệm học vui hơn.',
   'parent.info.cloudSync.childImpact':
     'Bé có thể tiếp tục tiến độ và một số cài đặt trên thiết bị khác khi ba mẹ đăng nhập cùng tài khoản.',
   'parent.info.cloudSync.privacy':
@@ -445,6 +452,11 @@ export const vi = {
   'parent.settings.appLanguageSubtitle': 'Ngôn ngữ hiển thị của ứng dụng.',
   'parent.settings.appLanguageTitle': 'Ngôn ngữ',
   'parent.settings.appLanguageVietnamese': 'Tiếng Việt',
+  'parent.settings.backgroundMusicDisabled':
+    'Đang tắt. Có thể bật để app vui hơn mà không ảnh hưởng bài học.',
+  'parent.settings.backgroundMusicEnabled':
+    'Đang bật ở âm lượng thấp. Nhạc không phát trong bài học hoặc game ôn tập.',
+  'parent.settings.backgroundMusicTitle': 'Nhạc nền',
   'parent.settings.englishAccentAmerican': 'Anh–Mỹ',
   'parent.settings.englishAccentAmericanSubtitle':
     'Phù hợp khi bé học theo chương trình hoặc nội dung Mỹ.',

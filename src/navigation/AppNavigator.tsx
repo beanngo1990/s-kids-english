@@ -1,6 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { Animated, View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import {
@@ -18,6 +21,10 @@ import {
 } from '../screens';
 import { PremiumScreen } from '../screens/PremiumScreen';
 import { MascotImage } from '../components/mascot';
+import {
+  isBackgroundMusicSuppressedRoute,
+  setBackgroundMusicSuppressedByRoute,
+} from '../engine/BackgroundMusicManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
@@ -29,9 +36,15 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export function AppNavigator() {
   useThemeSync();
   const t = useI18n();
+  const navigationRef = useNavigationContainerRef<RootStackParamList>();
   const [initialRouteName, setInitialRouteName] = useState<
     keyof RootStackParamList | null
   >(null);
+  const syncBackgroundMusicRoute = useCallback(() => {
+    setBackgroundMusicSuppressedByRoute(
+      isBackgroundMusicSuppressedRoute(navigationRef.getCurrentRoute()?.name),
+    );
+  }, [navigationRef]);
 
   useEffect(() => {
     let isMounted = true;
@@ -54,6 +67,13 @@ export function AppNavigator() {
       isMounted = false;
     };
   }, []);
+
+  useEffect(
+    () => () => {
+      setBackgroundMusicSuppressedByRoute(false);
+    },
+    [],
+  );
 
 function AnimatedSplashMascot() {
   const floatAnim = useRef(new Animated.Value(0)).current;
@@ -101,7 +121,11 @@ function AnimatedSplashMascot() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={syncBackgroundMusicRoute}
+      onStateChange={syncBackgroundMusicRoute}
+    >
       <Stack.Navigator
         initialRouteName={initialRouteName}
         screenOptions={{

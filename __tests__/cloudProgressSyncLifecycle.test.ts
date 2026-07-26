@@ -31,6 +31,7 @@ const mockSetDoc = jest.fn((_reference: unknown, _data: unknown) =>
 const mockSettings = {
   appLanguage: 'vi',
   appTheme: 'system',
+  backgroundMusicEnabled: false,
   childProfile: {
     avatarEmoji: ':)',
     name: 'Sweet kid',

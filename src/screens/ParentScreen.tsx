@@ -145,6 +145,7 @@ type AppSettingsSheet =
   | 'theme';
 type ParentInfoTopic =
   | 'appLanguage'
+  | 'backgroundMusic'
   | 'cloudSync'
   | 'crashReporting'
   | 'difficulty'
@@ -202,6 +203,8 @@ export function ParentScreen({ navigation, route }: Props) {
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
+  const [backgroundMusicEnabled, setBackgroundMusicEnabled] =
+    useState(false);
   const [crashReportingEnabled, setCrashReportingEnabled] =
     useState(false);
   const [hasPendingCrashReport, setHasPendingCrashReport] = useState(false);
@@ -633,6 +636,7 @@ export function ParentScreen({ navigation, route }: Props) {
         setEnglishAccent(settings.englishAccent);
         setTeacherPromptMode(settings.teacherPromptMode);
         setAppTheme(settings.appTheme);
+        setBackgroundMusicEnabled(settings.backgroundMusicEnabled);
         setCrashReportingEnabled(settings.crashReportingEnabled);
         setReminderEnabled(settings.reminderEnabled);
         setReminderTime(settings.reminderTime);
@@ -865,6 +869,14 @@ export function ParentScreen({ navigation, route }: Props) {
     setAppSettingsSheet(null);
     setAppTheme(theme);
     await setAppThemePreference(theme);
+  };
+
+  const handleToggleBackgroundMusic = async (nextValue: boolean) => {
+    setBackgroundMusicEnabled(nextValue);
+    await saveParentSettings(
+      { backgroundMusicEnabled: nextValue },
+      { touchUpdatedAt: false },
+    );
   };
 
   const handleContactSupport = useCallback(() => {
@@ -2422,6 +2434,31 @@ export function ParentScreen({ navigation, route }: Props) {
                     <Text style={styles.learningSettingsChevron}>›</Text>
                   </View>
                 </Pressable>
+
+                <View style={styles.learningSettingsRow}>
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="gameListen" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.backgroundMusicTitle'),
+                      'backgroundMusic',
+                    )}
+                    <Text
+                      numberOfLines={3}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {backgroundMusicEnabled
+                        ? t('parent.settings.backgroundMusicEnabled')
+                        : t('parent.settings.backgroundMusicDisabled')}
+                    </Text>
+                  </View>
+                  <Switch
+                    value={backgroundMusicEnabled}
+                    onValueChange={handleToggleBackgroundMusic}
+                    trackColor={{ false: colors.border, true: colors.primary }}
+                  />
+                </View>
 
                 <View
                   style={[

@@ -352,6 +352,13 @@ export const en: TranslationDictionary = {
   'parent.info.appLanguage.title': 'App language',
   'parent.info.appLanguage.what':
     'Chooses the main display language for the app interface.',
+  'parent.info.backgroundMusic.childImpact':
+    'When enabled, your child hears quiet background music outside active lessons. It does not play during lessons or review games so teacher and vocabulary audio stay clear.',
+  'parent.info.backgroundMusic.privacy':
+    'The music is bundled inside the app. It does not download extra data or record audio. This choice stays local on this device.',
+  'parent.info.backgroundMusic.title': 'Background music',
+  'parent.info.backgroundMusic.what':
+    'Turns a gentle background track on or off for a livelier learning experience.',
   'parent.info.cloudSync.childImpact':
     'Your child can continue progress and selected settings on another device when the same parent account is signed in.',
   'parent.info.cloudSync.privacy':
@@ -447,6 +454,11 @@ export const en: TranslationDictionary = {
   'parent.settings.appLanguageSubtitle': 'The display language for the app.',
   'parent.settings.appLanguageTitle': 'Language',
   'parent.settings.appLanguageVietnamese': 'Vietnamese',
+  'parent.settings.backgroundMusicDisabled':
+    'Off. You can turn it on to make the app livelier without changing lessons.',
+  'parent.settings.backgroundMusicEnabled':
+    'On at low volume. Music does not play during lessons or review games.',
+  'parent.settings.backgroundMusicTitle': 'Background music',
   'parent.settings.englishAccentAmerican': 'American English',
   'parent.settings.englishAccentAmericanSubtitle':
     'Best when your child follows American learning materials.',

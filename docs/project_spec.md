@@ -282,12 +282,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   lesson trong plan, còn guided/free journey vẫn là setting riêng. Nhịp "Nhẹ nhàng" bật 3 bài gần
   bài focus hiện tại, không phải 3 bài vừa học gần nhất. Tab Cài đặt chỉnh child profile,
   Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
-  reminder time, contact support email và app version.
+  reminder time, optional background music, contact support email và app version.
 - Các config chính trong Góc phụ huynh có giải thích ngắn theo ba ý: tính năng là gì, ảnh hưởng
   tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
   sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
   cách mở bài học, độ khó, nhịp học, nhắc học, giờ nhắc, ngôn ngữ app, giọng hướng dẫn, giọng
-  tiếng Anh, giao diện, crash reporting và cloud learning data sync.
+  tiếng Anh, giao diện, nhạc nền, crash reporting và cloud learning data sync.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
   Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
@@ -502,7 +502,7 @@ của learning progress và selected parent settings sau parent opt-in:
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
   app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile,
-  crash reporting opt-in và `cloudProgressSync` consent preference.
+  background music opt-in, crash reporting opt-in và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 - `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
   giữ hành vi legacy.
@@ -510,8 +510,8 @@ của learning progress và selected parent settings sau parent opt-in:
   consent version hiện tại và consent timestamp hợp lệ.
 - Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
   mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
-  enabled/time và child profile. `cloudProgressSync` consent, `crashReportingEnabled` và
-  `enableSceneEditor` là local-only.
+  enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
+  `crashReportingEnabled` và `enableSceneEditor` là local-only.
 - Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
   trạng thái riêng trên từng thiết bị.
 
@@ -675,8 +675,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   XP, sticker/achievement records, active theme, resume pointer và client update timestamp.
 - Settings payload gồm onboarding flag, journey/learning mode, visible lessons, app language,
   teacher prompt mode, English accent, app theme, child profile, reminder enabled state/time và
-  client update timestamp. Không sync `cloudProgressSync` consent, `crashReportingEnabled` hoặc
-  `enableSceneEditor`.
+  client update timestamp. Không sync `cloudProgressSync` consent, `backgroundMusicEnabled`,
+  `crashReportingEnabled` hoặc `enableSceneEditor`.
 - Không sync daily activity/streak, voice recording URI/file, lesson asset files hoặc native
   notification permission/schedule state. Reminder preference từ cloud chỉ cập nhật saved setting;
   từng thiết bị vẫn cần parent bật/cấp quyền reminder để native schedule được tạo tại chỗ.
@@ -728,6 +728,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
    runtime R2-first.
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
+4. Optional background music: bundled file `src/assets/ui/audio/music/sungy-background.mp3`,
+   mặc định tắt và chỉ chạy sau parent opt-in local trên thiết bị.
 
 `AudioManager` giữ playback primitive và effects theo hướng best-effort, còn `ScenePlayer` áp dụng
 readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa sẵn sàng, scene hiển thị lựa chọn
@@ -740,11 +742,18 @@ en-GB thiếu. Narration dùng session latest-wins: session mới dừng session
 không được tiếp tục segment hoặc accent/legacy fallback sau khi cache lookup hay native playback
 trả về.
 
+Background music dùng native playback channel riêng, loop ở âm lượng thấp trong foreground app và
+tự dừng khi app rời trạng thái active. Nhạc nền không phát trên các route học chủ động
+`ScenePlayer` và `ReviewGame`; khi rời các màn này, nếu phụ huynh đã bật opt-in thì manager có thể
+phát lại. `AudioManager` vẫn duck nhạc nền xuống mức nhỏ hơn khi có URI audio, teacher prompt hoặc
+vocabulary fallback speech ở các màn khác, để lời hướng dẫn và từ vựng luôn rõ hơn nhạc.
+
 ### Native support matrix
 
 | Capability                          | Android                       | iOS                           | Fallback/current behavior         |
 | ----------------------------------- | ----------------------------- | ----------------------------- | --------------------------------- |
 | `SkidsAudio` SFX/URI playback       | Implemented                   | Implemented                   | AudioManager best-effort          |
+| `SkidsAudio` background music       | Implemented                   | Implemented                   | Tắt nếu native method unavailable |
 | Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
 | `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
