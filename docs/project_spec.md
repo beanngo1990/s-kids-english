@@ -271,6 +271,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Parent stats tổng quan là chỉ số lịch sử/all-time, không reset hay lọc lại theo `learningMode`
   hiện tại. `Tổng từ đã học` dùng unique learned word IDs; `Sticker nhận được` bao gồm sticker
   lesson đã nhận và achievement stickers đã unlock/đã có record.
+- Parent stats không hiển thị card current lesson riêng; CTA chính nằm ở card tiến độ hôm nay, còn
+  hoạt động ôn tập dùng review card chuyên biệt để tránh trùng lời mời hành động.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
@@ -431,7 +433,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 Các completion/event-write flow chính catch lỗi theo hướng best-effort để lesson/reward navigation
 không bị kẹt. Các primitive như đọc, save/reset toàn bộ progress hoặc lưu active theme vẫn có thể
 throw; caller không được giả định mọi progress operation đều nuốt lỗi. Activity ghi words/scenes
-và ước lượng 3 phút cho mỗi scene event.
+và ước lượng 3 phút cho mỗi scene event. Daily activity `scenesCompleted` dùng cho Parent stats
+như số lượt trạm trong ngày, không phải unique completed scene count.
 Những completion flow biết `learningMode` hiện tại chỉ auto-add learned words khả dụng trong mode
 đó, tránh ghi nhận trước vocabulary của mode cao hơn.
 
