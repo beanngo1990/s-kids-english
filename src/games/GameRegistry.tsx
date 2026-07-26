@@ -7,12 +7,10 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { ReviewGame } from '../types/lesson';
-import {
-  MemoryGame,
-  type MemoryGameItem,
-} from './memory/MemoryGame';
+import { MemoryGame } from './memory/MemoryGame';
 import { ListenChooseGame } from './listenChoose/ListenChooseGame';
 import { MatchingGame } from './matching/MatchingGame';
+import type { ReviewGameItem } from './reviewItems';
 
 export const SUPPORTED_REVIEW_GAMES = [
   'memory',
@@ -21,21 +19,31 @@ export const SUPPORTED_REVIEW_GAMES = [
 ] as const;
 export type ExecutableReviewGameType = (typeof SUPPORTED_REVIEW_GAMES)[number];
 
+export function isExecutableReviewGameType(
+  type: ReviewGame['type'] | undefined,
+): type is ExecutableReviewGameType {
+  return Boolean(
+    type && SUPPORTED_REVIEW_GAMES.includes(type as ExecutableReviewGameType),
+  );
+}
+
+export function hasPlayableReviewGame(reviewGame: ReviewGame | undefined) {
+  return Boolean(
+    reviewGame &&
+      (reviewGame.type === 'random' ||
+        isExecutableReviewGameType(reviewGame.type)),
+  );
+}
+
 export function resolveReviewGameType(
   configuredType?: ReviewGame['type'],
   requestedType?: ReviewGame['type'],
 ): ExecutableReviewGameType {
-  if (
-    requestedType &&
-    SUPPORTED_REVIEW_GAMES.includes(requestedType as ExecutableReviewGameType)
-  ) {
-    return requestedType as ExecutableReviewGameType;
+  if (isExecutableReviewGameType(requestedType)) {
+    return requestedType;
   }
-  if (
-    configuredType &&
-    SUPPORTED_REVIEW_GAMES.includes(configuredType as ExecutableReviewGameType)
-  ) {
-    return configuredType as ExecutableReviewGameType;
+  if (isExecutableReviewGameType(configuredType)) {
+    return configuredType;
   }
   // Random or fallback: pick randomly between supported games
   const randomIndex = Math.floor(Math.random() * SUPPORTED_REVIEW_GAMES.length);
@@ -44,7 +52,7 @@ export function resolveReviewGameType(
 
 type GamePlayerProps = {
   isIntroPlaying?: boolean;
-  memoryItems: MemoryGameItem[];
+  memoryItems: ReviewGameItem[];
   onComplete: () => void;
   onWordInteraction?: (wordId: string, isFirstTry: boolean) => void;
   reviewGame: ReviewGame;

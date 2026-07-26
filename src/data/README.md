@@ -248,6 +248,15 @@ Lesson and theme titles should keep `titleVi` plus `titleEn`. Use
 `descriptionVi` for Vietnamese app copy and add `descriptionEn` when the
 description is shown in English UI.
 
+## Review Game Config
+
+Use `reviewGame.config.vocabularyIds` to choose the vocabulary items for the
+end-of-lesson review. Runtime treats this list as an ordered allow-list, then
+filters it through the current `learningMode` and available image objects before
+passing items to Memory, Listen & Choose, or Matching. If no list is provided,
+runtime falls back to the available lesson vocabulary and applies the default
+mode counts: 4 for `core`, 5 for `expanded`, and 6 for `challenge`.
+
 ## Validator
 
 `assertValidLessons()` runs automatically when `src/data/lessons.ts` loads in

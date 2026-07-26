@@ -268,6 +268,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
   trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
+- **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
+  preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
+  khi phụ huynh đang chọn mode dễ hơn.
 - **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons; tab
   Cài đặt chỉnh child profile, Light/Dark/System theme, app-language preference, teacher prompt
   mode, English accent, daily reminder time, contact support email và app version.
@@ -404,6 +407,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
 - Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
 - Matching game hiển thị cột hình và cột từ để bé nối từng hình với từ tiếng Anh tương ứng.
+- `reviewGame.config.vocabularyIds` là allow-list có thứ tự cho các từ đưa vào game ôn tập.
+  Runtime vẫn lọc theo `learningMode`; các ID không khả dụng ở mode hiện tại hoặc không có object
+  hình ảnh render được sẽ không xuất hiện.
 - Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
 
 ### Rewards và progress
@@ -423,6 +429,8 @@ Các completion/event-write flow chính catch lỗi theo hướng best-effort đ
 không bị kẹt. Các primitive như đọc, save/reset toàn bộ progress hoặc lưu active theme vẫn có thể
 throw; caller không được giả định mọi progress operation đều nuốt lỗi. Activity ghi words/scenes
 và ước lượng 3 phút cho mỗi scene event.
+Những completion flow biết `learningMode` hiện tại chỉ auto-add learned words khả dụng trong mode
+đó, tránh ghi nhận trước vocabulary của mode cao hơn.
 
 - Sticker là phần thưởng theo lesson, không phải phần thưởng theo level. `src/data/rewards.ts`
   khai báo catalog một sticker cho mỗi lesson pack hiện có, gồm `iconName` và `tone` để render

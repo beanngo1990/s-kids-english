@@ -1,7 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { atSchoolLesson } from '../src/data/lessons/atSchool';
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import { getLessonReward } from '../src/data/rewards';
+import { atSchoolVocabulary } from '../src/data/vocabulary';
 import {
   completeLessonProgress,
   getProgress,
@@ -70,6 +72,28 @@ test('lesson completion records review game and reward progress', async () => {
 
   expect(record?.earnedAt).toEqual(expect.any(String));
   expect(Number.isNaN(new Date(record?.earnedAt ?? '').getTime())).toBe(false);
+});
+
+test('lesson completion can scope learned words to the selected learning mode', async () => {
+  await completeLessonProgress(atSchoolLesson, { learningMode: 'core' });
+
+  const progress = await getProgress();
+
+  expect(progress.learnedWordIds).toEqual(
+    expect.arrayContaining([
+      atSchoolVocabulary.teacher.id,
+      atSchoolVocabulary.desk.id,
+      atSchoolVocabulary.chair.id,
+      atSchoolVocabulary.listen.id,
+    ]),
+  );
+  expect(progress.learnedWordIds).not.toEqual(
+    expect.arrayContaining([
+      atSchoolVocabulary.writeName.id,
+      atSchoolVocabulary.cleanUp.id,
+      atSchoolVocabulary.openBook.id,
+    ]),
+  );
 });
 
 test('lesson replay does not duplicate an earned sticker', async () => {

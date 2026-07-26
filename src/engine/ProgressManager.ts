@@ -1,10 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import { getLessonReward, type LessonReward } from '../data/rewards';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import { recordActivity } from './DailyActivityTracker';
-import type { Lesson, VocabularyItem } from '../types/lesson';
+import type {
+  LearningMode,
+  Lesson,
+  Scene,
+  VocabularyItem,
+} from '../types/lesson';
 import {
   getSceneProgressId,
   isSceneProgressComplete,
@@ -67,6 +73,10 @@ export type ProgressChange = {
 };
 
 export type ProgressListener = (change: ProgressChange) => void;
+
+type LearningScopeOptions = {
+  learningMode?: LearningMode;
+};
 
 const emptyProgress: LocalProgress = {
   activeThemeId: DEFAULT_THEME_ID,
@@ -136,10 +146,11 @@ export async function resetProgress() {
 
 export async function completeLessonProgress(
   lesson: Lesson,
+  options: LearningScopeOptions = {},
 ): Promise<ProgressCompletionResult> {
   try {
     const currentProgress = await getProgress();
-    const learnedVocabulary = getLessonVocabulary(lesson);
+    const learnedVocabulary = getProgressVocabulary(lesson, options);
     const completedSceneIds = addUnique(
       currentProgress.completedSceneIds,
       lesson.scenes.map(scene => getSceneProgressId(lesson.id, scene.id)),
@@ -311,6 +322,7 @@ export async function saveVocabularyInteraction(
 export async function saveSceneProgress(
   lessonId: string,
   sceneId: string,
+  options: LearningScopeOptions = {},
 ): Promise<ProgressCompletionResult> {
   try {
     const currentProgress = await getProgress();
@@ -329,7 +341,7 @@ export async function saveSceneProgress(
       isLessonNowComplete && !lesson?.reviewGame,
     );
     const learnedVocabulary = shouldCompleteLessonNow && lesson
-      ? getLessonVocabulary(lesson)
+      ? getProgressVocabulary(lesson, options)
       : [];
 
     const isNewScene = completedSceneIds.length > currentProgress.completedSceneIds.length;
@@ -370,15 +382,37 @@ export async function saveSceneProgress(
 }
 
 export function getLessonVocabulary(lesson: Lesson) {
+  return getVocabularyFromScenes(lesson.scenes);
+}
+
+export function getLessonVocabularyForLearningMode(
+  lesson: Lesson,
+  learningMode: LearningMode,
+) {
+  return getVocabularyFromScenes(
+    lesson.scenes.map(scene => getSceneForLearningMode(scene, learningMode)),
+  );
+}
+
+function getVocabularyFromScenes(scenes: readonly Scene[]) {
   const vocabularyById = new Map<string, VocabularyItem>();
 
-  lesson.scenes.forEach(scene => {
+  scenes.forEach(scene => {
     scene.vocabulary?.forEach(item => {
       vocabularyById.set(item.id, item);
     });
   });
 
   return Array.from(vocabularyById.values());
+}
+
+function getProgressVocabulary(
+  lesson: Lesson,
+  options: LearningScopeOptions,
+) {
+  return options.learningMode
+    ? getLessonVocabularyForLearningMode(lesson, options.learningMode)
+    : getLessonVocabulary(lesson);
 }
 
 export function normalizeProgress(value: unknown): LocalProgress {
