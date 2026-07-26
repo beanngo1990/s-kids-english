@@ -13,6 +13,8 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.seduforge.skidsenglish.R
 import java.io.File
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
 class SkidsAudioModule(
   private val reactContext: ReactApplicationContext,
@@ -28,7 +30,10 @@ class SkidsAudioModule(
   private val soundPool: SoundPool
   private val soundIds = mutableMapOf<String, Int>()
   private val speechPlaybackLock = Any()
+  private val backgroundMusicLock = Any()
   private var speechPlayback: SpeechPlayback? = null
+  private var backgroundMusicPlayer: MediaPlayer? = null
+  private var backgroundMusicVolume = 0.16f
   private var voiceRecorder: MediaRecorder? = null
   private var voiceRecordingFile: File? = null
   private var isReleased = false
@@ -95,11 +100,7 @@ class SkidsAudioModule(
         .build()
 
       player.setAudioAttributes(attributes)
-      if (uri.startsWith("http://") || uri.startsWith("https://")) {
-        player.setDataSource(uri)
-      } else {
-        player.setDataSource(reactContext, Uri.parse(uri))
-      }
+      setPlayerDataSource(player, uri)
       player.setOnPreparedListener {
         try {
           if (!startSpeechPlayerIfCurrent(it)) {
@@ -136,6 +137,99 @@ class SkidsAudioModule(
   @ReactMethod
   fun stopSpeech(promise: Promise) {
     stopSpeechPlayer(resolvePendingPromise = true)
+    promise.resolve(true)
+  }
+
+  @ReactMethod
+  fun playBackgroundMusic(uri: String, volume: Double, promise: Promise) {
+    if (isReleased) {
+      promise.resolve(false)
+      return
+    }
+
+    backgroundMusicVolume = clampVolume(volume)
+    var createdPlayer: MediaPlayer? = null
+    var didResolve = false
+
+    fun resolveOnce(value: Boolean) {
+      if (!didResolve) {
+        didResolve = true
+        promise.resolve(value)
+      }
+    }
+
+    try {
+      stopBackgroundMusicPlayer()
+
+      val player = MediaPlayer()
+      createdPlayer = player
+      val attributes = AudioAttributes.Builder()
+        .setUsage(AudioAttributes.USAGE_MEDIA)
+        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+        .build()
+
+      player.setAudioAttributes(attributes)
+      player.isLooping = true
+      setPlayerVolume(player, backgroundMusicVolume)
+      setPlayerDataSource(player, uri)
+      player.setOnPreparedListener {
+        try {
+          val shouldStart = synchronized(backgroundMusicLock) {
+            backgroundMusicPlayer === it
+          }
+          if (!shouldStart) {
+            safelyReleasePlayer(it)
+            resolveOnce(false)
+            return@setOnPreparedListener
+          }
+
+          it.start()
+          resolveOnce(true)
+        } catch (error: Exception) {
+          Log.w(tag, "Unable to start background music: $uri", error)
+          finishBackgroundMusicPlayer(it)
+          resolveOnce(false)
+        }
+      }
+      player.setOnErrorListener { mediaPlayer, _, _ ->
+        Log.w(tag, "Unable to play background music: $uri")
+        finishBackgroundMusicPlayer(mediaPlayer)
+        resolveOnce(false)
+        true
+      }
+
+      synchronized(backgroundMusicLock) {
+        backgroundMusicPlayer = player
+      }
+      player.prepareAsync()
+    } catch (error: Exception) {
+      val player = synchronized(backgroundMusicLock) {
+        val currentPlayer = backgroundMusicPlayer
+        if (currentPlayer === createdPlayer) {
+          backgroundMusicPlayer = null
+        }
+        createdPlayer
+      }
+      safelyReleasePlayer(player)
+      if (!didResolve) {
+        promise.reject("SKIDS_AUDIO_BACKGROUND_MUSIC_ERROR", error)
+      }
+    }
+  }
+
+  @ReactMethod
+  fun setBackgroundMusicVolume(volume: Double, promise: Promise) {
+    backgroundMusicVolume = clampVolume(volume)
+    val player = synchronized(backgroundMusicLock) {
+      backgroundMusicPlayer
+    }
+    setPlayerVolume(player, backgroundMusicVolume)
+    promise.resolve(true)
+  }
+
+  @ReactMethod
+  fun stopBackgroundMusic(promise: Promise) {
+    stopBackgroundMusicPlayer()
     promise.resolve(true)
   }
 
@@ -218,6 +312,7 @@ class SkidsAudioModule(
     if (!isReleased) {
       isReleased = true
       stopSpeechPlayer(resolvePendingPromise = true)
+      stopBackgroundMusicPlayer()
       stopVoiceRecorder(deleteRecording = true)
       soundPool.release()
       reactContext.removeLifecycleEventListener(this)
@@ -300,6 +395,79 @@ class SkidsAudioModule(
     } catch (_: Exception) {
     }
   }
+
+  private fun stopBackgroundMusicPlayer() {
+    val player = synchronized(backgroundMusicLock) {
+      val currentPlayer = backgroundMusicPlayer
+      backgroundMusicPlayer = null
+      currentPlayer
+    }
+
+    try {
+      if (player?.isPlaying == true) {
+        player.stop()
+      }
+    } catch (_: Exception) {
+    } finally {
+      safelyReleasePlayer(player)
+    }
+  }
+
+  private fun finishBackgroundMusicPlayer(player: MediaPlayer) {
+    val shouldRelease = synchronized(backgroundMusicLock) {
+      if (backgroundMusicPlayer !== player) {
+        return@synchronized false
+      }
+
+      backgroundMusicPlayer = null
+      true
+    }
+
+    if (shouldRelease) {
+      safelyReleasePlayer(player)
+    }
+  }
+
+  private fun setPlayerVolume(player: MediaPlayer?, volume: Float) {
+    try {
+      player?.setVolume(volume, volume)
+    } catch (_: Exception) {
+    }
+  }
+
+  private fun setPlayerDataSource(player: MediaPlayer, uri: String) {
+    if (uri.startsWith("http://") || uri.startsWith("https://")) {
+      player.setDataSource(uri)
+      return
+    }
+
+    if (uri.startsWith("asset:/")) {
+      val assetPath = URLDecoder.decode(
+        uri
+          .removePrefix("asset:/")
+          .substringBefore("?")
+          .removePrefix("/"),
+        StandardCharsets.UTF_8.name(),
+      )
+      reactContext.assets.openFd(assetPath).use { descriptor ->
+        player.setDataSource(
+          descriptor.fileDescriptor,
+          descriptor.startOffset,
+          descriptor.length,
+        )
+      }
+      return
+    }
+
+    player.setDataSource(reactContext, Uri.parse(uri))
+  }
+
+  private fun clampVolume(volume: Double): Float =
+    volume
+      .takeIf { it.isFinite() }
+      ?.coerceIn(0.0, 1.0)
+      ?.toFloat()
+      ?: 0.16f
 
   @Suppress("DEPRECATION")
   private fun createMediaRecorder(): MediaRecorder = MediaRecorder()

@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
+import { startBackgroundMusicManager } from './src/engine/BackgroundMusicManager';
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
 import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
 import { startFirebaseAppCheck } from './src/engine/FirebaseAppCheckManager';
@@ -26,8 +27,10 @@ function App() {
     const stopCrashReporting = startCrashReporting();
     const stopMonetization = startMonetization();
     const stopParentAccessLifecycle = startParentAccessSessionLifecycle();
+    const stopBackgroundMusic = startBackgroundMusicManager();
 
     return () => {
+      stopBackgroundMusic();
       stopCrashReporting();
       stopMonetization();
       stopParentAccessLifecycle();

@@ -180,6 +180,7 @@ test('cloud fingerprint canonicalizes the resume pointer key order', () => {
 
 test('cloud parent settings serialization excludes local-only fields', () => {
   const settings: ParentSettings = {
+    backgroundMusicEnabled: true,
     cloudProgressSync: {
       consentedAt: '2026-07-15T08:00:00.000Z',
       consentVersion: 1,
@@ -227,6 +228,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
     visibleLessonIds: ['lesson-a', 'lesson-b'],
   });
   expect(JSON.stringify(serialized)).not.toContain('cloudProgressSync');
+  expect(JSON.stringify(serialized)).not.toContain('backgroundMusicEnabled');
   expect(JSON.stringify(serialized)).not.toContain('crashReportingEnabled');
   expect(JSON.stringify(serialized)).not.toContain('enableSceneEditor');
 });
@@ -273,6 +275,7 @@ test('cloud parent settings fingerprint ignores timestamp-only writes', () => {
 
 test('cloud-applied parent settings preserve local-only fields', async () => {
   await saveParentSettings({
+    backgroundMusicEnabled: true,
     cloudProgressSync: {
       consentedAt: '2026-07-15T08:00:00.000Z',
       consentVersion: 1,
@@ -299,6 +302,7 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
   });
 
   expect(nextSettings).toMatchObject({
+    backgroundMusicEnabled: true,
     cloudProgressSync: {
       enabled: true,
       ownerUid: 'parent-a',
@@ -421,6 +425,7 @@ test('cloud merges preserve the source update timestamp', async () => {
 
 function getTestParentSettings(): ParentSettings {
   return {
+    backgroundMusicEnabled: false,
     cloudProgressSync: { enabled: false },
     crashReportingEnabled: false,
     enableSceneEditor: false,

@@ -1,6 +1,7 @@
 import {
   cancelNarration,
   configureAudioManager,
+  playBackgroundMusicUri,
   playTeacherPromptNarration,
   playVietnameseNarration,
   playWordNarration,
@@ -95,6 +96,53 @@ test('uses the versioned en-US asset key by default', async () => {
   expect(mockedGetWordAudioAssets).toHaveBeenCalledWith('water', 'en-US');
   expect(mockedResolveRemoteAssetUri).toHaveBeenCalledWith(enUsWaterKey);
   expect(playAudioUri).toHaveBeenCalledWith('file:///cache/en-US-water.wav');
+});
+
+test('ducks background music while required narration audio plays', async () => {
+  const playBackgroundMusic = jest.fn(() => Promise.resolve());
+  const setBackgroundMusicVolume = jest.fn(() => Promise.resolve());
+  configureAudioManager({
+    playAudioUri,
+    playBackgroundMusic,
+    setBackgroundMusicVolume,
+    stopBackgroundMusic: jest.fn(),
+  });
+  mockedGetWordAudioAssets.mockReturnValue([
+    {
+      key: enUsWaterKey,
+      text: 'water',
+    },
+  ]);
+  mockedResolveRemoteAssetUri.mockResolvedValue(
+    'file:///cache/en-US-water.wav',
+  );
+
+  await expect(
+    playBackgroundMusicUri('file:///app/sungy-background.mp3', 0.16),
+  ).resolves.toBe(true);
+
+  let finishPlayback: (() => void) | undefined;
+  let markPlaybackStarted: (() => void) | undefined;
+  const playbackStarted = new Promise<void>(resolve => {
+    markPlaybackStarted = resolve;
+  });
+  playAudioUri.mockImplementationOnce(
+    () =>
+      new Promise<void>(resolve => {
+        finishPlayback = resolve;
+        markPlaybackStarted?.();
+      }),
+  );
+
+  const playback = speakWord('water', 'en-US');
+  await playbackStarted;
+
+  expect(setBackgroundMusicVolume).toHaveBeenCalledWith(0.035);
+
+  finishPlayback?.();
+  await playback;
+
+  expect(setBackgroundMusicVolume).toHaveBeenLastCalledWith(0.16);
 });
 
 test('uses the versioned en-GB asset key from parent settings', async () => {

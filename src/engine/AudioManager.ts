@@ -26,9 +26,12 @@ export type NarrationSession = {
 export type NarrationPlaybackResult = 'completed' | 'cancelled' | 'failed';
 
 export type AudioAdapter = {
+  playBackgroundMusic?: (uri: string, volume: number) => Promise<void> | void;
   playAudioUri?: (uri: string) => Promise<void> | void;
   speak?: (text: string, options: SpeechOptions) => Promise<void> | void;
   playSound?: (effect: SoundEffect) => Promise<void> | void;
+  setBackgroundMusicVolume?: (volume: number) => Promise<void> | void;
+  stopBackgroundMusic?: () => Promise<void> | void;
   stopSpeech?: () => Promise<void> | void;
 };
 
@@ -82,10 +85,19 @@ type AudioGlobal = typeof globalThis & {
 let adapter: AudioAdapter | null = null;
 let narrationGeneration = 0;
 let stopSpeechQueue = Promise.resolve();
+let backgroundMusicBaseVolume = 0.16;
+let backgroundMusicDuckDepth = 0;
+let isBackgroundMusicPlaying = false;
+
+export const DEFAULT_BACKGROUND_MUSIC_VOLUME = 0.16;
+const DUCKED_BACKGROUND_MUSIC_VOLUME = 0.035;
 
 export function configureAudioManager(nextAdapter: AudioAdapter | null) {
   narrationGeneration += 1;
   stopSpeechQueue = Promise.resolve();
+  backgroundMusicBaseVolume = DEFAULT_BACKGROUND_MUSIC_VOLUME;
+  backgroundMusicDuckDepth = 0;
+  isBackgroundMusicPlaying = false;
   adapter = nextAdapter;
 }
 
@@ -259,6 +271,46 @@ export async function playAudioUri(
   await playAudioUriWithResult(uri, requestedSession);
 }
 
+export async function playBackgroundMusicUri(
+  uri: string,
+  volume = DEFAULT_BACKGROUND_MUSIC_VOLUME,
+) {
+  const audioAdapter = adapter;
+  if (!audioAdapter?.playBackgroundMusic) {
+    isBackgroundMusicPlaying = false;
+    return false;
+  }
+
+  backgroundMusicBaseVolume = clampVolume(volume);
+  try {
+    await audioAdapter.playBackgroundMusic(
+      uri,
+      getCurrentBackgroundMusicVolume(),
+    );
+    isBackgroundMusicPlaying = true;
+    return true;
+  } catch {
+    isBackgroundMusicPlaying = false;
+    return false;
+  }
+}
+
+export async function stopBackgroundMusic() {
+  const audioAdapter = adapter;
+  isBackgroundMusicPlaying = false;
+
+  if (!audioAdapter?.stopBackgroundMusic) {
+    return false;
+  }
+
+  try {
+    await audioAdapter.stopBackgroundMusic();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function playAudioUriWithResult(
   uri: string,
   requestedSession?: NarrationSession,
@@ -275,7 +327,7 @@ async function playAudioUriWithResult(
   }
 
   try {
-    await audioAdapter.playAudioUri(uri);
+    await duckBackgroundMusicWhile(() => audioAdapter.playAudioUri?.(uri));
     return session.isActive() ? 'completed' : 'cancelled';
   } catch {
     return session.isActive() ? 'failed' : 'cancelled';
@@ -300,7 +352,9 @@ async function speakWithResult(
   const audioAdapter = adapter;
   try {
     if (audioAdapter?.speak) {
-      await audioAdapter.speak(trimmedText, options);
+      await duckBackgroundMusicWhile(() =>
+        audioAdapter.speak?.(trimmedText, options),
+      );
       return session.isActive() ? 'completed' : 'cancelled';
     }
 
@@ -312,7 +366,9 @@ async function speakWithResult(
       );
     }
 
-    const didSpeak = await speakWithWebSpeech(trimmedText, options);
+    const didSpeak = await duckBackgroundMusicWhile(() =>
+      speakWithWebSpeech(trimmedText, options),
+    );
     if (!session.isActive()) {
       return 'cancelled';
     }
@@ -340,11 +396,53 @@ async function playAudioAsset(
   }
 
   try {
-    await audioAdapter.playAudioUri(audioUri);
+    await duckBackgroundMusicWhile(() =>
+      audioAdapter.playAudioUri?.(audioUri),
+    );
     return session.isActive() ? 'completed' : 'cancelled';
   } catch {
     return session.isActive() ? 'failed' : 'cancelled';
   }
+}
+
+async function duckBackgroundMusicWhile<T>(
+  action: () => Promise<T> | T,
+): Promise<T> {
+  backgroundMusicDuckDepth += 1;
+  await applyBackgroundMusicVolume();
+
+  try {
+    return await action();
+  } finally {
+    backgroundMusicDuckDepth = Math.max(0, backgroundMusicDuckDepth - 1);
+    await applyBackgroundMusicVolume();
+  }
+}
+
+async function applyBackgroundMusicVolume() {
+  if (!isBackgroundMusicPlaying || !adapter?.setBackgroundMusicVolume) {
+    return;
+  }
+
+  try {
+    await adapter.setBackgroundMusicVolume(getCurrentBackgroundMusicVolume());
+  } catch {
+    // Background music should never interrupt lesson audio.
+  }
+}
+
+function getCurrentBackgroundMusicVolume() {
+  return backgroundMusicDuckDepth > 0
+    ? Math.min(backgroundMusicBaseVolume, DUCKED_BACKGROUND_MUSIC_VOLUME)
+    : backgroundMusicBaseVolume;
+}
+
+function clampVolume(volume: number) {
+  if (!Number.isFinite(volume)) {
+    return DEFAULT_BACKGROUND_MUSIC_VOLUME;
+  }
+
+  return Math.min(1, Math.max(0, volume));
 }
 
 function queueStopSpeech() {

@@ -142,6 +142,7 @@ test('detects device language prioritizing native OS preferences on iOS and Andr
 test('defaults new localization settings for legacy parent settings', async () => {
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'vi',
+    backgroundMusicEnabled: false,
     cloudProgressSync: { enabled: false },
     crashReportingEnabled: false,
     englishAccent: 'en-US',
@@ -158,9 +159,24 @@ test('defaults new localization settings for legacy parent settings', async () =
 
   await expect(getParentSettings()).resolves.toMatchObject({
     appLanguage: 'en',
+    backgroundMusicEnabled: false,
     crashReportingEnabled: false,
     englishAccent: 'en-US',
     teacherPromptMode: 'bilingual',
+  });
+});
+
+test('persists background music as a parent opt-in setting', async () => {
+  await saveParentSettings({ backgroundMusicEnabled: true });
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    backgroundMusicEnabled: true,
+  });
+
+  await saveParentSettings({ backgroundMusicEnabled: false });
+
+  await expect(getParentSettings()).resolves.toMatchObject({
+    backgroundMusicEnabled: false,
   });
 });
 
