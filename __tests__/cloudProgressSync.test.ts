@@ -186,6 +186,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
       enabled: true,
       ownerUid: 'parent-a',
     },
+    crashReportingEnabled: true,
     enableSceneEditor: true,
     hasCompletedOnboarding: true,
     journeyMode: 'free',
@@ -226,6 +227,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
     visibleLessonIds: ['lesson-a', 'lesson-b'],
   });
   expect(JSON.stringify(serialized)).not.toContain('cloudProgressSync');
+  expect(JSON.stringify(serialized)).not.toContain('crashReportingEnabled');
   expect(JSON.stringify(serialized)).not.toContain('enableSceneEditor');
 });
 
@@ -420,6 +422,7 @@ test('cloud merges preserve the source update timestamp', async () => {
 function getTestParentSettings(): ParentSettings {
   return {
     cloudProgressSync: { enabled: false },
+    crashReportingEnabled: false,
     enableSceneEditor: false,
     hasCompletedOnboarding: false,
     journeyMode: 'guided',
