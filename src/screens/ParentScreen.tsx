@@ -97,6 +97,7 @@ import {
   getParentReviewTipText,
   getParentReviewWords,
 } from '../utils/parentReviewWords';
+import { getEarnedStickerCount } from '../utils/stickerStats';
 
 const GATE_COOLDOWN_MS = 10000;
 const WEEKLY_WORD_TARGET = 30;
@@ -212,7 +213,7 @@ export function ParentScreen({ navigation, route }: Props) {
   const handledIntentRef = useRef<string | null>(null);
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
-  const earnedStickerCount = progress?.earnedStickerIds.length ?? 0;
+  const earnedStickerCount = getEarnedStickerCount(progress, activityLog);
   const isCompactDashboard = responsiveLayout.width <= 360;
   const weeklyData = useMemo(
     () => getWeeklyData(activityLog?.entries ?? []),
