@@ -171,7 +171,7 @@ class SkidsAudioModule(
       player.setAudioAttributes(attributes)
       player.isLooping = true
       setPlayerVolume(player, backgroundMusicVolume)
-      setPlayerDataSource(player, uri)
+      setBackgroundMusicDataSource(player, uri)
       player.setOnPreparedListener {
         try {
           val shouldStart = synchronized(backgroundMusicLock) {
@@ -460,6 +460,47 @@ class SkidsAudioModule(
     }
 
     player.setDataSource(reactContext, Uri.parse(uri))
+  }
+
+  private fun setBackgroundMusicDataSource(player: MediaPlayer, uri: String) {
+    if (
+      isSungyBackgroundMusicUri(uri) &&
+      setRawResourceDataSource(player, R.raw.sungy_background)
+    ) {
+      return
+    }
+
+    setPlayerDataSource(player, uri)
+  }
+
+  private fun setRawResourceDataSource(
+    player: MediaPlayer,
+    rawResourceId: Int,
+  ): Boolean =
+    try {
+      val descriptor = reactContext.resources.openRawResourceFd(rawResourceId)
+      if (descriptor == null) {
+        false
+      } else {
+        descriptor.use {
+          player.setDataSource(
+            it.fileDescriptor,
+            it.startOffset,
+            it.length,
+          )
+        }
+        true
+      }
+    } catch (error: Exception) {
+      Log.w(tag, "Unable to open bundled raw audio resource", error)
+      false
+    }
+
+  private fun isSungyBackgroundMusicUri(uri: String): Boolean {
+    val normalizedUri = uri.lowercase()
+    return normalizedUri.contains("sungy-background.mp3") ||
+      normalizedUri.contains("sungybackground.mp3") ||
+      normalizedUri.contains("src_assets_ui_audio_music_sungybackground")
   }
 
   private fun clampVolume(volume: Double): Float =

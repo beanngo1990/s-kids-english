@@ -729,7 +729,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
 3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
 4. Optional background music: bundled file `src/assets/ui/audio/music/sungy-background.mp3`,
-   mặc định tắt và chỉ chạy sau parent opt-in local trên thiết bị.
+   mặc định tắt và chỉ chạy sau parent opt-in local trên thiết bị. Android giữ thêm mirror
+   `android/app/src/main/res/raw/sungy_background.mp3` để native `MediaPlayer` phát local ổn định
+   trong debug emulator và release, thay vì phụ thuộc Metro/static asset URI.
 
 `AudioManager` giữ playback primitive và effects theo hướng best-effort, còn `ScenePlayer` áp dụng
 readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa sẵn sàng, scene hiển thị lựa chọn
