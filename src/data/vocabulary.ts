@@ -180,7 +180,7 @@ export const bathroomVocabulary = {
   },
   brushTeeth: {
     id: 'vocab-brush-teeth',
-    word: 'brush teeth',
+    word: 'brush your teeth',
     meaningVi: 'đánh răng',
     learningScope: {
       minAge: 5,
@@ -191,7 +191,7 @@ export const bathroomVocabulary = {
   },
   washFace: {
     id: 'vocab-wash-face',
-    word: 'wash face',
+    word: 'wash your face',
     meaningVi: 'rửa mặt',
     learningScope: {
       minAge: 5,
@@ -202,7 +202,7 @@ export const bathroomVocabulary = {
   },
   dryFace: {
     id: 'vocab-dry-face',
-    word: 'dry face',
+    word: 'dry your face',
     meaningVi: 'lau mặt',
     learningScope: {
       minAge: 5,
@@ -371,7 +371,7 @@ export const schoolVocabulary = {
   },
   packBag: {
     id: 'vocab-pack-bag',
-    word: 'pack bag',
+    word: 'pack your bag',
     meaningVi: 'xếp cặp',
     learningScope: {
       minAge: 5,
@@ -382,7 +382,7 @@ export const schoolVocabulary = {
   },
   putOnShoes: {
     id: 'vocab-put-on-shoes',
-    word: 'put on shoes',
+    word: 'put on your shoes',
     meaningVi: 'mang giày',
     learningScope: {
       minAge: 5,
@@ -522,7 +522,7 @@ export const atSchoolVocabulary = {
   },
   raiseHand: {
     id: 'vocab-raise-hand',
-    word: 'raise hand',
+    word: 'raise your hand',
     meaningVi: 'giơ tay',
     learningScope: {
       minAge: 5,
@@ -533,7 +533,7 @@ export const atSchoolVocabulary = {
   },
   openBook: {
     id: 'vocab-open-book',
-    word: 'open book',
+    word: 'open the book',
     meaningVi: 'mở sách',
     learningScope: {
       minAge: 5,
@@ -819,7 +819,7 @@ export const playtimeVocabulary = {
   },
   eatSnack: {
     id: 'vocab-eat-snack',
-    word: 'eat snack',
+    word: 'eat a snack',
     meaningVi: 'ăn nhẹ',
     learningScope: {
       minAge: 5,
@@ -898,7 +898,7 @@ export const lunchVocabulary = {
   },
   openLunchbox: {
     id: 'vocab-open-lunchbox',
-    word: 'open lunchbox',
+    word: 'open your lunchbox',
     meaningVi: 'mở hộp cơm',
     learningScope: {
       minAge: 5,
@@ -909,7 +909,7 @@ export const lunchVocabulary = {
   },
   useSpoon: {
     id: 'vocab-use-spoon',
-    word: 'use spoon',
+    word: 'use a spoon',
     meaningVi: 'dùng thìa',
     learningScope: {
       minAge: 5,
@@ -985,7 +985,7 @@ export const lunchVocabulary = {
   },
   sitAtTable: {
     id: 'vocab-sit-at-table',
-    word: 'sit at table',
+    word: 'sit at the table',
     meaningVi: 'ngồi vào bàn',
     learningScope: {
       minAge: 5,
@@ -1083,7 +1083,7 @@ export const lunchVocabulary = {
   },
   wipeTable: {
     id: 'vocab-wipe-table',
-    word: 'wipe table',
+    word: 'wipe the table',
     meaningVi: 'lau bàn',
     learningScope: {
       minAge: 5,
@@ -1094,7 +1094,7 @@ export const lunchVocabulary = {
   },
   washHands: {
     id: 'vocab-wash-hands',
-    word: 'wash hands',
+    word: 'wash your hands',
     meaningVi: 'rửa tay',
     learningScope: {
       minAge: 5,
@@ -1162,7 +1162,7 @@ export const afternoonHomeVocabulary = {
   },
   packBag: {
     id: 'vocab-afternoon-pack-bag',
-    word: 'pack bag',
+    word: 'pack your bag',
     meaningVi: 'xếp cặp',
     learningScope: {
       minAge: 5,
@@ -1249,7 +1249,7 @@ export const afternoonHomeVocabulary = {
   },
   getOnBus: {
     id: 'vocab-get-on-bus',
-    word: 'get on bus',
+    word: 'get on the bus',
     meaningVi: 'lên xe buýt',
     learningScope: {
       minAge: 5,
@@ -1329,7 +1329,7 @@ export const afternoonHomeVocabulary = {
   },
   takeOffShoes: {
     id: 'vocab-take-off-shoes',
-    word: 'take off shoes',
+    word: 'take off your shoes',
     meaningVi: 'cởi giày',
     learningScope: {
       minAge: 5,
@@ -1340,7 +1340,7 @@ export const afternoonHomeVocabulary = {
   },
   washHands: {
     id: 'vocab-afternoon-wash-hands',
-    word: 'wash hands',
+    word: 'wash your hands',
     meaningVi: 'rửa tay',
     learningScope: {
       minAge: 5,
@@ -1351,7 +1351,7 @@ export const afternoonHomeVocabulary = {
   },
   hugFamily: {
     id: 'vocab-hug-family',
-    word: 'hug family',
+    word: 'hug your family',
     meaningVi: 'ôm gia đình',
     learningScope: {
       minAge: 5,
@@ -1419,7 +1419,7 @@ export const snackVocabulary = {
   },
   chooseSnack: {
     id: 'vocab-choose-snack',
-    word: 'choose snack',
+    word: 'choose a snack',
     meaningVi: 'chọn bữa xế',
     learningScope: {
       minAge: 5,
@@ -1430,7 +1430,7 @@ export const snackVocabulary = {
   },
   openSnackBox: {
     id: 'vocab-open-snack-box',
-    word: 'open snack box',
+    word: 'open the snack box',
     meaningVi: 'mở hộp đồ ăn nhẹ',
     learningScope: {
       minAge: 5,
@@ -1459,10 +1459,10 @@ export const snackVocabulary = {
   },
   sip: {
     id: 'vocab-snack-sip',
-    word: 'sip',
+    word: 'small sip',
     meaningVi: 'ngụm nhỏ',
     level: 'easy',
-    type: 'verb',
+    type: 'noun',
   },
   napkin: {
     id: 'vocab-snack-napkin',
@@ -1528,7 +1528,7 @@ export const snackVocabulary = {
   },
   wipeMouth: {
     id: 'vocab-wipe-mouth',
-    word: 'wipe mouth',
+    word: 'wipe your mouth',
     meaningVi: 'lau miệng',
     learningScope: {
       minAge: 5,
@@ -1593,7 +1593,7 @@ export const snackVocabulary = {
   },
   throwAwayWrapper: {
     id: 'vocab-throw-away-wrapper',
-    word: 'throw away wrapper',
+    word: 'throw away the wrapper',
     meaningVi: 'bỏ vỏ bánh',
     learningScope: {
       minAge: 5,
@@ -1604,7 +1604,7 @@ export const snackVocabulary = {
   },
   wipeTable: {
     id: 'vocab-wipe-table',
-    word: 'wipe table',
+    word: 'wipe the table',
     meaningVi: 'lau bàn',
     learningScope: {
       minAge: 5,
@@ -1615,7 +1615,7 @@ export const snackVocabulary = {
   },
   putAwayTray: {
     id: 'vocab-put-away-tray',
-    word: 'put away tray',
+    word: 'put away the tray',
     meaningVi: 'cất khay',
     learningScope: {
       minAge: 5,
@@ -1683,7 +1683,7 @@ export const homePlayVocabulary = {
   },
   chooseToy: {
     id: 'vocab-choose-toy',
-    word: 'choose toy',
+    word: 'choose a toy',
     meaningVi: 'chọn đồ chơi',
     learningScope: {
       minAge: 5,
@@ -1694,7 +1694,7 @@ export const homePlayVocabulary = {
   },
   buildTower: {
     id: 'vocab-build-tower',
-    word: 'build tower',
+    word: 'build a tower',
     meaningVi: 'xây tháp',
     learningScope: {
       minAge: 5,
@@ -1770,7 +1770,7 @@ export const homePlayVocabulary = {
   },
   readBook: {
     id: 'vocab-read-book',
-    word: 'read book',
+    word: 'read a book',
     meaningVi: 'đọc sách',
     learningScope: {
       minAge: 5,
@@ -1781,7 +1781,7 @@ export const homePlayVocabulary = {
   },
   drawPicture: {
     id: 'vocab-draw-picture',
-    word: 'draw picture',
+    word: 'draw a picture',
     meaningVi: 'vẽ tranh',
     learningScope: {
       minAge: 5,
@@ -1792,7 +1792,7 @@ export const homePlayVocabulary = {
   },
   solvePuzzle: {
     id: 'vocab-solve-puzzle',
-    word: 'solve puzzle',
+    word: 'solve a puzzle',
     meaningVi: 'ghép tranh',
     learningScope: {
       minAge: 5,
@@ -1846,7 +1846,7 @@ export const homePlayVocabulary = {
   },
   cleanUpToys: {
     id: 'vocab-clean-up-toys',
-    word: 'clean up toys',
+    word: 'clean up the toys',
     meaningVi: 'dọn đồ chơi',
     learningScope: {
       minAge: 5,
@@ -1857,7 +1857,7 @@ export const homePlayVocabulary = {
   },
   putAwayBook: {
     id: 'vocab-put-away-book',
-    word: 'put away book',
+    word: 'put away the book',
     meaningVi: 'cất sách',
     learningScope: {
       minAge: 5,
@@ -1868,7 +1868,7 @@ export const homePlayVocabulary = {
   },
   tidyRoom: {
     id: 'vocab-tidy-room',
-    word: 'tidy room',
+    word: 'tidy the room',
     meaningVi: 'dọn phòng',
     learningScope: {
       minAge: 5,
@@ -1936,7 +1936,7 @@ export const afternoonBathVocabulary = {
   },
   stepOntoMat: {
     id: 'vocab-step-onto-mat',
-    word: 'step onto mat',
+    word: 'step onto the mat',
     meaningVi: 'bước lên thảm',
     learningScope: {
       minAge: 5,
@@ -1947,7 +1947,7 @@ export const afternoonBathVocabulary = {
   },
   turnOnShower: {
     id: 'vocab-turn-on-shower',
-    word: 'turn on shower',
+    word: 'turn on the shower',
     meaningVi: 'mở vòi sen',
     learningScope: {
       minAge: 5,
@@ -1958,7 +1958,7 @@ export const afternoonBathVocabulary = {
   },
   checkTemperature: {
     id: 'vocab-check-temperature',
-    word: 'check temperature',
+    word: 'check the temperature',
     meaningVi: 'kiểm tra độ ấm',
     learningScope: {
       minAge: 5,
@@ -2034,7 +2034,7 @@ export const afternoonBathVocabulary = {
   },
   scrubKnees: {
     id: 'vocab-scrub-knees',
-    word: 'scrub knees',
+    word: 'scrub your knees',
     meaningVi: 'chà đầu gối',
     learningScope: {
       minAge: 5,
@@ -2045,7 +2045,7 @@ export const afternoonBathVocabulary = {
   },
   rinseHair: {
     id: 'vocab-rinse-hair',
-    word: 'rinse hair',
+    word: 'rinse your hair',
     meaningVi: 'xả tóc',
     learningScope: {
       minAge: 5,
@@ -2110,7 +2110,7 @@ export const afternoonBathVocabulary = {
   },
   putOnPajamas: {
     id: 'vocab-put-on-pajamas',
-    word: 'put on pajamas',
+    word: 'put on your pajamas',
     meaningVi: 'mặc đồ ngủ',
     learningScope: {
       minAge: 5,
@@ -2121,7 +2121,7 @@ export const afternoonBathVocabulary = {
   },
   combHair: {
     id: 'vocab-comb-hair',
-    word: 'comb hair',
+    word: 'comb your hair',
     meaningVi: 'chải tóc',
     learningScope: {
       minAge: 5,
@@ -2132,7 +2132,7 @@ export const afternoonBathVocabulary = {
   },
   hangRobe: {
     id: 'vocab-hang-robe',
-    word: 'hang robe',
+    word: 'hang the robe',
     meaningVi: 'treo áo choàng',
     learningScope: {
       minAge: 5,
@@ -2200,7 +2200,7 @@ export const familyDinnerVocabulary = {
   },
   setPlacemat: {
     id: 'vocab-set-placemat',
-    word: 'set placemat',
+    word: 'set the placemat',
     meaningVi: 'đặt tấm lót ăn',
     learningScope: {
       minAge: 5,
@@ -2211,7 +2211,7 @@ export const familyDinnerVocabulary = {
   },
   carryTray: {
     id: 'vocab-carry-tray',
-    word: 'carry tray',
+    word: 'carry the tray',
     meaningVi: 'bê khay',
     learningScope: {
       minAge: 5,
@@ -2287,7 +2287,7 @@ export const familyDinnerVocabulary = {
   },
   passDish: {
     id: 'vocab-pass-dish',
-    word: 'pass dish',
+    word: 'pass the dish',
     meaningVi: 'chuyền món',
     learningScope: {
       minAge: 5,
@@ -2385,7 +2385,7 @@ export const familyDinnerVocabulary = {
   },
   loadDishwasher: {
     id: 'vocab-load-dishwasher',
-    word: 'load dishwasher',
+    word: 'load the dishwasher',
     meaningVi: 'cho chén vào máy rửa chén',
     learningScope: {
       minAge: 5,
@@ -2475,7 +2475,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   moveCart: {
     id: 'vocab-move-cart',
-    word: 'move cart',
+    word: 'move the cart',
     meaningVi: 'đẩy xe đồ ăn',
     learningScope: {
       minAge: 5,
@@ -2486,7 +2486,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   labelContainer: {
     id: 'vocab-label-container',
-    word: 'label container',
+    word: 'label the container',
     meaningVi: 'dán nhãn hộp',
     learningScope: {
       minAge: 5,
@@ -2551,7 +2551,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   sprayStain: {
     id: 'vocab-spray-stain',
-    word: 'spray stain',
+    word: 'spray the stain',
     meaningVi: 'xịt vết bẩn',
     learningScope: {
       minAge: 5,
@@ -2562,7 +2562,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   scrubSpot: {
     id: 'vocab-scrub-spot',
-    word: 'scrub spot',
+    word: 'scrub the spot',
     meaningVi: 'chà chỗ bẩn',
     learningScope: {
       minAge: 5,
@@ -2573,7 +2573,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   drySurface: {
     id: 'vocab-dry-surface',
-    word: 'dry surface',
+    word: 'dry the surface',
     meaningVi: 'làm khô bề mặt',
     learningScope: {
       minAge: 5,
@@ -2638,7 +2638,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   sortRecycling: {
     id: 'vocab-sort-recycling',
-    word: 'sort recycling',
+    word: 'sort the recycling',
     meaningVi: 'phân loại đồ tái chế',
     learningScope: {
       minAge: 5,
@@ -2649,7 +2649,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   startTimer: {
     id: 'vocab-start-timer',
-    word: 'start timer',
+    word: 'start the timer',
     meaningVi: 'bật hẹn giờ',
     learningScope: {
       minAge: 5,
@@ -2660,7 +2660,7 @@ export const afterDinnerCleanupVocabulary = {
   },
   airDryDishes: {
     id: 'vocab-air-dry-dishes',
-    word: 'air dry dishes',
+    word: 'air-dry the dishes',
     meaningVi: 'để chén khô tự nhiên',
     learningScope: {
       minAge: 5,
@@ -2728,7 +2728,7 @@ export const bedtimeVocabulary = {
   },
   chooseStory: {
     id: 'vocab-choose-story',
-    word: 'choose story',
+    word: 'choose a story',
     meaningVi: 'chọn truyện',
     learningScope: {
       minAge: 5,
@@ -2739,7 +2739,7 @@ export const bedtimeVocabulary = {
   },
   placeBookmark: {
     id: 'vocab-place-bookmark',
-    word: 'place bookmark',
+    word: 'place the bookmark',
     meaningVi: 'đặt thẻ đánh dấu',
     learningScope: {
       minAge: 5,
@@ -2815,7 +2815,7 @@ export const bedtimeVocabulary = {
   },
   dimLights: {
     id: 'vocab-dim-lights',
-    word: 'dim lights',
+    word: 'dim the lights',
     meaningVi: 'làm đèn dịu xuống',
     learningScope: {
       minAge: 5,
@@ -2826,7 +2826,7 @@ export const bedtimeVocabulary = {
   },
   closeCurtains: {
     id: 'vocab-close-curtains',
-    word: 'close curtains',
+    word: 'close the curtains',
     meaningVi: 'kéo rèm lại',
     learningScope: {
       minAge: 5,
@@ -2837,7 +2837,7 @@ export const bedtimeVocabulary = {
   },
   playLullaby: {
     id: 'vocab-play-lullaby',
-    word: 'play lullaby',
+    word: 'play a lullaby',
     meaningVi: 'bật bài hát ru',
     learningScope: {
       minAge: 5,
@@ -2855,7 +2855,7 @@ export const bedtimeVocabulary = {
   },
   comfortPlush: {
     id: 'vocab-bedtime-comfort-plush',
-    word: 'comfort plush',
+    word: 'soft toy',
     meaningVi: 'thú bông ôm ngủ',
     level: 'easy',
     type: 'noun',
@@ -2902,7 +2902,7 @@ export const bedtimeVocabulary = {
   },
   wearSleepMask: {
     id: 'vocab-wear-sleep-mask',
-    word: 'wear sleep mask',
+    word: 'wear a sleep mask',
     meaningVi: 'đeo mặt nạ ngủ',
     learningScope: {
       minAge: 5,
@@ -2913,7 +2913,7 @@ export const bedtimeVocabulary = {
   },
   hugComfortPlush: {
     id: 'vocab-hug-comfort-plush',
-    word: 'hug comfort plush',
+    word: 'hug your soft toy',
     meaningVi: 'ôm thú bông ngủ',
     learningScope: {
       minAge: 5,
@@ -2924,7 +2924,7 @@ export const bedtimeVocabulary = {
   },
   checkDreamJournal: {
     id: 'vocab-check-dream-journal',
-    word: 'check dream journal',
+    word: 'check your dream journal',
     meaningVi: 'xem sổ ghi giấc mơ',
     learningScope: {
       minAge: 5,

@@ -31,6 +31,8 @@ export const afternoonBathLesson: Lesson = {
   titleEn: 'Afternoon Bath',
   descriptionVi:
     'Bé học cách chuẩn bị đồ tắm, xả sạch người và mặc đồ sau khi tắm chiều.',
+  descriptionEn:
+    'Learn bath-time items, rinsing clean, and getting dressed after an afternoon bath.',
   thumbnailEmoji: '🫧',
   ageRange: {
     min: 3,
@@ -143,9 +145,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-prep-intro',
           type: 'intro',
           targetObjectIds: ['bath-prep-baby'],
+          instructionEn: "It's afternoon. Let's get ready for a bath.",
           instructionVi: 'Chiều rồi, mình chuẩn bị tắm nhé.',
           nextStepId: 'bath-prep-teach-shower',
           promptText: 'Bath time!',
+          successFeedbackEn:
+            'Getting ready first helps you bathe safely and neatly.',
           successFeedbackVi: 'Chuẩn bị trước giúp bé tắm an toàn và gọn gàng.',
           effects: [bounce('bath-prep-baby')],
         }),
@@ -369,6 +374,7 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-prep-star',
+        messageEn: 'You got ready for your bath so carefully!',
         messageVi: 'Bé đã chuẩn bị tắm thật cẩn thận!',
       },
     },
@@ -452,7 +458,6 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-rinse-sponge',
           sceneId: 'bath-rinse',
           assetName: 'bath-sponge',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(60, 72, 12, 14),
           touchArea: rect(54, 66, 24, 26),
@@ -492,9 +497,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-rinse-intro',
           type: 'intro',
           targetObjectIds: ['bath-rinse-baby'],
+          instructionEn: "Let's wash up after playing.",
           instructionVi: 'Mình tắm sạch sau khi chơi nhé.',
           nextStepId: 'bath-rinse-teach-bubble',
           promptText: 'Wash and rinse!',
+          successFeedbackEn:
+            'A bath helps you feel fresh after an active afternoon.',
           successFeedbackVi: 'Tắm sạch giúp bé dễ chịu sau buổi chiều.',
           effects: [bounce('bath-rinse-baby')],
         }),
@@ -717,6 +725,7 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-rinse-star',
+        messageEn: 'You washed and rinsed yourself so well!',
         messageVi: 'Bé đã tắm và xả sạch thật khéo!',
       },
     },
@@ -800,7 +809,6 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-finish-dirty-clothes',
           sceneId: 'bath-finish',
           assetName: 'dirty-clothes',
-          isInteractive: false,
           learningScope: expandedScope,
           position: rect(25, 62, 15, 13),
           touchArea: rect(19, 56, 27, 25),
@@ -861,9 +869,12 @@ export const afternoonBathLesson: Lesson = {
           id: 'bath-finish-intro',
           type: 'intro',
           targetObjectIds: ['bath-finish-baby'],
+          instructionEn: "Bath time is over. Let's put on clean clothes.",
           instructionVi: 'Tắm xong rồi, mình mặc đồ sạch nhé.',
           nextStepId: 'bath-finish-teach-pajamas',
           promptText: 'After bath!',
+          successFeedbackEn:
+            'After a bath, put on dry clothes to keep warm.',
           successFeedbackVi: 'Sau khi tắm, bé mặc đồ khô để giữ ấm.',
           effects: [bounce('bath-finish-baby')],
         }),
@@ -1093,13 +1104,14 @@ export const afternoonBathLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'bath-finish-star',
+        messageEn: 'You got dressed so neatly after your bath!',
         messageVi: 'Bé đã mặc đồ sau tắm thật gọn gàng!',
       },
     },
   ],
   reviewGame: {
     id: 'afternoon-bath-review',
-    type: 'memory',
+    type: 'listenAndChoose',
     titleVi: 'Tìm đồ tắm buổi chiều',
     config: {
       vocabularyIds: [
@@ -1247,7 +1259,7 @@ function sceneImage(sceneId: AfternoonBathSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: AfternoonBathSceneId, assetName: string) {
-  return `lessons/afternoon-bath/${sceneId}/images/${assetName}.png`;
+  return `lessons/afternoon-bath/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

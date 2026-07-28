@@ -1,25 +1,39 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
+import { PremiumContentGate } from '../components/PremiumContentGate';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import {
-  getLearningDifficultyOption,
   getParentSettings,
 } from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
   getProgress,
   type LocalProgress,
+  type ProgressCompletionResult,
 } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import {
+  getLocalizedLessonSubtitle,
+  getLocalizedLessonTitle,
+  getLocalizedSceneSubtitle,
+  getLocalizedSceneTitle,
+} from '../i18n/domainCopy';
+import { getLearningModeCopy } from '../i18n/learningModeCopy';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
@@ -29,15 +43,26 @@ import {
   isSceneProgressComplete,
   isSceneUnlocked,
 } from '../utils/lessonProgress';
+import { useContentAccess } from '../engine/useContentAccess';
+import { hasPlayableReviewGame } from '../games/GameRegistry';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonPack'>;
 
 export function LessonPackScreen({ navigation, route }: Props) {
+  useThemeSync();
+  const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const openedFromParent = route.params.openedFromParent === true;
+  const { isAccessGranted, isResolving } = useContentAccess({
+    kind: 'lesson',
+    lessonId: route.params.lessonId,
+  });
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -54,34 +79,58 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const hasCompletedLesson = Boolean(
     lesson && progress?.completedLessonIds.includes(lesson.id),
   );
-  const hasReviewGame = lesson?.reviewGame?.type === 'memory';
+  const hasReviewGame = Boolean(hasPlayableReviewGame(lesson?.reviewGame));
   const hasCompletedReviewGame = Boolean(
     lesson?.reviewGame &&
       progress?.completedReviewGameIds.includes(lesson.reviewGame.id),
   );
   const shouldPlayReviewGame =
     isPackComplete && hasReviewGame && !hasCompletedReviewGame;
+  const reviewGameActionTitle =
+    lesson?.reviewGame?.type === 'listenAndChoose'
+      ? t('reviewGame.listenAndChooseBadge')
+      : lesson?.reviewGame?.type === 'matching'
+        ? t('reviewGame.matchingBadge')
+        : lesson?.reviewGame?.type === 'random'
+          ? t('reviewGame.randomBadge')
+          : t('lessonPack.playMemory');
   const primaryActionTitle = !isPackComplete
-    ? 'Học tiếp'
+    ? t('lessonPack.continue')
     : shouldPlayReviewGame
-      ? 'Chơi lật thẻ'
-      : 'Nhận sticker';
+      ? reviewGameActionTitle
+      : t('lessonPack.claimSticker');
 
-  const difficultyOption = getLearningDifficultyOption(learningMode);
+  const difficultyOption = getLearningModeCopy(learningMode, t);
 
   const refreshScreenData = useCallback(() => {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
     getParentSettings()
-      .then(settings => setLearningMode(settings.learningMode))
-      .catch(() => setLearningMode('core'));
+      .then(settings => {
+        setLearningMode(settings.learningMode);
+        setJourneyMode(settings.journeyMode);
+      })
+      .catch(() => {
+        setLearningMode('core');
+        setJourneyMode('guided');
+      });
   }, []);
 
   useEffect(() => {
     refreshScreenData();
     return navigation.addListener('focus', refreshScreenData);
   }, [navigation, refreshScreenData]);
+
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
 
   const openScene = (sceneId: string) => {
     if (!lesson) {
@@ -90,13 +139,19 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     const scene = scenes.find(item => item.id === sceneId);
 
-    if (!scene || !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
+    if (!scene) {
+      return;
+    }
+
+    if (journeyMode === 'guided' && !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
+      playKidLockPrompt('progress');
       return;
     }
 
     navigation.navigate('ScenePlayer', {
       learningMode,
       lessonId: lesson.id,
+      openedFromParent,
       sceneId,
     });
   };
@@ -112,29 +167,43 @@ export function LessonPackScreen({ navigation, route }: Props) {
     }
 
     if (shouldPlayReviewGame) {
-      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+      navigation.navigate('ReviewGame', {
+        learningMode,
+        lessonId: lesson.id,
+        openedFromParent,
+      });
       return;
     }
 
     setIsCompleting(true);
+    let completionResult: ProgressCompletionResult = {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: 1,
+    };
     try {
-      await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson, {
+        learningMode,
+      });
     } catch {
       // Progress is best-effort; reward flow should still be reachable.
     } finally {
       setIsCompleting(false);
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id });
+    navigation.navigate('Reward', {
+      lessonId: lesson.id,
+      ...completionResult,
+    });
   };
 
   if (!lesson) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy gói bài học này.</Text>
+          <Text style={styles.errorTitle}>{t('lessonPack.notFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('lessonPack.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -142,33 +211,111 @@ export function LessonPackScreen({ navigation, route }: Props) {
     );
   }
 
+  if (!isAccessGranted) {
+    return (
+      <PremiumContentGate
+        isResolving={isResolving}
+        onAskParent={() =>
+          navigation.navigate('Parent', {
+            intent: 'premium',
+            lessonId: lesson.id,
+          })
+        }
+      />
+    );
+  }
+
   return (
     <Screen scroll>
-      <AppCard style={styles.headerCard}>
+      {/* Custom Kid Mode Top Navigation Header */}
+      <View style={styles.topHud}>
+        <Pressable
+          accessibilityLabel={t('common.close')}
+          accessibilityRole="button"
+          onPress={() =>
+            navigation.canGoBack()
+              ? navigation.goBack()
+              : navigation.navigate('Home')
+          }
+          style={styles.exitButton}
+        >
+          <View style={styles.exitIcon}>
+            <View style={styles.exitStroke} />
+            <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
+          </View>
+        </Pressable>
+
+        <View style={styles.topHudPill}>
+          <Text numberOfLines={1} style={styles.topHudTitle}>
+            {t('nav.lessonPack')}
+          </Text>
+        </View>
+      </View>
+
+      {openedFromParent ? (
+        <AppCard style={styles.parentContextCard}>
+          <KidBadge tone="sky">{t('lessonPack.parentBadge')}</KidBadge>
+          <Text style={styles.parentContextTitle}>
+            {t('lessonPack.parentContextTitle')}
+          </Text>
+          <Text style={styles.parentContextText}>
+            {t('lessonPack.parentContextText')}
+          </Text>
+        </AppCard>
+      ) : null}
+
+      <AppCard
+        style={[
+          styles.headerCard,
+          openedFromParent && styles.headerCardParent,
+        ]}
+      >
         <View style={styles.headerTopRow}>
-          <View style={styles.packIcon}>
-            <SKidsIcon name={getLessonIconName(lesson)} size={86} />
+          <View
+            style={[
+              styles.packIcon,
+              openedFromParent && styles.packIconParent,
+            ]}
+          >
+            <SKidsIcon
+              name={getLessonIconName(lesson)}
+              size={openedFromParent ? 62 : 86}
+            />
           </View>
           <View style={styles.headerText}>
-            <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
-              {hasCompletedLesson
-                ? 'Đã nhận thưởng'
-                : shouldPlayReviewGame
-                  ? 'Sẵn sàng ôn tập'
-                  : isPackComplete
-                    ? 'Đã học đủ cảnh'
-                    : 'Gói bài học'}
-            </KidBadge>
-            <Text style={styles.title}>{lesson.titleVi}</Text>
-            <Text style={styles.subtitle}>{lesson.titleEn}</Text>
+            <View style={styles.badgeRow}>
+              <KidBadge tone={isPackComplete ? 'teal' : 'sun'}>
+                {hasCompletedLesson
+                  ? t('lessonPack.rewardClaimed')
+                  : shouldPlayReviewGame
+                    ? t('lessonPack.readyToReview')
+                    : isPackComplete
+                      ? t('lessonPack.scenesCompleted')
+                      : t('lessonPack.lessonPack')}
+              </KidBadge>
+              <KidBadge tone="sky">
+                {t('lessonPack.difficulty', { difficulty: difficultyOption.title })}
+              </KidBadge>
+            </View>
+            <Text
+              numberOfLines={openedFromParent ? 2 : undefined}
+              style={styles.title}
+            >
+              {getLocalizedLessonTitle(lesson, appLanguage)}
+            </Text>
+            <Text
+              numberOfLines={openedFromParent ? 2 : undefined}
+              style={styles.subtitle}
+            >
+              {getLocalizedLessonSubtitle(lesson, appLanguage)}
+            </Text>
           </View>
         </View>
         <View style={styles.headerProgress}>
           <ProgressStars completed={completedSceneCount} total={scenes.length} />
           <Text style={styles.progressText}>
-            {completedSceneCount}/{scenes.length} cảnh đã học
+            {t('lessonPack.scenesLearned', { completed: String(completedSceneCount), total: String(scenes.length) })}
           </Text>
-          <KidBadge tone="sky">Độ khó: {difficultyOption.title}</KidBadge>
         </View>
       </AppCard>
 
@@ -181,7 +328,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
           );
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
-          const isUnlocked = isSceneUnlocked(
+          const isUnlocked = journeyMode === 'free' || isSceneUnlocked(
             scenes,
             scene,
             completedSceneIds,
@@ -196,8 +343,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
           return (
             <Pressable
               accessibilityRole="button"
-              accessibilityState={{ disabled: isLocked }}
-              disabled={isLocked}
+              accessibilityState={{ disabled: false }}
               key={scene.id}
               onPress={() => openScene(scene.id)}
               style={({ pressed }) => [
@@ -208,6 +354,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
               <AppCard
                 style={[
                   styles.sceneCard,
+                  openedFromParent && styles.sceneCardParent,
                   isCompleted && styles.sceneCardDone,
                   isNext && styles.sceneCardNext,
                   isLocked && styles.sceneCardLocked,
@@ -217,7 +364,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   <KidBadge
                     tone={isCompleted ? 'teal' : isNext ? 'coral' : 'sky'}
                   >
-                    Trạm {index + 1}
+                    {t('lessonPack.station', { index: String(index + 1) })}
                   </KidBadge>
                   <View style={styles.sceneStars}>
                     <Text
@@ -228,10 +375,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
                       ]}
                     >
                       {isCompleted
-                        ? `Đã xong · ${rewardStars} sao`
+                        ? t('lessonPack.sceneStatusDone', { stars: String(rewardStars) })
                         : isNext
-                          ? 'Học tiếp'
-                          : 'Đang khóa'}
+                          ? t('lessonPack.continue')
+                          : t('lessonPack.locked')}
                     </Text>
                   </View>
                 </View>
@@ -240,33 +387,49 @@ export function LessonPackScreen({ navigation, route }: Props) {
                   <View
                     style={[
                       styles.sceneIconContainer,
+                      openedFromParent && styles.sceneIconContainerParent,
                       isLocked && styles.sceneIconContainerLocked,
                     ]}
                   >
                     <SKidsIcon
                       name={isLocked ? 'parentLock' : getSceneIconName(scene)}
-                      size={64}
+                      size={openedFromParent ? 48 : 64}
                     />
                   </View>
                   <View style={styles.sceneTextContainer}>
-                    <Text style={styles.sceneTitle}>{scene.titleVi}</Text>
-                    <Text style={styles.sceneSubtitle}>{scene.titleEn}</Text>
+                    <Text
+                      numberOfLines={openedFromParent ? 2 : undefined}
+                      style={styles.sceneTitle}
+                    >
+                      {getLocalizedSceneTitle(scene, appLanguage)}
+                    </Text>
+                    <Text
+                      numberOfLines={openedFromParent ? 2 : undefined}
+                      style={styles.sceneSubtitle}
+                    >
+                      {getLocalizedSceneSubtitle(scene, appLanguage)}
+                    </Text>
                     {vocabularyText ? (
-                      <Text style={styles.vocabulary}>{vocabularyText}</Text>
+                      <Text
+                        numberOfLines={openedFromParent ? 1 : undefined}
+                        style={styles.vocabulary}
+                      >
+                        {vocabularyText}
+                      </Text>
                     ) : null}
                   </View>
                 </View>
                 {isNext ? (
                   <View style={styles.nextHintBubble}>
                     <Text style={styles.nextHint}>
-                      Bé học cảnh này tiếp nhé.
+                      {t('lessonPack.nextHint')}
                     </Text>
                   </View>
                 ) : null}
                 {isLocked ? (
                   <View style={styles.lockedHintBubble}>
                     <Text style={styles.lockedHint}>
-                      Hoàn thành trạm trước để mở khóa.
+                      {t('lessonPack.lockedHint')}
                     </Text>
                   </View>
                 ) : null}
@@ -282,18 +445,22 @@ export function LessonPackScreen({ navigation, route }: Props) {
           title={primaryActionTitle}
           onPress={handlePrimaryAction}
         />
-        {isPackComplete && hasReviewGame && hasCompletedReviewGame ? (
+        {(journeyMode === 'free' || isPackComplete) && hasReviewGame && !shouldPlayReviewGame ? (
           <AppButton
-            title="Chơi lật thẻ lại"
+            title={hasCompletedReviewGame ? `${reviewGameActionTitle} (${t('reviewGame.parentBadge')})` : reviewGameActionTitle}
             variant="secondary"
             onPress={() =>
-              navigation.navigate('ReviewGame', { lessonId: lesson.id })
+              navigation.navigate('ReviewGame', {
+                learningMode,
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         ) : null}
         {scenes[0] ? (
           <AppButton
-            title="Học từ cảnh đầu"
+            title={t('lessonPack.learnFromStart')}
             variant="secondary"
             onPress={() => openScene(scenes[0].id)}
           />
@@ -303,7 +470,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actions: {
     gap: spacing.md,
     marginTop: spacing.xl,
@@ -326,9 +493,16 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     marginBottom: spacing.lg,
   },
+  headerCardParent: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+    padding: spacing.md,
+  },
   headerProgress: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -336,6 +510,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
+  },
+  headerProgressParent: {
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+    justifyContent: 'flex-start',
+  },
+  badgeRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
   },
   headerText: {
     flex: 1,
@@ -346,15 +531,87 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.md,
   },
+  topHud: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  exitButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  exitIcon: {
+    alignItems: 'center',
+    height: 20,
+    justifyContent: 'center',
+    width: 20,
+  },
+  exitStroke: {
+    backgroundColor: colors.accentDark,
+    borderRadius: radius.pill,
+    height: 4,
+    position: 'absolute',
+    transform: [{ rotate: '45deg' }],
+    width: 20,
+  },
+  exitStrokeReverse: {
+    transform: [{ rotate: '-45deg' }],
+  },
+  topHudPill: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flex: 1,
+    height: 48,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+  },
+  topHudTitle: {
+    color: colors.primaryDark,
+    ...typography.subtitle,
+    fontSize: 16,
+    fontWeight: '800',
+  },
   packIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 2,
     height: 88,
     justifyContent: 'center',
     width: 88,
+  },
+  packIconParent: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    height: 64,
+    width: 64,
+  },
+  parentContextCard: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderWidth: 1,
+    gap: spacing.xs,
+    marginBottom: spacing.md,
+    padding: spacing.md,
+  },
+  parentContextText: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  parentContextTitle: {
+    color: colors.text,
+    ...typography.body,
   },
   pressed: {
     opacity: 0.82,
@@ -366,6 +623,10 @@ const styles = StyleSheet.create({
   },
   sceneCard: {
     gap: spacing.sm,
+  },
+  sceneCardParent: {
+    gap: spacing.xs,
+    padding: spacing.md,
   },
   sceneCardDone: {
     backgroundColor: colors.surfaceBlue,
@@ -406,13 +667,17 @@ const styles = StyleSheet.create({
   },
   sceneIconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 64,
     justifyContent: 'center',
     width: 64,
+  },
+  sceneIconContainerParent: {
+    height: 52,
+    width: 52,
   },
   sceneStars: {
     alignItems: 'flex-end',
@@ -499,4 +764,4 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
     ...typography.body,
   },
-});
+}));

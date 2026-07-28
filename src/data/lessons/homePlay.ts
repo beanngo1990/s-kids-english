@@ -31,6 +31,8 @@ export const homePlayLesson: Lesson = {
   titleEn: 'Playing at Home',
   descriptionVi:
     'Bé học cách chọn đồ chơi, chơi sáng tạo và dọn gọn góc chơi sau khi chơi.',
+  descriptionEn:
+    'Learn choosing toys, creative play, and tidying the play corner afterward.',
   thumbnailEmoji: '🧸',
   ageRange: {
     min: 3,
@@ -144,9 +146,12 @@ export const homePlayLesson: Lesson = {
           id: 'home-toy-corner-intro',
           type: 'intro',
           targetObjectIds: ['home-toy-corner-baby'],
+          instructionEn: "Let's play in the toy corner.",
           instructionVi: 'Mình cùng chơi ở góc đồ chơi nhé.',
           nextStepId: 'home-toy-corner-teach-toy',
           promptText: 'Play at home!',
+          successFeedbackEn:
+            'Have fun and remember to keep your toys tidy.',
           successFeedbackVi: 'Bé nhớ chơi vui và giữ đồ chơi gọn gàng.',
           effects: [bounce('home-toy-corner-baby')],
         }),
@@ -260,7 +265,9 @@ export const homePlayLesson: Lesson = {
           targetObjectId: 'home-toy-corner-car',
           targetObjectIds: ['home-toy-corner-car'],
           dropZoneId: 'home-toy-corner-car-zone',
+          failFeedbackEn: 'Move the toy car to the track on the mat.',
           failFeedbackVi: 'Kéo xe đồ chơi tới đường chạy trên thảm nhé.',
+          instructionEn: 'Move the toy car along the track on the mat.',
           instructionVi: 'Đưa xe đồ chơi chạy trên thảm.',
           nextStepId: 'home-toy-corner-teach-shelf',
           promptText: 'car',
@@ -383,6 +390,7 @@ export const homePlayLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'home-toy-corner-star',
+        messageEn: 'You had so much fun in the toy corner!',
         messageVi: 'Bé đã chơi ở góc đồ chơi thật vui!',
       },
     },
@@ -483,9 +491,11 @@ export const homePlayLesson: Lesson = {
           id: 'creative-play-intro',
           type: 'intro',
           targetObjectIds: ['creative-play-baby'],
+          instructionEn: "Let's play creatively.",
           instructionVi: 'Mình cùng chơi sáng tạo nhé.',
           nextStepId: 'creative-play-teach-book',
           promptText: 'Creative play!',
+          successFeedbackEn: 'You can read, draw, and do a puzzle.',
           successFeedbackVi: 'Bé có thể đọc, vẽ và ghép hình.',
           effects: [bounce('creative-play-baby')],
         }),
@@ -626,6 +636,7 @@ export const homePlayLesson: Lesson = {
           instructionVi: 'Chạm vào nốt nhạc nhé.',
           nextStepId: 'creative-play-teach-read-book',
           promptText: 'music',
+          successFeedbackEn: 'The music sounds fun!',
           successFeedbackVi: 'Âm nhạc nghe thật vui.',
           vocab: homePlayVocabulary.music,
         }),
@@ -709,6 +720,7 @@ export const homePlayLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'creative-play-star',
+        messageEn: 'You played so creatively!',
         messageVi: 'Bé đã chơi sáng tạo thật khéo!',
       },
     },
@@ -812,9 +824,11 @@ export const homePlayLesson: Lesson = {
           id: 'toy-cleanup-intro',
           type: 'intro',
           targetObjectIds: ['toy-cleanup-baby'],
+          instructionEn: "We've finished playing. Let's put the toys away.",
           instructionVi: 'Chơi xong rồi, mình dọn đồ chơi nhé.',
           nextStepId: 'toy-cleanup-teach-basket',
           promptText: 'Clean up toys!',
+          successFeedbackEn: "It's great that you tidy up after playing.",
           successFeedbackVi: 'Bé biết dọn đồ sau khi chơi là rất giỏi.',
           effects: [bounce('toy-cleanup-baby')],
         }),
@@ -1045,6 +1059,7 @@ export const homePlayLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'toy-cleanup-star',
+        messageEn: 'You put your toys away so neatly!',
         messageVi: 'Bé đã dọn đồ chơi thật gọn gàng!',
       },
     },
@@ -1199,7 +1214,7 @@ function sceneImage(sceneId: HomePlaySceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: HomePlaySceneId, assetName: string) {
-  return `lessons/home-play/${sceneId}/images/${assetName}.png`;
+  return `lessons/home-play/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

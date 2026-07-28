@@ -1,11 +1,27 @@
 import React, { useMemo } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
-import { colors } from '../theme/colors';
+import { canAccessReview } from '../engine/ContentAccessPolicy';
+import {
+  getMonetizationSnapshot,
+  useMonetizationSnapshot,
+} from '../engine/MonetizationManager';
+import {
+  getLocalizedLessonTitle,
+  getLocalizedReviewGameTitle,
+} from '../i18n/domainCopy';
+import { useI18n, useSavedPromptLanguage } from '../i18n';
+import type { AppLanguage } from '../i18n/types';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
@@ -16,32 +32,45 @@ import {
 } from '../utils/lessonProgress';
 
 type KidPlayPanelProps = {
+  appLanguage: AppLanguage;
   completedReviewGameIds: Set<string>;
   completedSceneIds: Set<string>;
+  journeyMode?: 'guided' | 'free';
+  onOpenPremium: (lessonId: string) => void;
   onOpenReviewGame: (lessonId: string) => void;
 };
 
 export function KidPlayPanel({
+  appLanguage,
   completedReviewGameIds,
   completedSceneIds,
+  journeyMode = 'guided',
+  onOpenPremium,
   onOpenReviewGame,
 }: KidPlayPanelProps) {
+  useThemeSync();
+  const t = useI18n();
+  const monetizationSnapshot = useMonetizationSnapshot();
   const reviewLessons = useMemo(
     () => lessons.filter(lesson => lesson.reviewGame),
     [],
   );
-  const unlockedCount = reviewLessons.filter(lesson =>
-    isReviewGameUnlocked(lesson, completedSceneIds),
+  const unlockedCount = reviewLessons.filter(
+    lesson =>
+      (journeyMode === 'free' ||
+        isReviewGameUnlocked(lesson, completedSceneIds)) &&
+      canAccessReview(lesson.id, monetizationSnapshot),
   ).length;
   const pendingReviewLesson = useMemo(
     () =>
       reviewLessons.find(
         lesson =>
           lesson.reviewGame &&
-          isReviewGameUnlocked(lesson, completedSceneIds) &&
+          (journeyMode === 'free' ||
+            isReviewGameUnlocked(lesson, completedSceneIds)) &&
           !completedReviewGameIds.has(lesson.reviewGame.id),
       ),
-    [completedReviewGameIds, completedSceneIds, reviewLessons],
+    [completedReviewGameIds, completedSceneIds, journeyMode, reviewLessons],
   );
   const orderedReviewLessons = useMemo(() => {
     if (!pendingReviewLesson) {
@@ -54,29 +83,82 @@ export function KidPlayPanel({
     ];
   }, [pendingReviewLesson, reviewLessons]);
 
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
+  const handleOpenReviewGame = (
+    lessonId: string,
+    isProgressUnlocked: boolean,
+  ) => {
+    const latestMonetizationSnapshot = getMonetizationSnapshot();
+    if (!canAccessReview(lessonId, latestMonetizationSnapshot)) {
+      if (latestMonetizationSnapshot.status === 'initializing') {
+        playKidLockPrompt('resolving');
+        Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+        return;
+      }
+
+      playKidLockPrompt('premium');
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+        { style: 'cancel', text: t('common.close') },
+        {
+          onPress: () => onOpenPremium(lessonId),
+          text: t('premium.askParent'),
+        },
+      ]);
+      return;
+    }
+
+    if (!isProgressUnlocked) {
+      playKidLockPrompt('progress');
+      Alert.alert(
+        t('home.progressLockedTitle'),
+        t('home.progressLockedText'),
+        [{ style: 'cancel', text: t('common.close') }],
+      );
+      return;
+    }
+
+    onOpenReviewGame(lessonId);
+  };
+
   return (
     <>
       <View style={styles.header}>
-        <KidBadge tone="teal">Chơi</KidBadge>
-        <Text style={styles.title}>Chọn game muốn chơi</Text>
-        <Text style={styles.subtitle}>
-          Các game sẽ mở khi bé học đủ cảnh trong gói bài. Bé có thể quay lại
-          luyện trí nhớ và nghe từ vựng bất cứ lúc nào.
-        </Text>
-        <View style={styles.summaryRow}>
-          {pendingReviewLesson ? (
-            <KidBadge tone="alert">1 game đang chờ</KidBadge>
-          ) : (
-            <KidBadge tone="sun">
-              {unlockedCount}/{reviewLessons.length} game đã mở
-            </KidBadge>
-          )}
-        </View>
+        <KidBadge tone="teal">{t('playPanel.play')}</KidBadge>
+        {pendingReviewLesson ? (
+          <KidBadge tone="alert">{t('playPanel.oneGame')}</KidBadge>
+        ) : (
+          <KidBadge tone="sun">
+            {unlockedCount}/{reviewLessons.length}
+          </KidBadge>
+        )}
       </View>
 
       <View style={styles.list}>
         {orderedReviewLessons.map(lesson => {
-          const isUnlocked = isReviewGameUnlocked(lesson, completedSceneIds);
+          const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
+          const reviewGameTitle = getLocalizedReviewGameTitle(
+            lesson.reviewGame,
+            appLanguage,
+          );
+          const isProgressUnlocked =
+            journeyMode === 'free' ||
+            isReviewGameUnlocked(lesson, completedSceneIds);
+          const hasContentAccess = canAccessReview(
+            lesson.id,
+            monetizationSnapshot,
+          );
+          const isPremiumLocked = !hasContentAccess;
+          const isResolvingPremium =
+            isPremiumLocked && monetizationSnapshot.status === 'initializing';
           const isCompleted = Boolean(
             lesson.reviewGame &&
               completedReviewGameIds.has(lesson.reviewGame.id),
@@ -87,37 +169,64 @@ export function KidPlayPanel({
             completedSceneIds,
             lesson.id,
           );
+          const statusLabel = isResolvingPremium
+            ? t('premium.resolving')
+            : isPremiumLocked
+            ? t('premium.askParent')
+            : !isProgressUnlocked
+            ? t('playPanel.locked')
+            : isPending
+            ? t('playPanel.playNow')
+            : isCompleted
+            ? t('playPanel.playAgain')
+            : t('playPanel.unlocked');
+          const actionIcon =
+            !isProgressUnlocked || isPremiumLocked
+              ? 'parentLock'
+              : isCompleted
+              ? 'star'
+              : 'replay';
 
           return (
             <Pressable
+              accessibilityLabel={`${lessonTitle}. ${reviewGameTitle}. ${statusLabel}. ${completedSceneCount}/${
+                lesson.scenes.length
+              } ${t('playPanel.scene')}.`}
               accessibilityRole="button"
-              accessibilityState={{ disabled: !isUnlocked }}
-              disabled={!isUnlocked}
+              accessibilityState={{ disabled: false }}
               key={lesson.id}
-              onPress={() => onOpenReviewGame(lesson.id)}
+              onPress={() =>
+                handleOpenReviewGame(lesson.id, isProgressUnlocked)
+              }
               style={({ pressed }) => [
                 styles.cardPressable,
-                pressed && isUnlocked && styles.pressed,
+                pressed && styles.pressed,
               ]}
             >
               <AppCard
                 style={[
                   styles.reviewCard,
-                  isUnlocked && styles.reviewCardUnlocked,
+                  isProgressUnlocked &&
+                    hasContentAccess &&
+                    styles.reviewCardUnlocked,
                   isPending && styles.reviewCardPending,
-                  !isUnlocked && styles.reviewCardLocked,
+                  (!isProgressUnlocked || isPremiumLocked) &&
+                    styles.reviewCardLocked,
                 ]}
               >
                 <View style={styles.cardMain}>
                   <View
                     style={[
                       styles.iconBox,
-                      !isUnlocked && styles.iconBoxLocked,
+                      (!isProgressUnlocked || isPremiumLocked) &&
+                        styles.iconBoxLocked,
                     ]}
                   >
                     <SKidsIcon
                       name={
-                        isUnlocked ? getLessonIconName(lesson) : 'parentLock'
+                        isProgressUnlocked && hasContentAccess
+                          ? getLessonIconName(lesson)
+                          : 'parentLock'
                       }
                       size={68}
                     />
@@ -126,31 +235,34 @@ export function KidPlayPanel({
                   <View style={styles.cardText}>
                     <View style={styles.badgeRow}>
                       <KidBadge
-                        tone={isPending ? 'alert' : isUnlocked ? 'teal' : 'sky'}
+                        tone={
+                          isPremiumLocked
+                            ? 'alert'
+                            : isPending
+                            ? 'alert'
+                            : isProgressUnlocked
+                            ? 'teal'
+                            : 'sky'
+                        }
                       >
-                        {isPending
-                          ? 'Chơi ngay'
-                          : isUnlocked
-                          ? isCompleted
-                            ? 'Chơi lại'
-                            : 'Đã mở khóa'
-                          : 'Đang khóa'}
+                        {statusLabel}
                       </KidBadge>
                       <KidBadge tone="sun">
-                        {completedSceneCount}/{lesson.scenes.length} cảnh
+                        {completedSceneCount}/{lesson.scenes.length}
                       </KidBadge>
                     </View>
-                    <Text style={styles.lessonTitle}>{lesson.titleVi}</Text>
-                    <Text style={styles.gameTitle}>
-                      {lesson.reviewGame?.titleVi ?? 'Game lật thẻ'}
-                    </Text>
-                    <Text style={styles.hintText}>
-                      {isPending
-                        ? 'Game lật thẻ đang chờ bé chơi sau khi hoàn thành gói.'
-                        : isUnlocked
-                        ? 'Bấm để chơi lật thẻ hình giống nhau.'
-                        : 'Hoàn thành đủ các cảnh để mở game.'}
-                    </Text>
+                    <Text style={styles.lessonTitle}>{lessonTitle}</Text>
+                    <Text style={styles.gameTitle}>{reviewGameTitle}</Text>
+                  </View>
+
+                  <View
+                    style={[
+                      styles.actionBox,
+                      (!isProgressUnlocked || isPremiumLocked) &&
+                        styles.actionBoxLocked,
+                    ]}
+                  >
+                    <SKidsIcon name={actionIcon} size={42} />
                   </View>
                 </View>
               </AppCard>
@@ -166,7 +278,7 @@ function isReviewGameUnlocked(lesson: Lesson, completedSceneIds: Set<string>) {
   return isLessonComplete(lesson.scenes, completedSceneIds, lesson.id);
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   badgeRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -189,16 +301,15 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   header: {
+    alignItems: 'center',
+    flexDirection: 'row',
     gap: spacing.sm,
-    marginBottom: spacing.lg,
-  },
-  hintText: {
-    color: colors.textSoft,
-    ...typography.caption,
+    justifyContent: 'space-between',
+    marginBottom: spacing.md,
   },
   iconBox: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -234,16 +345,18 @@ const styles = StyleSheet.create({
   reviewCardUnlocked: {
     borderColor: colors.primary,
   },
-  subtitle: {
-    color: colors.textSoft,
-    ...typography.body,
+  actionBox: {
+    alignItems: 'center',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 60,
+    justifyContent: 'center',
+    width: 60,
   },
-  summaryRow: {
-    alignItems: 'flex-start',
-    marginTop: spacing.xs,
+  actionBoxLocked: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
   },
-  title: {
-    color: colors.text,
-    ...typography.title,
-  },
-});
+}));

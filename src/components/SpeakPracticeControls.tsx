@@ -1,22 +1,28 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Alert,
   Animated,
   Easing,
+  Linking,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from 'react-native';
 
 import { KidIconButton } from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
-import { speakPracticePromptVi } from '../data/speechPrompts';
 import {
   playSoundEffect,
   playTapSound,
-  speakVi,
+  speakTeacherPromptSegments,
   speakWord,
+  startNarrationSession,
 } from '../engine/AudioManager';
+import {
+  resolveRecordingEncouragementPrompt,
+  resolveSpeechPracticePrompt,
+} from '../i18n/teacherPrompts';
+import type { TeacherPromptMode } from '../i18n/types';
 import {
   getVoiceRecordingLevel,
   isVoiceRecorderAvailable,
@@ -25,49 +31,125 @@ import {
   startVoiceRecording,
   stopVoiceRecording,
 } from '../engine/VoiceRecorder';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
+import { useI18n } from '../i18n';
 
 type RecordingStatus =
   | 'idle'
   | 'prompting'
   | 'recording'
+  | 'encouraging'
   | 'recorded'
   | 'unavailable';
 
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
   disabled?: boolean;
+  isInstructionPreparing?: boolean;
+  isInstructionPlaying?: boolean;
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
   onContinue?: () => void;
   onReplayModel?: () => void;
+  teacherPromptMode?: TeacherPromptMode;
   word: string;
 };
 
-const fallbackSingleWordRecordingMs = 5200;
-const fallbackPhraseRecordingMs = 7600;
 const levelPollIntervalMs = 120;
-const minListenBeforeSilenceStopMs = 900;
 const minVoiceLevel = 0.065;
 const noiseFloorMultiplier = 2.35;
-const silenceAfterSpeechMs = 900;
-const encourageText = 'Cô nghe rồi! Giỏi quá!';
+
+function AnimatedAudioWave({ color }: { color: string }) {
+  const anim1 = useRef(new Animated.Value(0)).current;
+  const anim2 = useRef(new Animated.Value(0)).current;
+  const anim3 = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const startAnim = (anim: Animated.Value, duration: number, delay: number) => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(anim, {
+            toValue: 1,
+            duration,
+            useNativeDriver: true,
+            delay,
+          }),
+          Animated.timing(anim, {
+            toValue: 0,
+            duration,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    };
+
+    startAnim(anim1, 400, 0);
+    startAnim(anim2, 350, 150);
+    startAnim(anim3, 450, 50);
+  }, [anim1, anim2, anim3]);
+
+  const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1.2] });
+
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3, height: 16 }}>
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim1) }] }} />
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim2) }] }} />
+      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim3) }] }} />
+    </View>
+  );
+}
+
+function AnimatedRecordingDot() {
+  const pulse = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, { toValue: 1, duration: 600, useNativeDriver: true }),
+        Animated.timing(pulse, { toValue: 0, duration: 600, useNativeDriver: true }),
+      ])
+    ).start();
+  }, [pulse]);
+
+  const opacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] });
+  const scale = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.15] });
+
+  return (
+    <Animated.View 
+      style={{ 
+        width: 14, 
+        height: 14, 
+        backgroundColor: colors.alert, 
+        borderRadius: 7, 
+        opacity, 
+        transform: [{ scale }] 
+      }} 
+    />
+  );
+}
 
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
+  isInstructionPreparing = false,
+  isInstructionPlaying = false,
   onAudioStart,
   onBusyChange,
   onContinue,
   onReplayModel,
+  teacherPromptMode = 'vi',
   word,
 }: SpeakPracticeControlsProps) {
+  useThemeSync();
+  const t = useI18n();
   const [status, setStatus] = useState<RecordingStatus>(() =>
     isVoiceRecorderAvailable() ? 'idle' : 'unavailable',
   );
+  const [lastRecordingHadDetectedSpeech, setLastRecordingHadDetectedSpeech] =
+    useState(true);
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const levelPollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -75,19 +157,29 @@ export function SpeakPracticeControls({
   const recordingUriRef = useRef<string | null>(null);
   const handledAutoStartRequestRef = useRef(0);
   const hasDetectedSpeechRef = useRef(false);
+  const isMountedRef = useRef(true);
   const isFinishingRecordingRef = useRef(false);
   const isPollingLevelRef = useRef(false);
   const lastSpeechAtRef = useRef<number | null>(null);
   const noiseFloorRef = useRef(0.025);
   const recordingStartedAtRef = useRef(0);
+  const recordingRequestIdRef = useRef(0);
   const statusRef = useRef<RecordingStatus>(status);
+  const recordingParamsRef = useRef({
+    fallbackRecordingDurationMs: 5200,
+    minListenBeforeSilenceStopMs: 900,
+    silenceAfterSpeechMs: 900,
+  });
 
   useEffect(() => {
     statusRef.current = status;
   }, [status]);
 
   useEffect(() => {
+    isMountedRef.current = true;
     return () => {
+      isMountedRef.current = false;
+      recordingRequestIdRef.current += 1;
       clearRecordingTimers(timerRef, levelPollTimerRef);
       if (statusRef.current === 'recording') {
         stopVoiceRecording().catch(() => undefined);
@@ -96,7 +188,11 @@ export function SpeakPracticeControls({
   }, []);
 
   useEffect(() => {
-    onBusyChange?.(status === 'prompting' || status === 'recording');
+    onBusyChange?.(
+      status === 'prompting' ||
+        status === 'recording' ||
+        status === 'encouraging',
+    );
   }, [onBusyChange, status]);
 
   useEffect(() => {
@@ -133,7 +229,12 @@ export function SpeakPracticeControls({
     isFinishingRecordingRef.current = true;
     clearRecordingTimers(timerRef, levelPollTimerRef);
     const stoppedRecordingUri = await stopVoiceRecording();
+    if (!isMountedRef.current) {
+      isFinishingRecordingRef.current = false;
+      return;
+    }
     const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
+    const didDetectSpeech = hasDetectedSpeechRef.current;
 
     if (!nextRecordingUri) {
       setStatus('idle');
@@ -143,11 +244,35 @@ export function SpeakPracticeControls({
 
     recordingUriRef.current = nextRecordingUri;
     setRecordingUri(nextRecordingUri);
-    setStatus('recorded');
-    await playSoundEffect('yay');
-    await speakVi(encourageText);
-    isFinishingRecordingRef.current = false;
-  }, []);
+    setLastRecordingHadDetectedSpeech(didDetectSpeech);
+    setStatus('encouraging');
+    const narrationSession = startNarrationSession();
+    try {
+      await narrationSession.ready;
+      if (!narrationSession.isActive()) {
+        return;
+      }
+      if (didDetectSpeech) {
+        await playSoundEffect('yay');
+        if (!narrationSession.isActive()) {
+          return;
+        }
+      }
+      await speakTeacherPromptSegments(
+        resolveRecordingEncouragementPrompt(
+          teacherPromptMode,
+          didDetectSpeech ? 'heardSpeech' : 'tryNextWord',
+        ).segments,
+        undefined,
+        narrationSession,
+      );
+    } finally {
+      if (isMountedRef.current) {
+        setStatus('recorded');
+      }
+      isFinishingRecordingRef.current = false;
+    }
+  }, [teacherPromptMode]);
 
   const handleVoiceLevel = useCallback((level: number | null) => {
     if (
@@ -181,8 +306,8 @@ export function SpeakPracticeControls({
     if (
       hasDetectedSpeechRef.current &&
       lastSpeechAtRef.current !== null &&
-      elapsedMs >= minListenBeforeSilenceStopMs &&
-      now - lastSpeechAtRef.current >= silenceAfterSpeechMs
+      elapsedMs >= recordingParamsRef.current.minListenBeforeSilenceStopMs &&
+      now - lastSpeechAtRef.current >= recordingParamsRef.current.silenceAfterSpeechMs
     ) {
       finishRecording().catch(() => undefined);
     }
@@ -207,6 +332,16 @@ export function SpeakPracticeControls({
 
   const startVoiceActivityMonitoring = useCallback((targetWord: string) => {
     clearRecordingTimers(timerRef, levelPollTimerRef);
+
+    const wordCount = targetWord.trim().split(/\s+/).filter(Boolean).length;
+    const charCount = targetWord.replace(/\s+/g, '').length;
+
+    recordingParamsRef.current = {
+      fallbackRecordingDurationMs: Math.max(5200, 3500 + charCount * 350),
+      minListenBeforeSilenceStopMs: wordCount > 1 ? 1200 : 800,
+      silenceAfterSpeechMs: wordCount > 1 ? 1100 : 750,
+    };
+
     hasDetectedSpeechRef.current = false;
     isPollingLevelRef.current = false;
     lastSpeechAtRef.current = null;
@@ -215,7 +350,7 @@ export function SpeakPracticeControls({
 
     timerRef.current = setTimeout(() => {
       finishRecording().catch(() => undefined);
-    }, getFallbackRecordingDurationMs(targetWord));
+    }, recordingParamsRef.current.fallbackRecordingDurationMs);
 
     levelPollTimerRef.current = setInterval(() => {
       pollVoiceLevel().catch(() => undefined);
@@ -234,30 +369,95 @@ export function SpeakPracticeControls({
         disabled ||
         status === 'prompting' ||
         status === 'recording' ||
-        status === 'unavailable'
+        status === 'encouraging'
       ) {
         return;
       }
+      const requestId = recordingRequestIdRef.current + 1;
+      recordingRequestIdRef.current = requestId;
+      const isRequestActive = () =>
+        isMountedRef.current && recordingRequestIdRef.current === requestId;
 
       if (playTap) {
         await playTapSound();
+        if (!isRequestActive()) {
+          return;
+        }
       }
 
-      const hasPermission = await requestVoiceRecordingPermission();
+      const hasPermission = await requestVoiceRecordingPermission({
+        buttonNegative: t('voiceRecorder.permissionNegative'),
+        buttonPositive: t('voiceRecorder.permissionPositive'),
+        message: t('voiceRecorder.permissionMessage'),
+        title: t('voiceRecorder.permissionTitle'),
+      });
+      if (!isRequestActive()) {
+        return;
+      }
       if (!hasPermission) {
-        setStatus('idle');
+        setStatus('unavailable');
+        if (playTap) {
+          Alert.alert(
+            t('speakPractice.micPermissionTitle'),
+            t('speakPractice.micPermissionText'),
+            [
+              { text: t('speakPractice.cancel'), style: 'cancel' },
+              { text: t('speakPractice.openSettings'), onPress: () => Linking.openSettings() },
+            ],
+          );
+        }
         return;
       }
 
       setStatus('prompting');
       onAudioStart?.();
+      const narrationSession = startNarrationSession();
+      await narrationSession.ready;
+      if (!isRequestActive()) {
+        return;
+      }
+      if (!narrationSession.isActive()) {
+        setStatus('idle');
+        return;
+      }
 
       if (playPrompt) {
-        await speakVi(speakPracticePromptVi);
-        await speakWord(word);
+        await speakTeacherPromptSegments(
+          resolveSpeechPracticePrompt(teacherPromptMode).segments,
+          undefined,
+          narrationSession,
+        );
+        if (!isRequestActive()) {
+          return;
+        }
+        if (!narrationSession.isActive()) {
+          setStatus('idle');
+          return;
+        }
+        await speakWord(word, undefined, narrationSession);
+        if (!isRequestActive()) {
+          return;
+        }
+        if (!narrationSession.isActive()) {
+          setStatus('idle');
+          return;
+        }
       }
 
       const nextRecordingUri = await startVoiceRecording();
+      if (!isRequestActive()) {
+        if (nextRecordingUri) {
+          await stopVoiceRecording();
+        }
+        return;
+      }
+      if (!narrationSession.isActive()) {
+        if (nextRecordingUri) {
+          await stopVoiceRecording();
+        }
+        setStatus('idle');
+        return;
+      }
       if (!nextRecordingUri) {
         setStatus('unavailable');
         return;
@@ -269,7 +469,15 @@ export function SpeakPracticeControls({
       isFinishingRecordingRef.current = false;
       startVoiceActivityMonitoring(word);
     },
-    [disabled, onAudioStart, startVoiceActivityMonitoring, status, word],
+    [
+      disabled,
+      onAudioStart,
+      startVoiceActivityMonitoring,
+      status,
+      teacherPromptMode,
+      t,
+      word,
+    ],
   );
 
   useEffect(() => {
@@ -286,12 +494,17 @@ export function SpeakPracticeControls({
     });
   }, [autoStartRequestId, beginRecording]);
 
-  if (status === 'unavailable') {
-    return null;
-  }
+  // Removed early return for 'unavailable' status so UI can still render
+  // if (status === 'unavailable') {
+  //   return null;
+  // }
 
   const handleRecordPress = async () => {
-    if (disabled || status === 'prompting') {
+    if (
+      disabled ||
+      status === 'prompting' ||
+      status === 'encouraging'
+    ) {
       return;
     }
 
@@ -308,7 +521,8 @@ export function SpeakPracticeControls({
       !recordingUri ||
       disabled ||
       status === 'recording' ||
-      status === 'prompting'
+      status === 'prompting' ||
+      status === 'encouraging'
     ) {
       return;
     }
@@ -323,7 +537,8 @@ export function SpeakPracticeControls({
       !onReplayModel ||
       disabled ||
       status === 'recording' ||
-      status === 'prompting'
+      status === 'prompting' ||
+      status === 'encouraging'
     ) {
       return;
     }
@@ -332,10 +547,13 @@ export function SpeakPracticeControls({
   };
 
   const isPrompting = status === 'prompting';
+  const isEncouraging = status === 'encouraging';
+  const isNarrating = isPrompting || isEncouraging;
   const isRecording = status === 'recording';
-  const hasRecording = status === 'recorded';
-  const isDisabled = disabled || isPrompting;
-  const isModelButtonDisabled = disabled || isPrompting || isRecording;
+  const hasRecording = status === 'recorded' || isEncouraging;
+  const isUnavailable = status === 'unavailable';
+  const isDisabled = disabled || isNarrating;
+  const isModelButtonDisabled = disabled || isNarrating || isRecording;
   const rippleScale = listeningPulse.interpolate({
     inputRange: [0, 1],
     outputRange: [0.86, 1.6],
@@ -352,34 +570,52 @@ export function SpeakPracticeControls({
     inputRange: [0, 0.5, 1],
     outputRange: [0.24, 0.16, 0],
   });
-  const promptText = isPrompting
-    ? 'Chuẩn bị đọc...'
+  const promptText = isInstructionPreparing
+    ? t('speakPractice.promptPreparingAudio')
+    : isInstructionPlaying
+    ? t('speakPractice.promptInstruction')
+    : isPrompting
+    ? t('speakPractice.promptPrepare')
     : isRecording
-      ? 'Cô đang nghe...'
+      ? t('speakPractice.promptRecording')
       : hasRecording
-        ? 'Giỏi quá! Từ này đọc là:'
-        : 'Bé nói theo cô:';
+        ? lastRecordingHadDetectedSpeech
+          ? t('speakPractice.promptRecorded')
+          : t('speakPractice.promptRecordedQuiet')
+        : isUnavailable
+          ? t('speakPractice.promptNoMic')
+          : t('speakPractice.promptSpeak');
 
   return (
     <View style={styles.root}>
       <View style={styles.promptRow}>
-        {!isRecording ? (
-          <View
-            style={[
-              styles.statusIcon,
-              isPrompting && styles.promptingStatusIcon,
-              hasRecording && styles.recordedStatusIcon,
-            ]}
-          >
+        <View
+          style={[
+            styles.statusIcon,
+            (isNarrating ||
+              isInstructionPreparing ||
+              isInstructionPlaying) &&
+              styles.promptingStatusIcon,
+            isRecording && styles.recordingStatusIcon,
+            hasRecording && styles.recordedStatusIcon,
+          ]}
+        >
+          {isNarrating || isInstructionPlaying ? (
+            <AnimatedAudioWave color={colors.primaryDark} />
+          ) : isInstructionPreparing ? (
+            <SKidsIcon name="listen" size={26} />
+          ) : isRecording ? (
+            <AnimatedRecordingDot />
+          ) : (
             <SKidsIcon name={hasRecording ? 'star' : 'speak'} size={26} />
-          </View>
-        ) : null}
+          )}
+        </View>
         <Text numberOfLines={2} style={styles.prompt}>
           {promptText}
         </Text>
         {hasRecording ? (
           <Pressable
-            accessibilityLabel="Nghe lại giọng bé"
+            accessibilityLabel={t('speakPractice.replayVoiceAccessibility')}
             accessibilityRole="button"
             disabled={isDisabled}
             onPress={handlePlaybackPress}
@@ -391,7 +627,7 @@ export function SpeakPracticeControls({
           >
             <SKidsIcon name="replay" size={24} />
             <Text numberOfLines={1} style={styles.voicePlaybackText}>
-              Giọng bé
+              {t('speakPractice.replayVoice')}
             </Text>
           </Pressable>
         ) : null}
@@ -403,7 +639,7 @@ export function SpeakPracticeControls({
         </Text>
         {onReplayModel ? (
           <Pressable
-            accessibilityLabel={`Nghe mẫu từ ${word}`}
+            accessibilityLabel={t('speakPractice.replayModelAccessibility', { word })}
             accessibilityRole="button"
             disabled={isModelButtonDisabled}
             onPress={handleReplayModelPress}
@@ -418,13 +654,13 @@ export function SpeakPracticeControls({
         ) : null}
       </View>
 
-      {hasRecording ? (
+      {(hasRecording || isUnavailable) ? (
         <View style={styles.actions}>
           <KidIconButton
-            accessibilityLabel="Thu âm lại"
+            accessibilityLabel={t('speakPractice.recordAgainAccessibility')}
             disabled={isDisabled}
             icon="speak"
-            label="Thu lại"
+            label={t('speakPractice.recordAgain')}
             onPress={handleRecordPress}
             size="md"
             style={[styles.actionButton, styles.secondaryAction]}
@@ -432,20 +668,19 @@ export function SpeakPracticeControls({
           />
           {onContinue ? (
             <KidIconButton
-              accessibilityLabel="Tiếp tục"
-              disabled={disabled}
+              accessibilityLabel={t('speakPractice.continueAccessibility')}
+              disabled={isDisabled}
               icon="next"
-              label="Tiếp tục"
+              label={t('speakPractice.continue')}
               onPress={onContinue}
-              size="md"
-              style={[styles.actionButton, styles.primaryAction]}
+              style={[styles.actionButton, styles.primaryAction, isUnavailable && { flex: 1 }]}
             />
           ) : null}
         </View>
       ) : (
         <View style={styles.actions}>
           <Pressable
-            accessibilityLabel={isRecording ? 'Dừng ghi âm' : `Bé nói ${word}`}
+            accessibilityLabel={isRecording ? t('speakPractice.stopRecordingAccessibility') : t('speakPractice.speakAccessibility', { word })}
             accessibilityRole="button"
             disabled={isDisabled}
             onPress={handleRecordPress}
@@ -493,16 +728,16 @@ export function SpeakPracticeControls({
             ]}
           >
             <Text numberOfLines={1} style={styles.recordLabel}>
-              {isRecording ? 'Chạm để dừng' : 'Bé nói'}
+              {isRecording ? t('speakPractice.tapToStop') : t('speakPractice.speak')}
             </Text>
           </View>
           </Pressable>
           {onContinue && !isRecording ? (
             <KidIconButton
-              accessibilityLabel="Tiếp tục"
-              disabled={disabled}
+              accessibilityLabel={t('speakPractice.continueAccessibility')}
+              disabled={isDisabled}
               icon="next"
-              label="Tiếp tục"
+              label={t('speakPractice.continue')}
               onPress={onContinue}
               size="md"
               style={[styles.actionButton, styles.primaryAction]}
@@ -529,15 +764,7 @@ function clearRecordingTimers(
   }
 }
 
-function getFallbackRecordingDurationMs(word: string) {
-  const wordCount = word.trim().split(/\s+/).filter(Boolean).length;
-
-  return wordCount > 1
-    ? fallbackPhraseRecordingMs
-    : fallbackSingleWordRecordingMs;
-}
-
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   actionButton: {
     flex: 1,
   },
@@ -625,6 +852,9 @@ const styles = StyleSheet.create({
   promptingStatusIcon: {
     backgroundColor: colors.secondarySoft,
   },
+  recordingStatusIcon: {
+    backgroundColor: colors.accentSoft,
+  },
   recordButton: {
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
@@ -644,7 +874,7 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   recordLabelPill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     marginTop: -spacing.xs,
     paddingHorizontal: spacing.md,
@@ -654,7 +884,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
   root: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     borderRadius: radius.xl,
     borderWidth: 1,
@@ -663,7 +893,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   secondaryAction: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
     flex: 0.95,
     minHeight: 76,
@@ -696,7 +926,7 @@ const styles = StyleSheet.create({
     flex: 1,
     ...typography.title,
     fontSize: 32,
-    lineHeight: 38,
+    lineHeight: 40,
     textAlign: 'center',
   },
   wordPanel: {
@@ -709,4 +939,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xxs,
   },
-});
+}));

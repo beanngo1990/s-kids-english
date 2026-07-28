@@ -1,0 +1,244 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function hasValidResumePointer(progress) {
+      return !('currentLessonProgress' in progress) ||
+        (progress.currentLessonProgress is map &&
+          progress.currentLessonProgress.keys().hasOnly([
+            'lessonId',
+            'sceneId',
+            'stepId'
+          ]) &&
+          progress.currentLessonProgress.keys().hasAll([
+            'lessonId',
+            'sceneId',
+            'stepId'
+          ]) &&
+          progress.currentLessonProgress.lessonId is string &&
+          progress.currentLessonProgress.lessonId.size() <= 120 &&
+          progress.currentLessonProgress.sceneId is string &&
+          progress.currentLessonProgress.sceneId.size() <= 120 &&
+          progress.currentLessonProgress.stepId is string &&
+          progress.currentLessonProgress.stepId.size() <= 120);
+    }
+
+    function hasValidClientTimestamp(progress) {
+      return !('updatedAt' in progress) ||
+        (progress.updatedAt is string && progress.updatedAt.size() <= 40);
+    }
+
+    function hasValidProgress(progress) {
+      return progress is map &&
+        progress.keys().hasOnly([
+          'activeThemeId',
+          'completedLessonIds',
+          'completedReviewGameIds',
+          'completedSceneIds',
+          'currentLessonProgress',
+          'earnedAchievementRecords',
+          'earnedStickerIds',
+          'earnedStickerRecords',
+          'learnedWordIds',
+          'totalXP',
+          'updatedAt',
+          'vocabularyProgress'
+        ]) &&
+        progress.keys().hasAll([
+          'activeThemeId',
+          'completedLessonIds',
+          'completedReviewGameIds',
+          'completedSceneIds',
+          'earnedAchievementRecords',
+          'earnedStickerIds',
+          'earnedStickerRecords',
+          'learnedWordIds',
+          'totalXP',
+          'vocabularyProgress'
+        ]) &&
+        progress.activeThemeId is string &&
+        progress.activeThemeId.size() <= 120 &&
+        progress.completedLessonIds is list &&
+        progress.completedLessonIds.size() <= 500 &&
+        progress.completedReviewGameIds is list &&
+        progress.completedReviewGameIds.size() <= 500 &&
+        progress.completedSceneIds is list &&
+        progress.completedSceneIds.size() <= 2000 &&
+        progress.earnedAchievementRecords is list &&
+        progress.earnedAchievementRecords.size() <= 500 &&
+        progress.earnedStickerIds is list &&
+        progress.earnedStickerIds.size() <= 500 &&
+        progress.earnedStickerRecords is list &&
+        progress.earnedStickerRecords.size() <= 500 &&
+        progress.learnedWordIds is list &&
+        progress.learnedWordIds.size() <= 2000 &&
+        progress.totalXP is number &&
+        progress.totalXP >= 0 &&
+        progress.totalXP <= 1000000 &&
+        progress.vocabularyProgress is map &&
+        progress.vocabularyProgress.size() <= 2000 &&
+        hasValidResumePointer(progress) &&
+        hasValidClientTimestamp(progress);
+    }
+
+    function hasValidCloudDocument(uid) {
+      return request.resource.data.keys().hasOnly([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'progress',
+          'schemaVersion',
+          'serverUpdatedAt'
+        ]) &&
+        request.resource.data.keys().hasAll([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'progress',
+          'schemaVersion',
+          'serverUpdatedAt'
+        ]) &&
+        request.resource.data.ownerUid == uid &&
+        request.resource.data.ownerUid is string &&
+        request.resource.data.consentVersion == 1 &&
+        request.resource.data.schemaVersion == 1 &&
+        request.resource.data.consentedAt is timestamp &&
+        request.resource.data.serverUpdatedAt == request.time &&
+        hasValidProgress(request.resource.data.progress);
+    }
+
+    function hasValidChildProfile(profile) {
+      return profile is map &&
+        profile.keys().hasOnly([
+          'avatarEmoji',
+          'birthYear',
+          'name'
+        ]) &&
+        profile.keys().hasAll([
+          'avatarEmoji',
+          'name'
+        ]) &&
+        profile.avatarEmoji is string &&
+        profile.avatarEmoji.size() > 0 &&
+        profile.avatarEmoji.size() <= 16 &&
+        profile.name is string &&
+        profile.name.size() > 0 &&
+        profile.name.size() <= 80 &&
+        (!('birthYear' in profile) ||
+          (profile.birthYear is int &&
+            profile.birthYear >= 1900 &&
+            profile.birthYear <= 2200));
+    }
+
+    function hasValidParentSettings(settings) {
+      return settings is map &&
+        settings.keys().hasOnly([
+          'appLanguage',
+          'appTheme',
+          'childProfile',
+          'englishAccent',
+          'hasCompletedOnboarding',
+          'journeyMode',
+          'learningMode',
+          'reminderEnabled',
+          'reminderTime',
+          'teacherPromptMode',
+          'updatedAt',
+          'visibleLessonIds'
+        ]) &&
+        settings.keys().hasAll([
+          'appLanguage',
+          'appTheme',
+          'childProfile',
+          'englishAccent',
+          'hasCompletedOnboarding',
+          'journeyMode',
+          'learningMode',
+          'reminderEnabled',
+          'reminderTime',
+          'teacherPromptMode',
+          'updatedAt'
+        ]) &&
+        settings.appLanguage in ['en', 'vi'] &&
+        settings.appTheme in ['light', 'dark', 'system'] &&
+        settings.englishAccent in ['en-US', 'en-GB'] &&
+        settings.hasCompletedOnboarding is bool &&
+        settings.journeyMode in ['guided', 'free'] &&
+        settings.learningMode in ['core', 'expanded', 'challenge'] &&
+        settings.reminderEnabled is bool &&
+        settings.reminderTime is string &&
+        settings.reminderTime.size() <= 20 &&
+        settings.teacherPromptMode in ['en', 'vi', 'bilingual'] &&
+        settings.updatedAt is string &&
+        settings.updatedAt.size() <= 40 &&
+        (!('visibleLessonIds' in settings) ||
+          (settings.visibleLessonIds is list &&
+            settings.visibleLessonIds.size() <= 500)) &&
+        hasValidChildProfile(settings.childProfile);
+    }
+
+    function hasValidSettingsDocument(uid) {
+      return request.resource.data.keys().hasOnly([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'schemaVersion',
+          'serverUpdatedAt',
+          'settings'
+        ]) &&
+        request.resource.data.keys().hasAll([
+          'consentedAt',
+          'consentVersion',
+          'ownerUid',
+          'schemaVersion',
+          'serverUpdatedAt',
+          'settings'
+        ]) &&
+        request.resource.data.ownerUid == uid &&
+        request.resource.data.ownerUid is string &&
+        request.resource.data.consentVersion == 1 &&
+        request.resource.data.schemaVersion == 1 &&
+        request.resource.data.consentedAt is timestamp &&
+        request.resource.data.serverUpdatedAt == request.time &&
+        hasValidParentSettings(request.resource.data.settings);
+    }
+
+    match /users/{uid}/progress/{progressId} {
+      allow get: if progressId == 'current' && isOwner(uid);
+      allow list: if false;
+      allow create: if progressId == 'current' &&
+        isOwner(uid) &&
+        hasValidCloudDocument(uid);
+      allow update: if progressId == 'current' &&
+        isOwner(uid) &&
+        hasValidCloudDocument(uid) &&
+        request.resource.data.ownerUid == resource.data.ownerUid &&
+        request.resource.data.consentVersion == resource.data.consentVersion &&
+        request.resource.data.schemaVersion == resource.data.schemaVersion;
+      allow delete: if progressId == 'current' && isOwner(uid);
+    }
+
+    match /users/{uid}/settings/{settingsId} {
+      allow get: if settingsId == 'current' && isOwner(uid);
+      allow list: if false;
+      allow create: if settingsId == 'current' &&
+        isOwner(uid) &&
+        hasValidSettingsDocument(uid);
+      allow update: if settingsId == 'current' &&
+        isOwner(uid) &&
+        hasValidSettingsDocument(uid) &&
+        request.resource.data.ownerUid == resource.data.ownerUid &&
+        request.resource.data.consentVersion == resource.data.consentVersion &&
+        request.resource.data.schemaVersion == resource.data.schemaVersion;
+      allow delete: if settingsId == 'current' && isOwner(uid);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

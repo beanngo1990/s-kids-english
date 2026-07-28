@@ -1,43 +1,79 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppLogo } from './AppLogo';
 import { KidIconButton } from './KidIconButton';
+import { PremiumStatusBadge } from './PremiumStatusBadge';
 import { SKidsIcon } from './SKidsIcon';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
+import { useI18n } from '../i18n';
 
 type KidModeHeaderProps = {
-  completed: number;
-  isComplete: boolean;
+  isPremium?: boolean;
+  totalXP: number;
+  onOpenHub?: () => void;
   onOpenParent: () => void;
-  total: number;
 };
 
 export function KidModeHeader({
-  completed,
-  isComplete,
+  isPremium = false,
+  totalXP,
+  onOpenHub,
   onOpenParent,
-  total,
 }: KidModeHeaderProps) {
+  useThemeSync();
+  const t = useI18n();
+  const { fontScale, width } = useWindowDimensions();
+  const useIconOnlyPremiumBadge = width < 360 || fontScale > 1.3;
+  const brandContent = (
+    <>
+      <AppLogo size={40} />
+      <View style={styles.brandCopy}>
+        <Text style={styles.title}>Sungy</Text>
+        {isPremium ? (
+          <PremiumStatusBadge
+            accessible={!onOpenHub}
+            compact
+            iconOnly={useIconOnlyPremiumBadge}
+          />
+        ) : null}
+      </View>
+    </>
+  );
+
   return (
     <SafeAreaView edges={['top']} style={styles.header}>
       <View style={styles.topBar}>
-        <View style={styles.brandCluster}>
-          <AppLogo size={40} />
-          <Text style={styles.title}>S-Kids</Text>
-        </View>
+        {onOpenHub ? (
+          <Pressable
+            accessibilityLabel={
+              isPremium
+                ? `${t('header.openHub')}. ${t(
+                    'premium.status.accessibility',
+                  )}`
+                : t('header.openHub')
+            }
+            accessibilityRole="button"
+            hitSlop={8}
+            onPress={onOpenHub}
+            style={({ pressed }) => [
+              styles.brandCluster,
+              pressed && styles.brandClusterPressed,
+            ]}
+          >
+            {brandContent}
+          </Pressable>
+        ) : (
+          <View style={styles.brandCluster}>{brandContent}</View>
+        )}
         <View style={styles.topActions}>
-          <TopProgressStatus
-            completed={completed}
-            isComplete={isComplete}
-            total={total}
-          />
+          <TopProgressStatus totalXP={totalXP} />
           <KidIconButton
-            accessibilityLabel="Góc phụ huynh"
-            icon="parentLock"
+            accessibilityLabel={t('header.parentGate')}
+            icon="parentGate"
             onPress={onOpenParent}
             size="md"
             style={styles.parentGate}
@@ -49,31 +85,27 @@ export function KidModeHeader({
   );
 }
 
+import { getLevelProgress } from '../engine/ProgressManager';
+
 type TopProgressStatusProps = {
-  completed: number;
-  isComplete: boolean;
-  total: number;
+  totalXP: number;
 };
 
 function TopProgressStatus({
-  completed,
-  isComplete,
-  total,
+  totalXP,
 }: TopProgressStatusProps) {
-  const safeTotal = Math.max(total, 0);
-  const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
-  const progressPercent =
-    safeTotal > 0 ? Math.round((safeCompleted / safeTotal) * 100) : 0;
+  const t = useI18n();
+  const { level, xpInLevel, xpNeeded, progressPercent } = getLevelProgress(totalXP);
 
   return (
     <View
-      accessibilityLabel={`Bé có ${safeCompleted} sao trong ${safeTotal} trạm`}
+      accessibilityLabel={t('header.levelAccessibility', { level: String(level), xpInLevel: String(xpInLevel), xpNeeded: String(xpNeeded - xpInLevel) })}
       accessibilityRole="progressbar"
       style={styles.topStatusCard}
     >
       <View style={styles.topStatusRow}>
-        <SKidsIcon name="star" size={22} />
-        <Text style={styles.topStatusCount}>x {safeCompleted}</Text>
+        <SKidsIcon name="acorn" size={18} />
+        <Text style={styles.topStatusCount}>{t('header.level', { level: String(level) })}</Text>
       </View>
       <View style={styles.topStatusTrack}>
         <View
@@ -86,18 +118,28 @@ function TopProgressStatus({
         />
       </View>
       <Text numberOfLines={1} style={styles.topStatusCaption}>
-        {isComplete ? 'Đủ sao!' : `${safeCompleted}/${safeTotal}`}
+        {xpInLevel}/{xpNeeded}
       </Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   brandCluster: {
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
     gap: spacing.sm,
+    minWidth: 0,
+  },
+  brandClusterPressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 1 }, { scale: 0.99 }],
+  },
+  brandCopy: {
+    alignItems: 'flex-start',
+    flexShrink: 1,
+    gap: 1,
     minWidth: 0,
   },
   header: {
@@ -110,7 +152,7 @@ const styles = StyleSheet.create({
     zIndex: 20,
   },
   parentGate: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -155,7 +197,7 @@ const styles = StyleSheet.create({
   },
   topStatusCard: {
     alignItems: 'stretch',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -168,11 +210,12 @@ const styles = StyleSheet.create({
   },
   topStatusCount: {
     color: colors.text,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '900',
     letterSpacing: 0,
     lineHeight: 18,
   },
+
   topStatusFill: {
     backgroundColor: colors.secondary,
     borderRadius: radius.pill,
@@ -190,4 +233,4 @@ const styles = StyleSheet.create({
     height: 6,
     overflow: 'hidden',
   },
-});
+}));

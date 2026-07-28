@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Pressable,
   StyleProp,
-  StyleSheet,
   Text,
   View,
   ViewStyle,
@@ -10,7 +9,7 @@ import {
 
 import { SKidsIcon } from './SKidsIcon';
 import { type SKidsIconName } from '../assets/icons/skids';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing, touchTarget } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -38,6 +37,7 @@ export function KidIconButton({
   style,
   tone = 'primary',
 }: KidIconButtonProps) {
+  useThemeSync();
   const iconSize = size === 'lg' ? 70 : 52;
 
   return (
@@ -68,7 +68,7 @@ export function KidIconButton({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   button: {
     alignItems: 'center',
     borderColor: colors.white,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     ...typography.caption,
   },
   labelPill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderRadius: radius.pill,
     marginTop: -spacing.xs,
     maxWidth: '92%',
@@ -112,10 +112,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondarySoft,
   },
   quiet: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.primarySoft,
   },
   secondary: {
     backgroundColor: colors.primarySoft,
   },
-});
+}));

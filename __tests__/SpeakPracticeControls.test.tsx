@@ -1,17 +1,30 @@
 import React from 'react';
+import { Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
+import { KidIconButton } from '../src/components/KidIconButton';
 import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
 import {
+  playSoundEffect,
+  speakTeacherPromptSegments,
+} from '../src/engine/AudioManager';
+import {
   getVoiceRecordingLevel,
+  requestVoiceRecordingPermission,
+  startVoiceRecording,
   stopVoiceRecording,
 } from '../src/engine/VoiceRecorder';
 
 jest.mock('../src/engine/AudioManager', () => ({
   playSoundEffect: jest.fn(() => Promise.resolve()),
   playTapSound: jest.fn(() => Promise.resolve()),
+  speakTeacherPromptSegments: jest.fn(() => Promise.resolve()),
   speakVi: jest.fn(() => Promise.resolve()),
   speakWord: jest.fn(() => Promise.resolve()),
+  startNarrationSession: jest.fn(() => ({
+    isActive: () => true,
+    ready: Promise.resolve(),
+  })),
 }));
 
 jest.mock('../src/engine/VoiceRecorder', () => ({
@@ -28,14 +41,48 @@ const mockedGetVoiceRecordingLevel =
   getVoiceRecordingLevel as jest.MockedFunction<typeof getVoiceRecordingLevel>;
 const mockedStopVoiceRecording =
   stopVoiceRecording as jest.MockedFunction<typeof stopVoiceRecording>;
+const mockedRequestVoiceRecordingPermission =
+  requestVoiceRecordingPermission as jest.MockedFunction<
+    typeof requestVoiceRecordingPermission
+  >;
+const mockedStartVoiceRecording =
+  startVoiceRecording as jest.MockedFunction<typeof startVoiceRecording>;
+const mockedPlaySoundEffect =
+  playSoundEffect as jest.MockedFunction<typeof playSoundEffect>;
+const mockedSpeakTeacherPromptSegments =
+  speakTeacherPromptSegments as jest.MockedFunction<
+    typeof speakTeacherPromptSegments
+  >;
 
 beforeEach(() => {
   jest.clearAllMocks();
   mockedGetVoiceRecordingLevel.mockResolvedValue(null);
+  mockedRequestVoiceRecordingPermission.mockResolvedValue(true);
+  mockedStartVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
+  mockedStopVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
 });
 
 afterEach(() => {
   jest.useRealTimers();
+});
+
+test('shows audio preparation separately from active speech', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls isInstructionPreparing word="jacket" />,
+    );
+    await flushPromises();
+  });
+
+  const textValues =
+    tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
+  expect(textValues).toContain('Đang chuẩn bị giọng cô...');
+  expect(textValues).not.toContain('Cô đang nói...');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 test('auto-stops recording after speech followed by silence', async () => {
@@ -58,6 +105,12 @@ test('auto-stops recording after speech followed by silence', async () => {
   await advanceRecordingClock(1500);
 
   expect(mockedStopVoiceRecording).toHaveBeenCalledTimes(1);
+  expect(mockedPlaySoundEffect).toHaveBeenCalledWith('yay');
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+    [{ language: 'vi', text: 'Cô nghe rồi! Giỏi quá!' }],
+    undefined,
+    expect.anything(),
+  );
 });
 
 test('falls back to a max recording window when voice levels are unavailable', async () => {
@@ -78,6 +131,162 @@ test('falls back to a max recording window when voice levels are unavailable', a
   await advanceRecordingClock(120);
   expect(mockedStopVoiceRecording).toHaveBeenCalledTimes(1);
 });
+
+test('keeps lesson controls busy until recording encouragement finishes', async () => {
+  jest.useFakeTimers();
+  let finishEncouragement: (() => void) | undefined;
+  mockedSpeakTeacherPromptSegments.mockImplementationOnce(
+    () =>
+      new Promise<void>(resolve => {
+        finishEncouragement = resolve;
+      }),
+  );
+  const onBusyChange = jest.fn();
+  const onContinue = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        onBusyChange={onBusyChange}
+        onContinue={onContinue}
+        word="sun"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await advanceRecordingClock(5280);
+
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledTimes(1);
+  expect(onBusyChange).toHaveBeenLastCalledWith(true);
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    finishEncouragement?.();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(onBusyChange).toHaveBeenLastCalledWith(false);
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('uses a try-next prompt when stopping without detected speech', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  try {
+    await ReactTestRenderer.act(async () => {
+      tree = ReactTestRenderer.create(
+        <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+      );
+      await flushPromises();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    const stopButton = findByAccessibilityLabel(tree, 'Dừng ghi âm');
+
+    await ReactTestRenderer.act(async () => {
+      await stopButton.props.onPress();
+      await flushPromises();
+      await flushPromises();
+    });
+
+    expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+    expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+      [
+        {
+          language: 'vi',
+          text: 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+        },
+      ],
+      undefined,
+      expect.anything(),
+    );
+
+    const textValues =
+      tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
+    expect(textValues).toContain(
+      'Không sao, từ sau mình thử đọc cùng cô nhé.',
+    );
+  } finally {
+    await ReactTestRenderer.act(async () => {
+      tree?.unmount();
+    });
+  }
+});
+
+function findByAccessibilityLabel(
+  tree: ReactTestRenderer.ReactTestRenderer | undefined,
+  accessibilityLabel: string,
+) {
+  const node = tree?.root.findAll(
+    candidate => candidate.props.accessibilityLabel === accessibilityLabel,
+  )[0];
+
+  if (!node) {
+    throw new Error(`${accessibilityLabel} button was not rendered`);
+  }
+
+  return node;
+}
+
+test('stops a recorder that starts after the practice controls unmount', async () => {
+  let finishStartingRecorder:
+    | ((recordingUri: string | null) => void)
+    | undefined;
+  mockedStartVoiceRecording.mockImplementationOnce(
+    () =>
+      new Promise<string | null>(resolve => {
+        finishStartingRecorder = resolve;
+      }),
+  );
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  expect(mockedStopVoiceRecording).not.toHaveBeenCalled();
+  await ReactTestRenderer.act(async () => {
+    finishStartingRecorder?.('file://late-kid-voice.m4a');
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStopVoiceRecording).toHaveBeenCalledTimes(1);
+});
+
+function findContinueButton(
+  tree: ReactTestRenderer.ReactTestRenderer | undefined,
+  onContinue: () => void,
+) {
+  const button = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.onPress === onContinue);
+
+  if (!button) {
+    throw new Error('Continue button was not rendered');
+  }
+
+  return button;
+}
 
 async function advanceRecordingClock(durationMs: number) {
   const stepCount = Math.ceil(durationMs / 120);

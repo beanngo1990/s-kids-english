@@ -2,20 +2,24 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Image,
   Pressable,
-  StyleSheet,
   Text,
   View,
   type ImageSourcePropType,
 } from 'react-native';
 
-import { AppButton } from '../../components/AppButton';
+
+import { MascotImage } from '../../components/mascot';
 import {
-  playCompleteSound,
   playCorrectSound,
   playTapSound,
   speakWord,
 } from '../../engine/AudioManager';
-import { colors } from '../../theme/colors';
+import { useI18n } from '../../i18n';
+import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
+import {
+  type ResponsiveLayout,
+  useResponsiveLayout,
+} from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
 
@@ -32,16 +36,21 @@ type MemoryCard = MemoryGameItem & {
 };
 
 type MemoryGameProps = {
-  isCompleting?: boolean;
+  isIntroPlaying?: boolean;
   items: MemoryGameItem[];
   onComplete: () => void;
+  onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
 };
 
 export function MemoryGame({
-  isCompleting = false,
+  isIntroPlaying = false,
   items,
   onComplete,
+  onMatch,
 }: MemoryGameProps) {
+  useThemeSync();
+  const t = useI18n();
+  const responsiveLayout = useResponsiveLayout();
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
     createShuffledCards(items),
@@ -50,11 +59,13 @@ export function MemoryGame({
   const [matchedItemIds, setMatchedItemIds] = useState<string[]>([]);
   const [isCheckingPair, setIsCheckingPair] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
+  const missedItemIdsRef = useRef<Set<string>>(new Set());
   const checkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const completionSoundPlayedRef = useRef(false);
-
   const isComplete = items.length > 0 && matchedItemIds.length === items.length;
-  const cardBasis = cards.length <= 8 ? '30%' : '22%';
+  const gridLayout = useMemo(
+    () => getMemoryGridLayout(cards.length, responsiveLayout),
+    [cards.length, responsiveLayout],
+  );
 
   useEffect(() => {
     clearCheckTimer(checkTimerRef);
@@ -63,7 +74,7 @@ export function MemoryGame({
     setMatchedItemIds([]);
     setIsCheckingPair(false);
     setTurnCount(0);
-    completionSoundPlayedRef.current = false;
+    missedItemIdsRef.current = new Set();
   }, [itemKey, items]);
 
   useEffect(() => {
@@ -73,19 +84,16 @@ export function MemoryGame({
   }, []);
 
   useEffect(() => {
-    if (!isComplete || completionSoundPlayedRef.current) {
-      return;
+    if (isComplete) {
+      onComplete();
     }
-
-    completionSoundPlayedRef.current = true;
-    playCompleteSound().catch(() => undefined);
-  }, [isComplete]);
+  }, [isComplete, onComplete]);
 
   const handleCardPress = (card: MemoryCard) => {
     const isCardVisible =
       openCardIds.includes(card.cardId) || matchedItemIds.includes(card.itemId);
 
-    if (isCheckingPair || isComplete || isCardVisible) {
+    if (isIntroPlaying || isCheckingPair || isComplete || isCardVisible) {
       return;
     }
 
@@ -111,12 +119,20 @@ export function MemoryGame({
     setTurnCount(current => current + 1);
 
     checkTimerRef.current = setTimeout(
-      () => {
+      async () => {
         if (isMatchingPair) {
           setMatchedItemIds(current =>
             current.includes(card.itemId) ? current : [...current, card.itemId],
           );
           playCorrectSound().catch(() => undefined);
+          if (onMatch) {
+             try {
+                await onMatch(card.itemId, !missedItemIdsRef.current.has(card.itemId));
+             } catch {}
+          }
+        } else {
+          missedItemIdsRef.current.add(firstCard.itemId);
+          missedItemIdsRef.current.add(card.itemId);
         }
 
         setOpenCardIds([]);
@@ -131,11 +147,16 @@ export function MemoryGame({
       <View style={styles.statusRow}>
         <View style={styles.statusPill}>
           <Text style={styles.statusText}>
-            {matchedItemIds.length}/{items.length} cặp
+            {t('memoryGame.pairCount', {
+              matched: String(matchedItemIds.length),
+              total: String(items.length),
+            })}
           </Text>
         </View>
         <View style={styles.statusPill}>
-          <Text style={styles.statusText}>{turnCount} lượt</Text>
+          <Text style={styles.statusText}>
+            {t('memoryGame.turnCount', { count: String(turnCount) })}
+          </Text>
         </View>
       </View>
 
@@ -148,15 +169,21 @@ export function MemoryGame({
           return (
             <Pressable
               accessibilityLabel={
-                isVisible ? `Thẻ ${card.word}` : 'Thẻ lật hình'
+                isVisible
+                  ? t('memoryGame.visibleCardAccessibility', {
+                      word: card.word,
+                    })
+                  : t('memoryGame.hiddenCardAccessibility')
               }
               accessibilityRole="button"
-              disabled={isCheckingPair || isComplete || isVisible}
+              disabled={
+                isIntroPlaying || isCheckingPair || isComplete || isVisible
+              }
               key={card.cardId}
               onPress={() => handleCardPress(card)}
               style={({ pressed }) => [
                 styles.card,
-                { flexBasis: cardBasis },
+                gridLayout.cardStyle,
                 isVisible ? styles.cardOpen : styles.cardClosed,
                 isMatched && styles.cardMatched,
                 pressed && !isVisible && styles.cardPressed,
@@ -172,33 +199,13 @@ export function MemoryGame({
                 </View>
               ) : (
                 <View style={styles.cardBack}>
-                  <Text style={styles.cardBackMark}>★</Text>
+                  <MascotImage decorative pose="avatar" size={56} />
                 </View>
               )}
             </Pressable>
           );
         })}
       </View>
-
-      <View style={styles.helperBox}>
-        <Text style={styles.helperText}>
-          Lật hai hình giống nhau. Mỗi lần lật, bé sẽ nghe lại từ tiếng Anh.
-        </Text>
-      </View>
-
-      {isComplete ? (
-        <View style={styles.completeBox}>
-          <Text style={styles.completeTitle}>Giỏi lắm!</Text>
-          <Text style={styles.completeText}>
-            Bé đã tìm đủ các cặp hình và nghe lại {items.length} từ.
-          </Text>
-          <AppButton
-            disabled={isCompleting}
-            title={isCompleting ? 'Đang lưu...' : 'Nhận sticker'}
-            onPress={onComplete}
-          />
-        </View>
-      ) : null}
     </View>
   );
 }
@@ -233,7 +240,47 @@ function clearCheckTimer(
   }
 }
 
-const styles = StyleSheet.create({
+function getMemoryGridLayout(
+  cardCount: number,
+  layout: ResponsiveLayout,
+) {
+  const columnCount = getMemoryColumnCount(cardCount, layout);
+  const gapAllowancePercent = layout.isTablet ? 1.4 : 2.5;
+  const basisValue = Math.max(
+    14,
+    100 / columnCount - gapAllowancePercent,
+  );
+
+  return {
+    cardStyle: {
+      flexBasis: `${basisValue}%` as const,
+      maxWidth: layout.isTablet ? (layout.isLandscape ? 188 : 176) : undefined,
+      minHeight: layout.isTablet ? 132 : 116,
+    },
+  };
+}
+
+function getMemoryColumnCount(cardCount: number, layout: ResponsiveLayout) {
+  if (cardCount <= 0) {
+    return 1;
+  }
+
+  if (layout.isTabletLandscape) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 6);
+  }
+
+  if (layout.isTablet) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 5);
+  }
+
+  if (layout.isLandscape) {
+    return Math.min(cardCount, cardCount <= 8 ? 4 : 5);
+  }
+
+  return Math.min(cardCount, cardCount <= 8 ? 3 : 4);
+}
+
+const styles = createThemedStyles(() => ({
   card: {
     aspectRatio: 0.9,
     borderRadius: radius.lg,
@@ -248,18 +295,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  cardBackMark: {
-    color: colors.white,
-    fontSize: 42,
-    fontWeight: '900',
-    lineHeight: 48,
-  },
   cardClosed: {
     borderColor: colors.primaryDark,
   },
   cardFace: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     flex: 1,
     justifyContent: 'center',
     padding: spacing.sm,
@@ -278,25 +319,6 @@ const styles = StyleSheet.create({
     opacity: 0.88,
     transform: [{ scale: 0.98 }],
   },
-  completeBox: {
-    alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    gap: spacing.sm,
-    padding: spacing.md,
-  },
-  completeText: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.body,
-  },
-  completeTitle: {
-    color: colors.text,
-    textAlign: 'center',
-    ...typography.subtitle,
-  },
   container: {
     gap: spacing.md,
   },
@@ -304,22 +326,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
-  },
-  helperBox: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  helperText: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.caption,
+    justifyContent: 'center',
   },
   statusPill: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -335,4 +345,4 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
     ...typography.caption,
   },
-});
+}));

@@ -6,5 +6,6 @@ export { ParentScreen } from './ParentScreen';
 export { RewardScreen } from './RewardScreen';
 export { ReviewGameScreen } from './ReviewGameScreen';
 export { ReviewLibraryScreen } from './ReviewLibraryScreen';
+export { StickerCollectionScreen } from './StickerCollectionScreen';
 export { ThemeLibraryScreen } from './ThemeLibraryScreen';
 export { ScenePlayerScreen } from './ScenePlayerScreen';

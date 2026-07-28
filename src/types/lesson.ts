@@ -115,10 +115,13 @@ export type SceneStep = {
   type: SceneStepType;
   targetObjectIds: EntityId[];
   instructionVi: string;
+  instructionEn?: string;
   promptText?: string;
   interaction: SceneInteraction;
   successFeedbackVi: string;
+  successFeedbackEn?: string;
   failFeedbackVi?: string;
+  failFeedbackEn?: string;
   effects?: SceneEffect[];
   learningScope?: LearningScope;
   nextStepId?: EntityId;
@@ -130,6 +133,7 @@ export type SceneReward = {
   stars: number;
   badgeId?: EntityId;
   messageVi?: string;
+  messageEn?: string;
 };
 
 /** Một mini-scene học tương tác gồm nền, object, drop zone và các step. */
@@ -157,7 +161,7 @@ export type AgeRange = {
 /** Game ôn tập cuối bài, có thể mở rộng bằng config riêng cho từng game. */
 export type ReviewGame = {
   id: EntityId;
-  type: 'matching' | 'memory' | 'listenAndChoose';
+  type: 'matching' | 'memory' | 'listenAndChoose' | 'random';
   titleVi: string;
   config?: Record<string, unknown>;
 };
@@ -169,6 +173,7 @@ export type LessonTheme = {
   titleEn?: string;
   thumbnailEmoji: string;
   descriptionVi?: string;
+  descriptionEn?: string;
   lessonIds: EntityId[];
 };
 
@@ -179,6 +184,7 @@ export type Lesson = {
   titleVi: string;
   titleEn: string;
   descriptionVi: string;
+  descriptionEn?: string;
   thumbnailEmoji?: string;
   ageRange: AgeRange;
   scenes: Scene[];

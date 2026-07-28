@@ -8,6 +8,8 @@ export const atSchoolLesson: Lesson = {
   titleVi: 'Ở Trường Của Bé',
   titleEn: 'At School',
   descriptionVi: 'Bé học từ vựng và làm theo chỉ dẫn quen thuộc trong lớp học.',
+  descriptionEn:
+    'Learn classroom vocabulary and follow familiar school instructions.',
   thumbnailEmoji: '🏫',
   ageRange: {
     min: 3,
@@ -26,11 +28,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '👩‍🏫',
       background: imageAsset(
         'classroom-bg',
-        'lessons/at-school/classroom/images/background.png',
+        'lessons/at-school/classroom/images/background.webp',
       ),
       character: characterObject(
         'classroom-baby',
-        'lessons/at-school/classroom/images/baby.png',
+        'lessons/at-school/classroom/images/baby.webp',
         {
           height: 42,
           width: 24,
@@ -52,7 +54,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-teacher',
           asset: imageAsset(
             'teacher',
-            'lessons/at-school/classroom/images/teacher.png',
+            'lessons/at-school/classroom/images/teacher.webp',
           ),
           defaultAnimation: 'wave',
           isInteractive: true,
@@ -75,7 +77,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-desk',
           asset: imageAsset(
             'desk',
-            'lessons/at-school/classroom/images/desk.png',
+            'lessons/at-school/classroom/images/desk.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -98,7 +100,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-chair',
           asset: imageAsset(
             'chair',
-            'lessons/at-school/classroom/images/chair.png',
+            'lessons/at-school/classroom/images/chair.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -121,7 +123,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-board',
           asset: imageAsset(
             'board',
-            'lessons/at-school/classroom/images/board.png',
+            'lessons/at-school/classroom/images/board.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -148,7 +150,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-room',
           asset: imageAsset(
             'classroom',
-            'lessons/at-school/classroom/images/classroom.png',
+            'lessons/at-school/classroom/images/classroom.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -174,7 +176,7 @@ export const atSchoolLesson: Lesson = {
           id: 'classroom-hand',
           asset: imageAsset(
             'hand',
-            'lessons/at-school/classroom/images/hand.png',
+            'lessons/at-school/classroom/images/hand.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -224,12 +226,14 @@ export const atSchoolLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: "Let's go into the classroom.",
           instructionVi: 'Mình vào lớp học nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'classroom-teach-teacher',
           promptText: 'At school!',
+          successFeedbackEn: "Let's go in!",
           successFeedbackVi: 'Vào lớp thôi!',
           targetObjectIds: ['classroom-baby'],
           type: 'intro',
@@ -487,6 +491,7 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'teacher',
+          successFeedbackEn: "You're ready to learn with your teacher!",
           successFeedbackVi: 'Con đã sẵn sàng học với cô giáo!',
           targetObjectIds: ['classroom-teacher'],
           type: 'review',
@@ -495,6 +500,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'classroom-star',
+        messageEn: 'You got to know your classroom.',
         messageVi: 'Bé đã làm quen với lớp học.',
         stars: 3,
       },
@@ -506,11 +512,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '✏️',
       background: imageAsset(
         'supplies-bg',
-        'lessons/at-school/school-supplies/images/background.png',
+        'lessons/at-school/school-supplies/images/background.webp',
       ),
       character: characterObject(
         'supplies-baby',
-        'lessons/at-school/school-supplies/images/baby.png',
+        'lessons/at-school/school-supplies/images/baby.webp',
         {
           height: 38,
           width: 22,
@@ -534,7 +540,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-book',
           asset: imageAsset(
             'book',
-            'lessons/at-school/school-supplies/images/book.png',
+            'lessons/at-school/school-supplies/images/book.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -557,7 +563,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-pencil',
           asset: imageAsset(
             'pencil',
-            'lessons/at-school/school-supplies/images/pencil.png',
+            'lessons/at-school/school-supplies/images/pencil.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -580,7 +586,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-crayon',
           asset: imageAsset(
             'crayon',
-            'lessons/at-school/school-supplies/images/crayon.png',
+            'lessons/at-school/school-supplies/images/crayon.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -603,7 +609,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-notebook',
           asset: imageAsset(
             'notebook',
-            'lessons/at-school/school-supplies/images/notebook.png',
+            'lessons/at-school/school-supplies/images/notebook.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -630,7 +636,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-eraser',
           asset: imageAsset(
             'eraser',
-            'lessons/at-school/school-supplies/images/eraser.png',
+            'lessons/at-school/school-supplies/images/eraser.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -656,7 +662,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-ruler',
           asset: imageAsset(
             'ruler',
-            'lessons/at-school/school-supplies/images/ruler.png',
+            'lessons/at-school/school-supplies/images/ruler.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -682,7 +688,7 @@ export const atSchoolLesson: Lesson = {
           id: 'supplies-circle',
           asset: imageAsset(
             'circle',
-            'lessons/at-school/school-supplies/images/circle.png',
+            'lessons/at-school/school-supplies/images/circle.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: false,
@@ -738,12 +744,14 @@ export const atSchoolLesson: Lesson = {
       steps: [
         {
           id: 'supplies-intro',
+          instructionEn: "Let's get your school supplies ready.",
           instructionVi: 'Mình chuẩn bị đồ dùng học tập nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'supplies-teach-book',
           promptText: 'School supplies!',
+          successFeedbackEn: "Let's get ready!",
           successFeedbackVi: 'Cùng chuẩn bị nào!',
           targetObjectIds: ['supplies-baby'],
           type: 'intro',
@@ -1057,6 +1065,7 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'book',
+          successFeedbackEn: 'You remembered the school supplies very well!',
           successFeedbackVi: 'Bé nhớ đồ dùng học tập rất tốt!',
           targetObjectIds: ['supplies-book'],
           type: 'review',
@@ -1065,6 +1074,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'supplies-star',
+        messageEn: 'You got your school supplies ready.',
         messageVi: 'Bé đã chuẩn bị đồ dùng học tập.',
         stars: 3,
       },
@@ -1076,11 +1086,11 @@ export const atSchoolLesson: Lesson = {
       thumbnailEmoji: '✋',
       background: imageAsset(
         'teacher-instructions-bg',
-        'lessons/at-school/teacher-instructions/images/background.png',
+        'lessons/at-school/teacher-instructions/images/background.webp',
       ),
       character: characterObject(
         'instructions-baby',
-        'lessons/at-school/teacher-instructions/images/baby.png',
+        'lessons/at-school/teacher-instructions/images/baby.webp',
         {
           height: 42,
           width: 24,
@@ -1105,7 +1115,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-teacher',
           asset: imageAsset(
             'teacher',
-            'lessons/at-school/teacher-instructions/images/teacher.png',
+            'lessons/at-school/teacher-instructions/images/teacher.webp',
           ),
           defaultAnimation: 'wave',
           isInteractive: true,
@@ -1128,7 +1138,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-book',
           asset: imageAsset(
             'book',
-            'lessons/at-school/teacher-instructions/images/book.png',
+            'lessons/at-school/teacher-instructions/images/book.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -1151,7 +1161,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-pencil',
           asset: imageAsset(
             'pencil',
-            'lessons/at-school/teacher-instructions/images/pencil.png',
+            'lessons/at-school/teacher-instructions/images/pencil.webp',
           ),
           isInteractive: true,
           position: {
@@ -1173,7 +1183,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-notebook',
           asset: imageAsset(
             'notebook',
-            'lessons/at-school/teacher-instructions/images/notebook.png',
+            'lessons/at-school/teacher-instructions/images/notebook.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -1199,7 +1209,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-crayon',
           asset: imageAsset(
             'crayon',
-            'lessons/at-school/teacher-instructions/images/crayon.png',
+            'lessons/at-school/teacher-instructions/images/crayon.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -1224,7 +1234,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-hand',
           asset: imageAsset(
             'hand',
-            'lessons/at-school/teacher-instructions/images/hand.png',
+            'lessons/at-school/teacher-instructions/images/hand.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -1250,7 +1260,7 @@ export const atSchoolLesson: Lesson = {
           id: 'instructions-cleanup-box',
           asset: imageAsset(
             'box',
-            'lessons/at-school/teacher-instructions/images/box.png',
+            'lessons/at-school/teacher-instructions/images/box.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -1330,12 +1340,14 @@ export const atSchoolLesson: Lesson = {
       steps: [
         {
           id: 'instructions-intro',
+          instructionEn: "I'll guide you.",
           instructionVi: 'Cô giáo sẽ hướng dẫn bé nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'instructions-teach-listen',
           promptText: 'Teacher says!',
+          successFeedbackEn: "Let's listen together.",
           successFeedbackVi: 'Mình cùng lắng nghe nào.',
           targetObjectIds: ['instructions-teacher', 'instructions-baby'],
           type: 'intro',
@@ -1470,6 +1482,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-open-book',
+          instructionEn: 'The teacher says, "Open the book."',
           instructionVi: 'Cô giáo bảo mình mở sách nhé.',
           interaction: {
             targetObjectId: 'instructions-book',
@@ -1508,6 +1521,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-draw-circle',
+          instructionEn: 'The teacher says, "Draw a circle."',
           instructionVi: 'Cô giáo bảo mình vẽ hình tròn.',
           interaction: {
             targetObjectId: 'instructions-crayon',
@@ -1547,6 +1561,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-write-name',
+          instructionEn: 'The teacher says, "Write your name."',
           instructionVi: 'Cô giáo bảo mình viết tên.',
           interaction: {
             targetObjectId: 'instructions-pencil',
@@ -1586,6 +1601,7 @@ export const atSchoolLesson: Lesson = {
         },
         {
           id: 'instructions-teach-raise-hand',
+          instructionEn: 'The teacher says, "Raise your hand."',
           instructionVi: 'Cô giáo bảo mình giơ tay.',
           interaction: {
             targetObjectId: 'instructions-hand',
@@ -1703,6 +1719,8 @@ export const atSchoolLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'teacher',
+          successFeedbackEn:
+            "You followed the teacher's instructions very well!",
           successFeedbackVi: 'Bé đã làm theo cô giáo rất tốt!',
           targetObjectIds: ['instructions-teacher'],
           type: 'review',
@@ -1711,6 +1729,7 @@ export const atSchoolLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'instructions-star',
+        messageEn: "You followed the teacher's instructions very well.",
         messageVi: 'Bé đã làm theo cô giáo thật tốt.',
         stars: 3,
       },
@@ -1719,7 +1738,7 @@ export const atSchoolLesson: Lesson = {
   reviewGame: {
     id: 'at-school-review',
     titleVi: 'Tìm đồ ở trường',
-    type: 'memory',
+    type: 'listenAndChoose',
     config: {
       vocabularyIds: [
         atSchoolVocabulary.teacher.id,

@@ -6,13 +6,37 @@ export type ObjectAnimationEffect = 'none' | 'bounce' | 'shake' | 'sparkle';
 
 export const dimOpacity = 0.48;
 
-export const glowStyle: ViewStyle = {
-  borderColor: colors.secondary,
-  shadowColor: colors.secondary,
-  shadowOpacity: 0.36,
-  shadowRadius: 14,
-  elevation: 5,
-};
+function createGlowStyle(): ViewStyle {
+  return {
+    borderColor: colors.secondary,
+    elevation: 5,
+    shadowColor: colors.secondary,
+    shadowOpacity: 0.36,
+    shadowRadius: 14,
+  };
+}
+
+export const glowStyle = new Proxy({} as ViewStyle, {
+  get(_target, property: keyof ViewStyle) {
+    return createGlowStyle()[property];
+  },
+  getOwnPropertyDescriptor(_target, property: keyof ViewStyle) {
+    const style = createGlowStyle();
+
+    if (!(property in style)) {
+      return undefined;
+    }
+
+    return {
+      configurable: true,
+      enumerable: true,
+      value: style[property],
+    };
+  },
+  ownKeys() {
+    return Reflect.ownKeys(createGlowStyle());
+  },
+});
 
 export function createBounceAnimation(scale: Animated.Value) {
   scale.stopAnimation();

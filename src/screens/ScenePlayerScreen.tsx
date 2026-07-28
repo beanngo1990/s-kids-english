@@ -1,13 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
+import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
 import { lessons } from '../data/lessons';
-import { completeLessonProgress } from '../engine/ProgressManager';
+import { canAccessReview } from '../engine/ContentAccessPolicy';
+import { useI18n } from '../i18n';
+import { getMonetizationSnapshot } from '../engine/MonetizationManager';
+import {
+  completeLessonProgress,
+  type ProgressCompletionResult,
+} from '../engine/ProgressManager';
 import { ScenePlayer } from '../engine/ScenePlayer';
-import { colors } from '../theme/colors';
+import { useContentAccess } from '../engine/useContentAccess';
+import { hasPlayableReviewGame } from '../games/GameRegistry';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
@@ -15,18 +24,29 @@ import type { RootStackParamList } from '../types/navigation';
 type Props = NativeStackScreenProps<RootStackParamList, 'ScenePlayer'>;
 
 export function ScenePlayerScreen({ navigation, route }: Props) {
+  useThemeSync();
+  const t = useI18n();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
+  const openedFromParent = route.params.openedFromParent === true;
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
     : undefined;
+  const { isAccessGranted, isResolving } = useContentAccess(
+    {
+      kind: 'scene',
+      lessonId: route.params.lessonId,
+      sceneId: route.params.sceneId ?? '__full_lesson__',
+    },
+    { latchWhenGranted: true },
+  );
 
   if (!lesson) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy bài học này.</Text>
+          <Text style={styles.errorTitle}>{t('scenePlayer.lessonNotFound')}</Text>
           <AppButton
-            title="Về danh sách bài học"
+            title={t('scenePlayer.backToList')}
             onPress={() => navigation.navigate('LessonList')}
           />
         </View>
@@ -38,15 +58,34 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     return (
       <Screen>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorTitle}>Không tìm thấy cảnh học này.</Text>
+          <Text style={styles.errorTitle}>{t('scenePlayer.sceneNotFound')}</Text>
           <AppButton
-            title="Về gói bài học"
+            title={t('scenePlayer.backToPack')}
             onPress={() =>
-              navigation.navigate('LessonPack', { lessonId: lesson.id })
+              navigation.navigate('LessonPack', {
+                lessonId: lesson.id,
+                openedFromParent,
+              })
             }
           />
         </View>
       </Screen>
+    );
+  }
+
+  const openParentPremium = () => {
+    navigation.navigate('Parent', {
+      intent: 'premium',
+      lessonId: lesson.id,
+    });
+  };
+
+  if (!isAccessGranted) {
+    return (
+      <PremiumContentGate
+        isResolving={isResolving}
+        onAskParent={openParentPremium}
+      />
     );
   }
 
@@ -56,22 +95,45 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       return;
     }
 
-    navigation.replace('LessonPack', { lessonId: lesson.id });
+    navigation.replace('LessonPack', {
+      lessonId: lesson.id,
+      openedFromParent,
+    });
   };
 
   const handleComplete = async () => {
-    if (lesson.reviewGame?.type === 'memory') {
-      navigation.navigate('ReviewGame', { lessonId: lesson.id });
+    if (hasPlayableReviewGame(lesson.reviewGame)) {
+      if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
+        openParentPremium();
+        return;
+      }
+
+      navigation.navigate('ReviewGame', {
+        learningMode: route.params.learningMode,
+        lessonId: lesson.id,
+        openedFromParent,
+      });
       return;
     }
 
+    let completionResult: ProgressCompletionResult = {
+      xpGained: 0,
+      leveledUp: false,
+      newLevel: 1,
+    };
     try {
-      await completeLessonProgress(lesson);
+      completionResult = await completeLessonProgress(lesson, {
+        learningMode: route.params.learningMode,
+      });
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
     }
 
-    navigation.navigate('Reward', { lessonId: lesson.id });
+    navigation.navigate('Reward', {
+      lessonId: lesson.id,
+      sourceScreen: 'ScenePlayer',
+      ...completionResult,
+    });
   };
 
   return (
@@ -88,7 +150,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   errorContainer: {
     alignItems: 'center',
     flex: 1,
@@ -101,4 +163,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     ...typography.title,
   },
-});
+}));

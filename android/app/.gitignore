@@ -1,0 +1,5 @@
+# Android upload keystore - NEVER commit this to git!
+skids-upload-key.keystore
+
+# Keystore credentials file - NEVER commit this to git!
+keystore.properties
