@@ -3,6 +3,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { trimWavSilence } from './audioSilence.mjs';
+
 const account = process.env.GOOGLE_TTS_ACCOUNT ?? 'tomtatvui@gmail.com';
 const project = process.env.GOOGLE_CLOUD_PROJECT ?? 'vertext-api-images';
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
@@ -109,7 +111,8 @@ for (const file of files) {
 
   const outputPath = join(repoRoot, file.path);
   mkdirSync(dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, Buffer.from((await response.json()).audioContent, 'base64'));
+  const audioBuffer = Buffer.from((await response.json()).audioContent, 'base64');
+  writeFileSync(outputPath, trimWavSilence(audioBuffer));
   console.log(`wrote ${file.path}`);
 }
 

@@ -13,7 +13,7 @@ type AppLogoProps = {
 export function AppLogo({ size = 128 }: AppLogoProps) {
   return (
     <View
-      accessibilityLabel="S-Kids English logo"
+      accessibilityLabel="Sungy logo"
       style={[styles.logo, { height: size, width: size }]}
     >
       <Image source={appLogo} style={styles.image} />

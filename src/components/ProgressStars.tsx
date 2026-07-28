@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
 
-import { colors } from '../theme/colors';
+import { useI18n } from '../i18n';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 
 type ProgressStarsProps = {
@@ -11,12 +12,14 @@ type ProgressStarsProps = {
 };
 
 export function ProgressStars({ completed, total, style }: ProgressStarsProps) {
+  useThemeSync();
+  const t = useI18n();
   const safeTotal = Math.max(total, 1);
   const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
 
   return (
     <View
-      accessibilityLabel={`Bé đã hoàn thành ${safeCompleted} trên ${safeTotal} cảnh`}
+      accessibilityLabel={t('progressStars.accessibilityLabel', { completed: String(safeCompleted), total: String(safeTotal) })}
       accessibilityRole="progressbar"
       style={[styles.row, style]}
     >
@@ -36,7 +39,7 @@ export function ProgressStars({ completed, total, style }: ProgressStarsProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   empty: {
     color: colors.primarySoft,
   },
@@ -58,4 +61,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 28,
   },
-});
+}));

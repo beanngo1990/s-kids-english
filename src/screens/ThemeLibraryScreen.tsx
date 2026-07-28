@@ -1,19 +1,36 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
+import { SKidsIcon } from '../components/SKidsIcon';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
 import { DEFAULT_THEME_ID, themes } from '../data/themes';
+import { canAccessLesson } from '../engine/ContentAccessPolicy';
+import {
+  getMonetizationSnapshot,
+  useMonetizationSnapshot,
+} from '../engine/MonetizationManager';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import {
   getProgress,
   saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
-import { colors } from '../theme/colors';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
+import {
+  getLocalizedThemeDescription,
+  getLocalizedThemeTitle,
+} from '../i18n/domainCopy';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
@@ -24,8 +41,15 @@ import { isSceneProgressComplete } from '../utils/lessonProgress';
 type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 
 export function ThemeLibraryScreen({ navigation }: Props) {
+  useThemeSync();
+  const t = useI18n();
+  const appLanguage = useSavedAppLanguage();
+  const monetizationSnapshot = useMonetizationSnapshot();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingThemeId, setSavingThemeId] = useState<string | null>(null);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<
+    string[] | undefined
+  >(undefined);
   const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -36,13 +60,52 @@ export function ThemeLibraryScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    getParentSettings()
+      .then(settings => {
+        setVisibleLessonIds(settings.visibleLessonIds);
+      })
+      .catch(() => undefined);
   }, []);
 
-  const handleSelectTheme = async (themeId: string) => {
+  const promptLanguage = useSavedPromptLanguage();
+
+  const playKidLockPrompt = (reason: KidLockReason) => {
+    playTapSound().catch(() => undefined);
+    const message = getKidLockAudioPrompt(reason, promptLanguage);
+    const speech =
+      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+    speech.catch(() => undefined);
+  };
+
+  const handleSelectTheme = async (theme: LessonTheme) => {
     if (savingThemeId) {
       return;
     }
 
+    const latestMonetizationSnapshot = getMonetizationSnapshot();
+    if (!canAccessAnyThemeLesson(theme, latestMonetizationSnapshot)) {
+      if (latestMonetizationSnapshot.status === 'initializing') {
+        playKidLockPrompt('resolving');
+        Alert.alert(t('premium.kidLockedTitle'), t('premium.resolving'));
+        return;
+      }
+
+      playKidLockPrompt('premium');
+      Alert.alert(t('premium.kidLockedTitle'), t('premium.kidLockedText'), [
+        { style: 'cancel', text: t('common.close') },
+        {
+          onPress: () =>
+            navigation.navigate('Parent', {
+              intent: 'premium',
+              lessonId: theme.lessonIds[0],
+            }),
+          text: t('premium.askParent'),
+        },
+      ]);
+      return;
+    }
+
+    const themeId = theme.id;
     if (themeId === activeThemeId) {
       navigation.navigate('Home');
       return;
@@ -61,44 +124,61 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   return (
     <Screen scroll>
       <View style={styles.header}>
-        <KidBadge tone="teal">Thư viện chủ đề</KidBadge>
-        <Text style={styles.title}>Chọn lộ trình học</Text>
-        <Text style={styles.subtitle}>
-          Mỗi chủ đề là một Siêu bản đồ dài gồm nhiều gói bài. Khi chọn một
-          chủ đề, app sẽ lưu lộ trình đang học và quay về Home để bé tiếp tục
-          trên bản đồ đó.
-        </Text>
+        <KidBadge tone="teal">{t('themeLibrary.badge')}</KidBadge>
+        <Text style={styles.title}>{t('themeLibrary.title')}</Text>
+        <Text style={styles.subtitle}>{t('themeLibrary.subtitle')}</Text>
         <View style={styles.parentNote}>
-          <KidBadge tone="sun">Ghi chú cho phụ huynh</KidBadge>
+          <KidBadge tone="sun">{t('themeLibrary.parentNote')}</KidBadge>
           <Text style={styles.parentNoteText}>
-            Chủ đề có nhãn “Đang học” chính là bản đồ đang hiển thị ở Home.
-            Bấm vào chủ đề này sẽ đưa bé quay lại Siêu bản đồ hiện tại, không
-            tạo lộ trình mới.
+            {t('themeLibrary.parentNoteDescription')}
           </Text>
         </View>
       </View>
 
       <View style={styles.grid}>
         {themes.map(theme => {
-          const themeProgress = getThemeProgress(theme, completedSceneIds);
+          const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
+          const themeDescription = getLocalizedThemeDescription(
+            theme,
+            appLanguage,
+          );
+          const themeProgress = getThemeProgress(
+            theme,
+            completedSceneIds,
+            visibleLessonIds,
+          );
           const isActive = activeThemeId === theme.id;
           const isSavingThisTheme = savingThemeId === theme.id;
+          const isPremiumLocked = !canAccessAnyThemeLesson(
+            theme,
+            monetizationSnapshot,
+          );
+          const isResolvingPremium =
+            isPremiumLocked && monetizationSnapshot.status === 'initializing';
           const actionLabel = isActive
-            ? 'Tiếp tục trên bản đồ'
-            : 'Chọn chủ đề này';
-          const actionHint = isActive
-            ? 'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.'
-            : 'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.';
+            ? t('themeLibrary.continueOnMap')
+            : t('themeLibrary.chooseThisTheme');
+          const activeDescription = isActive
+            ? t('themeLibrary.activeDescription')
+            : t('themeLibrary.inactiveDescription');
 
           return (
             <Pressable
-              accessibilityHint={actionHint}
-              accessibilityLabel={`${actionLabel}: ${theme.titleVi}`}
+              accessibilityHint={
+                isPremiumLocked
+                  ? t(
+                      isResolvingPremium
+                        ? 'premium.resolving'
+                        : 'premium.kidLockedText',
+                    )
+                  : activeDescription
+              }
+              accessibilityLabel={`${actionLabel}: ${themeTitle}`}
               accessibilityRole="button"
               accessibilityState={{ selected: isActive }}
               disabled={Boolean(savingThemeId)}
               key={theme.id}
-              onPress={() => handleSelectTheme(theme.id)}
+              onPress={() => handleSelectTheme(theme)}
               style={({ pressed }) => [
                 styles.themePressable,
                 pressed && !savingThemeId && styles.pressed,
@@ -109,6 +189,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                 style={[
                   styles.themeCard,
                   isActive && styles.themeCardActive,
+                  isPremiumLocked && styles.themeCardPremiumLocked,
                 ]}
               >
                 <View style={styles.themeTopRow}>
@@ -116,20 +197,36 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                     <Text style={styles.themeEmoji}>
                       {theme.thumbnailEmoji}
                     </Text>
+                    {isPremiumLocked ? (
+                      <View style={styles.themeLockBadge}>
+                        <SKidsIcon name="parentLock" size={24} />
+                      </View>
+                    ) : null}
                   </View>
                   <View style={styles.themeText}>
                     <View style={styles.badgeRow}>
                       <KidBadge tone={isActive ? 'teal' : 'sky'}>
-                        {isActive ? 'Đang học' : 'Chủ đề'}
+                        {isActive
+                          ? t('themeLibrary.activeStatus')
+                          : t('themeLibrary.themeStatus')}
                       </KidBadge>
                       {isSavingThisTheme ? (
-                        <KidBadge tone="sun">Đang lưu</KidBadge>
+                        <KidBadge tone="sun">
+                          {t('themeLibrary.savingStatus')}
+                        </KidBadge>
+                      ) : null}
+                      {isPremiumLocked ? (
+                        <KidBadge tone="alert">
+                          {isResolvingPremium
+                            ? t('premium.resolving')
+                            : t('premium.askParent')}
+                        </KidBadge>
                       ) : null}
                     </View>
-                    <Text style={styles.themeTitle}>{theme.titleVi}</Text>
-                    {theme.descriptionVi ? (
+                    <Text style={styles.themeTitle}>{themeTitle}</Text>
+                    {themeDescription ? (
                       <Text style={styles.themeDescription}>
-                        {theme.descriptionVi}
+                        {themeDescription}
                       </Text>
                     ) : null}
                   </View>
@@ -141,15 +238,13 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                     total={themeProgress.total}
                   />
                   <Text style={styles.progressText}>
-                    {themeProgress.completed}/{themeProgress.total} trạm
+                    {themeProgress.completed}/{themeProgress.total}{' '}
+                    {t('themeLibrary.stations')}
                   </Text>
                 </View>
 
                 <View
-                  style={[
-                    styles.actionRow,
-                    isActive && styles.actionRowActive,
-                  ]}
+                  style={[styles.actionRow, isActive && styles.actionRowActive]}
                 >
                   <Text
                     style={[
@@ -157,7 +252,9 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                       isActive && styles.actionTextActive,
                     ]}
                   >
-                    {isSavingThisTheme ? 'Đang lưu...' : actionLabel}
+                    {isSavingThisTheme
+                      ? t('themeLibrary.savingAction')
+                      : actionLabel}
                   </Text>
                   <Text
                     numberOfLines={2}
@@ -166,7 +263,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                       isActive && styles.actionHintActive,
                     ]}
                   >
-                    {actionHint}
+                    {activeDescription}
                   </Text>
                 </View>
               </AppCard>
@@ -178,10 +275,31 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   );
 }
 
-function getThemeProgress(theme: LessonTheme, completedSceneIds: Set<string>) {
+function canAccessAnyThemeLesson(
+  theme: LessonTheme,
+  monetizationSnapshot: ReturnType<typeof getMonetizationSnapshot>,
+) {
+  return theme.lessonIds.some(lessonId =>
+    canAccessLesson(lessonId, monetizationSnapshot),
+  );
+}
+
+function getThemeProgress(
+  theme: LessonTheme,
+  completedSceneIds: Set<string>,
+  visibleLessonIds: string[] | undefined,
+) {
   const themeLessons = theme.lessonIds
     .map(lessonId => lessons.find(lesson => lesson.id === lessonId))
-    .filter((lesson): lesson is Lesson => Boolean(lesson));
+    .filter((lesson): lesson is Lesson => {
+      if (!lesson) {
+        return false;
+      }
+      if (visibleLessonIds && !visibleLessonIds.includes(lesson.id)) {
+        return false;
+      }
+      return true;
+    });
   const total = themeLessons.reduce(
     (sum, lesson) => sum + lesson.scenes.length,
     0,
@@ -198,7 +316,7 @@ function getThemeProgress(theme: LessonTheme, completedSceneIds: Set<string>) {
   return { completed, total };
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   badgeRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -228,7 +346,7 @@ const styles = StyleSheet.create({
   },
   actionRow: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -263,7 +381,7 @@ const styles = StyleSheet.create({
   },
   progressRow: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.borderWarm,
     borderRadius: radius.lg,
     borderWidth: 1,
@@ -289,6 +407,9 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     borderWidth: 2,
   },
+  themeCardPremiumLocked: {
+    borderColor: colors.border,
+  },
   themeDescription: {
     color: colors.textSoft,
     ...typography.body,
@@ -300,14 +421,28 @@ const styles = StyleSheet.create({
   },
   themeIcon: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 3,
     height: 86,
     justifyContent: 'center',
+    position: 'relative',
     width: 86,
     ...shadows.soft,
+  },
+  themeLockBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    bottom: -6,
+    height: 34,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -6,
+    width: 34,
   },
   themePressable: {
     borderRadius: radius.xl,
@@ -329,4 +464,4 @@ const styles = StyleSheet.create({
     color: colors.text,
     ...typography.title,
   },
-});
+}));

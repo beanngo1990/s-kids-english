@@ -31,6 +31,8 @@ export const afterDinnerCleanupLesson: Lesson = {
   titleEn: 'After-Dinner Cleanup',
   descriptionVi:
     'Bé học cách gom đồ sau bữa tối, xử lý vết đổ và phân loại đồ cần dọn.',
+  descriptionEn:
+    'Learn clearing dinner items, handling spills, and sorting what needs tidying.',
   thumbnailEmoji: '🧹',
   ageRange: {
     min: 3,
@@ -152,9 +154,12 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'clear-dinner-intro',
           type: 'intro',
           targetObjectIds: ['clear-dinner-baby'],
+          instructionEn: "Dinner is over. Let's gather the small items.",
           instructionVi: 'Bữa tối xong rồi, mình gom đồ nhỏ nhé.',
           nextStepId: 'clear-dinner-teach-coaster',
           promptText: 'Clear dinner!',
+          successFeedbackEn:
+            'Gathering one small item at a time keeps the dining area tidy.',
           successFeedbackVi: 'Gom từng món nhỏ giúp khu ăn gọn hơn.',
           effects: [bounce('clear-dinner-baby')],
         }),
@@ -381,6 +386,7 @@ export const afterDinnerCleanupLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'clear-dinner-star',
+        messageEn: 'You cleared the dinner items so neatly!',
         messageVi: 'Bé đã gom đồ sau bữa tối thật gọn!',
       },
     },
@@ -495,9 +501,13 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'spot-clean-intro',
           type: 'intro',
           targetObjectIds: ['spot-clean-baby'],
+          instructionEn:
+            "There are a few spots after dinner. Let's clean them up.",
           instructionVi: 'Có vài vết bẩn sau bữa tối, mình xử lý nhé.',
           nextStepId: 'spot-clean-teach-spill',
           promptText: 'Clean the spot!',
+          successFeedbackEn:
+            'Cleaning each small spot keeps the dining area clean.',
           successFeedbackVi: 'Xử lý từng vết nhỏ giúp khu ăn sạch hơn.',
           effects: [bounce('spot-clean-baby')],
         }),
@@ -721,6 +731,7 @@ export const afterDinnerCleanupLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'spot-clean-star',
+        messageEn: 'You cleaned the spots after dinner so skillfully!',
         messageVi: 'Bé đã xử lý vết bẩn sau bữa tối thật khéo!',
       },
     },
@@ -804,7 +815,6 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'sort-and-dry-carton',
           sceneId: 'sort-and-dry',
           assetName: 'carton',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(23, 53, 12, 13),
           touchArea: rect(17, 47, 24, 25),
@@ -813,7 +823,6 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'sort-and-dry-dishes',
           sceneId: 'sort-and-dry',
           assetName: 'dishes',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(61, 73, 16, 10),
           touchArea: rect(55, 67, 28, 22),
@@ -844,9 +853,12 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'sort-and-dry-intro',
           type: 'intro',
           targetObjectIds: ['sort-and-dry-baby'],
+          instructionEn: "Finally, let's sort everything and let it dry.",
           instructionVi: 'Cuối cùng, mình phân loại và để đồ khô nhé.',
           nextStepId: 'sort-and-dry-teach-recycling-bin',
           promptText: 'Sort and dry!',
+          successFeedbackEn:
+            'Sorting things correctly keeps the kitchen clean and tidy.',
           successFeedbackVi: 'Phân loại đúng giúp khu bếp gọn và sạch hơn.',
           effects: [bounce('sort-and-dry-baby')],
         }),
@@ -1079,6 +1091,7 @@ export const afterDinnerCleanupLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'sort-and-dry-star',
+        messageEn: 'You sorted and dried everything after dinner!',
         messageVi: 'Bé đã phân loại và làm khô đồ sau bữa tối!',
       },
     },
@@ -1236,7 +1249,7 @@ function sceneImageSource(
   sceneId: AfterDinnerCleanupSceneId,
   assetName: string,
 ) {
-  return `lessons/after-dinner-cleanup/${sceneId}/images/${assetName}.png`;
+  return `lessons/after-dinner-cleanup/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
+import { Animated, View, Text } from 'react-native';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import {
@@ -13,19 +16,35 @@ import {
   ReviewGameScreen,
   ReviewLibraryScreen,
   ScenePlayerScreen,
+  StickerCollectionScreen,
   ThemeLibraryScreen,
 } from '../screens';
+import { PremiumScreen } from '../screens/PremiumScreen';
+import { MascotImage } from '../components/mascot';
+import {
+  isBackgroundMusicSuppressedRoute,
+  setBackgroundMusicSuppressedByRoute,
+} from '../engine/BackgroundMusicManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
-import { colors } from '../theme/colors';
+import { useI18n } from '../i18n';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
+  useThemeSync();
+  const t = useI18n();
+  const navigationRef = useNavigationContainerRef<RootStackParamList>();
   const [initialRouteName, setInitialRouteName] = useState<
     keyof RootStackParamList | null
   >(null);
+  const syncBackgroundMusicRoute = useCallback(() => {
+    setBackgroundMusicSuppressedByRoute(
+      isBackgroundMusicSuppressedRoute(navigationRef.getCurrentRoute()?.name),
+    );
+  }, [navigationRef]);
 
   useEffect(() => {
     let isMounted = true;
@@ -49,16 +68,64 @@ export function AppNavigator() {
     };
   }, []);
 
+  useEffect(
+    () => () => {
+      setBackgroundMusicSuppressedByRoute(false);
+    },
+    [],
+  );
+
+function AnimatedSplashMascot() {
+  const floatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(floatAnim, {
+          toValue: -15,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(floatAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        })
+      ])
+    ).start();
+  }, [floatAnim]);
+
+  return (
+    <Animated.View style={{ transform: [{ translateY: floatAnim }], alignItems: 'center' }}>
+      <MascotImage pose="hello" size="xl" />
+      <View style={{ marginTop: -10, backgroundColor: 'rgba(0,0,0,0.06)', width: 80, height: 12, borderRadius: 50, transform: [{ scale: 1 }] }} />
+    </Animated.View>
+  );
+}
+
   if (!initialRouteName) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator color={colors.primary} size="large" />
+        <AnimatedSplashMascot />
+        <Text style={{ marginTop: 24, fontSize: 32, color: colors.primaryDark, fontWeight: '900', letterSpacing: 0.5 }}>
+          Sungy
+        </Text>
+        <Text style={{ marginTop: 4, fontSize: 16, color: colors.textSoft, fontWeight: '600' }}>
+          {t('splash.tagline')}
+        </Text>
+        <Text style={{ marginTop: 28, fontSize: 14, color: colors.primary, fontWeight: '700' }}>
+          {t('splash.loading')}
+        </Text>
       </View>
     );
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={syncBackgroundMusicRoute}
+      onStateChange={syncBackgroundMusicRoute}
+    >
       <Stack.Navigator
         initialRouteName={initialRouteName}
         screenOptions={{
@@ -86,17 +153,17 @@ export function AppNavigator() {
         <Stack.Screen
           name="ThemeLibrary"
           component={ThemeLibraryScreen}
-          options={{ title: 'Thư viện chủ đề' }}
+          options={{ title: t('nav.themeLibrary') }}
         />
         <Stack.Screen
           name="LessonList"
           component={LessonListScreen}
-          options={{ title: 'Bài học' }}
+          options={{ title: t('nav.lessonList') }}
         />
         <Stack.Screen
           name="LessonPack"
           component={LessonPackScreen}
-          options={{ title: 'Gói bài học' }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="ScenePlayer"
@@ -106,7 +173,7 @@ export function AppNavigator() {
         <Stack.Screen
           name="ReviewGame"
           component={ReviewGameScreen}
-          options={{ title: 'Lật thẻ ôn tập', gestureEnabled: false }}
+          options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
           name="ReviewLibrary"
@@ -116,23 +183,39 @@ export function AppNavigator() {
         <Stack.Screen
           name="Reward"
           component={RewardScreen}
-          options={{ title: 'Phần thưởng', gestureEnabled: false }}
+          options={{ title: t('nav.reward'), gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="StickerCollection"
+          component={StickerCollectionScreen}
+          options={{ title: t('nav.stickerCollection') }}
         />
         <Stack.Screen
           name="Parent"
           component={ParentScreen}
-          options={{ title: 'Góc phụ huynh' }}
+          options={{
+            headerBackButtonDisplayMode: 'minimal',
+            title: t('nav.parent'),
+          }}
+        />
+        <Stack.Screen
+          name="Premium"
+          component={PremiumScreen}
+          options={{
+            headerBackButtonDisplayMode: 'minimal',
+            title: t('nav.premium'),
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   loading: {
     alignItems: 'center',
     backgroundColor: colors.background,
     flex: 1,
     justifyContent: 'center',
   },
-});
+}));

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
+import { Animated, Easing, Text, View } from 'react-native';
 
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 
 type SparkleEffectProps = {
   active: boolean;
@@ -16,6 +16,7 @@ const sparkles = [
 ] as const;
 
 export function SparkleEffect({ active }: SparkleEffectProps) {
+  useThemeSync();
   const progressValues = useRef(
     sparkles.map(() => new Animated.Value(0)),
   ).current;
@@ -88,7 +89,7 @@ export function SparkleEffect({ active }: SparkleEffectProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   container: {
     bottom: 0,
     left: 0,
@@ -111,4 +112,4 @@ const styles = StyleSheet.create({
     },
     textShadowRadius: 2,
   },
-});
+}));

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
 
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
@@ -14,6 +14,7 @@ type KidBadgeProps = {
 };
 
 export function KidBadge({ children, tone = 'sun', style }: KidBadgeProps) {
+  useThemeSync();
   return (
     <View style={[styles.badge, styles[tone], style]}>
       <Text style={[styles.text, styles[`${tone}Text`]]}>{children}</Text>
@@ -21,7 +22,7 @@ export function KidBadge({ children, tone = 'sun', style }: KidBadgeProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   badge: {
     alignSelf: 'flex-start',
     borderRadius: radius.pill,
@@ -67,4 +68,4 @@ const styles = StyleSheet.create({
   text: {
     ...typography.caption,
   },
-});
+}));

@@ -5,16 +5,17 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
+# RNFirebase 25.1 cannot consume React Native 0.86's prebuilt RNCore module
+# reliably when CocoaPods static frameworks are enabled.
+ENV['RCT_USE_PREBUILT_RNCORE'] = '0'
+
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
-
 target 'SKidsEnglish' do
+  use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
+
   config = use_native_modules!
 
   use_react_native!(
@@ -30,5 +31,14 @@ target 'SKidsEnglish' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # RNFirebase public headers re-export React headers through framework modules.
+    installer.pods_project.targets.each do |target|
+      next unless target.name.start_with?('RNFB')
+
+      target.build_configurations.each do |build_config|
+        build_config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      end
+    end
   end
 end

@@ -10,6 +10,8 @@ const themeCatalog: LessonTheme[] = [
     thumbnailEmoji: '☀️',
     descriptionVi:
       'Một lộ trình liền mạch từ lúc thức dậy, đến trường, chơi, ăn uống và đi ngủ.',
+    descriptionEn:
+      'A smooth daily path from waking up, going to school, playing, eating, and getting ready for bed.',
     lessonIds: [
       'morning-routine',
       'at-school',

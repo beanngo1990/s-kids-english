@@ -53,10 +53,36 @@ const lessonIconById: Record<string, SKidsIconName> = {
   'snack-time': 'snackPrep',
 };
 
+const lessonMilestoneIconById: Record<string, SKidsIconName> = {
+  'after-dinner-cleanup': 'milestoneAfterDinnerCleanup',
+  'afternoon-bath': 'milestoneAfternoonBath',
+  'afternoon-home': 'milestoneAfternoonHome',
+  'at-school': 'milestoneAtSchool',
+  bedtime: 'milestoneBedtime',
+  'family-dinner': 'milestoneFamilyDinner',
+  'home-play': 'milestoneHomePlay',
+  'lunch-time': 'milestoneLunchTime',
+  'morning-routine': 'milestoneMorningRoutine',
+  playtime: 'milestonePlaytime',
+  'snack-time': 'milestoneSnackTime',
+};
+
 export function getLessonIconName(lesson: Pick<Lesson, 'id'>): SKidsIconName {
   return lessonIconById[lesson.id] ?? 'map';
 }
 
+export function getLessonMilestoneIconName(
+  lesson: Pick<Lesson, 'id'>,
+): SKidsIconName {
+  return lessonMilestoneIconById[lesson.id] ?? 'star';
+}
+
 export function getSceneIconName(scene: Pick<Scene, 'id'>): SKidsIconName {
   return sceneIconById[scene.id] ?? 'star';
+}
+
+export function getMapSceneIconName(
+  scene: Pick<Scene, 'id'>,
+): SKidsIconName {
+  return getSceneIconName(scene);
 }

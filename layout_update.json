@@ -1,10 +1,10 @@
 ============= UPDATED SCENE LAYOUT JSON =============
-AdminSceneEditor.tsx: 120 --- CHARACTER ---
-AdminSceneEditor.tsx: 121 {
+AdminSceneEditor.tsx: 121 --- CHARACTER ---
+AdminSceneEditor.tsx: 122 {
     "id": "bedroom-baby",
     "asset": {
         "id": "bedroom-baby-asset",
-        "source": "lessons/morning-routine/bedroom/images/baby.png",
+        "source": "lessons/morning-routine/bedroom/images/baby.webp",
         "type": "sprite"
     },
     "defaultAnimation": "wave",
@@ -17,13 +17,13 @@ AdminSceneEditor.tsx: 121 {
     },
     "role": "character"
 }
-AdminSceneEditor.tsx: 123 --- OBJECTS ---
-AdminSceneEditor.tsx: 124 [
+AdminSceneEditor.tsx: 124 --- OBJECTS ---
+AdminSceneEditor.tsx: 125 [
     {
         "id": "bedroom-bed",
         "asset": {
             "id": "bed",
-            "source": "lessons/morning-routine/bedroom/images/bed.png",
+            "source": "lessons/morning-routine/bedroom/images/bed.webp",
             "type": "image"
         },
         "defaultAnimation": "gentleBounce",
@@ -49,7 +49,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-blanket",
         "asset": {
             "id": "blanket",
-            "source": "lessons/morning-routine/bedroom/images/blanket.png",
+            "source": "lessons/morning-routine/bedroom/images/blanket.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -72,7 +72,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-sun",
         "asset": {
             "id": "sun",
-            "source": "lessons/morning-routine/bedroom/images/sun.png",
+            "source": "lessons/morning-routine/bedroom/images/sun.webp",
             "type": "image"
         },
         "defaultAnimation": "shine",
@@ -96,7 +96,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-pillow",
         "asset": {
             "id": "pillow",
-            "source": "lessons/morning-routine/bedroom/images/pillow.png",
+            "source": "lessons/morning-routine/bedroom/images/pillow.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -124,7 +124,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-lamp",
         "asset": {
             "id": "lamp",
-            "source": "lessons/morning-routine/bedroom/images/lamp.png",
+            "source": "lessons/morning-routine/bedroom/images/lamp.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -151,7 +151,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-clock",
         "asset": {
             "id": "clock",
-            "source": "lessons/morning-routine/bedroom/images/clock.png",
+            "source": "lessons/morning-routine/bedroom/images/clock.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -178,7 +178,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-box",
         "asset": {
             "id": "box",
-            "source": "lessons/morning-routine/bedroom/images/box.png",
+            "source": "lessons/morning-routine/bedroom/images/box.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -205,7 +205,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-socks",
         "asset": {
             "id": "socks",
-            "source": "lessons/morning-routine/bedroom/images/socks.png",
+            "source": "lessons/morning-routine/bedroom/images/socks.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -232,7 +232,7 @@ AdminSceneEditor.tsx: 124 [
         "id": "bedroom-doll",
         "asset": {
             "id": "doll",
-            "source": "lessons/morning-routine/bedroom/images/doll.png",
+            "source": "lessons/morning-routine/bedroom/images/doll.webp",
             "type": "image"
         },
         "isInteractive": true,
@@ -243,21 +243,21 @@ AdminSceneEditor.tsx: 124 [
         "position": {
             "height": 23,
             "width": 14,
-            "x": 84.56410569411058,
-            "y": 67.04175431331815
+            "x": 41.9770440540686,
+            "y": 50.71858778711287
         },
         "role": "learning",
         "touchArea": {
             "height": 33,
             "width": 24,
-            "x": 79.56,
-            "y": 62.04
+            "x": 36.97293835995802,
+            "y": 45.716833473794715
         },
         "vocabId": "vocab-doll"
     }
 ]
-AdminSceneEditor.tsx: 126 --- DROPZONES ---
-AdminSceneEditor.tsx: 127 [
+AdminSceneEditor.tsx: 127 --- DROPZONES ---
+AdminSceneEditor.tsx: 128 [
     {
         "id": "bedroom-tidy-zone",
         "position": {
@@ -283,4 +283,4 @@ AdminSceneEditor.tsx: 127 [
         }
     }
 ]
-AdminSceneEditor.tsx: 129 =====================================================
+AdminSceneEditor.tsx: 130 =====================================================

@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Animated,
-  Image,
   PanResponder,
   Pressable,
-  StyleSheet,
   Text,
   View,
   type PanResponderGestureState,
@@ -13,7 +11,7 @@ import {
 } from 'react-native';
 
 import { SparkleEffect } from '../components/SparkleEffect';
-import { colors } from '../theme/colors';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { SceneObject } from '../types/lesson';
@@ -58,8 +56,10 @@ export function SceneObjectRenderer({
   style,
   stageSize,
 }: SceneObjectRendererProps) {
+  useThemeSync();
   const [hasImageLoaded, setHasImageLoaded] = React.useState(false);
   const [hasImageError, setHasImageError] = React.useState(false);
+  const imageOpacity = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translateX = useRef(new Animated.Value(0)).current;
   const drag = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
@@ -69,7 +69,7 @@ export function SceneObjectRenderer({
     label,
     objectId: object.id,
   });
-  const imageSource = resolveAsset(object.asset.source);
+  const imageSource = useMemo(() => resolveAsset(object.asset.source), [object.asset.source]);
   const canUseImage = !!imageSource;
   const isBundledImage = typeof imageSource === 'number';
   const shouldShowImage =
@@ -159,7 +159,8 @@ export function SceneObjectRenderer({
   useEffect(() => {
     setHasImageLoaded(false);
     setHasImageError(false);
-  }, [object.asset.source]);
+    imageOpacity.setValue(0);
+  }, [object.asset.source, imageOpacity]);
 
   return (
     <Animated.View
@@ -215,22 +216,30 @@ export function SceneObjectRenderer({
                 styles.emoji,
                 isLearningObject && styles.learningEmoji,
                 object.role === 'character' && styles.characterEmoji,
+                { position: 'absolute' },
               ]}
             >
               {fallbackEmoji}
             </Text>
           ) : null}
           {canUseImage && !hasImageError ? (
-            <Image
+            <Animated.Image
               onError={() => setHasImageError(true)}
-              onLoad={() => setHasImageLoaded(true)}
+              onLoad={() => {
+                setHasImageLoaded(true);
+                Animated.timing(imageOpacity, {
+                  toValue: 1,
+                  duration: 300,
+                  useNativeDriver: true,
+                }).start();
+              }}
               resizeMode="contain"
               source={imageSource!}
               style={[
                 styles.image,
                 isLearningObject && styles.learningImage,
                 object.role === 'character' && styles.characterImage,
-                !shouldShowImage && styles.hiddenImage,
+                { opacity: imageOpacity },
               ]}
             />
           ) : null}
@@ -273,7 +282,7 @@ function resetDragPosition(drag: Animated.ValueXY) {
   }).start();
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   assetBubble: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
@@ -391,4 +400,4 @@ const styles = StyleSheet.create({
   },
   wrapper: {
   },
-});
+}));

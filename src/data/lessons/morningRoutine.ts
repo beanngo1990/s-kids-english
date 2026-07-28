@@ -13,6 +13,7 @@ export const morningRoutineLesson: Lesson = {
   titleVi: 'Buổi sáng của bé',
   titleEn: 'My Morning',
   descriptionVi: 'Bé học các từ quen thuộc trong buổi sáng.',
+  descriptionEn: 'Learn familiar words from a child’s morning routine.',
   thumbnailEmoji: '☀️',
   ageRange: {
     min: 3,
@@ -31,12 +32,12 @@ export const morningRoutineLesson: Lesson = {
       thumbnailEmoji: '🛏️',
       background: imageAsset(
         'bedroom-bg',
-        'lessons/morning-routine/bedroom/images/background.png',
+        'lessons/morning-routine/bedroom/images/background.webp',
       ),
       character: {
         ...characterObject(
           'bedroom-baby',
-          'lessons/morning-routine/bedroom/images/baby.png',
+          'lessons/morning-routine/bedroom/images/baby.webp',
           {
             height: 32,
             width: 20,
@@ -64,7 +65,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-bed',
           asset: imageAsset(
             'bed',
-            'lessons/morning-routine/bedroom/images/bed.png',
+            'lessons/morning-routine/bedroom/images/bed.webp',
           ),
           defaultAnimation: 'gentleBounce',
           isInteractive: true,
@@ -89,7 +90,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-blanket',
           asset: imageAsset(
             'blanket',
-            'lessons/morning-routine/bedroom/images/blanket.png',
+            'lessons/morning-routine/bedroom/images/blanket.webp',
           ),
           isInteractive: true,
           position: {
@@ -111,7 +112,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-sun',
           asset: imageAsset(
             'sun',
-            'lessons/morning-routine/bedroom/images/sun.png',
+            'lessons/morning-routine/bedroom/images/sun.webp',
           ),
           defaultAnimation: 'shine',
           isInteractive: true,
@@ -134,7 +135,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-pillow',
           asset: imageAsset(
             'pillow',
-            'lessons/morning-routine/bedroom/images/pillow.png',
+            'lessons/morning-routine/bedroom/images/pillow.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -161,7 +162,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-lamp',
           asset: imageAsset(
             'lamp',
-            'lessons/morning-routine/bedroom/images/lamp.png',
+            'lessons/morning-routine/bedroom/images/lamp.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -187,7 +188,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-clock',
           asset: imageAsset(
             'clock',
-            'lessons/morning-routine/bedroom/images/clock.png',
+            'lessons/morning-routine/bedroom/images/clock.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -213,7 +214,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-box',
           asset: imageAsset(
             'box',
-            'lessons/morning-routine/bedroom/images/box.png',
+            'lessons/morning-routine/bedroom/images/box.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -239,7 +240,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-socks',
           asset: imageAsset(
             'socks',
-            'lessons/morning-routine/bedroom/images/socks.png',
+            'lessons/morning-routine/bedroom/images/socks.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -265,7 +266,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bedroom-doll',
           asset: imageAsset(
             'doll',
-            'lessons/morning-routine/bedroom/images/doll.png',
+            'lessons/morning-routine/bedroom/images/doll.webp',
           ),
           isInteractive: true,
           learningScope: {
@@ -275,15 +276,15 @@ export const morningRoutineLesson: Lesson = {
           position: {
             height: 23,
             width: 14,
-            x: 84.56410569411058,
-            y: 67.04175431331815,
+            x: 41.9770440540686,
+            y: 50.71858778711287,
           },
           role: 'learning',
           touchArea: {
             height: 33,
             width: 24,
-            x: 79.56,
-            y: 62.04,
+            x: 36.97293835995802,
+            y: 45.716833473794715,
           },
           vocabId: bedroomVocabulary.doll.id,
         },
@@ -328,12 +329,14 @@ export const morningRoutineLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: 'Good morning!',
           instructionVi: 'Chào buổi sáng!',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'bedroom-teach-bed',
           promptText: 'Good morning!',
+          successFeedbackEn: 'You got up so nicely!',
           successFeedbackVi: 'Bé dậy ngoan quá!',
           targetObjectIds: ['bedroom-baby'],
           type: 'intro',
@@ -471,6 +474,7 @@ export const morningRoutineLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'sun',
+          successFeedbackEn: 'The room is bright now!',
           successFeedbackVi: 'Phòng sáng rồi!',
           targetObjectIds: ['bedroom-sun'],
           type: 'review',
@@ -921,6 +925,7 @@ export const morningRoutineLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'bedroom-star',
+        messageEn: 'You tidied your bedroom.',
         messageVi: 'Bé đã dọn phòng ngủ.',
         stars: 3,
       },
@@ -932,11 +937,11 @@ export const morningRoutineLesson: Lesson = {
       thumbnailEmoji: '🛁',
       background: imageAsset(
         'bathroom-bg',
-        'lessons/morning-routine/bathroom/images/background.png',
+        'lessons/morning-routine/bathroom/images/background.webp',
       ),
       character: characterObject(
         'bathroom-baby',
-        'lessons/morning-routine/bathroom/images/baby.png',
+        'lessons/morning-routine/bathroom/images/baby.webp',
         {
           height: 48,
           width: 26,
@@ -961,7 +966,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-toothbrush',
           asset: imageAsset(
             'toothbrush',
-            'lessons/morning-routine/bathroom/images/toothbrush.png',
+            'lessons/morning-routine/bathroom/images/toothbrush.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -984,7 +989,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-water',
           asset: imageAsset(
             'water',
-            'lessons/morning-routine/bathroom/images/water.png',
+            'lessons/morning-routine/bathroom/images/water.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -1007,7 +1012,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-towel',
           asset: imageAsset(
             'towel',
-            'lessons/morning-routine/bathroom/images/towel.png',
+            'lessons/morning-routine/bathroom/images/towel.webp',
           ),
           isInteractive: true,
           position: {
@@ -1029,7 +1034,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-sink',
           asset: imageAsset(
             'sink',
-            'lessons/morning-routine/bathroom/images/sink.png',
+            'lessons/morning-routine/bathroom/images/sink.webp',
           ),
           defaultAnimation: 'gentleBounce',
           isInteractive: true,
@@ -1056,7 +1061,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-soap',
           asset: imageAsset(
             'soap',
-            'lessons/morning-routine/bathroom/images/soap.png',
+            'lessons/morning-routine/bathroom/images/soap.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -1083,7 +1088,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-mirror',
           asset: imageAsset(
             'mirror',
-            'lessons/morning-routine/bathroom/images/mirror.png',
+            'lessons/morning-routine/bathroom/images/mirror.webp',
           ),
           defaultAnimation: 'shine',
           isInteractive: true,
@@ -1110,7 +1115,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'bathroom-toothpaste',
           asset: imageAsset(
             'toothpaste',
-            'lessons/morning-routine/bathroom/images/toothpaste.png',
+            'lessons/morning-routine/bathroom/images/toothpaste.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -1202,12 +1207,14 @@ export const morningRoutineLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: "Let's go to the bathroom.",
           instructionVi: 'Mình vào phòng tắm nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'bathroom-teach-toothbrush',
           promptText: 'Bathroom time!',
+          successFeedbackEn: "Let's get clean!",
           successFeedbackVi: 'Sạch sẽ nào!',
           targetObjectIds: ['bathroom-baby'],
           type: 'intro',
@@ -1447,6 +1454,7 @@ export const morningRoutineLesson: Lesson = {
           },
           nextStepId: 'bathroom-teach-soap',
           promptText: 'Tap water',
+          successFeedbackEn: 'That feels refreshing!',
           successFeedbackVi: 'Mát quá!',
           targetObjectIds: ['bathroom-water'],
           type: 'practice',
@@ -1679,6 +1687,7 @@ export const morningRoutineLesson: Lesson = {
             minMode: 'expanded',
           },
           promptText: 'mirror',
+          successFeedbackEn: "You're clean and ready!",
           successFeedbackVi: 'Bé sạch sẽ và sẵn sàng rồi!',
           targetObjectIds: ['bathroom-mirror', 'bathroom-baby'],
           type: 'review',
@@ -1687,6 +1696,7 @@ export const morningRoutineLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'bathroom-star',
+        messageEn: 'You did a great job getting clean.',
         messageVi: 'Bé đã vệ sinh thật tốt.',
         stars: 3,
       },
@@ -1698,11 +1708,11 @@ export const morningRoutineLesson: Lesson = {
       thumbnailEmoji: '🥣',
       background: imageAsset(
         'breakfast-bg',
-        'lessons/morning-routine/breakfast/images/background.png',
+        'lessons/morning-routine/breakfast/images/background.webp',
       ),
       character: characterObject(
         'breakfast-baby',
-        'lessons/morning-routine/breakfast/images/baby.png',
+        'lessons/morning-routine/breakfast/images/baby.webp',
         {
           height: 46,
           width: 28,
@@ -1726,7 +1736,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-milk',
           asset: imageAsset(
             'milk',
-            'lessons/morning-routine/breakfast/images/milk.png',
+            'lessons/morning-routine/breakfast/images/milk.webp',
           ),
           defaultAnimation: 'pop',
           isInteractive: true,
@@ -1749,7 +1759,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-apple',
           asset: imageAsset(
             'apple',
-            'lessons/morning-routine/breakfast/images/apple.png',
+            'lessons/morning-routine/breakfast/images/apple.webp',
           ),
           isInteractive: true,
           position: {
@@ -1771,7 +1781,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-bread',
           asset: imageAsset(
             'bread',
-            'lessons/morning-routine/breakfast/images/bread.png',
+            'lessons/morning-routine/breakfast/images/bread.webp',
           ),
           defaultAnimation: 'gentleBounce',
           isInteractive: true,
@@ -1794,7 +1804,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-plate',
           asset: imageAsset(
             'plate',
-            'lessons/morning-routine/breakfast/images/plate.png',
+            'lessons/morning-routine/breakfast/images/plate.webp',
           ),
           defaultAnimation: 'gentleBounce',
           isInteractive: true,
@@ -1821,7 +1831,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-egg',
           asset: imageAsset(
             'egg',
-            'lessons/morning-routine/breakfast/images/egg.png',
+            'lessons/morning-routine/breakfast/images/egg.webp',
           ),
           defaultAnimation: 'pop',
           isInteractive: true,
@@ -1848,7 +1858,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-banana',
           asset: imageAsset(
             'banana',
-            'lessons/morning-routine/breakfast/images/banana.png',
+            'lessons/morning-routine/breakfast/images/banana.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -1875,7 +1885,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'breakfast-cup',
           asset: imageAsset(
             'cup',
-            'lessons/morning-routine/breakfast/images/cup.png',
+            'lessons/morning-routine/breakfast/images/cup.webp',
           ),
           defaultAnimation: 'gentleBounce',
           isInteractive: true,
@@ -1977,12 +1987,14 @@ export const morningRoutineLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: "Let's have breakfast.",
           instructionVi: 'Ăn sáng thôi nào.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'breakfast-teach-milk',
           promptText: 'Breakfast time!',
+          successFeedbackEn: 'Yummy!',
           successFeedbackVi: 'Ngon quá!',
           targetObjectIds: ['breakfast-baby'],
           type: 'intro',
@@ -2402,6 +2414,7 @@ export const morningRoutineLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'breakfast-star',
+        messageEn: 'You enjoyed your breakfast.',
         messageVi: 'Bé đã ăn sáng vui vẻ.',
         stars: 3,
       },
@@ -2413,11 +2426,11 @@ export const morningRoutineLesson: Lesson = {
       thumbnailEmoji: '🎒',
       background: imageAsset(
         'school-bg',
-        'lessons/morning-routine/go-to-school/images/background.png',
+        'lessons/morning-routine/go-to-school/images/background.webp',
       ),
       character: characterObject(
         'school-baby',
-        'lessons/morning-routine/go-to-school/images/baby.png',
+        'lessons/morning-routine/go-to-school/images/baby.webp',
         {
           height: 52,
           width: 30,
@@ -2442,7 +2455,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-bag',
           asset: imageAsset(
             'bag',
-            'lessons/morning-routine/go-to-school/images/bag.png',
+            'lessons/morning-routine/go-to-school/images/bag.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -2465,7 +2478,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-book',
           asset: imageAsset(
             'book',
-            'lessons/morning-routine/go-to-school/images/book.png',
+            'lessons/morning-routine/go-to-school/images/book.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -2492,7 +2505,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-lunchbox',
           asset: imageAsset(
             'lunchbox',
-            'lessons/morning-routine/go-to-school/images/lunchbox.png',
+            'lessons/morning-routine/go-to-school/images/lunchbox.webp',
           ),
           defaultAnimation: 'wiggle',
           isInteractive: true,
@@ -2519,7 +2532,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-uniform',
           asset: imageAsset(
             'uniform',
-            'lessons/morning-routine/go-to-school/images/uniform.png',
+            'lessons/morning-routine/go-to-school/images/uniform.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -2546,7 +2559,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-shoes',
           asset: imageAsset(
             'shoes',
-            'lessons/morning-routine/go-to-school/images/shoes.png',
+            'lessons/morning-routine/go-to-school/images/shoes.webp',
           ),
           isInteractive: true,
           position: {
@@ -2568,7 +2581,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-bus',
           asset: imageAsset(
             'bus',
-            'lessons/morning-routine/go-to-school/images/bus.png',
+            'lessons/morning-routine/go-to-school/images/bus.webp',
           ),
           defaultAnimation: 'bounce',
           isInteractive: true,
@@ -2595,7 +2608,7 @@ export const morningRoutineLesson: Lesson = {
           id: 'school-building',
           asset: imageAsset(
             'school',
-            'lessons/morning-routine/go-to-school/images/school.png',
+            'lessons/morning-routine/go-to-school/images/school.webp',
           ),
           defaultAnimation: 'sparkle',
           isInteractive: true,
@@ -2674,12 +2687,14 @@ export const morningRoutineLesson: Lesson = {
               type: 'animation',
             },
           ],
+          instructionEn: "Let's go to school.",
           instructionVi: 'Mình đi học nhé.',
           interaction: {
             type: 'listen',
           },
           nextStepId: 'school-teach-bag',
           promptText: 'Go to school!',
+          successFeedbackEn: "You're ready!",
           successFeedbackVi: 'Sẵn sàng rồi!',
           targetObjectIds: ['school-baby'],
           type: 'intro',
@@ -2903,6 +2918,7 @@ export const morningRoutineLesson: Lesson = {
           },
           nextStepId: 'school-teach-shoes',
           promptText: 'uniform',
+          successFeedbackEn: "You're wearing your uniform!",
           successFeedbackVi: 'Mặc đồng phục rồi!',
           targetObjectIds: ['school-uniform', 'school-baby'],
           type: 'practice',
@@ -3048,6 +3064,7 @@ export const morningRoutineLesson: Lesson = {
           },
           nextStepId: 'school-teach-go-to-school',
           promptText: 'bus',
+          successFeedbackEn: 'The bus is here!',
           successFeedbackVi: 'Xe buýt tới rồi!',
           targetObjectIds: ['school-bus'],
           type: 'practice',
@@ -3104,6 +3121,7 @@ export const morningRoutineLesson: Lesson = {
             type: 'tap',
           },
           promptText: 'school',
+          successFeedbackEn: "Let's go to school!",
           successFeedbackVi: 'Tới trường thôi!',
           targetObjectIds: ['school-building'],
           type: 'review',
@@ -3112,6 +3130,7 @@ export const morningRoutineLesson: Lesson = {
       ],
       completionReward: {
         badgeId: 'school-star',
+        messageEn: "You're ready for school.",
         messageVi: 'Bé đã sẵn sàng đi học.',
         stars: 3,
       },

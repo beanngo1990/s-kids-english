@@ -31,6 +31,8 @@ export const familyDinnerLesson: Lesson = {
   titleEn: 'Family Dinner',
   descriptionVi:
     'Bé học cách chuẩn bị bữa tối, chuyền món trên bàn và dọn nhẹ sau khi ăn cùng cả nhà.',
+  descriptionEn:
+    'Learn preparing dinner, passing dishes, and helping clean up after eating together.',
   thumbnailEmoji: '🍽️',
   ageRange: {
     min: 3,
@@ -144,9 +146,11 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-prep-intro',
           type: 'intro',
           targetObjectIds: ['dinner-prep-baby'],
+          instructionEn: "It's time to get dinner ready.",
           instructionVi: 'Đến giờ chuẩn bị bữa tối rồi.',
           nextStepId: 'dinner-prep-teach-dinner',
           promptText: 'Dinner time!',
+          successFeedbackEn: 'You can help your family prepare dinner.',
           successFeedbackVi: 'Bé có thể giúp chuẩn bị bữa tối cùng cả nhà.',
           effects: [bounce('dinner-prep-baby')],
         }),
@@ -188,7 +192,9 @@ export const familyDinnerLesson: Lesson = {
           targetObjectId: 'dinner-prep-placemat',
           targetObjectIds: ['dinner-prep-placemat', 'dinner-prep-dinner'],
           dropZoneId: 'dinner-prep-placemat-zone',
+          failFeedbackEn: 'Move the placemat to the seat.',
           failFeedbackVi: 'Kéo tấm lót ăn tới chỗ bữa tối nhé.',
+          instructionEn: 'Place the placemat at the seat.',
           instructionVi: 'Đặt tấm lót ăn vào chỗ ngồi.',
           nextStepId: 'dinner-prep-teach-apron',
           promptText: 'placemat',
@@ -235,6 +241,7 @@ export const familyDinnerLesson: Lesson = {
           learningScope: expandedScope,
           targetObjectId: 'dinner-prep-serving-tray',
           targetObjectIds: ['dinner-prep-serving-tray'],
+          failFeedbackEn: 'The serving tray is near the dinner area.',
           failFeedbackVi: 'Khay phục vụ nằm gần bữa tối đó.',
           instructionVi: 'Chạm vào khay phục vụ nhé.',
           nextStepId: 'dinner-prep-teach-ladle',
@@ -372,6 +379,7 @@ export const familyDinnerLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'dinner-prep-star',
+        messageEn: 'You helped prepare dinner so thoughtfully!',
         messageVi: 'Bé đã chuẩn bị bữa tối thật chu đáo!',
       },
     },
@@ -455,7 +463,6 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-table-dish',
           sceneId: 'dinner-table',
           assetName: 'dish',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(58, 41, 18, 13),
           touchArea: rect(52, 35, 30, 25),
@@ -494,9 +501,11 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-table-intro',
           type: 'intro',
           targetObjectIds: ['dinner-table-baby'],
+          instructionEn: 'Dinner is on the table.',
           instructionVi: 'Bữa tối đã lên bàn rồi.',
           nextStepId: 'dinner-table-teach-vegetables',
           promptText: 'Family dinner!',
+          successFeedbackEn: "Let's look at the dishes for dinner.",
           successFeedbackVi: 'Bé cùng nhìn các món ăn trong bữa tối nhé.',
           effects: [bounce('dinner-table-baby')],
         }),
@@ -723,6 +732,7 @@ export const familyDinnerLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'dinner-table-star',
+        messageEn: 'You shared the dinner dishes so politely!',
         messageVi: 'Bé đã chia món trong bữa tối thật lịch sự!',
       },
     },
@@ -806,7 +816,6 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-cleanup-dish',
           sceneId: 'dinner-cleanup',
           assetName: 'dish',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(61, 73, 16, 10),
           touchArea: rect(55, 67, 28, 22),
@@ -846,9 +855,12 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-cleanup-intro',
           type: 'intro',
           targetObjectIds: ['dinner-cleanup-baby'],
+          instructionEn: "Dinner is over. Let's do a little cleaning.",
           instructionVi: 'Ăn tối xong rồi, mình dọn nhẹ nhé.',
           nextStepId: 'dinner-cleanup-teach-dessert',
           promptText: 'After dinner!',
+          successFeedbackEn:
+            'A little cleaning after dinner keeps the kitchen tidy.',
           successFeedbackVi: 'Dọn một chút sau bữa tối giúp căn bếp gọn hơn.',
           effects: [bounce('dinner-cleanup-baby')],
         }),
@@ -1089,13 +1101,14 @@ export const familyDinnerLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'dinner-cleanup-star',
+        messageEn: 'You cleaned up so neatly after dinner!',
         messageVi: 'Bé đã dọn sau bữa tối thật gọn gàng!',
       },
     },
   ],
   reviewGame: {
     id: 'family-dinner-review',
-    type: 'memory',
+    type: 'listenAndChoose',
     titleVi: 'Tìm đồ trong bữa tối',
     config: {
       vocabularyIds: [
@@ -1243,7 +1256,7 @@ function sceneImage(sceneId: FamilyDinnerSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: FamilyDinnerSceneId, assetName: string) {
-  return `lessons/family-dinner/${sceneId}/images/${assetName}.png`;
+  return `lessons/family-dinner/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

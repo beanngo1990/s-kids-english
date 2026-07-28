@@ -31,6 +31,8 @@ export const snackTimeLesson: Lesson = {
   titleEn: 'Snack Time',
   descriptionVi:
     'Bé học cách chọn món bữa xế, ăn từng miếng nhỏ và dọn vỏ bánh sau khi ăn.',
+  descriptionEn:
+    'Learn choosing a snack, eating small bites, and cleaning up afterward.',
   thumbnailEmoji: '🥨',
   ageRange: {
     min: 3,
@@ -159,9 +161,11 @@ export const snackTimeLesson: Lesson = {
           id: 'snack-prep-intro',
           type: 'intro',
           targetObjectIds: ['snack-prep-baby'],
+          instructionEn: "Let's choose an afternoon snack.",
           instructionVi: 'Mình chọn món bữa xế nhé.',
           nextStepId: 'snack-prep-teach-snack',
           promptText: 'Snack time!',
+          successFeedbackEn: 'A snack is a light meal after you get home.',
           successFeedbackVi: 'Bữa xế là một món nhẹ sau khi bé về nhà.',
           effects: [bounce('snack-prep-baby')],
         }),
@@ -398,6 +402,7 @@ export const snackTimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'snack-prep-star',
+        messageEn: 'You chose a delicious snack!',
         messageVi: 'Bé đã chọn bữa xế thật ngon!',
       },
     },
@@ -505,9 +510,11 @@ export const snackTimeLesson: Lesson = {
           id: 'snack-table-intro',
           type: 'intro',
           targetObjectIds: ['snack-table-baby'],
+          instructionEn: "Let's eat our snack in small bites.",
           instructionVi: 'Mình ăn bữa xế từng miếng nhỏ nhé.',
           nextStepId: 'snack-table-teach-bite',
           promptText: 'Let us eat!',
+          successFeedbackEn: 'Small bites help you eat neatly.',
           successFeedbackVi: 'Ăn từng miếng nhỏ giúp bé ăn gọn hơn.',
           effects: [bounce('snack-table-baby')],
         }),
@@ -548,6 +555,7 @@ export const snackTimeLesson: Lesson = {
           type: 'practice',
           targetObjectId: 'snack-table-sip',
           targetObjectIds: ['snack-table-sip'],
+          failFeedbackEn: 'The small sip is in the cup with the straw.',
           failFeedbackVi: 'Ngụm nhỏ nằm trong ly có ống hút đó.',
           instructionVi: 'Chạm vào ngụm nhỏ nhé.',
           nextStepId: 'snack-table-teach-napkin',
@@ -732,6 +740,7 @@ export const snackTimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'snack-table-star',
+        messageEn: 'You ate your snack so neatly!',
         messageVi: 'Bé đã ăn bữa xế thật gọn gàng!',
       },
     },
@@ -851,9 +860,13 @@ export const snackTimeLesson: Lesson = {
           id: 'snack-cleanup-intro',
           type: 'intro',
           targetObjectIds: ['snack-cleanup-baby'],
+          instructionEn:
+            "We've finished eating. Let's tidy up after snack time.",
           instructionVi: 'Ăn xong rồi, mình dọn bữa xế nhé.',
           nextStepId: 'snack-cleanup-teach-tray',
           promptText: 'Clean up!',
+          successFeedbackEn:
+            'Cleaning up after eating keeps the snack area tidy.',
           successFeedbackVi: 'Dọn sau khi ăn giúp góc ăn sạch hơn.',
           effects: [bounce('snack-cleanup-baby')],
         }),
@@ -1080,6 +1093,7 @@ export const snackTimeLesson: Lesson = {
       completionReward: {
         stars: 3,
         badgeId: 'snack-cleanup-star',
+        messageEn: 'You cleaned up so well after snack time!',
         messageVi: 'Bé đã dọn sau bữa xế thật sạch sẽ!',
       },
     },
@@ -1234,7 +1248,7 @@ function sceneImage(sceneId: SnackSceneId, assetName: string) {
 }
 
 function sceneImageSource(sceneId: SnackSceneId, assetName: string) {
-  return `lessons/snack-time/${sceneId}/images/${assetName}.png`;
+  return `lessons/snack-time/${sceneId}/images/${assetName}.webp`;
 }
 
 function bounce(targetObjectId: EntityId): SceneEffect {

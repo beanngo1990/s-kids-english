@@ -1,21 +1,40 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 import { SKidsIcon } from './SKidsIcon';
-import { colors } from '../theme/colors';
+import {
+  getLocalizedLessonDescription,
+  getLocalizedLessonSubtitle,
+  getLocalizedLessonTitle,
+} from '../i18n/domainCopy';
+import type { AppLanguage } from '../i18n/types';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
 import { getLessonIconName } from '../utils/lessonIcons';
 
 type LessonCardProps = {
+  appLanguage?: AppLanguage;
   lesson: Lesson;
   onPress: () => void;
 };
 
-export function LessonCard({ lesson, onPress }: LessonCardProps) {
+export function LessonCard({
+  appLanguage = 'vi',
+  lesson,
+  onPress,
+}: LessonCardProps) {
+  useThemeSync();
+  const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
+  const lessonSubtitle = getLocalizedLessonSubtitle(lesson, appLanguage);
+  const lessonDescription = getLocalizedLessonDescription(
+    lesson,
+    appLanguage,
+  );
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -35,9 +54,9 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
             <SKidsIcon name={getLessonIconName(lesson)} size={62} />
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.title}>{lesson.titleVi}</Text>
-            <Text style={styles.subtitle}>{lesson.descriptionVi}</Text>
-            <Text style={styles.meta}>{lesson.titleEn}</Text>
+            <Text style={styles.title}>{lessonTitle}</Text>
+            <Text style={styles.subtitle}>{lessonDescription}</Text>
+            <Text style={styles.meta}>{lessonSubtitle}</Text>
           </View>
         </View>
       </AppCard>
@@ -45,7 +64,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles(() => ({
   card: {
     gap: spacing.sm,
   },
@@ -55,7 +74,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 2,
@@ -97,4 +116,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-});
+}));

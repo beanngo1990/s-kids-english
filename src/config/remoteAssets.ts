@@ -1,11 +1,17 @@
+import {
+  remoteAssetRelease,
+  remoteImageRevision,
+} from './generatedAssetRelease';
+
+const publicAssetRoot = 'https://assets.sungy.net';
+
 export const remoteAssetsConfig = {
   /**
-   * Set this to your public R2/custom-domain base URL later, for example:
-   * https://assets.s-kids-english.com
+   * Public R2 URL for remote asset loading.
    */
-  baseUrl: '',
+  baseUrl: `${publicAssetRoot}/${remoteAssetRelease}`,
   cacheRemoteAssets: true,
-  preferRemoteImages: false,
+  preferRemoteImages: true,
 };
 
 export function getRemoteAssetUrl(assetKey: string) {
@@ -16,5 +22,10 @@ export function getRemoteAssetUrl(assetKey: string) {
   const baseUrl = remoteAssetsConfig.baseUrl.replace(/\/+$/u, '');
   const normalizedKey = assetKey.replace(/^\/+/u, '');
 
-  return `${baseUrl}/${normalizedKey}`;
+  const remoteUrl = `${baseUrl}/${normalizedKey}`;
+  const isImage = /\.(?:avif|gif|jpe?g|png|webp)$/iu.test(normalizedKey);
+
+  return isImage
+    ? `${remoteUrl}?rev=${encodeURIComponent(remoteImageRevision)}`
+    : remoteUrl;
 }
