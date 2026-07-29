@@ -16,6 +16,7 @@ type KidModeHeaderProps = {
   totalXP: number;
   onOpenHub?: () => void;
   onOpenParent: () => void;
+  onOpenThemeLibrary?: () => void;
 };
 
 export function KidModeHeader({
@@ -23,11 +24,14 @@ export function KidModeHeader({
   totalXP,
   onOpenHub,
   onOpenParent,
+  onOpenThemeLibrary,
 }: KidModeHeaderProps) {
   useThemeSync();
   const t = useI18n();
   const { fontScale, width } = useWindowDimensions();
   const useIconOnlyPremiumBadge = width < 360 || fontScale > 1.3;
+  const useCompactTopProgress =
+    Boolean(onOpenThemeLibrary) && (width < 390 || fontScale > 1.2);
   const brandContent = (
     <>
       <AppLogo size={40} />
@@ -51,9 +55,7 @@ export function KidModeHeader({
           <Pressable
             accessibilityLabel={
               isPremium
-                ? `${t('header.openHub')}. ${t(
-                    'premium.status.accessibility',
-                  )}`
+                ? `${t('header.openHub')}. ${t('premium.status.accessibility')}`
                 : t('header.openHub')
             }
             accessibilityRole="button"
@@ -70,7 +72,20 @@ export function KidModeHeader({
           <View style={styles.brandCluster}>{brandContent}</View>
         )}
         <View style={styles.topActions}>
-          <TopProgressStatus totalXP={totalXP} />
+          <TopProgressStatus
+            compact={useCompactTopProgress}
+            totalXP={totalXP}
+          />
+          {onOpenThemeLibrary ? (
+            <KidIconButton
+              accessibilityLabel={t('header.themeLibrary')}
+              icon="map"
+              onPress={onOpenThemeLibrary}
+              size="md"
+              style={styles.themeLibrary}
+              tone="secondary"
+            />
+          ) : null}
           <KidIconButton
             accessibilityLabel={t('header.parentGate')}
             icon="parentGate"
@@ -88,38 +103,57 @@ export function KidModeHeader({
 import { getLevelProgress } from '../engine/ProgressManager';
 
 type TopProgressStatusProps = {
+  compact?: boolean;
   totalXP: number;
 };
 
 function TopProgressStatus({
+  compact = false,
   totalXP,
 }: TopProgressStatusProps) {
   const t = useI18n();
-  const { level, xpInLevel, xpNeeded, progressPercent } = getLevelProgress(totalXP);
+  const { level, xpInLevel, xpNeeded, progressPercent } =
+    getLevelProgress(totalXP);
 
   return (
     <View
-      accessibilityLabel={t('header.levelAccessibility', { level: String(level), xpInLevel: String(xpInLevel), xpNeeded: String(xpNeeded - xpInLevel) })}
+      accessibilityLabel={t('header.levelAccessibility', {
+        level: String(level),
+        xpInLevel: String(xpInLevel),
+        xpNeeded: String(xpNeeded - xpInLevel),
+      })}
       accessibilityRole="progressbar"
-      style={styles.topStatusCard}
+      style={[styles.topStatusCard, compact && styles.topStatusCardCompact]}
     >
       <View style={styles.topStatusRow}>
         <SKidsIcon name="acorn" size={18} />
-        <Text style={styles.topStatusCount}>{t('header.level', { level: String(level) })}</Text>
-      </View>
-      <View style={styles.topStatusTrack}>
-        <View
+        <Text
+          numberOfLines={1}
           style={[
-            styles.topStatusFill,
-            {
-              width: `${progressPercent}%`,
-            },
+            styles.topStatusCount,
+            compact && styles.topStatusCountCompact,
           ]}
-        />
+        >
+          {t('header.level', { level: String(level) })}
+        </Text>
       </View>
-      <Text numberOfLines={1} style={styles.topStatusCaption}>
-        {xpInLevel}/{xpNeeded}
-      </Text>
+      {compact ? null : (
+        <>
+          <View style={styles.topStatusTrack}>
+            <View
+              style={[
+                styles.topStatusFill,
+                {
+                  width: `${progressPercent}%`,
+                },
+              ]}
+            />
+          </View>
+          <Text numberOfLines={1} style={styles.topStatusCaption}>
+            {xpInLevel}/{xpNeeded}
+          </Text>
+        </>
+      )}
     </View>
   );
 }
@@ -153,6 +187,18 @@ const styles = createThemedStyles(() => ({
   },
   parentGate: {
     backgroundColor: colors.surface,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 54,
+    minHeight: 54,
+    minWidth: 54,
+    padding: 0,
+    width: 54,
+    ...shadows.soft,
+  },
+  themeLibrary: {
+    backgroundColor: colors.secondarySoft,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 2,
@@ -208,12 +254,21 @@ const styles = createThemedStyles(() => ({
     width: 106,
     ...shadows.soft,
   },
+  topStatusCardCompact: {
+    alignItems: 'center',
+    paddingHorizontal: 4,
+    width: 62,
+  },
   topStatusCount: {
     color: colors.text,
     fontSize: 14,
     fontWeight: '900',
     letterSpacing: 0,
     lineHeight: 18,
+  },
+  topStatusCountCompact: {
+    fontSize: 12,
+    lineHeight: 15,
   },
 
   topStatusFill: {

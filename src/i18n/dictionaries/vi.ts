@@ -28,20 +28,17 @@ export const vi = {
   'learningMode.core.detail': 'Ít từ hơn, thao tác chạm/nghe đơn giản.',
   'learningMode.core.subtitle': 'Bắt đầu nhẹ nhàng',
   'learningMode.core.title': 'Dễ',
-  'learningMode.expanded.detail':
-    'Thêm từ mới, vẫn giữ nhịp học thoải mái.',
+  'learningMode.expanded.detail': 'Thêm từ mới, vẫn giữ nhịp học thoải mái.',
   'learningMode.expanded.subtitle': 'Tăng vốn từ',
   'learningMode.expanded.title': 'Vừa',
 
   'onboarding.coach.message':
     'Sungy sẽ đồng hành, nhắc bé học từng trạm và cổ vũ khi bé hoàn thành.',
   'onboarding.coach.title': 'Bạn học của bé',
-  'onboarding.coach.greeting':
-    'Xin chào! Mình là Sungy, bạn học của bé.',
+  'onboarding.coach.greeting': 'Xin chào! Mình là Sungy, bạn học của bé.',
   'onboarding.coach.tapDifficulty':
     'Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.',
-  'onboarding.coach.tapCheer':
-    'Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.',
+  'onboarding.coach.tapCheer': 'Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.',
   'onboarding.note.text':
     'Nếu bé mới bắt đầu, chọn Dễ trước. Khi bé quen nhịp học, ba mẹ tăng lên Vừa hoặc Khó.',
   'onboarding.note.title': 'Gợi ý nhanh',
@@ -72,7 +69,7 @@ export const vi = {
   'parent.dev.editorStateOff': 'Đang tắt',
   'parent.dev.editorStateOn': 'Đang bật',
   'parent.dev.editorSubtitle':
-    'Hiển thị nút Edit trong bài học để chỉnh toạ độ vật thể.',
+    'Hiển thị nút Edit trong bản dev để kiểm nội dung.',
   'parent.dev.internalTools': 'Công cụ nội bộ',
   'parent.gate.badge': 'Góc phụ huynh',
   'parent.gate.challengeTitle': 'Xác nhận dành cho ba mẹ',
@@ -152,7 +149,8 @@ export const vi = {
   'premium.currentPromotional': 'Premium được tặng',
   'premium.currentGeneric': 'Sungy Premium',
   'premium.currentUntil': 'Có hiệu lực đến {date}',
-  'premium.currentRenews': 'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
+  'premium.currentRenews':
+    'Gói sẽ tự động gia hạn theo điều khoản của cửa hàng.',
   'premium.currentNoRenew': 'Gói sẽ không tự động gia hạn.',
   'premium.currentLifetimeText': 'Quyền Premium này không hết hạn.',
   'premium.status.badge': 'Premium',
@@ -187,7 +185,8 @@ export const vi = {
     'Dịch vụ tài khoản chưa sẵn sàng. Ba mẹ vui lòng thử lại sau.',
   'premium.error.identityFailed':
     'Chưa liên kết được tài khoản ba mẹ với dịch vụ giao dịch mua.',
-  'premium.error.network': 'Chưa kết nối được cửa hàng. Ba mẹ thử lại khi có mạng.',
+  'premium.error.network':
+    'Chưa kết nối được cửa hàng. Ba mẹ thử lại khi có mạng.',
   'premium.error.offeringsUnavailable':
     'Cửa hàng chưa trả về gói Premium khả dụng.',
   'premium.error.purchaseNotAllowed':
@@ -210,14 +209,6 @@ export const vi = {
   'premium.parentLockedMessage':
     'Bài học này cần Premium. Ba mẹ có thể xem các gói để mở khóa.',
   'premium.openPlans': 'Xem các gói Premium',
-  'premium.gate.loading': 'Đang kiểm tra Premium',
-  'premium.gate.loadingMessage':
-    'Ứng dụng đang xác nhận quyền truy cập của tài khoản ba mẹ.',
-  'premium.gate.title': 'Nội dung Premium',
-  'premium.gate.message':
-    'Nội dung này cần Premium. Hãy nhờ ba mẹ mở khóa để tiếp tục.',
-  'premium.gate.askParent': 'Nhờ ba mẹ mở khóa',
-  'premium.gate.back': 'Quay lại',
   'parent.account.appleTokenMissing':
     'Apple chưa trả đủ token để hoàn tất thao tác. Ba mẹ thử đăng nhập lại rồi thực hiện lại nhé.',
   'parent.account.appleUnavailable':
@@ -242,8 +233,7 @@ export const vi = {
     'Hệ thống chưa xác thực được kết nối bảo mật với thiết bị. Ba mẹ vui lòng kiểm tra kết nối mạng và thử lại sau.',
   'parent.account.deleteAuthRequired':
     'Vì lý do bảo mật, thao tác xóa tài khoản yêu cầu ba mẹ phải vừa mới xác thực/đăng nhập lại gần đây. Ba mẹ vui lòng đăng xuất, đăng nhập lại rồi thử lại nhé.',
-  'parent.account.deleteCancelledText':
-    'Thao tác xóa tài khoản đã bị hủy.',
+  'parent.account.deleteCancelledText': 'Thao tác xóa tài khoản đã bị hủy.',
   'parent.account.deleteErrorTitle': 'Chưa xóa được tài khoản',
   'parent.account.deleteErrorUnknown':
     'Có lỗi khi xóa tài khoản. Ba mẹ vui lòng thử lại.',
@@ -284,8 +274,7 @@ export const vi = {
   'parent.account.signOutConfirmTitle': 'Đăng xuất?',
   'parent.account.signOutConfirmText':
     'Đăng xuất sẽ giữ dữ liệu học local trên thiết bị này, trừ khi ba mẹ chọn xoá dữ liệu local.',
-  'parent.account.signOutDeleteLocalAction':
-    'Đăng xuất và xoá dữ liệu local',
+  'parent.account.signOutDeleteLocalAction': 'Đăng xuất và xoá dữ liệu local',
   'parent.account.signOutErrorTitle': 'Chưa đăng xuất được',
   'parent.account.signOutErrorUnknown':
     'Có lỗi khi đăng xuất. Ba mẹ vui lòng thử lại.',
@@ -332,7 +321,8 @@ export const vi = {
   'parent.cloudSync.retry': 'Thử đồng bộ lại',
   'parent.cloudSync.statusAccountMismatch':
     'Đang dừng: quyền đồng bộ thuộc tài khoản ba mẹ khác.',
-  'parent.cloudSync.statusDisabled': 'Đang tắt. Dữ liệu học chỉ lưu trên thiết bị.',
+  'parent.cloudSync.statusDisabled':
+    'Đang tắt. Dữ liệu học chỉ lưu trên thiết bị.',
   'parent.cloudSync.statusDisabling': 'Đang tắt đồng bộ...',
   'parent.cloudSync.statusEnabling': 'Đang bật đồng bộ...',
   'parent.cloudSync.statusPending':
@@ -475,18 +465,15 @@ export const vi = {
     'Đang bật. Chỉ gửi thông tin kỹ thuật khi app gặp lỗi, không gửi tên bé, ghi âm hoặc nội dung học.',
   'parent.settings.crashReportingErrorText':
     'Chưa thể cập nhật tuỳ chọn gửi báo cáo lỗi. Ba mẹ thử lại sau nhé.',
-  'parent.settings.crashReportingErrorTitle':
-    'Chưa bật được báo cáo lỗi',
+  'parent.settings.crashReportingErrorTitle': 'Chưa bật được báo cáo lỗi',
   'parent.settings.crashReportingTitle': 'Gửi báo cáo lỗi',
   'parent.settings.crashReportPromptDiscard': 'Không gửi',
   'parent.settings.crashReportPromptSend': 'Gửi báo cáo lỗi',
   'parent.settings.crashReportPromptText':
     'Ba mẹ có thể gửi báo cáo kỹ thuật để tụi mình sửa lỗi. Không gửi tên bé, ghi âm hoặc nội dung học.',
-  'parent.settings.crashReportPromptTitle':
-    'Ứng dụng vừa gặp lỗi kỹ thuật',
+  'parent.settings.crashReportPromptTitle': 'Ứng dụng vừa gặp lỗi kỹ thuật',
   'parent.settings.dailyBadge': 'Nhịp học hằng ngày',
-  'parent.settings.dailySubtitle':
-    'Giúp bé học đều mà không tạo áp lực.',
+  'parent.settings.dailySubtitle': 'Giúp bé học đều mà không tạo áp lực.',
   'parent.settings.dailySummaryDisabled': 'Chưa bật nhắc học',
   'parent.settings.dailySummaryEnabled': 'Nhắc lúc {time}',
   'parent.settings.dailySummaryLabel': 'Nhịp hôm nay',
@@ -518,11 +505,9 @@ export const vi = {
   'parent.settings.profileBadge': 'Hồ sơ bé',
   'parent.settings.profileMissingBirthYear':
     'Thêm năm sinh để cá nhân hoá hành trình',
-  'parent.settings.reminderDisabled':
-    'Bật nhắc học vào giờ bé thoải mái nhất',
+  'parent.settings.reminderDisabled': 'Bật nhắc học vào giờ bé thoải mái nhất',
   'parent.settings.reminderEnabled': 'Đang nhắc mỗi ngày lúc {time} ✎',
-  'parent.settings.reminderTimeSubtitle':
-    'Có thể chọn giờ trước khi bật nhắc.',
+  'parent.settings.reminderTimeSubtitle': 'Có thể chọn giờ trước khi bật nhắc.',
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
   'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
@@ -549,8 +534,7 @@ export const vi = {
   'scene.completion.backToLesson': 'Về gói bài học',
   'scene.completion.coach.final':
     'Tuyệt vời! Mình ôn tập thêm một chút rồi nhận sticker nhé.',
-  'scene.completion.coach.next':
-    'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.',
+  'scene.completion.coach.next': 'Giỏi quá! Mình cùng sang cảnh tiếp theo nhé.',
   'scene.completion.coach.single':
     'Sungy đã đánh dấu trạm này xong rồi. Bé về gói bài học nhé!',
   'scene.completion.defaultMessage': 'Bé đã hoàn thành {sceneTitle}.',
@@ -586,6 +570,7 @@ export const vi = {
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
   'header.openHub': 'Mở Sungy Hub',
+  'header.themeLibrary': 'Đổi chủ đề bản đồ',
   'header.parentGate': 'Góc phụ huynh',
   'header.level': 'Cấp {level}',
   'streak.notLearnedToday': 'Bé chưa học hôm nay',
@@ -593,8 +578,10 @@ export const vi = {
   'profile.age': '{age} tuổi',
   'profile.editAccessibility': 'Sửa hồ sơ bé',
   'profile.edit': 'Sửa',
-  'weeklyChart.goalReached': 'Bé đã đạt mục tiêu 7 ngày. Một tràng pháo tay cho bé!',
-  'weeklyChart.keepGoing': 'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.',
+  'weeklyChart.goalReached':
+    'Bé đã đạt mục tiêu 7 ngày. Một tràng pháo tay cho bé!',
+  'weeklyChart.keepGoing':
+    'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.',
   'weeklyChart.last7Days': '7 ngày gần đây',
   'weeklyChart.goalLabel': 'mục tiêu',
   'playPanel.badge': 'Chơi',
@@ -608,7 +595,8 @@ export const vi = {
   'tabs.play': 'Chơi',
   'speakPractice.encouragement': 'Cô nghe rồi! Giỏi quá!',
   'speakPractice.micPermissionTitle': 'Quyền truy cập Micro',
-  'speakPractice.micPermissionText': 'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
+  'speakPractice.micPermissionText':
+    'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
   'speakPractice.later': 'Để sau',
   'speakPractice.openSettings': 'Mở Cài đặt',
   'speakPractice.coachSpeaking': 'Cô đang nói...',
@@ -633,7 +621,8 @@ export const vi = {
   'home.coach.review': 'Mình cùng ôn lại {lessonTitle} nhé!',
   'home.coach.next': 'Đi thôi! Trạm tiếp theo là {sceneTitle}.',
   'home.coach.default': 'Hôm nay mình học cùng Sungy nhé!',
-  'home.coach.completeTapOne': 'Bé giỏi quá! Mình cùng ngắm bộ sưu tập sticker nhé.',
+  'home.coach.completeTapOne':
+    'Bé giỏi quá! Mình cùng ngắm bộ sưu tập sticker nhé.',
   'home.coach.completeTapTwo': 'Sungy đã thấy cả bản đồ sáng lên rồi!',
   'home.coach.completeTapThree': 'Mình có thể chơi lại để ôn từ mới nữa đó.',
   'home.coach.reviewTapOne': 'Mình cùng lật thẻ để nhớ từ lâu hơn nhé.',
@@ -658,8 +647,7 @@ export const vi = {
   'home.hub.reviewTitle': 'Ôn lại {lessonTitle}',
   'home.hub.completeTitle': 'Bản đồ đã đủ sao',
   'home.hub.readyTitle': 'Sẵn sàng học tiếp',
-  'home.hub.reviewSubtitle':
-    'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.',
+  'home.hub.reviewSubtitle': 'Có game ôn tập đang chờ bé mở khóa thêm phản xạ.',
   'home.hub.completeSubtitle':
     'Bé có thể chơi lại trạm yêu thích hoặc ôn tập để giữ nhịp.',
   'home.hub.nextSubtitle': '{lessonTitle} · Trạm {current}/{total}',
@@ -687,8 +675,7 @@ export const vi = {
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Chơi lại',
   'home.mapStop.continueAction': 'Học tiếp',
-  'home.lessonMilestone.accessibility':
-    'Bài {title} đạt {stars} trên 3 sao',
+  'home.lessonMilestone.accessibility': 'Bài {title} đạt {stars} trên 3 sao',
   'lessonList.mapTitle': 'Bản đồ bài học',
   'lessonList.title': 'Hành trình tiếng Anh của bé',
   'lessonList.subtitle':
@@ -719,8 +706,10 @@ export const vi = {
   'reward.acorn': 'Hạt dẻ',
   'reward.levelUpTitle': 'Chúc mừng bé lên Cấp {level}!',
   'reward.completedTitle': 'Bé đã hoàn thành {lessonTitle}!',
-  'reward.levelUpSubtitle': 'Bé đã mở khóa {stickerName} và thêm từ mới vào sổ học tập.',
-  'reward.completedSubtitle': 'Bé đã học thêm nhiều từ mới và tích luỹ thêm hạt dẻ.',
+  'reward.levelUpSubtitle':
+    'Bé đã mở khóa {stickerName} và thêm từ mới vào sổ học tập.',
+  'reward.completedSubtitle':
+    'Bé đã học thêm nhiều từ mới và tích luỹ thêm hạt dẻ.',
   'reward.wordsLearned': 'Các từ bé vừa học',
   'reward.wordCount': '{count} từ',
   'reward.nextLesson': 'Bài tiếp theo',
@@ -753,8 +742,7 @@ export const vi = {
   'stickerCollection.earnedPending': 'Vừa mở khóa',
   'stickerCollection.lessonStickerTitle': 'Sticker bài học',
   'stickerCollection.timelineTitle': 'Lịch sử nhận sticker',
-  'stickerCollection.timelineEmpty':
-    'Sticker bé nhận được sẽ xuất hiện ở đây.',
+  'stickerCollection.timelineEmpty': 'Sticker bé nhận được sẽ xuất hiện ở đây.',
   'stickerCollection.achievementTitle': 'Sticker thành tựu Sungy',
   'stickerCollection.achievementFirstSteps': 'Dễ đạt',
   'stickerCollection.achievementHabits': 'Thói quen',
@@ -767,14 +755,11 @@ export const vi = {
   'stickerCollection.requirementLearnedWords': 'Học {target} từ mới.',
   'stickerCollection.requirementCompletedScenes':
     'Hoàn thành {target} trạm học.',
-  'stickerCollection.requirementCompletedReviews':
-    'Chơi ôn tập {target} lần.',
+  'stickerCollection.requirementCompletedReviews': 'Chơi ôn tập {target} lần.',
   'stickerCollection.requirementCompletedLessons':
     'Hoàn thành {target} bài học.',
-  'stickerCollection.requirementCurrentStreak':
-    'Học {target} ngày liên tiếp.',
-  'stickerCollection.requirementLongestStreak':
-    'Giữ kỷ lục học {target} ngày.',
+  'stickerCollection.requirementCurrentStreak': 'Học {target} ngày liên tiếp.',
+  'stickerCollection.requirementLongestStreak': 'Giữ kỷ lục học {target} ngày.',
   'stickerCollection.keepLearning': 'Tiếp tục học',
   'stickerCollection.unlockedAccessibility': 'Sticker {stickerName} đã mở',
   'stickerCollection.lockedStickerAccessibility':
@@ -786,14 +771,17 @@ export const vi = {
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',
   'themeLibrary.continueOnMap': 'Tiếp tục trên bản đồ',
   'themeLibrary.chooseThisTheme': 'Chọn chủ đề này',
-  'themeLibrary.activeDescription': 'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.',
-  'themeLibrary.inactiveDescription': 'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.',
+  'themeLibrary.activeDescription':
+    'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.',
+  'themeLibrary.inactiveDescription':
+    'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.',
   'themeLibrary.activeStatus': 'Đang học',
   'themeLibrary.themeStatus': 'Chủ đề',
   'themeLibrary.savingStatus': 'Đang lưu',
   'themeLibrary.savingAction': 'Đang lưu...',
   'themeLibrary.subtitle': 'Mỗi chủ đề là một hành trình học riêng cho bé.',
-  'themeLibrary.parentNoteDescription': 'Chọn chủ đề phù hợp với bé. Bé sẽ học từng bài theo lộ trình trong chủ đề đó.',
+  'themeLibrary.parentNoteDescription':
+    'Chọn chủ đề phù hợp với bé. Bé sẽ học từng bài theo lộ trình trong chủ đề đó.',
   'themeLibrary.stations': 'trạm học',
   'reviewGame.notFound': 'Không tìm thấy bài học này.',
   'reviewGame.backToList': 'Về danh sách bài học',
@@ -838,14 +826,16 @@ export const vi = {
   'lessonPack.lockedHint': 'Hoàn thành trạm trước để mở khóa.',
   'lessonPack.scenesLearned': '{completed}/{total} cảnh đã học',
   'onboarding.mascotAccessibility': 'Sungy, bạn học của bé',
-  'header.levelAccessibility': 'Bé đang ở cấp {level}, có {xpInLevel} hạt dẻ, cần thêm {xpNeeded} hạt dẻ để lên cấp',
+  'header.levelAccessibility':
+    'Bé đang ở cấp {level}, có {xpInLevel} hạt dẻ, cần thêm {xpNeeded} hạt dẻ để lên cấp',
   'streak.streakDays': '{days} ngày liên tiếp!',
   'streak.record': 'Kỷ lục: {days} ngày 🏆',
   'childProfile.editAccessibility': 'Sửa hồ sơ bé',
   'childProfile.edit': 'Sửa',
   'childProfile.defaultName': 'Bé yêu',
   'weeklyChart.wordsRemaining': 'Còn {remaining} từ để đạt mục tiêu 7 ngày.',
-  'weeklyChart.startJourney': 'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.',
+  'weeklyChart.startJourney':
+    'Một bài học ngắn hôm nay sẽ khởi động hành trình 7 ngày.',
   'weeklyChart.words': '{total}/{target} từ',
   'weeklyChart.goal': 'mục tiêu',
   'weeklyChart.accessibility': 'Bé đã hoàn thành {percent}% mục tiêu 7 ngày',
@@ -864,7 +854,8 @@ export const vi = {
   'speakPractice.promptPrepare': 'Chuẩn bị đọc...',
   'speakPractice.promptRecording': 'Cô đang nghe...',
   'speakPractice.promptRecorded': 'Giỏi quá! Từ này đọc là:',
-  'speakPractice.promptRecordedQuiet': 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+  'speakPractice.promptRecordedQuiet':
+    'Không sao, từ sau mình thử đọc cùng cô nhé.',
   'speakPractice.promptNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
   'speakPractice.replayVoiceAccessibility': 'Nghe lại giọng bé',
@@ -881,22 +872,28 @@ export const vi = {
   'mascot.name': 'Sungy',
   'parent.stats.learningPathTitleDefault': 'Lộ trình học của bé',
   'parent.stats.learningPathTitleMultiple': '{count} chủ đề học',
-  'parent.stats.learningPathSubtitleDefault': 'Bé học theo hành trình ba mẹ đã chọn.',
-  'parent.stats.learningPathSubtitleCustom': 'Bé chỉ thấy những chủ đề và bài học ba mẹ đang bật.',
+  'parent.stats.learningPathSubtitleDefault':
+    'Bé học theo hành trình ba mẹ đã chọn.',
+  'parent.stats.learningPathSubtitleCustom':
+    'Bé chỉ thấy những chủ đề và bài học ba mẹ đang bật.',
   'parent.stats.heroTitleGreat': 'Tuyệt vời, {name}!',
   'parent.stats.heroTitleGentle': 'Một ngày học thật nhẹ nhàng',
   'parent.stats.heroSummaryLoading': 'Đang tải tiến độ gần đây của bé…',
-  'parent.stats.heroSummaryWordsAndScenes': 'Bé đã khám phá {words} từ mới và đi qua {scenes} lượt trạm hôm nay.',
+  'parent.stats.heroSummaryWordsAndScenes':
+    'Bé đã khám phá {words} từ mới và đi qua {scenes} lượt trạm hôm nay.',
   'parent.stats.heroSummaryWords': 'Bé đã khám phá {words} từ mới hôm nay.',
   'parent.stats.heroSummaryScenes': 'Bé đã đi qua {scenes} lượt trạm hôm nay.',
-  'parent.stats.heroSummaryEmpty': 'Một bài học ngắn hôm nay sẽ giúp bé giữ nhịp thật vui.',
+  'parent.stats.heroSummaryEmpty':
+    'Một bài học ngắn hôm nay sẽ giúp bé giữ nhịp thật vui.',
   'parent.stats.heroActionContinue': 'Tiếp tục cùng bé',
   'parent.stats.heroActionStart': 'Cùng bé bắt đầu',
   'parent.stats.metricWords': 'từ mới',
   'parent.stats.metricScenes': 'lượt trạm',
   'parent.stats.metricActivity': 'hoạt động',
-  'parent.stats.tipReviewWords': 'Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the {word}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.',
-  'parent.stats.tipEmpty': 'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!',
+  'parent.stats.tipReviewWords':
+    'Ba mẹ có thể chỉ vào đồ vật thật và hỏi bé: "Where is the {word}?" hoặc "What is this?" để giúp bé nhớ lâu hơn.',
+  'parent.stats.tipEmpty':
+    'Bé chưa học từ vựng nào. Ba mẹ hãy cùng bé bắt đầu bài học đầu tiên nhé!',
   'parent.stats.todayProgress': 'TIẾN ĐỘ HÔM NAY',
   'parent.stats.streakDays': 'ngày liên tiếp',
   'parent.stats.achievementTitle': 'Hành trình của bé',
@@ -920,7 +917,8 @@ export const vi = {
   'parent.stats.enabledLessons': '{count} bài',
   'parent.stats.completedEnabledLessons':
     'Đã hoàn thành {completed}/{total} bài đang bật.',
-  'parent.stats.selectLearningPaceSubtitle': 'Ba mẹ có thể chọn một nhịp phù hợp hoặc tự tinh chỉnh từng bài.',
+  'parent.stats.selectLearningPaceSubtitle':
+    'Ba mẹ có thể chọn một nhịp phù hợp hoặc tự tinh chỉnh từng bài.',
   'parent.stats.allLessons': 'Tất cả bài',
   'parent.stats.guidedPlanTitle': 'Tất cả bài',
   'parent.stats.guidedPlanSubtitle': 'Bật toàn bộ lộ trình',
@@ -930,11 +928,13 @@ export const vi = {
     'Chỉ bật {count} bài gần bài bé đang học nhất.',
   'parent.stats.customPlanTitle': 'Tự chọn',
   'parent.stats.customLessons': 'Từng bài',
-  'parent.stats.customLessonsHint': 'Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
+  'parent.stats.customLessonsHint':
+    'Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
   'parent.stats.currentPlanLabel': 'Đang dùng',
   'parent.stats.openLessonAccessibility': 'Mở {lessonTitle}',
   'parent.stats.themeListTitle': 'Các chủ đề bé đang học',
-  'parent.stats.themeListSubtitle': 'Mỗi chủ đề chứa các bài học và từ vựng riêng của bé.',
+  'parent.stats.themeListSubtitle':
+    'Mỗi chủ đề chứa các bài học và từ vựng riêng của bé.',
   'parent.stats.customPlanBadge': 'Tự chọn',
   'parent.stats.completedLessonsOfTotal': '{completed}/{total} bài hoàn thành',
   'parent.stats.visibleLessonsCount': '{count} bài bật',
@@ -952,7 +952,8 @@ export const vi = {
   'parent.stats.viewLesson': 'Xem bài học',
   'parent.stats.lessonPreviewLabel': 'Bé sẽ khám phá',
   'progressDots.accessibilityLabel': 'Bước {current} trên {total}',
-  'progressStars.accessibilityLabel': 'Bé đã hoàn thành {completed} trên {total} cảnh',
+  'progressStars.accessibilityLabel':
+    'Bé đã hoàn thành {completed} trên {total} cảnh',
   'weeklyChart.day.sun': 'CN',
   'weeklyChart.day.mon': 'T2',
   'weeklyChart.day.tue': 'T3',

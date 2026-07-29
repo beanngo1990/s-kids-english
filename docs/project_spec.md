@@ -158,11 +158,12 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có một theme:
+Hiện có hai themes:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
+- `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
 
-Theme chứa 11 lesson packs theo thứ tự:
+Theme `mot-ngay-cua-be` chứa 11 lesson packs theo thứ tự:
 
 1. `morning-routine`
 2. `at-school`
@@ -175,6 +176,17 @@ Theme chứa 11 lesson packs theo thứ tự:
 9. `family-dinner`
 10. `after-dinner-cleanup`
 11. `bedtime`
+
+Theme `be-ra-ngoai-kham-pha` chứa 8 lesson packs theo thứ tự:
+
+1. `supermarket-trip`
+2. `park-visit`
+3. `beach-day`
+4. `animal-trip`
+5. `library-visit`
+6. `doctor-visit`
+7. `birthday-party`
+8. `grandparents-visit`
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
@@ -259,7 +271,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
   Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
 - `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả.
-- `ThemeLibrary` đã có infrastructure nhưng catalog hiện chỉ có một theme.
+- `ThemeLibrary` hiển thị và cho chọn giữa các themes trong catalog. Home header có entry mở
+  thư viện này để bé/ba mẹ đổi bản đồ active; theme mới có thể bị khóa Premium nếu không có lesson
+  nào thuộc free tier.
 
 ### Parent Mode
 
@@ -280,9 +294,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   "Lộ trình học của bé" hiển thị số bài đang bật và thanh tiến độ theo
   `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
   lesson trong plan, còn guided/free journey vẫn là setting riêng. Nhịp "Nhẹ nhàng" bật 3 bài gần
-  bài focus hiện tại, không phải 3 bài vừa học gần nhất. Tab Cài đặt chỉnh child profile,
-  Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
-  reminder time, optional background music, contact support email và app version.
+  bài focus hiện tại, không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
+  thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
+  hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
+  app-language preference, teacher prompt mode, English accent, daily reminder time, optional
+  background music, contact support email và app version.
 - Các config chính trong Góc phụ huynh có giải thích ngắn theo ba ý: tính năng là gì, ảnh hưởng
   tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
   sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
@@ -300,7 +316,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** entry từ Kid Mode có thể mở `Parent` với intent `premium`/`founderPromo`; sau
   khi adult gate pass, Parent Mode điều hướng sang `Premium`. `PremiumScreen` cũng tự trả về Parent
   gate nếu session chưa được cấp.
-- **Implemented:** development-only scene editor flag; không coi đây là production feature.
+- **Implemented:** development-only scene editor flag; khi bật trong dev build, flag này cũng mở
+  khóa Kid Map/Lesson Pack để QA nội dung mà không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
   Parent gate/settings, navigation titles, ScenePlayer system controls/completion chrome, bottom
   tabs, Home coach/hub chrome, LessonList chrome, ReviewGame empty states, memory-game chrome,
@@ -328,13 +345,13 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 ### Premium access và in-app purchases (Phase 1)
 
 - Free tier được xác định bằng stable lesson IDs trong `src/engine/ContentAccessPolicy.ts`:
-  `morning-routine` và `at-school`. Hai lesson này cùng scene/review của chúng luôn mở, kể cả khi
-  monetization đang khởi tạo, signed out hoặc tạm unavailable; các lesson còn lại cần entitlement
-  `premium` active.
+  `morning-routine` và `at-school`. Các lesson này cùng scene/review của
+  chúng luôn mở, kể cả khi monetization đang khởi tạo, signed out hoặc tạm unavailable; các lesson
+  còn lại cần entitlement `premium` active.
 - Caller entry points và destination screens đều guard access. `LessonPackScreen`,
   `ScenePlayerScreen` và `ReviewGameScreen` không mount nội dung/audio premium trước khi quyền
-  được xác nhận; `openedFromParent` không bypass entitlement. Kid-facing gate không hiển thị giá,
-  chỉ đề nghị nhờ ba mẹ và mở Parent intent.
+  được xác nhận; `openedFromParent` không bypass entitlement. Kid-facing lock dùng popup nhờ ba
+  mẹ mở khóa và mở Parent intent, không dùng màn Premium toàn trang trong Kid Mode.
 - Scene/review đã bắt đầu latch access cho phiên hiện tại để entitlement hết hạn giữa hoạt động
   không đẩy bé ra ngoài. Quyền được kiểm tra lại tại boundary mới, ví dụ từ scene sang review.
 - `PremiumScreen` chỉ mở sau adult gate và hỗ trợ parent Firebase sign-in, hiển thị packages từ
@@ -778,6 +795,16 @@ cùng file.
 - `src/config/remoteAssets.ts` tạo URL từ public R2 root + release.
 - Current release prefix là generated value `v1`; không hardcode revision hash vào spec.
 - `preferRemoteImages` và `cacheRemoteAssets` hiện bật.
+- Development builds có thể dùng gitignored `src/config/remoteAssetOverrides.local.ts`,
+  được Metro resolve thay fallback mặc định, để preview asset local qua `npm run assets:serve-local`
+  mà không upload R2. Override local cho phép QA nội dung khi lesson audio chưa publish, nhưng
+  không bypass Premium entitlement hoặc content locks.
+- `npm run generate:audio:local-preview -- --lesson=<lesson-id>` audit đủ en-US, en-GB và
+  Vietnamese target của lesson rồi sinh hai overlay gitignored
+  `src/data/audioManifest.local.ts` và `src/config/localAudioPreview.local.ts`. Metro chỉ resolve
+  chúng trong development để lesson được chọn phát WAV từ local asset server; lệnh không gọi
+  Google TTS, không sửa production manifest, không bundle WAV và không upload R2. Các lesson khác
+  vẫn giữ hành vi QA audio chưa publish hiện tại.
 - Image URLs có manifest revision query để tránh stale device/CDN image cache.
 - English audio cache identity chứa cả accent và immutable release segment
   `neural2-c-r1`; en-US và en-GB không dùng chung R2/device-cache key.
@@ -911,25 +938,25 @@ Support summary:
 | Free tier + Premium content guards               | Implemented     |
 | RevenueCat client entitlement lifecycle          | Implemented     |
 | Store-ready keys/products/legal config           | Partial         |
-| Remote Config monetization switches      | Implemented     |
-| Founder cutoff/duration local access     | Implemented     |
-| Firebase App Check client initialization | Implemented     |
-| Firebase App Check backend enforcement   | Partial         |
-| Theme Light/Dark/System                  | Implemented     |
-| Full VI/EN localization                  | Partial         |
-| Teacher prompt mode vi/en/bilingual      | Partial         |
-| English pronunciation en-US/en-GB        | Implemented     |
-| Mode-based lesson filtering              | Implemented     |
-| Age-based runtime filtering              | Partial         |
-| Scene-level resume                       | Implemented     |
-| Exact step resume                        | Partial         |
-| Record/playback speech practice          | Implemented     |
-| Speech recognition/pronunciation scoring | Unsupported     |
-| Android audio disk cache                 | Implemented     |
-| iOS audio disk cache                     | Unsupported     |
-| Full offline lesson bundle               | Unsupported     |
-| Native reminder E2E coverage             | Partial         |
-| Parent opt-in cloud learning data sync   | Implemented     |
+| Remote Config monetization switches              | Implemented     |
+| Founder cutoff/duration local access             | Implemented     |
+| Firebase App Check client initialization         | Implemented     |
+| Firebase App Check backend enforcement           | Partial         |
+| Theme Light/Dark/System                          | Implemented     |
+| Full VI/EN localization                          | Partial         |
+| Teacher prompt mode vi/en/bilingual              | Partial         |
+| English pronunciation en-US/en-GB                | Implemented     |
+| Mode-based lesson filtering                      | Implemented     |
+| Age-based runtime filtering                      | Partial         |
+| Scene-level resume                               | Implemented     |
+| Exact step resume                                | Partial         |
+| Record/playback speech practice                  | Implemented     |
+| Speech recognition/pronunciation scoring         | Unsupported     |
+| Android audio disk cache                         | Implemented     |
+| iOS audio disk cache                             | Unsupported     |
+| Full offline lesson bundle                       | Unsupported     |
+| Native reminder E2E coverage                     | Partial         |
+| Parent opt-in cloud learning data sync           | Implemented     |
 
 ## 12. Spec maintenance
 

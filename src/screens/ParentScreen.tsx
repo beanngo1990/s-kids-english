@@ -86,6 +86,7 @@ import { useI18n } from '../i18n';
 import {
   getLessonVocabularyForLearningMode,
   getProgress,
+  saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { useAppTheme } from '../theme/AppTheme';
@@ -180,9 +181,7 @@ export function ParentScreen({ navigation, route }: Props) {
   const responsiveLayout = useResponsiveLayout();
   const { isGranted: isUnlocked } = useParentAccessSnapshot();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [gateChallenge, setGateChallenge] = useState(
-    createParentGateChallenge,
-  );
+  const [gateChallenge, setGateChallenge] = useState(createParentGateChallenge);
   const [gateAnswer, setGateAnswer] = useState('');
   const [gateError, setGateError] = useState(false);
   const [gateWrongAttemptCount, setGateWrongAttemptCount] = useState(0);
@@ -198,15 +197,12 @@ export function ParentScreen({ navigation, route }: Props) {
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const [enableSceneEditor, setEnableSceneEditor] = useState(false);
   const [appLanguage, setAppLanguage] = useState<AppLanguage>('vi');
-  const [englishAccent, setEnglishAccent] =
-    useState<EnglishAccent>('en-US');
+  const [englishAccent, setEnglishAccent] = useState<EnglishAccent>('en-US');
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [appTheme, setAppTheme] = useState<AppTheme>('system');
-  const [backgroundMusicEnabled, setBackgroundMusicEnabled] =
-    useState(false);
-  const [crashReportingEnabled, setCrashReportingEnabled] =
-    useState(false);
+  const [backgroundMusicEnabled, setBackgroundMusicEnabled] = useState(false);
+  const [crashReportingEnabled, setCrashReportingEnabled] = useState(false);
   const [hasPendingCrashReport, setHasPendingCrashReport] = useState(false);
   const [isCrashReportActionPending, setIsCrashReportActionPending] =
     useState(false);
@@ -450,7 +446,9 @@ export function ParentScreen({ navigation, route }: Props) {
     ? t('parent.stats.heroSummaryScenes', { scenes: String(todaySceneCount) })
     : t('parent.stats.heroSummaryEmpty');
   const heroAction =
-    completedFocusSceneCount > 0 ? t('parent.stats.heroActionContinue') : t('parent.stats.heroActionStart');
+    completedFocusSceneCount > 0
+      ? t('parent.stats.heroActionContinue')
+      : t('parent.stats.heroActionStart');
   const canOpenFocusLesson = isDashboardReady && Boolean(focusLesson);
   const canReviewTogether = isDashboardReady && Boolean(reviewLesson);
   const todayPrimaryMetricValue =
@@ -593,17 +591,11 @@ export function ParentScreen({ navigation, route }: Props) {
     </Pressable>
   );
 
-  const renderSettingsRowTitle = (
-    title: string,
-    topic: ParentInfoTopic,
-  ) => (
+  const renderSettingsRowTitle = (title: string, topic: ParentInfoTopic) => (
     <View style={styles.settingTitleRow}>
       <Text
         numberOfLines={2}
-        style={[
-          styles.learningSettingsRowTitle,
-          styles.settingTitleText,
-        ]}
+        style={[styles.learningSettingsRowTitle, styles.settingTitleText]}
       >
         {title}
       </Text>
@@ -1008,7 +1000,7 @@ export function ParentScreen({ navigation, route }: Props) {
       const timeString = `${hours}:${minutes}`;
       setReminderTime(timeString);
       await saveParentSettings({ reminderTime: timeString });
-      
+
       if (reminderEnabled) {
         await NotificationService.scheduleDailyReminder(timeString);
       }
@@ -1017,10 +1009,11 @@ export function ParentScreen({ navigation, route }: Props) {
 
   const handleToggleLesson = async (lessonId: string) => {
     const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
+    const wasVisible = currentVisible.includes(lessonId);
+    const lesson = lessons.find(l => l.id === lessonId);
     let nextVisible: string[];
 
-    if (currentVisible.includes(lessonId)) {
-      const lesson = lessons.find(l => l.id === lessonId);
+    if (wasVisible) {
       if (lesson) {
         const themeLessons = lessons.filter(l => l.themeId === lesson.themeId);
         const visibleInTheme = themeLessons.filter(l =>
@@ -1042,14 +1035,22 @@ export function ParentScreen({ navigation, route }: Props) {
     setIsCustomPlanMode(true);
     setVisibleLessonIds(nextVisible);
     await saveParentSettings({ visibleLessonIds: nextVisible });
+
+    if (!wasVisible && lesson && lesson.themeId !== progress?.activeThemeId) {
+      try {
+        const nextProgress = await saveActiveThemeId(lesson.themeId);
+        setProgress(nextProgress);
+      } catch {
+        // Visibility is the source of truth for the plan; theme switching is
+        // a convenience so Home reflects the newly enabled theme.
+      }
+    }
   };
 
   const renderLearningSettingsCard = () => (
     <AppCard style={styles.learningSettingsCard}>
       <View style={styles.settingsCardHeader}>
-        <KidBadge tone="teal">
-          {t('parent.settings.journeyBadge')}
-        </KidBadge>
+        <KidBadge tone="teal">{t('parent.settings.journeyBadge')}</KidBadge>
         <Text style={styles.learningSettingsTitle}>
           {t('parent.settings.journeyTitle')}
         </Text>
@@ -1091,18 +1092,12 @@ export function ParentScreen({ navigation, route }: Props) {
             <Text style={styles.learningSettingsRowTitle}>
               {t('parent.settings.journeyModeTitle')}
             </Text>
-            <Text
-              numberOfLines={2}
-              style={styles.learningSettingsRowSubtitle}
-            >
+            <Text numberOfLines={2} style={styles.learningSettingsRowSubtitle}>
               {currentJourneyCopy.subtitle}
             </Text>
           </View>
           <View style={styles.learningSettingsRowValue}>
-            <Text
-              numberOfLines={2}
-              style={styles.learningSettingsValueText}
-            >
+            <Text numberOfLines={2} style={styles.learningSettingsValueText}>
               {currentJourneyCopy.title}
             </Text>
             <Text style={styles.learningSettingsChevron}>›</Text>
@@ -1125,18 +1120,12 @@ export function ParentScreen({ navigation, route }: Props) {
             <Text style={styles.learningSettingsRowTitle}>
               {t('parent.settings.difficultyTitle')}
             </Text>
-            <Text
-              numberOfLines={2}
-              style={styles.learningSettingsRowSubtitle}
-            >
+            <Text numberOfLines={2} style={styles.learningSettingsRowSubtitle}>
               {currentDifficultyCopy.subtitle}
             </Text>
           </View>
           <View style={styles.learningSettingsRowValue}>
-            <Text
-              numberOfLines={2}
-              style={styles.learningSettingsValueText}
-            >
+            <Text numberOfLines={2} style={styles.learningSettingsValueText}>
               {savingMode
                 ? t('common.saveInProgress')
                 : currentDifficultyCopy.title}
@@ -1241,10 +1230,8 @@ export function ParentScreen({ navigation, route }: Props) {
             ) : (
               <View style={styles.learningSheetOptions}>
                 {learningDifficultyOptions.map(option => {
-                  const isSelected =
-                    option.learningMode === learningMode;
-                  const isSavingThisMode =
-                    savingMode === option.learningMode;
+                  const isSelected = option.learningMode === learningMode;
+                  const isSavingThisMode = savingMode === option.learningMode;
                   const optionCopy = getLearningModeCopy(
                     option.learningMode,
                     t,
@@ -1300,13 +1287,16 @@ export function ParentScreen({ navigation, route }: Props) {
 
   if (!isUnlocked) {
     return (
-      <Screen scroll withBottomSpace={false} keyboardAvoiding keyboardOffset={90}>
+      <Screen
+        scroll
+        withBottomSpace={false}
+        keyboardAvoiding
+        keyboardOffset={90}
+      >
         <View style={styles.gateContainer}>
           <AppCard style={styles.gateCard}>
             <KidBadge tone="teal">{t('parent.gate.badge')}</KidBadge>
-            <Text style={styles.title}>
-              {t('parent.gate.challengeTitle')}
-            </Text>
+            <Text style={styles.title}>{t('parent.gate.challengeTitle')}</Text>
             <Text style={styles.gateHint}>
               {t('parent.gate.challengeHint')}
             </Text>
@@ -1387,7 +1377,9 @@ export function ParentScreen({ navigation, route }: Props) {
               <View style={styles.todayTopRow}>
                 <View style={styles.todayCopy}>
                   <View style={styles.todayEyebrow}>
-                    <Text style={styles.todayEyebrowText}>{t('parent.stats.todayProgress')}</Text>
+                    <Text style={styles.todayEyebrowText}>
+                      {t('parent.stats.todayProgress')}
+                    </Text>
                   </View>
                   <Text numberOfLines={2} style={styles.todayTitle}>
                     {heroTitle}
@@ -1604,11 +1596,15 @@ export function ParentScreen({ navigation, route }: Props) {
                 </View>
                 <View style={styles.learningPathCount}>
                   <Text style={styles.learningPathCountValue}>
-                    {t('parent.stats.enabledLessons', { count: String(visibleLessons.length) })}
+                    {t('parent.stats.enabledLessons', {
+                      count: String(visibleLessons.length),
+                    })}
                   </Text>
                   {visibleLessons.length < journeyLessons.length ? (
                     <Text style={styles.learningPathCountLabel}>
-                      {t('parent.stats.totalLessons', { total: String(journeyLessons.length) })}
+                      {t('parent.stats.totalLessons', {
+                        total: String(journeyLessons.length),
+                      })}
                     </Text>
                   ) : null}
                 </View>
@@ -1826,9 +1822,14 @@ export function ParentScreen({ navigation, route }: Props) {
                           {getLocalizedThemeTitle(theme, appLanguage)}
                         </Text>
                         <Text style={styles.lessonSectionSubtitle}>
-                          {t('parent.stats.completedLessonsOfTotal', { completed: String(completedCount), total: String(themeLessons.length) })}
+                          {t('parent.stats.completedLessonsOfTotal', {
+                            completed: String(completedCount),
+                            total: String(themeLessons.length),
+                          })}
                           {' · '}
-                          {t('parent.stats.visibleLessonsCount', { count: String(visibleCount) })}
+                          {t('parent.stats.visibleLessonsCount', {
+                            count: String(visibleCount),
+                          })}
                         </Text>
                       </View>
                       <Text style={styles.lessonSectionExpandIcon}>
@@ -1970,12 +1971,18 @@ export function ParentScreen({ navigation, route }: Props) {
                                 <Switch
                                   accessibilityLabel={
                                     isVisible
-                                      ? t('parent.stats.hideLessonAccessibility', {
-                                          lessonTitle,
-                                        })
-                                      : t('parent.stats.showLessonAccessibility', {
-                                          lessonTitle,
-                                        })
+                                      ? t(
+                                          'parent.stats.hideLessonAccessibility',
+                                          {
+                                            lessonTitle,
+                                          },
+                                        )
+                                      : t(
+                                          'parent.stats.showLessonAccessibility',
+                                          {
+                                            lessonTitle,
+                                          },
+                                        )
                                   }
                                   disabled={!isDashboardReady}
                                   value={isVisible}
@@ -2149,7 +2156,10 @@ export function ParentScreen({ navigation, route }: Props) {
                       </Text>
                     </View>
                     <FlatList
-                      data={Array.from({ length: 50 }, (_, i) => new Date().getFullYear() - i)}
+                      data={Array.from(
+                        { length: 50 },
+                        (_, i) => new Date().getFullYear() - i,
+                      )}
                       keyExtractor={item => item.toString()}
                       renderItem={({ item }) => {
                         const isSelected = childProfile.birthYear === item;
@@ -2188,7 +2198,9 @@ export function ParentScreen({ navigation, route }: Props) {
 
             <AppCard style={styles.dailySettingsCard}>
               <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sun">{t('parent.settings.dailyBadge')}</KidBadge>
+                <KidBadge tone="sun">
+                  {t('parent.settings.dailyBadge')}
+                </KidBadge>
                 <Text style={styles.dailySettingsTitle}>
                   {t('parent.settings.dailyTitle')}
                 </Text>
@@ -2698,21 +2710,15 @@ export function ParentScreen({ navigation, route }: Props) {
                             ? t('parent.settings.englishAccentAmerican')
                             : t('parent.settings.englishAccentBritish');
                           const subtitle = isAmerican
-                            ? t(
-                                'parent.settings.englishAccentAmericanSubtitle',
-                              )
-                            : t(
-                                'parent.settings.englishAccentBritishSubtitle',
-                              );
+                            ? t('parent.settings.englishAccentAmericanSubtitle')
+                            : t('parent.settings.englishAccentBritishSubtitle');
 
                           return (
                             <Pressable
                               accessibilityRole="button"
                               accessibilityState={{ selected: isSelected }}
                               key={accent}
-                              onPress={() =>
-                                handleUpdateEnglishAccent(accent)
-                              }
+                              onPress={() => handleUpdateEnglishAccent(accent)}
                               style={({ pressed }) => [
                                 styles.learningSheetOption,
                                 isSelected &&
@@ -2799,9 +2805,7 @@ export function ParentScreen({ navigation, route }: Props) {
               <Text style={styles.privacyTitle}>
                 {t('parent.privacy.title')}
               </Text>
-              <Text style={styles.privacyText}>
-                {t('parent.privacy.text')}
-              </Text>
+              <Text style={styles.privacyText}>{t('parent.privacy.text')}</Text>
             </AppCard>
 
             {__DEV__ && (
@@ -2841,9 +2845,7 @@ export function ParentScreen({ navigation, route }: Props) {
 
             <AppCard style={styles.appExperienceCard}>
               <View style={styles.settingsCardHeader}>
-                <KidBadge tone="teal">
-                  {t('parent.support.badge')}
-                </KidBadge>
+                <KidBadge tone="teal">{t('parent.support.badge')}</KidBadge>
                 <Text style={styles.appSettingsTitle}>
                   {t('parent.support.title')}
                 </Text>
@@ -2914,9 +2916,9 @@ export function ParentScreen({ navigation, route }: Props) {
                   <Pressable
                     accessibilityRole="link"
                     onPress={() => {
-                      Linking.openURL(monetizationConfig.privacyPolicyUrl).catch(
-                        () => undefined,
-                      );
+                      Linking.openURL(
+                        monetizationConfig.privacyPolicyUrl,
+                      ).catch(() => undefined);
                     }}
                   >
                     <Text style={styles.legalLinkText}>

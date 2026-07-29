@@ -38,8 +38,7 @@ export const en: TranslationDictionary = {
   'onboarding.coach.message':
     'Sungy will learn alongside your child, guide each stop, and cheer when they finish.',
   'onboarding.coach.title': 'Learning buddy',
-  'onboarding.coach.greeting':
-    'Hi! I am Sungy, your child’s learning buddy.',
+  'onboarding.coach.greeting': 'Hi! I am Sungy, your child’s learning buddy.',
   'onboarding.coach.tapDifficulty':
     'Choose a difficulty first, then Sungy will guide each stop.',
   'onboarding.coach.tapCheer':
@@ -68,13 +67,12 @@ export const en: TranslationDictionary = {
   'onboarding.step2.back': 'Back',
   'onboarding.title': 'Choose a difficulty',
 
-  'parent.alert.keepOneLesson':
-    'Keep at least 1 lesson enabled in this theme.',
+  'parent.alert.keepOneLesson': 'Keep at least 1 lesson enabled in this theme.',
   'parent.alert.notice': 'Note',
   'parent.dev.editorStateOff': 'Off',
   'parent.dev.editorStateOn': 'On',
   'parent.dev.editorSubtitle':
-    'Shows the Edit button inside lessons for adjusting object coordinates.',
+    'Shows the Edit button in dev builds for content QA.',
   'parent.dev.internalTools': 'Internal tools',
   'parent.gate.badge': 'Parent Mode',
   'parent.gate.challengeTitle': 'Parent check',
@@ -181,7 +179,8 @@ export const en: TranslationDictionary = {
   'premium.alert.withoutPremiumTitle': 'No active Premium access found',
   'premium.alert.withoutPremiumText':
     'The store finished checking but did not return active Premium access for this account.',
-  'premium.alert.alreadyPremium': 'This account already has active Premium access.',
+  'premium.alert.alreadyPremium':
+    'This account already has active Premium access.',
   'premium.error.title': 'Could not complete the action',
   'premium.error.configurationMissing':
     'Purchases are not available on this version. Please try again later.',
@@ -205,20 +204,13 @@ export const en: TranslationDictionary = {
   'premium.legal.linkErrorTitle': 'Could not open the link',
   'premium.legal.linkErrorText': 'Please try again or contact support later.',
   'premium.kidLockedTitle': 'This lesson needs Premium',
-  'premium.kidLockedText': 'Ask a parent to unlock it so learning can continue.',
+  'premium.kidLockedText':
+    'Ask a parent to unlock it so learning can continue.',
   'premium.askParent': 'Ask a parent to unlock',
   'premium.resolving': 'Checking Premium access...',
   'premium.parentLockedMessage':
     'This lesson needs Premium. A parent can view the plans to unlock it.',
   'premium.openPlans': 'View Premium plans',
-  'premium.gate.loading': 'Checking Premium',
-  'premium.gate.loadingMessage':
-    'The app is confirming access for the parent account.',
-  'premium.gate.title': 'Premium content',
-  'premium.gate.message':
-    'This content needs Premium. Ask a parent to unlock it to continue.',
-  'premium.gate.askParent': 'Ask a parent to unlock',
-  'premium.gate.back': 'Go back',
   'parent.account.appleTokenMissing':
     'Apple did not return the token needed to finish this action. Please sign in again and retry.',
   'parent.account.appleUnavailable':
@@ -243,8 +235,7 @@ export const en: TranslationDictionary = {
     'The app could not verify a secure connection with your device. Please check your connection and try again later.',
   'parent.account.deleteAuthRequired':
     'For security reasons, deleting an account requires a recent sign-in session. Please sign out, sign in again, and retry.',
-  'parent.account.deleteCancelledText':
-    'Account deletion was cancelled.',
+  'parent.account.deleteCancelledText': 'Account deletion was cancelled.',
   'parent.account.deleteErrorTitle': 'Could not delete account',
   'parent.account.deleteErrorUnknown':
     'Something went wrong during account deletion. Please try again.',
@@ -285,8 +276,7 @@ export const en: TranslationDictionary = {
   'parent.account.signOutConfirmTitle': 'Sign out?',
   'parent.account.signOutConfirmText':
     'Signing out keeps local learning data on this device unless you choose to delete it too.',
-  'parent.account.signOutDeleteLocalAction':
-    'Sign out and delete local data',
+  'parent.account.signOutDeleteLocalAction': 'Sign out and delete local data',
   'parent.account.signOutErrorTitle': 'Could not sign out',
   'parent.account.signOutErrorUnknown':
     'Something went wrong during sign-out. Please try again.',
@@ -429,8 +419,7 @@ export const en: TranslationDictionary = {
   'parent.info.theme.privacy':
     'Theme preference is stored locally and can sync to cloud if learning data sync is enabled.',
   'parent.info.theme.title': 'Theme',
-  'parent.info.theme.what':
-    'Chooses light, dark, or the device system theme.',
+  'parent.info.theme.what': 'Chooses light, dark, or the device system theme.',
   'parent.info.whatLabel': 'What is this?',
   'parent.privacy.text':
     'The child learning area has no ads or external links. Voice data is not uploaded; learning data is stored in the cloud only with a parent’s permission.',
@@ -588,6 +577,7 @@ export const en: TranslationDictionary = {
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
   'header.openHub': 'Open Sungy Hub',
+  'header.themeLibrary': 'Change map theme',
   'header.parentGate': 'Parent mode',
   'header.level': 'Level {level}',
   'streak.notLearnedToday': 'Not learned today',
@@ -596,7 +586,8 @@ export const en: TranslationDictionary = {
   'profile.editAccessibility': 'Edit child profile',
   'profile.edit': 'Edit',
   'weeklyChart.goalReached': '7-day goal reached. A big round of applause!',
-  'weeklyChart.keepGoing': 'A short lesson today will start your 7-day journey.',
+  'weeklyChart.keepGoing':
+    'A short lesson today will start your 7-day journey.',
   'weeklyChart.last7Days': 'Last 7 days',
   'weeklyChart.goalLabel': 'goal',
   'playPanel.badge': 'Play',
@@ -610,7 +601,8 @@ export const en: TranslationDictionary = {
   'tabs.play': 'Play',
   'speakPractice.encouragement': 'I hear you! Great job!',
   'speakPractice.micPermissionTitle': 'Microphone Permission',
-  'speakPractice.micPermissionText': 'You need to grant Microphone permission in Settings to record.',
+  'speakPractice.micPermissionText':
+    'You need to grant Microphone permission in Settings to record.',
   'speakPractice.later': 'Later',
   'speakPractice.openSettings': 'Open Settings',
   'speakPractice.coachSpeaking': 'Coach is speaking...',
@@ -635,7 +627,8 @@ export const en: TranslationDictionary = {
   'home.coach.review': 'Let’s review {lessonTitle}!',
   'home.coach.next': 'Let’s go! Next stop: {sceneTitle}.',
   'home.coach.default': 'Let’s learn with Sungy today!',
-  'home.coach.completeTapOne': 'Great job! Let’s look at the sticker collection.',
+  'home.coach.completeTapOne':
+    'Great job! Let’s look at the sticker collection.',
   'home.coach.completeTapTwo': 'Sungy can see the whole map lighting up!',
   'home.coach.completeTapThree': 'You can replay a stop to review new words.',
   'home.coach.reviewTapOne': 'Let’s flip cards to remember words longer.',
@@ -665,7 +658,8 @@ export const en: TranslationDictionary = {
   'home.hub.completeSubtitle':
     'Replay a favorite stop or review to keep the rhythm going.',
   'home.hub.nextSubtitle': '{lessonTitle} · Stop {current}/{total}',
-  'home.hub.emptySubtitle': 'New lessons will appear on the map when content is available.',
+  'home.hub.emptySubtitle':
+    'New lessons will appear on the map when content is available.',
   'home.hub.primaryReview': 'Play review',
   'home.hub.primaryReplay': 'Replay first stop',
   'home.hub.primaryContinue': 'Continue',
@@ -680,16 +674,14 @@ export const en: TranslationDictionary = {
   'home.hub.focusAccessibility': 'Move the map to the current stop',
   'home.hub.focusCurrent': 'Current stop',
   'home.progressLockedTitle': 'This lesson is still locked',
-  'home.progressLockedText':
-    'Finish the lesson before this one to unlock it.',
+  'home.progressLockedText': 'Finish the lesson before this one to unlock it.',
   'home.mapStop.position':
     'Lesson {lesson}/{lessonTotal}: {lessonTitle}, stop {scene}/{sceneTotal}',
   'home.mapStop.lockedAccessibility': '{position}: {sceneTitle} locked',
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Replay',
   'home.mapStop.continueAction': 'Continue',
-  'home.lessonMilestone.accessibility':
-    'Lesson {title} has {stars} of 3 stars',
+  'home.lessonMilestone.accessibility': 'Lesson {title} has {stars} of 3 stars',
   'lessonList.mapTitle': 'Lesson map',
   'lessonList.title': 'English learning journey',
   'lessonList.subtitle':
@@ -754,8 +746,7 @@ export const en: TranslationDictionary = {
   'stickerCollection.earnedPending': 'Just unlocked',
   'stickerCollection.lessonStickerTitle': 'Lesson stickers',
   'stickerCollection.timelineTitle': 'Sticker timeline',
-  'stickerCollection.timelineEmpty':
-    'Newly earned stickers will appear here.',
+  'stickerCollection.timelineEmpty': 'Newly earned stickers will appear here.',
   'stickerCollection.achievementTitle': 'Sungy achievement stickers',
   'stickerCollection.achievementFirstSteps': 'Easy wins',
   'stickerCollection.achievementHabits': 'Habits',
@@ -770,10 +761,8 @@ export const en: TranslationDictionary = {
     'Complete {target} learning stops.',
   'stickerCollection.requirementCompletedReviews':
     'Play {target} review games.',
-  'stickerCollection.requirementCompletedLessons':
-    'Complete {target} lessons.',
-  'stickerCollection.requirementCurrentStreak':
-    'Learn {target} days in a row.',
+  'stickerCollection.requirementCompletedLessons': 'Complete {target} lessons.',
+  'stickerCollection.requirementCurrentStreak': 'Learn {target} days in a row.',
   'stickerCollection.requirementLongestStreak':
     'Keep a {target}-day learning record.',
   'stickerCollection.keepLearning': 'Keep learning',
@@ -788,13 +777,16 @@ export const en: TranslationDictionary = {
   'themeLibrary.continueOnMap': 'Continue on map',
   'themeLibrary.chooseThisTheme': 'Choose this theme',
   'themeLibrary.activeDescription': 'Currently shown on Home. Tap to continue.',
-  'themeLibrary.inactiveDescription': 'Tap to change the Super Map on Home to this theme.',
+  'themeLibrary.inactiveDescription':
+    'Tap to change the Super Map on Home to this theme.',
   'themeLibrary.activeStatus': 'Learning',
   'themeLibrary.themeStatus': 'Theme',
   'themeLibrary.savingStatus': 'Saving',
   'themeLibrary.savingAction': 'Saving...',
-  'themeLibrary.subtitle': 'Each theme is a unique learning journey for your child.',
-  'themeLibrary.parentNoteDescription': 'Choose a theme that suits your child. They will learn lesson by lesson within that theme.',
+  'themeLibrary.subtitle':
+    'Each theme is a unique learning journey for your child.',
+  'themeLibrary.parentNoteDescription':
+    'Choose a theme that suits your child. They will learn lesson by lesson within that theme.',
   'themeLibrary.stations': 'stations',
   'reviewGame.notFound': 'Lesson not found.',
   'reviewGame.backToList': 'Back to lessons',
@@ -839,7 +831,8 @@ export const en: TranslationDictionary = {
   'lessonPack.lockedHint': 'Complete previous stop to unlock.',
   'lessonPack.scenesLearned': '{completed}/{total} scenes learned',
   'onboarding.mascotAccessibility': 'Sungy, your learning buddy',
-  'header.levelAccessibility': 'You are at level {level}, have {xpInLevel} acorns, need {xpNeeded} more acorns to level up',
+  'header.levelAccessibility':
+    'You are at level {level}, have {xpInLevel} acorns, need {xpNeeded} more acorns to level up',
   'streak.streakDays': '{days} days streak!',
   'streak.record': 'Record: {days} days 🏆',
   'childProfile.editAccessibility': 'Edit child profile',
@@ -865,7 +858,8 @@ export const en: TranslationDictionary = {
   'speakPractice.promptPrepare': 'Get ready...',
   'speakPractice.promptRecording': 'I am listening...',
   'speakPractice.promptRecorded': 'Great! This word is:',
-  'speakPractice.promptRecordedQuiet': 'That is okay. Try saying the next word with me.',
+  'speakPractice.promptRecordedQuiet':
+    'That is okay. Try saying the next word with me.',
   'speakPractice.promptNoMic': 'Mic permission needed. This word is:',
   'speakPractice.promptSpeak': 'Repeat after me:',
   'speakPractice.replayVoiceAccessibility': 'Replay your voice',
@@ -883,22 +877,27 @@ export const en: TranslationDictionary = {
   'parent.stats.learningPathTitleDefault': 'Learning Path',
   'parent.stats.learningPathTitleMultiple': '{count} themes',
   'parent.stats.learningPathSubtitleDefault': 'Learning along the guided path.',
-  'parent.stats.learningPathSubtitleCustom': 'Showing only enabled themes and lessons.',
+  'parent.stats.learningPathSubtitleCustom':
+    'Showing only enabled themes and lessons.',
   'parent.stats.heroTitleGreat': 'Great job, {name}!',
   'parent.stats.heroTitleGentle': 'A gentle learning day',
   'parent.stats.heroSummaryLoading': 'Loading recent progress…',
-  'parent.stats.heroSummaryWordsAndScenes': 'Learned {words} new words and logged {scenes} station visits today.',
+  'parent.stats.heroSummaryWordsAndScenes':
+    'Learned {words} new words and logged {scenes} station visits today.',
   'parent.stats.heroSummaryWords': 'Learned {words} new words today.',
   'parent.stats.heroSummaryScenes': 'Logged {scenes} station visits today.',
-  'parent.stats.heroSummaryEmpty': 'A short lesson today keeps the learning fun going.',
+  'parent.stats.heroSummaryEmpty':
+    'A short lesson today keeps the learning fun going.',
   'parent.stats.heroActionContinue': 'Continue together',
   'parent.stats.heroActionStart': 'Start together',
   'parent.stats.metricWords': 'words',
   'parent.stats.metricScenes': 'station visits',
   'parent.stats.metricActivity': 'activities',
-  'parent.stats.tipReviewWords': 'You can point to real objects and ask: "Where is the {word}?" or "What is this?" to help them remember.',
-  'parent.stats.tipEmpty': 'No vocabulary learned yet. Let\'s start the first lesson together!',
-  'parent.stats.todayProgress': 'TODAY\'S PROGRESS',
+  'parent.stats.tipReviewWords':
+    'You can point to real objects and ask: "Where is the {word}?" or "What is this?" to help them remember.',
+  'parent.stats.tipEmpty':
+    "No vocabulary learned yet. Let's start the first lesson together!",
+  'parent.stats.todayProgress': "TODAY'S PROGRESS",
   'parent.stats.streakDays': 'day streak',
   'parent.stats.achievementTitle': 'Learning Journey',
   'parent.stats.achievementSubtitle': 'Every lesson is a lovely step forward.',
@@ -915,13 +914,14 @@ export const en: TranslationDictionary = {
   'parent.stats.recentWords': 'Recent words',
   'parent.stats.parentTip': 'Parent Tip',
   'parent.stats.selectLearningPace': 'Select Learning Pace',
-  'parent.stats.lessonOfChild': 'child\'s lesson',
+  'parent.stats.lessonOfChild': "child's lesson",
   'parent.stats.lesson': 'lesson',
   'parent.stats.totalLessons': '/{total} lessons',
   'parent.stats.enabledLessons': '{count} lessons',
   'parent.stats.completedEnabledLessons':
     'Completed {completed}/{total} enabled lessons.',
-  'parent.stats.selectLearningPaceSubtitle': 'You can choose a suitable pace or manually adjust each lesson.',
+  'parent.stats.selectLearningPaceSubtitle':
+    'You can choose a suitable pace or manually adjust each lesson.',
   'parent.stats.allLessons': 'All lessons',
   'parent.stats.guidedPlanTitle': 'All lessons',
   'parent.stats.guidedPlanSubtitle': 'Enable the full learning path',
@@ -931,13 +931,16 @@ export const en: TranslationDictionary = {
     'Only enables the {count} lessons nearest to the current lesson.',
   'parent.stats.customPlanTitle': 'Custom',
   'parent.stats.customLessons': 'Custom lessons',
-  'parent.stats.customLessonsHint': 'Manually selecting lessons. Use the toggles below to show or hide lessons.',
+  'parent.stats.customLessonsHint':
+    'Manually selecting lessons. Use the toggles below to show or hide lessons.',
   'parent.stats.currentPlanLabel': 'Current plan',
   'parent.stats.openLessonAccessibility': 'Open {lessonTitle}',
   'parent.stats.themeListTitle': 'Themes your child is learning',
-  'parent.stats.themeListSubtitle': 'Each theme contains lessons and vocabulary for your child.',
+  'parent.stats.themeListSubtitle':
+    'Each theme contains lessons and vocabulary for your child.',
   'parent.stats.customPlanBadge': 'Custom',
-  'parent.stats.completedLessonsOfTotal': '{completed}/{total} lessons completed',
+  'parent.stats.completedLessonsOfTotal':
+    '{completed}/{total} lessons completed',
   'parent.stats.visibleLessonsCount': '{count} lessons enabled',
   'parent.stats.lessonStateHidden': 'Hidden',
   'parent.stats.lessonStateReadyToReview': 'Ready to review',

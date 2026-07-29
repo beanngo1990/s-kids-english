@@ -147,7 +147,16 @@ npm run generate:audio -- --lesson=morning-routine --scene=bathroom
 npm run generate:audio -- --limit=10
 npm run generate:audio -- --manifest-only
 npm run generate:audio -- --manifest-only --write-bundled-registry
+npm run generate:audio:local-preview -- --lesson=supermarket-trip
 ```
+
+The local-preview command audits every English accent and Vietnamese target for
+the selected lesson, then writes gitignored `audioManifest.local.ts` and
+`localAudioPreview.local.ts` overlays. It never calls Google TTS, rewrites the
+production manifests, or bundles lesson WAVs. In a Metro development build,
+the overlay resolves those keys through the active local asset server; other
+lessons keep the normal unpublished-audio QA behavior. Restart Metro after
+changing the preview lesson.
 
 `--audio-release=neural2-c-r1` is the current default. Once a release has been
 published, its R2 keys are immutable: a voice, synthesis, pronunciation or

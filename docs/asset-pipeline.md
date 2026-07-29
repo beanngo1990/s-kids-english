@@ -42,6 +42,38 @@ R2 credentials and network access, and reads the remote manifest. Run it only
 when that access is in scope; otherwise report it as not run and keep the local
 asset checks separate.
 
+For pre-publish QA, serve generated local WebP files through the same `/v1/`
+shape without touching R2:
+
+```bash
+npm run assets:serve-local
+npm run assets:use-local -- --host=127.0.0.1
+adb reverse tcp:8787 tcp:8787
+```
+
+The generated `src/config/remoteAssetOverrides.local.ts` file is gitignored and
+is only used by Metro in development builds. While this local override is
+active, dev builds allow content QA without blocking on unpublished lesson
+audio. Premium entitlement and progress locks still behave like production.
+Use `npm run assets:use-r2` and reload Metro to return the dev app to the
+default R2 URL. Android emulator can use `--host=10.0.2.2`; iOS simulator can
+use `--host=localhost`.
+
+To hear a selected lesson's generated WAVs in the app before publishing them to
+R2, first generate all of that lesson's audio, then create the local lookup:
+
+```bash
+npm run generate:audio:local-preview -- --lesson=supermarket-trip
+```
+
+This command is read-only with respect to Google TTS and R2. It requires every
+selected en-US, en-GB and Vietnamese target to pass the local WAV audit, then
+writes gitignored `src/data/audioManifest.local.ts` and
+`src/config/localAudioPreview.local.ts`. Metro uses these overlays only in a
+development bundle. The WAV bytes remain outside the app bundle and are served
+by `assets:serve-local`; production still resolves the checked-in manifest
+through R2. Restart Metro after creating or changing the preview lesson.
+
 All image scripts accept `--lesson=<lesson-id>`. `assets:build` also accepts
 `--force`; otherwise it skips outputs whose source hash, profile, and config
 signature are unchanged.
@@ -128,4 +160,3 @@ content changes, while keeping the R2 prefix at `v1`.
 - Production R2 CDN base URL is configured to custom domain `https://assets.sungy.net`.
 - Public R2 dev domain (`*.r2.dev`) must be disabled in Cloudflare R2 bucket settings.
 - WAF rate limiting and hotlink protection rules are enabled on Cloudflare Dashboard for `assets.sungy.net`.
-

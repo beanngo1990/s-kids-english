@@ -18,6 +18,14 @@ const expectedLessonMilestoneIcons = [
   ['family-dinner', 'milestoneFamilyDinner'],
   ['after-dinner-cleanup', 'milestoneAfterDinnerCleanup'],
   ['bedtime', 'milestoneBedtime'],
+  ['supermarket-trip', 'milestoneSupermarketTrip'],
+  ['park-visit', 'milestoneParkVisit'],
+  ['beach-day', 'milestoneBeachDay'],
+  ['animal-trip', 'milestoneAnimalTrip'],
+  ['library-visit', 'milestoneLibraryVisit'],
+  ['doctor-visit', 'milestoneDoctorVisit'],
+  ['birthday-party', 'milestoneBirthdayParty'],
+  ['grandparents-visit', 'milestoneGrandparentsVisit'],
 ] as const;
 
 test('map scene icons preserve each scene semantic icon', () => {

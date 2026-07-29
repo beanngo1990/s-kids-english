@@ -1,13 +1,17 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { Alert, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
-import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
+import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import { canAccessReview } from '../engine/ContentAccessPolicy';
-import { useI18n } from '../i18n';
+import { useI18n, useSavedPromptLanguage } from '../i18n';
 import { getMonetizationSnapshot } from '../engine/MonetizationManager';
 import {
   completeLessonProgress,
@@ -26,8 +30,10 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ScenePlayer'>;
 export function ScenePlayerScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const promptLanguage = useSavedPromptLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const openedFromParent = route.params.openedFromParent === true;
+  const hasShownAccessPromptRef = useRef(false);
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
     : undefined;
@@ -39,6 +45,94 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     },
     { latchWhenGranted: true },
   );
+  const hasContentAccess = isAccessGranted;
+
+  const playKidLockPrompt = useCallback(
+    (reason: KidLockReason) => {
+      playTapSound().catch(() => undefined);
+      const message = getKidLockAudioPrompt(reason, promptLanguage);
+      const speech =
+        promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+      speech.catch(() => undefined);
+    },
+    [promptLanguage],
+  );
+
+  const returnAfterBlockedAccess = useCallback(() => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+      return;
+    }
+
+    navigation.navigate('Home');
+  }, [navigation]);
+
+  const showPremiumAccessPrompt = useCallback(
+    (options?: Readonly<{ onClose?: () => void; replaceCurrentRoute?: boolean }>) => {
+      if (!lesson) {
+        return;
+      }
+
+      if (isResolving) {
+        playKidLockPrompt('resolving');
+        Alert.alert(
+          t('premium.kidLockedTitle'),
+          t('premium.resolving'),
+          [{ onPress: options?.onClose, text: t('common.close') }],
+          { cancelable: false },
+        );
+        return;
+      }
+
+      playKidLockPrompt('premium');
+      Alert.alert(
+        t('premium.kidLockedTitle'),
+        t('premium.kidLockedText'),
+        [
+          { onPress: options?.onClose, style: 'cancel', text: t('common.close') },
+          {
+            onPress: () => {
+              const params = {
+                intent: 'premium' as const,
+                lessonId: lesson.id,
+              };
+
+              if (options?.replaceCurrentRoute) {
+                navigation.replace('Parent', params);
+                return;
+              }
+
+              navigation.navigate('Parent', params);
+            },
+            text: t('premium.askParent'),
+          },
+        ],
+        { cancelable: false },
+      );
+    },
+    [isResolving, lesson, navigation, playKidLockPrompt, t],
+  );
+
+  useEffect(() => {
+    if (
+      !lesson ||
+      hasContentAccess ||
+      hasShownAccessPromptRef.current
+    ) {
+      return;
+    }
+
+    hasShownAccessPromptRef.current = true;
+    showPremiumAccessPrompt({
+      onClose: returnAfterBlockedAccess,
+      replaceCurrentRoute: true,
+    });
+  }, [
+    hasContentAccess,
+    lesson,
+    returnAfterBlockedAccess,
+    showPremiumAccessPrompt,
+  ]);
 
   if (!lesson) {
     return (
@@ -73,19 +167,11 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     );
   }
 
-  const openParentPremium = () => {
-    navigation.navigate('Parent', {
-      intent: 'premium',
-      lessonId: lesson.id,
-    });
-  };
-
-  if (!isAccessGranted) {
+  if (!hasContentAccess) {
     return (
-      <PremiumContentGate
-        isResolving={isResolving}
-        onAskParent={openParentPremium}
-      />
+      <Screen>
+        <View />
+      </Screen>
     );
   }
 
@@ -103,8 +189,10 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
 
   const handleComplete = async () => {
     if (hasPlayableReviewGame(lesson.reviewGame)) {
-      if (!canAccessReview(lesson.id, getMonetizationSnapshot())) {
-        openParentPremium();
+      if (
+        !canAccessReview(lesson.id, getMonetizationSnapshot())
+      ) {
+        showPremiumAccessPrompt();
         return;
       }
 

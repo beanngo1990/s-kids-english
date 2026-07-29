@@ -110,13 +110,18 @@ export async function prefetchRemoteAssets(
 export async function prepareRemoteAssets(
   assets: RemoteAssetCacheEntry[],
 ) {
-  const nativeCache = getNativeAssetCache();
-  if (!remoteAssetsConfig.cacheRemoteAssets || !nativeCache?.getCachedAssetUrl) {
+  const validAssets = getUniqueValidAssets(assets);
+  if (validAssets.length === 0) {
     return false;
   }
 
-  const validAssets = getUniqueValidAssets(assets);
-  if (validAssets.length === 0) {
+  // Cache-disabled dev modes stream directly from the configured asset URL.
+  if (!remoteAssetsConfig.cacheRemoteAssets) {
+    return true;
+  }
+
+  const nativeCache = getNativeAssetCache();
+  if (!nativeCache?.getCachedAssetUrl) {
     return false;
   }
 
