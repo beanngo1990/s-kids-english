@@ -210,7 +210,9 @@ export function HomeScreen({ navigation, route }: Props) {
       themeLessons.find(
         lesson => !canAccessLesson(lesson.id, monetizationSnapshot),
       ) ??
-      lessons.find(lesson => !canAccessLesson(lesson.id, monetizationSnapshot)),
+      lessons.find(lesson =>
+        !canAccessLesson(lesson.id, monetizationSnapshot),
+      ),
     [monetizationSnapshot, themeLessons],
   );
   const shouldShowFreeProgressPremiumCta = Boolean(
@@ -450,11 +452,9 @@ export function HomeScreen({ navigation, route }: Props) {
 
   const showProgressLock = useCallback(() => {
     playKidLockPrompt('progress');
-    Alert.alert(
-      t('home.progressLockedTitle'),
-      t('home.progressLockedText'),
-      [{ style: 'cancel', text: t('common.close') }],
-    );
+    Alert.alert(t('home.progressLockedTitle'), t('home.progressLockedText'), [
+      { style: 'cancel', text: t('common.close') },
+    ]);
   }, [playKidLockPrompt, t]);
 
   const showPremiumLock = useCallback(
@@ -555,6 +555,7 @@ export function HomeScreen({ navigation, route }: Props) {
           totalXP={progress?.totalXP ?? 0}
           onOpenHub={handleOpenHub}
           onOpenParent={() => navigation.navigate('Parent')}
+          onOpenThemeLibrary={() => navigation.navigate('ThemeLibrary')}
         />
         <View style={styles.tabContent}>
           <View
@@ -957,9 +958,7 @@ export function HomeScreen({ navigation, route }: Props) {
                                       lessonCount={themeLessons.length}
                                       lessonIndex={node.lessonIndex}
                                       lessonTitle={node.lessonTitle}
-                                      iconName={getMapSceneIconName(
-                                        node.scene,
-                                      )}
+                                      iconName={getMapSceneIconName(node.scene)}
                                       sceneCountInLesson={
                                         node.sceneCountInLesson
                                       }

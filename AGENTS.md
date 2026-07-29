@@ -74,8 +74,8 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `android/`, `ios/`: native configuration, permissions và custom native modules.
 - `__tests__/`: Jest tests.
 
-Catalog hiện có một theme `mot-ngay-cua-be` và 11 lesson packs, theo thứ tự khai báo trong
-`src/data/themes.ts` và `src/data/lessons.ts`.
+Catalog hiện có hai themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`) và 19 lesson packs,
+theo thứ tự khai báo trong `src/data/themes.ts` và `src/data/lessons.ts`.
 
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 

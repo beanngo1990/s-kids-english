@@ -15,6 +15,7 @@ import { lunchTimeLesson } from '../src/data/lessons/lunchTime';
 import { morningRoutineLesson } from '../src/data/lessons/morningRoutine';
 import { playtimeLesson } from '../src/data/lessons/playtime';
 import { snackTimeLesson } from '../src/data/lessons/snackTime';
+import { supermarketTripLesson } from '../src/data/lessons/supermarketTrip';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import { validateThemes } from '../src/data/themeValidation';
 import { themes } from '../src/data/themes';
@@ -74,9 +75,7 @@ test('lesson teacher copy stays contextual and natural in bilingual mode', () =>
 
         if (
           step.failFeedbackVi &&
-          /(?:^|\s)(?:ở|nằm|đứng|treo|đang)(?:\s|$)/iu.test(
-            step.failFeedbackVi,
-          )
+          /(?:^|\s)(?:ở|nằm|đứng|treo|đang)(?:\s|$)/iu.test(step.failFeedbackVi)
         ) {
           expect(failEn).not.toMatch(/^(?:Move|Tap|Try)\b/u);
         }
@@ -123,7 +122,7 @@ test('theme catalog references valid lesson routes', () => {
   expect(issues.filter(issue => issue.severity === 'error')).toEqual([]);
 });
 
-test('lesson catalog orders the school day after the morning routine', () => {
+test('lesson catalog keeps theme journeys in authored order', () => {
   expect(lessons.map(lesson => lesson.id)).toEqual([
     'morning-routine',
     'at-school',
@@ -136,7 +135,65 @@ test('lesson catalog orders the school day after the morning routine', () => {
     'family-dinner',
     'after-dinner-cleanup',
     'bedtime',
+    'supermarket-trip',
+    'park-visit',
+    'beach-day',
+    'animal-trip',
+    'library-visit',
+    'doctor-visit',
+    'birthday-party',
+    'grandparents-visit',
   ]);
+});
+
+test('supermarket prompts stay concise after earlier drag steps move objects', () => {
+  const freshFoods = supermarketTripLesson.scenes.find(
+    scene => scene.id === 'fresh-foods',
+  );
+  const checkoutCounter = supermarketTripLesson.scenes.find(
+    scene => scene.id === 'checkout-counter',
+  );
+  const grapes = freshFoods?.steps.find(
+    step => step.id === 'fresh-foods-drag-grapes',
+  );
+  const scale = freshFoods?.steps.find(
+    step => step.id === 'fresh-foods-tap-scale',
+  );
+  const receipt = checkoutCounter?.steps.find(
+    step => step.id === 'checkout-counter-tap-receipt',
+  );
+  const scanner = checkoutCounter?.steps.find(
+    step => step.id === 'checkout-counter-tap-scanner',
+  );
+  const paymentCard = checkoutCounter?.steps.find(
+    step => step.id === 'checkout-counter-tap-card',
+  );
+
+  expect(grapes?.instructionVi).toBe(
+    'Kéo chùm nho tím trên cân vào vòng sáng nhé.',
+  );
+  expect(scale?.instructionVi).toBe(
+    'Chạm vào cái cân xanh bên phải nhé.',
+  );
+  expect(receipt?.instructionVi).toBe(
+    'Chạm vào hóa đơn dưới cô thu ngân nhé.',
+  );
+  expect(scanner?.instructionVi).toBe(
+    'Chạm vào máy quét bên trái thẻ thanh toán nhé.',
+  );
+  expect(paymentCard?.instructionVi).toBe(
+    'Chạm vào thẻ thanh toán cạnh hóa đơn nhé.',
+  );
+
+  supermarketTripLesson.scenes.forEach(scene => {
+    scene.steps
+      .filter(step => step.type === 'practice')
+      .forEach(step => {
+        expect(
+          step.instructionVi.trim().split(/\s+/u).length,
+        ).toBeLessThanOrEqual(12);
+      });
+  });
 });
 
 test('validator catches missing object references', () => {
@@ -207,8 +264,7 @@ test('validator rejects a non-interactive drag target', () => {
   expect(issues).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
-        message:
-          'Drag target "bath-rinse-sponge" must be interactive.',
+        message: 'Drag target "bath-rinse-sponge" must be interactive.',
         severity: 'error',
       }),
     ]),
@@ -1745,9 +1801,8 @@ test('afternoon-bath rinse scene combines body-part and rinsing actions', () => 
     )?.interaction.dropZoneId,
   ).toBe('bath-rinse-knee-zone');
   expect(
-    challengeScene.objects.find(
-      object => object.id === 'bath-rinse-sponge',
-    )?.isInteractive,
+    challengeScene.objects.find(object => object.id === 'bath-rinse-sponge')
+      ?.isInteractive,
   ).toBe(true);
   expect(
     challengeScene.steps.find(

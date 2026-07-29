@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Alert, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
-import { PremiumContentGate } from '../components/PremiumContentGate';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -58,6 +57,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
     kind: 'lesson',
     lessonId: route.params.lessonId,
   });
+  const hasShownAccessPromptRef = useRef(false);
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
@@ -124,13 +124,92 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   const promptLanguage = useSavedPromptLanguage();
 
-  const playKidLockPrompt = (reason: KidLockReason) => {
-    playTapSound().catch(() => undefined);
-    const message = getKidLockAudioPrompt(reason, promptLanguage);
-    const speech =
-      promptLanguage === 'en' ? speakWord(message) : speakVi(message);
-    speech.catch(() => undefined);
-  };
+  const playKidLockPrompt = useCallback(
+    (reason: KidLockReason) => {
+      playTapSound().catch(() => undefined);
+      const message = getKidLockAudioPrompt(reason, promptLanguage);
+      const speech =
+        promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+      speech.catch(() => undefined);
+    },
+    [promptLanguage],
+  );
+
+  const returnAfterBlockedAccess = useCallback(() => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+      return;
+    }
+
+    navigation.navigate('Home');
+  }, [navigation]);
+
+  const showPremiumAccessPrompt = useCallback(
+    (options?: Readonly<{ onClose?: () => void; replaceCurrentRoute?: boolean }>) => {
+      if (!lesson) {
+        return;
+      }
+
+      if (isResolving) {
+        playKidLockPrompt('resolving');
+        Alert.alert(
+          t('premium.kidLockedTitle'),
+          t('premium.resolving'),
+          [{ onPress: options?.onClose, text: t('common.close') }],
+          { cancelable: false },
+        );
+        return;
+      }
+
+      playKidLockPrompt('premium');
+      Alert.alert(
+        t('premium.kidLockedTitle'),
+        t('premium.kidLockedText'),
+        [
+          { onPress: options?.onClose, style: 'cancel', text: t('common.close') },
+          {
+            onPress: () => {
+              const params = {
+                intent: 'premium' as const,
+                lessonId: lesson.id,
+              };
+
+              if (options?.replaceCurrentRoute) {
+                navigation.replace('Parent', params);
+                return;
+              }
+
+              navigation.navigate('Parent', params);
+            },
+            text: t('premium.askParent'),
+          },
+        ],
+        { cancelable: false },
+      );
+    },
+    [isResolving, lesson, navigation, playKidLockPrompt, t],
+  );
+
+  useEffect(() => {
+    if (
+      !lesson ||
+      isAccessGranted ||
+      hasShownAccessPromptRef.current
+    ) {
+      return;
+    }
+
+    hasShownAccessPromptRef.current = true;
+    showPremiumAccessPrompt({
+      onClose: returnAfterBlockedAccess,
+      replaceCurrentRoute: true,
+    });
+  }, [
+    isAccessGranted,
+    lesson,
+    returnAfterBlockedAccess,
+    showPremiumAccessPrompt,
+  ]);
 
   const openScene = (sceneId: string) => {
     if (!lesson) {
@@ -143,7 +222,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
       return;
     }
 
-    if (journeyMode === 'guided' && !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)) {
+    if (
+      journeyMode === 'guided' &&
+      !isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id)
+    ) {
       playKidLockPrompt('progress');
       return;
     }
@@ -213,15 +295,9 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   if (!isAccessGranted) {
     return (
-      <PremiumContentGate
-        isResolving={isResolving}
-        onAskParent={() =>
-          navigation.navigate('Parent', {
-            intent: 'premium',
-            lessonId: lesson.id,
-          })
-        }
-      />
+      <Screen>
+        <View />
+      </Screen>
     );
   }
 
@@ -328,12 +404,14 @@ export function LessonPackScreen({ navigation, route }: Props) {
           );
           const isNext =
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
-          const isUnlocked = journeyMode === 'free' || isSceneUnlocked(
-            scenes,
-            scene,
-            completedSceneIds,
-            lesson.id,
-          );
+          const isUnlocked =
+            journeyMode === 'free' ||
+            isSceneUnlocked(
+              scenes,
+              scene,
+              completedSceneIds,
+              lesson.id,
+            );
           const isLocked = !isUnlocked;
           const rewardStars = scene.completionReward?.stars ?? 3;
           const modeScene = getSceneForLearningMode(scene, learningMode);
@@ -445,9 +523,15 @@ export function LessonPackScreen({ navigation, route }: Props) {
           title={primaryActionTitle}
           onPress={handlePrimaryAction}
         />
-        {(journeyMode === 'free' || isPackComplete) && hasReviewGame && !shouldPlayReviewGame ? (
+        {(journeyMode === 'free' || isPackComplete) &&
+        hasReviewGame &&
+        !shouldPlayReviewGame ? (
           <AppButton
-            title={hasCompletedReviewGame ? `${reviewGameActionTitle} (${t('reviewGame.parentBadge')})` : reviewGameActionTitle}
+            title={
+              hasCompletedReviewGame
+                ? `${reviewGameActionTitle} (${t('reviewGame.parentBadge')})`
+                : reviewGameActionTitle
+            }
             variant="secondary"
             onPress={() =>
               navigation.navigate('ReviewGame', {

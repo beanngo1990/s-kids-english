@@ -6,6 +6,34 @@ const monetizationConfigPath = path.resolve(
   __dirname,
   'src/config/monetization.ts',
 );
+const audioManagerPath = path.resolve(
+  __dirname,
+  'src/engine/AudioManager.ts',
+);
+const scenePlayerPath = path.resolve(
+  __dirname,
+  'src/engine/ScenePlayer.tsx',
+);
+const audioManifestFallbackPath = path.resolve(
+  __dirname,
+  'src/data/audioManifest.ts',
+);
+const audioManifestLocalPath = path.resolve(
+  __dirname,
+  'src/data/audioManifest.local.ts',
+);
+const localAudioPreviewFallbackPath = path.resolve(
+  __dirname,
+  'src/config/localAudioPreview.ts',
+);
+const localAudioPreviewLocalPath = path.resolve(
+  __dirname,
+  'src/config/localAudioPreview.local.ts',
+);
+const remoteAssetsConfigPath = path.resolve(
+  __dirname,
+  'src/config/remoteAssets.ts',
+);
 const revenueCatTestStoreFallbackPath = path.resolve(
   __dirname,
   'src/config/revenueCatTestStoreKey.ts',
@@ -13,6 +41,14 @@ const revenueCatTestStoreFallbackPath = path.resolve(
 const revenueCatTestStoreLocalPath = path.resolve(
   __dirname,
   'src/config/revenueCatTestStoreKey.local.ts',
+);
+const remoteAssetOverridesFallbackPath = path.resolve(
+  __dirname,
+  'src/config/remoteAssetOverrides.ts',
+);
+const remoteAssetOverridesLocalPath = path.resolve(
+  __dirname,
+  'src/config/remoteAssetOverrides.local.ts',
 );
 
 /**
@@ -36,6 +72,55 @@ const config = {
           filePath: useLocalDebugKey
             ? revenueCatTestStoreLocalPath
             : revenueCatTestStoreFallbackPath,
+          type: 'sourceFile',
+        };
+      }
+
+      const isRemoteAssetOverridesRequest =
+        context.originModulePath === remoteAssetsConfigPath &&
+        moduleName === './remoteAssetOverrides';
+
+      if (isRemoteAssetOverridesRequest) {
+        const useLocalAssetOverrides =
+          context.dev && context.doesFileExist(remoteAssetOverridesLocalPath);
+
+        return {
+          filePath: useLocalAssetOverrides
+            ? remoteAssetOverridesLocalPath
+            : remoteAssetOverridesFallbackPath,
+          type: 'sourceFile',
+        };
+      }
+
+      const isAudioManifestRequest =
+        (context.originModulePath === audioManagerPath ||
+          context.originModulePath === scenePlayerPath) &&
+        moduleName === '../data/audioManifest';
+
+      if (isAudioManifestRequest) {
+        const useLocalAudioManifest =
+          context.dev && context.doesFileExist(audioManifestLocalPath);
+
+        return {
+          filePath: useLocalAudioManifest
+            ? audioManifestLocalPath
+            : audioManifestFallbackPath,
+          type: 'sourceFile',
+        };
+      }
+
+      const isLocalAudioPreviewRequest =
+        context.originModulePath === scenePlayerPath &&
+        moduleName === '../config/localAudioPreview';
+
+      if (isLocalAudioPreviewRequest) {
+        const useLocalAudioPreview =
+          context.dev && context.doesFileExist(localAudioPreviewLocalPath);
+
+        return {
+          filePath: useLocalAudioPreview
+            ? localAudioPreviewLocalPath
+            : localAudioPreviewFallbackPath,
           type: 'sourceFile',
         };
       }

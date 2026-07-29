@@ -23,7 +23,8 @@ import {
   getWordAudioAsset,
   type RemoteAudioAsset,
 } from '../data/audioManifest';
-import { getRemoteAssetUrl } from '../config/remoteAssets';
+import { localAudioPreviewLessonIds } from '../config/localAudioPreview';
+import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { useSavedAppLanguage, useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
@@ -452,6 +453,13 @@ export function ScenePlayer({
   const [assetRetryNonce, setAssetRetryNonce] = useState(0);
   const [completedListenInstructionKey, setCompletedListenInstructionKey] =
     useState<string | null>(null);
+  const hasLocalAudioPreview =
+    __DEV__ &&
+    lessonId !== undefined &&
+    localAudioPreviewLessonIds.includes(lessonId);
+  const canBypassMissingAudio =
+    (__DEV__ && showSceneEditorControl) ||
+    (remoteAssetsConfig.allowMissingLessonAudio && !hasLocalAudioPreview);
 
   // Floating drag setup
   const floatEditPos = useRef({ x: 20, y: 100 });
@@ -563,11 +571,13 @@ export function ScenePlayer({
     const preloadCurrentScene = async () => {
       try {
         const imageAssets = getSceneImageSources(currentScene);
-        const audioAssets = getSceneRequiredAudioAssets(
-          currentScene,
-          teacherPromptMode,
-          englishAccent,
-        );
+        const audioAssets = canBypassMissingAudio
+          ? []
+          : getSceneRequiredAudioAssets(
+              currentScene,
+              teacherPromptMode,
+              englishAccent,
+            );
 
         let loaded = 0;
         const total = imageAssets.length + audioAssets.length;
@@ -635,6 +645,7 @@ export function ScenePlayer({
     };
   }, [
     assetRetryNonce,
+    canBypassMissingAudio,
     currentScene,
     englishAccent,
     isLocalizationReady,
@@ -653,31 +664,36 @@ export function ScenePlayer({
 
     const timer = setTimeout(() => {
       const nextScene = scenes[sceneIndex + 1];
-      const backgroundAudioAssets = [
-        ...getSceneRequiredAudioAssets(
-          currentScene,
-          teacherPromptMode,
-          englishAccent,
-        ),
-        ...(nextScene
-          ? getSceneRequiredAudioAssets(
-              nextScene,
+      const backgroundAudioAssets = canBypassMissingAudio
+        ? []
+        : [
+            ...getSceneRequiredAudioAssets(
+              currentScene,
               teacherPromptMode,
               englishAccent,
-            )
-          : []),
-      ];
+            ),
+            ...(nextScene
+              ? getSceneRequiredAudioAssets(
+                  nextScene,
+                  teacherPromptMode,
+                  englishAccent,
+                )
+              : []),
+          ];
 
       if (nextScene) {
         prefetchAssets(getSceneImageSources(nextScene)).catch(() => undefined);
       }
-      prefetchRemoteAssets(backgroundAudioAssets).catch(() => undefined);
+      if (backgroundAudioAssets.length > 0) {
+        prefetchRemoteAssets(backgroundAudioAssets).catch(() => undefined);
+      }
     }, 500);
 
     return () => {
       clearTimeout(timer);
     };
   }, [
+    canBypassMissingAudio,
     currentScene,
     englishAccent,
     isLocalizationReady,
@@ -761,6 +777,7 @@ export function ScenePlayer({
         englishAccent,
       );
       const isStepAudioReady =
+        canBypassMissingAudio ||
         stepAudioAssets.length === 0 ||
         (await prepareRemoteAssets(stepAudioAssets));
       if (!isActive || !stepAudioPreparationKey) {
@@ -772,9 +789,19 @@ export function ScenePlayer({
       }
 
       setPreparedStepAudioKey(stepAudioPreparationKey);
+      if (canBypassMissingAudio) {
+        if (isListeningStep) {
+          setCompletedListenInstructionKey(instructionKey);
+        }
+        if (feedbackAudioPreparationKey) {
+          setPreparedFeedbackAudioKey(feedbackAudioPreparationKey);
+        }
+        return;
+      }
+
       playAudioForStep(currentScene, currentStep, teacherPromptMode, {
         onAudioFailure: () => {
-          if (isActive) {
+          if (isActive && !canBypassMissingAudio) {
             setRequiredAssetFailure('step');
           }
         },
@@ -799,7 +826,7 @@ export function ScenePlayer({
           englishAccent,
         );
         const feedbackPreparation =
-          feedbackAssets.length === 0
+          canBypassMissingAudio || feedbackAssets.length === 0
             ? Promise.resolve(true)
             : prepareRemoteAssets(feedbackAssets);
         feedbackPreparation
@@ -820,7 +847,7 @@ export function ScenePlayer({
       const nextStep = currentStep.nextStepId
         ? getStepById(currentScene, currentStep.nextStepId)
         : undefined;
-      if (nextStep) {
+      if (nextStep && !canBypassMissingAudio) {
         prepareRemoteAssets(
           getStepAudioAssets(
             currentScene,
@@ -833,7 +860,7 @@ export function ScenePlayer({
     };
 
     prepareAndPlayStepAudio().catch(() => {
-      if (isActive) {
+      if (isActive && !canBypassMissingAudio) {
         setRequiredAssetFailure('step');
       }
     });
@@ -842,6 +869,7 @@ export function ScenePlayer({
       isActive = false;
     };
   }, [
+    canBypassMissingAudio,
     currentScene,
     currentStep,
     englishAccent,
@@ -931,6 +959,7 @@ export function ScenePlayer({
   );
   const isInstructionPending =
     isListenStep(currentStep) &&
+    !canBypassMissingAudio &&
     completedListenInstructionKey !== currentListenInstructionKey;
   const isInstructionPreparing =
     isInstructionPending && preparedStepAudioKey !== stepAudioPreparationKey;
@@ -983,7 +1012,11 @@ export function ScenePlayer({
       currentStep,
       teacherPromptMode,
       {
-        onAudioFailure: () => setRequiredAssetFailure('step'),
+        onAudioFailure: () => {
+          if (!canBypassMissingAudio) {
+            setRequiredAssetFailure('step');
+          }
+        },
         ...(isListenStep(currentStep) && isInstructionPlaying
           ? {
             onAudioComplete: () =>
@@ -1229,7 +1262,8 @@ export function ScenePlayer({
         ).then(playbackResult => {
           if (
             playbackResult === 'failed' &&
-            narrationSession.isActive()
+            narrationSession.isActive() &&
+            !canBypassMissingAudio
           ) {
             setRequiredAssetFailure('feedback');
           }
@@ -1289,6 +1323,7 @@ export function ScenePlayer({
         englishAccent,
       );
       const isFeedbackReady =
+        canBypassMissingAudio ||
         feedbackAssets.length === 0 ||
         (await prepareRemoteAssets(feedbackAssets));
       if (advanceRequestIdRef.current !== requestId) {
@@ -1296,7 +1331,15 @@ export function ScenePlayer({
       }
       if (!isFeedbackReady) {
         setFeedbackAudioStatus(null);
-        setRequiredAssetFailure('feedback');
+        if (!canBypassMissingAudio) {
+          setRequiredAssetFailure('feedback');
+        }
+        return;
+      }
+
+      if (canBypassMissingAudio) {
+        setFeedbackAudioStatus(null);
+        advanceTimerRef.current = setTimeout(advanceIfCurrent, 420);
         return;
       }
 
@@ -1312,7 +1355,9 @@ export function ScenePlayer({
 
         cancelStepAudioSequence();
         setFeedbackAudioStatus(null);
-        setRequiredAssetFailure('feedback');
+        if (!canBypassMissingAudio) {
+          setRequiredAssetFailure('feedback');
+        }
       }, feedbackPlaybackTimeoutMs);
 
       const playbackResult = await playInteractionFeedbackAudio(
@@ -1331,7 +1376,9 @@ export function ScenePlayer({
       if (playbackResult !== 'completed') {
         if (playbackResult === 'failed') {
           setFeedbackAudioStatus(null);
-          setRequiredAssetFailure('feedback');
+          if (!canBypassMissingAudio) {
+            setRequiredAssetFailure('feedback');
+          }
         }
         return;
       }
@@ -1348,7 +1395,9 @@ export function ScenePlayer({
     prepareAndPlayFeedback().catch(() => {
       if (advanceRequestIdRef.current === requestId) {
         setFeedbackAudioStatus(null);
-        setRequiredAssetFailure('feedback');
+        if (!canBypassMissingAudio) {
+          setRequiredAssetFailure('feedback');
+        }
       }
     });
   };

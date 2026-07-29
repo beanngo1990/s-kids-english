@@ -1984,6 +1984,765 @@
       "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/animal-trip/animal-gate/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/animal-trip/animal-gate/images/background.webp",
+      "outputBytes": 15928,
+      "outputSha256": "ce9b2f8ed45e6acfa352f74ea3cbd498a917ff974734237e56ad36bd704aaf5d",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/background.png",
+      "sourceBytes": 92028,
+      "sourceSha256": "0c66bb917e666aec1a95eeaca093574da42daee92a54db86456286813b7071e9",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 477,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/animal-gate/images/feed-bucket.webp",
+      "outputBytes": 17422,
+      "outputSha256": "b964347ca2b6330c88062fcf990c015c1501eca3ab3a1bb1642c39765fdcaaa2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/feed-bucket.png",
+      "sourceBytes": 29302,
+      "sourceSha256": "329b601e0dcb403bc6ad067ff33ad8fd03fafc43c6367be3d1facda24cdc36b0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/animal-gate/images/follow-keeper.webp",
+      "outputBytes": 13888,
+      "outputSha256": "3823d8e23521e07eb5c10e5e886d1cd3ede839692a130a0d0d2980f58f62835b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/follow-keeper.png",
+      "sourceBytes": 49898,
+      "sourceSha256": "849f19b4e3c6a020219ffcf8ce0c882431540b90558da74c847bc691a3b194e5",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 443,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/animal-gate/images/gate.webp",
+      "outputBytes": 12336,
+      "outputSha256": "1e69e908d3beaf3bc2012cf479e567489adf4d57916c1ae82b8be5ce02fff167",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/gate.png",
+      "sourceBytes": 25190,
+      "sourceSha256": "0daf8417440a9be9a80bb1313d5f30bf0f3585d11a51abbe5dec8734b4cf8ec2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/animal-gate/images/keeper.webp",
+      "outputBytes": 13922,
+      "outputSha256": "9678fa410f61a1cb706acbcbe2de0847c1ac41ae31c7b157840e2bee991131ae",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/keeper.png",
+      "sourceBytes": 49834,
+      "sourceSha256": "50d76f7c1b3f3c1a0aca9772710eb7fcc13a727df5ad7e95d389f52649b3dd90",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/animal-gate/images/map.webp",
+      "outputBytes": 6178,
+      "outputSha256": "d0255937dc081020d330891777b0adbc4224dd667f9295fc803c66e7f6dc1861",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/map.png",
+      "sourceBytes": 20955,
+      "sourceSha256": "08949df634e2327117ec42293f2a676ce7fd6a0813fafe714e2a9a3240e456e5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/animal-gate/images/read-sign.webp",
+      "outputBytes": 6428,
+      "outputSha256": "bdf40158d2b743fccfee1898a990e82735bed7aec25d5e8cbbb318f75d7f7ba6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/read-sign.png",
+      "sourceBytes": 19429,
+      "sourceSha256": "f76951602f511ffd1f2a4d89e387a1da83a96ca0cce0424a34c3c71cc4e0d503",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 362,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/animal-gate/images/show-ticket.webp",
+      "outputBytes": 12150,
+      "outputSha256": "ec3db519130f37a0df79d1a3badc020e4964ec20a5aaa999233871c1cfd7f208",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/show-ticket.png",
+      "sourceBytes": 24882,
+      "sourceSha256": "2f1af17c306c419f9a84e7b0b0c0fa38d5b23c16170eacb89bea48a19e76c9d4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/animal-gate/images/sign.webp",
+      "outputBytes": 6304,
+      "outputSha256": "c1fec6ae44abe850ee0e92b6a9294843addb8f83dbd80adf515deaca1f53c0e6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/sign.png",
+      "sourceBytes": 19355,
+      "sourceSha256": "12049d6ebcc666d2be1a146114c301d9e48cd74fcd0c98023934b8e84c972ad6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 362,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/animal-gate/images/ticket.webp",
+      "outputBytes": 12150,
+      "outputSha256": "ec3db519130f37a0df79d1a3badc020e4964ec20a5aaa999233871c1cfd7f208",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "animal-gate"
+      ],
+      "source": "lessons/animal-trip/animal-gate/images/ticket.png",
+      "sourceBytes": 24882,
+      "sourceSha256": "2f1af17c306c419f9a84e7b0b0c0fa38d5b23c16170eacb89bea48a19e76c9d4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/animal-trip/farm-yard/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/animal-trip/farm-yard/images/background.webp",
+      "outputBytes": 15928,
+      "outputSha256": "ce9b2f8ed45e6acfa352f74ea3cbd498a917ff974734237e56ad36bd704aaf5d",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/background.png",
+      "sourceBytes": 92028,
+      "sourceSha256": "0c66bb917e666aec1a95eeaca093574da42daee92a54db86456286813b7071e9",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/farm-yard/images/brush-pony.webp",
+      "outputBytes": 10388,
+      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/brush-pony.png",
+      "sourceBytes": 23832,
+      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/farm-yard/images/chicken.webp",
+      "outputBytes": 16542,
+      "outputSha256": "cfc4931cb9acccb4a0d61adc26d0e7dcfb9444b3a6c5c03ae546ad3b52939d7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/chicken.png",
+      "sourceBytes": 26510,
+      "sourceSha256": "c6ac506c02777965499d738bf68635d036bbfca5607bf0fb723c3ed27f18e17b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/farm-yard/images/cow.webp",
+      "outputBytes": 17088,
+      "outputSha256": "c6f49b913bbdd4e14fde48739edb70747acc2505ac23987ae9958a5fa514f8ce",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/cow.png",
+      "sourceBytes": 27664,
+      "sourceSha256": "c92a5b7a46978a6de99e2a2b6177759fe5ca4b800808b9a444e118f599263aef",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/farm-yard/images/duck.webp",
+      "outputBytes": 16542,
+      "outputSha256": "cfc4931cb9acccb4a0d61adc26d0e7dcfb9444b3a6c5c03ae546ad3b52939d7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/duck.png",
+      "sourceBytes": 26510,
+      "sourceSha256": "c6ac506c02777965499d738bf68635d036bbfca5607bf0fb723c3ed27f18e17b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/farm-yard/images/feed-goat.webp",
+      "outputBytes": 16542,
+      "outputSha256": "cfc4931cb9acccb4a0d61adc26d0e7dcfb9444b3a6c5c03ae546ad3b52939d7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/feed-goat.png",
+      "sourceBytes": 26510,
+      "sourceSha256": "c6ac506c02777965499d738bf68635d036bbfca5607bf0fb723c3ed27f18e17b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/farm-yard/images/goat.webp",
+      "outputBytes": 16542,
+      "outputSha256": "cfc4931cb9acccb4a0d61adc26d0e7dcfb9444b3a6c5c03ae546ad3b52939d7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/goat.png",
+      "sourceBytes": 26510,
+      "sourceSha256": "c6ac506c02777965499d738bf68635d036bbfca5607bf0fb723c3ed27f18e17b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/farm-yard/images/piglet.webp",
+      "outputBytes": 16722,
+      "outputSha256": "d49e90e5f3a304920aa560946174f8195052e46542fbce0c568123345abe5645",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/piglet.png",
+      "sourceBytes": 26591,
+      "sourceSha256": "31e9b3939b23d7376fc49982a4b5aee74d0ae893112c59abae240d0c491c7787",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/farm-yard/images/sheep.webp",
+      "outputBytes": 16464,
+      "outputSha256": "57305d844b7d7ec639062673c9a9ef9b4d451b9ed7db9a14265b19da19097cc1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/sheep.png",
+      "sourceBytes": 26297,
+      "sourceSha256": "03efddc3f3b55c191bfdf5f41d699a95878669950296222371eca19b086e87e5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/farm-yard/images/wash-hands.webp",
+      "outputBytes": 10388,
+      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "farm-yard"
+      ],
+      "source": "lessons/animal-trip/farm-yard/images/wash-hands.png",
+      "sourceBytes": 23832,
+      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/animal-trip/zoo-path/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/animal-trip/zoo-path/images/background.webp",
+      "outputBytes": 15928,
+      "outputSha256": "ce9b2f8ed45e6acfa352f74ea3cbd498a917ff974734237e56ad36bd704aaf5d",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/background.png",
+      "sourceBytes": 92028,
+      "sourceSha256": "0c66bb917e666aec1a95eeaca093574da42daee92a54db86456286813b7071e9",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 361,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/zoo-path/images/binoculars.webp",
+      "outputBytes": 16506,
+      "outputSha256": "d2ca05bcc24239139c4520049641ea76357cc0ce6406995e8f9bcacaa5ddac16",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/binoculars.png",
+      "sourceBytes": 30793,
+      "sourceSha256": "81a1a9b8b974c8cf2a6980c83f06bc92fede0d40b198ccfe1fca6ca9e5a11afd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/zoo-path/images/giraffe.webp",
+      "outputBytes": 17752,
+      "outputSha256": "8688ebeb08c30530957298d54caaa2a4cff67d6b5851585833f2f52a74d8a181",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/giraffe.png",
+      "sourceBytes": 29215,
+      "sourceSha256": "9a2f2094611013753447b8f967c536d832ffc331f4744835d031d601d5ff413d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 473,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/zoo-path/images/habitat.webp",
+      "outputBytes": 13144,
+      "outputSha256": "784bd7aec89df1466e6f9bd07daaa58c0c89a87f806acb50e59e63404baff7b1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/habitat.png",
+      "sourceBytes": 37685,
+      "sourceSha256": "a6a83a5d710c3db66cc8f9f37b039ad5c894a83fa9bfa6e29b551dc87c084cdc",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/zoo-path/images/monkey.webp",
+      "outputBytes": 16542,
+      "outputSha256": "cfc4931cb9acccb4a0d61adc26d0e7dcfb9444b3a6c5c03ae546ad3b52939d7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/monkey.png",
+      "sourceBytes": 26510,
+      "sourceSha256": "c6ac506c02777965499d738bf68635d036bbfca5607bf0fb723c3ed27f18e17b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 351,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/animal-trip/zoo-path/images/pond.webp",
+      "outputBytes": 18416,
+      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/pond.png",
+      "sourceBytes": 28947,
+      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 397,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/zoo-path/images/spot-zebra.webp",
+      "outputBytes": 21378,
+      "outputSha256": "f9750e24659efedc37de6c395e914b4bb64e09cbaf5e138a05dfb5171c92c770",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/spot-zebra.png",
+      "sourceBytes": 31159,
+      "sourceSha256": "d54ff2f02e63ad8c53068a91af847a3f8bdb40432e547311e5b8b3fad9811ec4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 488,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/zoo-path/images/stay-on-path.webp",
+      "outputBytes": 16896,
+      "outputSha256": "f0bd75aaa89ade9f1cd5e25ab288ebfef37fe4fabce6c83da8ec9f8c5f767e92",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/stay-on-path.png",
+      "sourceBytes": 28513,
+      "sourceSha256": "1cf1de7769d0e2a3548936ec5ce6346f9aecb4b6c659b00db2e9240cc952e3fd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 361,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/animal-trip/zoo-path/images/use-binoculars.webp",
+      "outputBytes": 16506,
+      "outputSha256": "d2ca05bcc24239139c4520049641ea76357cc0ce6406995e8f9bcacaa5ddac16",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/use-binoculars.png",
+      "sourceBytes": 30793,
+      "sourceSha256": "81a1a9b8b974c8cf2a6980c83f06bc92fede0d40b198ccfe1fca6ca9e5a11afd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 397,
+      "lessonIds": [
+        "animal-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/animal-trip/zoo-path/images/zebra.webp",
+      "outputBytes": 21378,
+      "outputSha256": "f9750e24659efedc37de6c395e914b4bb64e09cbaf5e138a05dfb5171c92c770",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "zoo-path"
+      ],
+      "source": "lessons/animal-trip/zoo-path/images/zebra.png",
+      "sourceBytes": 31159,
+      "sourceSha256": "d54ff2f02e63ad8c53068a91af847a3f8bdb40432e547311e5b8b3fad9811ec4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
         "at-school"
       ],
       "maxPercent": 42,
@@ -2576,6 +3335,765 @@
       "sourceBytes": 841078,
       "sourceSha256": "8c4735741125225b9ad09a521390fb9651525a446c263157641f8bc58b00eec8",
       "width": 683
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/beach-day/beach-bag/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/beach-day/beach-bag/images/background.webp",
+      "outputBytes": 17566,
+      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/background.png",
+      "sourceBytes": 83058,
+      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 405,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/beach-bag/images/beach-bag.webp",
+      "outputBytes": 14694,
+      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/beach-bag.png",
+      "sourceBytes": 27939,
+      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 405,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/beach-bag/images/carry-bag.webp",
+      "outputBytes": 14694,
+      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/carry-bag.png",
+      "sourceBytes": 27939,
+      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/beach-bag/images/put-on-sunscreen.webp",
+      "outputBytes": 9790,
+      "outputSha256": "50e294f4390630bd2280d24e948713e86e5f7e377cc63496af5589ca2d5cd4e8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/put-on-sunscreen.png",
+      "sourceBytes": 23227,
+      "sourceSha256": "3e25e844e6cfe6ecdd57a0a72e014a81b4f6f3e58b61917f32c3ac4d272bcb19",
+      "width": 451
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 277,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/beach-bag/images/sun-hat.webp",
+      "outputBytes": 15104,
+      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/sun-hat.png",
+      "sourceBytes": 22298,
+      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 267,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/beach-bag/images/sunglasses.webp",
+      "outputBytes": 12592,
+      "outputSha256": "43710ca0ff500b147050f524dc14a409f9ab5e1dda25eaef44249316923f445f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/sunglasses.png",
+      "sourceBytes": 17789,
+      "sourceSha256": "b4852b569ea773df9e0c5748ec635815ba50420f854e4dfab0c40a879b210e6b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/beach-bag/images/sunscreen.webp",
+      "outputBytes": 9790,
+      "outputSha256": "50e294f4390630bd2280d24e948713e86e5f7e377cc63496af5589ca2d5cd4e8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/sunscreen.png",
+      "sourceBytes": 23227,
+      "sourceSha256": "3e25e844e6cfe6ecdd57a0a72e014a81b4f6f3e58b61917f32c3ac4d272bcb19",
+      "width": 451
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 399,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/beach-bag/images/towel.webp",
+      "outputBytes": 9946,
+      "outputSha256": "d44789abd8638b3419c89f2ad699f7d77af421d56974473fcd406e65a9f870e2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/towel.png",
+      "sourceBytes": 24014,
+      "sourceSha256": "6933a396b82454df0161cf7086678d577bff414d7957825299325087d8596b15",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/beach-bag/images/water-bottle.webp",
+      "outputBytes": 9780,
+      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/water-bottle.png",
+      "sourceBytes": 21686,
+      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
+      "width": 472
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 277,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/beach-bag/images/wear-hat.webp",
+      "outputBytes": 15104,
+      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "beach-bag"
+      ],
+      "source": "lessons/beach-day/beach-bag/images/wear-hat.png",
+      "sourceBytes": 22298,
+      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/beach-day/sand-play/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/beach-day/sand-play/images/background.webp",
+      "outputBytes": 17566,
+      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/background.png",
+      "sourceBytes": 83058,
+      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 477,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sand-play/images/bucket.webp",
+      "outputBytes": 17422,
+      "outputSha256": "b964347ca2b6330c88062fcf990c015c1501eca3ab3a1bb1642c39765fdcaaa2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/bucket.png",
+      "sourceBytes": 29302,
+      "sourceSha256": "329b601e0dcb403bc6ad067ff33ad8fd03fafc43c6367be3d1facda24cdc36b0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 465,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sand-play/images/build-sandcastle.webp",
+      "outputBytes": 8876,
+      "outputSha256": "6fea53d9324a9028f93b75096849a5f701e56409255e059f3a441ec51f9fb11e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/build-sandcastle.png",
+      "sourceBytes": 19786,
+      "sourceSha256": "0848f0e90be7a8771c5e971c3420c9cc5ce000a535590c98df07c12464ef999d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sand-play/images/collect-shells.webp",
+      "outputBytes": 10388,
+      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/collect-shells.png",
+      "sourceBytes": 23832,
+      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 326,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sand-play/images/crab.webp",
+      "outputBytes": 17384,
+      "outputSha256": "1f5969457305e87ad577834adee10049e4925422408e0f25a3359b40df5a026a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/crab.png",
+      "sourceBytes": 23585,
+      "sourceSha256": "2cf10f520d69cf6c5421f1e8be018c97e12d701d2f7e9c28666a8bf1c8707c17",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sand-play/images/dig-sand.webp",
+      "outputBytes": 10102,
+      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/dig-sand.png",
+      "sourceBytes": 23154,
+      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sand-play/images/footprints.webp",
+      "outputBytes": 10322,
+      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/footprints.png",
+      "sourceBytes": 23731,
+      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 465,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sand-play/images/sandcastle.webp",
+      "outputBytes": 8876,
+      "outputSha256": "6fea53d9324a9028f93b75096849a5f701e56409255e059f3a441ec51f9fb11e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/sandcastle.png",
+      "sourceBytes": 19786,
+      "sourceSha256": "0848f0e90be7a8771c5e971c3420c9cc5ce000a535590c98df07c12464ef999d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 373,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sand-play/images/shell.webp",
+      "outputBytes": 16490,
+      "outputSha256": "35710e2a5a76852ee37dba92084bccb0dd680e6cfb1df6720d7274094e57cae9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/shell.png",
+      "sourceBytes": 30454,
+      "sourceSha256": "d484807faaacff43a90eb9c8301768ad361be5cae9688a734d0617db4e1922a8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 413,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sand-play/images/shovel.webp",
+      "outputBytes": 11502,
+      "outputSha256": "626dbbeebbdd7a2bbff2ec5f6859897ddb793961ff5c1f53f81dcca2304049d3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/shovel.png",
+      "sourceBytes": 18521,
+      "sourceSha256": "53679ba5962d43862005a5de51a948db9e2882d54dc474b2019efeee7d3df51b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/beach-day/sea-safety/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/beach-day/sea-safety/images/background.webp",
+      "outputBytes": 17566,
+      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/background.png",
+      "sourceBytes": 83058,
+      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 428,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sea-safety/images/flag.webp",
+      "outputBytes": 7762,
+      "outputSha256": "a8fcdc4d1a10b80f86b6f92c0279bea6607fe9e942e6b965ab559d554ff14d49",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/flag.png",
+      "sourceBytes": 16422,
+      "sourceSha256": "58b75ed25e5a4d6db1f447b956226bcc499325f633c0acd5b0d2c4ca810c7711",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sea-safety/images/lifeguard.webp",
+      "outputBytes": 13996,
+      "outputSha256": "572e588c43d27526ef9160c59aa09810abfebaf9f0eb9f1b6564806c7eb78018",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/lifeguard.png",
+      "sourceBytes": 49986,
+      "sourceSha256": "5ea395909c76360e10e5b3076b3cdcc4e22246c59a4a6c0d8b4c956d4156ed58",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sea-safety/images/rinse-feet.webp",
+      "outputBytes": 10332,
+      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/rinse-feet.png",
+      "sourceBytes": 23299,
+      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 351,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sea-safety/images/sea.webp",
+      "outputBytes": 18416,
+      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/sea.png",
+      "sourceBytes": 28947,
+      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 376,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sea-safety/images/shower.webp",
+      "outputBytes": 9578,
+      "outputSha256": "91b89599a45b2b65eaa7ac80e83e54866e4b5788560fa7335fc3b2f85f90ca23",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/shower.png",
+      "sourceBytes": 16173,
+      "sourceSha256": "c020669d52427b880a4fa7b97553032ecca8704000fc80ca6ece9ffe6e8a2ab8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sea-safety/images/stay-near-grown-up.webp",
+      "outputBytes": 10298,
+      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/stay-near-grown-up.png",
+      "sourceBytes": 23464,
+      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 453,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/beach-day/sea-safety/images/swim-ring.webp",
+      "outputBytes": 20140,
+      "outputSha256": "d9f62f9323a7b0187c516e8ebd2dfa12f4349e99aa3beb083943f6ac08027ca6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/swim-ring.png",
+      "sourceBytes": 30048,
+      "sourceSha256": "9e36f91494dd0c47dc329063ed438ac5ac12b7f1e5e6c564dbc966a71cb9ecc3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 428,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sea-safety/images/watch-flag.webp",
+      "outputBytes": 7762,
+      "outputSha256": "a8fcdc4d1a10b80f86b6f92c0279bea6607fe9e942e6b965ab559d554ff14d49",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/watch-flag.png",
+      "sourceBytes": 16422,
+      "sourceSha256": "58b75ed25e5a4d6db1f447b956226bcc499325f633c0acd5b0d2c4ca810c7711",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 351,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/beach-day/sea-safety/images/wave.webp",
+      "outputBytes": 18416,
+      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/wave.png",
+      "sourceBytes": 28947,
+      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
+      "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -3197,6 +4715,1524 @@
       "sourceBytes": 1407746,
       "sourceSha256": "04e174b2b1a3f33a7b9b7e6293a923218dcb456bd1fcfc2e8cb8c9463313626d",
       "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/birthday-party/party-games/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/birthday-party/party-games/images/background.webp",
+      "outputBytes": 18388,
+      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/background.png",
+      "sourceBytes": 121822,
+      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 422,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-games/images/beanbag.webp",
+      "outputBytes": 18358,
+      "outputSha256": "5894d5d889de7fd6d9ea1aca8ba218de0d7dd768e7d8f5c36e413f21a716f096",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/beanbag.png",
+      "sourceBytes": 27180,
+      "sourceSha256": "95d08d52acee99be7aedbce6f9b595df0560a6f28e2ea74bece4efc08221adc2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-games/images/clap-hands.webp",
+      "outputBytes": 10332,
+      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/clap-hands.png",
+      "sourceBytes": 23299,
+      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-games/images/dance.webp",
+      "outputBytes": 10332,
+      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/dance.png",
+      "sourceBytes": 23299,
+      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-games/images/game.webp",
+      "outputBytes": 10388,
+      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/game.png",
+      "sourceBytes": 23832,
+      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-games/images/join-game.webp",
+      "outputBytes": 10322,
+      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/join-game.png",
+      "sourceBytes": 23731,
+      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 430,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-games/images/music.webp",
+      "outputBytes": 21170,
+      "outputSha256": "f44160cbb500bade863ea6f0c10fa0753c5cb5dfbc3f46fda58b0dd4a6bbffa4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/music.png",
+      "sourceBytes": 35255,
+      "sourceSha256": "1d6a6d989a66b10e05d133dce6fd3fabb21b54f862297691b059d804672e1aaf",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 413,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-games/images/prize.webp",
+      "outputBytes": 16092,
+      "outputSha256": "3a8a689ec063ce5f6c88780bf67cc90640d6aa99e188758d1fe9f718cea33f7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/prize.png",
+      "sourceBytes": 25271,
+      "sourceSha256": "6ff0c3b7f5500d96ddd0983c1be7a7d1b0e480f9fab202a5d7d2553d888636a6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 435,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-games/images/puzzle.webp",
+      "outputBytes": 10508,
+      "outputSha256": "f12b86a93191f2e9f401aaf1baf205304dc3c69332cad89f60b59846878807a2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/puzzle.png",
+      "sourceBytes": 23856,
+      "sourceSha256": "e0f58c46a88802061982ce70c21281870eaa2d0bd4201233e473daa26c1a9a1d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-games/images/take-turns.webp",
+      "outputBytes": 10180,
+      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-games"
+      ],
+      "source": "lessons/birthday-party/party-games/images/take-turns.png",
+      "sourceBytes": 23583,
+      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/birthday-party/party-prep/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/birthday-party/party-prep/images/background.webp",
+      "outputBytes": 18388,
+      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/background.png",
+      "sourceBytes": 121822,
+      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-prep/images/balloon.webp",
+      "outputBytes": 28700,
+      "outputSha256": "eabac5c086ad71aea4b78a39ad9b0dfbd91a10072230b323c42c44eb9f5d9f0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/balloon.png",
+      "sourceBytes": 55864,
+      "sourceSha256": "614bdf1222ecf45ded808d708e1ff00f53ca6447ae4ccedeaa373b2782c198f7",
+      "width": 503
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-prep/images/banner.webp",
+      "outputBytes": 14774,
+      "outputSha256": "e4ef53d4c6e5f23059760ad29065ba491d00d208d7821a5815799dd5cf292c47",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/banner.png",
+      "sourceBytes": 16246,
+      "sourceSha256": "9d46336482888db8c841c43d6c3629b680a9ff47b0fa21a78c0ddc28c2f14a0a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-prep/images/blow-balloon.webp",
+      "outputBytes": 28700,
+      "outputSha256": "eabac5c086ad71aea4b78a39ad9b0dfbd91a10072230b323c42c44eb9f5d9f0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/blow-balloon.png",
+      "sourceBytes": 55864,
+      "sourceSha256": "614bdf1222ecf45ded808d708e1ff00f53ca6447ae4ccedeaa373b2782c198f7",
+      "width": 503
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-prep/images/decorate-room.webp",
+      "outputBytes": 10298,
+      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/decorate-room.png",
+      "sourceBytes": 23464,
+      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 380,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-prep/images/gift.webp",
+      "outputBytes": 10704,
+      "outputSha256": "8a463a96b6383affb1ff25e41cbb17cd204de714d272b4b655c3ce5caa571b0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/gift.png",
+      "sourceBytes": 21958,
+      "sourceSha256": "340a7698f4f5a3794556e0de5601b47ba7cf456a5ed73ec550e57f069635a824",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-prep/images/invitation.webp",
+      "outputBytes": 5720,
+      "outputSha256": "78dd90ffcd1b9da48210fa6a9496710c5281b4a7057dd02d3091544b48274459",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/invitation.png",
+      "sourceBytes": 17997,
+      "sourceSha256": "d4f1a2fefcb51e4627763bcc765d6806476c8f1a72f0d823cb9c756e0483a416",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 277,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-prep/images/party-hat.webp",
+      "outputBytes": 15104,
+      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/party-hat.png",
+      "sourceBytes": 22298,
+      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 399,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-prep/images/ribbon.webp",
+      "outputBytes": 9920,
+      "outputSha256": "00394f26ee7a6439e2461062e6a324ef6fe69e83f36c28f4cdc2632b7b236547",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/ribbon.png",
+      "sourceBytes": 23966,
+      "sourceSha256": "2be2f7404dafe151aa9c7f64e9fefe8a4acff83fe069845786e8a5c7d1a296ae",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 380,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-prep/images/wrap-gift.webp",
+      "outputBytes": 10704,
+      "outputSha256": "8a463a96b6383affb1ff25e41cbb17cd204de714d272b4b655c3ce5caa571b0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/wrap-gift.png",
+      "sourceBytes": 21958,
+      "sourceSha256": "340a7698f4f5a3794556e0de5601b47ba7cf456a5ed73ec550e57f069635a824",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/birthday-party/party-table/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/birthday-party/party-table/images/background.webp",
+      "outputBytes": 18388,
+      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/background.png",
+      "sourceBytes": 121822,
+      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-table/images/blow-candles.webp",
+      "outputBytes": 10146,
+      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/blow-candles.png",
+      "sourceBytes": 23615,
+      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 436,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-table/images/cake.webp",
+      "outputBytes": 12512,
+      "outputSha256": "5812aeddd2d9a9c78abba22549ef6d4e00ccface525ac7379b79f88699ac487e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/cake.png",
+      "sourceBytes": 21856,
+      "sourceSha256": "83f73a546237735caf53e108e9807c9a737b7cd7871031fe92517358baa02e2f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 505,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-table/images/candle.webp",
+      "outputBytes": 10248,
+      "outputSha256": "925cf4ec06277a6a48609bfc76df837e9f72973840c4ca3e2a29a746d32da979",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/candle.png",
+      "sourceBytes": 16819,
+      "sourceSha256": "474308fd15f2cbe57f338eb42f450c4241fee6893e50621b1e84a795770e9dbb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 421,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-table/images/cup.webp",
+      "outputBytes": 16266,
+      "outputSha256": "11cb7bbb7ae00a45e2de204f86b6b28866d48747664c28dc707319f782877f92",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/cup.png",
+      "sourceBytes": 23778,
+      "sourceSha256": "fa2f3b09b6884354acd4e6b71ca57b6f3cd34fbdd344c37ea8d2b49d5267c77e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 436,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-table/images/cut-cake.webp",
+      "outputBytes": 12512,
+      "outputSha256": "5812aeddd2d9a9c78abba22549ef6d4e00ccface525ac7379b79f88699ac487e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/cut-cake.png",
+      "sourceBytes": 21856,
+      "sourceSha256": "83f73a546237735caf53e108e9807c9a737b7cd7871031fe92517358baa02e2f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 407,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-table/images/fruit.webp",
+      "outputBytes": 20296,
+      "outputSha256": "baaea11ea372dff28a6ce852f3f94ed8a35d4789862eae17749c2ff95340be6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/fruit.png",
+      "sourceBytes": 31855,
+      "sourceSha256": "20be8dd45c612df1d09721ef2af610168c6db42ef7a7f4069bc97c706db1d6e8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 399,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/birthday-party/party-table/images/napkin.webp",
+      "outputBytes": 9864,
+      "outputSha256": "3f7872292aa8662422803220b078a963247dbbbb43695a5c5ee8badd5c708ad6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/napkin.png",
+      "sourceBytes": 23992,
+      "sourceSha256": "d5203e26ce8236a88a52d3f9dc99169173956f8ba264fc89f89d92bf28259e57",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 468,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/birthday-party/party-table/images/plate.webp",
+      "outputBytes": 20514,
+      "outputSha256": "82bbdf3fc616b5a9f2253997e81ae250e8bbdef14c237a18d2c52ed04501f962",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/plate.png",
+      "sourceBytes": 31723,
+      "sourceSha256": "0a4c122171bb10b9eaa08470aea9f183fa7b0e120477c0cead047d2e27391584",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 436,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-table/images/share-cake.webp",
+      "outputBytes": 12512,
+      "outputSha256": "5812aeddd2d9a9c78abba22549ef6d4e00ccface525ac7379b79f88699ac487e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/share-cake.png",
+      "sourceBytes": 21856,
+      "sourceSha256": "83f73a546237735caf53e108e9807c9a737b7cd7871031fe92517358baa02e2f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/doctor-visit/clinic-room/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/doctor-visit/clinic-room/images/background.webp",
+      "outputBytes": 10138,
+      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/background.png",
+      "sourceBytes": 73440,
+      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/clinic-room/images/chart.webp",
+      "outputBytes": 5952,
+      "outputSha256": "6350a698026b91da429f74e7b206cdf6a83036b9bcd73a21572f5bd375315d93",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/chart.png",
+      "sourceBytes": 18078,
+      "sourceSha256": "83c7845ab31d8ebfd34f09c7d77dd4b44ed578a81f109a7b527b3bf69a2a9a1c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 423,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/clinic-room/images/clinic.webp",
+      "outputBytes": 8448,
+      "outputSha256": "7547ea9bac79f0f632e61f360828062cc8ee77c39b1025998d2aef7496b5bc95",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/clinic.png",
+      "sourceBytes": 15570,
+      "sourceSha256": "777f1c61d6c4e6079b88628d68e034fcc57973756c05e7ef02a22a1a7329c4a8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/clinic-room/images/doctor.webp",
+      "outputBytes": 14066,
+      "outputSha256": "0a0ecfdb78432ae7b9c26340b4477ce0b01caf44404929ca52853ab164431e47",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/doctor.png",
+      "sourceBytes": 46949,
+      "sourceSha256": "eab0008be09cf9b4fd471ff0b4a178a0b498806f4ef054e13f79ea53b7c85c56",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 337,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/clinic-room/images/mask.webp",
+      "outputBytes": 13962,
+      "outputSha256": "48a03fe2dc827eadecfad135409ba741020085979f8c87702a82215749b75530",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/mask.png",
+      "sourceBytes": 23156,
+      "sourceSha256": "9a5e493b47a8f663b2b24c3fd9e1dd5c395e835f70fe75b0f7155c6305ed84ef",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/clinic-room/images/nurse.webp",
+      "outputBytes": 14038,
+      "outputSha256": "6d9a02ae2650862cea9283de0cf60fbdbed9941d5630daa2a414c58737408687",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/nurse.png",
+      "sourceBytes": 46917,
+      "sourceSha256": "ddf65a22d1934456cba183ca2aa225e8c3056caab7c29a62a62cb0aa669438dd",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/clinic-room/images/say-hello.webp",
+      "outputBytes": 10298,
+      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/say-hello.png",
+      "sourceBytes": 23464,
+      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/clinic-room/images/sit-still.webp",
+      "outputBytes": 10102,
+      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/sit-still.png",
+      "sourceBytes": 23154,
+      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/clinic-room/images/tell-doctor.webp",
+      "outputBytes": 14052,
+      "outputSha256": "67d10eaba299238c206d97352e0efcb4e0013f1672f20be6941f9d7c34a0e422",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/tell-doctor.png",
+      "sourceBytes": 46963,
+      "sourceSha256": "bc269e582def6779428e7de1eebda697ae6901a948f3552afe4e0cf703a80a7e",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/clinic-room/images/waiting-room.webp",
+      "outputBytes": 10322,
+      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/waiting-room.png",
+      "sourceBytes": 23731,
+      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/doctor-visit/health-check/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/doctor-visit/health-check/images/background.webp",
+      "outputBytes": 10138,
+      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/background.png",
+      "sourceBytes": 73440,
+      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 273,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/health-check/images/bandage.webp",
+      "outputBytes": 10204,
+      "outputSha256": "a6f56e129d203cd632132194c1c72ebd388c88c8d7ef6bf813b7436f193b6b69",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/bandage.png",
+      "sourceBytes": 21867,
+      "sourceSha256": "f12817f2eceadcf293c0f7b7ff961c50c97ac2690ef72e6c4535696326aa4988",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/health-check/images/check-heartbeat.webp",
+      "outputBytes": 10146,
+      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/check-heartbeat.png",
+      "sourceBytes": 23615,
+      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/health-check/images/clean-hands.webp",
+      "outputBytes": 10332,
+      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/clean-hands.png",
+      "sourceBytes": 23299,
+      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 456,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/health-check/images/ear-light.webp",
+      "outputBytes": 25662,
+      "outputSha256": "825dc6a0cd926afdbb4929cc411d82d0244d1f96e91bcfa880318b384c55e58a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/ear-light.png",
+      "sourceBytes": 37291,
+      "sourceSha256": "082a9586794b24c0e1592db1749dfe871cf611329e2b5084e105d09d4324e71d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/health-check/images/hand-gel.webp",
+      "outputBytes": 9872,
+      "outputSha256": "45a2771ef53ea4c6c22b56883ddac72290fe40dfef09853092d2a02485e2ee5c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/hand-gel.png",
+      "sourceBytes": 23457,
+      "sourceSha256": "74c5e9d552fefd2a4dd7c852ba9dd8762d3d09491967df4c7781203bd355ae01",
+      "width": 451
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 298,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/health-check/images/scale.webp",
+      "outputBytes": 10026,
+      "outputSha256": "853e353aee004c689fa4ee4b950dcff03dc5a828d8b774e45385ec606feb8366",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/scale.png",
+      "sourceBytes": 21697,
+      "sourceSha256": "080714804fb5116294d22070e6b1f8a27b26945a6c831554cb484c1bf10bc9f5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 465,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/health-check/images/stethoscope.webp",
+      "outputBytes": 19920,
+      "outputSha256": "fa0e699cf06a92af77cf24c95471de2438c6d16c64247891ae37a2179f4dc6a7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/stethoscope.png",
+      "sourceBytes": 30812,
+      "sourceSha256": "072804923bf763079540a96a8e94af82578a0499171d52411e42fe2d675c0698",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 462,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/health-check/images/take-temperature.webp",
+      "outputBytes": 6340,
+      "outputSha256": "f8ea014dff7b5156f4588515f0b484836107ab5c3dc50569cee1d28c1250bbaf",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/take-temperature.png",
+      "sourceBytes": 10235,
+      "sourceSha256": "179ca5e151385698871a41694e21da3fa3103e20a8434e5f5140b2599c249d21",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 462,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/health-check/images/thermometer.webp",
+      "outputBytes": 6340,
+      "outputSha256": "f8ea014dff7b5156f4588515f0b484836107ab5c3dc50569cee1d28c1250bbaf",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/thermometer.png",
+      "sourceBytes": 10235,
+      "sourceSha256": "179ca5e151385698871a41694e21da3fa3103e20a8434e5f5140b2599c249d21",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/doctor-visit/medicine-care/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/doctor-visit/medicine-care/images/background.webp",
+      "outputBytes": 10138,
+      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/background.png",
+      "sourceBytes": 73440,
+      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 358,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/medicine-care/images/blow-nose.webp",
+      "outputBytes": 9564,
+      "outputSha256": "23644e66c0ebe01bd9d5f725b4075b20fac3fe89a0a6ed0bbda04f9b2256a317",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/blow-nose.png",
+      "sourceBytes": 19292,
+      "sourceSha256": "e5eb295a62a470287a9ae3d3075a63f6f20fdf38fe2c1aced1e59518a7ff2d54",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/medicine-care/images/drink-water.webp",
+      "outputBytes": 9780,
+      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/drink-water.png",
+      "sourceBytes": 21686,
+      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
+      "width": 472
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/medicine-care/images/medicine.webp",
+      "outputBytes": 9690,
+      "outputSha256": "3d4695a17c8638e48d212119bf1f35daed7e4b7ce343ec28ce9f40c82f942614",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/medicine.png",
+      "sourceBytes": 23291,
+      "sourceSha256": "dabc10c239fc72af6a0d17769fc9d421f93d2062b37c34b1e7c84fd59cb06f25",
+      "width": 451
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/medicine-care/images/rest-card.webp",
+      "outputBytes": 5952,
+      "outputSha256": "6350a698026b91da429f74e7b206cdf6a83036b9bcd73a21572f5bd375315d93",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/rest-card.png",
+      "sourceBytes": 18078,
+      "sourceSha256": "83c7845ab31d8ebfd34f09c7d77dd4b44ed578a81f109a7b527b3bf69a2a9a1c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/medicine-care/images/spoon.webp",
+      "outputBytes": 17338,
+      "outputSha256": "fb841e2d20c9122cc2f8e42ce47c01c3418460338a0c7eb45875b0c50e504620",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/spoon.png",
+      "sourceBytes": 24277,
+      "sourceSha256": "5501a0978e48b78984a6862ff7a4a853be541b729887a8b1d85bf25c5cbcfd8d",
+      "width": 497
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 444,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/medicine-care/images/sticker.webp",
+      "outputBytes": 10784,
+      "outputSha256": "9499de882810b1af9f3e7ce0cff713cc0e6c0dd3c91e740a24ef266146771808",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/sticker.png",
+      "sourceBytes": 22291,
+      "sourceSha256": "fca01df92058eabf1ec5c3cf4606f8fb4ed5a281c2adcc199f337e83415f5e03",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/doctor-visit/medicine-care/images/take-medicine.webp",
+      "outputBytes": 9568,
+      "outputSha256": "f43f656f03e0968305746de2cdb0c609d4f16b7c92e2f01b9e78a143e694d8f9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/take-medicine.png",
+      "sourceBytes": 23083,
+      "sourceSha256": "4f414cc06bdc0c85283276f3ea881efddccc222ed6c65cf22a6580736aa7e2e1",
+      "width": 451
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 358,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/doctor-visit/medicine-care/images/tissue.webp",
+      "outputBytes": 9564,
+      "outputSha256": "23644e66c0ebe01bd9d5f725b4075b20fac3fe89a0a6ed0bbda04f9b2256a317",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/tissue.png",
+      "sourceBytes": 19292,
+      "sourceSha256": "e5eb295a62a470287a9ae3d3075a63f6f20fdf38fe2c1aced1e59518a7ff2d54",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/doctor-visit/medicine-care/images/water.webp",
+      "outputBytes": 9780,
+      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "medicine-care"
+      ],
+      "source": "lessons/doctor-visit/medicine-care/images/water.png",
+      "sourceBytes": 21686,
+      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
+      "width": 472
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -3847,6 +6883,765 @@
       "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/grandparents-visit/family-visit/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/grandparents-visit/family-visit/images/background.webp",
+      "outputBytes": 11484,
+      "outputSha256": "24500e88ac43a6faa292c05580f3d3a1868c9d6ec981c4f2528fcf6ee5edfb42",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/background.png",
+      "sourceBytes": 84452,
+      "sourceSha256": "be821b0fccb6ef25c5b1a176e7085e942a21d2dfdb613d189303f410dae5dd81",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 480,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/family-visit/images/doorbell.webp",
+      "outputBytes": 11294,
+      "outputSha256": "5012eec90db482f77fe1a3b68037162e82d1b08521dc1980dbe3f12dd927d0ff",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/doorbell.png",
+      "sourceBytes": 24597,
+      "sourceSha256": "376ca7eaa0198f7b635edb4369d7bbcf649fdfab75a3c416ab03fb698393e291",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 434,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/family-visit/images/family-photo.webp",
+      "outputBytes": 10210,
+      "outputSha256": "ac2d95360dc160be3a87946244149d31ad9f1890501c7581c084519b979ab68e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/family-photo.png",
+      "sourceBytes": 29055,
+      "sourceSha256": "5ebf7ccb2c704258113c028bd9f6044f1897ff1bccebde59e1f5b4874cd056b3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/family-visit/images/give-hug.webp",
+      "outputBytes": 10388,
+      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/give-hug.png",
+      "sourceBytes": 23832,
+      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/family-visit/images/grandma.webp",
+      "outputBytes": 13754,
+      "outputSha256": "d4e2c1b9dc03926dafb2882c4f5ec245580e1a04bf579c57637dbf4722e02e7c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/grandma.png",
+      "sourceBytes": 49421,
+      "sourceSha256": "142e2a4b0355e25f8f5844d71ed9575205eaae4053a20e6df3b9cfbebf559fa7",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/family-visit/images/grandpa.webp",
+      "outputBytes": 13628,
+      "outputSha256": "89100c4f15c6115a7b1b98763c145dfe721273454af34d4153aabcfdda619524",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/grandpa.png",
+      "sourceBytes": 49570,
+      "sourceSha256": "1931932c5793ce218e3f6964abcb0cf9c67da7a739174c28d0bc077b1110bae9",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/family-visit/images/hug.webp",
+      "outputBytes": 10322,
+      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/hug.png",
+      "sourceBytes": 23731,
+      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/family-visit/images/say-hello.webp",
+      "outputBytes": 10298,
+      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/say-hello.png",
+      "sourceBytes": 23464,
+      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 434,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/family-visit/images/show-photo.webp",
+      "outputBytes": 10210,
+      "outputSha256": "ac2d95360dc160be3a87946244149d31ad9f1890501c7581c084519b979ab68e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/show-photo.png",
+      "sourceBytes": 29055,
+      "sourceSha256": "5ebf7ccb2c704258113c028bd9f6044f1897ff1bccebde59e1f5b4874cd056b3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 201,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/family-visit/images/slippers.webp",
+      "outputBytes": 9568,
+      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/slippers.png",
+      "sourceBytes": 18003,
+      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/grandparents-visit/garden-help/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/grandparents-visit/garden-help/images/background.webp",
+      "outputBytes": 18110,
+      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/background.png",
+      "sourceBytes": 85300,
+      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 444,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/garden-help/images/flower.webp",
+      "outputBytes": 10752,
+      "outputSha256": "cbcf218d3c502549efa9b67bedd2191313cfd6a7deeee89787a4bf0475f98e0c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/flower.png",
+      "sourceBytes": 16245,
+      "sourceSha256": "263affb5182aedfce2dfc29cb791037f46ed2d6059fb3f2d265af6563b30c9b4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/garden-help/images/garden.webp",
+      "outputBytes": 10180,
+      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/garden.png",
+      "sourceBytes": 23583,
+      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 335,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/garden-help/images/leaf.webp",
+      "outputBytes": 16188,
+      "outputSha256": "f2aa3dfd275c4387d5108a881ad4a676bb09d3f53b9e2edb06e01fa972019b1f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/leaf.png",
+      "sourceBytes": 28622,
+      "sourceSha256": "656671e0c1b85ab1a978ad6082dabf4c690c60a93d033646577d083a5559f7ec",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 335,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/garden-help/images/pick-up-leaves.webp",
+      "outputBytes": 16188,
+      "outputSha256": "f2aa3dfd275c4387d5108a881ad4a676bb09d3f53b9e2edb06e01fa972019b1f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/pick-up-leaves.png",
+      "sourceBytes": 28622,
+      "sourceSha256": "656671e0c1b85ab1a978ad6082dabf4c690c60a93d033646577d083a5559f7ec",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 451,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/garden-help/images/plant-pot.webp",
+      "outputBytes": 15854,
+      "outputSha256": "f821fdbbdf52f5eba8ec5f8b69985084203e5e57d5ed4dc7df353fc019157cc5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/plant-pot.png",
+      "sourceBytes": 22835,
+      "sourceSha256": "08646a9fe124d1ba6a7666714f91c9e13ee8c00f59f8b0dadbda966b0e5e4266",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 451,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/garden-help/images/plant-seed.webp",
+      "outputBytes": 15854,
+      "outputSha256": "f821fdbbdf52f5eba8ec5f8b69985084203e5e57d5ed4dc7df353fc019157cc5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/plant-seed.png",
+      "sourceBytes": 22835,
+      "sourceSha256": "08646a9fe124d1ba6a7666714f91c9e13ee8c00f59f8b0dadbda966b0e5e4266",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 392,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/garden-help/images/seed.webp",
+      "outputBytes": 21244,
+      "outputSha256": "54a2a6136445c6f756571d1dd3b431f7ad43b4e44b4ed3d3f39d14c9ff6534da",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/seed.png",
+      "sourceBytes": 51000,
+      "sourceSha256": "5c85f8b79c89318199799ab14280c005c60a628800ce162a4d6bfe1c0914a424",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/garden-help/images/water-plant.webp",
+      "outputBytes": 9780,
+      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/water-plant.png",
+      "sourceBytes": 21686,
+      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
+      "width": 472
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 388,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/garden-help/images/watering-can.webp",
+      "outputBytes": 14892,
+      "outputSha256": "3215541cc184983b0bc3bd9e934271a4b249435e457c4998c93d27bb897c6928",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "garden-help"
+      ],
+      "source": "lessons/grandparents-visit/garden-help/images/watering-can.png",
+      "sourceBytes": 25235,
+      "sourceSha256": "718c45ab8c8ea16ecfe33693cf8da547fd5c921b883d24af61d59cc6217822b2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/grandparents-visit/goodbye-home/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/grandparents-visit/goodbye-home/images/background.webp",
+      "outputBytes": 11484,
+      "outputSha256": "24500e88ac43a6faa292c05580f3d3a1868c9d6ec981c4f2528fcf6ee5edfb42",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/background.png",
+      "sourceBytes": 84452,
+      "sourceSha256": "be821b0fccb6ef25c5b1a176e7085e942a21d2dfdb613d189303f410dae5dd81",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 405,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/goodbye-home/images/bag.webp",
+      "outputBytes": 14694,
+      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/bag.png",
+      "sourceBytes": 27939,
+      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 336,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/goodbye-home/images/car.webp",
+      "outputBytes": 13194,
+      "outputSha256": "ce4eb0dc02516d6cdede115378a6ba50aaf0062426facd42748f0caf4eb316e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/car.png",
+      "sourceBytes": 20225,
+      "sourceSha256": "7a8d9ca4b602481aec1764b33ae0fd7a1684365c740db9b3c3cecf14f3123d6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/goodbye-home/images/farewell-card.webp",
+      "outputBytes": 5720,
+      "outputSha256": "78dd90ffcd1b9da48210fa6a9496710c5281b4a7057dd02d3091544b48274459",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/farewell-card.png",
+      "sourceBytes": 17997,
+      "sourceSha256": "d4f1a2fefcb51e4627763bcc765d6806476c8f1a72f0d823cb9c756e0483a416",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/goodbye-home/images/go-home.webp",
+      "outputBytes": 10146,
+      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/go-home.png",
+      "sourceBytes": 23615,
+      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 201,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/goodbye-home/images/put-on-shoes.webp",
+      "outputBytes": 9568,
+      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/put-on-shoes.png",
+      "sourceBytes": 18003,
+      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/grandparents-visit/goodbye-home/images/say-goodbye.webp",
+      "outputBytes": 10332,
+      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/say-goodbye.png",
+      "sourceBytes": 23299,
+      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 201,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/grandparents-visit/goodbye-home/images/shoes.webp",
+      "outputBytes": 9568,
+      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/shoes.png",
+      "sourceBytes": 18003,
+      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/goodbye-home/images/thank-you-card.webp",
+      "outputBytes": 5940,
+      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/thank-you-card.png",
+      "sourceBytes": 17714,
+      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 351,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/grandparents-visit/goodbye-home/images/wave.webp",
+      "outputBytes": 18416,
+      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/wave.png",
+      "sourceBytes": 28947,
+      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
         "home-play"
       ],
       "maxPercent": 39,
@@ -4416,6 +8211,765 @@
       "sourceBytes": 1438874,
       "sourceSha256": "2391cf3982b28c25ae0729cdd8676c98226f7d6185777eb73837024af27ffc93",
       "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/book-corner/images/alphabet-book.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/alphabet-book.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/library-visit/book-corner/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/library-visit/book-corner/images/background.webp",
+      "outputBytes": 17154,
+      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/background.png",
+      "sourceBytes": 112524,
+      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/book-corner/images/bookmark.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/bookmark.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/book-corner/images/borrow-book.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/borrow-book.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/book-corner/images/choose-book.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/choose-book.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/book-corner/images/cover.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/cover.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/book-corner/images/page.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/page.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/book-corner/images/picture-book.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/picture-book.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 484,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/book-corner/images/reading-chair.webp",
+      "outputBytes": 8408,
+      "outputSha256": "353b4ff9171d7a45c279ad58a1a2e27c78d38dc3f2cb3b213f7a359f7d78858f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/reading-chair.png",
+      "sourceBytes": 16560,
+      "sourceSha256": "bb854865c64e4465631e6d0a88a341974338b02c0044f57970fd871016156b7a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/book-corner/images/turn-page.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "book-corner"
+      ],
+      "source": "lessons/library-visit/book-corner/images/turn-page.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/library-visit/library-card/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/library-visit/library-card/images/background.webp",
+      "outputBytes": 17154,
+      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/background.png",
+      "sourceBytes": 112524,
+      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 423,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/library-card/images/book-basket.webp",
+      "outputBytes": 20184,
+      "outputSha256": "f1595b8637e1d0d7056e166d916715172e31fd750cf702b5f419f3f4a68fc32b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/book-basket.png",
+      "sourceBytes": 37539,
+      "sourceSha256": "26200f7791548691770a2828dd22b8f7815936e3eb7fe977ba5fe5aac9bff866",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/library-card/images/librarian.webp",
+      "outputBytes": 13888,
+      "outputSha256": "3823d8e23521e07eb5c10e5e886d1cd3ede839692a130a0d0d2980f58f62835b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/librarian.png",
+      "sourceBytes": 49898,
+      "sourceSha256": "849f19b4e3c6a020219ffcf8ce0c882431540b90558da74c847bc691a3b194e5",
+      "width": 242
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/library-card/images/library-card.webp",
+      "outputBytes": 5940,
+      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/library-card.png",
+      "sourceBytes": 17714,
+      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/library-card/images/quiet-sign.webp",
+      "outputBytes": 6308,
+      "outputSha256": "e31191f55866c2041fbfad46a1c5f44b7ed9b149c08c1a7caefdd8a81f9bf1a6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/quiet-sign.png",
+      "sourceBytes": 19139,
+      "sourceSha256": "c6481e7e519b08ed024b691d1675d0b4e0fff58cdff10b90d450a2503c6e0eb9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 357,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/library-card/images/return-book.webp",
+      "outputBytes": 9970,
+      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/return-book.png",
+      "sourceBytes": 32608,
+      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 386,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/library-card/images/return-box.webp",
+      "outputBytes": 8356,
+      "outputSha256": "27055c8004e05bc9b4bc325640dde498968bb9e2076da4baaff1e459c41487e3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/return-box.png",
+      "sourceBytes": 19023,
+      "sourceSha256": "bb193d09fcfb905bf390cc22be27c80ac15a4d56daf0af792bd01775ddade70b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/library-card/images/shelf.webp",
+      "outputBytes": 8756,
+      "outputSha256": "e3dcc81128de542e0f17604158c886b223cf9a15595dc6a137f419b8cfcaf7b7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/shelf.png",
+      "sourceBytes": 25259,
+      "sourceSha256": "065e0338bb3fabd841cd3e2998478dd84c816db1c7988bb3f6dd2fe62476bb4c",
+      "width": 458
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/library-card/images/show-card.webp",
+      "outputBytes": 5940,
+      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/show-card.png",
+      "sourceBytes": 17714,
+      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/library-card/images/use-quiet-voice.webp",
+      "outputBytes": 10146,
+      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/use-quiet-voice.png",
+      "sourceBytes": 23615,
+      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/library-visit/story-circle/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/library-visit/story-circle/images/background.webp",
+      "outputBytes": 17154,
+      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/background.png",
+      "sourceBytes": 112524,
+      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/story-circle/images/circle.webp",
+      "outputBytes": 10180,
+      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/circle.png",
+      "sourceBytes": 23583,
+      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/story-circle/images/clap-softly.webp",
+      "outputBytes": 10146,
+      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/clap-softly.png",
+      "sourceBytes": 23615,
+      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 364,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/story-circle/images/cushion.webp",
+      "outputBytes": 12252,
+      "outputSha256": "1d38141f9a043bb580a4947c65de740590e51b57b6ba02673ebfc74379f4a108",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/cushion.png",
+      "sourceBytes": 23863,
+      "sourceSha256": "105eada5780946fd988c66874a17d00bb35cd1a264cb9274190696ce0eee40ac",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 298,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/story-circle/images/library-bell.webp",
+      "outputBytes": 12326,
+      "outputSha256": "ac999142fbe494c048cbacaaf1ee37dd2f738fc36914b553120ea4966e5cbee6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/library-bell.png",
+      "sourceBytes": 19051,
+      "sourceSha256": "1da18c49dec544e460ff78267495e48a787e561a168f7376d187c4604874f0c7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/story-circle/images/listen-story.webp",
+      "outputBytes": 10322,
+      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/listen-story.png",
+      "sourceBytes": 23731,
+      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 477,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/story-circle/images/puppet.webp",
+      "outputBytes": 12800,
+      "outputSha256": "7f00827ff3f93fc83d4ba69716acc0f7cb8626a3af5c2e57ba001ac7fa9196f8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/puppet.png",
+      "sourceBytes": 19720,
+      "sourceSha256": "d08a93028ce2b031cd2a95ef09c80b4ec88244039c118ae79884547d5618e1da",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/library-visit/story-circle/images/sit-in-circle.webp",
+      "outputBytes": 10102,
+      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/sit-in-circle.png",
+      "sourceBytes": 23154,
+      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/library-visit/story-circle/images/story-card.webp",
+      "outputBytes": 6006,
+      "outputSha256": "ff4c1d52b35bda1977a2b494bfca10c1e6e639e28fdb8e7ec0cdde283085b269",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/story-card.png",
+      "sourceBytes": 18017,
+      "sourceSha256": "322b6d3fb9bb5fcf1fb077f6415e3750b28a2c1c7f11d859e1a43346326b0390",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/library-visit/story-circle/images/storyteller.webp",
+      "outputBytes": 13922,
+      "outputSha256": "9678fa410f61a1cb706acbcbe2de0847c1ac41ae31c7b157840e2bee991131ae",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "story-circle"
+      ],
+      "source": "lessons/library-visit/story-circle/images/storyteller.png",
+      "sourceBytes": 49834,
+      "sourceSha256": "50d76f7c1b3f3c1a0aca9772710eb7fcc13a727df5ad7e95d389f52649b3dd90",
+      "width": 242
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5986,6 +10540,765 @@
       "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/park-visit/park-entrance/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/park-visit/park-entrance/images/background.webp",
+      "outputBytes": 18110,
+      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/background.png",
+      "sourceBytes": 85300,
+      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 301,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-entrance/images/bench.webp",
+      "outputBytes": 8070,
+      "outputSha256": "06fe9cc4dca87a17d966c76998d6d3ad8cd61d5c9415ad6d541e40ef2bad2503",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/bench.png",
+      "sourceBytes": 14634,
+      "sourceSha256": "b4ab8d540d8f1d5effa2465d1d88e34d47683803afcdced91a518202050666f9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 440,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-entrance/images/fountain.webp",
+      "outputBytes": 13896,
+      "outputSha256": "845ed75dd30c97705a11fb56ce472ec2240d8a5d734c5ac238930bbdeff883ee",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/fountain.png",
+      "sourceBytes": 20985,
+      "sourceSha256": "612749f434cad47e4440a74caa656b421daf25c85d192b66644f06fcd8f041b5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 443,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-entrance/images/gate.webp",
+      "outputBytes": 12336,
+      "outputSha256": "1e69e908d3beaf3bc2012cf479e567489adf4d57916c1ae82b8be5ce02fff167",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/gate.png",
+      "sourceBytes": 25190,
+      "sourceSha256": "0daf8417440a9be9a80bb1313d5f30bf0f3585d11a51abbe5dec8734b4cf8ec2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-entrance/images/look-map.webp",
+      "outputBytes": 6284,
+      "outputSha256": "1e87741ea46de7b82423d040bceec7d81fc61f43eada55d4f268c128b0cf5f70",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/look-map.png",
+      "sourceBytes": 20991,
+      "sourceSha256": "10ffafe416677fddee23234f20c610980a8ee455c121eb3bde81ef3d37c5cc4f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 483,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-entrance/images/map.webp",
+      "outputBytes": 6178,
+      "outputSha256": "d0255937dc081020d330891777b0adbc4224dd667f9295fc803c66e7f6dc1861",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/map.png",
+      "sourceBytes": 20955,
+      "sourceSha256": "08949df634e2327117ec42293f2a676ce7fd6a0813fafe714e2a9a3240e456e5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 488,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-entrance/images/path.webp",
+      "outputBytes": 16896,
+      "outputSha256": "f0bd75aaa89ade9f1cd5e25ab288ebfef37fe4fabce6c83da8ec9f8c5f767e92",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/path.png",
+      "sourceBytes": 28513,
+      "sourceSha256": "1cf1de7769d0e2a3548936ec5ce6346f9aecb4b6c659b00db2e9240cc952e3fd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 301,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-entrance/images/sit-bench.webp",
+      "outputBytes": 8070,
+      "outputSha256": "06fe9cc4dca87a17d966c76998d6d3ad8cd61d5c9415ad6d541e40ef2bad2503",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/sit-bench.png",
+      "sourceBytes": 14634,
+      "sourceSha256": "b4ab8d540d8f1d5effa2465d1d88e34d47683803afcdced91a518202050666f9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-entrance/images/tree.webp",
+      "outputBytes": 13234,
+      "outputSha256": "36bac8cab63a9cc3ab6f040cc9204de7486c2056aa23fef8267dc58690bb1e82",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/tree.png",
+      "sourceBytes": 22616,
+      "sourceSha256": "e28d79a7e57fbefd26c2446ab2e113b073cf1e20c0ccb7e1d110c1cf419e260a",
+      "width": 503
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 488,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-entrance/images/walk-path.webp",
+      "outputBytes": 16896,
+      "outputSha256": "f0bd75aaa89ade9f1cd5e25ab288ebfef37fe4fabce6c83da8ec9f8c5f767e92",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-entrance"
+      ],
+      "source": "lessons/park-visit/park-entrance/images/walk-path.png",
+      "sourceBytes": 28513,
+      "sourceSha256": "1cf1de7769d0e2a3548936ec5ce6346f9aecb4b6c659b00db2e9240cc952e3fd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/park-visit/park-games/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/park-visit/park-games/images/background.webp",
+      "outputBytes": 18110,
+      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/background.png",
+      "sourceBytes": 85300,
+      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 488,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-games/images/climbing-frame.webp",
+      "outputBytes": 27010,
+      "outputSha256": "dda47854df62d5e5b631849fb5fe46c049d65f86774f5e6af412fbb7fce476fc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/climbing-frame.png",
+      "sourceBytes": 33167,
+      "sourceSha256": "6ccef7dcd13ccdfe6924cd66e4f4162f9eeac93f863049301681d5f961899713",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 298,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-games/images/frisbee.webp",
+      "outputBytes": 14754,
+      "outputSha256": "7d4fb5a7559633f77aac613a16f403df605d8c3618b9b8a619ec258fb7a19572",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/frisbee.png",
+      "sourceBytes": 23994,
+      "sourceSha256": "95a69b240eb08a30f1396c4a3ff1c47140c02ce4d1d086c9770b8bed553d7de8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 344,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-games/images/helmet.webp",
+      "outputBytes": 9326,
+      "outputSha256": "60169fb5903656b9262c70ac433cc1427fcb29b1ef981e4539c89568c73fcad1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/helmet.png",
+      "sourceBytes": 14157,
+      "sourceSha256": "b99aa5caf2095e88b7a9306029c67d1a90a3b279f7713df153c083ba5e9b3e9a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-games/images/join-team.webp",
+      "outputBytes": 10102,
+      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/join-team.png",
+      "sourceBytes": 23154,
+      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 391,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-games/images/scooter.webp",
+      "outputBytes": 10724,
+      "outputSha256": "1d086204a35b5a2451912975aa54506a79986fef23ffc6f153c196845f637e0d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/scooter.png",
+      "sourceBytes": 12934,
+      "sourceSha256": "68fe83a46d543bafcfe6d516adcb21e316e2e4492a4caceb3dde7f3a983124d2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 502,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-games/images/team.webp",
+      "outputBytes": 10298,
+      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/team.png",
+      "sourceBytes": 23464,
+      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 298,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-games/images/throw-frisbee.webp",
+      "outputBytes": 14754,
+      "outputSha256": "7d4fb5a7559633f77aac613a16f403df605d8c3618b9b8a619ec258fb7a19572",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/throw-frisbee.png",
+      "sourceBytes": 23994,
+      "sourceSha256": "95a69b240eb08a30f1396c4a3ff1c47140c02ce4d1d086c9770b8bed553d7de8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 344,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-games/images/wear-helmet.webp",
+      "outputBytes": 9326,
+      "outputSha256": "60169fb5903656b9262c70ac433cc1427fcb29b1ef981e4539c89568c73fcad1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/wear-helmet.png",
+      "sourceBytes": 14157,
+      "sourceSha256": "b99aa5caf2095e88b7a9306029c67d1a90a3b279f7713df153c083ba5e9b3e9a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 244,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-games/images/whistle.webp",
+      "outputBytes": 8024,
+      "outputSha256": "f2653afa0d2c0c847cda37ad4007e9455a6ab69edcef72a72d743cdeda0807ec",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-games"
+      ],
+      "source": "lessons/park-visit/park-games/images/whistle.png",
+      "sourceBytes": 17541,
+      "sourceSha256": "b18068f090b811dfc5edb94fd24de9eeda34c89657398839d8f65adb38c0a022",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/park-visit/park-picnic/images/baby.webp",
+      "outputBytes": 45068,
+      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/baby.png",
+      "sourceBytes": 62693,
+      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
+      "width": 524
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/park-visit/park-picnic/images/background.webp",
+      "outputBytes": 18110,
+      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/background.png",
+      "sourceBytes": 85300,
+      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 369,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-picnic/images/clean-crumbs.webp",
+      "outputBytes": 30288,
+      "outputSha256": "c12ce20983b010e502d682b3d1911f6a6cf84666d61ffaf80a9fcbf6a9b3be78",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/clean-crumbs.png",
+      "sourceBytes": 43636,
+      "sourceSha256": "95126a1c71d3537342eaa96c5f6d59123dbd36f18e8fad3377241baf2f315256",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 369,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-picnic/images/crumbs.webp",
+      "outputBytes": 30288,
+      "outputSha256": "c12ce20983b010e502d682b3d1911f6a6cf84666d61ffaf80a9fcbf6a9b3be78",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/crumbs.png",
+      "sourceBytes": 43636,
+      "sourceSha256": "95126a1c71d3537342eaa96c5f6d59123dbd36f18e8fad3377241baf2f315256",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-picnic/images/juice.webp",
+      "outputBytes": 9944,
+      "outputSha256": "b5632342e7a97da9205a399c87b3616512f662ec2576109c43ab7264bbc27a5f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/juice.png",
+      "sourceBytes": 22237,
+      "sourceSha256": "55254a08543ee136e1355c3f04da3a2d9f97db8b57e874a6ecf0d62d0f598f23",
+      "width": 472
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 399,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-picnic/images/napkin.webp",
+      "outputBytes": 9864,
+      "outputSha256": "3f7872292aa8662422803220b078a963247dbbbb43695a5c5ee8badd5c708ad6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/napkin.png",
+      "sourceBytes": 23992,
+      "sourceSha256": "d5203e26ce8236a88a52d3f9dc99169173956f8ba264fc89f89d92bf28259e57",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 303,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-picnic/images/picnic-mat.webp",
+      "outputBytes": 16872,
+      "outputSha256": "b30e95d6dbca19538259488707a8565d55781bcee0efca8d43911d779ea3e1d2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/picnic-mat.png",
+      "sourceBytes": 29512,
+      "sourceSha256": "79f1e351ff1e941fcb5595cee3c970cf7442b6e160ad067f8adb19d380c55c7f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 341,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/park-visit/park-picnic/images/sandwich.webp",
+      "outputBytes": 12630,
+      "outputSha256": "16141371bed3d220d4627ec8c6e96a62b26b9ed2135eb3dfef695c5dc3e9f244",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/sandwich.png",
+      "sourceBytes": 20231,
+      "sourceSha256": "e584e42af85d49da8de13fbb0c7e94ecec33d76867d959b4ebea29bb25dd3317",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 303,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-picnic/images/spread-mat.webp",
+      "outputBytes": 16872,
+      "outputSha256": "b30e95d6dbca19538259488707a8565d55781bcee0efca8d43911d779ea3e1d2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/spread-mat.png",
+      "sourceBytes": 29512,
+      "sourceSha256": "79f1e351ff1e941fcb5595cee3c970cf7442b6e160ad067f8adb19d380c55c7f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 487,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/park-visit/park-picnic/images/throw-trash.webp",
+      "outputBytes": 9782,
+      "outputSha256": "67f90103c25dd72b38763868639654a1c102004e06c541decbd3dfd5b2511678",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/throw-trash.png",
+      "sourceBytes": 21030,
+      "sourceSha256": "b7dce7f92385183386ced1891e49a83a0dfa3f6a337b64b3f47e2cdb5f651eac",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 487,
+      "lessonIds": [
+        "park-visit"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/park-visit/park-picnic/images/trash-bin.webp",
+      "outputBytes": 9782,
+      "outputSha256": "67f90103c25dd72b38763868639654a1c102004e06c541decbd3dfd5b2511678",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "park-picnic"
+      ],
+      "source": "lessons/park-visit/park-picnic/images/trash-bin.png",
+      "sourceBytes": 21030,
+      "sourceSha256": "b7dce7f92385183386ced1891e49a83a0dfa3f6a337b64b3f47e2cdb5f651eac",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
         "playtime"
       ],
       "maxPercent": 38,
@@ -7337,9 +12650,768 @@
       "sourceBytes": 647039,
       "sourceSha256": "41400a20343c486d66a8d70423dd20febff8b23e80ddcd3b2cfe2f15e3ebcc1a",
       "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/supermarket-trip/checkout-counter/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/supermarket-trip/checkout-counter/images/background.webp",
+      "outputBytes": 15754,
+      "outputSha256": "84bc27cad5664f7eca127ede94508fc9f16b3d0c1ed22df6e4a8f9ad9fe77253",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/background.png",
+      "sourceBytes": 1419369,
+      "sourceSha256": "af8266f7a714461664afed9bbd6f1f645273f33a398612d633a0b661282c100d",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 486,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/checkout-counter/images/bag.webp",
+      "outputBytes": 10110,
+      "outputSha256": "7a0dd0a090f47b49b52ee477eb0437e68802170255bdc7eb02ab9081693171d1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/bag.png",
+      "sourceBytes": 153616,
+      "sourceSha256": "a9d1cb2ebca7de241fe7551d171ff494407158d40f44b98c6de869d2ea014072",
+      "width": 373
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 414,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/checkout-counter/images/card.webp",
+      "outputBytes": 6478,
+      "outputSha256": "5f646a07a8cb585222127900e259b53e2d68494280f0bc48017ad4b98bff13f0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/card.png",
+      "sourceBytes": 121000,
+      "sourceSha256": "19d7eb4fa3174d898936719d58b3f905a4b785c2bb02fa574a9928434fa7970b",
+      "width": 407
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 482,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/supermarket-trip/checkout-counter/images/cashier.webp",
+      "outputBytes": 13744,
+      "outputSha256": "6be3fe5fb9ff9a42db9a5470238cbbf15f183d203995fbcb3e8cc9586c7e6575",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/cashier.png",
+      "sourceBytes": 133676,
+      "sourceSha256": "95eeb8265a743c7bca49eb0f05322db638a1c032f2dbe70974197e8e660ef404",
+      "width": 309
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 399,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/supermarket-trip/checkout-counter/images/counter.webp",
+      "outputBytes": 10954,
+      "outputSha256": "67b6504d0cb0778972d7f649fe4bfea539db01697297f1134e5ee3b7f06be88a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/counter.png",
+      "sourceBytes": 169245,
+      "sourceSha256": "00bd7509b548343a548f14fe706c59aadb52f0ffc293c7d2693a53ab29d9dee0",
+      "width": 469
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 445,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/checkout-counter/images/pack-bag.webp",
+      "outputBytes": 13976,
+      "outputSha256": "65fbc10dbbb1f9004c678e6f119605bc5ad705e8a2fab720734f3f890a3887f9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/pack-bag.png",
+      "sourceBytes": 248697,
+      "sourceSha256": "4c26072bc03cc7da327a2a4b7565cb52d82da45852f38e2d51fb5387d6424606",
+      "width": 423
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 437,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/checkout-counter/images/receipt.webp",
+      "outputBytes": 7942,
+      "outputSha256": "636225f4c133bbf51ac869aa82967816ba45ec8ac8996e268596e51df4910efc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/receipt.png",
+      "sourceBytes": 108215,
+      "sourceSha256": "b9be0853a92b4412552d99d15c3f49a48d3662f05a1b5145f5f75076dbe7a9f6",
+      "width": 353
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 445,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/checkout-counter/images/say-thank-you.webp",
+      "outputBytes": 13470,
+      "outputSha256": "c6a1a6857d3530a2e0e16f8418d953ca9d98dcbade629d353f707e93702c4fe4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/say-thank-you.png",
+      "sourceBytes": 192536,
+      "sourceSha256": "a91b832221ca2bda803c275bb9f2342607283d45ef322ef2c2c8854e2be36018",
+      "width": 429
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 445,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/checkout-counter/images/scan-item.webp",
+      "outputBytes": 12660,
+      "outputSha256": "df226327fb56daab9ee7d27eed85de19c461688dfb557c833ddf074dfd88413b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/scan-item.png",
+      "sourceBytes": 223219,
+      "sourceSha256": "739b2c3d5b4ae131a39f70fcda35cc54d0d21a9dc1696849c36305c8ed3396c9",
+      "width": 420
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 463,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/checkout-counter/images/scanner.webp",
+      "outputBytes": 6410,
+      "outputSha256": "c1325cddd3ed0d228258b6c0dd734d370f3d4ba6d63ee11f69a96e6a75779c22",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "checkout-counter"
+      ],
+      "source": "lessons/supermarket-trip/checkout-counter/images/scanner.png",
+      "sourceBytes": 96837,
+      "sourceSha256": "a1e487f18349efb915f12c500a1fc02f690ae8ed4acaa619bab4b5f96bfca0e3",
+      "width": 348
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/supermarket-trip/fresh-foods/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/supermarket-trip/fresh-foods/images/background.webp",
+      "outputBytes": 23762,
+      "outputSha256": "c368494f87b5e2537c626fbc1cba2e703174aa298366f2a8509b7e9967f1e388",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/background.png",
+      "sourceBytes": 1469195,
+      "sourceSha256": "4523a0aecbbae9a7079539444252e56d2cb6eed6d24c85a794a08e024802647f",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 414,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/fresh-foods/images/carrot.webp",
+      "outputBytes": 10288,
+      "outputSha256": "4a13a9ef62b46a6cd76b843b4af43b3b94c468565fdc2e788f876daafb27ab0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/carrot.png",
+      "sourceBytes": 89951,
+      "sourceSha256": "3c0e1c2830199f28fe83ea660dd56d2c00bf4288869e764b97626db777867158",
+      "width": 334
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 427,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/fresh-foods/images/choose-drink.webp",
+      "outputBytes": 6296,
+      "outputSha256": "bccf224f284d89ff0b8f8d005c11a746952b8bffa9940818a7ae4df2f3da0c52",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/choose-drink.png",
+      "sourceBytes": 116581,
+      "sourceSha256": "075c696d2e2c029b294fafaba1e10651792d6716492efe77f3cfc4a2eccf9edf",
+      "width": 250
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 416,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/fresh-foods/images/fruit.webp",
+      "outputBytes": 18862,
+      "outputSha256": "46994c656c7f5ad12806b246732ec7d7dc9229730c3f3f8700170c9d0ab12e15",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/fruit.png",
+      "sourceBytes": 211372,
+      "sourceSha256": "2c0e5bbdb561054fc691871d88b110319fe24dede658042243037814d83afdd7",
+      "width": 440
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 372,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/fresh-foods/images/grapes.webp",
+      "outputBytes": 16758,
+      "outputSha256": "77aaa35f82e0339bd4bed02ba80fb78d9efc6472462dcd801b1a2006041e88e5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/grapes.png",
+      "sourceBytes": 147753,
+      "sourceSha256": "df07d09c945bd03cb4f72374cd3f8b36cfa56bfb8e1343e487bde7039c6dd1ec",
+      "width": 363
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 420,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/fresh-foods/images/pick-vegetables.webp",
+      "outputBytes": 19392,
+      "outputSha256": "d924074ffab5427c8e7ba4176683ed2b91b5352f17aa76a7f39b59de4c2fc011",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/pick-vegetables.png",
+      "sourceBytes": 274110,
+      "sourceSha256": "6926d793caa0c50e7634ba8971051c07ed48edba07966c5c396a73fd381f64f4",
+      "width": 392
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 385,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/fresh-foods/images/scale.webp",
+      "outputBytes": 10096,
+      "outputSha256": "13b11955ea238d1eacef85358ae174e9449a3dfdb59706dd02f14a2b0e6dec71",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/scale.png",
+      "sourceBytes": 156845,
+      "sourceSha256": "841a629c2c6308e66a873cc68afb541cfdab30d3c6da25cc80e7f3ccbaabef1e",
+      "width": 358
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 337,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/fresh-foods/images/tomato.webp",
+      "outputBytes": 9062,
+      "outputSha256": "7dd25fc4ed99fa6929130a4ca297bb1114a2bc0809c70a2e4fec72ac124ffecf",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/tomato.png",
+      "sourceBytes": 119965,
+      "sourceSha256": "9d369ba57878547460f7ff9243ac116da07993133474547738671f471c08411d",
+      "width": 337
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 398,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/supermarket-trip/fresh-foods/images/vegetables.webp",
+      "outputBytes": 23706,
+      "outputSha256": "0e0c76fe3d01303ee13ec9a4fe9038ee6d874e383c075b5653661b22da1487d8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/vegetables.png",
+      "sourceBytes": 242424,
+      "sourceSha256": "20cf6bada3553ec0f47aa0f93629fe2a76703e789998a55ca8b226c1f3db9488",
+      "width": 427
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 416,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/fresh-foods/images/weigh-fruit.webp",
+      "outputBytes": 14006,
+      "outputSha256": "6c6c0742648373884aee13be7c1ff39aa3f4adf4a286b9de931db4439307eb2a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fresh-foods"
+      ],
+      "source": "lessons/supermarket-trip/fresh-foods/images/weigh-fruit.png",
+      "sourceBytes": 253116,
+      "sourceSha256": "36d86a13be2d3f3dae818edc0935d0d1791dfc3bcf4ee45306def3533a2379bb",
+      "width": 398
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/shopping-list/images/aisle.webp",
+      "outputBytes": 31218,
+      "outputSha256": "81139ea807d489e94d12892a84a676a174d25906292fc5a13dc3d9b5fddc154f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/aisle.png",
+      "sourceBytes": 938298,
+      "sourceSha256": "8d4f15fc3dacd8c70597d19541f357041ed597fb34c1636ced8adc15d237a374",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/supermarket-trip/shopping-list/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/supermarket-trip/shopping-list/images/background.webp",
+      "outputBytes": 21854,
+      "outputSha256": "bab10500fd72228651297e74e41f7b2d43cdc44f8f32ffca7cc455e372aaa729",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/background.png",
+      "sourceBytes": 1589703,
+      "sourceSha256": "6747a3b1b041e32184678bc361ba4d58f67979bf118a9eba855337740df7f953",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 404,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/shopping-list/images/basket.webp",
+      "outputBytes": 14644,
+      "outputSha256": "ba1912b3314cd57b6b5f810c1381c94412edf96bc602d55029dafe3bc2b0734c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/basket.png",
+      "sourceBytes": 178446,
+      "sourceSha256": "80a27b1bf9df9bc57cd0c19dd51dcb844335aa10527b602ec7982f5a45120773",
+      "width": 428
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/supermarket-trip/shopping-list/images/cart.webp",
+      "outputBytes": 109764,
+      "outputSha256": "c37323df0b557eef1aec834ed2df5c5058d57cdf391dc69ced50c43e226e2e91",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/cart.png",
+      "sourceBytes": 1015525,
+      "sourceSha256": "353e85c92423ddf4675b9b06ef04f53680c95b8d34f371f32b74f08845f41934",
+      "width": 654
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 394,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/shopping-list/images/check-list.webp",
+      "outputBytes": 12390,
+      "outputSha256": "ce57923bacf62a4072471a4dbe4b5594e078fbfab003288c7efd5ae44d08e43b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/check-list.png",
+      "sourceBytes": 181305,
+      "sourceSha256": "67f97c0d37bce3c4a61e0efb240a24c59b15737c2f92bcdd64c7bd75e2f25c38",
+      "width": 395
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 292,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/shopping-list/images/coupon.webp",
+      "outputBytes": 7850,
+      "outputSha256": "ac7612b8a6e58b5f33d9c51d44398980de43918a2065a5428d7ab07d138b3bde",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/coupon.png",
+      "sourceBytes": 100311,
+      "sourceSha256": "dea0995b0891cb09535c7a27fea427f6746fa1e5baeb68b839e00251efe9f1c5",
+      "width": 402
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 393,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/shopping-list/images/make-list.webp",
+      "outputBytes": 11150,
+      "outputSha256": "a532a6750c36db1eaeef576fb853d599af32620916ba677220b5ca5736c3efcc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/make-list.png",
+      "sourceBytes": 197648,
+      "sourceSha256": "d1fd1bd088f292422c9ead14196a0b219853b5a3ce0d9eff81fe5a7ee77fd0f3",
+      "width": 408
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 394,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/supermarket-trip/shopping-list/images/push-cart.webp",
+      "outputBytes": 15792,
+      "outputSha256": "a6e89976fecfe3a3b21b1973343ced1fe254d38f0b8a725a0539ead487ad68cc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/push-cart.png",
+      "sourceBytes": 204458,
+      "sourceSha256": "bc527e1f2b677745da201e960316fc96f89cbf8dc326f948efe38d799fffd290",
+      "width": 399
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 402,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/supermarket-trip/shopping-list/images/shopping-list.webp",
+      "outputBytes": 9450,
+      "outputSha256": "d5a73d1cae03c4e02f9ec2dbe6c2a590659171d289161f524e867e5c96f8a2e2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/shopping-list.png",
+      "sourceBytes": 126925,
+      "sourceSha256": "41872358fb9a3cc79e40f7e931a89ac1dbf00a7d9bea86cfd50d9c96216914b8",
+      "width": 358
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 360,
+      "lessonIds": [
+        "supermarket-trip"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/supermarket-trip/shopping-list/images/wallet.webp",
+      "outputBytes": 10822,
+      "outputSha256": "9cfcdd0673c1d61ff54af7f585452c0bb690e077b6f824c547a4b5742d2be98b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "shopping-list"
+      ],
+      "source": "lessons/supermarket-trip/shopping-list/images/wallet.png",
+      "sourceBytes": 157847,
+      "sourceSha256": "6f425841a49efab42fe3a9c7662649595cfb7ee03521d04f2e709f6916ebbe69",
+      "width": 374
     }
   ],
-  "generatedAt": "2026-07-10T02:17:38.093Z",
+  "generatedAt": "2026-07-29T13:37:21.590Z",
   "releaseVersion": "v1",
-  "revision": "908bddad53b238c1"
+  "revision": "6bd1e6ea56e3d04e"
 }

@@ -1,14 +1,22 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Alert, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
 import { AppUiIcon } from '../components/AppUiIcon';
 import { KidBadge } from '../components/KidBadge';
-import { PremiumContentGate } from '../components/PremiumContentGate';
 import { Screen } from '../components/Screen';
+import {
+  getKidLockAudioPrompt,
+  type KidLockReason,
+} from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
-import { speakTeacherPromptSegments } from '../engine/AudioManager';
+import {
+  playTapSound,
+  speakTeacherPromptSegments,
+  speakVi,
+  speakWord,
+} from '../engine/AudioManager';
 import {
   getParentSettings,
   subscribeParentSettings,
@@ -19,7 +27,7 @@ import {
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
 import { useContentAccess } from '../engine/useContentAccess';
-import { useI18n, useSavedAppLanguage } from '../i18n';
+import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
 import {
   GamePlayer,
   resolveReviewGameType,
@@ -40,12 +48,14 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
 export function ReviewGameScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const promptLanguage = useSavedPromptLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const openedFromParent = route.params.openedFromParent === true;
   const [isCompleting, setIsCompleting] = useState(false);
   const [isIntroPlaying, setIsIntroPlaying] = useState(false);
   const appLanguage = useSavedAppLanguage();
   const introPlaybackIdRef = useRef(0);
+  const hasShownAccessPromptRef = useRef(false);
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
@@ -79,6 +89,76 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     },
     { latchWhenGranted: true },
   );
+  const hasContentAccess = isAccessGranted;
+
+  const playKidLockPrompt = useCallback(
+    (reason: KidLockReason) => {
+      playTapSound().catch(() => undefined);
+      const message = getKidLockAudioPrompt(reason, promptLanguage);
+      const speech =
+        promptLanguage === 'en' ? speakWord(message) : speakVi(message);
+      speech.catch(() => undefined);
+    },
+    [promptLanguage],
+  );
+
+  const returnAfterBlockedAccess = useCallback(() => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+      return;
+    }
+
+    navigation.navigate('Home');
+  }, [navigation]);
+
+  useEffect(() => {
+    if (!lesson || hasContentAccess || hasShownAccessPromptRef.current) {
+      return;
+    }
+
+    hasShownAccessPromptRef.current = true;
+
+    if (isResolving) {
+      playKidLockPrompt('resolving');
+      Alert.alert(
+        t('premium.kidLockedTitle'),
+        t('premium.resolving'),
+        [{ onPress: returnAfterBlockedAccess, text: t('common.close') }],
+        { cancelable: false },
+      );
+      return;
+    }
+
+    playKidLockPrompt('premium');
+    Alert.alert(
+      t('premium.kidLockedTitle'),
+      t('premium.kidLockedText'),
+      [
+        {
+          onPress: returnAfterBlockedAccess,
+          style: 'cancel',
+          text: t('common.close'),
+        },
+        {
+          onPress: () =>
+            navigation.replace('Parent', {
+              intent: 'premium',
+              lessonId: lesson.id,
+            }),
+          text: t('premium.askParent'),
+        },
+      ],
+      { cancelable: false },
+    );
+  }, [
+    hasContentAccess,
+    isResolving,
+    lesson,
+    navigation,
+    playKidLockPrompt,
+    returnAfterBlockedAccess,
+    t,
+  ]);
 
   useEffect(() => {
     let isMounted = true;
@@ -120,10 +200,10 @@ export function ReviewGameScreen({ navigation, route }: Props) {
 
   const reviewItems = useMemo(
     () =>
-      lesson && learningMode && isAccessGranted
+      lesson && learningMode && hasContentAccess
         ? getReviewGameItems(lesson, learningMode)
         : [],
-    [isAccessGranted, lesson, learningMode],
+    [hasContentAccess, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
     lesson?.reviewGame && reviewItems.length >= 2,
@@ -134,7 +214,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     introPlaybackIdRef.current = playbackId;
 
     if (
-      !isAccessGranted ||
+      !hasContentAccess ||
       !shouldPlayIntro ||
       !isTeacherPromptReady ||
       !lesson?.reviewGame
@@ -163,7 +243,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     };
   }, [
     activeGameType,
-    isAccessGranted,
+    hasContentAccess,
     isTeacherPromptReady,
     lesson?.reviewGame,
     route.params.lessonId,
@@ -215,17 +295,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
-  if (!isAccessGranted) {
+  if (!hasContentAccess) {
     return (
-      <PremiumContentGate
-        isResolving={isResolving}
-        onAskParent={() =>
-          navigation.navigate('Parent', {
-            intent: 'premium',
-            lessonId: lesson.id,
-          })
-        }
-      />
+      <Screen>
+        <View />
+      </Screen>
     );
   }
 

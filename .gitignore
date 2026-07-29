@@ -80,3 +80,6 @@ firestore-debug.log
 # Environment secrets
 .env
 /src/config/revenueCatTestStoreKey.local.ts
+/src/config/remoteAssetOverrides.local.ts
+/src/config/localAudioPreview.local.ts
+/src/data/audioManifest.local.ts

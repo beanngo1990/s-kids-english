@@ -22,6 +22,7 @@ import {
   defaultParentSettings,
   getParentSettings,
 } from '../src/engine/ParentSettingsManager';
+import { remoteAssetsConfig } from '../src/config/remoteAssets';
 import type { Scene } from '../src/types/lesson';
 
 jest.mock('../src/engine/AudioManager', () => {
@@ -164,6 +165,9 @@ const mockedPrefetchRemoteAssets = prefetchRemoteAssets as jest.MockedFunction<
 const mockedPrepareRemoteAssets = prepareRemoteAssets as jest.MockedFunction<
   typeof prepareRemoteAssets
 >;
+const mutableRemoteAssetsConfig = remoteAssetsConfig as {
+  allowMissingLessonAudio: boolean;
+};
 
 const listenScene: Scene = {
   background: {
@@ -339,6 +343,7 @@ beforeEach(() => {
   mockedPrefetchRemoteAssets.mockResolvedValue(true);
   mockedPrepareRemoteAssets.mockReset();
   mockedPrepareRemoteAssets.mockResolvedValue(true);
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = false;
 });
 
 afterEach(() => {
@@ -424,6 +429,43 @@ test('blocks the lesson when required audio fails and retries the preload', asyn
   expect(mockedPrepareRemoteAssets.mock.calls.length).toBeGreaterThanOrEqual(2);
   expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
   expect(mockedSpeakVi).toHaveBeenCalledWith('Con hãy nghe cô nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('allows local QA to continue when unpublished lesson audio is allowed', async () => {
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  mockedPrepareRemoteAssets.mockResolvedValue(false);
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={listenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedPrepareRemoteAssets).not.toHaveBeenCalled();
+  expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
+  expect(mockedSpeakVi).not.toHaveBeenCalled();
+  expect(
+    tree?.root
+      .findAllByType(KidIconButton)
+      .some(node => node.props.accessibilityLabel === 'Tiếp tục'),
+  ).toBe(true);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
