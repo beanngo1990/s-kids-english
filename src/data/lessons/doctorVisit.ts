@@ -3,6 +3,7 @@ import {
   makeOutsideExplorationLesson,
   type OutsideLessonSpec,
 } from './outsideExplorationFactory';
+import { rect } from '../lessonAuthoring';
 
 const doctorVisitSpec = {
   id: 'doctor-visit',
@@ -35,24 +36,41 @@ const doctorVisitSpec = {
       introSuccessEn: 'The doctor will help you feel better.',
       completionVi: 'Bé đã chào bác sĩ và nói cảm giác của mình.',
       completionEn: 'You greeted the doctor and said how you feel.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'doctor',
           word: 'doctor',
           meaningVi: 'bác sĩ',
           labelVi: 'bác sĩ',
+          position: rect(66, 25, 20, 34),
+          touchArea: rect(60, 19, 32, 46),
+          practiceInstructionVi:
+            'Chạm vào bác sĩ ở phía trên bên phải nhé.',
+          failHintVi: 'Bác sĩ đứng ở phía trên bên phải.',
         },
         {
           key: 'nurse',
           word: 'nurse',
           meaningVi: 'cô y tá',
           labelVi: 'cô y tá',
+          position: rect(38, 27, 19, 32),
+          touchArea: rect(32, 21, 31, 44),
+          practiceInstructionVi: 'Chạm vào cô y tá ở phía trên nhé.',
+          failHintVi: 'Cô y tá đứng ở phía trên.',
         },
         {
           key: 'clinic',
           word: 'clinic',
           meaningVi: 'phòng khám',
           labelVi: 'phòng khám',
+          position: rect(35, 54, 18, 16),
+          touchArea: rect(29, 48, 30, 28),
+          practiceInstructionVi:
+            'Chạm vào tòa nhà phòng khám cạnh bé nhé.',
+          failHintVi: 'Tòa nhà phòng khám nằm ngay bên phải bé.',
         },
         {
           key: 'waiting-room',
@@ -60,6 +78,11 @@ const doctorVisitSpec = {
           meaningVi: 'phòng chờ',
           labelVi: 'phòng chờ',
           tier: 'expanded',
+          position: rect(75, 53, 20, 16),
+          touchArea: rect(69, 47, 31, 28),
+          practiceInstructionVi:
+            'Chạm vào phòng chờ ở bên phải nhé.',
+          failHintVi: 'Phòng chờ nằm ở bên phải.',
         },
         {
           key: 'clipboard',
@@ -68,6 +91,11 @@ const doctorVisitSpec = {
           labelVi: 'bảng kẹp giấy',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(56, 60, 15, 14),
+          touchArea: rect(50, 54, 27, 26),
+          practiceInstructionVi:
+            'Kéo bảng kẹp giấy ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Bảng kẹp giấy nằm ở giữa phía dưới.',
         },
         {
           key: 'mask',
@@ -75,6 +103,11 @@ const doctorVisitSpec = {
           meaningVi: 'khẩu trang',
           labelVi: 'khẩu trang',
           tier: 'expanded',
+          position: rect(82, 34, 12, 11),
+          touchArea: rect(76, 28, 24, 23),
+          practiceInstructionVi:
+            'Chạm vào khẩu trang ở góc trên bên phải nhé.',
+          failHintVi: 'Khẩu trang nằm ở góc trên bên phải.',
         },
         {
           key: 'say-how-you-feel',
@@ -83,6 +116,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ nói cảm giác của bé',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ nói cảm giác ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ nói cảm giác nằm ở dưới bên trái.',
         },
         {
           key: 'sit-still',
@@ -92,6 +130,11 @@ const doctorVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ ngồi yên ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ ngồi yên nằm ở giữa hàng dưới.',
         },
         {
           key: 'tell-where-it-hurts',
@@ -100,6 +143,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ chỉ chỗ bị đau',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ chỉ chỗ đau ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ chỉ chỗ đau nằm ở dưới bên phải.',
         },
       ],
     },
@@ -114,18 +162,30 @@ const doctorVisitSpec = {
       introSuccessEn: "We'll do each step gently.",
       completionVi: 'Bé đã hoàn thành buổi kiểm tra sức khỏe.',
       completionEn: 'You completed the health check.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'thermometer',
           word: 'thermometer',
           meaningVi: 'nhiệt kế',
           labelVi: 'nhiệt kế',
+          position: rect(35, 55, 14, 17),
+          touchArea: rect(29, 49, 26, 29),
+          practiceInstructionVi: 'Chạm vào nhiệt kế cạnh bé nhé.',
+          failHintVi: 'Nhiệt kế nằm ngay bên phải bé.',
         },
         {
           key: 'weighing-scale',
           word: 'weighing scale',
           meaningVi: 'cân sức khỏe',
           labelVi: 'cân sức khỏe',
+          position: rect(53, 50, 20, 22),
+          touchArea: rect(47, 44, 32, 34),
+          practiceInstructionVi:
+            'Chạm vào cân sức khỏe ở giữa nhé.',
+          failHintVi: 'Cân sức khỏe nằm ở giữa khung cảnh.',
         },
         {
           key: 'bandage',
@@ -134,12 +194,22 @@ const doctorVisitSpec = {
           labelVi: 'băng cá nhân',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(80, 55, 14, 11),
+          touchArea: rect(74, 49, 26, 23),
+          practiceInstructionVi:
+            'Kéo băng cá nhân bên phải vào vòng sáng nhé.',
+          failHintVi: 'Băng cá nhân nằm ở bên phải.',
         },
         {
           key: 'stethoscope',
           word: 'stethoscope',
           meaningVi: 'ống nghe',
           labelVi: 'ống nghe',
+          position: rect(34, 27, 23, 22),
+          touchArea: rect(28, 21, 35, 34),
+          practiceInstructionVi:
+            'Chạm vào ống nghe ở phía trên nhé.',
+          failHintVi: 'Ống nghe nằm ở phía trên.',
         },
         {
           key: 'otoscope',
@@ -148,6 +218,11 @@ const doctorVisitSpec = {
           labelVi: 'đèn soi tai',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(63, 30, 14, 16),
+          touchArea: rect(57, 24, 26, 28),
+          practiceInstructionVi:
+            'Kéo đèn soi tai phía trên vào vòng sáng nhé.',
+          failHintVi: 'Đèn soi tai nằm ở phía trên.',
         },
         {
           key: 'hand-gel',
@@ -155,6 +230,11 @@ const doctorVisitSpec = {
           meaningVi: 'gel rửa tay',
           labelVi: 'gel rửa tay',
           tier: 'expanded',
+          position: rect(81, 29, 13, 17),
+          touchArea: rect(75, 23, 25, 29),
+          practiceInstructionVi:
+            'Chạm vào gel rửa tay ở góc trên bên phải nhé.',
+          failHintVi: 'Gel rửa tay nằm ở góc trên bên phải.',
         },
         {
           key: 'take-temperature',
@@ -163,6 +243,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ đo nhiệt độ',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ đo nhiệt độ ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ đo nhiệt độ nằm ở dưới bên trái.',
         },
         {
           key: 'check-heartbeat',
@@ -172,6 +257,11 @@ const doctorVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ nghe nhịp tim ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ nghe nhịp tim nằm ở giữa hàng dưới.',
         },
         {
           key: 'clean-hands',
@@ -180,6 +270,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ dùng gel rửa tay',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ dùng gel ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ dùng gel nằm ở dưới bên phải.',
         },
       ],
     },
@@ -194,12 +289,19 @@ const doctorVisitSpec = {
       introSuccessEn: 'Rest helps you feel better.',
       completionVi: 'Bé đã biết nghỉ ngơi và chăm sóc khi bị ốm.',
       completionEn: 'You learned how to rest and feel better.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'medicine',
           word: 'medicine',
           meaningVi: 'thuốc',
           labelVi: 'thuốc',
+          position: rect(35, 52, 16, 18),
+          touchArea: rect(29, 46, 28, 30),
+          practiceInstructionVi: 'Chạm vào chai thuốc cạnh bé nhé.',
+          failHintVi: 'Chai thuốc nằm ngay bên phải bé.',
         },
         {
           key: 'spoon',
@@ -207,12 +309,22 @@ const doctorVisitSpec = {
           meaningVi: 'thìa uống thuốc',
           labelVi: 'thìa uống thuốc',
           practice: 'drag',
+          position: rect(56, 58, 17, 10),
+          touchArea: rect(50, 52, 29, 22),
+          practiceInstructionVi:
+            'Kéo thìa uống thuốc ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thìa uống thuốc nằm ở giữa phía dưới.',
         },
         {
           key: 'tissue',
           word: 'tissue',
           meaningVi: 'khăn giấy',
           labelVi: 'khăn giấy',
+          position: rect(79, 53, 18, 15),
+          touchArea: rect(73, 47, 27, 27),
+          practiceInstructionVi:
+            'Chạm vào hộp khăn giấy ở bên phải nhé.',
+          failHintVi: 'Hộp khăn giấy nằm ở bên phải.',
         },
         {
           key: 'water',
@@ -220,6 +332,11 @@ const doctorVisitSpec = {
           meaningVi: 'nước',
           labelVi: 'nước',
           tier: 'expanded',
+          position: rect(35, 29, 15, 17),
+          touchArea: rect(29, 23, 27, 29),
+          practiceInstructionVi:
+            'Chạm vào cốc nước ở phía trên nhé.',
+          failHintVi: 'Cốc nước nằm ở phía trên.',
         },
         {
           key: 'rest-card',
@@ -229,6 +346,11 @@ const doctorVisitSpec = {
           practice: 'drag',
           tier: 'expanded',
           type: 'verb',
+          position: rect(57, 30, 16, 15),
+          touchArea: rect(51, 24, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ nghỉ ngơi phía trên vào vòng sáng nhé.',
+          failHintVi: 'Thẻ nghỉ ngơi nằm ở phía trên.',
         },
         {
           key: 'sticker',
@@ -236,6 +358,11 @@ const doctorVisitSpec = {
           meaningVi: 'hình dán thưởng',
           labelVi: 'hình dán thưởng',
           tier: 'expanded',
+          position: rect(82, 31, 12, 12),
+          touchArea: rect(76, 25, 24, 24),
+          practiceInstructionVi:
+            'Chạm vào hình dán ở góc trên bên phải nhé.',
+          failHintVi: 'Hình dán nằm ở góc trên bên phải.',
         },
         {
           key: 'take-medicine',
@@ -244,6 +371,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ uống thuốc cùng người lớn',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ uống thuốc ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ uống thuốc nằm ở dưới bên trái.',
         },
         {
           key: 'blow-nose',
@@ -253,6 +385,11 @@ const doctorVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ xì mũi ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ xì mũi nằm ở giữa hàng dưới.',
         },
         {
           key: 'drink-water',
@@ -261,6 +398,11 @@ const doctorVisitSpec = {
           labelVi: 'thẻ uống nước',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ uống nước ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ uống nước nằm ở dưới bên phải.',
         },
       ],
     },

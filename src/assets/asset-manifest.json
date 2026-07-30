@@ -5616,14 +5616,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/doctor-visit/clinic-room/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -5632,21 +5632,21 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "doctor-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/doctor-visit/clinic-room/images/background.webp",
-      "outputBytes": 10138,
-      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "outputBytes": 29698,
+      "outputSha256": "7031782993727b27dad8c02d6fa9860e35e48690b68cf8b3b8850397fc0dee39",
       "profile": "background",
       "roles": [
         "background"
@@ -5655,9 +5655,9 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/background.png",
-      "sourceBytes": 73440,
-      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
-      "width": 941
+      "sourceBytes": 2316116,
+      "sourceSha256": "fbdd257009885cbd86644196c74ecab92f4f444d9378dd3ea59434ae193cc327",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5685,14 +5685,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 423,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/doctor-visit/clinic-room/images/clinic.webp",
-      "outputBytes": 8448,
-      "outputSha256": "7547ea9bac79f0f632e61f360828062cc8ee77c39b1025998d2aef7496b5bc95",
+      "outputBytes": 9530,
+      "outputSha256": "c41f690537885333963260e5d8e51cc5c2d76409d3a738accba0f92e7d7b7ca6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5701,21 +5701,21 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/clinic.png",
-      "sourceBytes": 15570,
-      "sourceSha256": "777f1c61d6c4e6079b88628d68e034fcc57973756c05e7ef02a22a1a7329c4a8",
-      "width": 512
+      "sourceBytes": 107764,
+      "sourceSha256": "27b6536c5fa9b68d859f183fa971a6b717f270d265a941e22ce416d9549a0a0b",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
-      "output": "lessons/doctor-visit/clinic-room/images/doctor.webp",
-      "outputBytes": 14066,
-      "outputSha256": "0a0ecfdb78432ae7b9c26340b4477ce0b01caf44404929ca52853ab164431e47",
+      "maxPercent": 15,
+      "output": "lessons/doctor-visit/clinic-room/images/clipboard.webp",
+      "outputBytes": 4230,
+      "outputSha256": "843ad28c2a441e38b82e5f9b80524283809d92ec34f270fe1feb7964660ad2a8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5723,22 +5723,45 @@
       "sceneIds": [
         "clinic-room"
       ],
-      "source": "lessons/doctor-visit/clinic-room/images/doctor.png",
-      "sourceBytes": 46949,
-      "sourceSha256": "eab0008be09cf9b4fd471ff0b4a178a0b498806f4ef054e13f79ea53b7c85c56",
-      "width": 242
+      "source": "lessons/doctor-visit/clinic-room/images/clipboard.png",
+      "sourceBytes": 65576,
+      "sourceSha256": "c6270e53b59b202a064009177fb8006d5b084a9331401fc89247a76a39cf1fda",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 337,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 34,
+      "output": "lessons/doctor-visit/clinic-room/images/doctor.webp",
+      "outputBytes": 13762,
+      "outputSha256": "2b94da7c67035f0fb4d420b796a7054a7512e7161f9cd3ed04fe6ab98273491f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/doctor.png",
+      "sourceBytes": 94480,
+      "sourceSha256": "6da2b7672b318787addb11399571c9c6eb4cbd2ffb60faeb9ef54ed6069f4ca2",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 12,
       "output": "lessons/doctor-visit/clinic-room/images/mask.webp",
-      "outputBytes": 13962,
-      "outputSha256": "48a03fe2dc827eadecfad135409ba741020085979f8c87702a82215749b75530",
+      "outputBytes": 7878,
+      "outputSha256": "afb25a0873c8a1fc205a374a194f4436fb131fa1de1fbc60ecc1e0a6a81f256f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5747,22 +5770,22 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/mask.png",
-      "sourceBytes": 23156,
-      "sourceSha256": "9a5e493b47a8f663b2b24c3fd9e1dd5c395e835f70fe75b0f7155c6305ed84ef",
-      "width": 512
+      "sourceBytes": 53837,
+      "sourceSha256": "ba8009c8d93cd68a8b7e5af6fc481154cc114ba503bc07b336e1d078b940c4e3",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 32,
       "output": "lessons/doctor-visit/clinic-room/images/nurse.webp",
-      "outputBytes": 14038,
-      "outputSha256": "6d9a02ae2650862cea9283de0cf60fbdbed9941d5630daa2a414c58737408687",
-      "profile": "objectSmall",
+      "outputBytes": 11482,
+      "outputSha256": "af32f8d7d66df8d61bed09c66c12a2c39f508f4765a66b82eaf03b085bf57492",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -5770,9 +5793,9 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/nurse.png",
-      "sourceBytes": 46917,
-      "sourceSha256": "ddf65a22d1934456cba183ca2aa225e8c3056caab7c29a62a62cb0aa669438dd",
-      "width": 242
+      "sourceBytes": 75555,
+      "sourceSha256": "edcecf5be6d2c177fa811953655fcedc951fe7f7a82949c167d47614a748a356",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5800,14 +5823,37 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
+      "output": "lessons/doctor-visit/clinic-room/images/say-how-you-feel.webp",
+      "outputBytes": 22534,
+      "outputSha256": "0e979ee16e598c3805ea3a643c3c0811fea7b2b82ebd38864643e223a0505ebe",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/say-how-you-feel.png",
+      "sourceBytes": 212204,
+      "sourceSha256": "ba868c74774f4f172a685666b4fb874fd9f5da0ebcd17bba2857fda4a85e4241",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/clinic-room/images/sit-still.webp",
-      "outputBytes": 10102,
-      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "outputBytes": 13038,
+      "outputSha256": "7768dcbeaaeb28cf12e3f1cd160686370dc2c7c4836c74d45061dc598cfe5fce",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5816,9 +5862,9 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/sit-still.png",
-      "sourceBytes": 23154,
-      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
-      "width": 512
+      "sourceBytes": 163541,
+      "sourceSha256": "0aab12b680d48011fe0c4cd1d789aa62c48094fd521f0d5eb3497f8bd05dcafe",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5846,14 +5892,37 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
+      "output": "lessons/doctor-visit/clinic-room/images/tell-where-it-hurts.webp",
+      "outputBytes": 23118,
+      "outputSha256": "6cf4a9d84ccb977a6eba329a38fe9e47bf21df019d34f77d22df2dca5a4482bd",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clinic-room"
+      ],
+      "source": "lessons/doctor-visit/clinic-room/images/tell-where-it-hurts.png",
+      "sourceBytes": 219641,
+      "sourceSha256": "ed79430c2edd0244cbbd7ad5cbcba7a4b17ffac4d274ac76b481bf1edc10d09d",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 20,
       "output": "lessons/doctor-visit/clinic-room/images/waiting-room.webp",
-      "outputBytes": 10322,
-      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "outputBytes": 9040,
+      "outputSha256": "5374a671b1e7cf0c87a76b0a3ddd2a966ec4a3e5258f90e685e6886b830c5b9e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5862,21 +5931,21 @@
         "clinic-room"
       ],
       "source": "lessons/doctor-visit/clinic-room/images/waiting-room.png",
-      "sourceBytes": 23731,
-      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
-      "width": 512
+      "sourceBytes": 85069,
+      "sourceSha256": "d76b338cb0c158abb4f9d9d43986f18bcd8f8799839019b9e857a2b81b8e65ca",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/doctor-visit/health-check/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -5885,21 +5954,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "doctor-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/doctor-visit/health-check/images/background.webp",
-      "outputBytes": 10138,
-      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "outputBytes": 16406,
+      "outputSha256": "b3843ef8256ab7038edc1cb53c215a083d0bf218ca550a7f13d480e9a18ddd7e",
       "profile": "background",
       "roles": [
         "background"
@@ -5908,21 +5977,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/background.png",
-      "sourceBytes": 73440,
-      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
-      "width": 941
+      "sourceBytes": 1818745,
+      "sourceSha256": "195ed71bbcf4c9c91c1ff7083ef49b3d7c9add3c34bc23f61f890387e00d78be",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 273,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 14,
       "output": "lessons/doctor-visit/health-check/images/bandage.webp",
-      "outputBytes": 10204,
-      "outputSha256": "a6f56e129d203cd632132194c1c72ebd388c88c8d7ef6bf813b7436f193b6b69",
+      "outputBytes": 8244,
+      "outputSha256": "16a97c1b753abdb9e7a41a0f83a636d75d9dd1400a4d2b403783a7b7ef3d5a31",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5931,21 +6000,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/bandage.png",
-      "sourceBytes": 21867,
-      "sourceSha256": "f12817f2eceadcf293c0f7b7ff961c50c97ac2690ef72e6c4535696326aa4988",
-      "width": 512
+      "sourceBytes": 81844,
+      "sourceSha256": "bea2ad34c94df45fd60c383716dcffd10ebf0ad77bf648f19e3f7ea9587ecf8c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/health-check/images/check-heartbeat.webp",
-      "outputBytes": 10146,
-      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "outputBytes": 22748,
+      "outputSha256": "3420840c99b1a292f40b448e3705863b99f44f5a692d11decfb5d07503cd1bc5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5954,21 +6023,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/check-heartbeat.png",
-      "sourceBytes": 23615,
-      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
-      "width": 512
+      "sourceBytes": 218404,
+      "sourceSha256": "f241742331bf316a44c03e7355cbedf88f11a0f571ac1924bd15fcd02d6aca84",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/health-check/images/clean-hands.webp",
-      "outputBytes": 10332,
-      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "outputBytes": 14772,
+      "outputSha256": "9a5f498fb87efb2eedf1571f8f0c4add3a442df2ac73f707ebf5490eb41867f6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5977,9 +6046,9 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/clean-hands.png",
-      "sourceBytes": 23299,
-      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
-      "width": 512
+      "sourceBytes": 181751,
+      "sourceSha256": "f478a22f225e2559488ac4698572a4672dafb78e86b0ce5724fd139a7246c61c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -6007,14 +6076,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 17,
       "output": "lessons/doctor-visit/health-check/images/hand-gel.webp",
-      "outputBytes": 9872,
-      "outputSha256": "45a2771ef53ea4c6c22b56883ddac72290fe40dfef09853092d2a02485e2ee5c",
+      "outputBytes": 5748,
+      "outputSha256": "aa2b5e20a0f0630c510e469bd3c5a00b481acfe9e53a4f0b2e5b5c510eef75c7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6023,9 +6092,32 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/hand-gel.png",
-      "sourceBytes": 23457,
-      "sourceSha256": "74c5e9d552fefd2a4dd7c852ba9dd8762d3d09491967df4c7781203bd355ae01",
-      "width": 451
+      "sourceBytes": 59798,
+      "sourceSha256": "45f6b9a7329e317ea270688bb306dcab2cd6caf6e8d90275f20895068ef59fd0",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/doctor-visit/health-check/images/otoscope.webp",
+      "outputBytes": 7472,
+      "outputSha256": "79f3b56926a0bda4e6ac3ff633ec567ff0e0b43098195a8e7167794e2ecfc024",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/otoscope.png",
+      "sourceBytes": 56696,
+      "sourceSha256": "fee567921ba2bc3e5601b8306e627834dcafe1231747fe2f0a5962de660117be",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -6053,15 +6145,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 465,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 23,
       "output": "lessons/doctor-visit/health-check/images/stethoscope.webp",
-      "outputBytes": 19920,
-      "outputSha256": "fa0e699cf06a92af77cf24c95471de2438c6d16c64247891ae37a2179f4dc6a7",
-      "profile": "objectSmall",
+      "outputBytes": 15858,
+      "outputSha256": "7c934dba4ae337fd83ea04e87c36c12705156b07a687a58c3cf9d5d3a3d4e29d",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -6069,21 +6161,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/stethoscope.png",
-      "sourceBytes": 30812,
-      "sourceSha256": "072804923bf763079540a96a8e94af82578a0499171d52411e42fe2d675c0698",
-      "width": 512
+      "sourceBytes": 73832,
+      "sourceSha256": "875588e7182234d31f04c4ce6d1f0d6c8cb9eb8e5fcbdfbad93a107925d662ba",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 462,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/health-check/images/take-temperature.webp",
-      "outputBytes": 6340,
-      "outputSha256": "f8ea014dff7b5156f4588515f0b484836107ab5c3dc50569cee1d28c1250bbaf",
+      "outputBytes": 16450,
+      "outputSha256": "b8a86ac4f71e49b5ea0e61b4874a623b99c370d47ba3bdfae78a48bb58d97a15",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6092,21 +6184,21 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/take-temperature.png",
-      "sourceBytes": 10235,
-      "sourceSha256": "179ca5e151385698871a41694e21da3fa3103e20a8434e5f5140b2599c249d21",
-      "width": 512
+      "sourceBytes": 190534,
+      "sourceSha256": "75535ab617aa84f8b63721ab7317b25d3c71202e18ec2501e4fd66a97e9b5b73",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 462,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 17,
       "output": "lessons/doctor-visit/health-check/images/thermometer.webp",
-      "outputBytes": 6340,
-      "outputSha256": "f8ea014dff7b5156f4588515f0b484836107ab5c3dc50569cee1d28c1250bbaf",
+      "outputBytes": 8476,
+      "outputSha256": "c280425327cecb89122eb65407d74ba87f5f642b1ac1ad7915264998474180a8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6115,21 +6207,44 @@
         "health-check"
       ],
       "source": "lessons/doctor-visit/health-check/images/thermometer.png",
-      "sourceBytes": 10235,
-      "sourceSha256": "179ca5e151385698871a41694e21da3fa3103e20a8434e5f5140b2599c249d21",
-      "width": 512
+      "sourceBytes": 63071,
+      "sourceSha256": "8d952c5898773e2a25425a1631a2eebe82b4d97d3de8b4aa8474e6f9a215bb8b",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 22,
+      "output": "lessons/doctor-visit/health-check/images/weighing-scale.webp",
+      "outputBytes": 9740,
+      "outputSha256": "0ef521f60c434e9a78cd2adc89c732e0e84e75a30089558e8806110cb69bb3ea",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "health-check"
+      ],
+      "source": "lessons/doctor-visit/health-check/images/weighing-scale.png",
+      "sourceBytes": 107651,
+      "sourceSha256": "d5d5f164330615a585d4039fbe076cb520bd90d3734f0c33e8cdc14c07d3ae54",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "doctor-visit"
+      ],
+      "maxPercent": 39,
       "output": "lessons/doctor-visit/medicine-care/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -6138,21 +6253,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "doctor-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/doctor-visit/medicine-care/images/background.webp",
-      "outputBytes": 10138,
-      "outputSha256": "0fedc8541cfa895f348eb2d07f50f1abc94685f62b55c3ec47e3d63bb2465f13",
+      "outputBytes": 87408,
+      "outputSha256": "fe60d6088064c85b0017961d1baa11806ebf123e4f98245b71d4c1baa5a88c34",
       "profile": "background",
       "roles": [
         "background"
@@ -6161,21 +6276,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/background.png",
-      "sourceBytes": 73440,
-      "sourceSha256": "65a71834715f092ebf391eff50658f264003e620c7a6d7f36bc9a01fcff94e0b",
-      "width": 941
+      "sourceBytes": 2362335,
+      "sourceSha256": "a97344675b9a60fc9f69ffd5788a00a7fdf1096047e91cbf142218ad109c1b3d",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 358,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/medicine-care/images/blow-nose.webp",
-      "outputBytes": 9564,
-      "outputSha256": "23644e66c0ebe01bd9d5f725b4075b20fac3fe89a0a6ed0bbda04f9b2256a317",
+      "outputBytes": 13780,
+      "outputSha256": "41311946ed89cf86b069bd62400a68a9b163da5a5c6e2878120d1d0ec495eada",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6184,21 +6299,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/blow-nose.png",
-      "sourceBytes": 19292,
-      "sourceSha256": "e5eb295a62a470287a9ae3d3075a63f6f20fdf38fe2c1aced1e59518a7ff2d54",
-      "width": 512
+      "sourceBytes": 172830,
+      "sourceSha256": "c628fbfcf460fe30751c277d0d7a6e75035abc1028f2a0e5861d89a44d004a68",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/medicine-care/images/drink-water.webp",
-      "outputBytes": 9780,
-      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "outputBytes": 14760,
+      "outputSha256": "63dee9aee1a3d1c9894f7e989d82f5e41fa6c8897176f554265b6763c7a76754",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6207,21 +6322,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/drink-water.png",
-      "sourceBytes": 21686,
-      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
-      "width": 472
+      "sourceBytes": 181440,
+      "sourceSha256": "3deb81b3d94534e803bb82ebffa9a7a7e1eb5bd9c2bacb137fe23c946cdd7201",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/doctor-visit/medicine-care/images/medicine.webp",
-      "outputBytes": 9690,
-      "outputSha256": "3d4695a17c8638e48d212119bf1f35daed7e4b7ce343ec28ce9f40c82f942614",
+      "outputBytes": 7728,
+      "outputSha256": "e8def11eace0c7ce1047a0a61785267ce81d3ac1af8503b7ca9c4056893ecb06",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6230,21 +6345,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/medicine.png",
-      "sourceBytes": 23291,
-      "sourceSha256": "dabc10c239fc72af6a0d17769fc9d421f93d2062b37c34b1e7c84fd59cb06f25",
-      "width": 451
+      "sourceBytes": 84438,
+      "sourceSha256": "22bcac256c274feb073905d25502dcf611e52f4e5841b47313bb868f313f14a9",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/medicine-care/images/rest-card.webp",
-      "outputBytes": 5952,
-      "outputSha256": "6350a698026b91da429f74e7b206cdf6a83036b9bcd73a21572f5bd375315d93",
+      "outputBytes": 8040,
+      "outputSha256": "77fe1c638942c6c7844dc4d5baebbeac4b91e643efdfea316cf185d424206a1e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6253,21 +6368,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/rest-card.png",
-      "sourceBytes": 18078,
-      "sourceSha256": "83c7845ab31d8ebfd34f09c7d77dd4b44ed578a81f109a7b527b3bf69a2a9a1c",
-      "width": 512
+      "sourceBytes": 133929,
+      "sourceSha256": "ad174f2e8fd4ded559f5306470bc67c417de132fb0392a58410b88164f78274c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 17,
       "output": "lessons/doctor-visit/medicine-care/images/spoon.webp",
-      "outputBytes": 17338,
-      "outputSha256": "fb841e2d20c9122cc2f8e42ce47c01c3418460338a0c7eb45875b0c50e504620",
+      "outputBytes": 7154,
+      "outputSha256": "27d987745ae3f28bfd6aa0a020deb26a1a3dc934c0a3cfa856b2645457827614",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6276,21 +6391,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/spoon.png",
-      "sourceBytes": 24277,
-      "sourceSha256": "5501a0978e48b78984a6862ff7a4a853be541b729887a8b1d85bf25c5cbcfd8d",
-      "width": 497
+      "sourceBytes": 50225,
+      "sourceSha256": "8d9db3a740cb66bcf714ad5c318767fedc1246ef77b14c9d1f0d90d0c21f23b1",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 444,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 12,
       "output": "lessons/doctor-visit/medicine-care/images/sticker.webp",
-      "outputBytes": 10784,
-      "outputSha256": "9499de882810b1af9f3e7ce0cff713cc0e6c0dd3c91e740a24ef266146771808",
+      "outputBytes": 12222,
+      "outputSha256": "e83400d783adbfc88efb5abdf12db605898de5f386ba149e531d596ecb22aacb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6299,21 +6414,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/sticker.png",
-      "sourceBytes": 22291,
-      "sourceSha256": "fca01df92058eabf1ec5c3cf4606f8fb4ed5a281c2adcc199f337e83415f5e03",
-      "width": 512
+      "sourceBytes": 106052,
+      "sourceSha256": "894c950252e9001fd168710a759c9909449f659de9d4eebcab754db79a6bbb9c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/doctor-visit/medicine-care/images/take-medicine.webp",
-      "outputBytes": 9568,
-      "outputSha256": "f43f656f03e0968305746de2cdb0c609d4f16b7c92e2f01b9e78a143e694d8f9",
+      "outputBytes": 21916,
+      "outputSha256": "3d9134af64172b0112ac8fe9da656077f3bd7fc4dfba17336403d0d7a663b2b1",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6322,21 +6437,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/take-medicine.png",
-      "sourceBytes": 23083,
-      "sourceSha256": "4f414cc06bdc0c85283276f3ea881efddccc222ed6c65cf22a6580736aa7e2e1",
-      "width": 451
+      "sourceBytes": 215234,
+      "sourceSha256": "4db2b25bb504e0a90ca1273f26bca4d7cd0487e6a7d2593f352c6de39b5837c8",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 358,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/doctor-visit/medicine-care/images/tissue.webp",
-      "outputBytes": 9564,
-      "outputSha256": "23644e66c0ebe01bd9d5f725b4075b20fac3fe89a0a6ed0bbda04f9b2256a317",
+      "outputBytes": 8044,
+      "outputSha256": "0dc236ffc61e17f02b5bc83a858784f209139183b86e8c41dc049e14b64563b2",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6345,21 +6460,21 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/tissue.png",
-      "sourceBytes": 19292,
-      "sourceSha256": "e5eb295a62a470287a9ae3d3075a63f6f20fdf38fe2c1aced1e59518a7ff2d54",
-      "width": 512
+      "sourceBytes": 104340,
+      "sourceSha256": "14e89d56e3eed19113b253f895d41e6211325e76e7a44e74e6b52648b4d57995",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "doctor-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 17,
       "output": "lessons/doctor-visit/medicine-care/images/water.webp",
-      "outputBytes": 9780,
-      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "outputBytes": 7758,
+      "outputSha256": "755c9b0f4a2988cb04391a4c544170c469e121c332555cfbedc2396f4ef843c7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6368,9 +6483,9 @@
         "medicine-care"
       ],
       "source": "lessons/doctor-visit/medicine-care/images/water.png",
-      "sourceBytes": 21686,
-      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
-      "width": 472
+      "sourceBytes": 84124,
+      "sourceSha256": "b545bc2c502098d831138af364405e0f4fdafc440201a7bf59468a8c7f4e4167",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13572,7 +13687,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-07-30T06:18:39.485Z",
+  "generatedAt": "2026-07-30T07:07:07.552Z",
   "releaseVersion": "v1",
-  "revision": "d754da4e425d4755"
+  "revision": "8757ee6007175c51"
 }
