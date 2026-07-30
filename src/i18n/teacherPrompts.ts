@@ -801,6 +801,10 @@ function getDropZoneFallbackName(dropZoneId: string) {
     return explicitName;
   }
 
+  if (dropZoneId.endsWith('-action-zone')) {
+    return 'glowing circle';
+  }
+
   const words = dropZoneId
     .replace(/[-_]?zone$/iu, '')
     .split(/[-_]/u)

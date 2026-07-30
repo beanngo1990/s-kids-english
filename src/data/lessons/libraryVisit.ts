@@ -33,8 +33,8 @@ const libraryVisitSpec = {
       introEn: "Let's enter the library quietly.",
       introSuccessVi: 'Thư viện có nhiều sách quá!',
       introSuccessEn: 'There are so many books!',
-      completionVi: 'Bé đã biết các đồ ở quầy thư viện.',
-      completionEn: 'You learned words at the library desk.',
+      completionVi: 'Bé đã biết dùng thẻ và trả sách đúng chỗ.',
+      completionEn: 'You used a library card and returned a book.',
       vocabulary: [
         {
           key: 'library-card',
@@ -47,7 +47,6 @@ const libraryVisitSpec = {
           word: 'shelf',
           meaningVi: 'kệ sách',
           labelVi: 'kệ sách',
-          practice: 'drag',
         },
         {
           key: 'librarian',
@@ -60,14 +59,14 @@ const libraryVisitSpec = {
           word: 'book basket',
           meaningVi: 'giỏ đựng sách',
           labelVi: 'giỏ đựng sách',
+          practice: 'drag',
           tier: 'expanded',
         },
         {
-          key: 'return-box',
-          word: 'return box',
-          meaningVi: 'hộp trả sách',
-          labelVi: 'hộp trả sách',
-          practice: 'drag',
+          key: 'book-return',
+          word: 'book return',
+          meaningVi: 'nơi trả sách',
+          labelVi: 'nơi trả sách',
           tier: 'expanded',
         },
         {
@@ -113,21 +112,21 @@ const libraryVisitSpec = {
       introEn: "Let's choose a book.",
       introSuccessVi: 'Quyển nào cũng thú vị!',
       introSuccessEn: 'Every book looks interesting!',
-      completionVi: 'Bé đã biết các đồ ở góc chọn sách.',
-      completionEn: 'You learned words in the book corner.',
+      completionVi: 'Bé đã chọn được quyển sách mình thích.',
+      completionEn: 'You chose a book you like.',
       vocabulary: [
         {
           key: 'picture-book',
           word: 'picture book',
           meaningVi: 'sách tranh',
           labelVi: 'sách tranh',
+          practice: 'drag',
         },
         {
           key: 'cover',
           word: 'cover',
           meaningVi: 'bìa sách',
           labelVi: 'bìa sách',
-          practice: 'drag',
         },
         {
           key: 'page',
@@ -140,6 +139,7 @@ const libraryVisitSpec = {
           word: 'bookmark',
           meaningVi: 'thẻ đánh dấu sách',
           labelVi: 'thẻ đánh dấu sách',
+          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -147,7 +147,6 @@ const libraryVisitSpec = {
           word: 'reading chair',
           meaningVi: 'ghế đọc sách',
           labelVi: 'ghế đọc sách',
-          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -193,8 +192,8 @@ const libraryVisitSpec = {
       introEn: "Let's sit for story time.",
       introSuccessVi: 'Mình cùng lắng nghe nào.',
       introSuccessEn: "Let's listen together.",
-      completionVi: 'Bé đã biết các từ trong giờ kể chuyện.',
-      completionEn: 'You learned story time words.',
+      completionVi: 'Bé đã ngồi nghe chuyện thật chăm chú.',
+      completionEn: 'You listened carefully during story time.',
       vocabulary: [
         {
           key: 'storyteller',
@@ -207,13 +206,13 @@ const libraryVisitSpec = {
           word: 'circle',
           meaningVi: 'vòng tròn',
           labelVi: 'vòng tròn',
-          practice: 'drag',
         },
         {
           key: 'cushion',
           word: 'cushion',
           meaningVi: 'đệm ngồi',
           labelVi: 'đệm ngồi',
+          practice: 'drag',
         },
         {
           key: 'puppet',

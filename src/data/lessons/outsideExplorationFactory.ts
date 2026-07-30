@@ -378,7 +378,13 @@ function makeVocabularySteps({
 }
 
 function getPracticeInstructionEn(item: OutsideVocabularySpec) {
-  return item.type === 'phrase' ? toEnglishSentence(item.word) : undefined;
+  if (item.practice === 'drag') {
+    return item.type === 'phrase'
+      ? 'Drag the matching action card into the glowing circle.'
+      : `Drag the ${item.word} into the glowing circle.`;
+  }
+
+  return item.type === 'phrase' ? 'Tap the matching action card.' : undefined;
 }
 
 function getPracticeSuccessEn(item: OutsideVocabularySpec) {
@@ -386,7 +392,9 @@ function getPracticeSuccessEn(item: OutsideVocabularySpec) {
 }
 
 function getPracticeFailEn(item: OutsideVocabularySpec) {
-  return item.type === 'phrase' ? 'Look for the action card.' : undefined;
+  return item.type === 'phrase'
+    ? 'Look for the matching action card.'
+    : undefined;
 }
 
 function getLearningScope(
@@ -431,16 +439,4 @@ function sceneImageSource(
 
 function reviewRefKey(sceneId: string, key: string) {
   return `${sceneId}:${key}`;
-}
-
-function toEnglishSentence(text: string) {
-  const trimmed = text.trim();
-  if (!trimmed) {
-    return undefined;
-  }
-
-  const sentence = `${trimmed[0].toLocaleUpperCase('en-US')}${trimmed.slice(
-    1,
-  )}`;
-  return /[.!?]$/u.test(sentence) ? sentence : `${sentence}.`;
 }

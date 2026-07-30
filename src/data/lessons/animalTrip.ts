@@ -7,15 +7,15 @@ import {
 const animalTripSpec = {
   id: 'animal-trip',
   themeId: 'be-ra-ngoai-kham-pha',
-  titleVi: 'Bé thăm động vật',
-  titleEn: 'Animal Visit',
+  titleVi: 'Bé đi vườn thú',
+  titleEn: 'Zoo Visit',
   descriptionVi:
-    'Bé xem biển chỉ dẫn, gặp động vật nông trại và đi theo lối ở sở thú.',
+    'Bé xem biển chỉ dẫn, gặp động vật nông trại và khám phá vườn thú.',
   descriptionEn:
-    'Read signs, meet farm animals, and follow the path at the zoo.',
+    'Read signs, meet farm animals, and explore the zoo.',
   thumbnailEmoji: '🐐',
   parentTipVi:
-    'Ba mẹ có thể nhắc bé quan sát nhẹ nhàng, không chọc phá động vật và rửa tay sau khi chạm đồ ăn cho vật nuôi.',
+    'Ba mẹ có thể nhắc bé quan sát nhẹ nhàng, chỉ cho động vật ăn khi có người hướng dẫn và rửa tay sau khi chơi.',
   reviewTitleVi: 'Tìm động vật và đồ ở nông trại',
   reviewVocabulary: [
     { sceneId: 'animal-gate', key: 'ticket' },
@@ -26,15 +26,15 @@ const animalTripSpec = {
   scenes: [
     {
       id: 'animal-gate',
-      titleVi: 'Cổng khu động vật',
-      titleEn: 'Animal Gate',
+      titleVi: 'Cổng vườn thú',
+      titleEn: 'Zoo Entrance',
       thumbnailEmoji: '🎟️',
-      introVi: 'Mình vào khu thăm động vật nhé.',
-      introEn: "Let's enter the animal area.",
+      introVi: 'Mình vào vườn thú nhé.',
+      introEn: "Let's enter the zoo.",
       introSuccessVi: 'Mình nhìn biển chỉ dẫn trước nhé.',
       introSuccessEn: "Let's look at the signs first.",
-      completionVi: 'Bé đã biết các đồ ở cổng khu động vật.',
-      completionEn: 'You learned words at the animal gate.',
+      completionVi: 'Bé đã sẵn sàng vào thăm các bạn động vật.',
+      completionEn: 'You are ready to visit the animals.',
       vocabulary: [
         {
           key: 'ticket',
@@ -51,9 +51,9 @@ const animalTripSpec = {
         },
         {
           key: 'sign',
-          word: 'animal sign',
-          meaningVi: 'biển chỉ dẫn động vật',
-          labelVi: 'biển chỉ dẫn động vật',
+          word: 'zoo sign',
+          meaningVi: 'biển chỉ dẫn trong vườn thú',
+          labelVi: 'biển chỉ dẫn trong vườn thú',
         },
         {
           key: 'gate',
@@ -65,23 +65,22 @@ const animalTripSpec = {
         {
           key: 'keeper',
           word: 'zookeeper',
-          meaningVi: 'nhân viên chăm sóc động vật',
-          labelVi: 'nhân viên chăm sóc động vật',
-          practice: 'drag',
+          meaningVi: 'người chăm sóc động vật',
+          labelVi: 'người chăm sóc động vật',
           tier: 'expanded',
         },
         {
-          key: 'feed-bucket',
-          word: 'feed bucket',
-          meaningVi: 'xô thức ăn cho vật nuôi',
-          labelVi: 'xô thức ăn cho vật nuôi',
+          key: 'wristband',
+          word: 'wristband',
+          meaningVi: 'vòng tay vào cửa',
+          labelVi: 'vòng tay vào cửa',
           tier: 'expanded',
         },
         {
           key: 'show-ticket',
           word: 'show the ticket',
-          meaningVi: 'đưa vé vào cửa',
-          labelVi: 'thẻ đưa vé vào cửa',
+          meaningVi: 'đưa vé',
+          labelVi: 'thẻ đưa vé',
           tier: 'challenge',
           type: 'phrase',
         },
@@ -97,7 +96,7 @@ const animalTripSpec = {
         {
           key: 'follow-keeper',
           word: 'follow the zookeeper',
-          meaningVi: 'đi theo nhân viên chăm sóc động vật',
+          meaningVi: 'đi theo người chăm sóc',
           labelVi: 'thẻ đi theo người chăm sóc',
           tier: 'challenge',
           type: 'phrase',
@@ -113,8 +112,8 @@ const animalTripSpec = {
       introEn: "Let's meet farm animals.",
       introSuccessVi: 'Các bạn động vật đáng yêu quá!',
       introSuccessEn: 'The farm animals are lovely!',
-      completionVi: 'Bé đã biết vài động vật nông trại.',
-      completionEn: 'You learned farm animal words.',
+      completionVi: 'Bé đã gặp và chăm sóc các bạn động vật nông trại.',
+      completionEn: 'You met and cared for the farm animals.',
       vocabulary: [
         {
           key: 'goat',
@@ -127,7 +126,6 @@ const animalTripSpec = {
           word: 'cow',
           meaningVi: 'con bò',
           labelVi: 'con bò',
-          practice: 'drag',
         },
         {
           key: 'sheep',
@@ -147,7 +145,6 @@ const animalTripSpec = {
           word: 'chicken',
           meaningVi: 'con gà',
           labelVi: 'con gà',
-          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -166,10 +163,10 @@ const animalTripSpec = {
           type: 'phrase',
         },
         {
-          key: 'brush-pony',
-          word: 'brush the pony',
-          meaningVi: 'chải lông ngựa nhỏ',
-          labelVi: 'thẻ chải lông ngựa nhỏ',
+          key: 'pet-sheep',
+          word: 'pet the sheep gently',
+          meaningVi: 'vuốt ve cừu nhẹ nhàng',
+          labelVi: 'thẻ vuốt ve cừu nhẹ nhàng',
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
@@ -191,10 +188,10 @@ const animalTripSpec = {
       thumbnailEmoji: '🦓',
       introVi: 'Mình đi theo lối trong sở thú nhé.',
       introEn: "Let's walk along the zoo path.",
-      introSuccessVi: 'Mình quan sát thật nhẹ nhàng.',
-      introSuccessEn: "Let's watch gently.",
-      completionVi: 'Bé đã biết thêm động vật ở sở thú.',
-      completionEn: 'You learned more zoo animal words.',
+      introSuccessVi: 'Mình quan sát các bạn thật nhẹ nhàng.',
+      introSuccessEn: "Let's watch the animals quietly.",
+      completionVi: 'Bé đã quan sát động vật và đi đúng lối.',
+      completionEn: 'You watched the animals and stayed on the path.',
       vocabulary: [
         {
           key: 'zebra',
@@ -207,7 +204,6 @@ const animalTripSpec = {
           word: 'giraffe',
           meaningVi: 'hươu cao cổ',
           labelVi: 'hươu cao cổ',
-          practice: 'drag',
         },
         {
           key: 'monkey',
@@ -216,10 +212,10 @@ const animalTripSpec = {
           labelVi: 'con khỉ',
         },
         {
-          key: 'pond',
-          word: 'pond',
-          meaningVi: 'ao nhỏ',
-          labelVi: 'ao nhỏ',
+          key: 'path',
+          word: 'zoo path',
+          meaningVi: 'lối đi trong vườn thú',
+          labelVi: 'lối đi trong vườn thú',
           tier: 'expanded',
         },
         {
@@ -227,7 +223,6 @@ const animalTripSpec = {
           word: 'habitat',
           meaningVi: 'nơi sống của động vật',
           labelVi: 'nơi sống của động vật',
-          practice: 'drag',
           tier: 'expanded',
         },
         {

@@ -27,14 +27,14 @@ const grandparentsVisitSpec = {
     {
       id: 'family-visit',
       titleVi: 'Chào ông bà',
-      titleEn: 'Family Visit',
+      titleEn: 'Greeting Grandparents',
       thumbnailEmoji: '👵',
       introVi: 'Mình đến thăm ông bà nhé.',
       introEn: "Let's visit the grandparents.",
       introSuccessVi: 'Mình chào ông bà thật vui.',
       introSuccessEn: "Let's greet them happily.",
-      completionVi: 'Bé đã biết các từ khi chào ông bà.',
-      completionEn: 'You learned greeting words for a family visit.',
+      completionVi: 'Bé đã chào ông bà thật vui.',
+      completionEn: 'You greeted Grandma and Grandpa.',
       vocabulary: [
         {
           key: 'grandma',
@@ -47,7 +47,6 @@ const grandparentsVisitSpec = {
           word: 'grandpa',
           meaningVi: 'ông',
           labelVi: 'ông',
-          practice: 'drag',
         },
         {
           key: 'doorbell',
@@ -60,6 +59,7 @@ const grandparentsVisitSpec = {
           word: 'family photo',
           meaningVi: 'ảnh gia đình',
           labelVi: 'ảnh gia đình',
+          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -67,7 +67,6 @@ const grandparentsVisitSpec = {
           word: 'hug',
           meaningVi: 'cái ôm',
           labelVi: 'cái ôm',
-          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -86,10 +85,10 @@ const grandparentsVisitSpec = {
           type: 'phrase',
         },
         {
-          key: 'give-hug',
-          word: 'give a hug',
-          meaningVi: 'ôm nhẹ',
-          labelVi: 'thẻ ôm nhẹ',
+          key: 'ask-for-hug',
+          word: 'ask for a hug',
+          meaningVi: 'xin phép ôm',
+          labelVi: 'thẻ xin phép ôm',
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
@@ -113,8 +112,8 @@ const grandparentsVisitSpec = {
       introEn: "Let's help in the garden.",
       introSuccessVi: 'Khu vườn xanh mát quá!',
       introSuccessEn: 'The garden is so green!',
-      completionVi: 'Bé đã biết các từ khi phụ giúp trong vườn.',
-      completionEn: 'You learned garden helping words.',
+      completionVi: 'Bé đã giúp ông bà chăm sóc khu vườn.',
+      completionEn: 'You helped care for the garden.',
       vocabulary: [
         {
           key: 'garden',
@@ -127,13 +126,13 @@ const grandparentsVisitSpec = {
           word: 'flower',
           meaningVi: 'bông hoa',
           labelVi: 'bông hoa',
-          practice: 'drag',
         },
         {
           key: 'watering-can',
           word: 'watering can',
           meaningVi: 'bình tưới cây',
           labelVi: 'bình tưới cây',
+          practice: 'drag',
         },
         {
           key: 'seed',
@@ -193,14 +192,14 @@ const grandparentsVisitSpec = {
       introEn: "Let's say goodbye and go home.",
       introSuccessVi: 'Mình nói cảm ơn thật lễ phép.',
       introSuccessEn: "Let's say thank you politely.",
-      completionVi: 'Bé đã biết nói tạm biệt sau chuyến thăm.',
-      completionEn: 'You learned how to say goodbye after a visit.',
+      completionVi: 'Bé đã cảm ơn và chào tạm biệt ông bà.',
+      completionEn: 'You thanked Grandma and Grandpa and said goodbye.',
       vocabulary: [
         {
-          key: 'farewell-card',
-          word: 'farewell card',
-          meaningVi: 'thiệp tạm biệt',
-          labelVi: 'thiệp tạm biệt',
+          key: 'front-door',
+          word: 'front door',
+          meaningVi: 'cửa ra vào',
+          labelVi: 'cửa ra vào',
         },
         {
           key: 'shoes',
@@ -217,10 +216,11 @@ const grandparentsVisitSpec = {
         },
         {
           key: 'wave',
-          word: 'wave',
-          meaningVi: 'vẫy tay chào tạm biệt',
-          labelVi: 'cái vẫy tay chào tạm biệt',
+          word: 'wave goodbye',
+          meaningVi: 'vẫy tay tạm biệt',
+          labelVi: 'thẻ vẫy tay tạm biệt',
           tier: 'expanded',
+          type: 'phrase',
         },
         {
           key: 'thank-you-card',
