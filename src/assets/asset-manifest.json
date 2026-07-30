@@ -3339,14 +3339,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/beach-day/beach-bag/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -3355,21 +3355,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1535,
       "lessonIds": [
         "beach-day"
       ],
       "maxPercent": 100,
       "output": "lessons/beach-day/beach-bag/images/background.webp",
-      "outputBytes": 17566,
-      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "outputBytes": 41620,
+      "outputSha256": "436615a8e96ebce10e8bf84c91f18bac66b68f3a87337eb9d224bf3512db80dd",
       "profile": "background",
       "roles": [
         "background"
@@ -3378,22 +3378,22 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/background.png",
-      "sourceBytes": 83058,
-      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
-      "width": 941
+      "sourceBytes": 1785270,
+      "sourceSha256": "82dff450d2b9a159728ea46ca6b86ffca8c3d6a5c6b135bb3337d6d833bc0514",
+      "width": 1024
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 405,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 25,
       "output": "lessons/beach-day/beach-bag/images/beach-bag.webp",
-      "outputBytes": 14694,
-      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
-      "profile": "objectSmall",
+      "outputBytes": 20940,
+      "outputSha256": "55c9df601ffff6dbcf14c04f63f1f333be839214971301b0f97bc7939a4e1b45",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -3401,21 +3401,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/beach-bag.png",
-      "sourceBytes": 27939,
-      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
-      "width": 512
+      "sourceBytes": 180335,
+      "sourceSha256": "b6ffcff8dd42b37cbf06bd74bab0c6dcc9e0c17c68ff1ba48992575966325474",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 405,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/beach-bag/images/carry-bag.webp",
-      "outputBytes": 14694,
-      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
+      "outputBytes": 16714,
+      "outputSha256": "690544fa562a2725fa8360e711a8db4427eb76140297ac1c171451921a288d29",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3424,21 +3424,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/carry-bag.png",
-      "sourceBytes": 27939,
-      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
-      "width": 512
+      "sourceBytes": 183434,
+      "sourceSha256": "c9d8ad80432f09aa2fc700977a0c9c7ef3d5f39fc7f65866deaabcca70e1380f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/beach-bag/images/put-on-sunscreen.webp",
-      "outputBytes": 9790,
-      "outputSha256": "50e294f4390630bd2280d24e948713e86e5f7e377cc63496af5589ca2d5cd4e8",
+      "outputBytes": 18234,
+      "outputSha256": "ad45f2b47f5e1445a106f7019f76db35f356966321c943657c359b5de9945a34",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3447,21 +3447,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/put-on-sunscreen.png",
-      "sourceBytes": 23227,
-      "sourceSha256": "3e25e844e6cfe6ecdd57a0a72e014a81b4f6f3e58b61917f32c3ac4d272bcb19",
-      "width": 451
+      "sourceBytes": 190460,
+      "sourceSha256": "a15d7be3be48555395de89100b1b07f0991a0ab4304856076c6f919c6ef28625",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 277,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 19,
       "output": "lessons/beach-day/beach-bag/images/sun-hat.webp",
-      "outputBytes": 15104,
-      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "outputBytes": 14570,
+      "outputSha256": "10e36bf0c7a3c3ae9eaa92150c39d8a776e4050268536afb92e9b5975101e269",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3470,21 +3470,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/sun-hat.png",
-      "sourceBytes": 22298,
-      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
-      "width": 512
+      "sourceBytes": 148074,
+      "sourceSha256": "90a7bb888d30c890e967a3f356e99640b7d64134e22e2036504fb626168861b5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 267,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 15,
       "output": "lessons/beach-day/beach-bag/images/sunglasses.webp",
-      "outputBytes": 12592,
-      "outputSha256": "43710ca0ff500b147050f524dc14a409f9ab5e1dda25eaef44249316923f445f",
+      "outputBytes": 10608,
+      "outputSha256": "0b7d8017dd88b3003c63abe055b3f81cd24df2f21c32cca9ff76c1e1adf82158",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3493,21 +3493,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/sunglasses.png",
-      "sourceBytes": 17789,
-      "sourceSha256": "b4852b569ea773df9e0c5748ec635815ba50420f854e4dfab0c40a879b210e6b",
-      "width": 512
+      "sourceBytes": 67617,
+      "sourceSha256": "19d70db834c40c724e1b94cf220e7ea93d45d1e4355400cfedcb6ec1a680a372",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/beach-day/beach-bag/images/sunscreen.webp",
-      "outputBytes": 9790,
-      "outputSha256": "50e294f4390630bd2280d24e948713e86e5f7e377cc63496af5589ca2d5cd4e8",
+      "outputBytes": 9128,
+      "outputSha256": "5ee4e095aa4293280b71bd08b55eb9b08fd0dddb541f59a60d77300157132cc9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3516,21 +3516,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/sunscreen.png",
-      "sourceBytes": 23227,
-      "sourceSha256": "3e25e844e6cfe6ecdd57a0a72e014a81b4f6f3e58b61917f32c3ac4d272bcb19",
-      "width": 451
+      "sourceBytes": 86109,
+      "sourceSha256": "3c34040a8a252c5a10fd64503d3cd2fb8da6092de6df1a02606bc35a94b0cd3a",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 399,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/beach-day/beach-bag/images/towel.webp",
-      "outputBytes": 9946,
-      "outputSha256": "d44789abd8638b3419c89f2ad699f7d77af421d56974473fcd406e65a9f870e2",
+      "outputBytes": 16588,
+      "outputSha256": "9aeb70df284b9049ae1907e896b4c65a6b40f47bbc7dc73548b4299691a677bb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3539,21 +3539,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/towel.png",
-      "sourceBytes": 24014,
-      "sourceSha256": "6933a396b82454df0161cf7086678d577bff414d7957825299325087d8596b15",
-      "width": 512
+      "sourceBytes": 144842,
+      "sourceSha256": "1e300da992b6d44ab73b6939814eeec9c2c8658b4544b6786b8f78b0d146190f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 17,
       "output": "lessons/beach-day/beach-bag/images/water-bottle.webp",
-      "outputBytes": 9780,
-      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "outputBytes": 7952,
+      "outputSha256": "e9db2f80318feb46db54d907d8197ac9d4ee559f8484bf0e0d0f0d3d7dbe7e00",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3562,21 +3562,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/water-bottle.png",
-      "sourceBytes": 21686,
-      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
-      "width": 472
+      "sourceBytes": 80976,
+      "sourceSha256": "92d8fb5b5d283a4e7491cacad5aeba6ce202fa84017aa6eac4d927a4f7edb660",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 277,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/beach-bag/images/wear-hat.webp",
-      "outputBytes": 15104,
-      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "outputBytes": 17068,
+      "outputSha256": "eaeb87273c99a95322ff55272dda509adf52bcf7a26d0caf201bdca39d858ea4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3585,21 +3585,21 @@
         "beach-bag"
       ],
       "source": "lessons/beach-day/beach-bag/images/wear-hat.png",
-      "sourceBytes": 22298,
-      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
-      "width": 512
+      "sourceBytes": 186143,
+      "sourceSha256": "71940e07b8932154f178c2c1885a17f272e8f7faf4f2555eb9af4540aaa85d19",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/beach-day/sand-play/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -3608,9 +3608,9 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -3621,8 +3621,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/beach-day/sand-play/images/background.webp",
-      "outputBytes": 17566,
-      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "outputBytes": 48080,
+      "outputSha256": "081393176423f27e185c1741960b3edefc16553a8c020b081e4d8cf6e380c948",
       "profile": "background",
       "roles": [
         "background"
@@ -3631,21 +3631,21 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/background.png",
-      "sourceBytes": 83058,
-      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
+      "sourceBytes": 1847740,
+      "sourceSha256": "fbb9947b5bd0d39968f449e2978e6f8901b624bf42ce3e82787d1879a8ee595b",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 477,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 19,
       "output": "lessons/beach-day/sand-play/images/bucket.webp",
-      "outputBytes": 17422,
-      "outputSha256": "b964347ca2b6330c88062fcf990c015c1501eca3ab3a1bb1642c39765fdcaaa2",
+      "outputBytes": 14086,
+      "outputSha256": "b169ae6d54908fb2977d9280ff4073a23f79f4f9dbf2366d0335c175119d8bb8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3654,21 +3654,21 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/bucket.png",
-      "sourceBytes": 29302,
-      "sourceSha256": "329b601e0dcb403bc6ad067ff33ad8fd03fafc43c6367be3d1facda24cdc36b0",
-      "width": 512
+      "sourceBytes": 132021,
+      "sourceSha256": "8cedf05884e832b5de20441b6a034b98311fed62a41d413906303dbcb3d41335",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 465,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/sand-play/images/build-sandcastle.webp",
-      "outputBytes": 8876,
-      "outputSha256": "6fea53d9324a9028f93b75096849a5f701e56409255e059f3a441ec51f9fb11e",
+      "outputBytes": 21498,
+      "outputSha256": "9695352145e1ae87c5a7581f6c3c028c15422cb5a6d0d3c5f5043188f5cdb895",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3677,9 +3677,9 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/build-sandcastle.png",
-      "sourceBytes": 19786,
-      "sourceSha256": "0848f0e90be7a8771c5e971c3420c9cc5ce000a535590c98df07c12464ef999d",
-      "width": 512
+      "sourceBytes": 206698,
+      "sourceSha256": "fcc4c19092e8dc0f5693b38e269dfddffc9be7608c0871f28b8099d310738966",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -3707,14 +3707,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 326,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 13,
       "output": "lessons/beach-day/sand-play/images/crab.webp",
-      "outputBytes": 17384,
-      "outputSha256": "1f5969457305e87ad577834adee10049e4925422408e0f25a3359b40df5a026a",
+      "outputBytes": 20630,
+      "outputSha256": "a6c0b60c3cc1f881ffeb74fcc98f017170f61dc2feed1dbb752c9a106c6d6ba1",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3723,21 +3723,21 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/crab.png",
-      "sourceBytes": 23585,
-      "sourceSha256": "2cf10f520d69cf6c5421f1e8be018c97e12d701d2f7e9c28666a8bf1c8707c17",
-      "width": 512
+      "sourceBytes": 155531,
+      "sourceSha256": "636d379199657b17585892d1a9504baaa1db6b287701a80c7d900f04b963ccf1",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/sand-play/images/dig-sand.webp",
-      "outputBytes": 10102,
-      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "outputBytes": 20746,
+      "outputSha256": "72c49efa28d0e6bf98e22426c937ecb6e866bc51597750beec6b488765218acf",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3746,21 +3746,44 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/dig-sand.png",
-      "sourceBytes": 23154,
-      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
-      "width": 512
+      "sourceBytes": 205222,
+      "sourceSha256": "59b7dbff4f705f94de71e4a2e98afedd5cc93d85af57bf2ce2cebc0852fd27e5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/beach-day/sand-play/images/find-shells.webp",
+      "outputBytes": 19260,
+      "outputSha256": "3aaf25bdeb191449dc6715d15bb6329d3bf27c040b20e918037b788379b7cc4c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sand-play"
+      ],
+      "source": "lessons/beach-day/sand-play/images/find-shells.png",
+      "sourceBytes": 195225,
+      "sourceSha256": "488324ad31a340fdf919e02bc04863a4b9dd7e0e48caaca322c517871d2cded2",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
       "maxPercent": 19,
       "output": "lessons/beach-day/sand-play/images/footprints.webp",
-      "outputBytes": 10322,
-      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "outputBytes": 20534,
+      "outputSha256": "4c757f1a1cbe8cfed4e235eca4e20659d9e942cf6a7cf911fe341d8c8ebaebf3",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3769,22 +3792,22 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/footprints.png",
-      "sourceBytes": 23731,
-      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
-      "width": 512
+      "sourceBytes": 162213,
+      "sourceSha256": "47f0322825f87caea35313d910c4a6a893086e36f9fb9580bbd2a2c91eef30c5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 465,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 28,
       "output": "lessons/beach-day/sand-play/images/sandcastle.webp",
-      "outputBytes": 8876,
-      "outputSha256": "6fea53d9324a9028f93b75096849a5f701e56409255e059f3a441ec51f9fb11e",
-      "profile": "objectSmall",
+      "outputBytes": 27304,
+      "outputSha256": "47c67d2fd6117007d1b30b885240a763710b6c31116a5e9c67b9d83643fad470",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -3792,21 +3815,21 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/sandcastle.png",
-      "sourceBytes": 19786,
-      "sourceSha256": "0848f0e90be7a8771c5e971c3420c9cc5ce000a535590c98df07c12464ef999d",
-      "width": 512
+      "sourceBytes": 178143,
+      "sourceSha256": "0fe35b2d4753ef2e8a952101f7d3902123214e3c66f57481865688b19aaf6254",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 373,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 12,
       "output": "lessons/beach-day/sand-play/images/shell.webp",
-      "outputBytes": 16490,
-      "outputSha256": "35710e2a5a76852ee37dba92084bccb0dd680e6cfb1df6720d7274094e57cae9",
+      "outputBytes": 14484,
+      "outputSha256": "3d75e7df5cba36a60104cce2f01c569e351d5619329b5aa0f1647e6b86517d2e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3815,22 +3838,22 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/shell.png",
-      "sourceBytes": 30454,
-      "sourceSha256": "d484807faaacff43a90eb9c8301768ad361be5cae9688a734d0617db4e1922a8",
-      "width": 512
+      "sourceBytes": 132147,
+      "sourceSha256": "fd066e18c035c5cd7c6180670effdd6be763f20b1cb76213b48d8d0d988b101f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 413,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 21,
       "output": "lessons/beach-day/sand-play/images/shovel.webp",
-      "outputBytes": 11502,
-      "outputSha256": "626dbbeebbdd7a2bbff2ec5f6859897ddb793961ff5c1f53f81dcca2304049d3",
-      "profile": "objectSmall",
+      "outputBytes": 9870,
+      "outputSha256": "a111357dd6451cc31ecc912ef4ed91378a3a5a04a0540b1a72154bb8d59dedf9",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -3838,21 +3861,21 @@
         "sand-play"
       ],
       "source": "lessons/beach-day/sand-play/images/shovel.png",
-      "sourceBytes": 18521,
-      "sourceSha256": "53679ba5962d43862005a5de51a948db9e2882d54dc474b2019efeee7d3df51b",
-      "width": 512
+      "sourceBytes": 100044,
+      "sourceSha256": "beaac9392b4de2aa2458944e3c571ef25da45d0fb9fa978839ece063e233fdce",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/beach-day/sea-safety/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -3861,9 +3884,9 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -3874,8 +3897,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/beach-day/sea-safety/images/background.webp",
-      "outputBytes": 17566,
-      "outputSha256": "50a690acdda1c4a9be1deda58b8e6962905c58b63dcf17dd39f9f4d0f586b746",
+      "outputBytes": 27626,
+      "outputSha256": "471a82c2997698c33b493f889a2124baec092b68196852ebda050e5120ef3d99",
       "profile": "background",
       "roles": [
         "background"
@@ -3884,22 +3907,22 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/background.png",
-      "sourceBytes": 83058,
-      "sourceSha256": "208e700458d0f4fa55bf87aa79eb36b84b0e9baf90586d894b550ca9f77e0c95",
+      "sourceBytes": 1619450,
+      "sourceSha256": "0456f76be8fe7f094c61ddfcfacfae32c5ac373f0d2ac95d008a3917bab9e0ca",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 428,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 24,
       "output": "lessons/beach-day/sea-safety/images/flag.webp",
-      "outputBytes": 7762,
-      "outputSha256": "a8fcdc4d1a10b80f86b6f92c0279bea6607fe9e942e6b965ab559d554ff14d49",
-      "profile": "objectSmall",
+      "outputBytes": 7214,
+      "outputSha256": "07fecdc441cc2470edbe1e47385537cb31f635f9f2b154e7bc29ce3b1c89b22e",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -3907,21 +3930,21 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/flag.png",
-      "sourceBytes": 16422,
-      "sourceSha256": "58b75ed25e5a4d6db1f447b956226bcc499325f633c0acd5b0d2c4ca810c7711",
-      "width": 512
+      "sourceBytes": 82953,
+      "sourceSha256": "981708a10930abe883522e3c50251e1f873c68a9702a6b8cf0dcdedf083c4455",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
-      "output": "lessons/beach-day/sea-safety/images/lifeguard.webp",
-      "outputBytes": 13996,
-      "outputSha256": "572e588c43d27526ef9160c59aa09810abfebaf9f0eb9f1b6564806c7eb78018",
+      "maxPercent": 18,
+      "output": "lessons/beach-day/sea-safety/images/life-jacket.webp",
+      "outputBytes": 13478,
+      "outputSha256": "14c63864259f9266f92d1d6584ed15967620aa28927eec49f0a84ffd533bf8ed",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3929,22 +3952,68 @@
       "sceneIds": [
         "sea-safety"
       ],
-      "source": "lessons/beach-day/sea-safety/images/lifeguard.png",
-      "sourceBytes": 49986,
-      "sourceSha256": "5ea395909c76360e10e5b3076b3cdcc4e22246c59a4a6c0d8b4c956d4156ed58",
-      "width": 242
+      "source": "lessons/beach-day/sea-safety/images/life-jacket.png",
+      "sourceBytes": 124040,
+      "sourceSha256": "7268ec8d2c50d14b9fd7b571fd075637d5c6462cce209fb23a9e2a240e43835b",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 28,
+      "output": "lessons/beach-day/sea-safety/images/lifeguard.webp",
+      "outputBytes": 16694,
+      "outputSha256": "5eeadafcb91fbd9e6b0b32593b6e2ac01da154a2ba3c8be6f1c24e3177241f09",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/lifeguard.png",
+      "sourceBytes": 99404,
+      "sourceSha256": "b0b1ae81240efcff4edaee6b3fa5c64af741c20ce0df154ed2aa299947480870",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/beach-day/sea-safety/images/look-at-flag.webp",
+      "outputBytes": 18456,
+      "outputSha256": "2638893a3a6a74faed4e5c1dfccbddcbc10102aeca529341d97a291259d06ab4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sea-safety"
+      ],
+      "source": "lessons/beach-day/sea-safety/images/look-at-flag.png",
+      "sourceBytes": 188233,
+      "sourceSha256": "5513a100512e6c2884f646d8cf5ac3ee7a3bf5ea8e571281006855adde9b5b40",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "beach-day"
+      ],
+      "maxPercent": 16,
       "output": "lessons/beach-day/sea-safety/images/rinse-feet.webp",
-      "outputBytes": 10332,
-      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "outputBytes": 18268,
+      "outputSha256": "4641b728f13258dc9afb8b6cdcdf89383e96b2503d02f73c281057dc561cc270",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3953,22 +4022,22 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/rinse-feet.png",
-      "sourceBytes": 23299,
-      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
-      "width": 512
+      "sourceBytes": 186982,
+      "sourceSha256": "4a6721b9fc685d956323c4a6d8f1385aa5a115452f6f97000225603174597061",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 351,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 19,
+      "maxPercent": 27,
       "output": "lessons/beach-day/sea-safety/images/sea.webp",
-      "outputBytes": 18416,
-      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
-      "profile": "objectSmall",
+      "outputBytes": 12306,
+      "outputSha256": "e8ead5e81189fbf2d6943864a42ed21ec7f113743528d3b4252d1c7de882b001",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -3976,21 +4045,21 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/sea.png",
-      "sourceBytes": 28947,
-      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
-      "width": 512
+      "sourceBytes": 125055,
+      "sourceSha256": "dbb6832afef619c588a967c421dc3acb6af7f02ef502837ddb3179f4e095f8a0",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 376,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
       "maxPercent": 19,
       "output": "lessons/beach-day/sea-safety/images/shower.webp",
-      "outputBytes": 9578,
-      "outputSha256": "91b89599a45b2b65eaa7ac80e83e54866e4b5788560fa7335fc3b2f85f90ca23",
+      "outputBytes": 9766,
+      "outputSha256": "ac2e82ea0cea3b851132d0bb129da7f610189b7798314b37b76d6c095a894a43",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -3999,21 +4068,21 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/shower.png",
-      "sourceBytes": 16173,
-      "sourceSha256": "c020669d52427b880a4fa7b97553032ecca8704000fc80ca6ece9ffe6e8a2ab8",
-      "width": 512
+      "sourceBytes": 54761,
+      "sourceSha256": "48486fc4e01a33bcb3120f9a75387f6dc25d2506e5bf7fd6bc570176d8b2e0f2",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/beach-day/sea-safety/images/stay-near-grown-up.webp",
-      "outputBytes": 10298,
-      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "outputBytes": 17852,
+      "outputSha256": "6d08b9ebe78c476800f30e269e64bdb338f72059a0423785a5d310019ba4e2e8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -4022,9 +4091,9 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/stay-near-grown-up.png",
-      "sourceBytes": 23464,
-      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
-      "width": 512
+      "sourceBytes": 185970,
+      "sourceSha256": "f22864dbbab58881fa4bd2b2baa710e6ff1351afb22b7ccaa086f4cf9a9f9f92",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -4075,15 +4144,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 351,
+      "height": 418,
       "lessonIds": [
         "beach-day"
       ],
-      "maxPercent": 20,
+      "maxPercent": 27,
       "output": "lessons/beach-day/sea-safety/images/wave.webp",
-      "outputBytes": 18416,
-      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
-      "profile": "objectSmall",
+      "outputBytes": 12434,
+      "outputSha256": "5aa8059bcc0358d3f66ab7cdf0c2d2e69b4a46a66bd20533d39fc49879aea429",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -4091,9 +4160,9 @@
         "sea-safety"
       ],
       "source": "lessons/beach-day/sea-safety/images/wave.png",
-      "sourceBytes": 28947,
-      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
-      "width": 512
+      "sourceBytes": 113567,
+      "sourceSha256": "2c0a54e9186bf47138a803066b56421743d67baaf985002816cf8936d812dca5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13411,7 +13480,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-07-29T15:08:36.014Z",
+  "generatedAt": "2026-07-30T02:40:38.297Z",
   "releaseVersion": "v1",
-  "revision": "887ea0a7e56684c8"
+  "revision": "d1697e6a033a89de"
 }
