@@ -9,6 +9,7 @@ import { afternoonBathLesson } from '../src/data/lessons/afternoonBath';
 import { afternoonHomeLesson } from '../src/data/lessons/afternoonHome';
 import { atSchoolLesson } from '../src/data/lessons/atSchool';
 import { bedtimeLesson } from '../src/data/lessons/bedtime';
+import { beachDayLesson } from '../src/data/lessons/beachDay';
 import { familyDinnerLesson } from '../src/data/lessons/familyDinner';
 import { homePlayLesson } from '../src/data/lessons/homePlay';
 import { lunchTimeLesson } from '../src/data/lessons/lunchTime';
@@ -194,6 +195,28 @@ test('supermarket prompts stay concise after earlier drag steps move objects', (
         ).toBeLessThanOrEqual(12);
       });
   });
+});
+
+test('beach prompts do not anchor later steps to moved objects', () => {
+  const sandPlay = beachDayLesson.scenes.find(
+    scene => scene.id === 'sand-play',
+  );
+  const shellStepIndex =
+    sandPlay?.steps.findIndex(step => step.id === 'sand-play-drag-shell') ?? -1;
+  const bucketStepIndex =
+    sandPlay?.steps.findIndex(step => step.id === 'sand-play-tap-bucket') ?? -1;
+  const bucket = sandPlay?.steps[bucketStepIndex];
+
+  expect(shellStepIndex).toBeGreaterThanOrEqual(0);
+  expect(bucketStepIndex).toBeGreaterThan(shellStepIndex);
+  expect(bucket?.instructionVi).toBe(
+    'Chạm vào cái xô ở phía trên bên phải nhé.',
+  );
+  expect(bucket?.failFeedbackVi).toBe(
+    'Cái xô nằm ở phía trên bên phải.',
+  );
+  expect(bucket?.instructionVi).not.toContain('vỏ sò');
+  expect(bucket?.failFeedbackVi).not.toContain('vỏ sò');
 });
 
 test('Theme 2 lesson content stays concise, progressive, and natural', () => {
