@@ -33,8 +33,8 @@ const beachDaySpec = {
       introEn: "Let's pack the beach bag.",
       introSuccessVi: 'Đồ đi biển đã sẵn sàng!',
       introSuccessEn: 'The beach things are ready!',
-      completionVi: 'Bé đã biết chuẩn bị đồ đi biển.',
-      completionEn: 'You learned what to pack for the beach.',
+      completionVi: 'Túi đi biển của bé đã sẵn sàng.',
+      completionEn: 'Your beach bag is ready.',
       vocabulary: [
         {
           key: 'beach-bag',
@@ -54,13 +54,13 @@ const beachDaySpec = {
           word: 'sunglasses',
           meaningVi: 'kính râm',
           labelVi: 'kính râm',
+          tier: 'expanded',
         },
         {
           key: 'sunscreen',
           word: 'sunscreen',
           meaningVi: 'kem chống nắng',
           labelVi: 'kem chống nắng',
-          tier: 'expanded',
         },
         {
           key: 'towel',
@@ -113,8 +113,8 @@ const beachDaySpec = {
       introEn: "Let's play on the sand.",
       introSuccessVi: 'Cát mềm quá!',
       introSuccessEn: 'The sand feels soft!',
-      completionVi: 'Bé đã biết các đồ chơi trên cát.',
-      completionEn: 'You learned sand play words.',
+      completionVi: 'Bé đã chơi cát và khám phá bãi biển.',
+      completionEn: 'You played in the sand and explored the beach.',
       vocabulary: [
         {
           key: 'sandcastle',
@@ -147,7 +147,6 @@ const beachDaySpec = {
           word: 'crab',
           meaningVi: 'con cua',
           labelVi: 'con cua',
-          practice: 'drag',
           tier: 'expanded',
         },
         {
@@ -175,10 +174,10 @@ const beachDaySpec = {
           type: 'phrase',
         },
         {
-          key: 'collect-shells',
-          word: 'collect shells',
-          meaningVi: 'nhặt vỏ sò',
-          labelVi: 'thẻ nhặt vỏ sò',
+          key: 'find-shells',
+          word: 'look for shells',
+          meaningVi: 'tìm vỏ sò',
+          labelVi: 'thẻ tìm vỏ sò',
           tier: 'challenge',
           type: 'phrase',
         },
@@ -193,8 +192,8 @@ const beachDaySpec = {
       introEn: "Let's learn beach safety.",
       introSuccessVi: 'An toàn là quan trọng nhất!',
       introSuccessEn: 'Safety comes first!',
-      completionVi: 'Bé đã biết vài điều an toàn khi đi biển.',
-      completionEn: 'You learned simple safety habits for the beach.',
+      completionVi: 'Bé đã biết chơi gần biển an toàn hơn.',
+      completionEn: 'You learned how to play more safely near the sea.',
       vocabulary: [
         {
           key: 'wave',
@@ -207,13 +206,13 @@ const beachDaySpec = {
           word: 'lifeguard',
           meaningVi: 'người cứu hộ',
           labelVi: 'người cứu hộ',
-          practice: 'drag',
         },
         {
           key: 'flag',
           word: 'flag',
           meaningVi: 'lá cờ',
           labelVi: 'lá cờ',
+          tier: 'expanded',
         },
         {
           key: 'sea',
@@ -223,12 +222,11 @@ const beachDaySpec = {
           tier: 'expanded',
         },
         {
-          key: 'swim-ring',
-          word: 'swim ring',
-          meaningVi: 'phao bơi',
-          labelVi: 'phao bơi',
+          key: 'life-jacket',
+          word: 'life jacket',
+          meaningVi: 'áo phao',
+          labelVi: 'áo phao',
           practice: 'drag',
-          tier: 'expanded',
         },
         {
           key: 'shower',
@@ -246,10 +244,10 @@ const beachDaySpec = {
           type: 'phrase',
         },
         {
-          key: 'watch-flag',
-          word: 'watch the flag',
-          meaningVi: 'nhìn cờ báo hiệu',
-          labelVi: 'thẻ nhìn cờ báo hiệu',
+          key: 'look-at-flag',
+          word: 'look at the flag',
+          meaningVi: 'xem cờ báo hiệu',
+          labelVi: 'thẻ xem cờ báo hiệu',
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',

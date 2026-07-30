@@ -10538,14 +10538,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/park-visit/park-entrance/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -10554,9 +10554,9 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -10567,8 +10567,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/park-visit/park-entrance/images/background.webp",
-      "outputBytes": 18110,
-      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "outputBytes": 37730,
+      "outputSha256": "2d39ade74e5b264bc63678d49d51c2e7e081bbe4c34b43fed652f737a1b95454",
       "profile": "background",
       "roles": [
         "background"
@@ -10577,22 +10577,22 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/background.png",
-      "sourceBytes": 85300,
-      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "sourceBytes": 1733614,
+      "sourceSha256": "59b05d8242c939f44df8da7e5832ec0483da87504823dac0df9c92e1aa736faf",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 301,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 25,
       "output": "lessons/park-visit/park-entrance/images/bench.webp",
-      "outputBytes": 8070,
-      "outputSha256": "06fe9cc4dca87a17d966c76998d6d3ad8cd61d5c9415ad6d541e40ef2bad2503",
-      "profile": "objectSmall",
+      "outputBytes": 21296,
+      "outputSha256": "defc6c2981afc79312f486854bbd50299dfaf6f5bffd0a0de0c8e6eb71bb984e",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10600,22 +10600,22 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/bench.png",
-      "sourceBytes": 14634,
-      "sourceSha256": "b4ab8d540d8f1d5effa2465d1d88e34d47683803afcdced91a518202050666f9",
-      "width": 512
+      "sourceBytes": 168529,
+      "sourceSha256": "57dbae20a64e228b6ed27e50645ad36171c75d4202052daa6234d41a637497dc",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 440,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 22,
       "output": "lessons/park-visit/park-entrance/images/fountain.webp",
-      "outputBytes": 13896,
-      "outputSha256": "845ed75dd30c97705a11fb56ce472ec2240d8a5d734c5ac238930bbdeff883ee",
-      "profile": "objectSmall",
+      "outputBytes": 17378,
+      "outputSha256": "21d5cb620efa9547d78006a5598a165f9062ab23a4670a964b197012d42cb0d6",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10623,22 +10623,22 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/fountain.png",
-      "sourceBytes": 20985,
-      "sourceSha256": "612749f434cad47e4440a74caa656b421daf25c85d192b66644f06fcd8f041b5",
-      "width": 512
+      "sourceBytes": 186703,
+      "sourceSha256": "0cfe7a551fe08ef2aebc1d4a6200b6cb830446cc7cffa3eef6feccbe30bce523",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 443,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 23,
       "output": "lessons/park-visit/park-entrance/images/gate.webp",
-      "outputBytes": 12336,
-      "outputSha256": "1e69e908d3beaf3bc2012cf479e567489adf4d57916c1ae82b8be5ce02fff167",
-      "profile": "objectSmall",
+      "outputBytes": 15298,
+      "outputSha256": "4d5aa9ca5893768cd48507b5b5b8e68f20d5003b082435c14334f947ba62f5eb",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10646,21 +10646,21 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/gate.png",
-      "sourceBytes": 25190,
-      "sourceSha256": "0daf8417440a9be9a80bb1313d5f30bf0f3585d11a51abbe5dec8734b4cf8ec2",
-      "width": 512
+      "sourceBytes": 168877,
+      "sourceSha256": "0f5f9fc27805c44128de50675a9d6af120436013326d1f5cbc811c459d56cddb",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-entrance/images/look-map.webp",
-      "outputBytes": 6284,
-      "outputSha256": "1e87741ea46de7b82423d040bceec7d81fc61f43eada55d4f268c128b0cf5f70",
+      "outputBytes": 15920,
+      "outputSha256": "e6fc02db74c330ccb75c960782d95e1f9ab1b041bf1f45726e803166a301901b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10669,21 +10669,21 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/look-map.png",
-      "sourceBytes": 20991,
-      "sourceSha256": "10ffafe416677fddee23234f20c610980a8ee455c121eb3bde81ef3d37c5cc4f",
-      "width": 512
+      "sourceBytes": 240807,
+      "sourceSha256": "ff15e3d6294885eac17219fb964247d71705c98fbd9b37358c6f0728707316e0",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 15,
       "output": "lessons/park-visit/park-entrance/images/map.webp",
-      "outputBytes": 6178,
-      "outputSha256": "d0255937dc081020d330891777b0adbc4224dd667f9295fc803c66e7f6dc1861",
+      "outputBytes": 18164,
+      "outputSha256": "880b978093557e201adbf91c51289aaa69e276ec076fce1d3d2603aa6bf98f15",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10692,22 +10692,22 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/map.png",
-      "sourceBytes": 20955,
-      "sourceSha256": "08949df634e2327117ec42293f2a676ce7fd6a0813fafe714e2a9a3240e456e5",
-      "width": 512
+      "sourceBytes": 215849,
+      "sourceSha256": "5c1e92f3b196f3e89ac3b25629836710e96da2932c40e2988550ad3644b2df6d",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 488,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 24,
       "output": "lessons/park-visit/park-entrance/images/path.webp",
-      "outputBytes": 16896,
-      "outputSha256": "f0bd75aaa89ade9f1cd5e25ab288ebfef37fe4fabce6c83da8ec9f8c5f767e92",
-      "profile": "objectSmall",
+      "outputBytes": 16018,
+      "outputSha256": "add246301f3e60e9c07b196473614ec20bbfa52312678e8a37f8f60000cb6212",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10715,21 +10715,21 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/path.png",
-      "sourceBytes": 28513,
-      "sourceSha256": "1cf1de7769d0e2a3548936ec5ce6346f9aecb4b6c659b00db2e9240cc952e3fd",
-      "width": 512
+      "sourceBytes": 149090,
+      "sourceSha256": "8736c30cd3e00047d2157e4a99466929acfac591bd0490c7130ae159feb5c0f8",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 301,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-entrance/images/sit-bench.webp",
-      "outputBytes": 8070,
-      "outputSha256": "06fe9cc4dca87a17d966c76998d6d3ad8cd61d5c9415ad6d541e40ef2bad2503",
+      "outputBytes": 22622,
+      "outputSha256": "de9f509430d57cd6713f046f946fc31b3d347e7305f1beb70070b5efaee50628",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10738,22 +10738,22 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/sit-bench.png",
-      "sourceBytes": 14634,
-      "sourceSha256": "b4ab8d540d8f1d5effa2465d1d88e34d47683803afcdced91a518202050666f9",
-      "width": 512
+      "sourceBytes": 290626,
+      "sourceSha256": "e90ac8d8da912ae8211de2043ddf59dd5225ff4f159b25a87b4efa13b5737763",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 27,
       "output": "lessons/park-visit/park-entrance/images/tree.webp",
-      "outputBytes": 13234,
-      "outputSha256": "36bac8cab63a9cc3ab6f040cc9204de7486c2056aa23fef8267dc58690bb1e82",
-      "profile": "objectSmall",
+      "outputBytes": 18200,
+      "outputSha256": "292180b4d06c3d9d35f8e03d05daa9356417a39e8fca0c1f260ded53397ba285",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10761,21 +10761,21 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/tree.png",
-      "sourceBytes": 22616,
-      "sourceSha256": "e28d79a7e57fbefd26c2446ab2e113b073cf1e20c0ccb7e1d110c1cf419e260a",
-      "width": 503
+      "sourceBytes": 199721,
+      "sourceSha256": "cd1416b1df6afc62ea77382205bc84623f49b5468ee9a48f101dd5defd68b05c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 488,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-entrance/images/walk-path.webp",
-      "outputBytes": 16896,
-      "outputSha256": "f0bd75aaa89ade9f1cd5e25ab288ebfef37fe4fabce6c83da8ec9f8c5f767e92",
+      "outputBytes": 17280,
+      "outputSha256": "2e148af6f0408f54cf9e6310a1c4cf713b338f310c6dbeee7d1bac809e009317",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10784,21 +10784,21 @@
         "park-entrance"
       ],
       "source": "lessons/park-visit/park-entrance/images/walk-path.png",
-      "sourceBytes": 28513,
-      "sourceSha256": "1cf1de7769d0e2a3548936ec5ce6346f9aecb4b6c659b00db2e9240cc952e3fd",
-      "width": 512
+      "sourceBytes": 260412,
+      "sourceSha256": "971041d2851644a1e7e6d25d738e232398ac266b6d79fd23e4b23fc0904054c1",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/park-visit/park-games/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -10807,9 +10807,9 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -10820,8 +10820,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/park-visit/park-games/images/background.webp",
-      "outputBytes": 18110,
-      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "outputBytes": 54684,
+      "outputSha256": "5b59c45c6d8c47c09803a089044e029fb7e6262d31d2f861a2332cd34c932a00",
       "profile": "background",
       "roles": [
         "background"
@@ -10830,22 +10830,22 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/background.png",
-      "sourceBytes": 85300,
-      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "sourceBytes": 1856318,
+      "sourceSha256": "406b918511ca121552ecae2952b5649b1c2e52507677d9d8dcbf25abf15a5ba5",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 488,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 23,
       "output": "lessons/park-visit/park-games/images/climbing-frame.webp",
-      "outputBytes": 27010,
-      "outputSha256": "dda47854df62d5e5b631849fb5fe46c049d65f86774f5e6af412fbb7fce476fc",
-      "profile": "objectSmall",
+      "outputBytes": 27142,
+      "outputSha256": "1497f317b857a3a1a05f8d3a2546a108f2fb8ed4c6e1a86a8447b3d5dd0b19d6",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10853,21 +10853,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/climbing-frame.png",
-      "sourceBytes": 33167,
-      "sourceSha256": "6ccef7dcd13ccdfe6924cd66e4f4162f9eeac93f863049301681d5f961899713",
-      "width": 512
+      "sourceBytes": 174919,
+      "sourceSha256": "acab86cd0a8b74b2cc876604a9a7273c8d614b722742ad671ce3a8009ba565e6",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 298,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 17,
       "output": "lessons/park-visit/park-games/images/frisbee.webp",
-      "outputBytes": 14754,
-      "outputSha256": "7d4fb5a7559633f77aac613a16f403df605d8c3618b9b8a619ec258fb7a19572",
+      "outputBytes": 13474,
+      "outputSha256": "591b178b7f308987052bb903f8668819b7f7dbd80cd4a44964a742854aa45634",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10876,21 +10876,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/frisbee.png",
-      "sourceBytes": 23994,
-      "sourceSha256": "95a69b240eb08a30f1396c4a3ff1c47140c02ce4d1d086c9770b8bed553d7de8",
-      "width": 512
+      "sourceBytes": 136478,
+      "sourceSha256": "286156d2c7ba0a26614356ec09101884d54813b39739fb7d931c12ca2b144e55",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 344,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-games/images/helmet.webp",
-      "outputBytes": 9326,
-      "outputSha256": "60169fb5903656b9262c70ac433cc1427fcb29b1ef981e4539c89568c73fcad1",
+      "outputBytes": 16320,
+      "outputSha256": "d4a125a78c06bf2118e492a18731b398f269c9b9b92534a16042d48e2c1f84b5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10899,21 +10899,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/helmet.png",
-      "sourceBytes": 14157,
-      "sourceSha256": "b99aa5caf2095e88b7a9306029c67d1a90a3b279f7713df153c083ba5e9b3e9a",
-      "width": 512
+      "sourceBytes": 146987,
+      "sourceSha256": "08d6bd7297a3f9597f5dafc65bf2abaf3f599fbb8317ed7c58732d7c7f862519",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-games/images/join-team.webp",
-      "outputBytes": 10102,
-      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "outputBytes": 24598,
+      "outputSha256": "705e5037cf14eb08586e6539b6c8302990162f5e862f14c041baad7be7e302af",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10922,22 +10922,22 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/join-team.png",
-      "sourceBytes": 23154,
-      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
-      "width": 512
+      "sourceBytes": 284365,
+      "sourceSha256": "a37445bcc68739339cee46a592fdd8b6aebb7bd441fcba2a4c53d02c4410dbb3",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 391,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 25,
       "output": "lessons/park-visit/park-games/images/scooter.webp",
-      "outputBytes": 10724,
-      "outputSha256": "1d086204a35b5a2451912975aa54506a79986fef23ffc6f153c196845f637e0d",
-      "profile": "objectSmall",
+      "outputBytes": 13732,
+      "outputSha256": "40da98e364c92a488f40edf25a2104a4e51994bdcd6aae9b05b20dd4622c40b1",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10945,22 +10945,22 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/scooter.png",
-      "sourceBytes": 12934,
-      "sourceSha256": "68fe83a46d543bafcfe6d516adcb21e316e2e4492a4caceb3dde7f3a983124d2",
-      "width": 512
+      "sourceBytes": 95480,
+      "sourceSha256": "dad7b3c8809b96d078cee42ea83b1e29439c6584df37d5f498082663e3b09252",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 25,
       "output": "lessons/park-visit/park-games/images/team.webp",
-      "outputBytes": 10298,
-      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
-      "profile": "objectSmall",
+      "outputBytes": 32198,
+      "outputSha256": "b99ef4c1c9f794274dcfbc2cfa870df78593bea49ea43f3ef82494ead08ccba1",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -10968,21 +10968,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/team.png",
-      "sourceBytes": 23464,
-      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
-      "width": 512
+      "sourceBytes": 259694,
+      "sourceSha256": "2f9c13ea3c143d1cbbaeab6601dfe5ed00af47fb9902850d4e65961f63f98b20",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 298,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-games/images/throw-frisbee.webp",
-      "outputBytes": 14754,
-      "outputSha256": "7d4fb5a7559633f77aac613a16f403df605d8c3618b9b8a619ec258fb7a19572",
+      "outputBytes": 15256,
+      "outputSha256": "35f722aad20709d7c6aba3d6823a69cf681cac2c88e5e5e6228612d5ec25a1f6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -10991,21 +10991,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/throw-frisbee.png",
-      "sourceBytes": 23994,
-      "sourceSha256": "95a69b240eb08a30f1396c4a3ff1c47140c02ce4d1d086c9770b8bed553d7de8",
-      "width": 512
+      "sourceBytes": 208731,
+      "sourceSha256": "fbcef4306804299e0e44b5e6f56603abe4ed9b0f744630fc176dd8c715f09fb4",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 344,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-games/images/wear-helmet.webp",
-      "outputBytes": 9326,
-      "outputSha256": "60169fb5903656b9262c70ac433cc1427fcb29b1ef981e4539c89568c73fcad1",
+      "outputBytes": 15902,
+      "outputSha256": "190108b12376a06899312b61cca077206dddf087b1ee1d922282b07c17dfc371",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11014,21 +11014,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/wear-helmet.png",
-      "sourceBytes": 14157,
-      "sourceSha256": "b99aa5caf2095e88b7a9306029c67d1a90a3b279f7713df153c083ba5e9b3e9a",
-      "width": 512
+      "sourceBytes": 227779,
+      "sourceSha256": "a10146e0d210987dff9cbc417ff9a64fb343ef17935de73a2ce5317fa811cb72",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 244,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 13,
       "output": "lessons/park-visit/park-games/images/whistle.webp",
-      "outputBytes": 8024,
-      "outputSha256": "f2653afa0d2c0c847cda37ad4007e9455a6ab69edcef72a72d743cdeda0807ec",
+      "outputBytes": 15832,
+      "outputSha256": "7d6bc7186a10b5ba8b810a681275e2055ba5075fae415d15c90bf132c8b11578",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11037,21 +11037,21 @@
         "park-games"
       ],
       "source": "lessons/park-visit/park-games/images/whistle.png",
-      "sourceBytes": 17541,
-      "sourceSha256": "b18068f090b811dfc5edb94fd24de9eeda34c89657398839d8f65adb38c0a022",
-      "width": 512
+      "sourceBytes": 95698,
+      "sourceSha256": "4b1a57e61b45ce20f951260953f834a322ce3898bb945dd4d9eb06607b2e318d",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/park-visit/park-picnic/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -11060,9 +11060,9 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -11073,8 +11073,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/park-visit/park-picnic/images/background.webp",
-      "outputBytes": 18110,
-      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "outputBytes": 67798,
+      "outputSha256": "14c291bfbad2acde9d07abe14925d457913acd6277551a6fdf9ba1ab51d2e628",
       "profile": "background",
       "roles": [
         "background"
@@ -11083,21 +11083,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/background.png",
-      "sourceBytes": 85300,
-      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
+      "sourceBytes": 1801807,
+      "sourceSha256": "3317c9598a1cac50020ba55dbfc49ce865d7a2102b797efc34152f6ee489d9b3",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 369,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-picnic/images/clean-crumbs.webp",
-      "outputBytes": 30288,
-      "outputSha256": "c12ce20983b010e502d682b3d1911f6a6cf84666d61ffaf80a9fcbf6a9b3be78",
+      "outputBytes": 21642,
+      "outputSha256": "13fdb706e261faf8392f05c1755079f16b555e3383f068899ac92baffe0493c9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11106,21 +11106,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/clean-crumbs.png",
-      "sourceBytes": 43636,
-      "sourceSha256": "95126a1c71d3537342eaa96c5f6d59123dbd36f18e8fad3377241baf2f315256",
-      "width": 512
+      "sourceBytes": 298681,
+      "sourceSha256": "8e491838b9686d96b348f720fe2e9417c77ca762c8c074585a419703e0d868ac",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 369,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 13,
       "output": "lessons/park-visit/park-picnic/images/crumbs.webp",
-      "outputBytes": 30288,
-      "outputSha256": "c12ce20983b010e502d682b3d1911f6a6cf84666d61ffaf80a9fcbf6a9b3be78",
+      "outputBytes": 14904,
+      "outputSha256": "30c13b55e6375349a4f7e53ed8b7c38f6f02ca6fcf573224011f45c6b595f7eb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11129,21 +11129,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/crumbs.png",
-      "sourceBytes": 43636,
-      "sourceSha256": "95126a1c71d3537342eaa96c5f6d59123dbd36f18e8fad3377241baf2f315256",
-      "width": 512
+      "sourceBytes": 57700,
+      "sourceSha256": "8deedc148850dc6d7c7460eb371819e1428bd71dee7c7d462fb4e5334f3a1bf9",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/park-visit/park-picnic/images/juice.webp",
-      "outputBytes": 9944,
-      "outputSha256": "b5632342e7a97da9205a399c87b3616512f662ec2576109c43ab7264bbc27a5f",
+      "outputBytes": 11904,
+      "outputSha256": "250c880e41a01c653aa347287cbb8d4c43cb588d63c93569663df6444ff82267",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11152,21 +11152,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/juice.png",
-      "sourceBytes": 22237,
-      "sourceSha256": "55254a08543ee136e1355c3f04da3a2d9f97db8b57e874a6ecf0d62d0f598f23",
-      "width": 472
+      "sourceBytes": 127251,
+      "sourceSha256": "54a651da21116bc732c0ae8c023a9bc86812a1ec96ed1d0700866e7d02ace890",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 399,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 14,
       "output": "lessons/park-visit/park-picnic/images/napkin.webp",
-      "outputBytes": 9864,
-      "outputSha256": "3f7872292aa8662422803220b078a963247dbbbb43695a5c5ee8badd5c708ad6",
+      "outputBytes": 11096,
+      "outputSha256": "7d81251bde604ca1c00ad0cf4e5b1bf15af06c8dc801d5b53e693b9a6fc67b52",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11175,22 +11175,22 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/napkin.png",
-      "sourceBytes": 23992,
-      "sourceSha256": "d5203e26ce8236a88a52d3f9dc99169173956f8ba264fc89f89d92bf28259e57",
-      "width": 512
+      "sourceBytes": 121633,
+      "sourceSha256": "04f25124f994cd0011b20b65f43c7939853ed6e957271cad291186c5c94c28df",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 303,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 32,
       "output": "lessons/park-visit/park-picnic/images/picnic-mat.webp",
-      "outputBytes": 16872,
-      "outputSha256": "b30e95d6dbca19538259488707a8565d55781bcee0efca8d43911d779ea3e1d2",
-      "profile": "objectSmall",
+      "outputBytes": 22056,
+      "outputSha256": "c7fac44b06bebe642ada06fb16c096861a88003323dda2724cfbbfa14429997c",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -11198,21 +11198,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/picnic-mat.png",
-      "sourceBytes": 29512,
-      "sourceSha256": "79f1e351ff1e941fcb5595cee3c970cf7442b6e160ad067f8adb19d380c55c7f",
-      "width": 512
+      "sourceBytes": 194040,
+      "sourceSha256": "9470d556c66cc1ff6542e38e117918eb34e074a232bb04f105291c0d948b2b36",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 341,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 17,
       "output": "lessons/park-visit/park-picnic/images/sandwich.webp",
-      "outputBytes": 12630,
-      "outputSha256": "16141371bed3d220d4627ec8c6e96a62b26b9ed2135eb3dfef695c5dc3e9f244",
+      "outputBytes": 18494,
+      "outputSha256": "597f2653ab26376d2c5ce2b0929c14380cc963c017da9c577d27a9f5c4104f2c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11221,21 +11221,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/sandwich.png",
-      "sourceBytes": 20231,
-      "sourceSha256": "e584e42af85d49da8de13fbb0c7e94ecec33d76867d959b4ebea29bb25dd3317",
-      "width": 512
+      "sourceBytes": 186575,
+      "sourceSha256": "e35750893791529d3afb91a194fa34c43387ca576353e99f1c33df68090d8778",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 303,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-picnic/images/spread-mat.webp",
-      "outputBytes": 16872,
-      "outputSha256": "b30e95d6dbca19538259488707a8565d55781bcee0efca8d43911d779ea3e1d2",
+      "outputBytes": 21598,
+      "outputSha256": "a3d67ff7710087c923717e39c0d0c0aa00c86ae67096a7db10aeea4dd291c96f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11244,21 +11244,21 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/spread-mat.png",
-      "sourceBytes": 29512,
-      "sourceSha256": "79f1e351ff1e941fcb5595cee3c970cf7442b6e160ad067f8adb19d380c55c7f",
-      "width": 512
+      "sourceBytes": 304506,
+      "sourceSha256": "a336b2a9a3d97741e365d3a129d5437873219206dba3e1e06775ad062013b3d7",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 487,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/park-visit/park-picnic/images/throw-trash.webp",
-      "outputBytes": 9782,
-      "outputSha256": "67f90103c25dd72b38763868639654a1c102004e06c541decbd3dfd5b2511678",
+      "outputBytes": 21224,
+      "outputSha256": "c985379ecf37d541a092fc360875573ed9eaf5c6bebea548384497b28d63eef0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -11267,22 +11267,22 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/throw-trash.png",
-      "sourceBytes": 21030,
-      "sourceSha256": "b7dce7f92385183386ced1891e49a83a0dfa3f6a337b64b3f47e2cdb5f651eac",
-      "width": 512
+      "sourceBytes": 295770,
+      "sourceSha256": "badc2a775e50b3df7322c2e38f1aeb66eecc4fdd6544e672f8f114b3cb915496",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 487,
+      "height": 418,
       "lessonIds": [
         "park-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 21,
       "output": "lessons/park-visit/park-picnic/images/trash-bin.webp",
-      "outputBytes": 9782,
-      "outputSha256": "67f90103c25dd72b38763868639654a1c102004e06c541decbd3dfd5b2511678",
-      "profile": "objectSmall",
+      "outputBytes": 11114,
+      "outputSha256": "634ab01450e72796a204fad4274926b2029dd94232a0887e7eabb27204476ee7",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -11290,9 +11290,9 @@
         "park-picnic"
       ],
       "source": "lessons/park-visit/park-picnic/images/trash-bin.png",
-      "sourceBytes": 21030,
-      "sourceSha256": "b7dce7f92385183386ced1891e49a83a0dfa3f6a337b64b3f47e2cdb5f651eac",
-      "width": 512
+      "sourceBytes": 140535,
+      "sourceSha256": "ce024e9ad5906ac51b8bd7761f1312fa7332071504c2109cf5ac96dbfdaba1f3",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13411,7 +13411,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-07-29T13:37:21.590Z",
+  "generatedAt": "2026-07-29T15:08:36.014Z",
   "releaseVersion": "v1",
-  "revision": "6bd1e6ea56e3d04e"
+  "revision": "887ea0a7e56684c8"
 }
