@@ -8353,14 +8353,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 20,
       "output": "lessons/library-visit/book-corner/images/alphabet-book.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 20600,
+      "outputSha256": "0cbe9f380a81f030e5b125dfc46e7358c3ccf553d78a287bb295be4f43bd4397",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8369,21 +8369,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/alphabet-book.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 191431,
+      "sourceSha256": "7175abb5f3a38ce93f92ce3c7e7a9466c4da774fc5e10fb24cc5d09e793dd440",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/library-visit/book-corner/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -8392,21 +8392,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "library-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/library-visit/book-corner/images/background.webp",
-      "outputBytes": 17154,
-      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "outputBytes": 47386,
+      "outputSha256": "e4d5861661fc4cb553d072050b24473bb244b50790357eeed75bdac460b89dc8",
       "profile": "background",
       "roles": [
         "background"
@@ -8415,21 +8415,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/background.png",
-      "sourceBytes": 112524,
-      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
-      "width": 941
+      "sourceBytes": 2740661,
+      "sourceSha256": "58f75cf65dc829646d810d211958f0cda83ba1a2ec64223df1b3127858446d69",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 12,
       "output": "lessons/library-visit/book-corner/images/bookmark.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 17004,
+      "outputSha256": "35ee31cfb262458c4a5c0ec9febe042866839d34a0e5cd06149100d257508c5f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8438,21 +8438,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/bookmark.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 123366,
+      "sourceSha256": "81a09a6e968cdc9990da2d32ce00174321eabc005617a1d3b83a600030fa8917",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/book-corner/images/borrow-book.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 21476,
+      "outputSha256": "f5d4d49f8967b677fece043f5ed577b0e4bac4d36e285175fde01169378a7a0d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8461,21 +8461,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/borrow-book.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 318412,
+      "sourceSha256": "f97eeff018ceb1e46faf69b27f9ea1ee410edabfb88d1ba0f4c691ed9f006aae",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/book-corner/images/choose-book.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 21048,
+      "outputSha256": "94af66e987c5a7e61f8115a7ce0ba7c2ec65c398f968ed7f46c4c022bdc1ebff",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8484,21 +8484,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/choose-book.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 313806,
+      "sourceSha256": "ab68e52ad88ee8dc39399ccc0fb713a214e964faa825bca82cef6452a1a18a87",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 17,
       "output": "lessons/library-visit/book-corner/images/cover.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 18772,
+      "outputSha256": "70348bd4ce32e1611bed266e0666ade0697428c15493c79b36243ce9ab105a27",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8507,21 +8507,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/cover.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 258400,
+      "sourceSha256": "b4e0eb9644b07f324bed73f2d016b1db9cafaf093d7fec405cecc032bbb8aaca",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 16,
       "output": "lessons/library-visit/book-corner/images/page.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 22652,
+      "outputSha256": "b6f8a99f5a226941c50ef3e2ba5358f7fee8ed8445d9b7150a922bb2f6ab3d94",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8530,22 +8530,22 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/page.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 207504,
+      "sourceSha256": "83a7c18b8006869aac47f3aa4b1921e05ad2d220e1b9e034e7d8dab869eb4f09",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 21,
       "output": "lessons/library-visit/book-corner/images/picture-book.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
-      "profile": "objectSmall",
+      "outputBytes": 25618,
+      "outputSha256": "d76426528c9f451b57844179b4b72217c44e4e1904c9b594d7f7cb839b2bd325",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -8553,22 +8553,22 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/picture-book.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 195274,
+      "sourceSha256": "45113eebaf330fbd866d1f85116ed3828362442b6f2dbad5cfeb1647f31505c5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 484,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 25,
       "output": "lessons/library-visit/book-corner/images/reading-chair.webp",
-      "outputBytes": 8408,
-      "outputSha256": "353b4ff9171d7a45c279ad58a1a2e27c78d38dc3f2cb3b213f7a359f7d78858f",
-      "profile": "objectSmall",
+      "outputBytes": 14222,
+      "outputSha256": "8c47f2d1df72bee50122ddcb3190d7ab60039c341de9476041ca6d34d773cd8e",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -8576,21 +8576,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/reading-chair.png",
-      "sourceBytes": 16560,
-      "sourceSha256": "bb854865c64e4465631e6d0a88a341974338b02c0044f57970fd871016156b7a",
-      "width": 512
+      "sourceBytes": 165288,
+      "sourceSha256": "0f1cf4a68305431a49dbafdbcf44300ec1c7884402d02a4e8ece89982f0e6fd0",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/book-corner/images/turn-page.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 24100,
+      "outputSha256": "76807ef63226e46379c11992a4701e1c8a07b44be6161b8d6c6b88761b8055e6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8599,21 +8599,21 @@
         "book-corner"
       ],
       "source": "lessons/library-visit/book-corner/images/turn-page.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 256953,
+      "sourceSha256": "d9bf416ac38cc15634558e4a4e64c1aef44b4397c992ce504c1db1009f3d5358",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/library-visit/library-card/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -8622,21 +8622,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "library-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/library-visit/library-card/images/background.webp",
-      "outputBytes": 17154,
-      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "outputBytes": 39428,
+      "outputSha256": "cd705ca657d79ac7d461d8a5662b9365d8a79905daa3a28dde1e78515a67edfa",
       "profile": "background",
       "roles": [
         "background"
@@ -8645,21 +8645,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/background.png",
-      "sourceBytes": 112524,
-      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
-      "width": 941
+      "sourceBytes": 2593522,
+      "sourceSha256": "9b9c390241d41f9fbe7e3955e07ab99a0a8ede45abbfbd169016c919b9c05673",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 423,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
       "maxPercent": 19,
       "output": "lessons/library-visit/library-card/images/book-basket.webp",
-      "outputBytes": 20184,
-      "outputSha256": "f1595b8637e1d0d7056e166d916715172e31fd750cf702b5f419f3f4a68fc32b",
+      "outputBytes": 14674,
+      "outputSha256": "1659f7411d5e4c0959e9c13e588e2f0bb0408eb70391246ab41490dddd8c26d2",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8668,21 +8668,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/book-basket.png",
-      "sourceBytes": 37539,
-      "sourceSha256": "26200f7791548691770a2828dd22b8f7815936e3eb7fe977ba5fe5aac9bff866",
-      "width": 512
+      "sourceBytes": 178324,
+      "sourceSha256": "2d5e92375c79512aaecd1ba1bf98bdae200788b6ca6ade2432f60c37215d472f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
-      "output": "lessons/library-visit/library-card/images/librarian.webp",
-      "outputBytes": 13888,
-      "outputSha256": "3823d8e23521e07eb5c10e5e886d1cd3ede839692a130a0d0d2980f58f62835b",
+      "maxPercent": 19,
+      "output": "lessons/library-visit/library-card/images/book-return.webp",
+      "outputBytes": 10004,
+      "outputSha256": "e75f36d97cce3fcdb29dd99dd154374525ec68817865dfef820445f3ca941d4e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8690,22 +8690,45 @@
       "sceneIds": [
         "library-card"
       ],
-      "source": "lessons/library-visit/library-card/images/librarian.png",
-      "sourceBytes": 49898,
-      "sourceSha256": "849f19b4e3c6a020219ffcf8ce0c882431540b90558da74c847bc691a3b194e5",
-      "width": 242
+      "source": "lessons/library-visit/library-card/images/book-return.png",
+      "sourceBytes": 150776,
+      "sourceSha256": "26bace6ede590f8c79eb94499d7865b36c862c23cf9be0a86bba2e8d87bf7d99",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 32,
+      "output": "lessons/library-visit/library-card/images/librarian.webp",
+      "outputBytes": 15022,
+      "outputSha256": "6510e1788035c47ea637e1f8f78ccece4364340de62593fe6cedfb2491487061",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "library-card"
+      ],
+      "source": "lessons/library-visit/library-card/images/librarian.png",
+      "sourceBytes": 89716,
+      "sourceSha256": "82f042b07a9048caaada4e72522ae628f980f436c3fb064e95898de9025f780e",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "library-visit"
+      ],
+      "maxPercent": 15,
       "output": "lessons/library-visit/library-card/images/library-card.webp",
-      "outputBytes": 5940,
-      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "outputBytes": 12060,
+      "outputSha256": "740051a6f533ddc0b0ed30f32131ebe5b0825023429a4b41c42a18055315b9da",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8714,21 +8737,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/library-card.png",
-      "sourceBytes": 17714,
-      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
-      "width": 512
+      "sourceBytes": 116435,
+      "sourceSha256": "fcae2b7df74a67b4fc56533d2b08e81ee632822c4835fbb093eb8c2067fb07bb",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/library-visit/library-card/images/quiet-sign.webp",
-      "outputBytes": 6308,
-      "outputSha256": "e31191f55866c2041fbfad46a1c5f44b7ed9b149c08c1a7caefdd8a81f9bf1a6",
+      "outputBytes": 15530,
+      "outputSha256": "75676759addd82936bb7292bcaedac2e5185e3bba9e6a75ff960c31f9985afe2",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8737,21 +8760,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/quiet-sign.png",
-      "sourceBytes": 19139,
-      "sourceSha256": "c6481e7e519b08ed024b691d1675d0b4e0fff58cdff10b90d450a2503c6e0eb9",
-      "width": 512
+      "sourceBytes": 182291,
+      "sourceSha256": "02faa8f01e50b6fa6bc6ad11dfdcce8f969278ae820ffba33b53da557ea12cf1",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 357,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/library-card/images/return-book.webp",
-      "outputBytes": 9970,
-      "outputSha256": "3fd88580f101d450604d86ed40254fd5b7a5b0e171f475c178610a3b035907e9",
+      "outputBytes": 16558,
+      "outputSha256": "16fd2339a3a63ec8188802cb716b129662de4477d5aabcc869b54d7bb93d3139",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8760,9 +8783,9 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/return-book.png",
-      "sourceBytes": 32608,
-      "sourceSha256": "957ce1e1f6a9ff002e993fc237831a3af0f47032e9d6453f3e5551522409c10b",
-      "width": 512
+      "sourceBytes": 261720,
+      "sourceSha256": "bd28db3b698e3712221d0a8883cc9656cde87915118e2957293d25b12748543e",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -8790,15 +8813,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 28,
       "output": "lessons/library-visit/library-card/images/shelf.webp",
-      "outputBytes": 8756,
-      "outputSha256": "e3dcc81128de542e0f17604158c886b223cf9a15595dc6a137f419b8cfcaf7b7",
-      "profile": "objectSmall",
+      "outputBytes": 15890,
+      "outputSha256": "85afd061943132b54b1aa11a62f2a9dfb6f37e046e6d656ee6a90271241661f0",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -8806,21 +8829,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/shelf.png",
-      "sourceBytes": 25259,
-      "sourceSha256": "065e0338bb3fabd841cd3e2998478dd84c816db1c7988bb3f6dd2fe62476bb4c",
-      "width": 458
+      "sourceBytes": 155947,
+      "sourceSha256": "d24a05d8fd73c754600482d1427401beac20b00797ed479c8322e2408482fbf0",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/library-card/images/show-card.webp",
-      "outputBytes": 5940,
-      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "outputBytes": 23584,
+      "outputSha256": "caeb15c25cbc3eb3dccfe1e7f684fcb8fe5dd023488518923dbfde072dcae93f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8829,21 +8852,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/show-card.png",
-      "sourceBytes": 17714,
-      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
-      "width": 512
+      "sourceBytes": 340697,
+      "sourceSha256": "7ab3a111fc67777f91c0ee4ec87cbb150bac0439b3a1ecedb67d48adc2ce703c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/library-card/images/use-quiet-voice.webp",
-      "outputBytes": 10146,
-      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "outputBytes": 14126,
+      "outputSha256": "4aaef50d5357229c97c0235bd97ec4c59f124fc9ad137e54b494910bfd7ca549",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8852,21 +8875,21 @@
         "library-card"
       ],
       "source": "lessons/library-visit/library-card/images/use-quiet-voice.png",
-      "sourceBytes": 23615,
-      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
-      "width": 512
+      "sourceBytes": 223491,
+      "sourceSha256": "26cb4f6cbf80a8911666b020d1e032a2214a5aaed8b84281b5a8589bfce238c5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/library-visit/story-circle/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -8875,21 +8898,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "library-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/library-visit/story-circle/images/background.webp",
-      "outputBytes": 17154,
-      "outputSha256": "220b1878c94f6e7901949cf151a37618bd1a1998edf49c332cc5b8128d0288e7",
+      "outputBytes": 136382,
+      "outputSha256": "43b7f25445a6db487e9abf681ba76f1d66189f9f707f78cce21e7ab4c4cf4f75",
       "profile": "background",
       "roles": [
         "background"
@@ -8898,22 +8921,22 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/background.png",
-      "sourceBytes": 112524,
-      "sourceSha256": "85e69cdd461c6efc284a8a99fdf7556da5fd1c52c40ed77a9a719aaa7f36bf8c",
-      "width": 941
+      "sourceBytes": 2867143,
+      "sourceSha256": "e9d2bd4d50c4923b49ca2a522c773402086befb1aa7b1c2c2127fff3ce20c5d0",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 30,
       "output": "lessons/library-visit/story-circle/images/circle.webp",
-      "outputBytes": 10180,
-      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
-      "profile": "objectSmall",
+      "outputBytes": 15980,
+      "outputSha256": "cafa8e11624700681df16cfd995bbb692eb4b20742355a548db006737e461fde",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -8921,21 +8944,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/circle.png",
-      "sourceBytes": 23583,
-      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
-      "width": 512
+      "sourceBytes": 129717,
+      "sourceSha256": "5f935c79bfe8bc4f6f91f149c40cfdbf345abd5b4a5588e8baa557f35ed21085",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/story-circle/images/clap-softly.webp",
-      "outputBytes": 10146,
-      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "outputBytes": 13678,
+      "outputSha256": "72752b85f8020a73ab4d7ae1088484f95c662d8f3cb3abf2c5c65d030c1a423f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8944,21 +8967,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/clap-softly.png",
-      "sourceBytes": 23615,
-      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
-      "width": 512
+      "sourceBytes": 222905,
+      "sourceSha256": "05732a226488e396a853ea3297e5b771664ffd7d888a2bd18ef7907136b23795",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 364,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 16,
       "output": "lessons/library-visit/story-circle/images/cushion.webp",
-      "outputBytes": 12252,
-      "outputSha256": "1d38141f9a043bb580a4947c65de740590e51b57b6ba02673ebfc74379f4a108",
+      "outputBytes": 8640,
+      "outputSha256": "f95fd8dd8e33b7b0843c5b48a3053198f83c8f137feff6e0062f87c9f4abd264",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8967,21 +8990,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/cushion.png",
-      "sourceBytes": 23863,
-      "sourceSha256": "105eada5780946fd988c66874a17d00bb35cd1a264cb9274190696ce0eee40ac",
-      "width": 512
+      "sourceBytes": 87476,
+      "sourceSha256": "9f89b44b5800d7906c82f9aa53b630f9ae7bdbe6ac01de0ff1a1593351a9962e",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 298,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 11,
       "output": "lessons/library-visit/story-circle/images/library-bell.webp",
-      "outputBytes": 12326,
-      "outputSha256": "ac999142fbe494c048cbacaaf1ee37dd2f738fc36914b553120ea4966e5cbee6",
+      "outputBytes": 8826,
+      "outputSha256": "3cfc2dcd722012fe9d75fe1c4af9d309e5a33b4af95ae8151012cedfb3fc566f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8990,21 +9013,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/library-bell.png",
-      "sourceBytes": 19051,
-      "sourceSha256": "1da18c49dec544e460ff78267495e48a787e561a168f7376d187c4604874f0c7",
-      "width": 512
+      "sourceBytes": 60662,
+      "sourceSha256": "fd5a54d37f1dfd446e3a878ef02db2041ee4b49a0a864002c7ac8d37dd2ac191",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/story-circle/images/listen-story.webp",
-      "outputBytes": 10322,
-      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "outputBytes": 27596,
+      "outputSha256": "a5e9a93666eafc435927f8df0a9a9bbaf7205ba19a740e663de799a4d0f44e01",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9013,21 +9036,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/listen-story.png",
-      "sourceBytes": 23731,
-      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
-      "width": 512
+      "sourceBytes": 286904,
+      "sourceSha256": "0c66a06d8e86e80068903fde2a6db82001112e8af2763f5d64bd971a059eadcb",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 477,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/library-visit/story-circle/images/puppet.webp",
-      "outputBytes": 12800,
-      "outputSha256": "7f00827ff3f93fc83d4ba69716acc0f7cb8626a3af5c2e57ba001ac7fa9196f8",
+      "outputBytes": 17842,
+      "outputSha256": "fe00037257a82bf78dcc5b2c5c29a6412795d28eb4b37878ebb7e45a74cf5879",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9036,21 +9059,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/puppet.png",
-      "sourceBytes": 19720,
-      "sourceSha256": "d08a93028ce2b031cd2a95ef09c80b4ec88244039c118ae79884547d5618e1da",
-      "width": 512
+      "sourceBytes": 148396,
+      "sourceSha256": "f62e4b15e6e77dcba3351b8e8c32d39d14c0da5941c83730b463e31ff4453645",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/library-visit/story-circle/images/sit-in-circle.webp",
-      "outputBytes": 10102,
-      "outputSha256": "f68060e89d57d2b28104e91eb2c29241bad4b5b81b4508ab669ca4ad4b095ef7",
+      "outputBytes": 25526,
+      "outputSha256": "7b168396d305709cac692bdfd28820ed8bd5d5df3d5010d38d2777c27dc731bd",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9059,21 +9082,21 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/sit-in-circle.png",
-      "sourceBytes": 23154,
-      "sourceSha256": "6106a42e5b8954309911859382ce4e900cd6eaa6c5b65a0064de5592a276b287",
-      "width": 512
+      "sourceBytes": 279218,
+      "sourceSha256": "c9fa8f0fefbdff4761026c5b521a762fdaddd1d163dc23c68394cde3d25a097e",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 15,
       "output": "lessons/library-visit/story-circle/images/story-card.webp",
-      "outputBytes": 6006,
-      "outputSha256": "ff4c1d52b35bda1977a2b494bfca10c1e6e639e28fdb8e7ec0cdde283085b269",
+      "outputBytes": 12068,
+      "outputSha256": "cf5764603cdea3e8fd820e9feec19ba46c90ff71267f215f857aa8e108dc8874",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9082,22 +9105,22 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/story-card.png",
-      "sourceBytes": 18017,
-      "sourceSha256": "322b6d3fb9bb5fcf1fb077f6415e3750b28a2c1c7f11d859e1a43346326b0390",
-      "width": 512
+      "sourceBytes": 163515,
+      "sourceSha256": "ea229f0958ec4b159a00781daa46061d09bcaf51ea31f510010e8786802b04dc",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "library-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 34,
       "output": "lessons/library-visit/story-circle/images/storyteller.webp",
-      "outputBytes": 13922,
-      "outputSha256": "9678fa410f61a1cb706acbcbe2de0847c1ac41ae31c7b157840e2bee991131ae",
-      "profile": "objectSmall",
+      "outputBytes": 18898,
+      "outputSha256": "8cd68b17b463b9f69b9c66daf500be41c7feba351a665abbfc048e4cbdf12031",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -9105,9 +9128,9 @@
         "story-circle"
       ],
       "source": "lessons/library-visit/story-circle/images/storyteller.png",
-      "sourceBytes": 49834,
-      "sourceSha256": "50d76f7c1b3f3c1a0aca9772710eb7fcc13a727df5ad7e95d389f52649b3dd90",
-      "width": 242
+      "sourceBytes": 178676,
+      "sourceSha256": "552643a1a90f73a3d79aa481e34496e31a5dc40d635bd8251db0c14d59f88600",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13549,7 +13572,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-07-30T03:59:17.170Z",
+  "generatedAt": "2026-07-30T06:18:39.485Z",
   "releaseVersion": "v1",
-  "revision": "8b52554ea77ce4e4"
+  "revision": "d754da4e425d4755"
 }

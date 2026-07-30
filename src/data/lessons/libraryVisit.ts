@@ -3,6 +3,7 @@ import {
   makeOutsideExplorationLesson,
   type OutsideLessonSpec,
 } from './outsideExplorationFactory';
+import { rect } from '../lessonAuthoring';
 
 const libraryVisitSpec = {
   id: 'library-visit',
@@ -35,24 +36,40 @@ const libraryVisitSpec = {
       introSuccessEn: 'There are so many books!',
       completionVi: 'Bé đã biết dùng thẻ và trả sách đúng chỗ.',
       completionEn: 'You used a library card and returned a book.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'library-card',
           word: 'library card',
           meaningVi: 'thẻ thư viện',
           labelVi: 'thẻ thư viện',
+          position: rect(35, 52, 15, 11),
+          touchArea: rect(29, 46, 27, 23),
+          practiceInstructionVi: 'Chạm vào thẻ thư viện cạnh bé nhé.',
+          failHintVi: 'Thẻ thư viện nằm ngay bên phải bé.',
         },
         {
           key: 'shelf',
           word: 'shelf',
           meaningVi: 'kệ sách',
           labelVi: 'kệ sách',
+          position: rect(34, 24, 28, 25),
+          touchArea: rect(28, 18, 40, 37),
+          practiceInstructionVi: 'Chạm vào kệ sách ở phía trên nhé.',
+          failHintVi: 'Kệ sách nằm ở phía trên.',
         },
         {
           key: 'librarian',
           word: 'librarian',
           meaningVi: 'cô thủ thư',
           labelVi: 'cô thủ thư',
+          position: rect(66, 27, 20, 32),
+          touchArea: rect(60, 21, 32, 44),
+          practiceInstructionVi:
+            'Chạm vào cô thủ thư ở phía trên bên phải nhé.',
+          failHintVi: 'Cô thủ thư đứng ở phía trên bên phải.',
         },
         {
           key: 'book-basket',
@@ -61,6 +78,10 @@ const libraryVisitSpec = {
           labelVi: 'giỏ đựng sách',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(54, 56, 19, 16),
+          touchArea: rect(48, 50, 31, 28),
+          practiceInstructionVi: 'Kéo giỏ sách ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Giỏ sách nằm ở giữa khung cảnh.',
         },
         {
           key: 'book-return',
@@ -68,6 +89,10 @@ const libraryVisitSpec = {
           meaningVi: 'nơi trả sách',
           labelVi: 'nơi trả sách',
           tier: 'expanded',
+          position: rect(78, 51, 17, 19),
+          touchArea: rect(72, 45, 28, 31),
+          practiceInstructionVi: 'Chạm vào nơi trả sách ở bên phải nhé.',
+          failHintVi: 'Nơi trả sách nằm ở bên phải.',
         },
         {
           key: 'quiet-sign',
@@ -75,6 +100,11 @@ const libraryVisitSpec = {
           meaningVi: 'biển nhắc nói nhỏ',
           labelVi: 'biển nhắc nói nhỏ',
           tier: 'expanded',
+          position: rect(81, 29, 13, 16),
+          touchArea: rect(75, 23, 25, 28),
+          practiceInstructionVi:
+            'Chạm vào biển nói nhỏ ở góc trên bên phải nhé.',
+          failHintVi: 'Biển nói nhỏ nằm ở góc trên bên phải.',
         },
         {
           key: 'show-card',
@@ -83,6 +113,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ đưa thẻ thư viện',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 78, 16, 15),
+          touchArea: rect(23, 72, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ đưa thẻ ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ đưa thẻ nằm ở dưới bên trái.',
         },
         {
           key: 'use-quiet-voice',
@@ -92,6 +127,11 @@ const libraryVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 78, 16, 15),
+          touchArea: rect(45, 72, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ nói nhỏ ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ nói nhỏ nằm ở giữa hàng dưới.',
         },
         {
           key: 'return-book',
@@ -100,6 +140,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ trả sách',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 78, 16, 15),
+          touchArea: rect(68, 72, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ trả sách ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ trả sách nằm ở dưới bên phải.',
         },
       ],
     },
@@ -114,6 +159,9 @@ const libraryVisitSpec = {
       introSuccessEn: 'Every book looks interesting!',
       completionVi: 'Bé đã chọn được quyển sách mình thích.',
       completionEn: 'You chose a book you like.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'picture-book',
@@ -121,18 +169,31 @@ const libraryVisitSpec = {
           meaningVi: 'sách tranh',
           labelVi: 'sách tranh',
           practice: 'drag',
+          position: rect(35, 51, 21, 17),
+          touchArea: rect(29, 45, 33, 29),
+          practiceInstructionVi:
+            'Kéo sách tranh cạnh bé vào vòng sáng nhé.',
+          failHintVi: 'Sách tranh nằm ngay bên phải bé.',
         },
         {
           key: 'cover',
           word: 'cover',
           meaningVi: 'bìa sách',
           labelVi: 'bìa sách',
+          position: rect(58, 49, 17, 16),
+          touchArea: rect(52, 43, 29, 28),
+          practiceInstructionVi: 'Chạm vào bìa sách ở giữa nhé.',
+          failHintVi: 'Bìa sách nằm ở giữa khung cảnh.',
         },
         {
           key: 'page',
           word: 'page',
           meaningVi: 'trang sách',
           labelVi: 'trang sách',
+          position: rect(80, 50, 16, 15),
+          touchArea: rect(74, 44, 26, 27),
+          practiceInstructionVi: 'Chạm vào trang sách ở bên phải nhé.',
+          failHintVi: 'Trang sách nằm ở bên phải.',
         },
         {
           key: 'bookmark',
@@ -141,6 +202,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ đánh dấu sách',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(56, 65, 12, 12),
+          touchArea: rect(50, 59, 24, 24),
+          practiceInstructionVi:
+            'Kéo thẻ đánh dấu ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ đánh dấu nằm ở giữa phía dưới.',
         },
         {
           key: 'reading-chair',
@@ -148,6 +214,11 @@ const libraryVisitSpec = {
           meaningVi: 'ghế đọc sách',
           labelVi: 'ghế đọc sách',
           tier: 'expanded',
+          position: rect(31, 30, 25, 25),
+          touchArea: rect(25, 24, 37, 37),
+          practiceInstructionVi:
+            'Chạm vào ghế đọc sách ở phía trên nhé.',
+          failHintVi: 'Ghế đọc sách nằm ở phía trên.',
         },
         {
           key: 'alphabet-book',
@@ -155,6 +226,11 @@ const libraryVisitSpec = {
           meaningVi: 'sách chữ cái',
           labelVi: 'sách chữ cái',
           tier: 'expanded',
+          position: rect(76, 27, 19, 20),
+          touchArea: rect(70, 21, 30, 32),
+          practiceInstructionVi:
+            'Chạm vào sách chữ cái ở phía trên bên phải nhé.',
+          failHintVi: 'Sách chữ cái nằm ở phía trên bên phải.',
         },
         {
           key: 'choose-book',
@@ -163,6 +239,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ chọn sách',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ chọn sách ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ chọn sách nằm ở dưới bên trái.',
         },
         {
           key: 'turn-page',
@@ -172,6 +253,11 @@ const libraryVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ lật trang ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ lật trang nằm ở giữa hàng dưới.',
         },
         {
           key: 'borrow-book',
@@ -180,6 +266,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ mượn sách',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ mượn sách ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ mượn sách nằm ở dưới bên phải.',
         },
       ],
     },
@@ -194,18 +285,30 @@ const libraryVisitSpec = {
       introSuccessEn: "Let's listen together.",
       completionVi: 'Bé đã ngồi nghe chuyện thật chăm chú.',
       completionEn: 'You listened carefully during story time.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'storyteller',
           word: 'storyteller',
           meaningVi: 'người kể chuyện',
           labelVi: 'người kể chuyện',
+          position: rect(64, 27, 22, 34),
+          touchArea: rect(58, 21, 34, 46),
+          practiceInstructionVi:
+            'Chạm vào người kể chuyện ở phía trên bên phải nhé.',
+          failHintVi: 'Người kể chuyện ngồi ở phía trên bên phải.',
         },
         {
           key: 'circle',
           word: 'circle',
           meaningVi: 'vòng tròn',
           labelVi: 'vòng tròn',
+          position: rect(36, 52, 30, 19),
+          touchArea: rect(30, 46, 42, 31),
+          practiceInstructionVi: 'Chạm vào vòng tròn ở giữa nhé.',
+          failHintVi: 'Vòng tròn nằm ở giữa khung cảnh.',
         },
         {
           key: 'cushion',
@@ -213,6 +316,11 @@ const libraryVisitSpec = {
           meaningVi: 'đệm ngồi',
           labelVi: 'đệm ngồi',
           practice: 'drag',
+          position: rect(40, 67, 16, 11),
+          touchArea: rect(34, 61, 28, 23),
+          practiceInstructionVi:
+            'Kéo đệm ngồi cạnh bé vào vòng sáng nhé.',
+          failHintVi: 'Đệm ngồi nằm ngay bên phải bé.',
         },
         {
           key: 'puppet',
@@ -220,6 +328,10 @@ const libraryVisitSpec = {
           meaningVi: 'rối tay',
           labelVi: 'rối tay',
           tier: 'expanded',
+          position: rect(81, 50, 14, 16),
+          touchArea: rect(75, 44, 25, 28),
+          practiceInstructionVi: 'Chạm vào rối tay ở bên phải nhé.',
+          failHintVi: 'Rối tay nằm ở bên phải.',
         },
         {
           key: 'story-card',
@@ -228,6 +340,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ câu chuyện',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(59, 66, 15, 12),
+          touchArea: rect(53, 60, 27, 24),
+          practiceInstructionVi:
+            'Kéo thẻ câu chuyện ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ câu chuyện nằm ở giữa phía dưới.',
         },
         {
           key: 'library-bell',
@@ -235,6 +352,11 @@ const libraryVisitSpec = {
           meaningVi: 'chuông giờ kể chuyện',
           labelVi: 'chuông giờ kể chuyện',
           tier: 'expanded',
+          position: rect(84, 36, 11, 10),
+          touchArea: rect(78, 30, 22, 22),
+          practiceInstructionVi:
+            'Chạm vào chuông kể chuyện ở góc trên bên phải nhé.',
+          failHintVi: 'Chuông kể chuyện nằm ở góc trên bên phải.',
         },
         {
           key: 'sit-in-circle',
@@ -243,6 +365,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ ngồi thành vòng tròn',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 80, 16, 15),
+          touchArea: rect(23, 74, 28, 26),
+          practiceInstructionVi:
+            'Chạm vào thẻ ngồi vòng tròn ở dưới bên trái nhé.',
+          failHintVi: 'Thẻ ngồi vòng tròn nằm ở dưới bên trái.',
         },
         {
           key: 'listen-story',
@@ -252,6 +379,11 @@ const libraryVisitSpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 80, 16, 15),
+          touchArea: rect(45, 74, 28, 26),
+          practiceInstructionVi:
+            'Kéo thẻ nghe chuyện ở giữa vào vòng sáng nhé.',
+          failHintVi: 'Thẻ nghe chuyện nằm ở giữa hàng dưới.',
         },
         {
           key: 'clap-softly',
@@ -260,6 +392,11 @@ const libraryVisitSpec = {
           labelVi: 'thẻ vỗ tay nhẹ',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 80, 16, 15),
+          touchArea: rect(68, 74, 28, 26),
+          practiceInstructionVi:
+            'Chạm vào thẻ vỗ tay nhẹ ở dưới bên phải nhé.',
+          failHintVi: 'Thẻ vỗ tay nhẹ nằm ở dưới bên phải.',
         },
       ],
     },
