@@ -19,7 +19,10 @@ import { snackTimeLesson } from '../src/data/lessons/snackTime';
 import { supermarketTripLesson } from '../src/data/lessons/supermarketTrip';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import { validateThemes } from '../src/data/themeValidation';
-import { themes } from '../src/data/themes';
+import {
+  BODY_FEELINGS_SELF_CARE_THEME_ID,
+  themes,
+} from '../src/data/themes';
 import {
   getTeacherFeedbackEn,
   getTeacherInstructionEn,
@@ -144,6 +147,14 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'doctor-visit',
     'birthday-party',
     'grandparents-visit',
+    'my-body',
+    'five-senses',
+    'my-feelings',
+    'calm-myself',
+    'personal-care',
+    'dress-myself',
+    'toilet-routine',
+    'speaking-up',
   ]);
 });
 
@@ -322,6 +333,124 @@ test('Theme 2 lesson content stays concise, progressive, and natural', () => {
   expect(seenWords.has('swim ring')).toBe(false);
   expect(seenWords.has('blow up a balloon')).toBe(false);
   expect(seenWords.has('cut the cake')).toBe(false);
+});
+
+test('Theme 3 content progresses from body awareness to speaking up', () => {
+  const themeLessons = lessons.filter(
+    lesson => lesson.themeId === BODY_FEELINGS_SELF_CARE_THEME_ID,
+  );
+  const seenWords = new Set<string>();
+  const draggableStepIds = new Set<string>();
+  const expectedDraggableStepIds = new Set([
+    'arms-and-hands-drag-hand',
+    'care-items-drag-toothbrush',
+    'choose-clothes-drag-shorts',
+    'clean-and-private-drag-hand-soap',
+    'comfort-corner-drag-cushion',
+    'face-and-hair-care-drag-comb',
+    'fasteners-and-shoes-drag-zipper',
+    'head-and-face-drag-eyes',
+    'legs-and-feet-drag-foot',
+    'slow-breathing-drag-feather',
+  ]);
+
+  expect(themeLessons.map(lesson => lesson.id)).toEqual([
+    'my-body',
+    'five-senses',
+    'my-feelings',
+    'calm-myself',
+    'personal-care',
+    'dress-myself',
+    'toilet-routine',
+    'speaking-up',
+  ]);
+
+  for (const lesson of themeLessons) {
+    expect(lesson.scenes).toHaveLength(3);
+
+    for (const scene of lesson.scenes) {
+      expect(getSceneForLearningMode(scene, 'core').vocabulary).toHaveLength(3);
+      expect(
+        getSceneForLearningMode(scene, 'expanded').vocabulary,
+      ).toHaveLength(6);
+      expect(
+        getSceneForLearningMode(scene, 'challenge').vocabulary,
+      ).toHaveLength(9);
+
+      for (const vocabulary of scene.vocabulary ?? []) {
+        const normalizedWord = vocabulary.word.trim().toLocaleLowerCase('en-US');
+        expect(seenWords.has(normalizedWord)).toBe(false);
+        seenWords.add(normalizedWord);
+
+        if (vocabulary.type === 'adjective') {
+          const teachStep = scene.steps.find(
+            step => step.type === 'teach' && step.vocabId === vocabulary.id,
+          );
+          expect(getTeacherInstructionEn(teachStep!, scene)).toMatch(
+            /^Let's learn the word\b/u,
+          );
+        }
+
+        if (vocabulary.type === 'phrase') {
+          const practiceStep = scene.steps.find(
+            step => step.type === 'practice' && step.vocabId === vocabulary.id,
+          );
+          expect(practiceStep?.interaction.type).toBe('tap');
+          expect(getTeacherInstructionEn(practiceStep!, scene)).toMatch(
+            /^Tap the matching card\b/u,
+          );
+        }
+      }
+
+      for (const step of scene.steps.filter(item => item.type === 'practice')) {
+        if (step.interaction.type === 'drag') {
+          draggableStepIds.add(step.id);
+        }
+        expect(step.instructionVi.trim().split(/\s+/u).length).toBeLessThanOrEqual(
+          12,
+        );
+        expect(step.instructionVi).not.toMatch(/(?:bên cạnh|ngay cạnh)/iu);
+        expect(step.instructionVi).not.toMatch(
+          /(?:góc (?:trên|dưới)|hàng dưới|phía (?:trên|dưới) bên|ở (?:bên trái|bên phải|chính giữa))/iu,
+        );
+        expect(step.failFeedbackVi).toMatch(
+          /(?:hàng dưới|phía trên|phía dưới|bên trái|bên phải|chính giữa)/iu,
+        );
+      }
+
+      expect(scene.objects.slice(6).every(object => object.position.y >= 80)).toBe(
+        true,
+      );
+    }
+  }
+
+  const bodyLesson = themeLessons.find(lesson => lesson.id === 'my-body');
+  for (const scene of bodyLesson?.scenes ?? []) {
+    const character = scene.character!;
+    const characterCenter =
+      character.position.x + character.position.width / 2;
+    const contextualObjects = scene.objects.slice(0, 6);
+
+    expect(character.position.x).toBeGreaterThanOrEqual(30);
+    expect(
+      contextualObjects.filter(
+        object => object.position.x + object.position.width / 2 < characterCenter,
+      ).length,
+    ).toBeGreaterThanOrEqual(2);
+    expect(
+      contextualObjects.filter(
+        object => object.position.x + object.position.width / 2 > characterCenter,
+      ).length,
+    ).toBeGreaterThanOrEqual(2);
+  }
+
+  expect(draggableStepIds).toEqual(expectedDraggableStepIds);
+  expect(seenWords.size).toBe(216);
+  expect(seenWords.has('please give me privacy')).toBe(true);
+  expect(seenWords.has("I don't like that".toLocaleLowerCase('en-US'))).toBe(
+    true,
+  );
+  expect(seenWords.has('tell a trusted grown-up')).toBe(true);
 });
 
 test('validator catches missing object references', () => {

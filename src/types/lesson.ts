@@ -31,7 +31,7 @@ export type LearningScope = {
 };
 
 /** Loại từ vựng để engine chọn cách dạy và kiểm tra phù hợp. */
-export type VocabularyType = 'noun' | 'verb' | 'phrase';
+export type VocabularyType = 'noun' | 'verb' | 'adjective' | 'phrase';
 
 /** Một từ hoặc cụm từ tiếng Anh bé sẽ học trong scene. */
 export type VocabularyItem = {

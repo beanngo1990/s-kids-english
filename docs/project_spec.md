@@ -158,10 +158,11 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có hai themes:
+Hiện có ba themes:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
+- `co-the-cam-xuc-va-tu-cham-soc` / “Cơ thể, cảm xúc và tự chăm sóc”.
 
 Theme `mot-ngay-cua-be` chứa 11 lesson packs theo thứ tự:
 
@@ -187,6 +188,23 @@ Theme `be-ra-ngoai-kham-pha` chứa 8 lesson packs theo thứ tự:
 6. `doctor-visit`
 7. `birthday-party`
 8. `grandparents-visit`
+
+Theme `co-the-cam-xuc-va-tu-cham-soc` chứa 8 lesson packs theo thứ tự:
+
+1. `my-body`
+2. `five-senses`
+3. `my-feelings`
+4. `calm-myself`
+5. `personal-care`
+6. `dress-myself`
+7. `toilet-routine`
+8. `speaking-up`
+
+Theme 3 dùng layout riêng theo ngữ cảnh cho từng scene. Các scene cơ thể đặt nhân vật ở giữa với
+callout bộ phận xung quanh; scene sinh hoạt gom đồ vật theo khu vực sử dụng và giữ thẻ câu nói ở
+hàng dưới. Hướng dẫn chính không đọc vị trí màn hình; vị trí tuyệt đối chỉ xuất hiện trong retry
+hint. Drag chỉ dùng khi object có đích đến trực quan, còn cảm xúc, trạng thái và phrase card dùng
+tap.
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
@@ -216,7 +234,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Scene vocabulary và objects
 
-- Vocabulary type: `noun`, `verb`, `phrase`.
+- Vocabulary type: `noun`, `verb`, `adjective`, `phrase`.
 - Vocabulary level: `easy`, `medium`, `hard`.
 - Object roles: `learning`, `decoration`, `dropZone`, `character`.
 - Vị trí và touch areas dùng `PercentRect` để responsive theo scene.

@@ -35,6 +35,8 @@ export type OutsideVocabularySpec = {
   practiceInstructionVi?: string;
   successFeedbackEn?: string;
   successFeedbackVi?: string;
+  teachInstructionVi?: string;
+  teachSuccessFeedbackVi?: string;
   touchArea?: PercentRect;
 };
 
@@ -296,18 +298,20 @@ function makeVocabularySteps({
     type: 'teach',
     targetObjectIds: [objectId],
     instructionVi:
-      item.type === 'phrase'
+      item.teachInstructionVi ??
+      (item.type === 'phrase'
         ? `Mình học câu ${item.meaningVi} nhé.`
-        : `Đây là ${item.labelVi}.`,
+        : `Đây là ${item.labelVi}.`),
     interaction: {
       targetObjectId: objectId,
       type: 'listen',
     },
     promptText: item.word,
     successFeedbackVi:
-      item.type === 'phrase'
+      item.teachSuccessFeedbackVi ??
+      (item.type === 'phrase'
         ? `Câu này nghĩa là ${item.meaningVi}.`
-        : `Từ này nghĩa là ${item.meaningVi}.`,
+        : `Từ này nghĩa là ${item.meaningVi}.`),
     effects: [lessonEffects.sparkle(objectId)],
     learningScope,
     vocabId: vocabulary?.id,
