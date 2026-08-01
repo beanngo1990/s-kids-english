@@ -7203,14 +7203,37 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 16,
+      "output": "lessons/grandparents-visit/family-visit/images/ask-for-hug.webp",
+      "outputBytes": 23578,
+      "outputSha256": "2a76075ecbe0e5dd1f0ac96d6ee2392aebe8ae8c0de023f2e183d708bdea9a63",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "family-visit"
+      ],
+      "source": "lessons/grandparents-visit/family-visit/images/ask-for-hug.png",
+      "sourceBytes": 252683,
+      "sourceSha256": "0e574f318d8c81079ed50cd0160b6397168f4a04e6a723c5877e33692ce9bb57",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 39,
       "output": "lessons/grandparents-visit/family-visit/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -7219,21 +7242,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "grandparents-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/grandparents-visit/family-visit/images/background.webp",
-      "outputBytes": 11484,
-      "outputSha256": "24500e88ac43a6faa292c05580f3d3a1868c9d6ec981c4f2528fcf6ee5edfb42",
+      "outputBytes": 65080,
+      "outputSha256": "0376a49fdceeccaa679458ad7fbacc066442301d63c4dfc8ce265c1917593067",
       "profile": "background",
       "roles": [
         "background"
@@ -7242,21 +7265,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/background.png",
-      "sourceBytes": 84452,
-      "sourceSha256": "be821b0fccb6ef25c5b1a176e7085e942a21d2dfdb613d189303f410dae5dd81",
-      "width": 941
+      "sourceBytes": 1925922,
+      "sourceSha256": "b48fc0fa05f9c56d368f669f84b6f2f9bb978aa37e3a91c61378c5437f2477da",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 480,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 13,
       "output": "lessons/grandparents-visit/family-visit/images/doorbell.webp",
-      "outputBytes": 11294,
-      "outputSha256": "5012eec90db482f77fe1a3b68037162e82d1b08521dc1980dbe3f12dd927d0ff",
+      "outputBytes": 8054,
+      "outputSha256": "3806f654bd35341bc5a304e8d894b279f2342caeb1ebef4b791eac3d3dd841fa",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7265,21 +7288,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/doorbell.png",
-      "sourceBytes": 24597,
-      "sourceSha256": "376ca7eaa0198f7b635edb4369d7bbcf649fdfab75a3c416ab03fb698393e291",
-      "width": 512
+      "sourceBytes": 88604,
+      "sourceSha256": "3195a84165dfc1b4de900f0c9ef57a5043098361eb491cfd22e92a94bddaacd4",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 434,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 20,
       "output": "lessons/grandparents-visit/family-visit/images/family-photo.webp",
-      "outputBytes": 10210,
-      "outputSha256": "ac2d95360dc160be3a87946244149d31ad9f1890501c7581c084519b979ab68e",
+      "outputBytes": 21132,
+      "outputSha256": "a20005f3317120b19aaa5782782bdc5c101296381eb22265b36afc5833650e2a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7288,9 +7311,9 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/family-photo.png",
-      "sourceBytes": 29055,
-      "sourceSha256": "5ebf7ccb2c704258113c028bd9f6044f1897ff1bccebde59e1f5b4874cd056b3",
-      "width": 512
+      "sourceBytes": 229622,
+      "sourceSha256": "d650f0387aa0d7aea90a87bce82c6c633c56c1f7006040ac2a64608a80c037fc",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7318,15 +7341,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 34,
       "output": "lessons/grandparents-visit/family-visit/images/grandma.webp",
-      "outputBytes": 13754,
-      "outputSha256": "d4e2c1b9dc03926dafb2882c4f5ec245580e1a04bf579c57637dbf4722e02e7c",
-      "profile": "objectSmall",
+      "outputBytes": 16484,
+      "outputSha256": "c4d489e0e59cdf5863e2b16f843d82b306b9037b7e7007edf5ecb78920230cf6",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -7334,22 +7357,22 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/grandma.png",
-      "sourceBytes": 49421,
-      "sourceSha256": "142e2a4b0355e25f8f5844d71ed9575205eaae4053a20e6df3b9cfbebf559fa7",
-      "width": 242
+      "sourceBytes": 140631,
+      "sourceSha256": "35c49f662ff7e55fddb104ead0051eef3b63e8264e5355112ded6251c725b04a",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 34,
       "output": "lessons/grandparents-visit/family-visit/images/grandpa.webp",
-      "outputBytes": 13628,
-      "outputSha256": "89100c4f15c6115a7b1b98763c145dfe721273454af34d4153aabcfdda619524",
-      "profile": "objectSmall",
+      "outputBytes": 14898,
+      "outputSha256": "9f2451d66b12fded2adc39a77875eb1015c6d5a49008e3a54b0e153e6fe7ce5b",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -7357,21 +7380,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/grandpa.png",
-      "sourceBytes": 49570,
-      "sourceSha256": "1931932c5793ce218e3f6964abcb0cf9c67da7a739174c28d0bc077b1110bae9",
-      "width": 242
+      "sourceBytes": 128726,
+      "sourceSha256": "75e237ce8e660f79cce1230ed6ecf0ff390537574c0dd87bc4d386925bf21db2",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 17,
       "output": "lessons/grandparents-visit/family-visit/images/hug.webp",
-      "outputBytes": 10322,
-      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "outputBytes": 11164,
+      "outputSha256": "72b848a88ab8ae54f958bc98134383c58491bf250150472793c90e0ab6401bdd",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7380,21 +7403,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/hug.png",
-      "sourceBytes": 23731,
-      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
-      "width": 512
+      "sourceBytes": 154230,
+      "sourceSha256": "b46974a37fdd25b53b96a9179ae9aec51c08dce42d34eb46d1c1f0db7ed3bb73",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/family-visit/images/say-hello.webp",
-      "outputBytes": 10298,
-      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "outputBytes": 26308,
+      "outputSha256": "28ee29c6f2c0866ed42a26bd80d806fa94ac411e71fb8f639f4d3081ce41867c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7403,21 +7426,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/say-hello.png",
-      "sourceBytes": 23464,
-      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
-      "width": 512
+      "sourceBytes": 259462,
+      "sourceSha256": "af3bcc7bf2140e42dc452ea8333c463376eb10d93d2f968923b2dba7b5b77c7f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 434,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/family-visit/images/show-photo.webp",
-      "outputBytes": 10210,
-      "outputSha256": "ac2d95360dc160be3a87946244149d31ad9f1890501c7581c084519b979ab68e",
+      "outputBytes": 26852,
+      "outputSha256": "90e458093b51d826b610cd4ef9825b69d3013093da980312533a09e1fda3ca35",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7426,21 +7449,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/show-photo.png",
-      "sourceBytes": 29055,
-      "sourceSha256": "5ebf7ccb2c704258113c028bd9f6044f1897ff1bccebde59e1f5b4874cd056b3",
-      "width": 512
+      "sourceBytes": 264842,
+      "sourceSha256": "ac5bd6e66a0cd2b6edfdeaac1d3bea6dd50ad548d8a01adc76b3ee91fbf3af54",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 201,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/grandparents-visit/family-visit/images/slippers.webp",
-      "outputBytes": 9568,
-      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "outputBytes": 13200,
+      "outputSha256": "cf58a4ce1ce4d86fabb8ea04c0aa3bd2dce34dd765c71b88dab2e4274ebdb176",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7449,21 +7472,21 @@
         "family-visit"
       ],
       "source": "lessons/grandparents-visit/family-visit/images/slippers.png",
-      "sourceBytes": 18003,
-      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
-      "width": 512
+      "sourceBytes": 152535,
+      "sourceSha256": "b3e6cca100ef98dca53ede0e76d2ed24cd75cc828f4216973aae896dae823a51",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/grandparents-visit/garden-help/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -7472,21 +7495,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "grandparents-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/grandparents-visit/garden-help/images/background.webp",
-      "outputBytes": 18110,
-      "outputSha256": "3b247f5dafc66f8991390a730b3c6fa1acef01aaeb7922cacdaecbe569004c35",
+      "outputBytes": 87018,
+      "outputSha256": "bcb77940a0d790e24f90cde8c9c9c91678fdefea095db1c7e57d2f0335c8a1cf",
       "profile": "background",
       "roles": [
         "background"
@@ -7495,21 +7518,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/background.png",
-      "sourceBytes": 85300,
-      "sourceSha256": "683b4e8d07187b0203ce098e6f7f2c6e7ccd043449d580e7f03b1db75b39c1c3",
-      "width": 941
+      "sourceBytes": 2051333,
+      "sourceSha256": "0daedeb51f3e1e0509614d1a112aa86495bfd90317055068191f8c6cbca1a22d",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 444,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
       "maxPercent": 20,
       "output": "lessons/grandparents-visit/garden-help/images/flower.webp",
-      "outputBytes": 10752,
-      "outputSha256": "cbcf218d3c502549efa9b67bedd2191313cfd6a7deeee89787a4bf0475f98e0c",
+      "outputBytes": 18010,
+      "outputSha256": "e82a6edac5a903e0589aea552edf99645b40bdbec246efddfeb4713837448374",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7518,22 +7541,22 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/flower.png",
-      "sourceBytes": 16245,
-      "sourceSha256": "263affb5182aedfce2dfc29cb791037f46ed2d6059fb3f2d265af6563b30c9b4",
-      "width": 512
+      "sourceBytes": 136404,
+      "sourceSha256": "4c6a558967f63131fc3fbb12110252ac4b1e3d33b9666db68c18d872322465fd",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 24,
       "output": "lessons/grandparents-visit/garden-help/images/garden.webp",
-      "outputBytes": 10180,
-      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
-      "profile": "objectSmall",
+      "outputBytes": 30502,
+      "outputSha256": "5c160333b8dbdd058e761ce0d3ca286804d0c3a5003d2fac21a19f6f178568c6",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -7541,21 +7564,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/garden.png",
-      "sourceBytes": 23583,
-      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
-      "width": 512
+      "sourceBytes": 202131,
+      "sourceSha256": "e1489cbcb50e4fdd942d340b03aefd149d409732dd0d222ccdc2ceb89192ff95",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 335,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 13,
       "output": "lessons/grandparents-visit/garden-help/images/leaf.webp",
-      "outputBytes": 16188,
-      "outputSha256": "f2aa3dfd275c4387d5108a881ad4a676bb09d3f53b9e2edb06e01fa972019b1f",
+      "outputBytes": 10242,
+      "outputSha256": "62ee07228e58bec43ef47bc6d265fdbaa68830484173fe8e3ecc11b8a96fcc46",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7564,21 +7587,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/leaf.png",
-      "sourceBytes": 28622,
-      "sourceSha256": "656671e0c1b85ab1a978ad6082dabf4c690c60a93d033646577d083a5559f7ec",
-      "width": 512
+      "sourceBytes": 103893,
+      "sourceSha256": "ce079c4a81175483d529979c2b3240923e16e9150ec1865cd3c801dd33f5436f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 335,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/garden-help/images/pick-up-leaves.webp",
-      "outputBytes": 16188,
-      "outputSha256": "f2aa3dfd275c4387d5108a881ad4a676bb09d3f53b9e2edb06e01fa972019b1f",
+      "outputBytes": 22566,
+      "outputSha256": "572529870fe2f252a4dabb6eb4aa789eaab1b54e71a709979d56c715c4e6c1f9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7587,21 +7610,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/pick-up-leaves.png",
-      "sourceBytes": 28622,
-      "sourceSha256": "656671e0c1b85ab1a978ad6082dabf4c690c60a93d033646577d083a5559f7ec",
-      "width": 512
+      "sourceBytes": 230384,
+      "sourceSha256": "01363c0897e6ad30ade9da6cc82d3b90279c7c98975c30d79ed2c8bd5408b323",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 451,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
       "maxPercent": 19,
       "output": "lessons/grandparents-visit/garden-help/images/plant-pot.webp",
-      "outputBytes": 15854,
-      "outputSha256": "f821fdbbdf52f5eba8ec5f8b69985084203e5e57d5ed4dc7df353fc019157cc5",
+      "outputBytes": 16786,
+      "outputSha256": "42a2893615bb65a8a566d49d728fa40d9a5741952175372046218abf9b6a6002",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7610,21 +7633,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/plant-pot.png",
-      "sourceBytes": 22835,
-      "sourceSha256": "08646a9fe124d1ba6a7666714f91c9e13ee8c00f59f8b0dadbda966b0e5e4266",
-      "width": 512
+      "sourceBytes": 143851,
+      "sourceSha256": "383a6c2a7c53a956200379592918b46a23394d8974d4b7dd3c8061d7723eac1b",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 451,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/garden-help/images/plant-seed.webp",
-      "outputBytes": 15854,
-      "outputSha256": "f821fdbbdf52f5eba8ec5f8b69985084203e5e57d5ed4dc7df353fc019157cc5",
+      "outputBytes": 21620,
+      "outputSha256": "2d203f1cdd049b6f38cb0ac8df2178a60fe0887ffb00202e7a95db43e878ab68",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7633,21 +7656,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/plant-seed.png",
-      "sourceBytes": 22835,
-      "sourceSha256": "08646a9fe124d1ba6a7666714f91c9e13ee8c00f59f8b0dadbda966b0e5e4266",
-      "width": 512
+      "sourceBytes": 230272,
+      "sourceSha256": "03c87c084794b3b524bbcf8770f2a04926dd0c91b193c52015c5a6ef0a4f0285",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 392,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 14,
       "output": "lessons/grandparents-visit/garden-help/images/seed.webp",
-      "outputBytes": 21244,
-      "outputSha256": "54a2a6136445c6f756571d1dd3b431f7ad43b4e44b4ed3d3f39d14c9ff6534da",
+      "outputBytes": 12726,
+      "outputSha256": "7ca6561fc79771d5b5717dd9c6a83a57cec55868a134fe09b540e12c674a6373",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7656,21 +7679,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/seed.png",
-      "sourceBytes": 51000,
-      "sourceSha256": "5c85f8b79c89318199799ab14280c005c60a628800ce162a4d6bfe1c0914a424",
-      "width": 512
+      "sourceBytes": 133575,
+      "sourceSha256": "6df59a33ed1c157f5e635d625b498f4a9109b1f30636a3e3f368652a5486d757",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/garden-help/images/water-plant.webp",
-      "outputBytes": 9780,
-      "outputSha256": "81c860707268670ee3e3c456d73a9c6b2fe5546b4841e1dbc2afee2324b29669",
+      "outputBytes": 23010,
+      "outputSha256": "dc0bd030532b96f593564e284e7d1380bc3338f6789bcd1ba0fc06ac9e3fa34e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7679,21 +7702,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/water-plant.png",
-      "sourceBytes": 21686,
-      "sourceSha256": "b3fabad39fdb208563a4b9fd80967de2e4b7a8bae70ab286de6cfdbc2aa01079",
-      "width": 472
+      "sourceBytes": 236529,
+      "sourceSha256": "b47ec8e0f8d04f77b07d29f1f411de5240410b1f8043c0820f7eab9219ee0743",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 388,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 19,
       "output": "lessons/grandparents-visit/garden-help/images/watering-can.webp",
-      "outputBytes": 14892,
-      "outputSha256": "3215541cc184983b0bc3bd9e934271a4b249435e457c4998c93d27bb897c6928",
+      "outputBytes": 11834,
+      "outputSha256": "9a89a36d86a69f649a7252e749fb5984e9cab0f0c8e7f7c27536c9aab2dbfbfb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7702,21 +7725,21 @@
         "garden-help"
       ],
       "source": "lessons/grandparents-visit/garden-help/images/watering-can.png",
-      "sourceBytes": 25235,
-      "sourceSha256": "718c45ab8c8ea16ecfe33693cf8da547fd5c921b883d24af61d59cc6217822b2",
-      "width": 512
+      "sourceBytes": 107417,
+      "sourceSha256": "a88c1536f86d97f30341a1e1c15f9ada54913b949260a9faf01bc24137c860d0",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/grandparents-visit/goodbye-home/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -7725,21 +7748,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "grandparents-visit"
       ],
       "maxPercent": 100,
       "output": "lessons/grandparents-visit/goodbye-home/images/background.webp",
-      "outputBytes": 11484,
-      "outputSha256": "24500e88ac43a6faa292c05580f3d3a1868c9d6ec981c4f2528fcf6ee5edfb42",
+      "outputBytes": 55776,
+      "outputSha256": "1dacd880ce2484dc8bc23b5cfb1062326f86df8f11ac08b50dfd71db5306bb7e",
       "profile": "background",
       "roles": [
         "background"
@@ -7748,21 +7771,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/background.png",
-      "sourceBytes": 84452,
-      "sourceSha256": "be821b0fccb6ef25c5b1a176e7085e942a21d2dfdb613d189303f410dae5dd81",
-      "width": 941
+      "sourceBytes": 1749368,
+      "sourceSha256": "aa7443416533ede89dc0e5d2f16007e10f161932914ddf3defdc5f325407ba7a",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 405,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/grandparents-visit/goodbye-home/images/bag.webp",
-      "outputBytes": 14694,
-      "outputSha256": "8833090ee0aa142eafe6239a82cd6ed54ec3dcaab13248c4a14a2713c25b102d",
+      "outputBytes": 14146,
+      "outputSha256": "e347328a793f76ad32ba89ff8b7d5792ae336f2e18e38f96b84c53477715fa9d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7771,21 +7794,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/bag.png",
-      "sourceBytes": 27939,
-      "sourceSha256": "bca93d4d21d47894eed4f9b676f69b25fee4c4c9dc938cab9384f49add8864d3",
-      "width": 512
+      "sourceBytes": 144074,
+      "sourceSha256": "6b72c0fa95d812c78d741207da5727e94fab09f6a8a3ad0e5901e09ce4cb10f2",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 336,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 11,
       "output": "lessons/grandparents-visit/goodbye-home/images/car.webp",
-      "outputBytes": 13194,
-      "outputSha256": "ce4eb0dc02516d6cdede115378a6ba50aaf0062426facd42748f0caf4eb316e9",
+      "outputBytes": 20120,
+      "outputSha256": "9f4bf3be43b17e5ad4a2b10e713350e7afc2abf820d59944d82f140198ad8517",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7794,9 +7817,9 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/car.png",
-      "sourceBytes": 20225,
-      "sourceSha256": "7a8d9ca4b602481aec1764b33ae0fd7a1684365c740db9b3c3cecf14f3123d6d",
-      "width": 512
+      "sourceBytes": 162874,
+      "sourceSha256": "8b629812e88a17d70bf7b5b99f04f53219f8282578d80c787a280040d1be2414",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7824,14 +7847,37 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 60,
+      "output": "lessons/grandparents-visit/goodbye-home/images/front-door.webp",
+      "outputBytes": 12654,
+      "outputSha256": "4a7f496a1ab570d7452a3f49cf61a531e41f7b829c8390f2009814e794f59c8a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "goodbye-home"
+      ],
+      "source": "lessons/grandparents-visit/goodbye-home/images/front-door.png",
+      "sourceBytes": 156417,
+      "sourceSha256": "45233528848e2b0aec25e1a96764871459520c733e2d047a7b7eb7efa3b64fec",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "grandparents-visit"
+      ],
+      "maxPercent": 15,
       "output": "lessons/grandparents-visit/goodbye-home/images/go-home.webp",
-      "outputBytes": 10146,
-      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "outputBytes": 25516,
+      "outputSha256": "e9ba50868c72b87e2aadda475ef36c37a603daeaebec189c4290873d722fb7c0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7840,21 +7886,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/go-home.png",
-      "sourceBytes": 23615,
-      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
-      "width": 512
+      "sourceBytes": 252912,
+      "sourceSha256": "648310311c581e38cc0f6832c42c66b45ee372db6916e85953967874f2fdcd62",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 201,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 15,
       "output": "lessons/grandparents-visit/goodbye-home/images/put-on-shoes.webp",
-      "outputBytes": 9568,
-      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "outputBytes": 25326,
+      "outputSha256": "4b56f10b3fd3aff7331643272fa12bb1d81cde6086ecd2bf0fefa0a64d053b56",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7863,21 +7909,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/put-on-shoes.png",
-      "sourceBytes": 18003,
-      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
-      "width": 512
+      "sourceBytes": 254361,
+      "sourceSha256": "2f004629a62f0a41d393dc300c4368f850162b2454b959838c8a42099878de14",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 18,
+      "maxPercent": 15,
       "output": "lessons/grandparents-visit/goodbye-home/images/say-goodbye.webp",
-      "outputBytes": 10332,
-      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "outputBytes": 27508,
+      "outputSha256": "90a9c3f46d9d869720f2c87acd9d854ae5c4934d5b1f25403cb3e76f41b8adcc",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7886,21 +7932,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/say-goodbye.png",
-      "sourceBytes": 23299,
-      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
-      "width": 512
+      "sourceBytes": 258995,
+      "sourceSha256": "097f81752a1adfb0bc8e8c71a6333fc558fdb5baf9d240dd304bfe5e4c1f300b",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 201,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/grandparents-visit/goodbye-home/images/shoes.webp",
-      "outputBytes": 9568,
-      "outputSha256": "61cb8910beb91ac178a4159e2dbcf5dc17e2793564d454f36d00ef39634d5fcb",
+      "outputBytes": 16776,
+      "outputSha256": "10537b856e2942c72e1b73ff8221edf54279c647bf67205cf943aebbd623e805",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7909,21 +7955,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/shoes.png",
-      "sourceBytes": 18003,
-      "sourceSha256": "9883642616c72b682f5217a46cfd566985ba64d29b88baa81147f348a19e3a67",
-      "width": 512
+      "sourceBytes": 130823,
+      "sourceSha256": "ef7afe42ed1f07bfffe1f6744a21e0d163357d126464959841cf72d5990c055c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/grandparents-visit/goodbye-home/images/thank-you-card.webp",
-      "outputBytes": 5940,
-      "outputSha256": "f6b01597662054280b33402253678b425d652e65765fa09bd47bfe15c379be09",
+      "outputBytes": 11184,
+      "outputSha256": "1597d9f3f31955302898bb118144d47fc252582008c51026c8574601e2d8eda4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7932,21 +7978,21 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/thank-you-card.png",
-      "sourceBytes": 17714,
-      "sourceSha256": "3ddb558e44522c44233dad0b2a91c9a8ae999ddeeefdc8ad062ae4d7099d1f00",
-      "width": 512
+      "sourceBytes": 153119,
+      "sourceSha256": "841823d0e84b960ac5f3bd05c547fad6976bf05bc30da41d609ba7aaa8d084cb",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 351,
+      "height": 418,
       "lessonIds": [
         "grandparents-visit"
       ],
-      "maxPercent": 19,
+      "maxPercent": 15,
       "output": "lessons/grandparents-visit/goodbye-home/images/wave.webp",
-      "outputBytes": 18416,
-      "outputSha256": "c33e66a98317a40bf6b595195bfa9b13faf7d4efcd80d5007b717c12c5b3e021",
+      "outputBytes": 27380,
+      "outputSha256": "8c923c8705f0d9a5093573913c746a0a66399df109efcb8ae6ace617ad974ce2",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7955,9 +8001,9 @@
         "goodbye-home"
       ],
       "source": "lessons/grandparents-visit/goodbye-home/images/wave.png",
-      "sourceBytes": 28947,
-      "sourceSha256": "23adcae6801c60b8ea094338699753782783f8643c4438fae2edf937cccbad8d",
-      "width": 512
+      "sourceBytes": 260529,
+      "sourceSha256": "88018299745aa1f220280de27eeb406d082c17bfbe4bcd6c11ced517c6f07c90",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13756,7 +13802,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-08-01T08:42:00.367Z",
+  "generatedAt": "2026-08-01T09:52:06.794Z",
   "releaseVersion": "v1",
-  "revision": "24494a34411fb27f"
+  "revision": "e608d621b5e07bee"
 }

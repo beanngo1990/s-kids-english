@@ -83,6 +83,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Air-dry the dishes.",
     },
   },
+  [normalizeText("aisle")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/aisle.wav",
+      text: "aisle",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/aisle.wav",
+      text: "aisle",
+    },
+  },
+  [normalizeText("alphabet book")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/alphabet_book.wav",
+      text: "alphabet book",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/alphabet_book.wav",
+      text: "alphabet book",
+    },
+  },
   [normalizeText("apple")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/apple.wav",
@@ -135,6 +155,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Arrive home.",
     },
   },
+  [normalizeText("ask for a hug")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/ask_for_a_hug.wav",
+      text: "ask for a hug",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/ask_for_a_hug.wav",
+      text: "ask for a hug",
+    },
+  },
   [normalizeText("bag")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/bag.wav",
@@ -163,6 +193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "ball",
     },
   },
+  [normalizeText("balloon")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/balloon.wav",
+      text: "balloon",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/balloon.wav",
+      text: "balloon",
+    },
+  },
   [normalizeText("banana")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/banana.wav",
@@ -175,6 +215,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/banana.wav",
       text: "banana",
+    },
+  },
+  [normalizeText("bandage")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/bandage.wav",
+      text: "bandage",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/bandage.wav",
+      text: "bandage",
+    },
+  },
+  [normalizeText("banner")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/banner.wav",
+      text: "banner",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/banner.wav",
+      text: "banner",
     },
   },
   [normalizeText("basket")]: {
@@ -243,6 +303,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "bathtub",
     },
   },
+  [normalizeText("beach bag")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/beach_bag.wav",
+      text: "beach bag",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/beach_bag.wav",
+      text: "beach bag",
+    },
+  },
+  [normalizeText("beach towel")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/beach_towel.wav",
+      text: "beach towel",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/beach_towel.wav",
+      text: "beach towel",
+    },
+  },
+  [normalizeText("beanbag")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/beanbag.wav",
+      text: "beanbag",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/beanbag.wav",
+      text: "beanbag",
+    },
+  },
   [normalizeText("bed")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/bed.wav",
@@ -269,6 +359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/bench.wav",
       text: "bench",
+    },
+  },
+  [normalizeText("binoculars")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/binoculars.wav",
+      text: "binoculars",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/binoculars.wav",
+      text: "binoculars",
     },
   },
   [normalizeText("bite")]: {
@@ -313,6 +413,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "blocks",
     },
   },
+  [normalizeText("blow out the candles")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/blow_out_the_candles.wav",
+      text: "blow out the candles",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/blow_out_the_candles.wav",
+      text: "blow out the candles",
+    },
+  },
+  [normalizeText("blow your nose")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/blow_your_nose.wav",
+      text: "blow your nose",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/blow_your_nose.wav",
+      text: "blow your nose",
+    },
+  },
   [normalizeText("board")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/board.wav",
@@ -355,6 +475,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "book",
     },
   },
+  [normalizeText("book basket")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/book_basket.wav",
+      text: "book basket",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/book_basket.wav",
+      text: "book basket",
+    },
+  },
+  [normalizeText("book return")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/book_return.wav",
+      text: "book return",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/book_return.wav",
+      text: "book return",
+    },
+  },
   [normalizeText("bookmark")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/bookmark.wav",
@@ -367,6 +507,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/bookmark.wav",
       text: "bookmark",
+    },
+  },
+  [normalizeText("borrow a book")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/borrow_a_book.wav",
+      text: "borrow a book",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/borrow_a_book.wav",
+      text: "borrow a book",
     },
   },
   [normalizeText("bottle")]: {
@@ -501,6 +651,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Buckle up.",
     },
   },
+  [normalizeText("build a sandcastle")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/build_a_sandcastle.wav",
+      text: "build a sandcastle",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/build_a_sandcastle.wav",
+      text: "build a sandcastle",
+    },
+  },
   [normalizeText("build a tower")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/build_a_tower.wav",
@@ -549,6 +709,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cabinet",
     },
   },
+  [normalizeText("cake")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/cake.wav",
+      text: "cake",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/cake.wav",
+      text: "cake",
+    },
+  },
+  [normalizeText("cake server")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/cake_server.wav",
+      text: "cake server",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/cake_server.wav",
+      text: "cake server",
+    },
+  },
   [normalizeText("call everyone")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/call_everyone.wav",
@@ -575,6 +755,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_call_everyone_9e9479e4.wav",
       text: "Call everyone.",
+    },
+  },
+  [normalizeText("candle")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/candle.wav",
+      text: "candle",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/candle.wav",
+      text: "candle",
     },
   },
   [normalizeText("car")]: {
@@ -605,6 +795,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "carafe",
     },
   },
+  [normalizeText("card")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/card.wav",
+      text: "card",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/card.wav",
+      text: "card",
+    },
+  },
+  [normalizeText("carrot")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/carrot.wav",
+      text: "carrot",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/carrot.wav",
+      text: "carrot",
+    },
+  },
+  [normalizeText("carry the bag")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/carry_the_bag.wav",
+      text: "carry the bag",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/carry_the_bag.wav",
+      text: "carry the bag",
+    },
+  },
   [normalizeText("carry the tray")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/carry_the_tray.wav",
@@ -625,6 +845,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Carry the tray.",
     },
   },
+  [normalizeText("cart")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/cart.wav",
+      text: "cart",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/cart.wav",
+      text: "cart",
+    },
+  },
+  [normalizeText("cashier")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/cashier.wav",
+      text: "cashier",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/cashier.wav",
+      text: "cashier",
+    },
+  },
   [normalizeText("chair")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/chair.wav",
@@ -637,6 +877,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/chair.wav",
       text: "chair",
+    },
+  },
+  [normalizeText("check the list")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/check_the_list.wav",
+      text: "check the list",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/check_the_list.wav",
+      text: "check the list",
     },
   },
   [normalizeText("check the temperature")]: {
@@ -679,6 +929,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Check your dream journal.",
     },
   },
+  [normalizeText("check your heartbeat")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/check_your_heartbeat.wav",
+      text: "check your heartbeat",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/check_your_heartbeat.wav",
+      text: "check your heartbeat",
+    },
+  },
   [normalizeText("chicken")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/chicken.wav",
@@ -691,6 +951,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/chicken.wav",
       text: "chicken",
+    },
+  },
+  [normalizeText("choose a book")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/choose_a_book.wav",
+      text: "choose a book",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/choose_a_book.wav",
+      text: "choose a book",
+    },
+  },
+  [normalizeText("choose a drink")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/choose_a_drink.wav",
+      text: "choose a drink",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/choose_a_drink.wav",
+      text: "choose a drink",
     },
   },
   [normalizeText("choose a snack")]: {
@@ -753,6 +1033,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Choose a toy.",
     },
   },
+  [normalizeText("circle")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/circle.wav",
+      text: "circle",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/circle.wav",
+      text: "circle",
+    },
+  },
+  [normalizeText("clap softly")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/clap_softly.wav",
+      text: "clap softly",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/clap_softly.wav",
+      text: "clap softly",
+    },
+  },
+  [normalizeText("clap your hands")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/clap_your_hands.wav",
+      text: "clap your hands",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/clap_your_hands.wav",
+      text: "clap your hands",
+    },
+  },
   [normalizeText("classroom")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/classroom.wav",
@@ -779,6 +1089,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/teacher-instructions/audio/en/clean_up.wav",
       text: "clean up",
+    },
+  },
+  [normalizeText("clean up the crumbs")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/clean_up_the_crumbs.wav",
+      text: "clean up the crumbs",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/clean_up_the_crumbs.wav",
+      text: "clean up the crumbs",
     },
   },
   [normalizeText("clean up the toys")]: {
@@ -847,6 +1167,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/intro_success_77d988af.wav",
       text: "Cleaning up after eating keeps the snack area tidy.",
+    },
+  },
+  [normalizeText("climbing frame")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/climbing_frame.wav",
+      text: "climbing frame",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/climbing_frame.wav",
+      text: "climbing frame",
+    },
+  },
+  [normalizeText("clinic")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/clinic.wav",
+      text: "clinic",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/clinic.wav",
+      text: "clinic",
+    },
+  },
+  [normalizeText("clipboard")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/clipboard.wav",
+      text: "clipboard",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/clipboard.wav",
+      text: "clipboard",
     },
   },
   [normalizeText("clock")]: {
@@ -973,6 +1323,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cookie",
     },
   },
+  [normalizeText("counter")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/counter.wav",
+      text: "counter",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/counter.wav",
+      text: "counter",
+    },
+  },
+  [normalizeText("coupon")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/coupon.wav",
+      text: "coupon",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/coupon.wav",
+      text: "coupon",
+    },
+  },
+  [normalizeText("cover")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/cover.wav",
+      text: "cover",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/cover.wav",
+      text: "cover",
+    },
+  },
+  [normalizeText("cow")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/cow.wav",
+      text: "cow",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/cow.wav",
+      text: "cow",
+    },
+  },
+  [normalizeText("crab")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/crab.wav",
+      text: "crab",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/crab.wav",
+      text: "crab",
+    },
+  },
   [normalizeText("cracker")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/cracker.wav",
@@ -1043,6 +1443,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "curtain",
     },
   },
+  [normalizeText("cushion")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/cushion.wav",
+      text: "cushion",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/cushion.wav",
+      text: "cushion",
+    },
+  },
+  [normalizeText("dance")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/dance.wav",
+      text: "dance",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/dance.wav",
+      text: "dance",
+    },
+  },
+  [normalizeText("decorate the room")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/decorate_the_room.wav",
+      text: "decorate the room",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/decorate_the_room.wav",
+      text: "decorate the room",
+    },
+  },
   [normalizeText("desk")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/desk.wav",
@@ -1069,6 +1499,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/dessert.wav",
       text: "dessert",
+    },
+  },
+  [normalizeText("dig in the sand")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/dig_in_the_sand.wav",
+      text: "dig in the sand",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/dig_in_the_sand.wav",
+      text: "dig in the sand",
     },
   },
   [normalizeText("dim the lights")]: {
@@ -1191,6 +1631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "dishwasher",
     },
   },
+  [normalizeText("doctor")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/doctor.wav",
+      text: "doctor",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/doctor.wav",
+      text: "doctor",
+    },
+  },
   [normalizeText("doll")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/doll.wav",
@@ -1217,6 +1667,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/door.wav",
       text: "door",
+    },
+  },
+  [normalizeText("doorbell")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/doorbell.wav",
+      text: "doorbell",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/doorbell.wav",
+      text: "doorbell",
     },
   },
   [normalizeText("Drag the apple.")]: {
@@ -1267,6 +1727,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the ball into the yard.",
     },
   },
+  [normalizeText("Drag the balloon above into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_drag_balloon_1395a994.wav",
+      text: "Drag the balloon above into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_drag_balloon_1395a994.wav",
+      text: "Drag the balloon above into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the bandage into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_drag_bandage_b29271b5.wav",
+      text: "Drag the bandage into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_drag_bandage_b29271b5.wav",
+      text: "Drag the bandage into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the bath mat next to the bathtub.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_drag_mat_to_bathtub_7d450344.wav",
@@ -1275,6 +1755,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_drag_mat_to_bathtub_7d450344.wav",
       text: "Drag the bath mat next to the bathtub.",
+    },
+  },
+  [normalizeText("Drag the beach towel into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_drag_towel_a52bfc00.wav",
+      text: "Drag the beach towel into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_drag_towel_a52bfc00.wav",
+      text: "Drag the beach towel into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the beanbag into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_drag_beanbag_acdcae87.wav",
+      text: "Drag the beanbag into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_drag_beanbag_acdcae87.wav",
+      text: "Drag the beanbag into the glowing circle.",
     },
   },
   [normalizeText("Drag the blanket.")]: {
@@ -1331,6 +1831,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the body wash onto the bath sponge.",
     },
   },
+  [normalizeText("Drag the book basket into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_drag_book_basket_6743b6ec.wav",
+      text: "Drag the book basket into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_drag_book_basket_6743b6ec.wav",
+      text: "Drag the book basket into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the book onto the desk.")]: {
     "en-US": {
       key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/prompt_instructions_drag_book_to_desk_f87c011b.wav",
@@ -1349,6 +1859,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_book_to_shelf_ba5a0a00.wav",
       text: "Drag the book onto the shelf.",
+    },
+  },
+  [normalizeText("Drag the bookmark into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_drag_bookmark_742b2ea5.wav",
+      text: "Drag the bookmark into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_drag_bookmark_742b2ea5.wav",
+      text: "Drag the bookmark into the glowing circle.",
     },
   },
   [normalizeText("Drag the bookmark into the storybook.")]: {
@@ -1371,6 +1891,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the bottle into the bag.",
     },
   },
+  [normalizeText("Drag the bowl of fruit on the scale into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_fruit_9c7ea86d.wav",
+      text: "Drag the bowl of fruit on the scale into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_drag_fruit_9c7ea86d.wav",
+      text: "Drag the bowl of fruit on the scale into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the bus onto the road.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_drag_bus_to_road_fb2a0b56.wav",
@@ -1379,6 +1909,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_drag_bus_to_road_fb2a0b56.wav",
       text: "Drag the bus onto the road.",
+    },
+  },
+  [normalizeText("Drag the cake server into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_drag_cake_server_d16aadee.wav",
+      text: "Drag the cake server into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_drag_cake_server_d16aadee.wav",
+      text: "Drag the cake server into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the candle on the cake into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_drag_candle_bfdad6d9.wav",
+      text: "Drag the candle on the cake into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_drag_candle_bfdad6d9.wav",
+      text: "Drag the candle on the cake into the glowing circle.",
     },
   },
   [normalizeText("Drag the car into the basket.")]: {
@@ -1399,6 +1949,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/prompt_drag_carafe_to_cart_94cbc6fa.wav",
       text: "Drag the carafe onto the serving cart.",
+    },
+  },
+  [normalizeText("Drag the cart into the glowing circle next to you.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_drag_cart_4746d9e7.wav",
+      text: "Drag the cart into the glowing circle next to you.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_drag_cart_4746d9e7.wav",
+      text: "Drag the cart into the glowing circle next to you.",
     },
   },
   [normalizeText("Drag the chair to the desk.")]: {
@@ -1431,6 +1991,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the cleaning brush to the spill.",
     },
   },
+  [normalizeText("Drag the clipboard into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_drag_clipboard_58c26aba.wav",
+      text: "Drag the clipboard into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_drag_clipboard_58c26aba.wav",
+      text: "Drag the clipboard into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the coaster onto the serving cart.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_drag_coaster_to_cart_c4325097.wav",
@@ -1449,6 +2019,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/prompt_drag_cookie_to_snack_8df77cb7.wav",
       text: "Drag the cookie next to the snack.",
+    },
+  },
+  [normalizeText("Drag the coupon in the basket into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_drag_coupon_2d511b4a.wav",
+      text: "Drag the coupon in the basket into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_drag_coupon_2d511b4a.wav",
+      text: "Drag the coupon in the basket into the glowing circle.",
     },
   },
   [normalizeText("Drag the cracker onto the small table.")]: {
@@ -1471,6 +2051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the crayon to the paper.",
     },
   },
+  [normalizeText("Drag the crumbs into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_drag_crumbs_6e6bdc40.wav",
+      text: "Drag the crumbs into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_drag_crumbs_6e6bdc40.wav",
+      text: "Drag the crumbs into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the crumbs into the trash bin.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/prompt_cleanup_drag_crumbs_to_trash_78ae55b2.wav",
@@ -1479,6 +2069,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/prompt_cleanup_drag_crumbs_to_trash_78ae55b2.wav",
       text: "Drag the crumbs into the trash bin.",
+    },
+  },
+  [normalizeText("Drag the cushion into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_drag_cushion_08590202.wav",
+      text: "Drag the cushion into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_drag_cushion_08590202.wav",
+      text: "Drag the cushion into the glowing circle.",
     },
   },
   [normalizeText("Drag the dirty clothes into the laundry basket.")]: {
@@ -1499,6 +2099,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/prompt_drag_drying_mat_b2563591.wav",
       text: "Drag the drying mat next to the dish rack.",
+    },
+  },
+  [normalizeText("Drag the family photo on the wall into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_drag_family_photo_1deec65d.wav",
+      text: "Drag the family photo on the wall into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_drag_family_photo_1deec65d.wav",
+      text: "Drag the family photo on the wall into the glowing circle.",
     },
   },
   [normalizeText("Drag the food cover to the leftovers.")]: {
@@ -1531,6 +2141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the glow sticker onto the wall.",
     },
   },
+  [normalizeText("Drag the green counter into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_drag_counter_05075813.wav",
+      text: "Drag the green counter into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_drag_counter_05075813.wav",
+      text: "Drag the green counter into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the kite into the sky.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_drag_kite_to_sky_92095222.wav",
@@ -1551,6 +2171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the ladle onto the serving tray.",
     },
   },
+  [normalizeText("Drag the leaf into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_drag_leaf_56c4766f.wav",
+      text: "Drag the leaf into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_drag_leaf_56c4766f.wav",
+      text: "Drag the leaf into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the leftovers onto the kitchen counter.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_drag_leftovers_to_counter_b90323db.wav",
@@ -1559,6 +2189,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_leftovers_to_counter_b90323db.wav",
       text: "Drag the leftovers onto the kitchen counter.",
+    },
+  },
+  [normalizeText("Drag the life jacket into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_drag_life_jacket_9b21da9c.wav",
+      text: "Drag the life jacket into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_drag_life_jacket_9b21da9c.wav",
+      text: "Drag the life jacket into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the matching action card into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_drag_sit_bench_8a6bd904.wav",
+      text: "Drag the matching action card into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_drag_sit_bench_8a6bd904.wav",
+      text: "Drag the matching action card into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the medicine spoon into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_drag_spoon_b8a29a0d.wav",
+      text: "Drag the medicine spoon into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_drag_spoon_b8a29a0d.wav",
+      text: "Drag the medicine spoon into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the middle card showing a child pushing a cart into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_drag_push_cart_7cd7c41e.wav",
+      text: "Drag the middle card showing a child pushing a cart into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_drag_push_cart_7cd7c41e.wav",
+      text: "Drag the middle card showing a child pushing a cart into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the middle card showing fruit on a scale into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_weigh_fruit_fa64808f.wav",
+      text: "Drag the middle card showing fruit on a scale into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_drag_weigh_fruit_fa64808f.wav",
+      text: "Drag the middle card showing fruit on a scale into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the middle card showing groceries being packed into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_drag_pack_bag_ef2eebff.wav",
+      text: "Drag the middle card showing groceries being packed into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_drag_pack_bag_ef2eebff.wav",
+      text: "Drag the middle card showing groceries being packed into the glowing circle.",
     },
   },
   [normalizeText("Drag the napkin onto the table.")]: {
@@ -1581,6 +2271,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the noodles into the meal area.",
     },
   },
+  [normalizeText("Drag the otoscope into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_drag_otoscope_14304596.wav",
+      text: "Drag the otoscope into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_drag_otoscope_14304596.wav",
+      text: "Drag the otoscope into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the page tab into the storybook.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_drag_page_tab_e4e97c08.wav",
@@ -1589,6 +2289,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/prompt_drag_page_tab_e4e97c08.wav",
       text: "Drag the page tab into the storybook.",
+    },
+  },
+  [normalizeText("Drag the party hat on the right into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_drag_party_hat_58be1550.wav",
+      text: "Drag the party hat on the right into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_drag_party_hat_58be1550.wav",
+      text: "Drag the party hat on the right into the glowing circle.",
     },
   },
   [normalizeText("Drag the pencil onto the notebook.")]: {
@@ -1611,6 +2321,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the pencil onto the table.",
     },
   },
+  [normalizeText("Drag the picture book into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_drag_picture_book_63559abe.wav",
+      text: "Drag the picture book into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_drag_picture_book_63559abe.wav",
+      text: "Drag the picture book into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the purple grapes above the scale into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_grapes_32d4bb28.wav",
+      text: "Drag the purple grapes above the scale into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_drag_grapes_32d4bb28.wav",
+      text: "Drag the purple grapes above the scale into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the rest into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_drag_rest_card_0cad2a64.wav",
+      text: "Drag the rest into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_drag_rest_card_0cad2a64.wav",
+      text: "Drag the rest into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the ruler onto the notebook.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/prompt_supplies_drag_ruler_to_paper_2dd38cdc.wav",
@@ -1629,6 +2369,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/prompt_drag_salad_to_meal_f44bc99e.wav",
       text: "Drag the salad into the meal area.",
+    },
+  },
+  [normalizeText("Drag the sandwich into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_drag_sandwich_11fe0003.wav",
+      text: "Drag the sandwich into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_drag_sandwich_11fe0003.wav",
+      text: "Drag the sandwich into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the scooter into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_drag_scooter_3fb4c0be.wav",
+      text: "Drag the scooter into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_drag_scooter_3fb4c0be.wav",
+      text: "Drag the scooter into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the shell into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_drag_shell_908e07f7.wav",
+      text: "Drag the shell into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_drag_shell_908e07f7.wav",
+      text: "Drag the shell into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the shoes into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_drag_shoes_c618337c.wav",
+      text: "Drag the shoes into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_drag_shoes_c618337c.wav",
+      text: "Drag the shoes into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the shopping bag on the right into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_drag_bag_378d6785.wav",
+      text: "Drag the shopping bag on the right into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_drag_bag_378d6785.wav",
+      text: "Drag the shopping bag on the right into the glowing circle.",
     },
   },
   [normalizeText("Drag the sleep mask next to the nightstand.")]: {
@@ -1701,6 +2491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the spoon to the soup.",
     },
   },
+  [normalizeText("Drag the story card into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_drag_story_card_16041a19.wav",
+      text: "Drag the story card into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_drag_story_card_16041a19.wav",
+      text: "Drag the story card into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the storybook to the reading nook.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_drag_storybook_to_nook_eeb6cfc8.wav",
@@ -1719,6 +2519,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/prompt_drag_straw_to_juice_9adc53cd.wav",
       text: "Drag the straw into the juice.",
+    },
+  },
+  [normalizeText("Drag the sun hat into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_drag_sun_hat_3ebd3349.wav",
+      text: "Drag the sun hat into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_drag_sun_hat_3ebd3349.wav",
+      text: "Drag the sun hat into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the thank-you card into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_drag_thank_you_card_29ea6f72.wav",
+      text: "Drag the thank-you card into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_drag_thank_you_card_29ea6f72.wav",
+      text: "Drag the thank-you card into the glowing circle.",
     },
   },
   [normalizeText("Drag the towel to your face.")]: {
@@ -1741,6 +2561,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the toy into the basket.",
     },
   },
+  [normalizeText("Drag the watering can into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_drag_watering_can_be1cae2f.wav",
+      text: "Drag the watering can into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_drag_watering_can_be1cae2f.wav",
+      text: "Drag the watering can into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the whistle into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_drag_whistle_4b6147d4.wav",
+      text: "Drag the whistle into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_drag_whistle_4b6147d4.wav",
+      text: "Drag the whistle into the glowing circle.",
+    },
+  },
   [normalizeText("Drag the wrapper into the trash bin.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/prompt_drag_wrapper_to_trash_f5a5c11f.wav",
@@ -1759,6 +2599,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_wrapper_to_tray_e4392cff.wav",
       text: "Drag the wrapper onto the tray.",
+    },
+  },
+  [normalizeText("Drag the zoo map into the glowing circle.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_drag_map_30a7511e.wav",
+      text: "Drag the zoo map into the glowing circle.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_drag_map_30a7511e.wav",
+      text: "Drag the zoo map into the glowing circle.",
     },
   },
   [normalizeText("draw a circle")]: {
@@ -1821,6 +2671,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/dream_journal.wav",
       text: "dream journal",
+    },
+  },
+  [normalizeText("drink some water")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drink_some_water.wav",
+      text: "drink some water",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/drink_some_water.wav",
+      text: "drink some water",
     },
   },
   [normalizeText("Drink the water.")]: {
@@ -1913,6 +2773,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/drying_mat.wav",
       text: "drying mat",
+    },
+  },
+  [normalizeText("duck")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/duck.wav",
+      text: "duck",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/duck.wav",
+      text: "duck",
     },
   },
   [normalizeText("Each little step tells your body it's time to sleep.")]: {
@@ -2043,6 +2913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "eraser",
     },
   },
+  [normalizeText("Every book looks interesting!")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/intro_success_9b0444e7.wav",
+      text: "Every book looks interesting!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/intro_success_9b0444e7.wav",
+      text: "Every book looks interesting!",
+    },
+  },
   [normalizeText("family")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/family.wav",
@@ -2055,6 +2935,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/home-arrival/audio/en/family.wav",
       text: "family",
+    },
+  },
+  [normalizeText("family photo")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/family_photo.wav",
+      text: "family photo",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/family_photo.wav",
+      text: "family photo",
+    },
+  },
+  [normalizeText("feed the goat")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/feed_the_goat.wav",
+      text: "feed the goat",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/feed_the_goat.wav",
+      text: "feed the goat",
     },
   },
   [normalizeText("Finally, let's sort everything and let it dry.")]: {
@@ -2115,6 +3015,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "fish",
     },
   },
+  [normalizeText("flag")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/flag.wav",
+      text: "flag",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/flag.wav",
+      text: "flag",
+    },
+  },
   [normalizeText("floor")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/floor.wav",
@@ -2127,6 +3037,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/toy-cleanup/audio/en/floor.wav",
       text: "floor",
+    },
+  },
+  [normalizeText("flower")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/flower.wav",
+      text: "flower",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/flower.wav",
+      text: "flower",
     },
   },
   [normalizeText("foam")]: {
@@ -2157,6 +3077,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "folder",
     },
   },
+  [normalizeText("follow the zookeeper")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/follow_the_zookeeper.wav",
+      text: "follow the zookeeper",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/follow_the_zookeeper.wav",
+      text: "follow the zookeeper",
+    },
+  },
   [normalizeText("food cover")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/food_cover.wav",
@@ -2169,6 +3099,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/food_cover.wav",
       text: "food cover",
+    },
+  },
+  [normalizeText("footprints")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/footprints.wav",
+      text: "footprints",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/footprints.wav",
+      text: "footprints",
     },
   },
   [normalizeText("fork")]: {
@@ -2185,6 +3125,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "fork",
     },
   },
+  [normalizeText("fountain")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/fountain.wav",
+      text: "fountain",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/fountain.wav",
+      text: "fountain",
+    },
+  },
+  [normalizeText("Fresh foods are colorful!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/intro_success_92e042ca.wav",
+      text: "Fresh foods are colorful!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/intro_success_92e042ca.wav",
+      text: "Fresh foods are colorful!",
+    },
+  },
   [normalizeText("friend")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/friend.wav",
@@ -2199,6 +3159,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "friend",
     },
   },
+  [normalizeText("frisbee")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/frisbee.wav",
+      text: "frisbee",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/frisbee.wav",
+      text: "frisbee",
+    },
+  },
+  [normalizeText("front door")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/front_door.wav",
+      text: "front door",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/front_door.wav",
+      text: "front door",
+    },
+  },
   [normalizeText("fruit")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/fruit.wav",
@@ -2211,6 +3191,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-table/audio/en/fruit.wav",
       text: "fruit",
+    },
+  },
+  [normalizeText("fruit plate")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/fruit_plate.wav",
+      text: "fruit plate",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/fruit_plate.wav",
+      text: "fruit plate",
+    },
+  },
+  [normalizeText("game")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/game.wav",
+      text: "game",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/game.wav",
+      text: "game",
+    },
+  },
+  [normalizeText("garden")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/garden.wav",
+      text: "garden",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/garden.wav",
+      text: "garden",
+    },
+  },
+  [normalizeText("gate")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/gate.wav",
+      text: "gate",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/gate.wav",
+      text: "gate",
     },
   },
   [normalizeText("Gathering one small item at a time keeps the dining area tidy.")]: {
@@ -2253,6 +3273,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Getting ready first helps you bathe safely and neatly.",
     },
   },
+  [normalizeText("gift")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/gift.wav",
+      text: "gift",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/gift.wav",
+      text: "gift",
+    },
+  },
+  [normalizeText("giraffe")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/giraffe.wav",
+      text: "giraffe",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/giraffe.wav",
+      text: "giraffe",
+    },
+  },
   [normalizeText("glow sticker")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/glow_sticker.wav",
@@ -2267,6 +3307,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "glow sticker",
     },
   },
+  [normalizeText("go home")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/go_home.wav",
+      text: "go home",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/go_home.wav",
+      text: "go home",
+    },
+  },
   [normalizeText("go to school")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/go_to_school.wav",
@@ -2279,6 +3329,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/go_to_school.wav",
       text: "go to school",
+    },
+  },
+  [normalizeText("goat")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/goat.wav",
+      text: "goat",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/goat.wav",
+      text: "goat",
     },
   },
   [normalizeText("good morning")]: {
@@ -2309,6 +3369,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Good morning!",
     },
   },
+  [normalizeText("grandma")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/grandma.wav",
+      text: "grandma",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/grandma.wav",
+      text: "grandma",
+    },
+  },
+  [normalizeText("Grandma is standing on the left.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_grandma_fail_81b5b742.wav",
+      text: "Grandma is standing on the left.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_grandma_fail_81b5b742.wav",
+      text: "Grandma is standing on the left.",
+    },
+  },
+  [normalizeText("grandpa")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/grandpa.wav",
+      text: "grandpa",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/grandpa.wav",
+      text: "grandpa",
+    },
+  },
+  [normalizeText("Grandpa is standing on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_grandpa_fail_1379d80b.wav",
+      text: "Grandpa is standing on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_grandpa_fail_1379d80b.wav",
+      text: "Grandpa is standing on the right.",
+    },
+  },
+  [normalizeText("grapes")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/grapes.wav",
+      text: "grapes",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/grapes.wav",
+      text: "grapes",
+    },
+  },
   [normalizeText("Great job!")]: {
     "en-US": {
       key: "shared/audio/en-US/neural2-c-r1/feedback_success_fcd6d5ea.wav",
@@ -2331,6 +3441,116 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_complete_tap_one.wav",
       text: "Great job! Let’s look at the sticker collection.",
+    },
+  },
+  [normalizeText("Great, the cart is ready for shopping.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_cart_success_4becc824.wav",
+      text: "Great, the cart is ready for shopping.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_cart_success_4becc824.wav",
+      text: "Great, the cart is ready for shopping.",
+    },
+  },
+  [normalizeText("Great, you chose the bowl of fruit.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_fruit_success_42957bfc.wav",
+      text: "Great, you chose the bowl of fruit.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_fruit_success_42957bfc.wav",
+      text: "Great, you chose the bowl of fruit.",
+    },
+  },
+  [normalizeText("Great, you chose the grapes.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_grapes_success_f38b4722.wav",
+      text: "Great, you chose the grapes.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_grapes_success_f38b4722.wav",
+      text: "Great, you chose the grapes.",
+    },
+  },
+  [normalizeText("Great, you know how to pack the bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_pack_bag_success_f7c5e592.wav",
+      text: "Great, you know how to pack the bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_pack_bag_success_f7c5e592.wav",
+      text: "Great, you know how to pack the bag.",
+    },
+  },
+  [normalizeText("Great, you know how to push the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_push_cart_success_8832bf66.wav",
+      text: "Great, you know how to push the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_push_cart_success_8832bf66.wav",
+      text: "Great, you know how to push the cart.",
+    },
+  },
+  [normalizeText("Great, you know how to weigh the fruit.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_weigh_fruit_success_96274843.wav",
+      text: "Great, you know how to weigh the fruit.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_weigh_fruit_success_96274843.wav",
+      text: "Great, you know how to weigh the fruit.",
+    },
+  },
+  [normalizeText("Great, you packed the shopping bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_bag_success_49df4adc.wav",
+      text: "Great, you packed the shopping bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_bag_success_49df4adc.wav",
+      text: "Great, you packed the shopping bag.",
+    },
+  },
+  [normalizeText("Great, you remembered the coupon.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_coupon_success_17817469.wav",
+      text: "Great, you remembered the coupon.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_coupon_success_17817469.wav",
+      text: "Great, you remembered the coupon.",
+    },
+  },
+  [normalizeText("habitat")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/habitat.wav",
+      text: "habitat",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/habitat.wav",
+      text: "habitat",
+    },
+  },
+  [normalizeText("hand gel")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/hand_gel.wav",
+      text: "hand gel",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/hand_gel.wav",
+      text: "hand gel",
+    },
+  },
+  [normalizeText("hang the balloons")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/hang_the_balloons.wav",
+      text: "hang the balloons",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/hang_the_balloons.wav",
+      text: "hang the balloons",
     },
   },
   [normalizeText("hang the robe")]: {
@@ -2361,6 +3581,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/intro_success_ccaf36cf.wav",
       text: "Have fun and remember to keep your toys tidy.",
+    },
+  },
+  [normalizeText("helmet")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/helmet.wav",
+      text: "helmet",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/helmet.wav",
+      text: "helmet",
     },
   },
   [normalizeText("Hi! I am Sungy, your child’s learning buddy.")]: {
@@ -2399,6 +3629,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/hook.wav",
       text: "hook",
+    },
+  },
+  [normalizeText("hug")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/hug.wav",
+      text: "hug",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/hug.wav",
+      text: "hug",
     },
   },
   [normalizeText("hug your family")]: {
@@ -2479,6 +3719,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "I'll guide you.",
     },
   },
+  [normalizeText("invitation")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/invitation.wav",
+      text: "invitation",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/invitation.wav",
+      text: "invitation",
+    },
+  },
   [normalizeText("It means air-dry the dishes.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/teach_air_dry_dishes_success_1f8b19c6.wav",
@@ -2487,6 +3737,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/teach_air_dry_dishes_success_1f8b19c6.wav",
       text: "It means air-dry the dishes.",
+    },
+  },
+  [normalizeText("It means aisle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_aisle_success_f018de3c.wav",
+      text: "It means aisle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_aisle_success_f018de3c.wav",
+      text: "It means aisle.",
+    },
+  },
+  [normalizeText("It means alphabet book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_alphabet_book_success_bfbbb68b.wav",
+      text: "It means alphabet book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_alphabet_book_success_bfbbb68b.wav",
+      text: "It means alphabet book.",
     },
   },
   [normalizeText("It means apple.")]: {
@@ -2531,6 +3801,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means arrive home.",
     },
   },
+  [normalizeText("It means ask for a hug.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_ask_for_hug_success_a9de9a85.wav",
+      text: "It means ask for a hug.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_ask_for_hug_success_a9de9a85.wav",
+      text: "It means ask for a hug.",
+    },
+  },
   [normalizeText("It means bag.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_bag_success_fe006b73.wav",
@@ -2559,6 +3839,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means ball.",
     },
   },
+  [normalizeText("It means balloon.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_balloon_success_398c2652.wav",
+      text: "It means balloon.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_balloon_success_398c2652.wav",
+      text: "It means balloon.",
+    },
+  },
   [normalizeText("It means banana.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/teach_banana_success_20cda1aa.wav",
@@ -2571,6 +3861,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/teach_banana_success_20cda1aa.wav",
       text: "It means banana.",
+    },
+  },
+  [normalizeText("It means bandage.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_bandage_success_d227b1be.wav",
+      text: "It means bandage.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_bandage_success_d227b1be.wav",
+      text: "It means bandage.",
+    },
+  },
+  [normalizeText("It means banner.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_banner_success_13075513.wav",
+      text: "It means banner.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_banner_success_13075513.wav",
+      text: "It means banner.",
     },
   },
   [normalizeText("It means basket.")]: {
@@ -2629,6 +3939,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means bathtub.",
     },
   },
+  [normalizeText("It means beach bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_beach_bag_success_b278c57e.wav",
+      text: "It means beach bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_beach_bag_success_b278c57e.wav",
+      text: "It means beach bag.",
+    },
+  },
+  [normalizeText("It means beach towel.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_towel_success_40dc1e70.wav",
+      text: "It means beach towel.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_towel_success_40dc1e70.wav",
+      text: "It means beach towel.",
+    },
+  },
+  [normalizeText("It means beanbag.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_beanbag_success_66fb7e8e.wav",
+      text: "It means beanbag.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_beanbag_success_66fb7e8e.wav",
+      text: "It means beanbag.",
+    },
+  },
   [normalizeText("It means bed.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/teach_bed_success_8bdc28c3.wav",
@@ -2655,6 +3995,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/rest_teach_bench_success_ff9b8cc0.wav",
       text: "It means bench.",
+    },
+  },
+  [normalizeText("It means binoculars.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_binoculars_success_f849e9db.wav",
+      text: "It means binoculars.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_binoculars_success_f849e9db.wav",
+      text: "It means binoculars.",
     },
   },
   [normalizeText("It means bite.")]: {
@@ -2699,6 +4049,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means blocks.",
     },
   },
+  [normalizeText("It means blow out the candles.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_blow_candles_success_537e4dfa.wav",
+      text: "It means blow out the candles.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_blow_candles_success_537e4dfa.wav",
+      text: "It means blow out the candles.",
+    },
+  },
+  [normalizeText("It means blow your nose.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_blow_nose_success_104ec293.wav",
+      text: "It means blow your nose.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_blow_nose_success_104ec293.wav",
+      text: "It means blow your nose.",
+    },
+  },
   [normalizeText("It means board.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/teach_board_success_0335cdc0.wav",
@@ -2727,6 +4097,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means body wash.",
     },
   },
+  [normalizeText("It means book basket.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_book_basket_success_82a5ed9b.wav",
+      text: "It means book basket.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_book_basket_success_82a5ed9b.wav",
+      text: "It means book basket.",
+    },
+  },
+  [normalizeText("It means book return.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_book_return_success_ec585be4.wav",
+      text: "It means book return.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_book_return_success_ec585be4.wav",
+      text: "It means book return.",
+    },
+  },
   [normalizeText("It means book.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_book_success_a38c468a.wav",
@@ -2753,6 +4143,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/teach_bookmark_success_394600ec.wav",
       text: "It means bookmark.",
+    },
+  },
+  [normalizeText("It means borrow a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_borrow_book_success_161ae3b3.wav",
+      text: "It means borrow a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_borrow_book_success_161ae3b3.wav",
+      text: "It means borrow a book.",
     },
   },
   [normalizeText("It means bottle.")]: {
@@ -2849,6 +4249,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means buckle up.",
     },
   },
+  [normalizeText("It means build a sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_build_sandcastle_success_8ffae115.wav",
+      text: "It means build a sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_build_sandcastle_success_8ffae115.wav",
+      text: "It means build a sandcastle.",
+    },
+  },
   [normalizeText("It means build a tower.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/teach_build_tower_success_132f5293.wav",
@@ -2887,6 +4297,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means cabinet.",
     },
   },
+  [normalizeText("It means cake server.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_cake_server_success_baa8a1f0.wav",
+      text: "It means cake server.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_cake_server_success_baa8a1f0.wav",
+      text: "It means cake server.",
+    },
+  },
+  [normalizeText("It means cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_cake_success_ab698b19.wav",
+      text: "It means cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_cake_success_ab698b19.wav",
+      text: "It means cake.",
+    },
+  },
   [normalizeText("It means call everyone.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/teach_call_everyone_success_1526dff2.wav",
@@ -2899,6 +4329,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/teach_call_everyone_success_1526dff2.wav",
       text: "It means call everyone.",
+    },
+  },
+  [normalizeText("It means candle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_candle_success_8fc0e8be.wav",
+      text: "It means candle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_candle_success_8fc0e8be.wav",
+      text: "It means candle.",
     },
   },
   [normalizeText("It means car.")]: {
@@ -2929,6 +4369,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means carafe.",
     },
   },
+  [normalizeText("It means card.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_card_success_0986824f.wav",
+      text: "It means card.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_card_success_0986824f.wav",
+      text: "It means card.",
+    },
+  },
+  [normalizeText("It means carrot.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_carrot_success_6ae83a7f.wav",
+      text: "It means carrot.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_carrot_success_6ae83a7f.wav",
+      text: "It means carrot.",
+    },
+  },
+  [normalizeText("It means carry the bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_carry_bag_success_1b19ff27.wav",
+      text: "It means carry the bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_carry_bag_success_1b19ff27.wav",
+      text: "It means carry the bag.",
+    },
+  },
   [normalizeText("It means carry the tray.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/teach_carry_tray_success_4ba9eefd.wav",
@@ -2937,6 +4407,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/teach_carry_tray_success_4ba9eefd.wav",
       text: "It means carry the tray.",
+    },
+  },
+  [normalizeText("It means cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_cart_success_3849b8f8.wav",
+      text: "It means cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_cart_success_3849b8f8.wav",
+      text: "It means cart.",
+    },
+  },
+  [normalizeText("It means cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_cashier_success_f200b76b.wav",
+      text: "It means cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_cashier_success_f200b76b.wav",
+      text: "It means cashier.",
     },
   },
   [normalizeText("It means chair.")]: {
@@ -2951,6 +4441,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/teach_chair_success_8542052f.wav",
       text: "It means chair.",
+    },
+  },
+  [normalizeText("It means check the list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_check_list_success_2cd7a939.wav",
+      text: "It means check the list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_check_list_success_2cd7a939.wav",
+      text: "It means check the list.",
     },
   },
   [normalizeText("It means check the temperature.")]: {
@@ -2973,6 +4473,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means check your dream journal.",
     },
   },
+  [normalizeText("It means check your heartbeat.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_check_heartbeat_success_7f643982.wav",
+      text: "It means check your heartbeat.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_check_heartbeat_success_7f643982.wav",
+      text: "It means check your heartbeat.",
+    },
+  },
   [normalizeText("It means chicken.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_chicken_success_eb5b4517.wav",
@@ -2985,6 +4495,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/teach_chicken_success_eb5b4517.wav",
       text: "It means chicken.",
+    },
+  },
+  [normalizeText("It means choose a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_choose_book_success_68c9a952.wav",
+      text: "It means choose a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_choose_book_success_68c9a952.wav",
+      text: "It means choose a book.",
+    },
+  },
+  [normalizeText("It means choose a drink.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_choose_drink_success_2226cb26.wav",
+      text: "It means choose a drink.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_choose_drink_success_2226cb26.wav",
+      text: "It means choose a drink.",
     },
   },
   [normalizeText("It means choose a snack.")]: {
@@ -3017,6 +4547,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means choose a toy.",
     },
   },
+  [normalizeText("It means circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_circle_success_f74dc915.wav",
+      text: "It means circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_circle_success_f74dc915.wav",
+      text: "It means circle.",
+    },
+  },
+  [normalizeText("It means clap softly.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_clap_softly_success_49549016.wav",
+      text: "It means clap softly.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_clap_softly_success_49549016.wav",
+      text: "It means clap softly.",
+    },
+  },
+  [normalizeText("It means clap your hands.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_clap_hands_success_f2e1f160.wav",
+      text: "It means clap your hands.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_clap_hands_success_f2e1f160.wav",
+      text: "It means clap your hands.",
+    },
+  },
   [normalizeText("It means classroom.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/teach_classroom_success_cab699d9.wav",
@@ -3029,6 +4589,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/teach_classroom_success_cab699d9.wav",
       text: "It means classroom.",
+    },
+  },
+  [normalizeText("It means clean up the crumbs.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_clean_crumbs_success_5dc58e74.wav",
+      text: "It means clean up the crumbs.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_clean_crumbs_success_5dc58e74.wav",
+      text: "It means clean up the crumbs.",
     },
   },
   [normalizeText("It means clean up the toys.")]: {
@@ -3067,6 +4637,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en/teach_cleaning_brush_success_2ab94048.wav",
       text: "It means cleaning brush.",
+    },
+  },
+  [normalizeText("It means climbing frame.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_climbing_frame_success_b27cbfdf.wav",
+      text: "It means climbing frame.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_climbing_frame_success_b27cbfdf.wav",
+      text: "It means climbing frame.",
+    },
+  },
+  [normalizeText("It means clinic.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_clinic_success_693ffb81.wav",
+      text: "It means clinic.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_clinic_success_693ffb81.wav",
+      text: "It means clinic.",
+    },
+  },
+  [normalizeText("It means clipboard.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_clipboard_success_cf6a4c91.wav",
+      text: "It means clipboard.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_clipboard_success_cf6a4c91.wav",
+      text: "It means clipboard.",
     },
   },
   [normalizeText("It means clock.")]: {
@@ -3173,6 +4773,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means cookie.",
     },
   },
+  [normalizeText("It means counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_counter_success_327e95fa.wav",
+      text: "It means counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_counter_success_327e95fa.wav",
+      text: "It means counter.",
+    },
+  },
+  [normalizeText("It means coupon.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_coupon_success_99920711.wav",
+      text: "It means coupon.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_coupon_success_99920711.wav",
+      text: "It means coupon.",
+    },
+  },
+  [normalizeText("It means cover.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_cover_success_6a189861.wav",
+      text: "It means cover.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_cover_success_6a189861.wav",
+      text: "It means cover.",
+    },
+  },
+  [normalizeText("It means cow.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_cow_success_84c5594b.wav",
+      text: "It means cow.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_cow_success_84c5594b.wav",
+      text: "It means cow.",
+    },
+  },
+  [normalizeText("It means crab.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_crab_success_6429914e.wav",
+      text: "It means crab.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_crab_success_6429914e.wav",
+      text: "It means crab.",
+    },
+  },
   [normalizeText("It means cracker.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/teach_cracker_success_e8c0e9cb.wav",
@@ -3243,6 +4893,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means curtain.",
     },
   },
+  [normalizeText("It means cushion.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_cushion_success_3bbabb64.wav",
+      text: "It means cushion.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_cushion_success_3bbabb64.wav",
+      text: "It means cushion.",
+    },
+  },
+  [normalizeText("It means dance.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_dance_success_807e844b.wav",
+      text: "It means dance.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_dance_success_807e844b.wav",
+      text: "It means dance.",
+    },
+  },
+  [normalizeText("It means decorate the room.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_decorate_room_success_cab02cf9.wav",
+      text: "It means decorate the room.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_decorate_room_success_cab02cf9.wav",
+      text: "It means decorate the room.",
+    },
+  },
   [normalizeText("It means desk.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/teach_desk_success_5ac167c2.wav",
@@ -3269,6 +4949,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_dessert_success_176ed822.wav",
       text: "It means dessert.",
+    },
+  },
+  [normalizeText("It means dig in the sand.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_dig_sand_success_e2184136.wav",
+      text: "It means dig in the sand.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_dig_sand_success_e2184136.wav",
+      text: "It means dig in the sand.",
     },
   },
   [normalizeText("It means dim the lights.")]: {
@@ -3351,6 +5041,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means dishwasher.",
     },
   },
+  [normalizeText("It means doctor.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_doctor_success_29e3d64a.wav",
+      text: "It means doctor.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_doctor_success_29e3d64a.wav",
+      text: "It means doctor.",
+    },
+  },
   [normalizeText("It means doll.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/teach_doll_success_8a387dc2.wav",
@@ -3377,6 +5077,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/teach_door_success_b49901b3.wav",
       text: "It means door.",
+    },
+  },
+  [normalizeText("It means doorbell.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_doorbell_success_f4f847de.wav",
+      text: "It means doorbell.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_doorbell_success_f4f847de.wav",
+      text: "It means doorbell.",
     },
   },
   [normalizeText("It means draw a circle.")]: {
@@ -3415,6 +5125,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/teach_dream_journal_success_33fcc2cb.wav",
       text: "It means dream journal.",
+    },
+  },
+  [normalizeText("It means drink some water.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_drink_water_success_d1ab08c9.wav",
+      text: "It means drink some water.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_drink_water_success_d1ab08c9.wav",
+      text: "It means drink some water.",
     },
   },
   [normalizeText("It means drink water.")]: {
@@ -3477,6 +5197,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_drying_mat_success_23a48f2e.wav",
       text: "It means drying mat.",
+    },
+  },
+  [normalizeText("It means duck.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_duck_success_9da367f7.wav",
+      text: "It means duck.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_duck_success_9da367f7.wav",
+      text: "It means duck.",
     },
   },
   [normalizeText("It means eat a snack.")]: {
@@ -3559,6 +5289,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means eraser.",
     },
   },
+  [normalizeText("It means family photo.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_family_photo_success_443ac593.wav",
+      text: "It means family photo.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_family_photo_success_443ac593.wav",
+      text: "It means family photo.",
+    },
+  },
   [normalizeText("It means family.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/teach_family_success_63960db4.wav",
@@ -3571,6 +5311,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/home-arrival/audio/en/teach_family_success_63960db4.wav",
       text: "It means family.",
+    },
+  },
+  [normalizeText("It means feed the goat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_feed_goat_success_accc0a5e.wav",
+      text: "It means feed the goat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_feed_goat_success_accc0a5e.wav",
+      text: "It means feed the goat.",
     },
   },
   [normalizeText("It means fish.")]: {
@@ -3587,6 +5337,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means fish.",
     },
   },
+  [normalizeText("It means flag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_flag_success_1e821ada.wav",
+      text: "It means flag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_flag_success_1e821ada.wav",
+      text: "It means flag.",
+    },
+  },
   [normalizeText("It means floor.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/teach_floor_success_1900806f.wav",
@@ -3599,6 +5359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/toy-cleanup/audio/en/teach_floor_success_1900806f.wav",
       text: "It means floor.",
+    },
+  },
+  [normalizeText("It means flower.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_flower_success_86867fb7.wav",
+      text: "It means flower.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_flower_success_86867fb7.wav",
+      text: "It means flower.",
     },
   },
   [normalizeText("It means foam.")]: {
@@ -3629,6 +5399,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means folder.",
     },
   },
+  [normalizeText("It means follow the zookeeper.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_follow_keeper_success_69e01ce7.wav",
+      text: "It means follow the zookeeper.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_follow_keeper_success_69e01ce7.wav",
+      text: "It means follow the zookeeper.",
+    },
+  },
   [normalizeText("It means food cover.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/teach_food_cover_success_64cdaf5b.wav",
@@ -3641,6 +5421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_food_cover_success_64cdaf5b.wav",
       text: "It means food cover.",
+    },
+  },
+  [normalizeText("It means footprints.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_footprints_success_aaceb4db.wav",
+      text: "It means footprints.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_footprints_success_aaceb4db.wav",
+      text: "It means footprints.",
     },
   },
   [normalizeText("It means fork.")]: {
@@ -3657,6 +5447,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means fork.",
     },
   },
+  [normalizeText("It means fountain.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_fountain_success_082e2e5f.wav",
+      text: "It means fountain.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_fountain_success_082e2e5f.wav",
+      text: "It means fountain.",
+    },
+  },
   [normalizeText("It means friend.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_teach_friend_success_d87e6038.wav",
@@ -3669,6 +5469,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/games_teach_friend_success_d87e6038.wav",
       text: "It means friend.",
+    },
+  },
+  [normalizeText("It means frisbee.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_frisbee_success_0e9a4a4f.wav",
+      text: "It means frisbee.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_frisbee_success_0e9a4a4f.wav",
+      text: "It means frisbee.",
+    },
+  },
+  [normalizeText("It means front door.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/teach_front_door_success_38f2dc09.wav",
+      text: "It means front door.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/teach_front_door_success_38f2dc09.wav",
+      text: "It means front door.",
+    },
+  },
+  [normalizeText("It means fruit plate.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_fruit_success_8be86322.wav",
+      text: "It means fruit plate.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_fruit_success_8be86322.wav",
+      text: "It means fruit plate.",
     },
   },
   [normalizeText("It means fruit.")]: {
@@ -3685,6 +5515,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means fruit.",
     },
   },
+  [normalizeText("It means game.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_game_success_e0f0a0cc.wav",
+      text: "It means game.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_game_success_e0f0a0cc.wav",
+      text: "It means game.",
+    },
+  },
+  [normalizeText("It means garden.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_garden_success_3a16ab42.wav",
+      text: "It means garden.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_garden_success_3a16ab42.wav",
+      text: "It means garden.",
+    },
+  },
+  [normalizeText("It means gate.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_gate_success_23e2377c.wav",
+      text: "It means gate.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_gate_success_23e2377c.wav",
+      text: "It means gate.",
+    },
+  },
   [normalizeText("It means get on the bus.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/teach_get_on_bus_success_1fea2218.wav",
@@ -3693,6 +5553,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/teach_get_on_bus_success_1fea2218.wav",
       text: "It means get on the bus.",
+    },
+  },
+  [normalizeText("It means gift.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_gift_success_a0def7ab.wav",
+      text: "It means gift.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_gift_success_a0def7ab.wav",
+      text: "It means gift.",
+    },
+  },
+  [normalizeText("It means giraffe.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_giraffe_success_78a7722f.wav",
+      text: "It means giraffe.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_giraffe_success_78a7722f.wav",
+      text: "It means giraffe.",
     },
   },
   [normalizeText("It means glow sticker.")]: {
@@ -3709,6 +5589,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means glow sticker.",
     },
   },
+  [normalizeText("It means go home.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/teach_go_home_success_612d0ac0.wav",
+      text: "It means go home.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/teach_go_home_success_612d0ac0.wav",
+      text: "It means go home.",
+    },
+  },
   [normalizeText("It means go to school.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_go_to_school_success_e5b37713.wav",
@@ -3721,6 +5611,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/school_teach_go_to_school_success_e5b37713.wav",
       text: "It means go to school.",
+    },
+  },
+  [normalizeText("It means goat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_goat_success_188639fa.wav",
+      text: "It means goat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_goat_success_188639fa.wav",
+      text: "It means goat.",
     },
   },
   [normalizeText("It means good morning.")]: {
@@ -3737,6 +5637,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means good morning.",
     },
   },
+  [normalizeText("It means grandma.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_grandma_success_d9d967bd.wav",
+      text: "It means grandma.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_grandma_success_d9d967bd.wav",
+      text: "It means grandma.",
+    },
+  },
+  [normalizeText("It means grandpa.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_grandpa_success_cb881e30.wav",
+      text: "It means grandpa.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_grandpa_success_cb881e30.wav",
+      text: "It means grandpa.",
+    },
+  },
+  [normalizeText("It means grapes.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_grapes_success_e7c244e9.wav",
+      text: "It means grapes.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_grapes_success_e7c244e9.wav",
+      text: "It means grapes.",
+    },
+  },
+  [normalizeText("It means habitat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_habitat_success_95b3a4e4.wav",
+      text: "It means habitat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_habitat_success_95b3a4e4.wav",
+      text: "It means habitat.",
+    },
+  },
+  [normalizeText("It means hand gel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_hand_gel_success_9bdbe43f.wav",
+      text: "It means hand gel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_hand_gel_success_9bdbe43f.wav",
+      text: "It means hand gel.",
+    },
+  },
+  [normalizeText("It means hang the balloons.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_hang_balloons_success_d7f308ea.wav",
+      text: "It means hang the balloons.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_hang_balloons_success_d7f308ea.wav",
+      text: "It means hang the balloons.",
+    },
+  },
   [normalizeText("It means hang the robe.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/teach_hang_robe_success_1a7dbbb8.wav",
@@ -3745,6 +5705,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/teach_hang_robe_success_1a7dbbb8.wav",
       text: "It means hang the robe.",
+    },
+  },
+  [normalizeText("It means helmet.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_helmet_success_d6bf45ab.wav",
+      text: "It means helmet.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_helmet_success_d6bf45ab.wav",
+      text: "It means helmet.",
     },
   },
   [normalizeText("It means home.")]: {
@@ -3795,6 +5765,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means hug your soft toy.",
     },
   },
+  [normalizeText("It means hug.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_hug_success_32e9a640.wav",
+      text: "It means hug.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_hug_success_32e9a640.wav",
+      text: "It means hug.",
+    },
+  },
   [normalizeText("It means humidifier.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/teach_humidifier_success_0d7b217a.wav",
@@ -3809,6 +5789,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means humidifier.",
     },
   },
+  [normalizeText("It means invitation.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_invitation_success_7d93630e.wav",
+      text: "It means invitation.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_invitation_success_7d93630e.wav",
+      text: "It means invitation.",
+    },
+  },
   [normalizeText("It means jacket.")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/teach_jacket_success_477305e1.wav",
@@ -3821,6 +5811,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/teach_jacket_success_477305e1.wav",
       text: "It means jacket.",
+    },
+  },
+  [normalizeText("It means join the game.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_join_game_success_58d0a0b7.wav",
+      text: "It means join the game.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_join_game_success_58d0a0b7.wav",
+      text: "It means join the game.",
+    },
+  },
+  [normalizeText("It means join the team.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_join_team_success_434c884f.wav",
+      text: "It means join the team.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_join_team_success_434c884f.wav",
+      text: "It means join the team.",
     },
   },
   [normalizeText("It means juice.")]: {
@@ -3959,6 +5969,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means laundry basket.",
     },
   },
+  [normalizeText("It means leaf.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_leaf_success_d0f9ce81.wav",
+      text: "It means leaf.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_leaf_success_d0f9ce81.wav",
+      text: "It means leaf.",
+    },
+  },
   [normalizeText("It means leftovers.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/teach_leftovers_success_0050bbb7.wav",
@@ -3973,6 +5993,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means leftovers.",
     },
   },
+  [normalizeText("It means librarian.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_librarian_success_a195e0c6.wav",
+      text: "It means librarian.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_librarian_success_a195e0c6.wav",
+      text: "It means librarian.",
+    },
+  },
+  [normalizeText("It means library card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_library_card_success_64de0402.wav",
+      text: "It means library card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_library_card_success_64de0402.wav",
+      text: "It means library card.",
+    },
+  },
+  [normalizeText("It means life jacket.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_life_jacket_success_1233f221.wav",
+      text: "It means life jacket.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_life_jacket_success_1233f221.wav",
+      text: "It means life jacket.",
+    },
+  },
+  [normalizeText("It means lifeguard.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_lifeguard_success_634fa2e9.wav",
+      text: "It means lifeguard.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_lifeguard_success_634fa2e9.wav",
+      text: "It means lifeguard.",
+    },
+  },
   [normalizeText("It means line up.")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/teach_line_up_success_e5728141.wav",
@@ -3985,6 +6045,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/teach_line_up_success_e5728141.wav",
       text: "It means line up.",
+    },
+  },
+  [normalizeText("It means listen to the story.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_listen_story_success_685e5668.wav",
+      text: "It means listen to the story.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_listen_story_success_685e5668.wav",
+      text: "It means listen to the story.",
     },
   },
   [normalizeText("It means listen.")]: {
@@ -4009,6 +6079,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/teach_load_dishwasher_success_ce131fe1.wav",
       text: "It means load the dishwasher.",
+    },
+  },
+  [normalizeText("It means look at the flag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_look_at_flag_success_5dc84fec.wav",
+      text: "It means look at the flag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_look_at_flag_success_5dc84fec.wav",
+      text: "It means look at the flag.",
+    },
+  },
+  [normalizeText("It means look at the map.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_look_map_success_7a21c0a3.wav",
+      text: "It means look at the map.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_look_map_success_7a21c0a3.wav",
+      text: "It means look at the map.",
+    },
+  },
+  [normalizeText("It means look for shells.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_find_shells_success_12d564b7.wav",
+      text: "It means look for shells.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_find_shells_success_12d564b7.wav",
+      text: "It means look for shells.",
     },
   },
   [normalizeText("It means lullaby.")]: {
@@ -4039,6 +6139,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means lunchbox.",
     },
   },
+  [normalizeText("It means make a shopping list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_make_list_success_7e39cd3c.wav",
+      text: "It means make a shopping list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_make_list_success_7e39cd3c.wav",
+      text: "It means make a shopping list.",
+    },
+  },
   [normalizeText("It means make bubbles.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/teach_make_bubbles_success_55d98d99.wav",
@@ -4067,6 +6177,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means make the bed.",
     },
   },
+  [normalizeText("It means mask.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_mask_success_5b1ec62f.wav",
+      text: "It means mask.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_mask_success_5b1ec62f.wav",
+      text: "It means mask.",
+    },
+  },
+  [normalizeText("It means medicine spoon.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_spoon_success_aee9bcf0.wav",
+      text: "It means medicine spoon.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_spoon_success_aee9bcf0.wav",
+      text: "It means medicine spoon.",
+    },
+  },
+  [normalizeText("It means medicine.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_medicine_success_ad667489.wav",
+      text: "It means medicine.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_medicine_success_ad667489.wav",
+      text: "It means medicine.",
+    },
+  },
   [normalizeText("It means milk.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/teach_milk_success_5d26d122.wav",
@@ -4093,6 +6233,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/teach_mirror_success_6e8a0a49.wav",
       text: "It means mirror.",
+    },
+  },
+  [normalizeText("It means monkey.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_monkey_success_5e5a4d67.wav",
+      text: "It means monkey.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_monkey_success_5e5a4d67.wav",
+      text: "It means monkey.",
     },
   },
   [normalizeText("It means moon mobile.")]: {
@@ -4203,6 +6353,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means notebook.",
     },
   },
+  [normalizeText("It means nurse.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_nurse_success_833391ae.wav",
+      text: "It means nurse.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_nurse_success_833391ae.wav",
+      text: "It means nurse.",
+    },
+  },
   [normalizeText("It means open the book.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_teach_open_book_success_7c732055.wav",
@@ -4233,6 +6393,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means open your lunchbox.",
     },
   },
+  [normalizeText("It means otoscope.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_otoscope_success_d80cae0b.wav",
+      text: "It means otoscope.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_otoscope_success_d80cae0b.wav",
+      text: "It means otoscope.",
+    },
+  },
+  [normalizeText("It means pack the bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_pack_bag_success_a25085eb.wav",
+      text: "It means pack the bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_pack_bag_success_a25085eb.wav",
+      text: "It means pack the bag.",
+    },
+  },
   [normalizeText("It means pack your bag.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_pack_bag_success_08f2b343.wav",
@@ -4257,6 +6437,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means page tab.",
     },
   },
+  [normalizeText("It means page.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_page_success_048ea94f.wav",
+      text: "It means page.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_page_success_048ea94f.wav",
+      text: "It means page.",
+    },
+  },
   [normalizeText("It means pajamas.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/teach_pajamas_success_438bf42b.wav",
@@ -4269,6 +6459,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/teach_pajamas_success_438bf42b.wav",
       text: "It means pajamas.",
+    },
+  },
+  [normalizeText("It means paper cup.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_cup_success_78ebb0e5.wav",
+      text: "It means paper cup.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_cup_success_78ebb0e5.wav",
+      text: "It means paper cup.",
+    },
+  },
+  [normalizeText("It means paper plate.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_plate_success_b185601e.wav",
+      text: "It means paper plate.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_plate_success_b185601e.wav",
+      text: "It means paper plate.",
     },
   },
   [normalizeText("It means paper.")]: {
@@ -4285,6 +6495,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means paper.",
     },
   },
+  [normalizeText("It means park map.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_map_success_2a627bc1.wav",
+      text: "It means park map.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_map_success_2a627bc1.wav",
+      text: "It means park map.",
+    },
+  },
+  [normalizeText("It means party hat.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_party_hat_success_fd3d0b19.wav",
+      text: "It means party hat.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_party_hat_success_fd3d0b19.wav",
+      text: "It means party hat.",
+    },
+  },
   [normalizeText("It means pass the dish.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_pass_dish_success_ccb13b9f.wav",
@@ -4293,6 +6523,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/teach_pass_dish_success_ccb13b9f.wav",
       text: "It means pass the dish.",
+    },
+  },
+  [normalizeText("It means path.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_path_success_824645ca.wav",
+      text: "It means path.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_path_success_824645ca.wav",
+      text: "It means path.",
     },
   },
   [normalizeText("It means pencil.")]: {
@@ -4307,6 +6547,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/school-supplies/audio/en/supplies_teach_pencil_success_b927694c.wav",
       text: "It means pencil.",
+    },
+  },
+  [normalizeText("It means pet the sheep gently.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_pet_sheep_success_1e2dc008.wav",
+      text: "It means pet the sheep gently.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_pet_sheep_success_1e2dc008.wav",
+      text: "It means pet the sheep gently.",
+    },
+  },
+  [normalizeText("It means pick up leaves.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_pick_up_leaves_success_843147b9.wav",
+      text: "It means pick up leaves.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_pick_up_leaves_success_843147b9.wav",
+      text: "It means pick up leaves.",
+    },
+  },
+  [normalizeText("It means pick vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_pick_vegetables_success_6b42b972.wav",
+      text: "It means pick vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_pick_vegetables_success_6b42b972.wav",
+      text: "It means pick vegetables.",
+    },
+  },
+  [normalizeText("It means picnic mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_picnic_mat_success_356d2989.wav",
+      text: "It means picnic mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_picnic_mat_success_356d2989.wav",
+      text: "It means picnic mat.",
+    },
+  },
+  [normalizeText("It means picture book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_picture_book_success_2335c55a.wav",
+      text: "It means picture book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_picture_book_success_2335c55a.wav",
+      text: "It means picture book.",
+    },
+  },
+  [normalizeText("It means piglet.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_piglet_success_9920495a.wav",
+      text: "It means piglet.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_piglet_success_9920495a.wav",
+      text: "It means piglet.",
     },
   },
   [normalizeText("It means pillow.")]: {
@@ -4345,6 +6645,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/teach_placemat_success_b0a02a76.wav",
       text: "It means placemat.",
+    },
+  },
+  [normalizeText("It means plant a seed.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_plant_seed_success_46e42ac8.wav",
+      text: "It means plant a seed.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_plant_seed_success_46e42ac8.wav",
+      text: "It means plant a seed.",
+    },
+  },
+  [normalizeText("It means plant pot.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_plant_pot_success_a6a87f9f.wav",
+      text: "It means plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_plant_pot_success_a6a87f9f.wav",
+      text: "It means plant pot.",
     },
   },
   [normalizeText("It means plate.")]: {
@@ -4455,6 +6775,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means pour milk.",
     },
   },
+  [normalizeText("It means prize.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_prize_success_d805750a.wav",
+      text: "It means prize.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_prize_success_d805750a.wav",
+      text: "It means prize.",
+    },
+  },
+  [normalizeText("It means puppet.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_puppet_success_9bbde14e.wav",
+      text: "It means puppet.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_puppet_success_9bbde14e.wav",
+      text: "It means puppet.",
+    },
+  },
+  [normalizeText("It means push the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_push_cart_success_99b3b169.wav",
+      text: "It means push the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_push_cart_success_99b3b169.wav",
+      text: "It means push the cart.",
+    },
+  },
   [normalizeText("It means put away the book.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/teach_put_away_book_success_f17c4a3b.wav",
@@ -4473,6 +6823,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/teach_put_away_tray_success_101c45b3.wav",
       text: "It means put away the tray.",
+    },
+  },
+  [normalizeText("It means put on sunscreen.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_put_on_sunscreen_success_ed914cae.wav",
+      text: "It means put on sunscreen.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_put_on_sunscreen_success_ed914cae.wav",
+      text: "It means put on sunscreen.",
     },
   },
   [normalizeText("It means put on your pajamas.")]: {
@@ -4495,6 +6855,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means put on your shoes.",
     },
   },
+  [normalizeText("It means put the trash in the bin.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_throw_trash_success_0692d9f6.wav",
+      text: "It means put the trash in the bin.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_throw_trash_success_0692d9f6.wav",
+      text: "It means put the trash in the bin.",
+    },
+  },
   [normalizeText("It means puzzle.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/teach_puzzle_success_e031c29a.wav",
@@ -4507,6 +6877,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/teach_puzzle_success_e031c29a.wav",
       text: "It means puzzle.",
+    },
+  },
+  [normalizeText("It means quiet sign.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_quiet_sign_success_aee88984.wav",
+      text: "It means quiet sign.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_quiet_sign_success_aee88984.wav",
+      text: "It means quiet sign.",
     },
   },
   [normalizeText("It means raise your hand.")]: {
@@ -4557,6 +6937,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means read softly.",
     },
   },
+  [normalizeText("It means read the sign.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_read_sign_success_08fa9243.wav",
+      text: "It means read the sign.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_read_sign_success_08fa9243.wav",
+      text: "It means read the sign.",
+    },
+  },
+  [normalizeText("It means reading chair.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_reading_chair_success_5f904449.wav",
+      text: "It means reading chair.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_reading_chair_success_5f904449.wav",
+      text: "It means reading chair.",
+    },
+  },
   [normalizeText("It means reading nook.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/teach_reading_nook_success_ab97c133.wav",
@@ -4569,6 +6969,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/teach_reading_nook_success_ab97c133.wav",
       text: "It means reading nook.",
+    },
+  },
+  [normalizeText("It means receipt.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_receipt_success_ced220f7.wav",
+      text: "It means receipt.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_receipt_success_ced220f7.wav",
+      text: "It means receipt.",
     },
   },
   [normalizeText("It means recycling bin.")]: {
@@ -4599,6 +7009,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means rest.",
     },
   },
+  [normalizeText("It means return a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_return_book_success_b4c77f19.wav",
+      text: "It means return a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_return_book_success_b4c77f19.wav",
+      text: "It means return a book.",
+    },
+  },
+  [normalizeText("It means ribbon.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_ribbon_success_ac06b04f.wav",
+      text: "It means ribbon.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_ribbon_success_ac06b04f.wav",
+      text: "It means ribbon.",
+    },
+  },
   [normalizeText("It means rice.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_teach_rice_success_bb31ca8f.wav",
@@ -4611,6 +7041,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_rice_success_bb31ca8f.wav",
       text: "It means rice.",
+    },
+  },
+  [normalizeText("It means rinse your feet.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_rinse_feet_success_e1fe9930.wav",
+      text: "It means rinse your feet.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_rinse_feet_success_e1fe9930.wav",
+      text: "It means rinse your feet.",
     },
   },
   [normalizeText("It means rinse your hair.")]: {
@@ -4735,6 +7175,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sandbox.",
     },
   },
+  [normalizeText("It means sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_sandcastle_success_38649b0c.wav",
+      text: "It means sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_sandcastle_success_38649b0c.wav",
+      text: "It means sandcastle.",
+    },
+  },
+  [normalizeText("It means sandwich.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_sandwich_success_200db699.wav",
+      text: "It means sandwich.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_sandwich_success_200db699.wav",
+      text: "It means sandwich.",
+    },
+  },
   [normalizeText("It means sauce.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_sauce_success_9872d2fe.wav",
@@ -4791,6 +7251,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means say goodbye.",
     },
   },
+  [normalizeText("It means say hello.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_say_hello_success_4028945f.wav",
+      text: "It means say hello.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_say_hello_success_4028945f.wav",
+      text: "It means say hello.",
+    },
+  },
+  [normalizeText("It means say how you feel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_say_how_you_feel_success_7c6bc840.wav",
+      text: "It means say how you feel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_say_how_you_feel_success_7c6bc840.wav",
+      text: "It means say how you feel.",
+    },
+  },
   [normalizeText("It means say thank you.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_teach_say_thank_you_success_81716523.wav",
@@ -4803,6 +7283,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-table/audio/en/lunchtable_teach_say_thank_you_success_81716523.wav",
       text: "It means say thank you.",
+    },
+  },
+  [normalizeText("It means scale.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_scale_success_829d906f.wav",
+      text: "It means scale.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_scale_success_829d906f.wav",
+      text: "It means scale.",
+    },
+  },
+  [normalizeText("It means scan the item.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_scan_item_success_f8d68b3e.wav",
+      text: "It means scan the item.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_scan_item_success_f8d68b3e.wav",
+      text: "It means scan the item.",
+    },
+  },
+  [normalizeText("It means scanner.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_scanner_success_8900b5e1.wav",
+      text: "It means scanner.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_scanner_success_8900b5e1.wav",
+      text: "It means scanner.",
+    },
+  },
+  [normalizeText("It means scooter.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_scooter_success_90a72677.wav",
+      text: "It means scooter.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_scooter_success_90a72677.wav",
+      text: "It means scooter.",
     },
   },
   [normalizeText("It means scraper.")]: {
@@ -4839,6 +7359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means scrub your knees.",
     },
   },
+  [normalizeText("It means sea.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_sea_success_8792981d.wav",
+      text: "It means sea.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_sea_success_8792981d.wav",
+      text: "It means sea.",
+    },
+  },
   [normalizeText("It means seat belt.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/teach_seat_belt_success_9397f10b.wav",
@@ -4851,6 +7381,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/ride-home/audio/en/teach_seat_belt_success_9397f10b.wav",
       text: "It means seat belt.",
+    },
+  },
+  [normalizeText("It means seed.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_seed_success_5575923c.wav",
+      text: "It means seed.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_seed_success_5575923c.wav",
+      text: "It means seed.",
     },
   },
   [normalizeText("It means seesaw.")]: {
@@ -4879,6 +7419,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/teach_serve_noodles_success_610d37e7.wav",
       text: "It means serve noodles.",
+    },
+  },
+  [normalizeText("It means serve the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_serve_cake_success_7f48ff95.wav",
+      text: "It means serve the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_serve_cake_success_7f48ff95.wav",
+      text: "It means serve the cake.",
     },
   },
   [normalizeText("It means serving cart.")]: {
@@ -4961,6 +7511,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means share food.",
     },
   },
+  [normalizeText("It means share the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_share_cake_success_3aa680bc.wav",
+      text: "It means share the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_share_cake_success_3aa680bc.wav",
+      text: "It means share the cake.",
+    },
+  },
   [normalizeText("It means share toys.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_teach_share_toys_success_3d2cfa1f.wav",
@@ -4973,6 +7533,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/games_teach_share_toys_success_3d2cfa1f.wav",
       text: "It means share toys.",
+    },
+  },
+  [normalizeText("It means sheep.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_sheep_success_9f2a8a24.wav",
+      text: "It means sheep.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_sheep_success_9f2a8a24.wav",
+      text: "It means sheep.",
     },
   },
   [normalizeText("It means shelf.")]: {
@@ -4989,6 +7559,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shelf.",
     },
   },
+  [normalizeText("It means shell.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_shell_success_30015108.wav",
+      text: "It means shell.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_shell_success_30015108.wav",
+      text: "It means shell.",
+    },
+  },
   [normalizeText("It means shoes.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_shoes_success_b5994227.wav",
@@ -5003,6 +7583,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shoes.",
     },
   },
+  [normalizeText("It means shopping bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_bag_success_b5e26b9e.wav",
+      text: "It means shopping bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_bag_success_b5e26b9e.wav",
+      text: "It means shopping bag.",
+    },
+  },
+  [normalizeText("It means shopping list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_shopping_list_success_b75c6f6e.wav",
+      text: "It means shopping list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_shopping_list_success_b75c6f6e.wav",
+      text: "It means shopping list.",
+    },
+  },
   [normalizeText("It means shoulder.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/teach_shoulder_success_67c13a8c.wav",
@@ -5015,6 +7615,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/teach_shoulder_success_67c13a8c.wav",
       text: "It means shoulder.",
+    },
+  },
+  [normalizeText("It means shovel.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_shovel_success_fb793de8.wav",
+      text: "It means shovel.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_shovel_success_fb793de8.wav",
+      text: "It means shovel.",
+    },
+  },
+  [normalizeText("It means show a photo.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_show_photo_success_6032d48e.wav",
+      text: "It means show a photo.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_show_photo_success_6032d48e.wav",
+      text: "It means show a photo.",
+    },
+  },
+  [normalizeText("It means show the ticket.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_show_ticket_success_910d65f9.wav",
+      text: "It means show the ticket.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_show_ticket_success_910d65f9.wav",
+      text: "It means show the ticket.",
+    },
+  },
+  [normalizeText("It means show your card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_show_card_success_7d594b61.wav",
+      text: "It means show your card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_show_card_success_7d594b61.wav",
+      text: "It means show your card.",
     },
   },
   [normalizeText("It means shower head.")]: {
@@ -5097,6 +7737,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sit down.",
     },
   },
+  [normalizeText("It means sit in a circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_sit_in_circle_success_caf6cee3.wav",
+      text: "It means sit in a circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_sit_in_circle_success_caf6cee3.wav",
+      text: "It means sit in a circle.",
+    },
+  },
+  [normalizeText("It means sit on the bench.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_sit_bench_success_fef7f093.wav",
+      text: "It means sit on the bench.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_sit_bench_success_fef7f093.wav",
+      text: "It means sit on the bench.",
+    },
+  },
+  [normalizeText("It means sit still.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_sit_still_success_eb4c6409.wav",
+      text: "It means sit still.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_sit_still_success_eb4c6409.wav",
+      text: "It means sit still.",
+    },
+  },
   [normalizeText("It means sleep mask.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/teach_sleep_mask_success_35e1ff3a.wav",
@@ -5137,6 +7807,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/teach_slippers_success_61310ca0.wav",
       text: "It means slippers.",
+    },
+  },
+  [normalizeText("It means small bag.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/teach_bag_success_db8da3b3.wav",
+      text: "It means small bag.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/teach_bag_success_db8da3b3.wav",
+      text: "It means small bag.",
     },
   },
   [normalizeText("It means small sip.")]: {
@@ -5319,6 +7999,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means spoon.",
     },
   },
+  [normalizeText("It means spot the zebra.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_spot_zebra_success_105d5996.wav",
+      text: "It means spot the zebra.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_spot_zebra_success_105d5996.wav",
+      text: "It means spot the zebra.",
+    },
+  },
   [normalizeText("It means spray bottle.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/teach_spray_bottle_success_4897f7f7.wav",
@@ -5341,6 +8031,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/teach_spray_stain_success_dbfb748f.wav",
       text: "It means spray the stain.",
+    },
+  },
+  [normalizeText("It means spread the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_spread_mat_success_4040139d.wav",
+      text: "It means spread the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_spread_mat_success_4040139d.wav",
+      text: "It means spread the mat.",
     },
   },
   [normalizeText("It means stack coasters.")]: {
@@ -5395,6 +8095,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means start the timer.",
     },
   },
+  [normalizeText("It means stay near a grown-up.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_stay_near_grown_up_success_2fcbb19c.wav",
+      text: "It means stay near a grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_stay_near_grown_up_success_2fcbb19c.wav",
+      text: "It means stay near a grown-up.",
+    },
+  },
+  [normalizeText("It means stay on the path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_stay_on_path_success_fe1a8090.wav",
+      text: "It means stay on the path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_stay_on_path_success_fe1a8090.wav",
+      text: "It means stay on the path.",
+    },
+  },
   [normalizeText("It means step onto the mat.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/teach_step_onto_mat_success_652874b4.wav",
@@ -5403,6 +8123,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/teach_step_onto_mat_success_652874b4.wav",
       text: "It means step onto the mat.",
+    },
+  },
+  [normalizeText("It means stethoscope.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_stethoscope_success_055809a6.wav",
+      text: "It means stethoscope.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_stethoscope_success_055809a6.wav",
+      text: "It means stethoscope.",
+    },
+  },
+  [normalizeText("It means sticker.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_sticker_success_3e67de32.wav",
+      text: "It means sticker.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_sticker_success_3e67de32.wav",
+      text: "It means sticker.",
+    },
+  },
+  [normalizeText("It means story bell.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_library_bell_success_a9573940.wav",
+      text: "It means story bell.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_library_bell_success_a9573940.wav",
+      text: "It means story bell.",
+    },
+  },
+  [normalizeText("It means story card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_story_card_success_c78b9090.wav",
+      text: "It means story card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_story_card_success_c78b9090.wav",
+      text: "It means story card.",
     },
   },
   [normalizeText("It means story shelf.")]: {
@@ -5433,6 +8193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means storybook.",
     },
   },
+  [normalizeText("It means storyteller.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_storyteller_success_766f7329.wav",
+      text: "It means storyteller.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/teach_storyteller_success_766f7329.wav",
+      text: "It means storyteller.",
+    },
+  },
   [normalizeText("It means straw.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/teach_straw_success_e328686d.wav",
@@ -5447,6 +8217,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means straw.",
     },
   },
+  [normalizeText("It means sun hat.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_sun_hat_success_299b18ac.wav",
+      text: "It means sun hat.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_sun_hat_success_299b18ac.wav",
+      text: "It means sun hat.",
+    },
+  },
   [normalizeText("It means sun.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/teach_sun_success_cecc308c.wav",
@@ -5459,6 +8239,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/teach_sun_success_cecc308c.wav",
       text: "It means sun.",
+    },
+  },
+  [normalizeText("It means sunglasses.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_sunglasses_success_8a85118f.wav",
+      text: "It means sunglasses.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_sunglasses_success_8a85118f.wav",
+      text: "It means sunglasses.",
+    },
+  },
+  [normalizeText("It means sunscreen.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_sunscreen_success_aeab8ff7.wav",
+      text: "It means sunscreen.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_sunscreen_success_aeab8ff7.wav",
+      text: "It means sunscreen.",
     },
   },
   [normalizeText("It means swing.")]: {
@@ -5503,6 +8303,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means take a bite.",
     },
   },
+  [normalizeText("It means take medicine with a grown-up.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_take_medicine_success_6772025d.wav",
+      text: "It means take medicine with a grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_take_medicine_success_6772025d.wav",
+      text: "It means take medicine with a grown-up.",
+    },
+  },
   [normalizeText("It means take off your shoes.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/teach_take_off_shoes_success_83e82789.wav",
@@ -5527,6 +8337,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means take turns.",
     },
   },
+  [normalizeText("It means take your temperature.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_take_temperature_success_d9c18b31.wav",
+      text: "It means take your temperature.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_take_temperature_success_d9c18b31.wav",
+      text: "It means take your temperature.",
+    },
+  },
   [normalizeText("It means teacher.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/teach_teacher_success_6a1a7f3c.wav",
@@ -5541,6 +8361,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means teacher.",
     },
   },
+  [normalizeText("It means team.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_team_success_4ae538e7.wav",
+      text: "It means team.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_team_success_4ae538e7.wav",
+      text: "It means team.",
+    },
+  },
+  [normalizeText("It means tell where it hurts.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_tell_where_it_hurts_success_a918a1ca.wav",
+      text: "It means tell where it hurts.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_tell_where_it_hurts_success_a918a1ca.wav",
+      text: "It means tell where it hurts.",
+    },
+  },
+  [normalizeText("It means thank-you card.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/teach_thank_you_card_success_c88c41d3.wav",
+      text: "It means thank-you card.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/teach_thank_you_card_success_c88c41d3.wav",
+      text: "It means thank-you card.",
+    },
+  },
+  [normalizeText("It means thermometer.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_thermometer_success_413bb71e.wav",
+      text: "It means thermometer.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_thermometer_success_413bb71e.wav",
+      text: "It means thermometer.",
+    },
+  },
   [normalizeText("It means throw away the wrapper.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/teach_throw_away_wrapper_success_9cae8821.wav",
@@ -5549,6 +8409,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/teach_throw_away_wrapper_success_9cae8821.wav",
       text: "It means throw away the wrapper.",
+    },
+  },
+  [normalizeText("It means throw the frisbee.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_throw_frisbee_success_ae2d1c18.wav",
+      text: "It means throw the frisbee.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_throw_frisbee_success_ae2d1c18.wav",
+      text: "It means throw the frisbee.",
+    },
+  },
+  [normalizeText("It means ticket.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_ticket_success_39da1903.wav",
+      text: "It means ticket.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_ticket_success_39da1903.wav",
+      text: "It means ticket.",
     },
   },
   [normalizeText("It means tidy the room.")]: {
@@ -5573,6 +8453,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_timer_success_3db92a1a.wav",
       text: "It means timer.",
+    },
+  },
+  [normalizeText("It means tissue.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_tissue_success_0753d789.wav",
+      text: "It means tissue.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_tissue_success_0753d789.wav",
+      text: "It means tissue.",
+    },
+  },
+  [normalizeText("It means tomato.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_tomato_success_95354746.wav",
+      text: "It means tomato.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_tomato_success_95354746.wav",
+      text: "It means tomato.",
     },
   },
   [normalizeText("It means tongs.")]: {
@@ -5687,6 +8587,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means tray.",
     },
   },
+  [normalizeText("It means tree.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_tree_success_1028b1c2.wav",
+      text: "It means tree.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_tree_success_1028b1c2.wav",
+      text: "It means tree.",
+    },
+  },
   [normalizeText("It means try vegetables.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_try_vegetables_success_a4143e46.wav",
@@ -5711,6 +8621,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means turn on the shower.",
     },
   },
+  [normalizeText("It means turn the page.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/teach_turn_page_success_2eff1f83.wav",
+      text: "It means turn the page.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_turn_page_success_2eff1f83.wav",
+      text: "It means turn the page.",
+    },
+  },
   [normalizeText("It means uniform.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_uniform_success_5bf0f97a.wav",
@@ -5725,6 +8645,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means uniform.",
     },
   },
+  [normalizeText("It means use a quiet voice.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_use_quiet_voice_success_d54519a2.wav",
+      text: "It means use a quiet voice.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_use_quiet_voice_success_d54519a2.wav",
+      text: "It means use a quiet voice.",
+    },
+  },
   [normalizeText("It means use a spoon.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_teach_use_spoon_success_5d170973.wav",
@@ -5733,6 +8663,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_teach_use_spoon_success_5d170973.wav",
       text: "It means use a spoon.",
+    },
+  },
+  [normalizeText("It means use binoculars.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_use_binoculars_success_cbe8464b.wav",
+      text: "It means use binoculars.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_use_binoculars_success_cbe8464b.wav",
+      text: "It means use binoculars.",
+    },
+  },
+  [normalizeText("It means use hand gel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_clean_hands_success_379e0a35.wav",
+      text: "It means use hand gel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_clean_hands_success_379e0a35.wav",
+      text: "It means use hand gel.",
     },
   },
   [normalizeText("It means vegetables.")]: {
@@ -5763,6 +8713,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means wait.",
     },
   },
+  [normalizeText("It means waiting room.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_waiting_room_success_b61c4612.wav",
+      text: "It means waiting room.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/teach_waiting_room_success_b61c4612.wav",
+      text: "It means waiting room.",
+    },
+  },
+  [normalizeText("It means walk on the path.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_walk_path_success_01b788df.wav",
+      text: "It means walk on the path.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/teach_walk_path_success_01b788df.wav",
+      text: "It means walk on the path.",
+    },
+  },
+  [normalizeText("It means wallet.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/teach_wallet_success_61d17eba.wav",
+      text: "It means wallet.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_wallet_success_61d17eba.wav",
+      text: "It means wallet.",
+    },
+  },
   [normalizeText("It means wash your face.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/teach_wash_face_success_159bb332.wav",
@@ -5783,6 +8763,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means wash your hands.",
     },
   },
+  [normalizeText("It means water bottle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_water_bottle_success_a02dfcd7.wav",
+      text: "It means water bottle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_water_bottle_success_a02dfcd7.wav",
+      text: "It means water bottle.",
+    },
+  },
+  [normalizeText("It means water the plant.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_water_plant_success_64a1e7ea.wav",
+      text: "It means water the plant.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_water_plant_success_64a1e7ea.wav",
+      text: "It means water the plant.",
+    },
+  },
   [normalizeText("It means water.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/teach_water_success_f10d0576.wav",
@@ -5797,6 +8797,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means water.",
     },
   },
+  [normalizeText("It means watering can.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_watering_can_success_8c2040a6.wav",
+      text: "It means watering can.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_watering_can_success_8c2040a6.wav",
+      text: "It means watering can.",
+    },
+  },
+  [normalizeText("It means wave goodbye.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/teach_wave_success_fd8fb639.wav",
+      text: "It means wave goodbye.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/teach_wave_success_fd8fb639.wav",
+      text: "It means wave goodbye.",
+    },
+  },
+  [normalizeText("It means wave.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/teach_wave_success_b8cabe47.wav",
+      text: "It means wave.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/teach_wave_success_b8cabe47.wav",
+      text: "It means wave.",
+    },
+  },
+  [normalizeText("It means wear a hat.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/teach_wear_hat_success_c3b08cb6.wav",
+      text: "It means wear a hat.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/teach_wear_hat_success_c3b08cb6.wav",
+      text: "It means wear a hat.",
+    },
+  },
+  [normalizeText("It means wear a helmet.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_wear_helmet_success_fb7ae1ae.wav",
+      text: "It means wear a helmet.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_wear_helmet_success_fb7ae1ae.wav",
+      text: "It means wear a helmet.",
+    },
+  },
   [normalizeText("It means wear a sleep mask.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/teach_wear_sleep_mask_success_469c9b15.wav",
@@ -5805,6 +8855,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/teach_wear_sleep_mask_success_469c9b15.wav",
       text: "It means wear a sleep mask.",
+    },
+  },
+  [normalizeText("It means weigh the fruit.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/teach_weigh_fruit_success_254b0aff.wav",
+      text: "It means weigh the fruit.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/teach_weigh_fruit_success_254b0aff.wav",
+      text: "It means weigh the fruit.",
+    },
+  },
+  [normalizeText("It means weighing scale.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_weighing_scale_success_3c0f7e57.wav",
+      text: "It means weighing scale.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_weighing_scale_success_3c0f7e57.wav",
+      text: "It means weighing scale.",
+    },
+  },
+  [normalizeText("It means whistle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_whistle_success_9280e760.wav",
+      text: "It means whistle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_whistle_success_9280e760.wav",
+      text: "It means whistle.",
     },
   },
   [normalizeText("It means window.")]: {
@@ -5841,6 +8921,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means wipe your mouth.",
     },
   },
+  [normalizeText("It means wrap the gift.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_wrap_gift_success_73569369.wav",
+      text: "It means wrap the gift.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_wrap_gift_success_73569369.wav",
+      text: "It means wrap the gift.",
+    },
+  },
   [normalizeText("It means wrapper.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/teach_wrapper_success_89ef1feb.wav",
@@ -5853,6 +8943,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/teach_wrapper_success_89ef1feb.wav",
       text: "It means wrapper.",
+    },
+  },
+  [normalizeText("It means wristband.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_wristband_success_61810d97.wav",
+      text: "It means wristband.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_wristband_success_61810d97.wav",
+      text: "It means wristband.",
     },
   },
   [normalizeText("It means write your name.")]: {
@@ -5881,6 +8981,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/teach_yogurt_success_b70fc395.wav",
       text: "It means yogurt.",
+    },
+  },
+  [normalizeText("It means zebra.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_zebra_success_2b8932af.wav",
+      text: "It means zebra.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_zebra_success_2b8932af.wav",
+      text: "It means zebra.",
+    },
+  },
+  [normalizeText("It means zoo gate.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_gate_success_13fed1fb.wav",
+      text: "It means zoo gate.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_gate_success_13fed1fb.wav",
+      text: "It means zoo gate.",
+    },
+  },
+  [normalizeText("It means zoo map.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_map_success_3370c44d.wav",
+      text: "It means zoo map.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_map_success_3370c44d.wav",
+      text: "It means zoo map.",
+    },
+  },
+  [normalizeText("It means zoo path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/teach_path_success_d8cb2428.wav",
+      text: "It means zoo path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_path_success_d8cb2428.wav",
+      text: "It means zoo path.",
+    },
+  },
+  [normalizeText("It means zoo sign.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_sign_success_55b02093.wav",
+      text: "It means zoo sign.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_sign_success_55b02093.wav",
+      text: "It means zoo sign.",
+    },
+  },
+  [normalizeText("It means zookeeper.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_keeper_success_4d7f94b9.wav",
+      text: "It means zookeeper.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/teach_keeper_success_4d7f94b9.wav",
+      text: "It means zookeeper.",
     },
   },
   [normalizeText("It's afternoon. Let's get ready for a bath.")]: {
@@ -5965,6 +9125,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/jacket.wav",
       text: "jacket",
+    },
+  },
+  [normalizeText("join the game")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/join_the_game.wav",
+      text: "join the game",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/join_the_game.wav",
+      text: "join the game",
+    },
+  },
+  [normalizeText("join the team")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/join_the_team.wav",
+      text: "join the team",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/join_the_team.wav",
+      text: "join the team",
     },
   },
   [normalizeText("juice")]: {
@@ -6123,6 +9303,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "laundry basket",
     },
   },
+  [normalizeText("leaf")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/leaf.wav",
+      text: "leaf",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/leaf.wav",
+      text: "leaf",
+    },
+  },
   [normalizeText("leftovers")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/leftovers.wav",
@@ -6135,6 +9325,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/leftovers.wav",
       text: "leftovers",
+    },
+  },
+  [normalizeText("Let's check what we need.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/intro_success_7e702838.wav",
+      text: "Let's check what we need.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/intro_success_7e702838.wav",
+      text: "Let's check what we need.",
+    },
+  },
+  [normalizeText("Let's choose a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_intro_08f27ee5.wav",
+      text: "Let's choose a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_intro_08f27ee5.wav",
+      text: "Let's choose a book.",
     },
   },
   [normalizeText("Let's choose an afternoon snack.")]: {
@@ -6177,6 +9387,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's eat our snack in small bites.",
     },
   },
+  [normalizeText("Let's enter the library quietly.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_intro_2516fc9e.wav",
+      text: "Let's enter the library quietly.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_intro_2516fc9e.wav",
+      text: "Let's enter the library quietly.",
+    },
+  },
+  [normalizeText("Let's enter the park.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_intro_3c5b60f4.wav",
+      text: "Let's enter the park.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_intro_3c5b60f4.wav",
+      text: "Let's enter the park.",
+    },
+  },
+  [normalizeText("Let's enter the zoo.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_intro_6ae2ea0b.wav",
+      text: "Let's enter the zoo.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_intro_6ae2ea0b.wav",
+      text: "Let's enter the zoo.",
+    },
+  },
   [normalizeText("Let’s flip cards to remember words longer.")]: {
     "en-US": {
       key: "ui/audio/en-US/neural2-c-r1/home_review_tap_one.wav",
@@ -6205,6 +9445,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/prompt_lunchbox_intro_7dc66160.wav",
       text: "Let's get ready for lunch.",
+    },
+  },
+  [normalizeText("Let's get ready for the birthday party.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_intro_fdf7021b.wav",
+      text: "Let's get ready for the birthday party.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_intro_fdf7021b.wav",
+      text: "Let's get ready for the birthday party.",
+    },
+  },
+  [normalizeText("Let's get ready for the supermarket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_intro_2412aa33.wav",
+      text: "Let's get ready for the supermarket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_intro_2412aa33.wav",
+      text: "Let's get ready for the supermarket.",
     },
   },
   [normalizeText("Let's get ready to leave!")]: {
@@ -6257,6 +9517,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's go into the classroom.",
     },
   },
+  [normalizeText("Let's go into the clinic room.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_intro_d5fec396.wav",
+      text: "Let's go into the clinic room.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_intro_d5fec396.wav",
+      text: "Let's go into the clinic room.",
+    },
+  },
   [normalizeText("Let's go to school!")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_review_school_success_fe32835f.wav",
@@ -6287,6 +9557,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's go to the bathroom.",
     },
   },
+  [normalizeText("Let's go to the birthday table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_intro_c212307d.wav",
+      text: "Let's go to the birthday table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_intro_c212307d.wav",
+      text: "Let's go to the birthday table.",
+    },
+  },
+  [normalizeText("Let's go to the checkout counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_intro_feda2679.wav",
+      text: "Let's go to the checkout counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_intro_feda2679.wav",
+      text: "Let's go to the checkout counter.",
+    },
+  },
   [normalizeText("Let's go to the playground.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_intro_ad6f8f51.wav",
@@ -6295,6 +9585,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_intro_ad6f8f51.wav",
       text: "Let's go to the playground.",
+    },
+  },
+  [normalizeText("Let's greet them happily.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/intro_success_26a5ccc9.wav",
+      text: "Let's greet them happily.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/intro_success_26a5ccc9.wav",
+      text: "Let's greet them happily.",
+    },
+  },
+  [normalizeText("Let's have a health check.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_intro_099ff598.wav",
+      text: "Let's have a health check.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_intro_099ff598.wav",
+      text: "Let's have a health check.",
+    },
+  },
+  [normalizeText("Let's have a small picnic at the park.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_intro_0a226b05.wav",
+      text: "Let's have a small picnic at the park.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_intro_0a226b05.wav",
+      text: "Let's have a small picnic at the park.",
     },
   },
   [normalizeText("Let's have breakfast.")]: {
@@ -6327,6 +9647,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's head home.",
     },
   },
+  [normalizeText("Let's help in the garden.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_intro_7b5e9f4c.wav",
+      text: "Let's help in the garden.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_intro_7b5e9f4c.wav",
+      text: "Let's help in the garden.",
+    },
+  },
+  [normalizeText("Let's learn beach safety.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_intro_487c6924.wav",
+      text: "Let's learn beach safety.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_intro_487c6924.wav",
+      text: "Let's learn beach safety.",
+    },
+  },
+  [normalizeText("Let's learn how to take care when sick.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_intro_61ca7215.wav",
+      text: "Let's learn how to take care when sick.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_intro_61ca7215.wav",
+      text: "Let's learn how to take care when sick.",
+    },
+  },
   [normalizeText("Let's learn the phrase air-dry the dishes.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_teach_air_dry_dishes_d99159fb.wav",
@@ -6345,6 +9695,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_teach_arrive_home_5ed07bd7.wav",
       text: "Let's learn the phrase arrive home.",
+    },
+  },
+  [normalizeText("Let's learn the phrase ask for a hug.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_ask_for_hug_eee66bc0.wav",
+      text: "Let's learn the phrase ask for a hug.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_ask_for_hug_eee66bc0.wav",
+      text: "Let's learn the phrase ask for a hug.",
+    },
+  },
+  [normalizeText("Let's learn the phrase blow out the candles.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_blow_candles_23423db2.wav",
+      text: "Let's learn the phrase blow out the candles.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_blow_candles_23423db2.wav",
+      text: "Let's learn the phrase blow out the candles.",
+    },
+  },
+  [normalizeText("Let's learn the phrase blow your nose.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_blow_nose_36b479cd.wav",
+      text: "Let's learn the phrase blow your nose.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_blow_nose_36b479cd.wav",
+      text: "Let's learn the phrase blow your nose.",
+    },
+  },
+  [normalizeText("Let's learn the phrase borrow a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_borrow_book_6465677e.wav",
+      text: "Let's learn the phrase borrow a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_borrow_book_6465677e.wav",
+      text: "Let's learn the phrase borrow a book.",
     },
   },
   [normalizeText("Let's learn the phrase brush your teeth.")]: {
@@ -6367,6 +9757,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase buckle up.",
     },
   },
+  [normalizeText("Let's learn the phrase build a sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_build_sandcastle_49147c28.wav",
+      text: "Let's learn the phrase build a sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_build_sandcastle_49147c28.wav",
+      text: "Let's learn the phrase build a sandcastle.",
+    },
+  },
   [normalizeText("Let's learn the phrase build a tower.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/prompt_teach_build_tower_3acf1c99.wav",
@@ -6387,6 +9787,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase call everyone.",
     },
   },
+  [normalizeText("Let's learn the phrase carry the bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_carry_bag_c9319225.wav",
+      text: "Let's learn the phrase carry the bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_carry_bag_c9319225.wav",
+      text: "Let's learn the phrase carry the bag.",
+    },
+  },
   [normalizeText("Let's learn the phrase carry the tray.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/prompt_teach_carry_tray_14969279.wav",
@@ -6395,6 +9805,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/prompt_teach_carry_tray_14969279.wav",
       text: "Let's learn the phrase carry the tray.",
+    },
+  },
+  [normalizeText("Let's learn the phrase check the list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_check_list_8d3867bc.wav",
+      text: "Let's learn the phrase check the list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_check_list_8d3867bc.wav",
+      text: "Let's learn the phrase check the list.",
     },
   },
   [normalizeText("Let's learn the phrase check the temperature.")]: {
@@ -6415,6 +9835,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_teach_check_dream_journal_86313e0a.wav",
       text: "Let's learn the phrase check your dream journal.",
+    },
+  },
+  [normalizeText("Let's learn the phrase check your heartbeat.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_check_heartbeat_735cd7dc.wav",
+      text: "Let's learn the phrase check your heartbeat.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_check_heartbeat_735cd7dc.wav",
+      text: "Let's learn the phrase check your heartbeat.",
+    },
+  },
+  [normalizeText("Let's learn the phrase choose a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_choose_book_7e25818f.wav",
+      text: "Let's learn the phrase choose a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_choose_book_7e25818f.wav",
+      text: "Let's learn the phrase choose a book.",
+    },
+  },
+  [normalizeText("Let's learn the phrase choose a drink.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_choose_drink_d4e1f21f.wav",
+      text: "Let's learn the phrase choose a drink.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_choose_drink_d4e1f21f.wav",
+      text: "Let's learn the phrase choose a drink.",
     },
   },
   [normalizeText("Let's learn the phrase choose a snack.")]: {
@@ -6445,6 +9895,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/prompt_teach_choose_toy_d6793ef9.wav",
       text: "Let's learn the phrase choose a toy.",
+    },
+  },
+  [normalizeText("Let's learn the phrase clap softly.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_clap_softly_12110372.wav",
+      text: "Let's learn the phrase clap softly.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_clap_softly_12110372.wav",
+      text: "Let's learn the phrase clap softly.",
+    },
+  },
+  [normalizeText("Let's learn the phrase clap your hands.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_clap_hands_c975a184.wav",
+      text: "Let's learn the phrase clap your hands.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_clap_hands_c975a184.wav",
+      text: "Let's learn the phrase clap your hands.",
+    },
+  },
+  [normalizeText("Let's learn the phrase clean up the crumbs.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_clean_crumbs_fca9cc58.wav",
+      text: "Let's learn the phrase clean up the crumbs.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_clean_crumbs_fca9cc58.wav",
+      text: "Let's learn the phrase clean up the crumbs.",
     },
   },
   [normalizeText("Let's learn the phrase clean up the toys.")]: {
@@ -6487,6 +9967,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase comb your hair.",
     },
   },
+  [normalizeText("Let's learn the phrase decorate the room.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_decorate_room_558cbb79.wav",
+      text: "Let's learn the phrase decorate the room.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_decorate_room_558cbb79.wav",
+      text: "Let's learn the phrase decorate the room.",
+    },
+  },
+  [normalizeText("Let's learn the phrase dig in the sand.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_dig_sand_7af773f9.wav",
+      text: "Let's learn the phrase dig in the sand.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_dig_sand_7af773f9.wav",
+      text: "Let's learn the phrase dig in the sand.",
+    },
+  },
   [normalizeText("Let's learn the phrase dim the lights.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_teach_dim_lights_ba92a53e.wav",
@@ -6515,6 +10015,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/prompt_teach_draw_picture_6450dc16.wav",
       text: "Let's learn the phrase draw a picture.",
+    },
+  },
+  [normalizeText("Let's learn the phrase drink some water.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_drink_water_9260ce0f.wav",
+      text: "Let's learn the phrase drink some water.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_drink_water_9260ce0f.wav",
+      text: "Let's learn the phrase drink some water.",
     },
   },
   [normalizeText("Let's learn the phrase drink water.")]: {
@@ -6577,6 +10087,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase eat lunch.",
     },
   },
+  [normalizeText("Let's learn the phrase feed the goat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_feed_goat_71afe047.wav",
+      text: "Let's learn the phrase feed the goat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_feed_goat_71afe047.wav",
+      text: "Let's learn the phrase feed the goat.",
+    },
+  },
+  [normalizeText("Let's learn the phrase follow the zookeeper.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_follow_keeper_8cc26098.wav",
+      text: "Let's learn the phrase follow the zookeeper.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_follow_keeper_8cc26098.wav",
+      text: "Let's learn the phrase follow the zookeeper.",
+    },
+  },
   [normalizeText("Let's learn the phrase get on the bus.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_teach_get_on_bus_bab934b2.wav",
@@ -6585,6 +10115,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_teach_get_on_bus_bab934b2.wav",
       text: "Let's learn the phrase get on the bus.",
+    },
+  },
+  [normalizeText("Let's learn the phrase go home.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_teach_go_home_aceae07d.wav",
+      text: "Let's learn the phrase go home.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_go_home_aceae07d.wav",
+      text: "Let's learn the phrase go home.",
     },
   },
   [normalizeText("Let's learn the phrase go to school.")]: {
@@ -6605,6 +10145,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/prompt_teach_good_morning_4d5f0eb5.wav",
       text: "Let's learn the phrase good morning.",
+    },
+  },
+  [normalizeText("Let's learn the phrase hang the balloons.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_hang_balloons_24264e01.wav",
+      text: "Let's learn the phrase hang the balloons.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_hang_balloons_24264e01.wav",
+      text: "Let's learn the phrase hang the balloons.",
     },
   },
   [normalizeText("Let's learn the phrase hang the robe.")]: {
@@ -6637,6 +10187,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase hug your soft toy.",
     },
   },
+  [normalizeText("Let's learn the phrase join the game.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_join_game_a7df7af2.wav",
+      text: "Let's learn the phrase join the game.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_join_game_a7df7af2.wav",
+      text: "Let's learn the phrase join the game.",
+    },
+  },
+  [normalizeText("Let's learn the phrase join the team.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_join_team_cdb42012.wav",
+      text: "Let's learn the phrase join the team.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_join_team_cdb42012.wav",
+      text: "Let's learn the phrase join the team.",
+    },
+  },
   [normalizeText("Let's learn the phrase label the container.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_teach_label_container_dc6b9510.wav",
@@ -6657,6 +10227,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase line up.",
     },
   },
+  [normalizeText("Let's learn the phrase listen to the story.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_listen_story_63784174.wav",
+      text: "Let's learn the phrase listen to the story.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_listen_story_63784174.wav",
+      text: "Let's learn the phrase listen to the story.",
+    },
+  },
   [normalizeText("Let's learn the phrase load the dishwasher.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_teach_load_dishwasher_71817a03.wav",
@@ -6665,6 +10245,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_teach_load_dishwasher_71817a03.wav",
       text: "Let's learn the phrase load the dishwasher.",
+    },
+  },
+  [normalizeText("Let's learn the phrase look at the flag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_look_at_flag_ad21c9c7.wav",
+      text: "Let's learn the phrase look at the flag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_look_at_flag_ad21c9c7.wav",
+      text: "Let's learn the phrase look at the flag.",
+    },
+  },
+  [normalizeText("Let's learn the phrase look at the map.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_look_map_37699865.wav",
+      text: "Let's learn the phrase look at the map.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_look_map_37699865.wav",
+      text: "Let's learn the phrase look at the map.",
+    },
+  },
+  [normalizeText("Let's learn the phrase look for shells.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_find_shells_32369039.wav",
+      text: "Let's learn the phrase look for shells.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_find_shells_32369039.wav",
+      text: "Let's learn the phrase look for shells.",
+    },
+  },
+  [normalizeText("Let's learn the phrase make a shopping list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_make_list_e92baac2.wav",
+      text: "Let's learn the phrase make a shopping list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_make_list_e92baac2.wav",
+      text: "Let's learn the phrase make a shopping list.",
     },
   },
   [normalizeText("Let's learn the phrase make bubbles.")]: {
@@ -6727,6 +10347,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase open your lunchbox.",
     },
   },
+  [normalizeText("Let's learn the phrase pack the bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_pack_bag_77a7cfb6.wav",
+      text: "Let's learn the phrase pack the bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_pack_bag_77a7cfb6.wav",
+      text: "Let's learn the phrase pack the bag.",
+    },
+  },
   [normalizeText("Let's learn the phrase pack your bag.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_teach_pack_bag_925ce8ca.wav",
@@ -6747,6 +10377,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase pass the dish.",
     },
   },
+  [normalizeText("Let's learn the phrase pet the sheep gently.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_pet_sheep_32105a5b.wav",
+      text: "Let's learn the phrase pet the sheep gently.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_pet_sheep_32105a5b.wav",
+      text: "Let's learn the phrase pet the sheep gently.",
+    },
+  },
+  [normalizeText("Let's learn the phrase pick up leaves.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_pick_up_leaves_1e6af09b.wav",
+      text: "Let's learn the phrase pick up leaves.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_pick_up_leaves_1e6af09b.wav",
+      text: "Let's learn the phrase pick up leaves.",
+    },
+  },
+  [normalizeText("Let's learn the phrase pick vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_pick_vegetables_5b3c697c.wav",
+      text: "Let's learn the phrase pick vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_pick_vegetables_5b3c697c.wav",
+      text: "Let's learn the phrase pick vegetables.",
+    },
+  },
   [normalizeText("Let's learn the phrase place the bookmark.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_teach_place_bookmark_eaf06852.wav",
@@ -6755,6 +10415,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/prompt_teach_place_bookmark_eaf06852.wav",
       text: "Let's learn the phrase place the bookmark.",
+    },
+  },
+  [normalizeText("Let's learn the phrase plant a seed.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_plant_seed_5428c296.wav",
+      text: "Let's learn the phrase plant a seed.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_plant_seed_5428c296.wav",
+      text: "Let's learn the phrase plant a seed.",
     },
   },
   [normalizeText("Let's learn the phrase play a lullaby.")]: {
@@ -6807,6 +10477,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase pour milk.",
     },
   },
+  [normalizeText("Let's learn the phrase push the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_push_cart_e1ca9f71.wav",
+      text: "Let's learn the phrase push the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_push_cart_e1ca9f71.wav",
+      text: "Let's learn the phrase push the cart.",
+    },
+  },
   [normalizeText("Let's learn the phrase put away the book.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/prompt_teach_put_away_book_a9e9d072.wav",
@@ -6827,6 +10507,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase put away the tray.",
     },
   },
+  [normalizeText("Let's learn the phrase put on sunscreen.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_put_on_sunscreen_2f304f25.wav",
+      text: "Let's learn the phrase put on sunscreen.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_put_on_sunscreen_2f304f25.wav",
+      text: "Let's learn the phrase put on sunscreen.",
+    },
+  },
   [normalizeText("Let's learn the phrase put on your pajamas.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_teach_put_on_pajamas_f1fee094.wav",
@@ -6845,6 +10535,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/prompt_school_teach_put_on_shoes_6c56f17a.wav",
       text: "Let's learn the phrase put on your shoes.",
+    },
+  },
+  [normalizeText("Let's learn the phrase put the trash in the bin.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_throw_trash_e9ad52fa.wav",
+      text: "Let's learn the phrase put the trash in the bin.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_throw_trash_e9ad52fa.wav",
+      text: "Let's learn the phrase put the trash in the bin.",
     },
   },
   [normalizeText("Let's learn the phrase raise your hand.")]: {
@@ -6875,6 +10575,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/prompt_teach_read_softly_1baf5a72.wav",
       text: "Let's learn the phrase read softly.",
+    },
+  },
+  [normalizeText("Let's learn the phrase read the sign.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_read_sign_28bb4e07.wav",
+      text: "Let's learn the phrase read the sign.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_read_sign_28bb4e07.wav",
+      text: "Let's learn the phrase read the sign.",
+    },
+  },
+  [normalizeText("Let's learn the phrase return a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_return_book_ecbdcbe0.wav",
+      text: "Let's learn the phrase return a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_return_book_ecbdcbe0.wav",
+      text: "Let's learn the phrase return a book.",
+    },
+  },
+  [normalizeText("Let's learn the phrase rinse your feet.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_rinse_feet_6a717e20.wav",
+      text: "Let's learn the phrase rinse your feet.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_rinse_feet_6a717e20.wav",
+      text: "Let's learn the phrase rinse your feet.",
     },
   },
   [normalizeText("Let's learn the phrase rinse your hair.")]: {
@@ -6917,6 +10647,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase say goodbye.",
     },
   },
+  [normalizeText("Let's learn the phrase say hello.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_say_hello_e6694fd1.wav",
+      text: "Let's learn the phrase say hello.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_say_hello_e6694fd1.wav",
+      text: "Let's learn the phrase say hello.",
+    },
+  },
+  [normalizeText("Let's learn the phrase say how you feel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_say_how_you_feel_e81407de.wav",
+      text: "Let's learn the phrase say how you feel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_say_how_you_feel_e81407de.wav",
+      text: "Let's learn the phrase say how you feel.",
+    },
+  },
   [normalizeText("Let's learn the phrase say thank you.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/prompt_lunchtable_teach_say_thank_you_ec15d84a.wav",
@@ -6925,6 +10675,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/prompt_lunchtable_teach_say_thank_you_ec15d84a.wav",
       text: "Let's learn the phrase say thank you.",
+    },
+  },
+  [normalizeText("Let's learn the phrase scan the item.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_scan_item_332cc813.wav",
+      text: "Let's learn the phrase scan the item.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_scan_item_332cc813.wav",
+      text: "Let's learn the phrase scan the item.",
     },
   },
   [normalizeText("Let's learn the phrase scrub the spot.")]: {
@@ -6957,6 +10717,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase serve noodles.",
     },
   },
+  [normalizeText("Let's learn the phrase serve the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_serve_cake_c205bbcf.wav",
+      text: "Let's learn the phrase serve the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_serve_cake_c205bbcf.wav",
+      text: "Let's learn the phrase serve the cake.",
+    },
+  },
   [normalizeText("Let's learn the phrase set the placemat.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/prompt_teach_set_placemat_2d965a6c.wav",
@@ -6977,6 +10747,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase share food.",
     },
   },
+  [normalizeText("Let's learn the phrase share the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_share_cake_51a36bf1.wav",
+      text: "Let's learn the phrase share the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_share_cake_51a36bf1.wav",
+      text: "Let's learn the phrase share the cake.",
+    },
+  },
   [normalizeText("Let's learn the phrase share toys.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_teach_share_toys_34cd26f4.wav",
@@ -6985,6 +10765,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_teach_share_toys_34cd26f4.wav",
       text: "Let's learn the phrase share toys.",
+    },
+  },
+  [normalizeText("Let's learn the phrase show a photo.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_show_photo_b9b9825d.wav",
+      text: "Let's learn the phrase show a photo.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_show_photo_b9b9825d.wav",
+      text: "Let's learn the phrase show a photo.",
+    },
+  },
+  [normalizeText("Let's learn the phrase show the ticket.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_show_ticket_670bfe07.wav",
+      text: "Let's learn the phrase show the ticket.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_show_ticket_670bfe07.wav",
+      text: "Let's learn the phrase show the ticket.",
+    },
+  },
+  [normalizeText("Let's learn the phrase show your card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_show_card_b5119c7b.wav",
+      text: "Let's learn the phrase show your card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_show_card_b5119c7b.wav",
+      text: "Let's learn the phrase show your card.",
     },
   },
   [normalizeText("Let's learn the phrase sip juice.")]: {
@@ -7017,6 +10827,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase sit down.",
     },
   },
+  [normalizeText("Let's learn the phrase sit in a circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_sit_in_circle_73f74486.wav",
+      text: "Let's learn the phrase sit in a circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_sit_in_circle_73f74486.wav",
+      text: "Let's learn the phrase sit in a circle.",
+    },
+  },
+  [normalizeText("Let's learn the phrase sit on the bench.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_sit_bench_435707fc.wav",
+      text: "Let's learn the phrase sit on the bench.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_sit_bench_435707fc.wav",
+      text: "Let's learn the phrase sit on the bench.",
+    },
+  },
+  [normalizeText("Let's learn the phrase sit still.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_sit_still_1c7eb677.wav",
+      text: "Let's learn the phrase sit still.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_sit_still_1c7eb677.wav",
+      text: "Let's learn the phrase sit still.",
+    },
+  },
   [normalizeText("Let's learn the phrase soft voice.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_teach_soft_voice_0968942b.wav",
@@ -7047,6 +10887,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase sort the recycling.",
     },
   },
+  [normalizeText("Let's learn the phrase spot the zebra.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_spot_zebra_3f86cb63.wav",
+      text: "Let's learn the phrase spot the zebra.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_spot_zebra_3f86cb63.wav",
+      text: "Let's learn the phrase spot the zebra.",
+    },
+  },
   [normalizeText("Let's learn the phrase spray the stain.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/prompt_teach_spray_stain_f48caedd.wav",
@@ -7055,6 +10905,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/prompt_teach_spray_stain_f48caedd.wav",
       text: "Let's learn the phrase spray the stain.",
+    },
+  },
+  [normalizeText("Let's learn the phrase spread the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_spread_mat_f7eef56b.wav",
+      text: "Let's learn the phrase spread the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_spread_mat_f7eef56b.wav",
+      text: "Let's learn the phrase spread the mat.",
     },
   },
   [normalizeText("Let's learn the phrase stack coasters.")]: {
@@ -7077,6 +10937,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase start the timer.",
     },
   },
+  [normalizeText("Let's learn the phrase stay near a grown-up.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_stay_near_grown_up_a51c7489.wav",
+      text: "Let's learn the phrase stay near a grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_stay_near_grown_up_a51c7489.wav",
+      text: "Let's learn the phrase stay near a grown-up.",
+    },
+  },
+  [normalizeText("Let's learn the phrase stay on the path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_stay_on_path_b75c5e96.wav",
+      text: "Let's learn the phrase stay on the path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_stay_on_path_b75c5e96.wav",
+      text: "Let's learn the phrase stay on the path.",
+    },
+  },
   [normalizeText("Let's learn the phrase step onto the mat.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_teach_step_onto_mat_b4c561dc.wav",
@@ -7095,6 +10975,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/prompt_teach_take_bite_8dedf5c2.wav",
       text: "Let's learn the phrase take a bite.",
+    },
+  },
+  [normalizeText("Let's learn the phrase take medicine with a grown-up.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_take_medicine_b087c2fd.wav",
+      text: "Let's learn the phrase take medicine with a grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_take_medicine_b087c2fd.wav",
+      text: "Let's learn the phrase take medicine with a grown-up.",
     },
   },
   [normalizeText("Let's learn the phrase take off your shoes.")]: {
@@ -7117,6 +11007,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase take turns.",
     },
   },
+  [normalizeText("Let's learn the phrase take your temperature.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_take_temperature_a1b7ecf5.wav",
+      text: "Let's learn the phrase take your temperature.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_take_temperature_a1b7ecf5.wav",
+      text: "Let's learn the phrase take your temperature.",
+    },
+  },
+  [normalizeText("Let's learn the phrase tell where it hurts.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_tell_where_it_hurts_20381d7f.wav",
+      text: "Let's learn the phrase tell where it hurts.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_tell_where_it_hurts_20381d7f.wav",
+      text: "Let's learn the phrase tell where it hurts.",
+    },
+  },
   [normalizeText("Let's learn the phrase throw away the wrapper.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/prompt_teach_throw_away_wrapper_59ef5627.wav",
@@ -7125,6 +11035,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/prompt_teach_throw_away_wrapper_59ef5627.wav",
       text: "Let's learn the phrase throw away the wrapper.",
+    },
+  },
+  [normalizeText("Let's learn the phrase throw the frisbee.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_throw_frisbee_0596cb78.wav",
+      text: "Let's learn the phrase throw the frisbee.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_throw_frisbee_0596cb78.wav",
+      text: "Let's learn the phrase throw the frisbee.",
     },
   },
   [normalizeText("Let's learn the phrase tidy the room.")]: {
@@ -7157,6 +11077,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase turn on the shower.",
     },
   },
+  [normalizeText("Let's learn the phrase turn the page.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_turn_page_38d42bb1.wav",
+      text: "Let's learn the phrase turn the page.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_turn_page_38d42bb1.wav",
+      text: "Let's learn the phrase turn the page.",
+    },
+  },
+  [normalizeText("Let's learn the phrase use a quiet voice.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_use_quiet_voice_2bca96a6.wav",
+      text: "Let's learn the phrase use a quiet voice.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_use_quiet_voice_2bca96a6.wav",
+      text: "Let's learn the phrase use a quiet voice.",
+    },
+  },
   [normalizeText("Let's learn the phrase use a spoon.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/prompt_lunchbox_teach_use_spoon_6e48070e.wav",
@@ -7165,6 +11105,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/prompt_lunchbox_teach_use_spoon_6e48070e.wav",
       text: "Let's learn the phrase use a spoon.",
+    },
+  },
+  [normalizeText("Let's learn the phrase use binoculars.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_use_binoculars_53b151da.wav",
+      text: "Let's learn the phrase use binoculars.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_use_binoculars_53b151da.wav",
+      text: "Let's learn the phrase use binoculars.",
+    },
+  },
+  [normalizeText("Let's learn the phrase use hand gel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_clean_hands_f51f3bed.wav",
+      text: "Let's learn the phrase use hand gel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_clean_hands_f51f3bed.wav",
+      text: "Let's learn the phrase use hand gel.",
+    },
+  },
+  [normalizeText("Let's learn the phrase walk on the path.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_walk_path_8b9fd46d.wav",
+      text: "Let's learn the phrase walk on the path.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_walk_path_8b9fd46d.wav",
+      text: "Let's learn the phrase walk on the path.",
     },
   },
   [normalizeText("Let's learn the phrase wash your face.")]: {
@@ -7187,6 +11157,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase wash your hands.",
     },
   },
+  [normalizeText("Let's learn the phrase water the plant.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_water_plant_c3931981.wav",
+      text: "Let's learn the phrase water the plant.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_water_plant_c3931981.wav",
+      text: "Let's learn the phrase water the plant.",
+    },
+  },
+  [normalizeText("Let's learn the phrase wave goodbye.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_teach_wave_26f01e9b.wav",
+      text: "Let's learn the phrase wave goodbye.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_wave_26f01e9b.wav",
+      text: "Let's learn the phrase wave goodbye.",
+    },
+  },
+  [normalizeText("Let's learn the phrase wear a hat.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_wear_hat_a540e6fd.wav",
+      text: "Let's learn the phrase wear a hat.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_wear_hat_a540e6fd.wav",
+      text: "Let's learn the phrase wear a hat.",
+    },
+  },
+  [normalizeText("Let's learn the phrase wear a helmet.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_wear_helmet_dd12001d.wav",
+      text: "Let's learn the phrase wear a helmet.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_wear_helmet_dd12001d.wav",
+      text: "Let's learn the phrase wear a helmet.",
+    },
+  },
   [normalizeText("Let's learn the phrase wear a sleep mask.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_teach_wear_sleep_mask_6c98d14c.wav",
@@ -7195,6 +11205,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_teach_wear_sleep_mask_6c98d14c.wav",
       text: "Let's learn the phrase wear a sleep mask.",
+    },
+  },
+  [normalizeText("Let's learn the phrase weigh the fruit.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_weigh_fruit_e4ce865d.wav",
+      text: "Let's learn the phrase weigh the fruit.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_weigh_fruit_e4ce865d.wav",
+      text: "Let's learn the phrase weigh the fruit.",
     },
   },
   [normalizeText("Let's learn the phrase wipe the table.")]: {
@@ -7217,6 +11237,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase wipe your mouth.",
     },
   },
+  [normalizeText("Let's learn the phrase wrap the gift.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_wrap_gift_ee7d1ef6.wav",
+      text: "Let's learn the phrase wrap the gift.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_wrap_gift_ee7d1ef6.wav",
+      text: "Let's learn the phrase wrap the gift.",
+    },
+  },
   [normalizeText("Let's learn the phrase write your name.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/prompt_supplies_teach_write_name_12d0d47a.wav",
@@ -7235,6 +11265,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/prompt_teach_bite_b8e3d6d0.wav",
       text: "Let's learn the word bite.",
+    },
+  },
+  [normalizeText("Let's learn the word dance.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_dance_169542ad.wav",
+      text: "Let's learn the word dance.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_dance_169542ad.wav",
+      text: "Let's learn the word dance.",
     },
   },
   [normalizeText("Let's learn the word jump.")]: {
@@ -7317,6 +11357,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's look at the dishes for dinner.",
     },
   },
+  [normalizeText("Let's look at the signs first.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/intro_success_41e106a7.wav",
+      text: "Let's look at the signs first.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/intro_success_41e106a7.wav",
+      text: "Let's look at the signs first.",
+    },
+  },
   [normalizeText("Let's make the room calmer so you can sleep more easily.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_intro_dd708781.wav",
@@ -7325,6 +11375,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/prompt_intro_dd708781.wav",
       text: "Let's make the room calmer so you can sleep more easily.",
+    },
+  },
+  [normalizeText("Let's meet farm animals.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_intro_80d60b35.wav",
+      text: "Let's meet farm animals.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_intro_80d60b35.wav",
+      text: "Let's meet farm animals.",
+    },
+  },
+  [normalizeText("Let's pack the beach bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_intro_aad5edb4.wav",
+      text: "Let's pack the beach bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_intro_aad5edb4.wav",
+      text: "Let's pack the beach bag.",
+    },
+  },
+  [normalizeText("Let's play active games at the park.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_intro_db01da19.wav",
+      text: "Let's play active games at the park.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_intro_db01da19.wav",
+      text: "Let's play active games at the park.",
     },
   },
   [normalizeText("Let's play creatively.")]: {
@@ -7345,6 +11425,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/prompt_intro_c4e2217e.wav",
       text: "Let's play in the toy corner.",
+    },
+  },
+  [normalizeText("Let's play on the sand.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_intro_5c721d13.wav",
+      text: "Let's play on the sand.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_intro_5c721d13.wav",
+      text: "Let's play on the sand.",
+    },
+  },
+  [normalizeText("Let's play party games.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_intro_4e9145f8.wav",
+      text: "Let's play party games.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_intro_4e9145f8.wav",
+      text: "Let's play party games.",
     },
   },
   [normalizeText("Let's play with a friend.")]: {
@@ -7381,6 +11481,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let’s review together.",
     },
   },
+  [normalizeText("Let's say goodbye and go home.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_intro_75aee4fe.wav",
+      text: "Let's say goodbye and go home.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_intro_75aee4fe.wav",
+      text: "Let's say goodbye and go home.",
+    },
+  },
+  [normalizeText("Let's say thank you politely.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/intro_success_ae8eb387.wav",
+      text: "Let's say thank you politely.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/intro_success_ae8eb387.wav",
+      text: "Let's say thank you politely.",
+    },
+  },
   [normalizeText("Let's sit at the table!")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_intro_success_6434b8d2.wav",
@@ -7389,6 +11509,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_intro_success_6434b8d2.wav",
       text: "Let's sit at the table!",
+    },
+  },
+  [normalizeText("Let's sit for story time.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_intro_9d468db6.wav",
+      text: "Let's sit for story time.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_intro_9d468db6.wav",
+      text: "Let's sit for story time.",
+    },
+  },
+  [normalizeText("Let's sit neatly on the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/intro_success_e6279f0b.wav",
+      text: "Let's sit neatly on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/intro_success_e6279f0b.wav",
+      text: "Let's sit neatly on the mat.",
     },
   },
   [normalizeText("Let's take a little break after playing.")]: {
@@ -7401,6 +11541,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's take a little break after playing.",
     },
   },
+  [normalizeText("Let's take turns and have fun.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/intro_success_e85c7eb8.wav",
+      text: "Let's take turns and have fun.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/intro_success_e85c7eb8.wav",
+      text: "Let's take turns and have fun.",
+    },
+  },
   [normalizeText("Let's tidy up after lunch.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/prompt_cleanup_intro_2380edfe.wav",
@@ -7411,6 +11561,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's tidy up after lunch.",
     },
   },
+  [normalizeText("Let's visit the fresh food section.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_intro_13063e7b.wav",
+      text: "Let's visit the fresh food section.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_intro_13063e7b.wav",
+      text: "Let's visit the fresh food section.",
+    },
+  },
+  [normalizeText("Let's visit the grandparents.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_intro_03909677.wav",
+      text: "Let's visit the grandparents.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_intro_03909677.wav",
+      text: "Let's visit the grandparents.",
+    },
+  },
+  [normalizeText("Let's wait in line nicely.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/intro_success_fb6d62c0.wav",
+      text: "Let's wait in line nicely.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/intro_success_fb6d62c0.wav",
+      text: "Let's wait in line nicely.",
+    },
+  },
+  [normalizeText("Let's walk along the zoo path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_intro_063d6391.wav",
+      text: "Let's walk along the zoo path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_intro_063d6391.wav",
+      text: "Let's walk along the zoo path.",
+    },
+  },
   [normalizeText("Let's wash up after playing.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_intro_84509662.wav",
@@ -7419,6 +11609,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/prompt_intro_84509662.wav",
       text: "Let's wash up after playing.",
+    },
+  },
+  [normalizeText("Let's watch the animals quietly.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/intro_success_4ae740ec.wav",
+      text: "Let's watch the animals quietly.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/intro_success_4ae740ec.wav",
+      text: "Let's watch the animals quietly.",
+    },
+  },
+  [normalizeText("librarian")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/librarian.wav",
+      text: "librarian",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/librarian.wav",
+      text: "librarian",
+    },
+  },
+  [normalizeText("library card")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/library_card.wav",
+      text: "library card",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/library_card.wav",
+      text: "library card",
+    },
+  },
+  [normalizeText("life jacket")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/life_jacket.wav",
+      text: "life jacket",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/life_jacket.wav",
+      text: "life jacket",
+    },
+  },
+  [normalizeText("lifeguard")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/lifeguard.wav",
+      text: "lifeguard",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/lifeguard.wav",
+      text: "lifeguard",
     },
   },
   [normalizeText("line up")]: {
@@ -7461,6 +11701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/teacher-instructions/audio/en/listen.wav",
       text: "listen",
+    },
+  },
+  [normalizeText("listen to the story")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/listen_to_the_story.wav",
+      text: "listen to the story",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/listen_to_the_story.wav",
+      text: "listen to the story",
     },
   },
   [normalizeText("Listen to the word and choose the right picture.")]: {
@@ -7507,6 +11757,166 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Load the dishwasher.",
     },
   },
+  [normalizeText("look at the flag")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/look_at_the_flag.wav",
+      text: "look at the flag",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/look_at_the_flag.wav",
+      text: "look at the flag",
+    },
+  },
+  [normalizeText("look at the map")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/look_at_the_map.wav",
+      text: "look at the map",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/look_at_the_map.wav",
+      text: "look at the map",
+    },
+  },
+  [normalizeText("look for shells")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/look_for_shells.wav",
+      text: "look for shells",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/look_for_shells.wav",
+      text: "look for shells",
+    },
+  },
+  [normalizeText("Look for the farewell action card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.wav",
+      text: "Look for the farewell action card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.wav",
+      text: "Look for the farewell action card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the going-home card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_go_home_fail_7c20d296.wav",
+      text: "Look for the going-home card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_go_home_fail_7c20d296.wav",
+      text: "Look for the going-home card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the greeting card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_say_hello_fail_2b19b347.wav",
+      text: "Look for the greeting card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_say_hello_fail_2b19b347.wav",
+      text: "Look for the greeting card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the hug-request card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/drag_ask_for_hug_fail_096a8076.wav",
+      text: "Look for the hug-request card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/drag_ask_for_hug_fail_096a8076.wav",
+      text: "Look for the hug-request card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the leaf-picking card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_pick_up_leaves_fail_3f0b3a38.wav",
+      text: "Look for the leaf-picking card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_pick_up_leaves_fail_3f0b3a38.wav",
+      text: "Look for the leaf-picking card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the matching action card.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_walk_path_fail_9b0dfb77.wav",
+      text: "Look for the matching action card.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_walk_path_fail_9b0dfb77.wav",
+      text: "Look for the matching action card.",
+    },
+  },
+  [normalizeText("Look for the people sharing a hug.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_hug_fail_4f2c696d.wav",
+      text: "Look for the people sharing a hug.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_hug_fail_4f2c696d.wav",
+      text: "Look for the people sharing a hug.",
+    },
+  },
+  [normalizeText("Look for the photo-sharing card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_show_photo_fail_190f4887.wav",
+      text: "Look for the photo-sharing card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_show_photo_fail_190f4887.wav",
+      text: "Look for the photo-sharing card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the putting-on-shoes card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/drag_put_on_shoes_fail_cb503f49.wav",
+      text: "Look for the putting-on-shoes card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/drag_put_on_shoes_fail_cb503f49.wav",
+      text: "Look for the putting-on-shoes card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the seed packet on the ground.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_seed_fail_4d5c4a27.wav",
+      text: "Look for the seed packet on the ground.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_seed_fail_4d5c4a27.wav",
+      text: "Look for the seed packet on the ground.",
+    },
+  },
+  [normalizeText("Look for the seed-planting card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_plant_seed_fail_21f199e1.wav",
+      text: "Look for the seed-planting card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_plant_seed_fail_21f199e1.wav",
+      text: "Look for the seed-planting card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the watering card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_water_plant_fail_e0fba047.wav",
+      text: "Look for the watering card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_water_plant_fail_e0fba047.wav",
+      text: "Look for the watering card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the waving card in the bottom row.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_wave_fail_1beaeb10.wav",
+      text: "Look for the waving card in the bottom row.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_wave_fail_1beaeb10.wav",
+      text: "Look for the waving card in the bottom row.",
+    },
+  },
   [normalizeText("lullaby")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/lullaby.wav",
@@ -7533,6 +11943,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/lunchbox.wav",
       text: "lunchbox",
+    },
+  },
+  [normalizeText("make a shopping list")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/make_a_shopping_list.wav",
+      text: "make a shopping list",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/make_a_shopping_list.wav",
+      text: "make a shopping list",
     },
   },
   [normalizeText("make bubbles")]: {
@@ -7587,6 +12007,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Make the bubbles.",
     },
   },
+  [normalizeText("mask")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/mask.wav",
+      text: "mask",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/mask.wav",
+      text: "mask",
+    },
+  },
   [normalizeText("Match each picture with the correct word.")]: {
     "en-US": {
       key: "shared/audio/en-US/neural2-c-r1/matching_game_intro_4d265559.wav",
@@ -7595,6 +12025,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "shared/audio/en-GB/neural2-c-r1/matching_game_intro_4d265559.wav",
       text: "Match each picture with the correct word.",
+    },
+  },
+  [normalizeText("medicine")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/medicine.wav",
+      text: "medicine",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/medicine.wav",
+      text: "medicine",
+    },
+  },
+  [normalizeText("medicine spoon")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/medicine_spoon.wav",
+      text: "medicine spoon",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/medicine_spoon.wav",
+      text: "medicine spoon",
     },
   },
   [normalizeText("milk")]: {
@@ -7623,6 +12073,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/mirror.wav",
       text: "mirror",
+    },
+  },
+  [normalizeText("monkey")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/monkey.wav",
+      text: "monkey",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/monkey.wav",
+      text: "monkey",
     },
   },
   [normalizeText("moon mobile")]: {
@@ -8383,6 +12843,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "notebook",
     },
   },
+  [normalizeText("nurse")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/nurse.wav",
+      text: "nurse",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/nurse.wav",
+      text: "nurse",
+    },
+  },
   [normalizeText("open the book")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/open_the_book.wav",
@@ -8443,6 +12913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Open your lunchbox.",
     },
   },
+  [normalizeText("otoscope")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/otoscope.wav",
+      text: "otoscope",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/otoscope.wav",
+      text: "otoscope",
+    },
+  },
   [normalizeText("Our trip home has begun!")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/intro_success_9968d2b4.wav",
@@ -8451,6 +12931,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/intro_success_9968d2b4.wav",
       text: "Our trip home has begun!",
+    },
+  },
+  [normalizeText("Outdoor play is fun!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/intro_success_a92e5fcf.wav",
+      text: "Outdoor play is fun!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/intro_success_a92e5fcf.wav",
+      text: "Outdoor play is fun!",
+    },
+  },
+  [normalizeText("pack the bag")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/pack_the_bag.wav",
+      text: "pack the bag",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/pack_the_bag.wav",
+      text: "pack the bag",
     },
   },
   [normalizeText("pack your bag")]: {
@@ -8471,6 +12971,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/prompt_drag_folder_to_bag_1895ba2b.wav",
       text: "Pack your bag.",
+    },
+  },
+  [normalizeText("page")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/page.wav",
+      text: "page",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/page.wav",
+      text: "page",
     },
   },
   [normalizeText("page tab")]: {
@@ -8515,6 +13025,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "paper",
     },
   },
+  [normalizeText("paper cup")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/paper_cup.wav",
+      text: "paper cup",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/paper_cup.wav",
+      text: "paper cup",
+    },
+  },
+  [normalizeText("paper plate")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/paper_plate.wav",
+      text: "paper plate",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/paper_plate.wav",
+      text: "paper plate",
+    },
+  },
+  [normalizeText("park map")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/park_map.wav",
+      text: "park map",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/park_map.wav",
+      text: "park map",
+    },
+  },
+  [normalizeText("party hat")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/party_hat.wav",
+      text: "party hat",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/party_hat.wav",
+      text: "party hat",
+    },
+  },
   [normalizeText("pass the dish")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/pass_the_dish.wav",
@@ -8535,6 +13085,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Pass the dish.",
     },
   },
+  [normalizeText("path")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/path.wav",
+      text: "path",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/path.wav",
+      text: "path",
+    },
+  },
   [normalizeText("pencil")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/pencil.wav",
@@ -8547,6 +13107,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/school-supplies/audio/en/pencil.wav",
       text: "pencil",
+    },
+  },
+  [normalizeText("pet the sheep gently")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/pet_the_sheep_gently.wav",
+      text: "pet the sheep gently",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/pet_the_sheep_gently.wav",
+      text: "pet the sheep gently",
+    },
+  },
+  [normalizeText("pick up leaves")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/pick_up_leaves.wav",
+      text: "pick up leaves",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/pick_up_leaves.wav",
+      text: "pick up leaves",
+    },
+  },
+  [normalizeText("pick vegetables")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/pick_vegetables.wav",
+      text: "pick vegetables",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/pick_vegetables.wav",
+      text: "pick vegetables",
+    },
+  },
+  [normalizeText("picnic mat")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/picnic_mat.wav",
+      text: "picnic mat",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/picnic_mat.wav",
+      text: "picnic mat",
+    },
+  },
+  [normalizeText("picture book")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/picture_book.wav",
+      text: "picture book",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/picture_book.wav",
+      text: "picture book",
+    },
+  },
+  [normalizeText("piglet")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/piglet.wav",
+      text: "piglet",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/piglet.wav",
+      text: "piglet",
     },
   },
   [normalizeText("pillow")]: {
@@ -8615,6 +13235,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/placemat.wav",
       text: "placemat",
+    },
+  },
+  [normalizeText("plant a seed")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/plant_a_seed.wav",
+      text: "plant a seed",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/plant_a_seed.wav",
+      text: "plant a seed",
+    },
+  },
+  [normalizeText("plant pot")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/plant_pot.wav",
+      text: "plant pot",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/plant_pot.wav",
+      text: "plant pot",
     },
   },
   [normalizeText("plate")]: {
@@ -8783,6 +13423,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Pour the milk.",
     },
   },
+  [normalizeText("prize")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prize.wav",
+      text: "prize",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prize.wav",
+      text: "prize",
+    },
+  },
+  [normalizeText("puppet")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/puppet.wav",
+      text: "puppet",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/puppet.wav",
+      text: "puppet",
+    },
+  },
+  [normalizeText("push the cart")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/push_the_cart.wav",
+      text: "push the cart",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/push_the_cart.wav",
+      text: "push the cart",
+    },
+  },
   [normalizeText("put away the book")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/put_away_the_book.wav",
@@ -8821,6 +13491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_tray_away_6aac1ae8.wav",
       text: "Put away the tray.",
+    },
+  },
+  [normalizeText("put on sunscreen")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/put_on_sunscreen.wav",
+      text: "put on sunscreen",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/put_on_sunscreen.wav",
+      text: "put on sunscreen",
     },
   },
   [normalizeText("put on your pajamas")]: {
@@ -8961,6 +13641,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Put the toothpaste on the toothbrush.",
     },
   },
+  [normalizeText("put the trash in the bin")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/put_the_trash_in_the_bin.wav",
+      text: "put the trash in the bin",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/put_the_trash_in_the_bin.wav",
+      text: "put the trash in the bin",
+    },
+  },
   [normalizeText("puzzle")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/puzzle.wav",
@@ -8973,6 +13663,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/puzzle.wav",
       text: "puzzle",
+    },
+  },
+  [normalizeText("quiet sign")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/quiet_sign.wav",
+      text: "quiet sign",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/quiet_sign.wav",
+      text: "quiet sign",
     },
   },
   [normalizeText("raise your hand")]: {
@@ -9057,6 +13757,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Read softly.",
     },
   },
+  [normalizeText("read the sign")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/read_the_sign.wav",
+      text: "read the sign",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/read_the_sign.wav",
+      text: "read the sign",
+    },
+  },
+  [normalizeText("reading chair")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/reading_chair.wav",
+      text: "reading chair",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/reading_chair.wav",
+      text: "reading chair",
+    },
+  },
   [normalizeText("reading nook")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/reading_nook.wav",
@@ -9069,6 +13789,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/reading_nook.wav",
       text: "reading nook",
+    },
+  },
+  [normalizeText("receipt")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/receipt.wav",
+      text: "receipt",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/receipt.wav",
+      text: "receipt",
     },
   },
   [normalizeText("recycling bin")]: {
@@ -9099,6 +13829,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "rest",
     },
   },
+  [normalizeText("Rest helps you feel better.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/intro_success_2c72285a.wav",
+      text: "Rest helps you feel better.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/intro_success_2c72285a.wav",
+      text: "Rest helps you feel better.",
+    },
+  },
   [normalizeText("Rest.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_tap_bench_rest_cf74c97d.wav",
@@ -9107,6 +13847,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/prompt_rest_tap_bench_rest_cf74c97d.wav",
       text: "Rest.",
+    },
+  },
+  [normalizeText("return a book")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/return_a_book.wav",
+      text: "return a book",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/return_a_book.wav",
+      text: "return a book",
+    },
+  },
+  [normalizeText("ribbon")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/ribbon.wav",
+      text: "ribbon",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/ribbon.wav",
+      text: "ribbon",
     },
   },
   [normalizeText("rice")]: {
@@ -9121,6 +13881,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/rice.wav",
       text: "rice",
+    },
+  },
+  [normalizeText("rinse your feet")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/rinse_your_feet.wav",
+      text: "rinse your feet",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/rinse_your_feet.wav",
+      text: "rinse your feet",
     },
   },
   [normalizeText("rinse your hair")]: {
@@ -9237,6 +14007,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Run.",
     },
   },
+  [normalizeText("Safety comes first!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/intro_success_06d69259.wav",
+      text: "Safety comes first!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/intro_success_06d69259.wav",
+      text: "Safety comes first!",
+    },
+  },
   [normalizeText("salad")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/salad.wav",
@@ -9263,6 +14043,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/sandbox.wav",
       text: "sandbox",
+    },
+  },
+  [normalizeText("sandcastle")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/sandcastle.wav",
+      text: "sandcastle",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/sandcastle.wav",
+      text: "sandcastle",
+    },
+  },
+  [normalizeText("sandwich")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/sandwich.wav",
+      text: "sandwich",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/sandwich.wav",
+      text: "sandwich",
     },
   },
   [normalizeText("sauce")]: {
@@ -9359,6 +14159,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Say goodbye.",
     },
   },
+  [normalizeText("say hello")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/say_hello.wav",
+      text: "say hello",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/say_hello.wav",
+      text: "say hello",
+    },
+  },
+  [normalizeText("say how you feel")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/say_how_you_feel.wav",
+      text: "say how you feel",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/say_how_you_feel.wav",
+      text: "say how you feel",
+    },
+  },
   [normalizeText("Say it with me.")]: {
     "en-US": {
       key: "shared/audio/en-US/neural2-c-r1/speak_prompt_1f8ffb29.wav",
@@ -9401,6 +14221,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Say thank you.",
     },
   },
+  [normalizeText("scale")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/scale.wav",
+      text: "scale",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/scale.wav",
+      text: "scale",
+    },
+  },
+  [normalizeText("scan the item")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/scan_the_item.wav",
+      text: "scan the item",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/scan_the_item.wav",
+      text: "scan the item",
+    },
+  },
+  [normalizeText("scanner")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/scanner.wav",
+      text: "scanner",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/scanner.wav",
+      text: "scanner",
+    },
+  },
   [normalizeText("school")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school.wav",
@@ -9413,6 +14263,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/school.wav",
       text: "school",
+    },
+  },
+  [normalizeText("scooter")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/scooter.wav",
+      text: "scooter",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/scooter.wav",
+      text: "scooter",
     },
   },
   [normalizeText("scraper")]: {
@@ -9469,6 +14329,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Scrub your knees.",
     },
   },
+  [normalizeText("sea")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/sea.wav",
+      text: "sea",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/sea.wav",
+      text: "sea",
+    },
+  },
   [normalizeText("seat belt")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/seat_belt.wav",
@@ -9481,6 +14351,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/ride-home/audio/en/seat_belt.wav",
       text: "seat belt",
+    },
+  },
+  [normalizeText("seed")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/seed.wav",
+      text: "seed",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/seed.wav",
+      text: "seed",
     },
   },
   [normalizeText("seesaw")]: {
@@ -9509,6 +14389,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/serve_noodles.wav",
       text: "serve noodles",
+    },
+  },
+  [normalizeText("serve the cake")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/serve_the_cake.wav",
+      text: "serve the cake",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/serve_the_cake.wav",
+      text: "serve the cake",
     },
   },
   [normalizeText("Serve the noodles.")]: {
@@ -9611,6 +14501,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "share food",
     },
   },
+  [normalizeText("share the cake")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/share_the_cake.wav",
+      text: "share the cake",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/share_the_cake.wav",
+      text: "share the cake",
+    },
+  },
   [normalizeText("Share the food.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/prompt_lunchtable_drag_fruit_to_friend_9517b908.wav",
@@ -9645,6 +14545,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "share toys",
     },
   },
+  [normalizeText("sheep")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/sheep.wav",
+      text: "sheep",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/sheep.wav",
+      text: "sheep",
+    },
+  },
   [normalizeText("shelf")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/shelf.wav",
@@ -9657,6 +14567,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/home-arrival/audio/en/shelf.wav",
       text: "shelf",
+    },
+  },
+  [normalizeText("shell")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/shell.wav",
+      text: "shell",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/shell.wav",
+      text: "shell",
     },
   },
   [normalizeText("shoes")]: {
@@ -9673,6 +14593,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "shoes",
     },
   },
+  [normalizeText("shopping bag")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/shopping_bag.wav",
+      text: "shopping bag",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/shopping_bag.wav",
+      text: "shopping bag",
+    },
+  },
+  [normalizeText("shopping list")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/shopping_list.wav",
+      text: "shopping list",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/shopping_list.wav",
+      text: "shopping list",
+    },
+  },
   [normalizeText("shoulder")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/shoulder.wav",
@@ -9685,6 +14625,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/shoulder.wav",
       text: "shoulder",
+    },
+  },
+  [normalizeText("shovel")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/shovel.wav",
+      text: "shovel",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/shovel.wav",
+      text: "shovel",
+    },
+  },
+  [normalizeText("show a photo")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/show_a_photo.wav",
+      text: "show a photo",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/show_a_photo.wav",
+      text: "show a photo",
+    },
+  },
+  [normalizeText("show the ticket")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/show_the_ticket.wav",
+      text: "show the ticket",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/show_the_ticket.wav",
+      text: "show the ticket",
+    },
+  },
+  [normalizeText("show your card")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/show_your_card.wav",
+      text: "show your card",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/show_your_card.wav",
+      text: "show your card",
     },
   },
   [normalizeText("shower")]: {
@@ -9815,6 +14795,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Sit down.",
     },
   },
+  [normalizeText("sit in a circle")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/sit_in_a_circle.wav",
+      text: "sit in a circle",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/sit_in_a_circle.wav",
+      text: "sit in a circle",
+    },
+  },
+  [normalizeText("sit on the bench")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/sit_on_the_bench.wav",
+      text: "sit on the bench",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/sit_on_the_bench.wav",
+      text: "sit on the bench",
+    },
+  },
+  [normalizeText("sit still")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/sit_still.wav",
+      text: "sit still",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/sit_still.wav",
+      text: "sit still",
+    },
+  },
   [normalizeText("sleep mask")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/sleep_mask.wav",
@@ -9855,6 +14865,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/slippers.wav",
       text: "slippers",
+    },
+  },
+  [normalizeText("small bag")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/small_bag.wav",
+      text: "small bag",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/small_bag.wav",
+      text: "small bag",
     },
   },
   [normalizeText("Small bites help you eat neatly.")]: {
@@ -10087,6 +15107,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "spoon",
     },
   },
+  [normalizeText("spot the zebra")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/spot_the_zebra.wav",
+      text: "spot the zebra",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/spot_the_zebra.wav",
+      text: "spot the zebra",
+    },
+  },
   [normalizeText("spray bottle")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/spray_bottle.wav",
@@ -10119,6 +15149,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/prompt_drag_spray_to_stain_2e196dbd.wav",
       text: "Spray the stain.",
+    },
+  },
+  [normalizeText("spread the mat")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/spread_the_mat.wav",
+      text: "spread the mat",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/spread_the_mat.wav",
+      text: "spread the mat",
     },
   },
   [normalizeText("stack coasters")]: {
@@ -10193,6 +15233,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Start the timer.",
     },
   },
+  [normalizeText("stay near a grown-up")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/stay_near_a_grown_up.wav",
+      text: "stay near a grown-up",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/stay_near_a_grown_up.wav",
+      text: "stay near a grown-up",
+    },
+  },
+  [normalizeText("stay on the path")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/stay_on_the_path.wav",
+      text: "stay on the path",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/stay_on_the_path.wav",
+      text: "stay on the path",
+    },
+  },
   [normalizeText("step onto the mat")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/step_onto_the_mat.wav",
@@ -10211,6 +15271,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_tap_step_onto_mat_9cc037d0.wav",
       text: "Step onto the mat.",
+    },
+  },
+  [normalizeText("stethoscope")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/stethoscope.wav",
+      text: "stethoscope",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/stethoscope.wav",
+      text: "stethoscope",
+    },
+  },
+  [normalizeText("sticker")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/sticker.wav",
+      text: "sticker",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/sticker.wav",
+      text: "sticker",
+    },
+  },
+  [normalizeText("story bell")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/story_bell.wav",
+      text: "story bell",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/story_bell.wav",
+      text: "story bell",
+    },
+  },
+  [normalizeText("story card")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/story_card.wav",
+      text: "story card",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/story_card.wav",
+      text: "story card",
     },
   },
   [normalizeText("story shelf")]: {
@@ -10241,6 +15341,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "storybook",
     },
   },
+  [normalizeText("storyteller")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/storyteller.wav",
+      text: "storyteller",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/storyteller.wav",
+      text: "storyteller",
+    },
+  },
   [normalizeText("straw")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/straw.wav",
@@ -10267,6 +15377,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/sun.wav",
       text: "sun",
+    },
+  },
+  [normalizeText("sun hat")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/sun_hat.wav",
+      text: "sun hat",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/sun_hat.wav",
+      text: "sun hat",
+    },
+  },
+  [normalizeText("sunglasses")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/sunglasses.wav",
+      text: "sunglasses",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/sunglasses.wav",
+      text: "sunglasses",
     },
   },
   [normalizeText("Sungy can see the whole map lighting up!")]: {
@@ -10297,6 +15427,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_two.wav",
       text: "Sungy is going with you!",
+    },
+  },
+  [normalizeText("sunscreen")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/sunscreen.wav",
+      text: "sunscreen",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/sunscreen.wav",
+      text: "sunscreen",
     },
   },
   [normalizeText("swing")]: {
@@ -10355,6 +15495,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Take a bite.",
     },
   },
+  [normalizeText("take medicine with a grown-up")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/take_medicine_with_a_grown_up.wav",
+      text: "take medicine with a grown-up",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/take_medicine_with_a_grown_up.wav",
+      text: "take medicine with a grown-up",
+    },
+  },
   [normalizeText("take off your shoes")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/take_off_your_shoes.wav",
@@ -10403,6 +15553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Take turns.",
     },
   },
+  [normalizeText("take your temperature")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/take_your_temperature.wav",
+      text: "take your temperature",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/take_your_temperature.wav",
+      text: "take your temperature",
+    },
+  },
   [normalizeText("Tap dinner.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/prompt_tap_dinner_57c0f33c.wav",
@@ -10411,6 +15571,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/prompt_tap_dinner_57c0f33c.wav",
       text: "Tap dinner.",
+    },
+  },
+  [normalizeText("Tap Grandma on the left.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_tap_grandma_c3117005.wav",
+      text: "Tap Grandma on the left.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_grandma_c3117005.wav",
+      text: "Tap Grandma on the left.",
+    },
+  },
+  [normalizeText("Tap Grandpa on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_tap_grandpa_d0653e59.wav",
+      text: "Tap Grandpa on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_grandpa_d0653e59.wav",
+      text: "Tap Grandpa on the right.",
     },
   },
   [normalizeText("Tap music.")]: {
@@ -10431,6 +15611,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_three.wav",
       text: "Tap Play to open the unlocked game.",
+    },
+  },
+  [normalizeText("Tap the aisle between the two shelf rows at the top.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_aisle_1a9ca2ac.wav",
+      text: "Tap the aisle between the two shelf rows at the top.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_aisle_1a9ca2ac.wav",
+      text: "Tap the aisle between the two shelf rows at the top.",
+    },
+  },
+  [normalizeText("Tap the alphabet book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_tap_alphabet_book_f3caec37.wav",
+      text: "Tap the alphabet book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_tap_alphabet_book_f3caec37.wav",
+      text: "Tap the alphabet book.",
     },
   },
   [normalizeText("Tap the apron.")]: {
@@ -10459,6 +15659,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_bag_06a4af04.wav",
       text: "Tap the bag.",
+    },
+  },
+  [normalizeText("Tap the banner at the top.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_banner_180d747f.wav",
+      text: "Tap the banner at the top.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_banner_180d747f.wav",
+      text: "Tap the banner at the top.",
+    },
+  },
+  [normalizeText("Tap the basket of vegetables just to your right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_vegetables_e7da8615.wav",
+      text: "Tap the basket of vegetables just to your right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_vegetables_e7da8615.wav",
+      text: "Tap the basket of vegetables just to your right.",
     },
   },
   [normalizeText("Tap the basket.")]: {
@@ -10503,6 +15723,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bathtub.",
     },
   },
+  [normalizeText("Tap the beach bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_tap_beach_bag_12e17503.wav",
+      text: "Tap the beach bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_tap_beach_bag_12e17503.wav",
+      text: "Tap the beach bag.",
+    },
+  },
   [normalizeText("Tap the bed.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_practice_bed_62c246ed.wav",
@@ -10529,6 +15759,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_tap_bench_08043b91.wav",
       text: "Tap the bench.",
+    },
+  },
+  [normalizeText("Tap the binoculars.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_binoculars_b22382de.wav",
+      text: "Tap the binoculars.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_binoculars_b22382de.wav",
+      text: "Tap the binoculars.",
+    },
+  },
+  [normalizeText("Tap the birthday cake in the middle of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_tap_cake_e5bc4ee7.wav",
+      text: "Tap the birthday cake in the middle of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_tap_cake_e5bc4ee7.wav",
+      text: "Tap the birthday cake in the middle of the table.",
     },
   },
   [normalizeText("Tap the bite.")]: {
@@ -10559,6 +15809,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the blocks.",
     },
   },
+  [normalizeText("Tap the blue scale on the right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_scale_9eb7ec9f.wav",
+      text: "Tap the blue scale on the right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_scale_9eb7ec9f.wav",
+      text: "Tap the blue scale on the right.",
+    },
+  },
   [normalizeText("Tap the board.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/prompt_tap_board_9165c834.wav",
@@ -10571,6 +15831,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/prompt_tap_board_9165c834.wav",
       text: "Tap the board.",
+    },
+  },
+  [normalizeText("Tap the book return.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_book_return_543fb1ce.wav",
+      text: "Tap the book return.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_book_return_543fb1ce.wav",
+      text: "Tap the book return.",
     },
   },
   [normalizeText("Tap the book.")]: {
@@ -10699,6 +15969,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the cabinet.",
     },
   },
+  [normalizeText("Tap the car outside.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_tap_car_284f1acd.wav",
+      text: "Tap the car outside.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_tap_car_284f1acd.wav",
+      text: "Tap the car outside.",
+    },
+  },
+  [normalizeText("Tap the card at the bottom left showing a shopping list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_make_list_570e3528.wav",
+      text: "Tap the card at the bottom left showing a shopping list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_make_list_570e3528.wav",
+      text: "Tap the card at the bottom left showing a shopping list.",
+    },
+  },
+  [normalizeText("Tap the card at the bottom left showing an item being scanned.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_scan_item_79625018.wav",
+      text: "Tap the card at the bottom left showing an item being scanned.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_scan_item_79625018.wav",
+      text: "Tap the card at the bottom left showing an item being scanned.",
+    },
+  },
+  [normalizeText("Tap the card below the red basket showing a list being checked.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_check_list_336a8510.wav",
+      text: "Tap the card below the red basket showing a list being checked.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_check_list_336a8510.wav",
+      text: "Tap the card below the red basket showing a list being checked.",
+    },
+  },
+  [normalizeText("Tap the card below the vegetable basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_pick_vegetables_9d6410a7.wav",
+      text: "Tap the card below the vegetable basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_pick_vegetables_9d6410a7.wav",
+      text: "Tap the card below the vegetable basket.",
+    },
+  },
+  [normalizeText("Tap the carrot in the basket of vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_carrot_5ef5bb32.wav",
+      text: "Tap the carrot in the basket of vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_carrot_5ef5bb32.wav",
+      text: "Tap the carrot in the basket of vegetables.",
+    },
+  },
+  [normalizeText("Tap the cashier behind the green checkout counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_cashier_84f457ff.wav",
+      text: "Tap the cashier behind the green checkout counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_cashier_84f457ff.wav",
+      text: "Tap the cashier behind the green checkout counter.",
+    },
+  },
   [normalizeText("Tap the chicken.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_tap_chicken_b3b60b80.wav",
@@ -10711,6 +16051,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_chicken_b3b60b80.wav",
       text: "Tap the chicken.",
+    },
+  },
+  [normalizeText("Tap the circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_tap_circle_d14312f2.wav",
+      text: "Tap the circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_circle_d14312f2.wav",
+      text: "Tap the circle.",
+    },
+  },
+  [normalizeText("Tap the climbing frame.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_climbing_frame_70f14bba.wav",
+      text: "Tap the climbing frame.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_tap_climbing_frame_70f14bba.wav",
+      text: "Tap the climbing frame.",
+    },
+  },
+  [normalizeText("Tap the clinic.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_clinic_ab3e646b.wav",
+      text: "Tap the clinic.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_clinic_ab3e646b.wav",
+      text: "Tap the clinic.",
     },
   },
   [normalizeText("Tap the clock.")]: {
@@ -10777,6 +16147,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_compost_bin_fbc83097.wav",
       text: "Tap the compost bin.",
+    },
+  },
+  [normalizeText("Tap the cover.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_tap_cover_b10eade6.wav",
+      text: "Tap the cover.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_tap_cover_b10eade6.wav",
+      text: "Tap the cover.",
+    },
+  },
+  [normalizeText("Tap the cow.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_cow_adb6edf9.wav",
+      text: "Tap the cow.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_cow_adb6edf9.wav",
+      text: "Tap the cow.",
+    },
+  },
+  [normalizeText("Tap the crab.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_tap_crab_411fd62f.wav",
+      text: "Tap the crab.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_tap_crab_411fd62f.wav",
+      text: "Tap the crab.",
     },
   },
   [normalizeText("Tap the cracker.")]: {
@@ -10847,6 +16247,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_tap_curtain_28743ee0.wav",
       text: "Tap the curtain.",
+    },
+  },
+  [normalizeText("Tap the dancing child on the left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_dance_9b28133f.wav",
+      text: "Tap the dancing child on the left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_dance_9b28133f.wav",
+      text: "Tap the dancing child on the left.",
     },
   },
   [normalizeText("Tap the desk.")]: {
@@ -10933,6 +16343,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the dishwasher.",
     },
   },
+  [normalizeText("Tap the doctor.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_doctor_60a83ccf.wav",
+      text: "Tap the doctor.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_doctor_60a83ccf.wav",
+      text: "Tap the doctor.",
+    },
+  },
   [normalizeText("Tap the doll.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_practice_doll_2008ed77.wav",
@@ -10945,6 +16365,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_doll_2008ed77.wav",
       text: "Tap the doll.",
+    },
+  },
+  [normalizeText("Tap the doorbell on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_tap_doorbell_1551c24d.wav",
+      text: "Tap the doorbell on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_doorbell_1551c24d.wav",
+      text: "Tap the doorbell on the right.",
     },
   },
   [normalizeText("Tap the dream journal.")]: {
@@ -10961,6 +16391,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the dream journal.",
     },
   },
+  [normalizeText("Tap the drink bottle at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_choose_drink_f752a018.wav",
+      text: "Tap the drink bottle at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_choose_drink_f752a018.wav",
+      text: "Tap the drink bottle at the bottom right.",
+    },
+  },
   [normalizeText("Tap the drum.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/prompt_tap_drum_2d12716c.wav",
@@ -10973,6 +16413,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/prompt_tap_drum_2d12716c.wav",
       text: "Tap the drum.",
+    },
+  },
+  [normalizeText("Tap the duck.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_duck_c03c1960.wav",
+      text: "Tap the duck.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_duck_c03c1960.wav",
+      text: "Tap the duck.",
     },
   },
   [normalizeText("Tap the egg.")]: {
@@ -11031,6 +16481,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the fish.",
     },
   },
+  [normalizeText("Tap the flag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_tap_flag_cb618c53.wav",
+      text: "Tap the flag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_tap_flag_cb618c53.wav",
+      text: "Tap the flag.",
+    },
+  },
   [normalizeText("Tap the floor.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/prompt_tap_floor_9dc43e05.wav",
@@ -11043,6 +16503,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/toy-cleanup/audio/en/prompt_tap_floor_9dc43e05.wav",
       text: "Tap the floor.",
+    },
+  },
+  [normalizeText("Tap the flower on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_tap_flower_caa40ec2.wav",
+      text: "Tap the flower on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_flower_caa40ec2.wav",
+      text: "Tap the flower on the right.",
     },
   },
   [normalizeText("Tap the foam.")]: {
@@ -11073,6 +16543,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the folder.",
     },
   },
+  [normalizeText("Tap the footprints.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_tap_footprints_3f4f1e48.wav",
+      text: "Tap the footprints.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_tap_footprints_3f4f1e48.wav",
+      text: "Tap the footprints.",
+    },
+  },
   [normalizeText("Tap the fork.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/prompt_lunchbox_tap_fork_26159bd7.wav",
@@ -11087,6 +16567,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the fork.",
     },
   },
+  [normalizeText("Tap the fountain.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_fountain_09469b36.wav",
+      text: "Tap the fountain.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_fountain_09469b36.wav",
+      text: "Tap the fountain.",
+    },
+  },
+  [normalizeText("Tap the frisbee.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_frisbee_b7fe3681.wav",
+      text: "Tap the frisbee.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_tap_frisbee_b7fe3681.wav",
+      text: "Tap the frisbee.",
+    },
+  },
+  [normalizeText("Tap the front door.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_tap_front_door_f2326454.wav",
+      text: "Tap the front door.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_tap_front_door_f2326454.wav",
+      text: "Tap the front door.",
+    },
+  },
+  [normalizeText("Tap the fruit plate to the left of the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_tap_fruit_2dcf4725.wav",
+      text: "Tap the fruit plate to the left of the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_tap_fruit_2dcf4725.wav",
+      text: "Tap the fruit plate to the left of the cake.",
+    },
+  },
+  [normalizeText("Tap the game box on the rug.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_game_04811cc6.wav",
+      text: "Tap the game box on the rug.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_game_04811cc6.wav",
+      text: "Tap the game box on the rug.",
+    },
+  },
+  [normalizeText("Tap the garden bed on the left.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_tap_garden_0ff4f6aa.wav",
+      text: "Tap the garden bed on the left.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_garden_0ff4f6aa.wav",
+      text: "Tap the garden bed on the left.",
+    },
+  },
+  [normalizeText("Tap the gate.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_gate_e00fbe61.wav",
+      text: "Tap the gate.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_gate_e00fbe61.wav",
+      text: "Tap the gate.",
+    },
+  },
+  [normalizeText("Tap the giraffe.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_giraffe_0aabc640.wav",
+      text: "Tap the giraffe.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_giraffe_0aabc640.wav",
+      text: "Tap the giraffe.",
+    },
+  },
   [normalizeText("Tap the glowing stop to keep learning.")]: {
     "en-US": {
       key: "ui/audio/en-US/neural2-c-r1/home_guide_tap_one.wav",
@@ -11095,6 +16655,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_guide_tap_one.wav",
       text: "Tap the glowing stop to keep learning.",
+    },
+  },
+  [normalizeText("Tap the goat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_goat_d6cfe324.wav",
+      text: "Tap the goat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_goat_d6cfe324.wav",
+      text: "Tap the goat.",
+    },
+  },
+  [normalizeText("Tap the habitat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_habitat_e89355db.wav",
+      text: "Tap the habitat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_habitat_e89355db.wav",
+      text: "Tap the habitat.",
+    },
+  },
+  [normalizeText("Tap the hand gel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.wav",
+      text: "Tap the hand gel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.wav",
+      text: "Tap the hand gel.",
+    },
+  },
+  [normalizeText("Tap the helmet.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_helmet_e0bbc02f.wav",
+      text: "Tap the helmet.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_tap_helmet_e0bbc02f.wav",
+      text: "Tap the helmet.",
     },
   },
   [normalizeText("Tap the hook.")]: {
@@ -11109,6 +16709,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_hook_f69bcb83.wav",
       text: "Tap the hook.",
+    },
+  },
+  [normalizeText("Tap the hug picture.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_tap_hug_e88a6ee6.wav",
+      text: "Tap the hug picture.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_hug_e88a6ee6.wav",
+      text: "Tap the hug picture.",
+    },
+  },
+  [normalizeText("Tap the invitation on the left side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_invitation_ced84921.wav",
+      text: "Tap the invitation on the left side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_invitation_ced84921.wav",
+      text: "Tap the invitation on the left side of the table.",
     },
   },
   [normalizeText("Tap the jacket.")]: {
@@ -11177,6 +16797,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the lamp.",
     },
   },
+  [normalizeText("Tap the large gift on the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_gift_da560877.wav",
+      text: "Tap the large gift on the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_gift_da560877.wav",
+      text: "Tap the large gift on the table.",
+    },
+  },
   [normalizeText("Tap the leftovers.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_tap_leftovers_53145017.wav",
@@ -11189,6 +16819,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/prompt_tap_leftovers_53145017.wav",
       text: "Tap the leftovers.",
+    },
+  },
+  [normalizeText("Tap the librarian.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_librarian_6c417134.wav",
+      text: "Tap the librarian.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_librarian_6c417134.wav",
+      text: "Tap the librarian.",
+    },
+  },
+  [normalizeText("Tap the library card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_library_card_e6662ef7.wav",
+      text: "Tap the library card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_library_card_e6662ef7.wav",
+      text: "Tap the library card.",
+    },
+  },
+  [normalizeText("Tap the lifeguard.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_tap_lifeguard_63b1d651.wav",
+      text: "Tap the lifeguard.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_tap_lifeguard_63b1d651.wav",
+      text: "Tap the lifeguard.",
+    },
+  },
+  [normalizeText("Tap the list in the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_shopping_list_efa357b4.wav",
+      text: "Tap the list in the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_shopping_list_efa357b4.wav",
+      text: "Tap the list in the cart.",
     },
   },
   [normalizeText("Tap the lullaby.")]: {
@@ -11219,6 +16889,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the lunchbox.",
     },
   },
+  [normalizeText("Tap the mask.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_mask_9870409f.wav",
+      text: "Tap the mask.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_mask_9870409f.wav",
+      text: "Tap the mask.",
+    },
+  },
+  [normalizeText("Tap the matching action card at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_wrap_gift_9ab39c18.wav",
+      text: "Tap the matching action card at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_wrap_gift_9ab39c18.wav",
+      text: "Tap the matching action card at the bottom left.",
+    },
+  },
+  [normalizeText("Tap the matching action card at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_decorate_room_0b87ec8f.wav",
+      text: "Tap the matching action card at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_decorate_room_0b87ec8f.wav",
+      text: "Tap the matching action card at the bottom right.",
+    },
+  },
+  [normalizeText("Tap the matching action card.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_walk_path_fccf334e.wav",
+      text: "Tap the matching action card.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_walk_path_fccf334e.wav",
+      text: "Tap the matching action card.",
+    },
+  },
+  [normalizeText("Tap the medicine.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_tap_medicine_c6e035ae.wav",
+      text: "Tap the medicine.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_tap_medicine_c6e035ae.wav",
+      text: "Tap the medicine.",
+    },
+  },
   [normalizeText("Tap the milk.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_tap_milk_75b204ca.wav",
@@ -11247,6 +16967,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the mirror.",
     },
   },
+  [normalizeText("Tap the monkey.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_monkey_b855a145.wav",
+      text: "Tap the monkey.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_monkey_b855a145.wav",
+      text: "Tap the monkey.",
+    },
+  },
   [normalizeText("Tap the moon mobile.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_tap_moon_mobile_bf898161.wav",
@@ -11259,6 +16989,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/prompt_tap_moon_mobile_bf898161.wav",
       text: "Tap the moon mobile.",
+    },
+  },
+  [normalizeText("Tap the music speaker on the bench.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_music_7263443c.wav",
+      text: "Tap the music speaker on the bench.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_music_7263443c.wav",
+      text: "Tap the music speaker on the bench.",
     },
   },
   [normalizeText("Tap the napkin.")]: {
@@ -11289,6 +17029,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the night light.",
     },
   },
+  [normalizeText("Tap the nurse.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_nurse_0f7198f2.wav",
+      text: "Tap the nurse.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_nurse_0f7198f2.wav",
+      text: "Tap the nurse.",
+    },
+  },
+  [normalizeText("Tap the page.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_tap_page_2cd86613.wav",
+      text: "Tap the page.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_tap_page_2cd86613.wav",
+      text: "Tap the page.",
+    },
+  },
   [normalizeText("Tap the pajamas.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_tap_pajamas_5e10e07e.wav",
@@ -11301,6 +17061,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_pajamas_5e10e07e.wav",
       text: "Tap the pajamas.",
+    },
+  },
+  [normalizeText("Tap the paper cup on the right side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_tap_cup_755388bf.wav",
+      text: "Tap the paper cup on the right side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_tap_cup_755388bf.wav",
+      text: "Tap the paper cup on the right side of the table.",
+    },
+  },
+  [normalizeText("Tap the paper plate to the right of the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_tap_plate_bac38c4b.wav",
+      text: "Tap the paper plate to the right of the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_tap_plate_bac38c4b.wav",
+      text: "Tap the paper plate to the right of the cake.",
+    },
+  },
+  [normalizeText("Tap the park map.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_map_87683d5c.wav",
+      text: "Tap the park map.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_map_87683d5c.wav",
+      text: "Tap the park map.",
+    },
+  },
+  [normalizeText("Tap the path.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_path_62dedb17.wav",
+      text: "Tap the path.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_path_62dedb17.wav",
+      text: "Tap the path.",
+    },
+  },
+  [normalizeText("Tap the payment card next to the receipt.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_card_4df70304.wav",
+      text: "Tap the payment card next to the receipt.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_card_4df70304.wav",
+      text: "Tap the payment card next to the receipt.",
     },
   },
   [normalizeText("Tap the pencil.")]: {
@@ -11317,6 +17127,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the pencil.",
     },
   },
+  [normalizeText("Tap the picnic mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_tap_picnic_mat_b28d4a50.wav",
+      text: "Tap the picnic mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_tap_picnic_mat_b28d4a50.wav",
+      text: "Tap the picnic mat.",
+    },
+  },
+  [normalizeText("Tap the piglet.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_piglet_4ad245dd.wav",
+      text: "Tap the piglet.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_piglet_4ad245dd.wav",
+      text: "Tap the piglet.",
+    },
+  },
   [normalizeText("Tap the pillow.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_practice_pillow_02f6fc23.wav",
@@ -11329,6 +17159,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_pillow_02f6fc23.wav",
       text: "Tap the pillow.",
+    },
+  },
+  [normalizeText("Tap the plant pot on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_tap_plant_pot_63ae74f3.wav",
+      text: "Tap the plant pot on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_plant_pot_63ae74f3.wav",
+      text: "Tap the plant pot on the right.",
     },
   },
   [normalizeText("Tap the plate.")]: {
@@ -11359,6 +17199,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the pot holder.",
     },
   },
+  [normalizeText("Tap the prize on the right side of the bench.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_prize_a828b34f.wav",
+      text: "Tap the prize on the right side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_prize_a828b34f.wav",
+      text: "Tap the prize on the right side of the bench.",
+    },
+  },
+  [normalizeText("Tap the puppet.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_tap_puppet_cb82aa75.wav",
+      text: "Tap the puppet.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_puppet_cb82aa75.wav",
+      text: "Tap the puppet.",
+    },
+  },
+  [normalizeText("Tap the puzzle on the right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_puzzle_d9143e17.wav",
+      text: "Tap the puzzle on the right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_puzzle_d9143e17.wav",
+      text: "Tap the puzzle on the right.",
+    },
+  },
   [normalizeText("Tap the puzzle.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/prompt_tap_puzzle_a6333fcf.wav",
@@ -11371,6 +17241,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/prompt_tap_puzzle_a6333fcf.wav",
       text: "Tap the puzzle.",
+    },
+  },
+  [normalizeText("Tap the quiet sign.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_quiet_sign_a3417d4e.wav",
+      text: "Tap the quiet sign.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_quiet_sign_a3417d4e.wav",
+      text: "Tap the quiet sign.",
     },
   },
   [normalizeText("Tap the raisins.")]: {
@@ -11387,6 +17267,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the raisins.",
     },
   },
+  [normalizeText("Tap the reading chair.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_tap_reading_chair_95197d8f.wav",
+      text: "Tap the reading chair.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_tap_reading_chair_95197d8f.wav",
+      text: "Tap the reading chair.",
+    },
+  },
+  [normalizeText("Tap the receipt below the cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_receipt_5cf4e428.wav",
+      text: "Tap the receipt below the cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_receipt_5cf4e428.wav",
+      text: "Tap the receipt below the cashier.",
+    },
+  },
   [normalizeText("Tap the recycling bin.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_tap_recycling_bin_114931fc.wav",
@@ -11399,6 +17299,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_recycling_bin_114931fc.wav",
       text: "Tap the recycling bin.",
+    },
+  },
+  [normalizeText("Tap the red basket on the right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_basket_f1235423.wav",
+      text: "Tap the red basket on the right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_basket_f1235423.wav",
+      text: "Tap the red basket on the right.",
+    },
+  },
+  [normalizeText("Tap the ribbon on the right side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_ribbon_da6bc748.wav",
+      text: "Tap the ribbon on the right side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_ribbon_da6bc748.wav",
+      text: "Tap the ribbon on the right side of the table.",
     },
   },
   [normalizeText("Tap the rice.")]: {
@@ -11471,6 +17391,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the sandbox.",
     },
   },
+  [normalizeText("Tap the sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_tap_sandcastle_203ff526.wav",
+      text: "Tap the sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_tap_sandcastle_203ff526.wav",
+      text: "Tap the sandcastle.",
+    },
+  },
   [normalizeText("Tap the sauce.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_tap_sauce_7316939a.wav",
@@ -11483,6 +17413,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_sauce_7316939a.wav",
       text: "Tap the sauce.",
+    },
+  },
+  [normalizeText("Tap the scanner left of the payment card.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_scanner_5a3702d6.wav",
+      text: "Tap the scanner left of the payment card.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_scanner_5a3702d6.wav",
+      text: "Tap the scanner left of the payment card.",
     },
   },
   [normalizeText("Tap the school.")]: {
@@ -11511,6 +17451,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_scraper_d7b04c41.wav",
       text: "Tap the scraper.",
+    },
+  },
+  [normalizeText("Tap the sea.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_tap_sea_210812fd.wav",
+      text: "Tap the sea.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_tap_sea_210812fd.wav",
+      text: "Tap the sea.",
+    },
+  },
+  [normalizeText("Tap the seed packet.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_tap_seed_ddc6af76.wav",
+      text: "Tap the seed packet.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_seed_ddc6af76.wav",
+      text: "Tap the seed packet.",
     },
   },
   [normalizeText("Tap the seesaw.")]: {
@@ -11569,6 +17529,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the shampoo.",
     },
   },
+  [normalizeText("Tap the sheep.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_sheep_228f7920.wav",
+      text: "Tap the sheep.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_sheep_228f7920.wav",
+      text: "Tap the sheep.",
+    },
+  },
   [normalizeText("Tap the shelf.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/prompt_tap_shelf_53619846.wav",
@@ -11609,6 +17579,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_shoulder_dd24996f.wav",
       text: "Tap the shoulder.",
+    },
+  },
+  [normalizeText("Tap the shovel.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_tap_shovel_9b050253.wav",
+      text: "Tap the shovel.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_tap_shovel_9b050253.wav",
+      text: "Tap the shovel.",
     },
   },
   [normalizeText("Tap the shower head.")]: {
@@ -11679,6 +17659,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/prompt_tap_slide_e34fad6a.wav",
       text: "Tap the slide.",
+    },
+  },
+  [normalizeText("Tap the slippers on the floor.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_tap_slippers_c7ae03d9.wav",
+      text: "Tap the slippers on the floor.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_slippers_c7ae03d9.wav",
+      text: "Tap the slippers on the floor.",
+    },
+  },
+  [normalizeText("Tap the small bag on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_tap_bag_15954bf3.wav",
+      text: "Tap the small bag on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_tap_bag_15954bf3.wav",
+      text: "Tap the small bag on the right.",
     },
   },
   [normalizeText("Tap the snack box.")]: {
@@ -11827,6 +17827,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the star projector.",
     },
   },
+  [normalizeText("Tap the stethoscope.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_stethoscope_41558764.wav",
+      text: "Tap the stethoscope.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_stethoscope_41558764.wav",
+      text: "Tap the stethoscope.",
+    },
+  },
+  [normalizeText("Tap the sticker.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_tap_sticker_47b7de75.wav",
+      text: "Tap the sticker.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_tap_sticker_47b7de75.wav",
+      text: "Tap the sticker.",
+    },
+  },
+  [normalizeText("Tap the story bell.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_tap_library_bell_ed31c9c2.wav",
+      text: "Tap the story bell.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_library_bell_ed31c9c2.wav",
+      text: "Tap the story bell.",
+    },
+  },
   [normalizeText("Tap the story shelf.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_tap_story_shelf_041d9a45.wav",
@@ -11855,6 +17885,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the storybook.",
     },
   },
+  [normalizeText("Tap the storyteller.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_tap_storyteller_19dad341.wav",
+      text: "Tap the storyteller.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_storyteller_19dad341.wav",
+      text: "Tap the storyteller.",
+    },
+  },
   [normalizeText("Tap the sun.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_review_sun_88094e22.wav",
@@ -11867,6 +17907,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_review_sun_88094e22.wav",
       text: "Tap the sun.",
+    },
+  },
+  [normalizeText("Tap the sunglasses.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_tap_sunglasses_a32ce207.wav",
+      text: "Tap the sunglasses.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_tap_sunglasses_a32ce207.wav",
+      text: "Tap the sunglasses.",
+    },
+  },
+  [normalizeText("Tap the sunscreen.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_tap_sunscreen_7c5bab46.wav",
+      text: "Tap the sunscreen.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_tap_sunscreen_7c5bab46.wav",
+      text: "Tap the sunscreen.",
     },
   },
   [normalizeText("Tap the swing.")]: {
@@ -11911,6 +17971,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the teacher.",
     },
   },
+  [normalizeText("Tap the team.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_team_79b39373.wav",
+      text: "Tap the team.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_tap_team_79b39373.wav",
+      text: "Tap the team.",
+    },
+  },
+  [normalizeText("Tap the thank-you card next to the cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_say_thank_you_84fe3f86.wav",
+      text: "Tap the thank-you card next to the cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_tap_say_thank_you_84fe3f86.wav",
+      text: "Tap the thank-you card next to the cashier.",
+    },
+  },
+  [normalizeText("Tap the thermometer.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_thermometer_09d31d89.wav",
+      text: "Tap the thermometer.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_thermometer_09d31d89.wav",
+      text: "Tap the thermometer.",
+    },
+  },
+  [normalizeText("Tap the ticket.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_ticket_8d580d79.wav",
+      text: "Tap the ticket.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_ticket_8d580d79.wav",
+      text: "Tap the ticket.",
+    },
+  },
   [normalizeText("Tap the timer.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_tap_timer_0661bb7e.wav",
@@ -11923,6 +18023,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_timer_0661bb7e.wav",
       text: "Tap the timer.",
+    },
+  },
+  [normalizeText("Tap the tissue.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_tap_tissue_0e1fc991.wav",
+      text: "Tap the tissue.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_tap_tissue_0e1fc991.wav",
+      text: "Tap the tissue.",
+    },
+  },
+  [normalizeText("Tap the tomato in the basket of vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_tomato_2b0a22e6.wav",
+      text: "Tap the tomato in the basket of vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_tomato_2b0a22e6.wav",
+      text: "Tap the tomato in the basket of vegetables.",
     },
   },
   [normalizeText("Tap the tongs.")]: {
@@ -11995,6 +18115,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the traffic light.",
     },
   },
+  [normalizeText("Tap the trash bin.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_tap_trash_bin_f4ea8df9.wav",
+      text: "Tap the trash bin.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_tap_trash_bin_f4ea8df9.wav",
+      text: "Tap the trash bin.",
+    },
+  },
   [normalizeText("Tap the tray.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/prompt_tap_tray_6d12e2d9.wav",
@@ -12007,6 +18137,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_tray_6d12e2d9.wav",
       text: "Tap the tray.",
+    },
+  },
+  [normalizeText("Tap the tree.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_tap_tree_3e01fb9c.wav",
+      text: "Tap the tree.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_tree_3e01fb9c.wav",
+      text: "Tap the tree.",
     },
   },
   [normalizeText("Tap the uniform.")]: {
@@ -12037,6 +18177,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the vegetables.",
     },
   },
+  [normalizeText("Tap the waiting room.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_waiting_room_c8a25f5e.wav",
+      text: "Tap the waiting room.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_waiting_room_c8a25f5e.wav",
+      text: "Tap the waiting room.",
+    },
+  },
+  [normalizeText("Tap the wallet in the red basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_wallet_7cddb46e.wav",
+      text: "Tap the wallet in the red basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_wallet_7cddb46e.wav",
+      text: "Tap the wallet in the red basket.",
+    },
+  },
+  [normalizeText("Tap the water bottle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_tap_water_bottle_743656bd.wav",
+      text: "Tap the water bottle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_tap_water_bottle_743656bd.wav",
+      text: "Tap the water bottle.",
+    },
+  },
   [normalizeText("Tap the water.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_tap_water_13b6b394.wav",
@@ -12049,6 +18219,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_water_13b6b394.wav",
       text: "Tap the water.",
+    },
+  },
+  [normalizeText("Tap the wave.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_tap_wave_d8d85a99.wav",
+      text: "Tap the wave.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_tap_wave_d8d85a99.wav",
+      text: "Tap the wave.",
+    },
+  },
+  [normalizeText("Tap the weighing scale.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_weighing_scale_2179da0c.wav",
+      text: "Tap the weighing scale.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_weighing_scale_2179da0c.wav",
+      text: "Tap the weighing scale.",
     },
   },
   [normalizeText("Tap the window.")]: {
@@ -12065,6 +18255,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the window.",
     },
   },
+  [normalizeText("Tap the wristband.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_wristband_22b9db1c.wav",
+      text: "Tap the wristband.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_wristband_22b9db1c.wav",
+      text: "Tap the wristband.",
+    },
+  },
   [normalizeText("Tap the yogurt.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_tap_yogurt_a490217c.wav",
@@ -12077,6 +18277,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_yogurt_a490217c.wav",
       text: "Tap the yogurt.",
+    },
+  },
+  [normalizeText("Tap the zebra.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_zebra_704e8f08.wav",
+      text: "Tap the zebra.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_zebra_704e8f08.wav",
+      text: "Tap the zebra.",
+    },
+  },
+  [normalizeText("Tap the zoo gate.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_gate_6202980e.wav",
+      text: "Tap the zoo gate.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_gate_6202980e.wav",
+      text: "Tap the zoo gate.",
+    },
+  },
+  [normalizeText("Tap the zoo path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_tap_path_b653cfd7.wav",
+      text: "Tap the zoo path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_tap_path_b653cfd7.wav",
+      text: "Tap the zoo path.",
+    },
+  },
+  [normalizeText("Tap the zoo sign.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_sign_394a5d3e.wav",
+      text: "Tap the zoo sign.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_sign_394a5d3e.wav",
+      text: "Tap the zoo sign.",
+    },
+  },
+  [normalizeText("Tap the zookeeper.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_keeper_eeff2e2c.wav",
+      text: "Tap the zookeeper.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_keeper_eeff2e2c.wav",
+      text: "Tap the zookeeper.",
     },
   },
   [normalizeText("Tap your family.")]: {
@@ -12123,6 +18373,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "teacher",
     },
   },
+  [normalizeText("team")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/team.wav",
+      text: "team",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/team.wav",
+      text: "team",
+    },
+  },
+  [normalizeText("tell where it hurts")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tell_where_it_hurts.wav",
+      text: "tell where it hurts",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tell_where_it_hurts.wav",
+      text: "tell where it hurts",
+    },
+  },
+  [normalizeText("thank-you card")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/thank_you_card.wav",
+      text: "thank-you card",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/thank_you_card.wav",
+      text: "thank-you card",
+    },
+  },
   [normalizeText("That feels refreshing!")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/tap_water_success_7221f6a0.wav",
@@ -12131,6 +18411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/tap_water_success_7221f6a0.wav",
       text: "That feels refreshing!",
+    },
+  },
+  [normalizeText("That is the checkout counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_counter_success_e32a5e8d.wav",
+      text: "That is the checkout counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_counter_success_e32a5e8d.wav",
+      text: "That is the checkout counter.",
     },
   },
   [normalizeText("That's okay. Try saying the next word with me.")]: {
@@ -12153,6 +18443,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's dinner!",
     },
   },
+  [normalizeText("That's right, that's music!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_music_success_a1677d09.wav",
+      text: "That's right, that's music!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_music_success_a1677d09.wav",
+      text: "That's right, that's music!",
+    },
+  },
+  [normalizeText("That's right, that's the aisle!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_aisle_success_92576a15.wav",
+      text: "That's right, that's the aisle!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_aisle_success_92576a15.wav",
+      text: "That's right, that's the aisle!",
+    },
+  },
+  [normalizeText("That's right, that's the alphabet book!")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_alphabet_book_success_45b6761c.wav",
+      text: "That's right, that's the alphabet book!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_alphabet_book_success_45b6761c.wav",
+      text: "That's right, that's the alphabet book!",
+    },
+  },
   [normalizeText("That's right, that's the apron!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/tap_apron_success_312b2ab9.wav",
@@ -12171,6 +18491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/going-home/audio/en-GB/neural2-c-r1/tap_bag_success_7b5d0af8.wav",
       text: "That's right, that's the bag!",
+    },
+  },
+  [normalizeText("That's right, that's the banner!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_banner_success_6f152dc9.wav",
+      text: "That's right, that's the banner!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_banner_success_6f152dc9.wav",
+      text: "That's right, that's the banner!",
     },
   },
   [normalizeText("That's right, that's the basket!")]: {
@@ -12203,6 +18533,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the bathtub!",
     },
   },
+  [normalizeText("That's right, that's the beach bag!")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_beach_bag_success_f29f351f.wav",
+      text: "That's right, that's the beach bag!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_beach_bag_success_f29f351f.wav",
+      text: "That's right, that's the beach bag!",
+    },
+  },
+  [normalizeText("That's right, that's the bench!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_bench_success_0401e966.wav",
+      text: "That's right, that's the bench!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_bench_success_0401e966.wav",
+      text: "That's right, that's the bench!",
+    },
+  },
   [normalizeText("That's right, that's the bite!")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_bite_success_f5843080.wav",
@@ -12211,6 +18561,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_bite_success_f5843080.wav",
       text: "That's right, that's the bite!",
+    },
+  },
+  [normalizeText("That's right, that's the book return!")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_book_return_success_37c89507.wav",
+      text: "That's right, that's the book return!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_book_return_success_37c89507.wav",
+      text: "That's right, that's the book return!",
     },
   },
   [normalizeText("That's right, that's the book!")]: {
@@ -12303,6 +18663,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the cabinet!",
     },
   },
+  [normalizeText("That's right, that's the cake!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_cake_success_98b3af61.wav",
+      text: "That's right, that's the cake!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_cake_success_98b3af61.wav",
+      text: "That's right, that's the cake!",
+    },
+  },
+  [normalizeText("That's right, that's the car!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_car_success_8313efe6.wav",
+      text: "That's right, that's the car!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_car_success_8313efe6.wav",
+      text: "That's right, that's the car!",
+    },
+  },
+  [normalizeText("That's right, that's the card!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_card_success_5a1b1b7e.wav",
+      text: "That's right, that's the card!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_card_success_5a1b1b7e.wav",
+      text: "That's right, that's the card!",
+    },
+  },
+  [normalizeText("That's right, that's the carrot!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_carrot_success_0689c9d0.wav",
+      text: "That's right, that's the carrot!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_carrot_success_0689c9d0.wav",
+      text: "That's right, that's the carrot!",
+    },
+  },
+  [normalizeText("That's right, that's the cashier!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_cashier_success_4b470a8a.wav",
+      text: "That's right, that's the cashier!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_cashier_success_4b470a8a.wav",
+      text: "That's right, that's the cashier!",
+    },
+  },
   [normalizeText("That's right, that's the chicken!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_chicken_success_891149b2.wav",
@@ -12311,6 +18721,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/tap_chicken_success_891149b2.wav",
       text: "That's right, that's the chicken!",
+    },
+  },
+  [normalizeText("That's right, that's the circle!")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_circle_success_c8d7da71.wav",
+      text: "That's right, that's the circle!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_circle_success_c8d7da71.wav",
+      text: "That's right, that's the circle!",
+    },
+  },
+  [normalizeText("That's right, that's the climbing frame!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_climbing_frame_success_b8ae83d1.wav",
+      text: "That's right, that's the climbing frame!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_climbing_frame_success_b8ae83d1.wav",
+      text: "That's right, that's the climbing frame!",
+    },
+  },
+  [normalizeText("That's right, that's the clinic!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_clinic_success_728897e7.wav",
+      text: "That's right, that's the clinic!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_clinic_success_728897e7.wav",
+      text: "That's right, that's the clinic!",
     },
   },
   [normalizeText("That's right, that's the clock!")]: {
@@ -12363,6 +18803,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the compost bin!",
     },
   },
+  [normalizeText("That's right, that's the cover!")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_cover_success_b0546877.wav",
+      text: "That's right, that's the cover!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_cover_success_b0546877.wav",
+      text: "That's right, that's the cover!",
+    },
+  },
+  [normalizeText("That's right, that's the cow!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_cow_success_b4f0682c.wav",
+      text: "That's right, that's the cow!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_cow_success_b4f0682c.wav",
+      text: "That's right, that's the cow!",
+    },
+  },
+  [normalizeText("That's right, that's the crab!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_crab_success_12f6c6b4.wav",
+      text: "That's right, that's the crab!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_crab_success_12f6c6b4.wav",
+      text: "That's right, that's the crab!",
+    },
+  },
   [normalizeText("That's right, that's the cracker!")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_cracker_success_455b8c01.wav",
@@ -12401,6 +18871,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_curtain_success_20a9bc6c.wav",
       text: "That's right, that's the curtain!",
+    },
+  },
+  [normalizeText("That's right, that's the dance!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_dance_success_72ae8804.wav",
+      text: "That's right, that's the dance!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_dance_success_72ae8804.wav",
+      text: "That's right, that's the dance!",
     },
   },
   [normalizeText("That's right, that's the desk!")]: {
@@ -12463,6 +18943,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the dishwasher!",
     },
   },
+  [normalizeText("That's right, that's the doctor!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_doctor_success_c8d1d271.wav",
+      text: "That's right, that's the doctor!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_doctor_success_c8d1d271.wav",
+      text: "That's right, that's the doctor!",
+    },
+  },
   [normalizeText("That's right, that's the doll!")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_doll_success_52b7ac3a.wav",
@@ -12471,6 +18961,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_doll_success_52b7ac3a.wav",
       text: "That's right, that's the doll!",
+    },
+  },
+  [normalizeText("That's right, that's the doorbell!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_doorbell_success_fbaa5cf5.wav",
+      text: "That's right, that's the doorbell!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_doorbell_success_fbaa5cf5.wav",
+      text: "That's right, that's the doorbell!",
     },
   },
   [normalizeText("That's right, that's the dream journal!")]: {
@@ -12491,6 +18991,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_drum_success_80389dab.wav",
       text: "That's right, that's the drum!",
+    },
+  },
+  [normalizeText("That's right, that's the duck!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_duck_success_9825f373.wav",
+      text: "That's right, that's the duck!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_duck_success_9825f373.wav",
+      text: "That's right, that's the duck!",
     },
   },
   [normalizeText("That's right, that's the egg!")]: {
@@ -12533,6 +19043,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the fish!",
     },
   },
+  [normalizeText("That's right, that's the flag!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_flag_success_f0813ab5.wav",
+      text: "That's right, that's the flag!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_flag_success_f0813ab5.wav",
+      text: "That's right, that's the flag!",
+    },
+  },
   [normalizeText("That's right, that's the floor!")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/tap_floor_success_3e0a939e.wav",
@@ -12541,6 +19061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/tap_floor_success_3e0a939e.wav",
       text: "That's right, that's the floor!",
+    },
+  },
+  [normalizeText("That's right, that's the flower!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_flower_success_e4246f22.wav",
+      text: "That's right, that's the flower!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_flower_success_e4246f22.wav",
+      text: "That's right, that's the flower!",
     },
   },
   [normalizeText("That's right, that's the foam!")]: {
@@ -12563,6 +19093,156 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the folder!",
     },
   },
+  [normalizeText("That's right, that's the fountain!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_fountain_success_418e7d0a.wav",
+      text: "That's right, that's the fountain!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_fountain_success_418e7d0a.wav",
+      text: "That's right, that's the fountain!",
+    },
+  },
+  [normalizeText("That's right, that's the frisbee!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_frisbee_success_28e3a30a.wav",
+      text: "That's right, that's the frisbee!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_frisbee_success_28e3a30a.wav",
+      text: "That's right, that's the frisbee!",
+    },
+  },
+  [normalizeText("That's right, that's the front door!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_front_door_success_428bf64c.wav",
+      text: "That's right, that's the front door!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_front_door_success_428bf64c.wav",
+      text: "That's right, that's the front door!",
+    },
+  },
+  [normalizeText("That's right, that's the fruit plate!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_fruit_success_6aaf9f1b.wav",
+      text: "That's right, that's the fruit plate!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_fruit_success_6aaf9f1b.wav",
+      text: "That's right, that's the fruit plate!",
+    },
+  },
+  [normalizeText("That's right, that's the game!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_game_success_d2f5e60c.wav",
+      text: "That's right, that's the game!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_game_success_d2f5e60c.wav",
+      text: "That's right, that's the game!",
+    },
+  },
+  [normalizeText("That's right, that's the garden!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_garden_success_c0c123e0.wav",
+      text: "That's right, that's the garden!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_garden_success_c0c123e0.wav",
+      text: "That's right, that's the garden!",
+    },
+  },
+  [normalizeText("That's right, that's the gate!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_gate_success_6a91411d.wav",
+      text: "That's right, that's the gate!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_gate_success_6a91411d.wav",
+      text: "That's right, that's the gate!",
+    },
+  },
+  [normalizeText("That's right, that's the gift!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_gift_success_c7b7277e.wav",
+      text: "That's right, that's the gift!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_gift_success_c7b7277e.wav",
+      text: "That's right, that's the gift!",
+    },
+  },
+  [normalizeText("That's right, that's the giraffe!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_giraffe_success_1c9015ce.wav",
+      text: "That's right, that's the giraffe!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_giraffe_success_1c9015ce.wav",
+      text: "That's right, that's the giraffe!",
+    },
+  },
+  [normalizeText("That's right, that's the goat!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_goat_success_02ec27ef.wav",
+      text: "That's right, that's the goat!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_goat_success_02ec27ef.wav",
+      text: "That's right, that's the goat!",
+    },
+  },
+  [normalizeText("That's right, that's the grandma!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_grandma_success_9e1440a2.wav",
+      text: "That's right, that's the grandma!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_grandma_success_9e1440a2.wav",
+      text: "That's right, that's the grandma!",
+    },
+  },
+  [normalizeText("That's right, that's the grandpa!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_grandpa_success_bcf222f0.wav",
+      text: "That's right, that's the grandpa!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_grandpa_success_bcf222f0.wav",
+      text: "That's right, that's the grandpa!",
+    },
+  },
+  [normalizeText("That's right, that's the habitat!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_habitat_success_f4ace3b1.wav",
+      text: "That's right, that's the habitat!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_habitat_success_f4ace3b1.wav",
+      text: "That's right, that's the habitat!",
+    },
+  },
+  [normalizeText("That's right, that's the hand gel!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_hand_gel_success_5e6e28aa.wav",
+      text: "That's right, that's the hand gel!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_hand_gel_success_5e6e28aa.wav",
+      text: "That's right, that's the hand gel!",
+    },
+  },
+  [normalizeText("That's right, that's the helmet!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_helmet_success_b179898d.wav",
+      text: "That's right, that's the helmet!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_helmet_success_b179898d.wav",
+      text: "That's right, that's the helmet!",
+    },
+  },
   [normalizeText("That's right, that's the hook!")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_hook_success_8a635bae.wav",
@@ -12571,6 +19251,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/tap_hook_success_8a635bae.wav",
       text: "That's right, that's the hook!",
+    },
+  },
+  [normalizeText("That's right, that's the hug!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_hug_success_0694ee6d.wav",
+      text: "That's right, that's the hug!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_hug_success_0694ee6d.wav",
+      text: "That's right, that's the hug!",
+    },
+  },
+  [normalizeText("That's right, that's the invitation!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_invitation_success_ffcd5ede.wav",
+      text: "That's right, that's the invitation!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_invitation_success_ffcd5ede.wav",
+      text: "That's right, that's the invitation!",
     },
   },
   [normalizeText("That's right, that's the juice!")]: {
@@ -12603,6 +19303,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the label!",
     },
   },
+  [normalizeText("That's right, that's the librarian!")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_librarian_success_7c79f1c4.wav",
+      text: "That's right, that's the librarian!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_librarian_success_7c79f1c4.wav",
+      text: "That's right, that's the librarian!",
+    },
+  },
+  [normalizeText("That's right, that's the library card!")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_library_card_success_420b1fbc.wav",
+      text: "That's right, that's the library card!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_library_card_success_420b1fbc.wav",
+      text: "That's right, that's the library card!",
+    },
+  },
+  [normalizeText("That's right, that's the lifeguard!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_lifeguard_success_2ebb3eaa.wav",
+      text: "That's right, that's the lifeguard!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_lifeguard_success_2ebb3eaa.wav",
+      text: "That's right, that's the lifeguard!",
+    },
+  },
   [normalizeText("That's right, that's the lullaby!")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_lullaby_success_73b5199c.wav",
@@ -12623,6 +19353,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the lunchbox!",
     },
   },
+  [normalizeText("That's right, that's the mask!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_mask_success_969981fc.wav",
+      text: "That's right, that's the mask!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_mask_success_969981fc.wav",
+      text: "That's right, that's the mask!",
+    },
+  },
+  [normalizeText("That's right, that's the medicine!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_medicine_success_a5ea937c.wav",
+      text: "That's right, that's the medicine!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_medicine_success_a5ea937c.wav",
+      text: "That's right, that's the medicine!",
+    },
+  },
   [normalizeText("That's right, that's the milk!")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/tap_milk_success_b8243bee.wav",
@@ -12631,6 +19381,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/tap_milk_success_b8243bee.wav",
       text: "That's right, that's the milk!",
+    },
+  },
+  [normalizeText("That's right, that's the monkey!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_monkey_success_c8eee710.wav",
+      text: "That's right, that's the monkey!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_monkey_success_c8eee710.wav",
+      text: "That's right, that's the monkey!",
     },
   },
   [normalizeText("That's right, that's the moon mobile!")]: {
@@ -12663,6 +19423,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the night light!",
     },
   },
+  [normalizeText("That's right, that's the nurse!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_nurse_success_a28e4ddf.wav",
+      text: "That's right, that's the nurse!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_nurse_success_a28e4ddf.wav",
+      text: "That's right, that's the nurse!",
+    },
+  },
+  [normalizeText("That's right, that's the page!")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_page_success_fe402f6a.wav",
+      text: "That's right, that's the page!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_page_success_fe402f6a.wav",
+      text: "That's right, that's the page!",
+    },
+  },
+  [normalizeText("That's right, that's the paper cup!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_cup_success_c25232c4.wav",
+      text: "That's right, that's the paper cup!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_cup_success_c25232c4.wav",
+      text: "That's right, that's the paper cup!",
+    },
+  },
+  [normalizeText("That's right, that's the paper plate!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_plate_success_ba97de11.wav",
+      text: "That's right, that's the paper plate!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_plate_success_ba97de11.wav",
+      text: "That's right, that's the paper plate!",
+    },
+  },
+  [normalizeText("That's right, that's the park map!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_map_success_1b174e76.wav",
+      text: "That's right, that's the park map!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_map_success_1b174e76.wav",
+      text: "That's right, that's the park map!",
+    },
+  },
+  [normalizeText("That's right, that's the path!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_path_success_30f9f181.wav",
+      text: "That's right, that's the path!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_path_success_30f9f181.wav",
+      text: "That's right, that's the path!",
+    },
+  },
+  [normalizeText("That's right, that's the picnic mat!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_picnic_mat_success_49de839d.wav",
+      text: "That's right, that's the picnic mat!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_picnic_mat_success_49de839d.wav",
+      text: "That's right, that's the picnic mat!",
+    },
+  },
+  [normalizeText("That's right, that's the piglet!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_piglet_success_f86271eb.wav",
+      text: "That's right, that's the piglet!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_piglet_success_f86271eb.wav",
+      text: "That's right, that's the piglet!",
+    },
+  },
   [normalizeText("That's right, that's the pillow!")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_pillow_success_3763dd5b.wav",
@@ -12671,6 +19511,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/practice_pillow_success_3763dd5b.wav",
       text: "That's right, that's the pillow!",
+    },
+  },
+  [normalizeText("That's right, that's the plant pot!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_plant_pot_success_0905aeb6.wav",
+      text: "That's right, that's the plant pot!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_plant_pot_success_0905aeb6.wav",
+      text: "That's right, that's the plant pot!",
     },
   },
   [normalizeText("That's right, that's the plate!")]: {
@@ -12693,6 +19543,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the pot holder!",
     },
   },
+  [normalizeText("That's right, that's the prize!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_prize_success_a1b143a4.wav",
+      text: "That's right, that's the prize!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_prize_success_a1b143a4.wav",
+      text: "That's right, that's the prize!",
+    },
+  },
+  [normalizeText("That's right, that's the puppet!")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_puppet_success_6ad8a4b3.wav",
+      text: "That's right, that's the puppet!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_puppet_success_6ad8a4b3.wav",
+      text: "That's right, that's the puppet!",
+    },
+  },
   [normalizeText("That's right, that's the puzzle!")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_puzzle_success_eaba1ea5.wav",
@@ -12703,6 +19573,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the puzzle!",
     },
   },
+  [normalizeText("That's right, that's the quiet sign!")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_quiet_sign_success_20c2af4a.wav",
+      text: "That's right, that's the quiet sign!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_quiet_sign_success_20c2af4a.wav",
+      text: "That's right, that's the quiet sign!",
+    },
+  },
+  [normalizeText("That's right, that's the reading chair!")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_reading_chair_success_e5f373a2.wav",
+      text: "That's right, that's the reading chair!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_reading_chair_success_e5f373a2.wav",
+      text: "That's right, that's the reading chair!",
+    },
+  },
+  [normalizeText("That's right, that's the receipt!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_receipt_success_24d7f415.wav",
+      text: "That's right, that's the receipt!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_receipt_success_24d7f415.wav",
+      text: "That's right, that's the receipt!",
+    },
+  },
   [normalizeText("That's right, that's the recycling bin!")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_recycling_bin_success_9848e173.wav",
@@ -12711,6 +19611,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_recycling_bin_success_9848e173.wav",
       text: "That's right, that's the recycling bin!",
+    },
+  },
+  [normalizeText("That's right, that's the ribbon!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_ribbon_success_395439b2.wav",
+      text: "That's right, that's the ribbon!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_ribbon_success_395439b2.wav",
+      text: "That's right, that's the ribbon!",
     },
   },
   [normalizeText("That's right, that's the rice!")]: {
@@ -12733,6 +19643,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the robe!",
     },
   },
+  [normalizeText("That's right, that's the sandcastle!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_sandcastle_success_94e99f96.wav",
+      text: "That's right, that's the sandcastle!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_sandcastle_success_94e99f96.wav",
+      text: "That's right, that's the sandcastle!",
+    },
+  },
   [normalizeText("That's right, that's the sauce!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_sauce_success_b462eb91.wav",
@@ -12743,6 +19663,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the sauce!",
     },
   },
+  [normalizeText("That's right, that's the scale!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_scale_success_3452a40f.wav",
+      text: "That's right, that's the scale!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_scale_success_3452a40f.wav",
+      text: "That's right, that's the scale!",
+    },
+  },
+  [normalizeText("That's right, that's the scanner!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_scanner_success_a66a55bc.wav",
+      text: "That's right, that's the scanner!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_scanner_success_a66a55bc.wav",
+      text: "That's right, that's the scanner!",
+    },
+  },
   [normalizeText("That's right, that's the scraper!")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_scraper_success_d3e4e7d6.wav",
@@ -12751,6 +19691,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_scraper_success_d3e4e7d6.wav",
       text: "That's right, that's the scraper!",
+    },
+  },
+  [normalizeText("That's right, that's the sea!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_sea_success_2f616436.wav",
+      text: "That's right, that's the sea!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_sea_success_2f616436.wav",
+      text: "That's right, that's the sea!",
+    },
+  },
+  [normalizeText("That's right, that's the seed!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_seed_success_54ccb214.wav",
+      text: "That's right, that's the seed!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_seed_success_54ccb214.wav",
+      text: "That's right, that's the seed!",
     },
   },
   [normalizeText("That's right, that's the seesaw!")]: {
@@ -12783,6 +19743,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the shampoo!",
     },
   },
+  [normalizeText("That's right, that's the sheep!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_sheep_success_db9ac613.wav",
+      text: "That's right, that's the sheep!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_sheep_success_db9ac613.wav",
+      text: "That's right, that's the sheep!",
+    },
+  },
   [normalizeText("That's right, that's the shelf!")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_shelf_success_8ab6023c.wav",
@@ -12793,6 +19763,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the shelf!",
     },
   },
+  [normalizeText("That's right, that's the shopping list!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_shopping_list_success_a0e64077.wav",
+      text: "That's right, that's the shopping list!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_shopping_list_success_a0e64077.wav",
+      text: "That's right, that's the shopping list!",
+    },
+  },
   [normalizeText("That's right, that's the shoulder!")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_shoulder_success_45155acd.wav",
@@ -12801,6 +19781,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_shoulder_success_45155acd.wav",
       text: "That's right, that's the shoulder!",
+    },
+  },
+  [normalizeText("That's right, that's the shovel!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_shovel_success_5dd1c82f.wav",
+      text: "That's right, that's the shovel!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_shovel_success_5dd1c82f.wav",
+      text: "That's right, that's the shovel!",
     },
   },
   [normalizeText("That's right, that's the shower head!")]: {
@@ -12841,6 +19831,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_sleep_mask_success_1f6ebea6.wav",
       text: "That's right, that's the sleep mask!",
+    },
+  },
+  [normalizeText("That's right, that's the small bag!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_bag_success_4cedb341.wav",
+      text: "That's right, that's the small bag!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_bag_success_4cedb341.wav",
+      text: "That's right, that's the small bag!",
     },
   },
   [normalizeText("That's right, that's the snack box!")]: {
@@ -12913,6 +19913,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the star projector!",
     },
   },
+  [normalizeText("That's right, that's the stethoscope!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_stethoscope_success_3352d7ea.wav",
+      text: "That's right, that's the stethoscope!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_stethoscope_success_3352d7ea.wav",
+      text: "That's right, that's the stethoscope!",
+    },
+  },
+  [normalizeText("That's right, that's the sticker!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_sticker_success_534efc2b.wav",
+      text: "That's right, that's the sticker!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_sticker_success_534efc2b.wav",
+      text: "That's right, that's the sticker!",
+    },
+  },
+  [normalizeText("That's right, that's the story bell!")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_library_bell_success_5109e850.wav",
+      text: "That's right, that's the story bell!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_library_bell_success_5109e850.wav",
+      text: "That's right, that's the story bell!",
+    },
+  },
   [normalizeText("That's right, that's the story shelf!")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_story_shelf_success_b3e255e5.wav",
@@ -12931,6 +19961,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/tap_storybook_success_cdd6b3a3.wav",
       text: "That's right, that's the storybook!",
+    },
+  },
+  [normalizeText("That's right, that's the storyteller!")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_storyteller_success_41f44bca.wav",
+      text: "That's right, that's the storyteller!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_storyteller_success_41f44bca.wav",
+      text: "That's right, that's the storyteller!",
+    },
+  },
+  [normalizeText("That's right, that's the sunscreen!")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_sunscreen_success_d12ce9ec.wav",
+      text: "That's right, that's the sunscreen!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_sunscreen_success_d12ce9ec.wav",
+      text: "That's right, that's the sunscreen!",
     },
   },
   [normalizeText("That's right, that's the swing!")]: {
@@ -12963,6 +20013,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the teacher!",
     },
   },
+  [normalizeText("That's right, that's the team!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_team_success_2cca042b.wav",
+      text: "That's right, that's the team!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_team_success_2cca042b.wav",
+      text: "That's right, that's the team!",
+    },
+  },
+  [normalizeText("That's right, that's the thermometer!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_thermometer_success_faed3ea7.wav",
+      text: "That's right, that's the thermometer!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_thermometer_success_faed3ea7.wav",
+      text: "That's right, that's the thermometer!",
+    },
+  },
+  [normalizeText("That's right, that's the ticket!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_ticket_success_10e695c5.wav",
+      text: "That's right, that's the ticket!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_ticket_success_10e695c5.wav",
+      text: "That's right, that's the ticket!",
+    },
+  },
   [normalizeText("That's right, that's the timer!")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_timer_success_7a8ea07b.wav",
@@ -12971,6 +20051,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_timer_success_7a8ea07b.wav",
       text: "That's right, that's the timer!",
+    },
+  },
+  [normalizeText("That's right, that's the tissue!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_tissue_success_e3ad8f64.wav",
+      text: "That's right, that's the tissue!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_tissue_success_e3ad8f64.wav",
+      text: "That's right, that's the tissue!",
+    },
+  },
+  [normalizeText("That's right, that's the tomato!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_tomato_success_b9415370.wav",
+      text: "That's right, that's the tomato!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_tomato_success_b9415370.wav",
+      text: "That's right, that's the tomato!",
     },
   },
   [normalizeText("That's right, that's the towel!")]: {
@@ -12993,6 +20093,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the toy!",
     },
   },
+  [normalizeText("That's right, that's the trash bin!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_trash_bin_success_55bec61c.wav",
+      text: "That's right, that's the trash bin!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_trash_bin_success_55bec61c.wav",
+      text: "That's right, that's the trash bin!",
+    },
+  },
   [normalizeText("That's right, that's the tray!")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_tray_success_646397e1.wav",
@@ -13001,6 +20111,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_tray_success_646397e1.wav",
       text: "That's right, that's the tray!",
+    },
+  },
+  [normalizeText("That's right, that's the tree!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_tree_success_7d548e58.wav",
+      text: "That's right, that's the tree!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_tree_success_7d548e58.wav",
+      text: "That's right, that's the tree!",
+    },
+  },
+  [normalizeText("That's right, that's the waiting room!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_waiting_room_success_ae9f7bc1.wav",
+      text: "That's right, that's the waiting room!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_waiting_room_success_ae9f7bc1.wav",
+      text: "That's right, that's the waiting room!",
+    },
+  },
+  [normalizeText("That's right, that's the wallet!")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_wallet_success_16ba2ad2.wav",
+      text: "That's right, that's the wallet!",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_wallet_success_16ba2ad2.wav",
+      text: "That's right, that's the wallet!",
+    },
+  },
+  [normalizeText("That's right, that's the water bottle!")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_water_bottle_success_faefd4f0.wav",
+      text: "That's right, that's the water bottle!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_water_bottle_success_faefd4f0.wav",
+      text: "That's right, that's the water bottle!",
     },
   },
   [normalizeText("That's right, that's the water!")]: {
@@ -13013,6 +20163,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the water!",
     },
   },
+  [normalizeText("That's right, that's the wave!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_wave_success_c690a1c3.wav",
+      text: "That's right, that's the wave!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_wave_success_c690a1c3.wav",
+      text: "That's right, that's the wave!",
+    },
+  },
+  [normalizeText("That's right, that's the weighing scale!")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_weighing_scale_success_86dbd981.wav",
+      text: "That's right, that's the weighing scale!",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_weighing_scale_success_86dbd981.wav",
+      text: "That's right, that's the weighing scale!",
+    },
+  },
   [normalizeText("That's right, that's the window!")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_window_success_6dac25b4.wav",
@@ -13021,6 +20191,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_window_success_6dac25b4.wav",
       text: "That's right, that's the window!",
+    },
+  },
+  [normalizeText("That's right, that's the wristband!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_wristband_success_92c552b2.wav",
+      text: "That's right, that's the wristband!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_wristband_success_92c552b2.wav",
+      text: "That's right, that's the wristband!",
     },
   },
   [normalizeText("That's right, that's the yogurt!")]: {
@@ -13033,6 +20213,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right, that's the yogurt!",
     },
   },
+  [normalizeText("That's right, that's the zebra!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_zebra_success_fb36df89.wav",
+      text: "That's right, that's the zebra!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_zebra_success_fb36df89.wav",
+      text: "That's right, that's the zebra!",
+    },
+  },
+  [normalizeText("That's right, that's the zoo gate!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_gate_success_5682afdd.wav",
+      text: "That's right, that's the zoo gate!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_gate_success_5682afdd.wav",
+      text: "That's right, that's the zoo gate!",
+    },
+  },
+  [normalizeText("That's right, that's the zoo path!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_path_success_c7b1f621.wav",
+      text: "That's right, that's the zoo path!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_path_success_c7b1f621.wav",
+      text: "That's right, that's the zoo path!",
+    },
+  },
+  [normalizeText("That's right, that's the zoo sign!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_sign_success_fe4c3089.wav",
+      text: "That's right, that's the zoo sign!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_sign_success_fe4c3089.wav",
+      text: "That's right, that's the zoo sign!",
+    },
+  },
+  [normalizeText("That's right, that's the zookeeper!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_keeper_success_3c9e1675.wav",
+      text: "That's right, that's the zookeeper!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_keeper_success_3c9e1675.wav",
+      text: "That's right, that's the zookeeper!",
+    },
+  },
   [normalizeText("That's right, that's your home!")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_home_success_a680561a.wav",
@@ -13041,6 +20271,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_home_success_a680561a.wav",
       text: "That's right, that's your home!",
+    },
+  },
+  [normalizeText("That's right, those are the binoculars!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_binoculars_success_5bc766f2.wav",
+      text: "That's right, those are the binoculars!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_binoculars_success_5bc766f2.wav",
+      text: "That's right, those are the binoculars!",
     },
   },
   [normalizeText("That's right, those are the blocks!")]: {
@@ -13061,6 +20301,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/tap_crumbs_success_a059084f.wav",
       text: "That's right, those are the crumbs!",
+    },
+  },
+  [normalizeText("That's right, those are the footprints!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_footprints_success_b6fc02e8.wav",
+      text: "That's right, those are the footprints!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_footprints_success_b6fc02e8.wav",
+      text: "That's right, those are the footprints!",
     },
   },
   [normalizeText("That's right, those are the leftovers!")]: {
@@ -13111,6 +20361,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_tap_shoes_success_c5557624.wav",
       text: "That's right, those are the shoes!",
+    },
+  },
+  [normalizeText("That's right, those are the slippers!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_slippers_success_13826a20.wav",
+      text: "That's right, those are the slippers!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_slippers_success_13826a20.wav",
+      text: "That's right, those are the slippers!",
+    },
+  },
+  [normalizeText("That's right, those are the sunglasses!")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_sunglasses_success_fafaebf8.wav",
+      text: "That's right, those are the sunglasses!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_sunglasses_success_fafaebf8.wav",
+      text: "That's right, those are the sunglasses!",
     },
   },
   [normalizeText("That's right, those are the tongs!")]: {
@@ -14283,6 +21553,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right!",
     },
   },
+  [normalizeText("The aisle is between the two shelf rows at the top.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_aisle_fail_13e458e8.wav",
+      text: "The aisle is between the two shelf rows at the top.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_aisle_fail_13e458e8.wav",
+      text: "The aisle is between the two shelf rows at the top.",
+    },
+  },
+  [normalizeText("The alphabet book is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_alphabet_book_fail_f6c1c60e.wav",
+      text: "The alphabet book is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_alphabet_book_fail_f6c1c60e.wav",
+      text: "The alphabet book is on the right.",
+    },
+  },
   [normalizeText("The apple is on the plate.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_apple_to_plate_success_0e481ce0.wav",
@@ -14333,6 +21623,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The ball is in the yard.",
     },
   },
+  [normalizeText("The balloon is above the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/drag_balloon_fail_075f19f5.wav",
+      text: "The balloon is above the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/drag_balloon_fail_075f19f5.wav",
+      text: "The balloon is above the table.",
+    },
+  },
+  [normalizeText("The balloon is in the right place.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/drag_balloon_success_8783160c.wav",
+      text: "The balloon is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/drag_balloon_success_8783160c.wav",
+      text: "The balloon is in the right place.",
+    },
+  },
+  [normalizeText("The balloon-hanging card is in the bottom middle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/drag_hang_balloons_fail_686729fb.wav",
+      text: "The balloon-hanging card is in the bottom middle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/drag_hang_balloons_fail_686729fb.wav",
+      text: "The balloon-hanging card is in the bottom middle.",
+    },
+  },
   [normalizeText("The banana is on the plate.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/drag_banana_to_plate_success_87fef1fd.wav",
@@ -14341,6 +21661,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/drag_banana_to_plate_success_87fef1fd.wav",
       text: "The banana is on the plate.",
+    },
+  },
+  [normalizeText("The bandage is in the right place.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/drag_bandage_success_cf16a995.wav",
+      text: "The bandage is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/drag_bandage_success_cf16a995.wav",
+      text: "The bandage is in the right place.",
+    },
+  },
+  [normalizeText("The bandage is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/drag_bandage_fail_23028b0b.wav",
+      text: "The bandage is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/drag_bandage_fail_23028b0b.wav",
+      text: "The bandage is on the right.",
+    },
+  },
+  [normalizeText("The banner is at the top.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_banner_fail_b1374a1b.wav",
+      text: "The banner is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_banner_fail_b1374a1b.wav",
+      text: "The banner is at the top.",
     },
   },
   [normalizeText("The basket is at the back.")]: {
@@ -14393,6 +21743,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The bathtub is in the middle of the bathroom.",
     },
   },
+  [normalizeText("The beach bag is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_beach_bag_fail_ae2c714a.wav",
+      text: "The beach bag is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_beach_bag_fail_ae2c714a.wav",
+      text: "The beach bag is on the right.",
+    },
+  },
+  [normalizeText("The beach things are ready!")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/intro_success_564002ab.wav",
+      text: "The beach things are ready!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/intro_success_564002ab.wav",
+      text: "The beach things are ready!",
+    },
+  },
+  [normalizeText("The beach towel is in the right place.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/drag_towel_success_299f85fa.wav",
+      text: "The beach towel is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/drag_towel_success_299f85fa.wav",
+      text: "The beach towel is in the right place.",
+    },
+  },
+  [normalizeText("The beach towel is next to the beach bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/drag_towel_fail_685dcfcf.wav",
+      text: "The beach towel is next to the beach bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/drag_towel_fail_685dcfcf.wav",
+      text: "The beach towel is next to the beach bag.",
+    },
+  },
+  [normalizeText("The beanbag is in the middle of the rug.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/drag_beanbag_fail_8df21b92.wav",
+      text: "The beanbag is in the middle of the rug.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/drag_beanbag_fail_8df21b92.wav",
+      text: "The beanbag is in the middle of the rug.",
+    },
+  },
+  [normalizeText("The beanbag is in the right place.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/drag_beanbag_success_67792e81.wav",
+      text: "The beanbag is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/drag_beanbag_success_67792e81.wav",
+      text: "The beanbag is in the right place.",
+    },
+  },
   [normalizeText("The bench is on the right.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_tap_bench_fail_43096583.wav",
@@ -14401,6 +21811,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_bench_fail_43096583.wav",
       text: "The bench is on the right.",
+    },
+  },
+  [normalizeText("The binoculars are on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_binoculars_fail_05e08906.wav",
+      text: "The binoculars are on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_binoculars_fail_05e08906.wav",
+      text: "The binoculars are on the right.",
+    },
+  },
+  [normalizeText("The birthday cake is in the middle of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_cake_fail_41c8c356.wav",
+      text: "The birthday cake is in the middle of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_cake_fail_41c8c356.wav",
+      text: "The birthday cake is in the middle of the table.",
+    },
+  },
+  [normalizeText("The birthday cake looks beautiful!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/intro_success_bc931ed6.wav",
+      text: "The birthday cake looks beautiful!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/intro_success_bc931ed6.wav",
+      text: "The birthday cake looks beautiful!",
     },
   },
   [normalizeText("The bite is on the small table.")]: {
@@ -14453,6 +21893,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The blocks are on the mat.",
     },
   },
+  [normalizeText("The blue scale is on the right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_scale_fail_580848d3.wav",
+      text: "The blue scale is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_scale_fail_580848d3.wav",
+      text: "The blue scale is on the right.",
+    },
+  },
   [normalizeText("The board is at the top of the classroom.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/tap_board_fail_f1f7e5dd.wav",
@@ -14471,6 +21921,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/drag_body_wash_to_sponge_success_7ceb2a63.wav",
       text: "The body wash is in the right place.",
+    },
+  },
+  [normalizeText("The book basket is in the middle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/drag_book_basket_fail_1cbbfe41.wav",
+      text: "The book basket is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/drag_book_basket_fail_1cbbfe41.wav",
+      text: "The book basket is in the middle.",
+    },
+  },
+  [normalizeText("The book basket is in the right place.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/drag_book_basket_success_b6726bc0.wav",
+      text: "The book basket is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/drag_book_basket_success_b6726bc0.wav",
+      text: "The book basket is in the right place.",
     },
   },
   [normalizeText("The book is in the bag.")]: {
@@ -14521,6 +21991,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/drag_book_to_shelf_success_13a6b449.wav",
       text: "The book is on the shelf.",
+    },
+  },
+  [normalizeText("The book return is to the right of the return a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_book_return_fail_a4b86c5a.wav",
+      text: "The book return is to the right of the return a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_book_return_fail_a4b86c5a.wav",
+      text: "The book return is to the right of the return a book.",
+    },
+  },
+  [normalizeText("The bookmark is in the middle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/drag_bookmark_fail_9d50b26c.wav",
+      text: "The bookmark is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/drag_bookmark_fail_9d50b26c.wav",
+      text: "The bookmark is in the middle.",
+    },
+  },
+  [normalizeText("The bookmark is in the right place.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/drag_bookmark_success_5b019a5d.wav",
+      text: "The bookmark is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/drag_bookmark_success_5b019a5d.wav",
+      text: "The bookmark is in the right place.",
     },
   },
   [normalizeText("The bookmark is in the storybook.")]: {
@@ -14663,6 +22163,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The cabinet is on the left.",
     },
   },
+  [normalizeText("The cake server is in the right place.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/drag_cake_server_success_48e74259.wav",
+      text: "The cake server is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/drag_cake_server_success_48e74259.wav",
+      text: "The cake server is in the right place.",
+    },
+  },
+  [normalizeText("The cake server is to the left of the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/drag_cake_server_fail_ccbe26ae.wav",
+      text: "The cake server is to the left of the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/drag_cake_server_fail_ccbe26ae.wav",
+      text: "The cake server is to the left of the cake.",
+    },
+  },
+  [normalizeText("The cake-serving card is in the bottom middle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/drag_serve_cake_fail_9d662104.wav",
+      text: "The cake-serving card is in the bottom middle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/drag_serve_cake_fail_9d662104.wav",
+      text: "The cake-serving card is in the bottom middle.",
+    },
+  },
+  [normalizeText("The cake-sharing card is at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_share_cake_fail_925f88ea.wav",
+      text: "The cake-sharing card is at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_share_cake_fail_925f88ea.wav",
+      text: "The cake-sharing card is at the bottom right.",
+    },
+  },
+  [normalizeText("The candle is in the right place.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/drag_candle_success_c7caa7b8.wav",
+      text: "The candle is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/drag_candle_success_c7caa7b8.wav",
+      text: "The candle is in the right place.",
+    },
+  },
+  [normalizeText("The candle is on the birthday cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/drag_candle_fail_8d94b251.wav",
+      text: "The candle is on the birthday cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/drag_candle_fail_8d94b251.wav",
+      text: "The candle is on the birthday cake.",
+    },
+  },
+  [normalizeText("The candle-blowing card is at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_blow_candles_fail_b4741391.wav",
+      text: "The candle-blowing card is at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_blow_candles_fail_b4741391.wav",
+      text: "The candle-blowing card is at the bottom left.",
+    },
+  },
   [normalizeText("The car is in the basket.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_car_to_basket_success_3baf6c41.wav",
@@ -14683,6 +22253,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The car is in the right place.",
     },
   },
+  [normalizeText("The car is parked outside.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_car_fail_ea139f80.wav",
+      text: "The car is parked outside.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_car_fail_ea139f80.wav",
+      text: "The car is parked outside.",
+    },
+  },
   [normalizeText("The carafe is on the serving cart.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/drag_carafe_to_cart_success_11fb8ff0.wav",
@@ -14691,6 +22271,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_carafe_to_cart_success_11fb8ff0.wav",
       text: "The carafe is on the serving cart.",
+    },
+  },
+  [normalizeText("The card is below the vegetable basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_pick_vegetables_fail_8d566099.wav",
+      text: "The card is below the vegetable basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_pick_vegetables_fail_8d566099.wav",
+      text: "The card is below the vegetable basket.",
+    },
+  },
+  [normalizeText("The card showing a child pushing a cart is in the middle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_push_cart_fail_9dc72dcf.wav",
+      text: "The card showing a child pushing a cart is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_push_cart_fail_9dc72dcf.wav",
+      text: "The card showing a child pushing a cart is in the middle.",
+    },
+  },
+  [normalizeText("The card showing a list being checked is below the red basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_check_list_fail_fb40cf8e.wav",
+      text: "The card showing a list being checked is below the red basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_check_list_fail_fb40cf8e.wav",
+      text: "The card showing a list being checked is below the red basket.",
+    },
+  },
+  [normalizeText("The card showing an item being scanned is at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_scan_item_fail_f6819ca6.wav",
+      text: "The card showing an item being scanned is at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_scan_item_fail_f6819ca6.wav",
+      text: "The card showing an item being scanned is at the bottom left.",
+    },
+  },
+  [normalizeText("The card showing fruit on a scale is in the middle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_weigh_fruit_fail_ab839c79.wav",
+      text: "The card showing fruit on a scale is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_weigh_fruit_fail_ab839c79.wav",
+      text: "The card showing fruit on a scale is in the middle.",
+    },
+  },
+  [normalizeText("The card showing groceries being packed is in the middle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_pack_bag_fail_0ead8c67.wav",
+      text: "The card showing groceries being packed is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_pack_bag_fail_0ead8c67.wav",
+      text: "The card showing groceries being packed is in the middle.",
+    },
+  },
+  [normalizeText("The cart is just to your right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_cart_fail_cfdfcb20.wav",
+      text: "The cart is just to your right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_cart_fail_cfdfcb20.wav",
+      text: "The cart is just to your right.",
+    },
+  },
+  [normalizeText("The cashier is standing behind the green counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_cashier_fail_e3ac0014.wav",
+      text: "The cashier is standing behind the green counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_cashier_fail_e3ac0014.wav",
+      text: "The cashier is standing behind the green counter.",
     },
   },
   [normalizeText("The chair is next to the desk.")]: {
@@ -14713,6 +22373,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The chair is next to the table.",
     },
   },
+  [normalizeText("The chicken is at the top.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_chicken_fail_377e9f3a.wav",
+      text: "The chicken is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_chicken_fail_377e9f3a.wav",
+      text: "The chicken is at the top.",
+    },
+  },
   [normalizeText("The chicken is near the noodles.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_chicken_fail_f7ea6920.wav",
@@ -14723,6 +22393,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The chicken is near the noodles.",
     },
   },
+  [normalizeText("The circle is in the middle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_circle_fail_3d987969.wav",
+      text: "The circle is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_circle_fail_3d987969.wav",
+      text: "The circle is in the middle.",
+    },
+  },
+  [normalizeText("The clapping card is in the bottom middle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/drag_clap_hands_fail_3cbe5979.wav",
+      text: "The clapping card is in the bottom middle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/drag_clap_hands_fail_3cbe5979.wav",
+      text: "The clapping card is in the bottom middle.",
+    },
+  },
   [normalizeText("The cleaning brush is in the right place.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/drag_brush_to_spill_success_f034be90.wav",
@@ -14731,6 +22421,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/drag_brush_to_spill_success_f034be90.wav",
       text: "The cleaning brush is in the right place.",
+    },
+  },
+  [normalizeText("The climbing frame is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_climbing_frame_fail_0ffd7756.wav",
+      text: "The climbing frame is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_climbing_frame_fail_0ffd7756.wav",
+      text: "The climbing frame is on the right.",
+    },
+  },
+  [normalizeText("The clinic is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_clinic_fail_b2e0e947.wav",
+      text: "The clinic is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_clinic_fail_b2e0e947.wav",
+      text: "The clinic is on the right.",
+    },
+  },
+  [normalizeText("The clipboard is in the middle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/drag_clipboard_fail_8501ab51.wav",
+      text: "The clipboard is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/drag_clipboard_fail_8501ab51.wav",
+      text: "The clipboard is in the middle.",
+    },
+  },
+  [normalizeText("The clipboard is in the right place.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/drag_clipboard_success_8a2d053a.wav",
+      text: "The clipboard is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/drag_clipboard_success_8a2d053a.wav",
+      text: "The clipboard is in the right place.",
     },
   },
   [normalizeText("The clock is on the wall.")]: {
@@ -14803,6 +22533,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The cookie is in the right place.",
     },
   },
+  [normalizeText("The coupon is beside the wallet in the basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_coupon_fail_c49b347f.wav",
+      text: "The coupon is beside the wallet in the basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/drag_coupon_fail_c49b347f.wav",
+      text: "The coupon is beside the wallet in the basket.",
+    },
+  },
+  [normalizeText("The cover is in the middle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_cover_fail_10446327.wav",
+      text: "The cover is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_cover_fail_10446327.wav",
+      text: "The cover is in the middle.",
+    },
+  },
+  [normalizeText("The cow is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_cow_fail_617dbd24.wav",
+      text: "The cow is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_cow_fail_617dbd24.wav",
+      text: "The cow is on the right.",
+    },
+  },
+  [normalizeText("The crab is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_crab_fail_a278f1f5.wav",
+      text: "The crab is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_crab_fail_a278f1f5.wav",
+      text: "The crab is on the right.",
+    },
+  },
   [normalizeText("The cracker is next to the raisins.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_cracker_fail_87af9d4c.wav",
@@ -14853,6 +22623,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The crayon is on the right.",
     },
   },
+  [normalizeText("The crumbs are in the right place.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/drag_crumbs_success_9f170d8b.wav",
+      text: "The crumbs are in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/drag_crumbs_success_9f170d8b.wav",
+      text: "The crumbs are in the right place.",
+    },
+  },
   [normalizeText("The crumbs are in the trash bin.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_drag_crumbs_to_trash_success_26c386eb.wav",
@@ -14873,6 +22653,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The crumbs are next to the tray.",
     },
   },
+  [normalizeText("The crumbs are on the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/drag_crumbs_fail_476f90bb.wav",
+      text: "The crumbs are on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/drag_crumbs_fail_476f90bb.wav",
+      text: "The crumbs are on the mat.",
+    },
+  },
   [normalizeText("The cup is on the table.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_tap_cup_fail_1e4f1899.wav",
@@ -14891,6 +22681,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_curtain_fail_0c98c524.wav",
       text: "The curtain is on the right.",
+    },
+  },
+  [normalizeText("The cushion is in the right place.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/drag_cushion_success_22de6817.wav",
+      text: "The cushion is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/drag_cushion_success_22de6817.wav",
+      text: "The cushion is in the right place.",
+    },
+  },
+  [normalizeText("The cushion is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/drag_cushion_fail_e369e318.wav",
+      text: "The cushion is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/drag_cushion_fail_e369e318.wav",
+      text: "The cushion is on the right.",
+    },
+  },
+  [normalizeText("The dancing child is on the left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_dance_fail_35e55e1b.wav",
+      text: "The dancing child is on the left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_dance_fail_35e55e1b.wav",
+      text: "The dancing child is on the left.",
     },
   },
   [normalizeText("The desk is in the middle of the classroom.")]: {
@@ -14963,6 +22783,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The dishwasher is on the right.",
     },
   },
+  [normalizeText("The doctor is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_doctor_fail_bf86f2d1.wav",
+      text: "The doctor is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_doctor_fail_bf86f2d1.wav",
+      text: "The doctor is on the right.",
+    },
+  },
+  [normalizeText("The doctor will help you feel better.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/intro_success_98267ea6.wav",
+      text: "The doctor will help you feel better.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/intro_success_98267ea6.wav",
+      text: "The doctor will help you feel better.",
+    },
+  },
   [normalizeText("The doll is next to the bed.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/practice_doll_fail_0af06915.wav",
@@ -14983,6 +22823,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The doll is next to you.",
     },
   },
+  [normalizeText("The doorbell is on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_doorbell_fail_5f59b7d8.wav",
+      text: "The doorbell is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_doorbell_fail_5f59b7d8.wav",
+      text: "The doorbell is on the right.",
+    },
+  },
   [normalizeText("The dream journal is on the small table.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_dream_journal_fail_4e2cbc2e.wav",
@@ -14991,6 +22841,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/tap_dream_journal_fail_4e2cbc2e.wav",
       text: "The dream journal is on the small table.",
+    },
+  },
+  [normalizeText("The drink bottle is at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_choose_drink_fail_400caed5.wav",
+      text: "The drink bottle is at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_choose_drink_fail_400caed5.wav",
+      text: "The drink bottle is at the bottom right.",
     },
   },
   [normalizeText("The drum is under the play table.")]: {
@@ -15011,6 +22871,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/drag_drying_mat_success_a5fdbb47.wav",
       text: "The drying mat is in the right place.",
+    },
+  },
+  [normalizeText("The duck is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_duck_fail_2e5d938e.wav",
+      text: "The duck is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_duck_fail_2e5d938e.wav",
+      text: "The duck is on the right.",
     },
   },
   [normalizeText("The egg is on the left.")]: {
@@ -15043,6 +22913,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The eraser is on the right.",
     },
   },
+  [normalizeText("The family photo is hanging on the wall.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/drag_family_photo_fail_a27beb25.wav",
+      text: "The family photo is hanging on the wall.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/drag_family_photo_fail_a27beb25.wav",
+      text: "The family photo is hanging on the wall.",
+    },
+  },
+  [normalizeText("The family photo is in the right place.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/drag_family_photo_success_397bf39c.wav",
+      text: "The family photo is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/drag_family_photo_success_397bf39c.wav",
+      text: "The family photo is in the right place.",
+    },
+  },
+  [normalizeText("The farm animals are lovely!")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/intro_success_dab7c22d.wav",
+      text: "The farm animals are lovely!",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/intro_success_dab7c22d.wav",
+      text: "The farm animals are lovely!",
+    },
+  },
   [normalizeText("The fish is in the middle of the dining table.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/tap_fish_fail_150a2c32.wav",
@@ -15053,6 +22953,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The fish is in the middle of the dining table.",
     },
   },
+  [normalizeText("The flag is next to the lifeguard.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_flag_fail_71b2037b.wav",
+      text: "The flag is next to the lifeguard.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_flag_fail_71b2037b.wav",
+      text: "The flag is next to the lifeguard.",
+    },
+  },
   [normalizeText("The floor is by your feet.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/tap_floor_fail_7d0e0788.wav",
@@ -15061,6 +22971,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/tap_floor_fail_7d0e0788.wav",
       text: "The floor is by your feet.",
+    },
+  },
+  [normalizeText("The flower is growing on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_flower_fail_cc95b5d3.wav",
+      text: "The flower is growing on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_flower_fail_cc95b5d3.wav",
+      text: "The flower is growing on the right.",
     },
   },
   [normalizeText("The foam is in the bathtub.")]: {
@@ -15093,6 +23013,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The food cover is in the right place.",
     },
   },
+  [normalizeText("The footprints are under the sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_footprints_fail_184bc059.wav",
+      text: "The footprints are under the sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_footprints_fail_184bc059.wav",
+      text: "The footprints are under the sandcastle.",
+    },
+  },
   [normalizeText("The fork is near the spoon.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_tap_fork_fail_b8677619.wav",
@@ -15101,6 +23031,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_fork_fail_b8677619.wav",
       text: "The fork is near the spoon.",
+    },
+  },
+  [normalizeText("The fountain is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_fountain_fail_2663c233.wav",
+      text: "The fountain is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_fountain_fail_2663c233.wav",
+      text: "The fountain is on the right.",
+    },
+  },
+  [normalizeText("The frisbee is at the top.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_frisbee_fail_7aa591c4.wav",
+      text: "The frisbee is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_frisbee_fail_7aa591c4.wav",
+      text: "The frisbee is at the top.",
+    },
+  },
+  [normalizeText("The front door is at the top center.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_front_door_fail_1f93f473.wav",
+      text: "The front door is at the top center.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_front_door_fail_1f93f473.wav",
+      text: "The front door is at the top center.",
+    },
+  },
+  [normalizeText("The fruit bowl is on the blue scale.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_fruit_fail_022608e7.wav",
+      text: "The fruit bowl is on the blue scale.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_fruit_fail_022608e7.wav",
+      text: "The fruit bowl is on the blue scale.",
     },
   },
   [normalizeText("The fruit is in the right place.")]: {
@@ -15113,6 +23083,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The fruit is in the right place.",
     },
   },
+  [normalizeText("The fruit plate is to the left of the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_fruit_fail_fa838295.wav",
+      text: "The fruit plate is to the left of the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_fruit_fail_fa838295.wav",
+      text: "The fruit plate is to the left of the cake.",
+    },
+  },
+  [normalizeText("The game box is on the left side of the rug.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_game_fail_fd36d719.wav",
+      text: "The game box is on the left side of the rug.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_game_fail_fd36d719.wav",
+      text: "The game box is on the left side of the rug.",
+    },
+  },
+  [normalizeText("The garden bed is on the left.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_garden_fail_491f7938.wav",
+      text: "The garden bed is on the left.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_garden_fail_491f7938.wav",
+      text: "The garden bed is on the left.",
+    },
+  },
+  [normalizeText("The garden is so green!")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/intro_success_146da1e0.wav",
+      text: "The garden is so green!",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/intro_success_146da1e0.wav",
+      text: "The garden is so green!",
+    },
+  },
+  [normalizeText("The gate is on the left.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_gate_fail_1ce793a4.wav",
+      text: "The gate is on the left.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_gate_fail_1ce793a4.wav",
+      text: "The gate is on the left.",
+    },
+  },
+  [normalizeText("The gift and decorations are ready.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/completion_b11dc213.wav",
+      text: "The gift and decorations are ready.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/completion_b11dc213.wav",
+      text: "The gift and decorations are ready.",
+    },
+  },
+  [normalizeText("The gift-wrapping card is at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_wrap_gift_fail_ed04b472.wav",
+      text: "The gift-wrapping card is at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_wrap_gift_fail_ed04b472.wav",
+      text: "The gift-wrapping card is at the bottom left.",
+    },
+  },
+  [normalizeText("The giraffe is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_giraffe_fail_32833786.wav",
+      text: "The giraffe is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_giraffe_fail_32833786.wav",
+      text: "The giraffe is on the right.",
+    },
+  },
   [normalizeText("The glow sticker is in the right place.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/drag_glow_sticker_success_496cb50c.wav",
@@ -15121,6 +23171,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/drag_glow_sticker_success_496cb50c.wav",
       text: "The glow sticker is in the right place.",
+    },
+  },
+  [normalizeText("The goat is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_goat_fail_f3e7245f.wav",
+      text: "The goat is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_goat_fail_f3e7245f.wav",
+      text: "The goat is on the right.",
+    },
+  },
+  [normalizeText("The green counter is in the middle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_counter_fail_2b1489aa.wav",
+      text: "The green counter is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_counter_fail_2b1489aa.wav",
+      text: "The green counter is in the middle.",
+    },
+  },
+  [normalizeText("The habitat is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_habitat_fail_6103f170.wav",
+      text: "The habitat is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_habitat_fail_6103f170.wav",
+      text: "The habitat is on the right.",
+    },
+  },
+  [normalizeText("The hand gel is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_hand_gel_fail_8fa24ba4.wav",
+      text: "The hand gel is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_hand_gel_fail_8fa24ba4.wav",
+      text: "The hand gel is on the right.",
+    },
+  },
+  [normalizeText("The helmet is nearby.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_helmet_fail_0e4d1870.wav",
+      text: "The helmet is nearby.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_helmet_fail_0e4d1870.wav",
+      text: "The helmet is nearby.",
     },
   },
   [normalizeText("The hook is on the wall.")]: {
@@ -15153,6 +23253,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The humidifier is in the right place.",
     },
   },
+  [normalizeText("The invitation is on the left side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_invitation_fail_3cf28776.wav",
+      text: "The invitation is on the left side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_invitation_fail_3cf28776.wav",
+      text: "The invitation is on the left side of the table.",
+    },
+  },
   [normalizeText("The jacket is next to the bag.")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/tap_jacket_fail_806fe78d.wav",
@@ -15163,6 +23273,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The jacket is next to the bag.",
     },
   },
+  [normalizeText("The joining-in card is at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_join_game_fail_e45700a5.wav",
+      text: "The joining-in card is at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_join_game_fail_e45700a5.wav",
+      text: "The joining-in card is at the bottom right.",
+    },
+  },
   [normalizeText("The juice is on the left.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_juice_fail_be13fd9b.wav",
@@ -15171,6 +23291,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_juice_fail_be13fd9b.wav",
       text: "The juice is on the left.",
+    },
+  },
+  [normalizeText("The juice is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_juice_fail_f675ff27.wav",
+      text: "The juice is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_juice_fail_f675ff27.wav",
+      text: "The juice is on the right.",
     },
   },
   [normalizeText("The kite is in the sky.")]: {
@@ -15223,6 +23353,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The lamp is next to the bed.",
     },
   },
+  [normalizeText("The large gift is in the middle of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_gift_fail_6dbbfabf.wav",
+      text: "The large gift is in the middle of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_gift_fail_6dbbfabf.wav",
+      text: "The large gift is in the middle of the table.",
+    },
+  },
+  [normalizeText("The leaf is in the right place.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_leaf_success_a24153e7.wav",
+      text: "The leaf is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_leaf_success_a24153e7.wav",
+      text: "The leaf is in the right place.",
+    },
+  },
+  [normalizeText("The leaf is on the ground.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_leaf_fail_c1161848.wav",
+      text: "The leaf is on the ground.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_leaf_fail_c1161848.wav",
+      text: "The leaf is on the ground.",
+    },
+  },
   [normalizeText("The leftovers are in the middle of the clean-up area.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/tap_leftovers_fail_54d218ef.wav",
@@ -15243,6 +23403,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The leftovers are on the kitchen counter.",
     },
   },
+  [normalizeText("The librarian is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_librarian_fail_10c72b0b.wav",
+      text: "The librarian is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_librarian_fail_10c72b0b.wav",
+      text: "The librarian is on the right.",
+    },
+  },
+  [normalizeText("The library card is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_library_card_fail_4d46ab16.wav",
+      text: "The library card is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_library_card_fail_4d46ab16.wav",
+      text: "The library card is on the right.",
+    },
+  },
+  [normalizeText("The life jacket is in the right place.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/drag_life_jacket_success_d7103a49.wav",
+      text: "The life jacket is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/drag_life_jacket_success_d7103a49.wav",
+      text: "The life jacket is in the right place.",
+    },
+  },
+  [normalizeText("The life jacket is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/drag_life_jacket_fail_d2b94bc8.wav",
+      text: "The life jacket is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/drag_life_jacket_fail_d2b94bc8.wav",
+      text: "The life jacket is on the right.",
+    },
+  },
+  [normalizeText("The lifeguard is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_lifeguard_fail_8b09a3e5.wav",
+      text: "The lifeguard is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_lifeguard_fail_8b09a3e5.wav",
+      text: "The lifeguard is on the right.",
+    },
+  },
   [normalizeText("The lights are softer now.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/tap_dim_lights_success_1a540f20.wav",
@@ -15251,6 +23461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/tap_dim_lights_success_1a540f20.wav",
       text: "The lights are softer now.",
+    },
+  },
+  [normalizeText("The list is inside the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_shopping_list_fail_8958c098.wav",
+      text: "The list is inside the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_shopping_list_fail_8958c098.wav",
+      text: "The list is inside the cart.",
     },
   },
   [normalizeText("The lullaby is at the top.")]: {
@@ -15283,6 +23503,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The lunchbox is in the middle of the tray.",
     },
   },
+  [normalizeText("The mask is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_mask_fail_5d8ca2dc.wav",
+      text: "The mask is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_mask_fail_5d8ca2dc.wav",
+      text: "The mask is on the right.",
+    },
+  },
+  [normalizeText("The medicine is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_medicine_fail_966c69b4.wav",
+      text: "The medicine is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_medicine_fail_966c69b4.wav",
+      text: "The medicine is on the right.",
+    },
+  },
+  [normalizeText("The medicine spoon is in the middle of the medicine.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drag_spoon_fail_b3806548.wav",
+      text: "The medicine spoon is in the middle of the medicine.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/drag_spoon_fail_b3806548.wav",
+      text: "The medicine spoon is in the middle of the medicine.",
+    },
+  },
+  [normalizeText("The medicine spoon is in the right place.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drag_spoon_success_c5cdab52.wav",
+      text: "The medicine spoon is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/drag_spoon_success_c5cdab52.wav",
+      text: "The medicine spoon is in the right place.",
+    },
+  },
   [normalizeText("The mirror is above the sink.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/review_mirror_fail_05b23093.wav",
@@ -15291,6 +23551,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/review_mirror_fail_05b23093.wav",
       text: "The mirror is above the sink.",
+    },
+  },
+  [normalizeText("The monkey is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_monkey_fail_f15c54eb.wav",
+      text: "The monkey is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_monkey_fail_f15c54eb.wav",
+      text: "The monkey is on the right.",
     },
   },
   [normalizeText("The moon mobile is at the top.")]: {
@@ -15313,6 +23583,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The music sounds fun!",
     },
   },
+  [normalizeText("The music speaker is on the bench.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_music_fail_8d49a55f.wav",
+      text: "The music speaker is on the bench.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_music_fail_8d49a55f.wav",
+      text: "The music speaker is on the bench.",
+    },
+  },
   [normalizeText("The napkin is near the edge of the table.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_napkin_fail_3318bddb.wav",
@@ -15321,6 +23601,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_napkin_fail_3318bddb.wav",
       text: "The napkin is near the edge of the table.",
+    },
+  },
+  [normalizeText("The napkin is on the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_napkin_fail_2f361c4c.wav",
+      text: "The napkin is on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_napkin_fail_2f361c4c.wav",
+      text: "The napkin is on the mat.",
     },
   },
   [normalizeText("The napkin is on the table.")]: {
@@ -15353,6 +23643,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The noodles are in the meal area.",
     },
   },
+  [normalizeText("The nurse is at the top.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_nurse_fail_38e91079.wav",
+      text: "The nurse is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_nurse_fail_38e91079.wav",
+      text: "The nurse is at the top.",
+    },
+  },
+  [normalizeText("The orange carrot is in the basket of vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_carrot_fail_1f644718.wav",
+      text: "The orange carrot is in the basket of vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_carrot_fail_1f644718.wav",
+      text: "The orange carrot is in the basket of vegetables.",
+    },
+  },
+  [normalizeText("The otoscope is at the top.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/drag_otoscope_fail_7a2d51d3.wav",
+      text: "The otoscope is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/drag_otoscope_fail_7a2d51d3.wav",
+      text: "The otoscope is at the top.",
+    },
+  },
+  [normalizeText("The otoscope is in the right place.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/drag_otoscope_success_ab9ade47.wav",
+      text: "The otoscope is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/drag_otoscope_success_ab9ade47.wav",
+      text: "The otoscope is in the right place.",
+    },
+  },
+  [normalizeText("The page is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_page_fail_973f642b.wav",
+      text: "The page is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_page_fail_973f642b.wav",
+      text: "The page is on the right.",
+    },
+  },
   [normalizeText("The page tab is in the right place.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/drag_page_tab_success_55bf892f.wav",
@@ -15373,6 +23713,96 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The pajamas are next to you.",
     },
   },
+  [normalizeText("The paper cup is on the right side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_cup_fail_b33c0308.wav",
+      text: "The paper cup is on the right side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_cup_fail_b33c0308.wav",
+      text: "The paper cup is on the right side of the table.",
+    },
+  },
+  [normalizeText("The paper plate is to the right of the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/tap_plate_fail_40724b2a.wav",
+      text: "The paper plate is to the right of the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/tap_plate_fail_40724b2a.wav",
+      text: "The paper plate is to the right of the cake.",
+    },
+  },
+  [normalizeText("The park is wide and green!")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/intro_success_46f948bb.wav",
+      text: "The park is wide and green!",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/intro_success_46f948bb.wav",
+      text: "The park is wide and green!",
+    },
+  },
+  [normalizeText("The park map is next to the fountain.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_map_fail_0b824192.wav",
+      text: "The park map is next to the fountain.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_map_fail_0b824192.wav",
+      text: "The park map is next to the fountain.",
+    },
+  },
+  [normalizeText("The party hat is in the right place.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/drag_party_hat_success_f4f1dbe6.wav",
+      text: "The party hat is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/drag_party_hat_success_f4f1dbe6.wav",
+      text: "The party hat is in the right place.",
+    },
+  },
+  [normalizeText("The party hat is on the right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/drag_party_hat_fail_7ab32ea0.wav",
+      text: "The party hat is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/drag_party_hat_fail_7ab32ea0.wav",
+      text: "The party hat is on the right.",
+    },
+  },
+  [normalizeText("The party will be fun!")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/intro_success_7d8e0fa4.wav",
+      text: "The party will be fun!",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/intro_success_7d8e0fa4.wav",
+      text: "The party will be fun!",
+    },
+  },
+  [normalizeText("The path is at the top.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_path_fail_64de667a.wav",
+      text: "The path is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_path_fail_64de667a.wav",
+      text: "The path is at the top.",
+    },
+  },
+  [normalizeText("The payment card is left of the receipt.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_card_fail_34ccd3d0.wav",
+      text: "The payment card is left of the receipt.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_card_fail_34ccd3d0.wav",
+      text: "The payment card is left of the receipt.",
+    },
+  },
   [normalizeText("The pencil is in the right place.")]: {
     "en-US": {
       key: "lessons/at-school/teacher-instructions/audio/en-US/neural2-c-r1/instructions_drag_pencil_to_notebook_success_d12c1c5d.wav",
@@ -15391,6 +23821,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_drag_pencil_to_table_success_c5db4079.wav",
       text: "The pencil is on the table.",
+    },
+  },
+  [normalizeText("The picnic mat is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_picnic_mat_fail_8747d7b5.wav",
+      text: "The picnic mat is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_picnic_mat_fail_8747d7b5.wav",
+      text: "The picnic mat is on the right.",
+    },
+  },
+  [normalizeText("The picture book is in the right place.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/drag_picture_book_success_26b35bd4.wav",
+      text: "The picture book is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/drag_picture_book_success_26b35bd4.wav",
+      text: "The picture book is in the right place.",
+    },
+  },
+  [normalizeText("The picture book is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/drag_picture_book_fail_d917aed1.wav",
+      text: "The picture book is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/drag_picture_book_fail_d917aed1.wav",
+      text: "The picture book is on the right.",
+    },
+  },
+  [normalizeText("The piglet is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_piglet_fail_637bd2e6.wav",
+      text: "The piglet is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_piglet_fail_637bd2e6.wav",
+      text: "The piglet is on the right.",
     },
   },
   [normalizeText("The pillow is in the box.")]: {
@@ -15423,6 +23893,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The placemat is in the right place.",
     },
   },
+  [normalizeText("The plant pot is on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_plant_pot_fail_dba3b358.wav",
+      text: "The plant pot is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_plant_pot_fail_dba3b358.wav",
+      text: "The plant pot is on the right.",
+    },
+  },
   [normalizeText("The plate is on the table.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_tap_plate_fail_837b3c2f.wav",
@@ -15453,6 +23933,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The pot holder is on the left.",
     },
   },
+  [normalizeText("The prize is on the right side of the bench.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_prize_fail_d948d5b9.wav",
+      text: "The prize is on the right side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_prize_fail_d948d5b9.wav",
+      text: "The prize is on the right side of the bench.",
+    },
+  },
+  [normalizeText("The puppet is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_puppet_fail_94d53133.wav",
+      text: "The puppet is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_puppet_fail_94d53133.wav",
+      text: "The puppet is on the right.",
+    },
+  },
+  [normalizeText("The purple grapes are just above the blue scale.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_grapes_fail_4f4c2213.wav",
+      text: "The purple grapes are just above the blue scale.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/drag_grapes_fail_4f4c2213.wav",
+      text: "The purple grapes are just above the blue scale.",
+    },
+  },
   [normalizeText("The puzzle is next to the paper.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_puzzle_fail_d5d6ac61.wav",
@@ -15461,6 +23971,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/tap_puzzle_fail_d5d6ac61.wav",
       text: "The puzzle is next to the paper.",
+    },
+  },
+  [normalizeText("The puzzle is on the right side of the rug.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_puzzle_fail_fb5b1761.wav",
+      text: "The puzzle is on the right side of the rug.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_puzzle_fail_fb5b1761.wav",
+      text: "The puzzle is on the right side of the rug.",
+    },
+  },
+  [normalizeText("The quiet sign is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_quiet_sign_fail_028c64c3.wav",
+      text: "The quiet sign is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_quiet_sign_fail_028c64c3.wav",
+      text: "The quiet sign is on the right.",
     },
   },
   [normalizeText("The raisins are next to the cracker.")]: {
@@ -15473,6 +24003,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The raisins are next to the cracker.",
     },
   },
+  [normalizeText("The reading chair is at the top.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/tap_reading_chair_fail_d0360cd8.wav",
+      text: "The reading chair is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/tap_reading_chair_fail_d0360cd8.wav",
+      text: "The reading chair is at the top.",
+    },
+  },
+  [normalizeText("The receipt is below the cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_receipt_fail_362e477d.wav",
+      text: "The receipt is below the cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_receipt_fail_362e477d.wav",
+      text: "The receipt is below the cashier.",
+    },
+  },
   [normalizeText("The recycling bin is on the left.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_recycling_bin_fail_516c0cff.wav",
@@ -15481,6 +24031,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_recycling_bin_fail_516c0cff.wav",
       text: "The recycling bin is on the left.",
+    },
+  },
+  [normalizeText("The red basket is on the right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_basket_fail_2921fb22.wav",
+      text: "The red basket is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_basket_fail_2921fb22.wav",
+      text: "The red basket is on the right.",
+    },
+  },
+  [normalizeText("The red tomato is in the basket of vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_tomato_fail_79d42478.wav",
+      text: "The red tomato is in the basket of vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_tomato_fail_79d42478.wav",
+      text: "The red tomato is in the basket of vegetables.",
+    },
+  },
+  [normalizeText("The rest is at the top.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drag_rest_card_fail_dff37e06.wav",
+      text: "The rest is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/drag_rest_card_fail_dff37e06.wav",
+      text: "The rest is at the top.",
+    },
+  },
+  [normalizeText("The ribbon is on the right side of the table.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_ribbon_fail_d78b469e.wav",
+      text: "The ribbon is on the right side of the table.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_ribbon_fail_d78b469e.wav",
+      text: "The ribbon is on the right side of the table.",
     },
   },
   [normalizeText("The rice is to the left of the lunchbox.")]: {
@@ -15533,6 +24123,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The room is calm. Let's get ready to sleep.",
     },
   },
+  [normalizeText("The room-decorating card is at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/tap_decorate_room_fail_3f227e65.wav",
+      text: "The room-decorating card is at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/tap_decorate_room_fail_3f227e65.wav",
+      text: "The room-decorating card is at the bottom right.",
+    },
+  },
   [normalizeText("The rope is on the left.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/games_tap_rope_fail_e2b8bf3c.wav",
@@ -15573,6 +24173,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The salad is next to the meal area.",
     },
   },
+  [normalizeText("The sand feels soft!")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/intro_success_e713d265.wav",
+      text: "The sand feels soft!",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/intro_success_e713d265.wav",
+      text: "The sand feels soft!",
+    },
+  },
   [normalizeText("The sandbox is on the right.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_sandbox_fail_2f52b7bf.wav",
@@ -15581,6 +24191,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/tap_sandbox_fail_2f52b7bf.wav",
       text: "The sandbox is on the right.",
+    },
+  },
+  [normalizeText("The sandcastle is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_sandcastle_fail_55a0fed3.wav",
+      text: "The sandcastle is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_sandcastle_fail_55a0fed3.wav",
+      text: "The sandcastle is on the right.",
+    },
+  },
+  [normalizeText("The sandwich is in the right place.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/drag_sandwich_success_52079cff.wav",
+      text: "The sandwich is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/drag_sandwich_success_52079cff.wav",
+      text: "The sandwich is in the right place.",
+    },
+  },
+  [normalizeText("The sandwich is on the mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/drag_sandwich_fail_0ff6bf5a.wav",
+      text: "The sandwich is on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/drag_sandwich_fail_0ff6bf5a.wav",
+      text: "The sandwich is on the mat.",
     },
   },
   [normalizeText("The sauce is on the right.")]: {
@@ -15593,6 +24233,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The sauce is on the right.",
     },
   },
+  [normalizeText("The scanner is left of the payment card.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_scanner_fail_931a8293.wav",
+      text: "The scanner is left of the payment card.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_scanner_fail_931a8293.wav",
+      text: "The scanner is left of the payment card.",
+    },
+  },
   [normalizeText("The school is on the right.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_review_school_fail_f7ec17ea.wav",
@@ -15603,6 +24253,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The school is on the right.",
     },
   },
+  [normalizeText("The scooter is in the right place.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/drag_scooter_success_546a43da.wav",
+      text: "The scooter is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/drag_scooter_success_546a43da.wav",
+      text: "The scooter is in the right place.",
+    },
+  },
+  [normalizeText("The scooter is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/drag_scooter_fail_bc6c3752.wav",
+      text: "The scooter is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/drag_scooter_fail_bc6c3752.wav",
+      text: "The scooter is on the right.",
+    },
+  },
   [normalizeText("The scraper is on the left.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/tap_scraper_fail_188f8997.wav",
@@ -15611,6 +24281,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_scraper_fail_188f8997.wav",
       text: "The scraper is on the left.",
+    },
+  },
+  [normalizeText("The sea is in the middle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_sea_fail_2078835a.wav",
+      text: "The sea is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_sea_fail_2078835a.wav",
+      text: "The sea is in the middle.",
     },
   },
   [normalizeText("The seat belt is in the right place.")]: {
@@ -15663,6 +24343,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The shampoo is next to the bath sponge.",
     },
   },
+  [normalizeText("The sheep is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_sheep_fail_cb649536.wav",
+      text: "The sheep is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_sheep_fail_cb649536.wav",
+      text: "The sheep is on the right.",
+    },
+  },
+  [normalizeText("The shelf is at the top.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_shelf_fail_665b02b6.wav",
+      text: "The shelf is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_shelf_fail_665b02b6.wav",
+      text: "The shelf is at the top.",
+    },
+  },
   [normalizeText("The shelf is behind the toy.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/tap_shelf_fail_e448967a.wav",
@@ -15681,6 +24381,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/tap_shelf_fail_b952436a.wav",
       text: "The shelf is next to the shoes.",
+    },
+  },
+  [normalizeText("The shell is in the right place.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/drag_shell_success_7a1dc2ee.wav",
+      text: "The shell is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/drag_shell_success_7a1dc2ee.wav",
+      text: "The shell is in the right place.",
+    },
+  },
+  [normalizeText("The shell is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/drag_shell_fail_4fafba76.wav",
+      text: "The shell is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/drag_shell_fail_4fafba76.wav",
+      text: "The shell is on the right.",
     },
   },
   [normalizeText("The shoes are by your feet.")]: {
@@ -15703,6 +24423,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The shoes are in the right place.",
     },
   },
+  [normalizeText("The shoes are on the floor near the door.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/drag_shoes_fail_fe768f90.wav",
+      text: "The shoes are on the floor near the door.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/drag_shoes_fail_fe768f90.wav",
+      text: "The shoes are on the floor near the door.",
+    },
+  },
+  [normalizeText("The shopping bag is at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/drag_bag_fail_48ef0952.wav",
+      text: "The shopping bag is at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/drag_bag_fail_48ef0952.wav",
+      text: "The shopping bag is at the bottom right.",
+    },
+  },
+  [normalizeText("The shopping-list card is at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_make_list_fail_1b3a3f13.wav",
+      text: "The shopping-list card is at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_make_list_fail_1b3a3f13.wav",
+      text: "The shopping-list card is at the bottom left.",
+    },
+  },
   [normalizeText("The shoulder is near your neck.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_shoulder_fail_32552654.wav",
@@ -15711,6 +24461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_shoulder_fail_32552654.wav",
       text: "The shoulder is near your neck.",
+    },
+  },
+  [normalizeText("The shovel is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/tap_shovel_fail_44fdffdf.wav",
+      text: "The shovel is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/tap_shovel_fail_44fdffdf.wav",
+      text: "The shovel is on the right.",
     },
   },
   [normalizeText("The shower head is on the right.")]: {
@@ -15731,6 +24491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/tap_shower_fail_0ed09fcb.wav",
       text: "The shower is above the bathtub.",
+    },
+  },
+  [normalizeText("The shower is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_shower_fail_68f4be92.wav",
+      text: "The shower is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_shower_fail_68f4be92.wav",
+      text: "The shower is on the right.",
     },
   },
   [normalizeText("The sink is on the right.")]: {
@@ -15773,6 +24543,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The slide is on the right.",
     },
   },
+  [normalizeText("The slippers are on the floor.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_slippers_fail_db2694fb.wav",
+      text: "The slippers are on the floor.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_slippers_fail_db2694fb.wav",
+      text: "The slippers are on the floor.",
+    },
+  },
   [normalizeText("The slippers are on your feet.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/drag_slippers_to_feet_success_6474c709.wav",
@@ -15781,6 +24561,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/drag_slippers_to_feet_success_6474c709.wav",
       text: "The slippers are on your feet.",
+    },
+  },
+  [normalizeText("The small bag is on the right.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_bag_fail_745e90b8.wav",
+      text: "The small bag is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_bag_fail_745e90b8.wav",
+      text: "The small bag is on the right.",
     },
   },
   [normalizeText("The small sip is in the cup with the straw.")]: {
@@ -15973,6 +24763,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The star projector is on the left.",
     },
   },
+  [normalizeText("The stethoscope is at the top.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_stethoscope_fail_7a67b3b9.wav",
+      text: "The stethoscope is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_stethoscope_fail_7a67b3b9.wav",
+      text: "The stethoscope is at the top.",
+    },
+  },
+  [normalizeText("The sticker is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_sticker_fail_98f6293e.wav",
+      text: "The sticker is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_sticker_fail_98f6293e.wav",
+      text: "The sticker is on the right.",
+    },
+  },
+  [normalizeText("The story bell is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_library_bell_fail_cc9f5d85.wav",
+      text: "The story bell is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_library_bell_fail_cc9f5d85.wav",
+      text: "The story bell is on the right.",
+    },
+  },
+  [normalizeText("The story card is in the middle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/drag_story_card_fail_6038d5ae.wav",
+      text: "The story card is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/drag_story_card_fail_6038d5ae.wav",
+      text: "The story card is in the middle.",
+    },
+  },
+  [normalizeText("The story card is in the right place.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/drag_story_card_success_210d06be.wav",
+      text: "The story card is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/drag_story_card_success_210d06be.wav",
+      text: "The story card is in the right place.",
+    },
+  },
   [normalizeText("The story shelf is on the right.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/tap_story_shelf_fail_3c1f323a.wav",
@@ -16003,6 +24843,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The storybook is on the small table.",
     },
   },
+  [normalizeText("The storyteller is on the right.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_storyteller_fail_77acd1a6.wav",
+      text: "The storyteller is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/tap_storyteller_fail_77acd1a6.wav",
+      text: "The storyteller is on the right.",
+    },
+  },
   [normalizeText("The straw is in the right place.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/drag_straw_to_juice_success_571a21d4.wav",
@@ -16013,6 +24863,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The straw is in the right place.",
     },
   },
+  [normalizeText("The sun hat is at the top.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/drag_sun_hat_fail_9e909396.wav",
+      text: "The sun hat is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/drag_sun_hat_fail_9e909396.wav",
+      text: "The sun hat is at the top.",
+    },
+  },
+  [normalizeText("The sun hat is in the right place.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/drag_sun_hat_success_38106829.wav",
+      text: "The sun hat is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/drag_sun_hat_success_38106829.wav",
+      text: "The sun hat is in the right place.",
+    },
+  },
   [normalizeText("The sun is up high.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/review_sun_fail_fcbb70a8.wav",
@@ -16021,6 +24891,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bedroom/audio/en-GB/neural2-c-r1/review_sun_fail_fcbb70a8.wav",
       text: "The sun is up high.",
+    },
+  },
+  [normalizeText("The sunglasses are on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_sunglasses_fail_5045a331.wav",
+      text: "The sunglasses are on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_sunglasses_fail_5045a331.wav",
+      text: "The sunglasses are on the right.",
+    },
+  },
+  [normalizeText("The sunscreen is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_sunscreen_fail_a468ee9f.wav",
+      text: "The sunscreen is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_sunscreen_fail_a468ee9f.wav",
+      text: "The sunscreen is on the right.",
     },
   },
   [normalizeText("The swing is to the left of the playground.")]: {
@@ -16041,6 +24931,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_table_fail_23153044.wav",
       text: "The table is in the middle of the room.",
+    },
+  },
+  [normalizeText("The taking-turns card is at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_take_turns_fail_09d79a41.wav",
+      text: "The taking-turns card is at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_take_turns_fail_09d79a41.wav",
+      text: "The taking-turns card is at the bottom left.",
     },
   },
   [normalizeText("The teacher is on the left.")]: {
@@ -16093,6 +24993,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The teacher says, \"Write your name.\"",
     },
   },
+  [normalizeText("The team is at the top.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_team_fail_3e333386.wav",
+      text: "The team is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_team_fail_3e333386.wav",
+      text: "The team is at the top.",
+    },
+  },
+  [normalizeText("The thank-you card is in the right place.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/drag_thank_you_card_success_fd07db57.wav",
+      text: "The thank-you card is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/drag_thank_you_card_success_fd07db57.wav",
+      text: "The thank-you card is in the right place.",
+    },
+  },
+  [normalizeText("The thank-you card is near the small bag.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/drag_thank_you_card_fail_061304d1.wav",
+      text: "The thank-you card is near the small bag.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/drag_thank_you_card_fail_061304d1.wav",
+      text: "The thank-you card is near the small bag.",
+    },
+  },
+  [normalizeText("The thank-you card is to the right of the cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/tap_say_thank_you_fail_c4656cf1.wav",
+      text: "The thank-you card is to the right of the cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/tap_say_thank_you_fail_c4656cf1.wav",
+      text: "The thank-you card is to the right of the cashier.",
+    },
+  },
+  [normalizeText("The thermometer is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_thermometer_fail_e7233c04.wav",
+      text: "The thermometer is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_thermometer_fail_e7233c04.wav",
+      text: "The thermometer is on the right.",
+    },
+  },
+  [normalizeText("The ticket is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_ticket_fail_d37bb98b.wav",
+      text: "The ticket is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_ticket_fail_d37bb98b.wav",
+      text: "The ticket is on the right.",
+    },
+  },
   [normalizeText("The timer is on the right.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/tap_timer_fail_11cab515.wav",
@@ -16101,6 +25061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/tap_timer_fail_11cab515.wav",
       text: "The timer is on the right.",
+    },
+  },
+  [normalizeText("The tissue is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_tissue_fail_a18fa66a.wav",
+      text: "The tissue is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_tissue_fail_a18fa66a.wav",
+      text: "The tissue is on the right.",
     },
   },
   [normalizeText("The tongs are on the right.")]: {
@@ -16203,6 +25173,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The traffic light is to the left of the road.",
     },
   },
+  [normalizeText("The trash bin is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/tap_trash_bin_fail_cd44eb19.wav",
+      text: "The trash bin is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_trash_bin_fail_cd44eb19.wav",
+      text: "The trash bin is on the right.",
+    },
+  },
   [normalizeText("The tray is on the small table.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_tray_fail_0d9f8f2f.wav",
@@ -16213,6 +25193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The tray is on the small table.",
     },
   },
+  [normalizeText("The tree is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_tree_fail_c017a235.wav",
+      text: "The tree is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_tree_fail_c017a235.wav",
+      text: "The tree is on the right.",
+    },
+  },
   [normalizeText("The uniform is on the left.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_tap_uniform_fail_f8fa9cbf.wav",
@@ -16221,6 +25211,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/school_tap_uniform_fail_f8fa9cbf.wav",
       text: "The uniform is on the left.",
+    },
+  },
+  [normalizeText("The vegetables are in the basket just to your right.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tap_vegetables_fail_2168d0aa.wav",
+      text: "The vegetables are in the basket just to your right.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_vegetables_fail_2168d0aa.wav",
+      text: "The vegetables are in the basket just to your right.",
     },
   },
   [normalizeText("The vegetables are to the left of the fish.")]: {
@@ -16243,6 +25243,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The wait icon is next to the sharing card.",
     },
   },
+  [normalizeText("The waiting room is on the right.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/tap_waiting_room_fail_26b2a0b3.wav",
+      text: "The waiting room is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_waiting_room_fail_26b2a0b3.wav",
+      text: "The waiting room is on the right.",
+    },
+  },
+  [normalizeText("The wallet is inside the red basket.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_wallet_fail_e840f8ed.wav",
+      text: "The wallet is inside the red basket.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_wallet_fail_e840f8ed.wav",
+      text: "The wallet is inside the red basket.",
+    },
+  },
+  [normalizeText("The water bottle is on the right.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/tap_water_bottle_fail_da85021a.wav",
+      text: "The water bottle is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_water_bottle_fail_da85021a.wav",
+      text: "The water bottle is on the right.",
+    },
+  },
+  [normalizeText("The water is at the top.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_water_fail_964aae9f.wav",
+      text: "The water is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_water_fail_964aae9f.wav",
+      text: "The water is at the top.",
+    },
+  },
   [normalizeText("The water is near the sink.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/tap_water_fail_06a3c780.wav",
@@ -16261,6 +25301,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playtime-rest/audio/en-GB/neural2-c-r1/rest_tap_water_fail_68cf7dd4.wav",
       text: "The water is on the small table.",
+    },
+  },
+  [normalizeText("The watering can is in the right place.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_watering_can_success_d21fe42e.wav",
+      text: "The watering can is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_watering_can_success_d21fe42e.wav",
+      text: "The watering can is in the right place.",
+    },
+  },
+  [normalizeText("The watering can is near the plant pot.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_watering_can_fail_8b1ef465.wav",
+      text: "The watering can is near the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_watering_can_fail_8b1ef465.wav",
+      text: "The watering can is near the plant pot.",
+    },
+  },
+  [normalizeText("The wave is at the top.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/tap_wave_fail_893540de.wav",
+      text: "The wave is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/tap_wave_fail_893540de.wav",
+      text: "The wave is at the top.",
+    },
+  },
+  [normalizeText("The weighing scale is in the middle.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/tap_weighing_scale_fail_b087b504.wav",
+      text: "The weighing scale is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_weighing_scale_fail_b087b504.wav",
+      text: "The weighing scale is in the middle.",
+    },
+  },
+  [normalizeText("The whistle is in the right place.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/drag_whistle_success_3b5f6664.wav",
+      text: "The whistle is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/drag_whistle_success_3b5f6664.wav",
+      text: "The whistle is in the right place.",
+    },
+  },
+  [normalizeText("The whistle is on the right.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/drag_whistle_fail_3a0ac736.wav",
+      text: "The whistle is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/drag_whistle_fail_3a0ac736.wav",
+      text: "The whistle is on the right.",
     },
   },
   [normalizeText("The window is on the bus.")]: {
@@ -16293,6 +25393,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The wrapper is on the tray.",
     },
   },
+  [normalizeText("The wristband is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_wristband_fail_614e3b3b.wav",
+      text: "The wristband is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_wristband_fail_614e3b3b.wav",
+      text: "The wristband is on the right.",
+    },
+  },
   [normalizeText("The yogurt is next to the snack.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/tap_yogurt_fail_eca5492d.wav",
@@ -16301,6 +25411,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/tap_yogurt_fail_eca5492d.wav",
       text: "The yogurt is next to the snack.",
+    },
+  },
+  [normalizeText("The zebra is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_zebra_fail_20060a1a.wav",
+      text: "The zebra is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_zebra_fail_20060a1a.wav",
+      text: "The zebra is on the right.",
+    },
+  },
+  [normalizeText("The zoo gate is at the top.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_gate_fail_e0271ed3.wav",
+      text: "The zoo gate is at the top.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_gate_fail_e0271ed3.wav",
+      text: "The zoo gate is at the top.",
+    },
+  },
+  [normalizeText("The zoo map is in the middle.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/drag_map_fail_0e775c90.wav",
+      text: "The zoo map is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/drag_map_fail_0e775c90.wav",
+      text: "The zoo map is in the middle.",
+    },
+  },
+  [normalizeText("The zoo map is in the right place.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/drag_map_success_5d605e4e.wav",
+      text: "The zoo map is in the right place.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/drag_map_success_5d605e4e.wav",
+      text: "The zoo map is in the right place.",
+    },
+  },
+  [normalizeText("The zoo path is at the bottom.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_path_fail_5b338dec.wav",
+      text: "The zoo path is at the bottom.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/tap_path_fail_5b338dec.wav",
+      text: "The zoo path is at the bottom.",
+    },
+  },
+  [normalizeText("The zoo sign is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_sign_fail_1f9236a6.wav",
+      text: "The zoo sign is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_sign_fail_1f9236a6.wav",
+      text: "The zoo sign is on the right.",
+    },
+  },
+  [normalizeText("The zookeeper is on the right.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_keeper_fail_c955d78e.wav",
+      text: "The zookeeper is on the right.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/tap_keeper_fail_c955d78e.wav",
+      text: "The zookeeper is on the right.",
     },
   },
   [normalizeText("There are a few spots after dinner. Let's clean them up.")]: {
@@ -16313,6 +25493,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "There are a few spots after dinner. Let's clean them up.",
     },
   },
+  [normalizeText("There are so many books!")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/intro_success_37bf8fc8.wav",
+      text: "There are so many books!",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/intro_success_37bf8fc8.wav",
+      text: "There are so many books!",
+    },
+  },
   [normalizeText("There's our home!")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/intro_success_fe47d459.wav",
@@ -16321,6 +25511,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/home-arrival/audio/en-GB/neural2-c-r1/intro_success_fe47d459.wav",
       text: "There's our home!",
+    },
+  },
+  [normalizeText("thermometer")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/thermometer.wav",
+      text: "thermometer",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/thermometer.wav",
+      text: "thermometer",
+    },
+  },
+  [normalizeText("These are the binoculars.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_binoculars_ddf65c79.wav",
+      text: "These are the binoculars.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_binoculars_ddf65c79.wav",
+      text: "These are the binoculars.",
     },
   },
   [normalizeText("These are the blocks.")]: {
@@ -16341,6 +25551,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/prompt_cleanup_teach_crumbs_038a9cd5.wav",
       text: "These are the crumbs.",
+    },
+  },
+  [normalizeText("These are the footprints.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_footprints_dbc4b86a.wav",
+      text: "These are the footprints.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_footprints_dbc4b86a.wav",
+      text: "These are the footprints.",
+    },
+  },
+  [normalizeText("These are the grapes.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_grapes_126f1c9c.wav",
+      text: "These are the grapes.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_grapes_126f1c9c.wav",
+      text: "These are the grapes.",
     },
   },
   [normalizeText("These are the leftovers.")]: {
@@ -16423,6 +25653,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the socks.",
     },
   },
+  [normalizeText("These are the sunglasses.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_sunglasses_b5b9de57.wav",
+      text: "These are the sunglasses.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_sunglasses_b5b9de57.wav",
+      text: "These are the sunglasses.",
+    },
+  },
   [normalizeText("These are the tongs.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_teach_tongs_cb8809bd.wav",
@@ -16461,6 +25701,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/prompt_teach_music_e6f1791b.wav",
       text: "This is music.",
+    },
+  },
+  [normalizeText("This is the aisle.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_aisle_69408eff.wav",
+      text: "This is the aisle.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_aisle_69408eff.wav",
+      text: "This is the aisle.",
+    },
+  },
+  [normalizeText("This is the alphabet book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_alphabet_book_e47a420f.wav",
+      text: "This is the alphabet book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_alphabet_book_e47a420f.wav",
+      text: "This is the alphabet book.",
     },
   },
   [normalizeText("This is the apple.")]: {
@@ -16519,6 +25779,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the ball.",
     },
   },
+  [normalizeText("This is the balloon.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_balloon_22c859a8.wav",
+      text: "This is the balloon.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_balloon_22c859a8.wav",
+      text: "This is the balloon.",
+    },
+  },
   [normalizeText("This is the banana.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_teach_banana_cc8e043c.wav",
@@ -16531,6 +25801,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/prompt_teach_banana_cc8e043c.wav",
       text: "This is the banana.",
+    },
+  },
+  [normalizeText("This is the bandage.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_bandage_fbbeab9e.wav",
+      text: "This is the bandage.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_bandage_fbbeab9e.wav",
+      text: "This is the bandage.",
+    },
+  },
+  [normalizeText("This is the banner.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_banner_f70f6c61.wav",
+      text: "This is the banner.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_banner_f70f6c61.wav",
+      text: "This is the banner.",
     },
   },
   [normalizeText("This is the basket.")]: {
@@ -16587,6 +25877,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_bathtub_9c88f3d4.wav",
       text: "This is the bathtub.",
+    },
+  },
+  [normalizeText("This is the beach bag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_beach_bag_6eded1c2.wav",
+      text: "This is the beach bag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_beach_bag_6eded1c2.wav",
+      text: "This is the beach bag.",
+    },
+  },
+  [normalizeText("This is the beach towel.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_towel_77e24f51.wav",
+      text: "This is the beach towel.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_towel_77e24f51.wav",
+      text: "This is the beach towel.",
+    },
+  },
+  [normalizeText("This is the beanbag.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_beanbag_a422841b.wav",
+      text: "This is the beanbag.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_beanbag_a422841b.wav",
+      text: "This is the beanbag.",
     },
   },
   [normalizeText("This is the bed.")]: {
@@ -16657,6 +25977,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_body_wash_158628d9.wav",
       text: "This is the body wash.",
+    },
+  },
+  [normalizeText("This is the book basket.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_book_basket_f862580e.wav",
+      text: "This is the book basket.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_book_basket_f862580e.wav",
+      text: "This is the book basket.",
+    },
+  },
+  [normalizeText("This is the book return.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_book_return_dc8bf221.wav",
+      text: "This is the book return.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_book_return_dc8bf221.wav",
+      text: "This is the book return.",
     },
   },
   [normalizeText("This is the book.")]: {
@@ -16785,6 +26125,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the cabinet.",
     },
   },
+  [normalizeText("This is the cake server.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_cake_server_a7dfb463.wav",
+      text: "This is the cake server.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_cake_server_a7dfb463.wav",
+      text: "This is the cake server.",
+    },
+  },
+  [normalizeText("This is the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_cake_3d1f4065.wav",
+      text: "This is the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_cake_3d1f4065.wav",
+      text: "This is the cake.",
+    },
+  },
+  [normalizeText("This is the candle.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_candle_8a4b0ad2.wav",
+      text: "This is the candle.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_candle_8a4b0ad2.wav",
+      text: "This is the candle.",
+    },
+  },
   [normalizeText("This is the car.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/prompt_teach_car_de670624.wav",
@@ -16811,6 +26181,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_carafe_b0ea0318.wav",
       text: "This is the carafe.",
+    },
+  },
+  [normalizeText("This is the card.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_card_09b75f44.wav",
+      text: "This is the card.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_card_09b75f44.wav",
+      text: "This is the card.",
+    },
+  },
+  [normalizeText("This is the carrot.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_carrot_5d71beac.wav",
+      text: "This is the carrot.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_carrot_5d71beac.wav",
+      text: "This is the carrot.",
+    },
+  },
+  [normalizeText("This is the cart.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_cart_85f45eec.wav",
+      text: "This is the cart.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_cart_85f45eec.wav",
+      text: "This is the cart.",
+    },
+  },
+  [normalizeText("This is the cashier.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_cashier_84caf11b.wav",
+      text: "This is the cashier.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_cashier_84caf11b.wav",
+      text: "This is the cashier.",
     },
   },
   [normalizeText("This is the chair.")]: {
@@ -16841,6 +26251,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the chicken.",
     },
   },
+  [normalizeText("This is the circle.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_circle_54a92555.wav",
+      text: "This is the circle.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_circle_54a92555.wav",
+      text: "This is the circle.",
+    },
+  },
   [normalizeText("This is the classroom.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/prompt_teach_classroom_71792c6d.wav",
@@ -16867,6 +26287,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_teach_cleaning_brush_12b8da1e.wav",
       text: "This is the cleaning brush.",
+    },
+  },
+  [normalizeText("This is the climbing frame.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_climbing_frame_adf8902d.wav",
+      text: "This is the climbing frame.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_climbing_frame_adf8902d.wav",
+      text: "This is the climbing frame.",
+    },
+  },
+  [normalizeText("This is the clinic.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_clinic_7a91dd3a.wav",
+      text: "This is the clinic.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_clinic_7a91dd3a.wav",
+      text: "This is the clinic.",
+    },
+  },
+  [normalizeText("This is the clipboard.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_clipboard_ef0dee5f.wav",
+      text: "This is the clipboard.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_clipboard_ef0dee5f.wav",
+      text: "This is the clipboard.",
     },
   },
   [normalizeText("This is the clock.")]: {
@@ -16953,6 +26403,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the cookie.",
     },
   },
+  [normalizeText("This is the counter.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_counter_de2976ed.wav",
+      text: "This is the counter.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_counter_de2976ed.wav",
+      text: "This is the counter.",
+    },
+  },
+  [normalizeText("This is the coupon.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_coupon_f29ef6b7.wav",
+      text: "This is the coupon.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_coupon_f29ef6b7.wav",
+      text: "This is the coupon.",
+    },
+  },
+  [normalizeText("This is the cover.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_cover_9c78e6c9.wav",
+      text: "This is the cover.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_cover_9c78e6c9.wav",
+      text: "This is the cover.",
+    },
+  },
+  [normalizeText("This is the cow.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_cow_e6bd159e.wav",
+      text: "This is the cow.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_cow_e6bd159e.wav",
+      text: "This is the cow.",
+    },
+  },
+  [normalizeText("This is the crab.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_crab_7ecbe885.wav",
+      text: "This is the crab.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_crab_7ecbe885.wav",
+      text: "This is the crab.",
+    },
+  },
   [normalizeText("This is the cracker.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/prompt_teach_cracker_915a3650.wav",
@@ -17007,6 +26507,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_teach_curtain_a3f8c0fb.wav",
       text: "This is the curtain.",
+    },
+  },
+  [normalizeText("This is the cushion.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_cushion_9ffdb629.wav",
+      text: "This is the cushion.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_cushion_9ffdb629.wav",
+      text: "This is the cushion.",
     },
   },
   [normalizeText("This is the desk.")]: {
@@ -17093,6 +26603,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the dishwasher.",
     },
   },
+  [normalizeText("This is the doctor.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_doctor_e38ec960.wav",
+      text: "This is the doctor.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_doctor_e38ec960.wav",
+      text: "This is the doctor.",
+    },
+  },
   [normalizeText("This is the doll.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_teach_doll_796b5265.wav",
@@ -17119,6 +26639,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/prompt_teach_door_5ee8a9b6.wav",
       text: "This is the door.",
+    },
+  },
+  [normalizeText("This is the doorbell.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_doorbell_4949a13a.wav",
+      text: "This is the doorbell.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_doorbell_4949a13a.wav",
+      text: "This is the doorbell.",
     },
   },
   [normalizeText("This is the dream journal.")]: {
@@ -17163,6 +26693,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the drying mat.",
     },
   },
+  [normalizeText("This is the duck.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_duck_9a60a42b.wav",
+      text: "This is the duck.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_duck_9a60a42b.wav",
+      text: "This is the duck.",
+    },
+  },
   [normalizeText("This is the egg.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_teach_egg_5d3924c6.wav",
@@ -17205,6 +26745,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the eraser.",
     },
   },
+  [normalizeText("This is the family photo.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_family_photo_bf891a24.wav",
+      text: "This is the family photo.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_family_photo_bf891a24.wav",
+      text: "This is the family photo.",
+    },
+  },
   [normalizeText("This is the fish.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_teach_fish_012dc6dd.wav",
@@ -17219,6 +26769,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the fish.",
     },
   },
+  [normalizeText("This is the flag.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_flag_e275aff4.wav",
+      text: "This is the flag.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_flag_e275aff4.wav",
+      text: "This is the flag.",
+    },
+  },
   [normalizeText("This is the floor.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/prompt_teach_floor_8596cb1f.wav",
@@ -17231,6 +26791,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/toy-cleanup/audio/en/prompt_teach_floor_8596cb1f.wav",
       text: "This is the floor.",
+    },
+  },
+  [normalizeText("This is the flower.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_flower_fcf303bb.wav",
+      text: "This is the flower.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_flower_fcf303bb.wav",
+      text: "This is the flower.",
     },
   },
   [normalizeText("This is the foam.")]: {
@@ -17289,6 +26859,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the fork.",
     },
   },
+  [normalizeText("This is the fountain.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_fountain_f1ed45b5.wav",
+      text: "This is the fountain.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_fountain_f1ed45b5.wav",
+      text: "This is the fountain.",
+    },
+  },
+  [normalizeText("This is the frisbee.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_frisbee_9b2d99be.wav",
+      text: "This is the frisbee.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_frisbee_9b2d99be.wav",
+      text: "This is the frisbee.",
+    },
+  },
+  [normalizeText("This is the front door.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_teach_front_door_64315d17.wav",
+      text: "This is the front door.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_front_door_64315d17.wav",
+      text: "This is the front door.",
+    },
+  },
+  [normalizeText("This is the fruit plate.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_fruit_651f1a92.wav",
+      text: "This is the fruit plate.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_fruit_651f1a92.wav",
+      text: "This is the fruit plate.",
+    },
+  },
   [normalizeText("This is the fruit.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/prompt_lunchtable_teach_fruit_1b8b3d81.wav",
@@ -17301,6 +26911,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_teach_fruit_1b8b3d81.wav",
       text: "This is the fruit.",
+    },
+  },
+  [normalizeText("This is the game.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_game_824f2a2e.wav",
+      text: "This is the game.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_game_824f2a2e.wav",
+      text: "This is the game.",
+    },
+  },
+  [normalizeText("This is the garden.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_garden_3f949648.wav",
+      text: "This is the garden.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_garden_3f949648.wav",
+      text: "This is the garden.",
+    },
+  },
+  [normalizeText("This is the gate.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_gate_cba3c4ab.wav",
+      text: "This is the gate.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_gate_cba3c4ab.wav",
+      text: "This is the gate.",
+    },
+  },
+  [normalizeText("This is the gift.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_gift_ff40286d.wav",
+      text: "This is the gift.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_gift_ff40286d.wav",
+      text: "This is the gift.",
+    },
+  },
+  [normalizeText("This is the giraffe.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_giraffe_eab7c155.wav",
+      text: "This is the giraffe.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_giraffe_eab7c155.wav",
+      text: "This is the giraffe.",
     },
   },
   [normalizeText("This is the glow sticker.")]: {
@@ -17317,6 +26977,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the glow sticker.",
     },
   },
+  [normalizeText("This is the goat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_goat_886fc0a3.wav",
+      text: "This is the goat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_goat_886fc0a3.wav",
+      text: "This is the goat.",
+    },
+  },
+  [normalizeText("This is the grandma.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_grandma_737dc316.wav",
+      text: "This is the grandma.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_grandma_737dc316.wav",
+      text: "This is the grandma.",
+    },
+  },
+  [normalizeText("This is the grandpa.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_grandpa_97339d77.wav",
+      text: "This is the grandpa.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_grandpa_97339d77.wav",
+      text: "This is the grandpa.",
+    },
+  },
+  [normalizeText("This is the habitat.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_habitat_b082df82.wav",
+      text: "This is the habitat.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_habitat_b082df82.wav",
+      text: "This is the habitat.",
+    },
+  },
+  [normalizeText("This is the hand gel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_hand_gel_5bd44296.wav",
+      text: "This is the hand gel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_hand_gel_5bd44296.wav",
+      text: "This is the hand gel.",
+    },
+  },
+  [normalizeText("This is the helmet.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_helmet_fa18111a.wav",
+      text: "This is the helmet.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_helmet_fa18111a.wav",
+      text: "This is the helmet.",
+    },
+  },
   [normalizeText("This is the hook.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_teach_hook_134d07d7.wav",
@@ -17331,6 +27051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the hook.",
     },
   },
+  [normalizeText("This is the hug.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_hug_cb880891.wav",
+      text: "This is the hug.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_hug_cb880891.wav",
+      text: "This is the hug.",
+    },
+  },
   [normalizeText("This is the humidifier.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_teach_humidifier_ae228cda.wav",
@@ -17343,6 +27073,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_teach_humidifier_ae228cda.wav",
       text: "This is the humidifier.",
+    },
+  },
+  [normalizeText("This is the invitation.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_invitation_2c064369.wav",
+      text: "This is the invitation.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_invitation_2c064369.wav",
+      text: "This is the invitation.",
     },
   },
   [normalizeText("This is the jacket.")]: {
@@ -17471,6 +27211,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the laundry basket.",
     },
   },
+  [normalizeText("This is the leaf.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_leaf_c8c32ff9.wav",
+      text: "This is the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_leaf_c8c32ff9.wav",
+      text: "This is the leaf.",
+    },
+  },
+  [normalizeText("This is the librarian.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_librarian_c930df60.wav",
+      text: "This is the librarian.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_librarian_c930df60.wav",
+      text: "This is the librarian.",
+    },
+  },
+  [normalizeText("This is the library card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_library_card_7e2ad76f.wav",
+      text: "This is the library card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_library_card_7e2ad76f.wav",
+      text: "This is the library card.",
+    },
+  },
+  [normalizeText("This is the life jacket.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_life_jacket_df83f2c7.wav",
+      text: "This is the life jacket.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_life_jacket_df83f2c7.wav",
+      text: "This is the life jacket.",
+    },
+  },
+  [normalizeText("This is the lifeguard.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_lifeguard_b00f8f3a.wav",
+      text: "This is the lifeguard.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_lifeguard_b00f8f3a.wav",
+      text: "This is the lifeguard.",
+    },
+  },
   [normalizeText("This is the lullaby.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_teach_lullaby_49943bb6.wav",
@@ -17499,6 +27289,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the lunchbox.",
     },
   },
+  [normalizeText("This is the mask.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_mask_7a66ef84.wav",
+      text: "This is the mask.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_mask_7a66ef84.wav",
+      text: "This is the mask.",
+    },
+  },
+  [normalizeText("This is the medicine spoon.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_spoon_3c82b99b.wav",
+      text: "This is the medicine spoon.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_spoon_3c82b99b.wav",
+      text: "This is the medicine spoon.",
+    },
+  },
+  [normalizeText("This is the medicine.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_medicine_c154a544.wav",
+      text: "This is the medicine.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_medicine_c154a544.wav",
+      text: "This is the medicine.",
+    },
+  },
   [normalizeText("This is the milk.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_teach_milk_f67e21bb.wav",
@@ -17525,6 +27345,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_mirror_bb5ebfe5.wav",
       text: "This is the mirror.",
+    },
+  },
+  [normalizeText("This is the monkey.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_monkey_7ce03bde.wav",
+      text: "This is the monkey.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_monkey_7ce03bde.wav",
+      text: "This is the monkey.",
     },
   },
   [normalizeText("This is the moon mobile.")]: {
@@ -17597,6 +27427,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the notebook.",
     },
   },
+  [normalizeText("This is the nurse.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_nurse_80d4d2ab.wav",
+      text: "This is the nurse.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_nurse_80d4d2ab.wav",
+      text: "This is the nurse.",
+    },
+  },
+  [normalizeText("This is the otoscope.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_otoscope_4f6dffd9.wav",
+      text: "This is the otoscope.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_otoscope_4f6dffd9.wav",
+      text: "This is the otoscope.",
+    },
+  },
   [normalizeText("This is the page tab.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_teach_page_tab_f172bfa0.wav",
@@ -17609,6 +27459,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/prompt_teach_page_tab_f172bfa0.wav",
       text: "This is the page tab.",
+    },
+  },
+  [normalizeText("This is the page.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_page_e2d81973.wav",
+      text: "This is the page.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_page_e2d81973.wav",
+      text: "This is the page.",
+    },
+  },
+  [normalizeText("This is the paper cup.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_cup_fb942b2f.wav",
+      text: "This is the paper cup.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_cup_fb942b2f.wav",
+      text: "This is the paper cup.",
+    },
+  },
+  [normalizeText("This is the paper plate.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_plate_fcc1630b.wav",
+      text: "This is the paper plate.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_plate_fcc1630b.wav",
+      text: "This is the paper plate.",
     },
   },
   [normalizeText("This is the paper.")]: {
@@ -17625,6 +27505,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the paper.",
     },
   },
+  [normalizeText("This is the park map.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_map_0494279b.wav",
+      text: "This is the park map.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_map_0494279b.wav",
+      text: "This is the park map.",
+    },
+  },
+  [normalizeText("This is the party hat.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_party_hat_c1dfb410.wav",
+      text: "This is the party hat.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_party_hat_c1dfb410.wav",
+      text: "This is the party hat.",
+    },
+  },
+  [normalizeText("This is the path.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_path_4868903f.wav",
+      text: "This is the path.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_path_4868903f.wav",
+      text: "This is the path.",
+    },
+  },
   [normalizeText("This is the pencil.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/prompt_supplies_teach_pencil_283ce2d5.wav",
@@ -17637,6 +27547,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_teach_pencil_283ce2d5.wav",
       text: "This is the pencil.",
+    },
+  },
+  [normalizeText("This is the picnic mat.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_picnic_mat_2967a0ce.wav",
+      text: "This is the picnic mat.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_picnic_mat_2967a0ce.wav",
+      text: "This is the picnic mat.",
+    },
+  },
+  [normalizeText("This is the picture book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_picture_book_68f725a5.wav",
+      text: "This is the picture book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_picture_book_68f725a5.wav",
+      text: "This is the picture book.",
+    },
+  },
+  [normalizeText("This is the piglet.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_piglet_5f4d4232.wav",
+      text: "This is the piglet.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_piglet_5f4d4232.wav",
+      text: "This is the piglet.",
     },
   },
   [normalizeText("This is the pillow.")]: {
@@ -17665,6 +27605,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_placemat_cec7fe52.wav",
       text: "This is the placemat.",
+    },
+  },
+  [normalizeText("This is the plant pot.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_plant_pot_135315b3.wav",
+      text: "This is the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_plant_pot_135315b3.wav",
+      text: "This is the plant pot.",
     },
   },
   [normalizeText("This is the plate.")]: {
@@ -17709,6 +27659,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the pot holder.",
     },
   },
+  [normalizeText("This is the prize.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_prize_da88a8e2.wav",
+      text: "This is the prize.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_teach_prize_da88a8e2.wav",
+      text: "This is the prize.",
+    },
+  },
+  [normalizeText("This is the puppet.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_puppet_80c4d2ad.wav",
+      text: "This is the puppet.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_puppet_80c4d2ad.wav",
+      text: "This is the puppet.",
+    },
+  },
   [normalizeText("This is the puzzle.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/prompt_teach_puzzle_545b13a0.wav",
@@ -17721,6 +27691,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/prompt_teach_puzzle_545b13a0.wav",
       text: "This is the puzzle.",
+    },
+  },
+  [normalizeText("This is the quiet sign.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_quiet_sign_f9832d45.wav",
+      text: "This is the quiet sign.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_quiet_sign_f9832d45.wav",
+      text: "This is the quiet sign.",
+    },
+  },
+  [normalizeText("This is the reading chair.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/prompt_teach_reading_chair_d9886952.wav",
+      text: "This is the reading chair.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/prompt_teach_reading_chair_d9886952.wav",
+      text: "This is the reading chair.",
     },
   },
   [normalizeText("This is the reading nook.")]: {
@@ -17737,6 +27727,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the reading nook.",
     },
   },
+  [normalizeText("This is the receipt.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_receipt_995230b1.wav",
+      text: "This is the receipt.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_receipt_995230b1.wav",
+      text: "This is the receipt.",
+    },
+  },
   [normalizeText("This is the recycling bin.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_teach_recycling_bin_85fe070e.wav",
@@ -17749,6 +27749,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_recycling_bin_85fe070e.wav",
       text: "This is the recycling bin.",
+    },
+  },
+  [normalizeText("This is the ribbon.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_teach_ribbon_51750b7d.wav",
+      text: "This is the ribbon.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_teach_ribbon_51750b7d.wav",
+      text: "This is the ribbon.",
     },
   },
   [normalizeText("This is the rice.")]: {
@@ -17849,6 +27859,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the sandbox.",
     },
   },
+  [normalizeText("This is the sandcastle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_sandcastle_cdf82382.wav",
+      text: "This is the sandcastle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_sandcastle_cdf82382.wav",
+      text: "This is the sandcastle.",
+    },
+  },
+  [normalizeText("This is the sandwich.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_sandwich_22250dc5.wav",
+      text: "This is the sandwich.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_sandwich_22250dc5.wav",
+      text: "This is the sandwich.",
+    },
+  },
   [normalizeText("This is the sauce.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_teach_sauce_cf432f96.wav",
@@ -17861,6 +27891,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/prompt_teach_sauce_cf432f96.wav",
       text: "This is the sauce.",
+    },
+  },
+  [normalizeText("This is the scale.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_scale_7513ad21.wav",
+      text: "This is the scale.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_scale_7513ad21.wav",
+      text: "This is the scale.",
+    },
+  },
+  [normalizeText("This is the scanner.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_scanner_a1436d06.wav",
+      text: "This is the scanner.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_scanner_a1436d06.wav",
+      text: "This is the scanner.",
+    },
+  },
+  [normalizeText("This is the scooter.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_scooter_7daf0ad5.wav",
+      text: "This is the scooter.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_scooter_7daf0ad5.wav",
+      text: "This is the scooter.",
     },
   },
   [normalizeText("This is the scraper.")]: {
@@ -17877,6 +27937,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the scraper.",
     },
   },
+  [normalizeText("This is the sea.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_sea_3f73ee43.wav",
+      text: "This is the sea.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_sea_3f73ee43.wav",
+      text: "This is the sea.",
+    },
+  },
   [normalizeText("This is the seat belt.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_teach_seat_belt_5dda843a.wav",
@@ -17889,6 +27959,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/ride-home/audio/en/prompt_teach_seat_belt_5dda843a.wav",
       text: "This is the seat belt.",
+    },
+  },
+  [normalizeText("This is the seed.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_seed_1f8c8d40.wav",
+      text: "This is the seed.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_seed_1f8c8d40.wav",
+      text: "This is the seed.",
     },
   },
   [normalizeText("This is the seesaw.")]: {
@@ -17961,6 +28041,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the shampoo.",
     },
   },
+  [normalizeText("This is the sheep.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_teach_sheep_8cc78e3c.wav",
+      text: "This is the sheep.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_teach_sheep_8cc78e3c.wav",
+      text: "This is the sheep.",
+    },
+  },
   [normalizeText("This is the shelf.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/prompt_teach_shelf_035d8f3e.wav",
@@ -17975,6 +28065,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the shelf.",
     },
   },
+  [normalizeText("This is the shell.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_shell_4d9d90ad.wav",
+      text: "This is the shell.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_shell_4d9d90ad.wav",
+      text: "This is the shell.",
+    },
+  },
+  [normalizeText("This is the shopping bag.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_bag_dd0551a7.wav",
+      text: "This is the shopping bag.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_teach_bag_dd0551a7.wav",
+      text: "This is the shopping bag.",
+    },
+  },
+  [normalizeText("This is the shopping list.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_shopping_list_bfb14138.wav",
+      text: "This is the shopping list.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_shopping_list_bfb14138.wav",
+      text: "This is the shopping list.",
+    },
+  },
   [normalizeText("This is the shoulder.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_teach_shoulder_3e3b5314.wav",
@@ -17987,6 +28107,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_teach_shoulder_3e3b5314.wav",
       text: "This is the shoulder.",
+    },
+  },
+  [normalizeText("This is the shovel.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_shovel_dc34948b.wav",
+      text: "This is the shovel.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/prompt_teach_shovel_dc34948b.wav",
+      text: "This is the shovel.",
     },
   },
   [normalizeText("This is the shower head.")]: {
@@ -18057,6 +28187,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/prompt_teach_slide_19177b69.wav",
       text: "This is the slide.",
+    },
+  },
+  [normalizeText("This is the small bag.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_teach_bag_6e7e13f0.wav",
+      text: "This is the small bag.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_bag_6e7e13f0.wav",
+      text: "This is the small bag.",
     },
   },
   [normalizeText("This is the small sip.")]: {
@@ -18233,6 +28373,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the star projector.",
     },
   },
+  [normalizeText("This is the stethoscope.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_stethoscope_37611f18.wav",
+      text: "This is the stethoscope.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_stethoscope_37611f18.wav",
+      text: "This is the stethoscope.",
+    },
+  },
+  [normalizeText("This is the sticker.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_sticker_87c3b804.wav",
+      text: "This is the sticker.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_sticker_87c3b804.wav",
+      text: "This is the sticker.",
+    },
+  },
+  [normalizeText("This is the story bell.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_library_bell_c3416299.wav",
+      text: "This is the story bell.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_library_bell_c3416299.wav",
+      text: "This is the story bell.",
+    },
+  },
+  [normalizeText("This is the story card.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_story_card_e3752e0a.wav",
+      text: "This is the story card.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_story_card_e3752e0a.wav",
+      text: "This is the story card.",
+    },
+  },
   [normalizeText("This is the story shelf.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_teach_story_shelf_85642c7d.wav",
@@ -18261,6 +28441,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the storybook.",
     },
   },
+  [normalizeText("This is the storyteller.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_storyteller_eaa54703.wav",
+      text: "This is the storyteller.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_teach_storyteller_eaa54703.wav",
+      text: "This is the storyteller.",
+    },
+  },
   [normalizeText("This is the straw.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_teach_straw_3960f7b5.wav",
@@ -18275,6 +28465,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the straw.",
     },
   },
+  [normalizeText("This is the sun hat.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_sun_hat_6dff3868.wav",
+      text: "This is the sun hat.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_sun_hat_6dff3868.wav",
+      text: "This is the sun hat.",
+    },
+  },
   [normalizeText("This is the sun.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_teach_sun_f7295391.wav",
@@ -18287,6 +28487,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_sun_f7295391.wav",
       text: "This is the sun.",
+    },
+  },
+  [normalizeText("This is the sunscreen.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_sunscreen_bfd3b8c9.wav",
+      text: "This is the sunscreen.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_sunscreen_bfd3b8c9.wav",
+      text: "This is the sunscreen.",
     },
   },
   [normalizeText("This is the swing.")]: {
@@ -18331,6 +28541,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the teacher.",
     },
   },
+  [normalizeText("This is the team.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_team_23ad600f.wav",
+      text: "This is the team.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_team_23ad600f.wav",
+      text: "This is the team.",
+    },
+  },
+  [normalizeText("This is the thank-you card.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/prompt_teach_thank_you_card_6cca95f4.wav",
+      text: "This is the thank-you card.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_thank_you_card_6cca95f4.wav",
+      text: "This is the thank-you card.",
+    },
+  },
+  [normalizeText("This is the thermometer.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_thermometer_524e08dc.wav",
+      text: "This is the thermometer.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_thermometer_524e08dc.wav",
+      text: "This is the thermometer.",
+    },
+  },
+  [normalizeText("This is the ticket.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_ticket_a8cffb2b.wav",
+      text: "This is the ticket.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_ticket_a8cffb2b.wav",
+      text: "This is the ticket.",
+    },
+  },
   [normalizeText("This is the timer.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_teach_timer_b0a39a27.wav",
@@ -18343,6 +28593,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_teach_timer_b0a39a27.wav",
       text: "This is the timer.",
+    },
+  },
+  [normalizeText("This is the tissue.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_teach_tissue_3afb2e72.wav",
+      text: "This is the tissue.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_teach_tissue_3afb2e72.wav",
+      text: "This is the tissue.",
+    },
+  },
+  [normalizeText("This is the tomato.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_tomato_9a6c2baf.wav",
+      text: "This is the tomato.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_tomato_9a6c2baf.wav",
+      text: "This is the tomato.",
     },
   },
   [normalizeText("This is the toothbrush.")]: {
@@ -18443,6 +28713,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the tray.",
     },
   },
+  [normalizeText("This is the tree.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_tree_56dd7d53.wav",
+      text: "This is the tree.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_tree_56dd7d53.wav",
+      text: "This is the tree.",
+    },
+  },
   [normalizeText("This is the uniform.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_teach_uniform_d187ecf2.wav",
@@ -18457,6 +28737,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the uniform.",
     },
   },
+  [normalizeText("This is the waiting room.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_waiting_room_4f73ffec.wav",
+      text: "This is the waiting room.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_teach_waiting_room_4f73ffec.wav",
+      text: "This is the waiting room.",
+    },
+  },
+  [normalizeText("This is the wallet.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_teach_wallet_b2d05d9f.wav",
+      text: "This is the wallet.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_wallet_b2d05d9f.wav",
+      text: "This is the wallet.",
+    },
+  },
+  [normalizeText("This is the water bottle.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/prompt_teach_water_bottle_9b6b358d.wav",
+      text: "This is the water bottle.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_teach_water_bottle_9b6b358d.wav",
+      text: "This is the water bottle.",
+    },
+  },
   [normalizeText("This is the water.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_teach_water_b01e4737.wav",
@@ -18469,6 +28779,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/prompt_teach_water_b01e4737.wav",
       text: "This is the water.",
+    },
+  },
+  [normalizeText("This is the watering can.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_teach_watering_can_2e86c67e.wav",
+      text: "This is the watering can.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_watering_can_2e86c67e.wav",
+      text: "This is the watering can.",
+    },
+  },
+  [normalizeText("This is the wave.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_teach_wave_527830b2.wav",
+      text: "This is the wave.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_teach_wave_527830b2.wav",
+      text: "This is the wave.",
+    },
+  },
+  [normalizeText("This is the weighing scale.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_weighing_scale_154f9116.wav",
+      text: "This is the weighing scale.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_weighing_scale_154f9116.wav",
+      text: "This is the weighing scale.",
+    },
+  },
+  [normalizeText("This is the whistle.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_whistle_8dbee8f2.wav",
+      text: "This is the whistle.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_teach_whistle_8dbee8f2.wav",
+      text: "This is the whistle.",
     },
   },
   [normalizeText("This is the window.")]: {
@@ -18499,6 +28849,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the wrapper.",
     },
   },
+  [normalizeText("This is the wristband.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_wristband_dbde8e61.wav",
+      text: "This is the wristband.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_wristband_dbde8e61.wav",
+      text: "This is the wristband.",
+    },
+  },
   [normalizeText("This is the yogurt.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_teach_yogurt_d11644db.wav",
@@ -18511,6 +28871,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/prompt_teach_yogurt_d11644db.wav",
       text: "This is the yogurt.",
+    },
+  },
+  [normalizeText("This is the zebra.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_zebra_e50db259.wav",
+      text: "This is the zebra.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_zebra_e50db259.wav",
+      text: "This is the zebra.",
+    },
+  },
+  [normalizeText("This is the zoo gate.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_gate_6142c2fc.wav",
+      text: "This is the zoo gate.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_gate_6142c2fc.wav",
+      text: "This is the zoo gate.",
+    },
+  },
+  [normalizeText("This is the zoo map.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_map_f956c279.wav",
+      text: "This is the zoo map.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_map_f956c279.wav",
+      text: "This is the zoo map.",
+    },
+  },
+  [normalizeText("This is the zoo path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/prompt_teach_path_df1caa89.wav",
+      text: "This is the zoo path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_path_df1caa89.wav",
+      text: "This is the zoo path.",
+    },
+  },
+  [normalizeText("This is the zoo sign.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_sign_4aa2a828.wav",
+      text: "This is the zoo sign.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_sign_4aa2a828.wav",
+      text: "This is the zoo sign.",
+    },
+  },
+  [normalizeText("This is the zookeeper.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_keeper_9dad09ec.wav",
+      text: "This is the zookeeper.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_teach_keeper_9dad09ec.wav",
+      text: "This is the zookeeper.",
     },
   },
   [normalizeText("This is your family.")]: {
@@ -18573,6 +28993,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Throw away the wrapper.",
     },
   },
+  [normalizeText("throw the frisbee")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/throw_the_frisbee.wav",
+      text: "throw the frisbee",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/throw_the_frisbee.wav",
+      text: "throw the frisbee",
+    },
+  },
+  [normalizeText("ticket")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/ticket.wav",
+      text: "ticket",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/ticket.wav",
+      text: "ticket",
+    },
+  },
   [normalizeText("tidy the room")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/tidy_the_room.wav",
@@ -18605,6 +29045,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/timer.wav",
       text: "timer",
+    },
+  },
+  [normalizeText("tissue")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tissue.wav",
+      text: "tissue",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tissue.wav",
+      text: "tissue",
+    },
+  },
+  [normalizeText("tomato")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tomato.wav",
+      text: "tomato",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tomato.wav",
+      text: "tomato",
     },
   },
   [normalizeText("tongs")]: {
@@ -18717,6 +29177,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/tray.wav",
       text: "tray",
+    },
+  },
+  [normalizeText("tree")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tree.wav",
+      text: "tree",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tree.wav",
+      text: "tree",
     },
   },
   [normalizeText("Try again.")]: {
@@ -19647,6 +30117,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Turn on the shower.",
     },
   },
+  [normalizeText("turn the page")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/turn_the_page.wav",
+      text: "turn the page",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/turn_the_page.wav",
+      text: "turn the page",
+    },
+  },
   [normalizeText("uniform")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/uniform.wav",
@@ -19659,6 +30139,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/uniform.wav",
       text: "uniform",
+    },
+  },
+  [normalizeText("use a quiet voice")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/use_a_quiet_voice.wav",
+      text: "use a quiet voice",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/use_a_quiet_voice.wav",
+      text: "use a quiet voice",
     },
   },
   [normalizeText("use a spoon")]: {
@@ -19679,6 +30169,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/prompt_lunchbox_drag_spoon_to_mouth_934f3190.wav",
       text: "Use a spoon.",
+    },
+  },
+  [normalizeText("use binoculars")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/use_binoculars.wav",
+      text: "use binoculars",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/use_binoculars.wav",
+      text: "use binoculars",
+    },
+  },
+  [normalizeText("use hand gel")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/use_hand_gel.wav",
+      text: "use hand gel",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/use_hand_gel.wav",
+      text: "use hand gel",
     },
   },
   [normalizeText("vegetables")]: {
@@ -19717,6 +30227,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_tap_wait_clock_c6fcc4d5.wav",
       text: "Wait.",
+    },
+  },
+  [normalizeText("waiting room")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/waiting_room.wav",
+      text: "waiting room",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/waiting_room.wav",
+      text: "waiting room",
+    },
+  },
+  [normalizeText("walk on the path")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/walk_on_the_path.wav",
+      text: "walk on the path",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/walk_on_the_path.wav",
+      text: "walk on the path",
+    },
+  },
+  [normalizeText("wallet")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/wallet.wav",
+      text: "wallet",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/wallet.wav",
+      text: "wallet",
     },
   },
   [normalizeText("wash your face")]: {
@@ -19773,6 +30313,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "water",
     },
   },
+  [normalizeText("water bottle")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/water_bottle.wav",
+      text: "water bottle",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/water_bottle.wav",
+      text: "water bottle",
+    },
+  },
+  [normalizeText("water the plant")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/water_the_plant.wav",
+      text: "water the plant",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/water_the_plant.wav",
+      text: "water the plant",
+    },
+  },
+  [normalizeText("watering can")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/watering_can.wav",
+      text: "watering can",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/watering_can.wav",
+      text: "watering can",
+    },
+  },
+  [normalizeText("wave")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/wave.wav",
+      text: "wave",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/wave.wav",
+      text: "wave",
+    },
+  },
+  [normalizeText("wave goodbye")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/wave_goodbye.wav",
+      text: "wave goodbye",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/wave_goodbye.wav",
+      text: "wave goodbye",
+    },
+  },
+  [normalizeText("We'll do each step gently.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/intro_success_86474096.wav",
+      text: "We'll do each step gently.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/intro_success_86474096.wav",
+      text: "We'll do each step gently.",
+    },
+  },
   [normalizeText("We're home now.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/prompt_intro_f4682ece.wav",
@@ -19803,6 +30403,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "We've finished playing. Let's put the toys away.",
     },
   },
+  [normalizeText("wear a hat")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/wear_a_hat.wav",
+      text: "wear a hat",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/wear_a_hat.wav",
+      text: "wear a hat",
+    },
+  },
+  [normalizeText("wear a helmet")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/wear_a_helmet.wav",
+      text: "wear a helmet",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/wear_a_helmet.wav",
+      text: "wear a helmet",
+    },
+  },
   [normalizeText("wear a sleep mask")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/wear_a_sleep_mask.wav",
@@ -19821,6 +30441,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_drag_wear_sleep_mask_87158e70.wav",
       text: "Wear a sleep mask.",
+    },
+  },
+  [normalizeText("weigh the fruit")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/weigh_the_fruit.wav",
+      text: "weigh the fruit",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/weigh_the_fruit.wav",
+      text: "weigh the fruit",
+    },
+  },
+  [normalizeText("weighing scale")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/weighing_scale.wav",
+      text: "weighing scale",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/weighing_scale.wav",
+      text: "weighing scale",
+    },
+  },
+  [normalizeText("whistle")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/whistle.wav",
+      text: "whistle",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/whistle.wav",
+      text: "whistle",
     },
   },
   [normalizeText("window")]: {
@@ -19887,6 +30537,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Wonderful! The whole map is complete. Let’s collect more stars!",
     },
   },
+  [normalizeText("wrap the gift")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/wrap_the_gift.wav",
+      text: "wrap the gift",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/wrap_the_gift.wav",
+      text: "wrap the gift",
+    },
+  },
   [normalizeText("wrapper")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/wrapper.wav",
@@ -19899,6 +30559,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/wrapper.wav",
       text: "wrapper",
+    },
+  },
+  [normalizeText("wristband")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/wristband.wav",
+      text: "wristband",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/wristband.wav",
+      text: "wristband",
     },
   },
   [normalizeText("write your name")]: {
@@ -19943,6 +30613,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "yogurt",
     },
   },
+  [normalizeText("You are ready for safe outdoor play.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/completion_e6a965a0.wav",
+      text: "You are ready for safe outdoor play.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/completion_e6a965a0.wav",
+      text: "You are ready for safe outdoor play.",
+    },
+  },
+  [normalizeText("You are ready to visit the animals.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/completion_66024417.wav",
+      text: "You are ready to visit the animals.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/completion_66024417.wav",
+      text: "You are ready to visit the animals.",
+    },
+  },
   [normalizeText("You ate your snack so neatly!")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/completion_77f6ac16.wav",
@@ -19951,6 +30641,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/completion_77f6ac16.wav",
       text: "You ate your snack so neatly!",
+    },
+  },
+  [normalizeText("You blew out the candles and shared the cake.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/completion_c7cd0f71.wav",
+      text: "You blew out the candles and shared the cake.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/completion_c7cd0f71.wav",
+      text: "You blew out the candles and shared the cake.",
     },
   },
   [normalizeText("You came home and completed your afternoon routine.")]: {
@@ -19993,6 +30693,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You can replay a stop to review new words.",
     },
   },
+  [normalizeText("You chose a book you like.")]: {
+    "en-US": {
+      key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/completion_d8ce254f.wav",
+      text: "You chose a book you like.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/completion_d8ce254f.wav",
+      text: "You chose a book you like.",
+    },
+  },
   [normalizeText("You chose a delicious snack!")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/completion_fdbf7781.wav",
@@ -20001,6 +30711,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/completion_fdbf7781.wav",
       text: "You chose a delicious snack!",
+    },
+  },
+  [normalizeText("You chose fresh fruits and vegetables.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/completion_0c0cde44.wav",
+      text: "You chose fresh fruits and vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/completion_0c0cde44.wav",
+      text: "You chose fresh fruits and vegetables.",
     },
   },
   [normalizeText("You chose such a soothing bedtime story!")]: {
@@ -20053,6 +30773,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You cleared the dinner items so neatly!",
     },
   },
+  [normalizeText("You completed the health check.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/completion_517cec64.wav",
+      text: "You completed the health check.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/completion_517cec64.wav",
+      text: "You completed the health check.",
+    },
+  },
   [normalizeText("You did a great job getting clean.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/completion_62e0a752.wav",
@@ -20093,6 +30823,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You followed the teacher's instructions very well.",
     },
   },
+  [normalizeText("You found your way into the park.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/completion_f724b40a.wav",
+      text: "You found your way into the park.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/completion_f724b40a.wav",
+      text: "You found your way into the park.",
+    },
+  },
   [normalizeText("You got dressed so neatly after your bath!")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/completion_f5bf5ccd.wav",
@@ -20101,6 +30841,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/completion_f5bf5ccd.wav",
       text: "You got dressed so neatly after your bath!",
+    },
+  },
+  [normalizeText("You got ready before shopping.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/completion_fe699fea.wav",
+      text: "You got ready before shopping.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/completion_fe699fea.wav",
+      text: "You got ready before shopping.",
     },
   },
   [normalizeText("You got ready for your bath so carefully!")]: {
@@ -20163,6 +30913,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You got your school supplies ready.",
     },
   },
+  [normalizeText("You greeted Grandma and Grandpa.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/completion_0d40e7e4.wav",
+      text: "You greeted Grandma and Grandpa.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/completion_0d40e7e4.wav",
+      text: "You greeted Grandma and Grandpa.",
+    },
+  },
+  [normalizeText("You greeted the doctor and said how you feel.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/completion_183e0724.wav",
+      text: "You greeted the doctor and said how you feel.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/completion_183e0724.wav",
+      text: "You greeted the doctor and said how you feel.",
+    },
+  },
   [normalizeText("You had a great time on the school playground.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/completion_e2988712.wav",
@@ -20171,6 +30941,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/completion_e2988712.wav",
       text: "You had a great time on the school playground.",
+    },
+  },
+  [normalizeText("You had fun and took turns.")]: {
+    "en-US": {
+      key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/completion_12d487b9.wav",
+      text: "You had fun and took turns.",
+    },
+    "en-GB": {
+      key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/completion_12d487b9.wav",
+      text: "You had fun and took turns.",
     },
   },
   [normalizeText("You had so much fun in the toy corner!")]: {
@@ -20183,6 +30963,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You had so much fun in the toy corner!",
     },
   },
+  [normalizeText("You helped care for the garden.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/completion_5e0122ec.wav",
+      text: "You helped care for the garden.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/completion_5e0122ec.wav",
+      text: "You helped care for the garden.",
+    },
+  },
   [normalizeText("You helped prepare dinner so thoughtfully!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/completion_6b920c11.wav",
@@ -20191,6 +30981,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/completion_6b920c11.wav",
       text: "You helped prepare dinner so thoughtfully!",
+    },
+  },
+  [normalizeText("You learned how to check out and carry groceries home.")]: {
+    "en-US": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/completion_d2eaec8b.wav",
+      text: "You learned how to check out and carry groceries home.",
+    },
+    "en-GB": {
+      key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/completion_d2eaec8b.wav",
+      text: "You learned how to check out and carry groceries home.",
+    },
+  },
+  [normalizeText("You learned how to play more safely near the sea.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/completion_10c4f9a5.wav",
+      text: "You learned how to play more safely near the sea.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/completion_10c4f9a5.wav",
+      text: "You learned how to play more safely near the sea.",
+    },
+  },
+  [normalizeText("You learned how to rest and feel better.")]: {
+    "en-US": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/completion_c972644e.wav",
+      text: "You learned how to rest and feel better.",
+    },
+    "en-GB": {
+      key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/completion_c972644e.wav",
+      text: "You learned how to rest and feel better.",
     },
   },
   [normalizeText("You learned to have lunch with a friend.")]: {
@@ -20223,6 +31043,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You learned to rest after playing.",
     },
   },
+  [normalizeText("You listened carefully during story time.")]: {
+    "en-US": {
+      key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/completion_0e9f61f3.wav",
+      text: "You listened carefully during story time.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/completion_0e9f61f3.wav",
+      text: "You listened carefully during story time.",
+    },
+  },
   [normalizeText("You made the room calm and ready for sleep!")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/completion_4180b3ef.wav",
@@ -20231,6 +31061,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/completion_4180b3ef.wav",
       text: "You made the room calm and ready for sleep!",
+    },
+  },
+  [normalizeText("You met and cared for the farm animals.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/completion_105b57ba.wav",
+      text: "You met and cared for the farm animals.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/completion_105b57ba.wav",
+      text: "You met and cared for the farm animals.",
+    },
+  },
+  [normalizeText("You played in the sand and explored the beach.")]: {
+    "en-US": {
+      key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/completion_22d8495d.wav",
+      text: "You played in the sand and explored the beach.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/completion_22d8495d.wav",
+      text: "You played in the sand and explored the beach.",
     },
   },
   [normalizeText("You played so creatively!")]: {
@@ -20263,6 +31113,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You remembered the school supplies very well!",
     },
   },
+  [normalizeText("You set up and cleaned up the little picnic.")]: {
+    "en-US": {
+      key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/completion_950ba09c.wav",
+      text: "You set up and cleaned up the little picnic.",
+    },
+    "en-GB": {
+      key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/completion_950ba09c.wav",
+      text: "You set up and cleaned up the little picnic.",
+    },
+  },
   [normalizeText("You shared the dinner dishes so politely!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/completion_d693a926.wav",
@@ -20281,6 +31141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/completion_cf8a7ba2.wav",
       text: "You sorted and dried everything after dinner!",
+    },
+  },
+  [normalizeText("You thanked Grandma and Grandpa and said goodbye.")]: {
+    "en-US": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/completion_4a3ab386.wav",
+      text: "You thanked Grandma and Grandpa and said goodbye.",
+    },
+    "en-GB": {
+      key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/completion_4a3ab386.wav",
+      text: "You thanked Grandma and Grandpa and said goodbye.",
     },
   },
   [normalizeText("You tidied up after lunch.")]: {
@@ -20313,6 +31183,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You traveled home safely.",
     },
   },
+  [normalizeText("You used a library card and returned a book.")]: {
+    "en-US": {
+      key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/completion_13a294fe.wav",
+      text: "You used a library card and returned a book.",
+    },
+    "en-GB": {
+      key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/completion_13a294fe.wav",
+      text: "You used a library card and returned a book.",
+    },
+  },
   [normalizeText("You washed and rinsed yourself so well!")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/completion_3868167d.wav",
@@ -20321,6 +31201,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/completion_3868167d.wav",
       text: "You washed and rinsed yourself so well!",
+    },
+  },
+  [normalizeText("You watched the animals and stayed on the path.")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/completion_d2bb6188.wav",
+      text: "You watched the animals and stayed on the path.",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/completion_d2bb6188.wav",
+      text: "You watched the animals and stayed on the path.",
     },
   },
   [normalizeText("You're clean and ready!")]: {
@@ -20393,6 +31283,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You're wearing your uniform!",
     },
   },
+  [normalizeText("Your beach bag is ready.")]: {
+    "en-US": {
+      key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/completion_72ea632d.wav",
+      text: "Your beach bag is ready.",
+    },
+    "en-GB": {
+      key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/completion_72ea632d.wav",
+      text: "Your beach bag is ready.",
+    },
+  },
   [normalizeText("Your family is near your home.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_fail_8cd800fa.wav",
@@ -20451,6 +31351,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/intro_success_4b8dbd36.wav",
       text: "Yummy!",
+    },
+  },
+  [normalizeText("zebra")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/zebra.wav",
+      text: "zebra",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/zebra.wav",
+      text: "zebra",
+    },
+  },
+  [normalizeText("zoo gate")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/zoo_gate.wav",
+      text: "zoo gate",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/zoo_gate.wav",
+      text: "zoo gate",
+    },
+  },
+  [normalizeText("zoo map")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/zoo_map.wav",
+      text: "zoo map",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/zoo_map.wav",
+      text: "zoo map",
+    },
+  },
+  [normalizeText("zoo path")]: {
+    "en-US": {
+      key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/zoo_path.wav",
+      text: "zoo path",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/zoo_path.wav",
+      text: "zoo path",
+    },
+  },
+  [normalizeText("zoo sign")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/zoo_sign.wav",
+      text: "zoo sign",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/zoo_sign.wav",
+      text: "zoo sign",
+    },
+  },
+  [normalizeText("zookeeper")]: {
+    "en-US": {
+      key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/zookeeper.wav",
+      text: "zookeeper",
+    },
+    "en-GB": {
+      key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/zookeeper.wav",
+      text: "zookeeper",
     },
   },
 };
@@ -22060,6 +33020,574 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/ride-home/audio/vi/teach_window_success_b93795c9.wav",
     text: "Từ này nghĩa là cửa sổ.",
   },
+  [normalizeText("Bé đã sẵn sàng vào thăm các bạn động vật.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/completion_0e9fd6b0.wav",
+    text: "Bé đã sẵn sàng vào thăm các bạn động vật.",
+  },
+  [normalizeText("Kéo bản đồ ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_map_74442e3f.wav",
+    text: "Kéo bản đồ ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Bản đồ nằm ở giữa khung cảnh.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_map_fail_5c154e15.wav",
+    text: "Bản đồ nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng bản đồ sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_map_success_433ed0d0.wav",
+    text: "Tốt lắm, bé đã chọn đúng bản đồ sở thú.",
+  },
+  [normalizeText("Kéo thẻ xem biển ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_read_sign_a006697b.wav",
+    text: "Kéo thẻ xem biển ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ xem biển nằm ở giữa hàng dưới.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_read_sign_fail_e63081a2.wav",
+    text: "Thẻ xem biển nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ xem biển chỉ dẫn.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/drag_read_sign_success_cf6fa4e5.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ xem biển chỉ dẫn.",
+  },
+  [normalizeText("Mình vào vườn thú nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/intro_24b74ab5.wav",
+    text: "Mình vào vườn thú nhé.",
+  },
+  [normalizeText("Mình nhìn biển chỉ dẫn trước nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/intro_success_d7a8c394.wav",
+    text: "Mình nhìn biển chỉ dẫn trước nhé.",
+  },
+  [normalizeText("Chạm thẻ đi theo người chăm sóc ở dưới bên phải nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_follow_keeper_7c040bb2.wav",
+    text: "Chạm thẻ đi theo người chăm sóc ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ đi theo người chăm sóc nằm ở dưới bên phải.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_follow_keeper_fail_09fb8643.wav",
+    text: "Thẻ đi theo người chăm sóc nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đi theo người chăm sóc.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_follow_keeper_success_46f30688.wav",
+    text: "Đúng rồi, đó là thẻ đi theo người chăm sóc.",
+  },
+  [normalizeText("Chạm vào cổng sở thú ở phía trên nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_gate_aded239b.wav",
+    text: "Chạm vào cổng sở thú ở phía trên nhé.",
+  },
+  [normalizeText("Cổng sở thú nằm ở phía trên.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_gate_fail_549a1f3a.wav",
+    text: "Cổng sở thú nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là cổng sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_gate_success_5d05ad63.wav",
+    text: "Đúng rồi, đó là cổng sở thú.",
+  },
+  [normalizeText("Chạm vào người chăm sóc ở phía trên bên phải nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_keeper_b2674279.wav",
+    text: "Chạm vào người chăm sóc ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Người chăm sóc đứng ở phía trên bên phải.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_keeper_fail_fec5ec93.wav",
+    text: "Người chăm sóc đứng ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là người chăm sóc động vật.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_keeper_success_cadc92ae.wav",
+    text: "Đúng rồi, đó là người chăm sóc động vật.",
+  },
+  [normalizeText("Chạm vào thẻ đưa vé ở dưới bên trái nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_show_ticket_21aa5ea6.wav",
+    text: "Chạm vào thẻ đưa vé ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ đưa vé nằm ở dưới bên trái.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_show_ticket_fail_43a96dc2.wav",
+    text: "Thẻ đưa vé nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đưa vé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_show_ticket_success_b47ed2cd.wav",
+    text: "Đúng rồi, đó là thẻ đưa vé.",
+  },
+  [normalizeText("Chạm vào biển chỉ dẫn bên phải nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_sign_6bc2937f.wav",
+    text: "Chạm vào biển chỉ dẫn bên phải nhé.",
+  },
+  [normalizeText("Biển chỉ dẫn nằm ở bên phải.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_sign_fail_685aa96a.wav",
+    text: "Biển chỉ dẫn nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là biển chỉ dẫn trong vườn thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_sign_success_193ff91e.wav",
+    text: "Đúng rồi, đó là biển chỉ dẫn trong vườn thú.",
+  },
+  [normalizeText("Chạm vào tấm vé cạnh bé nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_ticket_a89d1488.wav",
+    text: "Chạm vào tấm vé cạnh bé nhé.",
+  },
+  [normalizeText("Tấm vé nằm ngay bên phải bé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_ticket_fail_44d46816.wav",
+    text: "Tấm vé nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là vé vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_ticket_success_b121808c.wav",
+    text: "Đúng rồi, đó là vé vào cửa.",
+  },
+  [normalizeText("Chạm vào vòng tay ở bên phải nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_wristband_8c4906d3.wav",
+    text: "Chạm vào vòng tay ở bên phải nhé.",
+  },
+  [normalizeText("Vòng tay nằm ở bên phải.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_wristband_fail_6bb31f8f.wav",
+    text: "Vòng tay nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là vòng tay vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/tap_wristband_success_45ee721c.wav",
+    text: "Đúng rồi, đó là vòng tay vào cửa.",
+  },
+  [normalizeText("Mình học câu đi theo người chăm sóc nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_follow_keeper_b74e329e.wav",
+    text: "Mình học câu đi theo người chăm sóc nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi theo người chăm sóc.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_follow_keeper_success_192a11ae.wav",
+    text: "Câu này nghĩa là đi theo người chăm sóc.",
+  },
+  [normalizeText("Đây là cổng sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_gate_e0f4d5fc.wav",
+    text: "Đây là cổng sở thú.",
+  },
+  [normalizeText("Từ này nghĩa là cổng sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_gate_success_03dc5580.wav",
+    text: "Từ này nghĩa là cổng sở thú.",
+  },
+  [normalizeText("Đây là người chăm sóc động vật.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_keeper_87dbfccf.wav",
+    text: "Đây là người chăm sóc động vật.",
+  },
+  [normalizeText("Từ này nghĩa là người chăm sóc động vật.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_keeper_success_81bf18d9.wav",
+    text: "Từ này nghĩa là người chăm sóc động vật.",
+  },
+  [normalizeText("Đây là bản đồ sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_map_cff673c2.wav",
+    text: "Đây là bản đồ sở thú.",
+  },
+  [normalizeText("Từ này nghĩa là bản đồ sở thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_map_success_c5a59e24.wav",
+    text: "Từ này nghĩa là bản đồ sở thú.",
+  },
+  [normalizeText("Mình học câu xem biển chỉ dẫn nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_read_sign_872179a1.wav",
+    text: "Mình học câu xem biển chỉ dẫn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xem biển chỉ dẫn.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_read_sign_success_192a24c5.wav",
+    text: "Câu này nghĩa là xem biển chỉ dẫn.",
+  },
+  [normalizeText("Mình học câu đưa vé nhé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_show_ticket_31d44059.wav",
+    text: "Mình học câu đưa vé nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đưa vé.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_show_ticket_success_f0143f5d.wav",
+    text: "Câu này nghĩa là đưa vé.",
+  },
+  [normalizeText("Đây là biển chỉ dẫn trong vườn thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_sign_b68a6ca3.wav",
+    text: "Đây là biển chỉ dẫn trong vườn thú.",
+  },
+  [normalizeText("Từ này nghĩa là biển chỉ dẫn trong vườn thú.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_sign_success_5d0806fb.wav",
+    text: "Từ này nghĩa là biển chỉ dẫn trong vườn thú.",
+  },
+  [normalizeText("Đây là vé vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_ticket_a23cb774.wav",
+    text: "Đây là vé vào cửa.",
+  },
+  [normalizeText("Từ này nghĩa là vé vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_ticket_success_cc9e88d8.wav",
+    text: "Từ này nghĩa là vé vào cửa.",
+  },
+  [normalizeText("Đây là vòng tay vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_wristband_f8e1c2a7.wav",
+    text: "Đây là vòng tay vào cửa.",
+  },
+  [normalizeText("Từ này nghĩa là vòng tay vào cửa.")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/teach_wristband_success_14ede4c6.wav",
+    text: "Từ này nghĩa là vòng tay vào cửa.",
+  },
+  [normalizeText("Bé đã gặp và chăm sóc các bạn động vật nông trại.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/completion_94a543a2.wav",
+    text: "Bé đã gặp và chăm sóc các bạn động vật nông trại.",
+  },
+  [normalizeText("Kéo thẻ vuốt ve cừu ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/drag_pet_sheep_663a033f.wav",
+    text: "Kéo thẻ vuốt ve cừu ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ vuốt ve cừu nằm ở giữa hàng dưới.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/drag_pet_sheep_fail_fe8fa8cd.wav",
+    text: "Thẻ vuốt ve cừu nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ vuốt ve cừu nhẹ nhàng.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/drag_pet_sheep_success_fd4f8d0a.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ vuốt ve cừu nhẹ nhàng.",
+  },
+  [normalizeText("Mình gặp các bạn động vật ở nông trại nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/intro_dcb5beee.wav",
+    text: "Mình gặp các bạn động vật ở nông trại nhé.",
+  },
+  [normalizeText("Các bạn động vật đáng yêu quá!")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/intro_success_5313ce92.wav",
+    text: "Các bạn động vật đáng yêu quá!",
+  },
+  [normalizeText("Chạm vào con gà ở phía trên nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_chicken_18cd8319.wav",
+    text: "Chạm vào con gà ở phía trên nhé.",
+  },
+  [normalizeText("Con gà đứng ở phía trên.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_chicken_fail_f2e756f9.wav",
+    text: "Con gà đứng ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là con gà.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_chicken_success_46546ed1.wav",
+    text: "Đúng rồi, đó là con gà.",
+  },
+  [normalizeText("Chạm vào con bò ở phía trên bên phải nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_cow_16a20d47.wav",
+    text: "Chạm vào con bò ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Con bò đứng ở phía trên bên phải.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_cow_fail_0f4840e6.wav",
+    text: "Con bò đứng ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là con bò.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_cow_success_ed272e79.wav",
+    text: "Đúng rồi, đó là con bò.",
+  },
+  [normalizeText("Chạm vào con vịt ở bên phải nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_duck_29a91700.wav",
+    text: "Chạm vào con vịt ở bên phải nhé.",
+  },
+  [normalizeText("Con vịt đứng ở bên phải.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_duck_fail_a4f6f382.wav",
+    text: "Con vịt đứng ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là con vịt.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_duck_success_9ad2cad3.wav",
+    text: "Đúng rồi, đó là con vịt.",
+  },
+  [normalizeText("Chạm vào thẻ cho dê ăn ở dưới bên trái nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_feed_goat_f25d3be0.wav",
+    text: "Chạm vào thẻ cho dê ăn ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ cho dê ăn nằm ở dưới bên trái.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_feed_goat_fail_785da2e5.wav",
+    text: "Thẻ cho dê ăn nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ cho dê ăn.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_feed_goat_success_6bd0f9c0.wav",
+    text: "Đúng rồi, đó là thẻ cho dê ăn.",
+  },
+  [normalizeText("Chạm vào con dê cạnh bé nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_goat_82b13d05.wav",
+    text: "Chạm vào con dê cạnh bé nhé.",
+  },
+  [normalizeText("Con dê đứng ngay bên phải bé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_goat_fail_8d0fc1c0.wav",
+    text: "Con dê đứng ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là con dê.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_goat_success_04db3082.wav",
+    text: "Đúng rồi, đó là con dê.",
+  },
+  [normalizeText("Chạm vào heo con ở góc dưới bên phải nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_piglet_b9a668d6.wav",
+    text: "Chạm vào heo con ở góc dưới bên phải nhé.",
+  },
+  [normalizeText("Heo con đứng ở góc dưới bên phải.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_piglet_fail_adee835d.wav",
+    text: "Heo con đứng ở góc dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là heo con.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_piglet_success_dc669441.wav",
+    text: "Đúng rồi, đó là heo con.",
+  },
+  [normalizeText("Chạm vào con cừu ở giữa bên phải nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_sheep_8a6d1a36.wav",
+    text: "Chạm vào con cừu ở giữa bên phải nhé.",
+  },
+  [normalizeText("Con cừu đứng ở giữa bên phải.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_sheep_fail_9cebbe67.wav",
+    text: "Con cừu đứng ở giữa bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là con cừu.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_sheep_success_b51efb63.wav",
+    text: "Đúng rồi, đó là con cừu.",
+  },
+  [normalizeText("Chạm vào thẻ rửa tay ở dưới bên phải nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_wash_hands_71eb79c0.wav",
+    text: "Chạm vào thẻ rửa tay ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ rửa tay nằm ở dưới bên phải.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_wash_hands_fail_42e75966.wav",
+    text: "Thẻ rửa tay nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ rửa tay.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/tap_wash_hands_success_1d739783.wav",
+    text: "Đúng rồi, đó là thẻ rửa tay.",
+  },
+  [normalizeText("Đây là con gà.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_chicken_b4b5e865.wav",
+    text: "Đây là con gà.",
+  },
+  [normalizeText("Từ này nghĩa là con gà.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_chicken_success_3ef9c636.wav",
+    text: "Từ này nghĩa là con gà.",
+  },
+  [normalizeText("Đây là con bò.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_cow_a5cfb8a5.wav",
+    text: "Đây là con bò.",
+  },
+  [normalizeText("Từ này nghĩa là con bò.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_cow_success_07447ee7.wav",
+    text: "Từ này nghĩa là con bò.",
+  },
+  [normalizeText("Đây là con vịt.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_duck_d61ae7a6.wav",
+    text: "Đây là con vịt.",
+  },
+  [normalizeText("Từ này nghĩa là con vịt.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_duck_success_0bae1dff.wav",
+    text: "Từ này nghĩa là con vịt.",
+  },
+  [normalizeText("Mình học câu cho dê ăn nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_feed_goat_5a8ad926.wav",
+    text: "Mình học câu cho dê ăn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là cho dê ăn.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_feed_goat_success_e5c46867.wav",
+    text: "Câu này nghĩa là cho dê ăn.",
+  },
+  [normalizeText("Đây là con dê.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_goat_22069f51.wav",
+    text: "Đây là con dê.",
+  },
+  [normalizeText("Từ này nghĩa là con dê.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_goat_success_ab317114.wav",
+    text: "Từ này nghĩa là con dê.",
+  },
+  [normalizeText("Mình học câu vuốt ve cừu nhẹ nhàng nhé.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_pet_sheep_047917c5.wav",
+    text: "Mình học câu vuốt ve cừu nhẹ nhàng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là vuốt ve cừu nhẹ nhàng.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_pet_sheep_success_9a094993.wav",
+    text: "Câu này nghĩa là vuốt ve cừu nhẹ nhàng.",
+  },
+  [normalizeText("Đây là heo con.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_piglet_ba1c4ded.wav",
+    text: "Đây là heo con.",
+  },
+  [normalizeText("Từ này nghĩa là heo con.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_piglet_success_93f7a310.wav",
+    text: "Từ này nghĩa là heo con.",
+  },
+  [normalizeText("Đây là con cừu.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_sheep_1ce9685c.wav",
+    text: "Đây là con cừu.",
+  },
+  [normalizeText("Từ này nghĩa là con cừu.")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/teach_sheep_success_3f2745d2.wav",
+    text: "Từ này nghĩa là con cừu.",
+  },
+  [normalizeText("Bé đã quan sát động vật và đi đúng lối.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/completion_2f283752.wav",
+    text: "Bé đã quan sát động vật và đi đúng lối.",
+  },
+  [normalizeText("Kéo thẻ dùng ống nhòm ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/drag_use_binoculars_028432fb.wav",
+    text: "Kéo thẻ dùng ống nhòm ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ dùng ống nhòm nằm ở giữa hàng dưới.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/drag_use_binoculars_fail_7be4e61c.wav",
+    text: "Thẻ dùng ống nhòm nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ dùng ống nhòm.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/drag_use_binoculars_success_0bdd1571.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ dùng ống nhòm.",
+  },
+  [normalizeText("Mình đi theo lối trong sở thú nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/intro_d4b18500.wav",
+    text: "Mình đi theo lối trong sở thú nhé.",
+  },
+  [normalizeText("Mình quan sát các bạn thật nhẹ nhàng.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/intro_success_b5518885.wav",
+    text: "Mình quan sát các bạn thật nhẹ nhàng.",
+  },
+  [normalizeText("Chạm vào ống nhòm ở góc dưới bên phải nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_binoculars_85f7dd75.wav",
+    text: "Chạm vào ống nhòm ở góc dưới bên phải nhé.",
+  },
+  [normalizeText("Ống nhòm nằm ở góc dưới bên phải.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_binoculars_fail_8e94174a.wav",
+    text: "Ống nhòm nằm ở góc dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là ống nhòm.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_binoculars_success_41733e11.wav",
+    text: "Đúng rồi, đó là ống nhòm.",
+  },
+  [normalizeText("Chạm vào hươu cao cổ ở phía trên bên phải nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_giraffe_46ede049.wav",
+    text: "Chạm vào hươu cao cổ ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Hươu cao cổ đứng ở phía trên bên phải.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_giraffe_fail_98d00ac5.wav",
+    text: "Hươu cao cổ đứng ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là hươu cao cổ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_giraffe_success_c83552d8.wav",
+    text: "Đúng rồi, đó là hươu cao cổ.",
+  },
+  [normalizeText("Chạm vào khu sinh sống ở giữa bên phải nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_habitat_7ad53f99.wav",
+    text: "Chạm vào khu sinh sống ở giữa bên phải nhé.",
+  },
+  [normalizeText("Khu sinh sống nằm ở giữa bên phải.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_habitat_fail_bcec593d.wav",
+    text: "Khu sinh sống nằm ở giữa bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là nơi sống của động vật.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_habitat_success_af4044ea.wav",
+    text: "Đúng rồi, đó là nơi sống của động vật.",
+  },
+  [normalizeText("Chạm vào con khỉ ở bên phải nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_monkey_0dc440c5.wav",
+    text: "Chạm vào con khỉ ở bên phải nhé.",
+  },
+  [normalizeText("Con khỉ ở bên phải.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_monkey_fail_460ba1d5.wav",
+    text: "Con khỉ ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là con khỉ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_monkey_success_6a1a7a0b.wav",
+    text: "Đúng rồi, đó là con khỉ.",
+  },
+  [normalizeText("Chạm vào lối đi ở phía dưới nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_path_23111d0c.wav",
+    text: "Chạm vào lối đi ở phía dưới nhé.",
+  },
+  [normalizeText("Lối đi nằm ở phía dưới.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_path_fail_543bae09.wav",
+    text: "Lối đi nằm ở phía dưới.",
+  },
+  [normalizeText("Đúng rồi, đó là lối đi trong vườn thú.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_path_success_78e4787d.wav",
+    text: "Đúng rồi, đó là lối đi trong vườn thú.",
+  },
+  [normalizeText("Chạm vào thẻ tìm ngựa vằn ở dưới bên trái nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_spot_zebra_92469d19.wav",
+    text: "Chạm vào thẻ tìm ngựa vằn ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ tìm ngựa vằn nằm ở dưới bên trái.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_spot_zebra_fail_09861b56.wav",
+    text: "Thẻ tìm ngựa vằn nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tìm ngựa vằn.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_spot_zebra_success_03e09eea.wav",
+    text: "Đúng rồi, đó là thẻ tìm ngựa vằn.",
+  },
+  [normalizeText("Chạm vào thẻ đi đúng lối ở dưới bên phải nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_stay_on_path_ed4e0ffb.wav",
+    text: "Chạm vào thẻ đi đúng lối ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ đi đúng lối nằm ở dưới bên phải.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_stay_on_path_fail_0ef7a945.wav",
+    text: "Thẻ đi đúng lối nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đi đúng lối.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_stay_on_path_success_f6989acc.wav",
+    text: "Đúng rồi, đó là thẻ đi đúng lối.",
+  },
+  [normalizeText("Chạm vào ngựa vằn cạnh bé nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_zebra_007f3819.wav",
+    text: "Chạm vào ngựa vằn cạnh bé nhé.",
+  },
+  [normalizeText("Ngựa vằn đứng ngay bên phải bé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_zebra_fail_3544a647.wav",
+    text: "Ngựa vằn đứng ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là ngựa vằn.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/tap_zebra_success_ac2b76ee.wav",
+    text: "Đúng rồi, đó là ngựa vằn.",
+  },
+  [normalizeText("Đây là ống nhòm.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_binoculars_7961868a.wav",
+    text: "Đây là ống nhòm.",
+  },
+  [normalizeText("Từ này nghĩa là ống nhòm.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_binoculars_success_3477b9c0.wav",
+    text: "Từ này nghĩa là ống nhòm.",
+  },
+  [normalizeText("Đây là hươu cao cổ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_giraffe_48acacf9.wav",
+    text: "Đây là hươu cao cổ.",
+  },
+  [normalizeText("Từ này nghĩa là hươu cao cổ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_giraffe_success_4407c9e6.wav",
+    text: "Từ này nghĩa là hươu cao cổ.",
+  },
+  [normalizeText("Đây là nơi sống của động vật.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_habitat_76f88907.wav",
+    text: "Đây là nơi sống của động vật.",
+  },
+  [normalizeText("Từ này nghĩa là nơi sống của động vật.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_habitat_success_c4ff8c02.wav",
+    text: "Từ này nghĩa là nơi sống của động vật.",
+  },
+  [normalizeText("Đây là con khỉ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_monkey_ac8631d6.wav",
+    text: "Đây là con khỉ.",
+  },
+  [normalizeText("Từ này nghĩa là con khỉ.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_monkey_success_70fe5566.wav",
+    text: "Từ này nghĩa là con khỉ.",
+  },
+  [normalizeText("Đây là lối đi trong vườn thú.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_path_178ab948.wav",
+    text: "Đây là lối đi trong vườn thú.",
+  },
+  [normalizeText("Từ này nghĩa là lối đi trong vườn thú.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_path_success_a997d0c7.wav",
+    text: "Từ này nghĩa là lối đi trong vườn thú.",
+  },
+  [normalizeText("Mình học câu tìm ngựa vằn nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_spot_zebra_79b35aeb.wav",
+    text: "Mình học câu tìm ngựa vằn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tìm ngựa vằn.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_spot_zebra_success_2711f740.wav",
+    text: "Câu này nghĩa là tìm ngựa vằn.",
+  },
+  [normalizeText("Mình học câu đi đúng lối nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_stay_on_path_ab9e300c.wav",
+    text: "Mình học câu đi đúng lối nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi đúng lối.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_stay_on_path_success_f09669ce.wav",
+    text: "Câu này nghĩa là đi đúng lối.",
+  },
+  [normalizeText("Mình học câu dùng ống nhòm nhé.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_use_binoculars_52819928.wav",
+    text: "Mình học câu dùng ống nhòm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dùng ống nhòm.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_use_binoculars_success_9c99dafc.wav",
+    text: "Câu này nghĩa là dùng ống nhòm.",
+  },
+  [normalizeText("Đây là ngựa vằn.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_zebra_79c23a52.wav",
+    text: "Đây là ngựa vằn.",
+  },
+  [normalizeText("Từ này nghĩa là ngựa vằn.")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/teach_zebra_success_c95591f9.wav",
+    text: "Từ này nghĩa là ngựa vằn.",
+  },
   [normalizeText("Bé đã làm quen với lớp học.")]: {
     key: "lessons/at-school/classroom/audio/vi/completion_044e4daa.wav",
     text: "Bé đã làm quen với lớp học.",
@@ -22539,6 +34067,550 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cô giáo bảo mình viết tên.")]: {
     key: "lessons/at-school/teacher-instructions/audio/vi/instructions_teach_write_name_4c7a1d0f.wav",
     text: "Cô giáo bảo mình viết tên.",
+  },
+  [normalizeText("Túi đi biển của bé đã sẵn sàng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/completion_d30eda9f.wav",
+    text: "Túi đi biển của bé đã sẵn sàng.",
+  },
+  [normalizeText("Kéo mũ chống nắng vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_sun_hat_24307515.wav",
+    text: "Kéo mũ chống nắng vào vòng sáng nhé.",
+  },
+  [normalizeText("Mũ chống nắng nằm phía trên túi.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_sun_hat_fail_8de1edcf.wav",
+    text: "Mũ chống nắng nằm phía trên túi.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng mũ chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_sun_hat_success_080dea79.wav",
+    text: "Tốt lắm, bé đã chọn đúng mũ chống nắng.",
+  },
+  [normalizeText("Kéo khăn tắm cạnh túi vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_towel_7d7e2a08.wav",
+    text: "Kéo khăn tắm cạnh túi vào vòng sáng nhé.",
+  },
+  [normalizeText("Khăn tắm nằm cạnh túi đi biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_towel_fail_a0d84131.wav",
+    text: "Khăn tắm nằm cạnh túi đi biển.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng khăn tắm biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_towel_success_e29085b5.wav",
+    text: "Tốt lắm, bé đã chọn đúng khăn tắm biển.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ đội mũ.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/drag_wear_hat_success_5b9711c0.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ đội mũ.",
+  },
+  [normalizeText("Mình chuẩn bị túi đi biển nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/intro_e41d3d96.wav",
+    text: "Mình chuẩn bị túi đi biển nhé.",
+  },
+  [normalizeText("Đồ đi biển đã sẵn sàng!")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/intro_success_86f0e840.wav",
+    text: "Đồ đi biển đã sẵn sàng!",
+  },
+  [normalizeText("Chạm vào túi đi biển cạnh bé nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_beach_bag_c766e0c1.wav",
+    text: "Chạm vào túi đi biển cạnh bé nhé.",
+  },
+  [normalizeText("Túi đi biển nằm ngay bên phải bé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_beach_bag_fail_863bd350.wav",
+    text: "Túi đi biển nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là túi đi biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_beach_bag_success_b4c3dab3.wav",
+    text: "Đúng rồi, đó là túi đi biển.",
+  },
+  [normalizeText("Chạm vào thẻ mang túi ở dưới bên phải nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_carry_bag_42bd05fe.wav",
+    text: "Chạm vào thẻ mang túi ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ mang túi nằm ở dưới bên phải.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_carry_bag_fail_aa93b73d.wav",
+    text: "Thẻ mang túi nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ mang túi.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_carry_bag_success_d4965fb6.wav",
+    text: "Đúng rồi, đó là thẻ mang túi.",
+  },
+  [normalizeText("Chạm vào thẻ thoa kem ở dưới bên trái nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_put_on_sunscreen_e5352a22.wav",
+    text: "Chạm vào thẻ thoa kem ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ thoa kem nằm ở dưới bên trái.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_put_on_sunscreen_fail_0eae541a.wav",
+    text: "Thẻ thoa kem nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ thoa kem chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_put_on_sunscreen_success_23655511.wav",
+    text: "Đúng rồi, đó là thẻ thoa kem chống nắng.",
+  },
+  [normalizeText("Chạm vào kính râm bên phải túi nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunglasses_79f3b0c7.wav",
+    text: "Chạm vào kính râm bên phải túi nhé.",
+  },
+  [normalizeText("Kính râm nằm bên phải túi.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunglasses_fail_745e1355.wav",
+    text: "Kính râm nằm bên phải túi.",
+  },
+  [normalizeText("Đúng rồi, đó là kính râm.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunglasses_success_32986942.wav",
+    text: "Đúng rồi, đó là kính râm.",
+  },
+  [normalizeText("Chạm vào kem chống nắng ở bên phải nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunscreen_f4472c24.wav",
+    text: "Chạm vào kem chống nắng ở bên phải nhé.",
+  },
+  [normalizeText("Kem chống nắng nằm ở bên phải.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunscreen_fail_e00f4145.wav",
+    text: "Kem chống nắng nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là kem chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_sunscreen_success_f9d07031.wav",
+    text: "Đúng rồi, đó là kem chống nắng.",
+  },
+  [normalizeText("Chạm vào bình nước ở bên phải nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_water_bottle_41598b1e.wav",
+    text: "Chạm vào bình nước ở bên phải nhé.",
+  },
+  [normalizeText("Bình nước nằm ở bên phải.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/tap_water_bottle_fail_991af0c8.wav",
+    text: "Bình nước nằm ở bên phải.",
+  },
+  [normalizeText("Đây là túi đi biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_beach_bag_f052fc89.wav",
+    text: "Đây là túi đi biển.",
+  },
+  [normalizeText("Từ này nghĩa là túi đi biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_beach_bag_success_7af923fb.wav",
+    text: "Từ này nghĩa là túi đi biển.",
+  },
+  [normalizeText("Mình học câu mang túi nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_carry_bag_50cdd948.wav",
+    text: "Mình học câu mang túi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là mang túi.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_carry_bag_success_e3b08c60.wav",
+    text: "Câu này nghĩa là mang túi.",
+  },
+  [normalizeText("Mình học câu thoa kem chống nắng nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_put_on_sunscreen_15b63dbb.wav",
+    text: "Mình học câu thoa kem chống nắng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là thoa kem chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_put_on_sunscreen_success_41944253.wav",
+    text: "Câu này nghĩa là thoa kem chống nắng.",
+  },
+  [normalizeText("Đây là mũ chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sun_hat_5a473542.wav",
+    text: "Đây là mũ chống nắng.",
+  },
+  [normalizeText("Từ này nghĩa là mũ chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sun_hat_success_b78e9eed.wav",
+    text: "Từ này nghĩa là mũ chống nắng.",
+  },
+  [normalizeText("Đây là kính râm.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sunglasses_39389e64.wav",
+    text: "Đây là kính râm.",
+  },
+  [normalizeText("Từ này nghĩa là kính râm.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sunglasses_success_3299f300.wav",
+    text: "Từ này nghĩa là kính râm.",
+  },
+  [normalizeText("Đây là kem chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sunscreen_0ed17e0f.wav",
+    text: "Đây là kem chống nắng.",
+  },
+  [normalizeText("Từ này nghĩa là kem chống nắng.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_sunscreen_success_d1f6777c.wav",
+    text: "Từ này nghĩa là kem chống nắng.",
+  },
+  [normalizeText("Đây là khăn tắm biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_towel_8951d064.wav",
+    text: "Đây là khăn tắm biển.",
+  },
+  [normalizeText("Từ này nghĩa là khăn tắm biển.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_towel_success_aa190abf.wav",
+    text: "Từ này nghĩa là khăn tắm biển.",
+  },
+  [normalizeText("Mình học câu đội mũ nhé.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_wear_hat_c6f94d81.wav",
+    text: "Mình học câu đội mũ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đội mũ.")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/teach_wear_hat_success_1f7408c7.wav",
+    text: "Câu này nghĩa là đội mũ.",
+  },
+  [normalizeText("Bé đã chơi cát và khám phá bãi biển.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/completion_3135d0cb.wav",
+    text: "Bé đã chơi cát và khám phá bãi biển.",
+  },
+  [normalizeText("Kéo thẻ đào cát ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_dig_sand_0a054fc1.wav",
+    text: "Kéo thẻ đào cát ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ đào cát nằm ở giữa hàng dưới.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_dig_sand_fail_d74770e1.wav",
+    text: "Thẻ đào cát nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ đào cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_dig_sand_success_7a9a3050.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ đào cát.",
+  },
+  [normalizeText("Kéo vỏ sò trên cát vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_shell_1e48039d.wav",
+    text: "Kéo vỏ sò trên cát vào vòng sáng nhé.",
+  },
+  [normalizeText("Vỏ sò nằm trên cát, bên phải lâu đài.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_shell_fail_ca52ca06.wav",
+    text: "Vỏ sò nằm trên cát, bên phải lâu đài.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng vỏ sò.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/drag_shell_success_5a8f9890.wav",
+    text: "Tốt lắm, bé đã chọn đúng vỏ sò.",
+  },
+  [normalizeText("Mình chơi trên bãi cát nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/intro_b6a7c30f.wav",
+    text: "Mình chơi trên bãi cát nhé.",
+  },
+  [normalizeText("Cát mềm quá!")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/intro_success_5a1f945f.wav",
+    text: "Cát mềm quá!",
+  },
+  [normalizeText("Chạm vào cái xô ở phía trên bên phải nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_bucket_d971f5dd.wav",
+    text: "Chạm vào cái xô ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Cái xô nằm ở phía trên bên phải.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_bucket_fail_b6308545.wav",
+    text: "Cái xô nằm ở phía trên bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ xây lâu đài ở dưới bên trái nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_build_sandcastle_be2dadae.wav",
+    text: "Chạm vào thẻ xây lâu đài ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ xây lâu đài nằm ở dưới bên trái.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_build_sandcastle_fail_9d3f81ec.wav",
+    text: "Thẻ xây lâu đài nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ xây lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_build_sandcastle_success_5650dd13.wav",
+    text: "Đúng rồi, đó là thẻ xây lâu đài cát.",
+  },
+  [normalizeText("Chạm vào con cua ở góc dưới bên phải nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_crab_0448fe3b.wav",
+    text: "Chạm vào con cua ở góc dưới bên phải nhé.",
+  },
+  [normalizeText("Con cua nằm ở góc dưới bên phải.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_crab_fail_5783513f.wav",
+    text: "Con cua nằm ở góc dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là con cua.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_crab_success_7ab94389.wav",
+    text: "Đúng rồi, đó là con cua.",
+  },
+  [normalizeText("Chạm vào thẻ tìm vỏ sò ở dưới bên phải nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_find_shells_ba6fff87.wav",
+    text: "Chạm vào thẻ tìm vỏ sò ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ tìm vỏ sò nằm ở dưới bên phải.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_find_shells_fail_d0587024.wav",
+    text: "Thẻ tìm vỏ sò nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tìm vỏ sò.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_find_shells_success_2a10d570.wav",
+    text: "Đúng rồi, đó là thẻ tìm vỏ sò.",
+  },
+  [normalizeText("Chạm vào dấu chân dưới lâu đài nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_footprints_9d45aaf0.wav",
+    text: "Chạm vào dấu chân dưới lâu đài nhé.",
+  },
+  [normalizeText("Dấu chân nằm dưới lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_footprints_fail_90d2dc96.wav",
+    text: "Dấu chân nằm dưới lâu đài cát.",
+  },
+  [normalizeText("Đúng rồi, đó là dấu chân.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_footprints_success_bddf499d.wav",
+    text: "Đúng rồi, đó là dấu chân.",
+  },
+  [normalizeText("Chạm vào lâu đài cát cạnh bé nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_sandcastle_147cc18e.wav",
+    text: "Chạm vào lâu đài cát cạnh bé nhé.",
+  },
+  [normalizeText("Lâu đài cát nằm ngay bên phải bé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_sandcastle_fail_a61b9aac.wav",
+    text: "Lâu đài cát nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_sandcastle_success_9ef430ac.wav",
+    text: "Đúng rồi, đó là lâu đài cát.",
+  },
+  [normalizeText("Chạm vào xẻng nhỏ ở bên phải nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_shovel_d750ef54.wav",
+    text: "Chạm vào xẻng nhỏ ở bên phải nhé.",
+  },
+  [normalizeText("Xẻng nhỏ nằm ở bên phải.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_shovel_fail_645778b5.wav",
+    text: "Xẻng nhỏ nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là xẻng nhỏ.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/tap_shovel_success_26a22c13.wav",
+    text: "Đúng rồi, đó là xẻng nhỏ.",
+  },
+  [normalizeText("Mình học câu xây lâu đài cát nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_build_sandcastle_2a31c623.wav",
+    text: "Mình học câu xây lâu đài cát nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xây lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_build_sandcastle_success_94917f6a.wav",
+    text: "Câu này nghĩa là xây lâu đài cát.",
+  },
+  [normalizeText("Đây là con cua.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_crab_ff516770.wav",
+    text: "Đây là con cua.",
+  },
+  [normalizeText("Từ này nghĩa là con cua.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_crab_success_0eaac3a9.wav",
+    text: "Từ này nghĩa là con cua.",
+  },
+  [normalizeText("Mình học câu đào cát nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_dig_sand_d696e1da.wav",
+    text: "Mình học câu đào cát nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đào cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_dig_sand_success_c79c763f.wav",
+    text: "Câu này nghĩa là đào cát.",
+  },
+  [normalizeText("Mình học câu tìm vỏ sò nhé.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_find_shells_1d06869f.wav",
+    text: "Mình học câu tìm vỏ sò nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tìm vỏ sò.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_find_shells_success_01bc34a2.wav",
+    text: "Câu này nghĩa là tìm vỏ sò.",
+  },
+  [normalizeText("Đây là dấu chân.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_footprints_c1eef543.wav",
+    text: "Đây là dấu chân.",
+  },
+  [normalizeText("Từ này nghĩa là dấu chân.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_footprints_success_eccf5e0e.wav",
+    text: "Từ này nghĩa là dấu chân.",
+  },
+  [normalizeText("Đây là lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_sandcastle_81be1877.wav",
+    text: "Đây là lâu đài cát.",
+  },
+  [normalizeText("Từ này nghĩa là lâu đài cát.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_sandcastle_success_b57321cd.wav",
+    text: "Từ này nghĩa là lâu đài cát.",
+  },
+  [normalizeText("Đây là vỏ sò.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_shell_56c388d6.wav",
+    text: "Đây là vỏ sò.",
+  },
+  [normalizeText("Từ này nghĩa là vỏ sò.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_shell_success_d2f23f9b.wav",
+    text: "Từ này nghĩa là vỏ sò.",
+  },
+  [normalizeText("Đây là xẻng nhỏ.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_shovel_5bc3912a.wav",
+    text: "Đây là xẻng nhỏ.",
+  },
+  [normalizeText("Từ này nghĩa là xẻng nhỏ.")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/teach_shovel_success_381f0b53.wav",
+    text: "Từ này nghĩa là xẻng nhỏ.",
+  },
+  [normalizeText("Bé đã biết chơi gần biển an toàn hơn.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/completion_2847d4c3.wav",
+    text: "Bé đã biết chơi gần biển an toàn hơn.",
+  },
+  [normalizeText("Kéo áo phao cạnh bé vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_life_jacket_2ac280a6.wav",
+    text: "Kéo áo phao cạnh bé vào vòng sáng nhé.",
+  },
+  [normalizeText("Áo phao nằm ngay bên phải bé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_life_jacket_fail_82e493b5.wav",
+    text: "Áo phao nằm ngay bên phải bé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng áo phao.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_life_jacket_success_d5ec5869.wav",
+    text: "Tốt lắm, bé đã chọn đúng áo phao.",
+  },
+  [normalizeText("Kéo thẻ xem cờ ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_look_at_flag_d2446284.wav",
+    text: "Kéo thẻ xem cờ ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ xem cờ nằm ở giữa hàng dưới.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_look_at_flag_fail_eead6c99.wav",
+    text: "Thẻ xem cờ nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ xem cờ báo hiệu.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/drag_look_at_flag_success_f8ef7bef.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ xem cờ báo hiệu.",
+  },
+  [normalizeText("Mình học cách chơi an toàn ở biển nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/intro_903fd7f4.wav",
+    text: "Mình học cách chơi an toàn ở biển nhé.",
+  },
+  [normalizeText("An toàn là quan trọng nhất!")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/intro_success_b43defbf.wav",
+    text: "An toàn là quan trọng nhất!",
+  },
+  [normalizeText("Chạm vào lá cờ cạnh người cứu hộ nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_flag_11dca3be.wav",
+    text: "Chạm vào lá cờ cạnh người cứu hộ nhé.",
+  },
+  [normalizeText("Lá cờ nằm cạnh người cứu hộ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_flag_fail_3e7406ad.wav",
+    text: "Lá cờ nằm cạnh người cứu hộ.",
+  },
+  [normalizeText("Đúng rồi, đó là lá cờ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_flag_success_8df81193.wav",
+    text: "Đúng rồi, đó là lá cờ.",
+  },
+  [normalizeText("Chạm vào người cứu hộ bên phải nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_lifeguard_0a642f6a.wav",
+    text: "Chạm vào người cứu hộ bên phải nhé.",
+  },
+  [normalizeText("Người cứu hộ đứng ở bên phải.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_lifeguard_fail_d2e1c56e.wav",
+    text: "Người cứu hộ đứng ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là người cứu hộ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_lifeguard_success_1ad43014.wav",
+    text: "Đúng rồi, đó là người cứu hộ.",
+  },
+  [normalizeText("Chạm vào thẻ tráng chân ở dưới bên phải nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_rinse_feet_a53c425d.wav",
+    text: "Chạm vào thẻ tráng chân ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ tráng chân nằm ở dưới bên phải.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_rinse_feet_fail_6f63fd5d.wav",
+    text: "Thẻ tráng chân nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tráng chân.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_rinse_feet_success_2a8be4b7.wav",
+    text: "Đúng rồi, đó là thẻ tráng chân.",
+  },
+  [normalizeText("Chạm vào vùng biển ở giữa nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_sea_f1e70df8.wav",
+    text: "Chạm vào vùng biển ở giữa nhé.",
+  },
+  [normalizeText("Vùng biển nằm ở giữa khung cảnh.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_sea_fail_112a73b8.wav",
+    text: "Vùng biển nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Đúng rồi, đó là biển.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_sea_success_0a9ebf55.wav",
+    text: "Đúng rồi, đó là biển.",
+  },
+  [normalizeText("Chạm vào vòi tắm tráng bên phải nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_shower_b4aa2170.wav",
+    text: "Chạm vào vòi tắm tráng bên phải nhé.",
+  },
+  [normalizeText("Vòi tắm tráng nằm ở bên phải.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_shower_fail_358ccfed.wav",
+    text: "Vòi tắm tráng nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là vòi tắm tráng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_shower_success_05b473f8.wav",
+    text: "Đúng rồi, đó là vòi tắm tráng.",
+  },
+  [normalizeText("Chạm vào thẻ ở gần người lớn bên trái nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_stay_near_grown_up_cddc47de.wav",
+    text: "Chạm vào thẻ ở gần người lớn bên trái nhé.",
+  },
+  [normalizeText("Thẻ ở gần người lớn nằm dưới bên trái.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_stay_near_grown_up_fail_8f46b7a9.wav",
+    text: "Thẻ ở gần người lớn nằm dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ ở gần người lớn.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_stay_near_grown_up_success_40f96611.wav",
+    text: "Đúng rồi, đó là thẻ ở gần người lớn.",
+  },
+  [normalizeText("Chạm vào con sóng ở phía trên nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_wave_3232f7b0.wav",
+    text: "Chạm vào con sóng ở phía trên nhé.",
+  },
+  [normalizeText("Con sóng nằm ở phía trên.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_wave_fail_b2dbdeff.wav",
+    text: "Con sóng nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là con sóng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/tap_wave_success_7b0b7bcb.wav",
+    text: "Đúng rồi, đó là con sóng.",
+  },
+  [normalizeText("Đây là lá cờ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_flag_26767389.wav",
+    text: "Đây là lá cờ.",
+  },
+  [normalizeText("Từ này nghĩa là lá cờ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_flag_success_ca9a7b75.wav",
+    text: "Từ này nghĩa là lá cờ.",
+  },
+  [normalizeText("Đây là áo phao.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_life_jacket_c71f7fd6.wav",
+    text: "Đây là áo phao.",
+  },
+  [normalizeText("Từ này nghĩa là áo phao.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_life_jacket_success_37fa3051.wav",
+    text: "Từ này nghĩa là áo phao.",
+  },
+  [normalizeText("Đây là người cứu hộ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_lifeguard_8b9cff8e.wav",
+    text: "Đây là người cứu hộ.",
+  },
+  [normalizeText("Từ này nghĩa là người cứu hộ.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_lifeguard_success_eb3d5f68.wav",
+    text: "Từ này nghĩa là người cứu hộ.",
+  },
+  [normalizeText("Mình học câu xem cờ báo hiệu nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_look_at_flag_b354a731.wav",
+    text: "Mình học câu xem cờ báo hiệu nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xem cờ báo hiệu.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_look_at_flag_success_308a03f2.wav",
+    text: "Câu này nghĩa là xem cờ báo hiệu.",
+  },
+  [normalizeText("Mình học câu tráng chân nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_rinse_feet_5be82a1b.wav",
+    text: "Mình học câu tráng chân nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tráng chân.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_rinse_feet_success_4f7434e0.wav",
+    text: "Câu này nghĩa là tráng chân.",
+  },
+  [normalizeText("Đây là biển.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_sea_33671364.wav",
+    text: "Đây là biển.",
+  },
+  [normalizeText("Từ này nghĩa là biển.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_sea_success_f9ed4aa4.wav",
+    text: "Từ này nghĩa là biển.",
+  },
+  [normalizeText("Đây là vòi tắm tráng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_shower_7bc5e260.wav",
+    text: "Đây là vòi tắm tráng.",
+  },
+  [normalizeText("Từ này nghĩa là vòi tắm tráng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_shower_success_57bc31cf.wav",
+    text: "Từ này nghĩa là vòi tắm tráng.",
+  },
+  [normalizeText("Mình học câu ở gần người lớn nhé.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_stay_near_grown_up_4a7c0d7c.wav",
+    text: "Mình học câu ở gần người lớn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ở gần người lớn.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_stay_near_grown_up_success_d174e6b9.wav",
+    text: "Câu này nghĩa là ở gần người lớn.",
+  },
+  [normalizeText("Đây là con sóng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_wave_09fe046c.wav",
+    text: "Đây là con sóng.",
+  },
+  [normalizeText("Từ này nghĩa là con sóng.")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/teach_wave_success_2b9825e3.wav",
+    text: "Từ này nghĩa là con sóng.",
   },
   [normalizeText("Bé đã chọn truyện trước khi ngủ thật nhẹ nhàng!")]: {
     key: "lessons/bedtime/bedtime-story/audio/vi/completion_abb65d71.wav",
@@ -23107,6 +35179,1102 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đeo mặt nạ ngủ giúp mắt được nghỉ ngơi.")]: {
     key: "lessons/bedtime/sleep-ready/audio/vi/teach_wear_sleep_mask_success_ae9ee71c.wav",
     text: "Đeo mặt nạ ngủ giúp mắt được nghỉ ngơi.",
+  },
+  [normalizeText("Bé đã chơi vui và biết chờ đến lượt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/completion_e7a23b0e.wav",
+    text: "Bé đã chơi vui và biết chờ đến lượt.",
+  },
+  [normalizeText("Kéo túi ném hạt vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_beanbag_429b2346.wav",
+    text: "Kéo túi ném hạt vào vòng sáng nhé.",
+  },
+  [normalizeText("Túi ném hạt nằm ở giữa trên thảm.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_beanbag_fail_60ea85f5.wav",
+    text: "Túi ném hạt nằm ở giữa trên thảm.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng túi ném hạt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_beanbag_success_23b2c78d.wav",
+    text: "Tốt lắm, bé đã chọn đúng túi ném hạt.",
+  },
+  [normalizeText("Kéo thẻ vỗ tay ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_clap_hands_0e157209.wav",
+    text: "Kéo thẻ vỗ tay ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ vỗ tay nằm ở giữa hàng dưới.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_clap_hands_fail_e4e014d0.wav",
+    text: "Thẻ vỗ tay nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ vỗ tay.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/drag_clap_hands_success_6aa58f2f.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ vỗ tay.",
+  },
+  [normalizeText("Mình chơi trò chơi sinh nhật nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/intro_2e32c576.wav",
+    text: "Mình chơi trò chơi sinh nhật nhé.",
+  },
+  [normalizeText("Mình chờ đến lượt thật vui.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/intro_success_c043353d.wav",
+    text: "Mình chờ đến lượt thật vui.",
+  },
+  [normalizeText("Chạm vào bạn đang nhảy bên trái nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_dance_c2bd97fa.wav",
+    text: "Chạm vào bạn đang nhảy bên trái nhé.",
+  },
+  [normalizeText("Bạn đang nhảy ở bên trái.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_dance_fail_4fcad768.wav",
+    text: "Bạn đang nhảy ở bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là hình bạn nhảy múa.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_dance_success_9e6104bc.wav",
+    text: "Đúng rồi, đó là hình bạn nhảy múa.",
+  },
+  [normalizeText("Chạm vào hộp trò chơi trên thảm nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_game_aa924496.wav",
+    text: "Chạm vào hộp trò chơi trên thảm nhé.",
+  },
+  [normalizeText("Hộp trò chơi nằm trên thảm bên trái.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_game_fail_148cc66f.wav",
+    text: "Hộp trò chơi nằm trên thảm bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là trò chơi.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_game_success_cf126fd1.wav",
+    text: "Đúng rồi, đó là trò chơi.",
+  },
+  [normalizeText("Chạm vào thẻ tham gia ở dưới bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_join_game_adc92a37.wav",
+    text: "Chạm vào thẻ tham gia ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ tham gia nằm ở dưới bên phải.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_join_game_fail_a71dee7e.wav",
+    text: "Thẻ tham gia nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tham gia trò chơi.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_join_game_success_8950b92f.wav",
+    text: "Đúng rồi, đó là thẻ tham gia trò chơi.",
+  },
+  [normalizeText("Chạm vào loa nhạc trên ghế nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_music_3f5f9978.wav",
+    text: "Chạm vào loa nhạc trên ghế nhé.",
+  },
+  [normalizeText("Loa nhạc nằm trên ghế.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_music_fail_43df773f.wav",
+    text: "Loa nhạc nằm trên ghế.",
+  },
+  [normalizeText("Đúng rồi, đó là âm nhạc.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_music_success_b5abdc7c.wav",
+    text: "Đúng rồi, đó là âm nhạc.",
+  },
+  [normalizeText("Chạm vào phần thưởng trên ghế bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_prize_c8298095.wav",
+    text: "Chạm vào phần thưởng trên ghế bên phải nhé.",
+  },
+  [normalizeText("Phần thưởng nằm trên ghế bên phải.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_prize_fail_fab4a596.wav",
+    text: "Phần thưởng nằm trên ghế bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là phần thưởng.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_prize_success_28dcd84b.wav",
+    text: "Đúng rồi, đó là phần thưởng.",
+  },
+  [normalizeText("Chạm vào tranh ghép bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_puzzle_f2ffc8ec.wav",
+    text: "Chạm vào tranh ghép bên phải nhé.",
+  },
+  [normalizeText("Tranh ghép nằm trên thảm bên phải.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_puzzle_fail_762684d0.wav",
+    text: "Tranh ghép nằm trên thảm bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ chơi lần lượt ở dưới bên trái nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_take_turns_0feac7d3.wav",
+    text: "Chạm vào thẻ chơi lần lượt ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ chơi lần lượt nằm ở dưới bên trái.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_take_turns_fail_5d88c869.wav",
+    text: "Thẻ chơi lần lượt nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chơi lần lượt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/tap_take_turns_success_82107cc0.wav",
+    text: "Đúng rồi, đó là thẻ chơi lần lượt.",
+  },
+  [normalizeText("Đây là túi ném hạt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_beanbag_cca25bcd.wav",
+    text: "Đây là túi ném hạt.",
+  },
+  [normalizeText("Từ này nghĩa là túi ném hạt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_beanbag_success_4f42de5c.wav",
+    text: "Từ này nghĩa là túi ném hạt.",
+  },
+  [normalizeText("Mình học câu vỗ tay nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_clap_hands_1da86efa.wav",
+    text: "Mình học câu vỗ tay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là vỗ tay.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_clap_hands_success_16d442a4.wav",
+    text: "Câu này nghĩa là vỗ tay.",
+  },
+  [normalizeText("Đây là hình bạn nhảy múa.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_dance_7d0e893c.wav",
+    text: "Đây là hình bạn nhảy múa.",
+  },
+  [normalizeText("Từ này nghĩa là nhảy múa.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_dance_success_3938de8a.wav",
+    text: "Từ này nghĩa là nhảy múa.",
+  },
+  [normalizeText("Đây là trò chơi.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_game_ee18ad17.wav",
+    text: "Đây là trò chơi.",
+  },
+  [normalizeText("Từ này nghĩa là trò chơi.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_game_success_6642dec3.wav",
+    text: "Từ này nghĩa là trò chơi.",
+  },
+  [normalizeText("Mình học câu tham gia trò chơi nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_join_game_f45c834b.wav",
+    text: "Mình học câu tham gia trò chơi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tham gia trò chơi.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_join_game_success_dd3916b1.wav",
+    text: "Câu này nghĩa là tham gia trò chơi.",
+  },
+  [normalizeText("Đây là phần thưởng.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_prize_896a3c64.wav",
+    text: "Đây là phần thưởng.",
+  },
+  [normalizeText("Từ này nghĩa là phần thưởng.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_prize_success_e055d17b.wav",
+    text: "Từ này nghĩa là phần thưởng.",
+  },
+  [normalizeText("Mình học câu chơi lần lượt nhé.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_take_turns_da3ef242.wav",
+    text: "Mình học câu chơi lần lượt nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chơi lần lượt.")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/teach_take_turns_success_8d2e8b42.wav",
+    text: "Câu này nghĩa là chơi lần lượt.",
+  },
+  [normalizeText("Quà và đồ trang trí đã sẵn sàng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/completion_1fe61a2e.wav",
+    text: "Quà và đồ trang trí đã sẵn sàng.",
+  },
+  [normalizeText("Kéo bóng bay phía trên vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_balloon_416c865f.wav",
+    text: "Kéo bóng bay phía trên vào vòng sáng nhé.",
+  },
+  [normalizeText("Bóng bay nằm ở phía trên.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_balloon_fail_a3199e56.wav",
+    text: "Bóng bay nằm ở phía trên.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng bóng bay.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_balloon_success_d457e761.wav",
+    text: "Tốt lắm, bé đã chọn đúng bóng bay.",
+  },
+  [normalizeText("Kéo thẻ treo bóng ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_hang_balloons_12d0b656.wav",
+    text: "Kéo thẻ treo bóng ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ treo bóng nằm ở giữa hàng dưới.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_hang_balloons_fail_52f0d6fe.wav",
+    text: "Thẻ treo bóng nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ treo bóng bay.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_hang_balloons_success_a40edfad.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ treo bóng bay.",
+  },
+  [normalizeText("Kéo mũ sinh nhật bên phải vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_party_hat_41e56833.wav",
+    text: "Kéo mũ sinh nhật bên phải vào vòng sáng nhé.",
+  },
+  [normalizeText("Mũ sinh nhật nằm ở bên phải.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_party_hat_fail_a00fefe3.wav",
+    text: "Mũ sinh nhật nằm ở bên phải.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng mũ sinh nhật.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/drag_party_hat_success_5a9e5862.wav",
+    text: "Tốt lắm, bé đã chọn đúng mũ sinh nhật.",
+  },
+  [normalizeText("Mình chuẩn bị đi sinh nhật nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/intro_b41403cb.wav",
+    text: "Mình chuẩn bị đi sinh nhật nhé.",
+  },
+  [normalizeText("Bữa tiệc sẽ vui lắm!")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/intro_success_26ea1f64.wav",
+    text: "Bữa tiệc sẽ vui lắm!",
+  },
+  [normalizeText("Chạm vào dây trang trí ở trên cùng nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_banner_79e2f0ca.wav",
+    text: "Chạm vào dây trang trí ở trên cùng nhé.",
+  },
+  [normalizeText("Dây trang trí nằm ở trên cùng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_banner_fail_3436da79.wav",
+    text: "Dây trang trí nằm ở trên cùng.",
+  },
+  [normalizeText("Đúng rồi, đó là dây trang trí.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_banner_success_504be065.wav",
+    text: "Đúng rồi, đó là dây trang trí.",
+  },
+  [normalizeText("Chạm vào thẻ trang trí ở dưới bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_decorate_room_dc1c7789.wav",
+    text: "Chạm vào thẻ trang trí ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ trang trí nằm ở dưới bên phải.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_decorate_room_fail_70f8e48e.wav",
+    text: "Thẻ trang trí nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ trang trí căn phòng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_decorate_room_success_9c3286c0.wav",
+    text: "Đúng rồi, đó là thẻ trang trí căn phòng.",
+  },
+  [normalizeText("Chạm vào món quà lớn trên bàn nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_gift_73d2077a.wav",
+    text: "Chạm vào món quà lớn trên bàn nhé.",
+  },
+  [normalizeText("Món quà lớn nằm ở giữa bàn.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_gift_fail_decfb01e.wav",
+    text: "Món quà lớn nằm ở giữa bàn.",
+  },
+  [normalizeText("Đúng rồi, đó là món quà.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_gift_success_c7681516.wav",
+    text: "Đúng rồi, đó là món quà.",
+  },
+  [normalizeText("Chạm vào thiệp mời trên bàn bên trái nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_invitation_6092657c.wav",
+    text: "Chạm vào thiệp mời trên bàn bên trái nhé.",
+  },
+  [normalizeText("Thiệp mời nằm trên bàn bên trái.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_invitation_fail_147f125c.wav",
+    text: "Thiệp mời nằm trên bàn bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thiệp mời.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_invitation_success_e6271b4e.wav",
+    text: "Đúng rồi, đó là thiệp mời.",
+  },
+  [normalizeText("Chạm vào ruy băng trên bàn bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_ribbon_75a9e289.wav",
+    text: "Chạm vào ruy băng trên bàn bên phải nhé.",
+  },
+  [normalizeText("Ruy băng nằm trên bàn bên phải.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_ribbon_fail_a31028db.wav",
+    text: "Ruy băng nằm trên bàn bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là dải ruy băng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_ribbon_success_86a1395f.wav",
+    text: "Đúng rồi, đó là dải ruy băng.",
+  },
+  [normalizeText("Chạm vào thẻ gói quà ở dưới bên trái nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_wrap_gift_5d34555b.wav",
+    text: "Chạm vào thẻ gói quà ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ gói quà nằm ở dưới bên trái.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_wrap_gift_fail_17a6020e.wav",
+    text: "Thẻ gói quà nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ gói quà.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/tap_wrap_gift_success_8be28be6.wav",
+    text: "Đúng rồi, đó là thẻ gói quà.",
+  },
+  [normalizeText("Đây là bóng bay.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_balloon_d14fadb4.wav",
+    text: "Đây là bóng bay.",
+  },
+  [normalizeText("Từ này nghĩa là bóng bay.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_balloon_success_2eab4e37.wav",
+    text: "Từ này nghĩa là bóng bay.",
+  },
+  [normalizeText("Đây là dây trang trí.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_banner_937d3d3b.wav",
+    text: "Đây là dây trang trí.",
+  },
+  [normalizeText("Từ này nghĩa là dây trang trí.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_banner_success_f3b14b7f.wav",
+    text: "Từ này nghĩa là dây trang trí.",
+  },
+  [normalizeText("Mình học câu trang trí căn phòng nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_decorate_room_7b854580.wav",
+    text: "Mình học câu trang trí căn phòng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là trang trí căn phòng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_decorate_room_success_a3266ee7.wav",
+    text: "Câu này nghĩa là trang trí căn phòng.",
+  },
+  [normalizeText("Đây là món quà.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_gift_1e3f6d03.wav",
+    text: "Đây là món quà.",
+  },
+  [normalizeText("Từ này nghĩa là món quà.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_gift_success_ef0e9f7d.wav",
+    text: "Từ này nghĩa là món quà.",
+  },
+  [normalizeText("Mình học câu treo bóng bay nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_hang_balloons_27f22cc5.wav",
+    text: "Mình học câu treo bóng bay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là treo bóng bay.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_hang_balloons_success_52ef3a6b.wav",
+    text: "Câu này nghĩa là treo bóng bay.",
+  },
+  [normalizeText("Đây là thiệp mời.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_invitation_48457725.wav",
+    text: "Đây là thiệp mời.",
+  },
+  [normalizeText("Từ này nghĩa là thiệp mời.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_invitation_success_0a5da6d8.wav",
+    text: "Từ này nghĩa là thiệp mời.",
+  },
+  [normalizeText("Đây là mũ sinh nhật.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_party_hat_da1b5321.wav",
+    text: "Đây là mũ sinh nhật.",
+  },
+  [normalizeText("Từ này nghĩa là mũ sinh nhật.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_party_hat_success_16f58bd2.wav",
+    text: "Từ này nghĩa là mũ sinh nhật.",
+  },
+  [normalizeText("Đây là dải ruy băng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_ribbon_25eb768a.wav",
+    text: "Đây là dải ruy băng.",
+  },
+  [normalizeText("Từ này nghĩa là dải ruy băng.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_ribbon_success_e6296fbf.wav",
+    text: "Từ này nghĩa là dải ruy băng.",
+  },
+  [normalizeText("Mình học câu gói quà nhé.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_wrap_gift_af66a0f8.wav",
+    text: "Mình học câu gói quà nhé.",
+  },
+  [normalizeText("Câu này nghĩa là gói quà.")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/teach_wrap_gift_success_54f57553.wav",
+    text: "Câu này nghĩa là gói quà.",
+  },
+  [normalizeText("Bé đã cùng các bạn thổi nến và chia bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/completion_ee05c2b8.wav",
+    text: "Bé đã cùng các bạn thổi nến và chia bánh.",
+  },
+  [normalizeText("Kéo xẻng lấy bánh vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_cake_server_6b9598f6.wav",
+    text: "Kéo xẻng lấy bánh vào vòng sáng nhé.",
+  },
+  [normalizeText("Xẻng lấy bánh nằm bên trái bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_cake_server_fail_e4e2072a.wav",
+    text: "Xẻng lấy bánh nằm bên trái bánh.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng xẻng lấy bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_cake_server_success_7ded993d.wav",
+    text: "Tốt lắm, bé đã chọn đúng xẻng lấy bánh.",
+  },
+  [normalizeText("Kéo cây nến trên bánh vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_candle_d10db393.wav",
+    text: "Kéo cây nến trên bánh vào vòng sáng nhé.",
+  },
+  [normalizeText("Cây nến nằm trên bánh sinh nhật.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_candle_fail_c9f6ff4e.wav",
+    text: "Cây nến nằm trên bánh sinh nhật.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng nến.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_candle_success_e72cfdae.wav",
+    text: "Tốt lắm, bé đã chọn đúng nến.",
+  },
+  [normalizeText("Kéo thẻ chia bánh ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_serve_cake_1ab1f6d9.wav",
+    text: "Kéo thẻ chia bánh ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ chia bánh nằm ở giữa hàng dưới.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_serve_cake_fail_7199bd6c.wav",
+    text: "Thẻ chia bánh nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ chia bánh ra đĩa.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/drag_serve_cake_success_5c898629.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ chia bánh ra đĩa.",
+  },
+  [normalizeText("Mình đến bàn tiệc sinh nhật nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/intro_c60b50f6.wav",
+    text: "Mình đến bàn tiệc sinh nhật nhé.",
+  },
+  [normalizeText("Bánh sinh nhật đẹp quá!")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/intro_success_1d5fdeee.wav",
+    text: "Bánh sinh nhật đẹp quá!",
+  },
+  [normalizeText("Chạm vào thẻ thổi nến ở dưới bên trái nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_blow_candles_06982824.wav",
+    text: "Chạm vào thẻ thổi nến ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ thổi nến nằm ở dưới bên trái.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_blow_candles_fail_f50ae827.wav",
+    text: "Thẻ thổi nến nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ thổi nến.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_blow_candles_success_34979af5.wav",
+    text: "Đúng rồi, đó là thẻ thổi nến.",
+  },
+  [normalizeText("Chạm vào bánh sinh nhật ở giữa bàn nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cake_363c8e96.wav",
+    text: "Chạm vào bánh sinh nhật ở giữa bàn nhé.",
+  },
+  [normalizeText("Bánh sinh nhật nằm ở giữa bàn.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cake_fail_a0b9c937.wav",
+    text: "Bánh sinh nhật nằm ở giữa bàn.",
+  },
+  [normalizeText("Đúng rồi, đó là bánh sinh nhật.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cake_success_60a245d3.wav",
+    text: "Đúng rồi, đó là bánh sinh nhật.",
+  },
+  [normalizeText("Chạm vào cốc giấy trên bàn bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cup_34839fab.wav",
+    text: "Chạm vào cốc giấy trên bàn bên phải nhé.",
+  },
+  [normalizeText("Cốc giấy nằm trên bàn bên phải.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cup_fail_19609c03.wav",
+    text: "Cốc giấy nằm trên bàn bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là cốc giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_cup_success_c4f98aee.wav",
+    text: "Đúng rồi, đó là cốc giấy.",
+  },
+  [normalizeText("Chạm vào đĩa trái cây bên trái bánh nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_fruit_2c68612a.wav",
+    text: "Chạm vào đĩa trái cây bên trái bánh nhé.",
+  },
+  [normalizeText("Đĩa trái cây nằm bên trái bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_fruit_fail_b5d91ae2.wav",
+    text: "Đĩa trái cây nằm bên trái bánh.",
+  },
+  [normalizeText("Đúng rồi, đó là đĩa trái cây.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_fruit_success_1d72ff87.wav",
+    text: "Đúng rồi, đó là đĩa trái cây.",
+  },
+  [normalizeText("Chạm vào đĩa giấy bên phải bánh nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_plate_79f200a8.wav",
+    text: "Chạm vào đĩa giấy bên phải bánh nhé.",
+  },
+  [normalizeText("Đĩa giấy nằm bên phải bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_plate_fail_eea3df51.wav",
+    text: "Đĩa giấy nằm bên phải bánh.",
+  },
+  [normalizeText("Đúng rồi, đó là đĩa giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_plate_success_7e2b8732.wav",
+    text: "Đúng rồi, đó là đĩa giấy.",
+  },
+  [normalizeText("Chạm vào thẻ chia bánh ở dưới bên phải nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_share_cake_1b686459.wav",
+    text: "Chạm vào thẻ chia bánh ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ chia sẻ nằm ở dưới bên phải.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_share_cake_fail_c344c6de.wav",
+    text: "Thẻ chia sẻ nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chia bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/tap_share_cake_success_c94cd9ef.wav",
+    text: "Đúng rồi, đó là thẻ chia bánh.",
+  },
+  [normalizeText("Mình học câu thổi nến nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_blow_candles_eefe62c7.wav",
+    text: "Mình học câu thổi nến nhé.",
+  },
+  [normalizeText("Câu này nghĩa là thổi nến.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_blow_candles_success_af9383ff.wav",
+    text: "Câu này nghĩa là thổi nến.",
+  },
+  [normalizeText("Đây là bánh sinh nhật.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cake_81a8d3b2.wav",
+    text: "Đây là bánh sinh nhật.",
+  },
+  [normalizeText("Đây là xẻng lấy bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cake_server_bdaef8b2.wav",
+    text: "Đây là xẻng lấy bánh.",
+  },
+  [normalizeText("Từ này nghĩa là xẻng lấy bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cake_server_success_8749ff83.wav",
+    text: "Từ này nghĩa là xẻng lấy bánh.",
+  },
+  [normalizeText("Từ này nghĩa là bánh sinh nhật.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cake_success_e7f6d7a9.wav",
+    text: "Từ này nghĩa là bánh sinh nhật.",
+  },
+  [normalizeText("Đây là nến.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_candle_a31155b1.wav",
+    text: "Đây là nến.",
+  },
+  [normalizeText("Từ này nghĩa là nến.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_candle_success_2ac88426.wav",
+    text: "Từ này nghĩa là nến.",
+  },
+  [normalizeText("Đây là cốc giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cup_2f5f4e0d.wav",
+    text: "Đây là cốc giấy.",
+  },
+  [normalizeText("Từ này nghĩa là cốc giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_cup_success_6dc2c630.wav",
+    text: "Từ này nghĩa là cốc giấy.",
+  },
+  [normalizeText("Đây là đĩa trái cây.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_fruit_d546b0ac.wav",
+    text: "Đây là đĩa trái cây.",
+  },
+  [normalizeText("Từ này nghĩa là đĩa trái cây.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_fruit_success_c3030ee0.wav",
+    text: "Từ này nghĩa là đĩa trái cây.",
+  },
+  [normalizeText("Đây là đĩa giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_plate_785d5560.wav",
+    text: "Đây là đĩa giấy.",
+  },
+  [normalizeText("Từ này nghĩa là đĩa giấy.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_plate_success_7667e20b.wav",
+    text: "Từ này nghĩa là đĩa giấy.",
+  },
+  [normalizeText("Mình học câu chia bánh ra đĩa nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_serve_cake_50713ca7.wav",
+    text: "Mình học câu chia bánh ra đĩa nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chia bánh ra đĩa.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_serve_cake_success_dbec0822.wav",
+    text: "Câu này nghĩa là chia bánh ra đĩa.",
+  },
+  [normalizeText("Mình học câu chia bánh nhé.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_share_cake_ccce7dd1.wav",
+    text: "Mình học câu chia bánh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chia bánh.")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/teach_share_cake_success_0555eb74.wav",
+    text: "Câu này nghĩa là chia bánh.",
+  },
+  [normalizeText("Bé đã chào bác sĩ và nói cảm giác của mình.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/completion_486beca9.wav",
+    text: "Bé đã chào bác sĩ và nói cảm giác của mình.",
+  },
+  [normalizeText("Bảng kẹp giấy nằm ở giữa phía dưới.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_clipboard_fail_03824722.wav",
+    text: "Bảng kẹp giấy nằm ở giữa phía dưới.",
+  },
+  [normalizeText("Kéo bảng kẹp giấy ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_clipboard_fc2af4f7.wav",
+    text: "Kéo bảng kẹp giấy ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng bảng kẹp giấy.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_clipboard_success_63704ccb.wav",
+    text: "Tốt lắm, bé đã chọn đúng bảng kẹp giấy.",
+  },
+  [normalizeText("Kéo thẻ ngồi yên ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_sit_still_85d28227.wav",
+    text: "Kéo thẻ ngồi yên ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ ngồi yên nằm ở giữa hàng dưới.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_sit_still_fail_e02e591b.wav",
+    text: "Thẻ ngồi yên nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ ngồi yên.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/drag_sit_still_success_b2a115bc.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ ngồi yên.",
+  },
+  [normalizeText("Mình vào phòng khám nhẹ nhàng nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/intro_102a0068.wav",
+    text: "Mình vào phòng khám nhẹ nhàng nhé.",
+  },
+  [normalizeText("Bác sĩ sẽ giúp bé khỏe hơn.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/intro_success_f67670fc.wav",
+    text: "Bác sĩ sẽ giúp bé khỏe hơn.",
+  },
+  [normalizeText("Chạm vào tòa nhà phòng khám cạnh bé nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_clinic_23f09372.wav",
+    text: "Chạm vào tòa nhà phòng khám cạnh bé nhé.",
+  },
+  [normalizeText("Tòa nhà phòng khám nằm ngay bên phải bé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_clinic_fail_a3feb789.wav",
+    text: "Tòa nhà phòng khám nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là phòng khám.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_clinic_success_bb60e1c7.wav",
+    text: "Đúng rồi, đó là phòng khám.",
+  },
+  [normalizeText("Chạm vào bác sĩ ở phía trên bên phải nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_doctor_435265b7.wav",
+    text: "Chạm vào bác sĩ ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Bác sĩ đứng ở phía trên bên phải.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_doctor_fail_01e2ca99.wav",
+    text: "Bác sĩ đứng ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là bác sĩ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_doctor_success_88a7758e.wav",
+    text: "Đúng rồi, đó là bác sĩ.",
+  },
+  [normalizeText("Chạm vào khẩu trang ở góc trên bên phải nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_mask_676d17a2.wav",
+    text: "Chạm vào khẩu trang ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Khẩu trang nằm ở góc trên bên phải.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_mask_fail_f54ca229.wav",
+    text: "Khẩu trang nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là khẩu trang.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_mask_success_b6526e78.wav",
+    text: "Đúng rồi, đó là khẩu trang.",
+  },
+  [normalizeText("Chạm vào cô y tá ở phía trên nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_nurse_1598ac1a.wav",
+    text: "Chạm vào cô y tá ở phía trên nhé.",
+  },
+  [normalizeText("Cô y tá đứng ở phía trên.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_nurse_fail_10ac58b0.wav",
+    text: "Cô y tá đứng ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là cô y tá.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_nurse_success_c4c4a942.wav",
+    text: "Đúng rồi, đó là cô y tá.",
+  },
+  [normalizeText("Chạm vào thẻ nói cảm giác ở dưới bên trái nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_say_how_you_feel_2ab2bd3c.wav",
+    text: "Chạm vào thẻ nói cảm giác ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ nói cảm giác nằm ở dưới bên trái.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_say_how_you_feel_fail_fa210ab6.wav",
+    text: "Thẻ nói cảm giác nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ nói cảm giác của bé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_say_how_you_feel_success_75c51516.wav",
+    text: "Đúng rồi, đó là thẻ nói cảm giác của bé.",
+  },
+  [normalizeText("Chạm vào thẻ chỉ chỗ đau ở dưới bên phải nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_tell_where_it_hurts_60553c01.wav",
+    text: "Chạm vào thẻ chỉ chỗ đau ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ chỉ chỗ đau nằm ở dưới bên phải.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_tell_where_it_hurts_fail_2752c467.wav",
+    text: "Thẻ chỉ chỗ đau nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chỉ chỗ bị đau.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_tell_where_it_hurts_success_71c67fa1.wav",
+    text: "Đúng rồi, đó là thẻ chỉ chỗ bị đau.",
+  },
+  [normalizeText("Chạm vào phòng chờ ở bên phải nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_waiting_room_83a5ad93.wav",
+    text: "Chạm vào phòng chờ ở bên phải nhé.",
+  },
+  [normalizeText("Phòng chờ nằm ở bên phải.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_waiting_room_fail_62a47fad.wav",
+    text: "Phòng chờ nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là phòng chờ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/tap_waiting_room_success_70c47ee1.wav",
+    text: "Đúng rồi, đó là phòng chờ.",
+  },
+  [normalizeText("Đây là phòng khám.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_clinic_3d2835a5.wav",
+    text: "Đây là phòng khám.",
+  },
+  [normalizeText("Từ này nghĩa là phòng khám.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_clinic_success_48485deb.wav",
+    text: "Từ này nghĩa là phòng khám.",
+  },
+  [normalizeText("Đây là bảng kẹp giấy.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_clipboard_415a32f2.wav",
+    text: "Đây là bảng kẹp giấy.",
+  },
+  [normalizeText("Từ này nghĩa là bảng kẹp giấy.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_clipboard_success_a1fbd2f6.wav",
+    text: "Từ này nghĩa là bảng kẹp giấy.",
+  },
+  [normalizeText("Đây là bác sĩ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_doctor_23f3d522.wav",
+    text: "Đây là bác sĩ.",
+  },
+  [normalizeText("Từ này nghĩa là bác sĩ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_doctor_success_d5aa6ae0.wav",
+    text: "Từ này nghĩa là bác sĩ.",
+  },
+  [normalizeText("Đây là khẩu trang.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_mask_5ebfef4f.wav",
+    text: "Đây là khẩu trang.",
+  },
+  [normalizeText("Từ này nghĩa là khẩu trang.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_mask_success_b85e50fc.wav",
+    text: "Từ này nghĩa là khẩu trang.",
+  },
+  [normalizeText("Đây là cô y tá.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_nurse_b52105fa.wav",
+    text: "Đây là cô y tá.",
+  },
+  [normalizeText("Từ này nghĩa là cô y tá.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_nurse_success_0678fda5.wav",
+    text: "Từ này nghĩa là cô y tá.",
+  },
+  [normalizeText("Mình học câu nói cảm giác của bé nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_say_how_you_feel_d1a93675.wav",
+    text: "Mình học câu nói cảm giác của bé nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nói cảm giác của bé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_say_how_you_feel_success_2f590777.wav",
+    text: "Câu này nghĩa là nói cảm giác của bé.",
+  },
+  [normalizeText("Mình học câu ngồi yên nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_sit_still_cee69cc8.wav",
+    text: "Mình học câu ngồi yên nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngồi yên.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_sit_still_success_42fb244e.wav",
+    text: "Câu này nghĩa là ngồi yên.",
+  },
+  [normalizeText("Mình học câu chỉ chỗ bị đau nhé.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_tell_where_it_hurts_5743d6eb.wav",
+    text: "Mình học câu chỉ chỗ bị đau nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chỉ chỗ bị đau.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_tell_where_it_hurts_success_b6f16571.wav",
+    text: "Câu này nghĩa là chỉ chỗ bị đau.",
+  },
+  [normalizeText("Đây là phòng chờ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_waiting_room_76130e8d.wav",
+    text: "Đây là phòng chờ.",
+  },
+  [normalizeText("Từ này nghĩa là phòng chờ.")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/teach_waiting_room_success_8632ee4b.wav",
+    text: "Từ này nghĩa là phòng chờ.",
+  },
+  [normalizeText("Bé đã hoàn thành buổi kiểm tra sức khỏe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/completion_5c636df2.wav",
+    text: "Bé đã hoàn thành buổi kiểm tra sức khỏe.",
+  },
+  [normalizeText("Kéo băng cá nhân bên phải vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_bandage_7061434a.wav",
+    text: "Kéo băng cá nhân bên phải vào vòng sáng nhé.",
+  },
+  [normalizeText("Băng cá nhân nằm ở bên phải.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_bandage_fail_c792f387.wav",
+    text: "Băng cá nhân nằm ở bên phải.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng băng cá nhân.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_bandage_success_af676306.wav",
+    text: "Tốt lắm, bé đã chọn đúng băng cá nhân.",
+  },
+  [normalizeText("Kéo thẻ nghe nhịp tim ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_check_heartbeat_e428eed7.wav",
+    text: "Kéo thẻ nghe nhịp tim ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ nghe nhịp tim nằm ở giữa hàng dưới.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_check_heartbeat_fail_1cb9b9d8.wav",
+    text: "Thẻ nghe nhịp tim nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ nghe nhịp tim.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_check_heartbeat_success_5cfa44e8.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ nghe nhịp tim.",
+  },
+  [normalizeText("Kéo đèn soi tai phía trên vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_otoscope_b5741afe.wav",
+    text: "Kéo đèn soi tai phía trên vào vòng sáng nhé.",
+  },
+  [normalizeText("Đèn soi tai nằm ở phía trên.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_otoscope_fail_52f75d52.wav",
+    text: "Đèn soi tai nằm ở phía trên.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng đèn soi tai.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/drag_otoscope_success_0f4db4ce.wav",
+    text: "Tốt lắm, bé đã chọn đúng đèn soi tai.",
+  },
+  [normalizeText("Mình kiểm tra sức khỏe nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/intro_93744b93.wav",
+    text: "Mình kiểm tra sức khỏe nhé.",
+  },
+  [normalizeText("Mình làm từng bước nhẹ nhàng.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/intro_success_f20e0097.wav",
+    text: "Mình làm từng bước nhẹ nhàng.",
+  },
+  [normalizeText("Chạm vào thẻ dùng gel ở dưới bên phải nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_clean_hands_b52dda96.wav",
+    text: "Chạm vào thẻ dùng gel ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ dùng gel nằm ở dưới bên phải.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_clean_hands_fail_b303e5c5.wav",
+    text: "Thẻ dùng gel nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ dùng gel rửa tay.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_clean_hands_success_62633f09.wav",
+    text: "Đúng rồi, đó là thẻ dùng gel rửa tay.",
+  },
+  [normalizeText("Gel rửa tay nằm ở góc trên bên phải.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_hand_gel_fail_9feb13cb.wav",
+    text: "Gel rửa tay nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Chạm vào gel rửa tay ở góc trên bên phải nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_hand_gel_fd4ee552.wav",
+    text: "Chạm vào gel rửa tay ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là gel rửa tay.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_hand_gel_success_73f23207.wav",
+    text: "Đúng rồi, đó là gel rửa tay.",
+  },
+  [normalizeText("Chạm vào ống nghe ở phía trên nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_stethoscope_7b3ef36d.wav",
+    text: "Chạm vào ống nghe ở phía trên nhé.",
+  },
+  [normalizeText("Ống nghe nằm ở phía trên.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_stethoscope_fail_15c8c3a3.wav",
+    text: "Ống nghe nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là ống nghe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_stethoscope_success_2b4ef85b.wav",
+    text: "Đúng rồi, đó là ống nghe.",
+  },
+  [normalizeText("Chạm vào thẻ đo nhiệt độ ở dưới bên trái nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_take_temperature_a3adf39f.wav",
+    text: "Chạm vào thẻ đo nhiệt độ ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ đo nhiệt độ nằm ở dưới bên trái.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_take_temperature_fail_16ac612f.wav",
+    text: "Thẻ đo nhiệt độ nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đo nhiệt độ.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_take_temperature_success_e0807f1e.wav",
+    text: "Đúng rồi, đó là thẻ đo nhiệt độ.",
+  },
+  [normalizeText("Chạm vào nhiệt kế cạnh bé nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_thermometer_de7eb096.wav",
+    text: "Chạm vào nhiệt kế cạnh bé nhé.",
+  },
+  [normalizeText("Nhiệt kế nằm ngay bên phải bé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_thermometer_fail_ad7e395b.wav",
+    text: "Nhiệt kế nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là nhiệt kế.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_thermometer_success_8825c26a.wav",
+    text: "Đúng rồi, đó là nhiệt kế.",
+  },
+  [normalizeText("Chạm vào cân sức khỏe ở giữa nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_weighing_scale_5c0315ec.wav",
+    text: "Chạm vào cân sức khỏe ở giữa nhé.",
+  },
+  [normalizeText("Cân sức khỏe nằm ở giữa khung cảnh.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_weighing_scale_fail_8a087ee0.wav",
+    text: "Cân sức khỏe nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Đúng rồi, đó là cân sức khỏe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/tap_weighing_scale_success_5dc84af4.wav",
+    text: "Đúng rồi, đó là cân sức khỏe.",
+  },
+  [normalizeText("Đây là băng cá nhân.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_bandage_553c4b04.wav",
+    text: "Đây là băng cá nhân.",
+  },
+  [normalizeText("Từ này nghĩa là băng cá nhân.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_bandage_success_cbb45725.wav",
+    text: "Từ này nghĩa là băng cá nhân.",
+  },
+  [normalizeText("Mình học câu nghe nhịp tim nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_check_heartbeat_89e6866d.wav",
+    text: "Mình học câu nghe nhịp tim nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nghe nhịp tim.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_check_heartbeat_success_554bae63.wav",
+    text: "Câu này nghĩa là nghe nhịp tim.",
+  },
+  [normalizeText("Mình học câu dùng gel rửa tay nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_clean_hands_892af561.wav",
+    text: "Mình học câu dùng gel rửa tay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dùng gel rửa tay.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_clean_hands_success_ec0b0712.wav",
+    text: "Câu này nghĩa là dùng gel rửa tay.",
+  },
+  [normalizeText("Đây là gel rửa tay.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_hand_gel_d99bca40.wav",
+    text: "Đây là gel rửa tay.",
+  },
+  [normalizeText("Từ này nghĩa là gel rửa tay.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_hand_gel_success_7d5c6480.wav",
+    text: "Từ này nghĩa là gel rửa tay.",
+  },
+  [normalizeText("Đây là đèn soi tai.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_otoscope_d2b753c2.wav",
+    text: "Đây là đèn soi tai.",
+  },
+  [normalizeText("Từ này nghĩa là đèn soi tai.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_otoscope_success_8f37a668.wav",
+    text: "Từ này nghĩa là đèn soi tai.",
+  },
+  [normalizeText("Đây là ống nghe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_stethoscope_7580480c.wav",
+    text: "Đây là ống nghe.",
+  },
+  [normalizeText("Từ này nghĩa là ống nghe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_stethoscope_success_e510f92a.wav",
+    text: "Từ này nghĩa là ống nghe.",
+  },
+  [normalizeText("Mình học câu đo nhiệt độ nhé.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_take_temperature_67f252b0.wav",
+    text: "Mình học câu đo nhiệt độ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đo nhiệt độ.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_take_temperature_success_6d36adec.wav",
+    text: "Câu này nghĩa là đo nhiệt độ.",
+  },
+  [normalizeText("Đây là nhiệt kế.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_thermometer_68658647.wav",
+    text: "Đây là nhiệt kế.",
+  },
+  [normalizeText("Từ này nghĩa là nhiệt kế.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_thermometer_success_cfab121b.wav",
+    text: "Từ này nghĩa là nhiệt kế.",
+  },
+  [normalizeText("Đây là cân sức khỏe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_weighing_scale_202fd705.wav",
+    text: "Đây là cân sức khỏe.",
+  },
+  [normalizeText("Từ này nghĩa là cân sức khỏe.")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/teach_weighing_scale_success_4dcf1979.wav",
+    text: "Từ này nghĩa là cân sức khỏe.",
+  },
+  [normalizeText("Bé đã biết nghỉ ngơi và chăm sóc khi bị ốm.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/completion_e7469e6a.wav",
+    text: "Bé đã biết nghỉ ngơi và chăm sóc khi bị ốm.",
+  },
+  [normalizeText("Kéo thẻ xì mũi ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_blow_nose_73f68d8d.wav",
+    text: "Kéo thẻ xì mũi ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ xì mũi nằm ở giữa hàng dưới.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_blow_nose_fail_c368301a.wav",
+    text: "Thẻ xì mũi nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ xì mũi.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_blow_nose_success_e68a1158.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ xì mũi.",
+  },
+  [normalizeText("Kéo thẻ nghỉ ngơi phía trên vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_rest_card_dd92a288.wav",
+    text: "Kéo thẻ nghỉ ngơi phía trên vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ nghỉ ngơi nằm ở phía trên.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_rest_card_fail_fc14ca38.wav",
+    text: "Thẻ nghỉ ngơi nằm ở phía trên.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ nghỉ ngơi.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_rest_card_success_b64d8814.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ nghỉ ngơi.",
+  },
+  [normalizeText("Kéo thìa uống thuốc ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_spoon_608c4d19.wav",
+    text: "Kéo thìa uống thuốc ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thìa uống thuốc nằm ở giữa phía dưới.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_spoon_fail_478b6335.wav",
+    text: "Thìa uống thuốc nằm ở giữa phía dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thìa uống thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/drag_spoon_success_4e8db474.wav",
+    text: "Tốt lắm, bé đã chọn đúng thìa uống thuốc.",
+  },
+  [normalizeText("Mình học cách chăm sóc khi bị ốm nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/intro_deb523f5.wav",
+    text: "Mình học cách chăm sóc khi bị ốm nhé.",
+  },
+  [normalizeText("Nghỉ ngơi giúp bé khỏe hơn.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/intro_success_d918c611.wav",
+    text: "Nghỉ ngơi giúp bé khỏe hơn.",
+  },
+  [normalizeText("Chạm vào thẻ uống nước ở dưới bên phải nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_drink_water_04af33cc.wav",
+    text: "Chạm vào thẻ uống nước ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ uống nước nằm ở dưới bên phải.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_drink_water_fail_2c1bf780.wav",
+    text: "Thẻ uống nước nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ uống nước.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_drink_water_success_a77a58d6.wav",
+    text: "Đúng rồi, đó là thẻ uống nước.",
+  },
+  [normalizeText("Chạm vào chai thuốc cạnh bé nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_medicine_d31c24c5.wav",
+    text: "Chạm vào chai thuốc cạnh bé nhé.",
+  },
+  [normalizeText("Chai thuốc nằm ngay bên phải bé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_medicine_fail_580f4e8c.wav",
+    text: "Chai thuốc nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_medicine_success_e6dcb2a6.wav",
+    text: "Đúng rồi, đó là thuốc.",
+  },
+  [normalizeText("Chạm vào hình dán ở góc trên bên phải nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_sticker_e8bc745b.wav",
+    text: "Chạm vào hình dán ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Hình dán nằm ở góc trên bên phải.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_sticker_fail_d466f747.wav",
+    text: "Hình dán nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là hình dán thưởng.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_sticker_success_23242607.wav",
+    text: "Đúng rồi, đó là hình dán thưởng.",
+  },
+  [normalizeText("Chạm vào thẻ uống thuốc ở dưới bên trái nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_take_medicine_abdcc32b.wav",
+    text: "Chạm vào thẻ uống thuốc ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ uống thuốc nằm ở dưới bên trái.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_take_medicine_fail_fa193090.wav",
+    text: "Thẻ uống thuốc nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ uống thuốc cùng người lớn.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_take_medicine_success_7c0c12b0.wav",
+    text: "Đúng rồi, đó là thẻ uống thuốc cùng người lớn.",
+  },
+  [normalizeText("Chạm vào hộp khăn giấy ở bên phải nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_tissue_02fa5d6d.wav",
+    text: "Chạm vào hộp khăn giấy ở bên phải nhé.",
+  },
+  [normalizeText("Hộp khăn giấy nằm ở bên phải.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_tissue_fail_50163fc0.wav",
+    text: "Hộp khăn giấy nằm ở bên phải.",
+  },
+  [normalizeText("Chạm vào cốc nước ở phía trên nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_water_9a5d3db1.wav",
+    text: "Chạm vào cốc nước ở phía trên nhé.",
+  },
+  [normalizeText("Cốc nước nằm ở phía trên.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/tap_water_fail_4157f992.wav",
+    text: "Cốc nước nằm ở phía trên.",
+  },
+  [normalizeText("Mình học câu xì mũi nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_blow_nose_1613779c.wav",
+    text: "Mình học câu xì mũi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xì mũi.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_blow_nose_success_82301385.wav",
+    text: "Câu này nghĩa là xì mũi.",
+  },
+  [normalizeText("Đây là thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_medicine_21fe72ea.wav",
+    text: "Đây là thuốc.",
+  },
+  [normalizeText("Từ này nghĩa là thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_medicine_success_c0d74f02.wav",
+    text: "Từ này nghĩa là thuốc.",
+  },
+  [normalizeText("Đây là thẻ nghỉ ngơi.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_rest_card_fb3d684a.wav",
+    text: "Đây là thẻ nghỉ ngơi.",
+  },
+  [normalizeText("Đây là thìa uống thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_spoon_c171daeb.wav",
+    text: "Đây là thìa uống thuốc.",
+  },
+  [normalizeText("Từ này nghĩa là thìa uống thuốc.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_spoon_success_860d52ff.wav",
+    text: "Từ này nghĩa là thìa uống thuốc.",
+  },
+  [normalizeText("Đây là hình dán thưởng.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_sticker_53533713.wav",
+    text: "Đây là hình dán thưởng.",
+  },
+  [normalizeText("Từ này nghĩa là hình dán thưởng.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_sticker_success_c5bf7c5b.wav",
+    text: "Từ này nghĩa là hình dán thưởng.",
+  },
+  [normalizeText("Mình học câu uống thuốc cùng người lớn nhé.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_take_medicine_87d11607.wav",
+    text: "Mình học câu uống thuốc cùng người lớn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là uống thuốc cùng người lớn.")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/teach_take_medicine_success_e8e41119.wav",
+    text: "Câu này nghĩa là uống thuốc cùng người lớn.",
   },
   [normalizeText("Bé đã dọn sau bữa tối thật gọn gàng!")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/vi/completion_71b7e470.wav",
@@ -23680,6 +36848,566 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-table/audio/vi/teach_vegetables_success_02a1b015.wav",
     text: "Từ này nghĩa là rau củ.",
   },
+  [normalizeText("Bé đã chào ông bà thật vui.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/completion_38334838.wav",
+    text: "Bé đã chào ông bà thật vui.",
+  },
+  [normalizeText("Kéo thẻ xin phép ôm vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_ask_for_hug_1f806429.wav",
+    text: "Kéo thẻ xin phép ôm vào vòng sáng nhé.",
+  },
+  [normalizeText("Tìm thẻ xin phép ôm ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_ask_for_hug_fail_cb8f52ba.wav",
+    text: "Tìm thẻ xin phép ôm ở hàng dưới nhé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ xin phép ôm.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_ask_for_hug_success_19c05b63.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ xin phép ôm.",
+  },
+  [normalizeText("Kéo ảnh gia đình trên tường vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_family_photo_516cccca.wav",
+    text: "Kéo ảnh gia đình trên tường vào vòng sáng nhé.",
+  },
+  [normalizeText("Ảnh gia đình treo trên tường.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_family_photo_fail_4faf93be.wav",
+    text: "Ảnh gia đình treo trên tường.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng ảnh gia đình.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/drag_family_photo_success_77b74e44.wav",
+    text: "Tốt lắm, bé đã chọn đúng ảnh gia đình.",
+  },
+  [normalizeText("Mình đến thăm ông bà nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/intro_372fcef6.wav",
+    text: "Mình đến thăm ông bà nhé.",
+  },
+  [normalizeText("Mình chào ông bà thật vui.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/intro_success_53bd58e0.wav",
+    text: "Mình chào ông bà thật vui.",
+  },
+  [normalizeText("Chạm vào chuông cửa bên phải nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_doorbell_1647c35a.wav",
+    text: "Chạm vào chuông cửa bên phải nhé.",
+  },
+  [normalizeText("Chuông cửa nằm ở bên phải.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_doorbell_fail_fa7072aa.wav",
+    text: "Chuông cửa nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là chuông cửa.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_doorbell_success_46de31a3.wav",
+    text: "Đúng rồi, đó là chuông cửa.",
+  },
+  [normalizeText("Chạm vào bà ở bên trái nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandma_549fd1dd.wav",
+    text: "Chạm vào bà ở bên trái nhé.",
+  },
+  [normalizeText("Bà đang đứng ở bên trái.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandma_fail_d61c5f40.wav",
+    text: "Bà đang đứng ở bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là bà.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandma_success_7a863fcd.wav",
+    text: "Đúng rồi, đó là bà.",
+  },
+  [normalizeText("Chạm vào ông ở bên phải nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandpa_dc3630dd.wav",
+    text: "Chạm vào ông ở bên phải nhé.",
+  },
+  [normalizeText("Ông đang đứng ở bên phải.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandpa_fail_b68732bc.wav",
+    text: "Ông đang đứng ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là ông.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_grandpa_success_59bd2068.wav",
+    text: "Đúng rồi, đó là ông.",
+  },
+  [normalizeText("Chạm vào hình cái ôm nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_hug_9cee4b7f.wav",
+    text: "Chạm vào hình cái ôm nhé.",
+  },
+  [normalizeText("Tìm hình mọi người đang ôm nhau nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_hug_fail_48e11a50.wav",
+    text: "Tìm hình mọi người đang ôm nhau nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái ôm.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_hug_success_b9003299.wav",
+    text: "Đúng rồi, đó là cái ôm.",
+  },
+  [normalizeText("Chạm vào thẻ chào hỏi nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_say_hello_0f467a6d.wav",
+    text: "Chạm vào thẻ chào hỏi nhé.",
+  },
+  [normalizeText("Tìm thẻ chào hỏi ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_say_hello_fail_df4a7c13.wav",
+    text: "Tìm thẻ chào hỏi ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chào hỏi.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_say_hello_success_bf0d87e0.wav",
+    text: "Đúng rồi, đó là thẻ chào hỏi.",
+  },
+  [normalizeText("Chạm vào thẻ cho xem ảnh nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_show_photo_0a9aa063.wav",
+    text: "Chạm vào thẻ cho xem ảnh nhé.",
+  },
+  [normalizeText("Tìm thẻ cho xem ảnh ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_show_photo_fail_c46576c9.wav",
+    text: "Tìm thẻ cho xem ảnh ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ cho xem ảnh.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_show_photo_success_3f9148cf.wav",
+    text: "Đúng rồi, đó là thẻ cho xem ảnh.",
+  },
+  [normalizeText("Chạm vào đôi dép dưới sàn nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_slippers_c5160821.wav",
+    text: "Chạm vào đôi dép dưới sàn nhé.",
+  },
+  [normalizeText("Đôi dép nằm dưới sàn.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_slippers_fail_eb9d814c.wav",
+    text: "Đôi dép nằm dưới sàn.",
+  },
+  [normalizeText("Đúng rồi, đó là dép đi trong nhà.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/tap_slippers_success_dfb74f92.wav",
+    text: "Đúng rồi, đó là dép đi trong nhà.",
+  },
+  [normalizeText("Mình học câu xin phép ôm nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_ask_for_hug_6a7ab94c.wav",
+    text: "Mình học câu xin phép ôm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xin phép ôm.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_ask_for_hug_success_261d1b69.wav",
+    text: "Câu này nghĩa là xin phép ôm.",
+  },
+  [normalizeText("Đây là chuông cửa.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_doorbell_f35a1d36.wav",
+    text: "Đây là chuông cửa.",
+  },
+  [normalizeText("Từ này nghĩa là chuông cửa.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_doorbell_success_27841913.wav",
+    text: "Từ này nghĩa là chuông cửa.",
+  },
+  [normalizeText("Đây là ảnh gia đình.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_family_photo_d182ca32.wav",
+    text: "Đây là ảnh gia đình.",
+  },
+  [normalizeText("Từ này nghĩa là ảnh gia đình.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_family_photo_success_f9f90b9f.wav",
+    text: "Từ này nghĩa là ảnh gia đình.",
+  },
+  [normalizeText("Đây là bà.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_grandma_583b5992.wav",
+    text: "Đây là bà.",
+  },
+  [normalizeText("Từ này nghĩa là bà.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_grandma_success_2bdc9b2d.wav",
+    text: "Từ này nghĩa là bà.",
+  },
+  [normalizeText("Đây là ông.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_grandpa_6fe365f0.wav",
+    text: "Đây là ông.",
+  },
+  [normalizeText("Từ này nghĩa là ông.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_grandpa_success_ddd893b0.wav",
+    text: "Từ này nghĩa là ông.",
+  },
+  [normalizeText("Đây là cái ôm.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_hug_cdcbfb9e.wav",
+    text: "Đây là cái ôm.",
+  },
+  [normalizeText("Từ này nghĩa là cái ôm.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_hug_success_ccc0a830.wav",
+    text: "Từ này nghĩa là cái ôm.",
+  },
+  [normalizeText("Mình học câu chào hỏi nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_say_hello_4706a8d7.wav",
+    text: "Mình học câu chào hỏi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chào hỏi.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_say_hello_success_84a0179e.wav",
+    text: "Câu này nghĩa là chào hỏi.",
+  },
+  [normalizeText("Mình học câu cho xem ảnh nhé.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_show_photo_3a28b0e3.wav",
+    text: "Mình học câu cho xem ảnh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là cho xem ảnh.")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/teach_show_photo_success_5107cf5e.wav",
+    text: "Câu này nghĩa là cho xem ảnh.",
+  },
+  [normalizeText("Bé đã giúp ông bà chăm sóc khu vườn.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/completion_6b663fb6.wav",
+    text: "Bé đã giúp ông bà chăm sóc khu vườn.",
+  },
+  [normalizeText("Kéo chiếc lá vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_leaf_a1ac926e.wav",
+    text: "Kéo chiếc lá vào vòng sáng nhé.",
+  },
+  [normalizeText("Chiếc lá nằm dưới đất.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_leaf_fail_fbc6466a.wav",
+    text: "Chiếc lá nằm dưới đất.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng chiếc lá.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_leaf_success_2e0c2d19.wav",
+    text: "Tốt lắm, bé đã chọn đúng chiếc lá.",
+  },
+  [normalizeText("Kéo thẻ nhặt lá vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_pick_up_leaves_5e757a64.wav",
+    text: "Kéo thẻ nhặt lá vào vòng sáng nhé.",
+  },
+  [normalizeText("Tìm thẻ nhặt lá ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_pick_up_leaves_fail_f04a6ff5.wav",
+    text: "Tìm thẻ nhặt lá ở hàng dưới nhé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ nhặt lá.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_pick_up_leaves_success_bcd6634c.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ nhặt lá.",
+  },
+  [normalizeText("Kéo bình tưới cây vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_watering_can_694203b9.wav",
+    text: "Kéo bình tưới cây vào vòng sáng nhé.",
+  },
+  [normalizeText("Bình tưới cây nằm gần chậu cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_watering_can_fail_5647c991.wav",
+    text: "Bình tưới cây nằm gần chậu cây.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng bình tưới cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/drag_watering_can_success_259afc56.wav",
+    text: "Tốt lắm, bé đã chọn đúng bình tưới cây.",
+  },
+  [normalizeText("Mình phụ ông bà trong vườn nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/intro_febc08fb.wav",
+    text: "Mình phụ ông bà trong vườn nhé.",
+  },
+  [normalizeText("Khu vườn xanh mát quá!")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/intro_success_3316fbf2.wav",
+    text: "Khu vườn xanh mát quá!",
+  },
+  [normalizeText("Chạm vào bông hoa bên phải nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_flower_b8f1350c.wav",
+    text: "Chạm vào bông hoa bên phải nhé.",
+  },
+  [normalizeText("Bông hoa mọc ở bên phải.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_flower_fail_6a845ddb.wav",
+    text: "Bông hoa mọc ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là bông hoa.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_flower_success_d2212d89.wav",
+    text: "Đúng rồi, đó là bông hoa.",
+  },
+  [normalizeText("Chạm vào luống vườn bên trái nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_garden_7c5745df.wav",
+    text: "Chạm vào luống vườn bên trái nhé.",
+  },
+  [normalizeText("Luống vườn nằm ở bên trái.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_garden_fail_606b57d9.wav",
+    text: "Luống vườn nằm ở bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là khu vườn.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_garden_success_3ecbea1b.wav",
+    text: "Đúng rồi, đó là khu vườn.",
+  },
+  [normalizeText("Chạm vào chậu cây bên phải nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_pot_265db40a.wav",
+    text: "Chạm vào chậu cây bên phải nhé.",
+  },
+  [normalizeText("Chậu cây nằm ở bên phải.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_pot_fail_1aa968a6.wav",
+    text: "Chậu cây nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là chậu cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_pot_success_c188d78a.wav",
+    text: "Đúng rồi, đó là chậu cây.",
+  },
+  [normalizeText("Chạm vào thẻ gieo hạt nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_seed_db25c940.wav",
+    text: "Chạm vào thẻ gieo hạt nhé.",
+  },
+  [normalizeText("Tìm thẻ gieo hạt ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_seed_fail_09b8156d.wav",
+    text: "Tìm thẻ gieo hạt ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ gieo hạt.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_plant_seed_success_4b80e5eb.wav",
+    text: "Đúng rồi, đó là thẻ gieo hạt.",
+  },
+  [normalizeText("Chạm vào gói hạt giống nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_seed_9b2ccac8.wav",
+    text: "Chạm vào gói hạt giống nhé.",
+  },
+  [normalizeText("Tìm gói hạt giống dưới đất nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_seed_fail_708b2da0.wav",
+    text: "Tìm gói hạt giống dưới đất nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là hạt giống.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_seed_success_64cb0498.wav",
+    text: "Đúng rồi, đó là hạt giống.",
+  },
+  [normalizeText("Chạm vào thẻ tưới cây nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_water_plant_2ced13fb.wav",
+    text: "Chạm vào thẻ tưới cây nhé.",
+  },
+  [normalizeText("Tìm thẻ tưới cây ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_water_plant_fail_21d7978d.wav",
+    text: "Tìm thẻ tưới cây ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tưới cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/tap_water_plant_success_363845cc.wav",
+    text: "Đúng rồi, đó là thẻ tưới cây.",
+  },
+  [normalizeText("Đây là bông hoa.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_flower_d6718557.wav",
+    text: "Đây là bông hoa.",
+  },
+  [normalizeText("Từ này nghĩa là bông hoa.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_flower_success_34641834.wav",
+    text: "Từ này nghĩa là bông hoa.",
+  },
+  [normalizeText("Đây là khu vườn.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_garden_efba2297.wav",
+    text: "Đây là khu vườn.",
+  },
+  [normalizeText("Từ này nghĩa là khu vườn.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_garden_success_69d6200e.wav",
+    text: "Từ này nghĩa là khu vườn.",
+  },
+  [normalizeText("Đây là chiếc lá.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_leaf_d76cd215.wav",
+    text: "Đây là chiếc lá.",
+  },
+  [normalizeText("Từ này nghĩa là chiếc lá.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_leaf_success_e311cd4c.wav",
+    text: "Từ này nghĩa là chiếc lá.",
+  },
+  [normalizeText("Mình học câu nhặt lá nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_pick_up_leaves_4cf77efe.wav",
+    text: "Mình học câu nhặt lá nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nhặt lá.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_pick_up_leaves_success_ee0f58e1.wav",
+    text: "Câu này nghĩa là nhặt lá.",
+  },
+  [normalizeText("Đây là chậu cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_plant_pot_9a370c0a.wav",
+    text: "Đây là chậu cây.",
+  },
+  [normalizeText("Từ này nghĩa là chậu cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_plant_pot_success_f6d03e9a.wav",
+    text: "Từ này nghĩa là chậu cây.",
+  },
+  [normalizeText("Mình học câu gieo hạt nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_plant_seed_28228bbf.wav",
+    text: "Mình học câu gieo hạt nhé.",
+  },
+  [normalizeText("Câu này nghĩa là gieo hạt.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_plant_seed_success_01cdd744.wav",
+    text: "Câu này nghĩa là gieo hạt.",
+  },
+  [normalizeText("Đây là hạt giống.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_seed_e071cd3f.wav",
+    text: "Đây là hạt giống.",
+  },
+  [normalizeText("Từ này nghĩa là hạt giống.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_seed_success_f1e92da8.wav",
+    text: "Từ này nghĩa là hạt giống.",
+  },
+  [normalizeText("Mình học câu tưới cây nhé.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_water_plant_1ade1974.wav",
+    text: "Mình học câu tưới cây nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tưới cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_water_plant_success_0d5946aa.wav",
+    text: "Câu này nghĩa là tưới cây.",
+  },
+  [normalizeText("Đây là bình tưới cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_watering_can_ef6ea6c1.wav",
+    text: "Đây là bình tưới cây.",
+  },
+  [normalizeText("Từ này nghĩa là bình tưới cây.")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/teach_watering_can_success_f8924f7f.wav",
+    text: "Từ này nghĩa là bình tưới cây.",
+  },
+  [normalizeText("Bé đã cảm ơn và chào tạm biệt ông bà.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/completion_728292c1.wav",
+    text: "Bé đã cảm ơn và chào tạm biệt ông bà.",
+  },
+  [normalizeText("Kéo thẻ đi giày vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_put_on_shoes_677209eb.wav",
+    text: "Kéo thẻ đi giày vào vòng sáng nhé.",
+  },
+  [normalizeText("Tìm thẻ đi giày ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_put_on_shoes_fail_aa9b0d7f.wav",
+    text: "Tìm thẻ đi giày ở hàng dưới nhé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ đi giày.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_put_on_shoes_success_20dd9adc.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ đi giày.",
+  },
+  [normalizeText("Kéo đôi giày vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_shoes_52a80632.wav",
+    text: "Kéo đôi giày vào vòng sáng nhé.",
+  },
+  [normalizeText("Đôi giày nằm dưới sàn gần cửa.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_shoes_fail_3f3681c3.wav",
+    text: "Đôi giày nằm dưới sàn gần cửa.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng đôi giày.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_shoes_success_ce1dacc8.wav",
+    text: "Tốt lắm, bé đã chọn đúng đôi giày.",
+  },
+  [normalizeText("Kéo thiệp cảm ơn vào vòng sáng nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_thank_you_card_7bde6bbb.wav",
+    text: "Kéo thiệp cảm ơn vào vòng sáng nhé.",
+  },
+  [normalizeText("Thiệp cảm ơn nằm gần túi nhỏ.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_thank_you_card_fail_99541907.wav",
+    text: "Thiệp cảm ơn nằm gần túi nhỏ.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thiệp cảm ơn.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/drag_thank_you_card_success_4d8cc31e.wav",
+    text: "Tốt lắm, bé đã chọn đúng thiệp cảm ơn.",
+  },
+  [normalizeText("Mình tạm biệt ông bà rồi về nhà nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/intro_3857b869.wav",
+    text: "Mình tạm biệt ông bà rồi về nhà nhé.",
+  },
+  [normalizeText("Mình nói cảm ơn thật lễ phép.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/intro_success_b57b8c86.wav",
+    text: "Mình nói cảm ơn thật lễ phép.",
+  },
+  [normalizeText("Chạm vào túi nhỏ bên phải nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_bag_854f77b2.wav",
+    text: "Chạm vào túi nhỏ bên phải nhé.",
+  },
+  [normalizeText("Túi nhỏ nằm ở bên phải.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_bag_fail_01760088.wav",
+    text: "Túi nhỏ nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là túi nhỏ.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_bag_success_98549052.wav",
+    text: "Đúng rồi, đó là túi nhỏ.",
+  },
+  [normalizeText("Chạm vào xe ô tô ngoài sân nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_car_ed7db6a0.wav",
+    text: "Chạm vào xe ô tô ngoài sân nhé.",
+  },
+  [normalizeText("Xe ô tô đang đỗ ngoài sân.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_car_fail_14af5180.wav",
+    text: "Xe ô tô đang đỗ ngoài sân.",
+  },
+  [normalizeText("Đúng rồi, đó là xe ô tô.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_car_success_886b5a2d.wav",
+    text: "Đúng rồi, đó là xe ô tô.",
+  },
+  [normalizeText("Chạm vào cửa ra vào nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_front_door_96b4d8bd.wav",
+    text: "Chạm vào cửa ra vào nhé.",
+  },
+  [normalizeText("Cửa ra vào nằm ở giữa phía trên.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_front_door_fail_bfa3aab7.wav",
+    text: "Cửa ra vào nằm ở giữa phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là cửa ra vào.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_front_door_success_21fbcfa9.wav",
+    text: "Đúng rồi, đó là cửa ra vào.",
+  },
+  [normalizeText("Chạm vào thẻ về nhà nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_go_home_0c6e71b7.wav",
+    text: "Chạm vào thẻ về nhà nhé.",
+  },
+  [normalizeText("Tìm thẻ về nhà ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_go_home_fail_0559c27e.wav",
+    text: "Tìm thẻ về nhà ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ về nhà.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_go_home_success_0aeb1a88.wav",
+    text: "Đúng rồi, đó là thẻ về nhà.",
+  },
+  [normalizeText("Chạm vào thẻ nói tạm biệt nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_say_goodbye_b6031f2d.wav",
+    text: "Chạm vào thẻ nói tạm biệt nhé.",
+  },
+  [normalizeText("Tìm thẻ nói tạm biệt ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_say_goodbye_fail_dce733e0.wav",
+    text: "Tìm thẻ nói tạm biệt ở hàng dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ nói tạm biệt.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_say_goodbye_success_f64379d7.wav",
+    text: "Đúng rồi, đó là thẻ nói tạm biệt.",
+  },
+  [normalizeText("Tìm thẻ vẫy tay ở hàng dưới nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_wave_fail_f23acace.wav",
+    text: "Tìm thẻ vẫy tay ở hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ vẫy tay nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_wave_fcf130ed.wav",
+    text: "Chạm vào thẻ vẫy tay nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ vẫy tay tạm biệt.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/tap_wave_success_7cb5c9d9.wav",
+    text: "Đúng rồi, đó là thẻ vẫy tay tạm biệt.",
+  },
+  [normalizeText("Đây là túi nhỏ.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_bag_971aa7c3.wav",
+    text: "Đây là túi nhỏ.",
+  },
+  [normalizeText("Từ này nghĩa là túi nhỏ.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_bag_success_103bd09b.wav",
+    text: "Từ này nghĩa là túi nhỏ.",
+  },
+  [normalizeText("Đây là xe ô tô.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_car_cebd4c13.wav",
+    text: "Đây là xe ô tô.",
+  },
+  [normalizeText("Từ này nghĩa là xe ô tô.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_car_success_09cf6b09.wav",
+    text: "Từ này nghĩa là xe ô tô.",
+  },
+  [normalizeText("Đây là cửa ra vào.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_front_door_09439012.wav",
+    text: "Đây là cửa ra vào.",
+  },
+  [normalizeText("Từ này nghĩa là cửa ra vào.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_front_door_success_efab49d2.wav",
+    text: "Từ này nghĩa là cửa ra vào.",
+  },
+  [normalizeText("Mình học câu về nhà nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_go_home_d7215212.wav",
+    text: "Mình học câu về nhà nhé.",
+  },
+  [normalizeText("Câu này nghĩa là về nhà.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_go_home_success_c985e932.wav",
+    text: "Câu này nghĩa là về nhà.",
+  },
+  [normalizeText("Mình học câu đi giày nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_put_on_shoes_61ff2e9c.wav",
+    text: "Mình học câu đi giày nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi giày.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_put_on_shoes_success_fb87d33e.wav",
+    text: "Câu này nghĩa là đi giày.",
+  },
+  [normalizeText("Mình học câu nói tạm biệt nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_say_goodbye_7e9139b8.wav",
+    text: "Mình học câu nói tạm biệt nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nói tạm biệt.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_say_goodbye_success_c1779a83.wav",
+    text: "Câu này nghĩa là nói tạm biệt.",
+  },
+  [normalizeText("Đây là thiệp cảm ơn.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_thank_you_card_8d696338.wav",
+    text: "Đây là thiệp cảm ơn.",
+  },
+  [normalizeText("Từ này nghĩa là thiệp cảm ơn.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_thank_you_card_success_044ff075.wav",
+    text: "Từ này nghĩa là thiệp cảm ơn.",
+  },
+  [normalizeText("Mình học câu vẫy tay tạm biệt nhé.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_0b0e6e8a.wav",
+    text: "Mình học câu vẫy tay tạm biệt nhé.",
+  },
+  [normalizeText("Câu này nghĩa là vẫy tay tạm biệt.")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_success_d3a84260.wav",
+    text: "Câu này nghĩa là vẫy tay tạm biệt.",
+  },
   [normalizeText("Bé đã chơi sáng tạo thật khéo!")]: {
     key: "lessons/home-play/creative-play/audio/vi/completion_c2b144ec.wav",
     text: "Bé đã chơi sáng tạo thật khéo!",
@@ -24143,6 +37871,578 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Dọn phòng giúp bé có chỗ chơi sạch đẹp.")]: {
     key: "lessons/home-play/toy-cleanup/audio/vi/teach_tidy_room_success_75e54ee7.wav",
     text: "Dọn phòng giúp bé có chỗ chơi sạch đẹp.",
+  },
+  [normalizeText("Bé đã chọn được quyển sách mình thích.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/completion_69e8a9d2.wav",
+    text: "Bé đã chọn được quyển sách mình thích.",
+  },
+  [normalizeText("Kéo thẻ đánh dấu ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_bookmark_04f7c7c8.wav",
+    text: "Kéo thẻ đánh dấu ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ đánh dấu nằm ở giữa phía dưới.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_bookmark_fail_26f90304.wav",
+    text: "Thẻ đánh dấu nằm ở giữa phía dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ đánh dấu sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_bookmark_success_dda82934.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ đánh dấu sách.",
+  },
+  [normalizeText("Kéo sách tranh cạnh bé vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_picture_book_7b2d6342.wav",
+    text: "Kéo sách tranh cạnh bé vào vòng sáng nhé.",
+  },
+  [normalizeText("Sách tranh nằm ngay bên phải bé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_picture_book_fail_749a69d8.wav",
+    text: "Sách tranh nằm ngay bên phải bé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng sách tranh.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_picture_book_success_359c737c.wav",
+    text: "Tốt lắm, bé đã chọn đúng sách tranh.",
+  },
+  [normalizeText("Kéo thẻ lật trang ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_turn_page_78231937.wav",
+    text: "Kéo thẻ lật trang ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ lật trang nằm ở giữa hàng dưới.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_turn_page_fail_adcf7014.wav",
+    text: "Thẻ lật trang nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ lật trang.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/drag_turn_page_success_1214841c.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ lật trang.",
+  },
+  [normalizeText("Mình chọn một quyển sách nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/intro_bf157bb7.wav",
+    text: "Mình chọn một quyển sách nhé.",
+  },
+  [normalizeText("Quyển nào cũng thú vị!")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/intro_success_e2a6f67f.wav",
+    text: "Quyển nào cũng thú vị!",
+  },
+  [normalizeText("Chạm vào sách chữ cái ở phía trên bên phải nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_alphabet_book_38b451cb.wav",
+    text: "Chạm vào sách chữ cái ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Sách chữ cái nằm ở phía trên bên phải.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_alphabet_book_fail_8143c368.wav",
+    text: "Sách chữ cái nằm ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là sách chữ cái.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_alphabet_book_success_8dcdd8c2.wav",
+    text: "Đúng rồi, đó là sách chữ cái.",
+  },
+  [normalizeText("Thẻ mượn sách nằm ở dưới bên phải.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_borrow_book_fail_e94eb733.wav",
+    text: "Thẻ mượn sách nằm ở dưới bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ mượn sách ở dưới bên phải nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_borrow_book_fb9285e0.wav",
+    text: "Chạm vào thẻ mượn sách ở dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ mượn sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_borrow_book_success_5828cda7.wav",
+    text: "Đúng rồi, đó là thẻ mượn sách.",
+  },
+  [normalizeText("Chạm vào thẻ chọn sách ở dưới bên trái nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_choose_book_647b92aa.wav",
+    text: "Chạm vào thẻ chọn sách ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ chọn sách nằm ở dưới bên trái.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_choose_book_fail_087ade30.wav",
+    text: "Thẻ chọn sách nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chọn sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_choose_book_success_e392e342.wav",
+    text: "Đúng rồi, đó là thẻ chọn sách.",
+  },
+  [normalizeText("Chạm vào bìa sách ở giữa nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_cover_cdc8a7a1.wav",
+    text: "Chạm vào bìa sách ở giữa nhé.",
+  },
+  [normalizeText("Bìa sách nằm ở giữa khung cảnh.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_cover_fail_8f636d82.wav",
+    text: "Bìa sách nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Đúng rồi, đó là bìa sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_cover_success_364bf3e8.wav",
+    text: "Đúng rồi, đó là bìa sách.",
+  },
+  [normalizeText("Chạm vào trang sách ở bên phải nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_page_0d33eff6.wav",
+    text: "Chạm vào trang sách ở bên phải nhé.",
+  },
+  [normalizeText("Trang sách nằm ở bên phải.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_page_fail_27f43626.wav",
+    text: "Trang sách nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là trang sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_page_success_531ae306.wav",
+    text: "Đúng rồi, đó là trang sách.",
+  },
+  [normalizeText("Chạm vào ghế đọc sách ở phía trên nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_reading_chair_3455f877.wav",
+    text: "Chạm vào ghế đọc sách ở phía trên nhé.",
+  },
+  [normalizeText("Ghế đọc sách nằm ở phía trên.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_reading_chair_fail_d2fd4198.wav",
+    text: "Ghế đọc sách nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là ghế đọc sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/tap_reading_chair_success_e720f1ce.wav",
+    text: "Đúng rồi, đó là ghế đọc sách.",
+  },
+  [normalizeText("Đây là sách chữ cái.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_alphabet_book_be45758c.wav",
+    text: "Đây là sách chữ cái.",
+  },
+  [normalizeText("Từ này nghĩa là sách chữ cái.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_alphabet_book_success_9ef16415.wav",
+    text: "Từ này nghĩa là sách chữ cái.",
+  },
+  [normalizeText("Đây là thẻ đánh dấu sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_bookmark_9b7d5e99.wav",
+    text: "Đây là thẻ đánh dấu sách.",
+  },
+  [normalizeText("Từ này nghĩa là thẻ đánh dấu sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_bookmark_success_611ce328.wav",
+    text: "Từ này nghĩa là thẻ đánh dấu sách.",
+  },
+  [normalizeText("Mình học câu mượn sách nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_borrow_book_4a0ab68c.wav",
+    text: "Mình học câu mượn sách nhé.",
+  },
+  [normalizeText("Câu này nghĩa là mượn sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_borrow_book_success_0439d661.wav",
+    text: "Câu này nghĩa là mượn sách.",
+  },
+  [normalizeText("Mình học câu chọn sách nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_choose_book_87f1ee14.wav",
+    text: "Mình học câu chọn sách nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chọn sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_choose_book_success_c1b676e9.wav",
+    text: "Câu này nghĩa là chọn sách.",
+  },
+  [normalizeText("Đây là bìa sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_cover_897284aa.wav",
+    text: "Đây là bìa sách.",
+  },
+  [normalizeText("Từ này nghĩa là bìa sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_cover_success_7e146cd4.wav",
+    text: "Từ này nghĩa là bìa sách.",
+  },
+  [normalizeText("Đây là trang sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_page_989fddfe.wav",
+    text: "Đây là trang sách.",
+  },
+  [normalizeText("Từ này nghĩa là trang sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_page_success_63c6f686.wav",
+    text: "Từ này nghĩa là trang sách.",
+  },
+  [normalizeText("Đây là sách tranh.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_picture_book_38b760ef.wav",
+    text: "Đây là sách tranh.",
+  },
+  [normalizeText("Từ này nghĩa là sách tranh.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_picture_book_success_637b552e.wav",
+    text: "Từ này nghĩa là sách tranh.",
+  },
+  [normalizeText("Đây là ghế đọc sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_reading_chair_589b6ede.wav",
+    text: "Đây là ghế đọc sách.",
+  },
+  [normalizeText("Từ này nghĩa là ghế đọc sách.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_reading_chair_success_5b5452be.wav",
+    text: "Từ này nghĩa là ghế đọc sách.",
+  },
+  [normalizeText("Mình học câu lật trang nhé.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_turn_page_dfd52b7d.wav",
+    text: "Mình học câu lật trang nhé.",
+  },
+  [normalizeText("Câu này nghĩa là lật trang.")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/teach_turn_page_success_f4c33836.wav",
+    text: "Câu này nghĩa là lật trang.",
+  },
+  [normalizeText("Bé đã biết dùng thẻ và trả sách đúng chỗ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/completion_6ba19d97.wav",
+    text: "Bé đã biết dùng thẻ và trả sách đúng chỗ.",
+  },
+  [normalizeText("Kéo giỏ sách ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_book_basket_4b8a370d.wav",
+    text: "Kéo giỏ sách ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Giỏ sách nằm ở giữa khung cảnh.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_book_basket_fail_291d8354.wav",
+    text: "Giỏ sách nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng giỏ đựng sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_book_basket_success_94f131ba.wav",
+    text: "Tốt lắm, bé đã chọn đúng giỏ đựng sách.",
+  },
+  [normalizeText("Kéo thẻ nói nhỏ ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_use_quiet_voice_92a6aa25.wav",
+    text: "Kéo thẻ nói nhỏ ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ nói nhỏ nằm ở giữa hàng dưới.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_use_quiet_voice_fail_15b48c1a.wav",
+    text: "Thẻ nói nhỏ nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ nói giọng nhỏ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/drag_use_quiet_voice_success_56061fb1.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ nói giọng nhỏ.",
+  },
+  [normalizeText("Mình vào thư viện thật nhẹ nhàng nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/intro_03a6a761.wav",
+    text: "Mình vào thư viện thật nhẹ nhàng nhé.",
+  },
+  [normalizeText("Thư viện có nhiều sách quá!")]: {
+    key: "lessons/library-visit/library-card/audio/vi/intro_success_652f4d14.wav",
+    text: "Thư viện có nhiều sách quá!",
+  },
+  [normalizeText("Chạm vào nơi trả sách ở bên phải nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_book_return_2542c304.wav",
+    text: "Chạm vào nơi trả sách ở bên phải nhé.",
+  },
+  [normalizeText("Nơi trả sách nằm ở bên phải.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_book_return_fail_5f0edd0e.wav",
+    text: "Nơi trả sách nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là nơi trả sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_book_return_success_7de07db4.wav",
+    text: "Đúng rồi, đó là nơi trả sách.",
+  },
+  [normalizeText("Chạm vào cô thủ thư ở phía trên bên phải nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_librarian_d01411ee.wav",
+    text: "Chạm vào cô thủ thư ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Cô thủ thư đứng ở phía trên bên phải.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_librarian_fail_fe844002.wav",
+    text: "Cô thủ thư đứng ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là cô thủ thư.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_librarian_success_06a982a4.wav",
+    text: "Đúng rồi, đó là cô thủ thư.",
+  },
+  [normalizeText("Chạm vào thẻ thư viện cạnh bé nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_library_card_6e08df76.wav",
+    text: "Chạm vào thẻ thư viện cạnh bé nhé.",
+  },
+  [normalizeText("Thẻ thư viện nằm ngay bên phải bé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_library_card_fail_a7fcecc7.wav",
+    text: "Thẻ thư viện nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ thư viện.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_library_card_success_7a73fabf.wav",
+    text: "Đúng rồi, đó là thẻ thư viện.",
+  },
+  [normalizeText("Chạm vào biển nói nhỏ ở góc trên bên phải nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_quiet_sign_843f6ba8.wav",
+    text: "Chạm vào biển nói nhỏ ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Biển nói nhỏ nằm ở góc trên bên phải.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_quiet_sign_fail_76ce5865.wav",
+    text: "Biển nói nhỏ nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là biển nhắc nói nhỏ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_quiet_sign_success_29a622b8.wav",
+    text: "Đúng rồi, đó là biển nhắc nói nhỏ.",
+  },
+  [normalizeText("Chạm vào thẻ trả sách ở dưới bên phải nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_return_book_89af0852.wav",
+    text: "Chạm vào thẻ trả sách ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ trả sách nằm ở dưới bên phải.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_return_book_fail_77939658.wav",
+    text: "Thẻ trả sách nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ trả sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_return_book_success_64ae6782.wav",
+    text: "Đúng rồi, đó là thẻ trả sách.",
+  },
+  [normalizeText("Chạm vào kệ sách ở phía trên nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_shelf_37781786.wav",
+    text: "Chạm vào kệ sách ở phía trên nhé.",
+  },
+  [normalizeText("Kệ sách nằm ở phía trên.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_shelf_fail_59829ec6.wav",
+    text: "Kệ sách nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là kệ sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_shelf_success_7ee01e46.wav",
+    text: "Đúng rồi, đó là kệ sách.",
+  },
+  [normalizeText("Chạm vào thẻ đưa thẻ ở dưới bên trái nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_show_card_3c66bd24.wav",
+    text: "Chạm vào thẻ đưa thẻ ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ đưa thẻ nằm ở dưới bên trái.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_show_card_fail_4b7e1006.wav",
+    text: "Thẻ đưa thẻ nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đưa thẻ thư viện.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/tap_show_card_success_a707c835.wav",
+    text: "Đúng rồi, đó là thẻ đưa thẻ thư viện.",
+  },
+  [normalizeText("Đây là giỏ đựng sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_book_basket_9cd34c3c.wav",
+    text: "Đây là giỏ đựng sách.",
+  },
+  [normalizeText("Từ này nghĩa là giỏ đựng sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_book_basket_success_51a560bb.wav",
+    text: "Từ này nghĩa là giỏ đựng sách.",
+  },
+  [normalizeText("Đây là nơi trả sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_book_return_08f95a39.wav",
+    text: "Đây là nơi trả sách.",
+  },
+  [normalizeText("Từ này nghĩa là nơi trả sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_book_return_success_611415cc.wav",
+    text: "Từ này nghĩa là nơi trả sách.",
+  },
+  [normalizeText("Đây là cô thủ thư.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_librarian_7434e68f.wav",
+    text: "Đây là cô thủ thư.",
+  },
+  [normalizeText("Từ này nghĩa là cô thủ thư.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_librarian_success_f89a82b6.wav",
+    text: "Từ này nghĩa là cô thủ thư.",
+  },
+  [normalizeText("Đây là thẻ thư viện.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_library_card_caa2de7e.wav",
+    text: "Đây là thẻ thư viện.",
+  },
+  [normalizeText("Từ này nghĩa là thẻ thư viện.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_library_card_success_f2fe9d2a.wav",
+    text: "Từ này nghĩa là thẻ thư viện.",
+  },
+  [normalizeText("Đây là biển nhắc nói nhỏ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_quiet_sign_9b338199.wav",
+    text: "Đây là biển nhắc nói nhỏ.",
+  },
+  [normalizeText("Từ này nghĩa là biển nhắc nói nhỏ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_quiet_sign_success_ff6981cb.wav",
+    text: "Từ này nghĩa là biển nhắc nói nhỏ.",
+  },
+  [normalizeText("Mình học câu trả sách nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_return_book_1b0d9c21.wav",
+    text: "Mình học câu trả sách nhé.",
+  },
+  [normalizeText("Câu này nghĩa là trả sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_return_book_success_4472960e.wav",
+    text: "Câu này nghĩa là trả sách.",
+  },
+  [normalizeText("Đây là kệ sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_shelf_6fb0a328.wav",
+    text: "Đây là kệ sách.",
+  },
+  [normalizeText("Từ này nghĩa là kệ sách.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_shelf_success_03fffdc0.wav",
+    text: "Từ này nghĩa là kệ sách.",
+  },
+  [normalizeText("Mình học câu đưa thẻ thư viện nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_show_card_6be49e78.wav",
+    text: "Mình học câu đưa thẻ thư viện nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đưa thẻ thư viện.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_show_card_success_81816bac.wav",
+    text: "Câu này nghĩa là đưa thẻ thư viện.",
+  },
+  [normalizeText("Mình học câu nói giọng nhỏ nhé.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_use_quiet_voice_199257aa.wav",
+    text: "Mình học câu nói giọng nhỏ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nói giọng nhỏ.")]: {
+    key: "lessons/library-visit/library-card/audio/vi/teach_use_quiet_voice_success_9616d5e1.wav",
+    text: "Câu này nghĩa là nói giọng nhỏ.",
+  },
+  [normalizeText("Bé đã ngồi nghe chuyện thật chăm chú.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/completion_a15fbc7e.wav",
+    text: "Bé đã ngồi nghe chuyện thật chăm chú.",
+  },
+  [normalizeText("Kéo đệm ngồi cạnh bé vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_cushion_9418bde9.wav",
+    text: "Kéo đệm ngồi cạnh bé vào vòng sáng nhé.",
+  },
+  [normalizeText("Đệm ngồi nằm ngay bên phải bé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_cushion_fail_82272293.wav",
+    text: "Đệm ngồi nằm ngay bên phải bé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng đệm ngồi.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_cushion_success_9b79ba97.wav",
+    text: "Tốt lắm, bé đã chọn đúng đệm ngồi.",
+  },
+  [normalizeText("Kéo thẻ nghe chuyện ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_listen_story_a31bbaca.wav",
+    text: "Kéo thẻ nghe chuyện ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ nghe chuyện nằm ở giữa hàng dưới.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_listen_story_fail_4a59a127.wav",
+    text: "Thẻ nghe chuyện nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ nghe câu chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_listen_story_success_600d5fa7.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ nghe câu chuyện.",
+  },
+  [normalizeText("Kéo thẻ câu chuyện ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_story_card_101a6178.wav",
+    text: "Kéo thẻ câu chuyện ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ câu chuyện nằm ở giữa phía dưới.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_story_card_fail_a90ac9ca.wav",
+    text: "Thẻ câu chuyện nằm ở giữa phía dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ câu chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/drag_story_card_success_bdbe9157.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ câu chuyện.",
+  },
+  [normalizeText("Mình ngồi nghe kể chuyện nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/intro_06f02123.wav",
+    text: "Mình ngồi nghe kể chuyện nhé.",
+  },
+  [normalizeText("Chạm vào vòng tròn ở giữa nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_circle_80ee18ee.wav",
+    text: "Chạm vào vòng tròn ở giữa nhé.",
+  },
+  [normalizeText("Vòng tròn nằm ở giữa khung cảnh.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_circle_fail_805273d9.wav",
+    text: "Vòng tròn nằm ở giữa khung cảnh.",
+  },
+  [normalizeText("Đúng rồi, đó là vòng tròn.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_circle_success_9d24b4ac.wav",
+    text: "Đúng rồi, đó là vòng tròn.",
+  },
+  [normalizeText("Chạm vào thẻ vỗ tay nhẹ ở dưới bên phải nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_clap_softly_9d9f9bc6.wav",
+    text: "Chạm vào thẻ vỗ tay nhẹ ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ vỗ tay nhẹ nằm ở dưới bên phải.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_clap_softly_fail_c7a0bc89.wav",
+    text: "Thẻ vỗ tay nhẹ nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ vỗ tay nhẹ.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_clap_softly_success_553d20b9.wav",
+    text: "Đúng rồi, đó là thẻ vỗ tay nhẹ.",
+  },
+  [normalizeText("Chạm vào chuông kể chuyện ở góc trên bên phải nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_library_bell_5c9afd3e.wav",
+    text: "Chạm vào chuông kể chuyện ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Chuông kể chuyện nằm ở góc trên bên phải.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_library_bell_fail_5ed6e6f7.wav",
+    text: "Chuông kể chuyện nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là chuông giờ kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_library_bell_success_dc83c976.wav",
+    text: "Đúng rồi, đó là chuông giờ kể chuyện.",
+  },
+  [normalizeText("Chạm vào rối tay ở bên phải nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_puppet_e15fca58.wav",
+    text: "Chạm vào rối tay ở bên phải nhé.",
+  },
+  [normalizeText("Rối tay nằm ở bên phải.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_puppet_fail_e4c1a580.wav",
+    text: "Rối tay nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là rối tay.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_puppet_success_12a4611b.wav",
+    text: "Đúng rồi, đó là rối tay.",
+  },
+  [normalizeText("Chạm vào thẻ ngồi vòng tròn ở dưới bên trái nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_sit_in_circle_b6889b4c.wav",
+    text: "Chạm vào thẻ ngồi vòng tròn ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ ngồi vòng tròn nằm ở dưới bên trái.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_sit_in_circle_fail_319e4809.wav",
+    text: "Thẻ ngồi vòng tròn nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ ngồi thành vòng tròn.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_sit_in_circle_success_a921ed75.wav",
+    text: "Đúng rồi, đó là thẻ ngồi thành vòng tròn.",
+  },
+  [normalizeText("Chạm vào người kể chuyện ở phía trên bên phải nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_storyteller_218a555e.wav",
+    text: "Chạm vào người kể chuyện ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Người kể chuyện ngồi ở phía trên bên phải.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_storyteller_fail_cec42740.wav",
+    text: "Người kể chuyện ngồi ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là người kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/tap_storyteller_success_f8ae39ed.wav",
+    text: "Đúng rồi, đó là người kể chuyện.",
+  },
+  [normalizeText("Đây là vòng tròn.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_circle_4d19646a.wav",
+    text: "Đây là vòng tròn.",
+  },
+  [normalizeText("Từ này nghĩa là vòng tròn.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_circle_success_3470654e.wav",
+    text: "Từ này nghĩa là vòng tròn.",
+  },
+  [normalizeText("Mình học câu vỗ tay nhẹ nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_clap_softly_db47c780.wav",
+    text: "Mình học câu vỗ tay nhẹ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là vỗ tay nhẹ.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_clap_softly_success_0eaa5d1e.wav",
+    text: "Câu này nghĩa là vỗ tay nhẹ.",
+  },
+  [normalizeText("Đây là đệm ngồi.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_cushion_03fb6f39.wav",
+    text: "Đây là đệm ngồi.",
+  },
+  [normalizeText("Từ này nghĩa là đệm ngồi.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_cushion_success_d25cca23.wav",
+    text: "Từ này nghĩa là đệm ngồi.",
+  },
+  [normalizeText("Đây là chuông giờ kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_library_bell_3457c381.wav",
+    text: "Đây là chuông giờ kể chuyện.",
+  },
+  [normalizeText("Từ này nghĩa là chuông giờ kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_library_bell_success_f4922c69.wav",
+    text: "Từ này nghĩa là chuông giờ kể chuyện.",
+  },
+  [normalizeText("Mình học câu nghe câu chuyện nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_listen_story_b746d53d.wav",
+    text: "Mình học câu nghe câu chuyện nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nghe câu chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_listen_story_success_45861264.wav",
+    text: "Câu này nghĩa là nghe câu chuyện.",
+  },
+  [normalizeText("Đây là rối tay.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_puppet_e555bac5.wav",
+    text: "Đây là rối tay.",
+  },
+  [normalizeText("Từ này nghĩa là rối tay.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_puppet_success_69721ab6.wav",
+    text: "Từ này nghĩa là rối tay.",
+  },
+  [normalizeText("Mình học câu ngồi thành vòng tròn nhé.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_sit_in_circle_3d683a10.wav",
+    text: "Mình học câu ngồi thành vòng tròn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngồi thành vòng tròn.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_sit_in_circle_success_d3befc4b.wav",
+    text: "Câu này nghĩa là ngồi thành vòng tròn.",
+  },
+  [normalizeText("Đây là thẻ câu chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_story_card_f9252627.wav",
+    text: "Đây là thẻ câu chuyện.",
+  },
+  [normalizeText("Từ này nghĩa là thẻ câu chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_story_card_success_cfb6f254.wav",
+    text: "Từ này nghĩa là thẻ câu chuyện.",
+  },
+  [normalizeText("Đây là người kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_storyteller_f78e6a7c.wav",
+    text: "Đây là người kể chuyện.",
+  },
+  [normalizeText("Từ này nghĩa là người kể chuyện.")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/teach_storyteller_success_a6f86d0a.wav",
+    text: "Từ này nghĩa là người kể chuyện.",
   },
   [normalizeText("Bỏ vụn thức ăn vào thùng rác.")]: {
     key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_crumbs_to_trash_74c048d9.wav",
@@ -25420,6 +39720,546 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/go-to-school/audio/vi/school_teach_uniform_success_ad977d1b.wav",
     text: "Từ này nghĩa là đồng phục.",
   },
+  [normalizeText("Bé đã tìm được đường vào công viên.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/completion_e76c65bc.wav",
+    text: "Bé đã tìm được đường vào công viên.",
+  },
+  [normalizeText("Kéo thẻ ngồi ghế ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/drag_sit_bench_995da8cb.wav",
+    text: "Kéo thẻ ngồi ghế ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ ngồi ghế nằm ở giữa hàng dưới.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/drag_sit_bench_fail_d77fc9c7.wav",
+    text: "Thẻ ngồi ghế nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ ngồi trên ghế dài.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/drag_sit_bench_success_b7adb8ce.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ ngồi trên ghế dài.",
+  },
+  [normalizeText("Mình bước vào công viên nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/intro_6c3ff88f.wav",
+    text: "Mình bước vào công viên nhé.",
+  },
+  [normalizeText("Công viên rộng và xanh quá!")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/intro_success_a613c351.wav",
+    text: "Công viên rộng và xanh quá!",
+  },
+  [normalizeText("Chạm vào ghế dài bên phải bé nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_bench_bab2d9b4.wav",
+    text: "Chạm vào ghế dài bên phải bé nhé.",
+  },
+  [normalizeText("Ghế dài nằm ngay bên phải bé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_bench_fail_a27c4cd1.wav",
+    text: "Ghế dài nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là ghế dài.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_bench_success_b6a9351a.wav",
+    text: "Đúng rồi, đó là ghế dài.",
+  },
+  [normalizeText("Chạm vào đài phun nước bên phải nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_fountain_38b07382.wav",
+    text: "Chạm vào đài phun nước bên phải nhé.",
+  },
+  [normalizeText("Đài phun nước nằm ở bên phải.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_fountain_fail_d5ab4a2b.wav",
+    text: "Đài phun nước nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là đài phun nước.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_fountain_success_f9b0f67d.wav",
+    text: "Đúng rồi, đó là đài phun nước.",
+  },
+  [normalizeText("Chạm vào cổng ở góc trên bên trái nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_gate_de93718b.wav",
+    text: "Chạm vào cổng ở góc trên bên trái nhé.",
+  },
+  [normalizeText("Cổng nằm ở góc trên bên trái.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_gate_fail_1e0a5509.wav",
+    text: "Cổng nằm ở góc trên bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là cánh cổng.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_gate_success_bfa3fd1d.wav",
+    text: "Đúng rồi, đó là cánh cổng.",
+  },
+  [normalizeText("Chạm vào thẻ xem bản đồ ở dưới bên phải nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_look_map_d048447a.wav",
+    text: "Chạm vào thẻ xem bản đồ ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ xem bản đồ nằm ở dưới bên phải.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_look_map_fail_4087b546.wav",
+    text: "Thẻ xem bản đồ nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ xem bản đồ.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_look_map_success_a34a83f8.wav",
+    text: "Đúng rồi, đó là thẻ xem bản đồ.",
+  },
+  [normalizeText("Chạm vào bản đồ cạnh đài phun nước nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_map_9b92ebc1.wav",
+    text: "Chạm vào bản đồ cạnh đài phun nước nhé.",
+  },
+  [normalizeText("Bản đồ nằm cạnh đài phun nước.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_map_fail_7f237280.wav",
+    text: "Bản đồ nằm cạnh đài phun nước.",
+  },
+  [normalizeText("Đúng rồi, đó là bản đồ công viên.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_map_success_d2bdf3e6.wav",
+    text: "Đúng rồi, đó là bản đồ công viên.",
+  },
+  [normalizeText("Chạm vào lối đi ở phía trên nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_path_f542048e.wav",
+    text: "Chạm vào lối đi ở phía trên nhé.",
+  },
+  [normalizeText("Lối đi nằm ở phía trên.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_path_fail_9496e29f.wav",
+    text: "Lối đi nằm ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là lối đi.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_path_success_4768d7ce.wav",
+    text: "Đúng rồi, đó là lối đi.",
+  },
+  [normalizeText("Chạm vào cái cây ở góc trên bên phải nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_tree_0af2fa5c.wav",
+    text: "Chạm vào cái cây ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Cái cây nằm ở góc trên bên phải.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_tree_fail_7079a88e.wav",
+    text: "Cái cây nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là cái cây.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_tree_success_98b53831.wav",
+    text: "Đúng rồi, đó là cái cây.",
+  },
+  [normalizeText("Chạm vào thẻ đi trên lối ở dưới bên trái nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_walk_path_427da202.wav",
+    text: "Chạm vào thẻ đi trên lối ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ đi trên lối nằm ở dưới bên trái.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_walk_path_fail_31444f29.wav",
+    text: "Thẻ đi trên lối nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ đi trên lối đi.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/tap_walk_path_success_b0e7cdb4.wav",
+    text: "Đúng rồi, đó là thẻ đi trên lối đi.",
+  },
+  [normalizeText("Đây là đài phun nước.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_fountain_45eb3b89.wav",
+    text: "Đây là đài phun nước.",
+  },
+  [normalizeText("Từ này nghĩa là đài phun nước.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_fountain_success_f0a6ac95.wav",
+    text: "Từ này nghĩa là đài phun nước.",
+  },
+  [normalizeText("Đây là cánh cổng.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_gate_05ad1bb4.wav",
+    text: "Đây là cánh cổng.",
+  },
+  [normalizeText("Từ này nghĩa là cánh cổng.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_gate_success_e467a5c0.wav",
+    text: "Từ này nghĩa là cánh cổng.",
+  },
+  [normalizeText("Mình học câu xem bản đồ nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_look_map_13a18796.wav",
+    text: "Mình học câu xem bản đồ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xem bản đồ.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_look_map_success_b414202d.wav",
+    text: "Câu này nghĩa là xem bản đồ.",
+  },
+  [normalizeText("Đây là bản đồ công viên.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_map_bb33be29.wav",
+    text: "Đây là bản đồ công viên.",
+  },
+  [normalizeText("Từ này nghĩa là bản đồ công viên.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_map_success_3fd3c9a3.wav",
+    text: "Từ này nghĩa là bản đồ công viên.",
+  },
+  [normalizeText("Đây là lối đi.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_path_6b195adf.wav",
+    text: "Đây là lối đi.",
+  },
+  [normalizeText("Từ này nghĩa là lối đi.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_path_success_134756e4.wav",
+    text: "Từ này nghĩa là lối đi.",
+  },
+  [normalizeText("Mình học câu ngồi trên ghế dài nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_sit_bench_6ac0eb5e.wav",
+    text: "Mình học câu ngồi trên ghế dài nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngồi trên ghế dài.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_sit_bench_success_bff76da8.wav",
+    text: "Câu này nghĩa là ngồi trên ghế dài.",
+  },
+  [normalizeText("Đây là cái cây.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_tree_a4c50edd.wav",
+    text: "Đây là cái cây.",
+  },
+  [normalizeText("Từ này nghĩa là cái cây.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_tree_success_5bf7b30f.wav",
+    text: "Từ này nghĩa là cái cây.",
+  },
+  [normalizeText("Mình học câu đi trên lối đi nhé.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_walk_path_4957f945.wav",
+    text: "Mình học câu đi trên lối đi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi trên lối đi.")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/teach_walk_path_success_2a49c0f7.wav",
+    text: "Câu này nghĩa là đi trên lối đi.",
+  },
+  [normalizeText("Bé đã sẵn sàng chơi vận động an toàn.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/completion_919c29b8.wav",
+    text: "Bé đã sẵn sàng chơi vận động an toàn.",
+  },
+  [normalizeText("Kéo xe trượt cạnh bé vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_scooter_8c0b813c.wav",
+    text: "Kéo xe trượt cạnh bé vào vòng sáng nhé.",
+  },
+  [normalizeText("Xe trượt nằm ngay bên phải bé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_scooter_fail_ff6e8f74.wav",
+    text: "Xe trượt nằm ngay bên phải bé.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng xe trượt hai bánh.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_scooter_success_35c27fea.wav",
+    text: "Tốt lắm, bé đã chọn đúng xe trượt hai bánh.",
+  },
+  [normalizeText("Kéo thẻ đội mũ ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_wear_helmet_edd42624.wav",
+    text: "Kéo thẻ đội mũ ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ đội mũ nằm ở giữa hàng dưới.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_wear_helmet_fail_119682ab.wav",
+    text: "Thẻ đội mũ nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ đội mũ bảo hiểm.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_wear_helmet_success_e30f81e2.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ đội mũ bảo hiểm.",
+  },
+  [normalizeText("Kéo chiếc còi bên phải vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_whistle_1ab6e0cb.wav",
+    text: "Kéo chiếc còi bên phải vào vòng sáng nhé.",
+  },
+  [normalizeText("Chiếc còi nằm ở bên phải.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_whistle_fail_dae84561.wav",
+    text: "Chiếc còi nằm ở bên phải.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng còi nhỏ.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/drag_whistle_success_ba23ae01.wav",
+    text: "Tốt lắm, bé đã chọn đúng còi nhỏ.",
+  },
+  [normalizeText("Mình chơi vận động ở công viên nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/intro_df85a326.wav",
+    text: "Mình chơi vận động ở công viên nhé.",
+  },
+  [normalizeText("Chơi ngoài trời vui quá!")]: {
+    key: "lessons/park-visit/park-games/audio/vi/intro_success_a0d20d6d.wav",
+    text: "Chơi ngoài trời vui quá!",
+  },
+  [normalizeText("Chạm vào khung leo trèo ở góc trên bên phải nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_climbing_frame_c4dcf0d6.wav",
+    text: "Chạm vào khung leo trèo ở góc trên bên phải nhé.",
+  },
+  [normalizeText("Khung leo trèo nằm ở góc trên bên phải.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_climbing_frame_fail_182aca48.wav",
+    text: "Khung leo trèo nằm ở góc trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là khung leo trèo.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_climbing_frame_success_41a26276.wav",
+    text: "Đúng rồi, đó là khung leo trèo.",
+  },
+  [normalizeText("Chạm vào đĩa bay phía trên xe trượt nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_frisbee_0b2f5c2f.wav",
+    text: "Chạm vào đĩa bay phía trên xe trượt nhé.",
+  },
+  [normalizeText("Đĩa bay nằm phía trên xe trượt.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_frisbee_fail_a9f891bc.wav",
+    text: "Đĩa bay nằm phía trên xe trượt.",
+  },
+  [normalizeText("Đúng rồi, đó là đĩa bay.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_frisbee_success_f8381537.wav",
+    text: "Đúng rồi, đó là đĩa bay.",
+  },
+  [normalizeText("Chạm vào mũ bảo hiểm cạnh xe trượt nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_helmet_6d31ef94.wav",
+    text: "Chạm vào mũ bảo hiểm cạnh xe trượt nhé.",
+  },
+  [normalizeText("Mũ bảo hiểm nằm cạnh xe trượt.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_helmet_fail_ebe94c9c.wav",
+    text: "Mũ bảo hiểm nằm cạnh xe trượt.",
+  },
+  [normalizeText("Đúng rồi, đó là mũ bảo hiểm.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_helmet_success_6505369b.wav",
+    text: "Đúng rồi, đó là mũ bảo hiểm.",
+  },
+  [normalizeText("Chạm vào thẻ tham gia đội ở dưới bên phải nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_join_team_8d0244be.wav",
+    text: "Chạm vào thẻ tham gia đội ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ tham gia đội nằm ở dưới bên phải.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_join_team_fail_d011476f.wav",
+    text: "Thẻ tham gia đội nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ tham gia cùng đội.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_join_team_success_c9cd597e.wav",
+    text: "Đúng rồi, đó là thẻ tham gia cùng đội.",
+  },
+  [normalizeText("Chạm vào đội bạn nhỏ ở phía trên nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_team_9c35d425.wav",
+    text: "Chạm vào đội bạn nhỏ ở phía trên nhé.",
+  },
+  [normalizeText("Đội bạn nhỏ đứng ở phía trên.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_team_fail_1a141541.wav",
+    text: "Đội bạn nhỏ đứng ở phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là đội.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_team_success_fbc9c1e8.wav",
+    text: "Đúng rồi, đó là đội.",
+  },
+  [normalizeText("Chạm vào thẻ ném đĩa ở dưới bên trái nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_throw_frisbee_ba8df3ab.wav",
+    text: "Chạm vào thẻ ném đĩa ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ ném đĩa nằm ở dưới bên trái.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_throw_frisbee_fail_7e0d75dc.wav",
+    text: "Thẻ ném đĩa nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ ném đĩa bay.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/tap_throw_frisbee_success_c1fb6cb6.wav",
+    text: "Đúng rồi, đó là thẻ ném đĩa bay.",
+  },
+  [normalizeText("Đây là khung leo trèo.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_climbing_frame_f5d85428.wav",
+    text: "Đây là khung leo trèo.",
+  },
+  [normalizeText("Từ này nghĩa là khung leo trèo.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_climbing_frame_success_6a0e1808.wav",
+    text: "Từ này nghĩa là khung leo trèo.",
+  },
+  [normalizeText("Đây là đĩa bay.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_frisbee_ee3f6578.wav",
+    text: "Đây là đĩa bay.",
+  },
+  [normalizeText("Từ này nghĩa là đĩa bay.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_frisbee_success_c022b6d6.wav",
+    text: "Từ này nghĩa là đĩa bay.",
+  },
+  [normalizeText("Đây là mũ bảo hiểm.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_helmet_22e9a88f.wav",
+    text: "Đây là mũ bảo hiểm.",
+  },
+  [normalizeText("Từ này nghĩa là mũ bảo hiểm.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_helmet_success_ad398c1e.wav",
+    text: "Từ này nghĩa là mũ bảo hiểm.",
+  },
+  [normalizeText("Mình học câu tham gia cùng đội nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_join_team_5c3a7ab2.wav",
+    text: "Mình học câu tham gia cùng đội nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tham gia cùng đội.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_join_team_success_3e081ee6.wav",
+    text: "Câu này nghĩa là tham gia cùng đội.",
+  },
+  [normalizeText("Đây là xe trượt hai bánh.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_scooter_090cb8fb.wav",
+    text: "Đây là xe trượt hai bánh.",
+  },
+  [normalizeText("Từ này nghĩa là xe trượt hai bánh.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_scooter_success_f8d52842.wav",
+    text: "Từ này nghĩa là xe trượt hai bánh.",
+  },
+  [normalizeText("Đây là đội.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_team_f95e15ea.wav",
+    text: "Đây là đội.",
+  },
+  [normalizeText("Từ này nghĩa là đội.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_team_success_811702be.wav",
+    text: "Từ này nghĩa là đội.",
+  },
+  [normalizeText("Mình học câu ném đĩa bay nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_throw_frisbee_93ba82c1.wav",
+    text: "Mình học câu ném đĩa bay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ném đĩa bay.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_throw_frisbee_success_67c3ba5b.wav",
+    text: "Câu này nghĩa là ném đĩa bay.",
+  },
+  [normalizeText("Mình học câu đội mũ bảo hiểm nhé.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_wear_helmet_41df1ac9.wav",
+    text: "Mình học câu đội mũ bảo hiểm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đội mũ bảo hiểm.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_wear_helmet_success_cd94eebc.wav",
+    text: "Câu này nghĩa là đội mũ bảo hiểm.",
+  },
+  [normalizeText("Đây là còi nhỏ.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_whistle_49c31435.wav",
+    text: "Đây là còi nhỏ.",
+  },
+  [normalizeText("Từ này nghĩa là còi nhỏ.")]: {
+    key: "lessons/park-visit/park-games/audio/vi/teach_whistle_success_69268926.wav",
+    text: "Từ này nghĩa là còi nhỏ.",
+  },
+  [normalizeText("Bé đã chuẩn bị và dọn dẹp buổi dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/completion_ad464844.wav",
+    text: "Bé đã chuẩn bị và dọn dẹp buổi dã ngoại.",
+  },
+  [normalizeText("Kéo thẻ dọn vụn bánh ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_clean_crumbs_6ee5a3fc.wav",
+    text: "Kéo thẻ dọn vụn bánh ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ dọn vụn bánh nằm ở giữa hàng dưới.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_clean_crumbs_fail_02b43dd1.wav",
+    text: "Thẻ dọn vụn bánh nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng thẻ dọn vụn bánh.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_clean_crumbs_success_7632b460.wav",
+    text: "Tốt lắm, bé đã chọn đúng thẻ dọn vụn bánh.",
+  },
+  [normalizeText("Kéo vụn bánh trên thảm vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_crumbs_16f33bf4.wav",
+    text: "Kéo vụn bánh trên thảm vào vòng sáng nhé.",
+  },
+  [normalizeText("Vụn bánh nằm trên thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_crumbs_fail_70e6713c.wav",
+    text: "Vụn bánh nằm trên thảm dã ngoại.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng vụn bánh.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_crumbs_success_f0358f48.wav",
+    text: "Tốt lắm, bé đã chọn đúng vụn bánh.",
+  },
+  [normalizeText("Kéo bánh kẹp trên thảm vào vòng sáng nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_sandwich_cc40b88c.wav",
+    text: "Kéo bánh kẹp trên thảm vào vòng sáng nhé.",
+  },
+  [normalizeText("Bánh kẹp nằm trên thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_sandwich_fail_2940dac7.wav",
+    text: "Bánh kẹp nằm trên thảm dã ngoại.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn đúng bánh kẹp.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/drag_sandwich_success_4cbfa350.wav",
+    text: "Tốt lắm, bé đã chọn đúng bánh kẹp.",
+  },
+  [normalizeText("Mình nghỉ và ăn nhẹ ở công viên nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/intro_0e3ea9f5.wav",
+    text: "Mình nghỉ và ăn nhẹ ở công viên nhé.",
+  },
+  [normalizeText("Mình trải thảm và ngồi gọn nào.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/intro_success_0a2af1da.wav",
+    text: "Mình trải thảm và ngồi gọn nào.",
+  },
+  [normalizeText("Chạm vào chai nước bên phải thảm nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_juice_da6bfe04.wav",
+    text: "Chạm vào chai nước bên phải thảm nhé.",
+  },
+  [normalizeText("Chai nước nằm bên phải thảm.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_juice_fail_455c7311.wav",
+    text: "Chai nước nằm bên phải thảm.",
+  },
+  [normalizeText("Đúng rồi, đó là nước trái cây.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_juice_success_2565af16.wav",
+    text: "Đúng rồi, đó là nước trái cây.",
+  },
+  [normalizeText("Chạm vào khăn giấy trên thảm nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_napkin_bf2de05d.wav",
+    text: "Chạm vào khăn giấy trên thảm nhé.",
+  },
+  [normalizeText("Khăn giấy nằm trên thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_napkin_fail_ecb06353.wav",
+    text: "Khăn giấy nằm trên thảm dã ngoại.",
+  },
+  [normalizeText("Chạm vào thảm dã ngoại cạnh bé nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_picnic_mat_d6a01d76.wav",
+    text: "Chạm vào thảm dã ngoại cạnh bé nhé.",
+  },
+  [normalizeText("Thảm dã ngoại nằm ngay bên phải bé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_picnic_mat_fail_7f33efe9.wav",
+    text: "Thảm dã ngoại nằm ngay bên phải bé.",
+  },
+  [normalizeText("Đúng rồi, đó là thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_picnic_mat_success_2188f5b4.wav",
+    text: "Đúng rồi, đó là thảm dã ngoại.",
+  },
+  [normalizeText("Chạm vào thẻ trải thảm ở dưới bên trái nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_spread_mat_13299171.wav",
+    text: "Chạm vào thẻ trải thảm ở dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ trải thảm nằm ở dưới bên trái.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_spread_mat_fail_24dfdf9e.wav",
+    text: "Thẻ trải thảm nằm ở dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ trải thảm.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_spread_mat_success_15ff279a.wav",
+    text: "Đúng rồi, đó là thẻ trải thảm.",
+  },
+  [normalizeText("Chạm vào thẻ bỏ rác ở dưới bên phải nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_throw_trash_4a3fdfaf.wav",
+    text: "Chạm vào thẻ bỏ rác ở dưới bên phải nhé.",
+  },
+  [normalizeText("Thẻ bỏ rác nằm ở dưới bên phải.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_throw_trash_fail_5b44aec4.wav",
+    text: "Thẻ bỏ rác nằm ở dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ bỏ rác vào thùng.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_throw_trash_success_757d23b8.wav",
+    text: "Đúng rồi, đó là thẻ bỏ rác vào thùng.",
+  },
+  [normalizeText("Chạm vào thùng rác ở bên phải nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_trash_bin_579a7652.wav",
+    text: "Chạm vào thùng rác ở bên phải nhé.",
+  },
+  [normalizeText("Thùng rác nằm ở bên phải.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_trash_bin_fail_592564a2.wav",
+    text: "Thùng rác nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thùng rác.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/tap_trash_bin_success_567ff951.wav",
+    text: "Đúng rồi, đó là thùng rác.",
+  },
+  [normalizeText("Mình học câu dọn vụn bánh nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_clean_crumbs_4b2f7dff.wav",
+    text: "Mình học câu dọn vụn bánh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dọn vụn bánh.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_clean_crumbs_success_7fd8e1b6.wav",
+    text: "Câu này nghĩa là dọn vụn bánh.",
+  },
+  [normalizeText("Đây là nước trái cây.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_juice_abe53e7b.wav",
+    text: "Đây là nước trái cây.",
+  },
+  [normalizeText("Từ này nghĩa là nước trái cây.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_juice_success_3c62a856.wav",
+    text: "Từ này nghĩa là nước trái cây.",
+  },
+  [normalizeText("Đây là thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_picnic_mat_de415c35.wav",
+    text: "Đây là thảm dã ngoại.",
+  },
+  [normalizeText("Từ này nghĩa là thảm dã ngoại.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_picnic_mat_success_59152443.wav",
+    text: "Từ này nghĩa là thảm dã ngoại.",
+  },
+  [normalizeText("Đây là bánh kẹp.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_sandwich_c2ef9bcd.wav",
+    text: "Đây là bánh kẹp.",
+  },
+  [normalizeText("Từ này nghĩa là bánh kẹp.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_sandwich_success_9fbfec7b.wav",
+    text: "Từ này nghĩa là bánh kẹp.",
+  },
+  [normalizeText("Mình học câu trải thảm nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_spread_mat_941e251e.wav",
+    text: "Mình học câu trải thảm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là trải thảm.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_spread_mat_success_d342810b.wav",
+    text: "Câu này nghĩa là trải thảm.",
+  },
+  [normalizeText("Mình học câu bỏ rác vào thùng nhé.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_throw_trash_afc9bc0c.wav",
+    text: "Mình học câu bỏ rác vào thùng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là bỏ rác vào thùng.")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/teach_throw_trash_success_8507b776.wav",
+    text: "Câu này nghĩa là bỏ rác vào thùng.",
+  },
   [normalizeText("Bé đã biết chơi vui và chia sẻ với bạn.")]: {
     key: "lessons/playtime/friend-games/audio/vi/completion_ba602849.wav",
     text: "Bé đã biết chơi vui và chia sẻ với bạn.",
@@ -26487,6 +41327,542 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Lau miệng sau khi ăn giúp bé sạch sẽ.")]: {
     key: "lessons/snack-time/snack-table/audio/vi/teach_wipe_mouth_success_071eff48.wav",
     text: "Lau miệng sau khi ăn giúp bé sạch sẽ.",
+  },
+  [normalizeText("Bé đã biết thanh toán và mang đồ về.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/completion_b125f7b5.wav",
+    text: "Bé đã biết thanh toán và mang đồ về.",
+  },
+  [normalizeText("Kéo túi mua hàng bên phải vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_bag_025adc93.wav",
+    text: "Kéo túi mua hàng bên phải vào vòng sáng nhé.",
+  },
+  [normalizeText("Túi mua hàng nằm ở góc dưới bên phải.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_bag_fail_950e9ad8.wav",
+    text: "Túi mua hàng nằm ở góc dưới bên phải.",
+  },
+  [normalizeText("Tốt lắm, bé đã xếp đồ vào túi.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_bag_success_ab6117ea.wav",
+    text: "Tốt lắm, bé đã xếp đồ vào túi.",
+  },
+  [normalizeText("Kéo quầy xanh vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_counter_7576f471.wav",
+    text: "Kéo quầy xanh vào vòng sáng nhé.",
+  },
+  [normalizeText("Quầy xanh nằm ở giữa.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_counter_fail_ea6eaf39.wav",
+    text: "Quầy xanh nằm ở giữa.",
+  },
+  [normalizeText("Đúng rồi, đây là quầy tính tiền.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_counter_success_405a0990.wav",
+    text: "Đúng rồi, đây là quầy tính tiền.",
+  },
+  [normalizeText("Kéo thẻ xếp đồ ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_pack_bag_338da319.wav",
+    text: "Kéo thẻ xếp đồ ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ xếp đồ nằm ở giữa.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_pack_bag_fail_6dc83401.wav",
+    text: "Thẻ xếp đồ nằm ở giữa.",
+  },
+  [normalizeText("Đúng rồi, bé biết xếp đồ vào túi.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/drag_pack_bag_success_45a955f8.wav",
+    text: "Đúng rồi, bé biết xếp đồ vào túi.",
+  },
+  [normalizeText("Mình đến quầy thanh toán nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/intro_d9f1955f.wav",
+    text: "Mình đến quầy thanh toán nhé.",
+  },
+  [normalizeText("Mình xếp hàng gọn gàng nào.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/intro_success_1a4314bb.wav",
+    text: "Mình xếp hàng gọn gàng nào.",
+  },
+  [normalizeText("Chạm vào thẻ thanh toán cạnh hóa đơn nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_card_4731f004.wav",
+    text: "Chạm vào thẻ thanh toán cạnh hóa đơn nhé.",
+  },
+  [normalizeText("Thẻ thanh toán nằm bên trái hóa đơn.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_card_fail_4ede9777.wav",
+    text: "Thẻ thanh toán nằm bên trái hóa đơn.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ thanh toán.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_card_success_f19af6ec.wav",
+    text: "Đúng rồi, đó là thẻ thanh toán.",
+  },
+  [normalizeText("Chạm vào cô thu ngân sau quầy xanh nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_cashier_77e20859.wav",
+    text: "Chạm vào cô thu ngân sau quầy xanh nhé.",
+  },
+  [normalizeText("Cô thu ngân đứng phía sau quầy tính tiền màu xanh.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_cashier_fail_8b82ad11.wav",
+    text: "Cô thu ngân đứng phía sau quầy tính tiền màu xanh.",
+  },
+  [normalizeText("Đúng rồi, đó là nhân viên thu ngân.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_cashier_success_c11e8e2a.wav",
+    text: "Đúng rồi, đó là nhân viên thu ngân.",
+  },
+  [normalizeText("Chạm vào hóa đơn dưới cô thu ngân nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_receipt_6c87422b.wav",
+    text: "Chạm vào hóa đơn dưới cô thu ngân nhé.",
+  },
+  [normalizeText("Hóa đơn nằm dưới cô thu ngân.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_receipt_fail_571fe450.wav",
+    text: "Hóa đơn nằm dưới cô thu ngân.",
+  },
+  [normalizeText("Đúng rồi, đó là hóa đơn.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_receipt_success_2f832a94.wav",
+    text: "Đúng rồi, đó là hóa đơn.",
+  },
+  [normalizeText("Chạm vào thẻ cảm ơn cạnh cô thu ngân nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_say_thank_you_6e0c22c1.wav",
+    text: "Chạm vào thẻ cảm ơn cạnh cô thu ngân nhé.",
+  },
+  [normalizeText("Thẻ cảm ơn nằm bên phải cô thu ngân.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_say_thank_you_fail_6f1e69f2.wav",
+    text: "Thẻ cảm ơn nằm bên phải cô thu ngân.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ nói lời cảm ơn.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_say_thank_you_success_d644dd8b.wav",
+    text: "Đúng rồi, đó là thẻ nói lời cảm ơn.",
+  },
+  [normalizeText("Chạm vào thẻ quét món hàng ở góc dưới bên trái nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scan_item_ed6457c2.wav",
+    text: "Chạm vào thẻ quét món hàng ở góc dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ quét món hàng nằm ở góc dưới bên trái.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scan_item_fail_14e48f50.wav",
+    text: "Thẻ quét món hàng nằm ở góc dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ quét món hàng.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scan_item_success_49f6387e.wav",
+    text: "Đúng rồi, đó là thẻ quét món hàng.",
+  },
+  [normalizeText("Chạm vào máy quét bên trái thẻ thanh toán nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scanner_7be859c3.wav",
+    text: "Chạm vào máy quét bên trái thẻ thanh toán nhé.",
+  },
+  [normalizeText("Máy quét nằm bên trái thẻ thanh toán.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scanner_fail_97afc7af.wav",
+    text: "Máy quét nằm bên trái thẻ thanh toán.",
+  },
+  [normalizeText("Đúng rồi, đó là máy quét mã.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/tap_scanner_success_6bfac4a8.wav",
+    text: "Đúng rồi, đó là máy quét mã.",
+  },
+  [normalizeText("Đây là túi mua hàng.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_bag_74ba155c.wav",
+    text: "Đây là túi mua hàng.",
+  },
+  [normalizeText("Từ này nghĩa là túi mua hàng.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_bag_success_f17c8450.wav",
+    text: "Từ này nghĩa là túi mua hàng.",
+  },
+  [normalizeText("Đây là thẻ thanh toán.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_card_4cbb69e3.wav",
+    text: "Đây là thẻ thanh toán.",
+  },
+  [normalizeText("Từ này nghĩa là thẻ thanh toán.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_card_success_02c9f2d2.wav",
+    text: "Từ này nghĩa là thẻ thanh toán.",
+  },
+  [normalizeText("Đây là nhân viên thu ngân.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_cashier_cb9d97ae.wav",
+    text: "Đây là nhân viên thu ngân.",
+  },
+  [normalizeText("Từ này nghĩa là nhân viên thu ngân.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_cashier_success_fb62e26e.wav",
+    text: "Từ này nghĩa là nhân viên thu ngân.",
+  },
+  [normalizeText("Đây là quầy tính tiền.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_counter_f26ebb70.wav",
+    text: "Đây là quầy tính tiền.",
+  },
+  [normalizeText("Từ này nghĩa là quầy tính tiền.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_counter_success_1110aa28.wav",
+    text: "Từ này nghĩa là quầy tính tiền.",
+  },
+  [normalizeText("Mình học câu xếp đồ vào túi nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_pack_bag_2b8dc092.wav",
+    text: "Mình học câu xếp đồ vào túi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xếp đồ vào túi.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_pack_bag_success_e17e6dd3.wav",
+    text: "Câu này nghĩa là xếp đồ vào túi.",
+  },
+  [normalizeText("Đây là hóa đơn.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_receipt_4c521c04.wav",
+    text: "Đây là hóa đơn.",
+  },
+  [normalizeText("Từ này nghĩa là hóa đơn.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_receipt_success_5ca7f3f8.wav",
+    text: "Từ này nghĩa là hóa đơn.",
+  },
+  [normalizeText("Mình học câu quét món hàng nhé.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_scan_item_5fc3da2f.wav",
+    text: "Mình học câu quét món hàng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là quét món hàng.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_scan_item_success_eee0c361.wav",
+    text: "Câu này nghĩa là quét món hàng.",
+  },
+  [normalizeText("Đây là máy quét mã.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_scanner_af06bdbc.wav",
+    text: "Đây là máy quét mã.",
+  },
+  [normalizeText("Từ này nghĩa là máy quét mã.")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_scanner_success_80539df2.wav",
+    text: "Từ này nghĩa là máy quét mã.",
+  },
+  [normalizeText("Bé đã chọn được rau quả tươi.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/completion_80595b73.wav",
+    text: "Bé đã chọn được rau quả tươi.",
+  },
+  [normalizeText("Kéo bát trái cây trên cân vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_fruit_f24e209a.wav",
+    text: "Kéo bát trái cây trên cân vào vòng sáng nhé.",
+  },
+  [normalizeText("Bát trái cây nằm trên cái cân xanh.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_fruit_fail_85b15f5a.wav",
+    text: "Bát trái cây nằm trên cái cân xanh.",
+  },
+  [normalizeText("Tốt lắm, bé đã chọn bát trái cây.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_fruit_success_727c3156.wav",
+    text: "Tốt lắm, bé đã chọn bát trái cây.",
+  },
+  [normalizeText("Kéo chùm nho tím trên cân vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_grapes_002ce334.wav",
+    text: "Kéo chùm nho tím trên cân vào vòng sáng nhé.",
+  },
+  [normalizeText("Chùm nho tím nằm ngay trên cái cân xanh.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_grapes_fail_0567ca00.wav",
+    text: "Chùm nho tím nằm ngay trên cái cân xanh.",
+  },
+  [normalizeText("Giỏi lắm, bé đã chọn chùm nho.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_grapes_success_533d3841.wav",
+    text: "Giỏi lắm, bé đã chọn chùm nho.",
+  },
+  [normalizeText("Kéo thẻ cân trái cây ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_weigh_fruit_e7160087.wav",
+    text: "Kéo thẻ cân trái cây ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ cân trái cây nằm ở giữa hàng dưới.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_weigh_fruit_fail_7a73de28.wav",
+    text: "Thẻ cân trái cây nằm ở giữa hàng dưới.",
+  },
+  [normalizeText("Đúng rồi, bé biết cân trái cây.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/drag_weigh_fruit_success_929f1fe6.wav",
+    text: "Đúng rồi, bé biết cân trái cây.",
+  },
+  [normalizeText("Mình ghé quầy rau quả nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/intro_52773c30.wav",
+    text: "Mình ghé quầy rau quả nhé.",
+  },
+  [normalizeText("Rau quả nhiều màu sắc quá!")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/intro_success_00ae1d36.wav",
+    text: "Rau quả nhiều màu sắc quá!",
+  },
+  [normalizeText("Chạm vào củ cà rốt trong giỏ rau củ nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_carrot_7a50a22d.wav",
+    text: "Chạm vào củ cà rốt trong giỏ rau củ nhé.",
+  },
+  [normalizeText("Củ cà rốt màu cam nằm trong giỏ rau củ.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_carrot_fail_3a3ee56c.wav",
+    text: "Củ cà rốt màu cam nằm trong giỏ rau củ.",
+  },
+  [normalizeText("Đúng rồi, đó là củ cà rốt.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_carrot_success_f28c4303.wav",
+    text: "Đúng rồi, đó là củ cà rốt.",
+  },
+  [normalizeText("Chạm vào chai đồ uống ở góc dưới bên phải nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_choose_drink_dce7af2f.wav",
+    text: "Chạm vào chai đồ uống ở góc dưới bên phải nhé.",
+  },
+  [normalizeText("Chai đồ uống nằm ở góc dưới bên phải.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_choose_drink_fail_ec8bcc04.wav",
+    text: "Chai đồ uống nằm ở góc dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chọn đồ uống.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_choose_drink_success_e75bd457.wav",
+    text: "Đúng rồi, đó là thẻ chọn đồ uống.",
+  },
+  [normalizeText("Chạm vào thẻ chọn rau củ dưới giỏ rau nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_pick_vegetables_2b5ed280.wav",
+    text: "Chạm vào thẻ chọn rau củ dưới giỏ rau nhé.",
+  },
+  [normalizeText("Thẻ chọn rau củ nằm dưới giỏ rau.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_pick_vegetables_fail_214e52ca.wav",
+    text: "Thẻ chọn rau củ nằm dưới giỏ rau.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ chọn rau củ.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_pick_vegetables_success_9043d5fc.wav",
+    text: "Đúng rồi, đó là thẻ chọn rau củ.",
+  },
+  [normalizeText("Chạm vào cái cân xanh bên phải nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_scale_b328c634.wav",
+    text: "Chạm vào cái cân xanh bên phải nhé.",
+  },
+  [normalizeText("Cái cân xanh nằm ở bên phải.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_scale_fail_544e4be6.wav",
+    text: "Cái cân xanh nằm ở bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là cái cân.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_scale_success_e3139a5c.wav",
+    text: "Đúng rồi, đó là cái cân.",
+  },
+  [normalizeText("Chạm vào quả cà chua trong giỏ rau củ nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_tomato_a003155d.wav",
+    text: "Chạm vào quả cà chua trong giỏ rau củ nhé.",
+  },
+  [normalizeText("Quả cà chua màu đỏ nằm trong giỏ rau củ.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_tomato_fail_590fbb1b.wav",
+    text: "Quả cà chua màu đỏ nằm trong giỏ rau củ.",
+  },
+  [normalizeText("Đúng rồi, đó là quả cà chua.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_tomato_success_5f66bd2e.wav",
+    text: "Đúng rồi, đó là quả cà chua.",
+  },
+  [normalizeText("Chạm vào giỏ rau củ ngay bên phải bé nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_vegetables_0dd46950.wav",
+    text: "Chạm vào giỏ rau củ ngay bên phải bé nhé.",
+  },
+  [normalizeText("Rau củ nằm trong chiếc giỏ ngay bên phải bé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/tap_vegetables_fail_b3180179.wav",
+    text: "Rau củ nằm trong chiếc giỏ ngay bên phải bé.",
+  },
+  [normalizeText("Đây là củ cà rốt.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_carrot_155fc20b.wav",
+    text: "Đây là củ cà rốt.",
+  },
+  [normalizeText("Từ này nghĩa là củ cà rốt.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_carrot_success_0f811d1d.wav",
+    text: "Từ này nghĩa là củ cà rốt.",
+  },
+  [normalizeText("Mình học câu chọn đồ uống nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_choose_drink_75a00747.wav",
+    text: "Mình học câu chọn đồ uống nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chọn đồ uống.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_choose_drink_success_23a92973.wav",
+    text: "Câu này nghĩa là chọn đồ uống.",
+  },
+  [normalizeText("Đây là chùm nho.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_grapes_616542cf.wav",
+    text: "Đây là chùm nho.",
+  },
+  [normalizeText("Từ này nghĩa là chùm nho.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_grapes_success_e88f9353.wav",
+    text: "Từ này nghĩa là chùm nho.",
+  },
+  [normalizeText("Mình học câu chọn rau củ nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_pick_vegetables_02d5c0af.wav",
+    text: "Mình học câu chọn rau củ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chọn rau củ.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_pick_vegetables_success_e05ebc1f.wav",
+    text: "Câu này nghĩa là chọn rau củ.",
+  },
+  [normalizeText("Đây là cái cân.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_scale_5626bb97.wav",
+    text: "Đây là cái cân.",
+  },
+  [normalizeText("Từ này nghĩa là cái cân.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_scale_success_e1f80def.wav",
+    text: "Từ này nghĩa là cái cân.",
+  },
+  [normalizeText("Đây là quả cà chua.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_tomato_4e68198f.wav",
+    text: "Đây là quả cà chua.",
+  },
+  [normalizeText("Từ này nghĩa là quả cà chua.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_tomato_success_7eff7bc9.wav",
+    text: "Từ này nghĩa là quả cà chua.",
+  },
+  [normalizeText("Mình học câu cân trái cây nhé.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_weigh_fruit_542e531f.wav",
+    text: "Mình học câu cân trái cây nhé.",
+  },
+  [normalizeText("Câu này nghĩa là cân trái cây.")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_weigh_fruit_success_0d4d907f.wav",
+    text: "Câu này nghĩa là cân trái cây.",
+  },
+  [normalizeText("Bé đã chuẩn bị xong trước khi mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/completion_f2fb7252.wav",
+    text: "Bé đã chuẩn bị xong trước khi mua sắm.",
+  },
+  [normalizeText("Kéo xe đẩy vào vòng sáng cạnh bé nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_cart_e50ce2fc.wav",
+    text: "Kéo xe đẩy vào vòng sáng cạnh bé nhé.",
+  },
+  [normalizeText("Xe đẩy nằm ngay bên phải bé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_cart_fail_2242a598.wav",
+    text: "Xe đẩy nằm ngay bên phải bé.",
+  },
+  [normalizeText("Tốt lắm, xe đẩy đã sẵn sàng đi mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_cart_success_0a2403be.wav",
+    text: "Tốt lắm, xe đẩy đã sẵn sàng đi mua sắm.",
+  },
+  [normalizeText("Kéo phiếu giảm giá trong giỏ vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_coupon_71f5027c.wav",
+    text: "Kéo phiếu giảm giá trong giỏ vào vòng sáng nhé.",
+  },
+  [normalizeText("Phiếu giảm giá nằm cạnh chiếc ví trong giỏ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_coupon_fail_75164b5b.wav",
+    text: "Phiếu giảm giá nằm cạnh chiếc ví trong giỏ.",
+  },
+  [normalizeText("Hay quá, bé đã mang phiếu giảm giá theo.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_coupon_success_b0cc4cc8.wav",
+    text: "Hay quá, bé đã mang phiếu giảm giá theo.",
+  },
+  [normalizeText("Kéo thẻ đẩy xe ở giữa vào vòng sáng nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_push_cart_74fb21a8.wav",
+    text: "Kéo thẻ đẩy xe ở giữa vào vòng sáng nhé.",
+  },
+  [normalizeText("Thẻ đẩy xe nằm ở giữa.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_push_cart_fail_6bab6246.wav",
+    text: "Thẻ đẩy xe nằm ở giữa.",
+  },
+  [normalizeText("Đúng rồi, bé biết đẩy xe mua hàng.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/drag_push_cart_success_845aadd4.wav",
+    text: "Đúng rồi, bé biết đẩy xe mua hàng.",
+  },
+  [normalizeText("Mình chuẩn bị đi siêu thị nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/intro_29eb5fba.wav",
+    text: "Mình chuẩn bị đi siêu thị nhé.",
+  },
+  [normalizeText("Mình kiểm tra đồ cần mua nào.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/intro_success_4a63efea.wav",
+    text: "Mình kiểm tra đồ cần mua nào.",
+  },
+  [normalizeText("Chạm vào lối đi giữa hai dãy kệ phía trên nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_aisle_c5b9729a.wav",
+    text: "Chạm vào lối đi giữa hai dãy kệ phía trên nhé.",
+  },
+  [normalizeText("Lối đi nằm giữa hai dãy kệ phía trên.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_aisle_fail_65ac66e8.wav",
+    text: "Lối đi nằm giữa hai dãy kệ phía trên.",
+  },
+  [normalizeText("Đúng rồi, đó là lối đi giữa các kệ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_aisle_success_1a012cde.wav",
+    text: "Đúng rồi, đó là lối đi giữa các kệ.",
+  },
+  [normalizeText("Chạm vào giỏ đỏ bên phải nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_basket_5f0f5899.wav",
+    text: "Chạm vào giỏ đỏ bên phải nhé.",
+  },
+  [normalizeText("Giỏ đỏ nằm ở bên phải.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_basket_fail_6f22ec76.wav",
+    text: "Giỏ đỏ nằm ở bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ kiểm tra danh sách dưới giỏ đỏ nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_check_list_1539ab73.wav",
+    text: "Chạm vào thẻ kiểm tra danh sách dưới giỏ đỏ nhé.",
+  },
+  [normalizeText("Thẻ kiểm tra danh sách nằm dưới giỏ đỏ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_check_list_fail_93188292.wav",
+    text: "Thẻ kiểm tra danh sách nằm dưới giỏ đỏ.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ kiểm tra danh sách.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_check_list_success_2153fd71.wav",
+    text: "Đúng rồi, đó là thẻ kiểm tra danh sách.",
+  },
+  [normalizeText("Chạm vào thẻ lập danh sách ở góc dưới bên trái nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_make_list_c00ebf66.wav",
+    text: "Chạm vào thẻ lập danh sách ở góc dưới bên trái nhé.",
+  },
+  [normalizeText("Thẻ lập danh sách nằm ở góc dưới bên trái.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_make_list_fail_0ab0699e.wav",
+    text: "Thẻ lập danh sách nằm ở góc dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ lập danh sách.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_make_list_success_2e623a5b.wav",
+    text: "Đúng rồi, đó là thẻ lập danh sách.",
+  },
+  [normalizeText("Chạm vào danh sách trong xe đẩy nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_shopping_list_7ef2517f.wav",
+    text: "Chạm vào danh sách trong xe đẩy nhé.",
+  },
+  [normalizeText("Danh sách nằm trong xe đẩy.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_shopping_list_fail_e6331d71.wav",
+    text: "Danh sách nằm trong xe đẩy.",
+  },
+  [normalizeText("Đúng rồi, đó là danh sách mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_shopping_list_success_9f028f8d.wav",
+    text: "Đúng rồi, đó là danh sách mua sắm.",
+  },
+  [normalizeText("Chạm vào chiếc ví trong giỏ đỏ nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_wallet_791b9cd5.wav",
+    text: "Chạm vào chiếc ví trong giỏ đỏ nhé.",
+  },
+  [normalizeText("Chiếc ví nằm trong giỏ đỏ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_wallet_fail_66885209.wav",
+    text: "Chiếc ví nằm trong giỏ đỏ.",
+  },
+  [normalizeText("Đúng rồi, đó là ví tiền.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/tap_wallet_success_40c8c810.wav",
+    text: "Đúng rồi, đó là ví tiền.",
+  },
+  [normalizeText("Đây là lối đi giữa các kệ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_aisle_291d42a6.wav",
+    text: "Đây là lối đi giữa các kệ.",
+  },
+  [normalizeText("Từ này nghĩa là lối đi giữa các kệ.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_aisle_success_fa268d6f.wav",
+    text: "Từ này nghĩa là lối đi giữa các kệ.",
+  },
+  [normalizeText("Đây là xe đẩy.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_cart_b28b42d7.wav",
+    text: "Đây là xe đẩy.",
+  },
+  [normalizeText("Từ này nghĩa là xe đẩy.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_cart_success_989a9da5.wav",
+    text: "Từ này nghĩa là xe đẩy.",
+  },
+  [normalizeText("Mình học câu kiểm tra danh sách nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_check_list_eced18a3.wav",
+    text: "Mình học câu kiểm tra danh sách nhé.",
+  },
+  [normalizeText("Câu này nghĩa là kiểm tra danh sách.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_check_list_success_1e9ba744.wav",
+    text: "Câu này nghĩa là kiểm tra danh sách.",
+  },
+  [normalizeText("Đây là phiếu giảm giá.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_coupon_90418ad6.wav",
+    text: "Đây là phiếu giảm giá.",
+  },
+  [normalizeText("Từ này nghĩa là phiếu giảm giá.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_coupon_success_e8bfd4c6.wav",
+    text: "Từ này nghĩa là phiếu giảm giá.",
+  },
+  [normalizeText("Mình học câu lập danh sách mua sắm nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_make_list_b7db24a5.wav",
+    text: "Mình học câu lập danh sách mua sắm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là lập danh sách mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_make_list_success_bee57ae2.wav",
+    text: "Câu này nghĩa là lập danh sách mua sắm.",
+  },
+  [normalizeText("Mình học câu đẩy xe mua hàng nhé.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_push_cart_379ad97c.wav",
+    text: "Mình học câu đẩy xe mua hàng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đẩy xe mua hàng.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_push_cart_success_3399f3ce.wav",
+    text: "Câu này nghĩa là đẩy xe mua hàng.",
+  },
+  [normalizeText("Đây là danh sách mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_shopping_list_bc2aa0c9.wav",
+    text: "Đây là danh sách mua sắm.",
+  },
+  [normalizeText("Từ này nghĩa là danh sách mua sắm.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_shopping_list_success_088e82ec.wav",
+    text: "Từ này nghĩa là danh sách mua sắm.",
+  },
+  [normalizeText("Đây là ví tiền.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_wallet_465f8217.wav",
+    text: "Đây là ví tiền.",
+  },
+  [normalizeText("Từ này nghĩa là ví tiền.")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_wallet_success_934241a6.wav",
+    text: "Từ này nghĩa là ví tiền.",
   },
   [normalizeText("Đúng rồi! Bé giỏi quá!")]: {
     key: "shared/audio/vi/correct.wav",
