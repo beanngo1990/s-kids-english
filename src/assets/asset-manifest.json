@@ -8750,8 +8750,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/five-senses/hearing-world/images/background.webp",
-      "outputBytes": 3422,
-      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "outputBytes": 22708,
+      "outputSha256": "b594fc0fd2e31042cd3b62cf71ac8e46c6a57253d13f3200c5eb535e87c2b23b",
       "profile": "background",
       "roles": [
         "background"
@@ -8760,21 +8760,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/background.png",
-      "sourceBytes": 24424,
-      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "sourceBytes": 2068789,
+      "sourceSha256": "16299b924f1132b6986122c153bf654f8bb30c1412c199c92255eee39b009411",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 467,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 14,
       "output": "lessons/five-senses/hearing-world/images/bell.webp",
-      "outputBytes": 16424,
-      "outputSha256": "b645baf9820500bd44843752a216979e5d5c6ef9aa921e2e79c635b116d7278d",
+      "outputBytes": 8742,
+      "outputSha256": "8801a80f73098605d40edc6fa86abab0e914e09f911749c38f777fda9b001ac8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8783,21 +8783,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/bell.png",
-      "sourceBytes": 50337,
-      "sourceSha256": "bb46f80d473e39238273cc051f1e44d58d5d148b589acb6967904b1d8cc9c01e",
-      "width": 512
+      "sourceBytes": 114047,
+      "sourceSha256": "479e17c2eebb7a6ab908a8b6ce21efa699458c1be67ca8f81c619acbb164828f",
+      "width": 299
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/hearing-world/images/cover-ears.webp",
-      "outputBytes": 11696,
-      "outputSha256": "2146c5d16889bd254425fff27942a0bb4b2610542a2e5f547e2920d993e9c634",
+      "outputBytes": 15804,
+      "outputSha256": "5f2b97088df448bea83ecc6a30204b9596c1e3a30a8ec67589421321d37263b8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8806,21 +8806,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/cover-ears.png",
-      "sourceBytes": 56915,
-      "sourceSha256": "abbd19c66be4e1787523dbf3050d52c4a82dc9618f92b849f68586c1be718f4c",
-      "width": 512
+      "sourceBytes": 252723,
+      "sourceSha256": "608da9458cb687f40d1b3412529fa68703d4a7253d50b77356bf6fc421b2a484",
+      "width": 406
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/hearing-world/images/follow-sound.webp",
-      "outputBytes": 11092,
-      "outputSha256": "2a47ce739e4ca27b974bc9a2e88a31b7a100ef500c9d2852e6c782993d6f602b",
+      "outputBytes": 16418,
+      "outputSha256": "641167a725181470ef3f3714f56126fd77fc6a373b4551b1139967ccaac45a3c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8829,21 +8829,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/follow-sound.png",
-      "sourceBytes": 53334,
-      "sourceSha256": "4bfe57458d050826046c71025601086e048b542b2d4b27713421b3efa69c5af2",
-      "width": 512
+      "sourceBytes": 242524,
+      "sourceSha256": "7aeb9b4c01926e95996b5a4a6f9391ede58074563534d0f89734bf506eaa737a",
+      "width": 405
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 541,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 22,
       "output": "lessons/five-senses/hearing-world/images/hear.webp",
-      "outputBytes": 25866,
-      "outputSha256": "2b3ab00f6087ccc0f508301d36de595124b203d1cd728c2c60b9f572f6025de6",
+      "outputBytes": 21230,
+      "outputSha256": "cfcfae0257b59966700fcd7975355525d0654c3d9551c557c59c6cfdc5e3cf23",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -8852,21 +8852,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/hear.png",
-      "sourceBytes": 51145,
-      "sourceSha256": "e1acaade43ff50384ca0793308ab2db2cd052b506b21eb31d2439c9df9f478d2",
-      "width": 768
+      "sourceBytes": 281410,
+      "sourceSha256": "08c897f982a2e79d516a0e0333a408119a84277ceb0365e024b404ae058b319c",
+      "width": 469
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/hearing-world/images/listen-carefully.webp",
-      "outputBytes": 10952,
-      "outputSha256": "7d0435f8dea3b17d0648d6cba569893d1cd6b28c8d394d8e3f3d4a3189cfdd20",
+      "outputBytes": 18482,
+      "outputSha256": "c515903e50460c6822ca69ba921f14e8f2e68bda3d9d92703fcdcb2c619ae083",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8875,21 +8875,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/listen-carefully.png",
-      "sourceBytes": 52662,
-      "sourceSha256": "6aa449795c826e5c4a3cee9d5cc138fef4bbf882c9c0dfb4e96633a77f11d14c",
-      "width": 512
+      "sourceBytes": 275321,
+      "sourceSha256": "f24aa7d54b6c7a55c7f77f135dcbf5dac940300d52905f324e5877ea2497b319",
+      "width": 408
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 417,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/hearing-world/images/loud.webp",
-      "outputBytes": 16586,
-      "outputSha256": "cac73e70a0974eb787b6e310736786cc9fe66e27c798232ec9e22beecd7c306e",
+      "outputBytes": 16424,
+      "outputSha256": "2bc11a774e8de1f227ba3293991b925d1cc52a9d06f0efe3da5bb4812d622d61",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8898,21 +8898,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/loud.png",
-      "sourceBytes": 50868,
-      "sourceSha256": "444c30696efbc181c74304809c04392bc8e8cf82ab83bbd1f73822372a630425",
-      "width": 512
+      "sourceBytes": 185148,
+      "sourceSha256": "2226e414ecedaf6ab383e8261f5b3b6f7d21f20b7c83ad319e137efcdb10be8c",
+      "width": 510
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 421,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/hearing-world/images/music.webp",
-      "outputBytes": 16990,
-      "outputSha256": "7e3e9a2aac639a20546b2538cbd2554418dc28231700ce77cbf5f069a5e1f7af",
+      "outputBytes": 20248,
+      "outputSha256": "b4bec250887137fe5ad5819c7d6576f1ed7edbba4746166dc5ac109e4868ab99",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8921,21 +8921,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/music.png",
-      "sourceBytes": 51619,
-      "sourceSha256": "1a9e1a639a3580d6c21364b40902631c8f85438fac382b969cb0d5f814e76e8e",
-      "width": 512
+      "sourceBytes": 195191,
+      "sourceSha256": "bcd5038d62fa4fb255c3c2eaa330b7859e45bf7e110af65f190a8c544bfa8a9b",
+      "width": 498
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 446,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 19,
       "output": "lessons/five-senses/hearing-world/images/quiet.webp",
-      "outputBytes": 16858,
-      "outputSha256": "c00b403ff23991ec7d1c4a54b5c297e95a3c969ba894130965eacb2d02bf3b86",
+      "outputBytes": 18128,
+      "outputSha256": "3ee16d086be2e8ca63ff631d5d6e7270e3a9121e3d161bcade062008ff3e964c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8944,21 +8944,21 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/quiet.png",
-      "sourceBytes": 51234,
-      "sourceSha256": "b38140ac1dc994188238eb88deeb8a61307414690cf6e862da7526d1c44c61a3",
-      "width": 512
+      "sourceBytes": 304635,
+      "sourceSha256": "e519eeb194478cca47c625ee96678e0d8246585acebe3e5c367dea8bb2008126",
+      "width": 493
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 370,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 19,
       "output": "lessons/five-senses/hearing-world/images/sound.webp",
-      "outputBytes": 17108,
-      "outputSha256": "a42d3450adcf63154ce32a5473936380f17971a12d485ea16f534785b1a614fa",
+      "outputBytes": 27890,
+      "outputSha256": "03b484bf05c3425fa5ae82e8ecd486dad00eb4d2aa0285aff15a77f3eac0b0cf",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -8967,9 +8967,9 @@
         "hearing-world"
       ],
       "source": "lessons/five-senses/hearing-world/images/sound.png",
-      "sourceBytes": 52070,
-      "sourceSha256": "122c91351cad88bb5cb28fdca451b8a35df5145730507709ab138e651ed791f1",
-      "width": 512
+      "sourceBytes": 229878,
+      "sourceSha256": "d7b19ccb5e64b411f6278ff255ea2092fbd4de69a273f9993d75b7564c7c3708",
+      "width": 499
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -9003,8 +9003,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/five-senses/seeing-world/images/background.webp",
-      "outputBytes": 3422,
-      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "outputBytes": 32884,
+      "outputSha256": "3deed05a7a4005b196817a53a656df5cb4003ca259e3f9634afebea328c4ab42",
       "profile": "background",
       "roles": [
         "background"
@@ -9013,21 +9013,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/background.png",
-      "sourceBytes": 24424,
-      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "sourceBytes": 2266381,
+      "sourceSha256": "c55f3460eed91e7d252eb52beda6a1f245c47f7aefa4c465f8c6bdf31998ba64",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 411,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/seeing-world/images/close-eyes.webp",
-      "outputBytes": 11744,
-      "outputSha256": "96d29f5ab49251d1ba722b9587c57b231101170e23347c7b49753db290dca31a",
+      "outputBytes": 14110,
+      "outputSha256": "9016afa1f547739a1e72e8adf15aa2947b9d2658461d045e005562be94584bc7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9036,21 +9036,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/close-eyes.png",
-      "sourceBytes": 47857,
-      "sourceSha256": "627a1e7a637120faf55e9cbe8e90c814aa5e9130c931943bec505d01dacf3d49",
-      "width": 512
+      "sourceBytes": 241119,
+      "sourceSha256": "6b8ed8d04440759049126e0d78f5f0e62498539369a54d2c0c652bf4cff893b4",
+      "width": 405
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 419,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 19,
       "output": "lessons/five-senses/seeing-world/images/color.webp",
-      "outputBytes": 18838,
-      "outputSha256": "874553a27646005ae02cde33b5f132af2add44b8e988a09a8df14a2b5e8f0494",
+      "outputBytes": 26450,
+      "outputSha256": "2d38cf4baa40a73195cc5505f5941024ab10b61bef0250c3b66ebae40cfd9f79",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9059,21 +9059,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/color.png",
-      "sourceBytes": 56222,
-      "sourceSha256": "4190289a1cdf17355ab3288f6d49d8c9a44205a891ef07e529828d646adc47ec",
-      "width": 512
+      "sourceBytes": 300248,
+      "sourceSha256": "02342f6eec96bb324295119b3123a8416d60206045152c6acc971a8cde072847",
+      "width": 477
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 411,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/seeing-world/images/find-red-circle.webp",
-      "outputBytes": 12730,
-      "outputSha256": "09402e6171fba8a1c7c7adee6cf3d842f575eb4f383cfe8e971d2d44cb9d8ebc",
+      "outputBytes": 18068,
+      "outputSha256": "8c6c7b0e1f4fb167ed671a8f2823302ded695350014d702d2e47527dca824a24",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9082,21 +9082,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/find-red-circle.png",
-      "sourceBytes": 57698,
-      "sourceSha256": "208ef0a1d6fe77fc54f301b189b2cf77d7324a6ca4be9bdd7d4d41476cb87a95",
-      "width": 512
+      "sourceBytes": 273542,
+      "sourceSha256": "e4c184a474735201deb2dc238b6f5d5075aa7035a96ca38a23ecc0251b66fc30",
+      "width": 406
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 472,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/seeing-world/images/light.webp",
-      "outputBytes": 18750,
-      "outputSha256": "2de7b561fcdd88ed9a7cd770219d9981ecc15da997055d1615a5c65cf66c9cf2",
+      "outputBytes": 11106,
+      "outputSha256": "a98c6ca4909306dc45c105f835890a36cf76519f3f35823942c1fcd9c9d2f50c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9105,21 +9105,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/light.png",
-      "sourceBytes": 55345,
-      "sourceSha256": "ada50cec648456a874a07c0d73f613e266d7cc7d3182aa5963154206a820be83",
-      "width": 512
+      "sourceBytes": 191793,
+      "sourceSha256": "4195648b3eaf9c8320ade73f2595ab395374d80755b3114030737ab15acfbb4e",
+      "width": 425
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 412,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/seeing-world/images/look-closely.webp",
-      "outputBytes": 12178,
-      "outputSha256": "62a5162d343533a89f9285ba2ac2b7ad61ef48be62490b7dfcbd52f0c138a119",
+      "outputBytes": 19866,
+      "outputSha256": "ca33e4d24bc81e717ef297c0c4c991b7ce463e4a696b388881fe294bd4a053c5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9128,21 +9128,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/look-closely.png",
-      "sourceBytes": 55748,
-      "sourceSha256": "597d47b4c8d30a83f41023646d74f079aff593a2dcc29c46ebaca605a465bdd6",
-      "width": 512
+      "sourceBytes": 280478,
+      "sourceSha256": "0de900c19a57a562b367c9f870c64573fe8dab34dc4f452dd41fb5923b904a0e",
+      "width": 407
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 456,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 16,
       "output": "lessons/five-senses/seeing-world/images/magnifying-glass.webp",
-      "outputBytes": 21438,
-      "outputSha256": "fb37fbde3582e106d74b2fdfc9443692a4662e2b74cadb03836ba06573118fd2",
+      "outputBytes": 15910,
+      "outputSha256": "0bac587e2e7c8cb88deab2437dfcc6c4a710f00259450d47562e3341afa5ba9c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9151,21 +9151,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/magnifying-glass.png",
-      "sourceBytes": 61084,
-      "sourceSha256": "fe0753ebc684a6947a0c4ebbe67884a93b7f1d4d4e5530c6ce20d29cb6f1838b",
-      "width": 512
+      "sourceBytes": 129552,
+      "sourceSha256": "5357d34ebd9bde31c427724ba2ea7ec28ccd11d161fbde0124e682c79f313a82",
+      "width": 448
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 551,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 22,
       "output": "lessons/five-senses/seeing-world/images/see.webp",
-      "outputBytes": 29278,
-      "outputSha256": "b77002f26fbe1a076a6b1249dd14edc2bdf0dddf9876cf12d43ff11306f35613",
+      "outputBytes": 26650,
+      "outputSha256": "504947aee4ecc5a7d43a2c5ee56e50373e5908a59c640326adde0e00e5d4696a",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -9174,21 +9174,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/see.png",
-      "sourceBytes": 55765,
-      "sourceSha256": "ead524e1c3437aeae32f4e3585fae2fb87e97790da017c4be5ed2d6003d1d3a5",
-      "width": 768
+      "sourceBytes": 305857,
+      "sourceSha256": "ca18e221c203ab5cf1fe5ae43798b8453ab00e5c4a7d92b913b9f93468ebd641",
+      "width": 517
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 367,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 20,
       "output": "lessons/five-senses/seeing-world/images/shadow.webp",
-      "outputBytes": 19926,
-      "outputSha256": "08d0eca899ce7e812b05fdbd08e922312ded29143d3bed89c6520c502f914105",
+      "outputBytes": 10786,
+      "outputSha256": "52c859391169ccc8997fd1f8189a8fda05c51d2e5761cff1808617d4cc5d70ad",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9197,21 +9197,21 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/shadow.png",
-      "sourceBytes": 58238,
-      "sourceSha256": "c103f622f142649f22de0247fc7804194b4940097bb933856981937ed61909b4",
-      "width": 512
+      "sourceBytes": 129233,
+      "sourceSha256": "118d9e8cd1ba95a7410ef73a071cf71e00d7f60f92ff5cfcfa36d45c03f85a4b",
+      "width": 488
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 412,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/seeing-world/images/shape.webp",
-      "outputBytes": 19322,
-      "outputSha256": "e89015df83d8a94be0c5aabbe9ff7935c42ebaac01448547aae30577dd71fc21",
+      "outputBytes": 8342,
+      "outputSha256": "19a3dfc052441a7741ed8a9e7bef327c5fe8dd56645e4e1f6a4c523e78337605",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9220,9 +9220,9 @@
         "seeing-world"
       ],
       "source": "lessons/five-senses/seeing-world/images/shape.png",
-      "sourceBytes": 57096,
-      "sourceSha256": "e4bd6661b5dcb986c557ae1b42bc45421921ebb7c2cbc45ce0c2cecee2694d07",
-      "width": 512
+      "sourceBytes": 143190,
+      "sourceSha256": "524460d2500ed9b99281658936ae49eab9460322005296be27081e6cbddc53f5",
+      "width": 434
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -9256,8 +9256,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/five-senses/smell-taste-touch/images/background.webp",
-      "outputBytes": 3422,
-      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "outputBytes": 23342,
+      "outputSha256": "f2b497fa470c0e38ec45a8952139c52741c820eddcdbf8fb0090c54038254ff3",
       "profile": "background",
       "roles": [
         "background"
@@ -9266,21 +9266,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/background.png",
-      "sourceBytes": 24424,
-      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "sourceBytes": 2071578,
+      "sourceSha256": "dd0c1a31170ad9e43116664b5ba3f0a817267b81260545a047b23de8b0a673f8",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 406,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/smell-taste-touch/images/smell-flower.webp",
-      "outputBytes": 12090,
-      "outputSha256": "d0c889cf00f415d0c3898ae1b4fadb6b7cc929195df992224459d85d5e1464ec",
+      "outputBytes": 15806,
+      "outputSha256": "5c36391fbdca43e93907c6892b13f158ad96370531f553cd9f82696b8c3ca419",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9289,9 +9289,9 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/smell-flower.png",
-      "sourceBytes": 54914,
-      "sourceSha256": "651dfe8e3a8e54951d7e695e8bf8047e80e3be63b81ed2fb1c36f4ae4389e6d7",
-      "width": 512
+      "sourceBytes": 259145,
+      "sourceSha256": "07bb8fa331a365b9dcae2d5a100369bcb523ddbfc618bbde03bc12ef1898157c",
+      "width": 407
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -9302,8 +9302,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/five-senses/smell-taste-touch/images/smell.webp",
-      "outputBytes": 18902,
-      "outputSha256": "3e798cf3478c4887887d8615d964f7788eca43018adc870ae9370c295e87f473",
+      "outputBytes": 28150,
+      "outputSha256": "dc1f4227a04d40ee2c9fd8caa0e5d50ba9128592a6172190823ebf74e1a2469d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9312,21 +9312,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/smell.png",
-      "sourceBytes": 55805,
-      "sourceSha256": "303a776dfcfb315c168af4c38d1ffab65b5b5bc29b1367f12de77690a246c0b3",
-      "width": 512
+      "sourceBytes": 273316,
+      "sourceSha256": "749e9e727d4eb234e04503fe2228443d7b8c1d82e6e55378232a91ef08789973",
+      "width": 391
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 460,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 16,
       "output": "lessons/five-senses/smell-taste-touch/images/soft.webp",
-      "outputBytes": 18728,
-      "outputSha256": "58ee21fd0c752d0b529d5cd026689924962ad5b6266ef4572e4c4a69fd5906e7",
+      "outputBytes": 21758,
+      "outputSha256": "044dc5940da93fd6972405200fd76f4716ed0a3aa7a39049e3bc98122ce402d3",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9335,21 +9335,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/soft.png",
-      "sourceBytes": 55890,
-      "sourceSha256": "6996193f53bc737103712f3647f56ad0d9aabd0605da5d1e05e938f75b8ed84f",
+      "sourceBytes": 285269,
+      "sourceSha256": "64a1cb787810fcba2a9ebacf7465548fd94977da0ef0ba316e516bc040f059aa",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 370,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/smell-taste-touch/images/sour.webp",
-      "outputBytes": 18752,
-      "outputSha256": "7b45789a8883c9ccf9b58cec60da888f942c3f13bba598aecb8ef7455c64598a",
+      "outputBytes": 26984,
+      "outputSha256": "b9e3c545f1c1f5c3fbe2a8ba0d7d835ba71c2d15aee6a862a54e25de3b4e2fb4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9358,21 +9358,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/sour.png",
-      "sourceBytes": 55771,
-      "sourceSha256": "380e10ef78734d2db69130e7fb48300d0a695118f6b56c3de7950867ff26c1b4",
+      "sourceBytes": 242658,
+      "sourceSha256": "c8090680d3e35f056ce7b1b0fa4e21d683b5d9b75df44a722556f78b81c72f28",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 495,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/smell-taste-touch/images/sweet.webp",
-      "outputBytes": 19396,
-      "outputSha256": "8d4a0146cce654d0d1057cc30c59fa9b0509c60ab636a6a0dd3ef1a0f784e1d4",
+      "outputBytes": 18310,
+      "outputSha256": "b6c9675e9cb8d361811d33a0f018a9bba5bdaee0de8c3e0c358d3513f77ced5c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9381,21 +9381,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/sweet.png",
-      "sourceBytes": 57320,
-      "sourceSha256": "fa77f322f7537e53d3f535e47c5c36176a3533de70f3e537bf2b156af1880683",
-      "width": 512
+      "sourceBytes": 256482,
+      "sourceSha256": "2d5c01253ac0314eab732b58838796a9b3e9e8b121dbfb0cc1f6008f0530ee71",
+      "width": 391
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 406,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/smell-taste-touch/images/taste-lemon.webp",
-      "outputBytes": 12652,
-      "outputSha256": "4932ad526292e26d0d6c21f46a340f2e393108d12dd4db724b07ccfa338013a8",
+      "outputBytes": 16006,
+      "outputSha256": "47b7a5354c566178ef1ab04d2988c55681c01de68a37c8ab59a5d06319eba46a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9404,9 +9404,9 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/taste-lemon.png",
-      "sourceBytes": 56318,
-      "sourceSha256": "f126afbf9cb8d0b0ada16bc879cf69033fda9ab7b4e27161c0f7587d8b36c8aa",
-      "width": 512
+      "sourceBytes": 254433,
+      "sourceSha256": "8ffa891037fc8a7c5d0cecb9013824237fa27ea6bea1e15dd62af6742eaf2a1b",
+      "width": 405
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -9417,8 +9417,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/five-senses/smell-taste-touch/images/taste.webp",
-      "outputBytes": 19118,
-      "outputSha256": "e03c4da4b3adcf9f26afdd0674782e1e2a4774a3bd86241dfc4c56847a5b5e35",
+      "outputBytes": 29308,
+      "outputSha256": "91ee68663979a8501a417e6eac6c361eceb4b65320224b1431a39ba79377a0a9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9427,21 +9427,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/taste.png",
-      "sourceBytes": 56698,
-      "sourceSha256": "a1b54152eb1e9d03b0d4ca47f58a944bfe53be2d5e8c3cd8866c1fc1d9abcd1d",
-      "width": 512
+      "sourceBytes": 294441,
+      "sourceSha256": "5d949fcf8a0da14514d5588e630f6103442319fa623a3add2ad53764255d5f03",
+      "width": 415
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 406,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 17,
       "output": "lessons/five-senses/smell-taste-touch/images/touch-feather.webp",
-      "outputBytes": 12334,
-      "outputSha256": "e344b9fba718a64881a40287c1b0ad9ca10f5650d5a558e5feff95fa60e109e8",
+      "outputBytes": 17772,
+      "outputSha256": "ac5d847af49dfe99013847dfe6e8e3b957fd9b9bdcd74691ac29ab42289f7669",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9450,21 +9450,21 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/touch-feather.png",
-      "sourceBytes": 55800,
-      "sourceSha256": "d47fcde83ace8fe8fafc296117c8b9c0ae15cdc2d4b90afd71409e46e5a05c80",
-      "width": 512
+      "sourceBytes": 278492,
+      "sourceSha256": "aec660db8f1c3d816833078e7556aa65908744bdfa4d48befb5602533912c637",
+      "width": 405
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 377,
       "lessonIds": [
         "five-senses"
       ],
       "maxPercent": 18,
       "output": "lessons/five-senses/smell-taste-touch/images/touch.webp",
-      "outputBytes": 18988,
-      "outputSha256": "7d45cadce9877f789f43bc7a705bf330cc1a700111ce65465201fd3e846739ce",
+      "outputBytes": 17736,
+      "outputSha256": "413e1a39064c70925e48731e8509886a16a36e182d897baf6d66952b04697535",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -9473,8 +9473,8 @@
         "smell-taste-touch"
       ],
       "source": "lessons/five-senses/smell-taste-touch/images/touch.png",
-      "sourceBytes": 56278,
-      "sourceSha256": "b85d3499c97105d3ef4d44e8d5c27390aa8f604725e794d62584e69d1a1b2a60",
+      "sourceBytes": 234177,
+      "sourceSha256": "d432fcd5c1b4531b8b7c51c33b2b80cedd6029fb825585585ad7b6c55beb87c7",
       "width": 512
     },
     {
@@ -19874,7 +19874,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-01T13:55:22.938Z",
+  "generatedAt": "2026-08-01T14:34:40.898Z",
   "releaseVersion": "v1",
-  "revision": "c7b515827b98f826"
+  "revision": "06cde5a0f5b201cc"
 }

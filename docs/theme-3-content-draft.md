@@ -67,10 +67,13 @@ before final image and Google TTS production.
 - `my-body` now has final local PNG masters and generated WebP output for all 33 image references
   across its three scenes. It reuses the approved Theme 2 child character, uses a quiet room
   background, and replaces generic callouts with polished body-part cutouts and action cards.
-- `my-body` also has a complete local Google TTS corpus for Vietnamese, en-US, and en-GB. The
-  development audio overlay is generated with
-  `npm run generate:audio:local-preview -- --lesson=my-body` for pre-R2 QA.
-- The other seven lesson packs still use demo PNG masters. Their asset keys follow the production
+- `my-body` and `five-senses` also have complete local Google TTS corpora for Vietnamese, en-US,
+  and en-GB. The current development audio overlay is generated with
+  `npm run generate:audio:local-preview -- --lesson=five-senses` for pre-R2 QA.
+- `five-senses` now has final local PNG masters and generated WebP output for all 33 image
+  references across its three scenes. Its quiet sensory-room backgrounds, isolated vocabulary
+  pictures, and stable bottom-row action cards follow the approved Theme 2 visual direction.
+- The other six lesson packs still use demo PNG masters. Their asset keys follow the production
   folder contract and can be replaced without changing lesson data.
 - Scene and lesson milestone icons are temporary semantic icons for the map.
 - Remaining demo labels are review aids and are not the visual direction for final child-facing
@@ -79,5 +82,5 @@ before final image and Google TTS production.
 ## Not Yet Final
 
 - Lesson copy and vocabulary IDs are a review draft, not a content freeze.
-- Images and production audio for the seven lesson packs after `my-body` are not final.
+- Images and production audio for the six lesson packs after `five-senses` are not final.
 - Theme 3 assets have not been uploaded to R2.
