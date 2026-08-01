@@ -29,7 +29,11 @@ const previousManifest = readJson(manifestPath, { entries: [] });
 const previousEntries = new Map(
   (previousManifest.entries ?? []).map(entry => [entry.output, entry]),
 );
-const usages = collectImageUsages().filter(
+const allUsages = collectImageUsages();
+const activeOutputs = new Set(
+  allUsages.map(usage => toWebpRuntimePath(usage.source)),
+);
+const usages = allUsages.filter(
   usage => !lessonFilter || usage.lessonIds.includes(lessonFilter),
 );
 let converted = 0;
@@ -113,9 +117,9 @@ for (const usage of usages) {
 }
 
 if (!dryRun) {
-  const entries = [...previousEntries.values()].sort((a, b) =>
-    a.output.localeCompare(b.output),
-  );
+  const entries = [...previousEntries.values()]
+    .filter(entry => activeOutputs.has(entry.output))
+    .sort((a, b) => a.output.localeCompare(b.output));
   const revision = sha256(
     Buffer.from(entries.map(entry => `${entry.output}:${entry.outputSha256}`).join('\n')),
   ).slice(0, 16);
