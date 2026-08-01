@@ -13206,14 +13206,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 429,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 20,
       "output": "lessons/my-body/arms-and-hands/images/arm.webp",
-      "outputBytes": 14384,
-      "outputSha256": "cc17bb8ef463cb17d694716e6fefabd45792724b19bbeb3d41e04afb4f20d205",
+      "outputBytes": 11246,
+      "outputSha256": "18f89956c04eaa6098ff6dd41125f93b2de07d48f905b8b7107524a127706c32",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13222,9 +13222,9 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/arm.png",
-      "sourceBytes": 43460,
-      "sourceSha256": "d8fceed06a29db0a838f16af34f8d510087005d536c6a6b7dbdd578e530c4fc2",
-      "width": 512
+      "sourceBytes": 116419,
+      "sourceSha256": "c966b2cd162960afa085e3c63fa8685096cbbf0e44e13a68f9deacc0a45e15a2",
+      "width": 483
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13258,8 +13258,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-body/arms-and-hands/images/background.webp",
-      "outputBytes": 3312,
-      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "outputBytes": 20140,
+      "outputSha256": "d757aef95df507f15b9697db21959ab8ebee9e3260bd73cb57ef13ed09945a17",
       "profile": "background",
       "roles": [
         "background"
@@ -13268,21 +13268,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/background.png",
-      "sourceBytes": 24330,
-      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "sourceBytes": 2007278,
+      "sourceSha256": "7dd9356f7624909521bc41cbd51dd2c595081aebf607db12444d0f39638f79eb",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 443,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/arms-and-hands/images/clap-hands.webp",
-      "outputBytes": 11232,
-      "outputSha256": "edf3012d3d13665e6621be900668dc20cf3a1a76c30fbaf9fb3686741ce6919e",
+      "outputBytes": 17152,
+      "outputSha256": "ad809e09930e10a59568e94ffa01342f8129250eddee1333d7e39786d439d60c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13291,21 +13291,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/clap-hands.png",
-      "sourceBytes": 49212,
-      "sourceSha256": "e3a0f325ac8f884ae65dd8af72810c97ecd90bd3cfee8190d30d6dbfe4e3b9a7",
-      "width": 512
+      "sourceBytes": 246595,
+      "sourceSha256": "4f421e784f6b2f3fc9aae3c30e3144def724861bcfd08effa1e121789d420e2d",
+      "width": 427
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 406,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 19,
       "output": "lessons/my-body/arms-and-hands/images/elbow.webp",
-      "outputBytes": 15276,
-      "outputSha256": "64d2b0e2992b25e9b77c69392bb42de281451e2a37f947dc88d2bb48f961e406",
+      "outputBytes": 10538,
+      "outputSha256": "be92d2694fb952628f18553e7232842990e217f292a015bdc56e2c6ba3a21f0e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13314,21 +13314,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/elbow.png",
-      "sourceBytes": 45093,
-      "sourceSha256": "24dd79ea0e7279a136ccb1127267f3750b31a96e910912ecd3d8be13d8de1687",
-      "width": 512
+      "sourceBytes": 144611,
+      "sourceSha256": "83b5df98aecea367b04b95cf83320f6ceaf8ad519d8bb467cacc4a8497c45db3",
+      "width": 409
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 369,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/arms-and-hands/images/fingers.webp",
-      "outputBytes": 16206,
-      "outputSha256": "16265cf75271bdd9f4932a44079843188c6b3245c554620a68ebb6de22917535",
+      "outputBytes": 15190,
+      "outputSha256": "f2f5d428890cb5a210012fd7dda6130233e729ff6cf9ef89f0e189918f80d585",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13337,21 +13337,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/fingers.png",
-      "sourceBytes": 47688,
-      "sourceSha256": "b9b8dd824d4b73ce36027c999ea35f0f215dcc3f640e1c050341679f94264f54",
+      "sourceBytes": 138255,
+      "sourceSha256": "2610b6aa039a769e350e29381fa1defe0c5f6be64fb829ae68d2d8d4a8a825d9",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 457,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 20,
       "output": "lessons/my-body/arms-and-hands/images/hand.webp",
-      "outputBytes": 15502,
-      "outputSha256": "fdfcffb260b5ee80428f6b99d5c628105407c8800918dd5ff848072c6e29f993",
+      "outputBytes": 11004,
+      "outputSha256": "5a0032e0f72276072a8063039c0c27f0ae27e6a324f54dcefe58603b91c52cef",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13360,21 +13360,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/hand.png",
-      "sourceBytes": 46139,
-      "sourceSha256": "c9936d2abd4b6c39a90be89c9b8902e6b2489cad03e7bff6e6dae928aff08e53",
-      "width": 512
+      "sourceBytes": 126736,
+      "sourceSha256": "b87669daeea6f452be73fc962ea736a778fb507aba6273aacb9e911236a11aa5",
+      "width": 380
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 443,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/arms-and-hands/images/raise-arms.webp",
-      "outputBytes": 10986,
-      "outputSha256": "3bdd76add64397b2c70c346eb0cb2af5d92a2359d85436d0bbc9987ad63e2fe1",
+      "outputBytes": 17816,
+      "outputSha256": "8917c91caa1ab64260937ff2ba252c72fb137d39351443d3e1a67748aeeafa33",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13383,21 +13383,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/raise-arms.png",
-      "sourceBytes": 47932,
-      "sourceSha256": "d4c8c82b763c48f2cda2672296ee7448392416f2c3717935cde53f5ab850ad40",
-      "width": 512
+      "sourceBytes": 252064,
+      "sourceSha256": "27a86debe57201fa40dc087c05c545b4b8205cafaab159eb6dfbb36dfc9fe2a3",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 413,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/arms-and-hands/images/thumb.webp",
-      "outputBytes": 16640,
-      "outputSha256": "139fec5064f9f9971857fafe84b27f652237bf3ca787f3cb041738839c11b367",
+      "outputBytes": 9210,
+      "outputSha256": "5573f62f1e3f4f75b8256fee2db0742bde667fb365011f1d09ef22d51236d403",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13406,21 +13406,21 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/thumb.png",
-      "sourceBytes": 48835,
-      "sourceSha256": "1c9f179f6207ddf8cca7f19a5edaa8a13767753e9d7f795f099061c5f4952da7",
-      "width": 512
+      "sourceBytes": 128443,
+      "sourceSha256": "15650ceab09ab0a11be1be33122d858ab9d18c0c89d7d8382508ce6e337c80b0",
+      "width": 447
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 443,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/arms-and-hands/images/wiggle-fingers.webp",
-      "outputBytes": 11962,
-      "outputSha256": "61c44613c84010fc931d913a3a5ba7bf9c3c812893c68a5efefc7dc52d70a202",
+      "outputBytes": 20030,
+      "outputSha256": "9f8255ccc7f7ffeac75fe46b9ef7855fc8cdf66c1749f955bca83c0b31ec185e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13429,9 +13429,9 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/wiggle-fingers.png",
-      "sourceBytes": 52497,
-      "sourceSha256": "6c258c6999b96b6f5e3d554c2d1ec847e573bba5d4b7bfc5cc1b4b3b7286fc07",
-      "width": 512
+      "sourceBytes": 261935,
+      "sourceSha256": "56e72f6405eea9781e6a7ced06e7d4ece2d279df0f0ce9ae997b81c1605bff8c",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13442,8 +13442,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/arms-and-hands/images/wrist.webp",
-      "outputBytes": 14996,
-      "outputSha256": "1e456635e2810b74e01361b630e6cabf4ffaa6048b717f9673dce19363623c50",
+      "outputBytes": 18018,
+      "outputSha256": "49141c4a9977d1ec786e48e36c24e11d4fc55b050d877db2cf271ef112fb77e8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13452,9 +13452,9 @@
         "arms-and-hands"
       ],
       "source": "lessons/my-body/arms-and-hands/images/wrist.png",
-      "sourceBytes": 44529,
-      "sourceSha256": "35b35bcac3a92d45effc2d302881f0ee4728c1a3d6360961b5c03ffc138ede8b",
-      "width": 512
+      "sourceBytes": 669647,
+      "sourceSha256": "e6e9cf2bac4715ceb80a46591eae063211945bc3f68c8d9df965238fe5af4c79",
+      "width": 299
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13488,8 +13488,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-body/head-and-face/images/background.webp",
-      "outputBytes": 3312,
-      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "outputBytes": 20140,
+      "outputSha256": "d757aef95df507f15b9697db21959ab8ebee9e3260bd73cb57ef13ed09945a17",
       "profile": "background",
       "roles": [
         "background"
@@ -13498,21 +13498,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/background.png",
-      "sourceBytes": 24330,
-      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "sourceBytes": 2007278,
+      "sourceSha256": "7dd9356f7624909521bc41cbd51dd2c595081aebf607db12444d0f39638f79eb",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 236,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/head-and-face/images/ears.webp",
-      "outputBytes": 17798,
-      "outputSha256": "4ba71f726452e2c865eae2232c1d0b0e3295eb5acadbc3927ace80ed47e2fdd0",
+      "outputBytes": 10888,
+      "outputSha256": "e6273a7647c0f883ef1d90fc585c0afeaf959672206a0b02d305696fbfaef749",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13521,21 +13521,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/ears.png",
-      "sourceBytes": 53945,
-      "sourceSha256": "a8842c9d5ee1c22a384e82fb4b05f3c7d229a5a2385a98f798cc4a27d6b320e3",
+      "sourceBytes": 81844,
+      "sourceSha256": "069d06c03b2f8bb979d185a79cb08a48dfb852298e7547ad29f9c787a4c238d4",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 257,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 20,
       "output": "lessons/my-body/head-and-face/images/eyes.webp",
-      "outputBytes": 15760,
-      "outputSha256": "6f4a39457027a2793aade762959424326bd27d8f7841959e0ef111db59879e16",
+      "outputBytes": 7924,
+      "outputSha256": "9b53c27539ca68b97a5f6aeb82278a652061c38bf6c65f3bba3c13b629aa5ff5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13544,21 +13544,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/eyes.png",
-      "sourceBytes": 45063,
-      "sourceSha256": "118c1f65933b536e779983a3c02e61f5557af4e78d0a26f73142094ae9b2c452",
-      "width": 512
+      "sourceBytes": 59926,
+      "sourceSha256": "50412a35d40106af68b0934e41855dfc311a5a037292f8d10d4f52a478298107",
+      "width": 412
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 389,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 19,
       "output": "lessons/my-body/head-and-face/images/hair.webp",
-      "outputBytes": 16666,
-      "outputSha256": "33629d08958adccc0b00efb2430808c1394811aac593ae743d1f0ef25a4b2b90",
+      "outputBytes": 11644,
+      "outputSha256": "dd949e2bb88557e9e18c698df6cb54552d50ed12988482eef03590fbc75b1d4a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13567,21 +13567,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/hair.png",
-      "sourceBytes": 53950,
-      "sourceSha256": "d971f59ed5c868f4d9d78facfd97654eed2aa9773bad113874243d06227bea88",
-      "width": 512
+      "sourceBytes": 153876,
+      "sourceSha256": "5f4185b793f83d8753674993f6fc841b9945c0caad2ac3cf95338902598a5ac3",
+      "width": 504
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 509,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 19,
       "output": "lessons/my-body/head-and-face/images/head.webp",
-      "outputBytes": 18002,
-      "outputSha256": "225a16ae6c97a53305cdfeaeb4905d0f3801df2e70c0f6902b2b09b8573259e1",
+      "outputBytes": 20552,
+      "outputSha256": "d5cd591a722924389879be3920c4ecab4b0661d4ef9d7eb5872487416b2ad8b9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13590,21 +13590,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/head.png",
-      "sourceBytes": 58886,
-      "sourceSha256": "8ffb30e2ee25d9d1c679d999eeb91f66e38ffb40c0e3ce38df151aeb75bf81cb",
-      "width": 512
+      "sourceBytes": 296028,
+      "sourceSha256": "16034a1ed3d8bdaf4df1442051061b65bf87dafd134cd0c456c9333af1747e63",
+      "width": 490
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 194,
       "lessonIds": [
         "my-body"
       ],
-      "maxPercent": 18,
+      "maxPercent": 19,
       "output": "lessons/my-body/head-and-face/images/mouth.webp",
-      "outputBytes": 17284,
-      "outputSha256": "b13b69136f5c5e461759c46e2673241cbaad78ad2aadf5468afe9727d97af642",
+      "outputBytes": 3902,
+      "outputSha256": "ea5356de0412a2ff6a1e20a1d2d0682ffcbed27cc33a5c506caa0f30e8a1f8e4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13613,21 +13613,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/mouth.png",
-      "sourceBytes": 51123,
-      "sourceSha256": "999d8fcb49be1998e5ab88c1a7ac78b51e2f4cddd0929a65e3033549f0fceaf1",
-      "width": 512
+      "sourceBytes": 35906,
+      "sourceSha256": "3733477369d5b403d836fb0b803ec9d800e4fe988020275d89458f57f25f5cbd",
+      "width": 265
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 253,
       "lessonIds": [
         "my-body"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/my-body/head-and-face/images/nose.webp",
-      "outputBytes": 14932,
-      "outputSha256": "8ac7479ec8adb7a3d75c59f77459aa2d6f7bd98e4c12325db800a0be0330f5b7",
+      "outputBytes": 3630,
+      "outputSha256": "44779e56003bb0eb22bd147f34f66142c090af384639fa380c7858ed10a43e76",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13636,21 +13636,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/nose.png",
-      "sourceBytes": 47354,
-      "sourceSha256": "e344f15b10f3cb5cc57c8dcbf3db70439f45a43e7cf5922b94cfc4a1630d6a15",
-      "width": 512
+      "sourceBytes": 35358,
+      "sourceSha256": "768a9f2e7351251d9462c968aa25bf81c00e6adcafcfa29e1c666f67a6b840bf",
+      "width": 214
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/head-and-face/images/open-mouth.webp",
-      "outputBytes": 12366,
-      "outputSha256": "1ba83dc2535651d9f993e8c55c139e3cee7b37b4d0468ed0ebd403000798422c",
+      "outputBytes": 17032,
+      "outputSha256": "56ffae3c3c7a9268cb8f952211c63314c3a1635e5ac4dcece79908ea092d07e7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13659,21 +13659,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/open-mouth.png",
-      "sourceBytes": 52990,
-      "sourceSha256": "130ef1a9c8588fa18df1aedc3ca2d98addf6fa8444f27d3b87557c03f0e7be7c",
-      "width": 512
+      "sourceBytes": 253146,
+      "sourceSha256": "5f36ab85428111863d2bbcefda40a15bf84ec067d3f500918573ee1e12cd802f",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/head-and-face/images/point-nose.webp",
-      "outputBytes": 10890,
-      "outputSha256": "c3d5d3eda5e9bc713a84e1bdc567fd07a45f2a9bfd10c5a9308bfd511ad51d95",
+      "outputBytes": 17046,
+      "outputSha256": "dd7473a16c3a473a36406a18d4fb71dd66356185ae608917a2e9630992b61388",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13682,21 +13682,21 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/point-nose.png",
-      "sourceBytes": 51121,
-      "sourceSha256": "f93ebabbb9c2570095b2bb2c1037a1a280aa1ca8317d5634c5f3b2e9f9d41e66",
-      "width": 512
+      "sourceBytes": 251412,
+      "sourceSha256": "a557038c91bb131fca2ab171d53c5ef8046d5da0cb5808e9f46d14940e1a5bb3",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/head-and-face/images/touch-head.webp",
-      "outputBytes": 13240,
-      "outputSha256": "d6304c1ac613ce4f8fa11dc929857b4c5526b302af1c9fb184b55dba17f93a69",
+      "outputBytes": 17700,
+      "outputSha256": "16b15a2b2e333cec7b01ba893ec32ac5b90c02bd9af407f9da3d635812899a94",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13705,9 +13705,9 @@
         "head-and-face"
       ],
       "source": "lessons/my-body/head-and-face/images/touch-head.png",
-      "sourceBytes": 59113,
-      "sourceSha256": "d0d939bb22eff467e6208b332e2993acbe48b56dc0e13e79e038de1b32f300d5",
-      "width": 512
+      "sourceBytes": 261082,
+      "sourceSha256": "e5b9cce3cdfc86cca791f17384a55a70b72e9cdb57de395827a3c35c477aa58e",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13718,8 +13718,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/legs-and-feet/images/ankle.webp",
-      "outputBytes": 15266,
-      "outputSha256": "98597a81be1a226700002ef43e255bddcd3ed79bdbd031f5bed8a72cc34f6f35",
+      "outputBytes": 19334,
+      "outputSha256": "931ee5519a711402e75ca5c005142dc19e14aa90887240856e9793169f0421d3",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13728,9 +13728,9 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/ankle.png",
-      "sourceBytes": 48689,
-      "sourceSha256": "c06e84a1d28ac41b87eb60bb9b21dd08844184cf13490598b14021d60da9ba4a",
-      "width": 512
+      "sourceBytes": 419591,
+      "sourceSha256": "0e8b61974b8d1bec27647b0d5604e676de36e2c41cfff3760041be0b9724cffc",
+      "width": 384
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13764,8 +13764,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-body/legs-and-feet/images/background.webp",
-      "outputBytes": 3312,
-      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "outputBytes": 20140,
+      "outputSha256": "d757aef95df507f15b9697db21959ab8ebee9e3260bd73cb57ef13ed09945a17",
       "profile": "background",
       "roles": [
         "background"
@@ -13774,21 +13774,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/background.png",
-      "sourceBytes": 24330,
-      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "sourceBytes": 2007278,
+      "sourceSha256": "7dd9356f7624909521bc41cbd51dd2c595081aebf607db12444d0f39638f79eb",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 435,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/legs-and-feet/images/bend-knees.webp",
-      "outputBytes": 12062,
-      "outputSha256": "25a3d3d8160823b4b48f72bd4f3a3995482c8fc8dc7c4bf123a182fb89b9d560",
+      "outputBytes": 15944,
+      "outputSha256": "f825a0540a156ce22f967fefafae7793346bb4302538d01db01c115a542b9985",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13797,21 +13797,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/bend-knees.png",
-      "sourceBytes": 54140,
-      "sourceSha256": "d06ffb393d8067ab753fb809a1499b78463f0bc56807b5342f31003b286c399d",
-      "width": 512
+      "sourceBytes": 236806,
+      "sourceSha256": "c9505f7eefdcb41b1d929ecd40503b5ebedb3f09cd57d8d323ab479b7dd885dc",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 414,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 20,
       "output": "lessons/my-body/legs-and-feet/images/foot.webp",
-      "outputBytes": 16376,
-      "outputSha256": "2b14d7ed8d48e206e9f67121598ca562613720fca86d2d68d7411fc429e4ffab",
+      "outputBytes": 7982,
+      "outputSha256": "2ad4ca2e2a727518df17b88df08c98c97f09a27d4a9a9779861e6414845690c6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13820,21 +13820,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/foot.png",
-      "sourceBytes": 51062,
-      "sourceSha256": "06e80dc30b7d25df57a0bb86e95adc71b91415f7baf532e75662033d4e324121",
-      "width": 512
+      "sourceBytes": 127656,
+      "sourceSha256": "b0ebc42f65619859d1d1c7615006159bd9b2b50a01578cf28680e3905fc2d52a",
+      "width": 439
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 462,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/legs-and-feet/images/heel.webp",
-      "outputBytes": 16236,
-      "outputSha256": "59f6c5fc28064758a5de2115b121cf27e56624f3822405cf65b862ba043513c3",
+      "outputBytes": 6962,
+      "outputSha256": "7a18815aa6299a3c20fb35202a9acf338309377f3b10d8796a1e59a57b9871de",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13843,21 +13843,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/heel.png",
-      "sourceBytes": 50678,
-      "sourceSha256": "12c482971f8185e4e5017b9e54d38e9609367b3e923762ec3bec2dc3f9d314e7",
-      "width": 512
+      "sourceBytes": 121748,
+      "sourceSha256": "5749545715fd39939e72a07e4091d0b91a3b23759a23115e5acf7f162b378dc4",
+      "width": 354
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 501,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 18,
       "output": "lessons/my-body/legs-and-feet/images/knee.webp",
-      "outputBytes": 15168,
-      "outputSha256": "932ab106bae5e06bac56b998d2b3ce5aec782a7458c54787bbf5593d6e709aa4",
+      "outputBytes": 10398,
+      "outputSha256": "373c65f2e9db6676b3dc848a5a4b01eb0bd0d08d68e0d46b48d743830d700cd6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13866,21 +13866,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/knee.png",
-      "sourceBytes": 48412,
-      "sourceSha256": "f238c7a3bcc8cf97b54d3283e7629beb1ddae5097a079b9c221b06f7eec12505",
-      "width": 512
+      "sourceBytes": 129922,
+      "sourceSha256": "29581316c9f99c143d60ffea281fb7f94733598761345b9c33bebfde9cd3b22a",
+      "width": 347
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 478,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 20,
       "output": "lessons/my-body/legs-and-feet/images/leg.webp",
-      "outputBytes": 14772,
-      "outputSha256": "6b97ee572cdc32061e8967de4132acd06be9755ec851eb66185da664e022eb95",
+      "outputBytes": 8154,
+      "outputSha256": "b480921d34ab564bc1bfe1d88a09a1e18d855b89643e825ddf32e64db845eb2e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13889,21 +13889,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/leg.png",
-      "sourceBytes": 47987,
-      "sourceSha256": "37584e61b7f1e637d65bcff5cce65fc652fa296a4285fab193820e03a0c93127",
-      "width": 512
+      "sourceBytes": 117810,
+      "sourceSha256": "28c9c66d193d18bce5163744b4001634b794fabb2101f20b88762b48f994c9f5",
+      "width": 313
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 435,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/legs-and-feet/images/stomp-feet.webp",
-      "outputBytes": 12390,
-      "outputSha256": "8d8b5467fc3c2c1f29d5651161f93f84a581a1f69a0a2dc2475906774ed37c94",
+      "outputBytes": 16810,
+      "outputSha256": "9acd712fc7926421f3f3048d729c6eab1f1296a2d836d11319467e2199db3770",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13912,9 +13912,9 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/stomp-feet.png",
-      "sourceBytes": 56341,
-      "sourceSha256": "9f201b189a7ec3c5f46d5e62f5aac8ce898e7ef3d8869341f27ae2e64cea6eb8",
-      "width": 512
+      "sourceBytes": 240862,
+      "sourceSha256": "4b4accbe1f4cdf91882f7a16e02d1bb703ca944c062ca8841f65446370300956",
+      "width": 427
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13925,8 +13925,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/legs-and-feet/images/tiptoes.webp",
-      "outputBytes": 12002,
-      "outputSha256": "c1397a8700c44ac8d3c849b7acdb301959325a7dd6f74275242bd90f61fbeffd",
+      "outputBytes": 19726,
+      "outputSha256": "56e821657f21f2ed3460930635cc7c80eb9afa4e3b85e34a0427759a28a80c4b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13935,21 +13935,21 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/tiptoes.png",
-      "sourceBytes": 55136,
-      "sourceSha256": "5f6d1a5e9e8a090034f4fcd1feb607e5c2d652febe82846a3c27d3393c609e5b",
-      "width": 512
+      "sourceBytes": 1471177,
+      "sourceSha256": "21074276a92e4622bea828eaa5a9bd3463acd9926207a1b90435145b819e0c69",
+      "width": 496
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 403,
       "lessonIds": [
         "my-body"
       ],
       "maxPercent": 17,
       "output": "lessons/my-body/legs-and-feet/images/toes.webp",
-      "outputBytes": 16536,
-      "outputSha256": "34778aa28d39f3f764874af0e2ef8a53c7a1456367a3e108e9640965ad43ca34",
+      "outputBytes": 11958,
+      "outputSha256": "6d31f0ee6c3ca9d392e8839c4ffb1224773b07fc1a8574fba2bbb5afbff74af9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13958,9 +13958,9 @@
         "legs-and-feet"
       ],
       "source": "lessons/my-body/legs-and-feet/images/toes.png",
-      "sourceBytes": 51492,
-      "sourceSha256": "ae2eaaafc218d162f0eb0c1669f10a7ff56d9df16b2f66bd2b930c9e6bbe83f9",
-      "width": 512
+      "sourceBytes": 167769,
+      "sourceSha256": "6a1f96c0fa43d591fe4ccab80b0bea4427a91ab3b91586b724d19ea4e816d04c",
+      "width": 475
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19874,7 +19874,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-01T13:09:39.477Z",
+  "generatedAt": "2026-08-01T13:55:22.938Z",
   "releaseVersion": "v1",
-  "revision": "985d30242a7068d3"
+  "revision": "c7b515827b98f826"
 }

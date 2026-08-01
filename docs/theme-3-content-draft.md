@@ -62,18 +62,22 @@ before final image and Google TTS production.
 - Demo backgrounds no longer contain a nine-panel grid. Concrete demo objects use open pictorial
   callouts, while phrase targets keep a card treatment so the two roles remain visually distinct.
 
-## Demo Asset Status
+## Asset Status
 
-- Demo PNG masters use a quiet background, the approved Theme 2 child character, and clearly
-  labeled learning callouts for content review.
-- Demo asset keys follow the production folder contract and can be replaced by final PNG masters
-  without changing lesson data.
+- `my-body` now has final local PNG masters and generated WebP output for all 33 image references
+  across its three scenes. It reuses the approved Theme 2 child character, uses a quiet room
+  background, and replaces generic callouts with polished body-part cutouts and action cards.
+- `my-body` also has a complete local Google TTS corpus for Vietnamese, en-US, and en-GB. The
+  development audio overlay is generated with
+  `npm run generate:audio:local-preview -- --lesson=my-body` for pre-R2 QA.
+- The other seven lesson packs still use demo PNG masters. Their asset keys follow the production
+  folder contract and can be replaced without changing lesson data.
 - Scene and lesson milestone icons are temporary semantic icons for the map.
-- Demo labels are review aids and are not the visual direction for final child-facing assets.
+- Remaining demo labels are review aids and are not the visual direction for final child-facing
+  assets.
 
 ## Not Yet Final
 
 - Lesson copy and vocabulary IDs are a review draft, not a content freeze.
-- Theme 3 images are demo assets, not final illustrations.
-- Theme 3 production audio has not been generated.
+- Images and production audio for the seven lesson packs after `my-body` are not final.
 - Theme 3 assets have not been uploaded to R2.
