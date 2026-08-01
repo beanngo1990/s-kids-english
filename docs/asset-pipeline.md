@@ -169,14 +169,19 @@ Because `src/assets/source/` and `src/assets/lessons/` historically contained ~1
 
 To purge historical binary blobs from `.git` history and shrink local/remote Git repository size down to ~30-50 MB:
 
-1. Install or run `git-filter-repo`:
+1. Install `git-filter-repo` (via Homebrew or pip3):
    ```bash
-   npx git-filter-repo --path src/assets/source/ --path src/assets/lessons/ --invert-paths
+   brew install git-filter-repo
+   # OR: pip3 install git-filter-repo
    ```
-2. Expire reflogs and prune local packfiles:
+2. Purge binary paths from Git history:
+   ```bash
+   git filter-repo --path src/assets/source/ --path src/assets/lessons/ --invert-paths --force
+   ```
+3. Expire reflogs and prune local packfiles:
    ```bash
    git reflog expire --expire=now --all
    git gc --prune=now --aggressive
    ```
-3. Coordinate with team members before performing a force-push (`git push origin <branch> --force`), as rewriting Git history changes all commit SHAs.
+4. Coordinate with team members before performing a force-push (`git push origin <branch> --force`), as rewriting Git history changes all commit SHAs.
 
