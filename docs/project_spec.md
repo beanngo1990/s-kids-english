@@ -830,10 +830,10 @@ cùng file.
 ### Images
 
 - Final lossless source of truth:
-  `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png`.
-- Raw/chroma inputs: `src/assets/source/lessons/`.
-- Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp`.
-- Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2.
+  `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png` (Gitignored local build artifact).
+- Raw/chroma inputs: `src/assets/source/lessons/` (Gitignored local build artifact).
+- Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp` (Gitignored local build artifact).
+- Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2 CDN.
 - Current/next scene image prefetch dùng React Native `Image.prefetch`.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.

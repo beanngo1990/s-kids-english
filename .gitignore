@@ -83,3 +83,8 @@ firestore-debug.log
 /src/config/remoteAssetOverrides.local.ts
 /src/config/localAudioPreview.local.ts
 /src/data/audioManifest.local.ts
+
+# Large asset source and generated files (served via Cloudflare R2 CDN at runtime)
+/src/assets/source/
+/src/assets/lessons/
+

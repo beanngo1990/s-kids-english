@@ -20,6 +20,8 @@
   and `src/assets/shared/audio/{en-US,en-GB}/neural2-c-r1/`.
 - Keep `audio/en/` as the legacy en-US compatibility and rollback corpus.
   Vietnamese audio remains under `audio/vi/`.
+- `src/assets/source/` (raw master PNGs) and `src/assets/lessons/` (generated WebP images and WAV/MP3 audio) are excluded from Git repository tracking via `.gitignore` to maintain a lightweight Git repository (~30-50 MB instead of ~1.9 GB).
+- Runtime resolves all lesson images and audio from R2 CDN (`https://assets.sungy.net`). Local source and lesson asset folders are used solely during authoring, local audio/image build, and R2 upload workflows.
 
 ## Normal workflow
 
@@ -160,3 +162,21 @@ content changes, while keeping the R2 prefix at `v1`.
 - Production R2 CDN base URL is configured to custom domain `https://assets.sungy.net`.
 - Public R2 dev domain (`*.r2.dev`) must be disabled in Cloudflare R2 bucket settings.
 - WAF rate limiting and hotlink protection rules are enabled on Cloudflare Dashboard for `assets.sungy.net`.
+
+## Repository storage and Git history cleanup
+
+Because `src/assets/source/` and `src/assets/lessons/` historically contained ~1.9 GB of binary files, adding them to `.gitignore` prevents new binary commits but does not automatically remove legacy binary blobs from `.git` packfiles.
+
+To purge historical binary blobs from `.git` history and shrink local/remote Git repository size down to ~30-50 MB:
+
+1. Install or run `git-filter-repo`:
+   ```bash
+   npx git-filter-repo --path src/assets/source/ --path src/assets/lessons/ --invert-paths
+   ```
+2. Expire reflogs and prune local packfiles:
+   ```bash
+   git reflog expire --expire=now --all
+   git gc --prune=now --aggressive
+   ```
+3. Coordinate with team members before performing a force-push (`git push origin <branch> --force`), as rewriting Git history changes all commit SHAs.
+
