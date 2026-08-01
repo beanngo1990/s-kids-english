@@ -4857,14 +4857,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/birthday-party/party-games/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -4873,21 +4873,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "birthday-party"
       ],
       "maxPercent": 100,
       "output": "lessons/birthday-party/party-games/images/background.webp",
-      "outputBytes": 18388,
-      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "outputBytes": 69216,
+      "outputSha256": "91642113b56c2036020a1a2f0b1c67502507694128c4792c3b85445d0796a2fc",
       "profile": "background",
       "roles": [
         "background"
@@ -4896,21 +4896,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/background.png",
-      "sourceBytes": 121822,
-      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
-      "width": 941
+      "sourceBytes": 1922587,
+      "sourceSha256": "fa19103ba213c18d2ed3cf1073fc572525d0e3ea4c7871f02bcc8cd686896fed",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 422,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 15,
       "output": "lessons/birthday-party/party-games/images/beanbag.webp",
-      "outputBytes": 18358,
-      "outputSha256": "5894d5d889de7fd6d9ea1aca8ba218de0d7dd768e7d8f5c36e413f21a716f096",
+      "outputBytes": 16394,
+      "outputSha256": "b4813a45185bf3e6cfde400c8d00eecab31dfee3455f31c261a7c05f10222c91",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -4919,21 +4919,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/beanbag.png",
-      "sourceBytes": 27180,
-      "sourceSha256": "95d08d52acee99be7aedbce6f9b595df0560a6f28e2ea74bece4efc08221adc2",
-      "width": 512
+      "sourceBytes": 120319,
+      "sourceSha256": "61eb3de1bc96e899f484537e26e3e1cb06cbd981d4b480919714e62f972e50d2",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-games/images/clap-hands.webp",
-      "outputBytes": 10332,
-      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
+      "outputBytes": 13824,
+      "outputSha256": "38ef232a7da06fb4b0717263c74d0fa98543c17001f8b082e8efdd3cc38e7578",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -4942,22 +4942,22 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/clap-hands.png",
-      "sourceBytes": 23299,
-      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
-      "width": 512
+      "sourceBytes": 178340,
+      "sourceSha256": "d064ef841578b3c51ef53981d8ff2c3ea6b44ce48c968fa01e50a93d0b339202",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 25,
       "output": "lessons/birthday-party/party-games/images/dance.webp",
-      "outputBytes": 10332,
-      "outputSha256": "27a00e1799459046d6d3980f8fbf076350b8fff95674b98731783618738faa6f",
-      "profile": "objectSmall",
+      "outputBytes": 14106,
+      "outputSha256": "b478df4605a4444648bf1231a1d2b4effae20c3eff734268219d261966ec93b7",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -4965,21 +4965,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/dance.png",
-      "sourceBytes": 23299,
-      "sourceSha256": "023dd6f0983d188df6b2a8bd15835f0932c6d02e981e7ddab51a10bf002dfc8e",
-      "width": 512
+      "sourceBytes": 114945,
+      "sourceSha256": "1e387c6f38313bc7235cd7355acbca93e25077c7339a7bb3835d7dcd4f305e4d",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/birthday-party/party-games/images/game.webp",
-      "outputBytes": 10388,
-      "outputSha256": "a50b882187763017cb4a4bb4e2540348b27c4ad09645d9a470d2b3b49a965e55",
+      "outputBytes": 18350,
+      "outputSha256": "fb4b9069b41d6f3256526152c8df57307921863f91190f1778ff705e474eb31e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -4988,21 +4988,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/game.png",
-      "sourceBytes": 23832,
-      "sourceSha256": "d637cddb1fd5a49722286cb98a2620f6883d2cf5c640e1fced23680efdda6ba0",
-      "width": 512
+      "sourceBytes": 164528,
+      "sourceSha256": "5ba6363436b413697f93fefff47393800c0eb628f0da4de65bd064e241578134",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-games/images/join-game.webp",
-      "outputBytes": 10322,
-      "outputSha256": "3fe73949181665647ae04948e6a9697904c2d7aab904b2819461592950c96cd3",
+      "outputBytes": 25162,
+      "outputSha256": "c5f42cee8a0561afa4058d7af9cf34c65d46494c8ddc69de452fe4ad6ee711ba",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5011,21 +5011,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/join-game.png",
-      "sourceBytes": 23731,
-      "sourceSha256": "89d51545c4bfa311b8f532a795dcbeeb321a9dda65696a724d3236c8abb3f8fe",
-      "width": 512
+      "sourceBytes": 230648,
+      "sourceSha256": "a2676dd2b6526ce2a16004f25e3a060704a995cf5e54d168f0546968d0732047",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 430,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 18,
       "output": "lessons/birthday-party/party-games/images/music.webp",
-      "outputBytes": 21170,
-      "outputSha256": "f44160cbb500bade863ea6f0c10fa0753c5cb5dfbc3f46fda58b0dd4a6bbffa4",
+      "outputBytes": 17536,
+      "outputSha256": "b1f316a7f80baa501077e5c73e95145cde5ab7a4683942f98729b43c6298d577",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5034,21 +5034,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/music.png",
-      "sourceBytes": 35255,
-      "sourceSha256": "1d6a6d989a66b10e05d133dce6fd3fabb21b54f862297691b059d804672e1aaf",
-      "width": 512
+      "sourceBytes": 139449,
+      "sourceSha256": "5827578ec9b4b538b8565ce1642a276658fd0ee9a671a9113a6fb96f250e0a42",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 413,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 17,
       "output": "lessons/birthday-party/party-games/images/prize.webp",
-      "outputBytes": 16092,
-      "outputSha256": "3a8a689ec063ce5f6c88780bf67cc90640d6aa99e188758d1fe9f718cea33f7c",
+      "outputBytes": 11632,
+      "outputSha256": "da5d5d76abaa46c72f9bb349fe001984012e70bc835411a0ebabbb1fcb981443",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5057,21 +5057,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/prize.png",
-      "sourceBytes": 25271,
-      "sourceSha256": "6ff0c3b7f5500d96ddd0983c1be7a7d1b0e480f9fab202a5d7d2553d888636a6",
-      "width": 512
+      "sourceBytes": 108859,
+      "sourceSha256": "f5ac25c4587f9aa335e1bcc3827f7f854b7f583e80c1f619a5cda76131ffe552",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 435,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
       "maxPercent": 19,
       "output": "lessons/birthday-party/party-games/images/puzzle.webp",
-      "outputBytes": 10508,
-      "outputSha256": "f12b86a93191f2e9f401aaf1baf205304dc3c69332cad89f60b59846878807a2",
+      "outputBytes": 12284,
+      "outputSha256": "0760429f837023be378f1b93318ebb2a8aae27622fdbb3aba170f59bc9edbf0e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5080,21 +5080,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/puzzle.png",
-      "sourceBytes": 23856,
-      "sourceSha256": "e0f58c46a88802061982ce70c21281870eaa2d0bd4201233e473daa26c1a9a1d",
-      "width": 512
+      "sourceBytes": 161176,
+      "sourceSha256": "c99990c0c52faaa910ccb44aa2f2de957dda5657a3a281cc8bbb90794536a390",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-games/images/take-turns.webp",
-      "outputBytes": 10180,
-      "outputSha256": "c028e8dcce98e06a39a5c36027a57d95f8eb647d74cc3a107a2d1a8d68aa00a8",
+      "outputBytes": 20058,
+      "outputSha256": "6359394cc12538e5e6402e6ab619e44740f3f53ce8bb205cb19ea119f79c9691",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5103,21 +5103,21 @@
         "party-games"
       ],
       "source": "lessons/birthday-party/party-games/images/take-turns.png",
-      "sourceBytes": 23583,
-      "sourceSha256": "9e3eecf0328048cd2622d81c95253166c10faedc95234b0ea7cca94df3e25dbb",
-      "width": 512
+      "sourceBytes": 204040,
+      "sourceSha256": "cfb5d69d9bca6a3248ac9ee98ce39b25be99a0aae8d416b158673de15e7ce97d",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/birthday-party/party-prep/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -5126,21 +5126,21 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "birthday-party"
       ],
       "maxPercent": 100,
       "output": "lessons/birthday-party/party-prep/images/background.webp",
-      "outputBytes": 18388,
-      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "outputBytes": 28150,
+      "outputSha256": "ba47cf06dd043cae37f08e27d3a8f55bb84190cf6c066f17b6be6ab97075eed2",
       "profile": "background",
       "roles": [
         "background"
@@ -5149,22 +5149,22 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/background.png",
-      "sourceBytes": 121822,
-      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
-      "width": 941
+      "sourceBytes": 1462894,
+      "sourceSha256": "0ff9a6aca4e72ed74a68c82cd143b1fcb38bc0a6b65fc92cc97cae7f9920a461",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 24,
       "output": "lessons/birthday-party/party-prep/images/balloon.webp",
-      "outputBytes": 28700,
-      "outputSha256": "eabac5c086ad71aea4b78a39ad9b0dfbd91a10072230b323c42c44eb9f5d9f0e",
-      "profile": "objectSmall",
+      "outputBytes": 6494,
+      "outputSha256": "b2b8d1cdba78e4f08c7a269ad50f770631f7e6c1d9ec7ff55dc4fda069349343",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -5172,22 +5172,22 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/balloon.png",
-      "sourceBytes": 55864,
-      "sourceSha256": "614bdf1222ecf45ded808d708e1ff00f53ca6447ae4ccedeaa373b2782c198f7",
-      "width": 503
+      "sourceBytes": 66534,
+      "sourceSha256": "38afed3832285ef33ac3a46e13e59ecec034b7af8948833b99e33a241fe307c8",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 39,
       "output": "lessons/birthday-party/party-prep/images/banner.webp",
-      "outputBytes": 14774,
-      "outputSha256": "e4ef53d4c6e5f23059760ad29065ba491d00d208d7821a5815799dd5cf292c47",
-      "profile": "objectSmall",
+      "outputBytes": 7746,
+      "outputSha256": "19dbcde452a78263213bc3aab626879d8a4b8d030646bb13bce1d65c7a8d5607",
+      "profile": "objectLarge",
       "roles": [
         "object"
       ],
@@ -5195,9 +5195,9 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/banner.png",
-      "sourceBytes": 16246,
-      "sourceSha256": "9d46336482888db8c841c43d6c3629b680a9ff47b0fa21a78c0ddc28c2f14a0a",
-      "width": 512
+      "sourceBytes": 57929,
+      "sourceSha256": "6ba7035156ee970330e5eb99c54d12a948f85bf4e0003a66b246de2fa872f420",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5225,14 +5225,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-prep/images/decorate-room.webp",
-      "outputBytes": 10298,
-      "outputSha256": "3c476adc1fb43dc93d49b589c18707b71c5853a4f06c30bd6434887477ddd86b",
+      "outputBytes": 21682,
+      "outputSha256": "b0b37fab0410290d2331a52d730702a5d810fc257b408a817e35b36dcb52f458",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5241,22 +5241,22 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/decorate-room.png",
-      "sourceBytes": 23464,
-      "sourceSha256": "197cbd88532bead85b99f8a131ef0f47b033129f12151c3534aac062a0ab6c1a",
-      "width": 512
+      "sourceBytes": 244393,
+      "sourceSha256": "1516317065b2f6cc0b65f1131cf835919775e5ea6696dbf818de3febb097267f",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 380,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 23,
       "output": "lessons/birthday-party/party-prep/images/gift.webp",
-      "outputBytes": 10704,
-      "outputSha256": "8a463a96b6383affb1ff25e41cbb17cd204de714d272b4b655c3ce5caa571b0e",
-      "profile": "objectSmall",
+      "outputBytes": 11400,
+      "outputSha256": "3c77d51615c15eec9b77b6d18ee1fa056094caa2854c96aec0f51ef934c66be1",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -5264,21 +5264,44 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/gift.png",
-      "sourceBytes": 21958,
-      "sourceSha256": "340a7698f4f5a3794556e0de5601b47ba7cf456a5ed73ec550e57f069635a824",
-      "width": 512
+      "sourceBytes": 151275,
+      "sourceSha256": "fc708fbc09ac6831c43f811a43ae7f41de2bc1e834c8629a3bb63a1759d15c29",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 483,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 16,
+      "output": "lessons/birthday-party/party-prep/images/hang-balloons.webp",
+      "outputBytes": 16120,
+      "outputSha256": "c379541a336549468a655002dcb0d7e1cb9803f81343ca2a68a8641fa66068bb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-prep"
+      ],
+      "source": "lessons/birthday-party/party-prep/images/hang-balloons.png",
+      "sourceBytes": 217270,
+      "sourceSha256": "40f18af2ae717375d9fa1573b7d0d91689d0b0e137aa3adcf0c835d492db4482",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 15,
       "output": "lessons/birthday-party/party-prep/images/invitation.webp",
-      "outputBytes": 5720,
-      "outputSha256": "78dd90ffcd1b9da48210fa6a9496710c5281b4a7057dd02d3091544b48274459",
+      "outputBytes": 9800,
+      "outputSha256": "b9c237199cb21b9351b4dcc2392deb1668363fdfde8a7f474f0b0438666e7e22",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5287,21 +5310,21 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/invitation.png",
-      "sourceBytes": 17997,
-      "sourceSha256": "d4f1a2fefcb51e4627763bcc765d6806476c8f1a72f0d823cb9c756e0483a416",
-      "width": 512
+      "sourceBytes": 174610,
+      "sourceSha256": "47c96fe0c9a746917608ce849b9d844d1e4b3ce0716d9d7ffe799f25b28192d8",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 277,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 20,
       "output": "lessons/birthday-party/party-prep/images/party-hat.webp",
-      "outputBytes": 15104,
-      "outputSha256": "a6ab570954919294cf6cf06f41208867f7fdec981db02cf177b1b87c427d9775",
+      "outputBytes": 10216,
+      "outputSha256": "0b91d4f7f047ab447d28221963c0b3cec0d6e21bfcd5ccc9c31ba712dc4bc116",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5310,21 +5333,21 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/party-hat.png",
-      "sourceBytes": 22298,
-      "sourceSha256": "c0377304d0e468a57ed072ccc7b3a0d279a0fc499f35bcd2d28434121fe0d3de",
-      "width": 512
+      "sourceBytes": 102778,
+      "sourceSha256": "9ed75869892feca238b28c794a041912cae4c599fb81db17f8c4bd81539d34b3",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 399,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-prep/images/ribbon.webp",
-      "outputBytes": 9920,
-      "outputSha256": "00394f26ee7a6439e2461062e6a324ef6fe69e83f36c28f4cdc2632b7b236547",
+      "outputBytes": 9912,
+      "outputSha256": "10ca13de5f440d27b4ac5b7c4a60a216d5b4e1896ff8671d2b84fd226a71bac6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5333,21 +5356,21 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/ribbon.png",
-      "sourceBytes": 23966,
-      "sourceSha256": "2be2f7404dafe151aa9c7f64e9fefe8a4acff83fe069845786e8a5c7d1a296ae",
-      "width": 512
+      "sourceBytes": 81050,
+      "sourceSha256": "4c612c0dbe489af4dc96255cae2e9618cf3b6967d155fd2c20b89c124cdcb85e",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 380,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-prep/images/wrap-gift.webp",
-      "outputBytes": 10704,
-      "outputSha256": "8a463a96b6383affb1ff25e41cbb17cd204de714d272b4b655c3ce5caa571b0e",
+      "outputBytes": 19262,
+      "outputSha256": "5b0dc1bc2249af27022dcf9cbf49fac3bb770e6ec2ce7f66f9df4e4e1904656b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5356,21 +5379,21 @@
         "party-prep"
       ],
       "source": "lessons/birthday-party/party-prep/images/wrap-gift.png",
-      "sourceBytes": 21958,
-      "sourceSha256": "340a7698f4f5a3794556e0de5601b47ba7cf456a5ed73ec550e57f069635a824",
-      "width": 512
+      "sourceBytes": 229557,
+      "sourceSha256": "4086c140ac6d5356009ad9cea9b994f748532ceb04fde847db7df52f13cc5079",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 900,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 34,
+      "maxPercent": 39,
       "output": "lessons/birthday-party/party-table/images/baby.webp",
-      "outputBytes": 45068,
-      "outputSha256": "03035db85f885ea6f0c110e4b8628f3d0d9e5e1a0c32f55faef42b08c0c4d09c",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
       "profile": "character",
       "roles": [
         "character"
@@ -5379,21 +5402,21 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/baby.png",
-      "sourceBytes": 62693,
-      "sourceSha256": "2b2a68338a324d5f90c2e4b9fa93c7e989f0ed1298ef435c036427c19185f924",
-      "width": 524
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": false,
-      "height": 1672,
+      "height": 1448,
       "lessonIds": [
         "birthday-party"
       ],
       "maxPercent": 100,
       "output": "lessons/birthday-party/party-table/images/background.webp",
-      "outputBytes": 18388,
-      "outputSha256": "4c24019f5b255cff6bedbb08f9d53b5d85a0e066ca4e76bd5f934ec245374dd2",
+      "outputBytes": 40962,
+      "outputSha256": "6b069825ff1dad4e66ee644d3024e6ab9d6ba42bd45f5d34d32b9375efe12ef7",
       "profile": "background",
       "roles": [
         "background"
@@ -5402,21 +5425,21 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/background.png",
-      "sourceBytes": 121822,
-      "sourceSha256": "415b51777bbfa2ef07b3bfe6c4d3b4bcedf5ef03a4711cacf417a34fc57d0b90",
-      "width": 941
+      "sourceBytes": 1732613,
+      "sourceSha256": "14f9d68dd2c8262139d1d885ccaaaf6eec33e542c54ade088912debc8383667b",
+      "width": 1086
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 502,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-table/images/blow-candles.webp",
-      "outputBytes": 10146,
-      "outputSha256": "7717e244e94dea9c7710b4e6f6159274a2a81da528de9577b32a17759c4bdc4b",
+      "outputBytes": 24410,
+      "outputSha256": "6cfc39af3ecaa094dee7920e9fd5eb1f893979fe10908bd0d3b2286e64657fd7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5425,21 +5448,21 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/blow-candles.png",
-      "sourceBytes": 23615,
-      "sourceSha256": "7b4e5162717aea912a03be246cedf44847d0ae0f205c11c450e7258df2066b6d",
-      "width": 512
+      "sourceBytes": 262049,
+      "sourceSha256": "835d6086aa612b9769a2d95e6a1b5761dd1fc8926527f801464f87909b193bcf",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 436,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
-      "output": "lessons/birthday-party/party-table/images/cake.webp",
-      "outputBytes": 12512,
-      "outputSha256": "5812aeddd2d9a9c78abba22549ef6d4e00ccface525ac7379b79f88699ac487e",
+      "maxPercent": 18,
+      "output": "lessons/birthday-party/party-table/images/cake-server.webp",
+      "outputBytes": 5224,
+      "outputSha256": "2082197a21dceed16624e7880c1987b611fd0d45b8577114cdd4a535148dc8c0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5447,22 +5470,45 @@
       "sceneIds": [
         "party-table"
       ],
-      "source": "lessons/birthday-party/party-table/images/cake.png",
-      "sourceBytes": 21856,
-      "sourceSha256": "83f73a546237735caf53e108e9807c9a737b7cd7871031fe92517358baa02e2f",
-      "width": 512
+      "source": "lessons/birthday-party/party-table/images/cake-server.png",
+      "sourceBytes": 67312,
+      "sourceSha256": "4e4cd9f3296ff5da633def192d9cbe6300e6b6e64a723ea4f0378c90fe413db7",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 505,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 24,
+      "output": "lessons/birthday-party/party-table/images/cake.webp",
+      "outputBytes": 15374,
+      "outputSha256": "019a1bf897121a1bc06827bd45dc8302ab49852135fe9b89fa767b3d86b25b07",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/cake.png",
+      "sourceBytes": 168385,
+      "sourceSha256": "db1e68a75259ae14e5335742f2d7f99fbc99f70d64c01a2b539577f112005f81",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 14,
       "output": "lessons/birthday-party/party-table/images/candle.webp",
-      "outputBytes": 10248,
-      "outputSha256": "925cf4ec06277a6a48609bfc76df837e9f72973840c4ca3e2a29a746d32da979",
+      "outputBytes": 4284,
+      "outputSha256": "c1a4b840d0fb4b282c415013a17264be4e35ccf2986c9ce09c2f251097e31f5b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5471,21 +5517,21 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/candle.png",
-      "sourceBytes": 16819,
-      "sourceSha256": "474308fd15f2cbe57f338eb42f450c4241fee6893e50621b1e84a795770e9dbb",
-      "width": 512
+      "sourceBytes": 38221,
+      "sourceSha256": "e9d06fb2713562c10a4c63c424f423268bb62a93a4945002c62b328a1c3d754c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 421,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/birthday-party/party-table/images/cup.webp",
-      "outputBytes": 16266,
-      "outputSha256": "11cb7bbb7ae00a45e2de204f86b6b28866d48747664c28dc707319f782877f92",
+      "outputBytes": 7702,
+      "outputSha256": "831c93e14a4808c9e259cb76819aa4eab82a2c5db5fe404d7043ca70fa806756",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5494,9 +5540,9 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/cup.png",
-      "sourceBytes": 23778,
-      "sourceSha256": "fa2f3b09b6884354acd4e6b71ca57b6f3cd34fbdd344c37ea8d2b49d5267c77e",
-      "width": 512
+      "sourceBytes": 100863,
+      "sourceSha256": "f4bbb9fd08acc1a9e2a6117b9bc0cea54bb4ebcd4ddfd4ee986f7c69c2eac236",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5524,14 +5570,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 407,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 19,
+      "maxPercent": 18,
       "output": "lessons/birthday-party/party-table/images/fruit.webp",
-      "outputBytes": 20296,
-      "outputSha256": "baaea11ea372dff28a6ce852f3f94ed8a35d4789862eae17749c2ff95340be6f",
+      "outputBytes": 16728,
+      "outputSha256": "34f3f96620fd48f4699feee0affa5e54da08b372615882a5a118acbcf85bac0f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5540,9 +5586,9 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/fruit.png",
-      "sourceBytes": 31855,
-      "sourceSha256": "20be8dd45c612df1d09721ef2af610168c6db42ef7a7f4069bc97c706db1d6e8",
-      "width": 512
+      "sourceBytes": 158520,
+      "sourceSha256": "592d235e3cdc971e0320c5a3dc4a8d0e38bd0627a2c403456f1b31e0b6a51b6c",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5570,14 +5616,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 468,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 20,
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-table/images/plate.webp",
-      "outputBytes": 20514,
-      "outputSha256": "82bbdf3fc616b5a9f2253997e81ae250e8bbdef14c237a18d2c52ed04501f962",
+      "outputBytes": 6926,
+      "outputSha256": "78206fa0b82627e28edc46c7f1a3e83939e82effd3f3dfdd1b2f79f589f66f24",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5586,21 +5632,44 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/plate.png",
-      "sourceBytes": 31723,
-      "sourceSha256": "0a4c122171bb10b9eaa08470aea9f183fa7b0e120477c0cead047d2e27391584",
-      "width": 512
+      "sourceBytes": 113700,
+      "sourceSha256": "40b96453450820e329b454ee16608bcc91084cc5fd9be78896a1e65df8d5927a",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 436,
+      "height": 418,
       "lessonIds": [
         "birthday-party"
       ],
-      "maxPercent": 18,
+      "maxPercent": 16,
+      "output": "lessons/birthday-party/party-table/images/serve-cake.webp",
+      "outputBytes": 21970,
+      "outputSha256": "f41fc3f038e556943f1e83efc89bad36a5229d520b0c39ca73767b5aba2be1b0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "party-table"
+      ],
+      "source": "lessons/birthday-party/party-table/images/serve-cake.png",
+      "sourceBytes": 250214,
+      "sourceSha256": "b4c8305e450c0f9ed8505b471b4ba8c9bbb8c64655beec8f20c21af9540f5016",
+      "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 418,
+      "lessonIds": [
+        "birthday-party"
+      ],
+      "maxPercent": 16,
       "output": "lessons/birthday-party/party-table/images/share-cake.webp",
-      "outputBytes": 12512,
-      "outputSha256": "5812aeddd2d9a9c78abba22549ef6d4e00ccface525ac7379b79f88699ac487e",
+      "outputBytes": 25948,
+      "outputSha256": "3197f7e2861bf2212a9879958bcda2082d9ba0c6dba37835cd983ed8a213815c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5609,9 +5678,9 @@
         "party-table"
       ],
       "source": "lessons/birthday-party/party-table/images/share-cake.png",
-      "sourceBytes": 21856,
-      "sourceSha256": "83f73a546237735caf53e108e9807c9a737b7cd7871031fe92517358baa02e2f",
-      "width": 512
+      "sourceBytes": 272473,
+      "sourceSha256": "35d8b115f4905b3fc433aa9de9a116f88a7400accacc63588959e6d2ce7141e5",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13687,7 +13756,7 @@
       "width": 374
     }
   ],
-  "generatedAt": "2026-07-30T07:07:07.552Z",
+  "generatedAt": "2026-08-01T08:42:00.367Z",
   "releaseVersion": "v1",
-  "revision": "8757ee6007175c51"
+  "revision": "24494a34411fb27f"
 }

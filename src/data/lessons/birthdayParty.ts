@@ -3,6 +3,7 @@ import {
   makeOutsideExplorationLesson,
   type OutsideLessonSpec,
 } from './outsideExplorationFactory';
+import { rect } from '../lessonAuthoring';
 
 const birthdayPartySpec = {
   id: 'birthday-party',
@@ -35,12 +36,23 @@ const birthdayPartySpec = {
       introSuccessEn: 'The party will be fun!',
       completionVi: 'Quà và đồ trang trí đã sẵn sàng.',
       completionEn: 'The gift and decorations are ready.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'invitation',
           word: 'invitation',
           meaningVi: 'thiệp mời',
           labelVi: 'thiệp mời',
+          position: rect(35, 47, 15, 12),
+          touchArea: rect(29, 41, 27, 24),
+          practiceInstructionVi:
+            'Chạm vào thiệp mời trên bàn bên trái nhé.',
+          practiceInstructionEn:
+            'Tap the invitation on the left side of the table.',
+          failHintVi: 'Thiệp mời nằm trên bàn bên trái.',
+          failHintEn: 'The invitation is on the left side of the table.',
         },
         {
           key: 'balloon',
@@ -48,12 +60,27 @@ const birthdayPartySpec = {
           meaningVi: 'bóng bay',
           labelVi: 'bóng bay',
           practice: 'drag',
+          position: rect(35, 24, 17, 24),
+          touchArea: rect(29, 18, 29, 36),
+          practiceInstructionVi:
+            'Kéo bóng bay phía trên vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the balloon above into the glowing circle.',
+          failHintVi: 'Bóng bay nằm ở phía trên.',
+          failHintEn: 'The balloon is above the table.',
         },
         {
           key: 'gift',
           word: 'gift',
           meaningVi: 'món quà',
           labelVi: 'món quà',
+          position: rect(55, 36, 21, 23),
+          touchArea: rect(49, 30, 33, 35),
+          practiceInstructionVi:
+            'Chạm vào món quà lớn trên bàn nhé.',
+          practiceInstructionEn: 'Tap the large gift on the table.',
+          failHintVi: 'Món quà lớn nằm ở giữa bàn.',
+          failHintEn: 'The large gift is in the middle of the table.',
         },
         {
           key: 'ribbon',
@@ -61,6 +88,14 @@ const birthdayPartySpec = {
           meaningVi: 'dải ruy băng',
           labelVi: 'dải ruy băng',
           tier: 'expanded',
+          position: rect(79, 48, 16, 11),
+          touchArea: rect(73, 42, 27, 23),
+          practiceInstructionVi:
+            'Chạm vào ruy băng trên bàn bên phải nhé.',
+          practiceInstructionEn:
+            'Tap the ribbon on the right side of the table.',
+          failHintVi: 'Ruy băng nằm trên bàn bên phải.',
+          failHintEn: 'The ribbon is on the right side of the table.',
         },
         {
           key: 'party-hat',
@@ -69,6 +104,14 @@ const birthdayPartySpec = {
           labelVi: 'mũ sinh nhật',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(81, 38, 13, 20),
+          touchArea: rect(75, 32, 25, 32),
+          practiceInstructionVi:
+            'Kéo mũ sinh nhật bên phải vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the party hat on the right into the glowing circle.',
+          failHintVi: 'Mũ sinh nhật nằm ở bên phải.',
+          failHintEn: 'The party hat is on the right.',
         },
         {
           key: 'banner',
@@ -76,6 +119,13 @@ const birthdayPartySpec = {
           meaningVi: 'dây trang trí',
           labelVi: 'dây trang trí',
           tier: 'expanded',
+          position: rect(52, 16, 39, 13),
+          touchArea: rect(46, 10, 51, 25),
+          practiceInstructionVi:
+            'Chạm vào dây trang trí ở trên cùng nhé.',
+          practiceInstructionEn: 'Tap the banner at the top.',
+          failHintVi: 'Dây trang trí nằm ở trên cùng.',
+          failHintEn: 'The banner is at the top.',
         },
         {
           key: 'wrap-gift',
@@ -84,6 +134,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ gói quà',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ gói quà ở dưới bên trái nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom left.',
+          failHintVi: 'Thẻ gói quà nằm ở dưới bên trái.',
+          failHintEn: 'The gift-wrapping card is at the bottom left.',
         },
         {
           key: 'hang-balloons',
@@ -93,6 +151,14 @@ const birthdayPartySpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ treo bóng ở giữa vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the matching action card into the glowing circle.',
+          failHintVi: 'Thẻ treo bóng nằm ở giữa hàng dưới.',
+          failHintEn: 'The balloon-hanging card is in the bottom middle.',
         },
         {
           key: 'decorate-room',
@@ -101,6 +167,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ trang trí căn phòng',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ trang trí ở dưới bên phải nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom right.',
+          failHintVi: 'Thẻ trang trí nằm ở dưới bên phải.',
+          failHintEn: 'The room-decorating card is at the bottom right.',
         },
       ],
     },
@@ -115,25 +189,49 @@ const birthdayPartySpec = {
       introSuccessEn: "Let's take turns and have fun.",
       completionVi: 'Bé đã chơi vui và biết chờ đến lượt.',
       completionEn: 'You had fun and took turns.',
+      characterPosition: rect(7, 42, 24, 39),
+      dropZonePosition: rect(22, 57, 25, 25),
+      dropZoneTouchArea: rect(16, 51, 37, 37),
       vocabulary: [
         {
           key: 'game',
           word: 'game',
           meaningVi: 'trò chơi',
           labelVi: 'trò chơi',
+          position: rect(35, 54, 18, 16),
+          touchArea: rect(29, 48, 30, 28),
+          practiceInstructionVi:
+            'Chạm vào hộp trò chơi trên thảm nhé.',
+          practiceInstructionEn: 'Tap the game box on the rug.',
+          failHintVi: 'Hộp trò chơi nằm trên thảm bên trái.',
+          failHintEn: 'The game box is on the left side of the rug.',
         },
         {
           key: 'music',
           word: 'music',
           meaningVi: 'âm nhạc',
           labelVi: 'âm nhạc',
+          position: rect(61, 37, 16, 18),
+          touchArea: rect(55, 31, 28, 30),
+          practiceInstructionVi:
+            'Chạm vào loa nhạc trên ghế nhé.',
+          practiceInstructionEn: 'Tap the music speaker on the bench.',
+          failHintVi: 'Loa nhạc nằm trên ghế.',
+          failHintEn: 'The music speaker is on the bench.',
         },
         {
           key: 'dance',
           word: 'dance',
           meaningVi: 'nhảy múa',
-          labelVi: 'thẻ nhảy múa',
+          labelVi: 'hình bạn nhảy múa',
           type: 'verb',
+          position: rect(38, 31, 19, 25),
+          touchArea: rect(32, 25, 31, 37),
+          practiceInstructionVi:
+            'Chạm vào bạn đang nhảy bên trái nhé.',
+          practiceInstructionEn: 'Tap the dancing child on the left.',
+          failHintVi: 'Bạn đang nhảy ở bên trái.',
+          failHintEn: 'The dancing child is on the left.',
         },
         {
           key: 'beanbag',
@@ -142,6 +240,14 @@ const birthdayPartySpec = {
           labelVi: 'túi ném hạt',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(57, 57, 15, 12),
+          touchArea: rect(51, 51, 27, 24),
+          practiceInstructionVi:
+            'Kéo túi ném hạt vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the beanbag into the glowing circle.',
+          failHintVi: 'Túi ném hạt nằm ở giữa trên thảm.',
+          failHintEn: 'The beanbag is in the middle of the rug.',
         },
         {
           key: 'puzzle',
@@ -149,6 +255,13 @@ const birthdayPartySpec = {
           meaningVi: 'tranh ghép',
           labelVi: 'tranh ghép',
           tier: 'expanded',
+          position: rect(78, 52, 19, 17),
+          touchArea: rect(72, 46, 28, 29),
+          practiceInstructionVi:
+            'Chạm vào tranh ghép bên phải nhé.',
+          practiceInstructionEn: 'Tap the puzzle on the right.',
+          failHintVi: 'Tranh ghép nằm trên thảm bên phải.',
+          failHintEn: 'The puzzle is on the right side of the rug.',
         },
         {
           key: 'prize',
@@ -156,6 +269,13 @@ const birthdayPartySpec = {
           meaningVi: 'phần thưởng',
           labelVi: 'phần thưởng',
           tier: 'expanded',
+          position: rect(81, 40, 13, 17),
+          touchArea: rect(75, 34, 25, 29),
+          practiceInstructionVi:
+            'Chạm vào phần thưởng trên ghế bên phải nhé.',
+          practiceInstructionEn: 'Tap the prize on the right side of the bench.',
+          failHintVi: 'Phần thưởng nằm trên ghế bên phải.',
+          failHintEn: 'The prize is on the right side of the bench.',
         },
         {
           key: 'take-turns',
@@ -164,6 +284,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ chơi lần lượt',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ chơi lần lượt ở dưới bên trái nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom left.',
+          failHintVi: 'Thẻ chơi lần lượt nằm ở dưới bên trái.',
+          failHintEn: 'The taking-turns card is at the bottom left.',
         },
         {
           key: 'clap-hands',
@@ -173,6 +301,14 @@ const birthdayPartySpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ vỗ tay ở giữa vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the matching action card into the glowing circle.',
+          failHintVi: 'Thẻ vỗ tay nằm ở giữa hàng dưới.',
+          failHintEn: 'The clapping card is in the bottom middle.',
         },
         {
           key: 'join-game',
@@ -181,6 +317,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ tham gia trò chơi',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ tham gia ở dưới bên phải nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom right.',
+          failHintVi: 'Thẻ tham gia nằm ở dưới bên phải.',
+          failHintEn: 'The joining-in card is at the bottom right.',
         },
       ],
     },
@@ -195,12 +339,23 @@ const birthdayPartySpec = {
       introSuccessEn: 'The birthday cake looks beautiful!',
       completionVi: 'Bé đã cùng các bạn thổi nến và chia bánh.',
       completionEn: 'You blew out the candles and shared the cake.',
+      characterPosition: rect(5, 42, 24, 39),
+      dropZonePosition: rect(21, 58, 24, 24),
+      dropZoneTouchArea: rect(15, 52, 36, 36),
       vocabulary: [
         {
           key: 'cake',
           word: 'cake',
           meaningVi: 'bánh sinh nhật',
           labelVi: 'bánh sinh nhật',
+          position: rect(58, 38, 22, 24),
+          touchArea: rect(52, 32, 34, 36),
+          practiceInstructionVi:
+            'Chạm vào bánh sinh nhật ở giữa bàn nhé.',
+          practiceInstructionEn:
+            'Tap the birthday cake in the middle of the table.',
+          failHintVi: 'Bánh sinh nhật nằm ở giữa bàn.',
+          failHintEn: 'The birthday cake is in the middle of the table.',
         },
         {
           key: 'candle',
@@ -208,12 +363,28 @@ const birthdayPartySpec = {
           meaningVi: 'nến',
           labelVi: 'nến',
           practice: 'drag',
+          position: rect(65, 37, 8, 14),
+          touchArea: rect(59, 31, 20, 26),
+          practiceInstructionVi:
+            'Kéo cây nến trên bánh vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the candle on the cake into the glowing circle.',
+          failHintVi: 'Cây nến nằm trên bánh sinh nhật.',
+          failHintEn: 'The candle is on the birthday cake.',
         },
         {
           key: 'plate',
           word: 'paper plate',
           meaningVi: 'đĩa giấy',
           labelVi: 'đĩa giấy',
+          position: rect(81, 48, 16, 11),
+          touchArea: rect(75, 42, 25, 23),
+          practiceInstructionVi:
+            'Chạm vào đĩa giấy bên phải bánh nhé.',
+          practiceInstructionEn:
+            'Tap the paper plate to the right of the cake.',
+          failHintVi: 'Đĩa giấy nằm bên phải bánh.',
+          failHintEn: 'The paper plate is to the right of the cake.',
         },
         {
           key: 'cup',
@@ -221,6 +392,14 @@ const birthdayPartySpec = {
           meaningVi: 'cốc giấy',
           labelVi: 'cốc giấy',
           tier: 'expanded',
+          position: rect(85, 39, 11, 18),
+          touchArea: rect(79, 33, 21, 30),
+          practiceInstructionVi:
+            'Chạm vào cốc giấy trên bàn bên phải nhé.',
+          practiceInstructionEn:
+            'Tap the paper cup on the right side of the table.',
+          failHintVi: 'Cốc giấy nằm trên bàn bên phải.',
+          failHintEn: 'The paper cup is on the right side of the table.',
         },
         {
           key: 'cake-server',
@@ -229,6 +408,14 @@ const birthdayPartySpec = {
           labelVi: 'xẻng lấy bánh',
           practice: 'drag',
           tier: 'expanded',
+          position: rect(44, 53, 18, 9),
+          touchArea: rect(38, 47, 30, 21),
+          practiceInstructionVi:
+            'Kéo xẻng lấy bánh vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the cake server into the glowing circle.',
+          failHintVi: 'Xẻng lấy bánh nằm bên trái bánh.',
+          failHintEn: 'The cake server is to the left of the cake.',
         },
         {
           key: 'fruit',
@@ -236,6 +423,14 @@ const birthdayPartySpec = {
           meaningVi: 'đĩa trái cây',
           labelVi: 'đĩa trái cây',
           tier: 'expanded',
+          position: rect(38, 39, 18, 17),
+          touchArea: rect(32, 33, 30, 29),
+          practiceInstructionVi:
+            'Chạm vào đĩa trái cây bên trái bánh nhé.',
+          practiceInstructionEn:
+            'Tap the fruit plate to the left of the cake.',
+          failHintVi: 'Đĩa trái cây nằm bên trái bánh.',
+          failHintEn: 'The fruit plate is to the left of the cake.',
         },
         {
           key: 'blow-candles',
@@ -244,6 +439,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ thổi nến',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(29, 79, 16, 15),
+          touchArea: rect(23, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ thổi nến ở dưới bên trái nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom left.',
+          failHintVi: 'Thẻ thổi nến nằm ở dưới bên trái.',
+          failHintEn: 'The candle-blowing card is at the bottom left.',
         },
         {
           key: 'serve-cake',
@@ -253,6 +456,14 @@ const birthdayPartySpec = {
           practice: 'drag',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(51, 79, 16, 15),
+          touchArea: rect(45, 73, 28, 27),
+          practiceInstructionVi:
+            'Kéo thẻ chia bánh ở giữa vào vòng sáng nhé.',
+          practiceInstructionEn:
+            'Drag the matching action card into the glowing circle.',
+          failHintVi: 'Thẻ chia bánh nằm ở giữa hàng dưới.',
+          failHintEn: 'The cake-serving card is in the bottom middle.',
         },
         {
           key: 'share-cake',
@@ -261,6 +472,14 @@ const birthdayPartySpec = {
           labelVi: 'thẻ chia bánh',
           tier: 'challenge',
           type: 'phrase',
+          position: rect(74, 79, 16, 15),
+          touchArea: rect(68, 73, 28, 27),
+          practiceInstructionVi:
+            'Chạm vào thẻ chia bánh ở dưới bên phải nhé.',
+          practiceInstructionEn:
+            'Tap the matching action card at the bottom right.',
+          failHintVi: 'Thẻ chia sẻ nằm ở dưới bên phải.',
+          failHintEn: 'The cake-sharing card is at the bottom right.',
         },
       ],
     },
