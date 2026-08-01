@@ -10,17 +10,25 @@ import { atSchoolLesson } from './lessons/atSchool';
 import { bedtimeLesson } from './lessons/bedtime';
 import { beachDayLesson } from './lessons/beachDay';
 import { birthdayPartyLesson } from './lessons/birthdayParty';
+import { calmMyselfLesson } from './lessons/calmMyself';
 import { doctorVisitLesson } from './lessons/doctorVisit';
+import { dressMyselfLesson } from './lessons/dressMyself';
 import { familyDinnerLesson } from './lessons/familyDinner';
+import { fiveSensesLesson } from './lessons/fiveSenses';
 import { grandparentsVisitLesson } from './lessons/grandparentsVisit';
 import { homePlayLesson } from './lessons/homePlay';
 import { libraryVisitLesson } from './lessons/libraryVisit';
 import { lunchTimeLesson } from './lessons/lunchTime';
 import { morningRoutineLesson } from './lessons/morningRoutine';
+import { myBodyLesson } from './lessons/myBody';
+import { myFeelingsLesson } from './lessons/myFeelings';
 import { parkVisitLesson } from './lessons/parkVisit';
+import { personalCareLesson } from './lessons/personalCare';
 import { playtimeLesson } from './lessons/playtime';
 import { snackTimeLesson } from './lessons/snackTime';
+import { speakingUpLesson } from './lessons/speakingUp';
 import { supermarketTripLesson } from './lessons/supermarketTrip';
+import { toiletRoutineLesson } from './lessons/toiletRoutine';
 
 const lessonCatalog: Lesson[] = [
   morningRoutineLesson,
@@ -42,6 +50,14 @@ const lessonCatalog: Lesson[] = [
   doctorVisitLesson,
   birthdayPartyLesson,
   grandparentsVisitLesson,
+  myBodyLesson,
+  fiveSensesLesson,
+  myFeelingsLesson,
+  calmMyselfLesson,
+  personalCareLesson,
+  dressMyselfLesson,
+  toiletRoutineLesson,
+  speakingUpLesson,
 ];
 
 assertValidLessons(lessonCatalog);
@@ -58,15 +74,23 @@ export {
   bedtimeLesson,
   beachDayLesson,
   birthdayPartyLesson,
+  calmMyselfLesson,
   doctorVisitLesson,
+  dressMyselfLesson,
   familyDinnerLesson,
+  fiveSensesLesson,
   grandparentsVisitLesson,
   homePlayLesson,
   libraryVisitLesson,
   lunchTimeLesson,
   morningRoutineLesson,
+  myBodyLesson,
+  myFeelingsLesson,
   parkVisitLesson,
+  personalCareLesson,
   playtimeLesson,
   snackTimeLesson,
+  speakingUpLesson,
   supermarketTripLesson,
+  toiletRoutineLesson,
 };

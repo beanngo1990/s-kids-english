@@ -252,6 +252,9 @@ needs author-written copy.
 Keep `VocabularyItem.word` natural when spoken aloud: action phrases should
 include required articles or possessives, such as `open the book`,
 `raise your hand`, and `wash your hands`.
+Use vocabulary type `adjective` for standalone describing words such as
+`happy`, `quiet`, or `hungry`; do not model them as nouns only to reuse noun
+teacher copy.
 
 Lesson and theme titles should keep `titleVi` plus `titleEn`. Use
 `descriptionVi` for Vietnamese app copy and add `descriptionEn` when the

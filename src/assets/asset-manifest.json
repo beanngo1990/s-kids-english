@@ -5687,6 +5687,765 @@
       "hasAlpha": true,
       "height": 900,
       "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/calm-myself/body-signals/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/calm-myself/body-signals/images/background.webp",
+      "outputBytes": 3472,
+      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/background.png",
+      "sourceBytes": 26804,
+      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/body-signals/images/body-clue.webp",
+      "outputBytes": 18214,
+      "outputSha256": "a0ceee68a6ed92e29b3faecaa041eee191e3787ce6f06fdbaa8abfd32ea24fd5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/body-clue.png",
+      "sourceBytes": 57926,
+      "sourceSha256": "96300d31e7a5b1ddf40b245d75fbcca46bdded5dba2676af72b5c75b698a1269",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/body-signals/images/hands-tight.webp",
+      "outputBytes": 10716,
+      "outputSha256": "2c21e03688fec43db0916c37d3aff285cad526692b4a0bdf7c460cccfb9317b6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/hands-tight.png",
+      "sourceBytes": 43082,
+      "sourceSha256": "702af98499b2264d94b61c709e791fe8e3bc18750cb15c3f84761ff5d2f3389f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/body-signals/images/heart-fast.webp",
+      "outputBytes": 12894,
+      "outputSha256": "a1ca0051464229220c45006bc3ef31331d0dc6aa1ae7799f52c5b5ecc205fbda",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/heart-fast.png",
+      "sourceBytes": 59176,
+      "sourceSha256": "8025d616183d374730f6a47aeaf3ab2585ee19a551af53f3edc5e1e4b215295f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/body-signals/images/heartbeat.webp",
+      "outputBytes": 18460,
+      "outputSha256": "9760687be11f1180013d327911fed312ee02bf785904e3036441292e389ce834",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/heartbeat.png",
+      "sourceBytes": 54250,
+      "sourceSha256": "d52db32a0923eeebd9fcaf020beebe83b076dd20e8194422fd0b7256b296c1b4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/body-signals/images/need-break.webp",
+      "outputBytes": 10222,
+      "outputSha256": "6f33027166f44b18a1acb7d598159ded7226267f4ad7fc76da59d6547e007ee5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/need-break.png",
+      "sourceBytes": 40951,
+      "sourceSha256": "49d580a231142301722ce34bc2049b514a6538caeda50b34b6a75d7efc1657eb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/body-signals/images/quick-breath.webp",
+      "outputBytes": 18812,
+      "outputSha256": "32dbbb890c3c91cde58d45df8b6bd6fd640f2260dbefbb5dd8e5bf08890441db",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/quick-breath.png",
+      "sourceBytes": 58727,
+      "sourceSha256": "3697ffa7a8e22562720a401a861791c6262e2f6a49e617af9bc0ba831ce7ee1d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/calm-myself/body-signals/images/shaky-legs.webp",
+      "outputBytes": 17186,
+      "outputSha256": "0332c675506b9dbc5981563de86d0db63c313b4b828f9a79207292ae963d7ec5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/shaky-legs.png",
+      "sourceBytes": 53103,
+      "sourceSha256": "d52f5a291c8b08d3740357fc29205a300100ba807d113287e4a277490ad952f2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/calm-myself/body-signals/images/tight-fists.webp",
+      "outputBytes": 17574,
+      "outputSha256": "eee9764891ee2fc57b69ad5e521d43c4df70d2afc567af447f28d2dae9306b27",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/tight-fists.png",
+      "sourceBytes": 56142,
+      "sourceSha256": "899e70f70894f65501851dc2ab9c89dc36335e8ea85152101daee03d447455db",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/calm-myself/body-signals/images/warm-face.webp",
+      "outputBytes": 18542,
+      "outputSha256": "0b07c931bfc5df17b900fc10d31109c7230649d1ca915cbce12a6365d34fb54e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-signals"
+      ],
+      "source": "lessons/calm-myself/body-signals/images/warm-face.png",
+      "sourceBytes": 54412,
+      "sourceSha256": "ced14a89193aa0ccb933e35b1a069fdeb048f8945d6c222a4a7774f0fc51b7e2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/calm-myself/comfort-corner/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/calm-myself/comfort-corner/images/background.webp",
+      "outputBytes": 3472,
+      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/background.png",
+      "sourceBytes": 26804,
+      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/comfort-corner/images/comfort-toy.webp",
+      "outputBytes": 17952,
+      "outputSha256": "1b68395e67927f64c85e274c99cf3c6fb6e6848d9b08f32b0572ddb4c150bc55",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/comfort-toy.png",
+      "sourceBytes": 57585,
+      "sourceSha256": "0d45823230d8e95f21d64ba483d1ebc1be051ac7a9f3890020a8f71428fc4397",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/calm-myself/comfort-corner/images/cushion.webp",
+      "outputBytes": 16960,
+      "outputSha256": "fccc4c7456631360bac0143f13b03d6c8aee8f3f7b1a8be05e219b2df979f521",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/cushion.png",
+      "sourceBytes": 55086,
+      "sourceSha256": "678514cde9caafef2111a30a11817cc98f8b53135a843e080bfb8d5ca62326af",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/comfort-corner/images/feelings-card.webp",
+      "outputBytes": 18548,
+      "outputSha256": "13532ae1de0521aea95f9b40e07079a727d6d7cb1e540a540c6136487cb44d72",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/feelings-card.png",
+      "sourceBytes": 58385,
+      "sourceSha256": "a440bf621a60ba468b0c344c23e17a4103c748dbfba5d3ab57916b2d31962f27",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/calm-myself/comfort-corner/images/headphones.webp",
+      "outputBytes": 19076,
+      "outputSha256": "fe839689c2a8e0a1eb7aa439e6f912b61cb93be09767358cf2855d10a147708d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/headphones.png",
+      "sourceBytes": 55292,
+      "sourceSha256": "ea8cfcd500e765e6a9653919241d33c33da52e8353cc8a6a1af48a907e56a3ef",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/comfort-corner/images/need-quiet.webp",
+      "outputBytes": 9814,
+      "outputSha256": "171f83f373643daf50756201c37939c7741d3b0fbbbef92ae298cd2509254847",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/need-quiet.png",
+      "sourceBytes": 39407,
+      "sourceSha256": "15e5a1c5e254f810dff7d17a52e2883cd2af198240e82709787a0f218f843cfe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/calm-myself/comfort-corner/images/quiet-corner.webp",
+      "outputBytes": 28358,
+      "outputSha256": "258d30a1b5cc3bc85533125b35e6db8e866e14493e90d002422d224996bd5e4b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/quiet-corner.png",
+      "sourceBytes": 56992,
+      "sourceSha256": "e8adef31f7c8171c5786c3e17b3d79b45f5dd75e19ac7a1f1e5a14661fdf7591",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/comfort-corner/images/sit-quiet-corner.webp",
+      "outputBytes": 10568,
+      "outputSha256": "625ea5acc011cd0394ae58bdde046402bd9ee6e818274294f567761fb9c713f5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/sit-quiet-corner.png",
+      "sourceBytes": 42372,
+      "sourceSha256": "c7362732da85febd5cc1be8ce49f36c0823b5ced5bcc033d68d681dae4a9b7d8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/comfort-corner/images/squeeze-cushion.webp",
+      "outputBytes": 10448,
+      "outputSha256": "edef4a5429b17a9155fadd1e4546f511943f93e36be79056b0ae9f4bb55f65f6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/squeeze-cushion.png",
+      "sourceBytes": 41559,
+      "sourceSha256": "a4ad3b0d926f09e6743b370d8213cd17bc777c4acb880f41ad070d5a241e852a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/calm-myself/comfort-corner/images/timer.webp",
+      "outputBytes": 16196,
+      "outputSha256": "156d2fa60e1b68ef8963fd97839bf9b9c1765ab7ac0e68e3bece81c08dda1126",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "comfort-corner"
+      ],
+      "source": "lessons/calm-myself/comfort-corner/images/timer.png",
+      "sourceBytes": 53342,
+      "sourceSha256": "f8948c018ee894b4b530f145a23ede04d5f4717e6c40d2ac82b45baebefe3afe",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/calm-myself/slow-breathing/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/calm-myself/slow-breathing/images/background.webp",
+      "outputBytes": 3472,
+      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/background.png",
+      "sourceBytes": 26804,
+      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/slow-breathing/images/belly.webp",
+      "outputBytes": 16386,
+      "outputSha256": "ce0a0157e5efb25a85bb63c415a410a92e35278dae6bbeb175a23b1f9068ab46",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/belly.png",
+      "sourceBytes": 53843,
+      "sourceSha256": "a94d5dd8a64600ed2733c561bba7f3ad7feec1cf8ca1e2d49eadb6e4e0b862da",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/calm-myself/slow-breathing/images/breath.webp",
+      "outputBytes": 16782,
+      "outputSha256": "f71a62e61d9792cfd9f6bf2aeb12cb0699e23edb949800117871bf58911129c0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/breath.png",
+      "sourceBytes": 54744,
+      "sourceSha256": "78fb3c16333df5f3ef522eff610ca298a52107a99b2b47e114168a3596bccdb6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/slow-breathing/images/breathe-in.webp",
+      "outputBytes": 10260,
+      "outputSha256": "6dbd06dcec42b6cedf47871fa79210b2b827eebdd25b2a3b740069c7a824e5b6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/breathe-in.png",
+      "sourceBytes": 41211,
+      "sourceSha256": "e5e7cf798632c1cd792b880df8319269ca8befa66547d89e9e04ac18e86f2b53",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/slow-breathing/images/breathe-out.webp",
+      "outputBytes": 10938,
+      "outputSha256": "542b9fa0521ba4c5776565d64245dd13c590c6d8c278cfc7ac9268c6cb20bce1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/breathe-out.png",
+      "sourceBytes": 44424,
+      "sourceSha256": "5de4d2e1ba9831ff8bba8bf9f09b341c402a9ed7cb8e10eb447ee6d1b85b0f67",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/slow-breathing/images/bubble.webp",
+      "outputBytes": 16670,
+      "outputSha256": "db1dd238fd0b31f119fac87a3eac99fedacba478ec2c6dc9bea2428bc8dfc653",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/bubble.png",
+      "sourceBytes": 54783,
+      "sourceSha256": "57cc43873a08376607d8c097dbe2c838d5c8b20f2df7f5e212a24e011c71f854",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/slow-breathing/images/candle.webp",
+      "outputBytes": 16784,
+      "outputSha256": "c98e8d7f85926d96ed75d5b3c7e02b88407e2266820ffde623be431aafddb104",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/candle.png",
+      "sourceBytes": 54889,
+      "sourceSha256": "a54e409649a87bc6883799e536269947f01c4c9a2598ab3ad66890cb71b49bd7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/calm-myself/slow-breathing/images/count-five.webp",
+      "outputBytes": 10060,
+      "outputSha256": "a91d468a725d5603fd6b834bb40c8902fb7b3ec136a8d24c6c9c98928b46487e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/count-five.png",
+      "sourceBytes": 40063,
+      "sourceSha256": "1b16aff063cf5ff4cc499cb3d0391c06d8167dc6d3927e22240bc907b366e3c7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/calm-myself/slow-breathing/images/feather.webp",
+      "outputBytes": 16908,
+      "outputSha256": "15429638b86de9670b51a2b789bdb14f36d967bb255993bb5aa816261c8ca87f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/feather.png",
+      "sourceBytes": 55170,
+      "sourceSha256": "1a7e631da9bd6a099a5779b50d9ce44064229fbab8a5317f67d61deaada08b0e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "calm-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/calm-myself/slow-breathing/images/pinwheel.webp",
+      "outputBytes": 17158,
+      "outputSha256": "4b70d4c4d31aa85cafc044e779f351574352dbde9ba9ffa61b5cf9b527671f54",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "slow-breathing"
+      ],
+      "source": "lessons/calm-myself/slow-breathing/images/pinwheel.png",
+      "sourceBytes": 55730,
+      "sourceSha256": "62bdaf8a8ea15b156c1cef74052e1b05d58eb7f6d7ef7d6948c570a603e80ecb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
         "doctor-visit"
       ],
       "maxPercent": 39,
@@ -6559,6 +7318,765 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/dress-myself/choose-clothes/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/dress-myself/choose-clothes/images/background.webp",
+      "outputBytes": 3758,
+      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/background.png",
+      "sourceBytes": 26280,
+      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 15,
+      "output": "lessons/dress-myself/choose-clothes/images/cap.webp",
+      "outputBytes": 16612,
+      "outputSha256": "06b92b2a7b2493e207e91b20eb309be65fb8af660facd0a97d790db21f04864d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/cap.png",
+      "sourceBytes": 49626,
+      "sourceSha256": "74cfa538ca882cdabee92ae781b0f81e5d3427bfd1944aa6a5d0103e771a0eb4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/choose-clothes/images/check-weather.webp",
+      "outputBytes": 12154,
+      "outputSha256": "84b5fc73d5ac96d4263d2dcbd0edfdc76a8808e3383fd3e7ec4adb849dfd6368",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/check-weather.png",
+      "sourceBytes": 51425,
+      "sourceSha256": "7309df0fe0a65e09705575cc930bbcbfe24ac0103ffcc79de2eeb8b4d0c1bd5d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/choose-clothes/images/choose-clothes-action.webp",
+      "outputBytes": 12850,
+      "outputSha256": "b175f7af3d227b51e81308f88021608719c2bf5aef757e4533d423d0a3d3bdf0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/choose-clothes-action.png",
+      "sourceBytes": 55735,
+      "sourceSha256": "f13df23f4b17a9550354fa4b794e680c87df5aa6764785a6a8c93bfa6b027e7e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/dress-myself/choose-clothes/images/dress.webp",
+      "outputBytes": 26918,
+      "outputSha256": "084f160c228f37a08f6892ac03b88c1112113a9395b1e3c155581bda6022cfd1",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/dress.png",
+      "sourceBytes": 50741,
+      "sourceSha256": "366e38e01b110d5efad56109cf21c0b6e5ee920e16d188e17dec83883243780f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/choose-clothes/images/lay-out-clothes.webp",
+      "outputBytes": 12682,
+      "outputSha256": "08b91ff7671f5792fdc2c581c2e681117ff0f61ae74362d255152f5beb3b56e2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/lay-out-clothes.png",
+      "sourceBytes": 54796,
+      "sourceSha256": "2255b1d8d69b4708095a83ddfa34cec0404443a27ea1ab8a26fc830966fc0a2b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/dress-myself/choose-clothes/images/raincoat.webp",
+      "outputBytes": 27636,
+      "outputSha256": "bacd3e1a14d6dbfe7333b02932b7a7b317651fbca89e2e6efee0998a213474f6",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/raincoat.png",
+      "sourceBytes": 51721,
+      "sourceSha256": "f7ba86b077dfdcfc43b4b92ce0e27e5abb753b6b138b220a85b451fe19d57a64",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/dress-myself/choose-clothes/images/shorts.webp",
+      "outputBytes": 17122,
+      "outputSha256": "c9cf92758e7dd0ec7bde6a499506f662e68aa47a1e70490735b5c7e5c2b7262f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/shorts.png",
+      "sourceBytes": 50112,
+      "sourceSha256": "81e1a80708412bd3fb6dd641da5030d6670dc54b1ff5359a49ef84ed76ebaa41",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/dress-myself/choose-clothes/images/sweater.webp",
+      "outputBytes": 17904,
+      "outputSha256": "16b783c30ea83621119bc1e67ab4e037ed170429e0bd768129795293988652d9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/sweater.png",
+      "sourceBytes": 52152,
+      "sourceSha256": "bc0ddb989a47a0f0119bd62b28b4202eacdddf0ea1ffdd1b0f89060eff7cddd3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/dress-myself/choose-clothes/images/t-shirt.webp",
+      "outputBytes": 26218,
+      "outputSha256": "4719c355a29c5983fc0f5fc72e387a7dbd158ad7b4a31ac1969f363a80b4377f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-clothes"
+      ],
+      "source": "lessons/dress-myself/choose-clothes/images/t-shirt.png",
+      "sourceBytes": 49455,
+      "sourceSha256": "f9a60001dd8135f2470ac838137eb63d58d14c66367cb043d52b4eee2c404eeb",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/background.webp",
+      "outputBytes": 3758,
+      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/background.png",
+      "sourceBytes": 26280,
+      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/buckle.webp",
+      "outputBytes": 17252,
+      "outputSha256": "b0e43d2b8e24363489a3144ca1ebb50f1405fda2682788d79d050badbddc6c93",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/buckle.png",
+      "sourceBytes": 50602,
+      "sourceSha256": "978849f6ba882f97d2a7bffa79bb1bf5264d39ffaa06f5ed5bc7571e6b4f1fee",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/button-shirt.webp",
+      "outputBytes": 11774,
+      "outputSha256": "29ba992ef1aa2b442653f8a334e335558f324a1202e3a888acbaf26b28feb3e6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/button-shirt.png",
+      "sourceBytes": 50508,
+      "sourceSha256": "81a127fb40f68d93e4bde5c9c972636b5b88bbf86e2c23927c5ffcaed6400c5b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/button.webp",
+      "outputBytes": 17126,
+      "outputSha256": "e80815e40d3a5d6917903d28506346a154b9404630a829fffb3f54a007f6bf2f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/button.png",
+      "sourceBytes": 50429,
+      "sourceSha256": "002b4b6a05b8a89b0a6e301190e455d4464cd9bdc9206337a71e34ec6bed86ae",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 15,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/shoe-strap.webp",
+      "outputBytes": 18342,
+      "outputSha256": "61bc157726e0478e75d492078357d0b5a3065ced43444e0a3b5d4082feed99f6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/shoe-strap.png",
+      "sourceBytes": 53092,
+      "sourceSha256": "7a80ce79e9bfda5bdee8949ea598808e75d3ca20fb58ae81aece35f316d1f7f9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/shoelace.webp",
+      "outputBytes": 17996,
+      "outputSha256": "ce3b8d4b018be11415f9d2375b3b836fc438dd72c645f08f8bf7ecf218f33d5d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/shoelace.png",
+      "sourceBytes": 52379,
+      "sourceSha256": "f7e5b71e70d6a4037e365da86db5d69f3f562d0a42d748ddc8198cfab7735697",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/snap-fastener.webp",
+      "outputBytes": 19036,
+      "outputSha256": "525265c103350c23677935c25de0e42acdfed957d629eab94c77eba3b45561a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/snap-fastener.png",
+      "sourceBytes": 54033,
+      "sourceSha256": "70763d4cd65548c20d8d1aa7949ad43d2cb058fbb4bb7b2e7a5139747502a8e7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/tie-shoelaces.webp",
+      "outputBytes": 12866,
+      "outputSha256": "e35c92858018f2089391b0716a5ad939fca4e0085fed5d79b8d9bda7d5d92ba2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/tie-shoelaces.png",
+      "sourceBytes": 54852,
+      "sourceSha256": "e13506a492c09f00e13f5908de28cb1ac922fa2113e158449500a07a8625fe1b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/zip-jacket.webp",
+      "outputBytes": 12354,
+      "outputSha256": "bcc65d502adbee8441254b9436c67ab98ba3d4410bdbf9161d3768f9660baef2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/zip-jacket.png",
+      "sourceBytes": 53745,
+      "sourceSha256": "803145f3c1501f9f43c81c2387a59516c8259f4d6765ae8b78c4d236d984326a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/dress-myself/fasteners-and-shoes/images/zipper.webp",
+      "outputBytes": 17130,
+      "outputSha256": "07928b9009c0b5cfdb76bee2a7829f75f48b8aaa4c10781f15d219e05bb618cc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fasteners-and-shoes"
+      ],
+      "source": "lessons/dress-myself/fasteners-and-shoes/images/zipper.png",
+      "sourceBytes": 50350,
+      "sourceSha256": "26877932f36297523c9b3ddf07c86225cf52ec1a83eb19a7a4699821310514fd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/put-on-clothes/images/arms-through-sleeves.webp",
+      "outputBytes": 13960,
+      "outputSha256": "64220f0a4652e67ec78583532c4244207d723d4410c1294b3f7e225ff6f09668",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/arms-through-sleeves.png",
+      "sourceBytes": 57795,
+      "sourceSha256": "d5874b5dea59c1365672f588cdf8bd019c176d824889d52a07bc90b7a0b9ee2e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/dress-myself/put-on-clothes/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/dress-myself/put-on-clothes/images/back.webp",
+      "outputBytes": 16902,
+      "outputSha256": "36f3481bd2e22fddd90ecff8f3c75c86e42891b59d17515975c3888075e9d6d8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/back.png",
+      "sourceBytes": 50289,
+      "sourceSha256": "62c38023acd577f3db34aedd6fed488bf29728b8476e44a2d988553c076228e8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/dress-myself/put-on-clothes/images/background.webp",
+      "outputBytes": 3758,
+      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/background.png",
+      "sourceBytes": 26280,
+      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/dress-myself/put-on-clothes/images/clothing-tag.webp",
+      "outputBytes": 18596,
+      "outputSha256": "56f7060c1083535a844aa47506eafae84538222f151a2182d19f0e5ebb2d99f1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/clothing-tag.png",
+      "sourceBytes": 53157,
+      "sourceSha256": "4a244693e1fa8bf0f441263b0cace726af3df4c89031fab190199c541eea8e96",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/dress-myself/put-on-clothes/images/collar.webp",
+      "outputBytes": 16854,
+      "outputSha256": "f542c90be85f5bcf0ce342de8292a1f89057fe2938d5719fbfd0e303a1d22763",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/collar.png",
+      "sourceBytes": 50118,
+      "sourceSha256": "73374f1ee3815e34d863d26bf491d5162546cd649ac6690f82779ae1f195f5b2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/dress-myself/put-on-clothes/images/front.webp",
+      "outputBytes": 16760,
+      "outputSha256": "8a759799df31772f51b8f200bf53ed4b157ff30e88c7c38956f8d7756eb82a49",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/front.png",
+      "sourceBytes": 49479,
+      "sourceSha256": "779ff7be514033638ee6c93c5fcd1f168b373df2810d952b5c002916618031a7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/put-on-clothes/images/pull-up-shorts.webp",
+      "outputBytes": 12388,
+      "outputSha256": "e1c9655674de667ad9516e088259a9722a4fb6db7f61ac7f83bdf830d81eba90",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/pull-up-shorts.png",
+      "sourceBytes": 53059,
+      "sourceSha256": "acb9b58f44de58df64a70d305776e7cf771bf225ffbcbefc3cce6ef8d33b3c35",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/dress-myself/put-on-clothes/images/sleeve.webp",
+      "outputBytes": 17318,
+      "outputSha256": "3e04f9875947cb0752815b1eb006e666ccdd038c6671af47064ce045220f5448",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/sleeve.png",
+      "sourceBytes": 51097,
+      "sourceSha256": "c82b1a85a8d5a7ff0bf6b1cee855ca5601e5b36ddfc0ade9ef1d0067c53c2e11",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/dress-myself/put-on-clothes/images/turn-shirt-around.webp",
+      "outputBytes": 12770,
+      "outputSha256": "224a03ecb7cb12ab87d4f80c133782deae415d15c1b0cd47b28920703541ee5a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/turn-shirt-around.png",
+      "sourceBytes": 54722,
+      "sourceSha256": "210e45cddf950d8292168e406b9a0e0d382c15178037b58bf3786bd269579bae",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "dress-myself"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/dress-myself/put-on-clothes/images/waistband.webp",
+      "outputBytes": 18382,
+      "outputSha256": "9553bb66e500195c1e90d4e03244ad7294ff63985b35bb518a7b448d12c8953c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "put-on-clothes"
+      ],
+      "source": "lessons/dress-myself/put-on-clothes/images/waistband.png",
+      "sourceBytes": 53101,
+      "sourceSha256": "4ec105433bdc22605f6fad50cb692e0ec2d4e39e22ff29b7712c58cbf6a1de28",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
         "family-dinner"
@@ -7198,6 +8716,765 @@
       "source": "lessons/family-dinner/dinner-table/images/vegetables.png",
       "sourceBytes": 967286,
       "sourceSha256": "b6a7a96240c28676a91456931eac6f2688d47086cd1b327fbc08ee99fe0988df",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/five-senses/hearing-world/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/five-senses/hearing-world/images/background.webp",
+      "outputBytes": 3422,
+      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/background.png",
+      "sourceBytes": 24424,
+      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 14,
+      "output": "lessons/five-senses/hearing-world/images/bell.webp",
+      "outputBytes": 16424,
+      "outputSha256": "b645baf9820500bd44843752a216979e5d5c6ef9aa921e2e79c635b116d7278d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/bell.png",
+      "sourceBytes": 50337,
+      "sourceSha256": "bb46f80d473e39238273cc051f1e44d58d5d148b589acb6967904b1d8cc9c01e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/hearing-world/images/cover-ears.webp",
+      "outputBytes": 11696,
+      "outputSha256": "2146c5d16889bd254425fff27942a0bb4b2610542a2e5f547e2920d993e9c634",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/cover-ears.png",
+      "sourceBytes": 56915,
+      "sourceSha256": "abbd19c66be4e1787523dbf3050d52c4a82dc9618f92b849f68586c1be718f4c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/hearing-world/images/follow-sound.webp",
+      "outputBytes": 11092,
+      "outputSha256": "2a47ce739e4ca27b974bc9a2e88a31b7a100ef500c9d2852e6c782993d6f602b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/follow-sound.png",
+      "sourceBytes": 53334,
+      "sourceSha256": "4bfe57458d050826046c71025601086e048b542b2d4b27713421b3efa69c5af2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/five-senses/hearing-world/images/hear.webp",
+      "outputBytes": 25866,
+      "outputSha256": "2b3ab00f6087ccc0f508301d36de595124b203d1cd728c2c60b9f572f6025de6",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/hear.png",
+      "sourceBytes": 51145,
+      "sourceSha256": "e1acaade43ff50384ca0793308ab2db2cd052b506b21eb31d2439c9df9f478d2",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/hearing-world/images/listen-carefully.webp",
+      "outputBytes": 10952,
+      "outputSha256": "7d0435f8dea3b17d0648d6cba569893d1cd6b28c8d394d8e3f3d4a3189cfdd20",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/listen-carefully.png",
+      "sourceBytes": 52662,
+      "sourceSha256": "6aa449795c826e5c4a3cee9d5cc138fef4bbf882c9c0dfb4e96633a77f11d14c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/hearing-world/images/loud.webp",
+      "outputBytes": 16586,
+      "outputSha256": "cac73e70a0974eb787b6e310736786cc9fe66e27c798232ec9e22beecd7c306e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/loud.png",
+      "sourceBytes": 50868,
+      "sourceSha256": "444c30696efbc181c74304809c04392bc8e8cf82ab83bbd1f73822372a630425",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/hearing-world/images/music.webp",
+      "outputBytes": 16990,
+      "outputSha256": "7e3e9a2aac639a20546b2538cbd2554418dc28231700ce77cbf5f069a5e1f7af",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/music.png",
+      "sourceBytes": 51619,
+      "sourceSha256": "1a9e1a639a3580d6c21364b40902631c8f85438fac382b969cb0d5f814e76e8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/five-senses/hearing-world/images/quiet.webp",
+      "outputBytes": 16858,
+      "outputSha256": "c00b403ff23991ec7d1c4a54b5c297e95a3c969ba894130965eacb2d02bf3b86",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/quiet.png",
+      "sourceBytes": 51234,
+      "sourceSha256": "b38140ac1dc994188238eb88deeb8a61307414690cf6e862da7526d1c44c61a3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/five-senses/hearing-world/images/sound.webp",
+      "outputBytes": 17108,
+      "outputSha256": "a42d3450adcf63154ce32a5473936380f17971a12d485ea16f534785b1a614fa",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hearing-world"
+      ],
+      "source": "lessons/five-senses/hearing-world/images/sound.png",
+      "sourceBytes": 52070,
+      "sourceSha256": "122c91351cad88bb5cb28fdca451b8a35df5145730507709ab138e651ed791f1",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/five-senses/seeing-world/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/five-senses/seeing-world/images/background.webp",
+      "outputBytes": 3422,
+      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/background.png",
+      "sourceBytes": 24424,
+      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/seeing-world/images/close-eyes.webp",
+      "outputBytes": 11744,
+      "outputSha256": "96d29f5ab49251d1ba722b9587c57b231101170e23347c7b49753db290dca31a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/close-eyes.png",
+      "sourceBytes": 47857,
+      "sourceSha256": "627a1e7a637120faf55e9cbe8e90c814aa5e9130c931943bec505d01dacf3d49",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/five-senses/seeing-world/images/color.webp",
+      "outputBytes": 18838,
+      "outputSha256": "874553a27646005ae02cde33b5f132af2add44b8e988a09a8df14a2b5e8f0494",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/color.png",
+      "sourceBytes": 56222,
+      "sourceSha256": "4190289a1cdf17355ab3288f6d49d8c9a44205a891ef07e529828d646adc47ec",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/seeing-world/images/find-red-circle.webp",
+      "outputBytes": 12730,
+      "outputSha256": "09402e6171fba8a1c7c7adee6cf3d842f575eb4f383cfe8e971d2d44cb9d8ebc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/find-red-circle.png",
+      "sourceBytes": 57698,
+      "sourceSha256": "208ef0a1d6fe77fc54f301b189b2cf77d7324a6ca4be9bdd7d4d41476cb87a95",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/seeing-world/images/light.webp",
+      "outputBytes": 18750,
+      "outputSha256": "2de7b561fcdd88ed9a7cd770219d9981ecc15da997055d1615a5c65cf66c9cf2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/light.png",
+      "sourceBytes": 55345,
+      "sourceSha256": "ada50cec648456a874a07c0d73f613e266d7cc7d3182aa5963154206a820be83",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/seeing-world/images/look-closely.webp",
+      "outputBytes": 12178,
+      "outputSha256": "62a5162d343533a89f9285ba2ac2b7ad61ef48be62490b7dfcbd52f0c138a119",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/look-closely.png",
+      "sourceBytes": 55748,
+      "sourceSha256": "597d47b4c8d30a83f41023646d74f079aff593a2dcc29c46ebaca605a465bdd6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/five-senses/seeing-world/images/magnifying-glass.webp",
+      "outputBytes": 21438,
+      "outputSha256": "fb37fbde3582e106d74b2fdfc9443692a4662e2b74cadb03836ba06573118fd2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/magnifying-glass.png",
+      "sourceBytes": 61084,
+      "sourceSha256": "fe0753ebc684a6947a0c4ebbe67884a93b7f1d4d4e5530c6ce20d29cb6f1838b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/five-senses/seeing-world/images/see.webp",
+      "outputBytes": 29278,
+      "outputSha256": "b77002f26fbe1a076a6b1249dd14edc2bdf0dddf9876cf12d43ff11306f35613",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/see.png",
+      "sourceBytes": 55765,
+      "sourceSha256": "ead524e1c3437aeae32f4e3585fae2fb87e97790da017c4be5ed2d6003d1d3a5",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/five-senses/seeing-world/images/shadow.webp",
+      "outputBytes": 19926,
+      "outputSha256": "08d0eca899ce7e812b05fdbd08e922312ded29143d3bed89c6520c502f914105",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/shadow.png",
+      "sourceBytes": 58238,
+      "sourceSha256": "c103f622f142649f22de0247fc7804194b4940097bb933856981937ed61909b4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/seeing-world/images/shape.webp",
+      "outputBytes": 19322,
+      "outputSha256": "e89015df83d8a94be0c5aabbe9ff7935c42ebaac01448547aae30577dd71fc21",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "seeing-world"
+      ],
+      "source": "lessons/five-senses/seeing-world/images/shape.png",
+      "sourceBytes": 57096,
+      "sourceSha256": "e4bd6661b5dcb986c557ae1b42bc45421921ebb7c2cbc45ce0c2cecee2694d07",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/five-senses/smell-taste-touch/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/five-senses/smell-taste-touch/images/background.webp",
+      "outputBytes": 3422,
+      "outputSha256": "4a0ccc3aa3526b5609007fb60b28faa1bbe002237d94511939b821878d1d0438",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/background.png",
+      "sourceBytes": 24424,
+      "sourceSha256": "9855b1b13beb52e34946d866ea39777b57fb4a7f4f59e7fd6d531521a51ffb98",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/smell-taste-touch/images/smell-flower.webp",
+      "outputBytes": 12090,
+      "outputSha256": "d0c889cf00f415d0c3898ae1b4fadb6b7cc929195df992224459d85d5e1464ec",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/smell-flower.png",
+      "sourceBytes": 54914,
+      "sourceSha256": "651dfe8e3a8e54951d7e695e8bf8047e80e3be63b81ed2fb1c36f4ae4389e6d7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/five-senses/smell-taste-touch/images/smell.webp",
+      "outputBytes": 18902,
+      "outputSha256": "3e798cf3478c4887887d8615d964f7788eca43018adc870ae9370c295e87f473",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/smell.png",
+      "sourceBytes": 55805,
+      "sourceSha256": "303a776dfcfb315c168af4c38d1ffab65b5b5bc29b1367f12de77690a246c0b3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/five-senses/smell-taste-touch/images/soft.webp",
+      "outputBytes": 18728,
+      "outputSha256": "58ee21fd0c752d0b529d5cd026689924962ad5b6266ef4572e4c4a69fd5906e7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/soft.png",
+      "sourceBytes": 55890,
+      "sourceSha256": "6996193f53bc737103712f3647f56ad0d9aabd0605da5d1e05e938f75b8ed84f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/smell-taste-touch/images/sour.webp",
+      "outputBytes": 18752,
+      "outputSha256": "7b45789a8883c9ccf9b58cec60da888f942c3f13bba598aecb8ef7455c64598a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/sour.png",
+      "sourceBytes": 55771,
+      "sourceSha256": "380e10ef78734d2db69130e7fb48300d0a695118f6b56c3de7950867ff26c1b4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/smell-taste-touch/images/sweet.webp",
+      "outputBytes": 19396,
+      "outputSha256": "8d4a0146cce654d0d1057cc30c59fa9b0509c60ab636a6a0dd3ef1a0f784e1d4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/sweet.png",
+      "sourceBytes": 57320,
+      "sourceSha256": "fa77f322f7537e53d3f535e47c5c36176a3533de70f3e537bf2b156af1880683",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/smell-taste-touch/images/taste-lemon.webp",
+      "outputBytes": 12652,
+      "outputSha256": "4932ad526292e26d0d6c21f46a340f2e393108d12dd4db724b07ccfa338013a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/taste-lemon.png",
+      "sourceBytes": 56318,
+      "sourceSha256": "f126afbf9cb8d0b0ada16bc879cf69033fda9ab7b4e27161c0f7587d8b36c8aa",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/five-senses/smell-taste-touch/images/taste.webp",
+      "outputBytes": 19118,
+      "outputSha256": "e03c4da4b3adcf9f26afdd0674782e1e2a4774a3bd86241dfc4c56847a5b5e35",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/taste.png",
+      "sourceBytes": 56698,
+      "sourceSha256": "a1b54152eb1e9d03b0d4ca47f58a944bfe53be2d5e8c3cd8866c1fc1d9abcd1d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/five-senses/smell-taste-touch/images/touch-feather.webp",
+      "outputBytes": 12334,
+      "outputSha256": "e344b9fba718a64881a40287c1b0ad9ca10f5650d5a558e5feff95fa60e109e8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/touch-feather.png",
+      "sourceBytes": 55800,
+      "sourceSha256": "d47fcde83ace8fe8fafc296117c8b9c0ae15cdc2d4b90afd71409e46e5a05c80",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "five-senses"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/five-senses/smell-taste-touch/images/touch.webp",
+      "outputBytes": 18988,
+      "outputSha256": "7d45cadce9877f789f43bc7a705bf330cc1a700111ce65465201fd3e846739ce",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "smell-taste-touch"
+      ],
+      "source": "lessons/five-senses/smell-taste-touch/images/touch.png",
+      "sourceBytes": 56278,
+      "sourceSha256": "b85d3499c97105d3ef4d44e8d5c27390aa8f604725e794d62584e69d1a1b2a60",
       "width": 512
     },
     {
@@ -10929,6 +13206,1524 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/my-body/arms-and-hands/images/arm.webp",
+      "outputBytes": 14384,
+      "outputSha256": "cc17bb8ef463cb17d694716e6fefabd45792724b19bbeb3d41e04afb4f20d205",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/arm.png",
+      "sourceBytes": 43460,
+      "sourceSha256": "d8fceed06a29db0a838f16af34f8d510087005d536c6a6b7dbdd578e530c4fc2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/my-body/arms-and-hands/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-body/arms-and-hands/images/background.webp",
+      "outputBytes": 3312,
+      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/background.png",
+      "sourceBytes": 24330,
+      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/arms-and-hands/images/clap-hands.webp",
+      "outputBytes": 11232,
+      "outputSha256": "edf3012d3d13665e6621be900668dc20cf3a1a76c30fbaf9fb3686741ce6919e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/clap-hands.png",
+      "sourceBytes": 49212,
+      "sourceSha256": "e3a0f325ac8f884ae65dd8af72810c97ecd90bd3cfee8190d30d6dbfe4e3b9a7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-body/arms-and-hands/images/elbow.webp",
+      "outputBytes": 15276,
+      "outputSha256": "64d2b0e2992b25e9b77c69392bb42de281451e2a37f947dc88d2bb48f961e406",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/elbow.png",
+      "sourceBytes": 45093,
+      "sourceSha256": "24dd79ea0e7279a136ccb1127267f3750b31a96e910912ecd3d8be13d8de1687",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/arms-and-hands/images/fingers.webp",
+      "outputBytes": 16206,
+      "outputSha256": "16265cf75271bdd9f4932a44079843188c6b3245c554620a68ebb6de22917535",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/fingers.png",
+      "sourceBytes": 47688,
+      "sourceSha256": "b9b8dd824d4b73ce36027c999ea35f0f215dcc3f640e1c050341679f94264f54",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/my-body/arms-and-hands/images/hand.webp",
+      "outputBytes": 15502,
+      "outputSha256": "fdfcffb260b5ee80428f6b99d5c628105407c8800918dd5ff848072c6e29f993",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/hand.png",
+      "sourceBytes": 46139,
+      "sourceSha256": "c9936d2abd4b6c39a90be89c9b8902e6b2489cad03e7bff6e6dae928aff08e53",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/arms-and-hands/images/raise-arms.webp",
+      "outputBytes": 10986,
+      "outputSha256": "3bdd76add64397b2c70c346eb0cb2af5d92a2359d85436d0bbc9987ad63e2fe1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/raise-arms.png",
+      "sourceBytes": 47932,
+      "sourceSha256": "d4c8c82b763c48f2cda2672296ee7448392416f2c3717935cde53f5ab850ad40",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/arms-and-hands/images/thumb.webp",
+      "outputBytes": 16640,
+      "outputSha256": "139fec5064f9f9971857fafe84b27f652237bf3ca787f3cb041738839c11b367",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/thumb.png",
+      "sourceBytes": 48835,
+      "sourceSha256": "1c9f179f6207ddf8cca7f19a5edaa8a13767753e9d7f795f099061c5f4952da7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/arms-and-hands/images/wiggle-fingers.webp",
+      "outputBytes": 11962,
+      "outputSha256": "61c44613c84010fc931d913a3a5ba7bf9c3c812893c68a5efefc7dc52d70a202",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/wiggle-fingers.png",
+      "sourceBytes": 52497,
+      "sourceSha256": "6c258c6999b96b6f5e3d554c2d1ec847e573bba5d4b7bfc5cc1b4b3b7286fc07",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/arms-and-hands/images/wrist.webp",
+      "outputBytes": 14996,
+      "outputSha256": "1e456635e2810b74e01361b630e6cabf4ffaa6048b717f9673dce19363623c50",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "arms-and-hands"
+      ],
+      "source": "lessons/my-body/arms-and-hands/images/wrist.png",
+      "sourceBytes": 44529,
+      "sourceSha256": "35b35bcac3a92d45effc2d302881f0ee4728c1a3d6360961b5c03ffc138ede8b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/my-body/head-and-face/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-body/head-and-face/images/background.webp",
+      "outputBytes": 3312,
+      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/background.png",
+      "sourceBytes": 24330,
+      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/head-and-face/images/ears.webp",
+      "outputBytes": 17798,
+      "outputSha256": "4ba71f726452e2c865eae2232c1d0b0e3295eb5acadbc3927ace80ed47e2fdd0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/ears.png",
+      "sourceBytes": 53945,
+      "sourceSha256": "a8842c9d5ee1c22a384e82fb4b05f3c7d229a5a2385a98f798cc4a27d6b320e3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/my-body/head-and-face/images/eyes.webp",
+      "outputBytes": 15760,
+      "outputSha256": "6f4a39457027a2793aade762959424326bd27d8f7841959e0ef111db59879e16",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/eyes.png",
+      "sourceBytes": 45063,
+      "sourceSha256": "118c1f65933b536e779983a3c02e61f5557af4e78d0a26f73142094ae9b2c452",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-body/head-and-face/images/hair.webp",
+      "outputBytes": 16666,
+      "outputSha256": "33629d08958adccc0b00efb2430808c1394811aac593ae743d1f0ef25a4b2b90",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/hair.png",
+      "sourceBytes": 53950,
+      "sourceSha256": "d971f59ed5c868f4d9d78facfd97654eed2aa9773bad113874243d06227bea88",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-body/head-and-face/images/head.webp",
+      "outputBytes": 18002,
+      "outputSha256": "225a16ae6c97a53305cdfeaeb4905d0f3801df2e70c0f6902b2b09b8573259e1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/head.png",
+      "sourceBytes": 58886,
+      "sourceSha256": "8ffb30e2ee25d9d1c679d999eeb91f66e38ffb40c0e3ce38df151aeb75bf81cb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/head-and-face/images/mouth.webp",
+      "outputBytes": 17284,
+      "outputSha256": "b13b69136f5c5e461759c46e2673241cbaad78ad2aadf5468afe9727d97af642",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/mouth.png",
+      "sourceBytes": 51123,
+      "sourceSha256": "999d8fcb49be1998e5ab88c1a7ac78b51e2f4cddd0929a65e3033549f0fceaf1",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-body/head-and-face/images/nose.webp",
+      "outputBytes": 14932,
+      "outputSha256": "8ac7479ec8adb7a3d75c59f77459aa2d6f7bd98e4c12325db800a0be0330f5b7",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/nose.png",
+      "sourceBytes": 47354,
+      "sourceSha256": "e344f15b10f3cb5cc57c8dcbf3db70439f45a43e7cf5922b94cfc4a1630d6a15",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/head-and-face/images/open-mouth.webp",
+      "outputBytes": 12366,
+      "outputSha256": "1ba83dc2535651d9f993e8c55c139e3cee7b37b4d0468ed0ebd403000798422c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/open-mouth.png",
+      "sourceBytes": 52990,
+      "sourceSha256": "130ef1a9c8588fa18df1aedc3ca2d98addf6fa8444f27d3b87557c03f0e7be7c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/head-and-face/images/point-nose.webp",
+      "outputBytes": 10890,
+      "outputSha256": "c3d5d3eda5e9bc713a84e1bdc567fd07a45f2a9bfd10c5a9308bfd511ad51d95",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/point-nose.png",
+      "sourceBytes": 51121,
+      "sourceSha256": "f93ebabbb9c2570095b2bb2c1037a1a280aa1ca8317d5634c5f3b2e9f9d41e66",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/head-and-face/images/touch-head.webp",
+      "outputBytes": 13240,
+      "outputSha256": "d6304c1ac613ce4f8fa11dc929857b4c5526b302af1c9fb184b55dba17f93a69",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "head-and-face"
+      ],
+      "source": "lessons/my-body/head-and-face/images/touch-head.png",
+      "sourceBytes": 59113,
+      "sourceSha256": "d0d939bb22eff467e6208b332e2993acbe48b56dc0e13e79e038de1b32f300d5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/legs-and-feet/images/ankle.webp",
+      "outputBytes": 15266,
+      "outputSha256": "98597a81be1a226700002ef43e255bddcd3ed79bdbd031f5bed8a72cc34f6f35",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/ankle.png",
+      "sourceBytes": 48689,
+      "sourceSha256": "c06e84a1d28ac41b87eb60bb9b21dd08844184cf13490598b14021d60da9ba4a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/my-body/legs-and-feet/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-body/legs-and-feet/images/background.webp",
+      "outputBytes": 3312,
+      "outputSha256": "090f35b97c0c1b54606a0e70074804da86f74b4b3ba431e1d0ae51cbfc184672",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/background.png",
+      "sourceBytes": 24330,
+      "sourceSha256": "5669d70d8b51ef2643530d217c63aa07d021bc1b20f7e12c663a2de3d1a148f2",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/legs-and-feet/images/bend-knees.webp",
+      "outputBytes": 12062,
+      "outputSha256": "25a3d3d8160823b4b48f72bd4f3a3995482c8fc8dc7c4bf123a182fb89b9d560",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/bend-knees.png",
+      "sourceBytes": 54140,
+      "sourceSha256": "d06ffb393d8067ab753fb809a1499b78463f0bc56807b5342f31003b286c399d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/my-body/legs-and-feet/images/foot.webp",
+      "outputBytes": 16376,
+      "outputSha256": "2b14d7ed8d48e206e9f67121598ca562613720fca86d2d68d7411fc429e4ffab",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/foot.png",
+      "sourceBytes": 51062,
+      "sourceSha256": "06e80dc30b7d25df57a0bb86e95adc71b91415f7baf532e75662033d4e324121",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/legs-and-feet/images/heel.webp",
+      "outputBytes": 16236,
+      "outputSha256": "59f6c5fc28064758a5de2115b121cf27e56624f3822405cf65b862ba043513c3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/heel.png",
+      "sourceBytes": 50678,
+      "sourceSha256": "12c482971f8185e4e5017b9e54d38e9609367b3e923762ec3bec2dc3f9d314e7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-body/legs-and-feet/images/knee.webp",
+      "outputBytes": 15168,
+      "outputSha256": "932ab106bae5e06bac56b998d2b3ce5aec782a7458c54787bbf5593d6e709aa4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/knee.png",
+      "sourceBytes": 48412,
+      "sourceSha256": "f238c7a3bcc8cf97b54d3283e7629beb1ddae5097a079b9c221b06f7eec12505",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/my-body/legs-and-feet/images/leg.webp",
+      "outputBytes": 14772,
+      "outputSha256": "6b97ee572cdc32061e8967de4132acd06be9755ec851eb66185da664e022eb95",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/leg.png",
+      "sourceBytes": 47987,
+      "sourceSha256": "37584e61b7f1e637d65bcff5cce65fc652fa296a4285fab193820e03a0c93127",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/legs-and-feet/images/stomp-feet.webp",
+      "outputBytes": 12390,
+      "outputSha256": "8d8b5467fc3c2c1f29d5651161f93f84a581a1f69a0a2dc2475906774ed37c94",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/stomp-feet.png",
+      "sourceBytes": 56341,
+      "sourceSha256": "9f201b189a7ec3c5f46d5e62f5aac8ce898e7ef3d8869341f27ae2e64cea6eb8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/legs-and-feet/images/tiptoes.webp",
+      "outputBytes": 12002,
+      "outputSha256": "c1397a8700c44ac8d3c849b7acdb301959325a7dd6f74275242bd90f61fbeffd",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/tiptoes.png",
+      "sourceBytes": 55136,
+      "sourceSha256": "5f6d1a5e9e8a090034f4fcd1feb607e5c2d652febe82846a3c27d3393c609e5b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-body"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-body/legs-and-feet/images/toes.webp",
+      "outputBytes": 16536,
+      "outputSha256": "34778aa28d39f3f764874af0e2ef8a53c7a1456367a3e108e9640965ad43ca34",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "legs-and-feet"
+      ],
+      "source": "lessons/my-body/legs-and-feet/images/toes.png",
+      "sourceBytes": 51492,
+      "sourceSha256": "ae2eaaafc218d162f0eb0c1669f10a7ff56d9df16b2f66bd2b930c9e6bbe83f9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/my-feelings/angry-and-scared/images/angry.webp",
+      "outputBytes": 27646,
+      "outputSha256": "020e683885b247ffe8a28ee7fe4b72d10bd8bcbfe429fe6389951f196cd64c2e",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/angry.png",
+      "sourceBytes": 54448,
+      "sourceSha256": "4842364cbd95917c51d38ebf71155397859e8e1c7d2f6be425618c41b5691527",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/my-feelings/angry-and-scared/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-feelings/angry-and-scared/images/background.webp",
+      "outputBytes": 3132,
+      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/background.png",
+      "sourceBytes": 24334,
+      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/angry-and-scared/images/brave.webp",
+      "outputBytes": 17058,
+      "outputSha256": "3b0242e5e5b9031c180a0df1c59fd09a248062c8f7c5282d5642ddde1146368f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/brave.png",
+      "sourceBytes": 52497,
+      "sourceSha256": "9496f3196dbf49e43895ac80a920e447a4549b78c7e7a3581e14e73112377906",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/angry-and-scared/images/feel-angry.webp",
+      "outputBytes": 12018,
+      "outputSha256": "511f9930fb19412f444b5a9e14dba0a42118163b00232257f9d70bd777ee4588",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/feel-angry.png",
+      "sourceBytes": 53342,
+      "sourceSha256": "570063634dc7a3f5189dd8e63597af7048cbd90aabff17207e108b0a4000294e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/angry-and-scared/images/feel-scared.webp",
+      "outputBytes": 12168,
+      "outputSha256": "773a85c31f06072111bce8c3bc90d3edb8cc9f39b533abe4d3012df3efb1fda2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/feel-scared.png",
+      "sourceBytes": 54166,
+      "sourceSha256": "62156f3d32fdfe363840c3fcd3da46ab04f392680ac549344ed14123b967d6be",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-feelings/angry-and-scared/images/safe.webp",
+      "outputBytes": 16838,
+      "outputSha256": "45da9844636d9228bdbb4546e7c063f54e5116279599f9ebec2158e847dd745a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/safe.png",
+      "sourceBytes": 51976,
+      "sourceSha256": "9ea1f9275dc55c4ff770e0c0660ac0cc2543c64f2315f7e7329ecc444fdde4e2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/my-feelings/angry-and-scared/images/scared.webp",
+      "outputBytes": 28190,
+      "outputSha256": "c98c6d9ab01f029b4d758d7776bb6df12ffc31f37dbdd94a94e7eb6231d28219",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/scared.png",
+      "sourceBytes": 55330,
+      "sourceSha256": "7b90d1912a77b8d4c450c8a05f362aa51770ff2b9be62a9a22d495748f1b4f13",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/angry-and-scared/images/stay-with-me.webp",
+      "outputBytes": 11750,
+      "outputSha256": "0186342491a12115935e2cfaf712cfd680fbbece6dd9d9bb404479e0e2374c97",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/stay-with-me.png",
+      "sourceBytes": 52411,
+      "sourceSha256": "db7f9d6e4f287475f0d30c81cb9a78d58aed8cc0823f12cb617747343a490bfd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/angry-and-scared/images/upset.webp",
+      "outputBytes": 17476,
+      "outputSha256": "5196fc41549fa151b68e248b34e0347ee868ed2aeddc5c75bfc575b0b0cd2048",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/upset.png",
+      "sourceBytes": 54052,
+      "sourceSha256": "5bdff7fedcfca5bbd800a5a121f9dbc96feefb0fa19baf123af1e9eea62c282e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/angry-and-scared/images/worried.webp",
+      "outputBytes": 17924,
+      "outputSha256": "8eccb8dad03b8a757f2d2ba903e342c4f11baff78450e6e3fed5f426bc96299c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "angry-and-scared"
+      ],
+      "source": "lessons/my-feelings/angry-and-scared/images/worried.png",
+      "sourceBytes": 55167,
+      "sourceSha256": "7429be65833ce1d620dabb3c4305111ab212c10444eaeb58d98abcfa53e9a50d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/excited-and-proud/images/am-excited.webp",
+      "outputBytes": 11656,
+      "outputSha256": "b557eb06e7ac5f987fd1ddbac08bc219180e9898eee7b3cc8a27b3c1a2b81c9d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/am-excited.png",
+      "sourceBytes": 51810,
+      "sourceSha256": "c66475d782cd858d77b913c5ef1050da4d98917f1815ea06ed8373e715b0ff56",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/my-feelings/excited-and-proud/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-feelings/excited-and-proud/images/background.webp",
+      "outputBytes": 3132,
+      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/background.png",
+      "sourceBytes": 24334,
+      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/excited-and-proud/images/curious.webp",
+      "outputBytes": 17286,
+      "outputSha256": "8562320cf0cb7eb66967cbdf15eb29ace89b47352a094f858ca1cf7660d7ac21",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/curious.png",
+      "sourceBytes": 52773,
+      "sourceSha256": "3c97ea3d5718ae16cfb6641c2cd0d398dbd9d620c4063cad2b389d36e26e2912",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/excited-and-proud/images/did-it.webp",
+      "outputBytes": 10634,
+      "outputSha256": "eab6ded1affa5b324e9ed027733cc64b9d9eca69243d4b68a72761092adb9d2a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/did-it.png",
+      "sourceBytes": 47944,
+      "sourceSha256": "97083b2eb18a37d061e5330ab925330c753e7c31b6e71d0f09826d0e9fcbaf6c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/excited-and-proud/images/disappointed.webp",
+      "outputBytes": 18938,
+      "outputSha256": "7d224505c8f2670380eae9d76196cd182a874767d1598299148d225573d6791c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/disappointed.png",
+      "sourceBytes": 55962,
+      "sourceSha256": "d5cd4f563d5b6f788166e584b0a61bf83f1e7dba921e58dc97e26ef294d9a6f2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/my-feelings/excited-and-proud/images/excited.webp",
+      "outputBytes": 27598,
+      "outputSha256": "4831a5d558dd07bf7a7b50e6a409daa6f431b893776fa4bc3e1519b6524a0cfa",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/excited.png",
+      "sourceBytes": 53353,
+      "sourceSha256": "e7783cb9b5c48afe8beffc9e740e2e588922abc0cd6af5ef023576518728cf10",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/excited-and-proud/images/feel-proud.webp",
+      "outputBytes": 11370,
+      "outputSha256": "98a37cf82d2f3dd85c44161ab103839230efc86276a62c474be97326d0308baf",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/feel-proud.png",
+      "sourceBytes": 51169,
+      "sourceSha256": "c374f70b293f2013eb93c4ad445a00cbf40c23cd754afe50c7e99227128f547a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/my-feelings/excited-and-proud/images/proud.webp",
+      "outputBytes": 26648,
+      "outputSha256": "bdc898e6ec8798754a6a6693eca5d03e8a97d6762e8cc1aa0ffb707a9336ebf4",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/proud.png",
+      "sourceBytes": 52336,
+      "sourceSha256": "a6180860020e7a5df2f79df5db1a6554881c10dc1a68b26759e034b26038fd0f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-feelings/excited-and-proud/images/shy.webp",
+      "outputBytes": 16652,
+      "outputSha256": "70a1f739784f88f00ca7204b3e60554e0c8f48a4de2f129aa7ed5113d6ae8dde",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/shy.png",
+      "sourceBytes": 51629,
+      "sourceSha256": "6d4bc5df411363d36ebaf7f16ebd8e6f03b3f017c845081db66fee41a94828c4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/excited-and-proud/images/surprised.webp",
+      "outputBytes": 18426,
+      "outputSha256": "f0b37d6d2cea7f69a5aca17983af4f677ec0015b5f6e0a4984f7d02ec39e9cd9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "excited-and-proud"
+      ],
+      "source": "lessons/my-feelings/excited-and-proud/images/surprised.png",
+      "sourceBytes": 55579,
+      "sourceSha256": "1f04baa11a62969598f950460389df0c8c57633f6197f9fd6263a37e0ebb89fb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/my-feelings/happy-and-sad/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/my-feelings/happy-and-sad/images/background.webp",
+      "outputBytes": 3132,
+      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/background.png",
+      "sourceBytes": 24334,
+      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/happy-and-sad/images/feel-happy.webp",
+      "outputBytes": 11608,
+      "outputSha256": "ccd0133ac9340cc1dfb129bd299207282f1f53d762e699f4c137dcb04343ebfa",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/feel-happy.png",
+      "sourceBytes": 51778,
+      "sourceSha256": "9993b1e018bb880af431a53fd697916ef96d054de1a1b6761ba6b5eb97c9e5f6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/happy-and-sad/images/feel-sad.webp",
+      "outputBytes": 11266,
+      "outputSha256": "e87c604af67be66cc48d989fb0e1f50c5cf06ad11fff6b7f2295def3117c68ac",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/feel-sad.png",
+      "sourceBytes": 51577,
+      "sourceSha256": "b3b986c4a6cc1b0b5c485fe18cb830a6a40042478ce5ccb71b7fb21163af89ab",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/happy-and-sad/images/frown.webp",
+      "outputBytes": 16960,
+      "outputSha256": "da290780cc639973a9eda9026e41e8fce55bc728c68e6c1534171ea66851a00f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/frown.png",
+      "sourceBytes": 52149,
+      "sourceSha256": "07ae6394966817db935eea21222293c9cbfa3b4260313a370c7ab62c06555abb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/my-feelings/happy-and-sad/images/happy.webp",
+      "outputBytes": 27024,
+      "outputSha256": "a28831ee248ae50a06230cb13dc2c29cb0dc1c89023ea5e175d7927961ba1a6a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/happy.png",
+      "sourceBytes": 52988,
+      "sourceSha256": "99998267fa5dd05d76550ca59b9eb2e557c37ecd358b02822b06e01e1ebf43f1",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/my-feelings/happy-and-sad/images/how-you-feel.webp",
+      "outputBytes": 12522,
+      "outputSha256": "58bce45b0a3035d8eb681e0c230affa073fed5ecb46fd673c1c86768fbf2a486",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/how-you-feel.png",
+      "sourceBytes": 55764,
+      "sourceSha256": "6601fbfc4dc5674a36781a13d36573506b1da057b84937d6828261fd1d32109f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/my-feelings/happy-and-sad/images/laugh.webp",
+      "outputBytes": 16946,
+      "outputSha256": "7a4097e10af695f74f9659086b42efcf528155cfd78537ca41e5c02cb7bdca88",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/laugh.png",
+      "sourceBytes": 52384,
+      "sourceSha256": "129a71c9bbdba939b259f7bff00ab0f45485753db7a157fcad51194cf93ac3a5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/my-feelings/happy-and-sad/images/sad.webp",
+      "outputBytes": 26266,
+      "outputSha256": "c3d8c16bd91356b397773815494438bbbcbcd855b4c5148a99deb0815bc3d1de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/sad.png",
+      "sourceBytes": 52598,
+      "sourceSha256": "73c6f4d31c09991897e2b0ce2fa15d2c1cc3fc002800479b7419dbd2dc1b8a65",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/happy-and-sad/images/smile.webp",
+      "outputBytes": 16772,
+      "outputSha256": "d9194d94b4deb604884c2cd9a9391ddad129bf000da14cf413aa1225b214a39f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/smile.png",
+      "sourceBytes": 51522,
+      "sourceSha256": "10277248346b6884f7910b17a3440d78a64d4da9cd1c63286b42e92267a4f5ef",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "my-feelings"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/my-feelings/happy-and-sad/images/tears.webp",
+      "outputBytes": 17324,
+      "outputSha256": "2db33c314676bb98ff4cd168e0e693bb34e6590816596809a61ff2871d4ecd40",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "happy-and-sad"
+      ],
+      "source": "lessons/my-feelings/happy-and-sad/images/tears.png",
+      "sourceBytes": 51504,
+      "sourceSha256": "749eb76852e1002da257a77cf51cb4f00c0f65633cf4a8cb386c5c0e0c0e2829",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
       "height": 900,
       "lessonIds": [
         "park-visit"
@@ -11684,6 +15479,765 @@
       "sourceBytes": 140535,
       "sourceSha256": "ce024e9ad5906ac51b8bd7761f1312fa7332071504c2109cf5ac96dbfdaba1f3",
       "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/personal-care/care-items/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/personal-care/care-items/images/background.webp",
+      "outputBytes": 3770,
+      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/background.png",
+      "sourceBytes": 25164,
+      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/care-items/images/close-toothpaste.webp",
+      "outputBytes": 14762,
+      "outputSha256": "f58244b06ef96988beb58d348bc28236751af652bd53cbaa1c8be88eb5e73180",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/close-toothpaste.png",
+      "sourceBytes": 64436,
+      "sourceSha256": "87ed4fe389928fc9cbaa3f22bdf6e4b713af083129f328dd377d8ab7676a8d82",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/care-items/images/own-toothbrush.webp",
+      "outputBytes": 14026,
+      "outputSha256": "0deaaab6058f55ff391f0056cf917e3388b704348124d35837cdf68f19acc596",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/own-toothbrush.png",
+      "sourceBytes": 62636,
+      "sourceSha256": "a3ed8ef8c1ed996e19150e84b1662485afef3d1faecca2967c2f521c7ce31efc",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/care-items/images/put-things-away.webp",
+      "outputBytes": 13366,
+      "outputSha256": "59df4591417e6da9ff2889bd3360c8ec64ede8523df57016993654a05214a9d5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/put-things-away.png",
+      "sourceBytes": 61363,
+      "sourceSha256": "6ac27fb0262bb649a4fa8caee4dd4d68b76b09495fdea9d4031a2a69904db18f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/care-items/images/soap-bar.webp",
+      "outputBytes": 17938,
+      "outputSha256": "42fbdb2639245575c1bfe354c8c14835b53d2e3327598789c2d99a869c6f5b64",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/soap-bar.png",
+      "sourceBytes": 56595,
+      "sourceSha256": "81b04b67fe387cacdb79704e4c5a0c89079814cef8b424a7029f528574a27eb9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/personal-care/care-items/images/toiletry-bag.webp",
+      "outputBytes": 18820,
+      "outputSha256": "b35c8084902d9ffd8e8c30a66972f2828d43547f4571dd62a611d7b542447efe",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/toiletry-bag.png",
+      "sourceBytes": 58131,
+      "sourceSha256": "49b20e32096eb9f099a4fa4373115c746dc31921ff95bb00276c0fa08903e6aa",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/personal-care/care-items/images/toothbrush-holder.webp",
+      "outputBytes": 19266,
+      "outputSha256": "9a17c65fa09870adc558c30839f695cabd9e81cc78e92cb19222474a5526f86c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/toothbrush-holder.png",
+      "sourceBytes": 58657,
+      "sourceSha256": "17249cdd14de2608c0a8d1e9bf6635f8dcb95c8dc497b825652a07860a35aee6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/care-items/images/toothbrush.webp",
+      "outputBytes": 18312,
+      "outputSha256": "dc3c850295c10feb2a68581cddf7371a9072c7d9bc63fb259ef3e39918c3fa64",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/toothbrush.png",
+      "sourceBytes": 57079,
+      "sourceSha256": "222f151a0c3f7b9b2d700a778c07267233ddee25819ad3e53d825ef85e8c6b06",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/personal-care/care-items/images/toothpaste.webp",
+      "outputBytes": 18580,
+      "outputSha256": "04f8dcf0f401314259be0a61f64093e4923b0bd7e10fb1f9fafdc6bb6171f1b2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/toothpaste.png",
+      "sourceBytes": 57792,
+      "sourceSha256": "bceceeffdc001ffe8e1b6e3470092bb4e058b20c438846d14856729f347cc83a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/personal-care/care-items/images/towel.webp",
+      "outputBytes": 17084,
+      "outputSha256": "811a65e2e54503d63a99deba03b6c53712938599571ce6d3c63199bcc3e101e5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "care-items"
+      ],
+      "source": "lessons/personal-care/care-items/images/towel.png",
+      "sourceBytes": 54993,
+      "sourceSha256": "96043c3c1533d6b02433a3f68a2f921e12908df9ffdd15322750e41fada33c8c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/background.webp",
+      "outputBytes": 3770,
+      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/background.png",
+      "sourceBytes": 25164,
+      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/cough.webp",
+      "outputBytes": 26702,
+      "outputSha256": "50e8db3afe6c179801eb3e69cd8210a7a481b3f558563674134cb32e9182f32f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/cough.png",
+      "sourceBytes": 55292,
+      "sourceSha256": "af1e5a5597873987b48e53231df5b66acd90c11739432d9b22e37fc02f1e333a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/cover-cough.webp",
+      "outputBytes": 12324,
+      "outputSha256": "1d6600cb07f36b0f6f764d8e084c977ea53badd54c9eeae0ebb8f9ef29bcc53d",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/cover-cough.png",
+      "sourceBytes": 57155,
+      "sourceSha256": "5d98d5a735412cd0325935122d1e40fbf68cad0ddf598ba38e0988917f8c7b3a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/sleeve.webp",
+      "outputBytes": 18488,
+      "outputSha256": "d6a3cadf9e918fd2b069a95388769c836d3ce429501721aca7915789bc077546",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/sleeve.png",
+      "sourceBytes": 57345,
+      "sourceSha256": "63045e69626618fa5088daeea03cd0e1ae92d86902b25a005e219207f66e5144",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/sneeze-elbow.webp",
+      "outputBytes": 12878,
+      "outputSha256": "e53002c5a441e9224da48c685ac78c90c8f067e904a3dbd78f48129f2c01c48e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/sneeze-elbow.png",
+      "sourceBytes": 59611,
+      "sourceSha256": "d8996cf3d5b00a57c73aa2955ef618aef5c848a9049b363c28dc33c9a1994a93",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/sneeze.webp",
+      "outputBytes": 17474,
+      "outputSha256": "db532aa83f198cc9a499d3927cb8a335bc0cc3cc7920c59901b9c9809b127463",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/sneeze.png",
+      "sourceBytes": 55491,
+      "sourceSha256": "32581eebb48767c08be2fd59e86a0df2d7392295fc76ebffc83c5330503cc1f9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/soap.webp",
+      "outputBytes": 17066,
+      "outputSha256": "4936e4711b3a4152effdd24e64439e07e32614d488d1d3a72ccbbd70e8e43c67",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/soap.png",
+      "sourceBytes": 54944,
+      "sourceSha256": "50ddddbd4fabe14cf0956538ce6fc5590dc6551141d62e6bd205b49f38a1374d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/throw-tissue.webp",
+      "outputBytes": 12902,
+      "outputSha256": "41ac3dfffabc481e323e72d06cecdd5d85160ef4da739678e18d03ef2a2db902",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/throw-tissue.png",
+      "sourceBytes": 59854,
+      "sourceSha256": "1c0f49622695421d81fa63be4c6b0de0da2bc5099a53701b1da3697d805879bc",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/tissue.webp",
+      "outputBytes": 17286,
+      "outputSha256": "8877ded43c89943b50162d4a1716bfa7bb030d4a2183989fafd282f29fc06646",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/tissue.png",
+      "sourceBytes": 55062,
+      "sourceSha256": "04c5998c631b497feb994d7f8d32a8468610e9d097956e70ec3992ad16f84d8e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/cough-and-sneeze-care/images/trash-can.webp",
+      "outputBytes": 17964,
+      "outputSha256": "0a602039e1ce3cc51e40e0ded9fdea9996ef0c23c3a1289fbec38c2c9d54b5cd",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "cough-and-sneeze-care"
+      ],
+      "source": "lessons/personal-care/cough-and-sneeze-care/images/trash-can.png",
+      "sourceBytes": 56538,
+      "sourceSha256": "1ad9037bb733505440339f2015eb30c2ea7727c597a787a67f851fed5dcb18f7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/personal-care/face-and-hair-care/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/personal-care/face-and-hair-care/images/background.webp",
+      "outputBytes": 3770,
+      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/background.png",
+      "sourceBytes": 25164,
+      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/face-and-hair-care/images/brush-hair.webp",
+      "outputBytes": 12290,
+      "outputSha256": "c25f1a54fd34b836da4b6f9a6b75457521d8aa188f3fdc6e008b7670208cab00",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/brush-hair.png",
+      "sourceBytes": 56644,
+      "sourceSha256": "6e9a0356a5c3f5173349c5a499db65b36b7fde816e57bd39c9c6d06c09402e52",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/face-and-hair-care/images/comb.webp",
+      "outputBytes": 17018,
+      "outputSha256": "9cf59911e94fe9b93eebaf3241368dce99204037d8c4d394cb9fc5a02c5e5bc1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/comb.png",
+      "sourceBytes": 54533,
+      "sourceSha256": "ef91978a8f260d32323f6131fd73edae6aac8fba7870348ce8ea24f26f163de0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/face-and-hair-care/images/face-cloth.webp",
+      "outputBytes": 18192,
+      "outputSha256": "2f8cc0b986f22958ddf1b617cd5c53ee2e2e756401909c13a5f0a70f50f2fd0c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/face-cloth.png",
+      "sourceBytes": 56862,
+      "sourceSha256": "1d3df06700a83a824f7d05178fa9ea692d49136b2be560faddb6baf7db8d2fbc",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 15,
+      "output": "lessons/personal-care/face-and-hair-care/images/hair-tie.webp",
+      "outputBytes": 17198,
+      "outputSha256": "8238e3293717225448b339d9130f126efe3146941849a48d5fce7afd30717186",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/hair-tie.png",
+      "sourceBytes": 54454,
+      "sourceSha256": "9073453a3dc06515976ed55e7fbd92c4c02884b9721d75e4048fb202db421f6c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/personal-care/face-and-hair-care/images/hairbrush.webp",
+      "outputBytes": 17974,
+      "outputSha256": "02abe231996ebe2c0db1cb6e2b90baa2eb4b407ae3592fa2ad3a930421d50db2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/hairbrush.png",
+      "sourceBytes": 55821,
+      "sourceSha256": "7314094c1ff753531e27eb1de96d14120dfad6d3731ac0ad457a34388c22c81a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/face-and-hair-care/images/help-with-nails.webp",
+      "outputBytes": 13424,
+      "outputSha256": "a6ca2f393687ffee959d6c19c08c0dac5d0fd3f3624d19eb827b8784e385191b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/help-with-nails.png",
+      "sourceBytes": 60749,
+      "sourceSha256": "920be7a9144b55607d8e23128051985f39e5f016df95e1773e9eecf00842ce8c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/personal-care/face-and-hair-care/images/mirror.webp",
+      "outputBytes": 26178,
+      "outputSha256": "9b5bc1423707b55408e7dddee895a7d2451a355af0e58e01bd881e757f21b693",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/mirror.png",
+      "sourceBytes": 53688,
+      "sourceSha256": "fc66fbac062942bfeb20ba8379aec3275bef4d5b5e0a9c5f279763577ff5f1b1",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/personal-care/face-and-hair-care/images/nail-clippers.webp",
+      "outputBytes": 18608,
+      "outputSha256": "a6f495c7df881b085ea7acbb9a0f7d6e991af9f445e4dda56b4911ea2a28f03c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/nail-clippers.png",
+      "sourceBytes": 57278,
+      "sourceSha256": "6b0043a24f51cf981ab28f5b5a38202f74e678a66e5070c779213673ee2cbe6f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "personal-care"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/personal-care/face-and-hair-care/images/wash-face.webp",
+      "outputBytes": 12688,
+      "outputSha256": "16a1e3eb8dca78038f5d7fbe1abad123f780979d3e6b698fb947f3a9413496cc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "face-and-hair-care"
+      ],
+      "source": "lessons/personal-care/face-and-hair-care/images/wash-face.png",
+      "sourceBytes": 57929,
+      "sourceSha256": "e093c6516c04f3da7fe9ef1e778f8a9dc1f93ef5bec4a88691e35cca499c2305",
+      "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13045,6 +17599,765 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-boundaries/images/ask-before-touching.webp",
+      "outputBytes": 11802,
+      "outputSha256": "995e6263f04882e7a8fd86860209be643313d9bd61edce8c7618e59a4d5932eb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/ask-before-touching.png",
+      "sourceBytes": 45100,
+      "sourceSha256": "0cb9a69c564858ca1b51c13536ed31b8f6dd84bfd73a9d01846b027434be5569",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/speaking-up/body-boundaries/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/speaking-up/body-boundaries/images/background.webp",
+      "outputBytes": 3466,
+      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/background.png",
+      "sourceBytes": 24349,
+      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-boundaries/images/do-not-like-that.webp",
+      "outputBytes": 10494,
+      "outputSha256": "ff873690e5a20c0b006ca1073c38e6ad399f41550be7bc37fae75bd593357a10",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/do-not-like-that.png",
+      "sourceBytes": 39089,
+      "sourceSha256": "1d546835b6bd3886859d0b58827b3d24df07ab2e5841304c4e1fd5864813116f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/speaking-up/body-boundaries/images/no-thank-you.webp",
+      "outputBytes": 17334,
+      "outputSha256": "aeaf41aa9c41996caa0a1a814cff6f8da721fa930280e9a3d4ec2d21a35715d2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/no-thank-you.png",
+      "sourceBytes": 40916,
+      "sourceSha256": "6e4fdb1555280d54a817723b6f1b7823489e744ff687a72a8f179e8f88a5e67c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/body-boundaries/images/permission.webp",
+      "outputBytes": 15060,
+      "outputSha256": "84751f0225d17dc57972c5a504902bd819270b0f87d024e68ce4cf35ae164f35",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/permission.png",
+      "sourceBytes": 38552,
+      "sourceSha256": "40d8742dd201da9e0491e6445b5d70d4e0f8cc97d127f29e82ac17532a1281b0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/body-boundaries/images/personal-space.webp",
+      "outputBytes": 16392,
+      "outputSha256": "1bf4fa2b235b2290b5b74a5d79cafb27192104c56abef76bb448af797ddfd7f1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/personal-space.png",
+      "sourceBytes": 41175,
+      "sourceSha256": "03c1695533ec00994495334f24ffd9d32425c5a0b06f649a7b1276a0899e743d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/body-boundaries/images/stop-please.webp",
+      "outputBytes": 10836,
+      "outputSha256": "2de048b6264047b7b3c0dd9885b6318492b4aab632a99345a7f2cfcc562eeb9b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/stop-please.png",
+      "sourceBytes": 41631,
+      "sourceSha256": "ec60bb0eb5329b061d1f84109fba5dd1dfccb95cda6ee11a95c7e0cada2320af",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-boundaries/images/tell-trusted-grown-up.webp",
+      "outputBytes": 12092,
+      "outputSha256": "54f90f15c6fba73243f4eb65ba2f5835b5102a2cbd3e13138f442eb2b06a8a94",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/tell-trusted-grown-up.png",
+      "sourceBytes": 45527,
+      "sourceSha256": "5a8a5d8daa5160c8c2020ee308415396b04e37bbc9a3e2bab0a469a12f02bb1e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-boundaries/images/trusted-grown-up.webp",
+      "outputBytes": 15760,
+      "outputSha256": "d43fef35418fc7635e67fc87dd324635e438d4c95c178db9f564d5470b56d8e3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/trusted-grown-up.png",
+      "sourceBytes": 39829,
+      "sourceSha256": "daf32effefab5769d3f84179b5073df0d13f48c5cca5bb5e539aa1292f7f794b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/speaking-up/body-boundaries/images/yes-please.webp",
+      "outputBytes": 17162,
+      "outputSha256": "24a9024d384c55b1ab90c781c14fa4a09d58d03f4ef15329f048a843aeb922bc",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-boundaries"
+      ],
+      "source": "lessons/speaking-up/body-boundaries/images/yes-please.png",
+      "sourceBytes": 40866,
+      "sourceSha256": "032c3eddc8b4af24c36bf3e9c64623dbedc1d51da39f5980bedf12cc8f73066f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-needs/images/am-hungry.webp",
+      "outputBytes": 10346,
+      "outputSha256": "87c0994f70534731c731a2e998addee4351e1e06027fa1242d0812365764620c",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/am-hungry.png",
+      "sourceBytes": 39604,
+      "sourceSha256": "37eeaf407e000d2ed0175e45fe26dd1e90b1d182c959217d3db6e3aca2121d87",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/speaking-up/body-needs/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/speaking-up/body-needs/images/background.webp",
+      "outputBytes": 3466,
+      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/background.png",
+      "sourceBytes": 24349,
+      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/body-needs/images/cold.webp",
+      "outputBytes": 16444,
+      "outputSha256": "8b8fae86cca047c37fb824515b6d93db261a8d23e08c34e5e836333653835333",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/cold.png",
+      "sourceBytes": 51274,
+      "sourceSha256": "41368fd287ef65c83151f15e1a7f97b31a16f5ac369d487a4f87e9d0d55c2a6a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/body-needs/images/hot.webp",
+      "outputBytes": 16156,
+      "outputSha256": "e0d6f4b3f01f3cb39f17649f58a7a816301137d00e76cf6fda1d6b09b2a4f45e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/hot.png",
+      "sourceBytes": 50362,
+      "sourceSha256": "aafaeae99e307b88b35e28408619fccb93d57866ccdf78e41808029b89bbe694",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/body-needs/images/hungry.webp",
+      "outputBytes": 17096,
+      "outputSha256": "ac336ba436639b0b572f87f66999bdb6fc402426b3ab0abb5819c3bb6f0b48ac",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/hungry.png",
+      "sourceBytes": 52269,
+      "sourceSha256": "cfb36a3d7e0cc2645de94c03046e2ad8e66428e3d426beb0391bdd3286191d97",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-needs/images/need-rest.webp",
+      "outputBytes": 10686,
+      "outputSha256": "9bd785aa7e2c1823d93a95ce32e40a0635d186be87ca769fed4f7c4ac435e3bd",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/need-rest.png",
+      "sourceBytes": 40377,
+      "sourceSha256": "f6e36dd27ed762728ad78a7b4660b8de2389eb9696d9182ac794d443c3d5ddea",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/body-needs/images/need-water.webp",
+      "outputBytes": 10580,
+      "outputSha256": "c9b3b7165a21aeb5256a739a0567569037fa01f809054814e55da4d7335d49de",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/need-water.png",
+      "sourceBytes": 40394,
+      "sourceSha256": "c1cc018e6f9186a0995dc7016d11e1ea6814360ab7fdebb8ee0c25a6761a36b5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/speaking-up/body-needs/images/thirsty.webp",
+      "outputBytes": 17068,
+      "outputSha256": "d904ad322825878d89c6f9e35395c7d14c45e20650b90bd73db9e5b1ca067780",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/thirsty.png",
+      "sourceBytes": 52083,
+      "sourceSha256": "2a1c8cd333b5e42316c034ce666ac9e9c2b5d6080c111e559a8090dd55afc257",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/body-needs/images/tired.webp",
+      "outputBytes": 16722,
+      "outputSha256": "0e9fd0650e9d9721383ec3f9c4767fe05b22535a68142953645d375bf26bdaab",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/tired.png",
+      "sourceBytes": 51321,
+      "sourceSha256": "73a4ee0ccaa812fe5282fc65f85b290938fd162eee17d6f5969313e3ebfc1b52",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/body-needs/images/uncomfortable.webp",
+      "outputBytes": 18980,
+      "outputSha256": "39df57b9d7f515ca6096377ced58a38e8590fcd8abb76dbf5353d13416171de9",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "body-needs"
+      ],
+      "source": "lessons/speaking-up/body-needs/images/uncomfortable.png",
+      "sourceBytes": 55691,
+      "sourceSha256": "dd08ceca0b9d7d04cf53d2bec0fcb78c3eed57a2613df77a1cc0e000a15520aa",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 53,
+      "output": "lessons/speaking-up/pain-and-help/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "characterLarge",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/speaking-up/pain-and-help/images/background.webp",
+      "outputBytes": 3466,
+      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/background.png",
+      "sourceBytes": 24349,
+      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/pain-and-help/images/dizzy.webp",
+      "outputBytes": 17192,
+      "outputSha256": "bd1831d6e1a49001586a4af2103e03df778c758563a09d083227c22a364f8b8f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/dizzy.png",
+      "sourceBytes": 52128,
+      "sourceSha256": "e71d72b6d06e60fe405a4db3b7adcd9b202299f20f7652169681f86be94d0fc5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/speaking-up/pain-and-help/images/headache.webp",
+      "outputBytes": 18682,
+      "outputSha256": "cd218da2bd963aa0753e2868e7fb3d318ee47a6eac4cd61fee5467d173b0bb0a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/headache.png",
+      "sourceBytes": 54011,
+      "sourceSha256": "4f250c18587e1b405e53cc39d96c684874287b49752f2ad75e02cf4ba6d64bd9",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/pain-and-help/images/hurt.webp",
+      "outputBytes": 12910,
+      "outputSha256": "99ce8e8b2cd59c5bcf5b92493de51adc6a08270937ed51baeddb90e3879aa04f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/hurt.png",
+      "sourceBytes": 34149,
+      "sourceSha256": "71b872a1699ecb4a1d2dc8876694ae7c858775005437f5cd9f4b33caedda7550",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/pain-and-help/images/hurts-here.webp",
+      "outputBytes": 10374,
+      "outputSha256": "d5718fe34dc96ec68f6f2102506b84d9f3f78618b90056eb92df82fdf543445a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/hurts-here.png",
+      "sourceBytes": 39416,
+      "sourceSha256": "f3e9b8edb1aa25d68603080c718f1143ea89dd5b786d142855b6cd26915a1a03",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/speaking-up/pain-and-help/images/itchy.webp",
+      "outputBytes": 16638,
+      "outputSha256": "5837e58230a82c60a4f1f5149889b37b5197e65684793e5da92745ce64eb5248",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/itchy.png",
+      "sourceBytes": 51388,
+      "sourceSha256": "bdc5a1635f88a55aeba03eb72287dd5fb48e3cb634cf55f8e61abe98849e2633",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/pain-and-help/images/not-feel-well.webp",
+      "outputBytes": 10452,
+      "outputSha256": "986ab9b4d1c2671d35fdd5205882f8b4f0b8be8b567fa1616f9e8e14c3de6589",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/not-feel-well.png",
+      "sourceBytes": 39740,
+      "sourceSha256": "75dbcac290bdc0e2d66e83b42a97bcced02b7be2b8696340d49715df6e744044",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/speaking-up/pain-and-help/images/please-help.webp",
+      "outputBytes": 11092,
+      "outputSha256": "f9edaa51dd458739e3fb1bfde5c319b3269339e6f8db838d2d89d58b512ef36b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/please-help.png",
+      "sourceBytes": 41611,
+      "sourceSha256": "17ebe4c6d34fdafb530dcdb3242cadb33bfb920927aff658dc98f4ff9d8e79ea",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/speaking-up/pain-and-help/images/sore-throat.webp",
+      "outputBytes": 15064,
+      "outputSha256": "0ec78a0e7c7f7ceb337d4077a21514ee09e9ad13a5cff491d8b9cf1da37d9183",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/sore-throat.png",
+      "sourceBytes": 38452,
+      "sourceSha256": "7abf256e30f2c576b05181c5c6b6fbf015614fd7be16f56262344439ba2f05f0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "speaking-up"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/speaking-up/pain-and-help/images/tummy-ache.webp",
+      "outputBytes": 15220,
+      "outputSha256": "433627d2c0adfee68b70ad4ae3a47d39581b5360d3cc2200b7026f0612a902a8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "pain-and-help"
+      ],
+      "source": "lessons/speaking-up/pain-and-help/images/tummy-ache.png",
+      "sourceBytes": 38708,
+      "sourceSha256": "14412d6b89ca79b5661e674cf36c5206152b375adabeb2a3c9db561d1be7b28f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
       "height": 900,
       "lessonIds": [
         "supermarket-trip"
@@ -13800,9 +19113,768 @@
       "sourceBytes": 157847,
       "sourceSha256": "6f425841a49efab42fe3a9c7662649595cfb7ee03521d04f2e709f6916ebbe69",
       "width": 374
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/toilet-routine/clean-and-private/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/toilet-routine/clean-and-private/images/background.webp",
+      "outputBytes": 3618,
+      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/background.png",
+      "sourceBytes": 25219,
+      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/toilet-routine/clean-and-private/images/clean-hands.webp",
+      "outputBytes": 16914,
+      "outputSha256": "605852106fa850f381692dc7a1e899897448011fed0f812b5b74bc1882749bf5",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/clean-hands.png",
+      "sourceBytes": 49936,
+      "sourceSha256": "ae7a5b06b338c9129a8ba65dc6a711f72ad30bb3cad052e17d84a10ac9c90fc7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/clean-and-private/images/give-privacy.webp",
+      "outputBytes": 11320,
+      "outputSha256": "caab0bad2d7bbe7f5762b76c2d2b3a6526e6be9496caa6017c13bc2fb8c74282",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/give-privacy.png",
+      "sourceBytes": 53915,
+      "sourceSha256": "156cbc0e69891bf08a2cdf3eb3d09ac9e6cc0c742d2a10b404fb5615cc24aeab",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/toilet-routine/clean-and-private/images/hand-soap.webp",
+      "outputBytes": 16818,
+      "outputSha256": "73ffa8d04d65608af4ec3979523fb6743c41bd50cb5d37232c296bbb38d279f2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/hand-soap.png",
+      "sourceBytes": 49816,
+      "sourceSha256": "92d4e677580c89a19e0bdde7a3987ed38afe7d429c05e1f41ebee1f77f5cc548",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/toilet-routine/clean-and-private/images/hand-towel.webp",
+      "outputBytes": 16820,
+      "outputSha256": "3ee0c7d9149ef67e372a643f754ccd43fcd5c882fa31c6e4213c89ad72935ae6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/hand-towel.png",
+      "sourceBytes": 49808,
+      "sourceSha256": "0d79a5648872176c68db0878408f8e0656fbaf1e102f35bb5c98a86fe567b5a5",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/clean-and-private/images/help-if-needed.webp",
+      "outputBytes": 10672,
+      "outputSha256": "8485e13003d19e49c0cb524b72c5664bae5a72f85cd38ea2857e62a8fcba7849",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/help-if-needed.png",
+      "sourceBytes": 50490,
+      "sourceSha256": "766d63461a0edffb2d73b0df5e4ebbd25e724f8c728681c9b8fb1b71bb285b63",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/toilet-routine/clean-and-private/images/privacy.webp",
+      "outputBytes": 14902,
+      "outputSha256": "88012c68d73c0cd496f91a60855c06d475eb7bf83f6ab4f61278083f7c7ad510",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/privacy.png",
+      "sourceBytes": 48010,
+      "sourceSha256": "a78e71e5ffb6167383f9bcdcf0e7e37e897a1946fadd9c2651585b1944548bf1",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/toilet-routine/clean-and-private/images/sink.webp",
+      "outputBytes": 21644,
+      "outputSha256": "fa083f89cd2626ca978eea68363d02e3d16e9e6798afb4f11c39ec1b66f79bac",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/sink.png",
+      "sourceBytes": 45220,
+      "sourceSha256": "bbc83be3b32bb09050a6263728670d7a21a6e16046265d563ad6ec5445cf3788",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/clean-and-private/images/wash-hands-well.webp",
+      "outputBytes": 11828,
+      "outputSha256": "3dee5bacddbb3e5cb795e4e3b487e10b722d6daf58e9e1827bbeeb13319d28b2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/wash-hands-well.png",
+      "sourceBytes": 52419,
+      "sourceSha256": "158dffdf6d07a936850264f8cbf55a3030e0550884fd7f5877939aee5ea8032b",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/clean-and-private/images/wet-floor-sign.webp",
+      "outputBytes": 16526,
+      "outputSha256": "85bd686534880777d062f126568ad814ab4c280a65f534ca178603a87784b5bc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "clean-and-private"
+      ],
+      "source": "lessons/toilet-routine/clean-and-private/images/wet-floor-sign.png",
+      "sourceBytes": 50539,
+      "sourceSha256": "36d12b95c0e9f565d0db2ee55b3c8880d79741abab177a849108308a53eea786",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-signals/images/ask-use-toilet.webp",
+      "outputBytes": 10966,
+      "outputSha256": "4e7ace6c99a6b2cd4c60b7581dd64ebe7c08c8baa187e37c0841549165b501d8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/ask-use-toilet.png",
+      "sourceBytes": 50953,
+      "sourceSha256": "8e83c928363dfabb783052902125e51bbf114c1f368c96485f54a46156888b7d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/toilet-routine/toilet-signals/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/toilet-routine/toilet-signals/images/background.webp",
+      "outputBytes": 3618,
+      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/background.png",
+      "sourceBytes": 25219,
+      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/toilet-routine/toilet-signals/images/bathroom-door.webp",
+      "outputBytes": 25880,
+      "outputSha256": "375ed859b03ca5239b457c8409b4082e6f5fda321d94a9c46888307856a1b5c6",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/bathroom-door.png",
+      "sourceBytes": 50760,
+      "sourceSha256": "73145f143437d146117e50bd610e2d21bc3f0d2ae8565c622f3b98048b2aac95",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 15,
+      "output": "lessons/toilet-routine/toilet-signals/images/bathroom-sign.webp",
+      "outputBytes": 16678,
+      "outputSha256": "6b842017b7f39e8c57e2d0e61cd47c983d3d1c4dcf2069f0c91b0b0daf111b85",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/bathroom-sign.png",
+      "sourceBytes": 50725,
+      "sourceSha256": "55a3d1896e68ae55795baac8d3cdd5e5b00e1d21168030a93cc36be03b1863a6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/toilet-routine/toilet-signals/images/bathroom.webp",
+      "outputBytes": 23778,
+      "outputSha256": "c8f2376d8d855b575c155dc4e8a21bd309bdf4a2e082ca6ca2b69758a704cf44",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/bathroom.png",
+      "sourceBytes": 48448,
+      "sourceSha256": "6398c381761daf3eb5887488e88e2b0abaf6a0eebd5c6bb56c1e6d4378ee2e1c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-signals/images/go-bathroom.webp",
+      "outputBytes": 10568,
+      "outputSha256": "8089d6f07bcbeeaea062792e8b75018497009d04ad5fe8c7915e34aa0ad911af",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/go-bathroom.png",
+      "sourceBytes": 50793,
+      "sourceSha256": "b23462c4eec1194d3bf44b1b1262415132222e51863d0e34a17685dcc1f020aa",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-signals/images/need-toilet.webp",
+      "outputBytes": 10524,
+      "outputSha256": "602d5aba4c7ffe80ba78fed781ba17bdcf5d45a7f70812aa01f332b83c13e2ac",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/need-toilet.png",
+      "sourceBytes": 49421,
+      "sourceSha256": "d41d8810c80e68f2d22c172a1a0c20c7338b502c12bdc4d7f70186324aa07df7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-signals/images/potty.webp",
+      "outputBytes": 14378,
+      "outputSha256": "800408f146c5d0814de5aa4a3747449af378fa000da0eb5e2361fa600a562791",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/potty.png",
+      "sourceBytes": 46830,
+      "sourceSha256": "d201ae2aac80e6f760d77ddce439b1cbf36a9c8c51866775c62e20a9f25213a7",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/toilet-routine/toilet-signals/images/step-stool.webp",
+      "outputBytes": 15688,
+      "outputSha256": "2b669980f56d253b2fbae7e6a7bc4f108955ac6fdf136076455404bf55a570a2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/step-stool.png",
+      "sourceBytes": 49333,
+      "sourceSha256": "db08bac030f7b78622a8aeb6a002ed6c509484865c77b3fb544ec5484b326d66",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/toilet-routine/toilet-signals/images/toilet.webp",
+      "outputBytes": 22074,
+      "outputSha256": "43c48d4a32a54cc93380058c0bbbe512a8df68f81d52c70b83787eb9e89c7dd2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-signals"
+      ],
+      "source": "lessons/toilet-routine/toilet-signals/images/toilet.png",
+      "sourceBytes": 45827,
+      "sourceSha256": "e173c42a782a4724cd1062ae909943d8e47f187b1c8f5c77ffb600a2116181b0",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 900,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/toilet-routine/toilet-steps/images/baby.webp",
+      "outputBytes": 45104,
+      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "profile": "character",
+      "roles": [
+        "character"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/baby.png",
+      "sourceBytes": 462864,
+      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "width": 495
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/toilet-routine/toilet-steps/images/background.webp",
+      "outputBytes": 3618,
+      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/background.png",
+      "sourceBytes": 25219,
+      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/toilet-routine/toilet-steps/images/flush-button.webp",
+      "outputBytes": 15702,
+      "outputSha256": "4faf94e9a08affd0b8f958885ecc8fc7462366ae002f889090ec8476ae0e509b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/flush-button.png",
+      "sourceBytes": 48837,
+      "sourceSha256": "66fa2c7c837b7aed1238a57640c302d66f551fc623f184417b761d5014383ba6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/flush-toilet.webp",
+      "outputBytes": 9662,
+      "outputSha256": "4b838ab8d1b750e02bba91167986dd135ac721c6debcead934ba64d73f07a2e2",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/flush-toilet.png",
+      "sourceBytes": 45991,
+      "sourceSha256": "68bb39e7e59b3d2784b86cd73143987fe7b5bf582821a1a4d4aa3afe8d3e4dc2",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/pull-down-clothes.webp",
+      "outputBytes": 11256,
+      "outputSha256": "10191d7bced3609b5e8e7adee67be96bfabe6c1ad2eab4f08e1bc5795005f87f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/pull-down-clothes.png",
+      "sourceBytes": 52803,
+      "sourceSha256": "14312a0091a07f2e96d17eb20db4dec423011c0bfb6365ab26f94129ac58a8c8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/toilet-paper.webp",
+      "outputBytes": 16026,
+      "outputSha256": "99620d5f1707a4b779d4d20b97fd3147f04d9efd05709caca2dc99c1b20ada26",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/toilet-paper.png",
+      "sourceBytes": 49322,
+      "sourceSha256": "62302a9063960365c4f9dc38f3ba80ad4b1b63f697ad3e08c0184a635a09b475",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/toilet-routine/toilet-steps/images/toilet-seat.webp",
+      "outputBytes": 24286,
+      "outputSha256": "526a592ce57ba188122aca6f2f9aa2d521aa215745be4d5c8e58cda868cc29e8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/toilet-seat.png",
+      "sourceBytes": 48830,
+      "sourceSha256": "db273afa637e601e38bfce820d8aebac0801a2e51fc2495bc26269952b86d5ab",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/toilet-routine/toilet-steps/images/trousers.webp",
+      "outputBytes": 23634,
+      "outputSha256": "9a96c5d12e8f5f6e8218791d17215e7a928decdf743210b928ca3fa2b0a26853",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/trousers.png",
+      "sourceBytes": 48232,
+      "sourceSha256": "21557cc35ac02c711c435c1f2393c486e88d7eb8bde7b683343f36ae0010f420",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/underwear.webp",
+      "outputBytes": 18714,
+      "outputSha256": "ba878b845e97bf39863917a8f3481d380baea1bd739ce663c64e9c6590d63e54",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/underwear.png",
+      "sourceBytes": 54224,
+      "sourceSha256": "00c1c8f3f9dd58f7244edaef76abf69c1bbb52bf3c8a3381cb6e32ff450aea33",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/use-toilet-paper.webp",
+      "outputBytes": 10902,
+      "outputSha256": "754fd8e5b31d9a4803af9ec7df7487cfff3cc6f9374629ab08102fc0e0f87773",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/use-toilet-paper.png",
+      "sourceBytes": 50563,
+      "sourceSha256": "2d29f1053085e33784f128ab51266d44d27fe7c52c300854913cacd177b62acf",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/toilet-routine/toilet-steps/images/waste-bin.webp",
+      "outputBytes": 15546,
+      "outputSha256": "c323985a57527bc736fca19124c91c66937cf31cfac45577297a22f3816a630f",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/waste-bin.png",
+      "sourceBytes": 48609,
+      "sourceSha256": "6de049672a3ccd5f058043301a68075778a2dba84162e67718ed5e986948afda",
+      "width": 512
     }
   ],
-  "generatedAt": "2026-08-01T09:52:06.794Z",
+  "generatedAt": "2026-08-01T13:09:39.477Z",
   "releaseVersion": "v1",
-  "revision": "e608d621b5e07bee"
+  "revision": "985d30242a7068d3"
 }

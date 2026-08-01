@@ -2,6 +2,8 @@ import type { LessonTheme } from '../types/lesson';
 
 export const DEFAULT_THEME_ID = 'mot-ngay-cua-be';
 export const OUTSIDE_EXPLORATION_THEME_ID = 'be-ra-ngoai-kham-pha';
+export const BODY_FEELINGS_SELF_CARE_THEME_ID =
+  'co-the-cam-xuc-va-tu-cham-soc';
 
 const themeCatalog: LessonTheme[] = [
   {
@@ -45,6 +47,26 @@ const themeCatalog: LessonTheme[] = [
       'doctor-visit',
       'birthday-party',
       'grandparents-visit',
+    ],
+  },
+  {
+    id: BODY_FEELINGS_SELF_CARE_THEME_ID,
+    titleVi: 'Cơ thể, cảm xúc và tự chăm sóc',
+    titleEn: 'My Body, Feelings, and Self-Care',
+    thumbnailEmoji: '💛',
+    descriptionVi:
+      'Bé hiểu cơ thể, gọi tên cảm xúc, tự chăm sóc và nói rõ điều mình cần để lớn lên an toàn, tự tin.',
+    descriptionEn:
+      'Understand your body, name feelings, practice self-care, and speak up for what you need.',
+    lessonIds: [
+      'my-body',
+      'five-senses',
+      'my-feelings',
+      'calm-myself',
+      'personal-care',
+      'dress-myself',
+      'toilet-routine',
+      'speaking-up',
     ],
   },
 ];

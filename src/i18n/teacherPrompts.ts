@@ -86,7 +86,7 @@ export function getTeacherInstructionEn(
       return getNounIntroductionSentence(vocabularyItem.word);
     }
 
-    const label = vocabularyItem.type === 'verb' ? 'word' : 'phrase';
+    const label = vocabularyItem.type === 'phrase' ? 'phrase' : 'word';
     return `Let's learn the ${label} ${vocabularyItem.word}.`;
   }
 
