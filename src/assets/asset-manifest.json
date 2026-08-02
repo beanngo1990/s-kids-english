@@ -18755,8 +18755,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/toilet-routine/clean-and-private/images/background.webp",
-      "outputBytes": 3618,
-      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "outputBytes": 34226,
+      "outputSha256": "00157aaf1b4f5ae7fa0ceda1178f9a1c1f18e973d70ac24d9d8c34d7727582a6",
       "profile": "background",
       "roles": [
         "background"
@@ -18765,8 +18765,8 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/background.png",
-      "sourceBytes": 25219,
-      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "sourceBytes": 2385557,
+      "sourceSha256": "e6228ec2ef7e1778f68fd4868c36a36148401124d5bfaf84813ab87e9fc6e319",
       "width": 941
     },
     {
@@ -18778,8 +18778,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/toilet-routine/clean-and-private/images/clean-hands.webp",
-      "outputBytes": 16914,
-      "outputSha256": "605852106fa850f381692dc7a1e899897448011fed0f812b5b74bc1882749bf5",
+      "outputBytes": 132946,
+      "outputSha256": "ea8c7bdd298c84311f9daf39257876a018b270431be257016f832d2d96fe65e7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18788,21 +18788,21 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/clean-hands.png",
-      "sourceBytes": 49936,
-      "sourceSha256": "ae7a5b06b338c9129a8ba65dc6a711f72ad30bb3cad052e17d84a10ac9c90fc7",
+      "sourceBytes": 337105,
+      "sourceSha256": "6b4a6e030c74d4558ea17118ff8940d03f51cbdd669566a21708ccd8875b46e2",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/clean-and-private/images/give-privacy.webp",
-      "outputBytes": 11320,
-      "outputSha256": "caab0bad2d7bbe7f5762b76c2d2b3a6526e6be9496caa6017c13bc2fb8c74282",
+      "outputBytes": 19410,
+      "outputSha256": "bfe631b79b6d65eded06acb00e6fe7c9653e19e495c02eca8d565d1e63422467",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18811,9 +18811,9 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/give-privacy.png",
-      "sourceBytes": 53915,
-      "sourceSha256": "156cbc0e69891bf08a2cdf3eb3d09ac9e6cc0c742d2a10b404fb5615cc24aeab",
-      "width": 512
+      "sourceBytes": 296685,
+      "sourceSha256": "426a6d80d4cfebd10e579b6f606b6442155654d988a486fa6e9592e4d1d0f60d",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -18822,10 +18822,10 @@
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 16,
+      "maxPercent": 13,
       "output": "lessons/toilet-routine/clean-and-private/images/hand-soap.webp",
-      "outputBytes": 16818,
-      "outputSha256": "73ffa8d04d65608af4ec3979523fb6743c41bd50cb5d37232c296bbb38d279f2",
+      "outputBytes": 128578,
+      "outputSha256": "dd98e06aeb80b31998603f17be4f1c67efa79a24247c8272f834565f2011efd8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18834,8 +18834,8 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/hand-soap.png",
-      "sourceBytes": 49816,
-      "sourceSha256": "92d4e677580c89a19e0bdde7a3987ed38afe7d429c05e1f41ebee1f77f5cc548",
+      "sourceBytes": 283323,
+      "sourceSha256": "9f00a97bd806e0b72106c2818c90da88974810a1cbfa736f0eeda2a2b954483a",
       "width": 512
     },
     {
@@ -18847,8 +18847,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/toilet-routine/clean-and-private/images/hand-towel.webp",
-      "outputBytes": 16820,
-      "outputSha256": "3ee0c7d9149ef67e372a643f754ccd43fcd5c882fa31c6e4213c89ad72935ae6",
+      "outputBytes": 123570,
+      "outputSha256": "fed9dc8b1cf742169c823ab9fe865a985bca25396107d4eb66a648dd5cca1adc",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18857,21 +18857,21 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/hand-towel.png",
-      "sourceBytes": 49808,
-      "sourceSha256": "0d79a5648872176c68db0878408f8e0656fbaf1e102f35bb5c98a86fe567b5a5",
+      "sourceBytes": 387968,
+      "sourceSha256": "7b06e8380d04ae636e6b7dbc3a16ddf1c53a86533e7fb985c23eb96814cc4c00",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/clean-and-private/images/help-if-needed.webp",
-      "outputBytes": 10672,
-      "outputSha256": "8485e13003d19e49c0cb524b72c5664bae5a72f85cd38ea2857e62a8fcba7849",
+      "outputBytes": 24836,
+      "outputSha256": "cbc7b42b1796373b2f80380dbfd0c6ee14bcbce53f61ec0184e7b087e9c01511",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18880,9 +18880,9 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/help-if-needed.png",
-      "sourceBytes": 50490,
-      "sourceSha256": "766d63461a0edffb2d73b0df5e4ebbd25e724f8c728681c9b8fb1b71bb285b63",
-      "width": 512
+      "sourceBytes": 253663,
+      "sourceSha256": "07b9e0d1196e7e5f7e1a3da62b37f9c41401893f7baa960d67efd1e87895d9ce",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -18893,8 +18893,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/toilet-routine/clean-and-private/images/privacy.webp",
-      "outputBytes": 14902,
-      "outputSha256": "88012c68d73c0cd496f91a60855c06d475eb7bf83f6ab4f61278083f7c7ad510",
+      "outputBytes": 97056,
+      "outputSha256": "1dc40e6991d88a20c97917e842c0d44b2d80ff81ca8ca8f5241ab3267385168a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18903,21 +18903,21 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/privacy.png",
-      "sourceBytes": 48010,
-      "sourceSha256": "a78e71e5ffb6167383f9bcdcf0e7e37e897a1946fadd9c2651585b1944548bf1",
+      "sourceBytes": 340778,
+      "sourceSha256": "dbd7d931e459c117d65dc4ef85149b459c07bb6bff78b9e2236eadb2c847e853",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 568,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 27,
       "output": "lessons/toilet-routine/clean-and-private/images/sink.webp",
-      "outputBytes": 21644,
-      "outputSha256": "fa083f89cd2626ca978eea68363d02e3d16e9e6798afb4f11c39ec1b66f79bac",
+      "outputBytes": 59198,
+      "outputSha256": "a4c12d79bed0a684b3b8dce6c63bafd947800b874b6e299a61ef9ed335f0ff96",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -18926,21 +18926,21 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/sink.png",
-      "sourceBytes": 45220,
-      "sourceSha256": "bbc83be3b32bb09050a6263728670d7a21a6e16046265d563ad6ec5445cf3788",
-      "width": 768
+      "sourceBytes": 299215,
+      "sourceSha256": "45bb93d01140036ca1f3f0cd4779b60b153653730de9ae419cf2cb7dfd3beed2",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/clean-and-private/images/wash-hands-well.webp",
-      "outputBytes": 11828,
-      "outputSha256": "3dee5bacddbb3e5cb795e4e3b487e10b722d6daf58e9e1827bbeeb13319d28b2",
+      "outputBytes": 23036,
+      "outputSha256": "914e0ce308616a26dae1d9369b4cf322f66e919cc0cd31f2f6926baf93bbc6ae",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18949,9 +18949,9 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/wash-hands-well.png",
-      "sourceBytes": 52419,
-      "sourceSha256": "158dffdf6d07a936850264f8cbf55a3030e0550884fd7f5877939aee5ea8032b",
-      "width": 512
+      "sourceBytes": 291618,
+      "sourceSha256": "b17b0d65dc571fe8bd9807fcf3b3bfe8aee010efa545efd8112fab87942e7383",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -18962,8 +18962,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/clean-and-private/images/wet-floor-sign.webp",
-      "outputBytes": 16526,
-      "outputSha256": "85bd686534880777d062f126568ad814ab4c280a65f534ca178603a87784b5bc",
+      "outputBytes": 126066,
+      "outputSha256": "ba51259db0837a0712a30418a1e5e88dceed3e77cf4f1fe6322ad48f3a8af43d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18972,21 +18972,21 @@
         "clean-and-private"
       ],
       "source": "lessons/toilet-routine/clean-and-private/images/wet-floor-sign.png",
-      "sourceBytes": 50539,
-      "sourceSha256": "36d12b95c0e9f565d0db2ee55b3c8880d79741abab177a849108308a53eea786",
+      "sourceBytes": 330682,
+      "sourceSha256": "0730a12e2a1181d3b6d74aac7ec663591a5bb3e20e307db2ff62758eb8239b32",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-signals/images/ask-use-toilet.webp",
-      "outputBytes": 10966,
-      "outputSha256": "4e7ace6c99a6b2cd4c60b7581dd64ebe7c08c8baa187e37c0841549165b501d8",
+      "outputBytes": 29098,
+      "outputSha256": "c1c40db28dcac12ca9e1b2e18f56bfc036a1d5cf4374086da2b6f411214d68fa",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -18995,9 +18995,9 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/ask-use-toilet.png",
-      "sourceBytes": 50953,
-      "sourceSha256": "8e83c928363dfabb783052902125e51bbf114c1f368c96485f54a46156888b7d",
-      "width": 512
+      "sourceBytes": 308297,
+      "sourceSha256": "4ed405102cc088923c4d1f781fd50e98579a211bbcee7c965bd1ec7684d83403",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19031,8 +19031,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/toilet-routine/toilet-signals/images/background.webp",
-      "outputBytes": 3618,
-      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "outputBytes": 30956,
+      "outputSha256": "8119eb0c1e1640bfb7d7392c35d5f1541fef5368096a2ea23527e20996246ed7",
       "profile": "background",
       "roles": [
         "background"
@@ -19041,21 +19041,21 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/background.png",
-      "sourceBytes": 25219,
-      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "sourceBytes": 2422923,
+      "sourceSha256": "6b646cbf09861e41bc7deaa16c7d4c5f09e1f61ab1505d97fc3300a9dfb1bcc8",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 568,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 27,
       "output": "lessons/toilet-routine/toilet-signals/images/bathroom-door.webp",
-      "outputBytes": 25880,
-      "outputSha256": "375ed859b03ca5239b457c8409b4082e6f5fda321d94a9c46888307856a1b5c6",
+      "outputBytes": 46628,
+      "outputSha256": "7247a292dd3553ced168efbcc7214544905970e8b13ff8de3465872497ded0ca",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -19064,9 +19064,9 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/bathroom-door.png",
-      "sourceBytes": 50760,
-      "sourceSha256": "73145f143437d146117e50bd610e2d21bc3f0d2ae8565c622f3b98048b2aac95",
-      "width": 768
+      "sourceBytes": 340084,
+      "sourceSha256": "bf60c280f5fa4b19ffba696e967172f6d9ea9d31f1246c3c3a913ce1a74a69d3",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19077,8 +19077,8 @@
       ],
       "maxPercent": 15,
       "output": "lessons/toilet-routine/toilet-signals/images/bathroom-sign.webp",
-      "outputBytes": 16678,
-      "outputSha256": "6b842017b7f39e8c57e2d0e61cd47c983d3d1c4dcf2069f0c91b0b0daf111b85",
+      "outputBytes": 88382,
+      "outputSha256": "7ac731f8abc5dc1487dce60638bff5b4b5b057af1609a085a7b8df233a61b460",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19087,21 +19087,21 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/bathroom-sign.png",
-      "sourceBytes": 50725,
-      "sourceSha256": "55a3d1896e68ae55795baac8d3cdd5e5b00e1d21168030a93cc36be03b1863a6",
+      "sourceBytes": 329984,
+      "sourceSha256": "2d27229f7ac71b4381c66129c3b5b40d68676baa9e465e844f65f4e67d3b3d35",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 568,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 22,
       "output": "lessons/toilet-routine/toilet-signals/images/bathroom.webp",
-      "outputBytes": 23778,
-      "outputSha256": "c8f2376d8d855b575c155dc4e8a21bd309bdf4a2e082ca6ca2b69758a704cf44",
+      "outputBytes": 44904,
+      "outputSha256": "ed64814eb54dd699845b54541efc98b78c295f53d0a1ed92f23520988ea7a604",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -19110,21 +19110,21 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/bathroom.png",
-      "sourceBytes": 48448,
-      "sourceSha256": "6398c381761daf3eb5887488e88e2b0abaf6a0eebd5c6bb56c1e6d4378ee2e1c",
-      "width": 768
+      "sourceBytes": 448527,
+      "sourceSha256": "aa86114fa35dfdff13b3594c13961297df2e07db57c0e8a6689521b19c6d4b81",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-signals/images/go-bathroom.webp",
-      "outputBytes": 10568,
-      "outputSha256": "8089d6f07bcbeeaea062792e8b75018497009d04ad5fe8c7915e34aa0ad911af",
+      "outputBytes": 24588,
+      "outputSha256": "f08cba421d355f001548e93c83690d9d3fcc33ecc4076ce38846b4e6a03b5f58",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19133,21 +19133,21 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/go-bathroom.png",
-      "sourceBytes": 50793,
-      "sourceSha256": "b23462c4eec1194d3bf44b1b1262415132222e51863d0e34a17685dcc1f020aa",
-      "width": 512
+      "sourceBytes": 327534,
+      "sourceSha256": "f49a5cc619ebc66721a4b9bb195e121e57a886686011ac309317711c97bba287",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-signals/images/need-toilet.webp",
-      "outputBytes": 10524,
-      "outputSha256": "602d5aba4c7ffe80ba78fed781ba17bdcf5d45a7f70812aa01f332b83c13e2ac",
+      "outputBytes": 22722,
+      "outputSha256": "6578bda40ca2fec9e07bbaaa50bc93e9306107f2f596aa1b7e8bd5e756601f6d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19156,9 +19156,9 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/need-toilet.png",
-      "sourceBytes": 49421,
-      "sourceSha256": "d41d8810c80e68f2d22c172a1a0c20c7338b502c12bdc4d7f70186324aa07df7",
-      "width": 512
+      "sourceBytes": 246700,
+      "sourceSha256": "d5a1c8efadb4e6d8d9c3f0bc7d8616ad78dd8685f8c3f40678163a2c8dba3aa6",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19169,8 +19169,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-signals/images/potty.webp",
-      "outputBytes": 14378,
-      "outputSha256": "800408f146c5d0814de5aa4a3747449af378fa000da0eb5e2361fa600a562791",
+      "outputBytes": 88948,
+      "outputSha256": "5027417f4ae066ef16b23f1fe6e3491a6bbb88e38d99ea8505766a9a2d6f34e7",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19179,8 +19179,8 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/potty.png",
-      "sourceBytes": 46830,
-      "sourceSha256": "d201ae2aac80e6f760d77ddce439b1cbf36a9c8c51866775c62e20a9f25213a7",
+      "sourceBytes": 320138,
+      "sourceSha256": "04c5ffcaf91851ed94e43881785a36772bb7d0bf7853f699348929163842d867",
       "width": 512
     },
     {
@@ -19192,8 +19192,8 @@
       ],
       "maxPercent": 16,
       "output": "lessons/toilet-routine/toilet-signals/images/step-stool.webp",
-      "outputBytes": 15688,
-      "outputSha256": "2b669980f56d253b2fbae7e6a7bc4f108955ac6fdf136076455404bf55a570a2",
+      "outputBytes": 104860,
+      "outputSha256": "67fa7159ae960a0f5fc5738925115babf0eb2cd1f09f3703f16fd9eb5208756a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19202,21 +19202,21 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/step-stool.png",
-      "sourceBytes": 49333,
-      "sourceSha256": "db08bac030f7b78622a8aeb6a002ed6c509484865c77b3fb544ec5484b326d66",
+      "sourceBytes": 324782,
+      "sourceSha256": "1872eb278423732c70283a034fb2efd6262822e930805e8e02cd8ecee9e4af92",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 568,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 22,
       "output": "lessons/toilet-routine/toilet-signals/images/toilet.webp",
-      "outputBytes": 22074,
-      "outputSha256": "43c48d4a32a54cc93380058c0bbbe512a8df68f81d52c70b83787eb9e89c7dd2",
+      "outputBytes": 56430,
+      "outputSha256": "cc26d62b69a42ae75cfc376e6a3004eabca51ea074a6398dd2957f4c4695dd63",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -19225,9 +19225,9 @@
         "toilet-signals"
       ],
       "source": "lessons/toilet-routine/toilet-signals/images/toilet.png",
-      "sourceBytes": 45827,
-      "sourceSha256": "e173c42a782a4724cd1062ae909943d8e47f187b1c8f5c77ffb600a2116181b0",
-      "width": 768
+      "sourceBytes": 301797,
+      "sourceSha256": "25472a16f68ac3a541e11bcade994876f708bf5fc749226f5ab3b466e598586b",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19261,8 +19261,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/toilet-routine/toilet-steps/images/background.webp",
-      "outputBytes": 3618,
-      "outputSha256": "efef17887c8ba13ec7d550de209bea670f2c59d0d70516cc4727d9685fe505a8",
+      "outputBytes": 36300,
+      "outputSha256": "60b6814fd66aaa2f161e44b25a09a9026704905955b6772a1ac4f8903a83173f",
       "profile": "background",
       "roles": [
         "background"
@@ -19271,8 +19271,8 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/background.png",
-      "sourceBytes": 25219,
-      "sourceSha256": "853fa20df760e8824c13e41bba762bc6a1c40ea339fa02c95ea25d048ef58687",
+      "sourceBytes": 2414016,
+      "sourceSha256": "480fca54c3a46deedb337d930788200d3deb6824a5d860dbdeb8bdb32e6787c6",
       "width": 941
     },
     {
@@ -19282,10 +19282,10 @@
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 16,
+      "maxPercent": 14,
       "output": "lessons/toilet-routine/toilet-steps/images/flush-button.webp",
-      "outputBytes": 15702,
-      "outputSha256": "4faf94e9a08affd0b8f958885ecc8fc7462366ae002f889090ec8476ae0e509b",
+      "outputBytes": 113742,
+      "outputSha256": "179e6b461fc9b3a9998a5d9723df1424843b9a4bfe62929b1cf2ade1ff5f08fa",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19294,21 +19294,21 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/flush-button.png",
-      "sourceBytes": 48837,
-      "sourceSha256": "66fa2c7c837b7aed1238a57640c302d66f551fc623f184417b761d5014383ba6",
+      "sourceBytes": 283678,
+      "sourceSha256": "b62be50291a4dda553f4628bb8502ca73f4c9bbeca237d7a09ca22e449c26a57",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-steps/images/flush-toilet.webp",
-      "outputBytes": 9662,
-      "outputSha256": "4b838ab8d1b750e02bba91167986dd135ac721c6debcead934ba64d73f07a2e2",
+      "outputBytes": 19394,
+      "outputSha256": "d05732133292820037211274bb41827e76d68c2c4a798748de6ce939f4ece1eb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19317,21 +19317,21 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/flush-toilet.png",
-      "sourceBytes": 45991,
-      "sourceSha256": "68bb39e7e59b3d2784b86cd73143987fe7b5bf582821a1a4d4aa3afe8d3e4dc2",
-      "width": 512
+      "sourceBytes": 246985,
+      "sourceSha256": "e0df8b57f8870498013b77e5c19dd1301814900624193da38ad61c56cc14b777",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-steps/images/pull-down-clothes.webp",
-      "outputBytes": 11256,
-      "outputSha256": "10191d7bced3609b5e8e7adee67be96bfabe6c1ad2eab4f08e1bc5795005f87f",
+      "outputBytes": 23480,
+      "outputSha256": "69bebc2f58aa135f8c202de79bb2d6306c08ccbcc028cf34054d0fead4e26e19",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19340,9 +19340,9 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/pull-down-clothes.png",
-      "sourceBytes": 52803,
-      "sourceSha256": "14312a0091a07f2e96d17eb20db4dec423011c0bfb6365ab26f94129ac58a8c8",
-      "width": 512
+      "sourceBytes": 291810,
+      "sourceSha256": "8994f284d712c3f6e4393314586cfdc7bdfd746c60d22c4df1f0ca8525a7af60",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19351,10 +19351,10 @@
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 17,
+      "maxPercent": 16,
       "output": "lessons/toilet-routine/toilet-steps/images/toilet-paper.webp",
-      "outputBytes": 16026,
-      "outputSha256": "99620d5f1707a4b779d4d20b97fd3147f04d9efd05709caca2dc99c1b20ada26",
+      "outputBytes": 121432,
+      "outputSha256": "d3a50f228b2026eea1bdf4cbf9e312387ce3053d5af9f5a228204da53849b7fa",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19363,21 +19363,21 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/toilet-paper.png",
-      "sourceBytes": 49322,
-      "sourceSha256": "62302a9063960365c4f9dc38f3ba80ad4b1b63f697ad3e08c0184a635a09b475",
+      "sourceBytes": 330175,
+      "sourceSha256": "0382960dd67815679a6f3820d5a45abb7d354e2fa982332323c4f23eefa8146f",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 568,
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 23,
+      "maxPercent": 21,
       "output": "lessons/toilet-routine/toilet-steps/images/toilet-seat.webp",
-      "outputBytes": 24286,
-      "outputSha256": "526a592ce57ba188122aca6f2f9aa2d521aa215745be4d5c8e58cda868cc29e8",
+      "outputBytes": 58996,
+      "outputSha256": "9c029b14a87dab06830bf75fe9d562bb51adebaadb01d75a6a3e67444955e0d8",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -19386,32 +19386,9 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/toilet-seat.png",
-      "sourceBytes": 48830,
-      "sourceSha256": "db273afa637e601e38bfce820d8aebac0801a2e51fc2495bc26269952b86d5ab",
-      "width": 768
-    },
-    {
-      "configSignature": "d3d4e2f7441de006",
-      "hasAlpha": true,
-      "height": 768,
-      "lessonIds": [
-        "toilet-routine"
-      ],
-      "maxPercent": 21,
-      "output": "lessons/toilet-routine/toilet-steps/images/trousers.webp",
-      "outputBytes": 23634,
-      "outputSha256": "9a96c5d12e8f5f6e8218791d17215e7a928decdf743210b928ca3fa2b0a26853",
-      "profile": "objectMedium",
-      "roles": [
-        "object"
-      ],
-      "sceneIds": [
-        "toilet-steps"
-      ],
-      "source": "lessons/toilet-routine/toilet-steps/images/trousers.png",
-      "sourceBytes": 48232,
-      "sourceSha256": "21557cc35ac02c711c435c1f2393c486e88d7eb8bde7b683343f36ae0010f420",
-      "width": 768
+      "sourceBytes": 332701,
+      "sourceSha256": "260e7a85e3ab46ac6d8113709ad1f056577db170fb12ea9174d70b5f7287f7d7",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19420,10 +19397,33 @@
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 17,
+      "maxPercent": 18,
+      "output": "lessons/toilet-routine/toilet-steps/images/trousers.webp",
+      "outputBytes": 118488,
+      "outputSha256": "ff8fac507d2f52f1bb2948b32e8cb1e9ce7457485e7281d3845f0fd7209af969",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "toilet-steps"
+      ],
+      "source": "lessons/toilet-routine/toilet-steps/images/trousers.png",
+      "sourceBytes": 427907,
+      "sourceSha256": "8495aa3304907da917a99ee96503ef2084a112a2abf3c7539570de44a7b06458",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "toilet-routine"
+      ],
+      "maxPercent": 16,
       "output": "lessons/toilet-routine/toilet-steps/images/underwear.webp",
-      "outputBytes": 18714,
-      "outputSha256": "ba878b845e97bf39863917a8f3481d380baea1bd739ce663c64e9c6590d63e54",
+      "outputBytes": 137986,
+      "outputSha256": "f30afd12c287abb2817fb437c32c74a69320fdda10c1eb537bf89f47be2598f5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19432,21 +19432,21 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/underwear.png",
-      "sourceBytes": 54224,
-      "sourceSha256": "00c1c8f3f9dd58f7244edaef76abf69c1bbb52bf3c8a3381cb6e32ff450aea33",
+      "sourceBytes": 364518,
+      "sourceSha256": "b0231dbcca882779aa88a2e5ebd7f48c4065da0612a0c9747c6e63d1f9e0e52a",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 442,
       "lessonIds": [
         "toilet-routine"
       ],
       "maxPercent": 17,
       "output": "lessons/toilet-routine/toilet-steps/images/use-toilet-paper.webp",
-      "outputBytes": 10902,
-      "outputSha256": "754fd8e5b31d9a4803af9ec7df7487cfff3cc6f9374629ab08102fc0e0f87773",
+      "outputBytes": 18172,
+      "outputSha256": "5f9843d9597d48f7932dadacd6af51d6c993a75a439b6d3d71e40ad83d429e08",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19455,9 +19455,9 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/use-toilet-paper.png",
-      "sourceBytes": 50563,
-      "sourceSha256": "2d29f1053085e33784f128ab51266d44d27fe7c52c300854913cacd177b62acf",
-      "width": 512
+      "sourceBytes": 230793,
+      "sourceSha256": "9b225a7c72554c026533fb2c9fd34266e7ad887634668eccf89ae039ea0df895",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19466,10 +19466,10 @@
       "lessonIds": [
         "toilet-routine"
       ],
-      "maxPercent": 17,
+      "maxPercent": 16,
       "output": "lessons/toilet-routine/toilet-steps/images/waste-bin.webp",
-      "outputBytes": 15546,
-      "outputSha256": "c323985a57527bc736fca19124c91c66937cf31cfac45577297a22f3816a630f",
+      "outputBytes": 108238,
+      "outputSha256": "1022fab5093337782416f6fe8e7410e607d0acd294c179606bc1b5b2bfb98466",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -19478,12 +19478,12 @@
         "toilet-steps"
       ],
       "source": "lessons/toilet-routine/toilet-steps/images/waste-bin.png",
-      "sourceBytes": 48609,
-      "sourceSha256": "6de049672a3ccd5f058043301a68075778a2dba84162e67718ed5e986948afda",
+      "sourceBytes": 327209,
+      "sourceSha256": "11cb87b4a1eb65467224af9e40a341afb53d056dd3838741afbc79cc8e823c37",
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T14:23:02.990Z",
+  "generatedAt": "2026-08-02T14:58:52.545Z",
   "releaseVersion": "v1",
-  "revision": "79b097a9a4151f63"
+  "revision": "31d7ee952fcb1d96"
 }
