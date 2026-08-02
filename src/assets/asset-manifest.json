@@ -13574,14 +13574,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 556,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 22,
       "output": "lessons/my-feelings/angry-and-scared/images/angry.webp",
-      "outputBytes": 27646,
-      "outputSha256": "020e683885b247ffe8a28ee7fe4b72d10bd8bcbfe429fe6389951f196cd64c2e",
+      "outputBytes": 22760,
+      "outputSha256": "6b04430171617e4d0f16576be3faf07eb5191bc2b8c1ab55006577bcb024e7d0",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -13590,9 +13590,9 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/angry.png",
-      "sourceBytes": 54448,
-      "sourceSha256": "4842364cbd95917c51d38ebf71155397859e8e1c7d2f6be425618c41b5691527",
-      "width": 768
+      "sourceBytes": 229439,
+      "sourceSha256": "944b7c7fb333000781a8f85296078d3c6e921d66ee381ddd7e456a9e7496213f",
+      "width": 361
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13626,8 +13626,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-feelings/angry-and-scared/images/background.webp",
-      "outputBytes": 3132,
-      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "outputBytes": 32172,
+      "outputSha256": "ba0b4c48ba015e80b21ffc2441add30d722fd968f2114a58cbc050acdfe051aa",
       "profile": "background",
       "roles": [
         "background"
@@ -13636,8 +13636,8 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/background.png",
-      "sourceBytes": 24334,
-      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "sourceBytes": 2344083,
+      "sourceSha256": "9af54dac7dfdcb7966c05d72b1524bd2fef2867e36c78d70d71c501f0026cf7f",
       "width": 941
     },
     {
@@ -13649,8 +13649,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/angry-and-scared/images/brave.webp",
-      "outputBytes": 17058,
-      "outputSha256": "3b0242e5e5b9031c180a0df1c59fd09a248062c8f7c5282d5642ddde1146368f",
+      "outputBytes": 26992,
+      "outputSha256": "d35e2a8b0a3ebb71b6970b0f1bd13a0b99d77fd4e354c690fe8ba57961c1e8a8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13659,21 +13659,21 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/brave.png",
-      "sourceBytes": 52497,
-      "sourceSha256": "9496f3196dbf49e43895ac80a920e447a4549b78c7e7a3581e14e73112377906",
-      "width": 512
+      "sourceBytes": 239714,
+      "sourceSha256": "5492a7b47c1f789a8a3fe2d33febe99e05830ba51ffb658538ba890e0cc303f6",
+      "width": 331
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/angry-and-scared/images/feel-angry.webp",
-      "outputBytes": 12018,
-      "outputSha256": "511f9930fb19412f444b5a9e14dba0a42118163b00232257f9d70bd777ee4588",
+      "outputBytes": 19158,
+      "outputSha256": "590597100483f0bc416525725eadf3761abddf12e9060c722713b049d8e08cea",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13682,21 +13682,21 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/feel-angry.png",
-      "sourceBytes": 53342,
-      "sourceSha256": "570063634dc7a3f5189dd8e63597af7048cbd90aabff17207e108b0a4000294e",
-      "width": 512
+      "sourceBytes": 244343,
+      "sourceSha256": "c0d11e6d6f5f98813bfb2962a18cd99ff4a2fd8abb55aae9568b50529278bf6a",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/angry-and-scared/images/feel-scared.webp",
-      "outputBytes": 12168,
-      "outputSha256": "773a85c31f06072111bce8c3bc90d3edb8cc9f39b533abe4d3012df3efb1fda2",
+      "outputBytes": 18500,
+      "outputSha256": "a1137c39f0f3f7ca5d7e4c8cdeec7077c0c7a36086fa3ac7e48c877a8941eb09",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13705,9 +13705,9 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/feel-scared.png",
-      "sourceBytes": 54166,
-      "sourceSha256": "62156f3d32fdfe363840c3fcd3da46ab04f392680ac549344ed14123b967d6be",
-      "width": 512
+      "sourceBytes": 243646,
+      "sourceSha256": "50f79dc8e21c9e8982235f17c4fc7ca738a596566737ca60b6ae24ec8f8360ea",
+      "width": 404
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13718,8 +13718,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/my-feelings/angry-and-scared/images/safe.webp",
-      "outputBytes": 16838,
-      "outputSha256": "45da9844636d9228bdbb4546e7c063f54e5116279599f9ebec2158e847dd745a",
+      "outputBytes": 26114,
+      "outputSha256": "5f8ad91ebbfa545136da617f693d6ef3e72f45989661403b783b504f054e003c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13728,21 +13728,21 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/safe.png",
-      "sourceBytes": 51976,
-      "sourceSha256": "9ea1f9275dc55c4ff770e0c0660ac0cc2543c64f2315f7e7329ecc444fdde4e2",
-      "width": 512
+      "sourceBytes": 242154,
+      "sourceSha256": "46e1087951bcfe59481569f5e476b7616480032f4034ef2a93aafe1d2e17af61",
+      "width": 335
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 563,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 21,
       "output": "lessons/my-feelings/angry-and-scared/images/scared.webp",
-      "outputBytes": 28190,
-      "outputSha256": "c98c6d9ab01f029b4d758d7776bb6df12ffc31f37dbdd94a94e7eb6231d28219",
+      "outputBytes": 23506,
+      "outputSha256": "8729d6b21bdcee84e8d15db4ffd60c307d8860b83cf6866034b850856c732575",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -13751,21 +13751,21 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/scared.png",
-      "sourceBytes": 55330,
-      "sourceSha256": "7b90d1912a77b8d4c450c8a05f362aa51770ff2b9be62a9a22d495748f1b4f13",
-      "width": 768
+      "sourceBytes": 240907,
+      "sourceSha256": "a2ed9789c76c4bb3a66e7ad193eaf95aa2595f9cea86c2f27c64fae1b31f258f",
+      "width": 359
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 436,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/angry-and-scared/images/stay-with-me.webp",
-      "outputBytes": 11750,
-      "outputSha256": "0186342491a12115935e2cfaf712cfd680fbbece6dd9d9bb404479e0e2374c97",
+      "outputBytes": 20432,
+      "outputSha256": "b1772b8eed5950de33f7d01094f3e1f23e98ae34bc1a33e483b5d3ca8234fc73",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13774,9 +13774,9 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/stay-with-me.png",
-      "sourceBytes": 52411,
-      "sourceSha256": "db7f9d6e4f287475f0d30c81cb9a78d58aed8cc0823f12cb617747343a490bfd",
-      "width": 512
+      "sourceBytes": 271168,
+      "sourceSha256": "f872895ccfe20943870291b780f883dd4f4e6ae8b68e0e7d8014c0a0cfdbccb5",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13787,8 +13787,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/angry-and-scared/images/upset.webp",
-      "outputBytes": 17476,
-      "outputSha256": "5196fc41549fa151b68e248b34e0347ee868ed2aeddc5c75bfc575b0b0cd2048",
+      "outputBytes": 30836,
+      "outputSha256": "2c2146d495abcfca04be6867ef9be24c2c9a7eecb53f64697e615bf7c14f1f1f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13797,9 +13797,9 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/upset.png",
-      "sourceBytes": 54052,
-      "sourceSha256": "5bdff7fedcfca5bbd800a5a121f9dbc96feefb0fa19baf123af1e9eea62c282e",
-      "width": 512
+      "sourceBytes": 251849,
+      "sourceSha256": "bae0cfaf9968a76116a041fc9d60e41a071bfcf216fb3d26ba04fee09ecefd53",
+      "width": 383
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13810,8 +13810,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/angry-and-scared/images/worried.webp",
-      "outputBytes": 17924,
-      "outputSha256": "8eccb8dad03b8a757f2d2ba903e342c4f11baff78450e6e3fed5f426bc96299c",
+      "outputBytes": 25452,
+      "outputSha256": "f561ca91336d70f989bfdf34359144a65f1af1b24f4988fdbfe0f06baf3608db",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13820,21 +13820,21 @@
         "angry-and-scared"
       ],
       "source": "lessons/my-feelings/angry-and-scared/images/worried.png",
-      "sourceBytes": 55167,
-      "sourceSha256": "7429be65833ce1d620dabb3c4305111ab212c10444eaeb58d98abcfa53e9a50d",
-      "width": 512
+      "sourceBytes": 232539,
+      "sourceSha256": "b30a19a0ca73233b2d58b1223d372f479e985d704556a87653bc23bbdc3c29e3",
+      "width": 324
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 409,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/excited-and-proud/images/am-excited.webp",
-      "outputBytes": 11656,
-      "outputSha256": "b557eb06e7ac5f987fd1ddbac08bc219180e9898eee7b3cc8a27b3c1a2b81c9d",
+      "outputBytes": 18848,
+      "outputSha256": "aa77e5ad1a091564c70e5b3aedb0e02e15bb96adb0199fd04e12c7a7b43b0bff",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13843,9 +13843,9 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/am-excited.png",
-      "sourceBytes": 51810,
-      "sourceSha256": "c66475d782cd858d77b913c5ef1050da4d98917f1815ea06ed8373e715b0ff56",
-      "width": 512
+      "sourceBytes": 239089,
+      "sourceSha256": "4dd9b69fd377c35d46a299647ef75fc096636fc72595358a1755806d846f969a",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13879,8 +13879,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-feelings/excited-and-proud/images/background.webp",
-      "outputBytes": 3132,
-      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "outputBytes": 40040,
+      "outputSha256": "c74150640d51fe0bfcdafde856a0ac5d159d09aa92104b8b6bd7143f3b60800b",
       "profile": "background",
       "roles": [
         "background"
@@ -13889,8 +13889,8 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/background.png",
-      "sourceBytes": 24334,
-      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "sourceBytes": 2575457,
+      "sourceSha256": "c022b021a72a86d8864db4eb005b15d9aa4e79c9900239895a42ea714b64f8ab",
       "width": 941
     },
     {
@@ -13902,8 +13902,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/excited-and-proud/images/curious.webp",
-      "outputBytes": 17286,
-      "outputSha256": "8562320cf0cb7eb66967cbdf15eb29ace89b47352a094f858ca1cf7660d7ac21",
+      "outputBytes": 24400,
+      "outputSha256": "02286e199d19a72f8d525e6b90852937a7f481bd69266d0a5c2bd0d0d56b716c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13912,21 +13912,21 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/curious.png",
-      "sourceBytes": 52773,
-      "sourceSha256": "3c97ea3d5718ae16cfb6641c2cd0d398dbd9d620c4063cad2b389d36e26e2912",
-      "width": 512
+      "sourceBytes": 183450,
+      "sourceSha256": "b6d90222606560e8b536fa0cb8f7fe8f5fd09b038904f6869ed9b0c8bb6e4051",
+      "width": 299
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 409,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/excited-and-proud/images/did-it.webp",
-      "outputBytes": 10634,
-      "outputSha256": "eab6ded1affa5b324e9ed027733cc64b9d9eca69243d4b68a72761092adb9d2a",
+      "outputBytes": 19552,
+      "outputSha256": "f5b224998fe82453e3b72a31ddbac63ac46926a208c80b86605fc6d27d4adb5d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13935,9 +13935,9 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/did-it.png",
-      "sourceBytes": 47944,
-      "sourceSha256": "97083b2eb18a37d061e5330ab925330c753e7c31b6e71d0f09826d0e9fcbaf6c",
-      "width": 512
+      "sourceBytes": 256105,
+      "sourceSha256": "959d685c3a57f89fde81b30ba31c9486fb7c4a76833e99708f4897afde1e4364",
+      "width": 404
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -13948,8 +13948,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/excited-and-proud/images/disappointed.webp",
-      "outputBytes": 18938,
-      "outputSha256": "7d224505c8f2670380eae9d76196cd182a874767d1598299148d225573d6791c",
+      "outputBytes": 23046,
+      "outputSha256": "f2cda185a24558701b5f5ea2a5fa07390748a4b5e26f0cec718217a9fcbe50c0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -13958,21 +13958,21 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/disappointed.png",
-      "sourceBytes": 55962,
-      "sourceSha256": "d5cd4f563d5b6f788166e584b0a61bf83f1e7dba921e58dc97e26ef294d9a6f2",
-      "width": 512
+      "sourceBytes": 185598,
+      "sourceSha256": "19a889e05807966acbd1088b132c9c619587e11491ba74140c63d05e7a59571e",
+      "width": 297
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 547,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 22,
       "output": "lessons/my-feelings/excited-and-proud/images/excited.webp",
-      "outputBytes": 27598,
-      "outputSha256": "4831a5d558dd07bf7a7b50e6a409daa6f431b893776fa4bc3e1519b6524a0cfa",
+      "outputBytes": 22606,
+      "outputSha256": "cc4ef3002fd3022e6e5eb00210ddd03b1097ba8f024c9d27b5021c6b3b401d9c",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -13981,21 +13981,21 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/excited.png",
-      "sourceBytes": 53353,
-      "sourceSha256": "e7783cb9b5c48afe8beffc9e740e2e588922abc0cd6af5ef023576518728cf10",
-      "width": 768
+      "sourceBytes": 201153,
+      "sourceSha256": "c9f8dd4a5ec3c282498dcd489f12e1050a345350c202edd6196898d53772542e",
+      "width": 331
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 409,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/excited-and-proud/images/feel-proud.webp",
-      "outputBytes": 11370,
-      "outputSha256": "98a37cf82d2f3dd85c44161ab103839230efc86276a62c474be97326d0308baf",
+      "outputBytes": 17162,
+      "outputSha256": "ea77ba17bb466cafc4a7d59bf9c0d59840496d53790339418476b104e8863e04",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14004,21 +14004,21 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/feel-proud.png",
-      "sourceBytes": 51169,
-      "sourceSha256": "c374f70b293f2013eb93c4ad445a00cbf40c23cd754afe50c7e99227128f547a",
-      "width": 512
+      "sourceBytes": 227587,
+      "sourceSha256": "4c2f98d206839010ffb9a281111eb28bf0dc80829f3b620dff4b3425e8315206",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 552,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 21,
       "output": "lessons/my-feelings/excited-and-proud/images/proud.webp",
-      "outputBytes": 26648,
-      "outputSha256": "bdc898e6ec8798754a6a6693eca5d03e8a97d6762e8cc1aa0ffb707a9336ebf4",
+      "outputBytes": 22138,
+      "outputSha256": "e8fd11394b80d4a6b24135282de44d4cb7e958d1ffc552842e16f09fc5e1b416",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -14027,9 +14027,9 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/proud.png",
-      "sourceBytes": 52336,
-      "sourceSha256": "a6180860020e7a5df2f79df5db1a6554881c10dc1a68b26759e034b26038fd0f",
-      "width": 768
+      "sourceBytes": 200849,
+      "sourceSha256": "6c95e01358f30ab57ca08cb9652816c80a383af67fcc08d223e92b60be7bee2a",
+      "width": 334
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14040,8 +14040,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/my-feelings/excited-and-proud/images/shy.webp",
-      "outputBytes": 16652,
-      "outputSha256": "70a1f739784f88f00ca7204b3e60554e0c8f48a4de2f129aa7ed5113d6ae8dde",
+      "outputBytes": 23292,
+      "outputSha256": "512a2524e50fff96ea50eef39241c2ab44435887e4a50a5210e4a82c73fe6591",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14050,9 +14050,9 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/shy.png",
-      "sourceBytes": 51629,
-      "sourceSha256": "6d4bc5df411363d36ebaf7f16ebd8e6f03b3f017c845081db66fee41a94828c4",
-      "width": 512
+      "sourceBytes": 176366,
+      "sourceSha256": "8ec8ec4c4cf31b7371adc1518c01bdae1ac1a465aef3beb4aec6c964b3ce2cb1",
+      "width": 296
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14063,8 +14063,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/excited-and-proud/images/surprised.webp",
-      "outputBytes": 18426,
-      "outputSha256": "f0b37d6d2cea7f69a5aca17983af4f677ec0015b5f6e0a4984f7d02ec39e9cd9",
+      "outputBytes": 24530,
+      "outputSha256": "2d4482b9d2f3c9c13a6a177bbc7b8c000a1bf05c2fbefeac00e5264006b0a9cd",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14073,9 +14073,9 @@
         "excited-and-proud"
       ],
       "source": "lessons/my-feelings/excited-and-proud/images/surprised.png",
-      "sourceBytes": 55579,
-      "sourceSha256": "1f04baa11a62969598f950460389df0c8c57633f6197f9fd6263a37e0ebb89fb",
-      "width": 512
+      "sourceBytes": 192396,
+      "sourceSha256": "2b685035112726192f233f6cbeaec59e9b2a8e74487b129b761555d976f65785",
+      "width": 299
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14109,8 +14109,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/my-feelings/happy-and-sad/images/background.webp",
-      "outputBytes": 3132,
-      "outputSha256": "aba3ae3c4464e4634698e954737badee66a4cc951a294b850b347ffa895e4085",
+      "outputBytes": 38264,
+      "outputSha256": "76cf519239ef9a4415fe1c5389533266d92777b5711d484c247dda69092dd56e",
       "profile": "background",
       "roles": [
         "background"
@@ -14119,21 +14119,21 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/background.png",
-      "sourceBytes": 24334,
-      "sourceSha256": "70028646050f03ad74dfaecfef92f1ce1674f181cec4f7a56ac116c3d9dbc8b6",
+      "sourceBytes": 2507789,
+      "sourceSha256": "e6d372e153c50fdb8762caf906ba979576d2e5e311394dfd351389d1b10509b0",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/happy-and-sad/images/feel-happy.webp",
-      "outputBytes": 11608,
-      "outputSha256": "ccd0133ac9340cc1dfb129bd299207282f1f53d762e699f4c137dcb04343ebfa",
+      "outputBytes": 17556,
+      "outputSha256": "dbf706c56729f05f44fe981977347b5eaa6e52c00ddf2ec3f8b0176cd705c72c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14142,21 +14142,21 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/feel-happy.png",
-      "sourceBytes": 51778,
-      "sourceSha256": "9993b1e018bb880af431a53fd697916ef96d054de1a1b6761ba6b5eb97c9e5f6",
-      "width": 512
+      "sourceBytes": 240103,
+      "sourceSha256": "91893bbcc7bb1b43b57bd36197d652a5612691c8608cb7cdc882af9023573bad",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/happy-and-sad/images/feel-sad.webp",
-      "outputBytes": 11266,
-      "outputSha256": "e87c604af67be66cc48d989fb0e1f50c5cf06ad11fff6b7f2295def3117c68ac",
+      "outputBytes": 16856,
+      "outputSha256": "8ee98f1cc33d9df7b9bb26f102ba02c9c39f3374bb64259fb01d15eec4d8ff4b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14165,9 +14165,9 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/feel-sad.png",
-      "sourceBytes": 51577,
-      "sourceSha256": "b3b986c4a6cc1b0b5c485fe18cb830a6a40042478ce5ccb71b7fb21163af89ab",
-      "width": 512
+      "sourceBytes": 236889,
+      "sourceSha256": "045078690aec6545883f5d0f10c902e508679ce09d9d7d947e9cede78627e796",
+      "width": 404
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14178,8 +14178,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/happy-and-sad/images/frown.webp",
-      "outputBytes": 16960,
-      "outputSha256": "da290780cc639973a9eda9026e41e8fce55bc728c68e6c1534171ea66851a00f",
+      "outputBytes": 24964,
+      "outputSha256": "5a0700f03f2dbbe43699c65b33b932e44eea64cfcb230edcb3adf49bf79f1806",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14188,21 +14188,21 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/frown.png",
-      "sourceBytes": 52149,
-      "sourceSha256": "07ae6394966817db935eea21222293c9cbfa3b4260313a370c7ab62c06555abb",
-      "width": 512
+      "sourceBytes": 220142,
+      "sourceSha256": "b039d3796abd41d3c4dae1e267f2579b1a1766de53d7fab5e8e0b7638a32d3ad",
+      "width": 328
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 557,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 22,
       "output": "lessons/my-feelings/happy-and-sad/images/happy.webp",
-      "outputBytes": 27024,
-      "outputSha256": "a28831ee248ae50a06230cb13dc2c29cb0dc1c89023ea5e175d7927961ba1a6a",
+      "outputBytes": 27456,
+      "outputSha256": "59a9f00caaf5186389e5f12c9efe0904187f16910dc23b9866c7e38d1eb7ec0a",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -14211,21 +14211,21 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/happy.png",
-      "sourceBytes": 52988,
-      "sourceSha256": "99998267fa5dd05d76550ca59b9eb2e557c37ecd358b02822b06e01e1ebf43f1",
-      "width": 768
+      "sourceBytes": 264175,
+      "sourceSha256": "1312c67eea0f7c6157b815f2a60c586b711d77200eecb9d96741ef54978e11c7",
+      "width": 469
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 17,
       "output": "lessons/my-feelings/happy-and-sad/images/how-you-feel.webp",
-      "outputBytes": 12522,
-      "outputSha256": "58bce45b0a3035d8eb681e0c230affa073fed5ecb46fd673c1c86768fbf2a486",
+      "outputBytes": 21178,
+      "outputSha256": "6dddf927abcecb68515b46dfb6c4ef09d00bfeb49105599323a431a6d7e24f4a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14234,9 +14234,9 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/how-you-feel.png",
-      "sourceBytes": 55764,
-      "sourceSha256": "6601fbfc4dc5674a36781a13d36573506b1da057b84937d6828261fd1d32109f",
-      "width": 512
+      "sourceBytes": 264680,
+      "sourceSha256": "1d9338dc6146d9c066d76109aa3c21995db06e1cd880f4640ab81b7efcb0b97f",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14247,8 +14247,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/my-feelings/happy-and-sad/images/laugh.webp",
-      "outputBytes": 16946,
-      "outputSha256": "7a4097e10af695f74f9659086b42efcf528155cfd78537ca41e5c02cb7bdca88",
+      "outputBytes": 25658,
+      "outputSha256": "16fc729169dc30e7d789083d5d074a82c4b02f09b50eb9282c4c2ffc1b46abca",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14257,21 +14257,21 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/laugh.png",
-      "sourceBytes": 52384,
-      "sourceSha256": "129a71c9bbdba939b259f7bff00ab0f45485753db7a157fcad51194cf93ac3a5",
-      "width": 512
+      "sourceBytes": 223626,
+      "sourceSha256": "adaeba319f0df8daf9eb6adad899df4778ac089e13b0d60e1fb705590a27ca3b",
+      "width": 325
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 553,
       "lessonIds": [
         "my-feelings"
       ],
       "maxPercent": 22,
       "output": "lessons/my-feelings/happy-and-sad/images/sad.webp",
-      "outputBytes": 26266,
-      "outputSha256": "c3d8c16bd91356b397773815494438bbbcbcd855b4c5148a99deb0815bc3d1de",
+      "outputBytes": 20044,
+      "outputSha256": "33f0940fdfaadce369d54a97f6aa1cca103d2520af55984f00607e832c73e97b",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -14280,9 +14280,9 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/sad.png",
-      "sourceBytes": 52598,
-      "sourceSha256": "73c6f4d31c09991897e2b0ce2fa15d2c1cc3fc002800479b7419dbd2dc1b8a65",
-      "width": 768
+      "sourceBytes": 217758,
+      "sourceSha256": "0746bda8b8fbba1c354a7388deafbdcc929d4f833682ed6a9a30adcab4a38b39",
+      "width": 348
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14293,8 +14293,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/happy-and-sad/images/smile.webp",
-      "outputBytes": 16772,
-      "outputSha256": "d9194d94b4deb604884c2cd9a9391ddad129bf000da14cf413aa1225b214a39f",
+      "outputBytes": 26758,
+      "outputSha256": "e1377df94ec54708f8c1f0b29bd628ab5f0078db3fd619f3d9f573f432682662",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14303,9 +14303,9 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/smile.png",
-      "sourceBytes": 51522,
-      "sourceSha256": "10277248346b6884f7910b17a3440d78a64d4da9cd1c63286b42e92267a4f5ef",
-      "width": 512
+      "sourceBytes": 233066,
+      "sourceSha256": "a4b3a80c209249e9d0d4ed04e7335c7662aa2e7d4c2296af57015c998ffffc3c",
+      "width": 330
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14316,8 +14316,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/my-feelings/happy-and-sad/images/tears.webp",
-      "outputBytes": 17324,
-      "outputSha256": "2db33c314676bb98ff4cd168e0e693bb34e6590816596809a61ff2871d4ecd40",
+      "outputBytes": 26208,
+      "outputSha256": "186898e696239e4bd1050dbf7cc8fc10177d7fcabf09688720f0630c1997a7e1",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -14326,9 +14326,9 @@
         "happy-and-sad"
       ],
       "source": "lessons/my-feelings/happy-and-sad/images/tears.png",
-      "sourceBytes": 51504,
-      "sourceSha256": "749eb76852e1002da257a77cf51cb4f00c0f65633cf4a8cb386c5c0e0c0e2829",
-      "width": 512
+      "sourceBytes": 235097,
+      "sourceSha256": "5e23e2cb5a81848819ca34f853282567d65b7b1b8681309537917874610b43d4",
+      "width": 325
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19483,7 +19483,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-01T15:30:22.080Z",
+  "generatedAt": "2026-08-02T06:38:23.887Z",
   "releaseVersion": "v1",
-  "revision": "9d4f3418b8c16698"
+  "revision": "79747ea873809334"
 }

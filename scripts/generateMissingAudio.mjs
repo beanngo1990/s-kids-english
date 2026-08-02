@@ -1244,9 +1244,11 @@ function getGoogleAuth() {
 
 function getGcloudAccessToken() {
   const gcloudArgs = ['auth', 'print-access-token'];
-  const account = process.env.GOOGLE_TTS_ACCOUNT ?? 'tomtatvui@gmail.com';
+  const account = process.env.GOOGLE_TTS_ACCOUNT;
 
-  gcloudArgs.push(`--account=${account}`);
+  if (account) {
+    gcloudArgs.push(`--account=${account}`);
+  }
 
   try {
     return execFileSync('gcloud', gcloudArgs, { encoding: 'utf8' }).trim();
