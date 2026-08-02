@@ -138,7 +138,7 @@ const layouts = {
       rect(59, 20, 17, 17),
       rect(81, 55, 14, 16),
     ],
-    rect(33, 53, 24, 19),
+    rect(32, 25, 25, 22),
   ),
   'face-and-hair-care': makeLayout(
     leftChild,

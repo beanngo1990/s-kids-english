@@ -5507,8 +5507,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/calm-myself/body-signals/images/background.webp",
-      "outputBytes": 3472,
-      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "outputBytes": 51078,
+      "outputSha256": "78d6611331091eb569f112803e502d2ae9f542a85c10aaf65855ed30113344a4",
       "profile": "background",
       "roles": [
         "background"
@@ -5517,8 +5517,8 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/background.png",
-      "sourceBytes": 26804,
-      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "sourceBytes": 2665031,
+      "sourceSha256": "c68afa5c3ce57bfd17b3a4c70440670e1478831cbd59f75bc1cb2c07b1466d40",
       "width": 941
     },
     {
@@ -5530,8 +5530,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/body-signals/images/body-clue.webp",
-      "outputBytes": 18214,
-      "outputSha256": "a0ceee68a6ed92e29b3faecaa041eee191e3787ce6f06fdbaa8abfd32ea24fd5",
+      "outputBytes": 29052,
+      "outputSha256": "786942c51b025b97fad7f40dd10b876f118f4fd6d67c3228dc58acb8a59dd89d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5540,21 +5540,21 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/body-clue.png",
-      "sourceBytes": 57926,
-      "sourceSha256": "96300d31e7a5b1ddf40b245d75fbcca46bdded5dba2676af72b5c75b698a1269",
-      "width": 512
+      "sourceBytes": 168212,
+      "sourceSha256": "3292b41fa60988e5ec69cb2dabe005d78ff948d6a7c5305c528b098d8d79e484",
+      "width": 288
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 404,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/body-signals/images/hands-tight.webp",
-      "outputBytes": 10716,
-      "outputSha256": "2c21e03688fec43db0916c37d3aff285cad526692b4a0bdf7c460cccfb9317b6",
+      "outputBytes": 15672,
+      "outputSha256": "3703177d980c2807f353eec6743bb8dfa61d2aab2455323b33a8ec9422dabef3",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5563,21 +5563,21 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/hands-tight.png",
-      "sourceBytes": 43082,
-      "sourceSha256": "702af98499b2264d94b61c709e791fe8e3bc18750cb15c3f84761ff5d2f3389f",
-      "width": 512
+      "sourceBytes": 225585,
+      "sourceSha256": "c646073219947d52be143a010de8d165f20ea73f02a5b032c3e02e11cca340d5",
+      "width": 403
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 404,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/body-signals/images/heart-fast.webp",
-      "outputBytes": 12894,
-      "outputSha256": "a1ca0051464229220c45006bc3ef31331d0dc6aa1ae7799f52c5b5ecc205fbda",
+      "outputBytes": 17502,
+      "outputSha256": "5d8a4ea2f1b0d5bc216373dc7dda79439712366c7e74a8ce11d4faa9fa5070a8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5586,9 +5586,9 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/heart-fast.png",
-      "sourceBytes": 59176,
-      "sourceSha256": "8025d616183d374730f6a47aeaf3ab2585ee19a551af53f3edc5e1e4b215295f",
-      "width": 512
+      "sourceBytes": 235062,
+      "sourceSha256": "1ee54bb9ed03a308cb84ad0a0bf44c8903a70316fab0fc9b8222b3df96eb845c",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5599,8 +5599,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/body-signals/images/heartbeat.webp",
-      "outputBytes": 18460,
-      "outputSha256": "9760687be11f1180013d327911fed312ee02bf785904e3036441292e389ce834",
+      "outputBytes": 30342,
+      "outputSha256": "1429c75f449f2a165cd33e8be73453e22993497ac130e0516d7eb899577a6003",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5609,21 +5609,21 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/heartbeat.png",
-      "sourceBytes": 54250,
-      "sourceSha256": "d52db32a0923eeebd9fcaf020beebe83b076dd20e8194422fd0b7256b296c1b4",
-      "width": 512
+      "sourceBytes": 276647,
+      "sourceSha256": "a1e383eef1dc1dca615f8b1e51e0abd70cb6392f91eb8d7ae234e9886d5bd7fc",
+      "width": 398
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 404,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/body-signals/images/need-break.webp",
-      "outputBytes": 10222,
-      "outputSha256": "6f33027166f44b18a1acb7d598159ded7226267f4ad7fc76da59d6547e007ee5",
+      "outputBytes": 15680,
+      "outputSha256": "f224a239608719dff3fd2571a37a1bc5dd3f3f46e111b0eeb3cf7cd6f6952686",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5632,9 +5632,9 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/need-break.png",
-      "sourceBytes": 40951,
-      "sourceSha256": "49d580a231142301722ce34bc2049b514a6538caeda50b34b6a75d7efc1657eb",
-      "width": 512
+      "sourceBytes": 226508,
+      "sourceSha256": "3ac81f5c6905ca3c26d1ae1009fe500c5017890456bfa63bb65975b9fb6f78ab",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5645,8 +5645,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/body-signals/images/quick-breath.webp",
-      "outputBytes": 18812,
-      "outputSha256": "32dbbb890c3c91cde58d45df8b6bd6fd640f2260dbefbb5dd8e5bf08890441db",
+      "outputBytes": 26964,
+      "outputSha256": "838367baab1575fbe5d2c78dc35298921edbebc9f60e21e060db45c739ea1a07",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5655,21 +5655,21 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/quick-breath.png",
-      "sourceBytes": 58727,
-      "sourceSha256": "3697ffa7a8e22562720a401a861791c6262e2f6a49e617af9bc0ba831ce7ee1d",
-      "width": 512
+      "sourceBytes": 205936,
+      "sourceSha256": "d3cc917775c3d234d344545fdac31d9813abde516e951c2026d904be4832f09f",
+      "width": 420
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 468,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/calm-myself/body-signals/images/shaky-legs.webp",
-      "outputBytes": 17186,
-      "outputSha256": "0332c675506b9dbc5981563de86d0db63c313b4b828f9a79207292ae963d7ec5",
+      "outputBytes": 18240,
+      "outputSha256": "ad05fb850be38dc30c62efedf7cab94efbe342fdda800ad1b0da3b1e1bfaedbf",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5678,9 +5678,9 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/shaky-legs.png",
-      "sourceBytes": 53103,
-      "sourceSha256": "d52f5a291c8b08d3740357fc29205a300100ba807d113287e4a277490ad952f2",
-      "width": 512
+      "sourceBytes": 172467,
+      "sourceSha256": "d9b31fe4eee80cd95675e58e2b2bce5f31b6946fcee689eacd462df4b424f514",
+      "width": 328
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5691,8 +5691,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/calm-myself/body-signals/images/tight-fists.webp",
-      "outputBytes": 17574,
-      "outputSha256": "eee9764891ee2fc57b69ad5e521d43c4df70d2afc567af447f28d2dae9306b27",
+      "outputBytes": 30712,
+      "outputSha256": "e73438a693e83130b25cf1c51763a0f8e435b16fb7b532c0d4439c11d954d9bc",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5701,21 +5701,21 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/tight-fists.png",
-      "sourceBytes": 56142,
-      "sourceSha256": "899e70f70894f65501851dc2ab9c89dc36335e8ea85152101daee03d447455db",
-      "width": 512
+      "sourceBytes": 275783,
+      "sourceSha256": "671c78b5707558979cca3999daa43d6307dfeaa11b31d3a79ac608ad49f49b3b",
+      "width": 382
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 494,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/calm-myself/body-signals/images/warm-face.webp",
-      "outputBytes": 18542,
-      "outputSha256": "0b07c931bfc5df17b900fc10d31109c7230649d1ca915cbce12a6365d34fb54e",
+      "outputBytes": 23054,
+      "outputSha256": "e76d6c6cb6a77eaf218ac5586855384f3c38565c7668ace92d92850630963a26",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5724,9 +5724,9 @@
         "body-signals"
       ],
       "source": "lessons/calm-myself/body-signals/images/warm-face.png",
-      "sourceBytes": 54412,
-      "sourceSha256": "ced14a89193aa0ccb933e35b1a069fdeb048f8945d6c222a4a7774f0fc51b7e2",
-      "width": 512
+      "sourceBytes": 264944,
+      "sourceSha256": "444882e37183b3895c557cd7431e262efb5186c8ec04c16146d0e48c8f4281d9",
+      "width": 431
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -5760,8 +5760,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/calm-myself/comfort-corner/images/background.webp",
-      "outputBytes": 3472,
-      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "outputBytes": 40276,
+      "outputSha256": "383d3db7e42d26c5e4333d9f540c2fd22b63ef645a154b3617620ff76b302fb1",
       "profile": "background",
       "roles": [
         "background"
@@ -5770,21 +5770,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/background.png",
-      "sourceBytes": 26804,
-      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "sourceBytes": 2512945,
+      "sourceSha256": "3d529a99488ef0ea63764a32f3b210b7009e6b45c3830820066fa0b5caa781e4",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 479,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/comfort-corner/images/comfort-toy.webp",
-      "outputBytes": 17952,
-      "outputSha256": "1b68395e67927f64c85e274c99cf3c6fb6e6848d9b08f32b0572ddb4c150bc55",
+      "outputBytes": 20436,
+      "outputSha256": "47e5590cd2f9d2f949cced0d340a6c6d2476da74769ace1588de4961aab79b5a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5793,21 +5793,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/comfort-toy.png",
-      "sourceBytes": 57585,
-      "sourceSha256": "0d45823230d8e95f21d64ba483d1ebc1be051ac7a9f3890020a8f71428fc4397",
-      "width": 512
+      "sourceBytes": 252374,
+      "sourceSha256": "ff82a8e1d6dc133058895a93175c7006c0c5e968653c995439f2a9881979b464",
+      "width": 442
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 439,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 20,
       "output": "lessons/calm-myself/comfort-corner/images/cushion.webp",
-      "outputBytes": 16960,
-      "outputSha256": "fccc4c7456631360bac0143f13b03d6c8aee8f3f7b1a8be05e219b2df979f521",
+      "outputBytes": 22218,
+      "outputSha256": "f7d5b3abd38e3425d78660b2dba4374590b92931aff58eaedb0baab41fd1715c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5816,21 +5816,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/cushion.png",
-      "sourceBytes": 55086,
-      "sourceSha256": "678514cde9caafef2111a30a11817cc98f8b53135a843e080bfb8d5ca62326af",
+      "sourceBytes": 277568,
+      "sourceSha256": "a872a91db30c27081e55544119c7e0345814fa195b4cde856083b9eea7f844ab",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 338,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/comfort-corner/images/feelings-card.webp",
-      "outputBytes": 18548,
-      "outputSha256": "13532ae1de0521aea95f9b40e07079a727d6d7cb1e540a540c6136487cb44d72",
+      "outputBytes": 8958,
+      "outputSha256": "d411895f9009c0bdcf7c7cce90e167a54b5050ba22ccce8a1d2de2d479badc20",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5839,21 +5839,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/feelings-card.png",
-      "sourceBytes": 58385,
-      "sourceSha256": "a440bf621a60ba468b0c344c23e17a4103c748dbfba5d3ab57916b2d31962f27",
-      "width": 512
+      "sourceBytes": 163467,
+      "sourceSha256": "993c6ab0c115012556901a45270f48dec77d5c8ec3c1faf294737c580f5ebc2f",
+      "width": 504
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 446,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/calm-myself/comfort-corner/images/headphones.webp",
-      "outputBytes": 19076,
-      "outputSha256": "fe839689c2a8e0a1eb7aa439e6f912b61cb93be09767358cf2855d10a147708d",
+      "outputBytes": 18318,
+      "outputSha256": "2cd55a8ad776313721fd35e6efbd7a945ef005ffe4ba83503f2bf4e3fab5e4da",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5862,21 +5862,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/headphones.png",
-      "sourceBytes": 55292,
-      "sourceSha256": "ea8cfcd500e765e6a9653919241d33c33da52e8353cc8a6a1af48a907e56a3ef",
-      "width": 512
+      "sourceBytes": 194742,
+      "sourceSha256": "f843f52d89aebc01066917aec865ad603ba8e1c6d9314ab7a2b6e5a8c29f17bb",
+      "width": 443
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 397,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/comfort-corner/images/need-quiet.webp",
-      "outputBytes": 9814,
-      "outputSha256": "171f83f373643daf50756201c37939c7741d3b0fbbbef92ae298cd2509254847",
+      "outputBytes": 15344,
+      "outputSha256": "11fde625181d95a4278bf01624acfa3037481615448b7de22030ef970f21d063",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5885,21 +5885,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/need-quiet.png",
-      "sourceBytes": 39407,
-      "sourceSha256": "15e5a1c5e254f810dff7d17a52e2883cd2af198240e82709787a0f218f843cfe",
-      "width": 512
+      "sourceBytes": 219810,
+      "sourceSha256": "c3ef92f491f42fb7172da186bcb3fdbe42c429e487c6121e5ddc0f349aefa079",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 506,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 25,
       "output": "lessons/calm-myself/comfort-corner/images/quiet-corner.webp",
-      "outputBytes": 28358,
-      "outputSha256": "258d30a1b5cc3bc85533125b35e6db8e866e14493e90d002422d224996bd5e4b",
+      "outputBytes": 15106,
+      "outputSha256": "485f1dfe6764f42497d49ce6fad4ab84fe619f5a399b26c80a8cc67cdd591c02",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -5908,21 +5908,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/quiet-corner.png",
-      "sourceBytes": 56992,
-      "sourceSha256": "e8adef31f7c8171c5786c3e17b3d79b45f5dd75e19ac7a1f1e5a14661fdf7591",
-      "width": 768
+      "sourceBytes": 289996,
+      "sourceSha256": "66d336c09ff21f509576ac223e8ab2dea9426cda5cfb501e2d7c6fd3ab295ea4",
+      "width": 493
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 397,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/comfort-corner/images/sit-quiet-corner.webp",
-      "outputBytes": 10568,
-      "outputSha256": "625ea5acc011cd0394ae58bdde046402bd9ee6e818274294f567761fb9c713f5",
+      "outputBytes": 17292,
+      "outputSha256": "192a37f514e7686749c1382c5166f1202072fe0bc85e5837d18e424ae315d730",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5931,21 +5931,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/sit-quiet-corner.png",
-      "sourceBytes": 42372,
-      "sourceSha256": "c7362732da85febd5cc1be8ce49f36c0823b5ced5bcc033d68d681dae4a9b7d8",
-      "width": 512
+      "sourceBytes": 296217,
+      "sourceSha256": "8d22b811bcc4d44476a29194485f57cf29513e65709a9d65175cb9de107bd500",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 397,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/comfort-corner/images/squeeze-cushion.webp",
-      "outputBytes": 10448,
-      "outputSha256": "edef4a5429b17a9155fadd1e4546f511943f93e36be79056b0ae9f4bb55f65f6",
+      "outputBytes": 15650,
+      "outputSha256": "54dbf19869f942b3d7b4b510ede568573b3c8080c47592f50a1c38ca727ffbe6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5954,21 +5954,21 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/squeeze-cushion.png",
-      "sourceBytes": 41559,
-      "sourceSha256": "a4ad3b0d926f09e6743b370d8213cd17bc777c4acb880f41ad070d5a241e852a",
-      "width": 512
+      "sourceBytes": 230632,
+      "sourceSha256": "c3c0efaf78f230518aaf224d8f7ecd9f14a7a6027b3a77515d4501b87e13a103",
+      "width": 403
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 461,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 16,
       "output": "lessons/calm-myself/comfort-corner/images/timer.webp",
-      "outputBytes": 16196,
-      "outputSha256": "156d2fa60e1b68ef8963fd97839bf9b9c1765ab7ac0e68e3bece81c08dda1126",
+      "outputBytes": 14524,
+      "outputSha256": "67470ad5cba82650b0c4006d6d0d533d3f008910689861e0fa1e11bf8048b623",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -5977,9 +5977,9 @@
         "comfort-corner"
       ],
       "source": "lessons/calm-myself/comfort-corner/images/timer.png",
-      "sourceBytes": 53342,
-      "sourceSha256": "f8948c018ee894b4b530f145a23ede04d5f4717e6c40d2ac82b45baebefe3afe",
-      "width": 512
+      "sourceBytes": 230147,
+      "sourceSha256": "479c1d447ac9be10c9dd7d3e7f4fce27edb5c5db6a24da195aadeaf0de29aa5f",
+      "width": 426
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -6013,8 +6013,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/calm-myself/slow-breathing/images/background.webp",
-      "outputBytes": 3472,
-      "outputSha256": "028c470bd76a691484f282f462e670e24e20046a442ddc3eb3cd6f67bea0d607",
+      "outputBytes": 33574,
+      "outputSha256": "6dd0b57f3bb6ba4615cf339c42d6cbebf2f4deabdd29964f6f69e4edc52a6dd0",
       "profile": "background",
       "roles": [
         "background"
@@ -6023,8 +6023,8 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/background.png",
-      "sourceBytes": 26804,
-      "sourceSha256": "56c69128e1677c5f3e2af9d208f619c385673b99bb23a705339be1fdde6cc59d",
+      "sourceBytes": 2351117,
+      "sourceSha256": "f7379fd4268a666b002ad0d44f53c8681a5526141b254b8a3b3c200c2497bf3e",
       "width": 941
     },
     {
@@ -6036,8 +6036,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/slow-breathing/images/belly.webp",
-      "outputBytes": 16386,
-      "outputSha256": "ce0a0157e5efb25a85bb63c415a410a92e35278dae6bbeb175a23b1f9068ab46",
+      "outputBytes": 24228,
+      "outputSha256": "fa864022faec2ffe32739fb7bc1992c93d7158be82fe7a1dc6025c8ff8d70ed6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6046,9 +6046,9 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/belly.png",
-      "sourceBytes": 53843,
-      "sourceSha256": "a94d5dd8a64600ed2733c561bba7f3ad7feec1cf8ca1e2d49eadb6e4e0b862da",
-      "width": 512
+      "sourceBytes": 168258,
+      "sourceSha256": "bc6bf9b4aa16342d416d42026f6a6b15be5eafbe883eacb88d5c0b6452ca78a8",
+      "width": 433
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -6059,8 +6059,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/calm-myself/slow-breathing/images/breath.webp",
-      "outputBytes": 16782,
-      "outputSha256": "f71a62e61d9792cfd9f6bf2aeb12cb0699e23edb949800117871bf58911129c0",
+      "outputBytes": 21766,
+      "outputSha256": "e5f062d7c149c153fbbc8da2032f22b9214ef3fdd33f2d60645ba300ec671e20",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6069,21 +6069,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/breath.png",
-      "sourceBytes": 54744,
-      "sourceSha256": "78fb3c16333df5f3ef522eff610ca298a52107a99b2b47e114168a3596bccdb6",
-      "width": 512
+      "sourceBytes": 143542,
+      "sourceSha256": "f7bb105214d8e2e52b11c2cc048b6e596892648771aa6ebc637fba4b3ddfa691",
+      "width": 417
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 426,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/slow-breathing/images/breathe-in.webp",
-      "outputBytes": 10260,
-      "outputSha256": "6dbd06dcec42b6cedf47871fa79210b2b827eebdd25b2a3b740069c7a824e5b6",
+      "outputBytes": 15588,
+      "outputSha256": "095fa75e36ef37489c3f1849ae0cecf10fc61087328b3a299da097f1581b6c46",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6092,21 +6092,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/breathe-in.png",
-      "sourceBytes": 41211,
-      "sourceSha256": "e5e7cf798632c1cd792b880df8319269ca8befa66547d89e9e04ac18e86f2b53",
-      "width": 512
+      "sourceBytes": 221678,
+      "sourceSha256": "624b846726e907c210b5e2dd1cb86890309257be6bda2f107f975f6e000748a2",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 426,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/slow-breathing/images/breathe-out.webp",
-      "outputBytes": 10938,
-      "outputSha256": "542b9fa0521ba4c5776565d64245dd13c590c6d8c278cfc7ac9268c6cb20bce1",
+      "outputBytes": 14848,
+      "outputSha256": "f07ca69839ce852b29453a5317baa6637f4ce494400fe66e97a5e5d4514e0b88",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6115,21 +6115,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/breathe-out.png",
-      "sourceBytes": 44424,
-      "sourceSha256": "5de4d2e1ba9831ff8bba8bf9f09b341c402a9ed7cb8e10eb447ee6d1b85b0f67",
-      "width": 512
+      "sourceBytes": 218982,
+      "sourceSha256": "5aaac9239db57fdf6f7ee2579e12118f4251cebab749ba18bc30c3832296d00f",
+      "width": 403
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 500,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/slow-breathing/images/bubble.webp",
-      "outputBytes": 16670,
-      "outputSha256": "db1dd238fd0b31f119fac87a3eac99fedacba478ec2c6dc9bea2428bc8dfc653",
+      "outputBytes": 40244,
+      "outputSha256": "dd22339ec50c5db3f968885d0aeade526a34aa7f78b1e8a06b90efe9bc179784",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6138,21 +6138,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/bubble.png",
-      "sourceBytes": 54783,
-      "sourceSha256": "57cc43873a08376607d8c097dbe2c838d5c8b20f2df7f5e212a24e011c71f854",
-      "width": 512
+      "sourceBytes": 174457,
+      "sourceSha256": "f2c3431fb9748a57236993dbebed542d16da08ef69193ec564fdec924435430d",
+      "width": 479
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 383,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/slow-breathing/images/candle.webp",
-      "outputBytes": 16784,
-      "outputSha256": "c98e8d7f85926d96ed75d5b3c7e02b88407e2266820ffde623be431aafddb104",
+      "outputBytes": 9328,
+      "outputSha256": "4587e0ae01cd8802263256969ab5233fc50cd60b5f343a0ac99b691442c485e9",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6161,21 +6161,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/candle.png",
-      "sourceBytes": 54889,
-      "sourceSha256": "a54e409649a87bc6883799e536269947f01c4c9a2598ab3ad66890cb71b49bd7",
-      "width": 512
+      "sourceBytes": 121959,
+      "sourceSha256": "2f0e3edf07f5ebc6522f744b8890964eef4011be2c332768b17af29231515cf3",
+      "width": 388
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 426,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/calm-myself/slow-breathing/images/count-five.webp",
-      "outputBytes": 10060,
-      "outputSha256": "a91d468a725d5603fd6b834bb40c8902fb7b3ec136a8d24c6c9c98928b46487e",
+      "outputBytes": 16942,
+      "outputSha256": "87850a95ce10269a352fe6c1ab83e0de332ddf2f506d5217a48d77e39b366794",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6184,21 +6184,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/count-five.png",
-      "sourceBytes": 40063,
-      "sourceSha256": "1b16aff063cf5ff4cc499cb3d0391c06d8167dc6d3927e22240bc907b366e3c7",
-      "width": 512
+      "sourceBytes": 226855,
+      "sourceSha256": "14da3a81b03a3f0e3e3b1448e18a7d6374ad1a0f706c556cd288f7561ee7f642",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 463,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/calm-myself/slow-breathing/images/feather.webp",
-      "outputBytes": 16908,
-      "outputSha256": "15429638b86de9670b51a2b789bdb14f36d967bb255993bb5aa816261c8ca87f",
+      "outputBytes": 17868,
+      "outputSha256": "0d72db462f4c3927ce1353707c91fe2dd762753ddcec0ae5e4bdb691beeadd2c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6207,21 +6207,21 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/feather.png",
-      "sourceBytes": 55170,
-      "sourceSha256": "1a7e631da9bd6a099a5779b50d9ce44064229fbab8a5317f67d61deaada08b0e",
-      "width": 512
+      "sourceBytes": 145438,
+      "sourceSha256": "a9b64d4514e797d0e3e57df0a0e26b3b9cbb1be9c9738b7715014a835561029f",
+      "width": 452
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 464,
       "lessonIds": [
         "calm-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/calm-myself/slow-breathing/images/pinwheel.webp",
-      "outputBytes": 17158,
-      "outputSha256": "4b70d4c4d31aa85cafc044e779f351574352dbde9ba9ffa61b5cf9b527671f54",
+      "outputBytes": 16088,
+      "outputSha256": "c200f09a010ebba405f20c23ad91138efc6c2769c30141711bd2a21c2c7c6620",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6230,9 +6230,9 @@
         "slow-breathing"
       ],
       "source": "lessons/calm-myself/slow-breathing/images/pinwheel.png",
-      "sourceBytes": 55730,
-      "sourceSha256": "62bdaf8a8ea15b156c1cef74052e1b05d58eb7f6d7ef7d6948c570a603e80ecb",
-      "width": 512
+      "sourceBytes": 123425,
+      "sourceSha256": "05771236a6e8b186405b1cbaf61000be76ad1d1ec0472a2ca781762afa39bc3a",
+      "width": 358
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19483,7 +19483,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T06:38:23.887Z",
+  "generatedAt": "2026-08-02T10:59:26.182Z",
   "releaseVersion": "v1",
-  "revision": "79747ea873809334"
+  "revision": "7530b770cff6dd73"
 }
