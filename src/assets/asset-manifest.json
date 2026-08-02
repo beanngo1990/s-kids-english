@@ -15121,8 +15121,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/personal-care/care-items/images/background.webp",
-      "outputBytes": 3770,
-      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "outputBytes": 24064,
+      "outputSha256": "cd6a33fb8c3b68b44dde3fb3b1f98ca603596b755114e35bbab63408af1f8d38",
       "profile": "background",
       "roles": [
         "background"
@@ -15131,21 +15131,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/background.png",
-      "sourceBytes": 25164,
-      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "sourceBytes": 1958000,
+      "sourceSha256": "3fd9b5596fef8297e04407f03e6d4939f2f5566c80f80e5b8b19c6881d9a6430",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 360,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/care-items/images/close-toothpaste.webp",
-      "outputBytes": 14762,
-      "outputSha256": "f58244b06ef96988beb58d348bc28236751af652bd53cbaa1c8be88eb5e73180",
+      "outputBytes": 15468,
+      "outputSha256": "aa4716e1598d454911450c3d14b2d59335a17687cf3602463471d027959ad650",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15154,21 +15154,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/close-toothpaste.png",
-      "sourceBytes": 64436,
-      "sourceSha256": "87ed4fe389928fc9cbaa3f22bdf6e4b713af083129f328dd377d8ab7676a8d82",
-      "width": 512
+      "sourceBytes": 185510,
+      "sourceSha256": "a305c144669e6520df4d6a5d90782338f732572d53d11853bc8d1614250af53b",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 360,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/care-items/images/own-toothbrush.webp",
-      "outputBytes": 14026,
-      "outputSha256": "0deaaab6058f55ff391f0056cf917e3388b704348124d35837cdf68f19acc596",
+      "outputBytes": 14926,
+      "outputSha256": "d7fbdd4bcb766782e68745ca5beb034edc93b5d3962d8028ddeccdeaef61619b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15177,21 +15177,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/own-toothbrush.png",
-      "sourceBytes": 62636,
-      "sourceSha256": "a3ed8ef8c1ed996e19150e84b1662485afef3d1faecca2967c2f521c7ce31efc",
-      "width": 512
+      "sourceBytes": 184503,
+      "sourceSha256": "bb6c9c805ff13aa671edb621c3aa8a18fbb212718aa9f649383363b9c35c7e30",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 360,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/care-items/images/put-things-away.webp",
-      "outputBytes": 13366,
-      "outputSha256": "59df4591417e6da9ff2889bd3360c8ec64ede8523df57016993654a05214a9d5",
+      "outputBytes": 13878,
+      "outputSha256": "dc9ce20db78f33e2d3b6f1943c9afc92ca3c07622afe3cc22aa7297ba6402ce6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15200,21 +15200,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/put-things-away.png",
-      "sourceBytes": 61363,
-      "sourceSha256": "6ac27fb0262bb649a4fa8caee4dd4d68b76b09495fdea9d4031a2a69904db18f",
-      "width": 512
+      "sourceBytes": 179480,
+      "sourceSha256": "44b9263b0edbead4203a3968943dae7783b376504e1018b1196f2fda49d5c046",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 368,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/care-items/images/soap-bar.webp",
-      "outputBytes": 17938,
-      "outputSha256": "42fbdb2639245575c1bfe354c8c14835b53d2e3327598789c2d99a869c6f5b64",
+      "outputBytes": 10840,
+      "outputSha256": "c2143ca6ae1133820d6afbcb41cc870e5479c078d86265e25dfd9bd57975ebda",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15223,21 +15223,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/soap-bar.png",
-      "sourceBytes": 56595,
-      "sourceSha256": "81b04b67fe387cacdb79704e4c5a0c89079814cef8b424a7029f528574a27eb9",
-      "width": 512
+      "sourceBytes": 189788,
+      "sourceSha256": "f384ba915292af5b2bb3cf11b0a32e4a477a29206b43925bb354998a7515d191",
+      "width": 494
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 469,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 18,
       "output": "lessons/personal-care/care-items/images/toiletry-bag.webp",
-      "outputBytes": 18820,
-      "outputSha256": "b35c8084902d9ffd8e8c30a66972f2828d43547f4571dd62a611d7b542447efe",
+      "outputBytes": 27052,
+      "outputSha256": "1c355a02f9941ded561150d5914e6b5fd8b000dde6fc5e3c3ca3ec4ad90dd025",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15246,21 +15246,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/toiletry-bag.png",
-      "sourceBytes": 58131,
-      "sourceSha256": "49b20e32096eb9f099a4fa4373115c746dc31921ff95bb00276c0fa08903e6aa",
-      "width": 512
+      "sourceBytes": 346217,
+      "sourceSha256": "1829fd8a2e697560f3cdc8af7acd61747ae87d7ca02cd85b5b4dd21165fe2a7a",
+      "width": 496
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 445,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 18,
       "output": "lessons/personal-care/care-items/images/toothbrush-holder.webp",
-      "outputBytes": 19266,
-      "outputSha256": "9a17c65fa09870adc558c30839f695cabd9e81cc78e92cb19222474a5526f86c",
+      "outputBytes": 10008,
+      "outputSha256": "e6c091e578b1f6af1bd1812cdf2db94cf4322f124dc8c5c27389a70c83977943",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15269,9 +15269,9 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/toothbrush-holder.png",
-      "sourceBytes": 58657,
-      "sourceSha256": "17249cdd14de2608c0a8d1e9bf6635f8dcb95c8dc497b825652a07860a35aee6",
-      "width": 512
+      "sourceBytes": 194415,
+      "sourceSha256": "a38f382e8c729a0e2178c2f004595a228a6bd7f758da686c097aedd0f89efaf7",
+      "width": 364
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -15282,8 +15282,8 @@
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/care-items/images/toothbrush.webp",
-      "outputBytes": 18312,
-      "outputSha256": "dc3c850295c10feb2a68581cddf7371a9072c7d9bc63fb259ef3e39918c3fa64",
+      "outputBytes": 14034,
+      "outputSha256": "e60e9ed366360c31eb4cd99615cb65a71b429fa32e3c4c52ceb4fb114916438e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15292,21 +15292,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/toothbrush.png",
-      "sourceBytes": 57079,
-      "sourceSha256": "222f151a0c3f7b9b2d700a778c07267233ddee25819ad3e53d825ef85e8c6b06",
-      "width": 512
+      "sourceBytes": 96391,
+      "sourceSha256": "73d50135d5da3bbe1eeaf99609f0bab03b74d47fa61152d0b33aa2ff7f8eacb7",
+      "width": 340
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 491,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 18,
       "output": "lessons/personal-care/care-items/images/toothpaste.webp",
-      "outputBytes": 18580,
-      "outputSha256": "04f8dcf0f401314259be0a61f64093e4923b0bd7e10fb1f9fafdc6bb6171f1b2",
+      "outputBytes": 9704,
+      "outputSha256": "3a86b24f97cf4f8bee13a3ac339a75040956528a462e58bf6482a7a1d545d78f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15315,21 +15315,21 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/toothpaste.png",
-      "sourceBytes": 57792,
-      "sourceSha256": "bceceeffdc001ffe8e1b6e3470092bb4e058b20c438846d14856729f347cc83a",
-      "width": 512
+      "sourceBytes": 164192,
+      "sourceSha256": "4a45013fd6da1e7e405034c40e0517409fa22eabbc34b3e641db190f2a1646a8",
+      "width": 311
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 385,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 19,
       "output": "lessons/personal-care/care-items/images/towel.webp",
-      "outputBytes": 17084,
-      "outputSha256": "811a65e2e54503d63a99deba03b6c53712938599571ce6d3c63199bcc3e101e5",
+      "outputBytes": 19246,
+      "outputSha256": "f81c95538d2ac9da93c38b8981d65e696d040de1d22c522cbe19f28f7c1d63fc",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15338,8 +15338,8 @@
         "care-items"
       ],
       "source": "lessons/personal-care/care-items/images/towel.png",
-      "sourceBytes": 54993,
-      "sourceSha256": "96043c3c1533d6b02433a3f68a2f921e12908df9ffdd15322750e41fada33c8c",
+      "sourceBytes": 220117,
+      "sourceSha256": "d4f372381235c6de4d8833d26b273c1c6443b76eea048ed2498d8918de7b87d9",
       "width": 512
     },
     {
@@ -15374,8 +15374,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/background.webp",
-      "outputBytes": 3770,
-      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "outputBytes": 30668,
+      "outputSha256": "0fa88818298a37e34613d18a42fd65dde92932326a5e6570c3f13017389fa959",
       "profile": "background",
       "roles": [
         "background"
@@ -15384,21 +15384,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/background.png",
-      "sourceBytes": 25164,
-      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "sourceBytes": 2296394,
+      "sourceSha256": "c6f5d03666bbf8b617675bbf8e5c1fd9d98f6f0b95a4aac20a9e125f4630384d",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 558,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 21,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/cough.webp",
-      "outputBytes": 26702,
-      "outputSha256": "50e8db3afe6c179801eb3e69cd8210a7a481b3f558563674134cb32e9182f32f",
+      "outputBytes": 19782,
+      "outputSha256": "2158ae7b4888199c32cd9b604b28c8c853583c63b269560fb006d360f6aaf0c4",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15407,21 +15407,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/cough.png",
-      "sourceBytes": 55292,
-      "sourceSha256": "af1e5a5597873987b48e53231df5b66acd90c11739432d9b22e37fc02f1e333a",
-      "width": 768
+      "sourceBytes": 195059,
+      "sourceSha256": "3768e695b31a22d42070f3330fbdcb1a204b630c61a6eec0ed7c7f16e7c618ad",
+      "width": 358
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 362,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/cover-cough.webp",
-      "outputBytes": 12324,
-      "outputSha256": "1d6600cb07f36b0f6f764d8e084c977ea53badd54c9eeae0ebb8f9ef29bcc53d",
+      "outputBytes": 14026,
+      "outputSha256": "437f2173564de1d694baf56b6e48428d8307b5c52ed3058d694c0308846dc134",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15430,21 +15430,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/cover-cough.png",
-      "sourceBytes": 57155,
-      "sourceSha256": "5d98d5a735412cd0325935122d1e40fbf68cad0ddf598ba38e0988917f8c7b3a",
-      "width": 512
+      "sourceBytes": 185688,
+      "sourceSha256": "cd7164292abb8aab7a748a2efa486c300f248153456f878108d83746edba6834",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 423,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 18,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/sleeve.webp",
-      "outputBytes": 18488,
-      "outputSha256": "d6a3cadf9e918fd2b069a95388769c836d3ce429501721aca7915789bc077546",
+      "outputBytes": 10656,
+      "outputSha256": "3deb09194854c0a335dece3c1b48feb2248e1207f0961a1f0ee4b57baa1e8920",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15453,21 +15453,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/sleeve.png",
-      "sourceBytes": 57345,
-      "sourceSha256": "63045e69626618fa5088daeea03cd0e1ae92d86902b25a005e219207f66e5144",
-      "width": 512
+      "sourceBytes": 143888,
+      "sourceSha256": "b0d71c95272824fe0b59b8d8dfafaa3d94d67663cfe18de9e6c8ab6d2e5c2e37",
+      "width": 404
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 362,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/sneeze-elbow.webp",
-      "outputBytes": 12878,
-      "outputSha256": "e53002c5a441e9224da48c685ac78c90c8f067e904a3dbd78f48129f2c01c48e",
+      "outputBytes": 14756,
+      "outputSha256": "7f1b3f0041791fa461fda8d2898918c1cfd08ec7c9725a3c01ea7fe64e2adb64",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15476,9 +15476,9 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/sneeze-elbow.png",
-      "sourceBytes": 59611,
-      "sourceSha256": "d8996cf3d5b00a57c73aa2955ef618aef5c848a9049b363c28dc33c9a1994a93",
-      "width": 512
+      "sourceBytes": 189364,
+      "sourceSha256": "50a0b839392ca04dc98a881223ac3246ac9209682ce9d792905bb81447d501ed",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -15489,8 +15489,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/sneeze.webp",
-      "outputBytes": 17474,
-      "outputSha256": "db532aa83f198cc9a499d3927cb8a335bc0cc3cc7920c59901b9c9809b127463",
+      "outputBytes": 26174,
+      "outputSha256": "10ddacec028972de5501591272d92ac5e9055645565fddf03952561a1afd363f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15499,21 +15499,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/sneeze.png",
-      "sourceBytes": 55491,
-      "sourceSha256": "32581eebb48767c08be2fd59e86a0df2d7392295fc76ebffc83c5330503cc1f9",
-      "width": 512
+      "sourceBytes": 203024,
+      "sourceSha256": "83cfe91ec291b92b252fdc5a6d9c4306da9b1b95baa0528dedd7c45d7f460f33",
+      "width": 320
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 450,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/soap.webp",
-      "outputBytes": 17066,
-      "outputSha256": "4936e4711b3a4152effdd24e64439e07e32614d488d1d3a72ccbbd70e8e43c67",
+      "outputBytes": 7146,
+      "outputSha256": "680bd78f7a4e54c1c6f765bec8d6ea1fee9cf87f7b93ee688370f50640d67b77",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15522,21 +15522,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/soap.png",
-      "sourceBytes": 54944,
-      "sourceSha256": "50ddddbd4fabe14cf0956538ce6fc5590dc6551141d62e6bd205b49f38a1374d",
-      "width": 512
+      "sourceBytes": 100787,
+      "sourceSha256": "ba02eef740c3b41bf95a666e8824741b8ef1f29345990f618037875b222cf629",
+      "width": 258
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 362,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/throw-tissue.webp",
-      "outputBytes": 12902,
-      "outputSha256": "41ac3dfffabc481e323e72d06cecdd5d85160ef4da739678e18d03ef2a2db902",
+      "outputBytes": 16200,
+      "outputSha256": "b6a722308df1e63d5524fae549e769b93cb2cb3bc9c175c72937b495d6987e20",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15545,21 +15545,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/throw-tissue.png",
-      "sourceBytes": 59854,
-      "sourceSha256": "1c0f49622695421d81fa63be4c6b0de0da2bc5099a53701b1da3697d805879bc",
-      "width": 512
+      "sourceBytes": 201467,
+      "sourceSha256": "b0dda4833c7e9e26b2a252e083cbee0ebdbc28906f8ed809d6aaec36e35667dd",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 410,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/tissue.webp",
-      "outputBytes": 17286,
-      "outputSha256": "8877ded43c89943b50162d4a1716bfa7bb030d4a2183989fafd282f29fc06646",
+      "outputBytes": 9622,
+      "outputSha256": "542e3d18dee8b481fd98b13675dc56ae7c9da489449f5e996a0413b03a018536",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15568,21 +15568,21 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/tissue.png",
-      "sourceBytes": 55062,
-      "sourceSha256": "04c5998c631b497feb994d7f8d32a8468610e9d097956e70ec3992ad16f84d8e",
-      "width": 512
+      "sourceBytes": 141952,
+      "sourceSha256": "958cb95e7b2fe75735f0f769ef7671e16636611b6189e71268d88a1a4752f212",
+      "width": 417
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 429,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/cough-and-sneeze-care/images/trash-can.webp",
-      "outputBytes": 17964,
-      "outputSha256": "0a602039e1ce3cc51e40e0ded9fdea9996ef0c23c3a1289fbec38c2c9d54b5cd",
+      "outputBytes": 8456,
+      "outputSha256": "6a4a04b80dad9c0f127ec29bc783f5722010d07ed685c6b86655b9c9b7515dd8",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15591,9 +15591,9 @@
         "cough-and-sneeze-care"
       ],
       "source": "lessons/personal-care/cough-and-sneeze-care/images/trash-can.png",
-      "sourceBytes": 56538,
-      "sourceSha256": "1ad9037bb733505440339f2015eb30c2ea7727c597a787a67f851fed5dcb18f7",
-      "width": 512
+      "sourceBytes": 161402,
+      "sourceSha256": "01ae8026ca6587a54f9ef95061e7dff75710085ba6846e6f9eb1732aab96c27a",
+      "width": 334
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -15627,8 +15627,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/personal-care/face-and-hair-care/images/background.webp",
-      "outputBytes": 3770,
-      "outputSha256": "9e7a916ea853f2b19e9b4b8991e90db7b42113b147f3bd3a5bac3b219da350e7",
+      "outputBytes": 33862,
+      "outputSha256": "3d4ea01648817cbfe20f28ac96d2706d8983eda8f5d2910408ae2a6a2043ae83",
       "profile": "background",
       "roles": [
         "background"
@@ -15637,21 +15637,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/background.png",
-      "sourceBytes": 25164,
-      "sourceSha256": "168318c73060aa01f55c092adb1b59dc638f1cfaa38890514737f8be4a293715",
+      "sourceBytes": 2430873,
+      "sourceSha256": "7dce7b97950d4d173f8ba79ceec9718726e513dae5d68bb071ad627e1eca6e31",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 367,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/face-and-hair-care/images/brush-hair.webp",
-      "outputBytes": 12290,
-      "outputSha256": "c25f1a54fd34b836da4b6f9a6b75457521d8aa188f3fdc6e008b7670208cab00",
+      "outputBytes": 15992,
+      "outputSha256": "c715d8085eaf3e4f85da46bf6e3a199c6a339a4e47c7c038f1ef4d920bc4d572",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15660,21 +15660,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/brush-hair.png",
-      "sourceBytes": 56644,
-      "sourceSha256": "6e9a0356a5c3f5173349c5a499db65b36b7fde816e57bd39c9c6d06c09402e52",
-      "width": 512
+      "sourceBytes": 196866,
+      "sourceSha256": "be82b3206da7ac28ebd406a80dcdd86e8ef09a1f4cab5fa2f75299b7975148ca",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 424,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/face-and-hair-care/images/comb.webp",
-      "outputBytes": 17018,
-      "outputSha256": "9cf59911e94fe9b93eebaf3241368dce99204037d8c4d394cb9fc5a02c5e5bc1",
+      "outputBytes": 27062,
+      "outputSha256": "38debc6d0017e94a0a534378c6a5a289241f930087469d8cf4c9703bd00b1a83",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15683,21 +15683,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/comb.png",
-      "sourceBytes": 54533,
-      "sourceSha256": "ef91978a8f260d32323f6131fd73edae6aac8fba7870348ce8ea24f26f163de0",
+      "sourceBytes": 148836,
+      "sourceSha256": "067c32ba3e538994b120778cb8abc244d4dc4e95401b695945e59b7b8ef8cc83",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 430,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/face-and-hair-care/images/face-cloth.webp",
-      "outputBytes": 18192,
-      "outputSha256": "2f8cc0b986f22958ddf1b617cd5c53ee2e2e756401909c13a5f0a70f50f2fd0c",
+      "outputBytes": 35930,
+      "outputSha256": "d880102e8bbb02231d30a3f3d8ac1335a809aeeeb7db3ef40468a67373ef974e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15706,21 +15706,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/face-cloth.png",
-      "sourceBytes": 56862,
-      "sourceSha256": "1d3df06700a83a824f7d05178fa9ea692d49136b2be560faddb6baf7db8d2fbc",
+      "sourceBytes": 295074,
+      "sourceSha256": "bc3b24c94676d2f60e22baa54183286db789239140f48d0c97924d6812c07b33",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 354,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 15,
       "output": "lessons/personal-care/face-and-hair-care/images/hair-tie.webp",
-      "outputBytes": 17198,
-      "outputSha256": "8238e3293717225448b339d9130f126efe3146941849a48d5fce7afd30717186",
+      "outputBytes": 28234,
+      "outputSha256": "253682b1ff35f0e07bf4c873c5dd6d9c5cbcf9d42a67e0cacb42810962055548",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15729,21 +15729,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/hair-tie.png",
-      "sourceBytes": 54454,
-      "sourceSha256": "9073453a3dc06515976ed55e7fbd92c4c02884b9721d75e4048fb202db421f6c",
-      "width": 512
+      "sourceBytes": 174018,
+      "sourceSha256": "6619ebfbddf8af0d149acb2c891333f507c011bcdaa64fadb45246e1432e898d",
+      "width": 468
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 474,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 18,
       "output": "lessons/personal-care/face-and-hair-care/images/hairbrush.webp",
-      "outputBytes": 17974,
-      "outputSha256": "02abe231996ebe2c0db1cb6e2b90baa2eb4b407ae3592fa2ad3a930421d50db2",
+      "outputBytes": 15190,
+      "outputSha256": "a14b4f4ad50be69aa9303370d33d9c88169992a790d5603b4d4cac8dd9788948",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15752,21 +15752,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/hairbrush.png",
-      "sourceBytes": 55821,
-      "sourceSha256": "7314094c1ff753531e27eb1de96d14120dfad6d3731ac0ad457a34388c22c81a",
-      "width": 512
+      "sourceBytes": 178570,
+      "sourceSha256": "8aaf9eaae6d18f340ce044b3e1d7883dbf5bc476abc04ba781582715f8e4e6e4",
+      "width": 446
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 367,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/face-and-hair-care/images/help-with-nails.webp",
-      "outputBytes": 13424,
-      "outputSha256": "a6ca2f393687ffee959d6c19c08c0dac5d0fd3f3624d19eb827b8784e385191b",
+      "outputBytes": 16890,
+      "outputSha256": "5f18f906b80d8b765bc708223ecb3332c6320dc02c2325f284c2b78a568d224b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15775,21 +15775,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/help-with-nails.png",
-      "sourceBytes": 60749,
-      "sourceSha256": "920be7a9144b55607d8e23128051985f39e5f016df95e1773e9eecf00842ce8c",
-      "width": 512
+      "sourceBytes": 206615,
+      "sourceSha256": "7a6d4f9b4e431a88ffa23a3ef7aab234b9bace915fd2485734b218e8e69a066a",
+      "width": 352
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 484,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 28,
       "output": "lessons/personal-care/face-and-hair-care/images/mirror.webp",
-      "outputBytes": 26178,
-      "outputSha256": "9b5bc1423707b55408e7dddee895a7d2451a355af0e58e01bd881e757f21b693",
+      "outputBytes": 13598,
+      "outputSha256": "8b4919c10c6c1e31a3c9a36c8b27acf65bbe3606e4e6e047864bf327e8244562",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15798,21 +15798,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/mirror.png",
-      "sourceBytes": 53688,
-      "sourceSha256": "fc66fbac062942bfeb20ba8379aec3275bef4d5b5e0a9c5f279763577ff5f1b1",
-      "width": 768
+      "sourceBytes": 190356,
+      "sourceSha256": "a93ad46598485f2259c0a0302fa90c353aef9f60e90096e0901b7816179a4f4e",
+      "width": 416
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 413,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 16,
       "output": "lessons/personal-care/face-and-hair-care/images/nail-clippers.webp",
-      "outputBytes": 18608,
-      "outputSha256": "a6f495c7df881b085ea7acbb9a0f7d6e991af9f445e4dda56b4911ea2a28f03c",
+      "outputBytes": 12922,
+      "outputSha256": "820d9494d47c96ad561788fc74b7e208e727006bf76b57e11ba297d83a22ed25",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15821,21 +15821,21 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/nail-clippers.png",
-      "sourceBytes": 57278,
-      "sourceSha256": "6b0043a24f51cf981ab28f5b5a38202f74e678a66e5070c779213673ee2cbe6f",
-      "width": 512
+      "sourceBytes": 155834,
+      "sourceSha256": "a677942d308133b5812a83cafbb07eaf4ce2e7de62755c232e5bf32904974c06",
+      "width": 410
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 366,
       "lessonIds": [
         "personal-care"
       ],
       "maxPercent": 17,
       "output": "lessons/personal-care/face-and-hair-care/images/wash-face.webp",
-      "outputBytes": 12688,
-      "outputSha256": "16a1e3eb8dca78038f5d7fbe1abad123f780979d3e6b698fb947f3a9413496cc",
+      "outputBytes": 15254,
+      "outputSha256": "b73fa1bf2051d0be75ce335b4c72780664dffb3034e6d612ad19ec63729f6679",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -15844,9 +15844,9 @@
         "face-and-hair-care"
       ],
       "source": "lessons/personal-care/face-and-hair-care/images/wash-face.png",
-      "sourceBytes": 57929,
-      "sourceSha256": "e093c6516c04f3da7fe9ef1e778f8a9dc1f93ef5bec4a88691e35cca499c2305",
-      "width": 512
+      "sourceBytes": 191817,
+      "sourceSha256": "78d19437ff33c7cfeaa6f90404fe4545fe4e83ad3f3812b53eb346373a7d96af",
+      "width": 353
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -19483,7 +19483,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T10:59:26.182Z",
+  "generatedAt": "2026-08-02T12:08:26.966Z",
   "releaseVersion": "v1",
-  "revision": "7530b770cff6dd73"
+  "revision": "33c0aed3cee00a02"
 }
