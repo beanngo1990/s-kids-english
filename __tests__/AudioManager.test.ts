@@ -34,10 +34,10 @@ jest.mock('../src/engine/ParentSettingsManager', () => ({
 }));
 
 const enUsWaterKey =
-  'lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/water.wav';
+  'lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/water.mp3';
 const enGbWaterKey =
-  'lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/water.wav';
-const legacyWaterKey = 'lessons/morning-routine/bathroom/audio/en/water.wav';
+  'lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/water.mp3';
+const legacyWaterKey = 'lessons/morning-routine/bathroom/audio/en/water.mp3';
 
 const mockedGetParentSettings = getParentSettings as jest.MockedFunction<
   typeof getParentSettings

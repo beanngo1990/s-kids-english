@@ -21,6 +21,7 @@
 - Keep `audio/en/` as the legacy en-US compatibility and rollback corpus.
   Vietnamese audio remains under `audio/vi/`.
 - `src/assets/source/` (raw master PNGs) and `src/assets/lessons/` (generated WebP images and WAV/MP3 audio) are excluded from Git repository tracking via `.gitignore` to maintain a lightweight Git repository (~30-50 MB instead of ~1.9 GB).
+- Lesson audio is synthesized via Google TTS (LINEAR16 24kHz), trimmed for silence, and encoded to MP3 (96 kbps mono) for optimal local disk usage and fast R2 delivery.
 - Runtime resolves all lesson images and audio from R2 CDN (`https://assets.sungy.net`). Local source and lesson asset folders are used solely during authoring, local audio/image build, and R2 upload workflows.
 
 ## Normal workflow
