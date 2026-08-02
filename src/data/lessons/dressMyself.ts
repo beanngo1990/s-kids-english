@@ -41,12 +41,17 @@ const dressMyselfSpec = {
           word: 'T-shirt',
           meaningVi: 'áo thun',
           labelVi: 'áo thun',
+          failHintEn:
+            'Look for the T-shirt on the left side of the clothes rail.',
+          failHintVi: 'Tìm áo thun trên thanh treo bên trái nhé.',
         },
         {
           key: 'shorts',
           word: 'shorts',
           meaningVi: 'quần short',
           labelVi: 'quần short',
+          failHintEn: 'Look for the shorts in the middle of the bench.',
+          failHintVi: 'Tìm quần short ở chính giữa ghế nhé.',
           practice: 'drag',
           practiceInstructionEn: 'Drag the shorts to the glowing child.',
           practiceInstructionVi:
@@ -57,12 +62,17 @@ const dressMyselfSpec = {
           word: 'dress',
           meaningVi: 'váy liền',
           labelVi: 'váy liền',
+          failHintEn:
+            'Look for the dress on the right side of the clothes rail.',
+          failHintVi: 'Tìm váy liền trên thanh treo bên phải nhé.',
         },
         {
           key: 'sweater',
           word: 'sweater',
           meaningVi: 'áo len',
           labelVi: 'áo len',
+          failHintEn: 'Look for the sweater on the left side of the bench.',
+          failHintVi: 'Tìm áo len trên ghế bên trái nhé.',
           tier: 'expanded',
         },
         {
@@ -70,6 +80,8 @@ const dressMyselfSpec = {
           word: 'raincoat',
           meaningVi: 'áo mưa',
           labelVi: 'áo mưa',
+          failHintEn: 'Look for the raincoat in the middle of the clothes rail.',
+          failHintVi: 'Tìm áo mưa ở chính giữa thanh treo nhé.',
           tier: 'expanded',
         },
         {
@@ -77,6 +89,8 @@ const dressMyselfSpec = {
           word: 'cap',
           meaningVi: 'mũ lưỡi trai',
           labelVi: 'mũ lưỡi trai',
+          failHintEn: 'Look for the cap on the right side of the bench.',
+          failHintVi: 'Tìm mũ lưỡi trai trên ghế bên phải nhé.',
           tier: 'expanded',
         },
         {
@@ -122,24 +136,32 @@ const dressMyselfSpec = {
           word: 'sleeve',
           meaningVi: 'ống tay áo',
           labelVi: 'ống tay áo',
+          failHintEn: 'Look for the sleeve on the left shelf.',
+          failHintVi: 'Tìm ống tay áo trên kệ bên trái nhé.',
         },
         {
           key: 'collar',
           word: 'collar',
           meaningVi: 'cổ áo',
           labelVi: 'cổ áo',
+          failHintEn: 'Look for the collar on the right shelf.',
+          failHintVi: 'Tìm cổ áo trên kệ bên phải nhé.',
         },
         {
           key: 'waistband',
           word: 'waistband',
           meaningVi: 'cạp quần',
           labelVi: 'cạp quần',
+          failHintEn: 'Look for the waistband to the right of the child.',
+          failHintVi: 'Tìm cạp quần ở bên phải bé nhé.',
         },
         {
           key: 'front',
           word: 'front',
           meaningVi: 'mặt trước',
           labelVi: 'mặt trước của áo',
+          failHintEn: 'Look for the front of the shirt to the left of the child.',
+          failHintVi: 'Tìm mặt trước của áo ở bên trái bé nhé.',
           tier: 'expanded',
         },
         {
@@ -147,6 +169,8 @@ const dressMyselfSpec = {
           word: 'back',
           meaningVi: 'mặt sau',
           labelVi: 'mặt sau của áo',
+          failHintEn: 'Look for the back of the shirt at the lower left.',
+          failHintVi: 'Tìm mặt sau của áo ở phía dưới bên trái nhé.',
           tier: 'expanded',
         },
         {
@@ -154,6 +178,8 @@ const dressMyselfSpec = {
           word: 'clothing tag',
           meaningVi: 'nhãn quần áo',
           labelVi: 'nhãn quần áo',
+          failHintEn: 'Look for the clothing tag at the lower right.',
+          failHintVi: 'Tìm nhãn quần áo ở phía dưới bên phải nhé.',
           tier: 'expanded',
         },
         {
@@ -199,12 +225,16 @@ const dressMyselfSpec = {
           word: 'button',
           meaningVi: 'cúc áo',
           labelVi: 'cúc áo',
+          failHintEn: 'Look for the button on the left side of the upper shelf.',
+          failHintVi: 'Tìm cúc áo trên kệ phía trên bên trái nhé.',
         },
         {
           key: 'zipper',
           word: 'zipper',
           meaningVi: 'khóa kéo',
           labelVi: 'khóa kéo',
+          failHintEn: 'Look for the zipper in the middle of the upper shelf.',
+          failHintVi: 'Tìm khóa kéo ở chính giữa kệ phía trên nhé.',
           practice: 'drag',
           practiceInstructionEn:
             'Drag the zipper to the glowing jacket.',
@@ -215,12 +245,17 @@ const dressMyselfSpec = {
           word: 'shoelace',
           meaningVi: 'dây giày',
           labelVi: 'dây giày',
+          failHintEn:
+            'Look for the shoelace on the right side of the upper shelf.',
+          failHintVi: 'Tìm dây giày trên kệ phía trên bên phải nhé.',
         },
         {
           key: 'buckle',
           word: 'buckle',
           meaningVi: 'khóa cài',
           labelVi: 'khóa cài',
+          failHintEn: 'Look for the buckle on the left side of the bench.',
+          failHintVi: 'Tìm khóa cài trên ghế bên trái nhé.',
           tier: 'expanded',
         },
         {
@@ -228,6 +263,8 @@ const dressMyselfSpec = {
           word: 'snap fastener',
           meaningVi: 'cúc bấm',
           labelVi: 'cúc bấm',
+          failHintEn: 'Look for the snap fastener in the middle of the bench.',
+          failHintVi: 'Tìm cúc bấm ở chính giữa ghế nhé.',
           tier: 'expanded',
         },
         {
@@ -235,6 +272,8 @@ const dressMyselfSpec = {
           word: 'shoe strap',
           meaningVi: 'quai giày',
           labelVi: 'quai giày',
+          failHintEn: 'Look for the strap on the shoe at the right.',
+          failHintVi: 'Tìm quai trên chiếc giày bên phải nhé.',
           tier: 'expanded',
         },
         {

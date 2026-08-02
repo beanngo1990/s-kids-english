@@ -6996,14 +6996,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 900,
+      "height": 933,
       "lessonIds": [
         "dress-myself"
       ],
-      "maxPercent": 38,
+      "maxPercent": 41,
       "output": "lessons/dress-myself/choose-clothes/images/baby.webp",
-      "outputBytes": 45104,
-      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "outputBytes": 38636,
+      "outputSha256": "f201a9b464e11582ca3c6733bc60fa3a741d05315237f77eb282f38c32d20b0a",
       "profile": "character",
       "roles": [
         "character"
@@ -7012,9 +7012,9 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/baby.png",
-      "sourceBytes": 462864,
-      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
-      "width": 495
+      "sourceBytes": 441838,
+      "sourceSha256": "76fb426166ebc77f2ccf99a547cbe220c77a33df19648e586343a6e264904f88",
+      "width": 524
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7025,8 +7025,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/dress-myself/choose-clothes/images/background.webp",
-      "outputBytes": 3758,
-      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "outputBytes": 32250,
+      "outputSha256": "a2a630c145d34bd0b0276908f4490fb37f0c2d9566686eb8f9c72ae8e0e8a813",
       "profile": "background",
       "roles": [
         "background"
@@ -7035,21 +7035,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/background.png",
-      "sourceBytes": 26280,
-      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "sourceBytes": 2565790,
+      "sourceSha256": "af3ce1bdef3fe4ea86aca9449e6ac31ecb1ce946777c5a3b237bc510af7b725d",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 391,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 15,
       "output": "lessons/dress-myself/choose-clothes/images/cap.webp",
-      "outputBytes": 16612,
-      "outputSha256": "06b92b2a7b2493e207e91b20eb309be65fb8af660facd0a97d790db21f04864d",
+      "outputBytes": 28724,
+      "outputSha256": "19c0bc41cdff476bcf37396f42d2624d68f3350b8ff48c4cbb643eedfe06d59e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7058,21 +7058,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/cap.png",
-      "sourceBytes": 49626,
-      "sourceSha256": "74cfa538ca882cdabee92ae781b0f81e5d3427bfd1944aa6a5d0103e771a0eb4",
-      "width": 512
+      "sourceBytes": 247185,
+      "sourceSha256": "4b29c119b2a8a1fd5554865410908eab6197b6951eb9aad550e37b8a66c3dfb2",
+      "width": 459
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/choose-clothes/images/check-weather.webp",
-      "outputBytes": 12154,
-      "outputSha256": "84b5fc73d5ac96d4263d2dcbd0edfdc76a8808e3383fd3e7ec4adb849dfd6368",
+      "outputBytes": 17182,
+      "outputSha256": "f3bed6935ec213ffe25c0b1c16c1d5d75e9c0da4b99d8fc9fbb0984624d0c902",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7081,21 +7081,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/check-weather.png",
-      "sourceBytes": 51425,
-      "sourceSha256": "7309df0fe0a65e09705575cc930bbcbfe24ac0103ffcc79de2eeb8b4d0c1bd5d",
-      "width": 512
+      "sourceBytes": 300402,
+      "sourceSha256": "44e3f9637c657922163667196b445dd8fb736c45ef47acdb93418f2e9f090a7c",
+      "width": 385
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/choose-clothes/images/choose-clothes-action.webp",
-      "outputBytes": 12850,
-      "outputSha256": "b175f7af3d227b51e81308f88021608719c2bf5aef757e4533d423d0a3d3bdf0",
+      "outputBytes": 17398,
+      "outputSha256": "5736274995a477241b48a0a8e5f68342804fddfa5b9529a9761f32b8ec00f79a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7104,21 +7104,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/choose-clothes-action.png",
-      "sourceBytes": 55735,
-      "sourceSha256": "f13df23f4b17a9550354fa4b794e680c87df5aa6764785a6a8c93bfa6b027e7e",
-      "width": 512
+      "sourceBytes": 242728,
+      "sourceSha256": "17a057a3beab67fc0e8d55ef9227f7d7996d340e46bd09099f3ea24e18b8c73c",
+      "width": 384
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 539,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 23,
       "output": "lessons/dress-myself/choose-clothes/images/dress.webp",
-      "outputBytes": 26918,
-      "outputSha256": "084f160c228f37a08f6892ac03b88c1112113a9395b1e3c155581bda6022cfd1",
+      "outputBytes": 23406,
+      "outputSha256": "1de32e964e4f4056d81621fb7f0bfb0eeabbbea69d3d7518c800a8722262f795",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -7127,21 +7127,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/dress.png",
-      "sourceBytes": 50741,
-      "sourceSha256": "366e38e01b110d5efad56109cf21c0b6e5ee920e16d188e17dec83883243780f",
-      "width": 768
+      "sourceBytes": 265399,
+      "sourceSha256": "2d9627aad633215ae4d7592e9fd2cbc580b3ccd8e3a8a7570cdf9fad661a4e5b",
+      "width": 421
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/choose-clothes/images/lay-out-clothes.webp",
-      "outputBytes": 12682,
-      "outputSha256": "08b91ff7671f5792fdc2c581c2e681117ff0f61ae74362d255152f5beb3b56e2",
+      "outputBytes": 19492,
+      "outputSha256": "d6c9d50aa2c51f46ef93bebe8c1a8055dc79ca859b9f7154b5892c79804d80c6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7150,21 +7150,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/lay-out-clothes.png",
-      "sourceBytes": 54796,
-      "sourceSha256": "2255b1d8d69b4708095a83ddfa34cec0404443a27ea1ab8a26fc830966fc0a2b",
-      "width": 512
+      "sourceBytes": 274931,
+      "sourceSha256": "0996e206e2644986acf39b2a901c553945ab4e9d6065c90b91ec7ae217e17a38",
+      "width": 386
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 488,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 22,
       "output": "lessons/dress-myself/choose-clothes/images/raincoat.webp",
-      "outputBytes": 27636,
-      "outputSha256": "bacd3e1a14d6dbfe7333b02932b7a7b317651fbca89e2e6efee0998a213474f6",
+      "outputBytes": 18562,
+      "outputSha256": "d31dbb61df001532cdd4ed71411e57b6b1fbdce9b7f163cd862aa40e8e98d705",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -7173,21 +7173,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/raincoat.png",
-      "sourceBytes": 51721,
-      "sourceSha256": "f7ba86b077dfdcfc43b4b92ce0e27e5abb753b6b138b220a85b451fe19d57a64",
-      "width": 768
+      "sourceBytes": 242811,
+      "sourceSha256": "8a282998ca4734bbdeb8a2cdbbccc590dbb4ca24344e4f136d0bcf7d219176c2",
+      "width": 495
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 396,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/dress-myself/choose-clothes/images/shorts.webp",
-      "outputBytes": 17122,
-      "outputSha256": "c9cf92758e7dd0ec7bde6a499506f662e68aa47a1e70490735b5c7e5c2b7262f",
+      "outputBytes": 33652,
+      "outputSha256": "51f6b00a8f1ad3b205ac080dcf20bd0132dd77974fe86627fff0ac4b4556c8c4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7196,21 +7196,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/shorts.png",
-      "sourceBytes": 50112,
-      "sourceSha256": "81e1a80708412bd3fb6dd641da5030d6670dc54b1ff5359a49ef84ed76ebaa41",
-      "width": 512
+      "sourceBytes": 292752,
+      "sourceSha256": "d2b7c9e8246e4ebf27844a7adb855820b43d5ce145226b8c6c30469e8b54a291",
+      "width": 455
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 367,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/dress-myself/choose-clothes/images/sweater.webp",
-      "outputBytes": 17904,
-      "outputSha256": "16b783c30ea83621119bc1e67ab4e037ed170429e0bd768129795293988652d9",
+      "outputBytes": 23896,
+      "outputSha256": "0bd1e528dca49231f6eb6cae6d2039d5c782d6e2da810b18b6db2bdaefc46d1b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7219,21 +7219,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/sweater.png",
-      "sourceBytes": 52152,
-      "sourceSha256": "bc0ddb989a47a0f0119bd62b28b4202eacdddf0ea1ffdd1b0f89060eff7cddd3",
-      "width": 512
+      "sourceBytes": 231206,
+      "sourceSha256": "e5720e4cd990aa6233466e5a41bf02659c26393ed3020a85f92260b77850e5cc",
+      "width": 418
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 526,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 21,
       "output": "lessons/dress-myself/choose-clothes/images/t-shirt.webp",
-      "outputBytes": 26218,
-      "outputSha256": "4719c355a29c5983fc0f5fc72e387a7dbd158ad7b4a31ac1969f363a80b4377f",
+      "outputBytes": 16508,
+      "outputSha256": "fcffd356b236f5993adfeff537a5189f24ca79440e4a09768dccd98f93d61d0a",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -7242,21 +7242,21 @@
         "choose-clothes"
       ],
       "source": "lessons/dress-myself/choose-clothes/images/t-shirt.png",
-      "sourceBytes": 49455,
-      "sourceSha256": "f9a60001dd8135f2470ac838137eb63d58d14c66367cb043d52b4eee2c404eeb",
-      "width": 768
+      "sourceBytes": 235190,
+      "sourceSha256": "e1d3d758afe3a67a1fb7f4d136a8d403cbe045c8890fc5bd02e103cfc47e970c",
+      "width": 477
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 900,
+      "height": 931,
       "lessonIds": [
         "dress-myself"
       ],
-      "maxPercent": 38,
+      "maxPercent": 41,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/baby.webp",
-      "outputBytes": 45104,
-      "outputSha256": "7b0a5cc6062d07e113f34084ebc3ba28c48bacb93e5a68cb2dde45f5d4af89b6",
+      "outputBytes": 43006,
+      "outputSha256": "d7906ac09cda7be97bfe203583cf1aed6af671e2bfbc73c8b5c37843a8b14809",
       "profile": "character",
       "roles": [
         "character"
@@ -7265,9 +7265,9 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/baby.png",
-      "sourceBytes": 462864,
-      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
-      "width": 495
+      "sourceBytes": 534955,
+      "sourceSha256": "b8c69c29f7acf7d0821bd6b3bfde7ddb27e7d3ce8d0d1a441da612fecfcdc5c1",
+      "width": 541
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7278,8 +7278,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/background.webp",
-      "outputBytes": 3758,
-      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "outputBytes": 37022,
+      "outputSha256": "568b24b599a42a7c82f1129485aa2ae79f2f67941594e73e9fa866a5cd0160f5",
       "profile": "background",
       "roles": [
         "background"
@@ -7288,21 +7288,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/background.png",
-      "sourceBytes": 26280,
-      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "sourceBytes": 2688333,
+      "sourceSha256": "8bc20ea73bfefd2e4f895f9c93337e635db22642af6ce94836af783f732d8fa8",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 345,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/buckle.webp",
-      "outputBytes": 17252,
-      "outputSha256": "b0e43d2b8e24363489a3144ca1ebb50f1405fda2682788d79d050badbddc6c93",
+      "outputBytes": 23782,
+      "outputSha256": "9a95d0d48046a9725e998bfd4319641925092bda26c1af2cb3543ef61aba5e2e",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7311,21 +7311,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/buckle.png",
-      "sourceBytes": 50602,
-      "sourceSha256": "978849f6ba882f97d2a7bffa79bb1bf5264d39ffaa06f5ed5bc7571e6b4f1fee",
-      "width": 512
+      "sourceBytes": 225830,
+      "sourceSha256": "d9690830c4201f26f191065b0960497ad586f99409275078b832d52a58c8ee9a",
+      "width": 428
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 383,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/button-shirt.webp",
-      "outputBytes": 11774,
-      "outputSha256": "29ba992ef1aa2b442653f8a334e335558f324a1202e3a888acbaf26b28feb3e6",
+      "outputBytes": 14346,
+      "outputSha256": "330a54bf6fa5d79e367dff2b86a38c9513aba2701d6bea2deb786007a15651d6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7334,21 +7334,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/button-shirt.png",
-      "sourceBytes": 50508,
-      "sourceSha256": "81a127fb40f68d93e4bde5c9c972636b5b88bbf86e2c23927c5ffcaed6400c5b",
-      "width": 512
+      "sourceBytes": 213943,
+      "sourceSha256": "291af097ae33e2bcea1732d4428e368864fece10d54f2ff9a14016aa74546dc8",
+      "width": 384
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 431,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/button.webp",
-      "outputBytes": 17126,
-      "outputSha256": "e80815e40d3a5d6917903d28506346a154b9404630a829fffb3f54a007f6bf2f",
+      "outputBytes": 15822,
+      "outputSha256": "02428ed0c4dedd7f819e92d6ce83f606d8ed9493eb6fd768b4ce50f30ece1529",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7357,21 +7357,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/button.png",
-      "sourceBytes": 50429,
-      "sourceSha256": "002b4b6a05b8a89b0a6e301190e455d4464cd9bdc9206337a71e34ec6bed86ae",
-      "width": 512
+      "sourceBytes": 210152,
+      "sourceSha256": "a50730630392eac2a76348940b1dc066c7c083d2e09dd12a44328b13f3ff878a",
+      "width": 427
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 382,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 15,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/shoe-strap.webp",
-      "outputBytes": 18342,
-      "outputSha256": "61bc157726e0478e75d492078357d0b5a3065ced43444e0a3b5d4082feed99f6",
+      "outputBytes": 31174,
+      "outputSha256": "e614a4bbe1fa1df13a5d9b10f01e6346dcd1f221bba4888e9e9f2af8229b3862",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7380,21 +7380,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/shoe-strap.png",
-      "sourceBytes": 53092,
-      "sourceSha256": "7a80ce79e9bfda5bdee8949ea598808e75d3ca20fb58ae81aece35f316d1f7f9",
-      "width": 512
+      "sourceBytes": 259038,
+      "sourceSha256": "17c576ec3090c6065a12a475859a8c28f7ebdbc069278176049a7e46f621497a",
+      "width": 490
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 385,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/shoelace.webp",
-      "outputBytes": 17996,
-      "outputSha256": "ce3b8d4b018be11415f9d2375b3b836fc438dd72c645f08f8bf7ecf218f33d5d",
+      "outputBytes": 26210,
+      "outputSha256": "487114d91bee4503456dbb243e5bebadde6b5933626ebf4456e511ef31f66505",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7403,21 +7403,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/shoelace.png",
-      "sourceBytes": 52379,
-      "sourceSha256": "f7e5b71e70d6a4037e365da86db5d69f3f562d0a42d748ddc8198cfab7735697",
-      "width": 512
+      "sourceBytes": 156510,
+      "sourceSha256": "d2b8e63d8ca0f9e14584d0c45c4779f58e8324c8e6368b9108b2299e5d157f76",
+      "width": 505
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 299,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/snap-fastener.webp",
-      "outputBytes": 19036,
-      "outputSha256": "525265c103350c23677935c25de0e42acdfed957d629eab94c77eba3b45561a8",
+      "outputBytes": 15636,
+      "outputSha256": "dd99fb9969b1595a19f7bd4a524a0341f18c94aad07f691dfaecd0917ffe0cf3",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7426,21 +7426,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/snap-fastener.png",
-      "sourceBytes": 54033,
-      "sourceSha256": "70763d4cd65548c20d8d1aa7949ad43d2cb058fbb4bb7b2e7a5139747502a8e7",
-      "width": 512
+      "sourceBytes": 179505,
+      "sourceSha256": "1fddbe28792e6742c71c9795139b300b3af1b7b8ae1e1c0764a80448a9abff67",
+      "width": 464
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 383,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/tie-shoelaces.webp",
-      "outputBytes": 12866,
-      "outputSha256": "e35c92858018f2089391b0716a5ad939fca4e0085fed5d79b8d9bda7d5d92ba2",
+      "outputBytes": 16980,
+      "outputSha256": "94b2574b04cb4e15de92db13c4f792e07fa702fd6a497520f7903fad5a72be8c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7449,21 +7449,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/tie-shoelaces.png",
-      "sourceBytes": 54852,
-      "sourceSha256": "e13506a492c09f00e13f5908de28cb1ac922fa2113e158449500a07a8625fe1b",
-      "width": 512
+      "sourceBytes": 227799,
+      "sourceSha256": "c7a33985a04c2ab0d2e2b2b6c22475ed0284b1c9af4959a0a250c919633c4a6f",
+      "width": 385
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 383,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/zip-jacket.webp",
-      "outputBytes": 12354,
-      "outputSha256": "bcc65d502adbee8441254b9436c67ab98ba3d4410bdbf9161d3768f9660baef2",
+      "outputBytes": 14454,
+      "outputSha256": "1a7165648de4b76dad768da4ff00c34e9e5ccf617165f1b1fd3c7e39b441eadd",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7472,9 +7472,9 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/zip-jacket.png",
-      "sourceBytes": 53745,
-      "sourceSha256": "803145f3c1501f9f43c81c2387a59516c8259f4d6765ae8b78c4d236d984326a",
-      "width": 512
+      "sourceBytes": 218103,
+      "sourceSha256": "f2553d8a85f89669bc24aeb096210228d032800b4c781b91446cb6fe4cc64cdf",
+      "width": 387
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7485,8 +7485,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/dress-myself/fasteners-and-shoes/images/zipper.webp",
-      "outputBytes": 17130,
-      "outputSha256": "07928b9009c0b5cfdb76bee2a7829f75f48b8aaa4c10781f15d219e05bb618cc",
+      "outputBytes": 30074,
+      "outputSha256": "8d089c39ef2fc9d2ee72e4dbf45864858437799a1a90a219da62c8ab86b746b4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7495,21 +7495,21 @@
         "fasteners-and-shoes"
       ],
       "source": "lessons/dress-myself/fasteners-and-shoes/images/zipper.png",
-      "sourceBytes": 50350,
-      "sourceSha256": "26877932f36297523c9b3ddf07c86225cf52ec1a83eb19a7a4699821310514fd",
-      "width": 512
+      "sourceBytes": 240241,
+      "sourceSha256": "3e816489bdb9fe47ae5a55cd1f89865938ed9b863af30fd768d287387fcece25",
+      "width": 332
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/put-on-clothes/images/arms-through-sleeves.webp",
-      "outputBytes": 13960,
-      "outputSha256": "64220f0a4652e67ec78583532c4244207d723d4410c1294b3f7e225ff6f09668",
+      "outputBytes": 14978,
+      "outputSha256": "dc40938edd105922cef5d004f7fe7d99de4e6017762ebd395f7fb7c7205c27d5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7518,9 +7518,9 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/arms-through-sleeves.png",
-      "sourceBytes": 57795,
-      "sourceSha256": "d5874b5dea59c1365672f588cdf8bd019c176d824889d52a07bc90b7a0b9ee2e",
-      "width": 512
+      "sourceBytes": 216675,
+      "sourceSha256": "742524e11de543e44978a398edf427cddf19d2284db82db5f3de5bd5c69f75dc",
+      "width": 384
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -7548,14 +7548,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 452,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/dress-myself/put-on-clothes/images/back.webp",
-      "outputBytes": 16902,
-      "outputSha256": "36f3481bd2e22fddd90ecff8f3c75c86e42891b59d17515975c3888075e9d6d8",
+      "outputBytes": 36648,
+      "outputSha256": "749fcbc3a56103e91cc8a4b003c81d38185f73b3c1c597db06817b2ccbbc9a3a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7564,8 +7564,8 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/back.png",
-      "sourceBytes": 50289,
-      "sourceSha256": "62c38023acd577f3db34aedd6fed488bf29728b8476e44a2d988553c076228e8",
+      "sourceBytes": 300728,
+      "sourceSha256": "5094168f10ff077c8b62953e4a2325fb837916d093a60d81096028723adb0137",
       "width": 512
     },
     {
@@ -7577,8 +7577,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/dress-myself/put-on-clothes/images/background.webp",
-      "outputBytes": 3758,
-      "outputSha256": "4195561218a4ec6ef75386695deaef6ecbdb69ac34fc5a2a7b17e3ff2b265b89",
+      "outputBytes": 24684,
+      "outputSha256": "19b1b579e4194ece4d26df91c7b580a31570fc3e90a0b6beea212ed101b5cd06",
       "profile": "background",
       "roles": [
         "background"
@@ -7587,21 +7587,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/background.png",
-      "sourceBytes": 26280,
-      "sourceSha256": "e2ce6d0e818ae16452596225d2026d8df1d0735a1013fa1ddee4a72c83c2e128",
+      "sourceBytes": 2286149,
+      "sourceSha256": "d042446fc8f87e2542ef4cc7d3a6f0616d8f807a3a0d999c993d1db91fc451a3",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 373,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/dress-myself/put-on-clothes/images/clothing-tag.webp",
-      "outputBytes": 18596,
-      "outputSha256": "56f7060c1083535a844aa47506eafae84538222f151a2182d19f0e5ebb2d99f1",
+      "outputBytes": 16962,
+      "outputSha256": "456fedad7742504860ce75bc52e4712cc186c2f405efd5e821fb95da8d9fd26d",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7610,21 +7610,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/clothing-tag.png",
-      "sourceBytes": 53157,
-      "sourceSha256": "4a244693e1fa8bf0f441263b0cace726af3df4c89031fab190199c541eea8e96",
-      "width": 512
+      "sourceBytes": 180961,
+      "sourceSha256": "f0899c2bdc21b2c3a72639d8a8d0f5fa6d730741345a045ad61ec47981740dfc",
+      "width": 359
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 320,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 20,
       "output": "lessons/dress-myself/put-on-clothes/images/collar.webp",
-      "outputBytes": 16854,
-      "outputSha256": "f542c90be85f5bcf0ce342de8292a1f89057fe2938d5719fbfd0e303a1d22763",
+      "outputBytes": 29420,
+      "outputSha256": "79707284b3f4cadb2a247f64537bb11e08deb6c2061d016f931ba901f4732cbb",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7633,21 +7633,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/collar.png",
-      "sourceBytes": 50118,
-      "sourceSha256": "73374f1ee3815e34d863d26bf491d5162546cd649ac6690f82779ae1f195f5b2",
+      "sourceBytes": 227134,
+      "sourceSha256": "3ca953b1eb0e03b66d4569f45d9905e8b3806c8907e1c740e8229f8eb476f986",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 455,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/dress-myself/put-on-clothes/images/front.webp",
-      "outputBytes": 16760,
-      "outputSha256": "8a759799df31772f51b8f200bf53ed4b157ff30e88c7c38956f8d7756eb82a49",
+      "outputBytes": 37304,
+      "outputSha256": "fba909839e4657739ca0d451f80f14012732d89bef86a20e556a6cf8baf30ef1",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7656,21 +7656,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/front.png",
-      "sourceBytes": 49479,
-      "sourceSha256": "779ff7be514033638ee6c93c5fcd1f168b373df2810d952b5c002916618031a7",
+      "sourceBytes": 306996,
+      "sourceSha256": "56bce82db39d3a9f620055fca89d91375e73dedb8abf93364483da370df09ea5",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/put-on-clothes/images/pull-up-shorts.webp",
-      "outputBytes": 12388,
-      "outputSha256": "e1c9655674de667ad9516e088259a9722a4fb6db7f61ac7f83bdf830d81eba90",
+      "outputBytes": 14146,
+      "outputSha256": "4a9d761732302448c17b57830bd0a680339263a6b2aad555893c03189dd19585",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7679,21 +7679,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/pull-up-shorts.png",
-      "sourceBytes": 53059,
-      "sourceSha256": "acb9b58f44de58df64a70d305776e7cf771bf225ffbcbefc3cce6ef8d33b3c35",
-      "width": 512
+      "sourceBytes": 208778,
+      "sourceSha256": "763cad1b34064dc5ff5df4d79f859f591eac6b519af400696d49efe3a4c3f11b",
+      "width": 387
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 446,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 19,
       "output": "lessons/dress-myself/put-on-clothes/images/sleeve.webp",
-      "outputBytes": 17318,
-      "outputSha256": "3e04f9875947cb0752815b1eb006e666ccdd038c6671af47064ce045220f5448",
+      "outputBytes": 28044,
+      "outputSha256": "2fa7aa2ca38659704a98a405c48e1b927b9b2d38f47f3b3d398f5fbb06e70200",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7702,21 +7702,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/sleeve.png",
-      "sourceBytes": 51097,
-      "sourceSha256": "c82b1a85a8d5a7ff0bf6b1cee855ca5601e5b36ddfc0ade9ef1d0067c53c2e11",
-      "width": 512
+      "sourceBytes": 215240,
+      "sourceSha256": "f9c2062f8b411e7ecfda3979f3c4cf8eb45e4e980d77993afd22c5f4a275a8f4",
+      "width": 403
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 386,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 17,
       "output": "lessons/dress-myself/put-on-clothes/images/turn-shirt-around.webp",
-      "outputBytes": 12770,
-      "outputSha256": "224a03ecb7cb12ab87d4f80c133782deae415d15c1b0cd47b28920703541ee5a",
+      "outputBytes": 15464,
+      "outputSha256": "d4eabeda370a2f56e6c6da2e134a1090ddbc1b2bc0ac6974a7b9f7a3113182f5",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7725,21 +7725,21 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/turn-shirt-around.png",
-      "sourceBytes": 54722,
-      "sourceSha256": "210e45cddf950d8292168e406b9a0e0d382c15178037b58bf3786bd269579bae",
-      "width": 512
+      "sourceBytes": 222249,
+      "sourceSha256": "7c723472601d1126d14f20aa89706dbd99c858aaad97afd7762510ac49f3efa6",
+      "width": 385
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 364,
       "lessonIds": [
         "dress-myself"
       ],
       "maxPercent": 18,
       "output": "lessons/dress-myself/put-on-clothes/images/waistband.webp",
-      "outputBytes": 18382,
-      "outputSha256": "9553bb66e500195c1e90d4e03244ad7294ff63985b35bb518a7b448d12c8953c",
+      "outputBytes": 46704,
+      "outputSha256": "69e7f0854fe0d044e8784f1515a1c1b80b3d5e2bb7947fd902249f8e79bd94f6",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -7748,8 +7748,8 @@
         "put-on-clothes"
       ],
       "source": "lessons/dress-myself/put-on-clothes/images/waistband.png",
-      "sourceBytes": 53101,
-      "sourceSha256": "4ec105433bdc22605f6fad50cb692e0ec2d4e39e22ff29b7712c58cbf6a1de28",
+      "sourceBytes": 336655,
+      "sourceSha256": "c8ab523d1a5f6161e4d9bdc569c151909dbf7ad39ec8b1afd86a9300d58560d7",
       "width": 512
     },
     {
@@ -19483,7 +19483,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T12:08:26.966Z",
+  "generatedAt": "2026-08-02T14:23:02.990Z",
   "releaseVersion": "v1",
-  "revision": "33c0aed3cee00a02"
+  "revision": "79b097a9a4151f63"
 }
