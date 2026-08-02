@@ -8,20 +8,12 @@ import { ENGLISH_ACCENTS, type EnglishAccent } from '../src/types/audio';
 
 declare const __dirname: string;
 
-type Hash = {
-  digest: (encoding: 'hex') => string;
-  update: (content: Uint8Array) => Hash;
-};
-
 type FileSystem = {
   existsSync(path: string): boolean;
   readFileSync(path: string): Uint8Array;
   readFileSync(path: string, encoding: 'utf8'): string;
 };
 
-const { createHash } = jest.requireActual<{
-  createHash: (algorithm: string) => Hash;
-}>('crypto');
 const { existsSync, readFileSync } = jest.requireActual<FileSystem>('fs');
 const { join } = jest.requireActual<{
   join: (...paths: string[]) => string;
@@ -57,7 +49,7 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const expectedEnglishTargetCountPerAccent = 2860;
+const expectedEnglishTargetCountPerAccent = 3826;
 const bundledEnglishUiPrompts = [
   'Hi! I am Sungy, your child’s learning buddy.',
   'Let’s learn with Sungy today!',

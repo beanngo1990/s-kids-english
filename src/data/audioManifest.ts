@@ -23,6 +23,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A bath helps you feel fresh after an active afternoon.",
     },
   },
+  [normalizeText("A few small steps help keep you and others clean.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/intro_success_a0068f7a.mp3",
+      text: "A few small steps help keep you and others clean.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/intro_success_a0068f7a.mp3",
+      text: "A few small steps help keep you and others clean.",
+    },
+  },
   [normalizeText("A little cleaning after dinner keeps the kitchen tidy.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/intro_success_91ae067d.mp3",
@@ -103,6 +113,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "alphabet book",
     },
   },
+  [normalizeText("angry")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/angry.mp3",
+      text: "angry",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/angry.mp3",
+      text: "angry",
+    },
+  },
   [normalizeText("ankle")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/ankle.mp3",
@@ -175,6 +195,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Arrive home.",
     },
   },
+  [normalizeText("ask before touching")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/ask_before_touching.mp3",
+      text: "ask before touching",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/ask_before_touching.mp3",
+      text: "ask before touching",
+    },
+  },
   [normalizeText("ask for a hug")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/ask_for_a_hug.mp3",
@@ -183,6 +213,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/ask_for_a_hug.mp3",
       text: "ask for a hug",
+    },
+  },
+  [normalizeText("ask for help with your nails")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/ask_for_help_with_your_nails.mp3",
+      text: "ask for help with your nails",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/ask_for_help_with_your_nails.mp3",
+      text: "ask for help with your nails",
+    },
+  },
+  [normalizeText("back")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/back.mp3",
+      text: "back",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/back.mp3",
+      text: "back",
     },
   },
   [normalizeText("bag")]: {
@@ -309,6 +359,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Bath time is over. Let's put on clean clothes.",
     },
   },
+  [normalizeText("bathroom")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/bathroom.mp3",
+      text: "bathroom",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/bathroom.mp3",
+      text: "bathroom",
+    },
+  },
+  [normalizeText("bathroom door")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/bathroom_door.mp3",
+      text: "bathroom door",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/bathroom_door.mp3",
+      text: "bathroom door",
+    },
+  },
+  [normalizeText("bathroom sign")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/bathroom_sign.mp3",
+      text: "bathroom sign",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/bathroom_sign.mp3",
+      text: "bathroom sign",
+    },
+  },
   [normalizeText("bathtub")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/bathtub.mp3",
@@ -375,6 +455,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/bell.mp3",
       text: "bell",
+    },
+  },
+  [normalizeText("belly")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/belly.mp3",
+      text: "belly",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/belly.mp3",
+      text: "belly",
     },
   },
   [normalizeText("bench")]: {
@@ -485,6 +575,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/board.mp3",
       text: "board",
+    },
+  },
+  [normalizeText("body signal")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/body_signal.mp3",
+      text: "body signal",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/body_signal.mp3",
+      text: "body signal",
     },
   },
   [normalizeText("body wash")]: {
@@ -601,6 +701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "box",
     },
   },
+  [normalizeText("brave")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/brave.mp3",
+      text: "brave",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/brave.mp3",
+      text: "brave",
+    },
+  },
   [normalizeText("bread")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/bread.mp3",
@@ -613,6 +723,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/bread.mp3",
       text: "bread",
+    },
+  },
+  [normalizeText("breath")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/breath.mp3",
+      text: "breath",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/breath.mp3",
+      text: "breath",
+    },
+  },
+  [normalizeText("breathe in slowly")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/breathe_in_slowly.mp3",
+      text: "breathe in slowly",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/breathe_in_slowly.mp3",
+      text: "breathe in slowly",
+    },
+  },
+  [normalizeText("breathe out slowly")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/breathe_out_slowly.mp3",
+      text: "breathe out slowly",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/breathe_out_slowly.mp3",
+      text: "breathe out slowly",
+    },
+  },
+  [normalizeText("brush your hair")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/brush_your_hair.mp3",
+      text: "brush your hair",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/brush_your_hair.mp3",
+      text: "brush your hair",
     },
   },
   [normalizeText("brush your teeth")]: {
@@ -661,6 +811,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/bucket.mp3",
       text: "bucket",
+    },
+  },
+  [normalizeText("buckle")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/buckle.mp3",
+      text: "buckle",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/buckle.mp3",
+      text: "buckle",
     },
   },
   [normalizeText("buckle up")]: {
@@ -735,6 +895,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "bus",
     },
   },
+  [normalizeText("button")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/button.mp3",
+      text: "button",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/button.mp3",
+      text: "button",
+    },
+  },
+  [normalizeText("button your shirt")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/button_your_shirt.mp3",
+      text: "button your shirt",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/button_your_shirt.mp3",
+      text: "button your shirt",
+    },
+  },
   [normalizeText("cabinet")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/cabinet.mp3",
@@ -807,6 +987,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "candle",
     },
   },
+  [normalizeText("cap")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/cap.mp3",
+      text: "cap",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/cap.mp3",
+      text: "cap",
+    },
+  },
   [normalizeText("car")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/car.mp3",
@@ -843,6 +1033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/card.mp3",
       text: "card",
+    },
+  },
+  [normalizeText("Careful fingers help you get dressed by yourself.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/intro_success_6fa1390f.mp3",
+      text: "Careful fingers help you get dressed by yourself.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/intro_success_6fa1390f.mp3",
+      text: "Careful fingers help you get dressed by yourself.",
     },
   },
   [normalizeText("carrot")]: {
@@ -947,6 +1147,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_tap_check_temperature_705ce7dd.mp3",
       text: "Check the temperature.",
+    },
+  },
+  [normalizeText("check the weather")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/check_the_weather.mp3",
+      text: "check the weather",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/check_the_weather.mp3",
+      text: "check the weather",
     },
   },
   [normalizeText("check your dream journal")]: {
@@ -1073,6 +1283,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Choose a toy.",
     },
   },
+  [normalizeText("choose your clothes")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/choose_your_clothes.mp3",
+      text: "choose your clothes",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/choose_your_clothes.mp3",
+      text: "choose your clothes",
+    },
+  },
   [normalizeText("circle")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/circle.mp3",
@@ -1115,6 +1335,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/classroom.mp3",
       text: "classroom",
+    },
+  },
+  [normalizeText("clean hands")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/clean_hands.mp3",
+      text: "clean hands",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/clean_hands.mp3",
+      text: "clean hands",
     },
   },
   [normalizeText("clean up")]: {
@@ -1209,6 +1439,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Cleaning up after eating keeps the snack area tidy.",
     },
   },
+  [normalizeText("Clear words help a grown-up understand and support you.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/intro_success_5a1a9977.mp3",
+      text: "Clear words help a grown-up understand and support you.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/intro_success_5a1a9977.mp3",
+      text: "Clear words help a grown-up understand and support you.",
+    },
+  },
   [normalizeText("climbing frame")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/climbing_frame.mp3",
@@ -1297,6 +1537,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cloth",
     },
   },
+  [normalizeText("clothing tag")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/clothing_tag.mp3",
+      text: "clothing tag",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/clothing_tag.mp3",
+      text: "clothing tag",
+    },
+  },
   [normalizeText("coaster")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/coaster.mp3",
@@ -1309,6 +1559,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/coaster.mp3",
       text: "coaster",
+    },
+  },
+  [normalizeText("cold")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/cold.mp3",
+      text: "cold",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/cold.mp3",
+      text: "cold",
+    },
+  },
+  [normalizeText("collar")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/collar.mp3",
+      text: "collar",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/collar.mp3",
+      text: "collar",
     },
   },
   [normalizeText("color")]: {
@@ -1383,6 +1653,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cookie",
     },
   },
+  [normalizeText("cough")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/cough.mp3",
+      text: "cough",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/cough.mp3",
+      text: "cough",
+    },
+  },
+  [normalizeText("count to five")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/count_to_five.mp3",
+      text: "count to five",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/count_to_five.mp3",
+      text: "count to five",
+    },
+  },
   [normalizeText("counter")]: {
     "en-US": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/counter.mp3",
@@ -1411,6 +1701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/cover.mp3",
       text: "cover",
+    },
+  },
+  [normalizeText("cover your cough")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/cover_your_cough.mp3",
+      text: "cover your cough",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/cover_your_cough.mp3",
+      text: "cover your cough",
     },
   },
   [normalizeText("cover your ears")]: {
@@ -1497,6 +1797,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/cup.mp3",
       text: "cup",
+    },
+  },
+  [normalizeText("curious")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/curious.mp3",
+      text: "curious",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/curious.mp3",
+      text: "curious",
     },
   },
   [normalizeText("curtain")]: {
@@ -1673,6 +1983,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Dinner is over. Let's gather the small items.",
     },
   },
+  [normalizeText("disappointed")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/disappointed.mp3",
+      text: "disappointed",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/disappointed.mp3",
+      text: "disappointed",
+    },
+  },
   [normalizeText("dish rack")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/dish_rack.mp3",
@@ -1699,6 +2019,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/dishwasher.mp3",
       text: "dishwasher",
+    },
+  },
+  [normalizeText("dizzy")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/dizzy.mp3",
+      text: "dizzy",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/dizzy.mp3",
+      text: "dizzy",
     },
   },
   [normalizeText("doctor")]: {
@@ -2081,6 +2411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the coaster onto the serving cart.",
     },
   },
+  [normalizeText("Drag the comb to the glowing hair.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_drag_comb_3afa3245.mp3",
+      text: "Drag the comb to the glowing hair.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_drag_comb_3afa3245.mp3",
+      text: "Drag the comb to the glowing hair.",
+    },
+  },
   [normalizeText("Drag the cookie next to the snack.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_drag_cookie_to_snack_8df77cb7.mp3",
@@ -2151,6 +2491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the cushion into the glowing circle.",
     },
   },
+  [normalizeText("Drag the cushion into the glowing quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_drag_cushion_36d937fd.mp3",
+      text: "Drag the cushion into the glowing quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_drag_cushion_36d937fd.mp3",
+      text: "Drag the cushion into the glowing quiet corner.",
+    },
+  },
   [normalizeText("Drag the dirty clothes into the laundry basket.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_drag_clothes_to_basket_2d369bda.mp3",
@@ -2189,6 +2539,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_drag_family_photo_1deec65d.mp3",
       text: "Drag the family photo on the wall into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the feather to the glowing stream of air.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_drag_feather_a488d1f7.mp3",
+      text: "Drag the feather to the glowing stream of air.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_drag_feather_a488d1f7.mp3",
+      text: "Drag the feather to the glowing stream of air.",
     },
   },
   [normalizeText("Drag the food cover to the leftovers.")]: {
@@ -2239,6 +2599,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_drag_counter_05075813.mp3",
       text: "Drag the green counter into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the hand soap to the glowing sink.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_drag_hand_soap_53a9e3cb.mp3",
+      text: "Drag the hand soap to the glowing sink.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_drag_hand_soap_53a9e3cb.mp3",
+      text: "Drag the hand soap to the glowing sink.",
     },
   },
   [normalizeText("Drag the hand to the glowing arm.")]: {
@@ -2521,6 +2891,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the shopping bag on the right into the glowing circle.",
     },
   },
+  [normalizeText("Drag the shorts to the glowing child.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_drag_shorts_768ee703.mp3",
+      text: "Drag the shorts to the glowing child.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_drag_shorts_768ee703.mp3",
+      text: "Drag the shorts to the glowing child.",
+    },
+  },
   [normalizeText("Drag the sleep mask next to the nightstand.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/prompt_drag_mask_to_nightstand_0a57f4ba.mp3",
@@ -2641,6 +3021,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the thank-you card into the glowing circle.",
     },
   },
+  [normalizeText("Drag the toothbrush into the glowing toothbrush cup.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_drag_toothbrush_ffcb57cb.mp3",
+      text: "Drag the toothbrush into the glowing toothbrush cup.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_drag_toothbrush_ffcb57cb.mp3",
+      text: "Drag the toothbrush into the glowing toothbrush cup.",
+    },
+  },
   [normalizeText("Drag the towel to your face.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_drag_towel_to_face_6601ca54.mp3",
@@ -2699,6 +3089,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_wrapper_to_tray_e4392cff.mp3",
       text: "Drag the wrapper onto the tray.",
+    },
+  },
+  [normalizeText("Drag the zipper to the glowing jacket.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_drag_zipper_a69d30a4.mp3",
+      text: "Drag the zipper to the glowing jacket.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_drag_zipper_a69d30a4.mp3",
+      text: "Drag the zipper to the glowing jacket.",
     },
   },
   [normalizeText("Drag the zoo map into the glowing circle.")]: {
@@ -2771,6 +3171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/dream_journal.mp3",
       text: "dream journal",
+    },
+  },
+  [normalizeText("dress")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/dress.mp3",
+      text: "dress",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/dress.mp3",
+      text: "dress",
     },
   },
   [normalizeText("drink some water")]: {
@@ -2883,6 +3293,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/duck.mp3",
       text: "duck",
+    },
+  },
+  [normalizeText("Each item has a clean and tidy place.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/intro_success_3e55bc9a.mp3",
+      text: "Each item has a clean and tidy place.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/intro_success_3e55bc9a.mp3",
+      text: "Each item has a clean and tidy place.",
     },
   },
   [normalizeText("Each little step tells your body it's time to sleep.")]: {
@@ -3033,6 +3453,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Every book looks interesting!",
     },
   },
+  [normalizeText("Every feeling can be named and shared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/intro_success_fade3e20.mp3",
+      text: "Every feeling can be named and shared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/intro_success_fade3e20.mp3",
+      text: "Every feeling can be named and shared.",
+    },
+  },
+  [normalizeText("excited")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/excited.mp3",
+      text: "excited",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/excited.mp3",
+      text: "excited",
+    },
+  },
   [normalizeText("eyes")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/eyes.mp3",
@@ -3041,6 +3481,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/eyes.mp3",
       text: "eyes",
+    },
+  },
+  [normalizeText("face cloth")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/face_cloth.mp3",
+      text: "face cloth",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/face_cloth.mp3",
+      text: "face cloth",
     },
   },
   [normalizeText("family")]: {
@@ -3067,6 +3517,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "family photo",
     },
   },
+  [normalizeText("fast breathing")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/fast_breathing.mp3",
+      text: "fast breathing",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/fast_breathing.mp3",
+      text: "fast breathing",
+    },
+  },
+  [normalizeText("fast heartbeat")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/fast_heartbeat.mp3",
+      text: "fast heartbeat",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/fast_heartbeat.mp3",
+      text: "fast heartbeat",
+    },
+  },
+  [normalizeText("favorite toy")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/favorite_toy.mp3",
+      text: "favorite toy",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/favorite_toy.mp3",
+      text: "favorite toy",
+    },
+  },
+  [normalizeText("feather")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/feather.mp3",
+      text: "feather",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/feather.mp3",
+      text: "feather",
+    },
+  },
   [normalizeText("feed the goat")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/feed_the_goat.mp3",
@@ -3075,6 +3565,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/feed_the_goat.mp3",
       text: "feed the goat",
+    },
+  },
+  [normalizeText("feelings card")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/feelings_card.mp3",
+      text: "feelings card",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/feelings_card.mp3",
+      text: "feelings card",
     },
   },
   [normalizeText("Finally, let's sort everything and let it dry.")]: {
@@ -3189,6 +3689,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "flower",
     },
   },
+  [normalizeText("flush button")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/flush_button.mp3",
+      text: "flush button",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/flush_button.mp3",
+      text: "flush button",
+    },
+  },
+  [normalizeText("flush the toilet")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/flush_the_toilet.mp3",
+      text: "flush the toilet",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/flush_the_toilet.mp3",
+      text: "flush the toilet",
+    },
+  },
   [normalizeText("foam")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/foam.mp3",
@@ -3235,6 +3755,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/follow_the_zookeeper.mp3",
       text: "follow the zookeeper",
+    },
+  },
+  [normalizeText("Following each step helps you feel confident and clean.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/intro_success_d473cf25.mp3",
+      text: "Following each step helps you feel confident and clean.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/intro_success_d473cf25.mp3",
+      text: "Following each step helps you feel confident and clean.",
     },
   },
   [normalizeText("food cover")]: {
@@ -3329,6 +3859,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "frisbee",
     },
   },
+  [normalizeText("front")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/front.mp3",
+      text: "front",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/front.mp3",
+      text: "front",
+    },
+  },
   [normalizeText("front door")]: {
     "en-US": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/front_door.mp3",
@@ -3337,6 +3877,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/front_door.mp3",
       text: "front door",
+    },
+  },
+  [normalizeText("frown")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/frown.mp3",
+      text: "frown",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/frown.mp3",
+      text: "frown",
     },
   },
   [normalizeText("fruit")]: {
@@ -3489,6 +4039,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/go_to_school.mp3",
       text: "go to school",
+    },
+  },
+  [normalizeText("go to the bathroom")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/go_to_the_bathroom.mp3",
+      text: "go to the bathroom",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/go_to_the_bathroom.mp3",
+      text: "go to the bathroom",
     },
   },
   [normalizeText("goat")]: {
@@ -3703,6 +4263,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "hair",
     },
   },
+  [normalizeText("hair tie")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/hair_tie.mp3",
+      text: "hair tie",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/hair_tie.mp3",
+      text: "hair tie",
+    },
+  },
+  [normalizeText("hairbrush")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/hairbrush.mp3",
+      text: "hairbrush",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/hairbrush.mp3",
+      text: "hairbrush",
+    },
+  },
   [normalizeText("hand")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/hand.mp3",
@@ -3721,6 +4301,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/hand_gel.mp3",
       text: "hand gel",
+    },
+  },
+  [normalizeText("hand soap")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/hand_soap.mp3",
+      text: "hand soap",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/hand_soap.mp3",
+      text: "hand soap",
+    },
+  },
+  [normalizeText("hand towel")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/hand_towel.mp3",
+      text: "hand towel",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/hand_towel.mp3",
+      text: "hand towel",
     },
   },
   [normalizeText("hang the balloons")]: {
@@ -3753,6 +4353,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Hang the robe.",
     },
   },
+  [normalizeText("happy")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/happy.mp3",
+      text: "happy",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/happy.mp3",
+      text: "happy",
+    },
+  },
   [normalizeText("Have fun and remember to keep your toys tidy.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/intro_success_ccaf36cf.mp3",
@@ -3771,6 +4381,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/head.mp3",
       text: "head",
+    },
+  },
+  [normalizeText("headache")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/headache.mp3",
+      text: "headache",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/headache.mp3",
+      text: "headache",
+    },
+  },
+  [normalizeText("headphones")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/headphones.mp3",
+      text: "headphones",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/headphones.mp3",
+      text: "headphones",
     },
   },
   [normalizeText("hear")]: {
@@ -3841,6 +4471,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "hook",
     },
   },
+  [normalizeText("hot")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/hot.mp3",
+      text: "hot",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/hot.mp3",
+      text: "hot",
+    },
+  },
   [normalizeText("hug")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/hug.mp3",
@@ -3849,6 +4489,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/hug.mp3",
       text: "hug",
+    },
+  },
+  [normalizeText("hug the cushion")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/hug_the_cushion.mp3",
+      text: "hug the cushion",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/hug_the_cushion.mp3",
+      text: "hug the cushion",
     },
   },
   [normalizeText("hug your family")]: {
@@ -3905,6 +4555,136 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "humidifier",
     },
   },
+  [normalizeText("hungry")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/hungry.mp3",
+      text: "hungry",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/hungry.mp3",
+      text: "hungry",
+    },
+  },
+  [normalizeText("hurt")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/hurt.mp3",
+      text: "hurt",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/hurt.mp3",
+      text: "hurt",
+    },
+  },
+  [normalizeText("I am excited")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/i_am_excited.mp3",
+      text: "I am excited",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/i_am_excited.mp3",
+      text: "I am excited",
+    },
+  },
+  [normalizeText("I am hungry")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/i_am_hungry.mp3",
+      text: "I am hungry",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/i_am_hungry.mp3",
+      text: "I am hungry",
+    },
+  },
+  [normalizeText("I can say how I feel")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/i_can_say_how_i_feel.mp3",
+      text: "I can say how I feel",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/i_can_say_how_i_feel.mp3",
+      text: "I can say how I feel",
+    },
+  },
+  [normalizeText("I did it")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/i_did_it.mp3",
+      text: "I did it",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/i_did_it.mp3",
+      text: "I did it",
+    },
+  },
+  [normalizeText("I don't feel well")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/i_don_t_feel_well.mp3",
+      text: "I don't feel well",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/i_don_t_feel_well.mp3",
+      text: "I don't feel well",
+    },
+  },
+  [normalizeText("I don't like that")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/i_don_t_like_that.mp3",
+      text: "I don't like that",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/i_don_t_like_that.mp3",
+      text: "I don't like that",
+    },
+  },
+  [normalizeText("I feel angry")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/i_feel_angry.mp3",
+      text: "I feel angry",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/i_feel_angry.mp3",
+      text: "I feel angry",
+    },
+  },
+  [normalizeText("I feel happy")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/i_feel_happy.mp3",
+      text: "I feel happy",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/i_feel_happy.mp3",
+      text: "I feel happy",
+    },
+  },
+  [normalizeText("I feel proud")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/i_feel_proud.mp3",
+      text: "I feel proud",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/i_feel_proud.mp3",
+      text: "I feel proud",
+    },
+  },
+  [normalizeText("I feel sad")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/i_feel_sad.mp3",
+      text: "I feel sad",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/i_feel_sad.mp3",
+      text: "I feel sad",
+    },
+  },
+  [normalizeText("I feel scared")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/i_feel_scared.mp3",
+      text: "I feel scared",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/i_feel_scared.mp3",
+      text: "I feel scared",
+    },
+  },
   [normalizeText("I heard you! Great job!")]: {
     "en-US": {
       key: "shared/audio/en-US/neural2-c-r1/recording_encouragement_8731bb5d.mp3",
@@ -3917,6 +4697,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "shared/audio/en/recording_encouragement_8731bb5d.mp3",
       text: "I heard you! Great job!",
+    },
+  },
+  [normalizeText("I need a break")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/i_need_a_break.mp3",
+      text: "I need a break",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/i_need_a_break.mp3",
+      text: "I need a break",
+    },
+  },
+  [normalizeText("I need help, please")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/i_need_help_please.mp3",
+      text: "I need help, please",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/i_need_help_please.mp3",
+      text: "I need help, please",
+    },
+  },
+  [normalizeText("I need quiet")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/i_need_quiet.mp3",
+      text: "I need quiet",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/i_need_quiet.mp3",
+      text: "I need quiet",
+    },
+  },
+  [normalizeText("I need to rest")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/i_need_to_rest.mp3",
+      text: "I need to rest",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/i_need_to_rest.mp3",
+      text: "I need to rest",
+    },
+  },
+  [normalizeText("I need to use the toilet")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/i_need_to_use_the_toilet.mp3",
+      text: "I need to use the toilet",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/i_need_to_use_the_toilet.mp3",
+      text: "I need to use the toilet",
+    },
+  },
+  [normalizeText("I need water")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/i_need_water.mp3",
+      text: "I need water",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/i_need_water.mp3",
+      text: "I need water",
     },
   },
   [normalizeText("I'll guide you.")]: {
@@ -3937,6 +4777,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/invitation.mp3",
       text: "invitation",
+    },
+  },
+  [normalizeText("it hurts here")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/it_hurts_here.mp3",
+      text: "it hurts here",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/it_hurts_here.mp3",
+      text: "it hurts here",
     },
   },
   [normalizeText("It means air-dry the dishes.")]: {
@@ -3967,6 +4817,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/teach_alphabet_book_success_bfbbb68b.mp3",
       text: "It means alphabet book.",
+    },
+  },
+  [normalizeText("It means angry.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_angry_success_20a05e53.mp3",
+      text: "It means angry.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_angry_success_20a05e53.mp3",
+      text: "It means angry.",
     },
   },
   [normalizeText("It means ankle.")]: {
@@ -4031,6 +4891,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means arrive home.",
     },
   },
+  [normalizeText("It means ask before touching.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_ask_before_touching_success_529b9dc5.mp3",
+      text: "It means ask before touching.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_ask_before_touching_success_529b9dc5.mp3",
+      text: "It means ask before touching.",
+    },
+  },
   [normalizeText("It means ask for a hug.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_ask_for_hug_success_a9de9a85.mp3",
@@ -4039,6 +4909,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/teach_ask_for_hug_success_a9de9a85.mp3",
       text: "It means ask for a hug.",
+    },
+  },
+  [normalizeText("It means ask for help with your nails.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_help_with_nails_success_d3668819.mp3",
+      text: "It means ask for help with your nails.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_help_with_nails_success_d3668819.mp3",
+      text: "It means ask for help with your nails.",
+    },
+  },
+  [normalizeText("It means back.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_back_success_16e83945.mp3",
+      text: "It means back.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_back_success_16e83945.mp3",
+      text: "It means back.",
     },
   },
   [normalizeText("It means bag.")]: {
@@ -4155,6 +5045,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means bath sponge.",
     },
   },
+  [normalizeText("It means bathroom door.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_bathroom_door_success_3c8a61a0.mp3",
+      text: "It means bathroom door.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_bathroom_door_success_3c8a61a0.mp3",
+      text: "It means bathroom door.",
+    },
+  },
+  [normalizeText("It means bathroom sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_bathroom_sign_success_318a65dc.mp3",
+      text: "It means bathroom sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_bathroom_sign_success_318a65dc.mp3",
+      text: "It means bathroom sign.",
+    },
+  },
+  [normalizeText("It means bathroom.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_bathroom_success_d4bd75f2.mp3",
+      text: "It means bathroom.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_bathroom_success_d4bd75f2.mp3",
+      text: "It means bathroom.",
+    },
+  },
   [normalizeText("It means bathtub.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/teach_bathtub_success_dd47c89c.mp3",
@@ -4221,6 +5141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_bell_success_d8b373a9.mp3",
       text: "It means bell.",
+    },
+  },
+  [normalizeText("It means belly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_belly_success_26ba27c5.mp3",
+      text: "It means belly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_belly_success_26ba27c5.mp3",
+      text: "It means belly.",
     },
   },
   [normalizeText("It means bench.")]: {
@@ -4331,6 +5261,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/teach_board_success_0335cdc0.mp3",
       text: "It means board.",
+    },
+  },
+  [normalizeText("It means body signal.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_body_clue_success_b5dc2eee.mp3",
+      text: "It means body signal.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_body_clue_success_b5dc2eee.mp3",
+      text: "It means body signal.",
     },
   },
   [normalizeText("It means body wash.")]: {
@@ -4447,6 +5387,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means box.",
     },
   },
+  [normalizeText("It means brave.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_brave_success_589e7431.mp3",
+      text: "It means brave.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_brave_success_589e7431.mp3",
+      text: "It means brave.",
+    },
+  },
+  [normalizeText("It means breath.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_breath_success_9882f507.mp3",
+      text: "It means breath.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_breath_success_9882f507.mp3",
+      text: "It means breath.",
+    },
+  },
+  [normalizeText("It means breathe in slowly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_breathe_in_success_15cab5c7.mp3",
+      text: "It means breathe in slowly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_breathe_in_success_15cab5c7.mp3",
+      text: "It means breathe in slowly.",
+    },
+  },
+  [normalizeText("It means breathe out slowly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_breathe_out_success_4364be77.mp3",
+      text: "It means breathe out slowly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_breathe_out_success_4364be77.mp3",
+      text: "It means breathe out slowly.",
+    },
+  },
+  [normalizeText("It means brush your hair.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_brush_hair_success_30a7a4c8.mp3",
+      text: "It means brush your hair.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_brush_hair_success_30a7a4c8.mp3",
+      text: "It means brush your hair.",
+    },
+  },
   [normalizeText("It means brush your teeth.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/teach_brush_teeth_success_a2210851.mp3",
@@ -4499,6 +5489,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means buckle up.",
     },
   },
+  [normalizeText("It means buckle.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_buckle_success_a4d8502c.mp3",
+      text: "It means buckle.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_buckle_success_a4d8502c.mp3",
+      text: "It means buckle.",
+    },
+  },
   [normalizeText("It means build a sandcastle.")]: {
     "en-US": {
       key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_build_sandcastle_success_8ffae115.mp3",
@@ -4531,6 +5531,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/school_teach_bus_success_56376550.mp3",
       text: "It means bus.",
+    },
+  },
+  [normalizeText("It means button your shirt.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_button_shirt_success_d489ea61.mp3",
+      text: "It means button your shirt.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_button_shirt_success_d489ea61.mp3",
+      text: "It means button your shirt.",
+    },
+  },
+  [normalizeText("It means button.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_button_success_7a00dfa7.mp3",
+      text: "It means button.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_button_success_7a00dfa7.mp3",
+      text: "It means button.",
     },
   },
   [normalizeText("It means cabinet.")]: {
@@ -4589,6 +5609,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/teach_candle_success_8fc0e8be.mp3",
       text: "It means candle.",
+    },
+  },
+  [normalizeText("It means cap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_cap_success_3486afd2.mp3",
+      text: "It means cap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_cap_success_3486afd2.mp3",
+      text: "It means cap.",
     },
   },
   [normalizeText("It means car.")]: {
@@ -4713,6 +5743,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means check the temperature.",
     },
   },
+  [normalizeText("It means check the weather.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_check_weather_success_76efb536.mp3",
+      text: "It means check the weather.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_check_weather_success_76efb536.mp3",
+      text: "It means check the weather.",
+    },
+  },
   [normalizeText("It means check your dream journal.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/teach_check_dream_journal_success_12361a70.mp3",
@@ -4797,6 +5837,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means choose a toy.",
     },
   },
+  [normalizeText("It means choose your clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_choose_clothes_action_success_bc2d26f9.mp3",
+      text: "It means choose your clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_choose_clothes_action_success_bc2d26f9.mp3",
+      text: "It means choose your clothes.",
+    },
+  },
   [normalizeText("It means circle.")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/teach_circle_success_f74dc915.mp3",
@@ -4839,6 +5889,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/teach_classroom_success_cab699d9.mp3",
       text: "It means classroom.",
+    },
+  },
+  [normalizeText("It means clean hands.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_clean_hands_success_60b2632f.mp3",
+      text: "It means clean hands.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_clean_hands_success_60b2632f.mp3",
+      text: "It means clean hands.",
     },
   },
   [normalizeText("It means clean up the crumbs.")]: {
@@ -4967,6 +6027,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means cloth.",
     },
   },
+  [normalizeText("It means clothing tag.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_clothing_tag_success_7e2e90b5.mp3",
+      text: "It means clothing tag.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_clothing_tag_success_7e2e90b5.mp3",
+      text: "It means clothing tag.",
+    },
+  },
   [normalizeText("It means coaster.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/teach_coaster_success_8e7f03bf.mp3",
@@ -4979,6 +6049,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_coaster_success_8e7f03bf.mp3",
       text: "It means coaster.",
+    },
+  },
+  [normalizeText("It means cold.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_cold_success_99456e22.mp3",
+      text: "It means cold.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_cold_success_99456e22.mp3",
+      text: "It means cold.",
+    },
+  },
+  [normalizeText("It means collar.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_collar_success_358fb401.mp3",
+      text: "It means collar.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_collar_success_358fb401.mp3",
+      text: "It means collar.",
     },
   },
   [normalizeText("It means color.")]: {
@@ -5043,6 +6133,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means cookie.",
     },
   },
+  [normalizeText("It means cough.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_cough_success_36bbcc21.mp3",
+      text: "It means cough.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_cough_success_36bbcc21.mp3",
+      text: "It means cough.",
+    },
+  },
+  [normalizeText("It means count to five.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_count_five_success_15abf3fd.mp3",
+      text: "It means count to five.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_count_five_success_15abf3fd.mp3",
+      text: "It means count to five.",
+    },
+  },
   [normalizeText("It means counter.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/teach_counter_success_327e95fa.mp3",
@@ -5061,6 +6171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_coupon_success_99920711.mp3",
       text: "It means coupon.",
+    },
+  },
+  [normalizeText("It means cover your cough.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_cover_cough_success_7569564f.mp3",
+      text: "It means cover your cough.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_cover_cough_success_7569564f.mp3",
+      text: "It means cover your cough.",
     },
   },
   [normalizeText("It means cover your ears.")]: {
@@ -5157,6 +6277,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/teach_cup_success_f40f574d.mp3",
       text: "It means cup.",
+    },
+  },
+  [normalizeText("It means curious.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_curious_success_099dc0f0.mp3",
+      text: "It means curious.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_curious_success_099dc0f0.mp3",
+      text: "It means curious.",
     },
   },
   [normalizeText("It means curtain.")]: {
@@ -5293,6 +6423,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means dinner.",
     },
   },
+  [normalizeText("It means disappointed.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_disappointed_success_197e65b9.mp3",
+      text: "It means disappointed.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_disappointed_success_197e65b9.mp3",
+      text: "It means disappointed.",
+    },
+  },
   [normalizeText("It means dish rack.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/teach_dish_rack_success_995fef4f.mp3",
@@ -5319,6 +6459,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_dishwasher_success_c5a454c9.mp3",
       text: "It means dishwasher.",
+    },
+  },
+  [normalizeText("It means dizzy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_dizzy_success_b9c950ce.mp3",
+      text: "It means dizzy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_dizzy_success_b9c950ce.mp3",
+      text: "It means dizzy.",
     },
   },
   [normalizeText("It means doctor.")]: {
@@ -5405,6 +6555,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/teach_dream_journal_success_33fcc2cb.mp3",
       text: "It means dream journal.",
+    },
+  },
+  [normalizeText("It means dress.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_dress_success_65bd10c5.mp3",
+      text: "It means dress.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_dress_success_65bd10c5.mp3",
+      text: "It means dress.",
     },
   },
   [normalizeText("It means drink some water.")]: {
@@ -5579,6 +6739,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means eraser.",
     },
   },
+  [normalizeText("It means excited.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_excited_success_8880c7ec.mp3",
+      text: "It means excited.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_excited_success_8880c7ec.mp3",
+      text: "It means excited.",
+    },
+  },
   [normalizeText("It means eyes.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_eyes_success_098be391.mp3",
@@ -5587,6 +6757,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_eyes_success_098be391.mp3",
       text: "It means eyes.",
+    },
+  },
+  [normalizeText("It means face cloth.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_face_cloth_success_f815cab2.mp3",
+      text: "It means face cloth.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_face_cloth_success_f815cab2.mp3",
+      text: "It means face cloth.",
     },
   },
   [normalizeText("It means family photo.")]: {
@@ -5613,6 +6793,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means family.",
     },
   },
+  [normalizeText("It means fast breathing.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_quick_breath_success_82f15ad7.mp3",
+      text: "It means fast breathing.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_quick_breath_success_82f15ad7.mp3",
+      text: "It means fast breathing.",
+    },
+  },
+  [normalizeText("It means fast heartbeat.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_heartbeat_success_5bfe6762.mp3",
+      text: "It means fast heartbeat.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_heartbeat_success_5bfe6762.mp3",
+      text: "It means fast heartbeat.",
+    },
+  },
+  [normalizeText("It means favorite toy.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_comfort_toy_success_4bc13d16.mp3",
+      text: "It means favorite toy.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_comfort_toy_success_4bc13d16.mp3",
+      text: "It means favorite toy.",
+    },
+  },
+  [normalizeText("It means feather.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_feather_success_584cd563.mp3",
+      text: "It means feather.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_feather_success_584cd563.mp3",
+      text: "It means feather.",
+    },
+  },
   [normalizeText("It means feed the goat.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_feed_goat_success_accc0a5e.mp3",
@@ -5621,6 +6841,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_feed_goat_success_accc0a5e.mp3",
       text: "It means feed the goat.",
+    },
+  },
+  [normalizeText("It means feelings card.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_feelings_card_success_53768ba1.mp3",
+      text: "It means feelings card.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_feelings_card_success_53768ba1.mp3",
+      text: "It means feelings card.",
     },
   },
   [normalizeText("It means find the red circle.")]: {
@@ -5689,6 +6919,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/teach_flower_success_86867fb7.mp3",
       text: "It means flower.",
+    },
+  },
+  [normalizeText("It means flush button.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_flush_button_success_c7b6b1b1.mp3",
+      text: "It means flush button.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_flush_button_success_c7b6b1b1.mp3",
+      text: "It means flush button.",
+    },
+  },
+  [normalizeText("It means flush the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_flush_toilet_success_be7e69c6.mp3",
+      text: "It means flush the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_flush_toilet_success_be7e69c6.mp3",
+      text: "It means flush the toilet.",
     },
   },
   [normalizeText("It means foam.")]: {
@@ -5831,6 +7081,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means front door.",
     },
   },
+  [normalizeText("It means front.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_front_success_071abf18.mp3",
+      text: "It means front.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_front_success_071abf18.mp3",
+      text: "It means front.",
+    },
+  },
+  [normalizeText("It means frown.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_frown_success_b2f2ca57.mp3",
+      text: "It means frown.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_frown_success_b2f2ca57.mp3",
+      text: "It means frown.",
+    },
+  },
   [normalizeText("It means fruit plate.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/teach_fruit_success_8be86322.mp3",
@@ -5953,6 +7223,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means go to school.",
     },
   },
+  [normalizeText("It means go to the bathroom.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_go_bathroom_success_a2dbfb9d.mp3",
+      text: "It means go to the bathroom.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_go_bathroom_success_a2dbfb9d.mp3",
+      text: "It means go to the bathroom.",
+    },
+  },
   [normalizeText("It means goat.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_goat_success_188639fa.mp3",
@@ -6017,6 +7297,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means habitat.",
     },
   },
+  [normalizeText("It means hair tie.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_hair_tie_success_e9be5930.mp3",
+      text: "It means hair tie.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_hair_tie_success_e9be5930.mp3",
+      text: "It means hair tie.",
+    },
+  },
   [normalizeText("It means hair.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_hair_success_247256bb.mp3",
@@ -6027,6 +7317,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means hair.",
     },
   },
+  [normalizeText("It means hairbrush.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_hairbrush_success_65a27871.mp3",
+      text: "It means hairbrush.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_hairbrush_success_65a27871.mp3",
+      text: "It means hairbrush.",
+    },
+  },
   [normalizeText("It means hand gel.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_hand_gel_success_9bdbe43f.mp3",
@@ -6035,6 +7335,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_hand_gel_success_9bdbe43f.mp3",
       text: "It means hand gel.",
+    },
+  },
+  [normalizeText("It means hand soap.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_hand_soap_success_fcdb92ec.mp3",
+      text: "It means hand soap.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_hand_soap_success_fcdb92ec.mp3",
+      text: "It means hand soap.",
+    },
+  },
+  [normalizeText("It means hand towel.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_hand_towel_success_c21cbe98.mp3",
+      text: "It means hand towel.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_hand_towel_success_c21cbe98.mp3",
+      text: "It means hand towel.",
     },
   },
   [normalizeText("It means hand.")]: {
@@ -6067,6 +7387,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means hang the robe.",
     },
   },
+  [normalizeText("It means happy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_happy_success_72097e61.mp3",
+      text: "It means happy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_happy_success_72097e61.mp3",
+      text: "It means happy.",
+    },
+  },
   [normalizeText("It means head.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_head_success_67c1cf49.mp3",
@@ -6075,6 +7405,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_head_success_67c1cf49.mp3",
       text: "It means head.",
+    },
+  },
+  [normalizeText("It means headache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_headache_success_cb187e23.mp3",
+      text: "It means headache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_headache_success_cb187e23.mp3",
+      text: "It means headache.",
+    },
+  },
+  [normalizeText("It means headphones.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_headphones_success_811cc0ce.mp3",
+      text: "It means headphones.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_headphones_success_811cc0ce.mp3",
+      text: "It means headphones.",
     },
   },
   [normalizeText("It means hear.")]: {
@@ -6135,6 +7485,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means hook.",
     },
   },
+  [normalizeText("It means hot.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_hot_success_68c673da.mp3",
+      text: "It means hot.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_hot_success_68c673da.mp3",
+      text: "It means hot.",
+    },
+  },
+  [normalizeText("It means hug the cushion.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_squeeze_cushion_success_21e25a28.mp3",
+      text: "It means hug the cushion.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_squeeze_cushion_success_21e25a28.mp3",
+      text: "It means hug the cushion.",
+    },
+  },
   [normalizeText("It means hug your family.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/teach_hug_family_success_4e6f6d7d.mp3",
@@ -6179,6 +7549,196 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means humidifier.",
     },
   },
+  [normalizeText("It means hungry.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_hungry_success_8f78f8d4.mp3",
+      text: "It means hungry.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_hungry_success_8f78f8d4.mp3",
+      text: "It means hungry.",
+    },
+  },
+  [normalizeText("It means hurt.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_hurt_success_bbbf5937.mp3",
+      text: "It means hurt.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_hurt_success_bbbf5937.mp3",
+      text: "It means hurt.",
+    },
+  },
+  [normalizeText("It means I am excited.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_am_excited_success_a671bb2f.mp3",
+      text: "It means I am excited.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_am_excited_success_a671bb2f.mp3",
+      text: "It means I am excited.",
+    },
+  },
+  [normalizeText("It means I am hungry.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_am_hungry_success_f4bae550.mp3",
+      text: "It means I am hungry.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_am_hungry_success_f4bae550.mp3",
+      text: "It means I am hungry.",
+    },
+  },
+  [normalizeText("It means I can say how I feel.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_how_you_feel_success_5818a144.mp3",
+      text: "It means I can say how I feel.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_how_you_feel_success_5818a144.mp3",
+      text: "It means I can say how I feel.",
+    },
+  },
+  [normalizeText("It means I did it.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_did_it_success_b7ed225b.mp3",
+      text: "It means I did it.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_did_it_success_b7ed225b.mp3",
+      text: "It means I did it.",
+    },
+  },
+  [normalizeText("It means I don't feel well.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_not_feel_well_success_1b563361.mp3",
+      text: "It means I don't feel well.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_not_feel_well_success_1b563361.mp3",
+      text: "It means I don't feel well.",
+    },
+  },
+  [normalizeText("It means I don't like that.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_do_not_like_that_success_8853aa40.mp3",
+      text: "It means I don't like that.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_do_not_like_that_success_8853aa40.mp3",
+      text: "It means I don't like that.",
+    },
+  },
+  [normalizeText("It means I feel angry.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_feel_angry_success_34d13372.mp3",
+      text: "It means I feel angry.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_feel_angry_success_34d13372.mp3",
+      text: "It means I feel angry.",
+    },
+  },
+  [normalizeText("It means I feel happy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_feel_happy_success_e7635e19.mp3",
+      text: "It means I feel happy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_feel_happy_success_e7635e19.mp3",
+      text: "It means I feel happy.",
+    },
+  },
+  [normalizeText("It means I feel proud.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_feel_proud_success_8a0202fd.mp3",
+      text: "It means I feel proud.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_feel_proud_success_8a0202fd.mp3",
+      text: "It means I feel proud.",
+    },
+  },
+  [normalizeText("It means I feel sad.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_feel_sad_success_7a516a0b.mp3",
+      text: "It means I feel sad.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_feel_sad_success_7a516a0b.mp3",
+      text: "It means I feel sad.",
+    },
+  },
+  [normalizeText("It means I feel scared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_feel_scared_success_3e79d1a2.mp3",
+      text: "It means I feel scared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_feel_scared_success_3e79d1a2.mp3",
+      text: "It means I feel scared.",
+    },
+  },
+  [normalizeText("It means I need a break.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_need_break_success_aee775df.mp3",
+      text: "It means I need a break.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_need_break_success_aee775df.mp3",
+      text: "It means I need a break.",
+    },
+  },
+  [normalizeText("It means I need help, please.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_help_if_needed_success_1b965761.mp3",
+      text: "It means I need help, please.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_help_if_needed_success_1b965761.mp3",
+      text: "It means I need help, please.",
+    },
+  },
+  [normalizeText("It means I need quiet.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_need_quiet_success_9b092500.mp3",
+      text: "It means I need quiet.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_need_quiet_success_9b092500.mp3",
+      text: "It means I need quiet.",
+    },
+  },
+  [normalizeText("It means I need to rest.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_need_rest_success_a666e5b8.mp3",
+      text: "It means I need to rest.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_need_rest_success_a666e5b8.mp3",
+      text: "It means I need to rest.",
+    },
+  },
+  [normalizeText("It means I need to use the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_need_toilet_success_4612bc2c.mp3",
+      text: "It means I need to use the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_need_toilet_success_4612bc2c.mp3",
+      text: "It means I need to use the toilet.",
+    },
+  },
+  [normalizeText("It means I need water.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_need_water_success_021a38e8.mp3",
+      text: "It means I need water.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_need_water_success_021a38e8.mp3",
+      text: "It means I need water.",
+    },
+  },
   [normalizeText("It means invitation.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/teach_invitation_success_7d93630e.mp3",
@@ -6187,6 +7747,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/teach_invitation_success_7d93630e.mp3",
       text: "It means invitation.",
+    },
+  },
+  [normalizeText("It means it hurts here.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_hurts_here_success_904e4736.mp3",
+      text: "It means it hurts here.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_hurts_here_success_904e4736.mp3",
+      text: "It means it hurts here.",
+    },
+  },
+  [normalizeText("It means itchy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_itchy_success_d45f281c.mp3",
+      text: "It means itchy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_itchy_success_d45f281c.mp3",
+      text: "It means itchy.",
     },
   },
   [normalizeText("It means jacket.")]: {
@@ -6345,6 +7925,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means lamp.",
     },
   },
+  [normalizeText("It means laugh.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_laugh_success_4ffaa665.mp3",
+      text: "It means laugh.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_laugh_success_4ffaa665.mp3",
+      text: "It means laugh.",
+    },
+  },
   [normalizeText("It means laundry basket.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/teach_laundry_basket_success_c1a8c1ab.mp3",
@@ -6357,6 +7947,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/teach_laundry_basket_success_c1a8c1ab.mp3",
       text: "It means laundry basket.",
+    },
+  },
+  [normalizeText("It means lay out your clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_lay_out_clothes_success_54acb7fa.mp3",
+      text: "It means lay out your clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_lay_out_clothes_success_54acb7fa.mp3",
+      text: "It means lay out your clothes.",
     },
   },
   [normalizeText("It means leaf.")]: {
@@ -6637,6 +8237,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means mask.",
     },
   },
+  [normalizeText("It means May I use the toilet?.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_ask_use_toilet_success_19a20fa4.mp3",
+      text: "It means May I use the toilet?.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_ask_use_toilet_success_19a20fa4.mp3",
+      text: "It means May I use the toilet?.",
+    },
+  },
   [normalizeText("It means medicine spoon.")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/teach_spoon_success_aee9bcf0.mp3",
@@ -6743,6 +8353,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means music.",
     },
   },
+  [normalizeText("It means my fists are tight.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_hands_tight_success_0be0c2ba.mp3",
+      text: "It means my fists are tight.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_hands_tight_success_0be0c2ba.mp3",
+      text: "It means my fists are tight.",
+    },
+  },
+  [normalizeText("It means my heart is beating fast.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_heart_fast_success_468e3ed8.mp3",
+      text: "It means my heart is beating fast.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_heart_fast_success_468e3ed8.mp3",
+      text: "It means my heart is beating fast.",
+    },
+  },
+  [normalizeText("It means nail clippers.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/teach_nail_clippers_success_b067091b.mp3",
+      text: "It means nail clippers.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/teach_nail_clippers_success_b067091b.mp3",
+      text: "It means nail clippers.",
+    },
+  },
   [normalizeText("It means napkin.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/lunchtable_teach_napkin_success_9868c463.mp3",
@@ -6783,6 +8423,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/teach_nightstand_success_24ffb0ef.mp3",
       text: "It means nightstand.",
+    },
+  },
+  [normalizeText("It means No, thank you.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_no_thank_you_success_c1ba96f9.mp3",
+      text: "It means No, thank you.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_no_thank_you_success_c1ba96f9.mp3",
+      text: "It means No, thank you.",
     },
   },
   [normalizeText("It means noodles.")]: {
@@ -7029,6 +8679,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means pencil.",
     },
   },
+  [normalizeText("It means permission.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_permission_success_4077af63.mp3",
+      text: "It means permission.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_permission_success_4077af63.mp3",
+      text: "It means permission.",
+    },
+  },
+  [normalizeText("It means personal space.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_personal_space_success_bdcac5bd.mp3",
+      text: "It means personal space.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_personal_space_success_bdcac5bd.mp3",
+      text: "It means personal space.",
+    },
+  },
   [normalizeText("It means pet the sheep gently.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/teach_pet_sheep_success_1e2dc008.mp3",
@@ -7101,6 +8771,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/teach_pillow_success_461d47a2.mp3",
       text: "It means pillow.",
+    },
+  },
+  [normalizeText("It means pinwheel.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/teach_pinwheel_success_8d189f27.mp3",
+      text: "It means pinwheel.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/teach_pinwheel_success_8d189f27.mp3",
+      text: "It means pinwheel.",
     },
   },
   [normalizeText("It means place the bookmark.")]: {
@@ -7213,6 +8893,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means playground.",
     },
   },
+  [normalizeText("It means please give me privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_give_privacy_success_e098e5ea.mp3",
+      text: "It means please give me privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_give_privacy_success_e098e5ea.mp3",
+      text: "It means please give me privacy.",
+    },
+  },
+  [normalizeText("It means please help me.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_please_help_success_b9ad23d1.mp3",
+      text: "It means please help me.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_please_help_success_b9ad23d1.mp3",
+      text: "It means please help me.",
+    },
+  },
   [normalizeText("It means point to your nose.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_point_nose_success_303a81a6.mp3",
@@ -7235,6 +8935,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_pot_holder_success_33d257b0.mp3",
       text: "It means pot holder.",
+    },
+  },
+  [normalizeText("It means potty.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_potty_success_2dd021ad.mp3",
+      text: "It means potty.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_potty_success_2dd021ad.mp3",
+      text: "It means potty.",
     },
   },
   [normalizeText("It means pour juice.")]: {
@@ -7265,6 +8975,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means pour milk.",
     },
   },
+  [normalizeText("It means privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_privacy_success_b2c07585.mp3",
+      text: "It means privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_privacy_success_b2c07585.mp3",
+      text: "It means privacy.",
+    },
+  },
   [normalizeText("It means prize.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/teach_prize_success_d805750a.mp3",
@@ -7273,6 +8993,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/teach_prize_success_d805750a.mp3",
       text: "It means prize.",
+    },
+  },
+  [normalizeText("It means proud.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_proud_success_22d37665.mp3",
+      text: "It means proud.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_proud_success_22d37665.mp3",
+      text: "It means proud.",
+    },
+  },
+  [normalizeText("It means pull down your trousers.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_pull_down_clothes_success_f8e0c3c9.mp3",
+      text: "It means pull down your trousers.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_pull_down_clothes_success_f8e0c3c9.mp3",
+      text: "It means pull down your trousers.",
+    },
+  },
+  [normalizeText("It means pull up your shorts.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_pull_up_shorts_success_32e8b400.mp3",
+      text: "It means pull up your shorts.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_pull_up_shorts_success_32e8b400.mp3",
+      text: "It means pull up your shorts.",
     },
   },
   [normalizeText("It means puppet.")]: {
@@ -7345,6 +9095,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means put on your shoes.",
     },
   },
+  [normalizeText("It means put the cap on the toothpaste.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_close_toothpaste_success_9c44eac3.mp3",
+      text: "It means put the cap on the toothpaste.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_close_toothpaste_success_9c44eac3.mp3",
+      text: "It means put the cap on the toothpaste.",
+    },
+  },
   [normalizeText("It means put the trash in the bin.")]: {
     "en-US": {
       key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/teach_throw_trash_success_0692d9f6.mp3",
@@ -7353,6 +9113,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/teach_throw_trash_success_0692d9f6.mp3",
       text: "It means put the trash in the bin.",
+    },
+  },
+  [normalizeText("It means put your arms through the sleeves.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_arms_through_sleeves_success_99b4c7be.mp3",
+      text: "It means put your arms through the sleeves.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_arms_through_sleeves_success_99b4c7be.mp3",
+      text: "It means put your arms through the sleeves.",
+    },
+  },
+  [normalizeText("It means put your things away.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_put_things_away_success_ff1f414f.mp3",
+      text: "It means put your things away.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_put_things_away_success_ff1f414f.mp3",
+      text: "It means put your things away.",
     },
   },
   [normalizeText("It means puzzle.")]: {
@@ -7367,6 +9147,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/creative-play/audio/en/teach_puzzle_success_e031c29a.mp3",
       text: "It means puzzle.",
+    },
+  },
+  [normalizeText("It means quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_quiet_corner_success_adde3a88.mp3",
+      text: "It means quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_quiet_corner_success_adde3a88.mp3",
+      text: "It means quiet corner.",
     },
   },
   [normalizeText("It means quiet sign.")]: {
@@ -7387,6 +9177,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_quiet_success_adf44ffb.mp3",
       text: "It means quiet.",
+    },
+  },
+  [normalizeText("It means raincoat.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_raincoat_success_4ffbdd7e.mp3",
+      text: "It means raincoat.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_raincoat_success_4ffbdd7e.mp3",
+      text: "It means raincoat.",
     },
   },
   [normalizeText("It means raise your arms.")]: {
@@ -7657,6 +9457,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means run.",
     },
   },
+  [normalizeText("It means sad.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_sad_success_b7108fe7.mp3",
+      text: "It means sad.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_sad_success_b7108fe7.mp3",
+      text: "It means sad.",
+    },
+  },
+  [normalizeText("It means safe.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_safe_success_3386bd77.mp3",
+      text: "It means safe.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_safe_success_3386bd77.mp3",
+      text: "It means safe.",
+    },
+  },
   [normalizeText("It means salad.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_salad_success_6e147594.mp3",
@@ -7823,6 +9643,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/teach_scanner_success_8900b5e1.mp3",
       text: "It means scanner.",
+    },
+  },
+  [normalizeText("It means scared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_scared_success_c1d42440.mp3",
+      text: "It means scared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_scared_success_c1d42440.mp3",
+      text: "It means scared.",
     },
   },
   [normalizeText("It means scooter.")]: {
@@ -8013,6 +9843,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shadow.",
     },
   },
+  [normalizeText("It means shaky legs.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_shaky_legs_success_91d43e0b.mp3",
+      text: "It means shaky legs.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_shaky_legs_success_91d43e0b.mp3",
+      text: "It means shaky legs.",
+    },
+  },
   [normalizeText("It means shampoo.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/teach_shampoo_success_e2ab0500.mp3",
@@ -8109,6 +9949,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shell.",
     },
   },
+  [normalizeText("It means shirt sleeve.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_sleeve_success_68a371b5.mp3",
+      text: "It means shirt sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_sleeve_success_68a371b5.mp3",
+      text: "It means shirt sleeve.",
+    },
+  },
+  [normalizeText("It means shoe strap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_shoe_strap_success_7c27110d.mp3",
+      text: "It means shoe strap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_shoe_strap_success_7c27110d.mp3",
+      text: "It means shoe strap.",
+    },
+  },
+  [normalizeText("It means shoelace.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_shoelace_success_7827fcdc.mp3",
+      text: "It means shoelace.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_shoelace_success_7827fcdc.mp3",
+      text: "It means shoelace.",
+    },
+  },
   [normalizeText("It means shoes.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_shoes_success_b5994227.mp3",
@@ -8141,6 +10011,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_shopping_list_success_b75c6f6e.mp3",
       text: "It means shopping list.",
+    },
+  },
+  [normalizeText("It means shorts.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_shorts_success_1d98fae6.mp3",
+      text: "It means shorts.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_shorts_success_1d98fae6.mp3",
+      text: "It means shorts.",
     },
   },
   [normalizeText("It means shoulder.")]: {
@@ -8225,6 +10105,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shower.",
     },
   },
+  [normalizeText("It means shy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_shy_success_3fae181d.mp3",
+      text: "It means shy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_shy_success_3fae181d.mp3",
+      text: "It means shy.",
+    },
+  },
   [normalizeText("It means sink.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/teach_sink_success_750b8b0b.mp3",
@@ -8287,6 +10177,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sit in a circle.",
     },
   },
+  [normalizeText("It means sit in the quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/teach_sit_quiet_corner_success_755bdb5f.mp3",
+      text: "It means sit in the quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/teach_sit_quiet_corner_success_755bdb5f.mp3",
+      text: "It means sit in the quiet corner.",
+    },
+  },
   [normalizeText("It means sit on the bench.")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/teach_sit_bench_success_fef7f093.mp3",
@@ -8319,6 +10219,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/teach_sleep_mask_success_35e1ff3a.mp3",
       text: "It means sleep mask.",
+    },
+  },
+  [normalizeText("It means sleeve.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_sleeve_success_0febb004.mp3",
+      text: "It means sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_sleeve_success_0febb004.mp3",
+      text: "It means sleeve.",
     },
   },
   [normalizeText("It means slide.")]: {
@@ -8403,6 +10313,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means smell.",
     },
   },
+  [normalizeText("It means smile.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_smile_success_27e99bd5.mp3",
+      text: "It means smile.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_smile_success_27e99bd5.mp3",
+      text: "It means smile.",
+    },
+  },
   [normalizeText("It means snack box.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/teach_snack_box_success_e76e6058.mp3",
@@ -8429,6 +10349,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/rest_teach_snack_success_d71ab77b.mp3",
       text: "It means snack.",
+    },
+  },
+  [normalizeText("It means snap fastener.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_snap_fastener_success_9624c2e7.mp3",
+      text: "It means snap fastener.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_snap_fastener_success_9624c2e7.mp3",
+      text: "It means snap fastener.",
+    },
+  },
+  [normalizeText("It means sneeze into your elbow.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_sneeze_elbow_success_047ed59e.mp3",
+      text: "It means sneeze into your elbow.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_sneeze_elbow_success_047ed59e.mp3",
+      text: "It means sneeze into your elbow.",
+    },
+  },
+  [normalizeText("It means sneeze.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_sneeze_success_56341f7c.mp3",
+      text: "It means sneeze.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_sneeze_success_56341f7c.mp3",
+      text: "It means sneeze.",
+    },
+  },
+  [normalizeText("It means soap bar.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_soap_bar_success_937e777e.mp3",
+      text: "It means soap bar.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_soap_bar_success_937e777e.mp3",
+      text: "It means soap bar.",
     },
   },
   [normalizeText("It means soap.")]: {
@@ -8501,6 +10461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/creative-play/audio/en-GB/neural2-c-r1/teach_solve_puzzle_success_a238303a.mp3",
       text: "It means solve a puzzle.",
+    },
+  },
+  [normalizeText("It means sore throat.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_sore_throat_success_9590366e.mp3",
+      text: "It means sore throat.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_sore_throat_success_9590366e.mp3",
+      text: "It means sore throat.",
     },
   },
   [normalizeText("It means sort the recycling.")]: {
@@ -8715,6 +10685,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means stay on the path.",
     },
   },
+  [normalizeText("It means stay with me.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_stay_with_me_success_54fdca45.mp3",
+      text: "It means stay with me.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_stay_with_me_success_54fdca45.mp3",
+      text: "It means stay with me.",
+    },
+  },
   [normalizeText("It means step onto the mat.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/teach_step_onto_mat_success_652874b4.mp3",
@@ -8723,6 +10703,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/teach_step_onto_mat_success_652874b4.mp3",
       text: "It means step onto the mat.",
+    },
+  },
+  [normalizeText("It means step stool.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_step_stool_success_6698a261.mp3",
+      text: "It means step stool.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_step_stool_success_6698a261.mp3",
+      text: "It means step stool.",
     },
   },
   [normalizeText("It means stethoscope.")]: {
@@ -8753,6 +10743,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_stomp_feet_success_526d4968.mp3",
       text: "It means stomp your feet.",
+    },
+  },
+  [normalizeText("It means Stop, please.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_stop_please_success_e0300669.mp3",
+      text: "It means Stop, please.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_stop_please_success_e0300669.mp3",
+      text: "It means Stop, please.",
     },
   },
   [normalizeText("It means story bell.")]: {
@@ -8871,6 +10871,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sunscreen.",
     },
   },
+  [normalizeText("It means surprised.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/teach_surprised_success_315be200.mp3",
+      text: "It means surprised.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/teach_surprised_success_315be200.mp3",
+      text: "It means surprised.",
+    },
+  },
+  [normalizeText("It means sweater.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_sweater_success_c03bc6aa.mp3",
+      text: "It means sweater.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_sweater_success_c03bc6aa.mp3",
+      text: "It means sweater.",
+    },
+  },
   [normalizeText("It means sweet.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_sweet_success_09ef1734.mp3",
@@ -8893,6 +10913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/teach_swing_success_5e87f52e.mp3",
       text: "It means swing.",
+    },
+  },
+  [normalizeText("It means T-shirt.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/teach_t_shirt_success_4b859ed6.mp3",
+      text: "It means T-shirt.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/teach_t_shirt_success_4b859ed6.mp3",
+      text: "It means T-shirt.",
     },
   },
   [normalizeText("It means table.")]: {
@@ -9011,6 +11041,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means team.",
     },
   },
+  [normalizeText("It means tears.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/teach_tears_success_3cdcda0d.mp3",
+      text: "It means tears.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/teach_tears_success_3cdcda0d.mp3",
+      text: "It means tears.",
+    },
+  },
+  [normalizeText("It means tell a trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_tell_trusted_grown_up_success_26a93014.mp3",
+      text: "It means tell a trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_tell_trusted_grown_up_success_26a93014.mp3",
+      text: "It means tell a trusted grown-up.",
+    },
+  },
   [normalizeText("It means tell where it hurts.")]: {
     "en-US": {
       key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/teach_tell_where_it_hurts_success_a918a1ca.mp3",
@@ -9041,6 +11091,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means thermometer.",
     },
   },
+  [normalizeText("It means thirsty.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_thirsty_success_2e01df5c.mp3",
+      text: "It means thirsty.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_thirsty_success_2e01df5c.mp3",
+      text: "It means thirsty.",
+    },
+  },
   [normalizeText("It means throw away the wrapper.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/teach_throw_away_wrapper_success_9cae8821.mp3",
@@ -9059,6 +11119,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/teach_throw_frisbee_success_ae2d1c18.mp3",
       text: "It means throw the frisbee.",
+    },
+  },
+  [normalizeText("It means throw the tissue away.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_throw_tissue_success_81eeb932.mp3",
+      text: "It means throw the tissue away.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_throw_tissue_success_81eeb932.mp3",
+      text: "It means throw the tissue away.",
     },
   },
   [normalizeText("It means thumb.")]: {
@@ -9091,6 +11161,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means tidy the room.",
     },
   },
+  [normalizeText("It means tie your shoelaces.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_tie_shoelaces_success_4fe8f48f.mp3",
+      text: "It means tie your shoelaces.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_tie_shoelaces_success_4fe8f48f.mp3",
+      text: "It means tie your shoelaces.",
+    },
+  },
+  [normalizeText("It means tight fists.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_tight_fists_success_3ee6e2e1.mp3",
+      text: "It means tight fists.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_tight_fists_success_3ee6e2e1.mp3",
+      text: "It means tight fists.",
+    },
+  },
   [normalizeText("It means timer.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/teach_timer_success_3db92a1a.mp3",
@@ -9103,6 +11193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/teach_timer_success_3db92a1a.mp3",
       text: "It means timer.",
+    },
+  },
+  [normalizeText("It means tired.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_tired_success_7397de0c.mp3",
+      text: "It means tired.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_tired_success_7397de0c.mp3",
+      text: "It means tired.",
     },
   },
   [normalizeText("It means tissue.")]: {
@@ -9123,6 +11223,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_toes_success_bef62d00.mp3",
       text: "It means toes.",
+    },
+  },
+  [normalizeText("It means toilet paper.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_toilet_paper_success_b41cdf96.mp3",
+      text: "It means toilet paper.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_toilet_paper_success_b41cdf96.mp3",
+      text: "It means toilet paper.",
+    },
+  },
+  [normalizeText("It means toilet seat.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_toilet_seat_success_a2abe1cd.mp3",
+      text: "It means toilet seat.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_toilet_seat_success_a2abe1cd.mp3",
+      text: "It means toilet seat.",
+    },
+  },
+  [normalizeText("It means toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/teach_toilet_success_deea3602.mp3",
+      text: "It means toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/teach_toilet_success_deea3602.mp3",
+      text: "It means toilet.",
+    },
+  },
+  [normalizeText("It means toiletry bag.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_toiletry_bag_success_a84bfc9b.mp3",
+      text: "It means toiletry bag.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_toiletry_bag_success_a84bfc9b.mp3",
+      text: "It means toiletry bag.",
     },
   },
   [normalizeText("It means tomato.")]: {
@@ -9147,6 +11287,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_tongs_success_9ef9a64d.mp3",
       text: "It means tongs.",
+    },
+  },
+  [normalizeText("It means toothbrush cup.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_toothbrush_holder_success_4ed03bef.mp3",
+      text: "It means toothbrush cup.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_toothbrush_holder_success_4ed03bef.mp3",
+      text: "It means toothbrush cup.",
     },
   },
   [normalizeText("It means toothbrush.")]: {
@@ -9263,6 +11413,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means trash bin.",
     },
   },
+  [normalizeText("It means trash can.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/teach_trash_can_success_b915fcfc.mp3",
+      text: "It means trash can.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/teach_trash_can_success_b915fcfc.mp3",
+      text: "It means trash can.",
+    },
+  },
   [normalizeText("It means tray.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/teach_tray_success_5bcf72a0.mp3",
@@ -9287,6 +11447,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means tree.",
     },
   },
+  [normalizeText("It means trousers.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_trousers_success_9d5ea8c2.mp3",
+      text: "It means trousers.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_trousers_success_9d5ea8c2.mp3",
+      text: "It means trousers.",
+    },
+  },
+  [normalizeText("It means trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_trusted_grown_up_success_5298b82f.mp3",
+      text: "It means trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_trusted_grown_up_success_5298b82f.mp3",
+      text: "It means trusted grown-up.",
+    },
+  },
   [normalizeText("It means try vegetables.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_try_vegetables_success_a4143e46.mp3",
@@ -9299,6 +11479,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/teach_try_vegetables_success_a4143e46.mp3",
       text: "It means try vegetables.",
+    },
+  },
+  [normalizeText("It means tummy ache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/teach_tummy_ache_success_03bb9ae6.mp3",
+      text: "It means tummy ache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/teach_tummy_ache_success_03bb9ae6.mp3",
+      text: "It means tummy ache.",
     },
   },
   [normalizeText("It means turn on the shower.")]: {
@@ -9321,6 +11511,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means turn the page.",
     },
   },
+  [normalizeText("It means turn your shirt around.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_turn_shirt_around_success_eb792c72.mp3",
+      text: "It means turn your shirt around.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_turn_shirt_around_success_eb792c72.mp3",
+      text: "It means turn your shirt around.",
+    },
+  },
+  [normalizeText("It means uncomfortable.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/teach_uncomfortable_success_7dc6fac8.mp3",
+      text: "It means uncomfortable.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/teach_uncomfortable_success_7dc6fac8.mp3",
+      text: "It means uncomfortable.",
+    },
+  },
+  [normalizeText("It means underwear.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_underwear_success_d1ee1577.mp3",
+      text: "It means underwear.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_underwear_success_d1ee1577.mp3",
+      text: "It means underwear.",
+    },
+  },
   [normalizeText("It means uniform.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school_teach_uniform_success_5bf0f97a.mp3",
@@ -9333,6 +11553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/school_teach_uniform_success_5bf0f97a.mp3",
       text: "It means uniform.",
+    },
+  },
+  [normalizeText("It means upset.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_upset_success_371e2c00.mp3",
+      text: "It means upset.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_upset_success_371e2c00.mp3",
+      text: "It means upset.",
     },
   },
   [normalizeText("It means use a quiet voice.")]: {
@@ -9375,6 +11605,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means use hand gel.",
     },
   },
+  [normalizeText("It means use the toilet paper.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_use_toilet_paper_success_b725e99f.mp3",
+      text: "It means use the toilet paper.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_use_toilet_paper_success_b725e99f.mp3",
+      text: "It means use the toilet paper.",
+    },
+  },
+  [normalizeText("It means use your own toothbrush.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/teach_own_toothbrush_success_8f0b22db.mp3",
+      text: "It means use your own toothbrush.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/teach_own_toothbrush_success_8f0b22db.mp3",
+      text: "It means use your own toothbrush.",
+    },
+  },
   [normalizeText("It means vegetables.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/teach_vegetables_success_94effe1b.mp3",
@@ -9387,6 +11637,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/teach_vegetables_success_94effe1b.mp3",
       text: "It means vegetables.",
+    },
+  },
+  [normalizeText("It means waistband.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/teach_waistband_success_f7831f46.mp3",
+      text: "It means waistband.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/teach_waistband_success_f7831f46.mp3",
+      text: "It means waistband.",
     },
   },
   [normalizeText("It means wait.")]: {
@@ -9433,6 +11693,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means wallet.",
     },
   },
+  [normalizeText("It means warm face.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/teach_warm_face_success_bbd61da2.mp3",
+      text: "It means warm face.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/teach_warm_face_success_bbd61da2.mp3",
+      text: "It means warm face.",
+    },
+  },
   [normalizeText("It means wash your face.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/teach_wash_face_success_159bb332.mp3",
@@ -9443,6 +11713,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means wash your face.",
     },
   },
+  [normalizeText("It means wash your hands well.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_wash_hands_well_success_f079f381.mp3",
+      text: "It means wash your hands well.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_wash_hands_well_success_f079f381.mp3",
+      text: "It means wash your hands well.",
+    },
+  },
   [normalizeText("It means wash your hands.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/cleanup_teach_wash_hands_success_f592d168.mp3",
@@ -9451,6 +11731,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_teach_wash_hands_success_f592d168.mp3",
       text: "It means wash your hands.",
+    },
+  },
+  [normalizeText("It means waste bin.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/teach_waste_bin_success_ac8aa09c.mp3",
+      text: "It means waste bin.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/teach_waste_bin_success_ac8aa09c.mp3",
+      text: "It means waste bin.",
     },
   },
   [normalizeText("It means water bottle.")]: {
@@ -9567,6 +11857,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means weighing scale.",
     },
   },
+  [normalizeText("It means wet floor sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/teach_wet_floor_sign_success_24e07c22.mp3",
+      text: "It means wet floor sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/teach_wet_floor_sign_success_24e07c22.mp3",
+      text: "It means wet floor sign.",
+    },
+  },
   [normalizeText("It means whistle.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/teach_whistle_success_9280e760.mp3",
@@ -9619,6 +11919,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/teach_wipe_mouth_success_b2d83d34.mp3",
       text: "It means wipe your mouth.",
+    },
+  },
+  [normalizeText("It means worried.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/teach_worried_success_c4cb8291.mp3",
+      text: "It means worried.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/teach_worried_success_c4cb8291.mp3",
+      text: "It means worried.",
     },
   },
   [normalizeText("It means wrap the gift.")]: {
@@ -9679,6 +11989,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means write your name.",
     },
   },
+  [normalizeText("It means Yes, please.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/teach_yes_please_success_17a31688.mp3",
+      text: "It means Yes, please.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/teach_yes_please_success_17a31688.mp3",
+      text: "It means Yes, please.",
+    },
+  },
   [normalizeText("It means yogurt.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/teach_yogurt_success_b70fc395.mp3",
@@ -9701,6 +12021,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/teach_zebra_success_2b8932af.mp3",
       text: "It means zebra.",
+    },
+  },
+  [normalizeText("It means zip up your jacket.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_zip_jacket_success_bc46b1e0.mp3",
+      text: "It means zip up your jacket.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_zip_jacket_success_bc46b1e0.mp3",
+      text: "It means zip up your jacket.",
+    },
+  },
+  [normalizeText("It means zipper.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/teach_zipper_success_2055b127.mp3",
+      text: "It means zipper.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/teach_zipper_success_2055b127.mp3",
+      text: "It means zipper.",
     },
   },
   [normalizeText("It means zoo gate.")]: {
@@ -9821,6 +12161,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/prompt_intro_ade3157a.mp3",
       text: "It's time to get dinner ready.",
+    },
+  },
+  [normalizeText("itchy")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/itchy.mp3",
+      text: "itchy",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/itchy.mp3",
+      text: "itchy",
     },
   },
   [normalizeText("jacket")]: {
@@ -9999,6 +12349,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "lamp",
     },
   },
+  [normalizeText("laugh")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/laugh.mp3",
+      text: "laugh",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/laugh.mp3",
+      text: "laugh",
+    },
+  },
   [normalizeText("laundry basket")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/laundry_basket.mp3",
@@ -10011,6 +12371,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/laundry_basket.mp3",
       text: "laundry basket",
+    },
+  },
+  [normalizeText("lay out your clothes")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/lay_out_your_clothes.mp3",
+      text: "lay out your clothes",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/lay_out_your_clothes.mp3",
+      text: "lay out your clothes",
     },
   },
   [normalizeText("leaf")]: {
@@ -10047,6 +12417,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "leg",
     },
   },
+  [normalizeText("Let's breathe slowly and gently.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_intro_d0a2e66a.mp3",
+      text: "Let's breathe slowly and gently.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_intro_d0a2e66a.mp3",
+      text: "Let's breathe slowly and gently.",
+    },
+  },
   [normalizeText("Let's check what we need.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/intro_success_7e702838.mp3",
@@ -10075,6 +12455,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/prompt_intro_56cb62a1.mp3",
       text: "Let's choose an afternoon snack.",
+    },
+  },
+  [normalizeText("Let's choose clothes that fit the day.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_intro_ae79aa70.mp3",
+      text: "Let's choose clothes that fit the day.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_intro_ae79aa70.mp3",
+      text: "Let's choose clothes that fit the day.",
+    },
+  },
+  [normalizeText("Let's choose something that helps you feel more comfortable.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_intro_ce1372d3.mp3",
+      text: "Let's choose something that helps you feel more comfortable.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_intro_ce1372d3.mp3",
+      text: "Let's choose something that helps you feel more comfortable.",
     },
   },
   [normalizeText("Let's clean up after lunch!")]: {
@@ -10167,6 +12567,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's explore your legs and feet.",
     },
   },
+  [normalizeText("Let's find the right way around and get dressed.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_intro_6a8b700b.mp3",
+      text: "Let's find the right way around and get dressed.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_intro_6a8b700b.mp3",
+      text: "Let's find the right way around and get dressed.",
+    },
+  },
   [normalizeText("Let’s flip cards to remember words longer.")]: {
     "en-US": {
       key: "ui/audio/en-US/neural2-c-r1/home_review_tap_one.wav",
@@ -10175,6 +12585,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_one.wav",
       text: "Let’s flip cards to remember words longer.",
+    },
+  },
+  [normalizeText("Let's follow the toilet steps carefully.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_intro_1bd616fb.mp3",
+      text: "Let's follow the toilet steps carefully.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_intro_1bd616fb.mp3",
+      text: "Let's follow the toilet steps carefully.",
     },
   },
   [normalizeText("Let's get clean!")]: {
@@ -10215,6 +12635,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_intro_2412aa33.mp3",
       text: "Let's get ready for the supermarket.",
+    },
+  },
+  [normalizeText("Let's get ready to care for your hair and face.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_intro_3119c5fb.mp3",
+      text: "Let's get ready to care for your hair and face.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_intro_3119c5fb.mp3",
+      text: "Let's get ready to care for your hair and face.",
     },
   },
   [normalizeText("Let's get ready to leave!")]: {
@@ -10407,6 +12837,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's help in the garden.",
     },
   },
+  [normalizeText("Let's identify and organize your personal care items.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_intro_2a2e7d28.mp3",
+      text: "Let's identify and organize your personal care items.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_intro_2a2e7d28.mp3",
+      text: "Let's identify and organize your personal care items.",
+    },
+  },
   [normalizeText("Let's learn beach safety.")]: {
     "en-US": {
       key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_intro_487c6924.mp3",
@@ -10447,6 +12887,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase arrive home.",
     },
   },
+  [normalizeText("Let's learn the phrase ask before touching.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_ask_before_touching_5c67c8a6.mp3",
+      text: "Let's learn the phrase ask before touching.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_ask_before_touching_5c67c8a6.mp3",
+      text: "Let's learn the phrase ask before touching.",
+    },
+  },
   [normalizeText("Let's learn the phrase ask for a hug.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_ask_for_hug_eee66bc0.mp3",
@@ -10455,6 +12905,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_ask_for_hug_eee66bc0.mp3",
       text: "Let's learn the phrase ask for a hug.",
+    },
+  },
+  [normalizeText("Let's learn the phrase ask for help with your nails.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_help_with_nails_8e6e51e9.mp3",
+      text: "Let's learn the phrase ask for help with your nails.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_help_with_nails_8e6e51e9.mp3",
+      text: "Let's learn the phrase ask for help with your nails.",
     },
   },
   [normalizeText("Let's learn the phrase bend your knees.")]: {
@@ -10497,6 +12957,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase borrow a book.",
     },
   },
+  [normalizeText("Let's learn the phrase breathe in slowly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_breathe_in_d82603b4.mp3",
+      text: "Let's learn the phrase breathe in slowly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_breathe_in_d82603b4.mp3",
+      text: "Let's learn the phrase breathe in slowly.",
+    },
+  },
+  [normalizeText("Let's learn the phrase breathe out slowly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_breathe_out_c092f0c1.mp3",
+      text: "Let's learn the phrase breathe out slowly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_breathe_out_c092f0c1.mp3",
+      text: "Let's learn the phrase breathe out slowly.",
+    },
+  },
+  [normalizeText("Let's learn the phrase brush your hair.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_brush_hair_238bd320.mp3",
+      text: "Let's learn the phrase brush your hair.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_brush_hair_238bd320.mp3",
+      text: "Let's learn the phrase brush your hair.",
+    },
+  },
   [normalizeText("Let's learn the phrase brush your teeth.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_teach_brush_teeth_028b2131.mp3",
@@ -10535,6 +13025,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/prompt_teach_build_tower_3acf1c99.mp3",
       text: "Let's learn the phrase build a tower.",
+    },
+  },
+  [normalizeText("Let's learn the phrase button your shirt.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_button_shirt_b6269127.mp3",
+      text: "Let's learn the phrase button your shirt.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_button_shirt_b6269127.mp3",
+      text: "Let's learn the phrase button your shirt.",
     },
   },
   [normalizeText("Let's learn the phrase call everyone.")]: {
@@ -10585,6 +13085,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_teach_check_temperature_6cb7b171.mp3",
       text: "Let's learn the phrase check the temperature.",
+    },
+  },
+  [normalizeText("Let's learn the phrase check the weather.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_check_weather_e8906d05.mp3",
+      text: "Let's learn the phrase check the weather.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_check_weather_e8906d05.mp3",
+      text: "Let's learn the phrase check the weather.",
     },
   },
   [normalizeText("Let's learn the phrase check your dream journal.")]: {
@@ -10655,6 +13165,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/prompt_teach_choose_toy_d6793ef9.mp3",
       text: "Let's learn the phrase choose a toy.",
+    },
+  },
+  [normalizeText("Let's learn the phrase choose your clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_choose_clothes_action_d6a48690.mp3",
+      text: "Let's learn the phrase choose your clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_choose_clothes_action_d6a48690.mp3",
+      text: "Let's learn the phrase choose your clothes.",
     },
   },
   [normalizeText("Let's learn the phrase clap softly.")]: {
@@ -10735,6 +13255,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/prompt_teach_comb_hair_b5cf70b2.mp3",
       text: "Let's learn the phrase comb your hair.",
+    },
+  },
+  [normalizeText("Let's learn the phrase count to five.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_count_five_ed38a02e.mp3",
+      text: "Let's learn the phrase count to five.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_count_five_ed38a02e.mp3",
+      text: "Let's learn the phrase count to five.",
+    },
+  },
+  [normalizeText("Let's learn the phrase cover your cough.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_cover_cough_76e1ddd7.mp3",
+      text: "Let's learn the phrase cover your cough.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_cover_cough_76e1ddd7.mp3",
+      text: "Let's learn the phrase cover your cough.",
     },
   },
   [normalizeText("Let's learn the phrase cover your ears.")]: {
@@ -10887,6 +13427,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase find the red circle.",
     },
   },
+  [normalizeText("Let's learn the phrase flush the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_flush_toilet_a47c1527.mp3",
+      text: "Let's learn the phrase flush the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_flush_toilet_a47c1527.mp3",
+      text: "Let's learn the phrase flush the toilet.",
+    },
+  },
   [normalizeText("Let's learn the phrase follow the sound.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_follow_sound_5f121fbb.mp3",
@@ -10937,6 +13487,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase go to school.",
     },
   },
+  [normalizeText("Let's learn the phrase go to the bathroom.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_go_bathroom_b913eaa1.mp3",
+      text: "Let's learn the phrase go to the bathroom.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_go_bathroom_b913eaa1.mp3",
+      text: "Let's learn the phrase go to the bathroom.",
+    },
+  },
   [normalizeText("Let's learn the phrase good morning.")]: {
     "en-US": {
       key: "lessons/morning-routine/bedroom/audio/en-US/neural2-c-r1/prompt_teach_good_morning_4d5f0eb5.mp3",
@@ -10967,6 +13527,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase hang the robe.",
     },
   },
+  [normalizeText("Let's learn the phrase hug the cushion.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_squeeze_cushion_327c6969.mp3",
+      text: "Let's learn the phrase hug the cushion.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_squeeze_cushion_327c6969.mp3",
+      text: "Let's learn the phrase hug the cushion.",
+    },
+  },
   [normalizeText("Let's learn the phrase hug your family.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/prompt_teach_hug_family_fa756026.mp3",
@@ -10985,6 +13555,186 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_teach_hug_comfort_plush_18601ff9.mp3",
       text: "Let's learn the phrase hug your soft toy.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I am excited.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_am_excited_96783028.mp3",
+      text: "Let's learn the phrase I am excited.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_am_excited_96783028.mp3",
+      text: "Let's learn the phrase I am excited.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I am hungry.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_am_hungry_9b24fa54.mp3",
+      text: "Let's learn the phrase I am hungry.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_am_hungry_9b24fa54.mp3",
+      text: "Let's learn the phrase I am hungry.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I can say how I feel.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_how_you_feel_f2941547.mp3",
+      text: "Let's learn the phrase I can say how I feel.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_how_you_feel_f2941547.mp3",
+      text: "Let's learn the phrase I can say how I feel.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I did it.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_did_it_ccc80eb9.mp3",
+      text: "Let's learn the phrase I did it.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_did_it_ccc80eb9.mp3",
+      text: "Let's learn the phrase I did it.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I don't feel well.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_not_feel_well_97dbffc1.mp3",
+      text: "Let's learn the phrase I don't feel well.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_not_feel_well_97dbffc1.mp3",
+      text: "Let's learn the phrase I don't feel well.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I don't like that.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_do_not_like_that_43e8d9d4.mp3",
+      text: "Let's learn the phrase I don't like that.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_do_not_like_that_43e8d9d4.mp3",
+      text: "Let's learn the phrase I don't like that.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I feel angry.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_feel_angry_d83fe143.mp3",
+      text: "Let's learn the phrase I feel angry.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_feel_angry_d83fe143.mp3",
+      text: "Let's learn the phrase I feel angry.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I feel happy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_feel_happy_5a2aa402.mp3",
+      text: "Let's learn the phrase I feel happy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_feel_happy_5a2aa402.mp3",
+      text: "Let's learn the phrase I feel happy.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I feel proud.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_feel_proud_d2785e86.mp3",
+      text: "Let's learn the phrase I feel proud.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_feel_proud_d2785e86.mp3",
+      text: "Let's learn the phrase I feel proud.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I feel sad.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_feel_sad_c69026e9.mp3",
+      text: "Let's learn the phrase I feel sad.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_feel_sad_c69026e9.mp3",
+      text: "Let's learn the phrase I feel sad.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I feel scared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_feel_scared_0a7d778f.mp3",
+      text: "Let's learn the phrase I feel scared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_feel_scared_0a7d778f.mp3",
+      text: "Let's learn the phrase I feel scared.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need a break.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_need_break_dd887bbb.mp3",
+      text: "Let's learn the phrase I need a break.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_need_break_dd887bbb.mp3",
+      text: "Let's learn the phrase I need a break.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need help, please.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_help_if_needed_0795fc49.mp3",
+      text: "Let's learn the phrase I need help, please.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_help_if_needed_0795fc49.mp3",
+      text: "Let's learn the phrase I need help, please.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need quiet.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_need_quiet_565d6b30.mp3",
+      text: "Let's learn the phrase I need quiet.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_need_quiet_565d6b30.mp3",
+      text: "Let's learn the phrase I need quiet.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need to rest.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_need_rest_0cb8251d.mp3",
+      text: "Let's learn the phrase I need to rest.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_need_rest_0cb8251d.mp3",
+      text: "Let's learn the phrase I need to rest.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need to use the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_need_toilet_0b207123.mp3",
+      text: "Let's learn the phrase I need to use the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_need_toilet_0b207123.mp3",
+      text: "Let's learn the phrase I need to use the toilet.",
+    },
+  },
+  [normalizeText("Let's learn the phrase I need water.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_need_water_2b9dff17.mp3",
+      text: "Let's learn the phrase I need water.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_need_water_2b9dff17.mp3",
+      text: "Let's learn the phrase I need water.",
+    },
+  },
+  [normalizeText("Let's learn the phrase it hurts here.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_hurts_here_2d59c749.mp3",
+      text: "Let's learn the phrase it hurts here.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_hurts_here_2d59c749.mp3",
+      text: "Let's learn the phrase it hurts here.",
     },
   },
   [normalizeText("Let's learn the phrase join the game.")]: {
@@ -11015,6 +13765,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/prompt_teach_label_container_dc6b9510.mp3",
       text: "Let's learn the phrase label the container.",
+    },
+  },
+  [normalizeText("Let's learn the phrase lay out your clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_lay_out_clothes_e9317714.mp3",
+      text: "Let's learn the phrase lay out your clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_lay_out_clothes_e9317714.mp3",
+      text: "Let's learn the phrase lay out your clothes.",
     },
   },
   [normalizeText("Let's learn the phrase line up.")]: {
@@ -11127,6 +13887,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase make the bed.",
     },
   },
+  [normalizeText("Let's learn the phrase May I use the toilet?.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_ask_use_toilet_c2a130ef.mp3",
+      text: "Let's learn the phrase May I use the toilet?.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_ask_use_toilet_c2a130ef.mp3",
+      text: "Let's learn the phrase May I use the toilet?.",
+    },
+  },
   [normalizeText("Let's learn the phrase move the cart.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_teach_move_cart_77e0ff1c.mp3",
@@ -11135,6 +13905,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/prompt_teach_move_cart_77e0ff1c.mp3",
       text: "Let's learn the phrase move the cart.",
+    },
+  },
+  [normalizeText("Let's learn the phrase my fists are tight.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_hands_tight_1802db63.mp3",
+      text: "Let's learn the phrase my fists are tight.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_hands_tight_1802db63.mp3",
+      text: "Let's learn the phrase my fists are tight.",
+    },
+  },
+  [normalizeText("Let's learn the phrase my heart is beating fast.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_heart_fast_0d412ba5.mp3",
+      text: "Let's learn the phrase my heart is beating fast.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_heart_fast_0d412ba5.mp3",
+      text: "Let's learn the phrase my heart is beating fast.",
+    },
+  },
+  [normalizeText("Let's learn the phrase No, thank you.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_no_thank_you_9c59cce8.mp3",
+      text: "Let's learn the phrase No, thank you.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_no_thank_you_9c59cce8.mp3",
+      text: "Let's learn the phrase No, thank you.",
     },
   },
   [normalizeText("Let's learn the phrase open the book.")]: {
@@ -11287,6 +14087,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase play together.",
     },
   },
+  [normalizeText("Let's learn the phrase please give me privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_give_privacy_bc5895d1.mp3",
+      text: "Let's learn the phrase please give me privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_give_privacy_bc5895d1.mp3",
+      text: "Let's learn the phrase please give me privacy.",
+    },
+  },
+  [normalizeText("Let's learn the phrase please help me.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_please_help_6600175b.mp3",
+      text: "Let's learn the phrase please help me.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_please_help_6600175b.mp3",
+      text: "Let's learn the phrase please help me.",
+    },
+  },
   [normalizeText("Let's learn the phrase point to your nose.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_point_nose_e4e20105.mp3",
@@ -11315,6 +14135,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/prompt_teach_pour_milk_96a0e1e9.mp3",
       text: "Let's learn the phrase pour milk.",
+    },
+  },
+  [normalizeText("Let's learn the phrase pull down your trousers.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_pull_down_clothes_007fabff.mp3",
+      text: "Let's learn the phrase pull down your trousers.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_pull_down_clothes_007fabff.mp3",
+      text: "Let's learn the phrase pull down your trousers.",
+    },
+  },
+  [normalizeText("Let's learn the phrase pull up your shorts.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_pull_up_shorts_d6123b0c.mp3",
+      text: "Let's learn the phrase pull up your shorts.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_pull_up_shorts_d6123b0c.mp3",
+      text: "Let's learn the phrase pull up your shorts.",
     },
   },
   [normalizeText("Let's learn the phrase push the cart.")]: {
@@ -11377,6 +14217,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase put on your shoes.",
     },
   },
+  [normalizeText("Let's learn the phrase put the cap on the toothpaste.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_close_toothpaste_7653377c.mp3",
+      text: "Let's learn the phrase put the cap on the toothpaste.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_close_toothpaste_7653377c.mp3",
+      text: "Let's learn the phrase put the cap on the toothpaste.",
+    },
+  },
   [normalizeText("Let's learn the phrase put the trash in the bin.")]: {
     "en-US": {
       key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_throw_trash_e9ad52fa.mp3",
@@ -11385,6 +14235,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_throw_trash_e9ad52fa.mp3",
       text: "Let's learn the phrase put the trash in the bin.",
+    },
+  },
+  [normalizeText("Let's learn the phrase put your arms through the sleeves.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_arms_through_sleeves_f458111a.mp3",
+      text: "Let's learn the phrase put your arms through the sleeves.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_arms_through_sleeves_f458111a.mp3",
+      text: "Let's learn the phrase put your arms through the sleeves.",
+    },
+  },
+  [normalizeText("Let's learn the phrase put your things away.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_put_things_away_35d6bc9d.mp3",
+      text: "Let's learn the phrase put your things away.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_put_things_away_35d6bc9d.mp3",
+      text: "Let's learn the phrase put your things away.",
     },
   },
   [normalizeText("Let's learn the phrase raise your arms.")]: {
@@ -11687,6 +14557,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase sit in a circle.",
     },
   },
+  [normalizeText("Let's learn the phrase sit in the quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_sit_quiet_corner_55a72beb.mp3",
+      text: "Let's learn the phrase sit in the quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_sit_quiet_corner_55a72beb.mp3",
+      text: "Let's learn the phrase sit in the quiet corner.",
+    },
+  },
   [normalizeText("Let's learn the phrase sit on the bench.")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_sit_bench_435707fc.mp3",
@@ -11715,6 +14595,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_smell_flower_471972c6.mp3",
       text: "Let's learn the phrase smell the flower.",
+    },
+  },
+  [normalizeText("Let's learn the phrase sneeze into your elbow.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_sneeze_elbow_aa09849b.mp3",
+      text: "Let's learn the phrase sneeze into your elbow.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_sneeze_elbow_aa09849b.mp3",
+      text: "Let's learn the phrase sneeze into your elbow.",
     },
   },
   [normalizeText("Let's learn the phrase soft voice.")]: {
@@ -11827,6 +14717,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase stay on the path.",
     },
   },
+  [normalizeText("Let's learn the phrase stay with me.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_stay_with_me_2a90822f.mp3",
+      text: "Let's learn the phrase stay with me.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_stay_with_me_2a90822f.mp3",
+      text: "Let's learn the phrase stay with me.",
+    },
+  },
   [normalizeText("Let's learn the phrase step onto the mat.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_teach_step_onto_mat_b4c561dc.mp3",
@@ -11845,6 +14745,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_stomp_feet_6c3952a8.mp3",
       text: "Let's learn the phrase stomp your feet.",
+    },
+  },
+  [normalizeText("Let's learn the phrase Stop, please.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_stop_please_99257529.mp3",
+      text: "Let's learn the phrase Stop, please.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_stop_please_99257529.mp3",
+      text: "Let's learn the phrase Stop, please.",
     },
   },
   [normalizeText("Let's learn the phrase take a bite.")]: {
@@ -11907,6 +14817,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase taste the lemon.",
     },
   },
+  [normalizeText("Let's learn the phrase tell a trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_tell_trusted_grown_up_15e0bdf2.mp3",
+      text: "Let's learn the phrase tell a trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_tell_trusted_grown_up_15e0bdf2.mp3",
+      text: "Let's learn the phrase tell a trusted grown-up.",
+    },
+  },
   [normalizeText("Let's learn the phrase tell where it hurts.")]: {
     "en-US": {
       key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_tell_where_it_hurts_20381d7f.mp3",
@@ -11937,6 +14857,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase throw the frisbee.",
     },
   },
+  [normalizeText("Let's learn the phrase throw the tissue away.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_throw_tissue_c17a8afc.mp3",
+      text: "Let's learn the phrase throw the tissue away.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_throw_tissue_c17a8afc.mp3",
+      text: "Let's learn the phrase throw the tissue away.",
+    },
+  },
   [normalizeText("Let's learn the phrase tidy the room.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/prompt_teach_tidy_room_877e9be2.mp3",
@@ -11945,6 +14875,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/prompt_teach_tidy_room_877e9be2.mp3",
       text: "Let's learn the phrase tidy the room.",
+    },
+  },
+  [normalizeText("Let's learn the phrase tie your shoelaces.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_tie_shoelaces_6beb56cd.mp3",
+      text: "Let's learn the phrase tie your shoelaces.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_tie_shoelaces_6beb56cd.mp3",
+      text: "Let's learn the phrase tie your shoelaces.",
     },
   },
   [normalizeText("Let's learn the phrase touch the feather.")]: {
@@ -11997,6 +14937,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase turn the page.",
     },
   },
+  [normalizeText("Let's learn the phrase turn your shirt around.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_turn_shirt_around_456b1726.mp3",
+      text: "Let's learn the phrase turn your shirt around.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_turn_shirt_around_456b1726.mp3",
+      text: "Let's learn the phrase turn your shirt around.",
+    },
+  },
   [normalizeText("Let's learn the phrase use a quiet voice.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_use_quiet_voice_2bca96a6.mp3",
@@ -12037,6 +14987,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase use hand gel.",
     },
   },
+  [normalizeText("Let's learn the phrase use the toilet paper.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_use_toilet_paper_364aaf50.mp3",
+      text: "Let's learn the phrase use the toilet paper.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_use_toilet_paper_364aaf50.mp3",
+      text: "Let's learn the phrase use the toilet paper.",
+    },
+  },
+  [normalizeText("Let's learn the phrase use your own toothbrush.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_own_toothbrush_edb518bc.mp3",
+      text: "Let's learn the phrase use your own toothbrush.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_own_toothbrush_edb518bc.mp3",
+      text: "Let's learn the phrase use your own toothbrush.",
+    },
+  },
   [normalizeText("Let's learn the phrase walk on the path.")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/prompt_teach_walk_path_8b9fd46d.mp3",
@@ -12055,6 +15025,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/prompt_teach_wash_face_763ebfab.mp3",
       text: "Let's learn the phrase wash your face.",
+    },
+  },
+  [normalizeText("Let's learn the phrase wash your hands well.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_wash_hands_well_6f951cd7.mp3",
+      text: "Let's learn the phrase wash your hands well.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_wash_hands_well_6f951cd7.mp3",
+      text: "Let's learn the phrase wash your hands well.",
     },
   },
   [normalizeText("Let's learn the phrase wash your hands.")]: {
@@ -12177,6 +15157,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase write your name.",
     },
   },
+  [normalizeText("Let's learn the phrase Yes, please.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_yes_please_765bfedd.mp3",
+      text: "Let's learn the phrase Yes, please.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_yes_please_765bfedd.mp3",
+      text: "Let's learn the phrase Yes, please.",
+    },
+  },
+  [normalizeText("Let's learn the phrase zip up your jacket.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_zip_jacket_5eb5ad1d.mp3",
+      text: "Let's learn the phrase zip up your jacket.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_zip_jacket_5eb5ad1d.mp3",
+      text: "Let's learn the phrase zip up your jacket.",
+    },
+  },
+  [normalizeText("Let's learn the word angry.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_angry_8bf5365b.mp3",
+      text: "Let's learn the word angry.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_angry_8bf5365b.mp3",
+      text: "Let's learn the word angry.",
+    },
+  },
   [normalizeText("Let's learn the word bite.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/prompt_teach_bite_b8e3d6d0.mp3",
@@ -12185,6 +15195,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/prompt_teach_bite_b8e3d6d0.mp3",
       text: "Let's learn the word bite.",
+    },
+  },
+  [normalizeText("Let's learn the word brave.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_brave_ae92242c.mp3",
+      text: "Let's learn the word brave.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_brave_ae92242c.mp3",
+      text: "Let's learn the word brave.",
+    },
+  },
+  [normalizeText("Let's learn the word cold.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_cold_dff4688c.mp3",
+      text: "Let's learn the word cold.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_cold_dff4688c.mp3",
+      text: "Let's learn the word cold.",
+    },
+  },
+  [normalizeText("Let's learn the word cough.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_cough_0268b7a0.mp3",
+      text: "Let's learn the word cough.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_cough_0268b7a0.mp3",
+      text: "Let's learn the word cough.",
+    },
+  },
+  [normalizeText("Let's learn the word curious.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_curious_bf2f8681.mp3",
+      text: "Let's learn the word curious.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_curious_bf2f8681.mp3",
+      text: "Let's learn the word curious.",
     },
   },
   [normalizeText("Let's learn the word dance.")]: {
@@ -12197,6 +15247,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word dance.",
     },
   },
+  [normalizeText("Let's learn the word disappointed.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_disappointed_174ea61e.mp3",
+      text: "Let's learn the word disappointed.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_disappointed_174ea61e.mp3",
+      text: "Let's learn the word disappointed.",
+    },
+  },
+  [normalizeText("Let's learn the word dizzy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_dizzy_5e4b8d58.mp3",
+      text: "Let's learn the word dizzy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_dizzy_5e4b8d58.mp3",
+      text: "Let's learn the word dizzy.",
+    },
+  },
+  [normalizeText("Let's learn the word excited.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_excited_c678b74f.mp3",
+      text: "Let's learn the word excited.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_excited_c678b74f.mp3",
+      text: "Let's learn the word excited.",
+    },
+  },
+  [normalizeText("Let's learn the word happy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_happy_3b1620d4.mp3",
+      text: "Let's learn the word happy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_happy_3b1620d4.mp3",
+      text: "Let's learn the word happy.",
+    },
+  },
   [normalizeText("Let's learn the word hear.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_hear_152904df.mp3",
@@ -12207,6 +15297,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word hear.",
     },
   },
+  [normalizeText("Let's learn the word hot.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_hot_b68a5e32.mp3",
+      text: "Let's learn the word hot.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_hot_b68a5e32.mp3",
+      text: "Let's learn the word hot.",
+    },
+  },
+  [normalizeText("Let's learn the word hungry.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_hungry_c3609825.mp3",
+      text: "Let's learn the word hungry.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_hungry_c3609825.mp3",
+      text: "Let's learn the word hungry.",
+    },
+  },
+  [normalizeText("Let's learn the word hurt.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_hurt_df44478e.mp3",
+      text: "Let's learn the word hurt.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_hurt_df44478e.mp3",
+      text: "Let's learn the word hurt.",
+    },
+  },
+  [normalizeText("Let's learn the word itchy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_itchy_143dc7f7.mp3",
+      text: "Let's learn the word itchy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_itchy_143dc7f7.mp3",
+      text: "Let's learn the word itchy.",
+    },
+  },
   [normalizeText("Let's learn the word jump.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_teach_jump_bb4c4240.mp3",
@@ -12215,6 +15345,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/playground/audio/en-GB/neural2-c-r1/prompt_teach_jump_bb4c4240.mp3",
       text: "Let's learn the word jump.",
+    },
+  },
+  [normalizeText("Let's learn the word laugh.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_laugh_e0c9a1dc.mp3",
+      text: "Let's learn the word laugh.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_laugh_e0c9a1dc.mp3",
+      text: "Let's learn the word laugh.",
     },
   },
   [normalizeText("Let's learn the word listen.")]: {
@@ -12235,6 +15375,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_loud_7925fc0d.mp3",
       text: "Let's learn the word loud.",
+    },
+  },
+  [normalizeText("Let's learn the word proud.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_proud_03bd569d.mp3",
+      text: "Let's learn the word proud.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_proud_03bd569d.mp3",
+      text: "Let's learn the word proud.",
     },
   },
   [normalizeText("Let's learn the word quiet.")]: {
@@ -12267,6 +15417,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word run.",
     },
   },
+  [normalizeText("Let's learn the word sad.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_sad_d5a6e8f1.mp3",
+      text: "Let's learn the word sad.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_sad_d5a6e8f1.mp3",
+      text: "Let's learn the word sad.",
+    },
+  },
+  [normalizeText("Let's learn the word safe.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_safe_8ef296b6.mp3",
+      text: "Let's learn the word safe.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_safe_8ef296b6.mp3",
+      text: "Let's learn the word safe.",
+    },
+  },
+  [normalizeText("Let's learn the word scared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_scared_48589601.mp3",
+      text: "Let's learn the word scared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_scared_48589601.mp3",
+      text: "Let's learn the word scared.",
+    },
+  },
   [normalizeText("Let's learn the word see.")]: {
     "en-US": {
       key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_see_d3584b08.mp3",
@@ -12277,6 +15457,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word see.",
     },
   },
+  [normalizeText("Let's learn the word shy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_shy_4686b021.mp3",
+      text: "Let's learn the word shy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_shy_4686b021.mp3",
+      text: "Let's learn the word shy.",
+    },
+  },
   [normalizeText("Let's learn the word smell.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_smell_c8bd179a.mp3",
@@ -12285,6 +15475,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_smell_c8bd179a.mp3",
       text: "Let's learn the word smell.",
+    },
+  },
+  [normalizeText("Let's learn the word sneeze.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_sneeze_2fd43ee9.mp3",
+      text: "Let's learn the word sneeze.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_sneeze_2fd43ee9.mp3",
+      text: "Let's learn the word sneeze.",
     },
   },
   [normalizeText("Let's learn the word soft.")]: {
@@ -12307,6 +15507,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word sour.",
     },
   },
+  [normalizeText("Let's learn the word surprised.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_teach_surprised_c7fe187d.mp3",
+      text: "Let's learn the word surprised.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_teach_surprised_c7fe187d.mp3",
+      text: "Let's learn the word surprised.",
+    },
+  },
   [normalizeText("Let's learn the word sweet.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_sweet_b6c2fc47.mp3",
@@ -12327,6 +15537,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word taste.",
     },
   },
+  [normalizeText("Let's learn the word thirsty.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_thirsty_5d7c6f4a.mp3",
+      text: "Let's learn the word thirsty.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_thirsty_5d7c6f4a.mp3",
+      text: "Let's learn the word thirsty.",
+    },
+  },
+  [normalizeText("Let's learn the word tired.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_tired_16dc336f.mp3",
+      text: "Let's learn the word tired.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_tired_16dc336f.mp3",
+      text: "Let's learn the word tired.",
+    },
+  },
   [normalizeText("Let's learn the word touch.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_touch_447f3ecf.mp3",
@@ -12337,6 +15567,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word touch.",
     },
   },
+  [normalizeText("Let's learn the word uncomfortable.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_teach_uncomfortable_1dd4d8e8.mp3",
+      text: "Let's learn the word uncomfortable.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_teach_uncomfortable_1dd4d8e8.mp3",
+      text: "Let's learn the word uncomfortable.",
+    },
+  },
+  [normalizeText("Let's learn the word upset.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_upset_5ea458d8.mp3",
+      text: "Let's learn the word upset.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_upset_5ea458d8.mp3",
+      text: "Let's learn the word upset.",
+    },
+  },
   [normalizeText("Let's learn the word wait.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_teach_wait_7b5841f0.mp3",
@@ -12345,6 +15595,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_teach_wait_7b5841f0.mp3",
       text: "Let's learn the word wait.",
+    },
+  },
+  [normalizeText("Let's learn the word worried.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_teach_worried_f3249dd0.mp3",
+      text: "Let's learn the word worried.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_teach_worried_f3249dd0.mp3",
+      text: "Let's learn the word worried.",
     },
   },
   [normalizeText("Let’s learn with Sungy today!")]: {
@@ -12375,6 +15635,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/instructions_intro_success_4bc67eaa.mp3",
       text: "Let's listen together.",
+    },
+  },
+  [normalizeText("Let's look at happy and sad faces.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_intro_de967957.mp3",
+      text: "Let's look at happy and sad faces.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_intro_de967957.mp3",
+      text: "Let's look at happy and sad faces.",
     },
   },
   [normalizeText("Let's look at the dishes for dinner.")]: {
@@ -12425,6 +15695,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_intro_80d60b35.mp3",
       text: "Let's meet farm animals.",
+    },
+  },
+  [normalizeText("Let's name angry and scared feelings.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_intro_d0826d0a.mp3",
+      text: "Let's name angry and scared feelings.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_intro_d0826d0a.mp3",
+      text: "Let's name angry and scared feelings.",
+    },
+  },
+  [normalizeText("Let's name excited and proud feelings.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_intro_feb71e11.mp3",
+      text: "Let's name excited and proud feelings.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_intro_feb71e11.mp3",
+      text: "Let's name excited and proud feelings.",
+    },
+  },
+  [normalizeText("Let's name what your body needs.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_intro_2e04e444.mp3",
+      text: "Let's name what your body needs.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_intro_2e04e444.mp3",
+      text: "Let's name what your body needs.",
+    },
+  },
+  [normalizeText("Let's notice what your body is telling you.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_intro_819d7c26.mp3",
+      text: "Let's notice what your body is telling you.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_intro_819d7c26.mp3",
+      text: "Let's notice what your body is telling you.",
+    },
+  },
+  [normalizeText("Let's notice when your body needs the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_intro_dbc9b3b1.mp3",
+      text: "Let's notice when your body needs the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_intro_dbc9b3b1.mp3",
+      text: "Let's notice when your body needs the toilet.",
     },
   },
   [normalizeText("Let's pack the beach bag.")]: {
@@ -12495,6 +15815,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/prompt_games_intro_552c2c4c.mp3",
       text: "Let's play with a friend.",
+    },
+  },
+  [normalizeText("Let's practice covering coughs and sneezes.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_intro_b8404ebb.mp3",
+      text: "Let's practice covering coughs and sneezes.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_intro_b8404ebb.mp3",
+      text: "Let's practice covering coughs and sneezes.",
+    },
+  },
+  [normalizeText("Let's practice saying when something hurts.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_intro_72c2cf52.mp3",
+      text: "Let's practice saying when something hurts.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_intro_72c2cf52.mp3",
+      text: "Let's practice saying when something hurts.",
+    },
+  },
+  [normalizeText("Let's practice with buttons, zippers, and shoelaces.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_intro_f73d81d8.mp3",
+      text: "Let's practice with buttons, zippers, and shoelaces.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_intro_f73d81d8.mp3",
+      text: "Let's practice with buttons, zippers, and shoelaces.",
+    },
+  },
+  [normalizeText("Let's practice words that help keep your boundaries safe.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_intro_daa3de0e.mp3",
+      text: "Let's practice words that help keep your boundaries safe.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_intro_daa3de0e.mp3",
+      text: "Let's practice words that help keep your boundaries safe.",
     },
   },
   [normalizeText("Let's rest and recharge!")]: {
@@ -12649,6 +16009,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_intro_063d6391.mp3",
       text: "Let's walk along the zoo path.",
+    },
+  },
+  [normalizeText("Let's wash our hands and practice asking for privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_intro_83963049.mp3",
+      text: "Let's wash our hands and practice asking for privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_intro_83963049.mp3",
+      text: "Let's wash our hands and practice asking for privacy.",
     },
   },
   [normalizeText("Let's wash up after playing.")]: {
@@ -12887,6 +16257,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the arm at the upper left.",
     },
   },
+  [normalizeText("Look for the ask-before-touching card at the bottom center.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_ask_before_touching_fail_ad7feca2.mp3",
+      text: "Look for the ask-before-touching card at the bottom center.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_ask_before_touching_fail_ad7feca2.mp3",
+      text: "Look for the ask-before-touching card at the bottom center.",
+    },
+  },
+  [normalizeText("Look for the back of the shirt at the lower left.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_back_fail_ad8d9455.mp3",
+      text: "Look for the back of the shirt at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_back_fail_ad8d9455.mp3",
+      text: "Look for the back of the shirt at the lower left.",
+    },
+  },
+  [normalizeText("Look for the bathroom door on the left shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_bathroom_door_fail_a95af55e.mp3",
+      text: "Look for the bathroom door on the left shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_bathroom_door_fail_a95af55e.mp3",
+      text: "Look for the bathroom door on the left shelf.",
+    },
+  },
+  [normalizeText("Look for the bathroom picture on the right shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_bathroom_fail_914a10e8.mp3",
+      text: "Look for the bathroom picture on the right shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_bathroom_fail_914a10e8.mp3",
+      text: "Look for the bathroom picture on the right shelf.",
+    },
+  },
+  [normalizeText("Look for the bathroom sign in the middle of the shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_bathroom_sign_fail_3a2eb7c1.mp3",
+      text: "Look for the bathroom sign in the middle of the shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_bathroom_sign_fail_3a2eb7c1.mp3",
+      text: "Look for the bathroom sign in the middle of the shelf.",
+    },
+  },
   [normalizeText("Look for the bell at the lower right.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_bell_fail_bad67774.mp3",
@@ -12897,6 +16317,156 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the bell at the lower right.",
     },
   },
+  [normalizeText("Look for the bubble near the lower center.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/tap_bubble_fail_cf4969f7.mp3",
+      text: "Look for the bubble near the lower center.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/tap_bubble_fail_cf4969f7.mp3",
+      text: "Look for the bubble near the lower center.",
+    },
+  },
+  [normalizeText("Look for the buckle on the left side of the bench.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_buckle_fail_abf56e82.mp3",
+      text: "Look for the buckle on the left side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_buckle_fail_abf56e82.mp3",
+      text: "Look for the buckle on the left side of the bench.",
+    },
+  },
+  [normalizeText("Look for the button on the left side of the upper shelf.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_button_fail_a92131a1.mp3",
+      text: "Look for the button on the left side of the upper shelf.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_button_fail_a92131a1.mp3",
+      text: "Look for the button on the left side of the upper shelf.",
+    },
+  },
+  [normalizeText("Look for the candle at the lower right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/tap_candle_fail_f77beabc.mp3",
+      text: "Look for the candle at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/tap_candle_fail_f77beabc.mp3",
+      text: "Look for the candle at the lower right.",
+    },
+  },
+  [normalizeText("Look for the cap on the right side of the bench.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_cap_fail_de6f8dd1.mp3",
+      text: "Look for the cap on the right side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_cap_fail_de6f8dd1.mp3",
+      text: "Look for the cap on the right side of the bench.",
+    },
+  },
+  [normalizeText("Look for the card asking a grown-up for help on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_help_if_needed_fail_9de9714a.mp3",
+      text: "Look for the card asking a grown-up for help on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_help_if_needed_fail_9de9714a.mp3",
+      text: "Look for the card asking a grown-up for help on the right.",
+    },
+  },
+  [normalizeText("Look for the card with the child asking a grown-up on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_ask_use_toilet_fail_00e78b5e.mp3",
+      text: "Look for the card with the child asking a grown-up on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_ask_use_toilet_fail_00e78b5e.mp3",
+      text: "Look for the card with the child asking a grown-up on the right.",
+    },
+  },
+  [normalizeText("Look for the card with the child raising a hand on the left.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_need_toilet_fail_94f174b3.mp3",
+      text: "Look for the card with the child raising a hand on the left.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_need_toilet_fail_94f174b3.mp3",
+      text: "Look for the card with the child raising a hand on the left.",
+    },
+  },
+  [normalizeText("Look for the card with the child walking to the door in the middle.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_go_bathroom_fail_34d334a1.mp3",
+      text: "Look for the card with the child walking to the door in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_go_bathroom_fail_34d334a1.mp3",
+      text: "Look for the card with the child walking to the door in the middle.",
+    },
+  },
+  [normalizeText("Look for the card with the downward arrow on the left.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_pull_down_clothes_fail_679ce23c.mp3",
+      text: "Look for the card with the downward arrow on the left.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_pull_down_clothes_fail_679ce23c.mp3",
+      text: "Look for the card with the downward arrow on the left.",
+    },
+  },
+  [normalizeText("Look for the card with the finger pressing a button on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_flush_toilet_fail_74ff2a7a.mp3",
+      text: "Look for the card with the finger pressing a button on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_flush_toilet_fail_74ff2a7a.mp3",
+      text: "Look for the card with the finger pressing a button on the right.",
+    },
+  },
+  [normalizeText("Look for the card with the hand holding paper in the middle.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_use_toilet_paper_fail_aa620f98.mp3",
+      text: "Look for the card with the hand holding paper in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_use_toilet_paper_fail_aa620f98.mp3",
+      text: "Look for the card with the hand holding paper in the middle.",
+    },
+  },
+  [normalizeText("Look for the clean hands picture in the middle of the shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_clean_hands_fail_4d28b19f.mp3",
+      text: "Look for the clean hands picture in the middle of the shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_clean_hands_fail_4d28b19f.mp3",
+      text: "Look for the clean hands picture in the middle of the shelf.",
+    },
+  },
+  [normalizeText("Look for the clothing tag at the lower right.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_clothing_tag_fail_432b277f.mp3",
+      text: "Look for the clothing tag at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_clothing_tag_fail_432b277f.mp3",
+      text: "Look for the clothing tag at the lower right.",
+    },
+  },
+  [normalizeText("Look for the collar on the right shelf.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_collar_fail_75aed8d9.mp3",
+      text: "Look for the collar on the right shelf.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_collar_fail_75aed8d9.mp3",
+      text: "Look for the collar on the right shelf.",
+    },
+  },
   [normalizeText("Look for the color at the upper right.")]: {
     "en-US": {
       key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_color_fail_8549f61d.mp3",
@@ -12905,6 +16475,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_color_fail_8549f61d.mp3",
       text: "Look for the color at the upper right.",
+    },
+  },
+  [normalizeText("Look for the comb in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/drag_comb_fail_beea3c70.mp3",
+      text: "Look for the comb in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/drag_comb_fail_beea3c70.mp3",
+      text: "Look for the comb in the center.",
+    },
+  },
+  [normalizeText("Look for the cushion near the lower center.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/drag_cushion_fail_b1889860.mp3",
+      text: "Look for the cushion near the lower center.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/drag_cushion_fail_b1889860.mp3",
+      text: "Look for the cushion near the lower center.",
+    },
+  },
+  [normalizeText("Look for the dizzy picture at the lower left.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_dizzy_fail_7d3accb5.mp3",
+      text: "Look for the dizzy picture at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_dizzy_fail_7d3accb5.mp3",
+      text: "Look for the dizzy picture at the lower left.",
+    },
+  },
+  [normalizeText("Look for the dress on the right side of the clothes rail.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_dress_fail_facfe2f4.mp3",
+      text: "Look for the dress on the right side of the clothes rail.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_dress_fail_facfe2f4.mp3",
+      text: "Look for the dress on the right side of the clothes rail.",
     },
   },
   [normalizeText("Look for the ears at the lower left.")]: {
@@ -12937,6 +16547,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the eyes at the upper right.",
     },
   },
+  [normalizeText("Look for the face cloth at the lower right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/tap_face_cloth_fail_daed8bbb.mp3",
+      text: "Look for the face cloth at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/tap_face_cloth_fail_daed8bbb.mp3",
+      text: "Look for the face cloth at the lower right.",
+    },
+  },
+  [normalizeText("Look for the fan on the left.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_hot_fail_d71f379e.mp3",
+      text: "Look for the fan on the left.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_hot_fail_d71f379e.mp3",
+      text: "Look for the fan on the left.",
+    },
+  },
   [normalizeText("Look for the farewell action card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.mp3",
@@ -12945,6 +16575,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.mp3",
       text: "Look for the farewell action card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the favorite toy on the right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/tap_comfort_toy_fail_8f3af879.mp3",
+      text: "Look for the favorite toy on the right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/tap_comfort_toy_fail_8f3af879.mp3",
+      text: "Look for the favorite toy on the right.",
+    },
+  },
+  [normalizeText("Look for the feather near the top center.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/drag_feather_fail_8dfe143b.mp3",
+      text: "Look for the feather near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/drag_feather_fail_8dfe143b.mp3",
+      text: "Look for the feather near the top center.",
+    },
+  },
+  [normalizeText("Look for the feelings card at the upper right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/tap_feelings_card_fail_aa19a07d.mp3",
+      text: "Look for the feelings card at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/tap_feelings_card_fail_aa19a07d.mp3",
+      text: "Look for the feelings card at the upper right.",
     },
   },
   [normalizeText("Look for the fingers on the right.")]: {
@@ -12957,6 +16617,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the fingers on the right.",
     },
   },
+  [normalizeText("Look for the flush button on the wall on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_flush_button_fail_79cd6719.mp3",
+      text: "Look for the flush button on the wall on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_flush_button_fail_79cd6719.mp3",
+      text: "Look for the flush button on the wall on the right.",
+    },
+  },
   [normalizeText("Look for the foot at the upper right.")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/drag_foot_fail_753559ed.mp3",
@@ -12965,6 +16635,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/drag_foot_fail_753559ed.mp3",
       text: "Look for the foot at the upper right.",
+    },
+  },
+  [normalizeText("Look for the front of the shirt to the left of the child.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_front_fail_df31b7be.mp3",
+      text: "Look for the front of the shirt to the left of the child.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_front_fail_df31b7be.mp3",
+      text: "Look for the front of the shirt to the left of the child.",
+    },
+  },
+  [normalizeText("Look for the frown at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_frown_fail_ebd00172.mp3",
+      text: "Look for the frown at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_frown_fail_ebd00172.mp3",
+      text: "Look for the frown at the lower right.",
     },
   },
   [normalizeText("Look for the going-home card in the bottom row.")]: {
@@ -12997,6 +16687,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hair at the upper left.",
     },
   },
+  [normalizeText("Look for the hair tie in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/tap_hair_tie_fail_507b4df1.mp3",
+      text: "Look for the hair tie in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/tap_hair_tie_fail_507b4df1.mp3",
+      text: "Look for the hair tie in the center.",
+    },
+  },
+  [normalizeText("Look for the hairbrush in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/tap_hairbrush_fail_915d4cca.mp3",
+      text: "Look for the hairbrush in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/tap_hairbrush_fail_915d4cca.mp3",
+      text: "Look for the hairbrush in the center.",
+    },
+  },
   [normalizeText("Look for the hand at the upper right.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
@@ -13005,6 +16715,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
       text: "Look for the hand at the upper right.",
+    },
+  },
+  [normalizeText("Look for the hand soap on the right side of the sink.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/drag_hand_soap_fail_1982b65d.mp3",
+      text: "Look for the hand soap on the right side of the sink.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/drag_hand_soap_fail_1982b65d.mp3",
+      text: "Look for the hand soap on the right side of the sink.",
+    },
+  },
+  [normalizeText("Look for the hand towel on the wall on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_hand_towel_fail_54ac1fb6.mp3",
+      text: "Look for the hand towel on the wall on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_hand_towel_fail_54ac1fb6.mp3",
+      text: "Look for the hand towel on the wall on the right.",
+    },
+  },
+  [normalizeText("Look for the handwashing card on the left.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_wash_hands_well_fail_5775e1d7.mp3",
+      text: "Look for the handwashing card on the left.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_wash_hands_well_fail_5775e1d7.mp3",
+      text: "Look for the handwashing card on the left.",
     },
   },
   [normalizeText("Look for the head on the left.")]: {
@@ -13017,6 +16757,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the head on the left.",
     },
   },
+  [normalizeText("Look for the headache picture by the right wall cabinet.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_headache_fail_c202da56.mp3",
+      text: "Look for the headache picture by the right wall cabinet.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_headache_fail_c202da56.mp3",
+      text: "Look for the headache picture by the right wall cabinet.",
+    },
+  },
+  [normalizeText("Look for the headphones at the upper right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/tap_headphones_fail_18c4b8d3.mp3",
+      text: "Look for the headphones at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/tap_headphones_fail_18c4b8d3.mp3",
+      text: "Look for the headphones at the upper right.",
+    },
+  },
   [normalizeText("Look for the heel at the lower right.")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_heel_fail_17ab0cdc.mp3",
@@ -13027,6 +16787,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the heel at the lower right.",
     },
   },
+  [normalizeText("Look for the help card at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_please_help_fail_b86ff55a.mp3",
+      text: "Look for the help card at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_please_help_fail_b86ff55a.mp3",
+      text: "Look for the help card at the bottom right.",
+    },
+  },
   [normalizeText("Look for the hug-request card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/drag_ask_for_hug_fail_096a8076.mp3",
@@ -13035,6 +16805,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/drag_ask_for_hug_fail_096a8076.mp3",
       text: "Look for the hug-request card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the hungry card at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_am_hungry_fail_694ae145.mp3",
+      text: "Look for the hungry card at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_am_hungry_fail_694ae145.mp3",
+      text: "Look for the hungry card at the bottom left.",
+    },
+  },
+  [normalizeText("Look for the hungry picture on the upper-left shelf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_hungry_fail_4cba6895.mp3",
+      text: "Look for the hungry picture on the upper-left shelf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_hungry_fail_4cba6895.mp3",
+      text: "Look for the hungry picture on the upper-left shelf.",
+    },
+  },
+  [normalizeText("Look for the hurt picture on the upper-left shelf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_hurt_fail_9e2cee9b.mp3",
+      text: "Look for the hurt picture on the upper-left shelf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_hurt_fail_9e2cee9b.mp3",
+      text: "Look for the hurt picture on the upper-left shelf.",
+    },
+  },
+  [normalizeText("Look for the hurts-here card at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_hurts_here_fail_6c434a28.mp3",
+      text: "Look for the hurts-here card at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_hurts_here_fail_6c434a28.mp3",
+      text: "Look for the hurts-here card at the bottom left.",
+    },
+  },
+  [normalizeText("Look for the I-don't-like-that card at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_do_not_like_that_fail_8d08b8a3.mp3",
+      text: "Look for the I-don't-like-that card at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_do_not_like_that_fail_8d08b8a3.mp3",
+      text: "Look for the I-don't-like-that card at the bottom left.",
+    },
+  },
+  [normalizeText("Look for the itchy picture under the right table.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_itchy_fail_8d366eb9.mp3",
+      text: "Look for the itchy picture under the right table.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_itchy_fail_8d366eb9.mp3",
+      text: "Look for the itchy picture under the right table.",
     },
   },
   [normalizeText("Look for the knee on the left.")]: {
@@ -13127,6 +16957,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the matching card at the bottom right.",
     },
   },
+  [normalizeText("Look for the mirror at the upper right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/tap_mirror_fail_a3598caa.mp3",
+      text: "Look for the mirror at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/tap_mirror_fail_a3598caa.mp3",
+      text: "Look for the mirror at the upper right.",
+    },
+  },
   [normalizeText("Look for the mouth at the lower right.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_mouth_fail_619aaa97.mp3",
@@ -13147,6 +16987,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the music at the upper right.",
     },
   },
+  [normalizeText("Look for the nail clippers in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/tap_nail_clippers_fail_6f2c8e3c.mp3",
+      text: "Look for the nail clippers in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/tap_nail_clippers_fail_6f2c8e3c.mp3",
+      text: "Look for the nail clippers in the center.",
+    },
+  },
+  [normalizeText("Look for the no card on the upper-right shelf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_no_thank_you_fail_f47af581.mp3",
+      text: "Look for the no card on the upper-right shelf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_no_thank_you_fail_f47af581.mp3",
+      text: "Look for the no card on the upper-right shelf.",
+    },
+  },
   [normalizeText("Look for the nose on the right.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_nose_fail_e25ee295.mp3",
@@ -13155,6 +17015,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_nose_fail_e25ee295.mp3",
       text: "Look for the nose on the right.",
+    },
+  },
+  [normalizeText("Look for the not-feel-well card at the bottom center.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_not_feel_well_fail_b6fbf20c.mp3",
+      text: "Look for the not-feel-well card at the bottom center.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_not_feel_well_fail_b6fbf20c.mp3",
+      text: "Look for the not-feel-well card at the bottom center.",
     },
   },
   [normalizeText("Look for the people sharing a hug.")]: {
@@ -13167,6 +17037,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the people sharing a hug.",
     },
   },
+  [normalizeText("Look for the permission picture on the right side of the bench.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_permission_fail_916aeda5.mp3",
+      text: "Look for the permission picture on the right side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_permission_fail_916aeda5.mp3",
+      text: "Look for the permission picture on the right side of the bench.",
+    },
+  },
+  [normalizeText("Look for the personal-space picture on the long bench.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_personal_space_fail_6b5093a0.mp3",
+      text: "Look for the personal-space picture on the long bench.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_personal_space_fail_6b5093a0.mp3",
+      text: "Look for the personal-space picture on the long bench.",
+    },
+  },
   [normalizeText("Look for the photo-sharing card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/tap_show_photo_fail_190f4887.mp3",
@@ -13175,6 +17065,126 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_show_photo_fail_190f4887.mp3",
       text: "Look for the photo-sharing card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the picture for angry near the top center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_angry_fail_8cd0b757.mp3",
+      text: "Look for the picture for angry near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_angry_fail_8cd0b757.mp3",
+      text: "Look for the picture for angry near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for belly at the lower left.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/tap_belly_fail_8d97bef9.mp3",
+      text: "Look for the picture for belly at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/tap_belly_fail_8d97bef9.mp3",
+      text: "Look for the picture for belly at the lower left.",
+    },
+  },
+  [normalizeText("Look for the picture for body signal at the lower right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_body_clue_fail_25b2d24c.mp3",
+      text: "Look for the picture for body signal at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_body_clue_fail_25b2d24c.mp3",
+      text: "Look for the picture for body signal at the lower right.",
+    },
+  },
+  [normalizeText("Look for the picture for brave in the center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_brave_fail_f42dd77b.mp3",
+      text: "Look for the picture for brave in the center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_brave_fail_f42dd77b.mp3",
+      text: "Look for the picture for brave in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for breath on the left.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/tap_breath_fail_6fbeedeb.mp3",
+      text: "Look for the picture for breath on the left.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/tap_breath_fail_6fbeedeb.mp3",
+      text: "Look for the picture for breath on the left.",
+    },
+  },
+  [normalizeText("Look for the picture for cough in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_cough_fail_fd5aca93.mp3",
+      text: "Look for the picture for cough in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_cough_fail_fd5aca93.mp3",
+      text: "Look for the picture for cough in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for curious on the left.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_curious_fail_37c11e8a.mp3",
+      text: "Look for the picture for curious on the left.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_curious_fail_37c11e8a.mp3",
+      text: "Look for the picture for curious on the left.",
+    },
+  },
+  [normalizeText("Look for the picture for disappointed at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_disappointed_fail_35e45538.mp3",
+      text: "Look for the picture for disappointed at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_disappointed_fail_35e45538.mp3",
+      text: "Look for the picture for disappointed at the lower right.",
+    },
+  },
+  [normalizeText("Look for the picture for excited near the top center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_excited_fail_4d899a47.mp3",
+      text: "Look for the picture for excited near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_excited_fail_4d899a47.mp3",
+      text: "Look for the picture for excited near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for fast breathing on the right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_quick_breath_fail_f9ee38c2.mp3",
+      text: "Look for the picture for fast breathing on the right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_quick_breath_fail_f9ee38c2.mp3",
+      text: "Look for the picture for fast breathing on the right.",
+    },
+  },
+  [normalizeText("Look for the picture for fast heartbeat at the upper left.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_heartbeat_fail_f7c3c351.mp3",
+      text: "Look for the picture for fast heartbeat at the upper left.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_heartbeat_fail_f7c3c351.mp3",
+      text: "Look for the picture for fast heartbeat at the upper left.",
+    },
+  },
+  [normalizeText("Look for the picture for happy near the top center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_happy_fail_1c4421d5.mp3",
+      text: "Look for the picture for happy near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_happy_fail_1c4421d5.mp3",
+      text: "Look for the picture for happy near the top center.",
     },
   },
   [normalizeText("Look for the picture for hear near the top center.")]: {
@@ -13187,6 +17197,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for hear near the top center.",
     },
   },
+  [normalizeText("Look for the picture for laugh in the center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_laugh_fail_2ca190bd.mp3",
+      text: "Look for the picture for laugh in the center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_laugh_fail_2ca190bd.mp3",
+      text: "Look for the picture for laugh in the center.",
+    },
+  },
   [normalizeText("Look for the picture for loud in the center.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_loud_fail_47569245.mp3",
@@ -13195,6 +17215,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_loud_fail_47569245.mp3",
       text: "Look for the picture for loud in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for proud at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_proud_fail_52be4886.mp3",
+      text: "Look for the picture for proud at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_proud_fail_52be4886.mp3",
+      text: "Look for the picture for proud at the upper right.",
     },
   },
   [normalizeText("Look for the picture for quiet in the center.")]: {
@@ -13207,6 +17237,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for quiet in the center.",
     },
   },
+  [normalizeText("Look for the picture for sad at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_sad_fail_1daa07f7.mp3",
+      text: "Look for the picture for sad at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_sad_fail_1daa07f7.mp3",
+      text: "Look for the picture for sad at the upper right.",
+    },
+  },
+  [normalizeText("Look for the picture for safe in the center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_safe_fail_d9e5f5e2.mp3",
+      text: "Look for the picture for safe in the center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_safe_fail_d9e5f5e2.mp3",
+      text: "Look for the picture for safe in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for scared at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_scared_fail_c724bbdf.mp3",
+      text: "Look for the picture for scared at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_scared_fail_c724bbdf.mp3",
+      text: "Look for the picture for scared at the upper right.",
+    },
+  },
   [normalizeText("Look for the picture for see near the top center.")]: {
     "en-US": {
       key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_see_fail_50ce3882.mp3",
@@ -13217,6 +17277,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for see near the top center.",
     },
   },
+  [normalizeText("Look for the picture for shaky legs at the lower left.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_shaky_legs_fail_de644e96.mp3",
+      text: "Look for the picture for shaky legs at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_shaky_legs_fail_de644e96.mp3",
+      text: "Look for the picture for shaky legs at the lower left.",
+    },
+  },
+  [normalizeText("Look for the picture for shy in the center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_shy_fail_758b9eaa.mp3",
+      text: "Look for the picture for shy in the center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_shy_fail_758b9eaa.mp3",
+      text: "Look for the picture for shy in the center.",
+    },
+  },
   [normalizeText("Look for the picture for smell near the top center.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_smell_fail_a0a6f0b0.mp3",
@@ -13225,6 +17305,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_smell_fail_a0a6f0b0.mp3",
       text: "Look for the picture for smell near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for sneeze on the right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_sneeze_fail_72fda413.mp3",
+      text: "Look for the picture for sneeze on the right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_sneeze_fail_72fda413.mp3",
+      text: "Look for the picture for sneeze on the right.",
     },
   },
   [normalizeText("Look for the picture for soft at the lower right.")]: {
@@ -13247,6 +17337,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for sour in the center.",
     },
   },
+  [normalizeText("Look for the picture for surprised on the right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/tap_surprised_fail_afe44e69.mp3",
+      text: "Look for the picture for surprised on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/tap_surprised_fail_afe44e69.mp3",
+      text: "Look for the picture for surprised on the right.",
+    },
+  },
   [normalizeText("Look for the picture for sweet in the center.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_sweet_fail_a957c234.mp3",
@@ -13267,6 +17367,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for taste near the top center.",
     },
   },
+  [normalizeText("Look for the picture for tight fists at the upper right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_tight_fists_fail_fe2c30c1.mp3",
+      text: "Look for the picture for tight fists at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_tight_fists_fail_fe2c30c1.mp3",
+      text: "Look for the picture for tight fists at the upper right.",
+    },
+  },
   [normalizeText("Look for the picture for touch at the upper right.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_touch_fail_93348e5f.mp3",
@@ -13277,6 +17387,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture for touch at the upper right.",
     },
   },
+  [normalizeText("Look for the picture for upset at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_upset_fail_fccebe6e.mp3",
+      text: "Look for the picture for upset at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_upset_fail_fccebe6e.mp3",
+      text: "Look for the picture for upset at the lower right.",
+    },
+  },
+  [normalizeText("Look for the picture for warm face on the left.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tap_warm_face_fail_fbbaff5a.mp3",
+      text: "Look for the picture for warm face on the left.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tap_warm_face_fail_fbbaff5a.mp3",
+      text: "Look for the picture for warm face on the left.",
+    },
+  },
+  [normalizeText("Look for the picture for worried on the right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/tap_worried_fail_f73390aa.mp3",
+      text: "Look for the picture for worried on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/tap_worried_fail_f73390aa.mp3",
+      text: "Look for the picture for worried on the right.",
+    },
+  },
+  [normalizeText("Look for the pillow and blanket on the small right table.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_tired_fail_bdaf4f94.mp3",
+      text: "Look for the pillow and blanket on the small right table.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_tired_fail_bdaf4f94.mp3",
+      text: "Look for the pillow and blanket on the small right table.",
+    },
+  },
+  [normalizeText("Look for the pinwheel at the upper right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/tap_pinwheel_fail_763b4dd7.mp3",
+      text: "Look for the pinwheel at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/tap_pinwheel_fail_763b4dd7.mp3",
+      text: "Look for the pinwheel at the upper right.",
+    },
+  },
+  [normalizeText("Look for the potty on the floor on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_potty_fail_f0c245ac.mp3",
+      text: "Look for the potty on the floor on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_potty_fail_f0c245ac.mp3",
+      text: "Look for the potty on the floor on the right.",
+    },
+  },
+  [normalizeText("Look for the privacy card in the middle.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_give_privacy_fail_8db4368f.mp3",
+      text: "Look for the privacy card in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_give_privacy_fail_8db4368f.mp3",
+      text: "Look for the privacy card in the middle.",
+    },
+  },
+  [normalizeText("Look for the privacy door picture on the left shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_privacy_fail_fdaf2baf.mp3",
+      text: "Look for the privacy door picture on the left shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_privacy_fail_fdaf2baf.mp3",
+      text: "Look for the privacy door picture on the left shelf.",
+    },
+  },
   [normalizeText("Look for the putting-on-shoes card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/drag_put_on_shoes_fail_cb503f49.mp3",
@@ -13285,6 +17475,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/drag_put_on_shoes_fail_cb503f49.mp3",
       text: "Look for the putting-on-shoes card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the quiet corner near the top center.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/tap_quiet_corner_fail_025a9ae4.mp3",
+      text: "Look for the quiet corner near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/tap_quiet_corner_fail_025a9ae4.mp3",
+      text: "Look for the quiet corner near the top center.",
+    },
+  },
+  [normalizeText("Look for the raincoat in the middle of the clothes rail.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_raincoat_fail_34830fbc.mp3",
+      text: "Look for the raincoat in the middle of the clothes rail.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_raincoat_fail_34830fbc.mp3",
+      text: "Look for the raincoat in the middle of the clothes rail.",
+    },
+  },
+  [normalizeText("Look for the rest card at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_need_rest_fail_8471b278.mp3",
+      text: "Look for the rest card at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_need_rest_fail_8471b278.mp3",
+      text: "Look for the rest card at the bottom right.",
+    },
+  },
+  [normalizeText("Look for the scarf on the lower-left cushion.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_cold_fail_0b0150d4.mp3",
+      text: "Look for the scarf on the lower-left cushion.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_cold_fail_0b0150d4.mp3",
+      text: "Look for the scarf on the lower-left cushion.",
     },
   },
   [normalizeText("Look for the seed packet on the ground.")]: {
@@ -13327,6 +17557,106 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the shape at the upper right.",
     },
   },
+  [normalizeText("Look for the shirt sleeve in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_sleeve_fail_c22980ab.mp3",
+      text: "Look for the shirt sleeve in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_sleeve_fail_c22980ab.mp3",
+      text: "Look for the shirt sleeve in the center.",
+    },
+  },
+  [normalizeText("Look for the shoelace on the right side of the upper shelf.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_shoelace_fail_ea7308ac.mp3",
+      text: "Look for the shoelace on the right side of the upper shelf.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_shoelace_fail_ea7308ac.mp3",
+      text: "Look for the shoelace on the right side of the upper shelf.",
+    },
+  },
+  [normalizeText("Look for the shorts in the middle of the bench.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/drag_shorts_fail_f9d65200.mp3",
+      text: "Look for the shorts in the middle of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/drag_shorts_fail_f9d65200.mp3",
+      text: "Look for the shorts in the middle of the bench.",
+    },
+  },
+  [normalizeText("Look for the sink in the middle of the wall.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_sink_fail_1ac7d577.mp3",
+      text: "Look for the sink in the middle of the wall.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_sink_fail_1ac7d577.mp3",
+      text: "Look for the sink in the middle of the wall.",
+    },
+  },
+  [normalizeText("Look for the sleeve on the left shelf.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_sleeve_fail_bf323201.mp3",
+      text: "Look for the sleeve on the left shelf.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_sleeve_fail_bf323201.mp3",
+      text: "Look for the sleeve on the left shelf.",
+    },
+  },
+  [normalizeText("Look for the smile on the right.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_smile_fail_d6be3b23.mp3",
+      text: "Look for the smile on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_smile_fail_d6be3b23.mp3",
+      text: "Look for the smile on the right.",
+    },
+  },
+  [normalizeText("Look for the snap fastener in the middle of the bench.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_snap_fastener_fail_273316e9.mp3",
+      text: "Look for the snap fastener in the middle of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_snap_fastener_fail_273316e9.mp3",
+      text: "Look for the snap fastener in the middle of the bench.",
+    },
+  },
+  [normalizeText("Look for the soap at the upper right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_soap_fail_f1cc7c57.mp3",
+      text: "Look for the soap at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_soap_fail_f1cc7c57.mp3",
+      text: "Look for the soap at the upper right.",
+    },
+  },
+  [normalizeText("Look for the soap bar near the top center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/tap_soap_bar_fail_ef212d97.mp3",
+      text: "Look for the soap bar near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/tap_soap_bar_fail_ef212d97.mp3",
+      text: "Look for the soap bar near the top center.",
+    },
+  },
+  [normalizeText("Look for the sore throat picture on the left bench.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_sore_throat_fail_87ed0a58.mp3",
+      text: "Look for the sore throat picture on the left bench.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_sore_throat_fail_87ed0a58.mp3",
+      text: "Look for the sore throat picture on the left bench.",
+    },
+  },
   [normalizeText("Look for the sound at the upper right.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_sound_fail_7cda830e.mp3",
@@ -13335,6 +17665,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_sound_fail_7cda830e.mp3",
       text: "Look for the sound at the upper right.",
+    },
+  },
+  [normalizeText("Look for the step stool on the floor below the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_step_stool_fail_7a2da6ac.mp3",
+      text: "Look for the step stool on the floor below the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_step_stool_fail_7a2da6ac.mp3",
+      text: "Look for the step stool on the floor below the toilet.",
+    },
+  },
+  [normalizeText("Look for the stop card on the right shelf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_stop_please_fail_d95d17dd.mp3",
+      text: "Look for the stop card on the right shelf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_stop_please_fail_d95d17dd.mp3",
+      text: "Look for the stop card on the right shelf.",
+    },
+  },
+  [normalizeText("Look for the strap on the shoe at the right.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_shoe_strap_fail_eb92f61b.mp3",
+      text: "Look for the strap on the shoe at the right.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_shoe_strap_fail_eb92f61b.mp3",
+      text: "Look for the strap on the shoe at the right.",
+    },
+  },
+  [normalizeText("Look for the sweater on the left side of the bench.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_sweater_fail_64fed28e.mp3",
+      text: "Look for the sweater on the left side of the bench.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_sweater_fail_64fed28e.mp3",
+      text: "Look for the sweater on the left side of the bench.",
+    },
+  },
+  [normalizeText("Look for the T-shirt on the left side of the clothes rail.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_t_shirt_fail_3fab8c4e.mp3",
+      text: "Look for the T-shirt on the left side of the clothes rail.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_t_shirt_fail_3fab8c4e.mp3",
+      text: "Look for the T-shirt on the left side of the clothes rail.",
+    },
+  },
+  [normalizeText("Look for the tears in the center.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tap_tears_fail_ae260efe.mp3",
+      text: "Look for the tears in the center.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tap_tears_fail_ae260efe.mp3",
+      text: "Look for the tears in the center.",
     },
   },
   [normalizeText("Look for the thumb at the lower right.")]: {
@@ -13347,6 +17737,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the thumb at the lower right.",
     },
   },
+  [normalizeText("Look for the timer at the lower right.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/tap_timer_fail_72451561.mp3",
+      text: "Look for the timer at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/tap_timer_fail_72451561.mp3",
+      text: "Look for the timer at the lower right.",
+    },
+  },
+  [normalizeText("Look for the tissue near the lower center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_tissue_fail_d9c6810d.mp3",
+      text: "Look for the tissue near the lower center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_tissue_fail_d9c6810d.mp3",
+      text: "Look for the tissue near the lower center.",
+    },
+  },
   [normalizeText("Look for the toes on the right.")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_toes_fail_aa637480.mp3",
@@ -13355,6 +17765,196 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_toes_fail_aa637480.mp3",
       text: "Look for the toes on the right.",
+    },
+  },
+  [normalizeText("Look for the toilet on the left, under the shelf.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/tap_toilet_fail_d6a9dbb5.mp3",
+      text: "Look for the toilet on the left, under the shelf.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/tap_toilet_fail_d6a9dbb5.mp3",
+      text: "Look for the toilet on the left, under the shelf.",
+    },
+  },
+  [normalizeText("Look for the toilet paper on the floor on the left.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_toilet_paper_fail_d6b80d52.mp3",
+      text: "Look for the toilet paper on the floor on the left.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_toilet_paper_fail_d6b80d52.mp3",
+      text: "Look for the toilet paper on the floor on the left.",
+    },
+  },
+  [normalizeText("Look for the toilet seat on the floor in the middle.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_toilet_seat_fail_0fe0d370.mp3",
+      text: "Look for the toilet seat on the floor in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_toilet_seat_fail_0fe0d370.mp3",
+      text: "Look for the toilet seat on the floor in the middle.",
+    },
+  },
+  [normalizeText("Look for the toiletry bag at the upper right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/tap_toiletry_bag_fail_97f7db06.mp3",
+      text: "Look for the toiletry bag at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/tap_toiletry_bag_fail_97f7db06.mp3",
+      text: "Look for the toiletry bag at the upper right.",
+    },
+  },
+  [normalizeText("Look for the toothbrush cup on the right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/tap_toothbrush_holder_fail_c24d862c.mp3",
+      text: "Look for the toothbrush cup on the right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/tap_toothbrush_holder_fail_c24d862c.mp3",
+      text: "Look for the toothbrush cup on the right.",
+    },
+  },
+  [normalizeText("Look for the toothbrush in the center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/drag_toothbrush_fail_d5cbfe96.mp3",
+      text: "Look for the toothbrush in the center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/drag_toothbrush_fail_d5cbfe96.mp3",
+      text: "Look for the toothbrush in the center.",
+    },
+  },
+  [normalizeText("Look for the toothpaste near the lower center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/tap_toothpaste_fail_77f33415.mp3",
+      text: "Look for the toothpaste near the lower center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/tap_toothpaste_fail_77f33415.mp3",
+      text: "Look for the toothpaste near the lower center.",
+    },
+  },
+  [normalizeText("Look for the towel near the top center.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/tap_towel_fail_7aace6f5.mp3",
+      text: "Look for the towel near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/tap_towel_fail_7aace6f5.mp3",
+      text: "Look for the towel near the top center.",
+    },
+  },
+  [normalizeText("Look for the trash can at the lower right.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/tap_trash_can_fail_9a947f04.mp3",
+      text: "Look for the trash can at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/tap_trash_can_fail_9a947f04.mp3",
+      text: "Look for the trash can at the lower right.",
+    },
+  },
+  [normalizeText("Look for the trousers on the rail in the middle.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_trousers_fail_cee6d8f2.mp3",
+      text: "Look for the trousers on the rail in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_trousers_fail_cee6d8f2.mp3",
+      text: "Look for the trousers on the rail in the middle.",
+    },
+  },
+  [normalizeText("Look for the trusted grown-up picture on the right stool.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_trusted_grown_up_fail_46557438.mp3",
+      text: "Look for the trusted grown-up picture on the right stool.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_trusted_grown_up_fail_46557438.mp3",
+      text: "Look for the trusted grown-up picture on the right stool.",
+    },
+  },
+  [normalizeText("Look for the trusted-grown-up card at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_tell_trusted_grown_up_fail_3308278e.mp3",
+      text: "Look for the trusted-grown-up card at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_tell_trusted_grown_up_fail_3308278e.mp3",
+      text: "Look for the trusted-grown-up card at the bottom right.",
+    },
+  },
+  [normalizeText("Look for the tummy ache picture on the right table.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tap_tummy_ache_fail_eec52da1.mp3",
+      text: "Look for the tummy ache picture on the right table.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_tummy_ache_fail_eec52da1.mp3",
+      text: "Look for the tummy ache picture on the right table.",
+    },
+  },
+  [normalizeText("Look for the uncomfortable picture by the right table.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_uncomfortable_fail_cbc4d6a6.mp3",
+      text: "Look for the uncomfortable picture by the right table.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_uncomfortable_fail_cbc4d6a6.mp3",
+      text: "Look for the uncomfortable picture by the right table.",
+    },
+  },
+  [normalizeText("Look for the underwear on the rail on the left.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_underwear_fail_d106d5e8.mp3",
+      text: "Look for the underwear on the rail on the left.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_underwear_fail_d106d5e8.mp3",
+      text: "Look for the underwear on the rail on the left.",
+    },
+  },
+  [normalizeText("Look for the waistband to the right of the child.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_waistband_fail_e4b7fd74.mp3",
+      text: "Look for the waistband to the right of the child.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/tap_waistband_fail_e4b7fd74.mp3",
+      text: "Look for the waistband to the right of the child.",
+    },
+  },
+  [normalizeText("Look for the waste bin on the floor on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_waste_bin_fail_4e7ed141.mp3",
+      text: "Look for the waste bin on the floor on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_waste_bin_fail_4e7ed141.mp3",
+      text: "Look for the waste bin on the floor on the right.",
+    },
+  },
+  [normalizeText("Look for the water bottle on the right shelf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_thirsty_fail_450fb6fa.mp3",
+      text: "Look for the water bottle on the right shelf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_thirsty_fail_450fb6fa.mp3",
+      text: "Look for the water bottle on the right shelf.",
+    },
+  },
+  [normalizeText("Look for the water card at the bottom center.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_need_water_fail_cc2eacdb.mp3",
+      text: "Look for the water card at the bottom center.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_need_water_fail_cc2eacdb.mp3",
+      text: "Look for the water card at the bottom center.",
     },
   },
   [normalizeText("Look for the watering card in the bottom row.")]: {
@@ -13377,6 +17977,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the waving card in the bottom row.",
     },
   },
+  [normalizeText("Look for the wet floor sign on the floor on the right.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/tap_wet_floor_sign_fail_10b6ac9c.mp3",
+      text: "Look for the wet floor sign on the floor on the right.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_wet_floor_sign_fail_10b6ac9c.mp3",
+      text: "Look for the wet floor sign on the floor on the right.",
+    },
+  },
   [normalizeText("Look for the wrist at the lower left.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
@@ -13385,6 +17995,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
       text: "Look for the wrist at the lower left.",
+    },
+  },
+  [normalizeText("Look for the yes card on the upper-left wall.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tap_yes_please_fail_daf7518f.mp3",
+      text: "Look for the yes card on the upper-left wall.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tap_yes_please_fail_daf7518f.mp3",
+      text: "Look for the yes card on the upper-left wall.",
+    },
+  },
+  [normalizeText("Look for the zipper in the middle of the upper shelf.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/drag_zipper_fail_feb56793.mp3",
+      text: "Look for the zipper in the middle of the upper shelf.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/drag_zipper_fail_feb56793.mp3",
+      text: "Look for the zipper in the middle of the upper shelf.",
     },
   },
   [normalizeText("loud")]: {
@@ -13515,6 +18145,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "shared/audio/en-GB/neural2-c-r1/matching_game_intro_4d265559.mp3",
       text: "Match each picture with the correct word.",
+    },
+  },
+  [normalizeText("May I use the toilet?")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/may_i_use_the_toilet.mp3",
+      text: "May I use the toilet?",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/may_i_use_the_toilet.mp3",
+      text: "May I use the toilet?",
     },
   },
   [normalizeText("medicine")]: {
@@ -14273,6 +18913,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Music is at the top.",
     },
   },
+  [normalizeText("my fists are tight")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/my_fists_are_tight.mp3",
+      text: "my fists are tight",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/my_fists_are_tight.mp3",
+      text: "my fists are tight",
+    },
+  },
+  [normalizeText("my heart is beating fast")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/my_heart_is_beating_fast.mp3",
+      text: "my heart is beating fast",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/my_heart_is_beating_fast.mp3",
+      text: "my heart is beating fast",
+    },
+  },
+  [normalizeText("nail clippers")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/nail_clippers.mp3",
+      text: "nail clippers",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/nail_clippers.mp3",
+      text: "nail clippers",
+    },
+  },
   [normalizeText("napkin")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-table/audio/en-US/neural2-c-r1/napkin.mp3",
@@ -14313,6 +18983,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/nightstand.mp3",
       text: "nightstand",
+    },
+  },
+  [normalizeText("No, thank you")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/no_thank_you.mp3",
+      text: "No, thank you",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/no_thank_you.mp3",
+      text: "No, thank you",
     },
   },
   [normalizeText("noodles")]: {
@@ -14629,6 +19309,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "pencil",
     },
   },
+  [normalizeText("permission")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/permission.mp3",
+      text: "permission",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/permission.mp3",
+      text: "permission",
+    },
+  },
+  [normalizeText("personal space")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/personal_space.mp3",
+      text: "personal space",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/personal_space.mp3",
+      text: "personal space",
+    },
+  },
   [normalizeText("pet the sheep gently")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/pet_the_sheep_gently.mp3",
@@ -14701,6 +19401,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/pillow.mp3",
       text: "pillow",
+    },
+  },
+  [normalizeText("pinwheel")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/pinwheel.mp3",
+      text: "pinwheel",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/pinwheel.mp3",
+      text: "pinwheel",
     },
   },
   [normalizeText("place the bookmark")]: {
@@ -14881,6 +19591,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "playground",
     },
   },
+  [normalizeText("please give me privacy")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/please_give_me_privacy.mp3",
+      text: "please give me privacy",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/please_give_me_privacy.mp3",
+      text: "please give me privacy",
+    },
+  },
+  [normalizeText("please help me")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/please_help_me.mp3",
+      text: "please help me",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/please_help_me.mp3",
+      text: "please help me",
+    },
+  },
   [normalizeText("point to your nose")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/point_to_your_nose.mp3",
@@ -14903,6 +19633,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/pot_holder.mp3",
       text: "pot holder",
+    },
+  },
+  [normalizeText("potty")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/potty.mp3",
+      text: "potty",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/potty.mp3",
+      text: "potty",
     },
   },
   [normalizeText("pour juice")]: {
@@ -14953,6 +19693,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Pour the milk.",
     },
   },
+  [normalizeText("privacy")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/privacy.mp3",
+      text: "privacy",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/privacy.mp3",
+      text: "privacy",
+    },
+  },
   [normalizeText("prize")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prize.mp3",
@@ -14961,6 +19711,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prize.mp3",
       text: "prize",
+    },
+  },
+  [normalizeText("proud")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/proud.mp3",
+      text: "proud",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/proud.mp3",
+      text: "proud",
+    },
+  },
+  [normalizeText("pull down your trousers")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/pull_down_your_trousers.mp3",
+      text: "pull down your trousers",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/pull_down_your_trousers.mp3",
+      text: "pull down your trousers",
+    },
+  },
+  [normalizeText("pull up your shorts")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/pull_up_your_shorts.mp3",
+      text: "pull up your shorts",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/pull_up_your_shorts.mp3",
+      text: "pull up your shorts",
     },
   },
   [normalizeText("puppet")]: {
@@ -15115,6 +19895,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Put the book in the bag.",
     },
   },
+  [normalizeText("put the cap on the toothpaste")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/put_the_cap_on_the_toothpaste.mp3",
+      text: "put the cap on the toothpaste",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/put_the_cap_on_the_toothpaste.mp3",
+      text: "put the cap on the toothpaste",
+    },
+  },
   [normalizeText("Put the lunchbox in the bag.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_drag_lunchbox_to_bag_1d74fa06.mp3",
@@ -15181,6 +19971,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "put the trash in the bin",
     },
   },
+  [normalizeText("put your arms through the sleeves")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/put_your_arms_through_the_sleeves.mp3",
+      text: "put your arms through the sleeves",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/put_your_arms_through_the_sleeves.mp3",
+      text: "put your arms through the sleeves",
+    },
+  },
+  [normalizeText("put your things away")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/put_your_things_away.mp3",
+      text: "put your things away",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/put_your_things_away.mp3",
+      text: "put your things away",
+    },
+  },
   [normalizeText("puzzle")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/puzzle.mp3",
@@ -15205,6 +20015,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "quiet",
     },
   },
+  [normalizeText("quiet corner")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/quiet_corner.mp3",
+      text: "quiet corner",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/quiet_corner.mp3",
+      text: "quiet corner",
+    },
+  },
   [normalizeText("quiet sign")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/quiet_sign.mp3",
@@ -15213,6 +20033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/quiet_sign.mp3",
       text: "quiet sign",
+    },
+  },
+  [normalizeText("raincoat")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/raincoat.mp3",
+      text: "raincoat",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/raincoat.mp3",
+      text: "raincoat",
     },
   },
   [normalizeText("raise your arms")]: {
@@ -15557,6 +20387,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Run.",
     },
   },
+  [normalizeText("sad")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/sad.mp3",
+      text: "sad",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/sad.mp3",
+      text: "sad",
+    },
+  },
+  [normalizeText("safe")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/safe.mp3",
+      text: "safe",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/safe.mp3",
+      text: "safe",
+    },
+  },
   [normalizeText("Safety comes first!")]: {
     "en-US": {
       key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/intro_success_06d69259.mp3",
@@ -15801,6 +20651,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "scanner",
     },
   },
+  [normalizeText("scared")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/scared.mp3",
+      text: "scared",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/scared.mp3",
+      text: "scared",
+    },
+  },
   [normalizeText("school")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/school.mp3",
@@ -16043,6 +20903,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "shadow",
     },
   },
+  [normalizeText("shaky legs")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/shaky_legs.mp3",
+      text: "shaky legs",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/shaky_legs.mp3",
+      text: "shaky legs",
+    },
+  },
   [normalizeText("shampoo")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/shampoo.mp3",
@@ -16159,6 +21029,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "shell",
     },
   },
+  [normalizeText("shirt sleeve")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/shirt_sleeve.mp3",
+      text: "shirt sleeve",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/shirt_sleeve.mp3",
+      text: "shirt sleeve",
+    },
+  },
+  [normalizeText("shoe strap")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/shoe_strap.mp3",
+      text: "shoe strap",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/shoe_strap.mp3",
+      text: "shoe strap",
+    },
+  },
+  [normalizeText("shoelace")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/shoelace.mp3",
+      text: "shoelace",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/shoelace.mp3",
+      text: "shoelace",
+    },
+  },
   [normalizeText("shoes")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/shoes.mp3",
@@ -16191,6 +21091,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/shopping_list.mp3",
       text: "shopping list",
+    },
+  },
+  [normalizeText("shorts")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/shorts.mp3",
+      text: "shorts",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/shorts.mp3",
+      text: "shorts",
     },
   },
   [normalizeText("shoulder")]: {
@@ -16273,6 +21183,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/shower_head.mp3",
       text: "shower head",
+    },
+  },
+  [normalizeText("shy")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/shy.mp3",
+      text: "shy",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/shy.mp3",
+      text: "shy",
     },
   },
   [normalizeText("sink")]: {
@@ -16385,6 +21305,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sit in a circle",
     },
   },
+  [normalizeText("sit in the quiet corner")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/sit_in_the_quiet_corner.mp3",
+      text: "sit in the quiet corner",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/sit_in_the_quiet_corner.mp3",
+      text: "sit in the quiet corner",
+    },
+  },
   [normalizeText("sit on the bench")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/sit_on_the_bench.mp3",
@@ -16419,6 +21349,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sleep mask",
     },
   },
+  [normalizeText("sleeve")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/sleeve.mp3",
+      text: "sleeve",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/sleeve.mp3",
+      text: "sleeve",
+    },
+  },
   [normalizeText("slide")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/slide.mp3",
@@ -16445,6 +21385,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/slippers.mp3",
       text: "slippers",
+    },
+  },
+  [normalizeText("Slow breaths can help your body settle.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/intro_success_afa43d57.mp3",
+      text: "Slow breaths can help your body settle.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/intro_success_afa43d57.mp3",
+      text: "Slow breaths can help your body settle.",
     },
   },
   [normalizeText("small bag")]: {
@@ -16511,6 +21461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "smell the flower",
     },
   },
+  [normalizeText("smile")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/smile.mp3",
+      text: "smile",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/smile.mp3",
+      text: "smile",
+    },
+  },
   [normalizeText("snack")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/snack.mp3",
@@ -16539,6 +21499,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "snack box",
     },
   },
+  [normalizeText("snap fastener")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/snap_fastener.mp3",
+      text: "snap fastener",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/snap_fastener.mp3",
+      text: "snap fastener",
+    },
+  },
+  [normalizeText("sneeze")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/sneeze.mp3",
+      text: "sneeze",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/sneeze.mp3",
+      text: "sneeze",
+    },
+  },
+  [normalizeText("sneeze into your elbow")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/sneeze_into_your_elbow.mp3",
+      text: "sneeze into your elbow",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/sneeze_into_your_elbow.mp3",
+      text: "sneeze into your elbow",
+    },
+  },
   [normalizeText("soap")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/soap.mp3",
@@ -16551,6 +21541,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/soap.mp3",
       text: "soap",
+    },
+  },
+  [normalizeText("soap bar")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/soap_bar.mp3",
+      text: "soap bar",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/soap_bar.mp3",
+      text: "soap bar",
     },
   },
   [normalizeText("socks")]: {
@@ -16639,6 +21639,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/intro_success_fb970fcb.mp3",
       text: "Some sounds are loud, quiet, or gentle.",
+    },
+  },
+  [normalizeText("sore throat")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/sore_throat.mp3",
+      text: "sore throat",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/sore_throat.mp3",
+      text: "sore throat",
     },
   },
   [normalizeText("sort the recycling")]: {
@@ -16903,6 +21913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "stay on the path",
     },
   },
+  [normalizeText("stay with me")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/stay_with_me.mp3",
+      text: "stay with me",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/stay_with_me.mp3",
+      text: "stay with me",
+    },
+  },
   [normalizeText("step onto the mat")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/step_onto_the_mat.mp3",
@@ -16921,6 +21941,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_tap_step_onto_mat_9cc037d0.mp3",
       text: "Step onto the mat.",
+    },
+  },
+  [normalizeText("step stool")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/step_stool.mp3",
+      text: "step stool",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/step_stool.mp3",
+      text: "step stool",
     },
   },
   [normalizeText("stethoscope")]: {
@@ -16951,6 +21981,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/stomp_your_feet.mp3",
       text: "stomp your feet",
+    },
+  },
+  [normalizeText("Stop, please")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/stop_please.mp3",
+      text: "Stop, please",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/stop_please.mp3",
+      text: "Stop, please",
     },
   },
   [normalizeText("story bell")]: {
@@ -17099,6 +22139,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sunscreen",
     },
   },
+  [normalizeText("surprised")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/surprised.mp3",
+      text: "surprised",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/surprised.mp3",
+      text: "surprised",
+    },
+  },
+  [normalizeText("sweater")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/sweater.mp3",
+      text: "sweater",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/sweater.mp3",
+      text: "sweater",
+    },
+  },
   [normalizeText("sweet")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/sweet.mp3",
@@ -17121,6 +22181,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/swing.mp3",
       text: "swing",
+    },
+  },
+  [normalizeText("T-shirt")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/t_shirt.mp3",
+      text: "T-shirt",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/t_shirt.mp3",
+      text: "T-shirt",
     },
   },
   [normalizeText("table")]: {
@@ -17337,6 +22407,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the arm.",
     },
   },
+  [normalizeText("Tap the back.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_back_5ec7fc2e.mp3",
+      text: "Tap the back.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_back_5ec7fc2e.mp3",
+      text: "Tap the back.",
+    },
+  },
   [normalizeText("Tap the bag.")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/prompt_tap_bag_06a4af04.mp3",
@@ -17397,6 +22477,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_bath_sponge_ddef35bc.mp3",
       text: "Tap the bath sponge.",
+    },
+  },
+  [normalizeText("Tap the bathroom door.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_bathroom_door_5b22d65b.mp3",
+      text: "Tap the bathroom door.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_bathroom_door_5b22d65b.mp3",
+      text: "Tap the bathroom door.",
+    },
+  },
+  [normalizeText("Tap the bathroom sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_bathroom_sign_bf71535a.mp3",
+      text: "Tap the bathroom sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_bathroom_sign_bf71535a.mp3",
+      text: "Tap the bathroom sign.",
     },
   },
   [normalizeText("Tap the bathtub.")]: {
@@ -17641,6 +22741,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bucket.",
     },
   },
+  [normalizeText("Tap the buckle.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_tap_buckle_c70ba819.mp3",
+      text: "Tap the buckle.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_buckle_c70ba819.mp3",
+      text: "Tap the buckle.",
+    },
+  },
   [normalizeText("Tap the bus.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_tap_bus_ad64a9fe.mp3",
@@ -17655,6 +22765,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bus.",
     },
   },
+  [normalizeText("Tap the button.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_tap_button_eec464a6.mp3",
+      text: "Tap the button.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_button_eec464a6.mp3",
+      text: "Tap the button.",
+    },
+  },
   [normalizeText("Tap the cabinet.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_tap_cabinet_bf1eacf5.mp3",
@@ -17667,6 +22787,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_cabinet_bf1eacf5.mp3",
       text: "Tap the cabinet.",
+    },
+  },
+  [normalizeText("Tap the candle.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_tap_candle_ffbf453f.mp3",
+      text: "Tap the candle.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_tap_candle_ffbf453f.mp3",
+      text: "Tap the candle.",
+    },
+  },
+  [normalizeText("Tap the cap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_tap_cap_6fe3e644.mp3",
+      text: "Tap the cap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_tap_cap_6fe3e644.mp3",
+      text: "Tap the cap.",
     },
   },
   [normalizeText("Tap the car outside.")]: {
@@ -17811,6 +22951,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the cloth.",
     },
   },
+  [normalizeText("Tap the clothing tag.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_clothing_tag_c8aa5bb4.mp3",
+      text: "Tap the clothing tag.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_clothing_tag_c8aa5bb4.mp3",
+      text: "Tap the clothing tag.",
+    },
+  },
   [normalizeText("Tap the coaster.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_tap_coaster_5d25af24.mp3",
@@ -17823,6 +22973,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_coaster_5d25af24.mp3",
       text: "Tap the coaster.",
+    },
+  },
+  [normalizeText("Tap the collar.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_collar_bdc6620e.mp3",
+      text: "Tap the collar.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_collar_bdc6620e.mp3",
+      text: "Tap the collar.",
     },
   },
   [normalizeText("Tap the color.")]: {
@@ -18101,6 +23261,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the dream journal.",
     },
   },
+  [normalizeText("Tap the dress.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_tap_dress_49040478.mp3",
+      text: "Tap the dress.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_tap_dress_49040478.mp3",
+      text: "Tap the dress.",
+    },
+  },
   [normalizeText("Tap the drink bottle at the bottom right.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_choose_drink_f752a018.mp3",
@@ -18187,6 +23357,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the eraser.",
     },
   },
+  [normalizeText("Tap the face cloth.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_tap_face_cloth_ddb7f8e0.mp3",
+      text: "Tap the face cloth.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_tap_face_cloth_ddb7f8e0.mp3",
+      text: "Tap the face cloth.",
+    },
+  },
+  [normalizeText("Tap the favorite toy.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_tap_comfort_toy_8e8a61b8.mp3",
+      text: "Tap the favorite toy.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_tap_comfort_toy_8e8a61b8.mp3",
+      text: "Tap the favorite toy.",
+    },
+  },
+  [normalizeText("Tap the feelings card.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_tap_feelings_card_34b066d5.mp3",
+      text: "Tap the feelings card.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_tap_feelings_card_34b066d5.mp3",
+      text: "Tap the feelings card.",
+    },
+  },
   [normalizeText("Tap the fingers.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_fingers_0b573a05.mp3",
@@ -18243,6 +23443,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_flower_caa40ec2.mp3",
       text: "Tap the flower on the right.",
+    },
+  },
+  [normalizeText("Tap the flush button.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_flush_button_2e446ae8.mp3",
+      text: "Tap the flush button.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_flush_button_2e446ae8.mp3",
+      text: "Tap the flush button.",
     },
   },
   [normalizeText("Tap the foam.")]: {
@@ -18327,6 +23537,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the front door.",
     },
   },
+  [normalizeText("Tap the front.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_front_fe8ce14e.mp3",
+      text: "Tap the front.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_front_fe8ce14e.mp3",
+      text: "Tap the front.",
+    },
+  },
+  [normalizeText("Tap the frown.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_frown_6d372574.mp3",
+      text: "Tap the frown.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_frown_6d372574.mp3",
+      text: "Tap the frown.",
+    },
+  },
   [normalizeText("Tap the fruit plate to the left of the cake.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_tap_fruit_2dcf4725.mp3",
@@ -18407,6 +23637,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the habitat.",
     },
   },
+  [normalizeText("Tap the hair tie.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_tap_hair_tie_0646644d.mp3",
+      text: "Tap the hair tie.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_tap_hair_tie_0646644d.mp3",
+      text: "Tap the hair tie.",
+    },
+  },
   [normalizeText("Tap the hair.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_hair_c3c1f014.mp3",
@@ -18415,6 +23655,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_hair_c3c1f014.mp3",
       text: "Tap the hair.",
+    },
+  },
+  [normalizeText("Tap the hairbrush.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_tap_hairbrush_3b53df3f.mp3",
+      text: "Tap the hairbrush.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_tap_hairbrush_3b53df3f.mp3",
+      text: "Tap the hairbrush.",
     },
   },
   [normalizeText("Tap the hand gel.")]: {
@@ -18427,6 +23677,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand gel.",
     },
   },
+  [normalizeText("Tap the hand towel.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_tap_hand_towel_6eb10514.mp3",
+      text: "Tap the hand towel.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_hand_towel_6eb10514.mp3",
+      text: "Tap the hand towel.",
+    },
+  },
   [normalizeText("Tap the head.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_head_f33f5b3b.mp3",
@@ -18435,6 +23695,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_head_f33f5b3b.mp3",
       text: "Tap the head.",
+    },
+  },
+  [normalizeText("Tap the headphones.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_tap_headphones_9edaae14.mp3",
+      text: "Tap the headphones.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_tap_headphones_9edaae14.mp3",
+      text: "Tap the headphones.",
     },
   },
   [normalizeText("Tap the heel.")]: {
@@ -18641,6 +23911,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the list in the cart.",
     },
   },
+  [normalizeText("Tap the little fan.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_hot_6c7416b5.mp3",
+      text: "Tap the little fan.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_tap_hot_6c7416b5.mp3",
+      text: "Tap the little fan.",
+    },
+  },
   [normalizeText("Tap the lullaby.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_tap_lullaby_2dd7bc20.mp3",
@@ -18821,6 +24101,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the music.",
     },
   },
+  [normalizeText("Tap the nail clippers.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_tap_nail_clippers_cc0f7815.mp3",
+      text: "Tap the nail clippers.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_tap_nail_clippers_cc0f7815.mp3",
+      text: "Tap the nail clippers.",
+    },
+  },
   [normalizeText("Tap the napkin.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/prompt_tap_napkin_30441408.mp3",
@@ -18967,6 +24257,166 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picnic mat.",
     },
   },
+  [normalizeText("Tap the picture for angry.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_angry_875d49d2.mp3",
+      text: "Tap the picture for angry.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_angry_875d49d2.mp3",
+      text: "Tap the picture for angry.",
+    },
+  },
+  [normalizeText("Tap the picture for bathroom.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_bathroom_c669bb3b.mp3",
+      text: "Tap the picture for bathroom.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_bathroom_c669bb3b.mp3",
+      text: "Tap the picture for bathroom.",
+    },
+  },
+  [normalizeText("Tap the picture for belly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_tap_belly_5b16427d.mp3",
+      text: "Tap the picture for belly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_tap_belly_5b16427d.mp3",
+      text: "Tap the picture for belly.",
+    },
+  },
+  [normalizeText("Tap the picture for body signal.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_body_clue_fafb3ca6.mp3",
+      text: "Tap the picture for body signal.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_body_clue_fafb3ca6.mp3",
+      text: "Tap the picture for body signal.",
+    },
+  },
+  [normalizeText("Tap the picture for brave.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_brave_fe4c311c.mp3",
+      text: "Tap the picture for brave.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_brave_fe4c311c.mp3",
+      text: "Tap the picture for brave.",
+    },
+  },
+  [normalizeText("Tap the picture for breath.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_tap_breath_3e39136f.mp3",
+      text: "Tap the picture for breath.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_tap_breath_3e39136f.mp3",
+      text: "Tap the picture for breath.",
+    },
+  },
+  [normalizeText("Tap the picture for clean hands.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_tap_clean_hands_43b186c6.mp3",
+      text: "Tap the picture for clean hands.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_clean_hands_43b186c6.mp3",
+      text: "Tap the picture for clean hands.",
+    },
+  },
+  [normalizeText("Tap the picture for cough.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_tap_cough_45c61009.mp3",
+      text: "Tap the picture for cough.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_tap_cough_45c61009.mp3",
+      text: "Tap the picture for cough.",
+    },
+  },
+  [normalizeText("Tap the picture for curious.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_curious_aaf1c18f.mp3",
+      text: "Tap the picture for curious.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_curious_aaf1c18f.mp3",
+      text: "Tap the picture for curious.",
+    },
+  },
+  [normalizeText("Tap the picture for disappointed.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_disappointed_edccf85d.mp3",
+      text: "Tap the picture for disappointed.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_disappointed_edccf85d.mp3",
+      text: "Tap the picture for disappointed.",
+    },
+  },
+  [normalizeText("Tap the picture for dizzy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_dizzy_f623524b.mp3",
+      text: "Tap the picture for dizzy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_dizzy_f623524b.mp3",
+      text: "Tap the picture for dizzy.",
+    },
+  },
+  [normalizeText("Tap the picture for excited.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_excited_acc44c79.mp3",
+      text: "Tap the picture for excited.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_excited_acc44c79.mp3",
+      text: "Tap the picture for excited.",
+    },
+  },
+  [normalizeText("Tap the picture for fast breathing.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_quick_breath_09667aca.mp3",
+      text: "Tap the picture for fast breathing.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_quick_breath_09667aca.mp3",
+      text: "Tap the picture for fast breathing.",
+    },
+  },
+  [normalizeText("Tap the picture for fast heartbeat.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_heartbeat_c42b9e80.mp3",
+      text: "Tap the picture for fast heartbeat.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_heartbeat_c42b9e80.mp3",
+      text: "Tap the picture for fast heartbeat.",
+    },
+  },
+  [normalizeText("Tap the picture for happy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_happy_72f1051a.mp3",
+      text: "Tap the picture for happy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_happy_72f1051a.mp3",
+      text: "Tap the picture for happy.",
+    },
+  },
+  [normalizeText("Tap the picture for headache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_headache_0aab9b44.mp3",
+      text: "Tap the picture for headache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_headache_0aab9b44.mp3",
+      text: "Tap the picture for headache.",
+    },
+  },
   [normalizeText("Tap the picture for hear.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_hear_644a2a81.mp3",
@@ -18975,6 +24425,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_hear_644a2a81.mp3",
       text: "Tap the picture for hear.",
+    },
+  },
+  [normalizeText("Tap the picture for hungry.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_hungry_da97ab2e.mp3",
+      text: "Tap the picture for hungry.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_tap_hungry_da97ab2e.mp3",
+      text: "Tap the picture for hungry.",
+    },
+  },
+  [normalizeText("Tap the picture for hurt.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_hurt_c91b649d.mp3",
+      text: "Tap the picture for hurt.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_hurt_c91b649d.mp3",
+      text: "Tap the picture for hurt.",
+    },
+  },
+  [normalizeText("Tap the picture for itchy.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_itchy_91d2d1a2.mp3",
+      text: "Tap the picture for itchy.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_itchy_91d2d1a2.mp3",
+      text: "Tap the picture for itchy.",
+    },
+  },
+  [normalizeText("Tap the picture for laugh.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_laugh_db7f741a.mp3",
+      text: "Tap the picture for laugh.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_laugh_db7f741a.mp3",
+      text: "Tap the picture for laugh.",
     },
   },
   [normalizeText("Tap the picture for loud.")]: {
@@ -18987,6 +24477,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for loud.",
     },
   },
+  [normalizeText("Tap the picture for permission.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_tap_permission_2e6d054f.mp3",
+      text: "Tap the picture for permission.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_tap_permission_2e6d054f.mp3",
+      text: "Tap the picture for permission.",
+    },
+  },
+  [normalizeText("Tap the picture for personal space.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_tap_personal_space_124e5dec.mp3",
+      text: "Tap the picture for personal space.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_tap_personal_space_124e5dec.mp3",
+      text: "Tap the picture for personal space.",
+    },
+  },
+  [normalizeText("Tap the picture for privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_tap_privacy_29992b15.mp3",
+      text: "Tap the picture for privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_privacy_29992b15.mp3",
+      text: "Tap the picture for privacy.",
+    },
+  },
+  [normalizeText("Tap the picture for proud.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_proud_06f36d97.mp3",
+      text: "Tap the picture for proud.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_proud_06f36d97.mp3",
+      text: "Tap the picture for proud.",
+    },
+  },
   [normalizeText("Tap the picture for quiet.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_quiet_3d16ae1c.mp3",
@@ -18995,6 +24525,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_quiet_3d16ae1c.mp3",
       text: "Tap the picture for quiet.",
+    },
+  },
+  [normalizeText("Tap the picture for sad.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_sad_083d3e8a.mp3",
+      text: "Tap the picture for sad.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_sad_083d3e8a.mp3",
+      text: "Tap the picture for sad.",
+    },
+  },
+  [normalizeText("Tap the picture for safe.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_safe_c094dc3c.mp3",
+      text: "Tap the picture for safe.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_safe_c094dc3c.mp3",
+      text: "Tap the picture for safe.",
+    },
+  },
+  [normalizeText("Tap the picture for scared.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_scared_8b5df417.mp3",
+      text: "Tap the picture for scared.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_scared_8b5df417.mp3",
+      text: "Tap the picture for scared.",
     },
   },
   [normalizeText("Tap the picture for see.")]: {
@@ -19007,6 +24567,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for see.",
     },
   },
+  [normalizeText("Tap the picture for shaky legs.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_shaky_legs_1359b8a9.mp3",
+      text: "Tap the picture for shaky legs.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_shaky_legs_1359b8a9.mp3",
+      text: "Tap the picture for shaky legs.",
+    },
+  },
+  [normalizeText("Tap the picture for shy.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_shy_3941ea9b.mp3",
+      text: "Tap the picture for shy.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_shy_3941ea9b.mp3",
+      text: "Tap the picture for shy.",
+    },
+  },
   [normalizeText("Tap the picture for smell.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_smell_beda72cb.mp3",
@@ -19015,6 +24595,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_smell_beda72cb.mp3",
       text: "Tap the picture for smell.",
+    },
+  },
+  [normalizeText("Tap the picture for sneeze.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_tap_sneeze_35d5049c.mp3",
+      text: "Tap the picture for sneeze.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_tap_sneeze_35d5049c.mp3",
+      text: "Tap the picture for sneeze.",
     },
   },
   [normalizeText("Tap the picture for soft.")]: {
@@ -19027,6 +24617,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for soft.",
     },
   },
+  [normalizeText("Tap the picture for sore throat.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_sore_throat_30ce75ac.mp3",
+      text: "Tap the picture for sore throat.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_sore_throat_30ce75ac.mp3",
+      text: "Tap the picture for sore throat.",
+    },
+  },
   [normalizeText("Tap the picture for sour.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_sour_64cdd503.mp3",
@@ -19035,6 +24635,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_sour_64cdd503.mp3",
       text: "Tap the picture for sour.",
+    },
+  },
+  [normalizeText("Tap the picture for surprised.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/prompt_tap_surprised_0e4ec532.mp3",
+      text: "Tap the picture for surprised.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/prompt_tap_surprised_0e4ec532.mp3",
+      text: "Tap the picture for surprised.",
     },
   },
   [normalizeText("Tap the picture for sweet.")]: {
@@ -19057,6 +24667,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for taste.",
     },
   },
+  [normalizeText("Tap the picture for tight fists.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_tight_fists_c28b3c84.mp3",
+      text: "Tap the picture for tight fists.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_tight_fists_c28b3c84.mp3",
+      text: "Tap the picture for tight fists.",
+    },
+  },
   [normalizeText("Tap the picture for touch.")]: {
     "en-US": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_touch_a3cb8049.mp3",
@@ -19067,6 +24687,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for touch.",
     },
   },
+  [normalizeText("Tap the picture for trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_tap_trusted_grown_up_c783f699.mp3",
+      text: "Tap the picture for trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_tap_trusted_grown_up_c783f699.mp3",
+      text: "Tap the picture for trusted grown-up.",
+    },
+  },
+  [normalizeText("Tap the picture for tummy ache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_tap_tummy_ache_48e00cdb.mp3",
+      text: "Tap the picture for tummy ache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_tap_tummy_ache_48e00cdb.mp3",
+      text: "Tap the picture for tummy ache.",
+    },
+  },
+  [normalizeText("Tap the picture for uncomfortable.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_uncomfortable_3f65ddd7.mp3",
+      text: "Tap the picture for uncomfortable.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_tap_uncomfortable_3f65ddd7.mp3",
+      text: "Tap the picture for uncomfortable.",
+    },
+  },
+  [normalizeText("Tap the picture for upset.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_upset_71566d8a.mp3",
+      text: "Tap the picture for upset.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_upset_71566d8a.mp3",
+      text: "Tap the picture for upset.",
+    },
+  },
+  [normalizeText("Tap the picture for warm face.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_tap_warm_face_770335ba.mp3",
+      text: "Tap the picture for warm face.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_tap_warm_face_770335ba.mp3",
+      text: "Tap the picture for warm face.",
+    },
+  },
+  [normalizeText("Tap the picture for worried.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/prompt_tap_worried_2928b953.mp3",
+      text: "Tap the picture for worried.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/prompt_tap_worried_2928b953.mp3",
+      text: "Tap the picture for worried.",
+    },
+  },
   [normalizeText("Tap the piglet.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_piglet_4ad245dd.mp3",
@@ -19075,6 +24755,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_piglet_4ad245dd.mp3",
       text: "Tap the piglet.",
+    },
+  },
+  [normalizeText("Tap the pillow and blanket.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_tired_6c5f7df3.mp3",
+      text: "Tap the pillow and blanket.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_tap_tired_6c5f7df3.mp3",
+      text: "Tap the pillow and blanket.",
     },
   },
   [normalizeText("Tap the pillow.")]: {
@@ -19089,6 +24779,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_pillow_02f6fc23.mp3",
       text: "Tap the pillow.",
+    },
+  },
+  [normalizeText("Tap the pinwheel.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_tap_pinwheel_3d1f85e3.mp3",
+      text: "Tap the pinwheel.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_tap_pinwheel_3d1f85e3.mp3",
+      text: "Tap the pinwheel.",
     },
   },
   [normalizeText("Tap the plant pot on the right.")]: {
@@ -19127,6 +24827,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_pot_holder_289cb3d4.mp3",
       text: "Tap the pot holder.",
+    },
+  },
+  [normalizeText("Tap the potty.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_potty_42b5f182.mp3",
+      text: "Tap the potty.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_potty_42b5f182.mp3",
+      text: "Tap the potty.",
     },
   },
   [normalizeText("Tap the prize on the right side of the bench.")]: {
@@ -19173,6 +24883,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puzzle.",
     },
   },
+  [normalizeText("Tap the quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_tap_quiet_corner_f95a1d59.mp3",
+      text: "Tap the quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_tap_quiet_corner_f95a1d59.mp3",
+      text: "Tap the quiet corner.",
+    },
+  },
   [normalizeText("Tap the quiet sign.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_quiet_sign_a3417d4e.mp3",
@@ -19181,6 +24901,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_quiet_sign_a3417d4e.mp3",
       text: "Tap the quiet sign.",
+    },
+  },
+  [normalizeText("Tap the raincoat.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_tap_raincoat_629c44c5.mp3",
+      text: "Tap the raincoat.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_tap_raincoat_629c44c5.mp3",
+      text: "Tap the raincoat.",
     },
   },
   [normalizeText("Tap the raisins.")]: {
@@ -19355,6 +25085,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the scanner left of the payment card.",
     },
   },
+  [normalizeText("Tap the scarf.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_cold_170fbd93.mp3",
+      text: "Tap the scarf.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/prompt_tap_cold_170fbd93.mp3",
+      text: "Tap the scarf.",
+    },
+  },
   [normalizeText("Tap the school.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_review_school_ac4e92c8.mp3",
@@ -19503,6 +25243,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the shelf.",
     },
   },
+  [normalizeText("Tap the shirt sleeve.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_tap_sleeve_ceceee8e.mp3",
+      text: "Tap the shirt sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_tap_sleeve_ceceee8e.mp3",
+      text: "Tap the shirt sleeve.",
+    },
+  },
+  [normalizeText("Tap the shoe strap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_tap_shoe_strap_6ee1f027.mp3",
+      text: "Tap the shoe strap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_shoe_strap_6ee1f027.mp3",
+      text: "Tap the shoe strap.",
+    },
+  },
+  [normalizeText("Tap the shoelace.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_tap_shoelace_30e3b73c.mp3",
+      text: "Tap the shoelace.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_shoelace_30e3b73c.mp3",
+      text: "Tap the shoelace.",
+    },
+  },
   [normalizeText("Tap the shoes.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_tap_shoes_c174f086.mp3",
@@ -19597,6 +25367,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the sleep mask.",
     },
   },
+  [normalizeText("Tap the sleeve.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_sleeve_b515a5a3.mp3",
+      text: "Tap the sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_sleeve_b515a5a3.mp3",
+      text: "Tap the sleeve.",
+    },
+  },
   [normalizeText("Tap the slide.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_slide_e34fad6a.mp3",
@@ -19631,6 +25411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small bag on the right.",
     },
   },
+  [normalizeText("Tap the smile.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_smile_52d1ce30.mp3",
+      text: "Tap the smile.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_smile_52d1ce30.mp3",
+      text: "Tap the smile.",
+    },
+  },
   [normalizeText("Tap the snack box.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_tap_snack_box_03f7d4f4.mp3",
@@ -19657,6 +25447,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-prep/audio/en/prompt_tap_snack_35f57f65.mp3",
       text: "Tap the snack.",
+    },
+  },
+  [normalizeText("Tap the snap fastener.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_tap_snap_fastener_e0ecfe93.mp3",
+      text: "Tap the snap fastener.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_snap_fastener_e0ecfe93.mp3",
+      text: "Tap the snap fastener.",
+    },
+  },
+  [normalizeText("Tap the soap bar.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_tap_soap_bar_b4f5022d.mp3",
+      text: "Tap the soap bar.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_tap_soap_bar_b4f5022d.mp3",
+      text: "Tap the soap bar.",
     },
   },
   [normalizeText("Tap the soap.")]: {
@@ -19787,6 +25597,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the star projector.",
     },
   },
+  [normalizeText("Tap the step stool.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_step_stool_7496b879.mp3",
+      text: "Tap the step stool.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_step_stool_7496b879.mp3",
+      text: "Tap the step stool.",
+    },
+  },
   [normalizeText("Tap the stethoscope.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_stethoscope_41558764.mp3",
@@ -19889,6 +25709,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the sunscreen.",
     },
   },
+  [normalizeText("Tap the sweater.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_tap_sweater_1c819656.mp3",
+      text: "Tap the sweater.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_tap_sweater_1c819656.mp3",
+      text: "Tap the sweater.",
+    },
+  },
   [normalizeText("Tap the swing.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_tap_swing_8c5c43bd.mp3",
@@ -19901,6 +25731,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/prompt_tap_swing_8c5c43bd.mp3",
       text: "Tap the swing.",
+    },
+  },
+  [normalizeText("Tap the T-shirt.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_tap_t_shirt_32b05701.mp3",
+      text: "Tap the T-shirt.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_tap_t_shirt_32b05701.mp3",
+      text: "Tap the T-shirt.",
     },
   },
   [normalizeText("Tap the table.")]: {
@@ -19939,6 +25779,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_tap_team_79b39373.mp3",
       text: "Tap the team.",
+    },
+  },
+  [normalizeText("Tap the tears.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_tears_2f6ab8ca.mp3",
+      text: "Tap the tears.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_tap_tears_2f6ab8ca.mp3",
+      text: "Tap the tears.",
     },
   },
   [normalizeText("Tap the thank-you card next to the cashier.")]: {
@@ -20015,6 +25865,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the toes.",
     },
   },
+  [normalizeText("Tap the toilet paper.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_toilet_paper_21d16659.mp3",
+      text: "Tap the toilet paper.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_toilet_paper_21d16659.mp3",
+      text: "Tap the toilet paper.",
+    },
+  },
+  [normalizeText("Tap the toilet seat.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_toilet_seat_63eb7fd7.mp3",
+      text: "Tap the toilet seat.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_toilet_seat_63eb7fd7.mp3",
+      text: "Tap the toilet seat.",
+    },
+  },
+  [normalizeText("Tap the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_toilet_16aa9053.mp3",
+      text: "Tap the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_tap_toilet_16aa9053.mp3",
+      text: "Tap the toilet.",
+    },
+  },
+  [normalizeText("Tap the toiletry bag.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_tap_toiletry_bag_5ce9deb9.mp3",
+      text: "Tap the toiletry bag.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_tap_toiletry_bag_5ce9deb9.mp3",
+      text: "Tap the toiletry bag.",
+    },
+  },
   [normalizeText("Tap the tomato in the basket of vegetables.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_tomato_2b0a22e6.mp3",
@@ -20039,6 +25929,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the tongs.",
     },
   },
+  [normalizeText("Tap the toothbrush cup.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_tap_toothbrush_holder_f7ff890a.mp3",
+      text: "Tap the toothbrush cup.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_tap_toothbrush_holder_f7ff890a.mp3",
+      text: "Tap the toothbrush cup.",
+    },
+  },
   [normalizeText("Tap the toothbrush.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_tap_toothbrush_9d63c70c.mp3",
@@ -20051,6 +25951,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/prompt_tap_toothbrush_9d63c70c.mp3",
       text: "Tap the toothbrush.",
+    },
+  },
+  [normalizeText("Tap the toothpaste.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_tap_toothpaste_eeb30682.mp3",
+      text: "Tap the toothpaste.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_tap_toothpaste_eeb30682.mp3",
+      text: "Tap the toothpaste.",
     },
   },
   [normalizeText("Tap the towel.")]: {
@@ -20105,6 +26015,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the trash bin.",
     },
   },
+  [normalizeText("Tap the trash can.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_tap_trash_can_c2a7ca44.mp3",
+      text: "Tap the trash can.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_tap_trash_can_c2a7ca44.mp3",
+      text: "Tap the trash can.",
+    },
+  },
   [normalizeText("Tap the tray.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/prompt_tap_tray_6d12e2d9.mp3",
@@ -20127,6 +26047,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_tree_3e01fb9c.mp3",
       text: "Tap the tree.",
+    },
+  },
+  [normalizeText("Tap the trousers.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_trousers_9e91c7fc.mp3",
+      text: "Tap the trousers.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_trousers_9e91c7fc.mp3",
+      text: "Tap the trousers.",
+    },
+  },
+  [normalizeText("Tap the underwear.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_underwear_0154e412.mp3",
+      text: "Tap the underwear.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_underwear_0154e412.mp3",
+      text: "Tap the underwear.",
     },
   },
   [normalizeText("Tap the uniform.")]: {
@@ -20157,6 +26097,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the vegetables.",
     },
   },
+  [normalizeText("Tap the waistband.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_tap_waistband_ea3939b2.mp3",
+      text: "Tap the waistband.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_tap_waistband_ea3939b2.mp3",
+      text: "Tap the waistband.",
+    },
+  },
   [normalizeText("Tap the waiting room.")]: {
     "en-US": {
       key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_waiting_room_c8a25f5e.mp3",
@@ -20175,6 +26125,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_tap_wallet_7cddb46e.mp3",
       text: "Tap the wallet in the red basket.",
+    },
+  },
+  [normalizeText("Tap the waste bin.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_waste_bin_cf387a59.mp3",
+      text: "Tap the waste bin.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_tap_waste_bin_cf387a59.mp3",
+      text: "Tap the waste bin.",
     },
   },
   [normalizeText("Tap the water bottle.")]: {
@@ -20219,6 +26179,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_weighing_scale_2179da0c.mp3",
       text: "Tap the weighing scale.",
+    },
+  },
+  [normalizeText("Tap the wet floor sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_tap_wet_floor_sign_0a78ed0c.mp3",
+      text: "Tap the wet floor sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_wet_floor_sign_0a78ed0c.mp3",
+      text: "Tap the wet floor sign.",
     },
   },
   [normalizeText("Tap the window.")]: {
@@ -20391,6 +26361,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/team.mp3",
       text: "team",
+    },
+  },
+  [normalizeText("tears")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/tears.mp3",
+      text: "tears",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/tears.mp3",
+      text: "tears",
+    },
+  },
+  [normalizeText("tell a trusted grown-up")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/tell_a_trusted_grown_up.mp3",
+      text: "tell a trusted grown-up",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/tell_a_trusted_grown_up.mp3",
+      text: "tell a trusted grown-up",
     },
   },
   [normalizeText("tell where it hurts")]: {
@@ -24513,6 +30503,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The coaster is on the serving cart.",
     },
   },
+  [normalizeText("The collar and tag can help you find the front and back.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/intro_success_6036de9e.mp3",
+      text: "The collar and tag can help you find the front and back.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/intro_success_6036de9e.mp3",
+      text: "The collar and tag can help you find the front and back.",
+    },
+  },
   [normalizeText("The comb is on the small shelf.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_comb_fail_1432ed4e.mp3",
@@ -27553,6 +33553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the blocks.",
     },
   },
+  [normalizeText("These are the clean hands.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_clean_hands_6b036995.mp3",
+      text: "These are the clean hands.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_clean_hands_6b036995.mp3",
+      text: "These are the clean hands.",
+    },
+  },
   [normalizeText("These are the crumbs.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/prompt_cleanup_teach_crumbs_038a9cd5.mp3",
@@ -27613,6 +33623,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the grapes.",
     },
   },
+  [normalizeText("These are the headphones.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_headphones_66ed8fc9.mp3",
+      text: "These are the headphones.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_headphones_66ed8fc9.mp3",
+      text: "These are the headphones.",
+    },
+  },
   [normalizeText("These are the leftovers.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_teach_leftovers_6e52be42.mp3",
@@ -27621,6 +33641,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_teach_leftovers_6e52be42.mp3",
       text: "These are the leftovers.",
+    },
+  },
+  [normalizeText("These are the nail clippers.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_nail_clippers_0b24dfee.mp3",
+      text: "These are the nail clippers.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_nail_clippers_0b24dfee.mp3",
+      text: "These are the nail clippers.",
     },
   },
   [normalizeText("These are the noodles.")]: {
@@ -27663,6 +33693,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the rubber gloves.",
     },
   },
+  [normalizeText("These are the shaky legs.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_shaky_legs_6455352f.mp3",
+      text: "These are the shaky legs.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_shaky_legs_6455352f.mp3",
+      text: "These are the shaky legs.",
+    },
+  },
   [normalizeText("These are the shoes.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_teach_shoes_89a4160b.mp3",
@@ -27671,6 +33711,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/go-to-school/audio/en-GB/neural2-c-r1/prompt_school_teach_shoes_89a4160b.mp3",
       text: "These are the shoes.",
+    },
+  },
+  [normalizeText("These are the shorts.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_shorts_4bd3860f.mp3",
+      text: "These are the shorts.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_shorts_4bd3860f.mp3",
+      text: "These are the shorts.",
     },
   },
   [normalizeText("These are the slippers.")]: {
@@ -27703,6 +33753,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the sunglasses.",
     },
   },
+  [normalizeText("These are the tears.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_tears_f7d7fdc8.mp3",
+      text: "These are the tears.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_tears_f7d7fdc8.mp3",
+      text: "These are the tears.",
+    },
+  },
+  [normalizeText("These are the tight fists.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_tight_fists_fdcb7aeb.mp3",
+      text: "These are the tight fists.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_tight_fists_fdcb7aeb.mp3",
+      text: "These are the tight fists.",
+    },
+  },
   [normalizeText("These are the toes.")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_toes_eb26927c.mp3",
@@ -27723,6 +33793,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the tongs.",
     },
   },
+  [normalizeText("These are the trousers.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_trousers_f916e7ac.mp3",
+      text: "These are the trousers.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_trousers_f916e7ac.mp3",
+      text: "These are the trousers.",
+    },
+  },
   [normalizeText("These are the vegetables.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_teach_vegetables_c81768c2.mp3",
@@ -27731,6 +33811,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/prompt_teach_vegetables_c81768c2.mp3",
       text: "These are the vegetables.",
+    },
+  },
+  [normalizeText("thirsty")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/thirsty.mp3",
+      text: "thirsty",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/thirsty.mp3",
+      text: "thirsty",
     },
   },
   [normalizeText("This is dinner.")]: {
@@ -27819,6 +33909,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_arm_c5b33ffe.mp3",
       text: "This is the arm.",
+    },
+  },
+  [normalizeText("This is the back.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_back_410ea0cc.mp3",
+      text: "This is the back.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_back_410ea0cc.mp3",
+      text: "This is the back.",
     },
   },
   [normalizeText("This is the bag.")]: {
@@ -27935,6 +34035,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the bath sponge.",
     },
   },
+  [normalizeText("This is the bathroom door.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_bathroom_door_2b8c7a3e.mp3",
+      text: "This is the bathroom door.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_bathroom_door_2b8c7a3e.mp3",
+      text: "This is the bathroom door.",
+    },
+  },
+  [normalizeText("This is the bathroom sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_bathroom_sign_ca837ae3.mp3",
+      text: "This is the bathroom sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_bathroom_sign_ca837ae3.mp3",
+      text: "This is the bathroom sign.",
+    },
+  },
+  [normalizeText("This is the bathroom.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_bathroom_418738b4.mp3",
+      text: "This is the bathroom.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_bathroom_418738b4.mp3",
+      text: "This is the bathroom.",
+    },
+  },
   [normalizeText("This is the bathtub.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_teach_bathtub_9c88f3d4.mp3",
@@ -28003,6 +34133,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the bell.",
     },
   },
+  [normalizeText("This is the belly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_belly_9910a7d2.mp3",
+      text: "This is the belly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_belly_9910a7d2.mp3",
+      text: "This is the belly.",
+    },
+  },
   [normalizeText("This is the bench.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_teach_bench_ca322aac.mp3",
@@ -28043,6 +34183,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/classroom/audio/en/prompt_teach_board_f2125fda.mp3",
       text: "This is the board.",
+    },
+  },
+  [normalizeText("This is the body signal.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_body_clue_037aaada.mp3",
+      text: "This is the body signal.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_body_clue_037aaada.mp3",
+      text: "This is the body signal.",
     },
   },
   [normalizeText("This is the body wash.")]: {
@@ -28149,6 +34299,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the box.",
     },
   },
+  [normalizeText("This is the breath.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_breath_3a151386.mp3",
+      text: "This is the breath.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_breath_3a151386.mp3",
+      text: "This is the breath.",
+    },
+  },
   [normalizeText("This is the bubble.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_teach_bubble_c7c0afbd.mp3",
@@ -28177,6 +34337,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the bucket.",
     },
   },
+  [normalizeText("This is the buckle.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_buckle_a26aac44.mp3",
+      text: "This is the buckle.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_buckle_a26aac44.mp3",
+      text: "This is the buckle.",
+    },
+  },
   [normalizeText("This is the bus.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_teach_bus_08262c43.mp3",
@@ -28189,6 +34359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_bus_08262c43.mp3",
       text: "This is the bus.",
+    },
+  },
+  [normalizeText("This is the button.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_button_1a3fd77b.mp3",
+      text: "This is the button.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_button_1a3fd77b.mp3",
+      text: "This is the button.",
     },
   },
   [normalizeText("This is the cabinet.")]: {
@@ -28233,6 +34413,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/prompt_teach_candle_8a4b0ad2.mp3",
       text: "This is the candle.",
+    },
+  },
+  [normalizeText("This is the cap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_cap_1cbb472e.mp3",
+      text: "This is the cap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_cap_1cbb472e.mp3",
+      text: "This is the cap.",
     },
   },
   [normalizeText("This is the car.")]: {
@@ -28427,6 +34617,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the cloth.",
     },
   },
+  [normalizeText("This is the clothing tag.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_clothing_tag_08b90a63.mp3",
+      text: "This is the clothing tag.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_clothing_tag_08b90a63.mp3",
+      text: "This is the clothing tag.",
+    },
+  },
   [normalizeText("This is the coaster.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_teach_coaster_018fe974.mp3",
@@ -28439,6 +34639,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_coaster_018fe974.mp3",
       text: "This is the coaster.",
+    },
+  },
+  [normalizeText("This is the collar.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_collar_d30c1e03.mp3",
+      text: "This is the collar.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_collar_d30c1e03.mp3",
+      text: "This is the collar.",
     },
   },
   [normalizeText("This is the color.")]: {
@@ -28755,6 +34965,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the dream journal.",
     },
   },
+  [normalizeText("This is the dress.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_dress_fd1c06c8.mp3",
+      text: "This is the dress.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_dress_fd1c06c8.mp3",
+      text: "This is the dress.",
+    },
+  },
   [normalizeText("This is the drum.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/prompt_teach_drum_94a68aa8.mp3",
@@ -28835,6 +35055,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the eraser.",
     },
   },
+  [normalizeText("This is the face cloth.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_face_cloth_0f2c3fbc.mp3",
+      text: "This is the face cloth.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_face_cloth_0f2c3fbc.mp3",
+      text: "This is the face cloth.",
+    },
+  },
   [normalizeText("This is the family photo.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_teach_family_photo_bf891a24.mp3",
@@ -28843,6 +35073,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_teach_family_photo_bf891a24.mp3",
       text: "This is the family photo.",
+    },
+  },
+  [normalizeText("This is the fast breathing.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_quick_breath_4cda7ab7.mp3",
+      text: "This is the fast breathing.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_quick_breath_4cda7ab7.mp3",
+      text: "This is the fast breathing.",
+    },
+  },
+  [normalizeText("This is the fast heartbeat.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_heartbeat_812dd757.mp3",
+      text: "This is the fast heartbeat.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_heartbeat_812dd757.mp3",
+      text: "This is the fast heartbeat.",
+    },
+  },
+  [normalizeText("This is the favorite toy.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_comfort_toy_89d99c67.mp3",
+      text: "This is the favorite toy.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_comfort_toy_89d99c67.mp3",
+      text: "This is the favorite toy.",
+    },
+  },
+  [normalizeText("This is the feather.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_feather_5d019e38.mp3",
+      text: "This is the feather.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_feather_5d019e38.mp3",
+      text: "This is the feather.",
+    },
+  },
+  [normalizeText("This is the feelings card.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_feelings_card_be2864c0.mp3",
+      text: "This is the feelings card.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_feelings_card_be2864c0.mp3",
+      text: "This is the feelings card.",
     },
   },
   [normalizeText("This is the fish.")]: {
@@ -28891,6 +35171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_teach_flower_fcf303bb.mp3",
       text: "This is the flower.",
+    },
+  },
+  [normalizeText("This is the flush button.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_flush_button_d34b3ebb.mp3",
+      text: "This is the flush button.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_flush_button_d34b3ebb.mp3",
+      text: "This is the flush button.",
     },
   },
   [normalizeText("This is the foam.")]: {
@@ -28977,6 +35267,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/prompt_teach_front_door_64315d17.mp3",
       text: "This is the front door.",
+    },
+  },
+  [normalizeText("This is the front.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_front_77a3dbfb.mp3",
+      text: "This is the front.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_front_77a3dbfb.mp3",
+      text: "This is the front.",
+    },
+  },
+  [normalizeText("This is the frown.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_frown_62d691dd.mp3",
+      text: "This is the frown.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_frown_62d691dd.mp3",
+      text: "This is the frown.",
     },
   },
   [normalizeText("This is the fruit plate.")]: {
@@ -29107,6 +35417,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the habitat.",
     },
   },
+  [normalizeText("This is the hair tie.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_hair_tie_69fe7434.mp3",
+      text: "This is the hair tie.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_hair_tie_69fe7434.mp3",
+      text: "This is the hair tie.",
+    },
+  },
+  [normalizeText("This is the hairbrush.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/prompt_teach_hairbrush_21ff5558.mp3",
+      text: "This is the hairbrush.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/prompt_teach_hairbrush_21ff5558.mp3",
+      text: "This is the hairbrush.",
+    },
+  },
   [normalizeText("This is the hand gel.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_teach_hand_gel_5bd44296.mp3",
@@ -29117,6 +35447,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the hand gel.",
     },
   },
+  [normalizeText("This is the hand soap.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_hand_soap_f4c88e14.mp3",
+      text: "This is the hand soap.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_hand_soap_f4c88e14.mp3",
+      text: "This is the hand soap.",
+    },
+  },
+  [normalizeText("This is the hand towel.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_hand_towel_2504b2de.mp3",
+      text: "This is the hand towel.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_hand_towel_2504b2de.mp3",
+      text: "This is the hand towel.",
+    },
+  },
   [normalizeText("This is the head.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_head_953eed0e.mp3",
@@ -29125,6 +35475,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_head_953eed0e.mp3",
       text: "This is the head.",
+    },
+  },
+  [normalizeText("This is the headache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_headache_a32bb708.mp3",
+      text: "This is the headache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_headache_a32bb708.mp3",
+      text: "This is the headache.",
     },
   },
   [normalizeText("This is the heel.")]: {
@@ -29699,6 +36059,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the pencil.",
     },
   },
+  [normalizeText("This is the permission.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_permission_0f2188cf.mp3",
+      text: "This is the permission.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_permission_0f2188cf.mp3",
+      text: "This is the permission.",
+    },
+  },
+  [normalizeText("This is the personal space.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_personal_space_025f778c.mp3",
+      text: "This is the personal space.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_personal_space_025f778c.mp3",
+      text: "This is the personal space.",
+    },
+  },
   [normalizeText("This is the picnic mat.")]: {
     "en-US": {
       key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/prompt_teach_picnic_mat_2967a0ce.mp3",
@@ -29741,6 +36121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_pillow_7da0c07c.mp3",
       text: "This is the pillow.",
+    },
+  },
+  [normalizeText("This is the pinwheel.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_teach_pinwheel_e6658d6d.mp3",
+      text: "This is the pinwheel.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_teach_pinwheel_e6658d6d.mp3",
+      text: "This is the pinwheel.",
     },
   },
   [normalizeText("This is the placemat.")]: {
@@ -29809,6 +36199,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the pot holder.",
     },
   },
+  [normalizeText("This is the potty.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_potty_fc8f8757.mp3",
+      text: "This is the potty.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_potty_fc8f8757.mp3",
+      text: "This is the potty.",
+    },
+  },
+  [normalizeText("This is the privacy.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_privacy_6f6396fc.mp3",
+      text: "This is the privacy.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_privacy_6f6396fc.mp3",
+      text: "This is the privacy.",
+    },
+  },
   [normalizeText("This is the prize.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_teach_prize_da88a8e2.mp3",
@@ -29843,6 +36253,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the puzzle.",
     },
   },
+  [normalizeText("This is the quiet corner.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/prompt_teach_quiet_corner_f061c673.mp3",
+      text: "This is the quiet corner.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/prompt_teach_quiet_corner_f061c673.mp3",
+      text: "This is the quiet corner.",
+    },
+  },
   [normalizeText("This is the quiet sign.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_quiet_sign_f9832d45.mp3",
@@ -29851,6 +36271,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_teach_quiet_sign_f9832d45.mp3",
       text: "This is the quiet sign.",
+    },
+  },
+  [normalizeText("This is the raincoat.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_raincoat_7b5bda88.mp3",
+      text: "This is the raincoat.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_raincoat_7b5bda88.mp3",
+      text: "This is the raincoat.",
     },
   },
   [normalizeText("This is the reading chair.")]: {
@@ -30245,6 +36675,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the shell.",
     },
   },
+  [normalizeText("This is the shirt sleeve.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_sleeve_d3c7272d.mp3",
+      text: "This is the shirt sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_sleeve_d3c7272d.mp3",
+      text: "This is the shirt sleeve.",
+    },
+  },
+  [normalizeText("This is the shoe strap.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_shoe_strap_e98b8866.mp3",
+      text: "This is the shoe strap.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_shoe_strap_e98b8866.mp3",
+      text: "This is the shoe strap.",
+    },
+  },
+  [normalizeText("This is the shoelace.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_shoelace_408f6a5a.mp3",
+      text: "This is the shoelace.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_shoelace_408f6a5a.mp3",
+      text: "This is the shoelace.",
+    },
+  },
   [normalizeText("This is the shopping bag.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_teach_bag_dd0551a7.mp3",
@@ -30345,6 +36805,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the sleep mask.",
     },
   },
+  [normalizeText("This is the sleeve.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_sleeve_f8370c41.mp3",
+      text: "This is the sleeve.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_sleeve_f8370c41.mp3",
+      text: "This is the sleeve.",
+    },
+  },
   [normalizeText("This is the slide.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_teach_slide_19177b69.mp3",
@@ -30393,6 +36863,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the small table.",
     },
   },
+  [normalizeText("This is the smile.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_teach_smile_955a0005.mp3",
+      text: "This is the smile.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/prompt_teach_smile_955a0005.mp3",
+      text: "This is the smile.",
+    },
+  },
   [normalizeText("This is the snack box.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_teach_snack_box_472517e5.mp3",
@@ -30421,6 +36901,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the snack.",
     },
   },
+  [normalizeText("This is the snap fastener.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_snap_fastener_75fd3e63.mp3",
+      text: "This is the snap fastener.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_snap_fastener_75fd3e63.mp3",
+      text: "This is the snap fastener.",
+    },
+  },
+  [normalizeText("This is the soap bar.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_soap_bar_ee2d9468.mp3",
+      text: "This is the soap bar.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_soap_bar_ee2d9468.mp3",
+      text: "This is the soap bar.",
+    },
+  },
   [normalizeText("This is the soap.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/prompt_teach_soap_18ead48a.mp3",
@@ -30443,6 +36943,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/sleep-ready/audio/en-GB/neural2-c-r1/prompt_teach_comfort_plush_aaa3c0ea.mp3",
       text: "This is the soft toy.",
+    },
+  },
+  [normalizeText("This is the sore throat.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_sore_throat_f7966d63.mp3",
+      text: "This is the sore throat.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_sore_throat_f7966d63.mp3",
+      text: "This is the sore throat.",
     },
   },
   [normalizeText("This is the sound machine.")]: {
@@ -30551,6 +37061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_teach_star_projector_4d16d562.mp3",
       text: "This is the star projector.",
+    },
+  },
+  [normalizeText("This is the step stool.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_step_stool_ccc22557.mp3",
+      text: "This is the step stool.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_step_stool_ccc22557.mp3",
+      text: "This is the step stool.",
     },
   },
   [normalizeText("This is the stethoscope.")]: {
@@ -30679,6 +37199,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the sunscreen.",
     },
   },
+  [normalizeText("This is the sweater.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_sweater_b94c4d32.mp3",
+      text: "This is the sweater.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_sweater_b94c4d32.mp3",
+      text: "This is the sweater.",
+    },
+  },
   [normalizeText("This is the swing.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_teach_swing_e8ec85b4.mp3",
@@ -30691,6 +37221,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/prompt_teach_swing_e8ec85b4.mp3",
       text: "This is the swing.",
+    },
+  },
+  [normalizeText("This is the T-shirt.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/prompt_teach_t_shirt_77ef537a.mp3",
+      text: "This is the T-shirt.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/prompt_teach_t_shirt_77ef537a.mp3",
+      text: "This is the T-shirt.",
     },
   },
   [normalizeText("This is the table.")]: {
@@ -30795,6 +37335,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the tissue.",
     },
   },
+  [normalizeText("This is the toilet paper.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_toilet_paper_9abf712d.mp3",
+      text: "This is the toilet paper.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_toilet_paper_9abf712d.mp3",
+      text: "This is the toilet paper.",
+    },
+  },
+  [normalizeText("This is the toilet seat.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_toilet_seat_dc48438d.mp3",
+      text: "This is the toilet seat.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_toilet_seat_dc48438d.mp3",
+      text: "This is the toilet seat.",
+    },
+  },
+  [normalizeText("This is the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_teach_toilet_f30b8ca5.mp3",
+      text: "This is the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/prompt_teach_toilet_f30b8ca5.mp3",
+      text: "This is the toilet.",
+    },
+  },
+  [normalizeText("This is the toiletry bag.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_toiletry_bag_9a294e9d.mp3",
+      text: "This is the toiletry bag.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_toiletry_bag_9a294e9d.mp3",
+      text: "This is the toiletry bag.",
+    },
+  },
   [normalizeText("This is the tomato.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_teach_tomato_9a6c2baf.mp3",
@@ -30803,6 +37383,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_teach_tomato_9a6c2baf.mp3",
       text: "This is the tomato.",
+    },
+  },
+  [normalizeText("This is the toothbrush cup.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_teach_toothbrush_holder_d3d9c3bb.mp3",
+      text: "This is the toothbrush cup.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_teach_toothbrush_holder_d3d9c3bb.mp3",
+      text: "This is the toothbrush cup.",
     },
   },
   [normalizeText("This is the toothbrush.")]: {
@@ -30889,6 +37479,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the trash bin.",
     },
   },
+  [normalizeText("This is the trash can.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/prompt_teach_trash_can_6f084437.mp3",
+      text: "This is the trash can.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/prompt_teach_trash_can_6f084437.mp3",
+      text: "This is the trash can.",
+    },
+  },
   [normalizeText("This is the tray.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/prompt_teach_tray_a315abcf.mp3",
@@ -30913,6 +37513,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the tree.",
     },
   },
+  [normalizeText("This is the trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/prompt_teach_trusted_grown_up_603cc266.mp3",
+      text: "This is the trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/prompt_teach_trusted_grown_up_603cc266.mp3",
+      text: "This is the trusted grown-up.",
+    },
+  },
+  [normalizeText("This is the tummy ache.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/prompt_teach_tummy_ache_e7fcdc73.mp3",
+      text: "This is the tummy ache.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/prompt_teach_tummy_ache_e7fcdc73.mp3",
+      text: "This is the tummy ache.",
+    },
+  },
+  [normalizeText("This is the underwear.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_underwear_0604991b.mp3",
+      text: "This is the underwear.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_underwear_0604991b.mp3",
+      text: "This is the underwear.",
+    },
+  },
   [normalizeText("This is the uniform.")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/prompt_school_teach_uniform_d187ecf2.mp3",
@@ -30925,6 +37555,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_uniform_d187ecf2.mp3",
       text: "This is the uniform.",
+    },
+  },
+  [normalizeText("This is the waistband.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/prompt_teach_waistband_0c67513f.mp3",
+      text: "This is the waistband.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/prompt_teach_waistband_0c67513f.mp3",
+      text: "This is the waistband.",
     },
   },
   [normalizeText("This is the waiting room.")]: {
@@ -30945,6 +37585,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/prompt_teach_wallet_b2d05d9f.mp3",
       text: "This is the wallet.",
+    },
+  },
+  [normalizeText("This is the warm face.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/prompt_teach_warm_face_8f3ab142.mp3",
+      text: "This is the warm face.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/prompt_teach_warm_face_8f3ab142.mp3",
+      text: "This is the warm face.",
+    },
+  },
+  [normalizeText("This is the waste bin.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_teach_waste_bin_37ecbb2e.mp3",
+      text: "This is the waste bin.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/prompt_teach_waste_bin_37ecbb2e.mp3",
+      text: "This is the waste bin.",
     },
   },
   [normalizeText("This is the water bottle.")]: {
@@ -30999,6 +37659,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_teach_weighing_scale_154f9116.mp3",
       text: "This is the weighing scale.",
+    },
+  },
+  [normalizeText("This is the wet floor sign.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_teach_wet_floor_sign_505046c2.mp3",
+      text: "This is the wet floor sign.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_teach_wet_floor_sign_505046c2.mp3",
+      text: "This is the wet floor sign.",
     },
   },
   [normalizeText("This is the whistle.")]: {
@@ -31081,6 +37751,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/prompt_teach_zebra_e50db259.mp3",
       text: "This is the zebra.",
+    },
+  },
+  [normalizeText("This is the zipper.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/prompt_teach_zipper_77202c08.mp3",
+      text: "This is the zipper.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_teach_zipper_77202c08.mp3",
+      text: "This is the zipper.",
     },
   },
   [normalizeText("This is the zoo gate.")]: {
@@ -31243,6 +37923,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "throw the frisbee",
     },
   },
+  [normalizeText("throw the tissue away")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/throw_the_tissue_away.mp3",
+      text: "throw the tissue away",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/throw_the_tissue_away.mp3",
+      text: "throw the tissue away",
+    },
+  },
   [normalizeText("thumb")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/thumb.mp3",
@@ -31283,6 +37973,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tidy the room.",
     },
   },
+  [normalizeText("tie your shoelaces")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tie_your_shoelaces.mp3",
+      text: "tie your shoelaces",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tie_your_shoelaces.mp3",
+      text: "tie your shoelaces",
+    },
+  },
+  [normalizeText("tight fists")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/tight_fists.mp3",
+      text: "tight fists",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tight_fists.mp3",
+      text: "tight fists",
+    },
+  },
   [normalizeText("timer")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/timer.mp3",
@@ -31295,6 +38005,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/timer.mp3",
       text: "timer",
+    },
+  },
+  [normalizeText("tired")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tired.mp3",
+      text: "tired",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tired.mp3",
+      text: "tired",
     },
   },
   [normalizeText("tissue")]: {
@@ -31315,6 +38035,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/toes.mp3",
       text: "toes",
+    },
+  },
+  [normalizeText("toilet")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/toilet.mp3",
+      text: "toilet",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/toilet.mp3",
+      text: "toilet",
+    },
+  },
+  [normalizeText("toilet paper")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/toilet_paper.mp3",
+      text: "toilet paper",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/toilet_paper.mp3",
+      text: "toilet paper",
+    },
+  },
+  [normalizeText("toilet seat")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/toilet_seat.mp3",
+      text: "toilet seat",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/toilet_seat.mp3",
+      text: "toilet seat",
+    },
+  },
+  [normalizeText("toiletry bag")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/toiletry_bag.mp3",
+      text: "toiletry bag",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/toiletry_bag.mp3",
+      text: "toiletry bag",
     },
   },
   [normalizeText("tomato")]: {
@@ -31353,6 +38113,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/toothbrush.mp3",
       text: "toothbrush",
+    },
+  },
+  [normalizeText("toothbrush cup")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/toothbrush_cup.mp3",
+      text: "toothbrush cup",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/toothbrush_cup.mp3",
+      text: "toothbrush cup",
     },
   },
   [normalizeText("toothpaste")]: {
@@ -31455,6 +38225,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "trash bin",
     },
   },
+  [normalizeText("trash can")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/trash_can.mp3",
+      text: "trash can",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/trash_can.mp3",
+      text: "trash can",
+    },
+  },
   [normalizeText("tray")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tray.mp3",
@@ -31477,6 +38257,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tree.mp3",
       text: "tree",
+    },
+  },
+  [normalizeText("trousers")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/trousers.mp3",
+      text: "trousers",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/trousers.mp3",
+      text: "trousers",
+    },
+  },
+  [normalizeText("trusted grown-up")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/trusted_grown_up.mp3",
+      text: "trusted grown-up",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/trusted_grown_up.mp3",
+      text: "trusted grown-up",
     },
   },
   [normalizeText("Try again.")]: {
@@ -32387,6 +39187,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "try vegetables",
     },
   },
+  [normalizeText("tummy ache")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/tummy_ache.mp3",
+      text: "tummy ache",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tummy_ache.mp3",
+      text: "tummy ache",
+    },
+  },
   [normalizeText("turn on the shower")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/turn_on_the_shower.mp3",
@@ -32417,6 +39227,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "turn the page",
     },
   },
+  [normalizeText("turn your shirt around")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/turn_your_shirt_around.mp3",
+      text: "turn your shirt around",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/turn_your_shirt_around.mp3",
+      text: "turn your shirt around",
+    },
+  },
+  [normalizeText("uncomfortable")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/uncomfortable.mp3",
+      text: "uncomfortable",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/uncomfortable.mp3",
+      text: "uncomfortable",
+    },
+  },
+  [normalizeText("underwear")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/underwear.mp3",
+      text: "underwear",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/underwear.mp3",
+      text: "underwear",
+    },
+  },
   [normalizeText("uniform")]: {
     "en-US": {
       key: "lessons/morning-routine/go-to-school/audio/en-US/neural2-c-r1/uniform.mp3",
@@ -32429,6 +39269,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/uniform.mp3",
       text: "uniform",
+    },
+  },
+  [normalizeText("upset")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/upset.mp3",
+      text: "upset",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/upset.mp3",
+      text: "upset",
     },
   },
   [normalizeText("use a quiet voice")]: {
@@ -32481,6 +39331,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "use hand gel",
     },
   },
+  [normalizeText("use the toilet paper")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/use_the_toilet_paper.mp3",
+      text: "use the toilet paper",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/use_the_toilet_paper.mp3",
+      text: "use the toilet paper",
+    },
+  },
+  [normalizeText("use your own toothbrush")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/use_your_own_toothbrush.mp3",
+      text: "use your own toothbrush",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/use_your_own_toothbrush.mp3",
+      text: "use your own toothbrush",
+    },
+  },
   [normalizeText("vegetables")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/vegetables.mp3",
@@ -32493,6 +39363,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/vegetables.mp3",
       text: "vegetables",
+    },
+  },
+  [normalizeText("waistband")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/waistband.mp3",
+      text: "waistband",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/waistband.mp3",
+      text: "waistband",
     },
   },
   [normalizeText("wait")]: {
@@ -32549,6 +39429,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wallet",
     },
   },
+  [normalizeText("warm face")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/warm_face.mp3",
+      text: "warm face",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/warm_face.mp3",
+      text: "warm face",
+    },
+  },
   [normalizeText("wash your face")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/wash_your_face.mp3",
@@ -32579,6 +39469,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wash your hands",
     },
   },
+  [normalizeText("wash your hands well")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/wash_your_hands_well.mp3",
+      text: "wash your hands well",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/wash_your_hands_well.mp3",
+      text: "wash your hands well",
+    },
+  },
   [normalizeText("Wash your hands.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/prompt_cleanup_drag_soap_to_hands_99e43999.mp3",
@@ -32587,6 +39487,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/prompt_cleanup_drag_soap_to_hands_99e43999.mp3",
       text: "Wash your hands.",
+    },
+  },
+  [normalizeText("waste bin")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/waste_bin.mp3",
+      text: "waste bin",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/waste_bin.mp3",
+      text: "waste bin",
     },
   },
   [normalizeText("water")]: {
@@ -32753,6 +39663,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "weighing scale",
     },
   },
+  [normalizeText("wet floor sign")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/wet_floor_sign.mp3",
+      text: "wet floor sign",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/wet_floor_sign.mp3",
+      text: "wet floor sign",
+    },
+  },
   [normalizeText("whistle")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/whistle.mp3",
@@ -32837,6 +39757,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Wonderful! The whole map is complete. Let’s collect more stars!",
     },
   },
+  [normalizeText("worried")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/worried.mp3",
+      text: "worried",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/worried.mp3",
+      text: "worried",
+    },
+  },
   [normalizeText("wrap the gift")]: {
     "en-US": {
       key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/wrap_the_gift.mp3",
@@ -32909,6 +39839,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Write your name.",
     },
   },
+  [normalizeText("Yes, please")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/yes_please.mp3",
+      text: "Yes, please",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/yes_please.mp3",
+      text: "Yes, please",
+    },
+  },
   [normalizeText("yogurt")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/yogurt.mp3",
@@ -32973,6 +39913,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You came home and completed your afternoon routine.",
     },
   },
+  [normalizeText("You can always call a grown-up when you need help.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/intro_success_17675a54.mp3",
+      text: "You can always call a grown-up when you need help.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/intro_success_17675a54.mp3",
+      text: "You can always call a grown-up when you need help.",
+    },
+  },
+  [normalizeText("You can check the weather before choosing clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/intro_success_0cbdddae.mp3",
+      text: "You can check the weather before choosing clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/intro_success_0cbdddae.mp3",
+      text: "You can check the weather before choosing clothes.",
+    },
+  },
+  [normalizeText("You can choose a way that helps your body settle.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/intro_success_af4eb977.mp3",
+      text: "You can choose a way that helps your body settle.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/intro_success_af4eb977.mp3",
+      text: "You can choose a way that helps your body settle.",
+    },
+  },
+  [normalizeText("You can feel good about something you worked hard to do.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/intro_success_f493d2d0.mp3",
+      text: "You can feel good about something you worked hard to do.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/intro_success_f493d2d0.mp3",
+      text: "You can feel good about something you worked hard to do.",
+    },
+  },
   [normalizeText("You can help your family prepare dinner.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/intro_success_327f8e19.mp3",
@@ -33013,6 +39993,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You can see many colors and shapes.",
     },
   },
+  [normalizeText("You can speak up when you feel scared or need a grown-up close.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/intro_success_30ad198a.mp3",
+      text: "You can speak up when you feel scared or need a grown-up close.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/intro_success_30ad198a.mp3",
+      text: "You can speak up when you feel scared or need a grown-up close.",
+    },
+  },
+  [normalizeText("You can tell a grown-up as soon as you need to go.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/intro_success_625888d4.mp3",
+      text: "You can tell a grown-up as soon as you need to go.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/intro_success_625888d4.mp3",
+      text: "You can tell a grown-up as soon as you need to go.",
+    },
+  },
+  [normalizeText("You cared for your hair and face gently.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/completion_7dffa358.mp3",
+      text: "You cared for your hair and face gently.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/completion_7dffa358.mp3",
+      text: "You cared for your hair and face gently.",
+    },
+  },
   [normalizeText("You chose a book you like.")]: {
     "en-US": {
       key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/completion_d8ce254f.mp3",
@@ -33031,6 +40041,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-prep/audio/en-GB/neural2-c-r1/completion_fdbf7781.mp3",
       text: "You chose a delicious snack!",
+    },
+  },
+  [normalizeText("You chose a way to care for your feelings.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/completion_05ddb129.mp3",
+      text: "You chose a way to care for your feelings.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/comfort-corner/audio/en-GB/neural2-c-r1/completion_05ddb129.mp3",
+      text: "You chose a way to care for your feelings.",
     },
   },
   [normalizeText("You chose fresh fruits and vegetables.")]: {
@@ -33103,6 +40123,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You completed the health check.",
     },
   },
+  [normalizeText("You completed the toilet steps.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/completion_d3e8003b.mp3",
+      text: "You completed the toilet steps.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/completion_d3e8003b.mp3",
+      text: "You completed the toilet steps.",
+    },
+  },
   [normalizeText("You did a great job getting clean.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/completion_62e0a752.mp3",
@@ -33111,6 +40141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/completion_62e0a752.mp3",
       text: "You did a great job getting clean.",
+    },
+  },
+  [normalizeText("You do not have to handle pain by yourself.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/intro_success_fda76fd9.mp3",
+      text: "You do not have to handle pain by yourself.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/intro_success_fda76fd9.mp3",
+      text: "You do not have to handle pain by yourself.",
     },
   },
   [normalizeText("You enjoyed your breakfast.")]: {
@@ -33313,6 +40353,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You helped prepare dinner so thoughtfully!",
     },
   },
+  [normalizeText("You kept your hands clean and spoke up for what you need.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/completion_41ef8467.mp3",
+      text: "You kept your hands clean and spoke up for what you need.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/completion_41ef8467.mp3",
+      text: "You kept your hands clean and spoke up for what you need.",
+    },
+  },
+  [normalizeText("You kept your personal care items tidy.")]: {
+    "en-US": {
+      key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/completion_2dc544bd.mp3",
+      text: "You kept your personal care items tidy.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/completion_2dc544bd.mp3",
+      text: "You kept your personal care items tidy.",
+    },
+  },
   [normalizeText("You learned how to check out and carry groceries home.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/completion_d2eaec8b.mp3",
@@ -33433,6 +40493,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You moved your arms, hands, and fingers carefully.",
     },
   },
+  [normalizeText("You named angry, scared, and worried feelings.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/completion_c5fd7df5.mp3",
+      text: "You named angry, scared, and worried feelings.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/completion_c5fd7df5.mp3",
+      text: "You named angry, scared, and worried feelings.",
+    },
+  },
+  [normalizeText("You noticed some signals from your body.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/completion_b9ab7345.mp3",
+      text: "You noticed some signals from your body.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/completion_b9ab7345.mp3",
+      text: "You noticed some signals from your body.",
+    },
+  },
   [normalizeText("You played in the sand and explored the beach.")]: {
     "en-US": {
       key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/completion_22d8495d.mp3",
@@ -33463,6 +40543,86 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You pointed to the parts of the face.",
     },
   },
+  [normalizeText("You practiced breathing in and out slowly.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/completion_16e9e18a.mp3",
+      text: "You practiced breathing in and out slowly.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/completion_16e9e18a.mp3",
+      text: "You practiced breathing in and out slowly.",
+    },
+  },
+  [normalizeText("You practiced caring for coughs and sneezes.")]: {
+    "en-US": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/completion_4ee3eab5.mp3",
+      text: "You practiced caring for coughs and sneezes.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/cough-and-sneeze-care/audio/en-GB/neural2-c-r1/completion_4ee3eab5.mp3",
+      text: "You practiced caring for coughs and sneezes.",
+    },
+  },
+  [normalizeText("You practiced clear boundaries and finding a trusted grown-up.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/completion_8361a436.mp3",
+      text: "You practiced clear boundaries and finding a trusted grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/completion_8361a436.mp3",
+      text: "You practiced clear boundaries and finding a trusted grown-up.",
+    },
+  },
+  [normalizeText("You practiced fastening your clothes and shoes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/completion_f45cf585.mp3",
+      text: "You practiced fastening your clothes and shoes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/completion_f45cf585.mp3",
+      text: "You practiced fastening your clothes and shoes.",
+    },
+  },
+  [normalizeText("You practiced putting clothes on the right way around.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/completion_dcc59e26.mp3",
+      text: "You practiced putting clothes on the right way around.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/put-on-clothes/audio/en-GB/neural2-c-r1/completion_dcc59e26.mp3",
+      text: "You practiced putting clothes on the right way around.",
+    },
+  },
+  [normalizeText("You practiced saying when you need the toilet.")]: {
+    "en-US": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/completion_fca1df7e.mp3",
+      text: "You practiced saying when you need the toilet.",
+    },
+    "en-GB": {
+      key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/completion_fca1df7e.mp3",
+      text: "You practiced saying when you need the toilet.",
+    },
+  },
+  [normalizeText("You practiced showing where it hurts and asking for help.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/completion_bb3266dc.mp3",
+      text: "You practiced showing where it hurts and asking for help.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/completion_bb3266dc.mp3",
+      text: "You practiced showing where it hurts and asking for help.",
+    },
+  },
+  [normalizeText("You prepared your clothes.")]: {
+    "en-US": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/completion_39e73094.mp3",
+      text: "You prepared your clothes.",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/completion_39e73094.mp3",
+      text: "You prepared your clothes.",
+    },
+  },
   [normalizeText("You put your toys away so neatly!")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/completion_68875153.mp3",
@@ -33471,6 +40631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/completion_68875153.mp3",
       text: "You put your toys away so neatly!",
+    },
+  },
+  [normalizeText("You recognized happy and sad feelings.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/completion_931e4fd7.mp3",
+      text: "You recognized happy and sad feelings.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/completion_931e4fd7.mp3",
+      text: "You recognized happy and sad feelings.",
     },
   },
   [normalizeText("You recognized the parts of your legs and feet.")]: {
@@ -33503,6 +40673,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You set up and cleaned up the little picnic.",
     },
   },
+  [normalizeText("You shared feelings of excitement and pride.")]: {
+    "en-US": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/completion_89b44342.mp3",
+      text: "You shared feelings of excitement and pride.",
+    },
+    "en-GB": {
+      key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/completion_89b44342.mp3",
+      text: "You shared feelings of excitement and pride.",
+    },
+  },
   [normalizeText("You shared the dinner dishes so politely!")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/completion_d693a926.mp3",
@@ -33521,6 +40701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/completion_cf8a7ba2.mp3",
       text: "You sorted and dried everything after dinner!",
+    },
+  },
+  [normalizeText("You spoke about what your body needs.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/completion_e4cdc219.mp3",
+      text: "You spoke about what your body needs.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/completion_e4cdc219.mp3",
+      text: "You spoke about what your body needs.",
     },
   },
   [normalizeText("You thanked Grandma and Grandpa and said goodbye.")]: {
@@ -33673,6 +40863,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Your beach bag is ready.",
     },
   },
+  [normalizeText("Your body belongs to you, and your words matter.")]: {
+    "en-US": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/intro_success_652beb1c.mp3",
+      text: "Your body belongs to you, and your words matter.",
+    },
+    "en-GB": {
+      key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/intro_success_652beb1c.mp3",
+      text: "Your body belongs to you, and your words matter.",
+    },
+  },
+  [normalizeText("Your body can show when a feeling is getting bigger.")]: {
+    "en-US": {
+      key: "lessons/calm-myself/body-signals/audio/en-US/neural2-c-r1/intro_success_87b50972.mp3",
+      text: "Your body can show when a feeling is getting bigger.",
+    },
+    "en-GB": {
+      key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/intro_success_87b50972.mp3",
+      text: "Your body can show when a feeling is getting bigger.",
+    },
+  },
   [normalizeText("Your face helps you see, hear, and show feelings.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/intro_success_36e987ee.mp3",
@@ -33763,6 +40973,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Your nose, tongue, and skin help you notice many things.",
     },
   },
+  [normalizeText("Your own care items help you look after yourself each day.")]: {
+    "en-US": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/intro_success_366a6549.mp3",
+      text: "Your own care items help you look after yourself each day.",
+    },
+    "en-GB": {
+      key: "lessons/personal-care/face-and-hair-care/audio/en-GB/neural2-c-r1/intro_success_366a6549.mp3",
+      text: "Your own care items help you look after yourself each day.",
+    },
+  },
   [normalizeText("Yummy!")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/intro_success_4b8dbd36.mp3",
@@ -33781,6 +41001,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/zebra.mp3",
       text: "zebra",
+    },
+  },
+  [normalizeText("zip up your jacket")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/zip_up_your_jacket.mp3",
+      text: "zip up your jacket",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/zip_up_your_jacket.mp3",
+      text: "zip up your jacket",
+    },
+  },
+  [normalizeText("zipper")]: {
+    "en-US": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/zipper.mp3",
+      text: "zipper",
+    },
+    "en-GB": {
+      key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/zipper.mp3",
+      text: "zipper",
     },
   },
   [normalizeText("zoo gate")]: {
@@ -38156,6 +45396,486 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/birthday-party/party-table/audio/vi/teach_share_cake_success_0555eb74.mp3",
     text: "Câu này nghĩa là chia bánh.",
   },
+  [normalizeText("Bé đã nhận ra những tín hiệu của cơ thể.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/completion_c9399cd4.mp3",
+    text: "Bé đã nhận ra những tín hiệu của cơ thể.",
+  },
+  [normalizeText("Mình để ý xem cơ thể đang báo điều gì nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/intro_6d6904c5.mp3",
+    text: "Mình để ý xem cơ thể đang báo điều gì nhé.",
+  },
+  [normalizeText("Cơ thể có thể báo hiệu khi cảm xúc đang lớn dần.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/intro_success_3fef0e07.mp3",
+    text: "Cơ thể có thể báo hiệu khi cảm xúc đang lớn dần.",
+  },
+  [normalizeText("Chạm vào hình dấu hiệu từ cơ thể nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_body_clue_aafbe865.mp3",
+    text: "Chạm vào hình dấu hiệu từ cơ thể nhé.",
+  },
+  [normalizeText("Tìm hình dấu hiệu từ cơ thể ở phía dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_body_clue_fail_38d57239.mp3",
+    text: "Tìm hình dấu hiệu từ cơ thể ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ tay nắm chặt nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_hands_tight_269df705.mp3",
+    text: "Chạm vào thẻ tay nắm chặt nhé.",
+  },
+  [normalizeText("Tìm thẻ tay nắm chặt ở giữa hàng dưới nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_hands_tight_fail_5c365480.mp3",
+    text: "Tìm thẻ tay nắm chặt ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ tim đập nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_heart_fast_bea3b616.mp3",
+    text: "Chạm vào thẻ tim đập nhanh nhé.",
+  },
+  [normalizeText("Tìm thẻ tim đập nhanh ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_heart_fast_fail_f02101e4.mp3",
+    text: "Tìm thẻ tim đập nhanh ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình tim bé đập nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_heartbeat_0a5a6180.mp3",
+    text: "Chạm vào hình tim bé đập nhanh nhé.",
+  },
+  [normalizeText("Tìm hình tim bé đập nhanh ở phía trên bên trái nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_heartbeat_fail_50ee2b0e.mp3",
+    text: "Tìm hình tim bé đập nhanh ở phía trên bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ cần nghỉ nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_need_break_e076aa0f.mp3",
+    text: "Chạm vào thẻ cần nghỉ nhé.",
+  },
+  [normalizeText("Tìm thẻ cần nghỉ ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_need_break_fail_b79f36d5.mp3",
+    text: "Tìm thẻ cần nghỉ ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang thở nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_quick_breath_afb5bdd3.mp3",
+    text: "Chạm vào hình bé đang thở nhanh nhé.",
+  },
+  [normalizeText("Tìm hình bé đang thở nhanh ở bên phải nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_quick_breath_fail_c469d123.mp3",
+    text: "Tìm hình bé đang thở nhanh ở bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình chân bé đang run nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_shaky_legs_b9e72ede.mp3",
+    text: "Chạm vào hình chân bé đang run nhé.",
+  },
+  [normalizeText("Tìm hình chân bé đang run ở phía dưới bên trái nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_shaky_legs_fail_c9cb8476.mp3",
+    text: "Tìm hình chân bé đang run ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình bé nắm chặt hai tay nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_tight_fists_b86df602.mp3",
+    text: "Chạm vào hình bé nắm chặt hai tay nhé.",
+  },
+  [normalizeText("Tìm hình bé nắm chặt hai tay ở phía trên bên phải nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_tight_fists_fail_fb65279a.mp3",
+    text: "Tìm hình bé nắm chặt hai tay ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình má bé nóng lên nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_warm_face_928209a3.mp3",
+    text: "Chạm vào hình má bé nóng lên nhé.",
+  },
+  [normalizeText("Tìm hình má bé nóng lên ở bên trái nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/tap_warm_face_fail_5cd24cad.mp3",
+    text: "Tìm hình má bé nóng lên ở bên trái nhé.",
+  },
+  [normalizeText("Mình cùng xem hình dấu hiệu từ cơ thể nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_body_clue_a0548569.mp3",
+    text: "Mình cùng xem hình dấu hiệu từ cơ thể nhé.",
+  },
+  [normalizeText("Từ này nghĩa là dấu hiệu từ cơ thể.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_body_clue_success_69565e44.mp3",
+    text: "Từ này nghĩa là dấu hiệu từ cơ thể.",
+  },
+  [normalizeText("Mình học câu hai tay con đang nắm chặt nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_hands_tight_c4e60680.mp3",
+    text: "Mình học câu hai tay con đang nắm chặt nhé.",
+  },
+  [normalizeText("Câu này nghĩa là hai tay con đang nắm chặt.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_hands_tight_success_f55484bf.mp3",
+    text: "Câu này nghĩa là hai tay con đang nắm chặt.",
+  },
+  [normalizeText("Mình học câu tim con đang đập nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_heart_fast_2d3e9ac5.mp3",
+    text: "Mình học câu tim con đang đập nhanh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tim con đang đập nhanh.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_heart_fast_success_0ff5d3d0.mp3",
+    text: "Câu này nghĩa là tim con đang đập nhanh.",
+  },
+  [normalizeText("Mình cùng xem hình tim bé đập nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_heartbeat_cf8ea3ee.mp3",
+    text: "Mình cùng xem hình tim bé đập nhanh nhé.",
+  },
+  [normalizeText("Từ này nghĩa là tim đập nhanh.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_heartbeat_success_bb590e6c.mp3",
+    text: "Từ này nghĩa là tim đập nhanh.",
+  },
+  [normalizeText("Mình học câu con cần nghỉ một chút nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_need_break_ceaf4895.mp3",
+    text: "Mình học câu con cần nghỉ một chút nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần nghỉ một chút.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_need_break_success_99bccbc3.mp3",
+    text: "Câu này nghĩa là con cần nghỉ một chút.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang thở nhanh nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_quick_breath_df713ed4.mp3",
+    text: "Mình cùng xem hình bé đang thở nhanh nhé.",
+  },
+  [normalizeText("Từ này nghĩa là thở nhanh.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_quick_breath_success_492dfefe.mp3",
+    text: "Từ này nghĩa là thở nhanh.",
+  },
+  [normalizeText("Mình cùng xem hình chân bé đang run nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_shaky_legs_8671f6c7.mp3",
+    text: "Mình cùng xem hình chân bé đang run nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đôi chân run.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_shaky_legs_success_0727fab1.mp3",
+    text: "Từ này nghĩa là đôi chân run.",
+  },
+  [normalizeText("Mình cùng xem hình bé nắm chặt hai tay nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_tight_fists_e2bd52e2.mp3",
+    text: "Mình cùng xem hình bé nắm chặt hai tay nhé.",
+  },
+  [normalizeText("Từ này nghĩa là hai bàn tay nắm chặt.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_tight_fists_success_e86cc49e.mp3",
+    text: "Từ này nghĩa là hai bàn tay nắm chặt.",
+  },
+  [normalizeText("Mình cùng xem hình má bé nóng lên nhé.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_warm_face_47e82cc0.mp3",
+    text: "Mình cùng xem hình má bé nóng lên nhé.",
+  },
+  [normalizeText("Từ này nghĩa là khuôn mặt nóng lên.")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/teach_warm_face_success_12675d31.mp3",
+    text: "Từ này nghĩa là khuôn mặt nóng lên.",
+  },
+  [normalizeText("Bé đã chọn được cách chăm sóc cảm xúc của mình.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/completion_938fc643.mp3",
+    text: "Bé đã chọn được cách chăm sóc cảm xúc của mình.",
+  },
+  [normalizeText("Kéo chiếc đệm vào góc yên tĩnh đang sáng nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/drag_cushion_061fa8f8.mp3",
+    text: "Kéo chiếc đệm vào góc yên tĩnh đang sáng nhé.",
+  },
+  [normalizeText("Tìm chiếc đệm ở giữa phía dưới nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/drag_cushion_fail_b3786940.mp3",
+    text: "Tìm chiếc đệm ở giữa phía dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là chiếc đệm.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/drag_cushion_success_391fc6d8.mp3",
+    text: "Đúng rồi, đó là chiếc đệm.",
+  },
+  [normalizeText("Mình chọn một cách giúp bé dễ chịu hơn nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/intro_8bff0161.mp3",
+    text: "Mình chọn một cách giúp bé dễ chịu hơn nhé.",
+  },
+  [normalizeText("Mỗi bé có thể chọn một cách giúp mình dịu lại.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/intro_success_c872529d.mp3",
+    text: "Mỗi bé có thể chọn một cách giúp mình dịu lại.",
+  },
+  [normalizeText("Chạm vào đồ chơi yêu thích nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_comfort_toy_c32ca22a.mp3",
+    text: "Chạm vào đồ chơi yêu thích nhé.",
+  },
+  [normalizeText("Tìm đồ chơi yêu thích ở bên phải nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_comfort_toy_fail_4ccd7b43.mp3",
+    text: "Tìm đồ chơi yêu thích ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là đồ chơi yêu thích.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_comfort_toy_success_6fb3cf97.mp3",
+    text: "Đúng rồi, đó là đồ chơi yêu thích.",
+  },
+  [normalizeText("Chạm vào thẻ cảm xúc nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_feelings_card_4c5a632b.mp3",
+    text: "Chạm vào thẻ cảm xúc nhé.",
+  },
+  [normalizeText("Tìm thẻ cảm xúc ở phía trên bên phải nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_feelings_card_fail_569c2bfa.mp3",
+    text: "Tìm thẻ cảm xúc ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là thẻ cảm xúc.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_feelings_card_success_62227ffd.mp3",
+    text: "Đúng rồi, đó là thẻ cảm xúc.",
+  },
+  [normalizeText("Chạm vào tai nghe nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_headphones_21437a7b.mp3",
+    text: "Chạm vào tai nghe nhé.",
+  },
+  [normalizeText("Tìm tai nghe ở phía trên bên phải nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_headphones_fail_c2ce1021.mp3",
+    text: "Tìm tai nghe ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là tai nghe.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_headphones_success_10c31186.mp3",
+    text: "Đúng rồi, đó là tai nghe.",
+  },
+  [normalizeText("Chạm vào thẻ cần yên tĩnh nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_need_quiet_83e7f865.mp3",
+    text: "Chạm vào thẻ cần yên tĩnh nhé.",
+  },
+  [normalizeText("Tìm thẻ cần yên tĩnh ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_need_quiet_fail_08eda89b.mp3",
+    text: "Tìm thẻ cần yên tĩnh ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào góc yên tĩnh nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_quiet_corner_762ae64b.mp3",
+    text: "Chạm vào góc yên tĩnh nhé.",
+  },
+  [normalizeText("Tìm góc yên tĩnh ở giữa phía trên nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_quiet_corner_fail_9337e30a.mp3",
+    text: "Tìm góc yên tĩnh ở giữa phía trên nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là góc yên tĩnh.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_quiet_corner_success_99100ba4.mp3",
+    text: "Đúng rồi, đó là góc yên tĩnh.",
+  },
+  [normalizeText("Chạm vào thẻ ngồi góc yên tĩnh nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_sit_quiet_corner_d3b269a2.mp3",
+    text: "Chạm vào thẻ ngồi góc yên tĩnh nhé.",
+  },
+  [normalizeText("Tìm thẻ ngồi góc yên tĩnh ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_sit_quiet_corner_fail_1802ad0f.mp3",
+    text: "Tìm thẻ ngồi góc yên tĩnh ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ ôm chiếc đệm nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_squeeze_cushion_f0b534f2.mp3",
+    text: "Chạm vào thẻ ôm chiếc đệm nhé.",
+  },
+  [normalizeText("Tìm thẻ ôm chiếc đệm ở giữa hàng dưới nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_squeeze_cushion_fail_383f0f98.mp3",
+    text: "Tìm thẻ ôm chiếc đệm ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Tìm đồng hồ hẹn giờ ở phía dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/tap_timer_fail_cab1b995.mp3",
+    text: "Tìm đồng hồ hẹn giờ ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đây là đồ chơi yêu thích.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_comfort_toy_f305e1aa.mp3",
+    text: "Đây là đồ chơi yêu thích.",
+  },
+  [normalizeText("Từ này nghĩa là đồ chơi yêu thích.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_comfort_toy_success_2594d9ba.mp3",
+    text: "Từ này nghĩa là đồ chơi yêu thích.",
+  },
+  [normalizeText("Đây là chiếc đệm.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_cushion_fe4feb2a.mp3",
+    text: "Đây là chiếc đệm.",
+  },
+  [normalizeText("Từ này nghĩa là chiếc đệm.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_cushion_success_a851a3b3.mp3",
+    text: "Từ này nghĩa là chiếc đệm.",
+  },
+  [normalizeText("Đây là thẻ cảm xúc.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_feelings_card_9e8c9036.mp3",
+    text: "Đây là thẻ cảm xúc.",
+  },
+  [normalizeText("Từ này nghĩa là thẻ cảm xúc.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_feelings_card_success_6ba4facd.mp3",
+    text: "Từ này nghĩa là thẻ cảm xúc.",
+  },
+  [normalizeText("Đây là tai nghe.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_headphones_a51ca2f1.mp3",
+    text: "Đây là tai nghe.",
+  },
+  [normalizeText("Từ này nghĩa là tai nghe.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_headphones_success_149e1666.mp3",
+    text: "Từ này nghĩa là tai nghe.",
+  },
+  [normalizeText("Mình học câu con cần yên tĩnh nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_need_quiet_370d1af6.mp3",
+    text: "Mình học câu con cần yên tĩnh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần yên tĩnh.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_need_quiet_success_167211ac.mp3",
+    text: "Câu này nghĩa là con cần yên tĩnh.",
+  },
+  [normalizeText("Đây là góc yên tĩnh.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_quiet_corner_2743c4eb.mp3",
+    text: "Đây là góc yên tĩnh.",
+  },
+  [normalizeText("Từ này nghĩa là góc yên tĩnh.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_quiet_corner_success_414086a1.mp3",
+    text: "Từ này nghĩa là góc yên tĩnh.",
+  },
+  [normalizeText("Mình học câu ngồi trong góc yên tĩnh nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_sit_quiet_corner_3aadb931.mp3",
+    text: "Mình học câu ngồi trong góc yên tĩnh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngồi trong góc yên tĩnh.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_sit_quiet_corner_success_b057bd6d.mp3",
+    text: "Câu này nghĩa là ngồi trong góc yên tĩnh.",
+  },
+  [normalizeText("Mình học câu ôm chiếc đệm nhé.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_squeeze_cushion_6dbe5097.mp3",
+    text: "Mình học câu ôm chiếc đệm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ôm chiếc đệm.")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/teach_squeeze_cushion_success_fdbb6bf3.mp3",
+    text: "Câu này nghĩa là ôm chiếc đệm.",
+  },
+  [normalizeText("Bé đã tập hít vào và thở ra thật chậm.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/completion_59b872d3.mp3",
+    text: "Bé đã tập hít vào và thở ra thật chậm.",
+  },
+  [normalizeText("Kéo lông vũ tới luồng hơi đang sáng nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/drag_feather_15cf9c01.mp3",
+    text: "Kéo lông vũ tới luồng hơi đang sáng nhé.",
+  },
+  [normalizeText("Tìm lông vũ ở giữa phía trên nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/drag_feather_fail_23bcf79a.mp3",
+    text: "Tìm lông vũ ở giữa phía trên nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là lông vũ.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/drag_feather_success_df84af1e.mp3",
+    text: "Đúng rồi, đó là lông vũ.",
+  },
+  [normalizeText("Mình cùng thở chậm và nhẹ nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/intro_02f4ca6c.mp3",
+    text: "Mình cùng thở chậm và nhẹ nhé.",
+  },
+  [normalizeText("Hơi thở chậm giúp cơ thể dịu lại.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/intro_success_e9ecc1ec.mp3",
+    text: "Hơi thở chậm giúp cơ thể dịu lại.",
+  },
+  [normalizeText("Chạm vào hình bé đặt tay lên bụng nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_belly_adfe572e.mp3",
+    text: "Chạm vào hình bé đặt tay lên bụng nhé.",
+  },
+  [normalizeText("Tìm hình bé đặt tay lên bụng ở phía dưới bên trái nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_belly_fail_785e4d85.mp3",
+    text: "Tìm hình bé đặt tay lên bụng ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang thở chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breath_e2168dc8.mp3",
+    text: "Chạm vào hình bé đang thở chậm nhé.",
+  },
+  [normalizeText("Tìm hình bé đang thở chậm ở bên trái nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breath_fail_3d960000.mp3",
+    text: "Tìm hình bé đang thở chậm ở bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ hít vào chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breathe_in_48f86594.mp3",
+    text: "Chạm vào thẻ hít vào chậm nhé.",
+  },
+  [normalizeText("Tìm thẻ hít vào chậm ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breathe_in_fail_0d57b236.mp3",
+    text: "Tìm thẻ hít vào chậm ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ thở ra chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breathe_out_3fb3a317.mp3",
+    text: "Chạm vào thẻ thở ra chậm nhé.",
+  },
+  [normalizeText("Tìm thẻ thở ra chậm ở giữa hàng dưới nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_breathe_out_fail_482acd03.mp3",
+    text: "Tìm thẻ thở ra chậm ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Tìm bong bóng ở giữa phía dưới nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_bubble_fail_027821fc.mp3",
+    text: "Tìm bong bóng ở giữa phía dưới nhé.",
+  },
+  [normalizeText("Chạm vào ngọn nến nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_candle_ee30f679.mp3",
+    text: "Chạm vào ngọn nến nhé.",
+  },
+  [normalizeText("Tìm ngọn nến ở phía dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_candle_fail_b144c122.mp3",
+    text: "Tìm ngọn nến ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là ngọn nến.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_candle_success_79f44c13.mp3",
+    text: "Đúng rồi, đó là ngọn nến.",
+  },
+  [normalizeText("Chạm vào thẻ đếm đến năm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_count_five_af619069.mp3",
+    text: "Chạm vào thẻ đếm đến năm nhé.",
+  },
+  [normalizeText("Tìm thẻ đếm đến năm ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_count_five_fail_e049c242.mp3",
+    text: "Tìm thẻ đếm đến năm ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào chong chóng nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_pinwheel_cbfce4e1.mp3",
+    text: "Chạm vào chong chóng nhé.",
+  },
+  [normalizeText("Tìm chong chóng ở phía trên bên phải nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_pinwheel_fail_86632f2a.mp3",
+    text: "Tìm chong chóng ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là chong chóng.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/tap_pinwheel_success_1e19df2b.mp3",
+    text: "Đúng rồi, đó là chong chóng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đặt tay lên bụng nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_belly_0e58b1cc.mp3",
+    text: "Mình cùng xem hình bé đặt tay lên bụng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là cái bụng.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_belly_success_68a67af0.mp3",
+    text: "Từ này nghĩa là cái bụng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang thở chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breath_b20cdc1d.mp3",
+    text: "Mình cùng xem hình bé đang thở chậm nhé.",
+  },
+  [normalizeText("Từ này nghĩa là hơi thở.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breath_success_1e64d2f5.mp3",
+    text: "Từ này nghĩa là hơi thở.",
+  },
+  [normalizeText("Mình học câu hít vào thật chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breathe_in_19ddf301.mp3",
+    text: "Mình học câu hít vào thật chậm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là hít vào thật chậm.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breathe_in_success_8e7efae5.mp3",
+    text: "Câu này nghĩa là hít vào thật chậm.",
+  },
+  [normalizeText("Mình học câu thở ra thật chậm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breathe_out_b0cd697e.mp3",
+    text: "Mình học câu thở ra thật chậm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là thở ra thật chậm.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_breathe_out_success_2c4189da.mp3",
+    text: "Câu này nghĩa là thở ra thật chậm.",
+  },
+  [normalizeText("Từ này nghĩa là bong bóng xà phòng.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_bubble_success_b1ef9db0.mp3",
+    text: "Từ này nghĩa là bong bóng xà phòng.",
+  },
+  [normalizeText("Đây là ngọn nến.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_candle_357a7c2a.mp3",
+    text: "Đây là ngọn nến.",
+  },
+  [normalizeText("Từ này nghĩa là ngọn nến.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_candle_success_499a568b.mp3",
+    text: "Từ này nghĩa là ngọn nến.",
+  },
+  [normalizeText("Mình học câu đếm đến năm nhé.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_count_five_aad1f350.mp3",
+    text: "Mình học câu đếm đến năm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đếm đến năm.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_count_five_success_258e759d.mp3",
+    text: "Câu này nghĩa là đếm đến năm.",
+  },
+  [normalizeText("Đây là lông vũ.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_feather_155e9f96.mp3",
+    text: "Đây là lông vũ.",
+  },
+  [normalizeText("Từ này nghĩa là chiếc lông vũ.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_feather_success_15fc2837.mp3",
+    text: "Từ này nghĩa là chiếc lông vũ.",
+  },
+  [normalizeText("Đây là chong chóng.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_pinwheel_4c7ff282.mp3",
+    text: "Đây là chong chóng.",
+  },
+  [normalizeText("Từ này nghĩa là chong chóng.")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/teach_pinwheel_success_8537625d.mp3",
+    text: "Từ này nghĩa là chong chóng.",
+  },
   [normalizeText("Bé đã chào bác sĩ và nói cảm giác của mình.")]: {
     key: "lessons/doctor-visit/clinic-room/audio/vi/completion_486beca9.mp3",
     text: "Bé đã chào bác sĩ và nói cảm giác của mình.",
@@ -38695,6 +46415,530 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là uống thuốc cùng người lớn.")]: {
     key: "lessons/doctor-visit/medicine-care/audio/vi/teach_take_medicine_success_e8e41119.mp3",
     text: "Câu này nghĩa là uống thuốc cùng người lớn.",
+  },
+  [normalizeText("Bé đã chuẩn bị quần áo cho mình.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/completion_44acf1fd.mp3",
+    text: "Bé đã chuẩn bị quần áo cho mình.",
+  },
+  [normalizeText("Kéo quần short vào vùng sáng trên người bé nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/drag_shorts_d4173c41.mp3",
+    text: "Kéo quần short vào vùng sáng trên người bé nhé.",
+  },
+  [normalizeText("Tìm quần short ở chính giữa ghế nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/drag_shorts_fail_b3e9e321.mp3",
+    text: "Tìm quần short ở chính giữa ghế nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là quần short.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/drag_shorts_success_4852385c.mp3",
+    text: "Đúng rồi, đó là quần short.",
+  },
+  [normalizeText("Mình chọn quần áo phù hợp nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/intro_ce709a97.mp3",
+    text: "Mình chọn quần áo phù hợp nhé.",
+  },
+  [normalizeText("Bé có thể xem thời tiết trước khi chọn đồ.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/intro_success_a2b68d98.mp3",
+    text: "Bé có thể xem thời tiết trước khi chọn đồ.",
+  },
+  [normalizeText("Chạm vào mũ lưỡi trai nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_cap_c0183664.mp3",
+    text: "Chạm vào mũ lưỡi trai nhé.",
+  },
+  [normalizeText("Tìm mũ lưỡi trai trên ghế bên phải nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_cap_fail_65aded68.mp3",
+    text: "Tìm mũ lưỡi trai trên ghế bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là mũ lưỡi trai.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_cap_success_73f3b9da.mp3",
+    text: "Đúng rồi, đó là mũ lưỡi trai.",
+  },
+  [normalizeText("Chạm vào thẻ xem thời tiết nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_check_weather_11b39818.mp3",
+    text: "Chạm vào thẻ xem thời tiết nhé.",
+  },
+  [normalizeText("Tìm thẻ xem thời tiết ở giữa hàng dưới nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_check_weather_fail_5b5f3bf1.mp3",
+    text: "Tìm thẻ xem thời tiết ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ chọn quần áo nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_choose_clothes_action_071a1ce4.mp3",
+    text: "Chạm vào thẻ chọn quần áo nhé.",
+  },
+  [normalizeText("Tìm thẻ chọn quần áo ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_choose_clothes_action_fail_ba393b15.mp3",
+    text: "Tìm thẻ chọn quần áo ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào váy liền nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_dress_94e256a5.mp3",
+    text: "Chạm vào váy liền nhé.",
+  },
+  [normalizeText("Tìm váy liền trên thanh treo bên phải nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_dress_fail_733174ff.mp3",
+    text: "Tìm váy liền trên thanh treo bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là váy liền.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_dress_success_155c3a0f.mp3",
+    text: "Đúng rồi, đó là váy liền.",
+  },
+  [normalizeText("Chạm vào thẻ xếp sẵn quần áo nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_lay_out_clothes_e884d778.mp3",
+    text: "Chạm vào thẻ xếp sẵn quần áo nhé.",
+  },
+  [normalizeText("Tìm thẻ xếp sẵn quần áo ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_lay_out_clothes_fail_ce2bca1b.mp3",
+    text: "Tìm thẻ xếp sẵn quần áo ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào áo mưa nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_raincoat_5774ce48.mp3",
+    text: "Chạm vào áo mưa nhé.",
+  },
+  [normalizeText("Tìm áo mưa ở chính giữa thanh treo nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_raincoat_fail_a14eb9fd.mp3",
+    text: "Tìm áo mưa ở chính giữa thanh treo nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là áo mưa.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_raincoat_success_c43edf47.mp3",
+    text: "Đúng rồi, đó là áo mưa.",
+  },
+  [normalizeText("Chạm vào áo len nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_sweater_963dbdae.mp3",
+    text: "Chạm vào áo len nhé.",
+  },
+  [normalizeText("Tìm áo len trên ghế bên trái nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_sweater_fail_d2600671.mp3",
+    text: "Tìm áo len trên ghế bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là áo len.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_sweater_success_a912a31e.mp3",
+    text: "Đúng rồi, đó là áo len.",
+  },
+  [normalizeText("Chạm vào áo thun nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_t_shirt_7aa0def7.mp3",
+    text: "Chạm vào áo thun nhé.",
+  },
+  [normalizeText("Tìm áo thun trên thanh treo bên trái nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_t_shirt_fail_21f657d8.mp3",
+    text: "Tìm áo thun trên thanh treo bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là áo thun.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/tap_t_shirt_success_54122435.mp3",
+    text: "Đúng rồi, đó là áo thun.",
+  },
+  [normalizeText("Đây là mũ lưỡi trai.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_cap_b0f951de.mp3",
+    text: "Đây là mũ lưỡi trai.",
+  },
+  [normalizeText("Từ này nghĩa là mũ lưỡi trai.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_cap_success_b6ebd3d0.mp3",
+    text: "Từ này nghĩa là mũ lưỡi trai.",
+  },
+  [normalizeText("Mình học câu xem thời tiết nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_check_weather_a6dd68dc.mp3",
+    text: "Mình học câu xem thời tiết nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xem thời tiết.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_check_weather_success_0af2be43.mp3",
+    text: "Câu này nghĩa là xem thời tiết.",
+  },
+  [normalizeText("Mình học câu chọn quần áo của bé nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_choose_clothes_action_134c5db4.mp3",
+    text: "Mình học câu chọn quần áo của bé nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chọn quần áo của bé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_choose_clothes_action_success_88f415e9.mp3",
+    text: "Câu này nghĩa là chọn quần áo của bé.",
+  },
+  [normalizeText("Đây là váy liền.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_dress_682831db.mp3",
+    text: "Đây là váy liền.",
+  },
+  [normalizeText("Từ này nghĩa là váy liền.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_dress_success_0dc9d0cc.mp3",
+    text: "Từ này nghĩa là váy liền.",
+  },
+  [normalizeText("Mình học câu xếp sẵn quần áo nhé.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_lay_out_clothes_486be1ae.mp3",
+    text: "Mình học câu xếp sẵn quần áo nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xếp sẵn quần áo.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_lay_out_clothes_success_8924c436.mp3",
+    text: "Câu này nghĩa là xếp sẵn quần áo.",
+  },
+  [normalizeText("Đây là áo mưa.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_raincoat_39febdf5.mp3",
+    text: "Đây là áo mưa.",
+  },
+  [normalizeText("Từ này nghĩa là áo mưa.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_raincoat_success_e5cd81e0.mp3",
+    text: "Từ này nghĩa là áo mưa.",
+  },
+  [normalizeText("Đây là quần short.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_shorts_73f237d6.mp3",
+    text: "Đây là quần short.",
+  },
+  [normalizeText("Từ này nghĩa là quần short.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_shorts_success_c5044680.mp3",
+    text: "Từ này nghĩa là quần short.",
+  },
+  [normalizeText("Đây là áo len.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_sweater_10c93c99.mp3",
+    text: "Đây là áo len.",
+  },
+  [normalizeText("Từ này nghĩa là áo len.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_sweater_success_69d9eebf.mp3",
+    text: "Từ này nghĩa là áo len.",
+  },
+  [normalizeText("Đây là áo thun.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_t_shirt_bbb91f85.mp3",
+    text: "Đây là áo thun.",
+  },
+  [normalizeText("Từ này nghĩa là áo thun.")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/teach_t_shirt_success_cccf8b68.mp3",
+    text: "Từ này nghĩa là áo thun.",
+  },
+  [normalizeText("Bé đã tập cài cúc, kéo khóa và buộc dây giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/completion_abbd6378.mp3",
+    text: "Bé đã tập cài cúc, kéo khóa và buộc dây giày.",
+  },
+  [normalizeText("Kéo khóa kéo tới chiếc áo đang sáng nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/drag_zipper_9f2dc95e.mp3",
+    text: "Kéo khóa kéo tới chiếc áo đang sáng nhé.",
+  },
+  [normalizeText("Tìm khóa kéo ở chính giữa kệ phía trên nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/drag_zipper_fail_e6206784.mp3",
+    text: "Tìm khóa kéo ở chính giữa kệ phía trên nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là khóa kéo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/drag_zipper_success_9e4120a5.mp3",
+    text: "Đúng rồi, đó là khóa kéo.",
+  },
+  [normalizeText("Mình tập với cúc áo, khóa kéo và dây giày nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/intro_3be191fc.mp3",
+    text: "Mình tập với cúc áo, khóa kéo và dây giày nhé.",
+  },
+  [normalizeText("Những ngón tay khéo léo giúp bé tự mặc đồ.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/intro_success_d6ae9cb4.mp3",
+    text: "Những ngón tay khéo léo giúp bé tự mặc đồ.",
+  },
+  [normalizeText("Chạm vào khóa cài nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_buckle_aeb33f12.mp3",
+    text: "Chạm vào khóa cài nhé.",
+  },
+  [normalizeText("Tìm khóa cài trên ghế bên trái nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_buckle_fail_cf335aab.mp3",
+    text: "Tìm khóa cài trên ghế bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là khóa cài.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_buckle_success_fff76c00.mp3",
+    text: "Đúng rồi, đó là khóa cài.",
+  },
+  [normalizeText("Chạm vào cúc áo nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_button_86ba08f7.mp3",
+    text: "Chạm vào cúc áo nhé.",
+  },
+  [normalizeText("Tìm cúc áo trên kệ phía trên bên trái nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_button_fail_a2388bd2.mp3",
+    text: "Tìm cúc áo trên kệ phía trên bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ cài cúc áo nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_button_shirt_dfbbf4e4.mp3",
+    text: "Chạm vào thẻ cài cúc áo nhé.",
+  },
+  [normalizeText("Tìm thẻ cài cúc áo ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_button_shirt_fail_d3828bf4.mp3",
+    text: "Tìm thẻ cài cúc áo ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cúc áo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_button_success_d0a3d9ed.mp3",
+    text: "Đúng rồi, đó là cúc áo.",
+  },
+  [normalizeText("Chạm vào quai giày nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoe_strap_4646cd74.mp3",
+    text: "Chạm vào quai giày nhé.",
+  },
+  [normalizeText("Tìm quai trên chiếc giày bên phải nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoe_strap_fail_b1bec7c1.mp3",
+    text: "Tìm quai trên chiếc giày bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là quai giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoe_strap_success_bfe879a6.mp3",
+    text: "Đúng rồi, đó là quai giày.",
+  },
+  [normalizeText("Chạm vào dây giày nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoelace_10ca39d9.mp3",
+    text: "Chạm vào dây giày nhé.",
+  },
+  [normalizeText("Tìm dây giày trên kệ phía trên bên phải nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoelace_fail_3f283748.mp3",
+    text: "Tìm dây giày trên kệ phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là dây giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_shoelace_success_3bc4251f.mp3",
+    text: "Đúng rồi, đó là dây giày.",
+  },
+  [normalizeText("Chạm vào cúc bấm nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_snap_fastener_c0d4d6eb.mp3",
+    text: "Chạm vào cúc bấm nhé.",
+  },
+  [normalizeText("Tìm cúc bấm ở chính giữa ghế nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_snap_fastener_fail_12e61c02.mp3",
+    text: "Tìm cúc bấm ở chính giữa ghế nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cúc bấm.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_snap_fastener_success_f7fce19f.mp3",
+    text: "Đúng rồi, đó là cúc bấm.",
+  },
+  [normalizeText("Chạm vào thẻ buộc dây giày nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_tie_shoelaces_941cc382.mp3",
+    text: "Chạm vào thẻ buộc dây giày nhé.",
+  },
+  [normalizeText("Tìm thẻ buộc dây giày ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_tie_shoelaces_fail_40048e13.mp3",
+    text: "Tìm thẻ buộc dây giày ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ kéo khóa áo nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_zip_jacket_3bfe7573.mp3",
+    text: "Chạm vào thẻ kéo khóa áo nhé.",
+  },
+  [normalizeText("Tìm thẻ kéo khóa áo ở giữa hàng dưới nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/tap_zip_jacket_fail_fc35f4d0.mp3",
+    text: "Tìm thẻ kéo khóa áo ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Đây là khóa cài.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_buckle_6d11eba4.mp3",
+    text: "Đây là khóa cài.",
+  },
+  [normalizeText("Từ này nghĩa là khóa cài.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_buckle_success_a8ab2e74.mp3",
+    text: "Từ này nghĩa là khóa cài.",
+  },
+  [normalizeText("Đây là cúc áo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_button_bf869f96.mp3",
+    text: "Đây là cúc áo.",
+  },
+  [normalizeText("Mình học câu cài cúc áo nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_button_shirt_1f45e57d.mp3",
+    text: "Mình học câu cài cúc áo nhé.",
+  },
+  [normalizeText("Câu này nghĩa là cài cúc áo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_button_shirt_success_ed0e8c26.mp3",
+    text: "Câu này nghĩa là cài cúc áo.",
+  },
+  [normalizeText("Từ này nghĩa là cúc áo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_button_success_f41883e3.mp3",
+    text: "Từ này nghĩa là cúc áo.",
+  },
+  [normalizeText("Đây là quai giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_shoe_strap_0c0d1a55.mp3",
+    text: "Đây là quai giày.",
+  },
+  [normalizeText("Từ này nghĩa là quai giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_shoe_strap_success_140f165a.mp3",
+    text: "Từ này nghĩa là quai giày.",
+  },
+  [normalizeText("Đây là dây giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_shoelace_20e533b3.mp3",
+    text: "Đây là dây giày.",
+  },
+  [normalizeText("Từ này nghĩa là dây giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_shoelace_success_71bab02d.mp3",
+    text: "Từ này nghĩa là dây giày.",
+  },
+  [normalizeText("Đây là cúc bấm.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_snap_fastener_4355b47d.mp3",
+    text: "Đây là cúc bấm.",
+  },
+  [normalizeText("Từ này nghĩa là cúc bấm.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_snap_fastener_success_63ebe59b.mp3",
+    text: "Từ này nghĩa là cúc bấm.",
+  },
+  [normalizeText("Mình học câu buộc dây giày nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_tie_shoelaces_12c351c4.mp3",
+    text: "Mình học câu buộc dây giày nhé.",
+  },
+  [normalizeText("Câu này nghĩa là buộc dây giày.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_tie_shoelaces_success_ea13c04b.mp3",
+    text: "Câu này nghĩa là buộc dây giày.",
+  },
+  [normalizeText("Mình học câu kéo khóa áo khoác nhé.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_zip_jacket_7ff4c36c.mp3",
+    text: "Mình học câu kéo khóa áo khoác nhé.",
+  },
+  [normalizeText("Câu này nghĩa là kéo khóa áo khoác.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_zip_jacket_success_b0cda868.mp3",
+    text: "Câu này nghĩa là kéo khóa áo khoác.",
+  },
+  [normalizeText("Đây là khóa kéo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_zipper_a86d1355.mp3",
+    text: "Đây là khóa kéo.",
+  },
+  [normalizeText("Từ này nghĩa là khóa kéo.")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_zipper_success_abb53fe7.mp3",
+    text: "Từ này nghĩa là khóa kéo.",
+  },
+  [normalizeText("Bé đã tập mặc quần áo đúng chiều.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/completion_117e735f.mp3",
+    text: "Bé đã tập mặc quần áo đúng chiều.",
+  },
+  [normalizeText("Mình xem mặt trước, mặt sau rồi mặc đồ nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/intro_ef1b1fd7.mp3",
+    text: "Mình xem mặt trước, mặt sau rồi mặc đồ nhé.",
+  },
+  [normalizeText("Nhìn cổ áo và nhãn giúp bé tìm đúng trước sau.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/intro_success_a59d9604.mp3",
+    text: "Nhìn cổ áo và nhãn giúp bé tìm đúng trước sau.",
+  },
+  [normalizeText("Chạm vào thẻ luồn tay áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_arms_through_sleeves_155c6779.mp3",
+    text: "Chạm vào thẻ luồn tay áo nhé.",
+  },
+  [normalizeText("Tìm thẻ luồn tay áo ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_arms_through_sleeves_fail_a227540a.mp3",
+    text: "Tìm thẻ luồn tay áo ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào mặt sau của áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_back_75ea558c.mp3",
+    text: "Chạm vào mặt sau của áo nhé.",
+  },
+  [normalizeText("Tìm mặt sau của áo ở phía dưới bên trái nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_back_fail_c31fadec.mp3",
+    text: "Tìm mặt sau của áo ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là mặt sau của áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_back_success_de909a96.mp3",
+    text: "Đúng rồi, đó là mặt sau của áo.",
+  },
+  [normalizeText("Chạm vào nhãn quần áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_clothing_tag_10472192.mp3",
+    text: "Chạm vào nhãn quần áo nhé.",
+  },
+  [normalizeText("Tìm nhãn quần áo ở phía dưới bên phải nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_clothing_tag_fail_45fb8b19.mp3",
+    text: "Tìm nhãn quần áo ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là nhãn quần áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_clothing_tag_success_190e4c50.mp3",
+    text: "Đúng rồi, đó là nhãn quần áo.",
+  },
+  [normalizeText("Chạm vào cổ áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_collar_d34c8e52.mp3",
+    text: "Chạm vào cổ áo nhé.",
+  },
+  [normalizeText("Tìm cổ áo trên kệ bên phải nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_collar_fail_17c3c0fa.mp3",
+    text: "Tìm cổ áo trên kệ bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cổ áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_collar_success_c2e537a5.mp3",
+    text: "Đúng rồi, đó là cổ áo.",
+  },
+  [normalizeText("Chạm vào mặt trước của áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_front_961abbd9.mp3",
+    text: "Chạm vào mặt trước của áo nhé.",
+  },
+  [normalizeText("Tìm mặt trước của áo ở bên trái bé nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_front_fail_db3cc107.mp3",
+    text: "Tìm mặt trước của áo ở bên trái bé nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là mặt trước của áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_front_success_de6fc783.mp3",
+    text: "Đúng rồi, đó là mặt trước của áo.",
+  },
+  [normalizeText("Chạm vào thẻ kéo quần lên nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_pull_up_shorts_e37febc1.mp3",
+    text: "Chạm vào thẻ kéo quần lên nhé.",
+  },
+  [normalizeText("Tìm thẻ kéo quần lên ở giữa hàng dưới nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_pull_up_shorts_fail_0e8b096f.mp3",
+    text: "Tìm thẻ kéo quần lên ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Tìm ống tay áo trên kệ bên trái nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_sleeve_fail_071f2db1.mp3",
+    text: "Tìm ống tay áo trên kệ bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ xoay áo lại nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_turn_shirt_around_95ec6685.mp3",
+    text: "Chạm vào thẻ xoay áo lại nhé.",
+  },
+  [normalizeText("Tìm thẻ xoay áo lại ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_turn_shirt_around_fail_3b75f337.mp3",
+    text: "Tìm thẻ xoay áo lại ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào cạp quần nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_waistband_d69eb341.mp3",
+    text: "Chạm vào cạp quần nhé.",
+  },
+  [normalizeText("Tìm cạp quần ở bên phải bé nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_waistband_fail_bdd12140.mp3",
+    text: "Tìm cạp quần ở bên phải bé nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cạp quần.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/tap_waistband_success_5eaefeeb.mp3",
+    text: "Đúng rồi, đó là cạp quần.",
+  },
+  [normalizeText("Mình học câu luồn tay qua ống áo nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_arms_through_sleeves_3b0586dc.mp3",
+    text: "Mình học câu luồn tay qua ống áo nhé.",
+  },
+  [normalizeText("Câu này nghĩa là luồn tay qua ống áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_arms_through_sleeves_success_6419c5a6.mp3",
+    text: "Câu này nghĩa là luồn tay qua ống áo.",
+  },
+  [normalizeText("Đây là mặt sau của áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_back_b75cca36.mp3",
+    text: "Đây là mặt sau của áo.",
+  },
+  [normalizeText("Từ này nghĩa là mặt sau.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_back_success_9617c43b.mp3",
+    text: "Từ này nghĩa là mặt sau.",
+  },
+  [normalizeText("Đây là nhãn quần áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_clothing_tag_afabae93.mp3",
+    text: "Đây là nhãn quần áo.",
+  },
+  [normalizeText("Từ này nghĩa là nhãn quần áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_clothing_tag_success_a663ff66.mp3",
+    text: "Từ này nghĩa là nhãn quần áo.",
+  },
+  [normalizeText("Đây là cổ áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_collar_217a34fa.mp3",
+    text: "Đây là cổ áo.",
+  },
+  [normalizeText("Từ này nghĩa là cổ áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_collar_success_3c9b0036.mp3",
+    text: "Từ này nghĩa là cổ áo.",
+  },
+  [normalizeText("Đây là mặt trước của áo.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_front_9dbccc6b.mp3",
+    text: "Đây là mặt trước của áo.",
+  },
+  [normalizeText("Từ này nghĩa là mặt trước.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_front_success_83ee618d.mp3",
+    text: "Từ này nghĩa là mặt trước.",
+  },
+  [normalizeText("Mình học câu kéo quần lên nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_pull_up_shorts_3d8f58bc.mp3",
+    text: "Mình học câu kéo quần lên nhé.",
+  },
+  [normalizeText("Câu này nghĩa là kéo quần lên.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_pull_up_shorts_success_f18b68b1.mp3",
+    text: "Câu này nghĩa là kéo quần lên.",
+  },
+  [normalizeText("Mình học câu xoay áo lại đúng chiều nhé.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_turn_shirt_around_cd4aff0c.mp3",
+    text: "Mình học câu xoay áo lại đúng chiều nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xoay áo lại đúng chiều.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_turn_shirt_around_success_e0a245d0.mp3",
+    text: "Câu này nghĩa là xoay áo lại đúng chiều.",
+  },
+  [normalizeText("Đây là cạp quần.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_waistband_fe424ea8.mp3",
+    text: "Đây là cạp quần.",
+  },
+  [normalizeText("Từ này nghĩa là cạp quần.")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_waistband_success_2041bcb1.mp3",
+    text: "Từ này nghĩa là cạp quần.",
   },
   [normalizeText("Bé đã dọn sau bữa tối thật gọn gàng!")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/vi/completion_71b7e470.mp3",
@@ -43136,6 +51380,486 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/my-body/legs-and-feet/audio/vi/teach_toes_success_aadc1983.mp3",
     text: "Từ này nghĩa là các ngón chân.",
   },
+  [normalizeText("Bé đã gọi tên cảm giác giận, sợ và lo.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/completion_b19c976b.mp3",
+    text: "Bé đã gọi tên cảm giác giận, sợ và lo.",
+  },
+  [normalizeText("Mình gọi tên cảm giác giận và sợ nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/intro_a32c28ca.mp3",
+    text: "Mình gọi tên cảm giác giận và sợ nhé.",
+  },
+  [normalizeText("Bé có thể nói khi mình sợ hoặc cần người lớn ở bên.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/intro_success_f2284179.mp3",
+    text: "Bé có thể nói khi mình sợ hoặc cần người lớn ở bên.",
+  },
+  [normalizeText("Chạm vào hình bé đang giận nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_angry_47e53754.mp3",
+    text: "Chạm vào hình bé đang giận nhé.",
+  },
+  [normalizeText("Tìm hình bé đang giận ở giữa phía trên nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_angry_fail_ae558e8a.mp3",
+    text: "Tìm hình bé đang giận ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào hình bé rất dũng cảm nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_brave_af35dc70.mp3",
+    text: "Chạm vào hình bé rất dũng cảm nhé.",
+  },
+  [normalizeText("Tìm hình bé rất dũng cảm ở chính giữa nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_brave_fail_25288901.mp3",
+    text: "Tìm hình bé rất dũng cảm ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào thẻ con thấy giận nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_feel_angry_556b0c50.mp3",
+    text: "Chạm vào thẻ con thấy giận nhé.",
+  },
+  [normalizeText("Tìm thẻ con thấy giận ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_feel_angry_fail_48a8014d.mp3",
+    text: "Tìm thẻ con thấy giận ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ con thấy sợ nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_feel_scared_e1876490.mp3",
+    text: "Chạm vào thẻ con thấy sợ nhé.",
+  },
+  [normalizeText("Tìm thẻ con thấy sợ ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_feel_scared_fail_e195cd55.mp3",
+    text: "Tìm thẻ con thấy sợ ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào hình bé cảm thấy an toàn nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_safe_8dcced63.mp3",
+    text: "Chạm vào hình bé cảm thấy an toàn nhé.",
+  },
+  [normalizeText("Tìm hình bé cảm thấy an toàn ở chính giữa nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_safe_fail_ce512155.mp3",
+    text: "Tìm hình bé cảm thấy an toàn ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang sợ nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_scared_3b93f3da.mp3",
+    text: "Chạm vào hình bé đang sợ nhé.",
+  },
+  [normalizeText("Tìm hình bé đang sợ ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_scared_fail_b4444562.mp3",
+    text: "Tìm hình bé đang sợ ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ hãy ở bên con nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_stay_with_me_ab7b5798.mp3",
+    text: "Chạm vào thẻ hãy ở bên con nhé.",
+  },
+  [normalizeText("Tìm thẻ hãy ở bên con ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_stay_with_me_fail_8f44e4c3.mp3",
+    text: "Tìm thẻ hãy ở bên con ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang khó chịu nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_upset_9079eaf2.mp3",
+    text: "Chạm vào hình bé đang khó chịu nhé.",
+  },
+  [normalizeText("Tìm hình bé đang khó chịu ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_upset_fail_7372b412.mp3",
+    text: "Tìm hình bé đang khó chịu ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang lo nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_worried_3309e306.mp3",
+    text: "Chạm vào hình bé đang lo nhé.",
+  },
+  [normalizeText("Tìm hình bé đang lo ở bên phải nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/tap_worried_fail_05a37f05.mp3",
+    text: "Tìm hình bé đang lo ở bên phải nhé.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang giận nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_angry_c60fe934.mp3",
+    text: "Mình cùng xem hình bé đang giận nhé.",
+  },
+  [normalizeText("Từ này nghĩa là tức giận.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_angry_success_50814873.mp3",
+    text: "Từ này nghĩa là tức giận.",
+  },
+  [normalizeText("Mình cùng xem hình bé rất dũng cảm nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_brave_d8bfff26.mp3",
+    text: "Mình cùng xem hình bé rất dũng cảm nhé.",
+  },
+  [normalizeText("Từ này nghĩa là dũng cảm.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_brave_success_75ace65b.mp3",
+    text: "Từ này nghĩa là dũng cảm.",
+  },
+  [normalizeText("Mình học câu con cảm thấy giận nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_feel_angry_0e6a8d87.mp3",
+    text: "Mình học câu con cảm thấy giận nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cảm thấy giận.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_feel_angry_success_eb42230a.mp3",
+    text: "Câu này nghĩa là con cảm thấy giận.",
+  },
+  [normalizeText("Mình học câu con cảm thấy sợ nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_feel_scared_587dfe09.mp3",
+    text: "Mình học câu con cảm thấy sợ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cảm thấy sợ.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_feel_scared_success_9cd0e70f.mp3",
+    text: "Câu này nghĩa là con cảm thấy sợ.",
+  },
+  [normalizeText("Mình cùng xem hình bé cảm thấy an toàn nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_safe_3b38a8fd.mp3",
+    text: "Mình cùng xem hình bé cảm thấy an toàn nhé.",
+  },
+  [normalizeText("Từ này nghĩa là an toàn.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_safe_success_fed0aeda.mp3",
+    text: "Từ này nghĩa là an toàn.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang sợ nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_scared_6e27b2be.mp3",
+    text: "Mình cùng xem hình bé đang sợ nhé.",
+  },
+  [normalizeText("Từ này nghĩa là sợ hãi.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_scared_success_8e4e4cd0.mp3",
+    text: "Từ này nghĩa là sợ hãi.",
+  },
+  [normalizeText("Mình học câu hãy ở bên con nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_stay_with_me_659b084b.mp3",
+    text: "Mình học câu hãy ở bên con nhé.",
+  },
+  [normalizeText("Câu này nghĩa là hãy ở bên con.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_stay_with_me_success_f6a0c182.mp3",
+    text: "Câu này nghĩa là hãy ở bên con.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang khó chịu nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_upset_16234a45.mp3",
+    text: "Mình cùng xem hình bé đang khó chịu nhé.",
+  },
+  [normalizeText("Từ này nghĩa là khó chịu.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_upset_success_31f747a9.mp3",
+    text: "Từ này nghĩa là khó chịu.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang lo nhé.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_worried_06f2bbca.mp3",
+    text: "Mình cùng xem hình bé đang lo nhé.",
+  },
+  [normalizeText("Từ này nghĩa là lo lắng.")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_worried_success_de50ebba.mp3",
+    text: "Từ này nghĩa là lo lắng.",
+  },
+  [normalizeText("Bé đã chia sẻ niềm háo hức và tự hào.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/completion_8c6966ae.mp3",
+    text: "Bé đã chia sẻ niềm háo hức và tự hào.",
+  },
+  [normalizeText("Mình gọi tên cảm giác háo hức và tự hào nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/intro_dc89859b.mp3",
+    text: "Mình gọi tên cảm giác háo hức và tự hào nhé.",
+  },
+  [normalizeText("Bé có thể vui vì điều mình cố gắng làm được.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/intro_success_47303d94.mp3",
+    text: "Bé có thể vui vì điều mình cố gắng làm được.",
+  },
+  [normalizeText("Chạm vào thẻ con háo hức nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_am_excited_36bc27a0.mp3",
+    text: "Chạm vào thẻ con háo hức nhé.",
+  },
+  [normalizeText("Tìm thẻ con háo hức ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_am_excited_fail_6dfe8b35.mp3",
+    text: "Tìm thẻ con háo hức ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang tò mò nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_curious_f0ae41b2.mp3",
+    text: "Chạm vào hình bé đang tò mò nhé.",
+  },
+  [normalizeText("Tìm hình bé đang tò mò ở bên trái nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_curious_fail_61f014ce.mp3",
+    text: "Tìm hình bé đang tò mò ở bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ con làm được nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_did_it_85d56fe1.mp3",
+    text: "Chạm vào thẻ con làm được nhé.",
+  },
+  [normalizeText("Tìm thẻ con làm được ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_did_it_fail_d472f721.mp3",
+    text: "Tìm thẻ con làm được ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang thất vọng nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_disappointed_f6965b9d.mp3",
+    text: "Chạm vào hình bé đang thất vọng nhé.",
+  },
+  [normalizeText("Tìm hình bé đang thất vọng ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_disappointed_fail_4f621c75.mp3",
+    text: "Tìm hình bé đang thất vọng ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang háo hức nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_excited_e6af2217.mp3",
+    text: "Chạm vào hình bé đang háo hức nhé.",
+  },
+  [normalizeText("Tìm hình bé đang háo hức ở giữa phía trên nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_excited_fail_d748ae04.mp3",
+    text: "Tìm hình bé đang háo hức ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào thẻ con thấy tự hào nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_feel_proud_33b09929.mp3",
+    text: "Chạm vào thẻ con thấy tự hào nhé.",
+  },
+  [normalizeText("Tìm thẻ con thấy tự hào ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_feel_proud_fail_3bbdefef.mp3",
+    text: "Tìm thẻ con thấy tự hào ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang tự hào nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_proud_88f15b77.mp3",
+    text: "Chạm vào hình bé đang tự hào nhé.",
+  },
+  [normalizeText("Tìm hình bé đang tự hào ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_proud_fail_6d1791fb.mp3",
+    text: "Tìm hình bé đang tự hào ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang ngại ngùng nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_shy_b3af73fe.mp3",
+    text: "Chạm vào hình bé đang ngại ngùng nhé.",
+  },
+  [normalizeText("Tìm hình bé đang ngại ngùng ở chính giữa nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_shy_fail_46846560.mp3",
+    text: "Tìm hình bé đang ngại ngùng ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang ngạc nhiên nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_surprised_916c64f2.mp3",
+    text: "Chạm vào hình bé đang ngạc nhiên nhé.",
+  },
+  [normalizeText("Tìm hình bé đang ngạc nhiên ở bên phải nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/tap_surprised_fail_be47d1c4.mp3",
+    text: "Tìm hình bé đang ngạc nhiên ở bên phải nhé.",
+  },
+  [normalizeText("Mình học câu con đang rất háo hức nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_am_excited_05174c1b.mp3",
+    text: "Mình học câu con đang rất háo hức nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con đang rất háo hức.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_am_excited_success_edeb5231.mp3",
+    text: "Câu này nghĩa là con đang rất háo hức.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang tò mò nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_curious_f47990a3.mp3",
+    text: "Mình cùng xem hình bé đang tò mò nhé.",
+  },
+  [normalizeText("Từ này nghĩa là tò mò.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_curious_success_5debfc78.mp3",
+    text: "Từ này nghĩa là tò mò.",
+  },
+  [normalizeText("Mình học câu con làm được rồi nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_did_it_c1e98e3e.mp3",
+    text: "Mình học câu con làm được rồi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con làm được rồi.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_did_it_success_7b7da2b4.mp3",
+    text: "Câu này nghĩa là con làm được rồi.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang thất vọng nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_disappointed_a33885dd.mp3",
+    text: "Mình cùng xem hình bé đang thất vọng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là thất vọng.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_disappointed_success_cb9cf24e.mp3",
+    text: "Từ này nghĩa là thất vọng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang háo hức nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_excited_e15dc94d.mp3",
+    text: "Mình cùng xem hình bé đang háo hức nhé.",
+  },
+  [normalizeText("Từ này nghĩa là háo hức.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_excited_success_165542a8.mp3",
+    text: "Từ này nghĩa là háo hức.",
+  },
+  [normalizeText("Mình học câu con cảm thấy tự hào nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_feel_proud_a2e2605e.mp3",
+    text: "Mình học câu con cảm thấy tự hào nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cảm thấy tự hào.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_feel_proud_success_5f15ec6c.mp3",
+    text: "Câu này nghĩa là con cảm thấy tự hào.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang tự hào nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_proud_eec1952f.mp3",
+    text: "Mình cùng xem hình bé đang tự hào nhé.",
+  },
+  [normalizeText("Từ này nghĩa là tự hào.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_proud_success_05e32c05.mp3",
+    text: "Từ này nghĩa là tự hào.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ngại ngùng nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_shy_9ece2a72.mp3",
+    text: "Mình cùng xem hình bé đang ngại ngùng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là ngại ngùng.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_shy_success_43c7edf9.mp3",
+    text: "Từ này nghĩa là ngại ngùng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ngạc nhiên nhé.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_surprised_539a2403.mp3",
+    text: "Mình cùng xem hình bé đang ngạc nhiên nhé.",
+  },
+  [normalizeText("Từ này nghĩa là ngạc nhiên.")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_surprised_success_357278c3.mp3",
+    text: "Từ này nghĩa là ngạc nhiên.",
+  },
+  [normalizeText("Bé đã nhận ra cảm xúc vui và buồn.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/completion_7b45d7a0.mp3",
+    text: "Bé đã nhận ra cảm xúc vui và buồn.",
+  },
+  [normalizeText("Mình nhìn những khuôn mặt vui và buồn nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/intro_00441dd8.mp3",
+    text: "Mình nhìn những khuôn mặt vui và buồn nhé.",
+  },
+  [normalizeText("Mỗi cảm xúc đều có thể được nói thành lời.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/intro_success_81ee730f.mp3",
+    text: "Mỗi cảm xúc đều có thể được nói thành lời.",
+  },
+  [normalizeText("Chạm vào thẻ con thấy vui nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_feel_happy_b7309bb4.mp3",
+    text: "Chạm vào thẻ con thấy vui nhé.",
+  },
+  [normalizeText("Tìm thẻ con thấy vui ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_feel_happy_fail_e70dd4d8.mp3",
+    text: "Tìm thẻ con thấy vui ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ con thấy buồn nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_feel_sad_b4062502.mp3",
+    text: "Chạm vào thẻ con thấy buồn nhé.",
+  },
+  [normalizeText("Tìm thẻ con thấy buồn ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_feel_sad_fail_3e7abf7a.mp3",
+    text: "Tìm thẻ con thấy buồn ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào cái cau mày nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_frown_ca11e225.mp3",
+    text: "Chạm vào cái cau mày nhé.",
+  },
+  [normalizeText("Tìm cái cau mày ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_frown_fail_028d998c.mp3",
+    text: "Tìm cái cau mày ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái cau mày.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_frown_success_0038c9c4.mp3",
+    text: "Đúng rồi, đó là cái cau mày.",
+  },
+  [normalizeText("Chạm vào hình bé đang vui nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_happy_6ce06c4e.mp3",
+    text: "Chạm vào hình bé đang vui nhé.",
+  },
+  [normalizeText("Tìm hình bé đang vui ở giữa phía trên nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_happy_fail_b74cee9f.mp3",
+    text: "Tìm hình bé đang vui ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào thẻ nói cảm xúc của con nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_how_you_feel_db87e5b6.mp3",
+    text: "Chạm vào thẻ nói cảm xúc của con nhé.",
+  },
+  [normalizeText("Tìm thẻ nói cảm xúc của con ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_how_you_feel_fail_07a74e04.mp3",
+    text: "Tìm thẻ nói cảm xúc của con ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang cười nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_laugh_bc3d214b.mp3",
+    text: "Chạm vào hình bé đang cười nhé.",
+  },
+  [normalizeText("Tìm hình bé đang cười ở chính giữa nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_laugh_fail_887637fc.mp3",
+    text: "Tìm hình bé đang cười ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang buồn nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_sad_ab5ea6e0.mp3",
+    text: "Chạm vào hình bé đang buồn nhé.",
+  },
+  [normalizeText("Tìm hình bé đang buồn ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_sad_fail_40b5da6f.mp3",
+    text: "Tìm hình bé đang buồn ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào nụ cười nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_smile_643b0ccd.mp3",
+    text: "Chạm vào nụ cười nhé.",
+  },
+  [normalizeText("Tìm nụ cười ở bên phải nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_smile_fail_f0a5dc53.mp3",
+    text: "Tìm nụ cười ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là nụ cười.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_smile_success_f2b0dae1.mp3",
+    text: "Đúng rồi, đó là nụ cười.",
+  },
+  [normalizeText("Chạm vào nước mắt nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_tears_3782bcf6.mp3",
+    text: "Chạm vào nước mắt nhé.",
+  },
+  [normalizeText("Tìm nước mắt ở chính giữa nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_tears_fail_faf2de59.mp3",
+    text: "Tìm nước mắt ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là nước mắt.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/tap_tears_success_c8e279a0.mp3",
+    text: "Đúng rồi, đó là nước mắt.",
+  },
+  [normalizeText("Mình học câu con cảm thấy vui nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_feel_happy_a0bf3d75.mp3",
+    text: "Mình học câu con cảm thấy vui nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cảm thấy vui.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_feel_happy_success_394116cd.mp3",
+    text: "Câu này nghĩa là con cảm thấy vui.",
+  },
+  [normalizeText("Mình học câu con cảm thấy buồn nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_feel_sad_be48c792.mp3",
+    text: "Mình học câu con cảm thấy buồn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cảm thấy buồn.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_feel_sad_success_7e7bc650.mp3",
+    text: "Câu này nghĩa là con cảm thấy buồn.",
+  },
+  [normalizeText("Đây là cái cau mày.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_frown_5ec63ca2.mp3",
+    text: "Đây là cái cau mày.",
+  },
+  [normalizeText("Từ này nghĩa là cái cau mày.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_frown_success_a7104fdf.mp3",
+    text: "Từ này nghĩa là cái cau mày.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang vui nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_happy_58b9e0ae.mp3",
+    text: "Mình cùng xem hình bé đang vui nhé.",
+  },
+  [normalizeText("Từ này nghĩa là vui vẻ.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_happy_success_f3908fa4.mp3",
+    text: "Từ này nghĩa là vui vẻ.",
+  },
+  [normalizeText("Mình học câu con có thể nói cảm xúc của mình nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_how_you_feel_1df6f1ed.mp3",
+    text: "Mình học câu con có thể nói cảm xúc của mình nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con có thể nói cảm xúc của mình.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_how_you_feel_success_fbbccb28.mp3",
+    text: "Câu này nghĩa là con có thể nói cảm xúc của mình.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang cười nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_laugh_feedc8eb.mp3",
+    text: "Mình cùng xem hình bé đang cười nhé.",
+  },
+  [normalizeText("Từ này nghĩa là cười thành tiếng.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_laugh_success_1c05fdff.mp3",
+    text: "Từ này nghĩa là cười thành tiếng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang buồn nhé.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_sad_34440b4e.mp3",
+    text: "Mình cùng xem hình bé đang buồn nhé.",
+  },
+  [normalizeText("Từ này nghĩa là buồn.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_sad_success_a74d976b.mp3",
+    text: "Từ này nghĩa là buồn.",
+  },
+  [normalizeText("Đây là nụ cười.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_smile_8630bcb4.mp3",
+    text: "Đây là nụ cười.",
+  },
+  [normalizeText("Từ này nghĩa là nụ cười.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_smile_success_e798c007.mp3",
+    text: "Từ này nghĩa là nụ cười.",
+  },
+  [normalizeText("Đây là nước mắt.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_tears_52a4706f.mp3",
+    text: "Đây là nước mắt.",
+  },
+  [normalizeText("Từ này nghĩa là nước mắt.")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_tears_success_31ff4f8c.mp3",
+    text: "Từ này nghĩa là nước mắt.",
+  },
   [normalizeText("Bé đã tìm được đường vào công viên.")]: {
     key: "lessons/park-visit/park-entrance/audio/vi/completion_e76c65bc.mp3",
     text: "Bé đã tìm được đường vào công viên.",
@@ -43675,6 +52399,442 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là bỏ rác vào thùng.")]: {
     key: "lessons/park-visit/park-picnic/audio/vi/teach_throw_trash_success_8507b776.mp3",
     text: "Câu này nghĩa là bỏ rác vào thùng.",
+  },
+  [normalizeText("Bé đã giữ đồ chăm sóc cá nhân thật gọn gàng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/completion_580baf69.mp3",
+    text: "Bé đã giữ đồ chăm sóc cá nhân thật gọn gàng.",
+  },
+  [normalizeText("Kéo bàn chải vào cốc đang sáng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/drag_toothbrush_1ce4b846.mp3",
+    text: "Kéo bàn chải vào cốc đang sáng nhé.",
+  },
+  [normalizeText("Tìm bàn chải đánh răng ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/drag_toothbrush_fail_ca3347a4.mp3",
+    text: "Tìm bàn chải đánh răng ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bàn chải đánh răng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/drag_toothbrush_success_78c84914.mp3",
+    text: "Đúng rồi, đó là bàn chải đánh răng.",
+  },
+  [normalizeText("Mình nhận biết và cất đồ dùng cá nhân nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/intro_b392101c.mp3",
+    text: "Mình nhận biết và cất đồ dùng cá nhân nhé.",
+  },
+  [normalizeText("Mỗi món đồ đều có chỗ cất sạch sẽ, gọn gàng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/intro_success_146f2ee3.mp3",
+    text: "Mỗi món đồ đều có chỗ cất sạch sẽ, gọn gàng.",
+  },
+  [normalizeText("Chạm vào thẻ đậy nắp kem nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_close_toothpaste_a29c6c4f.mp3",
+    text: "Chạm vào thẻ đậy nắp kem nhé.",
+  },
+  [normalizeText("Tìm thẻ đậy nắp kem ở giữa hàng dưới nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_close_toothpaste_fail_e8b67d8e.mp3",
+    text: "Tìm thẻ đậy nắp kem ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ dùng bàn chải riêng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_own_toothbrush_685f3912.mp3",
+    text: "Chạm vào thẻ dùng bàn chải riêng nhé.",
+  },
+  [normalizeText("Tìm thẻ dùng bàn chải riêng ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_own_toothbrush_fail_fea02612.mp3",
+    text: "Tìm thẻ dùng bàn chải riêng ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào thẻ cất đồ dùng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_put_things_away_a296340b.mp3",
+    text: "Chạm vào thẻ cất đồ dùng nhé.",
+  },
+  [normalizeText("Tìm thẻ cất đồ dùng ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_put_things_away_fail_ba16cf36.mp3",
+    text: "Tìm thẻ cất đồ dùng ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào bánh xà phòng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_soap_bar_e0a4b593.mp3",
+    text: "Chạm vào bánh xà phòng nhé.",
+  },
+  [normalizeText("Tìm bánh xà phòng ở giữa phía trên nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_soap_bar_fail_2072ae69.mp3",
+    text: "Tìm bánh xà phòng ở giữa phía trên nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bánh xà phòng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_soap_bar_success_581d0a64.mp3",
+    text: "Đúng rồi, đó là bánh xà phòng.",
+  },
+  [normalizeText("Chạm vào túi đồ vệ sinh nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toiletry_bag_e0832d74.mp3",
+    text: "Chạm vào túi đồ vệ sinh nhé.",
+  },
+  [normalizeText("Tìm túi đồ vệ sinh ở phía trên bên phải nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toiletry_bag_fail_ed6c7f46.mp3",
+    text: "Tìm túi đồ vệ sinh ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là túi đồ vệ sinh.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toiletry_bag_success_84121463.mp3",
+    text: "Đúng rồi, đó là túi đồ vệ sinh.",
+  },
+  [normalizeText("Chạm vào cốc bàn chải nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothbrush_holder_55ecb8a3.mp3",
+    text: "Chạm vào cốc bàn chải nhé.",
+  },
+  [normalizeText("Tìm cốc bàn chải ở bên phải nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothbrush_holder_fail_36d8796e.mp3",
+    text: "Tìm cốc bàn chải ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cốc bàn chải.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothbrush_holder_success_73155f75.mp3",
+    text: "Đúng rồi, đó là cốc bàn chải.",
+  },
+  [normalizeText("Chạm vào kem đánh răng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothpaste_c2901299.mp3",
+    text: "Chạm vào kem đánh răng nhé.",
+  },
+  [normalizeText("Tìm kem đánh răng ở giữa phía dưới nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothpaste_fail_27c93839.mp3",
+    text: "Tìm kem đánh răng ở giữa phía dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là kem đánh răng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_toothpaste_success_abe3e49b.mp3",
+    text: "Đúng rồi, đó là kem đánh răng.",
+  },
+  [normalizeText("Tìm khăn lau ở giữa phía trên nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/tap_towel_fail_7bb358f2.mp3",
+    text: "Tìm khăn lau ở giữa phía trên nhé.",
+  },
+  [normalizeText("Mình học câu đậy nắp kem đánh răng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_close_toothpaste_f76d2ca0.mp3",
+    text: "Mình học câu đậy nắp kem đánh răng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đậy nắp kem đánh răng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_close_toothpaste_success_baa83f7d.mp3",
+    text: "Câu này nghĩa là đậy nắp kem đánh răng.",
+  },
+  [normalizeText("Mình học câu dùng bàn chải riêng của bé nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_own_toothbrush_c993585b.mp3",
+    text: "Mình học câu dùng bàn chải riêng của bé nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dùng bàn chải riêng của bé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_own_toothbrush_success_aeb97007.mp3",
+    text: "Câu này nghĩa là dùng bàn chải riêng của bé.",
+  },
+  [normalizeText("Mình học câu cất đồ dùng gọn gàng nhé.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_put_things_away_86cd4508.mp3",
+    text: "Mình học câu cất đồ dùng gọn gàng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là cất đồ dùng gọn gàng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_put_things_away_success_0d8e5dd6.mp3",
+    text: "Câu này nghĩa là cất đồ dùng gọn gàng.",
+  },
+  [normalizeText("Đây là bánh xà phòng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_soap_bar_5b9b87da.mp3",
+    text: "Đây là bánh xà phòng.",
+  },
+  [normalizeText("Từ này nghĩa là bánh xà phòng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_soap_bar_success_7b0d232a.mp3",
+    text: "Từ này nghĩa là bánh xà phòng.",
+  },
+  [normalizeText("Đây là túi đồ vệ sinh.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_toiletry_bag_82281677.mp3",
+    text: "Đây là túi đồ vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là túi đồ vệ sinh.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_toiletry_bag_success_d2f0bb58.mp3",
+    text: "Từ này nghĩa là túi đồ vệ sinh.",
+  },
+  [normalizeText("Đây là cốc bàn chải.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_toothbrush_holder_b3e62380.mp3",
+    text: "Đây là cốc bàn chải.",
+  },
+  [normalizeText("Từ này nghĩa là cốc cắm bàn chải.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_toothbrush_holder_success_c526a665.mp3",
+    text: "Từ này nghĩa là cốc cắm bàn chải.",
+  },
+  [normalizeText("Từ này nghĩa là bàn chải đánh răng.")]: {
+    key: "lessons/personal-care/care-items/audio/vi/teach_toothbrush_success_c9443dc7.mp3",
+    text: "Từ này nghĩa là bàn chải đánh răng.",
+  },
+  [normalizeText("Bé đã biết chăm sóc khi ho và hắt hơi.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/completion_cb82ab19.mp3",
+    text: "Bé đã biết chăm sóc khi ho và hắt hơi.",
+  },
+  [normalizeText("Mình tập che miệng khi ho và hắt hơi nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/intro_9f5b9700.mp3",
+    text: "Mình tập che miệng khi ho và hắt hơi nhé.",
+  },
+  [normalizeText("Những bước nhỏ này giúp bé và mọi người sạch sẽ hơn.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/intro_success_d4459ca1.mp3",
+    text: "Những bước nhỏ này giúp bé và mọi người sạch sẽ hơn.",
+  },
+  [normalizeText("Chạm vào hình bé đang ho nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_cough_e1730577.mp3",
+    text: "Chạm vào hình bé đang ho nhé.",
+  },
+  [normalizeText("Tìm hình bé đang ho ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_cough_fail_ea26c1e1.mp3",
+    text: "Tìm hình bé đang ho ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào thẻ che khi ho nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_cover_cough_8bf88886.mp3",
+    text: "Chạm vào thẻ che khi ho nhé.",
+  },
+  [normalizeText("Tìm thẻ che khi ho ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_cover_cough_fail_8d906aee.mp3",
+    text: "Tìm thẻ che khi ho ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào ống tay áo nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sleeve_bbfbd02b.mp3",
+    text: "Chạm vào ống tay áo nhé.",
+  },
+  [normalizeText("Tìm ống tay áo ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sleeve_fail_45a88a31.mp3",
+    text: "Tìm ống tay áo ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là ống tay áo.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sleeve_success_bc4e6116.mp3",
+    text: "Đúng rồi, đó là ống tay áo.",
+  },
+  [normalizeText("Chạm vào hình bé đang hắt hơi nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sneeze_05d944c0.mp3",
+    text: "Chạm vào hình bé đang hắt hơi nhé.",
+  },
+  [normalizeText("Chạm vào thẻ che hắt hơi nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sneeze_elbow_9ea68415.mp3",
+    text: "Chạm vào thẻ che hắt hơi nhé.",
+  },
+  [normalizeText("Tìm thẻ che hắt hơi ở giữa hàng dưới nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sneeze_elbow_fail_a99ca8f5.mp3",
+    text: "Tìm thẻ che hắt hơi ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Tìm hình bé đang hắt hơi ở bên phải nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_sneeze_fail_59a228a0.mp3",
+    text: "Tìm hình bé đang hắt hơi ở bên phải nhé.",
+  },
+  [normalizeText("Tìm xà phòng ở phía trên bên phải nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_soap_fail_21567d39.mp3",
+    text: "Tìm xà phòng ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là xà phòng.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_soap_success_e1d5c2eb.mp3",
+    text: "Đúng rồi, đó là xà phòng.",
+  },
+  [normalizeText("Chạm vào thẻ bỏ khăn giấy nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_throw_tissue_348a249f.mp3",
+    text: "Chạm vào thẻ bỏ khăn giấy nhé.",
+  },
+  [normalizeText("Tìm thẻ bỏ khăn giấy ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_throw_tissue_fail_bc64928e.mp3",
+    text: "Tìm thẻ bỏ khăn giấy ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Tìm khăn giấy ở giữa phía dưới nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_tissue_fail_33181475.mp3",
+    text: "Tìm khăn giấy ở giữa phía dưới nhé.",
+  },
+  [normalizeText("Chạm vào thùng rác nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_trash_can_390de6c8.mp3",
+    text: "Chạm vào thùng rác nhé.",
+  },
+  [normalizeText("Tìm thùng rác ở phía dưới bên phải nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/tap_trash_can_fail_5374b87e.mp3",
+    text: "Tìm thùng rác ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ho nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_cough_baf9a51a.mp3",
+    text: "Mình cùng xem hình bé đang ho nhé.",
+  },
+  [normalizeText("Từ này nghĩa là ho.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_cough_success_a8127eab.mp3",
+    text: "Từ này nghĩa là ho.",
+  },
+  [normalizeText("Mình học câu che miệng khi ho nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_cover_cough_0495ace7.mp3",
+    text: "Mình học câu che miệng khi ho nhé.",
+  },
+  [normalizeText("Câu này nghĩa là che miệng khi ho.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_cover_cough_success_c72d33c0.mp3",
+    text: "Câu này nghĩa là che miệng khi ho.",
+  },
+  [normalizeText("Đây là ống tay áo.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sleeve_f6f3b25e.mp3",
+    text: "Đây là ống tay áo.",
+  },
+  [normalizeText("Từ này nghĩa là ống tay áo.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sleeve_success_e6ca3ea2.mp3",
+    text: "Từ này nghĩa là ống tay áo.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang hắt hơi nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sneeze_b317d223.mp3",
+    text: "Mình cùng xem hình bé đang hắt hơi nhé.",
+  },
+  [normalizeText("Mình học câu hắt hơi vào khuỷu tay nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sneeze_elbow_ea27bc26.mp3",
+    text: "Mình học câu hắt hơi vào khuỷu tay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là hắt hơi vào khuỷu tay.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sneeze_elbow_success_80b1b69f.mp3",
+    text: "Câu này nghĩa là hắt hơi vào khuỷu tay.",
+  },
+  [normalizeText("Từ này nghĩa là hắt hơi.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_sneeze_success_aaa7f5a3.mp3",
+    text: "Từ này nghĩa là hắt hơi.",
+  },
+  [normalizeText("Mình học câu bỏ khăn giấy vào thùng rác nhé.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_throw_tissue_d708f9bc.mp3",
+    text: "Mình học câu bỏ khăn giấy vào thùng rác nhé.",
+  },
+  [normalizeText("Câu này nghĩa là bỏ khăn giấy vào thùng rác.")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_throw_tissue_success_5427be31.mp3",
+    text: "Câu này nghĩa là bỏ khăn giấy vào thùng rác.",
+  },
+  [normalizeText("Bé đã chăm sóc tóc và khuôn mặt thật nhẹ nhàng.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/completion_d8ccb314.mp3",
+    text: "Bé đã chăm sóc tóc và khuôn mặt thật nhẹ nhàng.",
+  },
+  [normalizeText("Kéo cái lược tới mái tóc đang sáng nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/drag_comb_69c9abc3.mp3",
+    text: "Kéo cái lược tới mái tóc đang sáng nhé.",
+  },
+  [normalizeText("Tìm cái lược ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/drag_comb_fail_cef8c601.mp3",
+    text: "Tìm cái lược ở chính giữa nhé.",
+  },
+  [normalizeText("Mình chuẩn bị đồ chăm sóc tóc và khuôn mặt nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/intro_7929e19c.mp3",
+    text: "Mình chuẩn bị đồ chăm sóc tóc và khuôn mặt nhé.",
+  },
+  [normalizeText("Đồ dùng riêng giúp bé tự chăm sóc mỗi ngày.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/intro_success_5d706b5d.mp3",
+    text: "Đồ dùng riêng giúp bé tự chăm sóc mỗi ngày.",
+  },
+  [normalizeText("Chạm vào thẻ chải tóc nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_brush_hair_c5be12c5.mp3",
+    text: "Chạm vào thẻ chải tóc nhé.",
+  },
+  [normalizeText("Tìm thẻ chải tóc ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_brush_hair_fail_f1bbf38f.mp3",
+    text: "Tìm thẻ chải tóc ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào khăn mặt nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_face_cloth_0d31a032.mp3",
+    text: "Chạm vào khăn mặt nhé.",
+  },
+  [normalizeText("Tìm khăn mặt ở phía dưới bên phải nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_face_cloth_fail_2130ff4c.mp3",
+    text: "Tìm khăn mặt ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là khăn mặt.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_face_cloth_success_29e233b7.mp3",
+    text: "Đúng rồi, đó là khăn mặt.",
+  },
+  [normalizeText("Chạm vào dây buộc tóc nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hair_tie_241748f0.mp3",
+    text: "Chạm vào dây buộc tóc nhé.",
+  },
+  [normalizeText("Tìm dây buộc tóc ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hair_tie_fail_001499ab.mp3",
+    text: "Tìm dây buộc tóc ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là dây buộc tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hair_tie_success_febc8c1f.mp3",
+    text: "Đúng rồi, đó là dây buộc tóc.",
+  },
+  [normalizeText("Chạm vào bàn chải tóc nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hairbrush_8a14b2aa.mp3",
+    text: "Chạm vào bàn chải tóc nhé.",
+  },
+  [normalizeText("Tìm bàn chải tóc ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hairbrush_fail_38815374.mp3",
+    text: "Tìm bàn chải tóc ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bàn chải tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_hairbrush_success_6ffc58e7.mp3",
+    text: "Đúng rồi, đó là bàn chải tóc.",
+  },
+  [normalizeText("Chạm vào thẻ nhờ cắt móng nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_help_with_nails_5fe902b1.mp3",
+    text: "Chạm vào thẻ nhờ cắt móng nhé.",
+  },
+  [normalizeText("Tìm thẻ nhờ cắt móng ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_help_with_nails_fail_183831b1.mp3",
+    text: "Tìm thẻ nhờ cắt móng ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào cái gương nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_mirror_f38638f8.mp3",
+    text: "Chạm vào cái gương nhé.",
+  },
+  [normalizeText("Tìm cái gương ở phía trên bên phải nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_mirror_fail_7e4590a7.mp3",
+    text: "Tìm cái gương ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái gương.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_mirror_success_4d973d44.mp3",
+    text: "Đúng rồi, đó là cái gương.",
+  },
+  [normalizeText("Chạm vào cái bấm móng tay nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_nail_clippers_5856b404.mp3",
+    text: "Chạm vào cái bấm móng tay nhé.",
+  },
+  [normalizeText("Tìm cái bấm móng tay ở chính giữa nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_nail_clippers_fail_e08032f2.mp3",
+    text: "Tìm cái bấm móng tay ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái bấm móng tay.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_nail_clippers_success_baebf6c6.mp3",
+    text: "Đúng rồi, đó là cái bấm móng tay.",
+  },
+  [normalizeText("Chạm vào thẻ rửa mặt nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_wash_face_4447b098.mp3",
+    text: "Chạm vào thẻ rửa mặt nhé.",
+  },
+  [normalizeText("Tìm thẻ rửa mặt ở giữa hàng dưới nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/tap_wash_face_fail_31151967.mp3",
+    text: "Tìm thẻ rửa mặt ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chải tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_brush_hair_success_b6a326ea.mp3",
+    text: "Câu này nghĩa là chải tóc.",
+  },
+  [normalizeText("Từ này nghĩa là khăn mặt.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_face_cloth_success_2872e89e.mp3",
+    text: "Từ này nghĩa là khăn mặt.",
+  },
+  [normalizeText("Đây là dây buộc tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_hair_tie_15ac231e.mp3",
+    text: "Đây là dây buộc tóc.",
+  },
+  [normalizeText("Từ này nghĩa là dây buộc tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_hair_tie_success_9e927e21.mp3",
+    text: "Từ này nghĩa là dây buộc tóc.",
+  },
+  [normalizeText("Đây là bàn chải tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_hairbrush_8902c6da.mp3",
+    text: "Đây là bàn chải tóc.",
+  },
+  [normalizeText("Từ này nghĩa là bàn chải tóc.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_hairbrush_success_810bbfac.mp3",
+    text: "Từ này nghĩa là bàn chải tóc.",
+  },
+  [normalizeText("Mình học câu nhờ người lớn giúp cắt móng nhé.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_help_with_nails_7a9c7ab9.mp3",
+    text: "Mình học câu nhờ người lớn giúp cắt móng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nhờ người lớn giúp cắt móng.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_help_with_nails_success_1cc8a411.mp3",
+    text: "Câu này nghĩa là nhờ người lớn giúp cắt móng.",
+  },
+  [normalizeText("Đây là cái gương.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_mirror_7c2f9eb0.mp3",
+    text: "Đây là cái gương.",
+  },
+  [normalizeText("Từ này nghĩa là gương.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_mirror_success_11fc6d5a.mp3",
+    text: "Từ này nghĩa là gương.",
+  },
+  [normalizeText("Đây là cái bấm móng tay.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_nail_clippers_8b7cf6ba.mp3",
+    text: "Đây là cái bấm móng tay.",
+  },
+  [normalizeText("Từ này nghĩa là cái bấm móng tay.")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_nail_clippers_success_11d8c756.mp3",
+    text: "Từ này nghĩa là cái bấm móng tay.",
   },
   [normalizeText("Bé đã biết chơi vui và chia sẻ với bạn.")]: {
     key: "lessons/playtime/friend-games/audio/vi/completion_ba602849.mp3",
@@ -44744,6 +53904,482 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-table/audio/vi/teach_wipe_mouth_success_071eff48.mp3",
     text: "Lau miệng sau khi ăn giúp bé sạch sẽ.",
   },
+  [normalizeText("Bé đã tập nói rõ giới hạn và tìm người lớn tin cậy.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/completion_29220f60.mp3",
+    text: "Bé đã tập nói rõ giới hạn và tìm người lớn tin cậy.",
+  },
+  [normalizeText("Mình tập những câu giúp bé giữ giới hạn an toàn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/intro_07bb7cc3.mp3",
+    text: "Mình tập những câu giúp bé giữ giới hạn an toàn nhé.",
+  },
+  [normalizeText("Cơ thể của bé thuộc về bé và lời bé nói rất quan trọng.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/intro_success_47abc2c7.mp3",
+    text: "Cơ thể của bé thuộc về bé và lời bé nói rất quan trọng.",
+  },
+  [normalizeText("Chạm vào thẻ hỏi trước nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_ask_before_touching_85719a04.mp3",
+    text: "Chạm vào thẻ hỏi trước nhé.",
+  },
+  [normalizeText("Thẻ hỏi trước ở giữa hàng dưới.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_ask_before_touching_fail_29230d40.mp3",
+    text: "Thẻ hỏi trước ở giữa hàng dưới.",
+  },
+  [normalizeText("Chạm vào thẻ con không thích nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_do_not_like_that_4b5f55ec.mp3",
+    text: "Chạm vào thẻ con không thích nhé.",
+  },
+  [normalizeText("Thẻ con không thích ở dưới bên trái.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_do_not_like_that_fail_c396522b.mp3",
+    text: "Thẻ con không thích ở dưới bên trái.",
+  },
+  [normalizeText("Chạm vào thẻ con không muốn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_no_thank_you_1a698ae2.mp3",
+    text: "Chạm vào thẻ con không muốn nhé.",
+  },
+  [normalizeText("Thẻ con không muốn ở trên kệ bên phải.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_no_thank_you_fail_266658b7.mp3",
+    text: "Thẻ con không muốn ở trên kệ bên phải.",
+  },
+  [normalizeText("Chạm vào hình bé hỏi và chờ đồng ý nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_permission_a4b9fe00.mp3",
+    text: "Chạm vào hình bé hỏi và chờ đồng ý nhé.",
+  },
+  [normalizeText("Hình hỏi trước ở trên ghế dài bên phải.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_permission_fail_bc4bcaf9.mp3",
+    text: "Hình hỏi trước ở trên ghế dài bên phải.",
+  },
+  [normalizeText("Chạm vào hình bé giữ khoảng cách an toàn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_personal_space_802050e6.mp3",
+    text: "Chạm vào hình bé giữ khoảng cách an toàn nhé.",
+  },
+  [normalizeText("Hình khoảng cách an toàn ở trên ghế dài bên trái.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_personal_space_fail_422c43ff.mp3",
+    text: "Hình khoảng cách an toàn ở trên ghế dài bên trái.",
+  },
+  [normalizeText("Chạm vào thẻ xin dừng lại nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_stop_please_aa2c8927.mp3",
+    text: "Chạm vào thẻ xin dừng lại nhé.",
+  },
+  [normalizeText("Thẻ xin dừng lại ở trên kệ bên phải.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_stop_please_fail_6776fa4f.mp3",
+    text: "Thẻ xin dừng lại ở trên kệ bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ nói với người lớn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_tell_trusted_grown_up_2ede5aa7.mp3",
+    text: "Chạm vào thẻ nói với người lớn nhé.",
+  },
+  [normalizeText("Thẻ nói với người lớn ở dưới bên phải.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_tell_trusted_grown_up_fail_f76a084c.mp3",
+    text: "Thẻ nói với người lớn ở dưới bên phải.",
+  },
+  [normalizeText("Chạm vào hình người lớn tin cậy nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_trusted_grown_up_8a742182.mp3",
+    text: "Chạm vào hình người lớn tin cậy nhé.",
+  },
+  [normalizeText("Hình người lớn tin cậy ở trên ghế nhỏ bên phải.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_trusted_grown_up_fail_5b37bade.mp3",
+    text: "Hình người lớn tin cậy ở trên ghế nhỏ bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ con đồng ý nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_yes_please_13a17d21.mp3",
+    text: "Chạm vào thẻ con đồng ý nhé.",
+  },
+  [normalizeText("Thẻ con đồng ý ở trên tường bên trái.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/tap_yes_please_fail_6fbff4cb.mp3",
+    text: "Thẻ con đồng ý ở trên tường bên trái.",
+  },
+  [normalizeText("Mình học câu hỏi trước khi chạm nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_ask_before_touching_4cea3cbe.mp3",
+    text: "Mình học câu hỏi trước khi chạm nhé.",
+  },
+  [normalizeText("Câu này nghĩa là hỏi trước khi chạm.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_ask_before_touching_success_0d4234aa.mp3",
+    text: "Câu này nghĩa là hỏi trước khi chạm.",
+  },
+  [normalizeText("Mình học câu con không thích điều đó nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_do_not_like_that_9e1bd875.mp3",
+    text: "Mình học câu con không thích điều đó nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con không thích điều đó.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_do_not_like_that_success_49dbbb23.mp3",
+    text: "Câu này nghĩa là con không thích điều đó.",
+  },
+  [normalizeText("Mình học câu không, con không muốn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_no_thank_you_372eb934.mp3",
+    text: "Mình học câu không, con không muốn nhé.",
+  },
+  [normalizeText("Câu này nghĩa là không, con không muốn.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_no_thank_you_success_a918f666.mp3",
+    text: "Câu này nghĩa là không, con không muốn.",
+  },
+  [normalizeText("Mình cùng xem hình bé hỏi và chờ đồng ý nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_permission_11166b9f.mp3",
+    text: "Mình cùng xem hình bé hỏi và chờ đồng ý nhé.",
+  },
+  [normalizeText("Từ này nghĩa là sự đồng ý.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_permission_success_91ede741.mp3",
+    text: "Từ này nghĩa là sự đồng ý.",
+  },
+  [normalizeText("Mình cùng xem hình bé giữ khoảng cách an toàn nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_personal_space_2bf709a1.mp3",
+    text: "Mình cùng xem hình bé giữ khoảng cách an toàn nhé.",
+  },
+  [normalizeText("Từ này nghĩa là không gian riêng quanh cơ thể.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_personal_space_success_3ec312c5.mp3",
+    text: "Từ này nghĩa là không gian riêng quanh cơ thể.",
+  },
+  [normalizeText("Mình học câu xin hãy dừng lại nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_stop_please_6d9909cb.mp3",
+    text: "Mình học câu xin hãy dừng lại nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xin hãy dừng lại.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_stop_please_success_8b3dc5dd.mp3",
+    text: "Câu này nghĩa là xin hãy dừng lại.",
+  },
+  [normalizeText("Mình học câu nói với người lớn bé tin tưởng nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_tell_trusted_grown_up_28ed8b8f.mp3",
+    text: "Mình học câu nói với người lớn bé tin tưởng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nói với người lớn bé tin tưởng.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_tell_trusted_grown_up_success_924838c6.mp3",
+    text: "Câu này nghĩa là nói với người lớn bé tin tưởng.",
+  },
+  [normalizeText("Mình cùng xem hình người lớn tin cậy nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_trusted_grown_up_78f3b5e7.mp3",
+    text: "Mình cùng xem hình người lớn tin cậy nhé.",
+  },
+  [normalizeText("Từ này nghĩa là người lớn bé tin tưởng.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_trusted_grown_up_success_13bc1306.mp3",
+    text: "Từ này nghĩa là người lớn bé tin tưởng.",
+  },
+  [normalizeText("Mình học câu vâng, con đồng ý nhé.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_yes_please_4c5eed45.mp3",
+    text: "Mình học câu vâng, con đồng ý nhé.",
+  },
+  [normalizeText("Câu này nghĩa là vâng, con đồng ý.")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/teach_yes_please_success_0e14ea7c.mp3",
+    text: "Câu này nghĩa là vâng, con đồng ý.",
+  },
+  [normalizeText("Bé đã nói được những nhu cầu của cơ thể.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/completion_8e7535d7.mp3",
+    text: "Bé đã nói được những nhu cầu của cơ thể.",
+  },
+  [normalizeText("Mình gọi tên điều cơ thể đang cần nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/intro_7283c73e.mp3",
+    text: "Mình gọi tên điều cơ thể đang cần nhé.",
+  },
+  [normalizeText("Nói rõ nhu cầu giúp người lớn hiểu và hỗ trợ bé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/intro_success_69633dbe.mp3",
+    text: "Nói rõ nhu cầu giúp người lớn hiểu và hỗ trợ bé.",
+  },
+  [normalizeText("Chạm vào thẻ con đang đói nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_am_hungry_d3da6b3c.mp3",
+    text: "Chạm vào thẻ con đang đói nhé.",
+  },
+  [normalizeText("Thẻ con đang đói ở dưới bên trái.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_am_hungry_fail_79f64de3.mp3",
+    text: "Thẻ con đang đói ở dưới bên trái.",
+  },
+  [normalizeText("Chạm vào khăn quàng nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_cold_8f4c2b59.mp3",
+    text: "Chạm vào khăn quàng nhé.",
+  },
+  [normalizeText("Khăn quàng ở trên ghế đệm bên trái.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_cold_fail_c8030f0c.mp3",
+    text: "Khăn quàng ở trên ghế đệm bên trái.",
+  },
+  [normalizeText("Chạm vào quạt nhỏ nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_hot_829f8e03.mp3",
+    text: "Chạm vào quạt nhỏ nhé.",
+  },
+  [normalizeText("Quạt nhỏ ở bên trái bé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_hot_fail_e8e58002.mp3",
+    text: "Quạt nhỏ ở bên trái bé.",
+  },
+  [normalizeText("Chạm vào hình bé đang đói nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_hungry_17394cf6.mp3",
+    text: "Chạm vào hình bé đang đói nhé.",
+  },
+  [normalizeText("Hình bé đang đói ở trên kệ bên trái.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_hungry_fail_08beb302.mp3",
+    text: "Hình bé đang đói ở trên kệ bên trái.",
+  },
+  [normalizeText("Chạm vào thẻ con cần nghỉ nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_need_rest_1e7b437f.mp3",
+    text: "Chạm vào thẻ con cần nghỉ nhé.",
+  },
+  [normalizeText("Thẻ con cần nghỉ ở dưới bên phải.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_need_rest_fail_20752bfa.mp3",
+    text: "Thẻ con cần nghỉ ở dưới bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ con cần nước nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_need_water_ca0acc85.mp3",
+    text: "Chạm vào thẻ con cần nước nhé.",
+  },
+  [normalizeText("Thẻ con cần nước ở giữa hàng dưới.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_need_water_fail_093ac263.mp3",
+    text: "Thẻ con cần nước ở giữa hàng dưới.",
+  },
+  [normalizeText("Chạm vào chai nước nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_thirsty_3bbe82d9.mp3",
+    text: "Chạm vào chai nước nhé.",
+  },
+  [normalizeText("Chai nước ở trên kệ bên phải.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_thirsty_fail_652ed386.mp3",
+    text: "Chai nước ở trên kệ bên phải.",
+  },
+  [normalizeText("Đúng rồi, bé đã chọn hình khát nước.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_thirsty_success_e3e03217.mp3",
+    text: "Đúng rồi, bé đã chọn hình khát nước.",
+  },
+  [normalizeText("Chạm vào gối và chăn nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_tired_b69306f9.mp3",
+    text: "Chạm vào gối và chăn nhé.",
+  },
+  [normalizeText("Gối và chăn ở trên bàn nhỏ bên phải.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_tired_fail_bcf93fcb.mp3",
+    text: "Gối và chăn ở trên bàn nhỏ bên phải.",
+  },
+  [normalizeText("Đúng rồi, đó là lúc bé cần nghỉ.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_tired_success_96bc2704.mp3",
+    text: "Đúng rồi, đó là lúc bé cần nghỉ.",
+  },
+  [normalizeText("Chạm vào hình bé thấy khó chịu nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_uncomfortable_a99d1655.mp3",
+    text: "Chạm vào hình bé thấy khó chịu nhé.",
+  },
+  [normalizeText("Hình bé khó chịu ở dưới bàn bên phải.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/tap_uncomfortable_fail_0035cd4e.mp3",
+    text: "Hình bé khó chịu ở dưới bàn bên phải.",
+  },
+  [normalizeText("Mình học câu con đang đói nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_am_hungry_eff77478.mp3",
+    text: "Mình học câu con đang đói nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con đang đói.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_am_hungry_success_3ddc36d3.mp3",
+    text: "Câu này nghĩa là con đang đói.",
+  },
+  [normalizeText("Mình cùng xem hình bé thấy lạnh nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_cold_dac685b3.mp3",
+    text: "Mình cùng xem hình bé thấy lạnh nhé.",
+  },
+  [normalizeText("Từ này nghĩa là lạnh.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_cold_success_434c9856.mp3",
+    text: "Từ này nghĩa là lạnh.",
+  },
+  [normalizeText("Mình cùng xem hình bé thấy nóng nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_hot_67158756.mp3",
+    text: "Mình cùng xem hình bé thấy nóng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là nóng.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_hot_success_a2e9773a.mp3",
+    text: "Từ này nghĩa là nóng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang đói nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_hungry_9eba43c2.mp3",
+    text: "Mình cùng xem hình bé đang đói nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đói.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_hungry_success_c364651d.mp3",
+    text: "Từ này nghĩa là đói.",
+  },
+  [normalizeText("Mình học câu con cần nghỉ ngơi nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_need_rest_4e99fcb6.mp3",
+    text: "Mình học câu con cần nghỉ ngơi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần nghỉ ngơi.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_need_rest_success_67182ebf.mp3",
+    text: "Câu này nghĩa là con cần nghỉ ngơi.",
+  },
+  [normalizeText("Mình học câu con cần uống nước nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_need_water_a84627d6.mp3",
+    text: "Mình học câu con cần uống nước nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần uống nước.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_need_water_success_fe11e418.mp3",
+    text: "Câu này nghĩa là con cần uống nước.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang khát nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_thirsty_3f5342d5.mp3",
+    text: "Mình cùng xem hình bé đang khát nhé.",
+  },
+  [normalizeText("Từ này nghĩa là khát.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_thirsty_success_274ce4e1.mp3",
+    text: "Từ này nghĩa là khát.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang mệt nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_tired_310e405b.mp3",
+    text: "Mình cùng xem hình bé đang mệt nhé.",
+  },
+  [normalizeText("Từ này nghĩa là mệt.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_tired_success_7e6e9b91.mp3",
+    text: "Từ này nghĩa là mệt.",
+  },
+  [normalizeText("Mình cùng xem hình bé thấy khó chịu nhé.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_uncomfortable_7cee8b88.mp3",
+    text: "Mình cùng xem hình bé thấy khó chịu nhé.",
+  },
+  [normalizeText("Từ này nghĩa là không thoải mái.")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/teach_uncomfortable_success_ae7587dd.mp3",
+    text: "Từ này nghĩa là không thoải mái.",
+  },
+  [normalizeText("Bé đã biết nói chỗ đau và nhờ giúp.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/completion_d211a389.mp3",
+    text: "Bé đã biết nói chỗ đau và nhờ giúp.",
+  },
+  [normalizeText("Mình tập nói rõ khi cơ thể bị đau nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/intro_0a670cc6.mp3",
+    text: "Mình tập nói rõ khi cơ thể bị đau nhé.",
+  },
+  [normalizeText("Bé không cần chịu đau một mình.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/intro_success_16407918.mp3",
+    text: "Bé không cần chịu đau một mình.",
+  },
+  [normalizeText("Chạm vào hình bé thấy chóng mặt nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_dizzy_3055cb38.mp3",
+    text: "Chạm vào hình bé thấy chóng mặt nhé.",
+  },
+  [normalizeText("Hình chóng mặt ở dưới bên trái.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_dizzy_fail_a383579e.mp3",
+    text: "Hình chóng mặt ở dưới bên trái.",
+  },
+  [normalizeText("Chạm vào hình bé đang ôm đầu nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_headache_d687bdbc.mp3",
+    text: "Chạm vào hình bé đang ôm đầu nhé.",
+  },
+  [normalizeText("Hình bé ôm đầu ở cạnh tủ tường bên phải.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_headache_fail_30dcc205.mp3",
+    text: "Hình bé ôm đầu ở cạnh tủ tường bên phải.",
+  },
+  [normalizeText("Chạm vào hình bé đang chỉ chỗ đau nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_hurt_cb93cb22.mp3",
+    text: "Chạm vào hình bé đang chỉ chỗ đau nhé.",
+  },
+  [normalizeText("Hình bé chỉ chỗ đau ở trên kệ bên trái.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_hurt_fail_14439b53.mp3",
+    text: "Hình bé chỉ chỗ đau ở trên kệ bên trái.",
+  },
+  [normalizeText("Chạm vào thẻ đau ở đây nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_hurts_here_8205238b.mp3",
+    text: "Chạm vào thẻ đau ở đây nhé.",
+  },
+  [normalizeText("Thẻ đau ở đây ở dưới bên trái.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_hurts_here_fail_22c149df.mp3",
+    text: "Thẻ đau ở đây ở dưới bên trái.",
+  },
+  [normalizeText("Chạm vào hình bé đang gãi chỗ ngứa nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_itchy_9d0ede20.mp3",
+    text: "Chạm vào hình bé đang gãi chỗ ngứa nhé.",
+  },
+  [normalizeText("Hình bé bị ngứa ở dưới bàn bên phải.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_itchy_fail_6cce883f.mp3",
+    text: "Hình bé bị ngứa ở dưới bàn bên phải.",
+  },
+  [normalizeText("Chạm vào thẻ con không khỏe nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_not_feel_well_3fafe909.mp3",
+    text: "Chạm vào thẻ con không khỏe nhé.",
+  },
+  [normalizeText("Thẻ con không khỏe ở giữa hàng dưới.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_not_feel_well_fail_2aa758a9.mp3",
+    text: "Thẻ con không khỏe ở giữa hàng dưới.",
+  },
+  [normalizeText("Chạm vào thẻ xin giúp con nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_please_help_f24d9a18.mp3",
+    text: "Chạm vào thẻ xin giúp con nhé.",
+  },
+  [normalizeText("Thẻ xin giúp con ở dưới bên phải.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_please_help_fail_15db02d2.mp3",
+    text: "Thẻ xin giúp con ở dưới bên phải.",
+  },
+  [normalizeText("Chạm vào hình bé đang chỉ vào cổ họng nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_sore_throat_25bbaed8.mp3",
+    text: "Chạm vào hình bé đang chỉ vào cổ họng nhé.",
+  },
+  [normalizeText("Hình bé chỉ cổ họng ở trên ghế bên trái.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_sore_throat_fail_9b677b7b.mp3",
+    text: "Hình bé chỉ cổ họng ở trên ghế bên trái.",
+  },
+  [normalizeText("Chạm vào hình bé đang ôm bụng nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_tummy_ache_d9f210a0.mp3",
+    text: "Chạm vào hình bé đang ôm bụng nhé.",
+  },
+  [normalizeText("Hình bé ôm bụng ở trên bàn bên phải.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/tap_tummy_ache_fail_69311a25.mp3",
+    text: "Hình bé ôm bụng ở trên bàn bên phải.",
+  },
+  [normalizeText("Mình cùng xem hình bé thấy chóng mặt nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_dizzy_4d7262d3.mp3",
+    text: "Mình cùng xem hình bé thấy chóng mặt nhé.",
+  },
+  [normalizeText("Từ này nghĩa là chóng mặt.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_dizzy_success_25f7ac21.mp3",
+    text: "Từ này nghĩa là chóng mặt.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ôm đầu nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_headache_3c7ce447.mp3",
+    text: "Mình cùng xem hình bé đang ôm đầu nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đau đầu.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_headache_success_264ffd5f.mp3",
+    text: "Từ này nghĩa là đau đầu.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang chỉ chỗ đau nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_hurt_398197b3.mp3",
+    text: "Mình cùng xem hình bé đang chỉ chỗ đau nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đau.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_hurt_success_87f407d6.mp3",
+    text: "Từ này nghĩa là đau.",
+  },
+  [normalizeText("Mình học câu con đau ở đây nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_hurts_here_bc692981.mp3",
+    text: "Mình học câu con đau ở đây nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con đau ở đây.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_hurts_here_success_449126cf.mp3",
+    text: "Câu này nghĩa là con đau ở đây.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang gãi chỗ ngứa nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_itchy_d0ff4321.mp3",
+    text: "Mình cùng xem hình bé đang gãi chỗ ngứa nhé.",
+  },
+  [normalizeText("Từ này nghĩa là ngứa.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_itchy_success_023ff280.mp3",
+    text: "Từ này nghĩa là ngứa.",
+  },
+  [normalizeText("Mình học câu con không khỏe nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_not_feel_well_94687bde.mp3",
+    text: "Mình học câu con không khỏe nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con không khỏe.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_not_feel_well_success_d5d12e66.mp3",
+    text: "Câu này nghĩa là con không khỏe.",
+  },
+  [normalizeText("Mình học câu xin hãy giúp con nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_please_help_4001ba9b.mp3",
+    text: "Mình học câu xin hãy giúp con nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xin hãy giúp con.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_please_help_success_c95180c5.mp3",
+    text: "Câu này nghĩa là xin hãy giúp con.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang chỉ vào cổ họng nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_sore_throat_039fb7cc.mp3",
+    text: "Mình cùng xem hình bé đang chỉ vào cổ họng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đau họng.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_sore_throat_success_cff07120.mp3",
+    text: "Từ này nghĩa là đau họng.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ôm bụng nhé.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_tummy_ache_8356f5b0.mp3",
+    text: "Mình cùng xem hình bé đang ôm bụng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đau bụng.")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/teach_tummy_ache_success_8671f4a3.mp3",
+    text: "Từ này nghĩa là đau bụng.",
+  },
   [normalizeText("Bé đã biết thanh toán và mang đồ về.")]: {
     key: "lessons/supermarket-trip/checkout-counter/audio/vi/completion_b125f7b5.mp3",
     text: "Bé đã biết thanh toán và mang đồ về.",
@@ -45279,6 +54915,522 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là ví tiền.")]: {
     key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_wallet_success_934241a6.mp3",
     text: "Từ này nghĩa là ví tiền.",
+  },
+  [normalizeText("Bé đã giữ tay sạch và biết nói điều mình cần.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/completion_0830d00d.mp3",
+    text: "Bé đã giữ tay sạch và biết nói điều mình cần.",
+  },
+  [normalizeText("Kéo xà phòng tới bồn rửa đang sáng nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/drag_hand_soap_74b52f2b.mp3",
+    text: "Kéo xà phòng tới bồn rửa đang sáng nhé.",
+  },
+  [normalizeText("Tìm xà phòng bên phải bồn rửa nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/drag_hand_soap_fail_a70b0f29.mp3",
+    text: "Tìm xà phòng bên phải bồn rửa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là xà phòng rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/drag_hand_soap_success_89391497.mp3",
+    text: "Đúng rồi, đó là xà phòng rửa tay.",
+  },
+  [normalizeText("Mình rửa tay và tập nói khi cần riêng tư nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/intro_012b7947.mp3",
+    text: "Mình rửa tay và tập nói khi cần riêng tư nhé.",
+  },
+  [normalizeText("Bé luôn có thể gọi người lớn khi cần trợ giúp.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/intro_success_8bb081a1.mp3",
+    text: "Bé luôn có thể gọi người lớn khi cần trợ giúp.",
+  },
+  [normalizeText("Chạm vào hình đôi tay sạch nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_clean_hands_e448bb82.mp3",
+    text: "Chạm vào hình đôi tay sạch nhé.",
+  },
+  [normalizeText("Tìm hình đôi tay sạch trên kệ chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_clean_hands_fail_da8a7740.mp3",
+    text: "Tìm hình đôi tay sạch trên kệ chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào thẻ xin riêng tư nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_give_privacy_b6116b41.mp3",
+    text: "Chạm vào thẻ xin riêng tư nhé.",
+  },
+  [normalizeText("Tìm thẻ xin riêng tư chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_give_privacy_fail_e477a522.mp3",
+    text: "Tìm thẻ xin riêng tư chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào khăn lau tay nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_hand_towel_aba23e46.mp3",
+    text: "Chạm vào khăn lau tay nhé.",
+  },
+  [normalizeText("Tìm khăn lau tay trên tường bên phải nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_hand_towel_fail_71d0dbd3.mp3",
+    text: "Tìm khăn lau tay trên tường bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là khăn lau tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_hand_towel_success_3e2276b5.mp3",
+    text: "Đúng rồi, đó là khăn lau tay.",
+  },
+  [normalizeText("Chạm vào thẻ con cần giúp nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_help_if_needed_35889762.mp3",
+    text: "Chạm vào thẻ con cần giúp nhé.",
+  },
+  [normalizeText("Tìm thẻ gọi người lớn bên phải nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_help_if_needed_fail_91dcb556.mp3",
+    text: "Tìm thẻ gọi người lớn bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé có không gian riêng nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_privacy_97ad0d78.mp3",
+    text: "Chạm vào hình bé có không gian riêng nhé.",
+  },
+  [normalizeText("Tìm hình cánh cửa riêng tư trên kệ bên trái nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_privacy_fail_e9db746f.mp3",
+    text: "Tìm hình cánh cửa riêng tư trên kệ bên trái nhé.",
+  },
+  [normalizeText("Chạm vào bồn rửa tay nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_sink_086ef2d6.mp3",
+    text: "Chạm vào bồn rửa tay nhé.",
+  },
+  [normalizeText("Tìm bồn rửa chính giữa tường nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_sink_fail_e46d9566.mp3",
+    text: "Tìm bồn rửa chính giữa tường nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bồn rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_sink_success_bd87f987.mp3",
+    text: "Đúng rồi, đó là bồn rửa tay.",
+  },
+  [normalizeText("Chạm vào thẻ rửa tay sạch nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_wash_hands_well_dd046377.mp3",
+    text: "Chạm vào thẻ rửa tay sạch nhé.",
+  },
+  [normalizeText("Tìm thẻ rửa tay bên trái nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_wash_hands_well_fail_92a844ce.mp3",
+    text: "Tìm thẻ rửa tay bên trái nhé.",
+  },
+  [normalizeText("Chạm vào biển sàn ướt nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_wet_floor_sign_f1794abc.mp3",
+    text: "Chạm vào biển sàn ướt nhé.",
+  },
+  [normalizeText("Tìm biển sàn ướt trên sàn bên phải nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_wet_floor_sign_fail_07207016.mp3",
+    text: "Tìm biển sàn ướt trên sàn bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là biển sàn ướt.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/tap_wet_floor_sign_success_305067d8.mp3",
+    text: "Đúng rồi, đó là biển sàn ướt.",
+  },
+  [normalizeText("Mình cùng xem hình đôi tay sạch nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_clean_hands_f6a9e90b.mp3",
+    text: "Mình cùng xem hình đôi tay sạch nhé.",
+  },
+  [normalizeText("Từ này nghĩa là đôi tay sạch.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_clean_hands_success_b6ff75a9.mp3",
+    text: "Từ này nghĩa là đôi tay sạch.",
+  },
+  [normalizeText("Mình học câu xin cho con không gian riêng nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_give_privacy_e49b5383.mp3",
+    text: "Mình học câu xin cho con không gian riêng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xin cho con không gian riêng.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_give_privacy_success_dc4fce1e.mp3",
+    text: "Câu này nghĩa là xin cho con không gian riêng.",
+  },
+  [normalizeText("Đây là xà phòng rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_hand_soap_f930a944.mp3",
+    text: "Đây là xà phòng rửa tay.",
+  },
+  [normalizeText("Từ này nghĩa là xà phòng rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_hand_soap_success_8b77c2f9.mp3",
+    text: "Từ này nghĩa là xà phòng rửa tay.",
+  },
+  [normalizeText("Đây là khăn lau tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_hand_towel_ac8c6753.mp3",
+    text: "Đây là khăn lau tay.",
+  },
+  [normalizeText("Từ này nghĩa là khăn lau tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_hand_towel_success_89aad41d.mp3",
+    text: "Từ này nghĩa là khăn lau tay.",
+  },
+  [normalizeText("Mình học câu con cần giúp đỡ nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_help_if_needed_5ac59d8a.mp3",
+    text: "Mình học câu con cần giúp đỡ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần giúp đỡ.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_help_if_needed_success_efde5a75.mp3",
+    text: "Câu này nghĩa là con cần giúp đỡ.",
+  },
+  [normalizeText("Mình cùng xem hình bé có không gian riêng nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_privacy_f755d847.mp3",
+    text: "Mình cùng xem hình bé có không gian riêng nhé.",
+  },
+  [normalizeText("Từ này nghĩa là sự riêng tư.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_privacy_success_71b02234.mp3",
+    text: "Từ này nghĩa là sự riêng tư.",
+  },
+  [normalizeText("Đây là bồn rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_sink_3955775d.mp3",
+    text: "Đây là bồn rửa tay.",
+  },
+  [normalizeText("Từ này nghĩa là bồn rửa tay.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_sink_success_c9d3fb94.mp3",
+    text: "Từ này nghĩa là bồn rửa tay.",
+  },
+  [normalizeText("Mình học câu rửa tay thật sạch nhé.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_wash_hands_well_c31e50f2.mp3",
+    text: "Mình học câu rửa tay thật sạch nhé.",
+  },
+  [normalizeText("Câu này nghĩa là rửa tay thật sạch.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_wash_hands_well_success_320e1223.mp3",
+    text: "Câu này nghĩa là rửa tay thật sạch.",
+  },
+  [normalizeText("Đây là biển sàn ướt.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_wet_floor_sign_3903ebcd.mp3",
+    text: "Đây là biển sàn ướt.",
+  },
+  [normalizeText("Từ này nghĩa là biển sàn ướt.")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_wet_floor_sign_success_c21732ff.mp3",
+    text: "Từ này nghĩa là biển sàn ướt.",
+  },
+  [normalizeText("Bé đã biết nói khi cần đi vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/completion_67308649.mp3",
+    text: "Bé đã biết nói khi cần đi vệ sinh.",
+  },
+  [normalizeText("Mình nhận ra lúc cơ thể cần đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/intro_caa5686e.mp3",
+    text: "Mình nhận ra lúc cơ thể cần đi vệ sinh nhé.",
+  },
+  [normalizeText("Bé có thể nói ngay với người lớn khi cần đi.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/intro_success_12be6be3.mp3",
+    text: "Bé có thể nói ngay với người lớn khi cần đi.",
+  },
+  [normalizeText("Chạm vào thẻ xin đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_ask_use_toilet_00b116cf.mp3",
+    text: "Chạm vào thẻ xin đi vệ sinh nhé.",
+  },
+  [normalizeText("Tìm thẻ bé hỏi người lớn bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_ask_use_toilet_fail_7012221c.mp3",
+    text: "Tìm thẻ bé hỏi người lớn bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình phòng vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_989c6eae.mp3",
+    text: "Chạm vào hình phòng vệ sinh nhé.",
+  },
+  [normalizeText("Chạm vào cửa phòng vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_door_436ede51.mp3",
+    text: "Chạm vào cửa phòng vệ sinh nhé.",
+  },
+  [normalizeText("Tìm cửa phòng vệ sinh trên kệ bên trái nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_door_fail_d334f974.mp3",
+    text: "Tìm cửa phòng vệ sinh trên kệ bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cửa phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_door_success_5bafd752.mp3",
+    text: "Đúng rồi, đó là cửa phòng vệ sinh.",
+  },
+  [normalizeText("Tìm hình phòng vệ sinh trên kệ bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_fail_d925f2be.mp3",
+    text: "Tìm hình phòng vệ sinh trên kệ bên phải nhé.",
+  },
+  [normalizeText("Chạm vào biển vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_sign_37856957.mp3",
+    text: "Chạm vào biển vệ sinh nhé.",
+  },
+  [normalizeText("Tìm biển vệ sinh phía trên, giữa kệ nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_sign_fail_7cb8a9cc.mp3",
+    text: "Tìm biển vệ sinh phía trên, giữa kệ nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là biển vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_bathroom_sign_success_8e6e5514.mp3",
+    text: "Đúng rồi, đó là biển vệ sinh.",
+  },
+  [normalizeText("Chạm vào thẻ đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_go_bathroom_be014910.mp3",
+    text: "Chạm vào thẻ đi vệ sinh nhé.",
+  },
+  [normalizeText("Tìm thẻ bé đi tới cửa chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_go_bathroom_fail_613182cf.mp3",
+    text: "Tìm thẻ bé đi tới cửa chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào thẻ cần đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_need_toilet_b9f6f8a2.mp3",
+    text: "Chạm vào thẻ cần đi vệ sinh nhé.",
+  },
+  [normalizeText("Tìm thẻ bé giơ tay bên trái nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_need_toilet_fail_4e09ca75.mp3",
+    text: "Tìm thẻ bé giơ tay bên trái nhé.",
+  },
+  [normalizeText("Tìm bô vệ sinh trên sàn bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_potty_fail_dc232964.mp3",
+    text: "Tìm bô vệ sinh trên sàn bên phải nhé.",
+  },
+  [normalizeText("Chạm vào bô vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_potty_ffcea8d1.mp3",
+    text: "Chạm vào bô vệ sinh nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bô vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_potty_success_70da5b32.mp3",
+    text: "Đúng rồi, đó là bô vệ sinh.",
+  },
+  [normalizeText("Chạm vào ghế kê chân nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_step_stool_8c68607c.mp3",
+    text: "Chạm vào ghế kê chân nhé.",
+  },
+  [normalizeText("Tìm ghế kê chân phía dưới bồn cầu nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_step_stool_fail_3bbf9754.mp3",
+    text: "Tìm ghế kê chân phía dưới bồn cầu nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là ghế kê chân.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_step_stool_success_6981ca9c.mp3",
+    text: "Đúng rồi, đó là ghế kê chân.",
+  },
+  [normalizeText("Chạm vào bồn cầu nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_toilet_a4c30038.mp3",
+    text: "Chạm vào bồn cầu nhé.",
+  },
+  [normalizeText("Tìm bồn cầu bên trái, dưới kệ nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_toilet_fail_be63840a.mp3",
+    text: "Tìm bồn cầu bên trái, dưới kệ nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bồn cầu.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/tap_toilet_success_15c263be.mp3",
+    text: "Đúng rồi, đó là bồn cầu.",
+  },
+  [normalizeText("Mình học câu xin phép đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_ask_use_toilet_70c5318c.mp3",
+    text: "Mình học câu xin phép đi vệ sinh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xin phép đi vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_ask_use_toilet_success_541c38ab.mp3",
+    text: "Câu này nghĩa là xin phép đi vệ sinh.",
+  },
+  [normalizeText("Mình cùng xem hình phòng vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_281a8765.mp3",
+    text: "Mình cùng xem hình phòng vệ sinh nhé.",
+  },
+  [normalizeText("Đây là cửa phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_door_38e63c97.mp3",
+    text: "Đây là cửa phòng vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là cửa phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_door_success_3b0916d7.mp3",
+    text: "Từ này nghĩa là cửa phòng vệ sinh.",
+  },
+  [normalizeText("Đây là biển vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_sign_4a24acb4.mp3",
+    text: "Đây là biển vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là biển phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_sign_success_d41b335c.mp3",
+    text: "Từ này nghĩa là biển phòng vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_bathroom_success_b001e13b.mp3",
+    text: "Từ này nghĩa là phòng vệ sinh.",
+  },
+  [normalizeText("Mình học câu đi vào phòng vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_go_bathroom_4ea7805c.mp3",
+    text: "Mình học câu đi vào phòng vệ sinh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi vào phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_go_bathroom_success_3959f654.mp3",
+    text: "Câu này nghĩa là đi vào phòng vệ sinh.",
+  },
+  [normalizeText("Mình học câu con cần đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_need_toilet_a82a602b.mp3",
+    text: "Mình học câu con cần đi vệ sinh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là con cần đi vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_need_toilet_success_ba3e1953.mp3",
+    text: "Câu này nghĩa là con cần đi vệ sinh.",
+  },
+  [normalizeText("Đây là bô vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_potty_1b9afecd.mp3",
+    text: "Đây là bô vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là bô vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_potty_success_8d80e4d3.mp3",
+    text: "Từ này nghĩa là bô vệ sinh.",
+  },
+  [normalizeText("Đây là ghế kê chân.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_step_stool_40999a8f.mp3",
+    text: "Đây là ghế kê chân.",
+  },
+  [normalizeText("Từ này nghĩa là ghế kê chân.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_step_stool_success_3b57010f.mp3",
+    text: "Từ này nghĩa là ghế kê chân.",
+  },
+  [normalizeText("Đây là bồn cầu.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_toilet_3940887b.mp3",
+    text: "Đây là bồn cầu.",
+  },
+  [normalizeText("Từ này nghĩa là bồn cầu.")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_toilet_success_7aae5c22.mp3",
+    text: "Từ này nghĩa là bồn cầu.",
+  },
+  [normalizeText("Bé đã hoàn thành các bước đi vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/completion_fe9995d6.mp3",
+    text: "Bé đã hoàn thành các bước đi vệ sinh.",
+  },
+  [normalizeText("Mình cùng làm từng bước đi vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/intro_6c82c88a.mp3",
+    text: "Mình cùng làm từng bước đi vệ sinh nhé.",
+  },
+  [normalizeText("Làm từng bước giúp bé tự tin và sạch sẽ.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/intro_success_efca86b8.mp3",
+    text: "Làm từng bước giúp bé tự tin và sạch sẽ.",
+  },
+  [normalizeText("Chạm vào nút xả nước nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_flush_button_92b992cc.mp3",
+    text: "Chạm vào nút xả nước nhé.",
+  },
+  [normalizeText("Tìm nút xả nước trên tường bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_flush_button_fail_448c868b.mp3",
+    text: "Tìm nút xả nước trên tường bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là nút xả nước.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_flush_button_success_b1afca1e.mp3",
+    text: "Đúng rồi, đó là nút xả nước.",
+  },
+  [normalizeText("Chạm vào thẻ xả nước nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_flush_toilet_43beff27.mp3",
+    text: "Chạm vào thẻ xả nước nhé.",
+  },
+  [normalizeText("Tìm thẻ bấm nút xả bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_flush_toilet_fail_edb27538.mp3",
+    text: "Tìm thẻ bấm nút xả bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ kéo quần xuống nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_pull_down_clothes_30bb4ad1.mp3",
+    text: "Chạm vào thẻ kéo quần xuống nhé.",
+  },
+  [normalizeText("Tìm thẻ mũi tên kéo quần bên trái nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_pull_down_clothes_fail_9aa6b717.mp3",
+    text: "Tìm thẻ mũi tên kéo quần bên trái nhé.",
+  },
+  [normalizeText("Chạm vào giấy vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_paper_928af28f.mp3",
+    text: "Chạm vào giấy vệ sinh nhé.",
+  },
+  [normalizeText("Tìm giấy vệ sinh trên sàn bên trái nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_paper_fail_322c2eb5.mp3",
+    text: "Tìm giấy vệ sinh trên sàn bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là giấy vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_paper_success_68dcdf3e.mp3",
+    text: "Đúng rồi, đó là giấy vệ sinh.",
+  },
+  [normalizeText("Chạm vào bệ ngồi nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_seat_a5f5c2fb.mp3",
+    text: "Chạm vào bệ ngồi nhé.",
+  },
+  [normalizeText("Tìm bệ ngồi trên sàn chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_seat_fail_0722d56c.mp3",
+    text: "Tìm bệ ngồi trên sàn chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bệ ngồi.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_toilet_seat_success_84f5306a.mp3",
+    text: "Đúng rồi, đó là bệ ngồi.",
+  },
+  [normalizeText("Chạm vào quần dài nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_trousers_92670cbd.mp3",
+    text: "Chạm vào quần dài nhé.",
+  },
+  [normalizeText("Tìm quần dài trên thanh treo chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_trousers_fail_4f5fd9a5.mp3",
+    text: "Tìm quần dài trên thanh treo chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là quần dài.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_trousers_success_dd704b73.mp3",
+    text: "Đúng rồi, đó là quần dài.",
+  },
+  [normalizeText("Chạm vào quần lót nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_underwear_6ecbff68.mp3",
+    text: "Chạm vào quần lót nhé.",
+  },
+  [normalizeText("Tìm quần lót trên thanh treo bên trái nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_underwear_fail_e1ffef14.mp3",
+    text: "Tìm quần lót trên thanh treo bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là quần lót.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_underwear_success_ff4c7962.mp3",
+    text: "Đúng rồi, đó là quần lót.",
+  },
+  [normalizeText("Chạm vào thẻ dùng giấy nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_use_toilet_paper_1df65297.mp3",
+    text: "Chạm vào thẻ dùng giấy nhé.",
+  },
+  [normalizeText("Tìm thẻ cầm giấy chính giữa nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_use_toilet_paper_fail_2c1d4878.mp3",
+    text: "Tìm thẻ cầm giấy chính giữa nhé.",
+  },
+  [normalizeText("Tìm thùng rác trên sàn bên phải nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/tap_waste_bin_fail_697df685.mp3",
+    text: "Tìm thùng rác trên sàn bên phải nhé.",
+  },
+  [normalizeText("Đây là nút xả nước.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_flush_button_ad7335d3.mp3",
+    text: "Đây là nút xả nước.",
+  },
+  [normalizeText("Từ này nghĩa là nút xả nước.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_flush_button_success_6bccc9c1.mp3",
+    text: "Từ này nghĩa là nút xả nước.",
+  },
+  [normalizeText("Mình học câu xả nước bồn cầu nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_flush_toilet_c0753fa7.mp3",
+    text: "Mình học câu xả nước bồn cầu nhé.",
+  },
+  [normalizeText("Câu này nghĩa là xả nước bồn cầu.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_flush_toilet_success_8f4c8a00.mp3",
+    text: "Câu này nghĩa là xả nước bồn cầu.",
+  },
+  [normalizeText("Mình học câu kéo quần xuống nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_pull_down_clothes_59c73427.mp3",
+    text: "Mình học câu kéo quần xuống nhé.",
+  },
+  [normalizeText("Câu này nghĩa là kéo quần xuống.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_pull_down_clothes_success_ff0fa16b.mp3",
+    text: "Câu này nghĩa là kéo quần xuống.",
+  },
+  [normalizeText("Đây là giấy vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_toilet_paper_b3f6c77b.mp3",
+    text: "Đây là giấy vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là giấy vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_toilet_paper_success_0d6cc8bb.mp3",
+    text: "Từ này nghĩa là giấy vệ sinh.",
+  },
+  [normalizeText("Đây là bệ ngồi.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_toilet_seat_bd02473d.mp3",
+    text: "Đây là bệ ngồi.",
+  },
+  [normalizeText("Từ này nghĩa là bệ ngồi bồn cầu.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_toilet_seat_success_21d6c97b.mp3",
+    text: "Từ này nghĩa là bệ ngồi bồn cầu.",
+  },
+  [normalizeText("Đây là quần dài.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_trousers_8143c472.mp3",
+    text: "Đây là quần dài.",
+  },
+  [normalizeText("Từ này nghĩa là quần dài.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_trousers_success_8592e815.mp3",
+    text: "Từ này nghĩa là quần dài.",
+  },
+  [normalizeText("Đây là quần lót.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_underwear_8e6fb937.mp3",
+    text: "Đây là quần lót.",
+  },
+  [normalizeText("Từ này nghĩa là quần lót.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_underwear_success_0adcb1a6.mp3",
+    text: "Từ này nghĩa là quần lót.",
+  },
+  [normalizeText("Mình học câu dùng giấy vệ sinh nhé.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_use_toilet_paper_1a7bfd7e.mp3",
+    text: "Mình học câu dùng giấy vệ sinh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là dùng giấy vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_use_toilet_paper_success_ff51566a.mp3",
+    text: "Câu này nghĩa là dùng giấy vệ sinh.",
+  },
+  [normalizeText("Từ này nghĩa là thùng rác trong phòng vệ sinh.")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_waste_bin_success_c35a8884.mp3",
+    text: "Từ này nghĩa là thùng rác trong phòng vệ sinh.",
   },
   [normalizeText("Đúng rồi! Bé giỏi quá!")]: {
     key: "shared/audio/vi/correct.mp3",

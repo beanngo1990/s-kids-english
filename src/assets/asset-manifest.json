@@ -17208,14 +17208,14 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 393,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-boundaries/images/ask-before-touching.webp",
-      "outputBytes": 11802,
-      "outputSha256": "995e6263f04882e7a8fd86860209be643313d9bd61edce8c7618e59a4d5932eb",
+      "outputBytes": 30224,
+      "outputSha256": "f18419f2b8d264182cce44bf1ccafd6d34d3e07a133028ce45e685fac7ca261a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17224,9 +17224,9 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/ask-before-touching.png",
-      "sourceBytes": 45100,
-      "sourceSha256": "0cb9a69c564858ca1b51c13536ed31b8f6dd84bfd73a9d01846b027434be5569",
-      "width": 512
+      "sourceBytes": 281748,
+      "sourceSha256": "09ad8ad41666619c5f5ec9f5358a8bbc26eae65425136471ac576a2048473f93",
+      "width": 402
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17260,8 +17260,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/speaking-up/body-boundaries/images/background.webp",
-      "outputBytes": 3466,
-      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "outputBytes": 36690,
+      "outputSha256": "24b95c0564f406c08b1aecbb37e78f230e394b780ab1bd059b05153c774debdf",
       "profile": "background",
       "roles": [
         "background"
@@ -17270,21 +17270,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/background.png",
-      "sourceBytes": 24349,
-      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "sourceBytes": 2471534,
+      "sourceSha256": "74b63efb133e3935cc32f03654e6e71e6236825f80ef099b86806f923398cb27",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 393,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-boundaries/images/do-not-like-that.webp",
-      "outputBytes": 10494,
-      "outputSha256": "ff873690e5a20c0b006ca1073c38e6ad399f41550be7bc37fae75bd593357a10",
+      "outputBytes": 15414,
+      "outputSha256": "b359281751f0f817163490363b14464c5cdbc6b445debc2c3bc68e9d6282609a",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17293,21 +17293,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/do-not-like-that.png",
-      "sourceBytes": 39089,
-      "sourceSha256": "1d546835b6bd3886859d0b58827b3d24df07ab2e5841304c4e1fd5864813116f",
-      "width": 512
+      "sourceBytes": 226880,
+      "sourceSha256": "e947c4fcd1c0da4b78403361006c061fdb4e04df45cdb75dbe1569747e771666",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 480,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 22,
       "output": "lessons/speaking-up/body-boundaries/images/no-thank-you.webp",
-      "outputBytes": 17334,
-      "outputSha256": "aeaf41aa9c41996caa0a1a814cff6f8da721fa930280e9a3d4ec2d21a35715d2",
+      "outputBytes": 18560,
+      "outputSha256": "72472ea04b1ca0762ed868ac8efff109f320335ccd1b04e4a5970bced6423b82",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -17316,21 +17316,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/no-thank-you.png",
-      "sourceBytes": 40916,
-      "sourceSha256": "6e4fdb1555280d54a817723b6f1b7823489e744ff687a72a8f179e8f88a5e67c",
-      "width": 768
+      "sourceBytes": 357958,
+      "sourceSha256": "05809afd70ccfb1960476b0a5dbd25b044afb475126bdf5e74555acd0c4bb198",
+      "width": 568
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 432,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 18,
       "output": "lessons/speaking-up/body-boundaries/images/permission.webp",
-      "outputBytes": 15060,
-      "outputSha256": "84751f0225d17dc57972c5a504902bd819270b0f87d024e68ce4cf35ae164f35",
+      "outputBytes": 33292,
+      "outputSha256": "af2e2d763c7e5803c176d88d7556e07e397ef08d335393fb604096afe90c6b85",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17339,21 +17339,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/permission.png",
-      "sourceBytes": 38552,
-      "sourceSha256": "40d8742dd201da9e0491e6445b5d70d4e0f8cc97d127f29e82ac17532a1281b0",
+      "sourceBytes": 392682,
+      "sourceSha256": "66fef316cc0e5ec555978017710e9b1d3b53b916365d5ed75f6f4eb130876e2c",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 479,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/body-boundaries/images/personal-space.webp",
-      "outputBytes": 16392,
-      "outputSha256": "1bf4fa2b235b2290b5b74a5d79cafb27192104c56abef76bb448af797ddfd7f1",
+      "outputBytes": 26680,
+      "outputSha256": "17cede1f5d8c91726d75943b323121c84f02d57702c69e5fbc60038112fb2abf",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17362,21 +17362,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/personal-space.png",
-      "sourceBytes": 41175,
-      "sourceSha256": "03c1695533ec00994495334f24ffd9d32425c5a0b06f649a7b1276a0899e743d",
-      "width": 512
+      "sourceBytes": 322413,
+      "sourceSha256": "574e8377b7fb7810f2d83c94ac1ae852ae12f02eb27959be0192310f2feb4135",
+      "width": 467
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 479,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 18,
       "output": "lessons/speaking-up/body-boundaries/images/stop-please.webp",
-      "outputBytes": 10836,
-      "outputSha256": "2de048b6264047b7b3c0dd9885b6318492b4aab632a99345a7f2cfcc562eeb9b",
+      "outputBytes": 11164,
+      "outputSha256": "109ff0edac2201f4b9bebba672af56a1d842ef176cd4605798341d3b793f875c",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17385,21 +17385,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/stop-please.png",
-      "sourceBytes": 41631,
-      "sourceSha256": "ec60bb0eb5329b061d1f84109fba5dd1dfccb95cda6ee11a95c7e0cada2320af",
-      "width": 512
+      "sourceBytes": 232600,
+      "sourceSha256": "0d8b9e09d8cd825b4faf81ed351340ffd6bca2588e78cc71b40265cc2c8c5da8",
+      "width": 465
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 393,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-boundaries/images/tell-trusted-grown-up.webp",
-      "outputBytes": 12092,
-      "outputSha256": "54f90f15c6fba73243f4eb65ba2f5835b5102a2cbd3e13138f442eb2b06a8a94",
+      "outputBytes": 36704,
+      "outputSha256": "a3faa18d4957b4479145128d0b152091c3f779cc3095f89a9ec3f5fd74daa34b",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17408,21 +17408,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/tell-trusted-grown-up.png",
-      "sourceBytes": 45527,
-      "sourceSha256": "5a8a5d8daa5160c8c2020ee308415396b04e37bbc9a3e2bab0a469a12f02bb1e",
-      "width": 512
+      "sourceBytes": 307170,
+      "sourceSha256": "508fd884ca6d3598f150d238fd8df521ef6ee8e7932371b2574493c66098d762",
+      "width": 397
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 479,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-boundaries/images/trusted-grown-up.webp",
-      "outputBytes": 15760,
-      "outputSha256": "d43fef35418fc7635e67fc87dd324635e438d4c95c178db9f564d5470b56d8e3",
+      "outputBytes": 41130,
+      "outputSha256": "7ac7004b9ee8e6ba4677c4cee28fa6927c97764ba5850745e60893d5dfe8c773",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17431,21 +17431,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/trusted-grown-up.png",
-      "sourceBytes": 39829,
-      "sourceSha256": "daf32effefab5769d3f84179b5073df0d13f48c5cca5bb5e539aa1292f7f794b",
-      "width": 512
+      "sourceBytes": 370874,
+      "sourceSha256": "6e61dc0328a847b3c6ec1645b3e5b5a61f51d3ffd782c8504caa0e6f0c0e4991",
+      "width": 465
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 481,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 22,
       "output": "lessons/speaking-up/body-boundaries/images/yes-please.webp",
-      "outputBytes": 17162,
-      "outputSha256": "24a9024d384c55b1ab90c781c14fa4a09d58d03f4ef15329f048a843aeb922bc",
+      "outputBytes": 27442,
+      "outputSha256": "812eca94cd2981f64dfd83087c862ff44802e8b9206008079541ffe86e79f633",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -17454,21 +17454,21 @@
         "body-boundaries"
       ],
       "source": "lessons/speaking-up/body-boundaries/images/yes-please.png",
-      "sourceBytes": 40866,
-      "sourceSha256": "032c3eddc8b4af24c36bf3e9c64623dbedc1d51da39f5980bedf12cc8f73066f",
-      "width": 768
+      "sourceBytes": 318749,
+      "sourceSha256": "6f3dd297577890cb01a95ddebac346f45f2b1a60124ba91130626496addee0e1",
+      "width": 467
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-needs/images/am-hungry.webp",
-      "outputBytes": 10346,
-      "outputSha256": "87c0994f70534731c731a2e998addee4351e1e06027fa1242d0812365764620c",
+      "outputBytes": 18020,
+      "outputSha256": "fa13d7ed6765166ae859800666c6e0fde441efd86c0e922956e7f9a752d29fee",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17477,9 +17477,9 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/am-hungry.png",
-      "sourceBytes": 39604,
-      "sourceSha256": "37eeaf407e000d2ed0175e45fe26dd1e90b1d182c959217d3db6e3aca2121d87",
-      "width": 512
+      "sourceBytes": 241569,
+      "sourceSha256": "1ecaa0a74951da67ccd7f1dcd24eea658d5380f640ad14247e610466026179a3",
+      "width": 399
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17513,8 +17513,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/speaking-up/body-needs/images/background.webp",
-      "outputBytes": 3466,
-      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "outputBytes": 29454,
+      "outputSha256": "919b10998dd20027308719f42ed2f2d42791b424bfdc00f55e0f63eb9d0409a9",
       "profile": "background",
       "roles": [
         "background"
@@ -17523,21 +17523,21 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/background.png",
-      "sourceBytes": 24349,
-      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "sourceBytes": 2368845,
+      "sourceSha256": "94a264b7ff90bfe64d96ef350348e04c21f2e2156542eaf0e5fe3ac7e4db845b",
       "width": 941
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 469,
       "lessonIds": [
         "speaking-up"
       ],
-      "maxPercent": 18,
+      "maxPercent": 20,
       "output": "lessons/speaking-up/body-needs/images/cold.webp",
-      "outputBytes": 16444,
-      "outputSha256": "8b8fae86cca047c37fb824515b6d93db261a8d23e08c34e5e836333653835333",
+      "outputBytes": 48406,
+      "outputSha256": "e9d939d46872571c70126f017b8f22be26d051bbb5d4c63a3e15f1e0869bb497",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17546,21 +17546,21 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/cold.png",
-      "sourceBytes": 51274,
-      "sourceSha256": "41368fd287ef65c83151f15e1a7f97b31a16f5ac369d487a4f87e9d0d55c2a6a",
-      "width": 512
+      "sourceBytes": 358552,
+      "sourceSha256": "d9c5f218fb9c06162a49b568b6f21d229abe166f4024c41f2a7ecadc719522d5",
+      "width": 492
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 481,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/body-needs/images/hot.webp",
-      "outputBytes": 16156,
-      "outputSha256": "e0d6f4b3f01f3cb39f17649f58a7a816301137d00e76cf6fda1d6b09b2a4f45e",
+      "outputBytes": 35540,
+      "outputSha256": "0d7cd78384e28c211c0eb8df9d950753140e98e07789f18518c88e82d44c9abf",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17569,9 +17569,9 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/hot.png",
-      "sourceBytes": 50362,
-      "sourceSha256": "aafaeae99e307b88b35e28408619fccb93d57866ccdf78e41808029b89bbe694",
-      "width": 512
+      "sourceBytes": 319424,
+      "sourceSha256": "fa2a8a91fbc19d9aa6f17d949b91d879561763b0bd54bf82d3cbf7a0aceba36d",
+      "width": 474
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17582,8 +17582,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/body-needs/images/hungry.webp",
-      "outputBytes": 17096,
-      "outputSha256": "ac336ba436639b0b572f87f66999bdb6fc402426b3ab0abb5819c3bb6f0b48ac",
+      "outputBytes": 29168,
+      "outputSha256": "fdef45c691c50d5018799e80264204032f9f3e3fd6ee341897a6b5c0d1b9fa48",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17592,21 +17592,21 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/hungry.png",
-      "sourceBytes": 52269,
-      "sourceSha256": "cfb36a3d7e0cc2645de94c03046e2ad8e66428e3d426beb0391bdd3286191d97",
-      "width": 512
+      "sourceBytes": 453240,
+      "sourceSha256": "f5c8862d1b2ad863fce84c5677c6efa75e89dde17aee960ef0d8cd38bc9e2822",
+      "width": 500
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-needs/images/need-rest.webp",
-      "outputBytes": 10686,
-      "outputSha256": "9bd785aa7e2c1823d93a95ce32e40a0635d186be87ca769fed4f7c4ac435e3bd",
+      "outputBytes": 19622,
+      "outputSha256": "f07b07ddc729804cb2fa676eb80894359d0bed087ff351c9e77c2bf4811aa3ca",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17615,21 +17615,21 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/need-rest.png",
-      "sourceBytes": 40377,
-      "sourceSha256": "f6e36dd27ed762728ad78a7b4660b8de2389eb9696d9182ac794d443c3d5ddea",
-      "width": 512
+      "sourceBytes": 276726,
+      "sourceSha256": "fe24e6568ae0d6580457a9f8151bf94fff59875de75b1785d6457a42622aa288",
+      "width": 397
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/body-needs/images/need-water.webp",
-      "outputBytes": 10580,
-      "outputSha256": "c9b3b7165a21aeb5256a739a0567569037fa01f809054814e55da4d7335d49de",
+      "outputBytes": 20952,
+      "outputSha256": "1b797a086fc476980d18918c27af2abe194eddd64b92df2230c9a0e3279cb7e1",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17638,22 +17638,22 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/need-water.png",
-      "sourceBytes": 40394,
-      "sourceSha256": "c1cc018e6f9186a0995dc7016d11e1ea6814360ab7fdebb8ee0c25a6761a36b5",
-      "width": 512
+      "sourceBytes": 248214,
+      "sourceSha256": "a7deac505d11150bd779619eabf5bc4bda332b2e8f9f94a17a205fdd48df6297",
+      "width": 401
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 495,
       "lessonIds": [
         "speaking-up"
       ],
-      "maxPercent": 20,
+      "maxPercent": 21,
       "output": "lessons/speaking-up/body-needs/images/thirsty.webp",
-      "outputBytes": 17068,
-      "outputSha256": "d904ad322825878d89c6f9e35395c7d14c45e20650b90bd73db9e5b1ca067780",
-      "profile": "objectSmall",
+      "outputBytes": 16050,
+      "outputSha256": "43f81ccf0315a834510830a523af032c52db8111260b2f4d62f69f845fce9c1f",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -17661,22 +17661,22 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/thirsty.png",
-      "sourceBytes": 52083,
-      "sourceSha256": "2a1c8cd333b5e42316c034ce666ac9e9c2b5d6080c111e559a8090dd55afc257",
-      "width": 512
+      "sourceBytes": 179897,
+      "sourceSha256": "9c9221be4147e48514edce0a8b2c8f1d2684366470e9a10dbf4b30ce3b1efa6f",
+      "width": 268
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 496,
       "lessonIds": [
         "speaking-up"
       ],
-      "maxPercent": 18,
+      "maxPercent": 21,
       "output": "lessons/speaking-up/body-needs/images/tired.webp",
-      "outputBytes": 16722,
-      "outputSha256": "0e9fd0650e9d9721383ec3f9c4767fe05b22535a68142953645d375bf26bdaab",
-      "profile": "objectSmall",
+      "outputBytes": 24232,
+      "outputSha256": "2baa63a96c99a0812db44d1938600cae702f0564e595e6ba6918bfdc28ed0759",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -17684,21 +17684,21 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/tired.png",
-      "sourceBytes": 51321,
-      "sourceSha256": "73a4ee0ccaa812fe5282fc65f85b290938fd162eee17d6f5969313e3ebfc1b52",
-      "width": 512
+      "sourceBytes": 346022,
+      "sourceSha256": "f4fd75f0cb177a7d8b1cbd920f45d940e60ea72842518e552a276caa1957115e",
+      "width": 446
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 507,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/body-needs/images/uncomfortable.webp",
-      "outputBytes": 18980,
-      "outputSha256": "39df57b9d7f515ca6096377ced58a38e8590fcd8abb76dbf5353d13416171de9",
+      "outputBytes": 21468,
+      "outputSha256": "8f23376215d232cf0ece6300c112918a9e43d667724c49d7d127e68a9a46a335",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17707,9 +17707,9 @@
         "body-needs"
       ],
       "source": "lessons/speaking-up/body-needs/images/uncomfortable.png",
-      "sourceBytes": 55691,
-      "sourceSha256": "dd08ceca0b9d7d04cf53d2bec0fcb78c3eed57a2613df77a1cc0e000a15520aa",
-      "width": 512
+      "sourceBytes": 411985,
+      "sourceSha256": "df0e956b61a2e641dc1cc4142bdb4804ee9a571c83ef5f59578637c4660ce417",
+      "width": 469
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17743,8 +17743,8 @@
       ],
       "maxPercent": 100,
       "output": "lessons/speaking-up/pain-and-help/images/background.webp",
-      "outputBytes": 3466,
-      "outputSha256": "d20f86f535c152d39bdf027d0d8324dfdf7cab733147bd7a263095983c5b7fec",
+      "outputBytes": 46662,
+      "outputSha256": "6a388bc094e773be0b90992a41aaf885f395d5733e61fbceaee0fa87fe484233",
       "profile": "background",
       "roles": [
         "background"
@@ -17753,8 +17753,8 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/background.png",
-      "sourceBytes": 24349,
-      "sourceSha256": "9cdd64aaba47a40630ed9be22fe1c1a2031c24fa6678a48e93b43ad81dc8fca3",
+      "sourceBytes": 2763754,
+      "sourceSha256": "f1ff1999c23a9d4e2136e2b4e40b39538ecfa5302376f39f6e1388eed2bd0f78",
       "width": 941
     },
     {
@@ -17766,8 +17766,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/speaking-up/pain-and-help/images/dizzy.webp",
-      "outputBytes": 17192,
-      "outputSha256": "bd1831d6e1a49001586a4af2103e03df778c758563a09d083227c22a364f8b8f",
+      "outputBytes": 17060,
+      "outputSha256": "23df71c42b57d8aded03aa4ad1b09f194f34b7bc94c2f8adfd17545c45fb8640",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17776,8 +17776,8 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/dizzy.png",
-      "sourceBytes": 52128,
-      "sourceSha256": "e71d72b6d06e60fe405a4db3b7adcd9b202299f20f7652169681f86be94d0fc5",
+      "sourceBytes": 204695,
+      "sourceSha256": "0e0b1abf9324afde51b59c2f210c12c2935a69068844a8cec355434f2a485de1",
       "width": 512
     },
     {
@@ -17789,8 +17789,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/speaking-up/pain-and-help/images/headache.webp",
-      "outputBytes": 18682,
-      "outputSha256": "cd218da2bd963aa0753e2868e7fb3d318ee47a6eac4cd61fee5467d173b0bb0a",
+      "outputBytes": 15612,
+      "outputSha256": "08638f5f69adab57ba3a8259f883258df697794f228b139ce2e59a3e7143969f",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17799,8 +17799,8 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/headache.png",
-      "sourceBytes": 54011,
-      "sourceSha256": "4f250c18587e1b405e53cc39d96c684874287b49752f2ad75e02cf4ba6d64bd9",
+      "sourceBytes": 217772,
+      "sourceSha256": "2ae7f4b3986ac4eb17899ab002dc3f02787202471c54d7c8058519c1f8cd05b4",
       "width": 512
     },
     {
@@ -17812,8 +17812,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/pain-and-help/images/hurt.webp",
-      "outputBytes": 12910,
-      "outputSha256": "99ce8e8b2cd59c5bcf5b92493de51adc6a08270937ed51baeddb90e3879aa04f",
+      "outputBytes": 17328,
+      "outputSha256": "13229f98e6fdf8cf8e02f748a467465a67f27d97588e349f9d9e715c92d59c95",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17822,21 +17822,21 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/hurt.png",
-      "sourceBytes": 34149,
-      "sourceSha256": "71b872a1699ecb4a1d2dc8876694ae7c858775005437f5cd9f4b33caedda7550",
+      "sourceBytes": 226925,
+      "sourceSha256": "bd43bb68ff962854b454b1b92c69c0f29e5c06faa72155b51cd1fe0c8baee2bb",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/pain-and-help/images/hurts-here.webp",
-      "outputBytes": 10374,
-      "outputSha256": "d5718fe34dc96ec68f6f2102506b84d9f3f78618b90056eb92df82fdf543445a",
+      "outputBytes": 14562,
+      "outputSha256": "8b320e3f431b5a26e0f3338d9b634166dddb890d73f4fb6e4ccf1d13b1afcbe0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17845,9 +17845,9 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/hurts-here.png",
-      "sourceBytes": 39416,
-      "sourceSha256": "f3e9b8edb1aa25d68603080c718f1143ea89dd5b786d142855b6cd26915a1a03",
-      "width": 512
+      "sourceBytes": 232410,
+      "sourceSha256": "dda2aa166da1a9ef198418f3ae11599e1825f113499167312f40e75681f1e37b",
+      "width": 399
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17858,8 +17858,8 @@
       ],
       "maxPercent": 18,
       "output": "lessons/speaking-up/pain-and-help/images/itchy.webp",
-      "outputBytes": 16638,
-      "outputSha256": "5837e58230a82c60a4f1f5149889b37b5197e65684793e5da92745ce64eb5248",
+      "outputBytes": 16274,
+      "outputSha256": "e017e8c4ab30b9033fa8affe0047ec7282539cfc1283ac1634c3b6d78d36c3a2",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17868,21 +17868,21 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/itchy.png",
-      "sourceBytes": 51388,
-      "sourceSha256": "bdc5a1635f88a55aeba03eb72287dd5fb48e3cb634cf55f8e61abe98849e2633",
+      "sourceBytes": 219199,
+      "sourceSha256": "4a44a9c3f79b422e27da4cd77819e44d42cce88ac4c98672e98c7b9e468d42a7",
       "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/pain-and-help/images/not-feel-well.webp",
-      "outputBytes": 10452,
-      "outputSha256": "986ab9b4d1c2671d35fdd5205882f8b4f0b8be8b567fa1616f9e8e14c3de6589",
+      "outputBytes": 27038,
+      "outputSha256": "8e4504164065ad646a2d3f57f9711b2eccb47cc47d163761dbae72cd109d21f4",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17891,21 +17891,21 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/not-feel-well.png",
-      "sourceBytes": 39740,
-      "sourceSha256": "75dbcac290bdc0e2d66e83b42a97bcced02b7be2b8696340d49715df6e744044",
-      "width": 512
+      "sourceBytes": 297763,
+      "sourceSha256": "3b26d9931e4475163ca6e49fa048ec5185e96cbb79086cdf258440ddaa464c00",
+      "width": 400
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 512,
+      "height": 399,
       "lessonIds": [
         "speaking-up"
       ],
       "maxPercent": 17,
       "output": "lessons/speaking-up/pain-and-help/images/please-help.webp",
-      "outputBytes": 11092,
-      "outputSha256": "f9edaa51dd458739e3fb1bfde5c319b3269339e6f8db838d2d89d58b512ef36b",
+      "outputBytes": 19830,
+      "outputSha256": "57cb9462e7ba99553275fd37b2f90216fba8a875951ed7cdcef442849c8bbf39",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17914,9 +17914,9 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/please-help.png",
-      "sourceBytes": 41611,
-      "sourceSha256": "17ebe4c6d34fdafb530dcdb3242cadb33bfb920927aff658dc98f4ff9d8e79ea",
-      "width": 512
+      "sourceBytes": 236542,
+      "sourceSha256": "54fba8041f257a9129f8389aa8e863ed05001fd0b2d9c851b801b03e19eb8305",
+      "width": 397
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17927,8 +17927,8 @@
       ],
       "maxPercent": 19,
       "output": "lessons/speaking-up/pain-and-help/images/sore-throat.webp",
-      "outputBytes": 15064,
-      "outputSha256": "0ec78a0e7c7f7ceb337d4077a21514ee09e9ad13a5cff491d8b9cf1da37d9183",
+      "outputBytes": 16884,
+      "outputSha256": "fa492a4ff6a24cde7ede602fc6ede9c12016dc5720133e6c9e57f8b6f44a56d0",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17937,8 +17937,8 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/sore-throat.png",
-      "sourceBytes": 38452,
-      "sourceSha256": "7abf256e30f2c576b05181c5c6b6fbf015614fd7be16f56262344439ba2f05f0",
+      "sourceBytes": 233880,
+      "sourceSha256": "094bc880ee777559f46c4973ef24f5a5320e18318a9f3919999a6a40b46dd76b",
       "width": 512
     },
     {
@@ -17950,8 +17950,8 @@
       ],
       "maxPercent": 20,
       "output": "lessons/speaking-up/pain-and-help/images/tummy-ache.webp",
-      "outputBytes": 15220,
-      "outputSha256": "433627d2c0adfee68b70ad4ae3a47d39581b5360d3cc2200b7026f0612a902a8",
+      "outputBytes": 16694,
+      "outputSha256": "65b2d8d55824ec6676f7b41ce65e99e64ad90f369342108cc6d1a7b92ecbe628",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -17960,8 +17960,8 @@
         "pain-and-help"
       ],
       "source": "lessons/speaking-up/pain-and-help/images/tummy-ache.png",
-      "sourceBytes": 38708,
-      "sourceSha256": "14412d6b89ca79b5661e674cf36c5206152b375adabeb2a3c9db561d1be7b28f",
+      "sourceBytes": 213258,
+      "sourceSha256": "db810daa4763a4784a53b7f6bb68a737a3aba0d2e7f6a5e75afb825af5b7a406",
       "width": 512
     },
     {
@@ -19483,7 +19483,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T14:58:52.545Z",
+  "generatedAt": "2026-08-02T15:37:44.586Z",
   "releaseVersion": "v1",
-  "revision": "31d7ee952fcb1d96"
+  "revision": "496fd714b9cc4d5e"
 }

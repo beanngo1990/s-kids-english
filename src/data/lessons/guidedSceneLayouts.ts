@@ -234,11 +234,11 @@ const layouts = {
   ),
   'body-needs': makeLayout(centeredChild, [
     rect(8, 15, 19, 18),
-    rect(69, 13, 20, 18),
-    rect(76, 37, 18, 18),
-    rect(7, 40, 19, 18),
-    rect(10, 62, 18, 16),
-    rect(72, 60, 19, 17),
+    rect(72, 35, 15, 21),
+    rect(70, 53, 21, 17),
+    rect(7, 47, 19, 18),
+    rect(9, 63, 20, 15),
+    rect(72, 64, 19, 16),
   ]),
   'pain-and-help': makeLayout(centeredChild, [
     rect(8, 17, 19, 18),
