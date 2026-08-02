@@ -103,6 +103,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "alphabet book",
     },
   },
+  [normalizeText("ankle")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/ankle.mp3",
+      text: "ankle",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/ankle.mp3",
+      text: "ankle",
+    },
+  },
   [normalizeText("apple")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/apple.mp3",
@@ -129,6 +139,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/apron.mp3",
       text: "apron",
+    },
+  },
+  [normalizeText("arm")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/arm.mp3",
+      text: "arm",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/arm.mp3",
+      text: "arm",
     },
   },
   [normalizeText("arrive home")]: {
@@ -347,6 +367,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "bed",
     },
   },
+  [normalizeText("bell")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/bell.mp3",
+      text: "bell",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/bell.mp3",
+      text: "bell",
+    },
+  },
   [normalizeText("bench")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/bench.mp3",
@@ -359,6 +389,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/bench.mp3",
       text: "bench",
+    },
+  },
+  [normalizeText("bend your knees")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/bend_your_knees.mp3",
+      text: "bend your knees",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/bend_your_knees.mp3",
+      text: "bend your knees",
     },
   },
   [normalizeText("binoculars")]: {
@@ -1233,6 +1273,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Close the curtains.",
     },
   },
+  [normalizeText("close your eyes")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/close_your_eyes.mp3",
+      text: "close your eyes",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/close_your_eyes.mp3",
+      text: "close your eyes",
+    },
+  },
   [normalizeText("cloth")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/cloth.mp3",
@@ -1259,6 +1309,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/coaster.mp3",
       text: "coaster",
+    },
+  },
+  [normalizeText("color")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/color.mp3",
+      text: "color",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/color.mp3",
+      text: "color",
     },
   },
   [normalizeText("comb")]: {
@@ -1351,6 +1411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/cover.mp3",
       text: "cover",
+    },
+  },
+  [normalizeText("cover your ears")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/cover_your_ears.mp3",
+      text: "cover your ears",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/cover_your_ears.mp3",
+      text: "cover your ears",
     },
   },
   [normalizeText("cow")]: {
@@ -2101,6 +2171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the drying mat next to the dish rack.",
     },
   },
+  [normalizeText("Drag the eyes to the glowing face.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_drag_eyes_ca2f9e8b.mp3",
+      text: "Drag the eyes to the glowing face.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_drag_eyes_ca2f9e8b.mp3",
+      text: "Drag the eyes to the glowing face.",
+    },
+  },
   [normalizeText("Drag the family photo on the wall into the glowing circle.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/prompt_drag_family_photo_1deec65d.mp3",
@@ -2119,6 +2199,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_cover_to_leftovers_945ae221.mp3",
       text: "Drag the food cover to the leftovers.",
+    },
+  },
+  [normalizeText("Drag the foot to the glowing leg.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_drag_foot_462dfa5f.mp3",
+      text: "Drag the foot to the glowing leg.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_drag_foot_462dfa5f.mp3",
+      text: "Drag the foot to the glowing leg.",
     },
   },
   [normalizeText("Drag the fruit onto the table.")]: {
@@ -2149,6 +2239,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-GB/neural2-c-r1/prompt_drag_counter_05075813.mp3",
       text: "Drag the green counter into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the hand to the glowing arm.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_drag_hand_46a5a5d6.mp3",
+      text: "Drag the hand to the glowing arm.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_drag_hand_46a5a5d6.mp3",
+      text: "Drag the hand to the glowing arm.",
     },
   },
   [normalizeText("Drag the kite into the sky.")]: {
@@ -2795,6 +2895,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Each little step tells your body it's time to sleep.",
     },
   },
+  [normalizeText("ears")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/ears.mp3",
+      text: "ears",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/ears.mp3",
+      text: "ears",
+    },
+  },
   [normalizeText("eat a snack")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/eat_a_snack.mp3",
@@ -2923,6 +3033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Every book looks interesting!",
     },
   },
+  [normalizeText("eyes")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/eyes.mp3",
+      text: "eyes",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/eyes.mp3",
+      text: "eyes",
+    },
+  },
   [normalizeText("family")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/family.mp3",
@@ -2967,6 +3087,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Finally, let's sort everything and let it dry.",
     },
   },
+  [normalizeText("find the red circle")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/find_the_red_circle.mp3",
+      text: "find the red circle",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/find_the_red_circle.mp3",
+      text: "find the red circle",
+    },
+  },
   [normalizeText("Find two matching pictures.")]: {
     "en-US": {
       key: "shared/audio/en-US/neural2-c-r1/memory_game_intro_2480d4dc.mp3",
@@ -2979,6 +3109,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "shared/audio/en/memory_game_intro_2480d4dc.mp3",
       text: "Find two matching pictures.",
+    },
+  },
+  [normalizeText("fingers")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/fingers.mp3",
+      text: "fingers",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/fingers.mp3",
+      text: "fingers",
     },
   },
   [normalizeText("Finish the lesson before this one to unlock it.")]: {
@@ -3077,6 +3217,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "folder",
     },
   },
+  [normalizeText("follow the sound")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/follow_the_sound.mp3",
+      text: "follow the sound",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/follow_the_sound.mp3",
+      text: "follow the sound",
+    },
+  },
   [normalizeText("follow the zookeeper")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/follow_the_zookeeper.mp3",
@@ -3099,6 +3249,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/food_cover.mp3",
       text: "food cover",
+    },
+  },
+  [normalizeText("foot")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/foot.mp3",
+      text: "foot",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/foot.mp3",
+      text: "foot",
     },
   },
   [normalizeText("footprints")]: {
@@ -3533,6 +3693,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "habitat",
     },
   },
+  [normalizeText("hair")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/hair.mp3",
+      text: "hair",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/hair.mp3",
+      text: "hair",
+    },
+  },
+  [normalizeText("hand")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/hand.mp3",
+      text: "hand",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/hand.mp3",
+      text: "hand",
+    },
+  },
   [normalizeText("hand gel")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/hand_gel.mp3",
@@ -3581,6 +3761,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/intro_success_ccaf36cf.mp3",
       text: "Have fun and remember to keep your toys tidy.",
+    },
+  },
+  [normalizeText("head")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/head.mp3",
+      text: "head",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/head.mp3",
+      text: "head",
+    },
+  },
+  [normalizeText("hear")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/hear.mp3",
+      text: "hear",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/hear.mp3",
+      text: "hear",
+    },
+  },
+  [normalizeText("heel")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/heel.mp3",
+      text: "heel",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/heel.mp3",
+      text: "heel",
     },
   },
   [normalizeText("helmet")]: {
@@ -3759,6 +3969,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means alphabet book.",
     },
   },
+  [normalizeText("It means ankle.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_ankle_success_4bd3f8ea.mp3",
+      text: "It means ankle.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_ankle_success_4bd3f8ea.mp3",
+      text: "It means ankle.",
+    },
+  },
   [normalizeText("It means apple.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/teach_apple_success_b734b1ed.mp3",
@@ -3785,6 +4005,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/teach_apron_success_a021f531.mp3",
       text: "It means apron.",
+    },
+  },
+  [normalizeText("It means arm.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_arm_success_24c7c02e.mp3",
+      text: "It means arm.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_arm_success_24c7c02e.mp3",
+      text: "It means arm.",
     },
   },
   [normalizeText("It means arrive home.")]: {
@@ -3983,6 +4213,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means bed.",
     },
   },
+  [normalizeText("It means bell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_bell_success_d8b373a9.mp3",
+      text: "It means bell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_bell_success_d8b373a9.mp3",
+      text: "It means bell.",
+    },
+  },
   [normalizeText("It means bench.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_teach_bench_success_ff9b8cc0.mp3",
@@ -3995,6 +4235,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/rest_teach_bench_success_ff9b8cc0.mp3",
       text: "It means bench.",
+    },
+  },
+  [normalizeText("It means bend your knees.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_bend_knees_success_6457b053.mp3",
+      text: "It means bend your knees.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_bend_knees_success_6457b053.mp3",
+      text: "It means bend your knees.",
     },
   },
   [normalizeText("It means binoculars.")]: {
@@ -4693,6 +4943,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means close the curtains.",
     },
   },
+  [normalizeText("It means close your eyes.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_close_eyes_success_5a45fb06.mp3",
+      text: "It means close your eyes.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_close_eyes_success_5a45fb06.mp3",
+      text: "It means close your eyes.",
+    },
+  },
   [normalizeText("It means cloth.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/teach_cloth_success_0e8590cb.mp3",
@@ -4719,6 +4979,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/teach_coaster_success_8e7f03bf.mp3",
       text: "It means coaster.",
+    },
+  },
+  [normalizeText("It means color.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_color_success_92da5732.mp3",
+      text: "It means color.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_color_success_92da5732.mp3",
+      text: "It means color.",
     },
   },
   [normalizeText("It means comb your hair.")]: {
@@ -4791,6 +5061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/teach_coupon_success_99920711.mp3",
       text: "It means coupon.",
+    },
+  },
+  [normalizeText("It means cover your ears.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_cover_ears_success_bb4d4123.mp3",
+      text: "It means cover your ears.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_cover_ears_success_bb4d4123.mp3",
+      text: "It means cover your ears.",
     },
   },
   [normalizeText("It means cover.")]: {
@@ -5209,6 +5489,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means duck.",
     },
   },
+  [normalizeText("It means ears.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_ears_success_09618560.mp3",
+      text: "It means ears.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_ears_success_09618560.mp3",
+      text: "It means ears.",
+    },
+  },
   [normalizeText("It means eat a snack.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_teach_eat_snack_success_78248edf.mp3",
@@ -5289,6 +5579,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means eraser.",
     },
   },
+  [normalizeText("It means eyes.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_eyes_success_098be391.mp3",
+      text: "It means eyes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_eyes_success_098be391.mp3",
+      text: "It means eyes.",
+    },
+  },
   [normalizeText("It means family photo.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/teach_family_photo_success_443ac593.mp3",
@@ -5321,6 +5621,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/teach_feed_goat_success_accc0a5e.mp3",
       text: "It means feed the goat.",
+    },
+  },
+  [normalizeText("It means find the red circle.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_find_red_circle_success_47658764.mp3",
+      text: "It means find the red circle.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_find_red_circle_success_47658764.mp3",
+      text: "It means find the red circle.",
+    },
+  },
+  [normalizeText("It means fingers.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_fingers_success_57ed107a.mp3",
+      text: "It means fingers.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_fingers_success_57ed107a.mp3",
+      text: "It means fingers.",
     },
   },
   [normalizeText("It means fish.")]: {
@@ -5399,6 +5719,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means folder.",
     },
   },
+  [normalizeText("It means follow the sound.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_follow_sound_success_f7ce3646.mp3",
+      text: "It means follow the sound.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_follow_sound_success_f7ce3646.mp3",
+      text: "It means follow the sound.",
+    },
+  },
   [normalizeText("It means follow the zookeeper.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_follow_keeper_success_69e01ce7.mp3",
@@ -5421,6 +5751,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-cleanup/audio/en/teach_food_cover_success_64cdaf5b.mp3",
       text: "It means food cover.",
+    },
+  },
+  [normalizeText("It means foot.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_foot_success_6c5642ee.mp3",
+      text: "It means foot.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_foot_success_6c5642ee.mp3",
+      text: "It means foot.",
     },
   },
   [normalizeText("It means footprints.")]: {
@@ -5677,6 +6017,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means habitat.",
     },
   },
+  [normalizeText("It means hair.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_hair_success_247256bb.mp3",
+      text: "It means hair.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_hair_success_247256bb.mp3",
+      text: "It means hair.",
+    },
+  },
   [normalizeText("It means hand gel.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/teach_hand_gel_success_9bdbe43f.mp3",
@@ -5685,6 +6035,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/teach_hand_gel_success_9bdbe43f.mp3",
       text: "It means hand gel.",
+    },
+  },
+  [normalizeText("It means hand.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_hand_success_0925ae7c.mp3",
+      text: "It means hand.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_hand_success_0925ae7c.mp3",
+      text: "It means hand.",
     },
   },
   [normalizeText("It means hang the balloons.")]: {
@@ -5705,6 +6065,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/teach_hang_robe_success_1a7dbbb8.mp3",
       text: "It means hang the robe.",
+    },
+  },
+  [normalizeText("It means head.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_head_success_67c1cf49.mp3",
+      text: "It means head.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_head_success_67c1cf49.mp3",
+      text: "It means head.",
+    },
+  },
+  [normalizeText("It means hear.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_hear_success_02e65b01.mp3",
+      text: "It means hear.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_hear_success_02e65b01.mp3",
+      text: "It means hear.",
+    },
+  },
+  [normalizeText("It means heel.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_heel_success_2e93249b.mp3",
+      text: "It means heel.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_heel_success_2e93249b.mp3",
+      text: "It means heel.",
     },
   },
   [normalizeText("It means helmet.")]: {
@@ -5993,6 +6383,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means leftovers.",
     },
   },
+  [normalizeText("It means leg.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_leg_success_1295a859.mp3",
+      text: "It means leg.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_leg_success_1295a859.mp3",
+      text: "It means leg.",
+    },
+  },
   [normalizeText("It means librarian.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/teach_librarian_success_a195e0c6.mp3",
@@ -6033,6 +6433,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means lifeguard.",
     },
   },
+  [normalizeText("It means light.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_light_success_6bdcf43d.mp3",
+      text: "It means light.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_light_success_6bdcf43d.mp3",
+      text: "It means light.",
+    },
+  },
   [normalizeText("It means line up.")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/teach_line_up_success_e5728141.mp3",
@@ -6045,6 +6455,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/teach_line_up_success_e5728141.mp3",
       text: "It means line up.",
+    },
+  },
+  [normalizeText("It means listen carefully.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_listen_carefully_success_e3fd3b38.mp3",
+      text: "It means listen carefully.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_listen_carefully_success_e3fd3b38.mp3",
+      text: "It means listen carefully.",
     },
   },
   [normalizeText("It means listen to the story.")]: {
@@ -6101,6 +6521,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means look at the map.",
     },
   },
+  [normalizeText("It means look closely.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_look_closely_success_75f9bf01.mp3",
+      text: "It means look closely.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_look_closely_success_75f9bf01.mp3",
+      text: "It means look closely.",
+    },
+  },
   [normalizeText("It means look for shells.")]: {
     "en-US": {
       key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/teach_find_shells_success_12d564b7.mp3",
@@ -6109,6 +6539,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/sand-play/audio/en-GB/neural2-c-r1/teach_find_shells_success_12d564b7.mp3",
       text: "It means look for shells.",
+    },
+  },
+  [normalizeText("It means loud.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_loud_success_309c5b4e.mp3",
+      text: "It means loud.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_loud_success_309c5b4e.mp3",
+      text: "It means loud.",
     },
   },
   [normalizeText("It means lullaby.")]: {
@@ -6137,6 +6577,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/school_teach_lunchbox_success_2eec4614.mp3",
       text: "It means lunchbox.",
+    },
+  },
+  [normalizeText("It means magnifying glass.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_magnifying_glass_success_27b7d7a3.mp3",
+      text: "It means magnifying glass.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_magnifying_glass_success_27b7d7a3.mp3",
+      text: "It means magnifying glass.",
     },
   },
   [normalizeText("It means make a shopping list.")]: {
@@ -6259,6 +6709,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means moon mobile.",
     },
   },
+  [normalizeText("It means mouth.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_mouth_success_36ef1859.mp3",
+      text: "It means mouth.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_mouth_success_36ef1859.mp3",
+      text: "It means mouth.",
+    },
+  },
   [normalizeText("It means move the cart.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/teach_move_cart_success_10400f6a.mp3",
@@ -6339,6 +6799,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means noodles.",
     },
   },
+  [normalizeText("It means nose.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_nose_success_04dd8227.mp3",
+      text: "It means nose.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_nose_success_04dd8227.mp3",
+      text: "It means nose.",
+    },
+  },
   [normalizeText("It means notebook.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_teach_notebook_success_d6dc7fd7.mp3",
@@ -6391,6 +6861,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_teach_open_lunchbox_success_678545d8.mp3",
       text: "It means open your lunchbox.",
+    },
+  },
+  [normalizeText("It means open your mouth.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_open_mouth_success_bab04d20.mp3",
+      text: "It means open your mouth.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_open_mouth_success_bab04d20.mp3",
+      text: "It means open your mouth.",
     },
   },
   [normalizeText("It means otoscope.")]: {
@@ -6733,6 +7213,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means playground.",
     },
   },
+  [normalizeText("It means point to your nose.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_point_nose_success_303a81a6.mp3",
+      text: "It means point to your nose.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_point_nose_success_303a81a6.mp3",
+      text: "It means point to your nose.",
+    },
+  },
   [normalizeText("It means pot holder.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/teach_pot_holder_success_33d257b0.mp3",
@@ -6887,6 +7377,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/teach_quiet_sign_success_aee88984.mp3",
       text: "It means quiet sign.",
+    },
+  },
+  [normalizeText("It means quiet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_quiet_success_adf44ffb.mp3",
+      text: "It means quiet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_quiet_success_adf44ffb.mp3",
+      text: "It means quiet.",
+    },
+  },
+  [normalizeText("It means raise your arms.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_raise_arms_success_9eb88153.mp3",
+      text: "It means raise your arms.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_raise_arms_success_9eb88153.mp3",
+      text: "It means raise your arms.",
     },
   },
   [normalizeText("It means raise your hand.")]: {
@@ -7383,6 +7893,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means seat belt.",
     },
   },
+  [normalizeText("It means see.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_see_success_a213582f.mp3",
+      text: "It means see.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_see_success_a213582f.mp3",
+      text: "It means see.",
+    },
+  },
   [normalizeText("It means seed.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/teach_seed_success_5575923c.mp3",
@@ -7483,6 +8003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means shade.",
     },
   },
+  [normalizeText("It means shadow.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_shadow_success_ba51f35a.mp3",
+      text: "It means shadow.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_shadow_success_ba51f35a.mp3",
+      text: "It means shadow.",
+    },
+  },
   [normalizeText("It means shampoo.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/teach_shampoo_success_e2ab0500.mp3",
@@ -7495,6 +8025,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/teach_shampoo_success_e2ab0500.mp3",
       text: "It means shampoo.",
+    },
+  },
+  [normalizeText("It means shape.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/teach_shape_success_dbcefa2c.mp3",
+      text: "It means shape.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/teach_shape_success_dbcefa2c.mp3",
+      text: "It means shape.",
     },
   },
   [normalizeText("It means share food.")]: {
@@ -7843,6 +8383,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means small table.",
     },
   },
+  [normalizeText("It means smell the flower.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_smell_flower_success_71210c2b.mp3",
+      text: "It means smell the flower.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_smell_flower_success_71210c2b.mp3",
+      text: "It means smell the flower.",
+    },
+  },
+  [normalizeText("It means smell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_smell_success_fc443819.mp3",
+      text: "It means smell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_smell_success_fc443819.mp3",
+      text: "It means smell.",
+    },
+  },
   [normalizeText("It means snack box.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/teach_snack_box_success_e76e6058.mp3",
@@ -7923,6 +8483,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means soft voice.",
     },
   },
+  [normalizeText("It means soft.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_soft_success_40042aa2.mp3",
+      text: "It means soft.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_soft_success_40042aa2.mp3",
+      text: "It means soft.",
+    },
+  },
   [normalizeText("It means solve a puzzle.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/teach_solve_puzzle_success_a238303a.mp3",
@@ -7957,6 +8527,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sound machine.",
     },
   },
+  [normalizeText("It means sound.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/teach_sound_success_613f0f3e.mp3",
+      text: "It means sound.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/teach_sound_success_613f0f3e.mp3",
+      text: "It means sound.",
+    },
+  },
   [normalizeText("It means soup.")]: {
     "en-US": {
       key: "lessons/lunch-time/lunch-box/audio/en-US/neural2-c-r1/lunchbox_teach_soup_success_99f2ee5f.mp3",
@@ -7969,6 +8549,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/lunchbox_teach_soup_success_99f2ee5f.mp3",
       text: "It means soup.",
+    },
+  },
+  [normalizeText("It means sour.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_sour_success_bdeedc5e.mp3",
+      text: "It means sour.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_sour_success_bdeedc5e.mp3",
+      text: "It means sour.",
     },
   },
   [normalizeText("It means spill.")]: {
@@ -8071,6 +8661,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means stain.",
     },
   },
+  [normalizeText("It means stand on tiptoes.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_tiptoes_success_16ebf1e3.mp3",
+      text: "It means stand on tiptoes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_tiptoes_success_16ebf1e3.mp3",
+      text: "It means stand on tiptoes.",
+    },
+  },
   [normalizeText("It means star projector.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/teach_star_projector_success_5fd6d12f.mp3",
@@ -8143,6 +8743,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_sticker_success_3e67de32.mp3",
       text: "It means sticker.",
+    },
+  },
+  [normalizeText("It means stomp your feet.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_stomp_feet_success_526d4968.mp3",
+      text: "It means stomp your feet.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_stomp_feet_success_526d4968.mp3",
+      text: "It means stomp your feet.",
     },
   },
   [normalizeText("It means story bell.")]: {
@@ -8261,6 +8871,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means sunscreen.",
     },
   },
+  [normalizeText("It means sweet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_sweet_success_09ef1734.mp3",
+      text: "It means sweet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_sweet_success_09ef1734.mp3",
+      text: "It means sweet.",
+    },
+  },
   [normalizeText("It means swing.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/teach_swing_success_5e87f52e.mp3",
@@ -8347,6 +8967,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means take your temperature.",
     },
   },
+  [normalizeText("It means taste the lemon.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_taste_lemon_success_9448a704.mp3",
+      text: "It means taste the lemon.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_taste_lemon_success_9448a704.mp3",
+      text: "It means taste the lemon.",
+    },
+  },
+  [normalizeText("It means taste.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_taste_success_10655b4a.mp3",
+      text: "It means taste.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_taste_success_10655b4a.mp3",
+      text: "It means taste.",
+    },
+  },
   [normalizeText("It means teacher.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/teach_teacher_success_6a1a7f3c.mp3",
@@ -8421,6 +9061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means throw the frisbee.",
     },
   },
+  [normalizeText("It means thumb.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_thumb_success_a414eba8.mp3",
+      text: "It means thumb.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_thumb_success_a414eba8.mp3",
+      text: "It means thumb.",
+    },
+  },
   [normalizeText("It means ticket.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/teach_ticket_success_39da1903.mp3",
@@ -8463,6 +9113,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/teach_tissue_success_0753d789.mp3",
       text: "It means tissue.",
+    },
+  },
+  [normalizeText("It means toes.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/teach_toes_success_bef62d00.mp3",
+      text: "It means toes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/teach_toes_success_bef62d00.mp3",
+      text: "It means toes.",
     },
   },
   [normalizeText("It means tomato.")]: {
@@ -8515,6 +9175,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/teach_toothpaste_success_50431e82.mp3",
       text: "It means toothpaste.",
+    },
+  },
+  [normalizeText("It means touch the feather.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_touch_feather_success_45777245.mp3",
+      text: "It means touch the feather.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_touch_feather_success_45777245.mp3",
+      text: "It means touch the feather.",
+    },
+  },
+  [normalizeText("It means touch your head.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/teach_touch_head_success_7038d9bd.mp3",
+      text: "It means touch your head.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/teach_touch_head_success_7038d9bd.mp3",
+      text: "It means touch your head.",
+    },
+  },
+  [normalizeText("It means touch.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/teach_touch_success_6f841e6d.mp3",
+      text: "It means touch.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/teach_touch_success_6f841e6d.mp3",
+      text: "It means touch.",
     },
   },
   [normalizeText("It means towel.")]: {
@@ -8887,6 +9577,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "It means whistle.",
     },
   },
+  [normalizeText("It means wiggle your fingers.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_wiggle_fingers_success_0e1eab74.mp3",
+      text: "It means wiggle your fingers.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_wiggle_fingers_success_0e1eab74.mp3",
+      text: "It means wiggle your fingers.",
+    },
+  },
   [normalizeText("It means window.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/teach_window_success_a1dab91d.mp3",
@@ -8943,6 +9643,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/teach_wrapper_success_89ef1feb.mp3",
       text: "It means wrapper.",
+    },
+  },
+  [normalizeText("It means wrist.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/teach_wrist_success_9ff22408.mp3",
+      text: "It means wrist.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/teach_wrist_success_9ff22408.mp3",
+      text: "It means wrist.",
     },
   },
   [normalizeText("It means wristband.")]: {
@@ -9327,6 +10037,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "leftovers",
     },
   },
+  [normalizeText("leg")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/leg.mp3",
+      text: "leg",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/leg.mp3",
+      text: "leg",
+    },
+  },
   [normalizeText("Let's check what we need.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/intro_success_7e702838.mp3",
@@ -9415,6 +10135,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_intro_6ae2ea0b.mp3",
       text: "Let's enter the zoo.",
+    },
+  },
+  [normalizeText("Let's explore smells, tastes, and textures.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_intro_0ab268aa.mp3",
+      text: "Let's explore smells, tastes, and textures.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_intro_0ab268aa.mp3",
+      text: "Let's explore smells, tastes, and textures.",
+    },
+  },
+  [normalizeText("Let's explore the head and face.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_intro_c3d78200.mp3",
+      text: "Let's explore the head and face.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_intro_c3d78200.mp3",
+      text: "Let's explore the head and face.",
+    },
+  },
+  [normalizeText("Let's explore your legs and feet.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_intro_5f065233.mp3",
+      text: "Let's explore your legs and feet.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_intro_5f065233.mp3",
+      text: "Let's explore your legs and feet.",
     },
   },
   [normalizeText("Let’s flip cards to remember words longer.")]: {
@@ -9707,6 +10457,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase ask for a hug.",
     },
   },
+  [normalizeText("Let's learn the phrase bend your knees.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_bend_knees_2c25751a.mp3",
+      text: "Let's learn the phrase bend your knees.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_bend_knees_2c25751a.mp3",
+      text: "Let's learn the phrase bend your knees.",
+    },
+  },
   [normalizeText("Let's learn the phrase blow out the candles.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/prompt_teach_blow_candles_23423db2.mp3",
@@ -9957,6 +10717,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase close the curtains.",
     },
   },
+  [normalizeText("Let's learn the phrase close your eyes.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_close_eyes_de36a8ed.mp3",
+      text: "Let's learn the phrase close your eyes.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_close_eyes_de36a8ed.mp3",
+      text: "Let's learn the phrase close your eyes.",
+    },
+  },
   [normalizeText("Let's learn the phrase comb your hair.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_teach_comb_hair_b5cf70b2.mp3",
@@ -9965,6 +10735,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/prompt_teach_comb_hair_b5cf70b2.mp3",
       text: "Let's learn the phrase comb your hair.",
+    },
+  },
+  [normalizeText("Let's learn the phrase cover your ears.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_cover_ears_6daea90e.mp3",
+      text: "Let's learn the phrase cover your ears.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_cover_ears_6daea90e.mp3",
+      text: "Let's learn the phrase cover your ears.",
     },
   },
   [normalizeText("Let's learn the phrase decorate the room.")]: {
@@ -10097,6 +10877,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase feed the goat.",
     },
   },
+  [normalizeText("Let's learn the phrase find the red circle.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_find_red_circle_b8fa1581.mp3",
+      text: "Let's learn the phrase find the red circle.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_find_red_circle_b8fa1581.mp3",
+      text: "Let's learn the phrase find the red circle.",
+    },
+  },
+  [normalizeText("Let's learn the phrase follow the sound.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_follow_sound_5f121fbb.mp3",
+      text: "Let's learn the phrase follow the sound.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_follow_sound_5f121fbb.mp3",
+      text: "Let's learn the phrase follow the sound.",
+    },
+  },
   [normalizeText("Let's learn the phrase follow the zookeeper.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_follow_keeper_8cc26098.mp3",
@@ -10227,6 +11027,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase line up.",
     },
   },
+  [normalizeText("Let's learn the phrase listen carefully.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_listen_carefully_7aa72cd4.mp3",
+      text: "Let's learn the phrase listen carefully.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_listen_carefully_7aa72cd4.mp3",
+      text: "Let's learn the phrase listen carefully.",
+    },
+  },
   [normalizeText("Let's learn the phrase listen to the story.")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_teach_listen_story_63784174.mp3",
@@ -10265,6 +11075,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_teach_look_map_37699865.mp3",
       text: "Let's learn the phrase look at the map.",
+    },
+  },
+  [normalizeText("Let's learn the phrase look closely.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_look_closely_257f057d.mp3",
+      text: "Let's learn the phrase look closely.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_look_closely_257f057d.mp3",
+      text: "Let's learn the phrase look closely.",
     },
   },
   [normalizeText("Let's learn the phrase look for shells.")]: {
@@ -10345,6 +11165,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/prompt_lunchbox_teach_open_lunchbox_0499b98a.mp3",
       text: "Let's learn the phrase open your lunchbox.",
+    },
+  },
+  [normalizeText("Let's learn the phrase open your mouth.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_open_mouth_f3db653a.mp3",
+      text: "Let's learn the phrase open your mouth.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_open_mouth_f3db653a.mp3",
+      text: "Let's learn the phrase open your mouth.",
     },
   },
   [normalizeText("Let's learn the phrase pack the bag.")]: {
@@ -10457,6 +11287,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase play together.",
     },
   },
+  [normalizeText("Let's learn the phrase point to your nose.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_point_nose_e4e20105.mp3",
+      text: "Let's learn the phrase point to your nose.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_point_nose_e4e20105.mp3",
+      text: "Let's learn the phrase point to your nose.",
+    },
+  },
   [normalizeText("Let's learn the phrase pour juice.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/prompt_teach_pour_juice_ca93999c.mp3",
@@ -10545,6 +11385,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_teach_throw_trash_e9ad52fa.mp3",
       text: "Let's learn the phrase put the trash in the bin.",
+    },
+  },
+  [normalizeText("Let's learn the phrase raise your arms.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_raise_arms_aa0017cb.mp3",
+      text: "Let's learn the phrase raise your arms.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_raise_arms_aa0017cb.mp3",
+      text: "Let's learn the phrase raise your arms.",
     },
   },
   [normalizeText("Let's learn the phrase raise your hand.")]: {
@@ -10857,6 +11707,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase sit still.",
     },
   },
+  [normalizeText("Let's learn the phrase smell the flower.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_smell_flower_471972c6.mp3",
+      text: "Let's learn the phrase smell the flower.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_smell_flower_471972c6.mp3",
+      text: "Let's learn the phrase smell the flower.",
+    },
+  },
   [normalizeText("Let's learn the phrase soft voice.")]: {
     "en-US": {
       key: "lessons/bedtime/bedtime-story/audio/en-US/neural2-c-r1/prompt_teach_soft_voice_0968942b.mp3",
@@ -10927,6 +11787,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase stack coasters.",
     },
   },
+  [normalizeText("Let's learn the phrase stand on tiptoes.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_tiptoes_12974cac.mp3",
+      text: "Let's learn the phrase stand on tiptoes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_tiptoes_12974cac.mp3",
+      text: "Let's learn the phrase stand on tiptoes.",
+    },
+  },
   [normalizeText("Let's learn the phrase start the timer.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_teach_start_timer_bfb963e7.mp3",
@@ -10965,6 +11835,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-GB/neural2-c-r1/prompt_teach_step_onto_mat_b4c561dc.mp3",
       text: "Let's learn the phrase step onto the mat.",
+    },
+  },
+  [normalizeText("Let's learn the phrase stomp your feet.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_stomp_feet_6c3952a8.mp3",
+      text: "Let's learn the phrase stomp your feet.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_stomp_feet_6c3952a8.mp3",
+      text: "Let's learn the phrase stomp your feet.",
     },
   },
   [normalizeText("Let's learn the phrase take a bite.")]: {
@@ -11017,6 +11897,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase take your temperature.",
     },
   },
+  [normalizeText("Let's learn the phrase taste the lemon.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_taste_lemon_98f2de0b.mp3",
+      text: "Let's learn the phrase taste the lemon.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_taste_lemon_98f2de0b.mp3",
+      text: "Let's learn the phrase taste the lemon.",
+    },
+  },
   [normalizeText("Let's learn the phrase tell where it hurts.")]: {
     "en-US": {
       key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_teach_tell_where_it_hurts_20381d7f.mp3",
@@ -11055,6 +11945,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/prompt_teach_tidy_room_877e9be2.mp3",
       text: "Let's learn the phrase tidy the room.",
+    },
+  },
+  [normalizeText("Let's learn the phrase touch the feather.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_touch_feather_af96b4b4.mp3",
+      text: "Let's learn the phrase touch the feather.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_touch_feather_af96b4b4.mp3",
+      text: "Let's learn the phrase touch the feather.",
+    },
+  },
+  [normalizeText("Let's learn the phrase touch your head.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_touch_head_c614b525.mp3",
+      text: "Let's learn the phrase touch your head.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_touch_head_c614b525.mp3",
+      text: "Let's learn the phrase touch your head.",
     },
   },
   [normalizeText("Let's learn the phrase try vegetables.")]: {
@@ -11217,6 +12127,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the phrase weigh the fruit.",
     },
   },
+  [normalizeText("Let's learn the phrase wiggle your fingers.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_wiggle_fingers_0136e6ff.mp3",
+      text: "Let's learn the phrase wiggle your fingers.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_wiggle_fingers_0136e6ff.mp3",
+      text: "Let's learn the phrase wiggle your fingers.",
+    },
+  },
   [normalizeText("Let's learn the phrase wipe the table.")]: {
     "en-US": {
       key: "lessons/lunch-time/after-lunch/audio/en-US/neural2-c-r1/prompt_cleanup_teach_wipe_table_8e2f3853.mp3",
@@ -11277,6 +12197,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word dance.",
     },
   },
+  [normalizeText("Let's learn the word hear.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_hear_152904df.mp3",
+      text: "Let's learn the word hear.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_hear_152904df.mp3",
+      text: "Let's learn the word hear.",
+    },
+  },
   [normalizeText("Let's learn the word jump.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/prompt_teach_jump_bb4c4240.mp3",
@@ -11295,6 +12225,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/at-school/teacher-instructions/audio/en-GB/neural2-c-r1/prompt_instructions_teach_listen_aada759b.mp3",
       text: "Let's learn the word listen.",
+    },
+  },
+  [normalizeText("Let's learn the word loud.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_loud_7925fc0d.mp3",
+      text: "Let's learn the word loud.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_loud_7925fc0d.mp3",
+      text: "Let's learn the word loud.",
+    },
+  },
+  [normalizeText("Let's learn the word quiet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_quiet_e745bcf9.mp3",
+      text: "Let's learn the word quiet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_quiet_e745bcf9.mp3",
+      text: "Let's learn the word quiet.",
     },
   },
   [normalizeText("Let's learn the word rest.")]: {
@@ -11317,6 +12267,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's learn the word run.",
     },
   },
+  [normalizeText("Let's learn the word see.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_see_d3584b08.mp3",
+      text: "Let's learn the word see.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_see_d3584b08.mp3",
+      text: "Let's learn the word see.",
+    },
+  },
+  [normalizeText("Let's learn the word smell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_smell_c8bd179a.mp3",
+      text: "Let's learn the word smell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_smell_c8bd179a.mp3",
+      text: "Let's learn the word smell.",
+    },
+  },
+  [normalizeText("Let's learn the word soft.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_soft_39dbe596.mp3",
+      text: "Let's learn the word soft.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_soft_39dbe596.mp3",
+      text: "Let's learn the word soft.",
+    },
+  },
+  [normalizeText("Let's learn the word sour.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_sour_00f644d8.mp3",
+      text: "Let's learn the word sour.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_sour_00f644d8.mp3",
+      text: "Let's learn the word sour.",
+    },
+  },
+  [normalizeText("Let's learn the word sweet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_sweet_b6c2fc47.mp3",
+      text: "Let's learn the word sweet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_sweet_b6c2fc47.mp3",
+      text: "Let's learn the word sweet.",
+    },
+  },
+  [normalizeText("Let's learn the word taste.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_taste_f370116b.mp3",
+      text: "Let's learn the word taste.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_taste_f370116b.mp3",
+      text: "Let's learn the word taste.",
+    },
+  },
+  [normalizeText("Let's learn the word touch.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_teach_touch_447f3ecf.mp3",
+      text: "Let's learn the word touch.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_teach_touch_447f3ecf.mp3",
+      text: "Let's learn the word touch.",
+    },
+  },
   [normalizeText("Let's learn the word wait.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_teach_wait_7b5841f0.mp3",
@@ -11335,6 +12355,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_coach_default.wav",
       text: "Let’s learn with Sungy today!",
+    },
+  },
+  [normalizeText("Let's listen to the sounds around us.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_intro_88506baa.mp3",
+      text: "Let's listen to the sounds around us.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_intro_88506baa.mp3",
+      text: "Let's listen to the sounds around us.",
     },
   },
   [normalizeText("Let's listen together.")]: {
@@ -11365,6 +12395,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/intro_success_41e106a7.mp3",
       text: "Let's look at the signs first.",
+    },
+  },
+  [normalizeText("Let's look at your arms and hands.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_intro_3d4175c8.mp3",
+      text: "Let's look at your arms and hands.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_intro_3d4175c8.mp3",
+      text: "Let's look at your arms and hands.",
     },
   },
   [normalizeText("Let's make the room calmer so you can sleep more easily.")]: {
@@ -11561,6 +12601,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's tidy up after lunch.",
     },
   },
+  [normalizeText("Let's use our eyes to look around.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_intro_435e84d1.mp3",
+      text: "Let's use our eyes to look around.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_intro_435e84d1.mp3",
+      text: "Let's use our eyes to look around.",
+    },
+  },
   [normalizeText("Let's visit the fresh food section.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_intro_13063e7b.mp3",
@@ -11661,6 +12711,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "lifeguard",
     },
   },
+  [normalizeText("light")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/light.mp3",
+      text: "light",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/light.mp3",
+      text: "light",
+    },
+  },
   [normalizeText("line up")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/line_up.mp3",
@@ -11701,6 +12761,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/teacher-instructions/audio/en/listen.mp3",
       text: "listen",
+    },
+  },
+  [normalizeText("listen carefully")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/listen_carefully.mp3",
+      text: "listen carefully",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/listen_carefully.mp3",
+      text: "listen carefully",
     },
   },
   [normalizeText("listen to the story")]: {
@@ -11777,6 +12847,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "look at the map",
     },
   },
+  [normalizeText("look closely")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/look_closely.mp3",
+      text: "look closely",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/look_closely.mp3",
+      text: "look closely",
+    },
+  },
   [normalizeText("look for shells")]: {
     "en-US": {
       key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/look_for_shells.mp3",
@@ -11787,6 +12867,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "look for shells",
     },
   },
+  [normalizeText("Look for the ankle at the lower left.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_ankle_fail_54d4f3d4.mp3",
+      text: "Look for the ankle at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_ankle_fail_54d4f3d4.mp3",
+      text: "Look for the ankle at the lower left.",
+    },
+  },
+  [normalizeText("Look for the arm at the upper left.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_arm_fail_e58e6ada.mp3",
+      text: "Look for the arm at the upper left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_arm_fail_e58e6ada.mp3",
+      text: "Look for the arm at the upper left.",
+    },
+  },
+  [normalizeText("Look for the bell at the lower right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_bell_fail_bad67774.mp3",
+      text: "Look for the bell at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_bell_fail_bad67774.mp3",
+      text: "Look for the bell at the lower right.",
+    },
+  },
+  [normalizeText("Look for the color at the upper right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_color_fail_8549f61d.mp3",
+      text: "Look for the color at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_color_fail_8549f61d.mp3",
+      text: "Look for the color at the upper right.",
+    },
+  },
+  [normalizeText("Look for the ears at the lower left.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_ears_fail_79174c60.mp3",
+      text: "Look for the ears at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_ears_fail_79174c60.mp3",
+      text: "Look for the ears at the lower left.",
+    },
+  },
+  [normalizeText("Look for the elbow on the left.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_elbow_fail_710ef390.mp3",
+      text: "Look for the elbow on the left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_elbow_fail_710ef390.mp3",
+      text: "Look for the elbow on the left.",
+    },
+  },
+  [normalizeText("Look for the eyes at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/drag_eyes_fail_40492d55.mp3",
+      text: "Look for the eyes at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/drag_eyes_fail_40492d55.mp3",
+      text: "Look for the eyes at the upper right.",
+    },
+  },
   [normalizeText("Look for the farewell action card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.mp3",
@@ -11795,6 +12945,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_say_goodbye_fail_f4c0bd50.mp3",
       text: "Look for the farewell action card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the fingers on the right.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_fingers_fail_3250b93d.mp3",
+      text: "Look for the fingers on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_fingers_fail_3250b93d.mp3",
+      text: "Look for the fingers on the right.",
+    },
+  },
+  [normalizeText("Look for the foot at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/drag_foot_fail_753559ed.mp3",
+      text: "Look for the foot at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/drag_foot_fail_753559ed.mp3",
+      text: "Look for the foot at the upper right.",
     },
   },
   [normalizeText("Look for the going-home card in the bottom row.")]: {
@@ -11817,6 +12987,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the greeting card in the bottom row.",
     },
   },
+  [normalizeText("Look for the hair at the upper left.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_hair_fail_fb06dd46.mp3",
+      text: "Look for the hair at the upper left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_hair_fail_fb06dd46.mp3",
+      text: "Look for the hair at the upper left.",
+    },
+  },
+  [normalizeText("Look for the hand at the upper right.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
+      text: "Look for the hand at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
+      text: "Look for the hand at the upper right.",
+    },
+  },
+  [normalizeText("Look for the head on the left.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_head_fail_4ede63e9.mp3",
+      text: "Look for the head on the left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_head_fail_4ede63e9.mp3",
+      text: "Look for the head on the left.",
+    },
+  },
+  [normalizeText("Look for the heel at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_heel_fail_17ab0cdc.mp3",
+      text: "Look for the heel at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_heel_fail_17ab0cdc.mp3",
+      text: "Look for the heel at the lower right.",
+    },
+  },
   [normalizeText("Look for the hug-request card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/family-visit/audio/en-US/neural2-c-r1/drag_ask_for_hug_fail_096a8076.mp3",
@@ -11825,6 +13035,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/drag_ask_for_hug_fail_096a8076.mp3",
       text: "Look for the hug-request card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the knee on the left.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_knee_fail_f82ffac3.mp3",
+      text: "Look for the knee on the left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_knee_fail_f82ffac3.mp3",
+      text: "Look for the knee on the left.",
     },
   },
   [normalizeText("Look for the leaf-picking card in the bottom row.")]: {
@@ -11837,6 +13057,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the leaf-picking card in the bottom row.",
     },
   },
+  [normalizeText("Look for the leg at the upper left.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_leg_fail_4b307fa8.mp3",
+      text: "Look for the leg at the upper left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_leg_fail_4b307fa8.mp3",
+      text: "Look for the leg at the upper left.",
+    },
+  },
+  [normalizeText("Look for the light in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_light_fail_8e59226d.mp3",
+      text: "Look for the light in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_light_fail_8e59226d.mp3",
+      text: "Look for the light in the center.",
+    },
+  },
+  [normalizeText("Look for the magnifying glass at the lower right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_magnifying_glass_fail_e13fc807.mp3",
+      text: "Look for the magnifying glass at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_magnifying_glass_fail_e13fc807.mp3",
+      text: "Look for the magnifying glass at the lower right.",
+    },
+  },
   [normalizeText("Look for the matching action card.")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tap_walk_path_fail_9b0dfb77.mp3",
@@ -11845,6 +13095,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_walk_path_fail_9b0dfb77.mp3",
       text: "Look for the matching action card.",
+    },
+  },
+  [normalizeText("Look for the matching card at the bottom center.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_point_nose_fail_7f00a1c2.mp3",
+      text: "Look for the matching card at the bottom center.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_point_nose_fail_7f00a1c2.mp3",
+      text: "Look for the matching card at the bottom center.",
+    },
+  },
+  [normalizeText("Look for the matching card at the bottom left.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_touch_head_fail_4e7ddce1.mp3",
+      text: "Look for the matching card at the bottom left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_touch_head_fail_4e7ddce1.mp3",
+      text: "Look for the matching card at the bottom left.",
+    },
+  },
+  [normalizeText("Look for the matching card at the bottom right.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_open_mouth_fail_545fb017.mp3",
+      text: "Look for the matching card at the bottom right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_open_mouth_fail_545fb017.mp3",
+      text: "Look for the matching card at the bottom right.",
+    },
+  },
+  [normalizeText("Look for the mouth at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_mouth_fail_619aaa97.mp3",
+      text: "Look for the mouth at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_mouth_fail_619aaa97.mp3",
+      text: "Look for the mouth at the lower right.",
+    },
+  },
+  [normalizeText("Look for the music at the upper right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_music_fail_67b8699c.mp3",
+      text: "Look for the music at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_music_fail_67b8699c.mp3",
+      text: "Look for the music at the upper right.",
+    },
+  },
+  [normalizeText("Look for the nose on the right.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/tap_nose_fail_e25ee295.mp3",
+      text: "Look for the nose on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/tap_nose_fail_e25ee295.mp3",
+      text: "Look for the nose on the right.",
     },
   },
   [normalizeText("Look for the people sharing a hug.")]: {
@@ -11865,6 +13175,106 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/tap_show_photo_fail_190f4887.mp3",
       text: "Look for the photo-sharing card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the picture for hear near the top center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_hear_fail_b085240e.mp3",
+      text: "Look for the picture for hear near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_hear_fail_b085240e.mp3",
+      text: "Look for the picture for hear near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for loud in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_loud_fail_47569245.mp3",
+      text: "Look for the picture for loud in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_loud_fail_47569245.mp3",
+      text: "Look for the picture for loud in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for quiet in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_quiet_fail_2e6a796e.mp3",
+      text: "Look for the picture for quiet in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_quiet_fail_2e6a796e.mp3",
+      text: "Look for the picture for quiet in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for see near the top center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_see_fail_50ce3882.mp3",
+      text: "Look for the picture for see near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_see_fail_50ce3882.mp3",
+      text: "Look for the picture for see near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for smell near the top center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_smell_fail_a0a6f0b0.mp3",
+      text: "Look for the picture for smell near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_smell_fail_a0a6f0b0.mp3",
+      text: "Look for the picture for smell near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for soft at the lower right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_soft_fail_0ce0cc9f.mp3",
+      text: "Look for the picture for soft at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_soft_fail_0ce0cc9f.mp3",
+      text: "Look for the picture for soft at the lower right.",
+    },
+  },
+  [normalizeText("Look for the picture for sour in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_sour_fail_967460f4.mp3",
+      text: "Look for the picture for sour in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_sour_fail_967460f4.mp3",
+      text: "Look for the picture for sour in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for sweet in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_sweet_fail_a957c234.mp3",
+      text: "Look for the picture for sweet in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_sweet_fail_a957c234.mp3",
+      text: "Look for the picture for sweet in the center.",
+    },
+  },
+  [normalizeText("Look for the picture for taste near the top center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_taste_fail_4090ed3a.mp3",
+      text: "Look for the picture for taste near the top center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_taste_fail_4090ed3a.mp3",
+      text: "Look for the picture for taste near the top center.",
+    },
+  },
+  [normalizeText("Look for the picture for touch at the upper right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/tap_touch_fail_93348e5f.mp3",
+      text: "Look for the picture for touch at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/tap_touch_fail_93348e5f.mp3",
+      text: "Look for the picture for touch at the upper right.",
     },
   },
   [normalizeText("Look for the putting-on-shoes card in the bottom row.")]: {
@@ -11897,6 +13307,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the seed-planting card in the bottom row.",
     },
   },
+  [normalizeText("Look for the shadow in the center.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_shadow_fail_7f85a7f3.mp3",
+      text: "Look for the shadow in the center.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_shadow_fail_7f85a7f3.mp3",
+      text: "Look for the shadow in the center.",
+    },
+  },
+  [normalizeText("Look for the shape at the upper right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/tap_shape_fail_3dcfbd49.mp3",
+      text: "Look for the shape at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/tap_shape_fail_3dcfbd49.mp3",
+      text: "Look for the shape at the upper right.",
+    },
+  },
+  [normalizeText("Look for the sound at the upper right.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_sound_fail_7cda830e.mp3",
+      text: "Look for the sound at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/tap_sound_fail_7cda830e.mp3",
+      text: "Look for the sound at the upper right.",
+    },
+  },
+  [normalizeText("Look for the thumb at the lower right.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_thumb_fail_0c5090a4.mp3",
+      text: "Look for the thumb at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_thumb_fail_0c5090a4.mp3",
+      text: "Look for the thumb at the lower right.",
+    },
+  },
+  [normalizeText("Look for the toes on the right.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_toes_fail_aa637480.mp3",
+      text: "Look for the toes on the right.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/tap_toes_fail_aa637480.mp3",
+      text: "Look for the toes on the right.",
+    },
+  },
   [normalizeText("Look for the watering card in the bottom row.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_water_plant_fail_e0fba047.mp3",
@@ -11915,6 +13375,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/tap_wave_fail_1beaeb10.mp3",
       text: "Look for the waving card in the bottom row.",
+    },
+  },
+  [normalizeText("Look for the wrist at the lower left.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
+      text: "Look for the wrist at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
+      text: "Look for the wrist at the lower left.",
+    },
+  },
+  [normalizeText("loud")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/loud.mp3",
+      text: "loud",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/loud.mp3",
+      text: "loud",
     },
   },
   [normalizeText("lullaby")]: {
@@ -11943,6 +13423,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/lunchbox.mp3",
       text: "lunchbox",
+    },
+  },
+  [normalizeText("magnifying glass")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/magnifying_glass.mp3",
+      text: "magnifying glass",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/magnifying_glass.mp3",
+      text: "magnifying glass",
     },
   },
   [normalizeText("make a shopping list")]: {
@@ -12097,6 +13587,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/moon_mobile.mp3",
       text: "moon mobile",
+    },
+  },
+  [normalizeText("mouth")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/mouth.mp3",
+      text: "mouth",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/mouth.mp3",
+      text: "mouth",
     },
   },
   [normalizeText("Move the apple onto the plate.")]: {
@@ -12829,6 +14329,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "noodles",
     },
   },
+  [normalizeText("nose")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/nose.mp3",
+      text: "nose",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/nose.mp3",
+      text: "nose",
+    },
+  },
   [normalizeText("notebook")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/notebook.mp3",
@@ -12911,6 +14421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/prompt_lunchbox_tap_open_lunchbox_f6baae6c.mp3",
       text: "Open your lunchbox.",
+    },
+  },
+  [normalizeText("open your mouth")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/open_your_mouth.mp3",
+      text: "open your mouth",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/open_your_mouth.mp3",
+      text: "open your mouth",
     },
   },
   [normalizeText("otoscope")]: {
@@ -13361,6 +14881,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "playground",
     },
   },
+  [normalizeText("point to your nose")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/point_to_your_nose.mp3",
+      text: "point to your nose",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/point_to_your_nose.mp3",
+      text: "point to your nose",
+    },
+  },
   [normalizeText("pot holder")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/pot_holder.mp3",
@@ -13665,6 +15195,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "puzzle",
     },
   },
+  [normalizeText("quiet")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/quiet.mp3",
+      text: "quiet",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/quiet.mp3",
+      text: "quiet",
+    },
+  },
   [normalizeText("quiet sign")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/quiet_sign.mp3",
@@ -13673,6 +15213,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/quiet_sign.mp3",
       text: "quiet sign",
+    },
+  },
+  [normalizeText("raise your arms")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/raise_your_arms.mp3",
+      text: "raise your arms",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/raise_your_arms.mp3",
+      text: "raise your arms",
     },
   },
   [normalizeText("raise your hand")]: {
@@ -14353,6 +15903,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "seat belt",
     },
   },
+  [normalizeText("see")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/see.mp3",
+      text: "see",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/see.mp3",
+      text: "see",
+    },
+  },
   [normalizeText("seed")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/seed.mp3",
@@ -14473,6 +16033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "shade",
     },
   },
+  [normalizeText("shadow")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/shadow.mp3",
+      text: "shadow",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/shadow.mp3",
+      text: "shadow",
+    },
+  },
   [normalizeText("shampoo")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/shampoo.mp3",
@@ -14485,6 +16055,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/shampoo.mp3",
       text: "shampoo",
+    },
+  },
+  [normalizeText("shape")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/shape.mp3",
+      text: "shape",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/shape.mp3",
+      text: "shape",
     },
   },
   [normalizeText("share food")]: {
@@ -14911,6 +16491,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "small table",
     },
   },
+  [normalizeText("smell")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/smell.mp3",
+      text: "smell",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/smell.mp3",
+      text: "smell",
+    },
+  },
+  [normalizeText("smell the flower")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/smell_the_flower.mp3",
+      text: "smell the flower",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/smell_the_flower.mp3",
+      text: "smell the flower",
+    },
+  },
   [normalizeText("snack")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/snack.mp3",
@@ -14967,6 +16567,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "socks",
     },
   },
+  [normalizeText("soft")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/soft.mp3",
+      text: "soft",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/soft.mp3",
+      text: "soft",
+    },
+  },
   [normalizeText("Soft light and gentle sounds make bedtime more relaxing.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/intro_success_3c1ed6eb.mp3",
@@ -15021,6 +16631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Solve a puzzle.",
     },
   },
+  [normalizeText("Some sounds are loud, quiet, or gentle.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/intro_success_fb970fcb.mp3",
+      text: "Some sounds are loud, quiet, or gentle.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/intro_success_fb970fcb.mp3",
+      text: "Some sounds are loud, quiet, or gentle.",
+    },
+  },
   [normalizeText("sort the recycling")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/sort_the_recycling.mp3",
@@ -15051,6 +16671,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Sorting things correctly keeps the kitchen clean and tidy.",
     },
   },
+  [normalizeText("sound")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/sound.mp3",
+      text: "sound",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/sound.mp3",
+      text: "sound",
+    },
+  },
   [normalizeText("sound machine")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/sound_machine.mp3",
@@ -15077,6 +16707,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/soup.mp3",
       text: "soup",
+    },
+  },
+  [normalizeText("sour")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/sour.mp3",
+      text: "sour",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/sour.mp3",
+      text: "sour",
     },
   },
   [normalizeText("spill")]: {
@@ -15199,6 +16839,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "stain",
     },
   },
+  [normalizeText("stand on tiptoes")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/stand_on_tiptoes.mp3",
+      text: "stand on tiptoes",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/stand_on_tiptoes.mp3",
+      text: "stand on tiptoes",
+    },
+  },
   [normalizeText("star projector")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/star_projector.mp3",
@@ -15291,6 +16941,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/sticker.mp3",
       text: "sticker",
+    },
+  },
+  [normalizeText("stomp your feet")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/stomp_your_feet.mp3",
+      text: "stomp your feet",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/stomp_your_feet.mp3",
+      text: "stomp your feet",
     },
   },
   [normalizeText("story bell")]: {
@@ -15437,6 +17097,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/sunscreen.mp3",
       text: "sunscreen",
+    },
+  },
+  [normalizeText("sweet")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/sweet.mp3",
+      text: "sweet",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/sweet.mp3",
+      text: "sweet",
     },
   },
   [normalizeText("swing")]: {
@@ -15633,6 +17303,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the alphabet book.",
     },
   },
+  [normalizeText("Tap the ankle.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_tap_ankle_68fa8e8b.mp3",
+      text: "Tap the ankle.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_tap_ankle_68fa8e8b.mp3",
+      text: "Tap the ankle.",
+    },
+  },
   [normalizeText("Tap the apron.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/prompt_tap_apron_9b1de408.mp3",
@@ -15645,6 +17325,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_apron_9b1de408.mp3",
       text: "Tap the apron.",
+    },
+  },
+  [normalizeText("Tap the arm.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_arm_36cb1d8f.mp3",
+      text: "Tap the arm.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_tap_arm_36cb1d8f.mp3",
+      text: "Tap the arm.",
     },
   },
   [normalizeText("Tap the bag.")]: {
@@ -15745,6 +17435,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_bed_62c246ed.mp3",
       text: "Tap the bed.",
+    },
+  },
+  [normalizeText("Tap the bell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_bell_49277e96.mp3",
+      text: "Tap the bell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_bell_49277e96.mp3",
+      text: "Tap the bell.",
     },
   },
   [normalizeText("Tap the bench.")]: {
@@ -16125,6 +17825,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the coaster.",
     },
   },
+  [normalizeText("Tap the color.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_color_5c0f05e2.mp3",
+      text: "Tap the color.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_color_5c0f05e2.mp3",
+      text: "Tap the color.",
+    },
+  },
   [normalizeText("Tap the comb.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/prompt_tap_comb_569cb3d7.mp3",
@@ -16425,6 +18135,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the duck.",
     },
   },
+  [normalizeText("Tap the ears.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_ears_97091367.mp3",
+      text: "Tap the ears.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_ears_97091367.mp3",
+      text: "Tap the ears.",
+    },
+  },
   [normalizeText("Tap the egg.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_tap_egg_b01b1cff.mp3",
@@ -16465,6 +18185,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/school-supplies/audio/en/prompt_supplies_tap_eraser_0680b296.mp3",
       text: "Tap the eraser.",
+    },
+  },
+  [normalizeText("Tap the fingers.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_fingers_0b573a05.mp3",
+      text: "Tap the fingers.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_tap_fingers_0b573a05.mp3",
+      text: "Tap the fingers.",
     },
   },
   [normalizeText("Tap the fish.")]: {
@@ -16677,6 +18407,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the habitat.",
     },
   },
+  [normalizeText("Tap the hair.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_hair_c3c1f014.mp3",
+      text: "Tap the hair.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_hair_c3c1f014.mp3",
+      text: "Tap the hair.",
+    },
+  },
   [normalizeText("Tap the hand gel.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.mp3",
@@ -16685,6 +18425,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.mp3",
       text: "Tap the hand gel.",
+    },
+  },
+  [normalizeText("Tap the head.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_head_f33f5b3b.mp3",
+      text: "Tap the head.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_head_f33f5b3b.mp3",
+      text: "Tap the head.",
+    },
+  },
+  [normalizeText("Tap the heel.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_tap_heel_fa51ce99.mp3",
+      text: "Tap the heel.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_tap_heel_fa51ce99.mp3",
+      text: "Tap the heel.",
     },
   },
   [normalizeText("Tap the helmet.")]: {
@@ -16821,6 +18581,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the leftovers.",
     },
   },
+  [normalizeText("Tap the leg.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_tap_leg_cf0a418a.mp3",
+      text: "Tap the leg.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_tap_leg_cf0a418a.mp3",
+      text: "Tap the leg.",
+    },
+  },
   [normalizeText("Tap the librarian.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_tap_librarian_6c417134.mp3",
@@ -16849,6 +18619,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_tap_lifeguard_63b1d651.mp3",
       text: "Tap the lifeguard.",
+    },
+  },
+  [normalizeText("Tap the light.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_light_3503c0b2.mp3",
+      text: "Tap the light.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_light_3503c0b2.mp3",
+      text: "Tap the light.",
     },
   },
   [normalizeText("Tap the list in the cart.")]: {
@@ -16889,6 +18669,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the lunchbox.",
     },
   },
+  [normalizeText("Tap the magnifying glass.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_magnifying_glass_a70bd1ee.mp3",
+      text: "Tap the magnifying glass.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_magnifying_glass_a70bd1ee.mp3",
+      text: "Tap the magnifying glass.",
+    },
+  },
   [normalizeText("Tap the mask.")]: {
     "en-US": {
       key: "lessons/doctor-visit/clinic-room/audio/en-US/neural2-c-r1/prompt_tap_mask_9870409f.mp3",
@@ -16927,6 +18717,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_walk_path_fccf334e.mp3",
       text: "Tap the matching action card.",
+    },
+  },
+  [normalizeText("Tap the matching card.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_touch_head_ae16e754.mp3",
+      text: "Tap the matching card.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_touch_head_ae16e754.mp3",
+      text: "Tap the matching card.",
     },
   },
   [normalizeText("Tap the medicine.")]: {
@@ -16991,6 +18791,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the moon mobile.",
     },
   },
+  [normalizeText("Tap the mouth.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_mouth_1b7db4e5.mp3",
+      text: "Tap the mouth.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_mouth_1b7db4e5.mp3",
+      text: "Tap the mouth.",
+    },
+  },
   [normalizeText("Tap the music speaker on the bench.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_music_7263443c.mp3",
@@ -16999,6 +18809,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_music_7263443c.mp3",
       text: "Tap the music speaker on the bench.",
+    },
+  },
+  [normalizeText("Tap the music.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_music_03f3b58b.mp3",
+      text: "Tap the music.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_music_03f3b58b.mp3",
+      text: "Tap the music.",
     },
   },
   [normalizeText("Tap the napkin.")]: {
@@ -17027,6 +18847,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_tap_night_light_5a5d671f.mp3",
       text: "Tap the night light.",
+    },
+  },
+  [normalizeText("Tap the nose.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_tap_nose_b6902464.mp3",
+      text: "Tap the nose.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_tap_nose_b6902464.mp3",
+      text: "Tap the nose.",
     },
   },
   [normalizeText("Tap the nurse.")]: {
@@ -17135,6 +18965,106 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/prompt_tap_picnic_mat_b28d4a50.mp3",
       text: "Tap the picnic mat.",
+    },
+  },
+  [normalizeText("Tap the picture for hear.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_hear_644a2a81.mp3",
+      text: "Tap the picture for hear.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_hear_644a2a81.mp3",
+      text: "Tap the picture for hear.",
+    },
+  },
+  [normalizeText("Tap the picture for loud.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_loud_c626078e.mp3",
+      text: "Tap the picture for loud.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_loud_c626078e.mp3",
+      text: "Tap the picture for loud.",
+    },
+  },
+  [normalizeText("Tap the picture for quiet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_quiet_3d16ae1c.mp3",
+      text: "Tap the picture for quiet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_quiet_3d16ae1c.mp3",
+      text: "Tap the picture for quiet.",
+    },
+  },
+  [normalizeText("Tap the picture for see.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_see_b2b4a1d0.mp3",
+      text: "Tap the picture for see.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_see_b2b4a1d0.mp3",
+      text: "Tap the picture for see.",
+    },
+  },
+  [normalizeText("Tap the picture for smell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_smell_beda72cb.mp3",
+      text: "Tap the picture for smell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_smell_beda72cb.mp3",
+      text: "Tap the picture for smell.",
+    },
+  },
+  [normalizeText("Tap the picture for soft.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_soft_d465d421.mp3",
+      text: "Tap the picture for soft.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_soft_d465d421.mp3",
+      text: "Tap the picture for soft.",
+    },
+  },
+  [normalizeText("Tap the picture for sour.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_sour_64cdd503.mp3",
+      text: "Tap the picture for sour.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_sour_64cdd503.mp3",
+      text: "Tap the picture for sour.",
+    },
+  },
+  [normalizeText("Tap the picture for sweet.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_sweet_b0cf85ac.mp3",
+      text: "Tap the picture for sweet.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_sweet_b0cf85ac.mp3",
+      text: "Tap the picture for sweet.",
+    },
+  },
+  [normalizeText("Tap the picture for taste.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_taste_f2aad753.mp3",
+      text: "Tap the picture for taste.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_taste_f2aad753.mp3",
+      text: "Tap the picture for taste.",
+    },
+  },
+  [normalizeText("Tap the picture for touch.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/prompt_tap_touch_a3cb8049.mp3",
+      text: "Tap the picture for touch.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/prompt_tap_touch_a3cb8049.mp3",
+      text: "Tap the picture for touch.",
     },
   },
   [normalizeText("Tap the piglet.")]: {
@@ -17515,6 +19445,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the shade.",
     },
   },
+  [normalizeText("Tap the shadow.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_shadow_71358bdb.mp3",
+      text: "Tap the shadow.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_shadow_71358bdb.mp3",
+      text: "Tap the shadow.",
+    },
+  },
   [normalizeText("Tap the shampoo.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_tap_shampoo_d41c5396.mp3",
@@ -17527,6 +19467,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_tap_shampoo_d41c5396.mp3",
       text: "Tap the shampoo.",
+    },
+  },
+  [normalizeText("Tap the shape.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_tap_shape_ad590898.mp3",
+      text: "Tap the shape.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_shape_ad590898.mp3",
+      text: "Tap the shape.",
     },
   },
   [normalizeText("Tap the sheep.")]: {
@@ -17759,6 +19709,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_soft_voice_7fa58760.mp3",
       text: "Tap the soft voice.",
+    },
+  },
+  [normalizeText("Tap the sound.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_tap_sound_6b5e1201.mp3",
+      text: "Tap the sound.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_tap_sound_6b5e1201.mp3",
+      text: "Tap the sound.",
     },
   },
   [normalizeText("Tap the soup.")]: {
@@ -18001,6 +19961,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the thermometer.",
     },
   },
+  [normalizeText("Tap the thumb.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_thumb_15bef641.mp3",
+      text: "Tap the thumb.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_tap_thumb_15bef641.mp3",
+      text: "Tap the thumb.",
+    },
+  },
   [normalizeText("Tap the ticket.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_ticket_8d580d79.mp3",
@@ -18033,6 +20003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/prompt_tap_tissue_0e1fc991.mp3",
       text: "Tap the tissue.",
+    },
+  },
+  [normalizeText("Tap the toes.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_tap_toes_780d0148.mp3",
+      text: "Tap the toes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_tap_toes_780d0148.mp3",
+      text: "Tap the toes.",
     },
   },
   [normalizeText("Tap the tomato in the basket of vegetables.")]: {
@@ -18255,6 +20235,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the window.",
     },
   },
+  [normalizeText("Tap the wrist.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_wrist_7dc4d622.mp3",
+      text: "Tap the wrist.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_tap_wrist_7dc4d622.mp3",
+      text: "Tap the wrist.",
+    },
+  },
   [normalizeText("Tap the wristband.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_wristband_22b9db1c.mp3",
@@ -18357,6 +20347,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_tap_home_dc237aa2.mp3",
       text: "Tap your home.",
+    },
+  },
+  [normalizeText("taste")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/taste.mp3",
+      text: "taste",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/taste.mp3",
+      text: "taste",
+    },
+  },
+  [normalizeText("taste the lemon")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/taste_the_lemon.mp3",
+      text: "taste the lemon",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/taste_the_lemon.mp3",
+      text: "taste the lemon",
     },
   },
   [normalizeText("teacher")]: {
@@ -25553,6 +27563,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the crumbs.",
     },
   },
+  [normalizeText("These are the ears.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_ears_98bdd7e2.mp3",
+      text: "These are the ears.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_ears_98bdd7e2.mp3",
+      text: "These are the ears.",
+    },
+  },
+  [normalizeText("These are the eyes.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_eyes_19f674a8.mp3",
+      text: "These are the eyes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_eyes_19f674a8.mp3",
+      text: "These are the eyes.",
+    },
+  },
+  [normalizeText("These are the fingers.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_fingers_c6ddbce2.mp3",
+      text: "These are the fingers.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_fingers_c6ddbce2.mp3",
+      text: "These are the fingers.",
+    },
+  },
   [normalizeText("These are the footprints.")]: {
     "en-US": {
       key: "lessons/beach-day/sand-play/audio/en-US/neural2-c-r1/prompt_teach_footprints_dbc4b86a.mp3",
@@ -25663,6 +27703,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "These are the sunglasses.",
     },
   },
+  [normalizeText("These are the toes.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_toes_eb26927c.mp3",
+      text: "These are the toes.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_toes_eb26927c.mp3",
+      text: "These are the toes.",
+    },
+  },
   [normalizeText("These are the tongs.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_teach_tongs_cb8809bd.mp3",
@@ -25723,6 +27773,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the alphabet book.",
     },
   },
+  [normalizeText("This is the ankle.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_ankle_abd64f69.mp3",
+      text: "This is the ankle.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_ankle_abd64f69.mp3",
+      text: "This is the ankle.",
+    },
+  },
   [normalizeText("This is the apple.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_teach_apple_640ad69c.mp3",
@@ -25749,6 +27809,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/prompt_teach_apron_805bdffd.mp3",
       text: "This is the apron.",
+    },
+  },
+  [normalizeText("This is the arm.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_arm_c5b33ffe.mp3",
+      text: "This is the arm.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_arm_c5b33ffe.mp3",
+      text: "This is the arm.",
     },
   },
   [normalizeText("This is the bag.")]: {
@@ -25921,6 +27991,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_teach_bed_084c0b4a.mp3",
       text: "This is the bed.",
+    },
+  },
+  [normalizeText("This is the bell.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_bell_a9a6b973.mp3",
+      text: "This is the bell.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_bell_a9a6b973.mp3",
+      text: "This is the bell.",
     },
   },
   [normalizeText("This is the bench.")]: {
@@ -26359,6 +28439,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_teach_coaster_018fe974.mp3",
       text: "This is the coaster.",
+    },
+  },
+  [normalizeText("This is the color.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_color_701131b1.mp3",
+      text: "This is the color.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_color_701131b1.mp3",
+      text: "This is the color.",
     },
   },
   [normalizeText("This is the comb.")]: {
@@ -27027,6 +29117,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the hand gel.",
     },
   },
+  [normalizeText("This is the head.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_head_953eed0e.mp3",
+      text: "This is the head.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_head_953eed0e.mp3",
+      text: "This is the head.",
+    },
+  },
+  [normalizeText("This is the heel.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_heel_1e97e8cc.mp3",
+      text: "This is the heel.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_heel_1e97e8cc.mp3",
+      text: "This is the heel.",
+    },
+  },
   [normalizeText("This is the helmet.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_teach_helmet_fa18111a.mp3",
@@ -27221,6 +29331,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the leaf.",
     },
   },
+  [normalizeText("This is the leg.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_leg_1f776d97.mp3",
+      text: "This is the leg.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_leg_1f776d97.mp3",
+      text: "This is the leg.",
+    },
+  },
   [normalizeText("This is the librarian.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/prompt_teach_librarian_c930df60.mp3",
@@ -27261,6 +29381,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the lifeguard.",
     },
   },
+  [normalizeText("This is the light.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_light_4ac289d6.mp3",
+      text: "This is the light.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_light_4ac289d6.mp3",
+      text: "This is the light.",
+    },
+  },
   [normalizeText("This is the lullaby.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_teach_lullaby_49943bb6.mp3",
@@ -27287,6 +29417,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_teach_lunchbox_ceff435b.mp3",
       text: "This is the lunchbox.",
+    },
+  },
+  [normalizeText("This is the magnifying glass.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_magnifying_glass_74c03b6f.mp3",
+      text: "This is the magnifying glass.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_magnifying_glass_74c03b6f.mp3",
+      text: "This is the magnifying glass.",
     },
   },
   [normalizeText("This is the mask.")]: {
@@ -27411,6 +29551,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/sleep-ready/audio/en/prompt_teach_nightstand_1a98cb74.mp3",
       text: "This is the nightstand.",
+    },
+  },
+  [normalizeText("This is the nose.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_nose_9689940b.mp3",
+      text: "This is the nose.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_nose_9689940b.mp3",
+      text: "This is the nose.",
     },
   },
   [normalizeText("This is the notebook.")]: {
@@ -28027,6 +30177,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the shade.",
     },
   },
+  [normalizeText("This is the shadow.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_shadow_b0beeea3.mp3",
+      text: "This is the shadow.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_shadow_b0beeea3.mp3",
+      text: "This is the shadow.",
+    },
+  },
   [normalizeText("This is the shampoo.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_teach_shampoo_34e7b8cd.mp3",
@@ -28039,6 +30199,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-prep/audio/en/prompt_teach_shampoo_34e7b8cd.mp3",
       text: "This is the shampoo.",
+    },
+  },
+  [normalizeText("This is the shape.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/prompt_teach_shape_3410b5b6.mp3",
+      text: "This is the shape.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_teach_shape_3410b5b6.mp3",
+      text: "This is the shape.",
     },
   },
   [normalizeText("This is the sheep.")]: {
@@ -28287,6 +30457,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/calm-room/audio/en/prompt_teach_sound_machine_62f26426.mp3",
       text: "This is the sound machine.",
+    },
+  },
+  [normalizeText("This is the sound.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/prompt_teach_sound_ebffc324.mp3",
+      text: "This is the sound.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/prompt_teach_sound_ebffc324.mp3",
+      text: "This is the sound.",
     },
   },
   [normalizeText("This is the soup.")]: {
@@ -28571,6 +30751,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the thermometer.",
     },
   },
+  [normalizeText("This is the thumb.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_thumb_6e8d6af0.mp3",
+      text: "This is the thumb.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_thumb_6e8d6af0.mp3",
+      text: "This is the thumb.",
+    },
+  },
   [normalizeText("This is the ticket.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_ticket_a8cffb2b.mp3",
@@ -28849,6 +31039,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the wrapper.",
     },
   },
+  [normalizeText("This is the wrist.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_wrist_e6858442.mp3",
+      text: "This is the wrist.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_wrist_e6858442.mp3",
+      text: "This is the wrist.",
+    },
+  },
   [normalizeText("This is the wristband.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_teach_wristband_dbde8e61.mp3",
@@ -28943,6 +31143,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is your family.",
     },
   },
+  [normalizeText("This is your foot.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/prompt_teach_foot_98111f82.mp3",
+      text: "This is your foot.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/prompt_teach_foot_98111f82.mp3",
+      text: "This is your foot.",
+    },
+  },
   [normalizeText("This is your friend.")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/prompt_games_teach_friend_9e483931.mp3",
@@ -28953,6 +31163,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is your friend.",
     },
   },
+  [normalizeText("This is your hair.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_hair_b3a3ce5d.mp3",
+      text: "This is your hair.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_hair_b3a3ce5d.mp3",
+      text: "This is your hair.",
+    },
+  },
+  [normalizeText("This is your hand.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_teach_hand_e587628d.mp3",
+      text: "This is your hand.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_teach_hand_e587628d.mp3",
+      text: "This is your hand.",
+    },
+  },
   [normalizeText("This is your home.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_teach_home_893e0bdc.mp3",
@@ -28961,6 +31191,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/prompt_teach_home_893e0bdc.mp3",
       text: "This is your home.",
+    },
+  },
+  [normalizeText("This is your mouth.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/prompt_teach_mouth_e41e4f16.mp3",
+      text: "This is your mouth.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/prompt_teach_mouth_e41e4f16.mp3",
+      text: "This is your mouth.",
     },
   },
   [normalizeText("This lesson needs a parent to unlock it. Ask a parent for help!")]: {
@@ -29001,6 +31241,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/throw_the_frisbee.mp3",
       text: "throw the frisbee",
+    },
+  },
+  [normalizeText("thumb")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/thumb.mp3",
+      text: "thumb",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/thumb.mp3",
+      text: "thumb",
     },
   },
   [normalizeText("ticket")]: {
@@ -29057,6 +31307,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "tissue",
     },
   },
+  [normalizeText("toes")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/toes.mp3",
+      text: "toes",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/toes.mp3",
+      text: "toes",
+    },
+  },
   [normalizeText("tomato")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/tomato.mp3",
@@ -29107,6 +31367,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bathroom/audio/en/toothpaste.mp3",
       text: "toothpaste",
+    },
+  },
+  [normalizeText("touch")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/touch.mp3",
+      text: "touch",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/touch.mp3",
+      text: "touch",
+    },
+  },
+  [normalizeText("touch the feather")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/touch_the_feather.mp3",
+      text: "touch the feather",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/touch_the_feather.mp3",
+      text: "touch the feather",
+    },
+  },
+  [normalizeText("touch your head")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/touch_your_head.mp3",
+      text: "touch your head",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/touch_your_head.mp3",
+      text: "touch your head",
     },
   },
   [normalizeText("towel")]: {
@@ -30473,6 +32763,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "whistle",
     },
   },
+  [normalizeText("wiggle your fingers")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/wiggle_your_fingers.mp3",
+      text: "wiggle your fingers",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/wiggle_your_fingers.mp3",
+      text: "wiggle your fingers",
+    },
+  },
   [normalizeText("window")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/window.mp3",
@@ -30559,6 +32859,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/wrapper.mp3",
       text: "wrapper",
+    },
+  },
+  [normalizeText("wrist")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/wrist.mp3",
+      text: "wrist",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/wrist.mp3",
+      text: "wrist",
     },
   },
   [normalizeText("wristband")]: {
@@ -30693,6 +33003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You can replay a stop to review new words.",
     },
   },
+  [normalizeText("You can see many colors and shapes.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/intro_success_df66dabf.mp3",
+      text: "You can see many colors and shapes.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/intro_success_df66dabf.mp3",
+      text: "You can see many colors and shapes.",
+    },
+  },
   [normalizeText("You chose a book you like.")]: {
     "en-US": {
       key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/completion_d8ce254f.mp3",
@@ -30801,6 +33121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/breakfast/audio/en-GB/neural2-c-r1/completion_7e062881.mp3",
       text: "You enjoyed your breakfast.",
+    },
+  },
+  [normalizeText("You explored with several senses.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/completion_d17476e9.mp3",
+      text: "You explored with several senses.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/completion_d17476e9.mp3",
+      text: "You explored with several senses.",
     },
   },
   [normalizeText("You followed the teacher's instructions very well!")]: {
@@ -31053,6 +33383,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You listened carefully during story time.",
     },
   },
+  [normalizeText("You listened very carefully.")]: {
+    "en-US": {
+      key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/completion_90d0ddc9.mp3",
+      text: "You listened very carefully.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/hearing-world/audio/en-GB/neural2-c-r1/completion_90d0ddc9.mp3",
+      text: "You listened very carefully.",
+    },
+  },
+  [normalizeText("You looked carefully at the world around you.")]: {
+    "en-US": {
+      key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/completion_2f196c38.mp3",
+      text: "You looked carefully at the world around you.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/completion_2f196c38.mp3",
+      text: "You looked carefully at the world around you.",
+    },
+  },
   [normalizeText("You made the room calm and ready for sleep!")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/completion_4180b3ef.mp3",
@@ -31071,6 +33421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/completion_105b57ba.mp3",
       text: "You met and cared for the farm animals.",
+    },
+  },
+  [normalizeText("You moved your arms, hands, and fingers carefully.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/completion_72dd08f7.mp3",
+      text: "You moved your arms, hands, and fingers carefully.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/completion_72dd08f7.mp3",
+      text: "You moved your arms, hands, and fingers carefully.",
     },
   },
   [normalizeText("You played in the sand and explored the beach.")]: {
@@ -31093,6 +33453,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You played so creatively!",
     },
   },
+  [normalizeText("You pointed to the parts of the face.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/completion_a466082b.mp3",
+      text: "You pointed to the parts of the face.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/completion_a466082b.mp3",
+      text: "You pointed to the parts of the face.",
+    },
+  },
   [normalizeText("You put your toys away so neatly!")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/completion_68875153.mp3",
@@ -31101,6 +33471,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/completion_68875153.mp3",
       text: "You put your toys away so neatly!",
+    },
+  },
+  [normalizeText("You recognized the parts of your legs and feet.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/completion_6f9399f4.mp3",
+      text: "You recognized the parts of your legs and feet.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/completion_6f9399f4.mp3",
+      text: "You recognized the parts of your legs and feet.",
     },
   },
   [normalizeText("You remembered the school supplies very well!")]: {
@@ -31293,6 +33673,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Your beach bag is ready.",
     },
   },
+  [normalizeText("Your face helps you see, hear, and show feelings.")]: {
+    "en-US": {
+      key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/intro_success_36e987ee.mp3",
+      text: "Your face helps you see, hear, and show feelings.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/head-and-face/audio/en-GB/neural2-c-r1/intro_success_36e987ee.mp3",
+      text: "Your face helps you see, hear, and show feelings.",
+    },
+  },
   [normalizeText("Your family is near your home.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/tap_family_fail_8cd800fa.mp3",
@@ -31333,6 +33723,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Your hand is nearby.",
     },
   },
+  [normalizeText("Your hands help you hold, touch, and wave.")]: {
+    "en-US": {
+      key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/intro_success_b1706a4e.mp3",
+      text: "Your hands help you hold, touch, and wave.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/intro_success_b1706a4e.mp3",
+      text: "Your hands help you hold, touch, and wave.",
+    },
+  },
   [normalizeText("Your home is on the right.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_home_fail_238ed47b.mp3",
@@ -31341,6 +33741,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/tap_home_fail_238ed47b.mp3",
       text: "Your home is on the right.",
+    },
+  },
+  [normalizeText("Your legs and feet help you stand, walk, and jump.")]: {
+    "en-US": {
+      key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/intro_success_8a38bbe4.mp3",
+      text: "Your legs and feet help you stand, walk, and jump.",
+    },
+    "en-GB": {
+      key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/intro_success_8a38bbe4.mp3",
+      text: "Your legs and feet help you stand, walk, and jump.",
+    },
+  },
+  [normalizeText("Your nose, tongue, and skin help you notice many things.")]: {
+    "en-US": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-US/neural2-c-r1/intro_success_fdebd9b5.mp3",
+      text: "Your nose, tongue, and skin help you notice many things.",
+    },
+    "en-GB": {
+      key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/intro_success_fdebd9b5.mp3",
+      text: "Your nose, tongue, and skin help you notice many things.",
     },
   },
   [normalizeText("Yummy!")]: {
@@ -36848,6 +39268,498 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-table/audio/vi/teach_vegetables_success_02a1b015.mp3",
     text: "Từ này nghĩa là rau củ.",
   },
+  [normalizeText("Bé đã lắng nghe rất chăm chú.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/completion_23c885b6.mp3",
+    text: "Bé đã lắng nghe rất chăm chú.",
+  },
+  [normalizeText("Mình lắng nghe những âm thanh quanh bé nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/intro_410e2ef0.mp3",
+    text: "Mình lắng nghe những âm thanh quanh bé nhé.",
+  },
+  [normalizeText("Có âm thanh to, nhỏ và thật êm dịu.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/intro_success_7082317d.mp3",
+    text: "Có âm thanh to, nhỏ và thật êm dịu.",
+  },
+  [normalizeText("Chạm vào chiếc chuông nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_bell_01245a21.mp3",
+    text: "Chạm vào chiếc chuông nhé.",
+  },
+  [normalizeText("Tìm chiếc chuông ở phía dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_bell_fail_cf5f35b8.mp3",
+    text: "Tìm chiếc chuông ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là chiếc chuông.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_bell_success_396c0dea.mp3",
+    text: "Đúng rồi, đó là chiếc chuông.",
+  },
+  [normalizeText("Chạm vào thẻ che tai nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_cover_ears_a304750a.mp3",
+    text: "Chạm vào thẻ che tai nhé.",
+  },
+  [normalizeText("Tìm thẻ che tai ở giữa hàng dưới nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_cover_ears_fail_2cab4bfc.mp3",
+    text: "Tìm thẻ che tai ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ theo âm thanh nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_follow_sound_539f81f8.mp3",
+    text: "Chạm vào thẻ theo âm thanh nhé.",
+  },
+  [normalizeText("Tìm thẻ theo âm thanh ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_follow_sound_fail_0723c80a.mp3",
+    text: "Tìm thẻ theo âm thanh ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang lắng nghe nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_hear_3b684ebb.mp3",
+    text: "Chạm vào hình bé đang lắng nghe nhé.",
+  },
+  [normalizeText("Tìm hình bé đang lắng nghe ở giữa phía trên nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_hear_fail_f345d272.mp3",
+    text: "Tìm hình bé đang lắng nghe ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào thẻ lắng nghe kỹ nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_listen_carefully_43da31ed.mp3",
+    text: "Chạm vào thẻ lắng nghe kỹ nhé.",
+  },
+  [normalizeText("Tìm thẻ lắng nghe kỹ ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_listen_carefully_fail_dd810e20.mp3",
+    text: "Tìm thẻ lắng nghe kỹ ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình loa phát âm thanh to nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_loud_67c179f7.mp3",
+    text: "Chạm vào hình loa phát âm thanh to nhé.",
+  },
+  [normalizeText("Tìm hình loa phát âm thanh to ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_loud_fail_d4f47dde.mp3",
+    text: "Tìm hình loa phát âm thanh to ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào âm nhạc nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_music_46f6f2df.mp3",
+    text: "Chạm vào âm nhạc nhé.",
+  },
+  [normalizeText("Tìm âm nhạc ở phía trên bên phải nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_music_fail_e99e96f4.mp3",
+    text: "Tìm âm nhạc ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình căn phòng yên tĩnh nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_quiet_6fd50707.mp3",
+    text: "Chạm vào hình căn phòng yên tĩnh nhé.",
+  },
+  [normalizeText("Tìm hình căn phòng yên tĩnh ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_quiet_fail_cb6e893f.mp3",
+    text: "Tìm hình căn phòng yên tĩnh ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào âm thanh nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_sound_7d792c34.mp3",
+    text: "Chạm vào âm thanh nhé.",
+  },
+  [normalizeText("Tìm âm thanh ở phía trên bên phải nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_sound_fail_3804011b.mp3",
+    text: "Tìm âm thanh ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là âm thanh.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/tap_sound_success_e96eb997.mp3",
+    text: "Đúng rồi, đó là âm thanh.",
+  },
+  [normalizeText("Đây là chiếc chuông.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_bell_dae5ea54.mp3",
+    text: "Đây là chiếc chuông.",
+  },
+  [normalizeText("Từ này nghĩa là chiếc chuông.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_bell_success_a5d9935b.mp3",
+    text: "Từ này nghĩa là chiếc chuông.",
+  },
+  [normalizeText("Mình học câu che tai lại nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_cover_ears_a33ef063.mp3",
+    text: "Mình học câu che tai lại nhé.",
+  },
+  [normalizeText("Câu này nghĩa là che tai lại.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_cover_ears_success_3d049795.mp3",
+    text: "Câu này nghĩa là che tai lại.",
+  },
+  [normalizeText("Mình học câu đi theo âm thanh nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_follow_sound_b38c0135.mp3",
+    text: "Mình học câu đi theo âm thanh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đi theo âm thanh.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_follow_sound_success_80f9f301.mp3",
+    text: "Câu này nghĩa là đi theo âm thanh.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang lắng nghe nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_hear_baeb5f58.mp3",
+    text: "Mình cùng xem hình bé đang lắng nghe nhé.",
+  },
+  [normalizeText("Từ này nghĩa là nghe thấy.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_hear_success_0830adcd.mp3",
+    text: "Từ này nghĩa là nghe thấy.",
+  },
+  [normalizeText("Mình học câu lắng nghe thật kỹ nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_listen_carefully_6f2f680c.mp3",
+    text: "Mình học câu lắng nghe thật kỹ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là lắng nghe thật kỹ.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_listen_carefully_success_2ad7fc7c.mp3",
+    text: "Câu này nghĩa là lắng nghe thật kỹ.",
+  },
+  [normalizeText("Mình cùng xem hình loa phát âm thanh to nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_loud_e989908e.mp3",
+    text: "Mình cùng xem hình loa phát âm thanh to nhé.",
+  },
+  [normalizeText("Từ này nghĩa là to.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_loud_success_2a14c52f.mp3",
+    text: "Từ này nghĩa là to.",
+  },
+  [normalizeText("Mình cùng xem hình căn phòng yên tĩnh nhé.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_quiet_b4c5ddb0.mp3",
+    text: "Mình cùng xem hình căn phòng yên tĩnh nhé.",
+  },
+  [normalizeText("Từ này nghĩa là yên tĩnh.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_quiet_success_9ca72a26.mp3",
+    text: "Từ này nghĩa là yên tĩnh.",
+  },
+  [normalizeText("Đây là âm thanh.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_sound_0634399c.mp3",
+    text: "Đây là âm thanh.",
+  },
+  [normalizeText("Từ này nghĩa là âm thanh.")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/teach_sound_success_1e99fe94.mp3",
+    text: "Từ này nghĩa là âm thanh.",
+  },
+  [normalizeText("Bé đã quan sát thế giới thật kỹ.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/completion_b77fa4f7.mp3",
+    text: "Bé đã quan sát thế giới thật kỹ.",
+  },
+  [normalizeText("Mình dùng mắt để quan sát nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/intro_0d83e9fc.mp3",
+    text: "Mình dùng mắt để quan sát nhé.",
+  },
+  [normalizeText("Bé có thể nhìn thấy nhiều màu sắc và hình dạng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/intro_success_7cd330b9.mp3",
+    text: "Bé có thể nhìn thấy nhiều màu sắc và hình dạng.",
+  },
+  [normalizeText("Chạm vào thẻ nhắm mắt nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_close_eyes_b07292b2.mp3",
+    text: "Chạm vào thẻ nhắm mắt nhé.",
+  },
+  [normalizeText("Tìm thẻ nhắm mắt ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_close_eyes_fail_63e2321a.mp3",
+    text: "Tìm thẻ nhắm mắt ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào màu sắc nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_color_a64c9c2e.mp3",
+    text: "Chạm vào màu sắc nhé.",
+  },
+  [normalizeText("Tìm màu sắc ở phía trên bên phải nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_color_fail_ed848c88.mp3",
+    text: "Tìm màu sắc ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là màu sắc.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_color_success_91ec72e9.mp3",
+    text: "Đúng rồi, đó là màu sắc.",
+  },
+  [normalizeText("Chạm vào thẻ tìm hình đỏ nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_find_red_circle_6afc9442.mp3",
+    text: "Chạm vào thẻ tìm hình đỏ nhé.",
+  },
+  [normalizeText("Tìm thẻ tìm hình đỏ ở giữa hàng dưới nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_find_red_circle_fail_f04385b0.mp3",
+    text: "Tìm thẻ tìm hình đỏ ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào ánh sáng nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_light_b6fec53b.mp3",
+    text: "Chạm vào ánh sáng nhé.",
+  },
+  [normalizeText("Tìm ánh sáng ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_light_fail_5fbe642d.mp3",
+    text: "Tìm ánh sáng ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là ánh sáng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_light_success_d04995af.mp3",
+    text: "Đúng rồi, đó là ánh sáng.",
+  },
+  [normalizeText("Chạm vào thẻ nhìn kỹ nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_look_closely_2430b1f0.mp3",
+    text: "Chạm vào thẻ nhìn kỹ nhé.",
+  },
+  [normalizeText("Tìm thẻ nhìn kỹ ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_look_closely_fail_d1759fcb.mp3",
+    text: "Tìm thẻ nhìn kỹ ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào kính lúp nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_magnifying_glass_7c6cbb32.mp3",
+    text: "Chạm vào kính lúp nhé.",
+  },
+  [normalizeText("Tìm kính lúp ở phía dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_magnifying_glass_fail_aef4c6bf.mp3",
+    text: "Tìm kính lúp ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là kính lúp.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_magnifying_glass_success_e6b25c00.mp3",
+    text: "Đúng rồi, đó là kính lúp.",
+  },
+  [normalizeText("Tìm hình bé đang quan sát ở giữa phía trên nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_see_fail_32d326dc.mp3",
+    text: "Tìm hình bé đang quan sát ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang quan sát nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_see_ff12be7f.mp3",
+    text: "Chạm vào hình bé đang quan sát nhé.",
+  },
+  [normalizeText("Đúng rồi, bé đã chọn đúng hình.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_see_success_db73bdbc.mp3",
+    text: "Đúng rồi, bé đã chọn đúng hình.",
+  },
+  [normalizeText("Chạm vào cái bóng nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shadow_5950296c.mp3",
+    text: "Chạm vào cái bóng nhé.",
+  },
+  [normalizeText("Tìm cái bóng ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shadow_fail_4e2a8f9f.mp3",
+    text: "Tìm cái bóng ở chính giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái bóng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shadow_success_0135ff7a.mp3",
+    text: "Đúng rồi, đó là cái bóng.",
+  },
+  [normalizeText("Chạm vào hình dạng nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shape_78116f1b.mp3",
+    text: "Chạm vào hình dạng nhé.",
+  },
+  [normalizeText("Tìm hình dạng ở phía trên bên phải nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shape_fail_d5c391a4.mp3",
+    text: "Tìm hình dạng ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là hình dạng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/tap_shape_success_b03bbffe.mp3",
+    text: "Đúng rồi, đó là hình dạng.",
+  },
+  [normalizeText("Mình học câu nhắm mắt lại nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_close_eyes_114dd5d6.mp3",
+    text: "Mình học câu nhắm mắt lại nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nhắm mắt lại.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_close_eyes_success_f77de322.mp3",
+    text: "Câu này nghĩa là nhắm mắt lại.",
+  },
+  [normalizeText("Đây là màu sắc.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_color_df249447.mp3",
+    text: "Đây là màu sắc.",
+  },
+  [normalizeText("Từ này nghĩa là màu sắc.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_color_success_624af037.mp3",
+    text: "Từ này nghĩa là màu sắc.",
+  },
+  [normalizeText("Mình học câu tìm hình tròn màu đỏ nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_find_red_circle_c9a5cdf9.mp3",
+    text: "Mình học câu tìm hình tròn màu đỏ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là tìm hình tròn màu đỏ.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_find_red_circle_success_c5228fea.mp3",
+    text: "Câu này nghĩa là tìm hình tròn màu đỏ.",
+  },
+  [normalizeText("Đây là ánh sáng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_light_ce39873f.mp3",
+    text: "Đây là ánh sáng.",
+  },
+  [normalizeText("Từ này nghĩa là ánh sáng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_light_success_bb23c2ca.mp3",
+    text: "Từ này nghĩa là ánh sáng.",
+  },
+  [normalizeText("Mình học câu nhìn thật kỹ nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_look_closely_7623431c.mp3",
+    text: "Mình học câu nhìn thật kỹ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nhìn thật kỹ.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_look_closely_success_82ccf843.mp3",
+    text: "Câu này nghĩa là nhìn thật kỹ.",
+  },
+  [normalizeText("Đây là kính lúp.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_magnifying_glass_eae99985.mp3",
+    text: "Đây là kính lúp.",
+  },
+  [normalizeText("Từ này nghĩa là kính lúp.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_magnifying_glass_success_03d351f6.mp3",
+    text: "Từ này nghĩa là kính lúp.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang quan sát nhé.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_see_d5d72f98.mp3",
+    text: "Mình cùng xem hình bé đang quan sát nhé.",
+  },
+  [normalizeText("Từ này nghĩa là nhìn thấy.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_see_success_a60ddb35.mp3",
+    text: "Từ này nghĩa là nhìn thấy.",
+  },
+  [normalizeText("Đây là cái bóng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_shadow_7ca65814.mp3",
+    text: "Đây là cái bóng.",
+  },
+  [normalizeText("Từ này nghĩa là bóng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_shadow_success_1088f351.mp3",
+    text: "Từ này nghĩa là bóng.",
+  },
+  [normalizeText("Đây là hình dạng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_shape_0ab59d23.mp3",
+    text: "Đây là hình dạng.",
+  },
+  [normalizeText("Từ này nghĩa là hình dạng.")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/teach_shape_success_75fecb6b.mp3",
+    text: "Từ này nghĩa là hình dạng.",
+  },
+  [normalizeText("Bé đã khám phá bằng nhiều giác quan.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/completion_8b8cd4f1.mp3",
+    text: "Bé đã khám phá bằng nhiều giác quan.",
+  },
+  [normalizeText("Mình khám phá mùi, vị và bề mặt nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/intro_e1e3e6e8.mp3",
+    text: "Mình khám phá mùi, vị và bề mặt nhé.",
+  },
+  [normalizeText("Mũi, lưỡi và da giúp bé cảm nhận nhiều điều.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/intro_success_2e1b17ca.mp3",
+    text: "Mũi, lưỡi và da giúp bé cảm nhận nhiều điều.",
+  },
+  [normalizeText("Chạm vào hình bé đang ngửi nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_smell_cce8faca.mp3",
+    text: "Chạm vào hình bé đang ngửi nhé.",
+  },
+  [normalizeText("Tìm hình bé đang ngửi ở giữa phía trên nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_smell_fail_bebe8893.mp3",
+    text: "Tìm hình bé đang ngửi ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào thẻ ngửi hoa nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_smell_flower_da0153f2.mp3",
+    text: "Chạm vào thẻ ngửi hoa nhé.",
+  },
+  [normalizeText("Tìm thẻ ngửi hoa ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_smell_flower_fail_7042b4c6.mp3",
+    text: "Tìm thẻ ngửi hoa ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào hình chiếc gối mềm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_soft_be0b0199.mp3",
+    text: "Chạm vào hình chiếc gối mềm nhé.",
+  },
+  [normalizeText("Tìm hình chiếc gối mềm ở phía dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_soft_fail_cbdc8b25.mp3",
+    text: "Tìm hình chiếc gối mềm ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào hình quả chanh có vị chua nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_sour_54312f0d.mp3",
+    text: "Chạm vào hình quả chanh có vị chua nhé.",
+  },
+  [normalizeText("Tìm hình quả chanh có vị chua ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_sour_fail_fc81a404.mp3",
+    text: "Tìm hình quả chanh có vị chua ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào hình món ăn có vị ngọt nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_sweet_7cf96393.mp3",
+    text: "Chạm vào hình món ăn có vị ngọt nhé.",
+  },
+  [normalizeText("Tìm hình món ăn có vị ngọt ở chính giữa nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_sweet_fail_bf2ce75e.mp3",
+    text: "Tìm hình món ăn có vị ngọt ở chính giữa nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang nếm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_taste_2e519686.mp3",
+    text: "Chạm vào hình bé đang nếm nhé.",
+  },
+  [normalizeText("Tìm hình bé đang nếm ở giữa phía trên nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_taste_fail_74b1cb8c.mp3",
+    text: "Tìm hình bé đang nếm ở giữa phía trên nhé.",
+  },
+  [normalizeText("Chạm vào thẻ nếm chanh nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_taste_lemon_0691a3a6.mp3",
+    text: "Chạm vào thẻ nếm chanh nhé.",
+  },
+  [normalizeText("Tìm thẻ nếm chanh ở giữa hàng dưới nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_taste_lemon_fail_bf7ac203.mp3",
+    text: "Tìm thẻ nếm chanh ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào hình bé đang chạm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_touch_1f516c3d.mp3",
+    text: "Chạm vào hình bé đang chạm nhé.",
+  },
+  [normalizeText("Tìm hình bé đang chạm ở phía trên bên phải nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_touch_fail_7c4198cf.mp3",
+    text: "Tìm hình bé đang chạm ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ chạm lông vũ nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_touch_feather_bd980369.mp3",
+    text: "Chạm vào thẻ chạm lông vũ nhé.",
+  },
+  [normalizeText("Tìm thẻ chạm lông vũ ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/tap_touch_feather_fail_d53effd4.mp3",
+    text: "Tìm thẻ chạm lông vũ ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang ngửi nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_smell_4e87bc88.mp3",
+    text: "Mình cùng xem hình bé đang ngửi nhé.",
+  },
+  [normalizeText("Mình học câu ngửi bông hoa nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_smell_flower_bcbb88dd.mp3",
+    text: "Mình học câu ngửi bông hoa nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngửi bông hoa.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_smell_flower_success_eed5f4a0.mp3",
+    text: "Câu này nghĩa là ngửi bông hoa.",
+  },
+  [normalizeText("Từ này nghĩa là ngửi.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_smell_success_7d09387c.mp3",
+    text: "Từ này nghĩa là ngửi.",
+  },
+  [normalizeText("Mình cùng xem hình chiếc gối mềm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_soft_d8e8982d.mp3",
+    text: "Mình cùng xem hình chiếc gối mềm nhé.",
+  },
+  [normalizeText("Từ này nghĩa là mềm.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_soft_success_a13b5a84.mp3",
+    text: "Từ này nghĩa là mềm.",
+  },
+  [normalizeText("Mình cùng xem hình quả chanh có vị chua nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_sour_079894d6.mp3",
+    text: "Mình cùng xem hình quả chanh có vị chua nhé.",
+  },
+  [normalizeText("Từ này nghĩa là chua.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_sour_success_4f16c87d.mp3",
+    text: "Từ này nghĩa là chua.",
+  },
+  [normalizeText("Mình cùng xem hình món ăn có vị ngọt nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_sweet_1d41d806.mp3",
+    text: "Mình cùng xem hình món ăn có vị ngọt nhé.",
+  },
+  [normalizeText("Từ này nghĩa là ngọt.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_sweet_success_26330dcd.mp3",
+    text: "Từ này nghĩa là ngọt.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang nếm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_taste_c75e874a.mp3",
+    text: "Mình cùng xem hình bé đang nếm nhé.",
+  },
+  [normalizeText("Mình học câu nếm quả chanh nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_taste_lemon_36c8b348.mp3",
+    text: "Mình học câu nếm quả chanh nhé.",
+  },
+  [normalizeText("Câu này nghĩa là nếm quả chanh.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_taste_lemon_success_e6af4bf0.mp3",
+    text: "Câu này nghĩa là nếm quả chanh.",
+  },
+  [normalizeText("Từ này nghĩa là nếm.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_taste_success_9d2148b9.mp3",
+    text: "Từ này nghĩa là nếm.",
+  },
+  [normalizeText("Mình cùng xem hình bé đang chạm nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_d58c9ff7.mp3",
+    text: "Mình cùng xem hình bé đang chạm nhé.",
+  },
+  [normalizeText("Mình học câu chạm vào chiếc lông vũ nhé.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_feather_acf801ca.mp3",
+    text: "Mình học câu chạm vào chiếc lông vũ nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chạm vào chiếc lông vũ.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_feather_success_4b69e3e2.mp3",
+    text: "Câu này nghĩa là chạm vào chiếc lông vũ.",
+  },
+  [normalizeText("Từ này nghĩa là chạm.")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_success_8730896a.mp3",
+    text: "Từ này nghĩa là chạm.",
+  },
   [normalizeText("Bé đã chào ông bà thật vui.")]: {
     key: "lessons/grandparents-visit/family-visit/audio/vi/completion_38334838.mp3",
     text: "Bé đã chào ông bà thật vui.",
@@ -39719,6 +42631,510 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là đồng phục.")]: {
     key: "lessons/morning-routine/go-to-school/audio/vi/school_teach_uniform_success_ad977d1b.mp3",
     text: "Từ này nghĩa là đồng phục.",
+  },
+  [normalizeText("Bé đã vận động tay và các ngón thật khéo.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/completion_bcd806e9.mp3",
+    text: "Bé đã vận động tay và các ngón thật khéo.",
+  },
+  [normalizeText("Kéo bàn tay vào vị trí sáng trên cánh tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/drag_hand_ce41d0c4.mp3",
+    text: "Kéo bàn tay vào vị trí sáng trên cánh tay nhé.",
+  },
+  [normalizeText("Tìm bàn tay ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/drag_hand_fail_ec27f8e5.mp3",
+    text: "Tìm bàn tay ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bàn tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/drag_hand_success_f2f68230.mp3",
+    text: "Đúng rồi, đó là bàn tay.",
+  },
+  [normalizeText("Mình cùng tìm các phần của cánh tay và bàn tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/intro_d0975a66.mp3",
+    text: "Mình cùng tìm các phần của cánh tay và bàn tay nhé.",
+  },
+  [normalizeText("Đôi tay giúp bé cầm, chạm và vẫy chào.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/intro_success_9b501bd8.mp3",
+    text: "Đôi tay giúp bé cầm, chạm và vẫy chào.",
+  },
+  [normalizeText("Chạm vào cánh tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_arm_4398a1ed.mp3",
+    text: "Chạm vào cánh tay nhé.",
+  },
+  [normalizeText("Tìm cánh tay ở phía trên bên trái nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_arm_fail_8ab3e703.mp3",
+    text: "Tìm cánh tay ở phía trên bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cánh tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_arm_success_ad16b134.mp3",
+    text: "Đúng rồi, đó là cánh tay.",
+  },
+  [normalizeText("Chạm vào thẻ vỗ tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_clap_hands_3c24416c.mp3",
+    text: "Chạm vào thẻ vỗ tay nhé.",
+  },
+  [normalizeText("Tìm thẻ vỗ tay ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_clap_hands_fail_9658cbae.mp3",
+    text: "Tìm thẻ vỗ tay ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Tìm khuỷu tay ở bên trái nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_elbow_fail_f2785abc.mp3",
+    text: "Tìm khuỷu tay ở bên trái nhé.",
+  },
+  [normalizeText("Chạm vào các ngón tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_fingers_005a1fc6.mp3",
+    text: "Chạm vào các ngón tay nhé.",
+  },
+  [normalizeText("Tìm các ngón tay ở bên phải nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_fingers_fail_9f877e2d.mp3",
+    text: "Tìm các ngón tay ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là các ngón tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_fingers_success_6eaa7de6.mp3",
+    text: "Đúng rồi, đó là các ngón tay.",
+  },
+  [normalizeText("Chạm vào thẻ giơ hai tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_raise_arms_16f6bb6c.mp3",
+    text: "Chạm vào thẻ giơ hai tay nhé.",
+  },
+  [normalizeText("Tìm thẻ giơ hai tay ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_raise_arms_fail_c7408180.mp3",
+    text: "Tìm thẻ giơ hai tay ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào ngón cái nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_thumb_4360a920.mp3",
+    text: "Chạm vào ngón cái nhé.",
+  },
+  [normalizeText("Tìm ngón cái ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_thumb_fail_bb616d90.mp3",
+    text: "Tìm ngón cái ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là ngón cái.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_thumb_success_ef8bd489.mp3",
+    text: "Đúng rồi, đó là ngón cái.",
+  },
+  [normalizeText("Chạm vào thẻ ngọ nguậy ngón tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_wiggle_fingers_aba94df1.mp3",
+    text: "Chạm vào thẻ ngọ nguậy ngón tay nhé.",
+  },
+  [normalizeText("Tìm thẻ ngọ nguậy ngón tay ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_wiggle_fingers_fail_84cc679e.mp3",
+    text: "Tìm thẻ ngọ nguậy ngón tay ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào cổ tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_wrist_085bc487.mp3",
+    text: "Chạm vào cổ tay nhé.",
+  },
+  [normalizeText("Tìm cổ tay ở phía dưới bên trái nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_wrist_fail_ed14d218.mp3",
+    text: "Tìm cổ tay ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cổ tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/tap_wrist_success_53c7f271.mp3",
+    text: "Đúng rồi, đó là cổ tay.",
+  },
+  [normalizeText("Đây là cánh tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_arm_b769d42a.mp3",
+    text: "Đây là cánh tay.",
+  },
+  [normalizeText("Từ này nghĩa là cánh tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_arm_success_59d51d1d.mp3",
+    text: "Từ này nghĩa là cánh tay.",
+  },
+  [normalizeText("Đây là các ngón tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_fingers_6643e4ca.mp3",
+    text: "Đây là các ngón tay.",
+  },
+  [normalizeText("Từ này nghĩa là các ngón tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_fingers_success_65d911bc.mp3",
+    text: "Từ này nghĩa là các ngón tay.",
+  },
+  [normalizeText("Đây là bàn tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_hand_48f01a1a.mp3",
+    text: "Đây là bàn tay.",
+  },
+  [normalizeText("Từ này nghĩa là bàn tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_hand_success_dfaac5a9.mp3",
+    text: "Từ này nghĩa là bàn tay.",
+  },
+  [normalizeText("Mình học câu giơ hai tay lên nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_raise_arms_c919172b.mp3",
+    text: "Mình học câu giơ hai tay lên nhé.",
+  },
+  [normalizeText("Câu này nghĩa là giơ hai tay lên.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_raise_arms_success_f2b7ec81.mp3",
+    text: "Câu này nghĩa là giơ hai tay lên.",
+  },
+  [normalizeText("Đây là ngón cái.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_thumb_8ab54180.mp3",
+    text: "Đây là ngón cái.",
+  },
+  [normalizeText("Từ này nghĩa là ngón tay cái.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_thumb_success_8a370628.mp3",
+    text: "Từ này nghĩa là ngón tay cái.",
+  },
+  [normalizeText("Mình học câu ngọ nguậy các ngón tay nhé.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_wiggle_fingers_074add4a.mp3",
+    text: "Mình học câu ngọ nguậy các ngón tay nhé.",
+  },
+  [normalizeText("Câu này nghĩa là ngọ nguậy các ngón tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_wiggle_fingers_success_5eed1ad0.mp3",
+    text: "Câu này nghĩa là ngọ nguậy các ngón tay.",
+  },
+  [normalizeText("Đây là cổ tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_wrist_8e63afb5.mp3",
+    text: "Đây là cổ tay.",
+  },
+  [normalizeText("Từ này nghĩa là cổ tay.")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/teach_wrist_success_eb127e69.mp3",
+    text: "Từ này nghĩa là cổ tay.",
+  },
+  [normalizeText("Bé đã nhận ra các phần của đầu và khuôn mặt.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/completion_2be66d0b.mp3",
+    text: "Bé đã nhận ra các phần của đầu và khuôn mặt.",
+  },
+  [normalizeText("Kéo đôi mắt vào vị trí sáng trên khuôn mặt nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/drag_eyes_d7cc8314.mp3",
+    text: "Kéo đôi mắt vào vị trí sáng trên khuôn mặt nhé.",
+  },
+  [normalizeText("Tìm đôi mắt ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/drag_eyes_fail_b5d74ec1.mp3",
+    text: "Tìm đôi mắt ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là đôi mắt.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/drag_eyes_success_66e6b9c3.mp3",
+    text: "Đúng rồi, đó là đôi mắt.",
+  },
+  [normalizeText("Mình cùng tìm các phần của đầu và khuôn mặt nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/intro_38ad4a6a.mp3",
+    text: "Mình cùng tìm các phần của đầu và khuôn mặt nhé.",
+  },
+  [normalizeText("Khuôn mặt giúp bé nhìn, nghe và thể hiện cảm xúc.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/intro_success_e7bbb3ad.mp3",
+    text: "Khuôn mặt giúp bé nhìn, nghe và thể hiện cảm xúc.",
+  },
+  [normalizeText("Chạm vào đôi tai nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_ears_71f1650d.mp3",
+    text: "Chạm vào đôi tai nhé.",
+  },
+  [normalizeText("Tìm đôi tai ở phía dưới bên trái nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_ears_fail_a10e4b5d.mp3",
+    text: "Tìm đôi tai ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là đôi tai.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_ears_success_ca09c06f.mp3",
+    text: "Đúng rồi, đó là đôi tai.",
+  },
+  [normalizeText("Chạm vào mái tóc nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_hair_3582e147.mp3",
+    text: "Chạm vào mái tóc nhé.",
+  },
+  [normalizeText("Tìm mái tóc ở phía trên bên trái nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_hair_fail_4b15c250.mp3",
+    text: "Tìm mái tóc ở phía trên bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là mái tóc.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_hair_success_34abdd03.mp3",
+    text: "Đúng rồi, đó là mái tóc.",
+  },
+  [normalizeText("Chạm vào cái đầu nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_head_0816721a.mp3",
+    text: "Chạm vào cái đầu nhé.",
+  },
+  [normalizeText("Tìm cái đầu ở bên trái nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_head_fail_50fdfaf3.mp3",
+    text: "Tìm cái đầu ở bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái đầu.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_head_success_8a871705.mp3",
+    text: "Đúng rồi, đó là cái đầu.",
+  },
+  [normalizeText("Chạm vào cái miệng nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_mouth_788a721e.mp3",
+    text: "Chạm vào cái miệng nhé.",
+  },
+  [normalizeText("Tìm cái miệng ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_mouth_fail_d5d3afb0.mp3",
+    text: "Tìm cái miệng ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái miệng.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_mouth_success_03ff8057.mp3",
+    text: "Đúng rồi, đó là cái miệng.",
+  },
+  [normalizeText("Chạm vào cái mũi nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_nose_708f7abc.mp3",
+    text: "Chạm vào cái mũi nhé.",
+  },
+  [normalizeText("Tìm cái mũi ở bên phải nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_nose_fail_b5ad1221.mp3",
+    text: "Tìm cái mũi ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cái mũi.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_nose_success_9f6a9479.mp3",
+    text: "Đúng rồi, đó là cái mũi.",
+  },
+  [normalizeText("Chạm vào thẻ mở miệng nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_open_mouth_5582b852.mp3",
+    text: "Chạm vào thẻ mở miệng nhé.",
+  },
+  [normalizeText("Tìm thẻ mở miệng ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_open_mouth_fail_225458e9.mp3",
+    text: "Tìm thẻ mở miệng ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào thẻ chỉ vào mũi nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_point_nose_27bd6884.mp3",
+    text: "Chạm vào thẻ chỉ vào mũi nhé.",
+  },
+  [normalizeText("Tìm thẻ chỉ vào mũi ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_point_nose_fail_ce90f321.mp3",
+    text: "Tìm thẻ chỉ vào mũi ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ chạm đầu nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_touch_head_49270f53.mp3",
+    text: "Chạm vào thẻ chạm đầu nhé.",
+  },
+  [normalizeText("Tìm thẻ chạm đầu ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_touch_head_fail_7438e6f1.mp3",
+    text: "Tìm thẻ chạm đầu ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, bé đã chọn đúng thẻ.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/tap_touch_head_success_30c577d5.mp3",
+    text: "Đúng rồi, bé đã chọn đúng thẻ.",
+  },
+  [normalizeText("Đây là đôi tai.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_ears_d60897af.mp3",
+    text: "Đây là đôi tai.",
+  },
+  [normalizeText("Từ này nghĩa là đôi tai.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_ears_success_8cca80ce.mp3",
+    text: "Từ này nghĩa là đôi tai.",
+  },
+  [normalizeText("Đây là đôi mắt.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_eyes_00ae74ef.mp3",
+    text: "Đây là đôi mắt.",
+  },
+  [normalizeText("Từ này nghĩa là đôi mắt.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_eyes_success_0a0d139f.mp3",
+    text: "Từ này nghĩa là đôi mắt.",
+  },
+  [normalizeText("Đây là mái tóc.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_hair_e2791b31.mp3",
+    text: "Đây là mái tóc.",
+  },
+  [normalizeText("Từ này nghĩa là mái tóc.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_hair_success_016d3afc.mp3",
+    text: "Từ này nghĩa là mái tóc.",
+  },
+  [normalizeText("Đây là cái đầu.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_head_68d95d54.mp3",
+    text: "Đây là cái đầu.",
+  },
+  [normalizeText("Từ này nghĩa là cái đầu.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_head_success_1025f09a.mp3",
+    text: "Từ này nghĩa là cái đầu.",
+  },
+  [normalizeText("Đây là cái miệng.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_mouth_5aa87441.mp3",
+    text: "Đây là cái miệng.",
+  },
+  [normalizeText("Từ này nghĩa là cái miệng.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_mouth_success_58010405.mp3",
+    text: "Từ này nghĩa là cái miệng.",
+  },
+  [normalizeText("Đây là cái mũi.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_nose_4ec76568.mp3",
+    text: "Đây là cái mũi.",
+  },
+  [normalizeText("Từ này nghĩa là cái mũi.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_nose_success_dde1167e.mp3",
+    text: "Từ này nghĩa là cái mũi.",
+  },
+  [normalizeText("Mình học câu mở miệng nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_open_mouth_62336680.mp3",
+    text: "Mình học câu mở miệng nhé.",
+  },
+  [normalizeText("Câu này nghĩa là mở miệng.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_open_mouth_success_7ef0ce0a.mp3",
+    text: "Câu này nghĩa là mở miệng.",
+  },
+  [normalizeText("Mình học câu chỉ vào mũi nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_point_nose_cff1d2c5.mp3",
+    text: "Mình học câu chỉ vào mũi nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chỉ vào mũi.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_point_nose_success_5a03933d.mp3",
+    text: "Câu này nghĩa là chỉ vào mũi.",
+  },
+  [normalizeText("Mình học câu chạm vào đầu nhé.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_touch_head_a7f51ca6.mp3",
+    text: "Mình học câu chạm vào đầu nhé.",
+  },
+  [normalizeText("Câu này nghĩa là chạm vào đầu.")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/teach_touch_head_success_30f79ca6.mp3",
+    text: "Câu này nghĩa là chạm vào đầu.",
+  },
+  [normalizeText("Bé đã nhận ra các phần của đôi chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/completion_d6302e60.mp3",
+    text: "Bé đã nhận ra các phần của đôi chân.",
+  },
+  [normalizeText("Kéo bàn chân vào vị trí đang sáng nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/drag_foot_396035a8.mp3",
+    text: "Kéo bàn chân vào vị trí đang sáng nhé.",
+  },
+  [normalizeText("Tìm bàn chân ở phía trên bên phải nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/drag_foot_fail_cdaee350.mp3",
+    text: "Tìm bàn chân ở phía trên bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là bàn chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/drag_foot_success_fe160ba0.mp3",
+    text: "Đúng rồi, đó là bàn chân.",
+  },
+  [normalizeText("Mình cùng tìm các phần của chân và bàn chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/intro_169743f6.mp3",
+    text: "Mình cùng tìm các phần của chân và bàn chân nhé.",
+  },
+  [normalizeText("Đôi chân giúp bé đứng, đi và nhảy.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/intro_success_0e878680.mp3",
+    text: "Đôi chân giúp bé đứng, đi và nhảy.",
+  },
+  [normalizeText("Chạm vào mắt cá chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_ankle_ed11c1d0.mp3",
+    text: "Chạm vào mắt cá chân nhé.",
+  },
+  [normalizeText("Tìm mắt cá chân ở phía dưới bên trái nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_ankle_fail_0e8c46ac.mp3",
+    text: "Tìm mắt cá chân ở phía dưới bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là mắt cá chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_ankle_success_52969ba3.mp3",
+    text: "Đúng rồi, đó là mắt cá chân.",
+  },
+  [normalizeText("Chạm vào thẻ khuỵu gối nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_bend_knees_7251f4b4.mp3",
+    text: "Chạm vào thẻ khuỵu gối nhé.",
+  },
+  [normalizeText("Tìm thẻ khuỵu gối ở hàng dưới bên trái nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_bend_knees_fail_87e6f74d.mp3",
+    text: "Tìm thẻ khuỵu gối ở hàng dưới bên trái nhé.",
+  },
+  [normalizeText("Chạm vào gót chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_heel_3a8b3dc2.mp3",
+    text: "Chạm vào gót chân nhé.",
+  },
+  [normalizeText("Tìm gót chân ở phía dưới bên phải nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_heel_fail_1114d2e5.mp3",
+    text: "Tìm gót chân ở phía dưới bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là gót chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_heel_success_fb8408e9.mp3",
+    text: "Đúng rồi, đó là gót chân.",
+  },
+  [normalizeText("Tìm đầu gối ở bên trái nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_knee_fail_8438bd87.mp3",
+    text: "Tìm đầu gối ở bên trái nhé.",
+  },
+  [normalizeText("Chạm vào chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_leg_f209b3ca.mp3",
+    text: "Chạm vào chân nhé.",
+  },
+  [normalizeText("Tìm chân ở phía trên bên trái nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_leg_fail_a12c11b8.mp3",
+    text: "Tìm chân ở phía trên bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_leg_success_df0bc3ab.mp3",
+    text: "Đúng rồi, đó là chân.",
+  },
+  [normalizeText("Chạm vào thẻ giậm chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_stomp_feet_0f6cd41c.mp3",
+    text: "Chạm vào thẻ giậm chân nhé.",
+  },
+  [normalizeText("Tìm thẻ giậm chân ở giữa hàng dưới nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_stomp_feet_fail_5ba115ae.mp3",
+    text: "Tìm thẻ giậm chân ở giữa hàng dưới nhé.",
+  },
+  [normalizeText("Chạm vào thẻ đứng nhón chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_tiptoes_295dc75c.mp3",
+    text: "Chạm vào thẻ đứng nhón chân nhé.",
+  },
+  [normalizeText("Tìm thẻ đứng nhón chân ở hàng dưới bên phải nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_tiptoes_fail_be980808.mp3",
+    text: "Tìm thẻ đứng nhón chân ở hàng dưới bên phải nhé.",
+  },
+  [normalizeText("Chạm vào các ngón chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_toes_7706d183.mp3",
+    text: "Chạm vào các ngón chân nhé.",
+  },
+  [normalizeText("Tìm các ngón chân ở bên phải nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_toes_fail_be47a1fa.mp3",
+    text: "Tìm các ngón chân ở bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là các ngón chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/tap_toes_success_b44adc90.mp3",
+    text: "Đúng rồi, đó là các ngón chân.",
+  },
+  [normalizeText("Đây là mắt cá chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_ankle_a3ad18b8.mp3",
+    text: "Đây là mắt cá chân.",
+  },
+  [normalizeText("Từ này nghĩa là mắt cá chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_ankle_success_8b6b7861.mp3",
+    text: "Từ này nghĩa là mắt cá chân.",
+  },
+  [normalizeText("Mình học câu khuỵu đầu gối nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_bend_knees_1ee47e6b.mp3",
+    text: "Mình học câu khuỵu đầu gối nhé.",
+  },
+  [normalizeText("Câu này nghĩa là khuỵu đầu gối.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_bend_knees_success_0349dbeb.mp3",
+    text: "Câu này nghĩa là khuỵu đầu gối.",
+  },
+  [normalizeText("Đây là bàn chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_foot_64425e1b.mp3",
+    text: "Đây là bàn chân.",
+  },
+  [normalizeText("Từ này nghĩa là bàn chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_foot_success_90243ea2.mp3",
+    text: "Từ này nghĩa là bàn chân.",
+  },
+  [normalizeText("Đây là gót chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_heel_4ec4ba8e.mp3",
+    text: "Đây là gót chân.",
+  },
+  [normalizeText("Từ này nghĩa là gót chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_heel_success_a8ea128c.mp3",
+    text: "Từ này nghĩa là gót chân.",
+  },
+  [normalizeText("Đây là chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_leg_a3d1ac3e.mp3",
+    text: "Đây là chân.",
+  },
+  [normalizeText("Từ này nghĩa là chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_leg_success_a949da8a.mp3",
+    text: "Từ này nghĩa là chân.",
+  },
+  [normalizeText("Mình học câu giậm chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_stomp_feet_2d706479.mp3",
+    text: "Mình học câu giậm chân nhé.",
+  },
+  [normalizeText("Câu này nghĩa là giậm chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_stomp_feet_success_90ab05b9.mp3",
+    text: "Câu này nghĩa là giậm chân.",
+  },
+  [normalizeText("Mình học câu đứng nhón chân nhé.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_tiptoes_1d44c7c0.mp3",
+    text: "Mình học câu đứng nhón chân nhé.",
+  },
+  [normalizeText("Câu này nghĩa là đứng nhón chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_tiptoes_success_55b14625.mp3",
+    text: "Câu này nghĩa là đứng nhón chân.",
+  },
+  [normalizeText("Đây là các ngón chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_toes_ba85d0dd.mp3",
+    text: "Đây là các ngón chân.",
+  },
+  [normalizeText("Từ này nghĩa là các ngón chân.")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/teach_toes_success_aadc1983.mp3",
+    text: "Từ này nghĩa là các ngón chân.",
   },
   [normalizeText("Bé đã tìm được đường vào công viên.")]: {
     key: "lessons/park-visit/park-entrance/audio/vi/completion_e76c65bc.mp3",

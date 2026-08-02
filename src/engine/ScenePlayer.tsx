@@ -595,8 +595,24 @@ export function ScenePlayer({
 
         const imagePromises = imageAssets.map(async asset => {
           try {
-            return await prefetchAssets([asset]);
-          } catch {
+            const isReady = await prefetchAssets([asset]);
+            if (
+              __DEV__ &&
+              process.env.NODE_ENV !== 'test' &&
+              !isReady
+            ) {
+              console.warn(
+                `[ScenePlayer] Required image failed to preload: ${asset}`,
+              );
+            }
+            return isReady;
+          } catch (error) {
+            if (__DEV__ && process.env.NODE_ENV !== 'test') {
+              console.warn(
+                `[ScenePlayer] Required image preload threw: ${asset}`,
+                error,
+              );
+            }
             return false;
           } finally {
             updateProgress();
@@ -604,8 +620,24 @@ export function ScenePlayer({
         });
         const audioPromises = audioAssets.map(async asset => {
           try {
-            return await prepareRemoteAssets([asset]);
-          } catch {
+            const isReady = await prepareRemoteAssets([asset]);
+            if (
+              __DEV__ &&
+              process.env.NODE_ENV !== 'test' &&
+              !isReady
+            ) {
+              console.warn(
+                `[ScenePlayer] Required audio failed to prepare: ${asset.cacheKey}`,
+              );
+            }
+            return isReady;
+          } catch (error) {
+            if (__DEV__ && process.env.NODE_ENV !== 'test') {
+              console.warn(
+                `[ScenePlayer] Required audio preparation threw: ${asset.cacheKey}`,
+                error,
+              );
+            }
             return false;
           } finally {
             updateProgress();

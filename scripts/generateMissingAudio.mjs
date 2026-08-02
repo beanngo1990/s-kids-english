@@ -420,17 +420,28 @@ if (!args.manifestOnly) {
 const productionAudit = auditProductionTargets(audioTargets);
 printProductionAudit(productionAudit);
 
+const validAudioTargets = audioTargets.filter(
+  target => auditTarget(target).valid,
+);
+
+if (args.manifestOnly) {
+  publishGeneratedAudioManifests(validAudioTargets);
+  if (args.writeBundledRegistry) {
+    writeGeneratedAudioRegistry();
+  } else {
+    console.log(
+      'kept src/engine/GeneratedAudioRegistry.ts unchanged (R2-first audio)',
+    );
+  }
+  process.exit(0);
+}
+
 if (!productionAudit.complete) {
   console.log(
     'kept audioManifest and English provenance unchanged because the production corpus is incomplete',
   );
-  if (args.manifestOnly) {
-    throw new Error(
-      'Cannot publish manifests: production audio has missing or invalid files.',
-    );
-  }
 } else {
-  publishGeneratedAudioManifests(audioTargets);
+  publishGeneratedAudioManifests(validAudioTargets);
   if (args.writeBundledRegistry) {
     writeGeneratedAudioRegistry();
   } else {
@@ -439,6 +450,7 @@ if (!productionAudit.complete) {
     );
   }
 }
+
 
 function parseArgs(rawArgs) {
   const options = {
@@ -1940,7 +1952,7 @@ function auditTarget(target) {
   }
 
   try {
-    return validateWavBuffer(readFileSync(filePath), target);
+    return validateAudioBuffer(readFileSync(filePath), target);
   } catch (error) {
     return {
       reason: error instanceof Error ? error.message : String(error),
@@ -1948,6 +1960,30 @@ function auditTarget(target) {
     };
   }
 }
+
+function validateAudioBuffer(input, target) {
+  if (target.key.endsWith('.mp3')) {
+    const mp3 = inspectMp3(input);
+    if (mp3.valid) {
+      return mp3;
+    }
+  }
+  return validateWavBuffer(input, target);
+}
+
+function inspectMp3(input) {
+  if (!Buffer.isBuffer(input) || input.length < 128) {
+    return { reason: 'empty or too short MP3 buffer', valid: false };
+  }
+  if (
+    input.toString('ascii', 0, 3) === 'ID3' ||
+    (input[0] === 0xff && (input[1] & 0xe0) === 0xe0)
+  ) {
+    return { valid: true };
+  }
+  return { reason: 'not a valid MP3 buffer', valid: false };
+}
+
 
 function validateWavBuffer(input, target) {
   const wav = inspectWav(input);

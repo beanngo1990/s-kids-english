@@ -2,6 +2,7 @@ import { NativeModules, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { AppLanguage, TeacherPromptMode } from '../i18n/types';
+import { themes } from '../data/themes';
 import {
   DEFAULT_ENGLISH_ACCENT,
   isEnglishAccent,
@@ -277,9 +278,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     learningMode: normalizeLearningMode(settings.learningMode),
     updatedAt:
       typeof settings.updatedAt === 'string' ? settings.updatedAt : undefined,
-    visibleLessonIds: Array.isArray(settings.visibleLessonIds)
-      ? settings.visibleLessonIds.filter(id => typeof id === 'string')
-      : undefined,
+    visibleLessonIds: normalizeVisibleLessonIds(settings.visibleLessonIds),
     appLanguage,
     englishAccent: normalizeEnglishAccent(settings.englishAccent),
     teacherPromptMode: normalizeTeacherPromptMode(settings.teacherPromptMode),
@@ -289,6 +288,31 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
     childProfile: normalizeChildProfile(settings.childProfile),
   };
+}
+
+function normalizeVisibleLessonIds(value: unknown) {
+  if (!Array.isArray(value)) {
+    return undefined;
+  }
+
+  const visibleLessonIds = value.filter(
+    (id): id is string => typeof id === 'string',
+  );
+  const visibleLessonIdSet = new Set(visibleLessonIds);
+
+  for (const theme of themes) {
+    if (theme.lessonIds.some(lessonId => visibleLessonIdSet.has(lessonId))) {
+      continue;
+    }
+
+    const firstLessonId = theme.lessonIds[0];
+    if (firstLessonId) {
+      visibleLessonIds.push(firstLessonId);
+      visibleLessonIdSet.add(firstLessonId);
+    }
+  }
+
+  return visibleLessonIds;
 }
 
 function normalizeCloudProgressSyncPreference(value: unknown) {

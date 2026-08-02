@@ -288,7 +288,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
   `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
   Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
-- `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả.
+- `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả. Kế hoạch
+  tùy chỉnh luôn giữ ít nhất một lesson cho mỗi theme; khi catalog thêm theme mới, settings cũ
+  được normalize để tự thêm lesson đầu tiên của theme đó mà không bật lại các lesson đã ẩn.
 - `ThemeLibrary` hiển thị và cho chọn giữa các themes trong catalog. Home header có entry mở
   thư viện này để bé/ba mẹ đổi bản đồ active; theme mới có thể bị khóa Premium nếu không có lesson
   nào thuộc free tier.
