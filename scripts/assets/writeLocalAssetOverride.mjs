@@ -2,14 +2,25 @@ import { existsSync, mkdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 const overridePath = resolve(process.cwd(), 'src/config/remoteAssetOverrides.local.ts');
+const localPreviewPaths = [
+  overridePath,
+  resolve(process.cwd(), 'src/data/audioManifest.local.ts'),
+  resolve(process.cwd(), 'src/config/localAudioPreview.local.ts'),
+];
 const shouldClear = process.argv.includes('--clear');
 
 if (shouldClear) {
-  if (existsSync(overridePath)) {
-    unlinkSync(overridePath);
-    console.log(`Removed ${overridePath}`);
-  } else {
-    console.log(`No local asset override found at ${overridePath}`);
+  let removedCount = 0;
+  for (const localPreviewPath of localPreviewPaths) {
+    if (existsSync(localPreviewPath)) {
+      unlinkSync(localPreviewPath);
+      removedCount++;
+      console.log(`Removed ${localPreviewPath}`);
+    }
+  }
+
+  if (removedCount === 0) {
+    console.log('No local asset or audio preview overrides found.');
   }
   process.exit(0);
 }

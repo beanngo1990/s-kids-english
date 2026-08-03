@@ -156,7 +156,8 @@ the selected lesson, then writes gitignored `audioManifest.local.ts` and
 production manifests, or bundles lesson WAVs. In a Metro development build,
 the overlay resolves those keys through the active local asset server; other
 lessons keep the normal unpublished-audio QA behavior. Restart Metro after
-changing the preview lesson.
+changing the preview lesson. Run `npm run assets:use-r2` to clear the local
+asset/audio preview overlays before checking a dev build against R2.
 
 `--audio-release=neural2-c-r1` is the current default. Once a release has been
 published, its R2 keys are immutable: a voice, synthesis, pronunciation or

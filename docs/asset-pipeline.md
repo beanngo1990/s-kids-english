@@ -58,9 +58,9 @@ The generated `src/config/remoteAssetOverrides.local.ts` file is gitignored and
 is only used by Metro in development builds. While this local override is
 active, dev builds allow content QA without blocking on unpublished lesson
 audio. Premium entitlement and progress locks still behave like production.
-Use `npm run assets:use-r2` and reload Metro to return the dev app to the
-default R2 URL. Android emulator can use `--host=10.0.2.2`; iOS simulator can
-use `--host=localhost`.
+Use `npm run assets:use-r2` and reload Metro to clear local asset/audio preview
+overlays and return the dev app to the default R2 URL. Android emulator can use
+`--host=10.0.2.2`; iOS simulator can use `--host=localhost`.
 
 To hear a selected lesson's generated WAVs in the app before publishing them to
 R2, first generate all of that lesson's audio, then create the local lookup:
@@ -185,4 +185,3 @@ To purge historical binary blobs from `.git` history and shrink local/remote Git
    git gc --prune=now --aggressive
    ```
 4. Coordinate with team members before performing a force-push (`git push origin <branch> --force`), as rewriting Git history changes all commit SHAs.
-

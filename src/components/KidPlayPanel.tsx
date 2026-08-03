@@ -26,7 +26,6 @@ import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { shadows } from '../theme/shadows';
 import { radius, spacing } from '../theme/spacing';
-import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
 import { getLessonIconName } from '../utils/lessonIcons';
 import {
