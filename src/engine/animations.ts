@@ -4,7 +4,7 @@ import { colors } from '../theme/colors';
 
 export type ObjectAnimationEffect = 'none' | 'bounce' | 'shake' | 'sparkle';
 
-export const dimOpacity = 0.48;
+export const dimOpacity = 0.78;
 
 function createGlowStyle(): ViewStyle {
   return {

@@ -896,6 +896,65 @@ test('drops stale bilingual failure audio when a quick retry succeeds', async ()
   });
 });
 
+test('dims unrelated learning objects while a retry hint is active', async () => {
+  jest.useFakeTimers();
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const findObject = (objectId: string) =>
+    tree?.root
+      .findAllByType(SceneObjectRenderer)
+      .find(node => node.props.object.id === objectId);
+
+  expect(findObject('eraser')?.props.isDimmed).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    findObject('eraser')?.props.onPress('eraser');
+    await flushPromises();
+  });
+
+  expect(findObject('eraser')?.props.isDimmed).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(401);
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    findObject('eraser')?.props.onPress('eraser');
+    await flushPromises();
+  });
+
+  expect(findObject('pencil')?.props.isTargeted).toBe(true);
+  expect(findObject('eraser')?.props.isDimmed).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(700);
+    await flushPromises();
+  });
+
+  expect(findObject('eraser')?.props.isDimmed).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('shows retry instead of advancing when success narration times out', async () => {
   jest.useFakeTimers();
   mockedSpeakVi.mockImplementation(text =>

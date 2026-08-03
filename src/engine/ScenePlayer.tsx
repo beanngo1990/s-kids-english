@@ -1986,10 +1986,15 @@ export function ScenePlayer({
       return null;
     }
 
+    const hasActiveHint = hintObjectIds.length > 0;
+
     return (
       <>
         {renderActiveDropZone(currentScene, currentStep)}
         {allObjects.map(object => {
+          const isTargeted =
+            isStepTargetObject(currentStep, object.id) ||
+            hintObjectIds.includes(object.id);
           const renderObject = {
             ...object,
             position: snappedObjectPositions[object.id] ?? object.position,
@@ -2008,7 +2013,6 @@ export function ScenePlayer({
                 successObjectEffects,
                 shakeObjectIds,
               )}
-              isDimmed={false}
               isDisabled={
                 isAdvancing ||
                 isInstructionPending ||
@@ -2021,10 +2025,10 @@ export function ScenePlayer({
                 object.isInteractive &&
                 !isAdvancing
               }
-              isTargeted={
-                isStepTargetObject(currentStep, object.id) ||
-                hintObjectIds.includes(object.id)
+              isDimmed={
+                hasActiveHint && !isTargeted && object.role === 'learning'
               }
+              isTargeted={isTargeted}
               label={getObjectLabel(
                 currentScene,
                 object,

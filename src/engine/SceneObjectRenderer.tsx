@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Animated,
+  Easing,
   PanResponder,
   Pressable,
   Text,
@@ -57,9 +58,9 @@ export function SceneObjectRenderer({
   stageSize,
 }: SceneObjectRendererProps) {
   useThemeSync();
-  const [hasImageLoaded, setHasImageLoaded] = React.useState(false);
   const [hasImageError, setHasImageError] = React.useState(false);
   const imageOpacity = useRef(new Animated.Value(0)).current;
+  const targetPulse = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translateX = useRef(new Animated.Value(0)).current;
   const drag = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
@@ -71,10 +72,7 @@ export function SceneObjectRenderer({
   });
   const imageSource = useMemo(() => resolveAsset(object.asset.source), [object.asset.source]);
   const canUseImage = !!imageSource;
-  const isBundledImage = typeof imageSource === 'number';
-  const shouldShowImage =
-    canUseImage && (isBundledImage || hasImageLoaded) && !hasImageError;
-  const shouldShowFallback = !shouldShowImage;
+  const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
   const shouldShowLabel = false; // object.role !== 'character' && (!isDimmed || isTargeted);
@@ -147,6 +145,34 @@ export function SceneObjectRenderer({
   }, [effect, scale, translateX]);
 
   useEffect(() => {
+    if (!isTargeted) {
+      targetPulse.stopAnimation();
+      targetPulse.setValue(0);
+      return;
+    }
+
+    const animation = Animated.loop(
+      Animated.sequence([
+        Animated.timing(targetPulse, {
+          duration: 850,
+          easing: Easing.inOut(Easing.quad),
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+        Animated.timing(targetPulse, {
+          duration: 850,
+          easing: Easing.inOut(Easing.quad),
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    animation.start();
+
+    return () => animation.stop();
+  }, [isTargeted, targetPulse]);
+
+  useEffect(() => {
     drag.setValue({ x: 0, y: 0 });
   }, [
     drag,
@@ -157,10 +183,18 @@ export function SceneObjectRenderer({
   ]);
 
   useEffect(() => {
-    setHasImageLoaded(false);
     setHasImageError(false);
     imageOpacity.setValue(0);
   }, [object.asset.source, imageOpacity]);
+
+  const targetHaloOpacity = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.34, 0.12],
+  });
+  const targetHaloScale = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.06],
+  });
 
   return (
     <Animated.View
@@ -202,6 +236,20 @@ export function SceneObjectRenderer({
           pressed && !isDisabled && styles.pressed,
         ]}
       >
+        {isTargeted ? (
+          <>
+            <Animated.View
+              style={[
+                styles.targetHalo,
+                {
+                  opacity: targetHaloOpacity,
+                  transform: [{ scale: targetHaloScale }],
+                },
+              ]}
+            />
+            <View style={styles.targetRing} />
+          </>
+        ) : null}
         <View
           style={[
             styles.assetBubble,
@@ -216,7 +264,7 @@ export function SceneObjectRenderer({
                 styles.emoji,
                 isLearningObject && styles.learningEmoji,
                 object.role === 'character' && styles.characterEmoji,
-                { position: 'absolute' },
+                styles.placeholderEmoji,
               ]}
             >
               {fallbackEmoji}
@@ -226,7 +274,6 @@ export function SceneObjectRenderer({
             <Animated.Image
               onError={() => setHasImageError(true)}
               onLoad={() => {
-                setHasImageLoaded(true);
                 Animated.timing(imageOpacity, {
                   toValue: 1,
                   duration: 300,
@@ -323,6 +370,9 @@ const styles = createThemedStyles(() => ({
     lineHeight: 56,
     textAlign: 'center',
   },
+  placeholderEmoji: {
+    position: 'absolute',
+  },
   hiddenImage: {
     height: 0,
     opacity: 0,
@@ -373,6 +423,7 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     justifyContent: 'center',
     overflow: 'visible',
+    position: 'relative',
     shadowColor: colors.shadow,
     shadowOffset: {
       height: 5,
@@ -387,16 +438,42 @@ const styles = createThemedStyles(() => ({
   targeted: {
     ...glowStyle,
   },
+  targetHalo: {
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderRadius: radius.pill,
+    bottom: -6,
+    elevation: 5,
+    left: -6,
+    position: 'absolute',
+    right: -6,
+    shadowColor: colors.warmShadow,
+    shadowOffset: {
+      height: 3,
+      width: 0,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    top: -6,
+  },
+  targetRing: {
+    backgroundColor: 'rgba(255, 211, 77, 0.07)',
+    borderColor: 'rgba(255, 198, 38, 0.82)',
+    borderRadius: radius.pill,
+    borderWidth: 3,
+    bottom: -2,
+    left: -2,
+    position: 'absolute',
+    right: -2,
+    top: -2,
+  },
   targetedWrapper: {
     zIndex: 3,
   },
   targetedLearning: {
-    backgroundColor: 'rgba(255, 246, 215, 0.42)',
-    borderColor: colors.secondary,
-    borderWidth: 3,
+    backgroundColor: 'transparent',
   },
   targetedCharacter: {
-    backgroundColor: 'rgba(255, 246, 215, 0.18)',
+    backgroundColor: 'transparent',
   },
   wrapper: {
   },
