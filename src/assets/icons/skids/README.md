@@ -30,5 +30,8 @@ New or updated icon assets use `512x512` transparent PNG files. Lesson milestone
 icon. Completion state remains dynamic in the milestone stars/pedestal, so milestone PNGs do not
 bake in a checkmark or completion badge.
 
+Theme 2 and Theme 3 map station icons were produced with ImageGen, primarily from 2-by-2 sprite
+sheets, then chroma-keyed and cropped into the static PNG files consumed by `SKidsIcon`.
+
 This bundled icon pack is separate from lesson WebP generation and R2 upload. `preview.png` is
 only a contact sheet for visual review.

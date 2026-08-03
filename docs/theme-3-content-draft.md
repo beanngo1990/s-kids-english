@@ -75,7 +75,8 @@ before final image and Google TTS production.
   pictures, and stable bottom-row action cards follow the approved Theme 2 visual direction.
 - The other six lesson packs still use demo PNG masters. Their asset keys follow the production
   folder contract and can be replaced without changing lesson data.
-- Scene and lesson milestone icons are temporary semantic icons for the map.
+- Scene and lesson milestone icons have dedicated bundled SKids PNGs produced from per-lesson
+  ImageGen sprite sheets and are no longer the temporary semantic ring icons.
 - Remaining demo labels are review aids and are not the visual direction for final child-facing
   assets.
 
