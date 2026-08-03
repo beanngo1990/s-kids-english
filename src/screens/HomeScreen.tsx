@@ -1091,12 +1091,14 @@ export function HomeScreen({ navigation, route }: Props) {
               showsVerticalScrollIndicator={false}
             >
               <KidPlayPanel
+                activeThemeId={activeThemeId}
                 appLanguage={appLanguage}
                 completedReviewGameIds={completedReviewGameIds}
                 completedSceneIds={completedSceneIds}
                 journeyMode={journeyMode}
                 onOpenPremium={openParentPremium}
                 onOpenReviewGame={openReviewGame}
+                visibleLessonIds={visibleLessonIds}
               />
             </ScrollView>
           </View>
@@ -3432,7 +3434,7 @@ const styles = createThemedStyles(() => ({
   },
   playScrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 20,
+    paddingBottom: 112,
   },
   shell: {
     flex: 1,

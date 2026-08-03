@@ -17,7 +17,9 @@ export function KidBadge({ children, tone = 'sun', style }: KidBadgeProps) {
   useThemeSync();
   return (
     <View style={[styles.badge, styles[tone], style]}>
-      <Text style={[styles.text, styles[`${tone}Text`]]}>{children}</Text>
+      <Text numberOfLines={1} style={[styles.text, styles[`${tone}Text`]]}>
+        {children}
+      </Text>
     </View>
   );
 }

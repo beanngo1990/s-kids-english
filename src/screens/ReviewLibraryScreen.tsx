@@ -7,6 +7,7 @@ import { KidModeTabs } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { Screen } from '../components/Screen';
 import { useMonetizationSnapshot } from '../engine/MonetizationManager';
+import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { useSavedAppLanguage } from '../i18n';
 import { layout } from '../theme/spacing';
@@ -17,6 +18,9 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ReviewLibrary'>;
 export function ReviewLibraryScreen({ navigation }: Props) {
   const monetizationSnapshot = useMonetizationSnapshot();
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [visibleLessonIds, setVisibleLessonIds] = useState<
+    string[] | undefined
+  >(undefined);
   const appLanguage = useSavedAppLanguage();
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -30,6 +34,9 @@ export function ReviewLibraryScreen({ navigation }: Props) {
     getProgress()
       .then(setProgress)
       .catch(() => setProgress(null));
+    getParentSettings()
+      .then(settings => setVisibleLessonIds(settings.visibleLessonIds))
+      .catch(() => setVisibleLessonIds(undefined));
   }, []);
 
   useEffect(() => {
@@ -52,6 +59,7 @@ export function ReviewLibraryScreen({ navigation }: Props) {
           style={styles.scrollArea}
         >
           <KidPlayPanel
+            activeThemeId={progress?.activeThemeId}
             appLanguage={appLanguage}
             completedReviewGameIds={completedReviewGameIds}
             completedSceneIds={completedSceneIds}
@@ -64,6 +72,7 @@ export function ReviewLibraryScreen({ navigation }: Props) {
             onOpenReviewGame={lessonId =>
               navigation.navigate('ReviewGame', { lessonId })
             }
+            visibleLessonIds={visibleLessonIds}
           />
         </ScrollView>
         <KidModeTabs

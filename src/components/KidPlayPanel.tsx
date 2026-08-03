@@ -10,6 +10,7 @@ import {
   type KidLockReason,
 } from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
+import { DEFAULT_THEME_ID, themes } from '../data/themes';
 import { canAccessReview } from '../engine/ContentAccessPolicy';
 import {
   getMonetizationSnapshot,
@@ -18,10 +19,12 @@ import {
 import {
   getLocalizedLessonTitle,
   getLocalizedReviewGameTitle,
+  getLocalizedThemeTitle,
 } from '../i18n/domainCopy';
 import { useI18n, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { shadows } from '../theme/shadows';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { Lesson } from '../types/lesson';
@@ -32,35 +35,72 @@ import {
 } from '../utils/lessonProgress';
 
 type KidPlayPanelProps = {
+  activeThemeId?: string;
   appLanguage: AppLanguage;
   completedReviewGameIds: Set<string>;
   completedSceneIds: Set<string>;
   journeyMode?: 'guided' | 'free';
   onOpenPremium: (lessonId: string) => void;
   onOpenReviewGame: (lessonId: string) => void;
+  visibleLessonIds?: string[];
 };
 
 export function KidPlayPanel({
+  activeThemeId = DEFAULT_THEME_ID,
   appLanguage,
   completedReviewGameIds,
   completedSceneIds,
   journeyMode = 'guided',
   onOpenPremium,
   onOpenReviewGame,
+  visibleLessonIds,
 }: KidPlayPanelProps) {
   useThemeSync();
   const t = useI18n();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const reviewLessons = useMemo(
-    () => lessons.filter(lesson => lesson.reviewGame),
-    [],
+
+  const activeTheme = useMemo(
+    () => themes.find(theme => theme.id === activeThemeId) ?? themes[0],
+    [activeThemeId],
   );
+
+  const activeThemeTitle = useMemo(
+    () => getLocalizedThemeTitle(activeTheme, appLanguage),
+    [activeTheme, appLanguage],
+  );
+
+  const activeThemeLessonIds = useMemo(
+    () => new Set(activeTheme.lessonIds),
+    [activeTheme],
+  );
+
+  const reviewLessons = useMemo(() => {
+    const themeLessons = lessons.filter(
+      lesson =>
+        activeThemeLessonIds.has(lesson.id) &&
+        lesson.reviewGame &&
+        (!visibleLessonIds || visibleLessonIds.includes(lesson.id)),
+    );
+    if (themeLessons.length > 0) {
+      return themeLessons;
+    }
+    const allVisible = lessons.filter(
+      lesson =>
+        lesson.reviewGame &&
+        (!visibleLessonIds || visibleLessonIds.includes(lesson.id)),
+    );
+    return allVisible.length > 0
+      ? allVisible
+      : lessons.filter(lesson => lesson.reviewGame);
+  }, [activeThemeLessonIds, visibleLessonIds]);
+
   const unlockedCount = reviewLessons.filter(
     lesson =>
       (journeyMode === 'free' ||
         isReviewGameUnlocked(lesson, completedSceneIds)) &&
       canAccessReview(lesson.id, monetizationSnapshot),
   ).length;
+
   const pendingReviewLesson = useMemo(
     () =>
       reviewLessons.find(
@@ -72,6 +112,7 @@ export function KidPlayPanel({
       ),
     [completedReviewGameIds, completedSceneIds, journeyMode, reviewLessons],
   );
+
   const orderedReviewLessons = useMemo(() => {
     if (!pendingReviewLesson) {
       return reviewLessons;
@@ -132,18 +173,21 @@ export function KidPlayPanel({
   return (
     <>
       <View style={styles.header}>
-        <KidBadge tone="teal">{t('playPanel.play')}</KidBadge>
-        {pendingReviewLesson ? (
-          <KidBadge tone="alert">{t('playPanel.oneGame')}</KidBadge>
-        ) : (
-          <KidBadge tone="sun">
-            {unlockedCount}/{reviewLessons.length}
-          </KidBadge>
-        )}
+        <View style={styles.headerTitleBox}>
+          <Text style={styles.headerTitle}>Góc trò chơi</Text>
+          <Text style={styles.headerSubtitle}>
+            {t('playPanel.themeSubtitle', { theme: activeThemeTitle })}
+          </Text>
+        </View>
+        <KidBadge tone={pendingReviewLesson ? 'alert' : 'sun'}>
+          {pendingReviewLesson
+            ? `🎮 ${t('playPanel.oneGame')}`
+            : `⭐ ${unlockedCount}/${reviewLessons.length}`}
+        </KidBadge>
       </View>
 
       <View style={styles.list}>
-        {orderedReviewLessons.map(lesson => {
+        {orderedReviewLessons.map((lesson, index) => {
           const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
           const reviewGameTitle = getLocalizedReviewGameTitle(
             lesson.reviewGame,
@@ -180,12 +224,8 @@ export function KidPlayPanel({
             : isCompleted
             ? t('playPanel.playAgain')
             : t('playPanel.unlocked');
-          const actionIcon =
-            !isProgressUnlocked || isPremiumLocked
-              ? 'parentLock'
-              : isCompleted
-              ? 'star'
-              : 'replay';
+
+          const iconToneStyle = getGameIconTone(index);
 
           return (
             <Pressable
@@ -218,6 +258,7 @@ export function KidPlayPanel({
                   <View
                     style={[
                       styles.iconBox,
+                      iconToneStyle,
                       (!isProgressUnlocked || isPremiumLocked) &&
                         styles.iconBoxLocked,
                     ]}
@@ -228,7 +269,7 @@ export function KidPlayPanel({
                           ? getLessonIconName(lesson)
                           : 'parentLock'
                       }
-                      size={68}
+                      size={54}
                     />
                   </View>
 
@@ -248,7 +289,7 @@ export function KidPlayPanel({
                         {statusLabel}
                       </KidBadge>
                       <KidBadge tone="sun">
-                        {completedSceneCount}/{lesson.scenes.length}
+                        {completedSceneCount}/{lesson.scenes.length} bài
                       </KidBadge>
                     </View>
                     <Text style={styles.lessonTitle}>{lessonTitle}</Text>
@@ -257,12 +298,34 @@ export function KidPlayPanel({
 
                   <View
                     style={[
-                      styles.actionBox,
+                      styles.playButton,
+                      isPending && styles.playButtonPending,
+                      isCompleted && styles.playButtonCompleted,
                       (!isProgressUnlocked || isPremiumLocked) &&
-                        styles.actionBoxLocked,
+                        styles.playButtonLocked,
                     ]}
                   >
-                    <SKidsIcon name={actionIcon} size={42} />
+                    <Text
+                      numberOfLines={1}
+                      style={[
+                        styles.playButtonText,
+                        (isPending ||
+                          (isProgressUnlocked &&
+                            !isCompleted &&
+                            hasContentAccess)) &&
+                          styles.playButtonTextActive,
+                        (!isProgressUnlocked || isPremiumLocked) &&
+                          styles.playButtonTextLocked,
+                      ]}
+                    >
+                      {!isProgressUnlocked || isPremiumLocked
+                        ? `🔒 Khóa`
+                        : isPending
+                        ? `🎮 Chơi`
+                        : isCompleted
+                        ? `🔄 Lại`
+                        : `🎮 Chơi`}
+                    </Text>
                   </View>
                 </View>
               </AppCard>
@@ -272,6 +335,15 @@ export function KidPlayPanel({
       </View>
     </>
   );
+}
+
+function getGameIconTone(index: number) {
+  const tones = [
+    styles.iconBoxSun,
+    styles.iconBoxMint,
+    styles.iconBoxSky,
+  ];
+  return tones[index % tones.length];
 }
 
 function isReviewGameUnlocked(lesson: Lesson, completedSceneIds: Set<string>) {
@@ -287,18 +359,20 @@ const styles = createThemedStyles(() => ({
   cardMain: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   cardPressable: {
     borderRadius: radius.xl,
+    overflow: 'hidden',
   },
   cardText: {
     flex: 1,
-    gap: spacing.xs,
+    gap: 3,
   },
   gameTitle: {
     color: colors.primaryDark,
-    ...typography.caption,
+    fontSize: 12,
+    fontWeight: '700',
   },
   header: {
     alignItems: 'center',
@@ -306,57 +380,115 @@ const styles = createThemedStyles(() => ({
     gap: spacing.sm,
     justifyContent: 'space-between',
     marginBottom: spacing.md,
+    paddingTop: spacing.xxs,
+  },
+  headerSubtitle: {
+    color: colors.textSoft,
+    fontSize: 12,
+  },
+  headerTitle: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '900',
+    lineHeight: 26,
+  },
+  headerTitleBox: {
+    flex: 1,
+    gap: 2,
   },
   iconBox: {
     alignItems: 'center',
     backgroundColor: colors.surface,
     borderColor: colors.white,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    height: 76,
+    borderRadius: radius.xl,
+    borderWidth: 2.5,
+    height: 72,
     justifyContent: 'center',
-    width: 76,
+    width: 72,
+    ...shadows.soft,
   },
   iconBoxLocked: {
     backgroundColor: colors.surfaceBlue,
     borderColor: colors.border,
   },
+  iconBoxMint: {
+    backgroundColor: '#E6FAF0',
+    borderColor: '#A1EBC6',
+  },
+  iconBoxSky: {
+    backgroundColor: '#EBF8FF',
+    borderColor: '#BCE5FF',
+  },
+  iconBoxSun: {
+    backgroundColor: '#FFF8DB',
+    borderColor: '#FCE082',
+  },
   lessonTitle: {
     color: colors.text,
-    ...typography.subtitle,
+    fontSize: 17,
+    fontWeight: '900',
+    lineHeight: 21,
   },
   list: {
     gap: spacing.md,
   },
+  playButton: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 42,
+    justifyContent: 'center',
+    minWidth: 72,
+    paddingHorizontal: spacing.sm,
+    ...shadows.soft,
+  },
+  playButtonCompleted: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
+  },
+  playButtonLocked: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+  },
+  playButtonPending: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accentDark,
+  },
+  playButtonText: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  playButtonTextActive: {
+    color: colors.white,
+  },
+  playButtonTextLocked: {
+    color: colors.textSoft,
+  },
   pressed: {
-    opacity: 0.9,
+    opacity: 0.92,
     transform: [{ scale: 0.99 }],
   },
   reviewCard: {
-    gap: spacing.sm,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.xl,
+    gap: spacing.xs,
+    padding: spacing.md,
+    ...shadows.soft,
   },
   reviewCardLocked: {
-    opacity: 0.64,
+    opacity: 0.7,
   },
   reviewCardPending: {
     backgroundColor: colors.surfaceSoft,
     borderColor: colors.secondary,
+    borderWidth: 2,
+    ...shadows.floating,
   },
   reviewCardUnlocked: {
     borderColor: colors.primary,
-  },
-  actionBox: {
-    alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 60,
-    justifyContent: 'center',
-    width: 60,
-  },
-  actionBoxLocked: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
   },
 }));
