@@ -124,11 +124,16 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   return (
     <Screen scroll>
       <View style={styles.header}>
-        <KidBadge tone="teal">{t('themeLibrary.badge')}</KidBadge>
         <Text style={styles.title}>{t('themeLibrary.title')}</Text>
         <Text style={styles.subtitle}>{t('themeLibrary.subtitle')}</Text>
         <View style={styles.parentNote}>
-          <KidBadge tone="sun">{t('themeLibrary.parentNote')}</KidBadge>
+          <View style={styles.parentNoteHeader}>
+            <Text style={styles.parentNoteIcon}>💡</Text>
+
+            <Text style={styles.parentNoteTitle}>
+              {t('themeLibrary.parentNote')}
+            </Text>
+          </View>
           <Text style={styles.parentNoteText}>
             {t('themeLibrary.parentNoteDescription')}
           </Text>
@@ -136,7 +141,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       </View>
 
       <View style={styles.grid}>
-        {themes.map(theme => {
+        {themes.map((theme, index) => {
           const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
           const themeDescription = getLocalizedThemeDescription(
             theme,
@@ -161,6 +166,21 @@ export function ThemeLibraryScreen({ navigation }: Props) {
           const activeDescription = isActive
             ? t('themeLibrary.activeDescription')
             : t('themeLibrary.inactiveDescription');
+
+          const progressPercent =
+            themeProgress.total > 0
+              ? Math.min(
+                  100,
+                  Math.max(
+                    0,
+                    Math.round(
+                      (themeProgress.completed / themeProgress.total) * 100,
+                    ),
+                  ),
+                )
+              : 0;
+
+          const themeIconToneStyle = getThemeIconTone(theme.id, index);
 
           return (
             <Pressable
@@ -193,13 +213,13 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                 ]}
               >
                 <View style={styles.themeTopRow}>
-                  <View style={styles.themeIcon}>
+                  <View style={[styles.themeIcon, themeIconToneStyle]}>
                     <Text style={styles.themeEmoji}>
                       {theme.thumbnailEmoji}
                     </Text>
                     {isPremiumLocked ? (
                       <View style={styles.themeLockBadge}>
-                        <SKidsIcon name="parentLock" size={24} />
+                        <SKidsIcon name="parentLock" size={20} />
                       </View>
                     ) : null}
                   </View>
@@ -207,7 +227,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                     <View style={styles.badgeRow}>
                       <KidBadge tone={isActive ? 'teal' : 'sky'}>
                         {isActive
-                          ? t('themeLibrary.activeStatus')
+                          ? `🚀 ${t('themeLibrary.activeStatus')}`
                           : t('themeLibrary.themeStatus')}
                       </KidBadge>
                       {isSavingThisTheme ? (
@@ -233,37 +253,46 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                 </View>
 
                 <View style={styles.progressRow}>
-                  <ProgressStars
-                    completed={themeProgress.completed}
-                    total={themeProgress.total}
-                  />
-                  <Text style={styles.progressText}>
-                    {themeProgress.completed}/{themeProgress.total}{' '}
-                    {t('themeLibrary.stations')}
-                  </Text>
+                  <View style={styles.progressBadge}>
+                    <Text style={styles.progressStarIcon}>⭐</Text>
+                    <Text style={styles.progressBadgeText}>
+                      {themeProgress.completed}/{themeProgress.total}{' '}
+                      {t('themeLibrary.stations')}
+                    </Text>
+                  </View>
+                  <View style={styles.progressTrack}>
+                    <View
+                      style={[
+                        styles.progressFill,
+                        { width: `${progressPercent}%` },
+                        isActive && styles.progressFillActive,
+                      ]}
+                    />
+                  </View>
                 </View>
 
                 <View
-                  style={[styles.actionRow, isActive && styles.actionRowActive]}
+                  style={[
+                    styles.actionButton,
+                    isActive && styles.actionButtonActive,
+                    isPremiumLocked && styles.actionButtonLocked,
+                  ]}
                 >
                   <Text
+                    numberOfLines={1}
                     style={[
-                      styles.actionText,
-                      isActive && styles.actionTextActive,
+                      styles.actionButtonText,
+                      isActive && styles.actionButtonTextActive,
+                      isPremiumLocked && styles.actionButtonTextLocked,
                     ]}
                   >
                     {isSavingThisTheme
                       ? t('themeLibrary.savingAction')
-                      : actionLabel}
-                  </Text>
-                  <Text
-                    numberOfLines={2}
-                    style={[
-                      styles.actionHint,
-                      isActive && styles.actionHintActive,
-                    ]}
-                  >
-                    {activeDescription}
+                      : isPremiumLocked
+                      ? `🔒 ${t('premium.askParent')}`
+                      : isActive
+                      ? `🚀 ${actionLabel}`
+                      : `✨ ${actionLabel}`}
                   </Text>
                 </View>
               </AppCard>
@@ -273,6 +302,24 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       </View>
     </Screen>
   );
+}
+
+function getThemeIconTone(themeId: string, index: number) {
+  if (themeId.includes('ngay') || themeId.includes('day')) {
+    return styles.themeIconSun;
+  }
+  if (themeId.includes('ngoai') || themeId.includes('explore')) {
+    return styles.themeIconMint;
+  }
+  if (themeId.includes('cam-xuc') || themeId.includes('emotion')) {
+    return styles.themeIconLavender;
+  }
+  const tones = [
+    styles.themeIconSun,
+    styles.themeIconMint,
+    styles.themeIconLavender,
+  ];
+  return tones[index % tones.length];
 }
 
 function canAccessAnyThemeLesson(
@@ -317,6 +364,39 @@ function getThemeProgress(
 }
 
 const styles = createThemedStyles(() => ({
+  actionButton: {
+    alignItems: 'center',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondaryDark,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    minHeight: 48,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    ...shadows.soft,
+  },
+  actionButtonActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
+  },
+  actionButtonLocked: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+  },
+  actionButtonText: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  actionButtonTextActive: {
+    color: colors.white,
+  },
+  actionButtonTextLocked: {
+    color: colors.textSoft,
+  },
   badgeRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -329,94 +409,110 @@ const styles = createThemedStyles(() => ({
     gap: spacing.md,
   },
   header: {
-    gap: spacing.sm,
-    marginBottom: spacing.lg,
-  },
-  pressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
-  },
-  actionHint: {
-    color: colors.textSoft,
-    flex: 1,
-    ...typography.caption,
-  },
-  actionHintActive: {
-    color: colors.primaryDark,
-  },
-  actionRow: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  actionRowActive: {
-    backgroundColor: colors.primarySoft,
-    borderColor: colors.primary,
-  },
-  actionText: {
-    color: colors.text,
-    ...typography.caption,
-    fontWeight: '900',
-  },
-  actionTextActive: {
-    color: colors.primaryDark,
+    gap: spacing.xs,
+    marginBottom: spacing.md,
+    paddingTop: spacing.xxs,
   },
   parentNote: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
     borderRadius: radius.lg,
-    borderWidth: 1,
-    gap: spacing.xs,
-    padding: spacing.md,
+    borderWidth: 1.5,
+    gap: 4,
+    marginTop: spacing.xs,
+    padding: spacing.sm,
+  },
+  parentNoteHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xxs,
+  },
+  parentNoteIcon: {
+    fontSize: 14,
   },
   parentNoteText: {
     color: colors.text,
-    ...typography.caption,
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  parentNoteTitle: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  pressed: {
+    opacity: 0.92,
+    transform: [{ scale: 0.99 }],
+  },
+  progressBadge: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 4,
+  },
+  progressBadgeText: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  progressFill: {
+    backgroundColor: colors.secondary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  progressFillActive: {
+    backgroundColor: colors.primary,
   },
   progressRow: {
     alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
     borderRadius: radius.lg,
     borderWidth: 1,
     flexDirection: 'row',
+    gap: spacing.sm,
     justifyContent: 'space-between',
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
   },
-  progressText: {
-    color: colors.textSoft,
-    ...typography.caption,
+  progressStarIcon: {
+    fontSize: 14,
+  },
+  progressTrack: {
+    backgroundColor: colors.backgroundCool,
+    borderRadius: radius.pill,
+    flex: 1,
+    height: 8,
+    overflow: 'hidden',
   },
   subtitle: {
     color: colors.textSoft,
     ...typography.body,
   },
   themeCard: {
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
-    gap: spacing.md,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.xl,
+    gap: spacing.sm,
+    padding: spacing.md,
+    ...shadows.soft,
   },
   themeCardActive: {
+    backgroundColor: colors.surfaceBlue,
     borderColor: colors.primary,
-    borderWidth: 2,
+    borderWidth: 2.5,
+    ...shadows.floating,
   },
   themeCardPremiumLocked: {
     borderColor: colors.border,
   },
   themeDescription: {
     color: colors.textSoft,
-    ...typography.body,
+    fontSize: 13,
+    lineHeight: 17,
   },
   themeEmoji: {
-    fontSize: 48,
-    lineHeight: 58,
+    fontSize: 42,
+    lineHeight: 48,
     textAlign: 'center',
   },
   themeIcon: {
@@ -425,11 +521,23 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.white,
     borderRadius: radius.xl,
     borderWidth: 3,
-    height: 86,
+    height: 76,
     justifyContent: 'center',
     position: 'relative',
-    width: 86,
+    width: 76,
     ...shadows.soft,
+  },
+  themeIconLavender: {
+    backgroundColor: '#F3E8FF',
+    borderColor: '#D8B4FE',
+  },
+  themeIconMint: {
+    backgroundColor: '#E6FAF0',
+    borderColor: '#A1EBC6',
+  },
+  themeIconSun: {
+    backgroundColor: '#FFF8DB',
+    borderColor: '#FCE082',
   },
   themeLockBadge: {
     alignItems: 'center',
@@ -437,23 +545,26 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 2,
-    bottom: -6,
-    height: 34,
+    bottom: -4,
+    height: 30,
     justifyContent: 'center',
     position: 'absolute',
-    right: -6,
-    width: 34,
+    right: -4,
+    width: 30,
   },
   themePressable: {
     borderRadius: radius.xl,
+    overflow: 'hidden',
   },
   themeText: {
     flex: 1,
-    gap: spacing.xs,
+    gap: 4,
   },
   themeTitle: {
     color: colors.text,
-    ...typography.subtitle,
+    fontSize: 18,
+    fontWeight: '900',
+    lineHeight: 22,
   },
   themeTopRow: {
     alignItems: 'center',
@@ -462,6 +573,8 @@ const styles = createThemedStyles(() => ({
   },
   title: {
     color: colors.text,
-    ...typography.title,
+    fontSize: 24,
+    fontWeight: '900',
+    lineHeight: 28,
   },
 }));

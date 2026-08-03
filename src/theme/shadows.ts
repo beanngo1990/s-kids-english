@@ -1,9 +1,12 @@
+import { Platform } from 'react-native';
 import { colors } from './colors';
+
+const androidShadowColor = '#1E293B';
 
 function createSoftShadow() {
   return {
     elevation: 3,
-    shadowColor: colors.shadow,
+    shadowColor: Platform.OS === 'android' ? androidShadowColor : colors.shadow,
     shadowOffset: {
       height: 8,
       width: 0,
@@ -16,7 +19,7 @@ function createSoftShadow() {
 function createFloatingShadow() {
   return {
     elevation: 6,
-    shadowColor: colors.shadow,
+    shadowColor: Platform.OS === 'android' ? androidShadowColor : colors.shadow,
     shadowOffset: {
       height: 12,
       width: 0,
@@ -29,7 +32,7 @@ function createFloatingShadow() {
 function createWarmShadow() {
   return {
     elevation: 4,
-    shadowColor: colors.warmShadow,
+    shadowColor: Platform.OS === 'android' ? colors.warmShadow : colors.warmShadow,
     shadowOffset: {
       height: 8,
       width: 0,
@@ -50,3 +53,4 @@ export const shadows = {
     return createWarmShadow();
   },
 } as const;
+
