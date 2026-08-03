@@ -10,6 +10,7 @@
     "assets:prepare-masters": "node scripts/assets/prepareMasters.mjs",
     "assets:generate-outside-masters": "node scripts/assets/generateOutsideExplorationMasters.mjs",
     "assets:generate-theme-three-masters": "node scripts/assets/generateBodyFeelingsSelfCareMasters.mjs",
+    "assets:optimize-ui-art": "node scripts/assets/optimizeUiArt.mjs",
     "assets:optimize-ui-icons": "node scripts/assets/optimizeUiIcons.mjs",
     "assets:release": "node scripts/assets/releaseAssets.mjs",
     "assets:serve-local": "node scripts/assets/serveLocalAssets.mjs",

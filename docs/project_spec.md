@@ -840,6 +840,11 @@ cùng file.
 - Current/next scene image prefetch dùng React Native `Image.prefetch`.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
+- Bundled UI art như `src/assets/images/app-logo.png`, Sungy mascot poses/source poster,
+  `src/assets/icons/premium/` và `src/assets/stickers/achievements/` được optimize local bằng
+  `npm run assets:optimize-ui-art`; script ghi paletted PNG, giới hạn max edge theo nhóm asset và
+  tạo backup gitignored dưới `src/assets/source/ui-art-original/` khi chưa có. Các asset này vẫn
+  là local bundled UI art, không thuộc R2 pipeline.
 - Kid-facing S-Kids icons, gồm theme, scene và lesson milestone icons, nằm trong
   `src/assets/icons/skids/`, import qua static registry và cũng nằm ngoài lesson WebP/R2 pipeline.
   Các icon này được optimize local bằng `npm run assets:optimize-ui-icons` để giữ bundled app size

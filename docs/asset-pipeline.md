@@ -9,6 +9,13 @@
 - Keep bundled UI icons and mascot images outside this lesson pipeline.
 - Bundled app UI PNG icons live in `src/assets/icons/app-ui/`; they are imported
   with local `require(...)` calls and are not uploaded to R2.
+- Bundled app UI art, including `src/assets/images/app-logo.png`, Sungy
+  mascot poses/source poster, `src/assets/icons/premium/`, and
+  `src/assets/stickers/achievements/`, is optimized for app size with
+  `npm run assets:optimize-ui-art`. The script writes paletted PNGs, caps
+  display assets to their configured max edge, and keeps a gitignored local
+  backup under `src/assets/source/ui-art-original/` when absent. These assets
+  remain local bundled UI art and are not uploaded to R2.
 - Bundled S-Kids UI PNG icons live in `src/assets/icons/skids/`; keep them
   optimized for app size with `npm run assets:optimize-ui-icons`. The script
   resizes them to a 320 px max edge, writes paletted PNGs, and keeps a
