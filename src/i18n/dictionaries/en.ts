@@ -131,6 +131,10 @@ export const en: TranslationDictionary = {
   'premium.package.billingMonthly': 'Renews monthly',
   'premium.package.billingAnnual': 'Renews yearly',
   'premium.package.billingLifetime': 'One-time payment',
+  'premium.package.chooseTitle': 'Choose a plan',
+  'premium.checkout.selectedPlan': 'Selected plan',
+  'premium.checkout.signInHint':
+    'Sign in once, then the store will open so you can finish checkout.',
   'premium.purchase': 'Continue with {package}',
   'premium.purchasing': 'Opening the store...',
   'premium.restore': 'Restore purchases',

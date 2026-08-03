@@ -128,6 +128,10 @@ export const vi = {
   'premium.package.billingMonthly': 'Gia hạn mỗi tháng',
   'premium.package.billingAnnual': 'Gia hạn mỗi năm',
   'premium.package.billingLifetime': 'Thanh toán một lần',
+  'premium.package.chooseTitle': 'Chọn gói phù hợp',
+  'premium.checkout.selectedPlan': 'Gói đang chọn',
+  'premium.checkout.signInHint':
+    'Ba mẹ đăng nhập một lần, sau đó cửa hàng sẽ mở để hoàn tất thanh toán.',
   'premium.purchase': 'Tiếp tục với {package}',
   'premium.purchasing': 'Đang mở cửa hàng...',
   'premium.restore': 'Khôi phục giao dịch mua',
