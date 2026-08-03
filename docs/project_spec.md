@@ -842,6 +842,10 @@ cùng file.
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
 - Kid-facing S-Kids icons, gồm theme, scene và lesson milestone icons, nằm trong
   `src/assets/icons/skids/`, import qua static registry và cũng nằm ngoài lesson WebP/R2 pipeline.
+  Các icon này được optimize local bằng `npm run assets:optimize-ui-icons` để giữ bundled app size
+  thấp; script resize về max edge 320 px, ghi paletted PNG và tạo backup gitignored dưới
+  `src/assets/source/ui-icons/` khi chưa có. Khi backup đã tồn tại, script regenerate từ backup để
+  tránh nén palette chồng nhiều lần.
 
 Không hand-edit WebP, asset manifest hoặc `generatedAssetRelease.ts`. Dùng scripts được mô tả
 trong `docs/asset-pipeline.md`.
