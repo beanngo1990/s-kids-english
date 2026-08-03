@@ -95,7 +95,7 @@ import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import { useResponsiveLayout } from '../theme/responsive';
-import type { LearningMode } from '../types/lesson';
+import type { LearningMode, LessonTheme } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName } from '../utils/lessonIcons';
 import {
@@ -1047,6 +1047,39 @@ export function ParentScreen({ navigation, route }: Props) {
     }
   };
 
+  const handleToggleTheme = async (theme: LessonTheme) => {
+    const themeLessonIds = theme.lessonIds;
+    const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
+    const themeVisibleIds = themeLessonIds.filter(id =>
+      currentVisible.includes(id),
+    );
+    const isThemeFullyVisible =
+      themeVisibleIds.length === themeLessonIds.length;
+
+    let nextVisible: string[];
+
+    if (isThemeFullyVisible || themeVisibleIds.length > 0) {
+      const remainingVisible = currentVisible.filter(
+        id => !themeLessonIds.includes(id),
+      );
+      if (remainingVisible.length === 0) {
+        Alert.alert(
+          t('parent.alert.notice'),
+          t('parent.alert.keepOneLesson'),
+        );
+        return;
+      }
+      nextVisible = remainingVisible;
+    } else {
+      const toAdd = themeLessonIds.filter(id => !currentVisible.includes(id));
+      nextVisible = [...currentVisible, ...toAdd];
+    }
+
+    setIsCustomPlanMode(true);
+    setVisibleLessonIds(nextVisible);
+    await saveParentSettings({ visibleLessonIds: nextVisible });
+  };
+
   const renderLearningSettingsCard = () => (
     <AppCard style={styles.learningSettingsCard}>
       <View style={styles.settingsCardHeader}>
@@ -1792,6 +1825,28 @@ export function ParentScreen({ navigation, route }: Props) {
                   completedLessonIds.has(lesson.id),
                 ).length;
                 const isExpanded = expandedThemeId === theme.id;
+                const isThemeFullyVisible =
+                  visibleCount === themeLessons.length;
+                const isThemePartiallyVisible =
+                  visibleCount > 0 && visibleCount < themeLessons.length;
+                const isThemeOff = visibleCount === 0;
+
+                const badgeTone = isThemeFullyVisible
+                  ? 'teal'
+                  : isThemePartiallyVisible
+                  ? 'sun'
+                  : 'sky';
+
+                const statusBadgeText = isThemeFullyVisible
+                  ? `🟢 ${t('parent.stats.themeStatusAll', {
+                      count: String(visibleCount),
+                    })}`
+                  : isThemePartiallyVisible
+                  ? `🟡 ${t('parent.stats.themeStatusSome', {
+                      count: String(visibleCount),
+                      total: String(themeLessons.length),
+                    })}`
+                  : `⚪ ${t('parent.stats.themeStatusOff')}`;
 
                 return (
                   <AppCard
@@ -1818,23 +1873,50 @@ export function ParentScreen({ navigation, route }: Props) {
                         </Text>
                       </View>
                       <View style={styles.lessonSectionCopy}>
-                        <Text style={styles.lessonSectionTitle}>
-                          {getLocalizedThemeTitle(theme, appLanguage)}
-                        </Text>
+                        <View style={styles.themeHeaderTitleRow}>
+                          <Text style={styles.lessonSectionTitle}>
+                            {getLocalizedThemeTitle(theme, appLanguage)}
+                          </Text>
+                          <KidBadge tone={badgeTone}>
+                            {statusBadgeText}
+                          </KidBadge>
+                        </View>
                         <Text style={styles.lessonSectionSubtitle}>
                           {t('parent.stats.completedLessonsOfTotal', {
                             completed: String(completedCount),
                             total: String(themeLessons.length),
                           })}
-                          {' · '}
-                          {t('parent.stats.visibleLessonsCount', {
-                            count: String(visibleCount),
-                          })}
                         </Text>
                       </View>
-                      <Text style={styles.lessonSectionExpandIcon}>
-                        {isExpanded ? '⌃' : '⌄'}
-                      </Text>
+
+                      <Pressable
+                        accessibilityLabel={t('parent.stats.quickToggleTheme')}
+                        accessibilityRole="switch"
+                        accessibilityState={{ checked: !isThemeOff }}
+                        hitSlop={8}
+                        onPress={e => {
+                          e.stopPropagation();
+                          handleToggleTheme(theme);
+                        }}
+                        style={({ pressed }) => [
+                          styles.themeQuickSwitch,
+                          !isThemeOff && styles.themeQuickSwitchOn,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <View
+                          style={[
+                            styles.themeQuickSwitchKnob,
+                            !isThemeOff && styles.themeQuickSwitchKnobOn,
+                          ]}
+                        />
+                      </Pressable>
+
+                      <View style={styles.chevronBox}>
+                        <Text style={styles.lessonSectionExpandIcon}>
+                          {isExpanded ? '▲' : '▼'}
+                        </Text>
+                      </View>
                     </Pressable>
 
                     {isExpanded ? (
@@ -3946,9 +4028,17 @@ const styles = createThemedStyles(() => ({
     fontSize: 26,
     lineHeight: 32,
   },
+  chevronBox: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderRadius: radius.pill,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
   lessonSectionExpandIcon: {
-    color: colors.primaryDark,
-    fontSize: 22,
+    color: colors.primary,
+    fontSize: 12,
     fontWeight: '900',
   },
   lessonSectionHeader: {
@@ -3956,6 +4046,33 @@ const styles = createThemedStyles(() => ({
     flexDirection: 'row',
     gap: spacing.sm,
     padding: spacing.md,
+  },
+  themeHeaderTitleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  themeQuickSwitch: {
+    backgroundColor: colors.border,
+    borderRadius: radius.pill,
+    height: 28,
+    justifyContent: 'center',
+    padding: 3,
+    width: 48,
+  },
+  themeQuickSwitchKnob: {
+    backgroundColor: colors.white,
+    borderRadius: radius.pill,
+    height: 22,
+    width: 22,
+    ...shadows.soft,
+  },
+  themeQuickSwitchKnobOn: {
+    alignSelf: 'flex-end',
+  },
+  themeQuickSwitchOn: {
+    backgroundColor: colors.primary,
   },
   lessonSectionHeading: {
     alignItems: 'center',

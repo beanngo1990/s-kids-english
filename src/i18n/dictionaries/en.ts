@@ -943,6 +943,10 @@ export const en: TranslationDictionary = {
   'parent.stats.completedLessonsOfTotal':
     '{completed}/{total} lessons completed',
   'parent.stats.visibleLessonsCount': '{count} lessons enabled',
+  'parent.stats.themeStatusAll': 'All on ({count})',
+  'parent.stats.themeStatusSome': 'On {count}/{total}',
+  'parent.stats.themeStatusOff': 'Off',
+  'parent.stats.quickToggleTheme': 'Toggle entire theme',
   'parent.stats.lessonStateHidden': 'Hidden',
   'parent.stats.lessonStateReadyToReview': 'Ready to review',
   'parent.stats.lessonStateLearning': 'Learning',
