@@ -6,10 +6,11 @@ import { AppLogo } from './AppLogo';
 import { KidIconButton } from './KidIconButton';
 import { PremiumStatusBadge } from './PremiumStatusBadge';
 import { SKidsIcon } from './SKidsIcon';
-import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
-import { layout, radius, spacing } from '../theme/spacing';
-import { shadows } from '../theme/shadows';
+import { getLevelProgress } from '../engine/ProgressManager';
 import { useI18n } from '../i18n';
+import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { shadows } from '../theme/shadows';
+import { layout, radius, spacing } from '../theme/spacing';
 
 type KidModeHeaderProps = {
   isPremium?: boolean;
@@ -32,11 +33,19 @@ export function KidModeHeader({
   const useIconOnlyPremiumBadge = width < 360 || fontScale > 1.3;
   const useCompactTopProgress =
     Boolean(onOpenThemeLibrary) && (width < 390 || fontScale > 1.2);
+
   const brandContent = (
     <>
-      <AppLogo size={40} />
+      <AppLogo size={38} />
       <View style={styles.brandCopy}>
-        <Text style={styles.title}>Sungy</Text>
+        <Text
+          adjustsFontSizeToFit
+          minimumFontScale={0.85}
+          numberOfLines={1}
+          style={styles.title}
+        >
+          Sungy
+        </Text>
         {isPremium ? (
           <PremiumStatusBadge
             accessible={!onOpenHub}
@@ -100,8 +109,6 @@ export function KidModeHeader({
   );
 }
 
-import { getLevelProgress } from '../engine/ProgressManager';
-
 type TopProgressStatusProps = {
   compact?: boolean;
   totalXP: number;
@@ -115,6 +122,8 @@ function TopProgressStatus({
   const { level, xpInLevel, xpNeeded, progressPercent } =
     getLevelProgress(totalXP);
 
+  const clampedPercent = Math.min(100, Math.max(0, progressPercent));
+
   return (
     <View
       accessibilityLabel={t('header.levelAccessibility', {
@@ -125,35 +134,28 @@ function TopProgressStatus({
       accessibilityRole="progressbar"
       style={[styles.topStatusCard, compact && styles.topStatusCardCompact]}
     >
-      <View style={styles.topStatusRow}>
-        <SKidsIcon name="acorn" size={18} />
-        <Text
-          numberOfLines={1}
-          style={[
-            styles.topStatusCount,
-            compact && styles.topStatusCountCompact,
-          ]}
-        >
-          {t('header.level', { level: String(level) })}
-        </Text>
-      </View>
-      {compact ? null : (
-        <>
-          <View style={styles.topStatusTrack}>
-            <View
-              style={[
-                styles.topStatusFill,
-                {
-                  width: `${progressPercent}%`,
-                },
-              ]}
-            />
-          </View>
-          <Text numberOfLines={1} style={styles.topStatusCaption}>
-            {xpInLevel}/{xpNeeded}
+      <View style={styles.topStatusContent}>
+        <View style={styles.topStatusIconBox}>
+          <SKidsIcon name="acorn" size={compact ? 18 : 22} />
+        </View>
+        <View style={styles.topStatusMeta}>
+          <Text numberOfLines={1} style={styles.topStatusLevelText}>
+            {t('header.level', { level: String(level) })}
           </Text>
-        </>
-      )}
+          {!compact ? (
+            <View style={styles.topStatusTrack}>
+              <View
+                style={[
+                  styles.topStatusFill,
+                  {
+                    width: `${clampedPercent}%`,
+                  },
+                ]}
+              />
+            </View>
+          ) : null}
+        </View>
+      </View>
     </View>
   );
 }
@@ -163,7 +165,7 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: spacing.xs,
     minWidth: 0,
   },
   brandClusterPressed: {
@@ -172,7 +174,7 @@ const styles = createThemedStyles(() => ({
   },
   brandCopy: {
     alignItems: 'flex-start',
-    flexShrink: 1,
+    flex: 1,
     gap: 1,
     minWidth: 0,
   },
@@ -186,106 +188,102 @@ const styles = createThemedStyles(() => ({
     zIndex: 20,
   },
   parentGate: {
+    alignItems: 'center',
     backgroundColor: colors.surface,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 2,
-    height: 54,
-    minHeight: 54,
-    minWidth: 54,
+    height: 46,
+    justifyContent: 'center',
+    minHeight: 46,
+    minWidth: 46,
+    overflow: 'hidden',
     padding: 0,
-    width: 54,
+    width: 46,
     ...shadows.soft,
   },
   themeLibrary: {
+    alignItems: 'center',
     backgroundColor: colors.secondarySoft,
     borderColor: colors.white,
     borderRadius: radius.pill,
     borderWidth: 2,
-    height: 54,
-    minHeight: 54,
-    minWidth: 54,
+    height: 46,
+    justifyContent: 'center',
+    minHeight: 46,
+    minWidth: 46,
+    overflow: 'hidden',
     padding: 0,
-    width: 54,
+    width: 46,
     ...shadows.soft,
   },
   title: {
     color: colors.text,
-    fontSize: 23,
+    fontSize: 20,
     fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 27,
+    letterSpacing: -0.2,
+    lineHeight: 24,
   },
   topActions: {
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.42)',
-    borderColor: 'rgba(255, 255, 255, 0.72)',
-    borderRadius: radius.pill,
-    borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.xs,
-    padding: 4,
   },
   topBar: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: spacing.xs,
     justifyContent: 'space-between',
-    minHeight: 64,
-  },
-  topStatusCaption: {
-    color: colors.primaryDark,
-    fontSize: 10,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 12,
-    textAlign: 'center',
+    minHeight: 52,
   },
   topStatusCard: {
-    alignItems: 'stretch',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    gap: 2,
-    height: 54,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 46,
     justifyContent: 'center',
+    minWidth: 104,
     paddingHorizontal: spacing.xs,
-    width: 106,
+    paddingVertical: 3,
     ...shadows.soft,
   },
   topStatusCardCompact: {
     alignItems: 'center',
-    paddingHorizontal: 4,
-    width: 62,
+    minWidth: 64,
+    paddingHorizontal: 8,
   },
-  topStatusCount: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 18,
+  topStatusContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 6,
   },
-  topStatusCountCompact: {
-    fontSize: 12,
-    lineHeight: 15,
-  },
-
   topStatusFill: {
     backgroundColor: colors.secondary,
     borderRadius: radius.pill,
     height: '100%',
   },
-  topStatusRow: {
+  topStatusIconBox: {
     alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.xxs,
+    justifyContent: 'center',
+  },
+  topStatusLevelText: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+    lineHeight: 15,
+  },
+  topStatusMeta: {
+    flex: 1,
+    gap: 2,
     justifyContent: 'center',
   },
   topStatusTrack: {
-    backgroundColor: colors.border,
+    backgroundColor: colors.backgroundCool,
     borderRadius: radius.pill,
     height: 6,
     overflow: 'hidden',
+    width: '100%',
   },
 }));
+
