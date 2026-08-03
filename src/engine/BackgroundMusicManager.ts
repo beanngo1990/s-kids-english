@@ -1,6 +1,6 @@
-import { AppState, Image, type AppStateStatus } from 'react-native';
+import { AppState, type AppStateStatus } from 'react-native';
 
-import { backgroundMusicAsset } from './BackgroundMusicRegistry';
+import { resolveBackgroundMusicUri } from './BackgroundMusicRegistry';
 import {
   DEFAULT_BACKGROUND_MUSIC_VOLUME,
   playBackgroundMusicUri,
@@ -122,12 +122,4 @@ export function startBackgroundMusicManager() {
 
   stopCurrentManager = stopManager;
   return stopManager;
-}
-
-function resolveBackgroundMusicUri() {
-  try {
-    return Image.resolveAssetSource(backgroundMusicAsset)?.uri ?? null;
-  } catch {
-    return null;
-  }
 }

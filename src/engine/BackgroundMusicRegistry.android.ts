@@ -1,11 +1,4 @@
-import type { ImageRequireSource } from 'react-native';
-import { Image } from 'react-native';
-
 export const backgroundMusicAssetKey = 'ui/audio/music/sungy-background.mp3';
-
-export const backgroundMusicAsset: ImageRequireSource = require(
-  '../assets/ui/audio/music/sungy-background.mp3',
-);
 
 export const backgroundMusicMetadata = {
   bitRateKbps: 192,
@@ -17,9 +10,5 @@ export const backgroundMusicMetadata = {
 } as const;
 
 export function resolveBackgroundMusicUri() {
-  try {
-    return Image.resolveAssetSource(backgroundMusicAsset)?.uri ?? null;
-  } catch {
-    return null;
-  }
+  return `asset:/${backgroundMusicAssetKey}`;
 }

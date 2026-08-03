@@ -29,6 +29,10 @@
   lines in `src/i18n/dictionaries/en.ts`. The generated
   `src/engine/GeneratedUiAudioRegistry.ts` provides their local `require(...)`
   entries; do not edit it manually or upload these UI-only clips as lesson audio.
+  Keep the generated WAV files as the audio manifest/provenance source, then run
+  `npm run assets:optimize-ui-audio` to create 64 kbps MP3 sidecars and rewrite
+  the registry so the stable WAV manifest keys resolve to the smaller bundled
+  MP3 files at app build time.
 - Production English audio uses immutable accent/release directories:
   `src/assets/lessons/<lesson>/<scene>/audio/{en-US,en-GB}/neural2-c-r1/`
   and `src/assets/shared/audio/{en-US,en-GB}/neural2-c-r1/`.
