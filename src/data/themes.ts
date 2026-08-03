@@ -10,6 +10,7 @@ const themeCatalog: LessonTheme[] = [
     id: DEFAULT_THEME_ID,
     titleVi: 'Một ngày của bé',
     titleEn: "A Child's Day",
+    iconName: 'themeChildDay',
     thumbnailEmoji: '☀️',
     descriptionVi:
       'Một lộ trình liền mạch từ lúc thức dậy, đến trường, chơi, ăn uống và đi ngủ.',
@@ -33,6 +34,7 @@ const themeCatalog: LessonTheme[] = [
     id: OUTSIDE_EXPLORATION_THEME_ID,
     titleVi: 'Bé ra ngoài khám phá',
     titleEn: 'Out and About',
+    iconName: 'themeOutAndAbout',
     thumbnailEmoji: '🧭',
     descriptionVi:
       'Bé mở rộng thế giới quanh mình qua siêu thị, công viên, biển, động vật, thư viện, bác sĩ, sinh nhật và thăm ông bà.',
@@ -53,6 +55,7 @@ const themeCatalog: LessonTheme[] = [
     id: BODY_FEELINGS_SELF_CARE_THEME_ID,
     titleVi: 'Cơ thể, cảm xúc và tự chăm sóc',
     titleEn: 'My Body, Feelings, and Self-Care',
+    iconName: 'themeBodySelfCare',
     thumbnailEmoji: '💛',
     descriptionVi:
       'Bé hiểu cơ thể, gọi tên cảm xúc, tự chăm sóc và nói rõ điều mình cần để lớn lên an toàn, tự tin.',

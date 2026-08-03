@@ -1110,6 +1110,7 @@ export function HomeScreen({ navigation, route }: Props) {
         />
         <SKidsHubSheet
           activeThemeEmoji={activeTheme?.thumbnailEmoji ?? '★'}
+          activeThemeIconName={activeTheme?.iconName}
           activeThemeTitle={
             activeTheme
               ? getLocalizedThemeTitle(activeTheme, appLanguage)
@@ -1192,6 +1193,7 @@ function FreeProgressPremiumCta({
 
 type SKidsHubSheetProps = {
   activeThemeEmoji: string;
+  activeThemeIconName?: SKidsIconName;
   activeThemeTitle: string;
   appLanguage: AppLanguage;
   completed: number;
@@ -1211,6 +1213,7 @@ type SKidsHubSheetProps = {
 
 function SKidsHubSheet({
   activeThemeEmoji,
+  activeThemeIconName,
   activeThemeTitle,
   appLanguage,
   completed,
@@ -1300,7 +1303,11 @@ function SKidsHubSheet({
           >
             <View style={styles.hubHeader}>
               <View style={styles.hubLogoBadge}>
-                <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
+                {activeThemeIconName ? (
+                  <SKidsIcon name={activeThemeIconName} size={44} />
+                ) : (
+                  <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
+                )}
               </View>
               <View style={styles.hubHeaderText}>
                 <Text style={styles.hubEyebrow}>Sungy Hub</Text>

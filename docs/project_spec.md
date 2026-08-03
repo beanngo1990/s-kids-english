@@ -213,6 +213,7 @@ catalog được import; trong development, validation errors có thể throw v�
 
 ```text
 LessonTheme
+  -> optional iconName
   -> lessonIds[]
 
 Lesson
@@ -839,7 +840,7 @@ cùng file.
 - Current/next scene image prefetch dùng React Native `Image.prefetch`.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
-- Kid-facing S-Kids icons, gồm scene và lesson milestone icons, nằm trong
+- Kid-facing S-Kids icons, gồm theme, scene và lesson milestone icons, nằm trong
   `src/assets/icons/skids/`, import qua static registry và cũng nằm ngoài lesson WebP/R2 pipeline.
 
 Không hand-edit WebP, asset manifest hoặc `generatedAssetRelease.ts`. Dùng scripts được mô tả

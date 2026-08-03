@@ -1,3 +1,5 @@
+import type { SKidsIconName } from '../assets/icons/skids';
+
 /** Mã định danh dùng chung cho lesson, scene, object và step. */
 export type EntityId = string;
 
@@ -171,6 +173,7 @@ export type LessonTheme = {
   id: EntityId;
   titleVi: string;
   titleEn?: string;
+  iconName?: SKidsIconName;
   thumbnailEmoji: string;
   descriptionVi?: string;
   descriptionEn?: string;

@@ -258,7 +258,8 @@ teacher copy.
 
 Lesson and theme titles should keep `titleVi` plus `titleEn`. Use
 `descriptionVi` for Vietnamese app copy and add `descriptionEn` when the
-description is shown in English UI.
+description is shown in English UI. Themes can set `iconName` to a bundled
+SKids icon for app UI; keep `thumbnailEmoji` as a fallback.
 
 ## Review Game Config
 

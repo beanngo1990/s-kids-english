@@ -4,7 +4,6 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
-import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
@@ -214,9 +213,13 @@ export function ThemeLibraryScreen({ navigation }: Props) {
               >
                 <View style={styles.themeTopRow}>
                   <View style={[styles.themeIcon, themeIconToneStyle]}>
-                    <Text style={styles.themeEmoji}>
-                      {theme.thumbnailEmoji}
-                    </Text>
+                    {theme.iconName ? (
+                      <SKidsIcon name={theme.iconName} size={62} />
+                    ) : (
+                      <Text style={styles.themeEmoji}>
+                        {theme.thumbnailEmoji}
+                      </Text>
+                    )}
                     {isPremiumLocked ? (
                       <View style={styles.themeLockBadge}>
                         <SKidsIcon name="parentLock" size={20} />

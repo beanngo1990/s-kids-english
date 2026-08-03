@@ -1868,9 +1868,13 @@ export function ParentScreen({ navigation, route }: Props) {
                       ]}
                     >
                       <View style={styles.lessonSectionEmoji}>
-                        <Text style={styles.lessonSectionEmojiText}>
-                          {theme.thumbnailEmoji}
-                        </Text>
+                        {theme.iconName ? (
+                          <SKidsIcon name={theme.iconName} size={42} />
+                        ) : (
+                          <Text style={styles.lessonSectionEmojiText}>
+                            {theme.thumbnailEmoji}
+                          </Text>
+                        )}
                       </View>
                       <View style={styles.lessonSectionCopy}>
                         <View style={styles.themeHeaderTitleRow}>
