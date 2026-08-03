@@ -59,7 +59,7 @@ export function SceneObjectRenderer({
 }: SceneObjectRendererProps) {
   useThemeSync();
   const [hasImageError, setHasImageError] = React.useState(false);
-  const imageOpacity = useRef(new Animated.Value(0)).current;
+  const imageOpacity = useRef(new Animated.Value(1)).current;
   const targetPulse = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translateX = useRef(new Animated.Value(0)).current;
@@ -184,7 +184,8 @@ export function SceneObjectRenderer({
 
   useEffect(() => {
     setHasImageError(false);
-    imageOpacity.setValue(0);
+    // Keep cached native images visible even if a remount skips load callbacks.
+    imageOpacity.setValue(1);
   }, [object.asset.source, imageOpacity]);
 
   const targetHaloOpacity = targetPulse.interpolate({
@@ -272,13 +273,19 @@ export function SceneObjectRenderer({
           ) : null}
           {canUseImage && !hasImageError ? (
             <Animated.Image
-              onError={() => setHasImageError(true)}
-              onLoad={() => {
+              onError={() => {
+                imageOpacity.setValue(1);
+                setHasImageError(true);
+              }}
+              onLoadEnd={() => {
                 Animated.timing(imageOpacity, {
                   toValue: 1,
                   duration: 300,
                   useNativeDriver: true,
                 }).start();
+              }}
+              onLoadStart={() => {
+                imageOpacity.setValue(0);
               }}
               resizeMode="contain"
               source={imageSource!}
