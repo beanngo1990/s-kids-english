@@ -20,6 +20,8 @@ type KidModeHeaderProps = {
   onOpenThemeLibrary?: () => void;
 };
 
+type TopProgressVariant = 'full' | 'icon';
+
 export function KidModeHeader({
   isPremium = false,
   totalXP,
@@ -31,7 +33,12 @@ export function KidModeHeader({
   const t = useI18n();
   const { fontScale, width } = useWindowDimensions();
   const useIconOnlyPremiumBadge = width < 360 || fontScale > 1.3;
-  const useCompactTopProgress =
+  const topProgressVariant = getTopProgressVariant({
+    fontScale,
+    hasThemeLibraryAction: Boolean(onOpenThemeLibrary),
+    width,
+  });
+  const useTightHeader =
     Boolean(onOpenThemeLibrary) && (width < 390 || fontScale > 1.2);
 
   const brandContent = (
@@ -58,7 +65,10 @@ export function KidModeHeader({
   );
 
   return (
-    <SafeAreaView edges={['top']} style={styles.header}>
+    <SafeAreaView
+      edges={['top']}
+      style={[styles.header, useTightHeader && styles.headerTight]}
+    >
       <View style={styles.topBar}>
         {onOpenHub ? (
           <Pressable
@@ -80,11 +90,13 @@ export function KidModeHeader({
         ) : (
           <View style={styles.brandCluster}>{brandContent}</View>
         )}
-        <View style={styles.topActions}>
-          <TopProgressStatus
-            compact={useCompactTopProgress}
-            totalXP={totalXP}
-          />
+        <View
+          style={[
+            styles.topActions,
+            useTightHeader && styles.topActionsTight,
+          ]}
+        >
+          <TopProgressStatus variant={topProgressVariant} totalXP={totalXP} />
           {onOpenThemeLibrary ? (
             <KidIconButton
               accessibilityLabel={t('header.themeLibrary')}
@@ -110,19 +122,24 @@ export function KidModeHeader({
 }
 
 type TopProgressStatusProps = {
-  compact?: boolean;
   totalXP: number;
+  variant?: TopProgressVariant;
 };
 
 function TopProgressStatus({
-  compact = false,
   totalXP,
+  variant = 'full',
 }: TopProgressStatusProps) {
   const t = useI18n();
   const { level, xpInLevel, xpNeeded, progressPercent } =
     getLevelProgress(totalXP);
 
   const clampedPercent = Math.min(100, Math.max(0, progressPercent));
+  const isIconOnly = variant === 'icon';
+  const levelLabel =
+    variant === 'full'
+      ? t('header.level', { level: String(level) })
+      : String(level);
 
   return (
     <View
@@ -132,17 +149,38 @@ function TopProgressStatus({
         xpNeeded: String(xpNeeded - xpInLevel),
       })}
       accessibilityRole="progressbar"
-      style={[styles.topStatusCard, compact && styles.topStatusCardCompact]}
+      style={[
+        styles.topStatusCard,
+        variant === 'icon' && styles.topStatusCardIcon,
+      ]}
     >
-      <View style={styles.topStatusContent}>
+      <View
+        style={[
+          styles.topStatusContent,
+          isIconOnly && styles.topStatusContentIcon,
+        ]}
+      >
         <View style={styles.topStatusIconBox}>
-          <SKidsIcon name="acorn" size={compact ? 18 : 22} />
+          <SKidsIcon name="acorn" size={isIconOnly ? 30 : 22} />
         </View>
-        <View style={styles.topStatusMeta}>
-          <Text numberOfLines={1} style={styles.topStatusLevelText}>
-            {t('header.level', { level: String(level) })}
+        <View
+          style={[
+            styles.topStatusMeta,
+            isIconOnly && styles.topStatusMetaIcon,
+          ]}
+        >
+          <Text
+            adjustsFontSizeToFit
+            minimumFontScale={0.82}
+            numberOfLines={1}
+            style={[
+              styles.topStatusLevelText,
+              variant === 'icon' && styles.topStatusLevelTextIcon,
+            ]}
+          >
+            {levelLabel}
           </Text>
-          {!compact ? (
+          {variant === 'full' ? (
             <View style={styles.topStatusTrack}>
               <View
                 style={[
@@ -158,6 +196,26 @@ function TopProgressStatus({
       </View>
     </View>
   );
+}
+
+function getTopProgressVariant({
+  fontScale,
+  hasThemeLibraryAction,
+  width,
+}: {
+  fontScale: number;
+  hasThemeLibraryAction: boolean;
+  width: number;
+}): TopProgressVariant {
+  if (!hasThemeLibraryAction) {
+    return 'full';
+  }
+
+  if (width < 430 || fontScale > 1.15) {
+    return 'icon';
+  }
+
+  return 'full';
 }
 
 const styles = createThemedStyles(() => ({
@@ -186,6 +244,9 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: layout.screenPadding,
     paddingTop: spacing.xs,
     zIndex: 20,
+  },
+  headerTight: {
+    paddingHorizontal: spacing.md,
   },
   parentGate: {
     alignItems: 'center',
@@ -228,6 +289,10 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.xs,
+    flexShrink: 0,
+  },
+  topActionsTight: {
+    gap: spacing.xxs,
   },
   topBar: {
     alignItems: 'center',
@@ -248,15 +313,23 @@ const styles = createThemedStyles(() => ({
     paddingVertical: 3,
     ...shadows.soft,
   },
-  topStatusCardCompact: {
+  topStatusCardIcon: {
     alignItems: 'center',
-    minWidth: 64,
-    paddingHorizontal: 8,
+    height: 46,
+    minWidth: 46,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    width: 46,
   },
   topStatusContent: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: 6,
+  },
+  topStatusContentIcon: {
+    height: '100%',
+    justifyContent: 'center',
+    width: '100%',
   },
   topStatusFill: {
     backgroundColor: colors.secondary,
@@ -273,10 +346,30 @@ const styles = createThemedStyles(() => ({
     fontWeight: '900',
     lineHeight: 15,
   },
+  topStatusLevelTextIcon: {
+    fontSize: 10,
+    lineHeight: 12,
+    textAlign: 'center',
+  },
   topStatusMeta: {
     flex: 1,
     gap: 2,
     justifyContent: 'center',
+  },
+  topStatusMetaIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.secondary,
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    bottom: -3,
+    flex: 0,
+    height: 20,
+    justifyContent: 'center',
+    minWidth: 20,
+    paddingHorizontal: 3,
+    position: 'absolute',
+    right: -3,
   },
   topStatusTrack: {
     backgroundColor: colors.backgroundCool,
@@ -286,4 +379,3 @@ const styles = createThemedStyles(() => ({
     width: '100%',
   },
 }));
-
