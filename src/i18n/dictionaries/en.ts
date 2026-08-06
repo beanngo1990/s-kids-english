@@ -94,9 +94,9 @@ export const en: TranslationDictionary = {
   'premium.benefit.reviewTitle': 'Review every unlocked lesson',
   'premium.benefit.reviewText':
     'Your child can revisit lessons and play the review content for every open lesson.',
-  'premium.benefit.accountTitle': 'Restore with the parent account',
+  'premium.benefit.accountTitle': 'Restore when needed',
   'premium.benefit.accountText':
-    'Purchase access is securely verified for the signed-in parent account.',
+    'Parents can restore store purchases on this device. Signing in is optional for linking access with a parent account.',
   'premium.teaser.badge': 'Premium for the next step',
   'premium.teaser.title': 'Unlock every Premium lesson',
   'premium.teaser.subtitle':
@@ -110,9 +110,9 @@ export const en: TranslationDictionary = {
   'premium.lessonRow.compactAction': 'Premium',
   'premium.lessonRow.openPlansAccessibility':
     'View Premium plans to unlock {lessonTitle}',
-  'premium.signInTitle': 'Sign in before purchasing',
+  'premium.signInTitle': 'Optional parent account',
   'premium.signInText':
-    'Sign in a parent account so Premium access can be safely linked and restored.',
+    'Sign in only if you want to link Premium access with a parent account for cloud sync and account-based restore.',
   'premium.founder.badge': 'Launch gift for early parents',
   'premium.founder.title': 'One year of Premium free',
   'premium.founder.marketingText':
@@ -133,8 +133,12 @@ export const en: TranslationDictionary = {
   'premium.package.billingLifetime': 'One-time payment',
   'premium.package.chooseTitle': 'Choose a plan',
   'premium.checkout.selectedPlan': 'Selected plan',
+  'premium.checkout.planSummary': '{product} · {package}',
+  'premium.checkout.includes':
+    'Includes every available Premium lesson, interactive scene, and review activity.',
+  'premium.checkout.legalIntro': 'Terms:',
   'premium.checkout.signInHint':
-    'Sign in once, then the store will open so you can finish checkout.',
+    'You can buy without signing in. Sign in here only if you want account-based restore and cloud sync.',
   'premium.purchase': 'Continue with {package}',
   'premium.purchasing': 'Opening the store...',
   'premium.restore': 'Restore purchases',
@@ -169,22 +173,38 @@ export const en: TranslationDictionary = {
     'Payment is charged to your App Store account. The plan renews automatically for the selected period unless cancelled in your App Store account settings.',
   'premium.disclosure.subscription.android':
     'Payment is charged to your Google Play account. The plan renews automatically for the selected period unless cancelled in your Google Play subscription settings.',
+  'premium.disclosure.subscriptionMonthly':
+    'Renews monthly at {price} unless canceled in your store subscription settings before the renewal date.',
+  'premium.disclosure.subscriptionMonthly.ios':
+    'Renews monthly at {price} unless canceled in App Store account settings before the renewal date.',
+  'premium.disclosure.subscriptionMonthly.android':
+    'Renews monthly at {price} unless canceled in Google Play subscription settings before the renewal date.',
+  'premium.disclosure.subscriptionAnnual':
+    'Renews yearly at {price} unless canceled in your store subscription settings before the renewal date.',
+  'premium.disclosure.subscriptionAnnual.ios':
+    'Renews yearly at {price} unless canceled in App Store account settings before the renewal date.',
+  'premium.disclosure.subscriptionAnnual.android':
+    'Renews yearly at {price} unless canceled in Google Play subscription settings before the renewal date.',
   'premium.disclosure.lifetime':
     'This is a one-time purchase and does not renew automatically.',
+  'premium.disclosure.lifetime.ios':
+    'This is a one-time App Store purchase and does not renew automatically.',
+  'premium.disclosure.lifetime.android':
+    'This is a one-time Google Play purchase and does not renew automatically.',
   'premium.alert.purchasedTitle': 'Premium unlocked',
   'premium.alert.purchasedText':
-    'Premium access has been successfully confirmed for the parent account.',
+    'Premium access has been successfully confirmed.',
   'premium.alert.pendingTitle': 'Purchase pending',
   'premium.alert.pendingText':
     'The store or an approver still needs to complete this purchase. Premium will open after access is confirmed.',
   'premium.alert.restoredTitle': 'Premium restored',
   'premium.alert.restoredText':
-    'Active Premium access has been restored for this account.',
+    'Active Premium access has been restored.',
   'premium.alert.withoutPremiumTitle': 'No active Premium access found',
   'premium.alert.withoutPremiumText':
     'The store finished checking but did not return active Premium access for this account.',
   'premium.alert.alreadyPremium':
-    'This account already has active Premium access.',
+    'Premium access is already active.',
   'premium.error.title': 'Could not complete the action',
   'premium.error.configurationMissing':
     'Purchases are not available on this version. Please try again later.',

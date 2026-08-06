@@ -114,6 +114,39 @@ describe('Monetization purchase and identity lifecycle', () => {
       harness.stop();
     });
 
+    test('allows store purchase before the parent signs in', async () => {
+      const harness = await startSignedOutHarness();
+      harness.purchases.purchasePackage.mockResolvedValue({
+        customerInfo: makeCustomerInfo('premium'),
+      } as never);
+
+      await expect(
+        harness.manager.purchaseMonetizationPackage('monthly-package'),
+      ).resolves.toBe('purchased');
+
+      expect(harness.purchases.configure).toHaveBeenCalledWith(
+        expect.objectContaining({ appUserID: null }),
+      );
+      expect(harness.purchases.purchasePackage).toHaveBeenCalledWith(
+        harness.nativePackage,
+      );
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        activeProductType: 'monthly',
+        isSignedIn: false,
+        pendingAction: null,
+        premiumSource: 'revenueCat',
+        status: 'premium',
+        userId: undefined,
+      });
+      expect(
+        harness.access.canAccessLesson(
+          'bedtime',
+          harness.manager.getMonetizationSnapshot(),
+        ),
+      ).toBe(true);
+      harness.stop();
+    });
+
     test('does not unlock when the store resolves without active Premium', async () => {
       const harness = await startSignedInHarness();
       harness.purchases.purchasePackage.mockResolvedValue({
@@ -192,13 +225,34 @@ describe('Monetization purchase and identity lifecycle', () => {
   });
 
   describe('restore result matrix', () => {
-    test('requires a signed-in parent before invoking the store', async () => {
-      const harness = loadHarness();
+    test('allows store restore before the parent signs in', async () => {
+      const harness = await startSignedOutHarness();
+      harness.purchases.restorePurchases.mockResolvedValue(
+        makeCustomerInfo('premium'),
+      );
 
       await expect(
         harness.manager.restoreMonetizationPurchases(),
-      ).resolves.toBe('signInRequired');
-      expect(harness.purchases.restorePurchases).not.toHaveBeenCalled();
+      ).resolves.toBe('restored');
+
+      expect(harness.purchases.configure).toHaveBeenCalledWith(
+        expect.objectContaining({ appUserID: null }),
+      );
+      expect(harness.purchases.restorePurchases).toHaveBeenCalledTimes(1);
+      expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
+        activeProductType: 'monthly',
+        isSignedIn: false,
+        premiumSource: 'revenueCat',
+        status: 'premium',
+        userId: undefined,
+      });
+      expect(
+        harness.access.canAccessLesson(
+          'bedtime',
+          harness.manager.getMonetizationSnapshot(),
+        ),
+      ).toBe(true);
+      harness.stop();
     });
 
     test('is unavailable when RevenueCat has not been configured', async () => {
@@ -402,7 +456,7 @@ describe('Monetization purchase and identity lifecycle', () => {
       harness.stop();
     });
 
-    test('never exposes the previous entitlement after logout', async () => {
+    test('keeps a verified store entitlement available after parent logout', async () => {
       const harness = await startSignedInHarness({
         initialCustomerInfo: makeCustomerInfo('premium'),
       });
@@ -413,7 +467,7 @@ describe('Monetization purchase and identity lifecycle', () => {
         }),
       );
       harness.purchases.getCustomerInfo.mockResolvedValue(
-        makeCustomerInfo('free'),
+        makeCustomerInfo('premium'),
       );
 
       mockAuthListener?.({ isReady: true, user: null });
@@ -432,18 +486,19 @@ describe('Monetization purchase and identity lifecycle', () => {
       await flushPromises();
 
       expect(harness.manager.getMonetizationSnapshot()).toMatchObject({
-        activeProductType: undefined,
+        activeProductType: 'monthly',
         isSignedIn: false,
-        status: 'signedOut',
+        premiumSource: 'revenueCat',
+        status: 'premium',
         userId: undefined,
-        willRenew: false,
+        willRenew: true,
       });
       expect(
         harness.access.canAccessLesson(
           'bedtime',
           harness.manager.getMonetizationSnapshot(),
         ),
-      ).toBe(false);
+      ).toBe(true);
       harness.stop();
     });
   });
@@ -491,6 +546,21 @@ function loadHarness() {
 async function startSignedInHarness(options?: {
   initialCustomerInfo?: CustomerInfo;
 }) {
+  return startHarnessWithAuth(signedIn('parent-a'), options);
+}
+
+async function startSignedOutHarness(options?: {
+  initialCustomerInfo?: CustomerInfo;
+}) {
+  return startHarnessWithAuth({ isReady: true, user: null }, options);
+}
+
+async function startHarnessWithAuth(
+  authSnapshot: ParentAuthSnapshot,
+  options?: {
+    initialCustomerInfo?: CustomerInfo;
+  },
+) {
   const harness = loadHarness();
   const nativePackage = makeNativePackage();
   harness.purchases.getCustomerInfo.mockResolvedValue(
@@ -515,7 +585,7 @@ async function startSignedInHarness(options?: {
     throw new Error('Monetization did not subscribe to parent auth.');
   }
 
-  mockAuthListener(signedIn('parent-a'));
+  mockAuthListener(authSnapshot);
   await flushPromises();
 
   return { ...harness, nativePackage, stop };

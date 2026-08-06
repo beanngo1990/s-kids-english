@@ -204,8 +204,8 @@ describe('RevenueCat CustomerInfo mapping', () => {
     });
   });
 
-  test('never exposes Premium while the parent is signed out', () => {
-    const customerInfo = makeCustomerInfo();
+  test('keeps a signed-out customer locked without a store entitlement', () => {
+    const customerInfo = makeCustomerInfo(null);
 
     const result = mapCustomerInfoToMonetizationSnapshot(
       baseSnapshot,
@@ -216,6 +216,27 @@ describe('RevenueCat CustomerInfo mapping', () => {
     expect(result.status).toBe('signedOut');
     expect(result.isSignedIn).toBe(false);
     expect(result.userId).toBeUndefined();
+    expect(canAccessLesson('bedtime', result)).toBe(false);
+  });
+
+  test('exposes verified store Premium while the parent is signed out', () => {
+    const customerInfo = makeCustomerInfo();
+
+    const result = mapCustomerInfoToMonetizationSnapshot(
+      baseSnapshot,
+      customerInfo,
+      { isReady: true, user: null },
+    );
+
+    expect(result).toMatchObject({
+      activeProductType: 'monthly',
+      isSignedIn: false,
+      premiumSource: 'revenueCat',
+      status: 'premium',
+      userId: undefined,
+      willRenew: true,
+    });
+    expect(canAccessLesson('bedtime', result)).toBe(true);
   });
 
   test('opens Founder Premium for a signed-in customer first seen by the cutoff', () => {

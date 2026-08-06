@@ -51,8 +51,6 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app requires microphone access to record voice exercises.</string>
 	<key>RCTNewArchEnabled</key>

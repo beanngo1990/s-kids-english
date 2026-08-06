@@ -473,6 +473,7 @@ test('allows local QA to continue when unpublished lesson audio is allowed', asy
 });
 
 test('blocks the lesson when a required image is unavailable', async () => {
+  jest.useFakeTimers();
   mockedPrefetchAssets.mockResolvedValue(false);
 
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
@@ -492,10 +493,54 @@ test('blocks the lesson when a required image is unavailable', async () => {
     await flushPromises();
   });
 
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(301);
+    await flushPromises();
+    await flushPromises();
+  });
+
   expect(mockedPrefetchAssets).toHaveBeenCalledWith(['background']);
+  expect(mockedPrefetchAssets).toHaveBeenCalledTimes(2);
   expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
   expect(getTextValues(tree)).not.toContain('Tiếp tục');
   expect(mockedSpeakVi).not.toHaveBeenCalled();
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('recovers automatically when a required image fails transiently', async () => {
+  jest.useFakeTimers();
+  mockedPrefetchAssets.mockResolvedValueOnce(false).mockResolvedValueOnce(true);
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={listenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Sungy đang chuẩn bị bài cho bé...');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(301);
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedPrefetchAssets).toHaveBeenCalledTimes(2);
+  expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
+  expect(mockedSpeakVi).toHaveBeenCalledWith('Con hãy nghe cô nhé.');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -1114,7 +1159,9 @@ test('does not advance when required success feedback audio is unavailable', asy
   });
 });
 
-test('blocks initial loading on required audio across the current scene', async () => {
+test('opens on entry-step audio and warms later scene audio in background', async () => {
+  jest.useFakeTimers();
+  mockedPrefetchRemoteAssets.mockResolvedValue(false);
   const sceneWithLaterAudio: Scene = {
     ...listenScene,
     steps: [
@@ -1147,10 +1194,25 @@ test('blocks initial loading on required audio across the current scene', async 
     ([assets]) => assets.map(asset => asset.cacheKey),
   );
   expect(initialAudioKeys).toContain('test/audio/vi/Con hãy nghe cô nhé..wav');
-  expect(initialAudioKeys).toContain(
+  expect(initialAudioKeys).not.toContain(
     'test/audio/vi/Câu hướng dẫn tải nền..wav',
   );
   expect(initialAudioKeys).toContain('test/audio/vi/Giỏi lắm!.wav');
+  expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(501);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const backgroundAudioKeys = mockedPrefetchRemoteAssets.mock.calls.flatMap(
+    ([assets]) => assets.map(asset => asset.cacheKey),
+  );
+  expect(backgroundAudioKeys).toContain(
+    'test/audio/vi/Câu hướng dẫn tải nền..wav',
+  );
+  expect(getTextValues(tree)).not.toContain('Bài học chưa sẵn sàng');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

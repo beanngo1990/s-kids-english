@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   Alert,
   Linking,
+  Platform,
   Pressable,
   Text,
   View,
@@ -130,8 +131,8 @@ export function PremiumScreen({ navigation }: Props) {
   const canPurchase = Boolean(
     selectedPackage &&
       monetization.isConfigured &&
-      monetization.isSignedIn &&
-      monetization.status === 'free' &&
+      (monetization.status === 'free' ||
+        monetization.status === 'signedOut') &&
       remoteConfig.premiumPurchaseEnabled &&
       !isBusy,
   );
@@ -147,7 +148,7 @@ export function PremiumScreen({ navigation }: Props) {
       monetization.errorCode !== 'firebaseUnavailable' &&
       (googleSignInConfigured || appleSignInAvailable),
   );
-  const canSignInForPurchase = Boolean(
+  const canSignIn = Boolean(
     !monetization.isSignedIn &&
       monetization.isAuthReady &&
       monetization.errorCode !== 'firebaseUnavailable' &&
@@ -257,11 +258,6 @@ export function PremiumScreen({ navigation }: Props) {
       return;
     }
 
-    if (result === 'signInRequired') {
-      Alert.alert(t('premium.signInTitle'), t('premium.signInText'));
-      return;
-    }
-
     const latestSnapshot = getMonetizationSnapshot();
     Alert.alert(
       t('premium.error.title'),
@@ -292,11 +288,6 @@ export function PremiumScreen({ navigation }: Props) {
       return;
     }
 
-    if (result === 'signInRequired') {
-      Alert.alert(t('premium.signInTitle'), t('premium.signInText'));
-      return;
-    }
-
     const latestSnapshot = getMonetizationSnapshot();
     Alert.alert(
       t('premium.error.title'),
@@ -317,6 +308,14 @@ export function PremiumScreen({ navigation }: Props) {
       () => undefined,
     );
   }, [openLink, t]);
+
+  const handleOpenPrivacy = useCallback(() => {
+    openLink(monetizationConfig.privacyPolicyUrl).catch(() => undefined);
+  }, [openLink]);
+
+  const handleOpenTerms = useCallback(() => {
+    openLink(monetizationConfig.termsOfUseUrl).catch(() => undefined);
+  }, [openLink]);
 
   if (!isGranted) {
     return (
@@ -382,7 +381,7 @@ export function PremiumScreen({ navigation }: Props) {
           <SelectedPackageCard
             appleSignInAvailable={appleSignInAvailable}
             canPurchase={canPurchase}
-            canSignInForPurchase={canSignInForPurchase}
+            canSignIn={canSignIn}
             googleSignInConfigured={googleSignInConfigured}
             isAuthReady={monetization.isAuthReady}
             isConfigured={monetization.isConfigured}
@@ -392,6 +391,8 @@ export function PremiumScreen({ navigation }: Props) {
             monetizationErrorCode={monetization.errorCode}
             onAppleSignIn={handleAppleSignIn}
             onGoogleSignIn={handleGoogleSignIn}
+            onOpenPrivacy={handleOpenPrivacy}
+            onOpenTerms={handleOpenTerms}
             onPurchase={handlePurchase}
             pendingAction={monetization.pendingAction}
             signInAction={signInAction}
@@ -422,51 +423,6 @@ export function PremiumScreen({ navigation }: Props) {
           t={t}
         />
       )}
-
-      {!shouldShowPlanPicker &&
-        !monetization.isSignedIn &&
-        monetization.isAuthReady &&
-        !monetization.founderAccessActive && (
-          <AppCard style={styles.statusCard}>
-            <Text style={styles.sectionTitle}>{t('premium.signInTitle')}</Text>
-            <Text style={styles.bodyText}>{t('premium.signInText')}</Text>
-            {!googleSignInConfigured && !appleSignInAvailable ? (
-              <Text style={styles.configWarning}>
-                {t('parent.account.googleConfigMissing')}
-              </Text>
-            ) : null}
-            <View style={styles.actions}>
-              {appleSignInAvailable && (
-                <AppButton
-                  disabled={
-                    isBusy || monetization.errorCode === 'firebaseUnavailable'
-                  }
-                  onPress={handleAppleSignIn}
-                  title={
-                    signInAction === 'apple'
-                      ? t('parent.account.signingIn')
-                      : t('parent.account.signInApple')
-                  }
-                  variant="secondary"
-                />
-              )}
-              <AppButton
-                disabled={
-                  isBusy ||
-                  !googleSignInConfigured ||
-                  monetization.errorCode === 'firebaseUnavailable'
-                }
-                onPress={handleGoogleSignIn}
-                title={
-                  signInAction === 'google'
-                    ? t('parent.account.signingIn')
-                    : t('parent.account.signInGoogle')
-                }
-                variant={appleSignInAvailable ? 'outlined' : 'secondary'}
-              />
-            </View>
-          </AppCard>
-        )}
 
       <View style={styles.benefits}>
         <BenefitRow
@@ -506,9 +462,7 @@ export function PremiumScreen({ navigation }: Props) {
 
       <View style={styles.secondaryActions}>
         <AppButton
-          disabled={
-            isBusy || !monetization.isConfigured || !monetization.isSignedIn
-          }
+          disabled={isBusy || !monetization.isConfigured}
           onPress={handleRestore}
           title={
             monetization.pendingAction === 'restore'
@@ -641,7 +595,7 @@ function BenefitRow({ text, title }: { text: string; title: string }) {
 function SelectedPackageCard({
   appleSignInAvailable,
   canPurchase,
-  canSignInForPurchase,
+  canSignIn,
   googleSignInConfigured,
   isAuthReady,
   isConfigured,
@@ -651,6 +605,8 @@ function SelectedPackageCard({
   monetizationErrorCode,
   onAppleSignIn,
   onGoogleSignIn,
+  onOpenPrivacy,
+  onOpenTerms,
   onPurchase,
   pendingAction,
   signInAction,
@@ -658,7 +614,7 @@ function SelectedPackageCard({
 }: {
   appleSignInAvailable: boolean;
   canPurchase: boolean;
-  canSignInForPurchase: boolean;
+  canSignIn: boolean;
   googleSignInConfigured: boolean;
   isAuthReady: boolean;
   isConfigured: boolean;
@@ -668,6 +624,8 @@ function SelectedPackageCard({
   monetizationErrorCode?: MonetizationErrorCode;
   onAppleSignIn: () => void;
   onGoogleSignIn: () => void;
+  onOpenPrivacy: () => void;
+  onOpenTerms: () => void;
   onPurchase: () => void;
   pendingAction: MonetizationPendingAction;
   signInAction: SignInAction;
@@ -675,45 +633,74 @@ function SelectedPackageCard({
 }) {
   const hasSignInProvider = googleSignInConfigured || appleSignInAvailable;
   const isFirebaseUnavailable = monetizationErrorCode === 'firebaseUnavailable';
+  const planTitle = getPackageTitle(t, item.packageType);
 
   return (
     <AppCard style={styles.checkoutCard}>
       <View style={styles.checkoutSummary}>
-        <Text numberOfLines={1} style={styles.checkoutSummaryLabel}>
-          {t('premium.checkout.selectedPlan')}:{' '}
-          {getPackageTitle(t, item.packageType)}
+        <Text style={styles.checkoutSummaryLabel}>
+          {t('premium.checkout.selectedPlan')}
         </Text>
-        <Text
-          adjustsFontSizeToFit
-          minimumFontScale={0.8}
-          numberOfLines={1}
-          style={styles.checkoutSummaryPrice}
-        >
-          {item.priceString}
+        <View style={styles.checkoutSummaryValue}>
+          <Text style={styles.checkoutSummaryPlan}>{planTitle}</Text>
+          <Text
+            adjustsFontSizeToFit
+            minimumFontScale={0.8}
+            numberOfLines={1}
+            style={styles.checkoutSummaryPrice}
+          >
+            {item.priceString}
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.checkoutTerms}>
+        <Text style={styles.checkoutTermTitle}>
+          {t('premium.checkout.planSummary', {
+            package: planTitle,
+            product: t('premium.currentGeneric'),
+          })}
+        </Text>
+        <Text style={styles.checkoutTermText}>
+          {t('premium.checkout.includes')}
+        </Text>
+        <Text style={styles.disclosure}>
+          {getPackageDisclosureText(t, item)}
         </Text>
       </View>
 
-      {isSignedIn ? (
-        <>
-          {!isConfigured && (
-            <Text style={styles.configWarning}>
-              {t('premium.error.configurationMissing')}
-            </Text>
-          )}
-          <AppButton
-            disabled={!canPurchase}
-            onPress={onPurchase}
-            title={
-              pendingAction === 'purchase'
-                ? t('premium.purchasing')
-                : t('premium.purchase', {
-                    package: getPackageTitle(t, item.packageType),
-                  })
-            }
-          />
-        </>
-      ) : isAuthReady ? (
-        <View style={styles.checkoutGate}>
+      {!isConfigured && (
+        <Text style={styles.configWarning}>
+          {t('premium.error.configurationMissing')}
+        </Text>
+      )}
+
+      <AppButton
+        disabled={!canPurchase}
+        onPress={onPurchase}
+        title={
+          pendingAction === 'purchase'
+            ? t('premium.purchasing')
+            : t('premium.purchase', {
+                package: planTitle,
+              })
+        }
+      />
+
+      <View style={styles.checkoutLegalRow}>
+        <Text style={styles.checkoutLegalText}>
+          {t('premium.checkout.legalIntro')}
+        </Text>
+        <Pressable accessibilityRole="link" onPress={onOpenPrivacy}>
+          <Text style={styles.legalLink}>{t('premium.legal.privacy')}</Text>
+        </Pressable>
+        <Pressable accessibilityRole="link" onPress={onOpenTerms}>
+          <Text style={styles.legalLink}>{t('premium.legal.terms')}</Text>
+        </Pressable>
+      </View>
+
+      {!isSignedIn && isAuthReady && (
+        <View style={styles.checkoutAccountBox}>
           <Text style={styles.checkoutGateTitle}>
             {t('premium.signInTitle')}
           </Text>
@@ -732,44 +719,36 @@ function SelectedPackageCard({
               {t('premium.error.firebaseUnavailable')}
             </Text>
           )}
-          <View style={styles.actions}>
-            {googleSignInConfigured && (
-              <AppButton
-                disabled={!canSignInForPurchase}
-                onPress={onGoogleSignIn}
-                title={
-                  signInAction === 'google'
-                    ? t('parent.account.signingIn')
-                    : t('parent.account.signInGoogle')
-                }
-              />
-            )}
-            {appleSignInAvailable && (
-              <AppButton
-                disabled={!canSignInForPurchase}
-                onPress={onAppleSignIn}
-                title={
-                  signInAction === 'apple'
-                    ? t('parent.account.signingIn')
-                    : t('parent.account.signInApple')
-                }
-                variant={googleSignInConfigured ? 'outlined' : 'primary'}
-              />
-            )}
-          </View>
-        </View>
-      ) : (
-        <View style={styles.inlineStatus}>
-          <ActivityIndicator color={colors.primaryDark} size="small" />
-          <Text style={styles.statusText}>{t('premium.resolving')}</Text>
+          {hasSignInProvider && (
+            <View style={styles.actions}>
+              {appleSignInAvailable && (
+                <AppButton
+                  disabled={!canSignIn}
+                  onPress={onAppleSignIn}
+                  title={
+                    signInAction === 'apple'
+                      ? t('parent.account.signingIn')
+                      : t('parent.account.signInApple')
+                  }
+                  variant="outlined"
+                />
+              )}
+              {googleSignInConfigured && (
+                <AppButton
+                  disabled={!canSignIn}
+                  onPress={onGoogleSignIn}
+                  title={
+                    signInAction === 'google'
+                      ? t('parent.account.signingIn')
+                      : t('parent.account.signInGoogle')
+                  }
+                  variant="outlined"
+                />
+              )}
+            </View>
+          )}
         </View>
       )}
-
-      <Text style={styles.disclosure}>
-        {item.packageType === 'lifetime'
-          ? t('premium.disclosure.lifetime')
-          : t('premium.disclosure.subscription')}
-      </Text>
     </AppCard>
   );
 }
@@ -803,10 +782,15 @@ function PackageOption({
         pressed && styles.packageCardPressed,
       ]}
     >
-      <Text style={styles.packageRecommendation}>
+      <Text
+        adjustsFontSizeToFit
+        minimumFontScale={0.72}
+        numberOfLines={1}
+        style={styles.packageRecommendation}
+      >
         {isAnnual ? t('premium.package.bestValue') : ' '}
       </Text>
-      <Text numberOfLines={2} style={styles.packageTitle}>
+      <Text style={styles.packageTitle}>
         {getPackageTitle(t, item.packageType)}
       </Text>
       <Text
@@ -817,7 +801,7 @@ function PackageOption({
       >
         {item.priceString}
       </Text>
-      <Text numberOfLines={2} style={styles.packageBilling}>
+      <Text style={styles.packageBilling}>
         {isAnnual && annualSavings
           ? t('premium.package.savePercent', { percent: annualSavings })
           : getPackageBillingCopy(t, item.packageType)}
@@ -903,6 +887,30 @@ function getPackageBillingCopy(
   }
 
   return t('premium.package.billingLifetime');
+}
+
+function getPackageDisclosureText(t: Translator, item: MonetizationPackage) {
+  if (item.packageType === 'monthly') {
+    return t('premium.disclosure.subscriptionMonthly', {
+      price: item.priceString,
+    });
+  }
+
+  if (item.packageType === 'annual') {
+    return t('premium.disclosure.subscriptionAnnual', {
+      price: item.priceString,
+    });
+  }
+
+  if (Platform.OS === 'ios') {
+    return t('premium.disclosure.lifetime.ios');
+  }
+
+  if (Platform.OS === 'android') {
+    return t('premium.disclosure.lifetime.android');
+  }
+
+  return t('premium.disclosure.lifetime');
 }
 
 function getMonetizationErrorMessage(
@@ -1062,8 +1070,12 @@ const styles = createThemedStyles(() => ({
     marginTop: spacing.md,
     padding: spacing.md,
   },
-  checkoutGate: {
+  checkoutAccountBox: {
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
     gap: spacing.xs,
+    marginTop: spacing.xs,
+    paddingTop: spacing.md,
   },
   checkoutGateText: {
     ...typography.caption,
@@ -1075,26 +1087,58 @@ const styles = createThemedStyles(() => ({
     fontWeight: '900',
   },
   checkoutSummary: {
-    alignItems: 'center',
+    gap: spacing.xxs,
+  },
+  checkoutSummaryLabel: {
+    ...typography.caption,
+    color: colors.textSoft,
+  },
+  checkoutSummaryValue: {
+    alignItems: 'flex-start',
     flexDirection: 'row',
     gap: spacing.sm,
     justifyContent: 'space-between',
   },
-  checkoutSummaryLabel: {
-    ...typography.body,
+  checkoutSummaryPlan: {
+    ...typography.subtitle,
     color: colors.text,
     flex: 1,
+    flexShrink: 1,
     fontWeight: '900',
   },
   checkoutSummaryPrice: {
     ...typography.subtitle,
     color: colors.text,
+    flexShrink: 0,
+    maxWidth: '48%',
     textAlign: 'right',
+  },
+  checkoutLegalRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    justifyContent: 'center',
+  },
+  checkoutLegalText: {
+    ...typography.caption,
+    color: colors.textSoft,
+  },
+  checkoutTermText: {
+    ...typography.caption,
+    color: colors.textSoft,
+  },
+  checkoutTermTitle: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '900',
+  },
+  checkoutTerms: {
+    gap: spacing.xs,
   },
   disclosure: {
     ...typography.caption,
     color: colors.textSoft,
-    textAlign: 'center',
   },
   errorCard: {
     backgroundColor: colors.accentSoft,

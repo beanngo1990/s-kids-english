@@ -134,6 +134,7 @@ type SceneCompletionState = {
 const objectAudioCooldownMs = 900;
 const interactionCooldownMs = 400;
 const feedbackPlaybackTimeoutMs = 15000;
+const requiredImageRetryDelayMs = 300;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -571,13 +572,16 @@ export function ScenePlayer({
     const preloadCurrentScene = async () => {
       try {
         const imageAssets = getSceneImageSources(currentScene);
-        const audioAssets = canBypassMissingAudio
-          ? []
-          : getSceneRequiredAudioAssets(
-              currentScene,
-              teacherPromptMode,
-              englishAccent,
-            );
+        const entryStep = getInitialStep(currentScene);
+        const audioAssets =
+          canBypassMissingAudio || !entryStep
+            ? []
+            : getStepAudioAssets(
+                currentScene,
+                entryStep,
+                teacherPromptMode,
+                englishAccent,
+              );
 
         let loaded = 0;
         const total = imageAssets.length + audioAssets.length;
@@ -586,8 +590,8 @@ export function ScenePlayer({
           setLoadProgress(100);
         }
 
-        const updateProgress = () => {
-          loaded++;
+        const updateProgress = (completedAssets = 1) => {
+          loaded += completedAssets;
           if (isMounted) {
             setLoadProgress(Math.min(99, Math.round((loaded / total) * 100)));
           }
@@ -595,7 +599,7 @@ export function ScenePlayer({
 
         const imagePromises = imageAssets.map(async asset => {
           try {
-            const isReady = await prefetchAssets([asset]);
+            const isReady = await prepareRequiredImage(asset, () => isMounted);
             if (
               __DEV__ &&
               process.env.NODE_ENV !== 'test' &&
@@ -618,36 +622,39 @@ export function ScenePlayer({
             updateProgress();
           }
         });
-        const audioPromises = audioAssets.map(async asset => {
+        const audioPromise = (async () => {
+          if (audioAssets.length === 0) {
+            return true;
+          }
+
           try {
-            const isReady = await prepareRemoteAssets([asset]);
+            const isReady = await prepareRemoteAssets(audioAssets);
             if (
               __DEV__ &&
               process.env.NODE_ENV !== 'test' &&
               !isReady
             ) {
               console.warn(
-                `[ScenePlayer] Required audio failed to prepare: ${asset.cacheKey}`,
+                '[ScenePlayer] Required entry audio failed to prepare:',
+                audioAssets.map(asset => asset.cacheKey),
               );
             }
             return isReady;
           } catch (error) {
             if (__DEV__ && process.env.NODE_ENV !== 'test') {
               console.warn(
-                `[ScenePlayer] Required audio preparation threw: ${asset.cacheKey}`,
+                '[ScenePlayer] Required entry audio preparation threw:',
+                audioAssets.map(asset => asset.cacheKey),
                 error,
               );
             }
             return false;
           } finally {
-            updateProgress();
+            updateProgress(audioAssets.length);
           }
-        });
+        })();
 
-        const readiness = await Promise.all([
-          ...imagePromises,
-          ...audioPromises,
-        ]);
+        const readiness = await Promise.all([...imagePromises, audioPromise]);
         if (!readiness.every(Boolean)) {
           if (isMounted) {
             setRequiredAssetFailure('scene');
@@ -2053,6 +2060,30 @@ function clearTimer(
     clearTimeout(timerRef.current);
     timerRef.current = null;
   }
+}
+
+async function prepareRequiredImage(asset: string, isActive: () => boolean) {
+  const firstAttemptReady = await tryPrefetchImage(asset);
+  if (firstAttemptReady || !isActive()) {
+    return firstAttemptReady;
+  }
+
+  await wait(requiredImageRetryDelayMs);
+  return isActive() ? tryPrefetchImage(asset) : false;
+}
+
+async function tryPrefetchImage(asset: string) {
+  try {
+    return await prefetchAssets([asset]);
+  } catch {
+    return false;
+  }
+}
+
+function wait(durationMs: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, durationMs);
+  });
 }
 
 function getRenderableObjects(scene: Scene) {

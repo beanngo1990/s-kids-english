@@ -17,6 +17,10 @@ export type RemoteAssetCacheEntry = {
   remoteUrl: string;
 };
 
+const assetBatchSize = 4;
+const foregroundRetryDelayMs = 300;
+const inFlightForegroundPreparations = new Map<string, Promise<boolean>>();
+
 function getNativeAssetCache() {
   return NativeModules.SkidsAssetCache as SkidsAssetCacheModule | undefined;
 }
@@ -95,11 +99,17 @@ export async function prefetchRemoteAssets(
     return false;
   }
 
-  try {
-    return await nativeCache.prefetchAssets(validAssets);
-  } catch {
-    return false;
+  let allAssetsReady = true;
+  for (const assetBatch of chunkAssets(validAssets)) {
+    try {
+      const isBatchReady = await nativeCache.prefetchAssets(assetBatch);
+      allAssetsReady = isBatchReady && allAssetsReady;
+    } catch {
+      allAssetsReady = false;
+    }
   }
+
+  return allAssetsReady;
 }
 
 /**
@@ -125,21 +135,77 @@ export async function prepareRemoteAssets(
     return false;
   }
 
-  const preparedAssets = await Promise.all(
-    validAssets.map(async asset => {
-      try {
-        const uri = await nativeCache.getCachedAssetUrl?.(
-          asset.remoteUrl,
-          asset.cacheKey,
-        );
-        return uri?.startsWith('file:') === true;
-      } catch {
-        return false;
-      }
-    }),
-  );
+  let allAssetsReady = true;
+  for (const assetBatch of chunkAssets(validAssets)) {
+    const preparedAssets = await Promise.all(
+      assetBatch.map(asset => prepareForegroundAsset(nativeCache, asset)),
+    );
+    allAssetsReady = preparedAssets.every(Boolean) && allAssetsReady;
+  }
 
-  return preparedAssets.every(Boolean);
+  return allAssetsReady;
+}
+
+async function prepareForegroundAsset(
+  nativeCache: SkidsAssetCacheModule,
+  asset: RemoteAssetCacheEntry,
+) {
+  const firstAttemptReady = await prepareForegroundAssetOnce(
+    nativeCache,
+    asset,
+  );
+  if (firstAttemptReady) {
+    return true;
+  }
+
+  await wait(foregroundRetryDelayMs);
+  return prepareForegroundAssetOnce(nativeCache, asset);
+}
+
+function prepareForegroundAssetOnce(
+  nativeCache: SkidsAssetCacheModule,
+  asset: RemoteAssetCacheEntry,
+) {
+  const preparationKey = `${asset.cacheKey}\n${asset.remoteUrl}`;
+  const inFlightPreparation =
+    inFlightForegroundPreparations.get(preparationKey);
+  if (inFlightPreparation) {
+    return inFlightPreparation;
+  }
+
+  let preparation: Promise<boolean>;
+  preparation = (async () => {
+    try {
+      const uri = await nativeCache.getCachedAssetUrl?.(
+        asset.remoteUrl,
+        asset.cacheKey,
+      );
+      return uri?.startsWith('file:') === true;
+    } catch {
+      return false;
+    }
+  })().finally(() => {
+    if (inFlightForegroundPreparations.get(preparationKey) === preparation) {
+      inFlightForegroundPreparations.delete(preparationKey);
+    }
+  });
+
+  inFlightForegroundPreparations.set(preparationKey, preparation);
+  return preparation;
+}
+
+function chunkAssets(assets: RemoteAssetCacheEntry[]) {
+  const batches: RemoteAssetCacheEntry[][] = [];
+  for (let index = 0; index < assets.length; index += assetBatchSize) {
+    batches.push(assets.slice(index, index + assetBatchSize));
+  }
+  return batches;
+}
+
+function wait(durationMs: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, durationMs);
+  });
 }
 
 function getUniqueValidAssets(assets: RemoteAssetCacheEntry[]) {

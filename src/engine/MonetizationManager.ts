@@ -97,14 +97,12 @@ export type PurchaseResult =
   | 'failed'
   | 'pending'
   | 'purchased'
-  | 'signInRequired'
   | 'unavailable';
 
 export type RestoreResult =
   | 'cancelled'
   | 'failed'
   | 'restored'
-  | 'signInRequired'
   | 'unavailable'
   | 'withoutPremium';
 
@@ -244,10 +242,6 @@ export async function refreshMonetization(options?: { invalidate?: boolean }) {
 export async function purchaseMonetizationPackage(
   packageIdentifier: string,
 ): Promise<PurchaseResult> {
-  if (!latestAuthSnapshot.user) {
-    return 'signInRequired';
-  }
-
   if (
     !configured ||
     !getRemoteMonetizationConfigSnapshot().premiumPurchaseEnabled
@@ -313,10 +307,6 @@ export async function purchaseMonetizationPackage(
 }
 
 export async function restoreMonetizationPurchases(): Promise<RestoreResult> {
-  if (!latestAuthSnapshot.user) {
-    return 'signInRequired';
-  }
-
   if (!configured) {
     return 'unavailable';
   }
@@ -422,19 +412,6 @@ async function handleAuthSnapshot(authSnapshot: ParentAuthSnapshot) {
       pendingAction: null,
       status: 'unavailable',
       userId,
-    });
-    return;
-  }
-
-  if (authSnapshot.configurationError && !userId) {
-    updateSnapshot({
-      ...clearPremiumAccessMetadata(snapshot),
-      errorCode: 'firebaseUnavailable',
-      isAuthReady: true,
-      isSignedIn: false,
-      pendingAction: null,
-      status: 'unavailable',
-      userId: undefined,
     });
     return;
   }
@@ -712,9 +689,7 @@ export function mapCustomerInfoToMonetizationSnapshot(
   const hasFounderPremium = Boolean(
     authSnapshot.user && founderAccessActive && !hasRevenueCatPremium,
   );
-  const hasPremium = Boolean(
-    authSnapshot.user && (hasRevenueCatPremium || hasFounderPremium),
-  );
+  const hasPremium = Boolean(hasRevenueCatPremium || hasFounderPremium);
 
   return {
     ...currentSnapshot,
@@ -743,13 +718,13 @@ export function mapCustomerInfoToMonetizationSnapshot(
         ? 'revenueCat'
         : 'founder'
       : undefined,
-    status: !authSnapshot.user
-      ? 'signedOut'
-      : verificationFailed
+    status: verificationFailed
       ? 'unavailable'
       : hasPremium
       ? 'premium'
-      : 'free',
+      : authSnapshot.user
+      ? 'free'
+      : 'signedOut',
     userId: authSnapshot.user?.uid,
     willRenew:
       hasPremium && hasRevenueCatPremium

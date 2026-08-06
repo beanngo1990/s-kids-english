@@ -375,10 +375,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   mẹ mở khóa và mở Parent intent, không dùng màn Premium toàn trang trong Kid Mode.
 - Scene/review đã bắt đầu latch access cho phiên hiện tại để entitlement hết hạn giữa hoạt động
   không đẩy bé ra ngoài. Quyền được kiểm tra lại tại boundary mới, ví dụ từ scene sang review.
-- `PremiumScreen` chỉ mở sau adult gate và hỗ trợ parent Firebase sign-in, hiển thị packages từ
-  RevenueCat offering, mua, restore, subscription management URL, trạng thái gói đang active và
-  retry. UI hỗ trợ package monthly/annual/lifetime; giá/currency hiển thị lấy từ store metadata,
-  không lấy các giá tư vấn hardcode trong app.
+- `PremiumScreen` chỉ mở sau adult gate và hỗ trợ parent Firebase sign-in tùy chọn, hiển thị
+  packages từ RevenueCat offering, mua, restore, subscription management URL, trạng thái gói đang
+  active và retry. Store purchase/restore không yêu cầu đăng ký tài khoản phụ huynh; sign-in chỉ
+  dùng để liên kết quyền với parent account cho cloud sync/account-based restore. UI hỗ trợ
+  package monthly/annual/lifetime; giá/currency hiển thị lấy từ store metadata, không lấy các giá
+  tư vấn hardcode trong app, và checkout hiển thị disclosure/legal links cho gói đang chọn.
 - Khi normalized monetization status là `premium`, Kid Mode hiển thị chip Premium nhỏ trong
   header mà không đưa giá, hạn dùng hoặc chi tiết mua hàng vào UI của bé. Parent dashboard hiển
   thị indicator Premium gọn với icon crown riêng, trạng thái, loại quyền và entry mở
@@ -391,17 +393,19 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn với tài khoản
   Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium` cho bài Premium
   kế tiếp.
-- `src/engine/MonetizationManager.ts` bind RevenueCat App User ID với Firebase parent UID. Verified
-  `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua và luôn ưu tiên;
-  listener và explicit refresh cập nhật trạng thái. Founder access là nhánh local riêng, được tính
-  từ metadata RevenueCat và Remote Config, không phải RevenueCat entitlement. Không persist quyền
+- `src/engine/MonetizationManager.ts` dùng Firebase parent UID làm RevenueCat App User ID khi
+  parent đã sign in, và dùng anonymous RevenueCat customer khi parent chưa sign in. Verified
+  `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua, luôn ưu tiên và
+  mở Premium kể cả khi chưa có parent account; listener và explicit refresh cập nhật trạng thái.
+  Founder access là nhánh local riêng, được tính từ metadata RevenueCat và Remote Config, không
+  phải RevenueCat entitlement, và vẫn chỉ mở nội dung sau khi parent sign-in. Không persist quyền
   thành một local boolean.
-- `premium_purchase_enabled` có thể tạm dừng mua mới mà không thay đổi entitlement đã có. Mọi
-  purchase/restore đều yêu cầu parent account đã sign in; RevenueCat diagnostics và automatic
-  device-identifier collection được tắt trong client config.
-- **Launch blocker:** `src/config/monetization.ts` vẫn để trống RevenueCat Apple/Google public SDK
-  keys, Privacy Policy URL và Terms of Use URL. Vì vậy code path đã có nhưng chưa sẵn sàng store
-  testing/release cho tới khi điền cấu hình thật và tạo products/offering/entitlement tương ứng.
+- `premium_purchase_enabled` có thể tạm dừng mua mới mà không thay đổi entitlement đã có.
+  Purchase/restore dùng StoreKit/Google Play qua RevenueCat mà không bắt buộc parent account.
+  RevenueCat diagnostics và automatic device-identifier collection được tắt trong client config.
+- **Store release blocker:** RevenueCat public SDK keys, Privacy Policy URL và Terms of Use URL đã
+  có trong `src/config/monetization.ts`, nhưng release vẫn cần App Store Connect/RevenueCat product,
+  offering, entitlement, screenshot metadata và subscription metadata khớp với app binary.
 - **Implemented trong repository:** client đọc `founder_premium_cutoff_at` và
   `founder_premium_duration_days`, so sánh với RevenueCat `CustomerInfo.firstSeen` và chỉ mở nội
   dung sau khi Firebase parent sign-in. Cutoff rỗng/date không hợp lệ fail closed; cơ chế này không
@@ -422,14 +426,18 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
-- Trước khi vào bài, ScenePlayer chuẩn bị gói tài nguyên bắt buộc của current scene: toàn bộ ảnh
-  scene cần render/effect và audio đúng với `teacherPromptMode` cùng `englishAccent` đang chọn.
-  Instruction và tương tác chỉ bắt đầu sau khi toàn bộ gói này báo sẵn sàng hoặc đã có trong cache.
+- Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
+  scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
+  `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm
+  thời; các foreground audio trùng key dùng chung in-flight preparation.
+- Audio còn lại của current scene và next scene được warm best-effort ở nền theo batch nhỏ để
+  không tạo một đợt request lớn chặn lần mở bài đầu tiên. Khi step thực sự cần audio, foreground
+  prepare vẫn xác nhận file đã có trong cache trước khi phát.
 - Cache hit có thể giúp scene chạy khi mất mạng, nhưng `Image.prefetch` dùng cache do React Native/
   hệ điều hành quản lý nên không được xem là một offline lesson pack bền vững hay được bảo đảm.
-- Nếu một tài nguyên bắt buộc chưa sẵn sàng, lesson dừng ở màn lỗi có `Thử lại` và `Thoát bài`;
-  step/feedback không tự chuyển tiếp trong im lặng. Prefetch nền cho next scene và các tài nguyên
-  không bắt buộc vẫn là best-effort và không chặn current scene.
+- Nếu một tài nguyên bắt buộc vẫn chưa sẵn sàng sau retry, lesson dừng ở màn lỗi có `Thử lại` và
+  `Thoát bài`; step/feedback không tự chuyển tiếp trong im lặng. Prefetch nền cho next scene và
+  các tài nguyên không bắt buộc vẫn là best-effort và không chặn current scene.
 - Success/fail feedback audio của current step được warm trong lúc instruction đang phát. Với
   listen step, nút Continue chỉ xuất hiện sau khi success feedback đã prepare xong. Khi trả lời
   đúng, UI hiển thị feedback text và trạng thái chuẩn bị/phát ngay. Step chỉ chuyển tiếp sau khi

@@ -91,9 +91,9 @@ export const vi = {
   'premium.benefit.reviewTitle': 'Ôn tập không giới hạn bài',
   'premium.benefit.reviewText':
     'Bé có thể quay lại bài và chơi nội dung ôn tập của mọi bài đã mở.',
-  'premium.benefit.accountTitle': 'Khôi phục bằng tài khoản ba mẹ',
+  'premium.benefit.accountTitle': 'Khôi phục khi cần',
   'premium.benefit.accountText':
-    'Quyền mua gói được xác thực an toàn với tài khoản phụ huynh đã đăng nhập.',
+    'Ba mẹ có thể khôi phục giao dịch mua trên thiết bị này. Đăng nhập chỉ là lựa chọn thêm để liên kết quyền với tài khoản phụ huynh.',
   'premium.teaser.badge': 'Premium cho bé học tiếp',
   'premium.teaser.title': 'Mở khóa toàn bộ bài học Premium',
   'premium.teaser.subtitle':
@@ -107,9 +107,9 @@ export const vi = {
   'premium.lessonRow.compactAction': 'Premium',
   'premium.lessonRow.openPlansAccessibility':
     'Xem gói Premium để mở khóa bài {lessonTitle}',
-  'premium.signInTitle': 'Đăng nhập trước khi mua',
+  'premium.signInTitle': 'Tài khoản phụ huynh tùy chọn',
   'premium.signInText':
-    'Đăng nhập tài khoản ba mẹ để gắn và khôi phục quyền Premium an toàn.',
+    'Ba mẹ chỉ cần đăng nhập nếu muốn liên kết quyền Premium với tài khoản phụ huynh để đồng bộ cloud và khôi phục theo tài khoản.',
   'premium.founder.badge': 'Quà ra mắt dành cho phụ huynh sớm',
   'premium.founder.title': 'Premium miễn phí trong 1 năm',
   'premium.founder.marketingText':
@@ -130,8 +130,12 @@ export const vi = {
   'premium.package.billingLifetime': 'Thanh toán một lần',
   'premium.package.chooseTitle': 'Chọn gói phù hợp',
   'premium.checkout.selectedPlan': 'Gói đang chọn',
+  'premium.checkout.planSummary': '{product} · {package}',
+  'premium.checkout.includes':
+    'Bao gồm toàn bộ bài học Premium, cảnh tương tác và hoạt động ôn tập hiện có.',
+  'premium.checkout.legalIntro': 'Điều khoản:',
   'premium.checkout.signInHint':
-    'Ba mẹ đăng nhập một lần, sau đó cửa hàng sẽ mở để hoàn tất thanh toán.',
+    'Ba mẹ có thể mua mà không cần đăng nhập. Chỉ đăng nhập tại đây nếu muốn khôi phục theo tài khoản và đồng bộ cloud.',
   'premium.purchase': 'Tiếp tục với {package}',
   'premium.purchasing': 'Đang mở cửa hàng...',
   'premium.restore': 'Khôi phục giao dịch mua',
@@ -167,21 +171,37 @@ export const vi = {
     'Khoản thanh toán được tính vào tài khoản App Store của ba mẹ. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần cài đặt tài khoản App Store.',
   'premium.disclosure.subscription.android':
     'Khoản thanh toán được tính vào tài khoản Google Play của ba mẹ. Gói sẽ tự động gia hạn theo chu kỳ đã chọn, trừ khi ba mẹ hủy trong phần quản lý đăng ký trên Google Play.',
+  'premium.disclosure.subscriptionMonthly':
+    'Gói gia hạn hằng tháng với giá {price}, trừ khi ba mẹ hủy trong phần quản lý đăng ký của cửa hàng trước ngày gia hạn.',
+  'premium.disclosure.subscriptionMonthly.ios':
+    'Gói gia hạn hằng tháng với giá {price}, trừ khi ba mẹ hủy trong cài đặt tài khoản App Store trước ngày gia hạn.',
+  'premium.disclosure.subscriptionMonthly.android':
+    'Gói gia hạn hằng tháng với giá {price}, trừ khi ba mẹ hủy trong phần quản lý đăng ký Google Play trước ngày gia hạn.',
+  'premium.disclosure.subscriptionAnnual':
+    'Gói gia hạn hằng năm với giá {price}, trừ khi ba mẹ hủy trong phần quản lý đăng ký của cửa hàng trước ngày gia hạn.',
+  'premium.disclosure.subscriptionAnnual.ios':
+    'Gói gia hạn hằng năm với giá {price}, trừ khi ba mẹ hủy trong cài đặt tài khoản App Store trước ngày gia hạn.',
+  'premium.disclosure.subscriptionAnnual.android':
+    'Gói gia hạn hằng năm với giá {price}, trừ khi ba mẹ hủy trong phần quản lý đăng ký Google Play trước ngày gia hạn.',
   'premium.disclosure.lifetime':
     'Đây là giao dịch mua một lần, không tự động gia hạn.',
+  'premium.disclosure.lifetime.ios':
+    'Đây là giao dịch mua một lần qua App Store, không tự động gia hạn.',
+  'premium.disclosure.lifetime.android':
+    'Đây là giao dịch mua một lần qua Google Play, không tự động gia hạn.',
   'premium.alert.purchasedTitle': 'Đã mở Premium',
   'premium.alert.purchasedText':
-    'Hệ thống đã xác nhận thành công quyền Premium cho tài khoản ba mẹ.',
+    'Hệ thống đã xác nhận thành công quyền Premium.',
   'premium.alert.pendingTitle': 'Giao dịch đang chờ xử lý',
   'premium.alert.pendingText':
     'Cửa hàng hoặc người phê duyệt còn phải hoàn tất giao dịch. Premium sẽ mở sau khi quyền được xác nhận.',
   'premium.alert.restoredTitle': 'Đã khôi phục Premium',
   'premium.alert.restoredText':
-    'Quyền Premium đang hoạt động đã được khôi phục cho tài khoản này.',
+    'Quyền Premium đang hoạt động đã được khôi phục.',
   'premium.alert.withoutPremiumTitle': 'Chưa có quyền Premium đang hoạt động',
   'premium.alert.withoutPremiumText':
     'Cửa hàng đã hoàn tất kiểm tra nhưng chưa trả về quyền Premium đang hoạt động cho tài khoản này.',
-  'premium.alert.alreadyPremium': 'Tài khoản này đã có Premium đang hoạt động.',
+  'premium.alert.alreadyPremium': 'Premium đang hoạt động.',
   'premium.error.title': 'Chưa thể hoàn tất',
   'premium.error.configurationMissing':
     'Gói mua chưa khả dụng trên phiên bản ứng dụng này. Ba mẹ vui lòng thử lại sau.',
