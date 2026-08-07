@@ -458,6 +458,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, theo dõi audio level/silence,
   auto-stop và hỗ trợ phát lại local recording theo yêu cầu.
+- Permission flow phân biệt `granted`, từ chối có thể hỏi lại (`denied`), từ chối buộc mở Settings
+  (`blocked`) và recorder không khả dụng. Sau một lần từ chối, các teach step sau trong cùng phiên
+  không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm thu lại.
+- Chỉ trạng thái `blocked` mới dẫn phụ huynh tới Settings. Khi app active trở lại sau Settings,
+  `SpeakPracticeControls` kiểm tra lại quyền và mở lại nút ghi âm nếu quyền đã được cấp, nhưng không
+  tự bắt đầu ghi âm ngoài ý muốn.
 - Speech practice không phải một `SceneInteractionType` riêng.
 - **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Feedback sau
   recording chỉ khuyến khích, không xác nhận phát âm đúng; nếu lượt ghi âm không phát hiện
