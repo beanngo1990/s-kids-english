@@ -90,6 +90,16 @@ describe('MemoryGame', () => {
     expect(phoneLayout.cardStyle.width).toBe(phoneLayout.cardStyle.flexBasis);
   });
 
+  it('keeps three near-square cards per row for hard mode on phones', () => {
+    const phoneLayout = getMemoryGridLayout(12, getResponsiveLayout(390, 844));
+
+    expect(phoneLayout.columnCount).toBe(3);
+    expect(phoneLayout.cardStyle.aspectRatio).toBe(1.05);
+    expect(
+      Number.parseFloat(String(phoneLayout.cardStyle.width)),
+    ).toBeGreaterThan(30);
+  });
+
   it('ignores card taps while the intro is playing', async () => {
     await renderGame({ isIntroPlaying: true });
 
@@ -119,6 +129,17 @@ describe('MemoryGame', () => {
       renderer!.root.findByProps({ testID: 'memory-card-vocab-swing-a' }).props
         .accessibilityState.selected,
     ).toBe(true);
+  });
+
+  it('removes card audio hints in challenge mode and speaks on a match', async () => {
+    await renderGame({ learningMode: 'challenge' });
+
+    pressCard('vocab-swing-a');
+    expect(speakWord).not.toHaveBeenCalled();
+
+    pressCard('vocab-swing-b');
+    expect(speakWord).toHaveBeenCalledTimes(1);
+    expect(speakWord).toHaveBeenCalledWith('swing');
   });
 
   it('keeps the board interactive when progress persistence is still pending', async () => {
@@ -156,7 +177,7 @@ describe('MemoryGame', () => {
     ).toBe(true);
 
     await act(async () => {
-      jest.advanceTimersByTime(820);
+      jest.advanceTimersByTime(1_050);
       await Promise.resolve();
     });
 

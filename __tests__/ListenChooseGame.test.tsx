@@ -33,6 +33,22 @@ const mockItems: ListenChooseItem[] = [
   },
 ];
 
+const difficultyItems: ListenChooseItem[] = [
+  ...mockItems,
+  {
+    id: 'vocab-head',
+    imageSource: { uri: 'file://head.png' },
+    meaningVi: 'đầu',
+    word: 'head',
+  },
+  {
+    id: 'vocab-hand',
+    imageSource: { uri: 'file://hand.png' },
+    meaningVi: 'bàn tay',
+    word: 'hand',
+  },
+];
+
 describe('ListenChooseGame', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -66,6 +82,35 @@ describe('ListenChooseGame', () => {
         node.props.accessibilityLabel === 'slide',
     );
     expect(cards.length).toBeGreaterThanOrEqual(2);
+
+    act(() => {
+      renderer!.unmount();
+    });
+  });
+
+  it.each([
+    ['core', 2],
+    ['expanded', 3],
+    ['challenge', 4],
+  ] as const)('shows %s mode with %i answer choices', (learningMode, count) => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <ListenChooseGame
+          items={difficultyItems}
+          learningMode={learningMode}
+          onComplete={jest.fn()}
+        />,
+      );
+    });
+
+    const words = new Set(difficultyItems.map(item => item.word));
+    const optionCards = renderer!.root.findAll(
+      node =>
+        words.has(node.props.accessibilityLabel) &&
+        typeof node.props.onPress === 'function',
+    );
+    expect(optionCards).toHaveLength(count);
 
     act(() => {
       renderer!.unmount();

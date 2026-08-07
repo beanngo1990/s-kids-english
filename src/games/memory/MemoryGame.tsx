@@ -31,6 +31,8 @@ import {
 } from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
+import type { LearningMode } from '../../types/lesson';
+import { getReviewDifficultyProfile } from '../difficulty';
 import {
   runGameMatchCallback,
   useGameFeedback,
@@ -52,6 +54,7 @@ type MemoryCard = MemoryGameItem & {
 type MemoryGameProps = {
   isIntroPlaying?: boolean;
   items: MemoryGameItem[];
+  learningMode?: LearningMode;
   onComplete: () => void;
   onMatch?: GameMatchCallback;
 };
@@ -59,6 +62,7 @@ type MemoryGameProps = {
 export function MemoryGame({
   isIntroPlaying = false,
   items,
+  learningMode = 'core',
   onComplete,
   onMatch,
 }: MemoryGameProps) {
@@ -66,6 +70,7 @@ export function MemoryGame({
   const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
   const reduceMotion = useReducedMotion();
+  const difficulty = getReviewDifficultyProfile(learningMode);
   const { feedback, resetFeedback, showFeedback } = useGameFeedback();
   const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
   const [cards, setCards] = useState<MemoryCard[]>(() =>
@@ -143,7 +148,9 @@ export function MemoryGame({
 
     resetFeedback();
     playTapSound().catch(() => undefined);
-    speakWord(card.word).catch(() => undefined);
+    if (difficulty.selectionAudioEnabled) {
+      speakWord(card.word).catch(() => undefined);
+    }
 
     if (openCardIds.length === 0) {
       setOpenCardIds([card.cardId]);
@@ -163,10 +170,16 @@ export function MemoryGame({
     setOpenCardIds(nextOpenCardIds);
     setIsCheckingPair(true);
     setTurnCount(current => current + 1);
-    showFeedback(isMatchingPair ? 'correct' : 'wrong', 1_000);
+    showFeedback(
+      isMatchingPair ? 'correct' : 'wrong',
+      isMatchingPair ? 1_000 : difficulty.wrongFeedbackDurationMs,
+    );
 
     if (isMatchingPair) {
       playCorrectSound().catch(() => undefined);
+      if (!difficulty.selectionAudioEnabled) {
+        speakWord(card.word).catch(() => undefined);
+      }
     } else {
       playWrongSound().catch(() => undefined);
     }
@@ -196,7 +209,7 @@ export function MemoryGame({
         setOpenCardIds([]);
         setIsCheckingPair(false);
       },
-      isMatchingPair ? 420 : 820,
+      isMatchingPair ? 420 : difficulty.memoryMismatchDelayMs,
     );
   };
 
@@ -459,6 +472,7 @@ export function getMemoryGridLayout(
 
   return {
     cardStyle: {
+      aspectRatio: layout.isTablet || layout.isLandscape ? 0.9 : 1.05,
       flexBasis: cardWidth,
       flexGrow: 0,
       flexShrink: 0,
@@ -487,7 +501,7 @@ function getMemoryColumnCount(cardCount: number, layout: ResponsiveLayout) {
     return Math.min(cardCount, cardCount <= 8 ? 4 : 5);
   }
 
-  return Math.min(cardCount, cardCount <= 8 ? 3 : 4);
+  return Math.min(cardCount, 3);
 }
 
 const styles = createThemedStyles(() => ({
@@ -541,7 +555,6 @@ const styles = createThemedStyles(() => ({
     top: 0,
   },
   cardWrapper: {
-    aspectRatio: 0.9,
     position: 'relative',
   },
   cardWrong: {

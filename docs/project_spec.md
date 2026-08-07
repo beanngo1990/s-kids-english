@@ -481,17 +481,28 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose | random` để mở rộng data model.
 - **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching` và chế độ xoay tua ngẫu nhiên `random`.
 - Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ**, 🎈 **Nghe & Chọn**, 🔗 **Nối hình**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
+- Header gồm nút đóng, tên bài và game selector giữ nguyên visual cũ nhưng được ghim khi phần nội
+  dung game cuộn. `learningMode` được truyền xuyên suốt từ route/settings qua `GamePlayer` xuống
+  cả ba game mà không thêm một hàng difficulty badge vào kid UI.
 - Khi vào game hoặc đổi tab game, màn hình phát lời hướng dẫn theo game và `teacherPromptMode`; các game khóa thao tác trong lúc intro đang phát. Listen & Choose chỉ tự phát từ đầu tiên sau khi intro kết thúc.
 - Ba game dùng shared Sungy coach để đổi pose và lời nhắc theo trạng thái intro, correct và wrong; shared star progress cho bé thấy số mục đã hoàn thành trong lượt ôn tập.
 - Correct/wrong feedback luôn có visual state rõ ràng bằng màu, icon và nội dung khích lệ, kết hợp SFX; animation game-specific chỉ là lớp tăng cường, không phải tín hiệu duy nhất.
 - Review-game animation tôn trọng system Reduce Motion: các hiệu ứng động trang trí được bỏ qua hoặc snap về trạng thái cuối, trong khi màu, icon, progress, audio và interaction feedback vẫn giữ nguyên.
-- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
-- Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
-- Matching game hiển thị cột hình và cột từ để bé nối từng hình với từ tiếng Anh tương ứng.
-- `reviewGame.config.vocabularyIds` là allow-list có thứ tự cho các từ đưa vào game ôn tập.
-  Runtime vẫn lọc theo `learningMode`; các ID không khả dụng ở mode hiện tại hoặc không có object
-  hình ảnh render được sẽ không xuất hiện.
-- Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
+- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item và hoàn tất khi ghép hết cặp.
+  Dễ/Vừa đọc English word khi lật; Khó bỏ audio gợi ý lúc lật và chỉ đọc sau khi ghép đúng.
+  Cặp sai giữ mở lâu nhất ở Dễ, ngắn dần ở Vừa và Khó. Phone portrait luôn dùng ba thẻ gần vuông
+  mỗi hàng và căn giữa hàng cuối; tablet/landscape dùng nhiều cột hơn theo responsive layout.
+- Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa. Dễ có
+  2 lựa chọn, Vừa có 3 lựa chọn, Khó có 4 lựa chọn.
+- Matching game hiển thị cột hình và cột từ. Dễ/Vừa đọc từ khi chọn thẻ; Khó chỉ đọc sau khi nối
+  đúng. Thời gian phản hồi sai ngắn dần theo mức.
+- `reviewGame.config.vocabularyIds` là danh sách từ neo có thứ tự, không còn khóa toàn bộ review
+  vào đúng bốn từ. Runtime giữ các từ neo hợp lệ rồi bổ sung từ có hình ở level phù hợp: Dễ chỉ
+  `easy`; Vừa thêm ít nhất một `medium`; Khó thêm ít nhất một `medium` và một `hard` khi content
+  có sẵn. Với phrase/verb khó, runtime có thể dùng object đại diện từ `SceneStep.targetObjectIds`
+  và loại visual trùng để đáp án hình không mơ hồ.
+- Số mục mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config
+  override trong giới hạn runtime.
 
 ### Rewards và progress
 
@@ -986,7 +997,7 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 350/350 tests pass trong 52 suites.
+- Jest: 360/360 tests pass trong 54 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì

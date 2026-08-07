@@ -8,16 +8,23 @@ import type {
   Scene,
   SceneObject,
   VocabularyItem,
+  VocabularyLevel,
 } from '../types/lesson';
+import {
+  compareVocabularyLevels,
+  getReviewDifficultyProfile,
+  isVocabularyLevelAvailable,
+} from './difficulty';
 
 export type ReviewGameItem = {
   id: string;
   imageSource: ImageSourcePropType;
+  level: VocabularyLevel;
   meaningVi: string;
+  visualId: string;
   word: string;
 };
 
-const defaultReviewItemCount = 4;
 const maxReviewItemCount = 6;
 
 export function getReviewGameItems(
@@ -30,33 +37,58 @@ export function getReviewGameItems(
   lesson.scenes
     .map(scene => getSceneForLearningMode(scene, learningMode))
     .forEach(scene => {
+      const renderableObjects = getRenderableObjects(scene);
+      const objectById = new Map(
+        renderableObjects.map(object => [object.id, object]),
+      );
+
       scene.vocabulary?.forEach(item => {
         vocabularyById.set(item.id, item);
       });
 
-      getRenderableObjects(scene).forEach(object => {
+      renderableObjects.forEach(object => {
         if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
           objectByVocabId.set(object.vocabId, object);
+        }
+      });
+
+      scene.steps.forEach(step => {
+        if (!step.vocabId || objectByVocabId.has(step.vocabId)) {
+          return;
+        }
+
+        const representativeObject = step.targetObjectIds
+          .map(objectId => objectById.get(objectId))
+          .find((object): object is SceneObject => Boolean(object));
+        if (representativeObject) {
+          objectByVocabId.set(step.vocabId, representativeObject);
         }
       });
     });
 
   const configuredIds = getConfiguredVocabularyIds(lesson.reviewGame?.config);
-  const candidateIds =
-    configuredIds.length > 0
-      ? configuredIds
-      : shuffle(Array.from(vocabularyById.keys()));
   const maxItems = getReviewItemCount(lesson.reviewGame?.config, learningMode);
+  const availableItems = Array.from(vocabularyById.values())
+    .filter(item => isVocabularyLevelAvailable(item.level, learningMode))
+    .map(item => createReviewGameItem(item, objectByVocabId.get(item.id)))
+    .filter((item): item is ReviewGameItem => Boolean(item));
+  const availableItemsById = new Map(
+    availableItems.map(item => [item.id, item]),
+  );
+  const authoredItems = configuredIds
+    .map(vocabId => availableItemsById.get(vocabId))
+    .filter((item): item is ReviewGameItem => Boolean(item));
+  const authoredIds = new Set(authoredItems.map(item => item.id));
+  const supplementalItems = availableItems.filter(
+    item => !authoredIds.has(item.id),
+  );
 
-  return candidateIds
-    .map(vocabId =>
-      createReviewGameItem(
-        vocabularyById.get(vocabId),
-        objectByVocabId.get(vocabId),
-      ),
-    )
-    .filter((item): item is ReviewGameItem => Boolean(item))
-    .slice(0, maxItems);
+  return selectReviewItems(
+    authoredItems,
+    supplementalItems,
+    learningMode,
+    maxItems,
+  );
 }
 
 export function getReviewItemCount(
@@ -69,14 +101,65 @@ export function getReviewItemCount(
     return Math.max(2, Math.min(maxReviewItemCount, Math.floor(pairCount)));
   }
 
-  if (learningMode === 'expanded') {
-    return 5;
+  return getReviewDifficultyProfile(learningMode).itemCount;
+}
+
+function selectReviewItems(
+  authoredItems: ReviewGameItem[],
+  supplementalItems: ReviewGameItem[],
+  learningMode: LearningMode,
+  maxItems: number,
+) {
+  const selectedItems: ReviewGameItem[] = [];
+  for (const item of authoredItems) {
+    if (selectedItems.length >= maxItems) {
+      break;
+    }
+    if (!selectedItems.some(selected => selected.visualId === item.visualId)) {
+      selectedItems.push(item);
+    }
   }
-  if (learningMode === 'challenge') {
-    return 6;
+  const remainingItems = [...supplementalItems];
+  const minimumLevelCounts: Partial<Record<VocabularyLevel, number>> =
+    learningMode === 'challenge'
+      ? { hard: 1, medium: 1 }
+      : learningMode === 'expanded'
+      ? { medium: 1 }
+      : {};
+
+  for (const level of ['medium', 'hard'] as const) {
+    const minimumCount = minimumLevelCounts[level] ?? 0;
+    while (
+      selectedItems.length < maxItems &&
+      selectedItems.filter(item => item.level === level).length < minimumCount
+    ) {
+      const nextIndex = remainingItems.findIndex(
+        item =>
+          item.level === level &&
+          !selectedItems.some(selected => selected.visualId === item.visualId),
+      );
+      if (nextIndex < 0) {
+        break;
+      }
+      selectedItems.push(remainingItems.splice(nextIndex, 1)[0]);
+    }
   }
 
-  return defaultReviewItemCount;
+  remainingItems.sort((left, right) =>
+    compareVocabularyLevels(left.level, right.level),
+  );
+  for (const item of remainingItems) {
+    if (selectedItems.length >= maxItems) {
+      break;
+    }
+    if (!selectedItems.some(selected => selected.visualId === item.visualId)) {
+      selectedItems.push(item);
+    }
+  }
+
+  return selectedItems.sort((left, right) =>
+    compareVocabularyLevels(left.level, right.level),
+  );
 }
 
 function getConfiguredVocabularyIds(
@@ -107,15 +190,13 @@ function createReviewGameItem(
   return {
     id: vocabularyItem.id,
     imageSource,
+    level: vocabularyItem.level,
     meaningVi: vocabularyItem.meaningVi,
+    visualId: object.id,
     word: vocabularyItem.word,
   };
 }
 
 function getRenderableObjects(scene: Scene) {
   return scene.character ? [scene.character, ...scene.objects] : scene.objects;
-}
-
-function shuffle<T>(items: T[]) {
-  return [...items].sort(() => Math.random() - 0.5);
 }

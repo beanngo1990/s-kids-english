@@ -30,6 +30,8 @@ import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
 import { useResponsiveLayout } from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
+import type { LearningMode } from '../../types/lesson';
+import { getReviewDifficultyProfile } from '../difficulty';
 import {
   runGameMatchCallback,
   useGameFeedback,
@@ -46,6 +48,7 @@ export type ListenChooseItem = {
 type ListenChooseGameProps = {
   isIntroPlaying?: boolean;
   items: ListenChooseItem[];
+  learningMode?: LearningMode;
   onComplete: () => void;
   onMatch?: GameMatchCallback;
 };
@@ -62,6 +65,7 @@ const BUBBLE_PALETTES = [
 export function ListenChooseGame({
   isIntroPlaying = false,
   items,
+  learningMode = 'core',
   onComplete,
   onMatch,
 }: ListenChooseGameProps) {
@@ -69,6 +73,7 @@ export function ListenChooseGame({
   const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
   const isReducedMotionEnabled = useReducedMotion();
+  const difficulty = getReviewDifficultyProfile(learningMode);
   const { feedback, resetFeedback, showFeedback } = useGameFeedback();
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -107,11 +112,11 @@ export function ListenChooseGame({
     const shuffledDistractors = [...distractors].sort(
       () => Math.random() - 0.5,
     );
-    const numOptions = Math.min(items.length, 4);
+    const numOptions = Math.min(items.length, difficulty.listenOptionCount);
     const selectedDistractors = shuffledDistractors.slice(0, numOptions - 1);
     const roundOptions = [currentTarget, ...selectedDistractors];
     return roundOptions.sort(() => Math.random() - 0.5);
-  }, [currentTarget, items]);
+  }, [currentTarget, difficulty.listenOptionCount, items]);
 
   const handlePlayAudio = useCallback(() => {
     if (currentTarget && !isIntroPlaying) {
@@ -194,7 +199,7 @@ export function ListenChooseGame({
       setIsTransitioning(true);
       setSelectedOptionId(option.id);
       setOptionState('wrong');
-      showFeedback('wrong', 700);
+      showFeedback('wrong', difficulty.wrongFeedbackDurationMs);
       if (triggerShakeAnim) {
         triggerShakeAnim();
       }
@@ -207,7 +212,7 @@ export function ListenChooseGame({
         setSelectedOptionId(null);
         setOptionState(null);
         setIsTransitioning(false);
-      }, 700);
+      }, difficulty.wrongFeedbackDurationMs);
     }
   };
 

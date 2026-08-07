@@ -103,6 +103,32 @@ describe('MatchingGame', () => {
     expect(playCorrectSound).not.toHaveBeenCalled();
   });
 
+  it('removes selection audio in challenge mode but speaks after a match', async () => {
+    const renderer = await renderWithinAct(
+      <MatchingGame
+        items={mockItems}
+        learningMode="challenge"
+        onComplete={jest.fn()}
+      />,
+    );
+    const swingCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
+    );
+
+    act(() => {
+      swingCards[0].props.onPress();
+    });
+    expect(speakWord).not.toHaveBeenCalled();
+
+    act(() => {
+      swingCards[1].props.onPress();
+    });
+    expect(speakWord).toHaveBeenCalledTimes(1);
+    expect(speakWord).toHaveBeenCalledWith('swing');
+  });
+
   it('handles correct match and triggers completion when all matched', async () => {
     const onCompleteMock = jest.fn();
     const onMatchMock = jest.fn(() => {

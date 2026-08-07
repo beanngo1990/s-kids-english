@@ -32,6 +32,8 @@ import { useReducedMotion } from '../../theme/motion';
 import { useResponsiveLayout } from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
+import type { LearningMode } from '../../types/lesson';
+import { getReviewDifficultyProfile } from '../difficulty';
 import {
   runGameMatchCallback,
   useGameFeedback,
@@ -48,6 +50,7 @@ export type MatchingItem = {
 type MatchingGameProps = {
   isIntroPlaying?: boolean;
   items: MatchingItem[];
+  learningMode?: LearningMode;
   onComplete: () => void;
   onMatch?: GameMatchCallback;
 };
@@ -64,6 +67,7 @@ const MATCH_PAIR_PALETTES = [
 export function MatchingGame({
   isIntroPlaying = false,
   items,
+  learningMode = 'core',
   onComplete,
   onMatch,
 }: MatchingGameProps) {
@@ -71,6 +75,7 @@ export function MatchingGame({
   const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
   const isReducedMotionEnabled = useReducedMotion();
+  const difficulty = getReviewDifficultyProfile(learningMode);
   const { feedback, resetFeedback, showFeedback } = useGameFeedback();
 
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
@@ -170,7 +175,7 @@ export function MatchingGame({
         firstTryMapRef.current.set(wordId, false);
         setWrongImageId(imageId);
         setWrongWordId(wordId);
-        showFeedback('wrong', 700);
+        showFeedback('wrong', difficulty.wrongFeedbackDurationMs);
 
         playWrongSound().catch(() => undefined);
 
@@ -182,12 +187,13 @@ export function MatchingGame({
           setWrongImageId(null);
           setWrongWordId(null);
           setIsTransitioning(false);
-        }, 700);
+        }, difficulty.wrongFeedbackDurationMs);
       }
     },
     [
       clearCompletionTimer,
       clearWrongTimer,
+      difficulty.wrongFeedbackDurationMs,
       items,
       onComplete,
       onMatch,
@@ -200,7 +206,9 @@ export function MatchingGame({
       return;
     }
     resetFeedback();
-    speakWord(item.word).catch(() => undefined);
+    if (difficulty.selectionAudioEnabled) {
+      speakWord(item.word).catch(() => undefined);
+    }
 
     const nextImageId = selectedImageId === item.id ? null : item.id;
     setSelectedImageId(nextImageId);
@@ -215,7 +223,9 @@ export function MatchingGame({
       return;
     }
     resetFeedback();
-    speakWord(item.word).catch(() => undefined);
+    if (difficulty.selectionAudioEnabled) {
+      speakWord(item.word).catch(() => undefined);
+    }
 
     const nextWordId = selectedWordId === item.id ? null : item.id;
     setSelectedWordId(nextWordId);
