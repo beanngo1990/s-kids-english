@@ -5,7 +5,6 @@ import {
   PanResponder,
   Pressable,
   Text,
-  View,
   type PanResponderGestureState,
   type StyleProp,
   type ViewStyle,
@@ -20,7 +19,6 @@ import {
   createBounceAnimation,
   createShakeAnimation,
   dimOpacity,
-  glowStyle,
   shouldBounce,
   type ObjectAnimationEffect,
 } from './animations';
@@ -37,12 +35,19 @@ type SceneObjectRendererProps = {
   isDimmed: boolean;
   isDisabled: boolean;
   isDraggable?: boolean;
+  shouldMagnify?: boolean;
   effect: SceneObjectEffect;
   onPress: (objectId: string) => void;
   onDragEnd?: (objectId: string, translation: DragTranslation) => boolean;
   style?: StyleProp<ViewStyle>;
   stageSize?: { width: number; height: number };
 };
+
+const focusedObjectThresholdDp = 48;
+const minimumFocusedObjectSizeDp = 52;
+const maximumFocusedObjectScale = 1.22;
+const fallbackSmallSidePercent = 11;
+const fallbackFocusedObjectScale = 1.16;
 
 export function SceneObjectRenderer({
   object,
@@ -51,6 +56,7 @@ export function SceneObjectRenderer({
   isDimmed,
   isDisabled,
   isDraggable = false,
+  shouldMagnify = true,
   effect,
   onPress,
   onDragEnd,
@@ -61,6 +67,7 @@ export function SceneObjectRenderer({
   const [hasImageError, setHasImageError] = React.useState(false);
   const imageOpacity = useRef(new Animated.Value(1)).current;
   const targetPulse = useRef(new Animated.Value(0)).current;
+  const focusScale = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translateX = useRef(new Animated.Value(0)).current;
   const drag = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
@@ -75,6 +82,19 @@ export function SceneObjectRenderer({
   const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
+  const imageHeightRatio = isLearningObject
+    ? 0.86
+    : object.role === 'character'
+      ? 0.98
+      : 1;
+  const focusedObjectScale = getFocusedObjectScale({
+    heightPercent: object.position.height,
+    imageHeightRatio,
+    isEnabled: isTargeted && shouldMagnify && !isDragEnabled,
+    stageHeight: stageSize?.height,
+    stageWidth: stageSize?.width,
+    widthPercent: object.position.width,
+  });
   const shouldShowLabel = false; // object.role !== 'character' && (!isDimmed || isTargeted);
   const panResponder = useMemo(
     () =>
@@ -173,6 +193,19 @@ export function SceneObjectRenderer({
   }, [isTargeted, targetPulse]);
 
   useEffect(() => {
+    focusScale.stopAnimation();
+    const animation = Animated.spring(focusScale, {
+      friction: 8,
+      tension: 100,
+      toValue: focusedObjectScale,
+      useNativeDriver: true,
+    });
+    animation.start();
+
+    return () => animation.stop();
+  }, [focusScale, focusedObjectScale]);
+
+  useEffect(() => {
     drag.setValue({ x: 0, y: 0 });
   }, [
     drag,
@@ -188,13 +221,65 @@ export function SceneObjectRenderer({
     imageOpacity.setValue(1);
   }, [object.asset.source, imageOpacity]);
 
-  const targetHaloOpacity = targetPulse.interpolate({
+  const targetOutlineScaleXRange = getTargetScaleRange(
+    object.position.width * focusedObjectScale,
+    stageSize?.width,
+    2,
+    3,
+    [1.025, 1.045],
+    1.16,
+  );
+  const targetOutlineScaleYRange = getTargetScaleRange(
+    object.position.height * imageHeightRatio * focusedObjectScale,
+    stageSize?.height,
+    2,
+    3,
+    [1.025, 1.045],
+    1.16,
+  );
+  const targetAuraScaleXRange = getTargetScaleRange(
+    object.position.width * focusedObjectScale,
+    stageSize?.width,
+    5,
+    8,
+    [1.055, 1.09],
+    1.26,
+  );
+  const targetAuraScaleYRange = getTargetScaleRange(
+    object.position.height * imageHeightRatio * focusedObjectScale,
+    stageSize?.height,
+    5,
+    8,
+    [1.055, 1.09],
+    1.26,
+  );
+  const targetOutlineOpacity = targetPulse.interpolate({
     inputRange: [0, 1],
-    outputRange: [0.34, 0.12],
+    outputRange: [0.96, 0.9],
   });
-  const targetHaloScale = targetPulse.interpolate({
+  const targetOutlineScaleX = targetPulse.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 1.06],
+    outputRange: targetOutlineScaleXRange,
+  });
+  const targetOutlineScaleY = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: targetOutlineScaleYRange,
+  });
+  const targetAuraOpacity = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.82, 0.58],
+  });
+  const targetAuraScaleX = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: targetAuraScaleXRange,
+  });
+  const targetAuraScaleY = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: targetAuraScaleYRange,
+  });
+  const fallbackTargetScale = targetPulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.08],
   });
 
   return (
@@ -230,34 +315,72 @@ export function SceneObjectRenderer({
           styles.pressable,
           isLearningObject && styles.learningPressable,
           object.role === 'character' && styles.character,
-          isTargeted && styles.targeted,
-          isTargeted && isLearningObject && styles.targetedLearning,
-          isTargeted && object.role === 'character' && styles.targetedCharacter,
           isDragEnabled && styles.draggable,
           pressed && !isDisabled && styles.pressed,
         ]}
       >
-        {isTargeted ? (
-          <>
-            <Animated.View
-              style={[
-                styles.targetHalo,
-                {
-                  opacity: targetHaloOpacity,
-                  transform: [{ scale: targetHaloScale }],
-                },
-              ]}
-            />
-            <View style={styles.targetRing} />
-          </>
-        ) : null}
-        <View
+        <Animated.View
           style={[
             styles.assetBubble,
             isLearningObject && styles.learningAssetBubble,
             object.role === 'character' && styles.characterAssetBubble,
+            { transform: [{ scale: focusScale }] },
           ]}
         >
+          {/* Alpha-preserving copies follow irregular assets; adaptive scales
+              keep the outline readable at any object size. */}
+          {isTargeted && canUseImage && !hasImageError ? (
+            <>
+              <Animated.Image
+                resizeMode="contain"
+                source={imageSource!}
+                style={[
+                  styles.targetSilhouette,
+                  isLearningObject && styles.learningTargetSilhouette,
+                  object.role === 'character' &&
+                    styles.characterTargetSilhouette,
+                  styles.targetAura,
+                  {
+                    opacity: targetAuraOpacity,
+                    transform: [
+                      { scaleX: targetAuraScaleX },
+                      { scaleY: targetAuraScaleY },
+                    ],
+                  },
+                ]}
+              />
+              <Animated.Image
+                resizeMode="contain"
+                source={imageSource!}
+                style={[
+                  styles.targetSilhouette,
+                  isLearningObject && styles.learningTargetSilhouette,
+                  object.role === 'character' &&
+                    styles.characterTargetSilhouette,
+                  styles.targetOutline,
+                  {
+                    opacity: targetOutlineOpacity,
+                    transform: [
+                      { scaleX: targetOutlineScaleX },
+                      { scaleY: targetOutlineScaleY },
+                    ],
+                  },
+                ]}
+              />
+            </>
+          ) : null}
+          {isTargeted && shouldShowFallback ? (
+            <Animated.View
+              pointerEvents="none"
+              style={[
+                styles.fallbackTargetHalo,
+                {
+                  opacity: targetOutlineOpacity,
+                  transform: [{ scale: fallbackTargetScale }],
+                },
+              ]}
+            />
+          ) : null}
           {shouldShowFallback ? (
             <Text
               accessibilityLabel={`${label} placeholder`}
@@ -306,7 +429,7 @@ export function SceneObjectRenderer({
               {label}
             </Text>
           ) : null}
-        </View>
+        </Animated.View>
         <SparkleEffect active={effect === 'sparkle'} />
       </Pressable>
     </Animated.View>
@@ -322,6 +445,73 @@ function shouldStartDrag(
   }
 
   return Math.abs(gestureState.dx) > 2 || Math.abs(gestureState.dy) > 2;
+}
+
+function getTargetScaleRange(
+  percentSize: number,
+  stagePixels: number | undefined,
+  startPadding: number,
+  endPadding: number,
+  fallback: [number, number],
+  maxScale: number,
+) {
+  if (!stagePixels || stagePixels <= 0 || percentSize <= 0) {
+    return fallback;
+  }
+
+  const renderedSize = (percentSize / 100) * stagePixels;
+
+  return [
+    Math.min(maxScale, 1 + (startPadding * 2) / renderedSize),
+    Math.min(maxScale, 1 + (endPadding * 2) / renderedSize),
+  ];
+}
+
+function getFocusedObjectScale({
+  heightPercent,
+  imageHeightRatio,
+  isEnabled,
+  stageHeight,
+  stageWidth,
+  widthPercent,
+}: {
+  heightPercent: number;
+  imageHeightRatio: number;
+  isEnabled: boolean;
+  stageHeight: number | undefined;
+  stageWidth: number | undefined;
+  widthPercent: number;
+}) {
+  if (!isEnabled) {
+    return 1;
+  }
+
+  const visibleHeightPercent = heightPercent * imageHeightRatio;
+
+  if (!stageWidth || stageWidth <= 0 || !stageHeight || stageHeight <= 0) {
+    const shortSidePercent = Math.min(widthPercent, visibleHeightPercent);
+
+    return shortSidePercent < fallbackSmallSidePercent
+      ? fallbackFocusedObjectScale
+      : 1;
+  }
+
+  const renderedWidth = (widthPercent / 100) * stageWidth;
+  const renderedHeight = (visibleHeightPercent / 100) * stageHeight;
+  const shortSideDp = Math.min(renderedWidth, renderedHeight);
+
+  if (
+    !Number.isFinite(shortSideDp) ||
+    shortSideDp <= 0 ||
+    shortSideDp >= focusedObjectThresholdDp
+  ) {
+    return 1;
+  }
+
+  return Math.min(
+    maximumFocusedObjectScale,
+    Math.max(1.08, minimumFocusedObjectSizeDp / shortSideDp),
+  );
 }
 
 function resetDragPosition(drag: Animated.ValueXY) {
@@ -362,6 +552,10 @@ const styles = createThemedStyles(() => ({
   },
   characterImage: {
     maxHeight: '98%',
+  },
+  characterTargetSilhouette: {
+    bottom: '1%',
+    top: '1%',
   },
   dimmed: {
     opacity: dimOpacity,
@@ -406,6 +600,10 @@ const styles = createThemedStyles(() => ({
   learningImage: {
     maxHeight: '86%',
   },
+  learningTargetSilhouette: {
+    bottom: '7%',
+    top: '7%',
+  },
   learningLabel: {
     backgroundColor: 'rgba(255, 255, 255, 0.82)',
     borderRadius: radius.pill,
@@ -442,45 +640,34 @@ const styles = createThemedStyles(() => ({
   pressed: {
     opacity: 0.82,
   },
-  targeted: {
-    ...glowStyle,
-  },
-  targetHalo: {
-    backgroundColor: 'rgba(255, 255, 255, 0.12)',
-    borderRadius: radius.pill,
-    bottom: -6,
-    elevation: 5,
-    left: -6,
+  fallbackTargetHalo: {
+    backgroundColor: 'rgba(255, 255, 255, 0.28)',
+    borderColor: colors.primary,
+    borderRadius: 42,
+    borderWidth: 4,
+    height: 84,
+    left: '50%',
+    marginLeft: -42,
+    marginTop: -42,
     position: 'absolute',
-    right: -6,
-    shadowColor: colors.warmShadow,
-    shadowOffset: {
-      height: 3,
-      width: 0,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
-    top: -6,
+    top: '50%',
+    width: 84,
   },
-  targetRing: {
-    backgroundColor: 'rgba(255, 211, 77, 0.07)',
-    borderColor: 'rgba(255, 198, 38, 0.82)',
-    borderRadius: radius.pill,
-    borderWidth: 3,
-    bottom: -2,
-    left: -2,
+  targetAura: {
+    tintColor: colors.focusOutline,
+  },
+  targetOutline: {
+    tintColor: colors.white,
+  },
+  targetSilhouette: {
+    bottom: 0,
+    left: 0,
     position: 'absolute',
-    right: -2,
-    top: -2,
+    right: 0,
+    top: 0,
   },
   targetedWrapper: {
     zIndex: 3,
-  },
-  targetedLearning: {
-    backgroundColor: 'transparent',
-  },
-  targetedCharacter: {
-    backgroundColor: 'transparent',
   },
   wrapper: {
   },

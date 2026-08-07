@@ -432,6 +432,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Object target dùng viền silhouette trắng + teal thay vì viền theo bounding box. Với step chỉ có
+  một target không ở trạng thái kéo, object có cạnh hiển thị ngắn hơn `48dp` được phóng nhẹ tới
+  tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo geometry gốc. Target lớn, step nhiều
+  target và object đang kéo chỉ dùng viền highlight, không dùng zoom này.
 - Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
   scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
   `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm

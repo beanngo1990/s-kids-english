@@ -2044,6 +2044,7 @@ export function ScenePlayer({
               object={renderObject}
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
+              shouldMagnify={currentStep.targetObjectIds.length === 1}
               stageSize={stageSize}
             />
           );
