@@ -29,6 +29,7 @@ class SkidsAudioModule(
 
   private val soundPool: SoundPool
   private val soundIds = mutableMapOf<String, Int>()
+  private val bundledRawResourceNamePattern = Regex("^[a-z][a-z0-9_]*$")
   private val speechPlaybackLock = Any()
   private val backgroundMusicLock = Any()
   private var speechPlayback: SpeechPlayback? = null
@@ -459,7 +460,27 @@ class SkidsAudioModule(
       return
     }
 
+    if (setBundledRawResourceDataSource(player, uri)) {
+      return
+    }
+
     player.setDataSource(reactContext, Uri.parse(uri))
+  }
+
+  private fun setBundledRawResourceDataSource(
+    player: MediaPlayer,
+    uri: String,
+  ): Boolean {
+    if (!bundledRawResourceNamePattern.matches(uri)) {
+      return false
+    }
+
+    val rawResourceId = reactContext.resources.getIdentifier(
+      uri,
+      "raw",
+      reactContext.packageName,
+    )
+    return rawResourceId != 0 && setRawResourceDataSource(player, rawResourceId)
   }
 
   private fun setBackgroundMusicDataSource(player: MediaPlayer, uri: String) {
