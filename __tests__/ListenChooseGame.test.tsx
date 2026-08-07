@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
-import { ListenChooseGame, type ListenChooseItem } from '../src/games/listenChoose/ListenChooseGame';
-import { playCorrectSound, playWrongSound, speakWord } from '../src/engine/AudioManager';
+import {
+  ListenChooseGame,
+  type ListenChooseItem,
+} from '../src/games/listenChoose/ListenChooseGame';
+import {
+  playCorrectSound,
+  playWrongSound,
+  speakWord,
+} from '../src/engine/AudioManager';
 
 jest.mock('../src/engine/AudioManager', () => ({
   playCorrectSound: jest.fn(() => Promise.resolve()),
@@ -114,7 +121,9 @@ describe('ListenChooseGame', () => {
 
     // Find the slide option card (wrong answer for round 1 target 'swing')
     const slideCard = renderer!.root.find(
-      node => node.props.accessibilityLabel === 'slide' && typeof node.props.onPress === 'function',
+      node =>
+        node.props.accessibilityLabel === 'slide' &&
+        typeof node.props.onPress === 'function',
     );
     expect(slideCard).toBeDefined();
 
@@ -131,9 +140,11 @@ describe('ListenChooseGame', () => {
     });
   });
 
-  it('triggers correct sound, onMatch, and advances to onComplete when all targets answered', () => {
+  it('triggers correct sound and still completes if progress persistence throws', () => {
     const onCompleteMock = jest.fn();
-    const onMatchMock = jest.fn();
+    const onMatchMock = jest.fn(() => {
+      throw new Error('storage unavailable');
+    });
     let renderer: ReactTestRenderer.ReactTestRenderer;
 
     act(() => {
@@ -147,7 +158,9 @@ describe('ListenChooseGame', () => {
     });
 
     const swingCard = renderer!.root.find(
-      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
     );
     expect(swingCard).toBeDefined();
 
@@ -165,5 +178,49 @@ describe('ListenChooseGame', () => {
     });
 
     expect(onCompleteMock).toHaveBeenCalled();
+  });
+
+  it('resets to the first target when the item set changes', () => {
+    const nextItem: ListenChooseItem = {
+      id: 'vocab-head',
+      imageSource: { uri: 'file://head.png' },
+      meaningVi: 'đầu',
+      word: 'head',
+    };
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <ListenChooseGame items={mockItems} onComplete={jest.fn()} />,
+      );
+    });
+
+    const swingCard = renderer!.root.find(
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
+    );
+    act(() => {
+      swingCard.props.onPress();
+      jest.advanceTimersByTime(1_200);
+    });
+
+    act(() => {
+      renderer!.update(
+        <ListenChooseGame items={[nextItem]} onComplete={jest.fn()} />,
+      );
+    });
+
+    expect(
+      renderer!.root.find(
+        node =>
+          node.props.accessibilityLabel === 'head' &&
+          typeof node.props.onPress === 'function',
+      ),
+    ).toBeDefined();
+
+    act(() => {
+      renderer!.unmount();
+    });
   });
 });

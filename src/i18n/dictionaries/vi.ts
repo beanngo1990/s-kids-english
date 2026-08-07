@@ -535,8 +535,7 @@ export const vi = {
   'parent.settings.reminderPermissionText':
     'Thông báo đang bị tắt. Ba mẹ hãy cho phép thông báo trong Cài đặt để nhận lời nhắc học.',
   'parent.settings.reminderPermissionTitle': 'Chưa thể bật nhắc học',
-  'parent.settings.reminderTimeDisabledSubtitle':
-    'Sẽ nhắc lúc {time} khi bật.',
+  'parent.settings.reminderTimeDisabledSubtitle': 'Sẽ nhắc lúc {time} khi bật.',
   'parent.settings.reminderTimeEnabledSubtitle':
     'Đang nhắc mỗi ngày lúc {time}.',
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
@@ -829,6 +828,11 @@ export const vi = {
   'reviewGame.selectMemory': 'Lật thẻ',
   'reviewGame.selectListenChoose': 'Nghe & Chọn',
   'reviewGame.selectMatching': 'Nối hình',
+  'reviewGame.coachCorrect': 'Tuyệt lắm!',
+  'reviewGame.coachSpeaking': 'Sungy đang hướng dẫn…',
+  'reviewGame.coachTryAgain': 'Gần đúng rồi, thử lại nhé!',
+  'reviewGame.progressAccessibility':
+    'Đã hoàn thành {completed} trên {total} từ ôn tập',
   'matchingGame.progress': 'Đã nối {matched}/{total}',
   'matchingGame.prompt': 'Nối hình với từ tương ứng!',
   'matchingGame.imageColumn': 'Hình minh họa',
@@ -844,6 +848,7 @@ export const vi = {
     'Bé có thể chơi Lật thẻ, Nghe & Chọn hoặc Nối hình nhé.',
   'reviewGame.wordCount': '{count} từ',
   'memoryGame.pairCount': '{matched}/{total} cặp',
+  'memoryGame.prompt': 'Tìm hai hình giống nhau nhé!',
   'memoryGame.turnCount': '{count} lượt',
   'memoryGame.visibleCardAccessibility': 'Thẻ {word}',
   'listenChooseGame.prompt': 'Bé hãy chọn hình đúng!',

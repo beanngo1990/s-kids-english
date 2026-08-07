@@ -63,7 +63,8 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `src/engine/`: scene execution, progress, persistence, audio, recording, asset resolution.
 - `src/data/`: lesson/theme catalogs, authoring helpers, prompts và validators.
 - `src/data/lessons/`: một file cho mỗi lesson pack; đăng ký tại `src/data/lessons.ts`.
-- `src/games/`: review-game implementations; runtime hiện chỉ hỗ trợ game `memory`.
+- `src/games/`: review-game implementations cho `memory`, `listenAndChoose`, `matching`; chế độ
+  `random` resolve sang một trong ba game này.
 - `src/services/`: hiện chỉ có local notification service, chưa có API layer.
 - `src/config/`: R2/CDN và generated asset release config.
 - `src/theme/`: colors, theme synchronization, typography, spacing, shadows, responsive layout.
@@ -87,8 +88,8 @@ Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
 - Lesson interaction types là `listen`, `tap`, `drag`, `find`.
 - Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; hiện không
   có speech recognition, transcription hay pronunciation scoring.
-- Review type union có `matching`, `memory`, `listenAndChoose`, nhưng registry chỉ implement
-  `memory`; không coi hai type còn lại là đã hỗ trợ.
+- Review type union và runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching`;
+  `random` được resolve thành một trong ba game executable khi bắt đầu lượt chơi.
 - Theme `light`, `dark`, `system` đã hoạt động. `appLanguage` được lưu nhưng chưa localize toàn
   bộ app.
 - `learningScope.minAge` có helper/test nhưng child age chưa được truyền vào lesson runtime;

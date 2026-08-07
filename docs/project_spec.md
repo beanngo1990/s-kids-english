@@ -482,6 +482,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching` và chế độ xoay tua ngẫu nhiên `random`.
 - Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ**, 🎈 **Nghe & Chọn**, 🔗 **Nối hình**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
 - Khi vào game hoặc đổi tab game, màn hình phát lời hướng dẫn theo game và `teacherPromptMode`; các game khóa thao tác trong lúc intro đang phát. Listen & Choose chỉ tự phát từ đầu tiên sau khi intro kết thúc.
+- Ba game dùng shared Sungy coach để đổi pose và lời nhắc theo trạng thái intro, correct và wrong; shared star progress cho bé thấy số mục đã hoàn thành trong lượt ôn tập.
+- Correct/wrong feedback luôn có visual state rõ ràng bằng màu, icon và nội dung khích lệ, kết hợp SFX; animation game-specific chỉ là lớp tăng cường, không phải tín hiệu duy nhất.
+- Review-game animation tôn trọng system Reduce Motion: các hiệu ứng động trang trí được bỏ qua hoặc snap về trạng thái cuối, trong khi màu, icon, progress, audio và interaction feedback vẫn giữ nguyên.
 - Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
 - Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
 - Matching game hiển thị cột hình và cột từ để bé nối từng hình với từ tiếng Anh tương ứng.
@@ -699,8 +702,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   và `CustomerInfo.requestDate`; cutoff, `firstSeen`, `requestDate` hoặc duration không hợp lệ đều
   fail closed. Parent phải Firebase sign-in trước khi nội dung được mở. Verified paid RevenueCat
   entitlement luôn ưu tiên nhánh Founder.
-- Founder access không phải RevenueCat entitlement, không cấp receipt và không đảm bảo quota đúng
-  500. `firstSeen` là lúc RevenueCat lần đầu thấy App User ID, không phải số download/install tuyệt
+- Founder access không phải RevenueCat entitlement, không cấp receipt và không đảm bảo quota đúng 500. `firstSeen` là lúc RevenueCat lần đầu thấy App User ID, không phải số download/install tuyệt
   đối. Remote Config cutoff phải được giữ ít nhất tới khi Founder access cuối cùng hết hạn; mô hình
   một cutoff cũng không phù hợp để tái dùng trực tiếp cho nhiều campaign độc lập.
 - `max(Date.now(), CustomerInfo.requestDate)` chỉ neo thời gian vào response RevenueCat gần nhất;
@@ -984,12 +986,12 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 259/259 tests pass trong 33 suites.
+- Jest: 350/350 tests pass trong 52 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
   external keys/products/test accounts chưa có.
-- ESLint: pass với 28 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
+- ESLint: pass với 27 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
 
@@ -998,34 +1000,34 @@ baseline thay đổi.
 
 Support summary:
 
-| Area                                             | Status hiện tại |
-| ------------------------------------------------ | --------------- |
-| Memory, ListenAndChoose & Matching review games  | Implemented     |
-| Parent math adult gate                           | Implemented     |
-| Parent PIN gate                                  | Unsupported     |
-| Parent Google/Apple login                        | Implemented     |
-| Free tier + Premium content guards               | Implemented     |
-| RevenueCat client entitlement lifecycle          | Implemented     |
-| Store-ready keys/products/legal config           | Partial         |
-| Remote Config monetization switches              | Implemented     |
-| Founder cutoff/duration local access             | Implemented     |
-| Firebase App Check client initialization         | Implemented     |
-| Firebase App Check backend enforcement           | Partial         |
-| Theme Light/Dark/System                          | Implemented     |
-| Full VI/EN localization                          | Partial         |
-| Teacher prompt mode vi/en/bilingual              | Partial         |
-| English pronunciation en-US/en-GB                | Implemented     |
-| Mode-based lesson filtering                      | Implemented     |
-| Age-based runtime filtering                      | Partial         |
-| Scene-level resume                               | Implemented     |
-| Exact step resume                                | Partial         |
-| Record/playback speech practice                  | Implemented     |
-| Speech recognition/pronunciation scoring         | Unsupported     |
-| Android audio disk cache                         | Implemented     |
-| iOS audio disk cache                             | Unsupported     |
-| Full offline lesson bundle                       | Unsupported     |
-| Native reminder E2E coverage                     | Partial         |
-| Parent opt-in cloud learning data sync           | Implemented     |
+| Area                                            | Status hiện tại |
+| ----------------------------------------------- | --------------- |
+| Memory, ListenAndChoose & Matching review games | Implemented     |
+| Parent math adult gate                          | Implemented     |
+| Parent PIN gate                                 | Unsupported     |
+| Parent Google/Apple login                       | Implemented     |
+| Free tier + Premium content guards              | Implemented     |
+| RevenueCat client entitlement lifecycle         | Implemented     |
+| Store-ready keys/products/legal config          | Partial         |
+| Remote Config monetization switches             | Implemented     |
+| Founder cutoff/duration local access            | Implemented     |
+| Firebase App Check client initialization        | Implemented     |
+| Firebase App Check backend enforcement          | Partial         |
+| Theme Light/Dark/System                         | Implemented     |
+| Full VI/EN localization                         | Partial         |
+| Teacher prompt mode vi/en/bilingual             | Partial         |
+| English pronunciation en-US/en-GB               | Implemented     |
+| Mode-based lesson filtering                     | Implemented     |
+| Age-based runtime filtering                     | Partial         |
+| Scene-level resume                              | Implemented     |
+| Exact step resume                               | Partial         |
+| Record/playback speech practice                 | Implemented     |
+| Speech recognition/pronunciation scoring        | Unsupported     |
+| Android audio disk cache                        | Implemented     |
+| iOS audio disk cache                            | Unsupported     |
+| Full offline lesson bundle                      | Unsupported     |
+| Native reminder E2E coverage                    | Partial         |
+| Parent opt-in cloud learning data sync          | Implemented     |
 
 ## 12. Spec maintenance
 

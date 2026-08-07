@@ -198,13 +198,11 @@ export const en: TranslationDictionary = {
   'premium.alert.pendingText':
     'The store or an approver still needs to complete this purchase. Premium will open after access is confirmed.',
   'premium.alert.restoredTitle': 'Premium restored',
-  'premium.alert.restoredText':
-    'Active Premium access has been restored.',
+  'premium.alert.restoredText': 'Active Premium access has been restored.',
   'premium.alert.withoutPremiumTitle': 'No active Premium access found',
   'premium.alert.withoutPremiumText':
     'The store finished checking but did not return active Premium access for this account.',
-  'premium.alert.alreadyPremium':
-    'Premium access is already active.',
+  'premium.alert.alreadyPremium': 'Premium access is already active.',
   'premium.error.title': 'Could not complete the action',
   'premium.error.configurationMissing':
     'Purchases are not available on this version. Please try again later.',
@@ -833,6 +831,11 @@ export const en: TranslationDictionary = {
   'reviewGame.selectMemory': 'Memory Cards',
   'reviewGame.selectListenChoose': 'Listen & Choose',
   'reviewGame.selectMatching': 'Match Cards',
+  'reviewGame.coachCorrect': 'Great job!',
+  'reviewGame.coachSpeaking': 'Sungy is explaining…',
+  'reviewGame.coachTryAgain': 'Almost there. Try again!',
+  'reviewGame.progressAccessibility':
+    'Completed {completed} of {total} review words',
   'matchingGame.progress': 'Matched {matched}/{total}',
   'matchingGame.prompt': 'Match picture with word!',
   'matchingGame.imageColumn': 'Pictures',
@@ -848,6 +851,7 @@ export const en: TranslationDictionary = {
     'Try Memory, Listen & Choose, or Match instead.',
   'reviewGame.wordCount': '{count} words',
   'memoryGame.pairCount': '{matched}/{total} pairs',
+  'memoryGame.prompt': 'Find two matching pictures!',
   'memoryGame.turnCount': '{count} turns',
   'memoryGame.visibleCardAccessibility': 'Card {word}',
   'listenChooseGame.prompt': 'Choose the right picture!',

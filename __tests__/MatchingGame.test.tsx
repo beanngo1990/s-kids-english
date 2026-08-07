@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
-import { MatchingGame, type MatchingItem } from '../src/games/matching/MatchingGame';
-import { playCorrectSound, playWrongSound, speakWord } from '../src/engine/AudioManager';
+import {
+  MatchingGame,
+  type MatchingItem,
+} from '../src/games/matching/MatchingGame';
+import {
+  playCorrectSound,
+  playWrongSound,
+  speakWord,
+} from '../src/engine/AudioManager';
 
 jest.mock('../src/engine/AudioManager', () => ({
   playCorrectSound: jest.fn(() => Promise.resolve()),
@@ -27,27 +34,47 @@ const mockItems: MatchingItem[] = [
 ];
 
 describe('MatchingGame', () => {
+  let renderers: ReactTestRenderer.ReactTestRenderer[] = [];
+
+  const renderWithinAct = async (element: React.ReactElement) => {
+    let renderer: ReactTestRenderer.ReactTestRenderer;
+
+    await act(async () => {
+      renderer = ReactTestRenderer.create(element);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    renderers.push(renderer!);
+    return renderer!;
+  };
+
   beforeEach(() => {
+    renderers = [];
     jest.clearAllMocks();
     jest.useFakeTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
     act(() => {
+      renderers.forEach(renderer => renderer.unmount());
+      renderers = [];
       jest.clearAllTimers();
     });
     jest.useRealTimers();
   });
 
-  it('renders correctly with 2 columns of items', () => {
-    let renderer: ReactTestRenderer.ReactTestRenderer;
-    act(() => {
-      renderer = ReactTestRenderer.create(
-        <MatchingGame items={mockItems} onComplete={jest.fn()} />,
-      );
-    });
+  it('renders correctly with 2 columns of items', async () => {
+    const renderer = await renderWithinAct(
+      <MatchingGame items={mockItems} onComplete={jest.fn()} />,
+    );
 
-    const cards = renderer!.root.findAll(
+    const cards = renderer.root.findAll(
       node =>
         node.props.accessibilityLabel === 'swing' ||
         node.props.accessibilityLabel === 'slide',
@@ -55,20 +82,15 @@ describe('MatchingGame', () => {
     expect(cards.length).toBeGreaterThanOrEqual(4); // 2 swing cards + 2 slide cards
   });
 
-  it('ignores card taps while the intro instruction is playing', () => {
-    let renderer: ReactTestRenderer.ReactTestRenderer;
-    act(() => {
-      renderer = ReactTestRenderer.create(
-        <MatchingGame
-          isIntroPlaying
-          items={mockItems}
-          onComplete={jest.fn()}
-        />,
-      );
-    });
+  it('ignores card taps while the intro instruction is playing', async () => {
+    const renderer = await renderWithinAct(
+      <MatchingGame isIntroPlaying items={mockItems} onComplete={jest.fn()} />,
+    );
 
-    const swingCards = renderer!.root.findAll(
-      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+    const swingCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
     );
     expect(swingCards.length).toBe(2);
 
@@ -81,23 +103,23 @@ describe('MatchingGame', () => {
     expect(playCorrectSound).not.toHaveBeenCalled();
   });
 
-  it('handles correct match and triggers completion when all matched', () => {
+  it('handles correct match and triggers completion when all matched', async () => {
     const onCompleteMock = jest.fn();
-    const onMatchMock = jest.fn();
-    let renderer: ReactTestRenderer.ReactTestRenderer;
-
-    act(() => {
-      renderer = ReactTestRenderer.create(
-        <MatchingGame
-          items={mockItems}
-          onComplete={onCompleteMock}
-          onMatch={onMatchMock}
-        />,
-      );
+    const onMatchMock = jest.fn(() => {
+      throw new Error('storage unavailable');
     });
+    const renderer = await renderWithinAct(
+      <MatchingGame
+        items={mockItems}
+        onComplete={onCompleteMock}
+        onMatch={onMatchMock}
+      />,
+    );
 
-    const swingCards = renderer!.root.findAll(
-      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+    const swingCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
     );
     expect(swingCards.length).toBe(2);
 
@@ -114,8 +136,10 @@ describe('MatchingGame', () => {
     expect(speakWord).toHaveBeenCalledWith('swing');
     expect(onMatchMock).toHaveBeenCalledWith('vocab-swing', true);
 
-    const slideCards = renderer!.root.findAll(
-      node => node.props.accessibilityLabel === 'slide' && typeof node.props.onPress === 'function',
+    const slideCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'slide' &&
+        typeof node.props.onPress === 'function',
     );
     // Tap slide image card then slide word card
     act(() => {
@@ -136,20 +160,20 @@ describe('MatchingGame', () => {
     expect(onCompleteMock).toHaveBeenCalledTimes(1);
   });
 
-  it('handles wrong match with sound and error feedback', () => {
-    let renderer: ReactTestRenderer.ReactTestRenderer;
-
-    act(() => {
-      renderer = ReactTestRenderer.create(
-        <MatchingGame items={mockItems} onComplete={jest.fn()} />,
-      );
-    });
-
-    const swingCards = renderer!.root.findAll(
-      node => node.props.accessibilityLabel === 'swing' && typeof node.props.onPress === 'function',
+  it('handles wrong match with sound and error feedback', async () => {
+    const renderer = await renderWithinAct(
+      <MatchingGame items={mockItems} onComplete={jest.fn()} />,
     );
-    const slideCards = renderer!.root.findAll(
-      node => node.props.accessibilityLabel === 'slide' && typeof node.props.onPress === 'function',
+
+    const swingCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'swing' &&
+        typeof node.props.onPress === 'function',
+    );
+    const slideCards = renderer.root.findAll(
+      node =>
+        node.props.accessibilityLabel === 'slide' &&
+        typeof node.props.onPress === 'function',
     );
 
     // Tap swing image card then slide word card (mismatch)

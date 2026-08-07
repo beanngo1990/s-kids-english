@@ -48,7 +48,13 @@ export function SparkleEffect({ active }: SparkleEffectProps) {
   }
 
   return (
-    <View pointerEvents="none" style={styles.container}>
+    <View
+      accessibilityElementsHidden
+      accessible={false}
+      importantForAccessibility="no-hide-descendants"
+      pointerEvents="none"
+      style={styles.container}
+    >
       {sparkles.map((sparkle, index) => {
         const progress = progressValues[index];
         const opacity = progress.interpolate({
