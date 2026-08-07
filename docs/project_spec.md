@@ -283,6 +283,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
   không dùng lại icon của bất kỳ scene nào.
+- Thẻ lesson/review ở Play tab dùng icon đại diện toàn bộ bài học; `supermarket-trip` dùng hình
+  mặt tiền siêu thị thay vì graphic túi có nhãn từ vựng `CART`.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
