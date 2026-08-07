@@ -105,6 +105,22 @@ test('keeps access during an external sign-in flow and revokes it after that exc
   expect(getParentAccessSnapshot()).toEqual({ isGranted: false });
 });
 
+test('keeps access while a trusted parent permission dialog makes the app inactive', () => {
+  startLifecycle();
+  grantParentAccess();
+  setParentExternalFlowActive(true);
+
+  mockAppStateListener?.('inactive');
+  mockAppStateListener?.('active');
+
+  expect(getParentAccessSnapshot()).toEqual({ isGranted: true });
+
+  setParentExternalFlowActive(false);
+  mockAppStateListener?.('inactive');
+
+  expect(getParentAccessSnapshot()).toEqual({ isGranted: false });
+});
+
 test('shares one AppState subscription until the last lifecycle owner stops', () => {
   const mockAddAppStateListener = getMockAddAppStateListener();
   const stopFirstOwner = startLifecycle();

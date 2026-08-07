@@ -1,5 +1,6 @@
 import {
   getLessonCompletionPercent,
+  getLessonPlanSelection,
   haveSameLessonIds,
 } from '../src/utils/lessonPlan';
 
@@ -14,4 +15,27 @@ test('lesson plan id comparison ignores order but not missing lessons', () => {
     .toBe(true);
   expect(haveSameLessonIds(['lesson-a', 'lesson-a'], ['lesson-a', 'lesson-b']))
     .toBe(false);
+});
+
+test('lesson plan selection keeps preset and custom states mutually exclusive', () => {
+  const allLessonIds = ['lesson-a', 'lesson-b', 'lesson-c'];
+  const gentleLessonIds = ['lesson-a', 'lesson-b'];
+
+  expect(
+    getLessonPlanSelection(allLessonIds, allLessonIds, gentleLessonIds, false),
+  ).toBe('full');
+  expect(
+    getLessonPlanSelection(
+      gentleLessonIds,
+      allLessonIds,
+      gentleLessonIds,
+      false,
+    ),
+  ).toBe('gentle');
+  expect(
+    getLessonPlanSelection(['lesson-a'], allLessonIds, gentleLessonIds, false),
+  ).toBe('custom');
+  expect(
+    getLessonPlanSelection(allLessonIds, allLessonIds, gentleLessonIds, true),
+  ).toBe('custom');
 });

@@ -412,7 +412,7 @@ export const en: TranslationDictionary = {
     'All lessons enables the full path; Gentle keeps a few lessons near the current one; Custom lets parents show or hide each lesson.',
   'parent.info.lessonPace.privacy':
     'The enabled lesson list is stored in parent settings and only syncs to cloud if learning data sync is enabled.',
-  'parent.info.lessonPace.title': 'Learning pace',
+  'parent.info.lessonPace.title': 'Lesson scope',
   'parent.info.lessonPace.what':
     'Adjusts how many lessons appear in the child learning area.',
   'parent.info.openAccessibility': 'Show explanation',
@@ -525,10 +525,10 @@ export const en: TranslationDictionary = {
   'parent.settings.journeyModeTitle': 'Lesson access',
   'parent.settings.journeySubtitle':
     'Choose how your child explores content and the right level of challenge.',
-  'parent.settings.journeyTitle': 'Learning journey',
+  'parent.settings.journeyTitle': 'How your child learns',
   'parent.settings.learningSummaryLabel': 'Current setup',
   'parent.settings.learningSummarySubtitle':
-    'Adjust quickly when your child needs a different pace.',
+    'Quickly adjust lesson access and difficulty.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
   'parent.settings.profileBadge': 'Child profile',
   'parent.settings.profileMissingBirthYear':
@@ -536,10 +536,19 @@ export const en: TranslationDictionary = {
   'parent.settings.reminderDisabled':
     'Turn on reminders at your child’s most comfortable time',
   'parent.settings.reminderEnabled': 'Reminding daily at {time} ✎',
-  'parent.settings.reminderTimeSubtitle':
-    'You can choose a time before turning reminders on.',
+  'parent.settings.reminderPermissionAction': 'Open Settings',
+  'parent.settings.reminderPermissionText':
+    'Notifications are turned off. Allow notifications in Settings to receive learning reminders.',
+  'parent.settings.reminderPermissionTitle': 'Cannot enable reminders',
+  'parent.settings.reminderTimeDisabledSubtitle':
+    'Will remind at {time} when enabled.',
+  'parent.settings.reminderTimeEnabledSubtitle':
+    'Currently reminding every day at {time}.',
   'parent.settings.reminderTimeTitle': 'Reminder time',
   'parent.settings.reminderTitle': 'Learning reminder',
+  'parent.settings.reminderUpdateErrorText':
+    'The reminder schedule could not be updated. Please try again later.',
+  'parent.settings.reminderUpdateErrorTitle': 'Reminder was not updated',
   'parent.settings.sheetDifficultyTitle': 'Choose difficulty',
   'parent.settings.sheetEnglishAccentTitle': 'Choose English accent',
   'parent.settings.sheetJourneyTitle': 'Choose lesson access',
@@ -938,7 +947,7 @@ export const en: TranslationDictionary = {
   'parent.stats.openReviewActivity': 'Open review activity',
   'parent.stats.recentWords': 'Recent words',
   'parent.stats.parentTip': 'Parent Tip',
-  'parent.stats.selectLearningPace': 'Select Learning Pace',
+  'parent.stats.selectLearningPace': 'Choose lesson scope',
   'parent.stats.lessonOfChild': "child's lesson",
   'parent.stats.lesson': 'lesson',
   'parent.stats.totalLessons': '/{total} lessons',
@@ -946,7 +955,7 @@ export const en: TranslationDictionary = {
   'parent.stats.completedEnabledLessons':
     'Completed {completed}/{total} enabled lessons.',
   'parent.stats.selectLearningPaceSubtitle':
-    'You can choose a suitable pace or manually adjust each lesson.',
+    'Choose how many lessons to show or adjust each lesson manually.',
   'parent.stats.allLessons': 'All lessons',
   'parent.stats.guidedPlanTitle': 'All lessons',
   'parent.stats.guidedPlanSubtitle': 'Enable the full learning path',

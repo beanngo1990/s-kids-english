@@ -301,7 +301,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** adult gate yêu cầu trả lời phép tính đơn giản. Sau ba câu trả lời sai, gate
   cooldown 10 giây trước khi cho thử tiếp; PIN vẫn unsupported.
 - Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
-  trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
+  trừ các external flow do phụ huynh chủ động mở như sign-in, store purchase/restore, hộp thoại cấp
+  quyền thông báo hoặc system notification settings. Ngoại lệ notification kết thúc khi app trở lại
+  foreground; sau đó những lần rời app bình thường tiếp tục revoke session.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - Parent stats tổng quan là chỉ số lịch sử/all-time, không reset hay lọc lại theo `learningMode`
   hiện tại. `Tổng từ đã học` dùng unique learned word IDs; `Sticker nhận được` bao gồm sticker
@@ -311,11 +313,15 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
-- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Card
-  "Lộ trình học của bé" hiển thị số bài đang bật và thanh tiến độ theo
+- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Nội dung
+  được sắp theo luồng: tổng quan "Lộ trình học của bé" -> "Chọn phạm vi bài học" -> các chủ đề và
+  bài đang học -> "Cách bé học" (guided/free journey và difficulty). Card tổng quan hiển thị số bài
+  đang bật và thanh tiến độ theo
   `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
-  lesson trong plan, còn guided/free journey vẫn là setting riêng. Nhịp "Nhẹ nhàng" bật 3 bài gần
-  bài focus hiện tại, không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
+  lesson trong plan, còn guided/free journey vẫn là setting riêng. Ba lựa chọn phạm vi loại trừ
+  nhau; khi mở "Tự chọn", app giữ nguyên các bài đang bật để ba mẹ bắt đầu tinh chỉnh nhưng chỉ
+  hiển thị "Tự chọn" là lựa chọn hiện hành. Nhịp "Nhẹ nhàng" bật 3 bài gần bài focus hiện tại,
+  không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
   thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
   hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
@@ -525,7 +531,15 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 - **Implemented:** Notifee request permission và tạo một timestamp trigger lặp mỗi ngày.
 - Notification ID/channel ID: `daily-reminder`.
-- Khi bật reminder hoặc đổi giờ, Parent UI schedule/reschedule; khi tắt thì cancel.
+- Khi bật reminder hoặc đổi giờ, Parent UI schedule/reschedule; khi tắt thì cancel. Switch phản hồi
+  ngay theo thao tác của phụ huynh trong lúc native request đang chạy để tránh nhấp nháy, nhưng chỉ
+  persist `reminderEnabled: true` sau khi permission được cấp và trigger được tạo thành công;
+  permission bị từ chối rollback switch về tắt và hiển thị CTA mở system settings.
+- Khi Parent screen focus hoặc app trở lại foreground, UI đối chiếu saved preference với
+  notification permission và trigger `daily-reminder` thực tế để không báo đang nhắc khi lịch native
+  không hoạt động.
+- Row "Giờ nhắc" vẫn chỉnh được khi reminder đang tắt để phụ huynh chọn giờ trước; subtitle phân
+  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật.
 - Service cancel notification cũ trước khi tạo schedule mới.
 - **Partial verification:** chưa có native E2E tests trong repo chứng minh behavior trên cả hai OS;
   thay đổi reminder cần kiểm tra trên platform hoặc báo rõ chưa chạy.

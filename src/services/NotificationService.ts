@@ -3,21 +3,26 @@ import notifee, { TriggerType, RepeatFrequency, AuthorizationStatus } from '@not
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { createTranslator } from '../i18n';
 
+const DAILY_REMINDER_ID = 'daily-reminder';
+
 export class NotificationService {
   static async requestPermissions(): Promise<boolean> {
     const settings = await notifee.requestPermission();
     return settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED;
   }
 
-  static async scheduleDailyReminder(time: string) {
+  static async scheduleDailyReminder(time: string): Promise<boolean> {
     const hasPermission = await this.requestPermissions();
-    if (!hasPermission) return;
+    if (!hasPermission) {
+      await this.cancelDailyReminder().catch(() => undefined);
+      return false;
+    }
     const t = await getNotificationTranslator();
 
     const [hours, minutes] = time.split(':').map(Number);
-    
+
     const channelId = await notifee.createChannel({
-      id: 'daily-reminder',
+      id: DAILY_REMINDER_ID,
       name: t('notifications.dailyChannel'),
     });
 
@@ -41,7 +46,7 @@ export class NotificationService {
 
     await notifee.createTriggerNotification(
       {
-        id: 'daily-reminder',
+        id: DAILY_REMINDER_ID,
         title: t('notifications.dailyTitle'),
         body: t('notifications.dailyBody'),
         android: {
@@ -54,10 +59,22 @@ export class NotificationService {
       },
       trigger,
     );
+
+    return true;
+  }
+
+  static async isDailyReminderActive(): Promise<boolean> {
+    const settings = await notifee.getNotificationSettings();
+    if (settings.authorizationStatus < AuthorizationStatus.AUTHORIZED) {
+      return false;
+    }
+
+    const triggerIds = await notifee.getTriggerNotificationIds();
+    return triggerIds.includes(DAILY_REMINDER_ID);
   }
 
   static async cancelDailyReminder() {
-    await notifee.cancelTriggerNotification('daily-reminder');
+    await notifee.cancelTriggerNotification(DAILY_REMINDER_ID);
   }
 }
 
