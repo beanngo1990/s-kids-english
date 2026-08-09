@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
+import {
+  Alert,
+  AppState,
+  Linking,
+  Text,
+  type AppStateStatus,
+} from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { KidIconButton } from '../src/components/KidIconButton';
@@ -9,6 +15,7 @@ import {
   speakTeacherPromptSegments,
 } from '../src/engine/AudioManager';
 import {
+  checkVoiceRecordingPermission,
   getVoiceRecordingLevel,
   requestVoiceRecordingPermission,
   startVoiceRecording,
@@ -28,15 +35,20 @@ jest.mock('../src/engine/AudioManager', () => ({
 }));
 
 jest.mock('../src/engine/VoiceRecorder', () => ({
+  checkVoiceRecordingPermission: jest.fn(() => Promise.resolve('denied')),
   getVoiceRecordingLevel: jest.fn(() => Promise.resolve(null)),
   isVoiceRecorderAvailable: jest.fn(() => true),
   playVoiceRecording: jest.fn(() => Promise.resolve()),
-  requestVoiceRecordingPermission: jest.fn(() => Promise.resolve(true)),
+  requestVoiceRecordingPermission: jest.fn(() => Promise.resolve('granted')),
   startVoiceRecording: jest.fn(() => Promise.resolve('file://kid-voice.m4a')),
   stopVoiceRecording: jest.fn(() => Promise.resolve('file://kid-voice.m4a')),
 }));
 
 const flushPromises = () => Promise.resolve();
+const mockedCheckVoiceRecordingPermission =
+  checkVoiceRecordingPermission as jest.MockedFunction<
+    typeof checkVoiceRecordingPermission
+  >;
 const mockedGetVoiceRecordingLevel =
   getVoiceRecordingLevel as jest.MockedFunction<typeof getVoiceRecordingLevel>;
 const mockedStopVoiceRecording =
@@ -53,17 +65,32 @@ const mockedSpeakTeacherPromptSegments =
   speakTeacherPromptSegments as jest.MockedFunction<
     typeof speakTeacherPromptSegments
   >;
+let mockAppStateListener: ((state: AppStateStatus) => void) | null = null;
+const mockRemoveAppStateListener = jest.fn();
 
 beforeEach(() => {
   jest.clearAllMocks();
+  mockAppStateListener = null;
+  jest.spyOn(AppState, 'addEventListener').mockImplementation(
+    (eventType, listener) => {
+      if (eventType === 'change') {
+        mockAppStateListener = listener as (state: AppStateStatus) => void;
+      }
+      return { remove: mockRemoveAppStateListener };
+    },
+  );
+  jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+  jest.spyOn(Linking, 'openSettings').mockResolvedValue(undefined);
+  mockedCheckVoiceRecordingPermission.mockResolvedValue('denied');
   mockedGetVoiceRecordingLevel.mockResolvedValue(null);
-  mockedRequestVoiceRecordingPermission.mockResolvedValue(true);
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('granted');
   mockedStartVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
   mockedStopVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
 });
 
 afterEach(() => {
   jest.useRealTimers();
+  jest.restoreAllMocks();
 });
 
 test('shows audio preparation separately from active speech', async () => {
@@ -79,6 +106,118 @@ test('shows audio preparation separately from active speech', async () => {
     tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
   expect(textValues).toContain('Đang chuẩn bị giọng cô...');
   expect(textValues).not.toContain('Cô đang nói...');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('keeps the lesson available when an automatic microphone request is denied', async () => {
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('denied');
+  const onContinue = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        onContinue={onContinue}
+        word="sun"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedRequestVoiceRecordingPermission).toHaveBeenCalledWith(
+    expect.any(Object),
+    { source: 'automatic' },
+  );
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
+  expect(getTextValues(tree)).toContain('Cần cấp quyền Micro. Từ này đọc là:');
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('does not send a simple microphone denial to Settings', async () => {
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('denied');
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    await findByAccessibilityLabel(tree, 'Thu âm lại').props.onPress();
+    await flushPromises();
+  });
+
+  expect(mockedRequestVoiceRecordingPermission).toHaveBeenLastCalledWith(
+    expect.any(Object),
+    { source: 'manual' },
+  );
+  expect(Alert.alert).not.toHaveBeenCalled();
+  expect(Linking.openSettings).not.toHaveBeenCalled();
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('opens Settings only when microphone permission is blocked and refreshes on return', async () => {
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('blocked');
+  mockedCheckVoiceRecordingPermission.mockResolvedValue('granted');
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    await findByAccessibilityLabel(tree, 'Thu âm lại').props.onPress();
+    await flushPromises();
+  });
+
+  expect(Alert.alert).toHaveBeenCalledWith(
+    'Quyền truy cập Micro',
+    expect.any(String),
+    expect.any(Array),
+  );
+
+  const openSettingsButton = getLastPermissionAlertButtons().find(
+    button => button.text === 'Mở Cài đặt',
+  );
+  expect(openSettingsButton).toBeDefined();
+  await ReactTestRenderer.act(async () => {
+    openSettingsButton?.onPress?.();
+    await flushPromises();
+  });
+  expect(Linking.openSettings).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    mockAppStateListener?.('background');
+    mockAppStateListener?.('active');
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedCheckVoiceRecordingPermission).toHaveBeenCalledTimes(1);
+  expect(getTextValues(tree)).not.toContain(
+    'Cần cấp quyền Micro. Từ này đọc là:',
+  );
+  expect(findByAccessibilityLabel(tree, 'Bé nói sun')).toBeDefined();
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -236,6 +375,25 @@ function findByAccessibilityLabel(
   }
 
   return node;
+}
+
+type PermissionAlertButton = {
+  onPress?: () => void;
+  text?: string;
+};
+
+function getLastPermissionAlertButtons() {
+  const lastAlertCall = (
+    Alert.alert as jest.MockedFunction<typeof Alert.alert>
+  ).mock.calls.at(-1);
+  expect(lastAlertCall).toBeDefined();
+  return (lastAlertCall?.[2] ?? []) as PermissionAlertButton[];
+}
+
+function getTextValues(
+  tree: ReactTestRenderer.ReactTestRenderer | undefined,
+) {
+  return tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
 }
 
 test('stops a recorder that starts after the practice controls unmount', async () => {

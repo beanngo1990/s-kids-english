@@ -7,6 +7,7 @@ import { useResponsiveLayout } from '../theme/responsive';
 
 type ScreenProps = {
   children: ReactNode;
+  fixedHeader?: ReactNode;
   scroll?: boolean;
   withBottomSpace?: boolean;
   safeAreaEdges?: ('top' | 'right' | 'bottom' | 'left')[];
@@ -16,6 +17,7 @@ type ScreenProps = {
 
 export function Screen({
   children,
+  fixedHeader,
   scroll = false,
   withBottomSpace = true,
   safeAreaEdges = ['bottom', 'left', 'right'],
@@ -27,19 +29,35 @@ export function Screen({
   const scrollContentStyle = {
     alignSelf: 'center' as const,
     maxWidth: responsiveLayout.contentMaxWidth,
-    padding: responsiveLayout.screenPadding,
+    paddingHorizontal: responsiveLayout.screenPadding,
     paddingBottom: responsiveLayout.screenPadding + (withBottomSpace ? 76 : 0),
+    paddingTop: fixedHeader ? 0 : responsiveLayout.screenPadding,
+    width: '100%' as const,
+  };
+  const fixedHeaderStyle = {
+    alignSelf: 'center' as const,
+    maxWidth: responsiveLayout.contentMaxWidth,
+    paddingHorizontal: responsiveLayout.screenPadding,
+    paddingTop: responsiveLayout.screenPadding / 2,
     width: '100%' as const,
   };
 
   let content = scroll ? (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
-      keyboardShouldPersistTaps="handled"
-    >
-      {children}
-    </ScrollView>
+    <>
+      {fixedHeader ? (
+        <View style={[styles.fixedHeader, fixedHeaderStyle]}>
+          {fixedHeader}
+        </View>
+      ) : null}
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={[styles.scrollContent, scrollContentStyle]}
+        keyboardShouldPersistTaps="handled"
+        style={styles.content}
+      >
+        {children}
+      </ScrollView>
+    </>
   ) : (
     <View style={styles.content}>{children}</View>
   );
@@ -66,6 +84,10 @@ export function Screen({
 const styles = createThemedStyles(() => ({
   content: {
     flex: 1,
+  },
+  fixedHeader: {
+    backgroundColor: colors.background,
+    zIndex: 10,
   },
   safeArea: {
     backgroundColor: colors.background,

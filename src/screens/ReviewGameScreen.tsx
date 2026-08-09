@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Alert, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -226,10 +232,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     let isCancelled = false;
     setIsIntroPlaying(true);
     speakTeacherPromptSegments(
-      resolveReviewGameIntroPrompt(
-        activeGameType,
-        teacherPromptMode,
-      ).segments,
+      resolveReviewGameIntroPrompt(activeGameType, teacherPromptMode).segments,
     )
       .catch(() => undefined)
       .finally(() => {
@@ -347,36 +350,124 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   }
 
   return (
-    <Screen scroll>
-      <View style={styles.container}>
-        {/* Custom Kid Mode Top Navigation Header */}
-        <View style={styles.topHud}>
-          <Pressable
-            accessibilityLabel={t('common.close')}
-            accessibilityRole="button"
-            onPress={() =>
-              navigation.canGoBack()
-                ? navigation.goBack()
-                : navigation.replace('LessonPack', {
-                    lessonId: lesson.id,
-                    openedFromParent,
-                  })
-            }
-            style={styles.exitButton}
-          >
-            <View style={styles.exitIcon}>
-              <View style={styles.exitStroke} />
-              <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
-            </View>
-          </Pressable>
+    <Screen
+      fixedHeader={
+        <View style={styles.fixedHeader}>
+          {/* Custom Kid Mode Top Navigation Header */}
+          <View style={styles.topHud}>
+            <Pressable
+              accessibilityLabel={t('common.close')}
+              accessibilityRole="button"
+              onPress={() =>
+                navigation.canGoBack()
+                  ? navigation.goBack()
+                  : navigation.replace('LessonPack', {
+                      lessonId: lesson.id,
+                      openedFromParent,
+                    })
+              }
+              style={styles.exitButton}
+            >
+              <View style={styles.exitIcon}>
+                <View style={styles.exitStroke} />
+                <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
+              </View>
+            </Pressable>
 
-          <View style={styles.topHudPill}>
-            <Text numberOfLines={1} style={styles.topHudTitle}>
-              {getLocalizedLessonTitle(lesson, appLanguage)}
-            </Text>
+            <View style={styles.topHudPill}>
+              <Text numberOfLines={1} style={styles.topHudTitle}>
+                {getLocalizedLessonTitle(lesson, appLanguage)}
+              </Text>
+            </View>
+          </View>
+
+          {/* Game Type Switcher Bar */}
+          <View style={styles.gameSelectorContainer}>
+            <Pressable
+              accessibilityLabel={t('reviewGame.selectMemory')}
+              accessibilityRole="tab"
+              accessibilityState={{ selected: activeGameType === 'memory' }}
+              onPress={() => setSelectedGameType('memory')}
+              style={({ pressed }) => [
+                styles.selectorTab,
+                activeGameType === 'memory' && styles.selectorTabActive,
+                pressed && styles.selectorTabPressed,
+              ]}
+            >
+              <AppUiIcon name="gameMemory" size={16} />
+              <Text
+                adjustsFontSizeToFit
+                minimumFontScale={0.85}
+                numberOfLines={1}
+                style={[
+                  styles.selectorTabText,
+                  activeGameType === 'memory' && styles.selectorTabTextActive,
+                ]}
+              >
+                {t('reviewGame.selectMemory')}
+              </Text>
+            </Pressable>
+
+            <Pressable
+              accessibilityLabel={t('reviewGame.selectListenChoose')}
+              accessibilityRole="tab"
+              accessibilityState={{
+                selected: activeGameType === 'listenAndChoose',
+              }}
+              onPress={() => setSelectedGameType('listenAndChoose')}
+              style={({ pressed }) => [
+                styles.selectorTab,
+                activeGameType === 'listenAndChoose' &&
+                  styles.selectorTabActive,
+                pressed && styles.selectorTabPressed,
+              ]}
+            >
+              <AppUiIcon name="gameListen" size={16} />
+              <Text
+                adjustsFontSizeToFit
+                minimumFontScale={0.85}
+                numberOfLines={1}
+                style={[
+                  styles.selectorTabText,
+                  activeGameType === 'listenAndChoose' &&
+                    styles.selectorTabTextActive,
+                ]}
+              >
+                {t('reviewGame.selectListenChoose')}
+              </Text>
+            </Pressable>
+
+            <Pressable
+              accessibilityLabel={t('reviewGame.selectMatching')}
+              accessibilityRole="tab"
+              accessibilityState={{ selected: activeGameType === 'matching' }}
+              onPress={() => setSelectedGameType('matching')}
+              style={({ pressed }) => [
+                styles.selectorTab,
+                activeGameType === 'matching' && styles.selectorTabActive,
+                pressed && styles.selectorTabPressed,
+              ]}
+            >
+              <AppUiIcon name="gameMatching" size={16} />
+              <Text
+                adjustsFontSizeToFit
+                minimumFontScale={0.85}
+                numberOfLines={1}
+                style={[
+                  styles.selectorTabText,
+                  activeGameType === 'matching' && styles.selectorTabTextActive,
+                ]}
+              >
+                {t('reviewGame.selectMatching')}
+              </Text>
+            </Pressable>
           </View>
         </View>
-
+      }
+      safeAreaEdges={['top', 'bottom', 'left', 'right']}
+      scroll
+    >
+      <View style={styles.container}>
         {openedFromParent ? (
           <View style={styles.parentContext}>
             <KidBadge tone="sky">{t('reviewGame.parentBadge')}</KidBadge>
@@ -386,86 +477,9 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           </View>
         ) : null}
 
-        {/* Game Type Switcher Bar */}
-        <View style={styles.gameSelectorContainer}>
-          <Pressable
-            accessibilityLabel={t('reviewGame.selectMemory')}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: activeGameType === 'memory' }}
-            onPress={() => setSelectedGameType('memory')}
-            style={({ pressed }) => [
-              styles.selectorTab,
-              activeGameType === 'memory' && styles.selectorTabActive,
-              pressed && styles.selectorTabPressed,
-            ]}
-          >
-            <AppUiIcon name="gameMemory" size={16} />
-            <Text
-              adjustsFontSizeToFit
-              minimumFontScale={0.85}
-              numberOfLines={1}
-              style={[
-                styles.selectorTabText,
-                activeGameType === 'memory' && styles.selectorTabTextActive,
-              ]}
-            >
-              {t('reviewGame.selectMemory')}
-            </Text>
-          </Pressable>
-
-          <Pressable
-            accessibilityLabel={t('reviewGame.selectListenChoose')}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: activeGameType === 'listenAndChoose' }}
-            onPress={() => setSelectedGameType('listenAndChoose')}
-            style={({ pressed }) => [
-              styles.selectorTab,
-              activeGameType === 'listenAndChoose' && styles.selectorTabActive,
-              pressed && styles.selectorTabPressed,
-            ]}
-          >
-            <AppUiIcon name="gameListen" size={16} />
-            <Text
-              adjustsFontSizeToFit
-              minimumFontScale={0.85}
-              numberOfLines={1}
-              style={[
-                styles.selectorTabText,
-                activeGameType === 'listenAndChoose' && styles.selectorTabTextActive,
-              ]}
-            >
-              {t('reviewGame.selectListenChoose')}
-            </Text>
-          </Pressable>
-
-          <Pressable
-            accessibilityLabel={t('reviewGame.selectMatching')}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: activeGameType === 'matching' }}
-            onPress={() => setSelectedGameType('matching')}
-            style={({ pressed }) => [
-              styles.selectorTab,
-              activeGameType === 'matching' && styles.selectorTabActive,
-              pressed && styles.selectorTabPressed,
-            ]}
-          >
-            <AppUiIcon name="gameMatching" size={16} />
-            <Text
-              adjustsFontSizeToFit
-              minimumFontScale={0.85}
-              numberOfLines={1}
-              style={[
-                styles.selectorTabText,
-                activeGameType === 'matching' && styles.selectorTabTextActive,
-              ]}
-            >
-              {t('reviewGame.selectMatching')}
-            </Text>
-          </Pressable>
-        </View>
-
         <GamePlayer
           isIntroPlaying={isIntroPlaying}
+          learningMode={learningMode ?? 'core'}
           memoryItems={reviewItems}
           onComplete={handleComplete}
           onWordInteraction={saveVocabularyInteraction}
@@ -556,7 +570,6 @@ const styles = createThemedStyles(() => ({
     borderWidth: 2,
     flexDirection: 'row',
     height: 48,
-    marginVertical: spacing.xs,
     padding: 3,
   },
   selectorTab: {
@@ -586,11 +599,16 @@ const styles = createThemedStyles(() => ({
     color: colors.white,
     fontWeight: '900',
   },
+  fixedHeader: {
+    backgroundColor: colors.background,
+    gap: spacing.xs,
+    paddingBottom: spacing.xs,
+    zIndex: 10,
+  },
   topHud: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.sm,
-    marginBottom: spacing.xs,
   },
   exitButton: {
     alignItems: 'center',

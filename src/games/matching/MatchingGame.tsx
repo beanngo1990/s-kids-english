@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Animated,
   Image,
@@ -8,21 +14,31 @@ import {
   type ImageSourcePropType,
 } from 'react-native';
 
-import { AppCard } from '../../components/AppCard';
-import { AppUiIcon } from '../../components/AppUiIcon';
-import { KidBadge } from '../../components/KidBadge';
+import { ReviewGameCoach } from '../../components/ReviewGameCoach';
 import { SKidsIcon } from '../../components/SKidsIcon';
+import { SparkleEffect } from '../../components/SparkleEffect';
 import {
   playCorrectSound,
   playWrongSound,
   speakWord,
 } from '../../engine/AudioManager';
-import { createShakeAnimation } from '../../engine/animations';
+import {
+  createBounceAnimation,
+  createShakeAnimation,
+} from '../../engine/animations';
 import { useI18n } from '../../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
+import { useReducedMotion } from '../../theme/motion';
 import { useResponsiveLayout } from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
+import type { LearningMode } from '../../types/lesson';
+import { getReviewDifficultyProfile } from '../difficulty';
+import {
+  runGameMatchCallback,
+  useGameFeedback,
+  type GameMatchCallback,
+} from '../useGameFeedback';
 
 export type MatchingItem = {
   id: string;
@@ -34,8 +50,9 @@ export type MatchingItem = {
 type MatchingGameProps = {
   isIntroPlaying?: boolean;
   items: MatchingItem[];
+  learningMode?: LearningMode;
   onComplete: () => void;
-  onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
+  onMatch?: GameMatchCallback;
 };
 
 const MATCH_PAIR_PALETTES = [
@@ -50,12 +67,16 @@ const MATCH_PAIR_PALETTES = [
 export function MatchingGame({
   isIntroPlaying = false,
   items,
+  learningMode = 'core',
   onComplete,
   onMatch,
 }: MatchingGameProps) {
   useThemeSync();
   const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
+  const isReducedMotionEnabled = useReducedMotion();
+  const difficulty = getReviewDifficultyProfile(learningMode);
+  const { feedback, resetFeedback, showFeedback } = useGameFeedback();
 
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
@@ -66,6 +87,21 @@ export function MatchingGame({
 
   const firstTryMapRef = useRef<Map<string, boolean>>(new Map());
   const completionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wrongTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCompletionTimer = useCallback(() => {
+    if (completionTimerRef.current !== null) {
+      clearTimeout(completionTimerRef.current);
+      completionTimerRef.current = null;
+    }
+  }, []);
+
+  const clearWrongTimer = useCallback(() => {
+    if (wrongTimerRef.current !== null) {
+      clearTimeout(wrongTimerRef.current);
+      wrongTimerRef.current = null;
+    }
+  }, []);
 
   const matchedSet = useMemo(() => new Set(matchedOrder), [matchedOrder]);
 
@@ -80,6 +116,9 @@ export function MatchingGame({
 
   // Reset state when items change
   useEffect(() => {
+    clearCompletionTimer();
+    clearWrongTimer();
+    resetFeedback();
     setSelectedImageId(null);
     setSelectedWordId(null);
     setMatchedOrder([]);
@@ -88,15 +127,14 @@ export function MatchingGame({
     setIsTransitioning(false);
     firstTryMapRef.current = new Map();
     items.forEach(item => firstTryMapRef.current.set(item.id, true));
-  }, [items]);
+  }, [clearCompletionTimer, clearWrongTimer, items, resetFeedback]);
 
   useEffect(() => {
     return () => {
-      if (completionTimerRef.current) {
-        clearTimeout(completionTimerRef.current);
-      }
+      clearCompletionTimer();
+      clearWrongTimer();
     };
-  }, []);
+  }, [clearCompletionTimer, clearWrongTimer]);
 
   const checkMatch = useCallback(
     (imageId: string, wordId: string) => {
@@ -104,6 +142,7 @@ export function MatchingGame({
 
       if (imageId === wordId) {
         // Correct match!
+        showFeedback('correct');
         playCorrectSound().catch(() => undefined);
         const matchedItem = items.find(i => i.id === imageId);
         if (matchedItem) {
@@ -111,14 +150,16 @@ export function MatchingGame({
         }
 
         const isFirstTry = firstTryMapRef.current.get(imageId) ?? true;
-        if (onMatch) {
-          onMatch(imageId, isFirstTry);
-        }
+        runGameMatchCallback(onMatch, imageId, isFirstTry).catch(
+          () => undefined,
+        );
 
         setMatchedOrder(prev => {
           const next = [...prev, imageId];
           if (next.length >= items.length) {
+            clearCompletionTimer();
             completionTimerRef.current = setTimeout(() => {
+              completionTimerRef.current = null;
               onComplete();
             }, 1000);
           }
@@ -134,26 +175,40 @@ export function MatchingGame({
         firstTryMapRef.current.set(wordId, false);
         setWrongImageId(imageId);
         setWrongWordId(wordId);
+        showFeedback('wrong', difficulty.wrongFeedbackDurationMs);
 
         playWrongSound().catch(() => undefined);
 
-        setTimeout(() => {
+        clearWrongTimer();
+        wrongTimerRef.current = setTimeout(() => {
+          wrongTimerRef.current = null;
           setSelectedImageId(null);
           setSelectedWordId(null);
           setWrongImageId(null);
           setWrongWordId(null);
           setIsTransitioning(false);
-        }, 700);
+        }, difficulty.wrongFeedbackDurationMs);
       }
     },
-    [items, onComplete, onMatch],
+    [
+      clearCompletionTimer,
+      clearWrongTimer,
+      difficulty.wrongFeedbackDurationMs,
+      items,
+      onComplete,
+      onMatch,
+      showFeedback,
+    ],
   );
 
   const handleImagePress = (item: MatchingItem) => {
     if (isIntroPlaying || isTransitioning || matchedSet.has(item.id)) {
       return;
     }
-    speakWord(item.word).catch(() => undefined);
+    resetFeedback();
+    if (difficulty.selectionAudioEnabled) {
+      speakWord(item.word).catch(() => undefined);
+    }
 
     const nextImageId = selectedImageId === item.id ? null : item.id;
     setSelectedImageId(nextImageId);
@@ -167,7 +222,10 @@ export function MatchingGame({
     if (isIntroPlaying || isTransitioning || matchedSet.has(item.id)) {
       return;
     }
-    speakWord(item.word).catch(() => undefined);
+    resetFeedback();
+    if (difficulty.selectionAudioEnabled) {
+      speakWord(item.word).catch(() => undefined);
+    }
 
     const nextWordId = selectedWordId === item.id ? null : item.id;
     setSelectedWordId(nextWordId);
@@ -185,32 +243,26 @@ export function MatchingGame({
 
   return (
     <View style={styles.container}>
-      {/* Header Prompt Card */}
-      <AppCard style={styles.promptCard}>
-        <KidBadge tone="sun">
-          {t('matchingGame.progress', {
-            matched: String(matchedOrder.length),
-            total: String(items.length),
-          })}
-        </KidBadge>
-        <View style={styles.promptTitleRow}>
-          <AppUiIcon name="gameMatching" size={20} />
-          <Text
-            adjustsFontSizeToFit
-            minimumFontScale={0.85}
-            numberOfLines={1}
-            style={styles.promptTitle}
-          >
-            {t('matchingGame.prompt')}
-          </Text>
-        </View>
-      </AppCard>
+      <ReviewGameCoach
+        completed={matchedOrder.length}
+        detail={t('matchingGame.progress', {
+          matched: String(matchedOrder.length),
+          total: String(items.length),
+        })}
+        feedback={feedback}
+        isSpeaking={isIntroPlaying}
+        prompt={t('matchingGame.prompt')}
+        reduceMotion={isReducedMotionEnabled}
+        total={items.length}
+      />
 
       {/* Two Columns: Left Words, Right Images */}
       <View style={[styles.columnsRow, isTablet && styles.columnsRowTablet]}>
         {/* Left Column: Words */}
         <View style={styles.column}>
-          <Text style={styles.columnHeader}>{t('matchingGame.wordColumn')}</Text>
+          <Text style={styles.columnHeader}>
+            {t('matchingGame.wordColumn')}
+          </Text>
           {rightItems.map(item => {
             const pairIndex = matchedOrder.indexOf(item.id);
             const isMatched = pairIndex !== -1;
@@ -225,6 +277,7 @@ export function MatchingGame({
                 key={`word-${item.id}`}
                 isMatched={isMatched}
                 isDisabled={isIntroPlaying || isTransitioning}
+                isReducedMotionEnabled={isReducedMotionEnabled}
                 isSelected={isSelected}
                 isWrong={isWrong}
                 label={item.word}
@@ -234,7 +287,12 @@ export function MatchingGame({
                 side="left"
               >
                 <View style={styles.wordCardContent}>
-                  <Text style={[styles.wordText, isMatched && palette && { color: palette.text }]}>
+                  <Text
+                    style={[
+                      styles.wordText,
+                      isMatched && palette && { color: palette.text },
+                    ]}
+                  >
                     {item.word}
                   </Text>
                   <SKidsIcon name="listen" size={20} />
@@ -246,7 +304,9 @@ export function MatchingGame({
 
         {/* Right Column: Images */}
         <View style={styles.column}>
-          <Text style={styles.columnHeader}>{t('matchingGame.imageColumn')}</Text>
+          <Text style={styles.columnHeader}>
+            {t('matchingGame.imageColumn')}
+          </Text>
           {leftItems.map(item => {
             const pairIndex = matchedOrder.indexOf(item.id);
             const isMatched = pairIndex !== -1;
@@ -261,6 +321,7 @@ export function MatchingGame({
                 key={`img-${item.id}`}
                 isMatched={isMatched}
                 isDisabled={isIntroPlaying || isTransitioning}
+                isReducedMotionEnabled={isReducedMotionEnabled}
                 isSelected={isSelected}
                 isWrong={isWrong}
                 label={item.word}
@@ -287,11 +348,12 @@ type MatchingCardItemProps = {
   children: React.ReactNode;
   isMatched: boolean;
   isDisabled: boolean;
+  isReducedMotionEnabled: boolean;
   isSelected: boolean;
   isWrong: boolean;
   label: string;
   onPress: () => void;
-  palette: typeof MATCH_PAIR_PALETTES[number] | null;
+  palette: (typeof MATCH_PAIR_PALETTES)[number] | null;
   pairIndex: number;
   side: 'left' | 'right';
 };
@@ -300,6 +362,7 @@ function MatchingCardItem({
   children,
   isMatched,
   isDisabled,
+  isReducedMotionEnabled,
   isSelected,
   isWrong,
   label,
@@ -309,15 +372,44 @@ function MatchingCardItem({
   side,
 }: MatchingCardItemProps) {
   const shakeAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    if (isWrong) {
-      createShakeAnimation(shakeAnim).start();
+    if (!isWrong || isReducedMotionEnabled) {
+      shakeAnim.stopAnimation();
+      shakeAnim.setValue(0);
+      return;
     }
-  }, [isWrong, shakeAnim]);
+
+    const animation = createShakeAnimation(shakeAnim);
+    animation.start();
+
+    return () => {
+      animation.stop();
+      shakeAnim.setValue(0);
+    };
+  }, [isReducedMotionEnabled, isWrong, shakeAnim]);
+
+  useEffect(() => {
+    if (!isMatched || isReducedMotionEnabled) {
+      scaleAnim.stopAnimation();
+      scaleAnim.setValue(1);
+      return;
+    }
+
+    const animation = createBounceAnimation(scaleAnim);
+    animation.start();
+
+    return () => {
+      animation.stop();
+      scaleAnim.setValue(1);
+    };
+  }, [isMatched, isReducedMotionEnabled, scaleAnim]);
 
   return (
-    <Animated.View style={{ transform: [{ translateX: shakeAnim }] }}>
+    <Animated.View
+      style={{ transform: [{ translateX: shakeAnim }, { scale: scaleAnim }] }}
+    >
       <Pressable
         accessibilityLabel={label}
         accessibilityRole="button"
@@ -327,10 +419,10 @@ function MatchingCardItem({
           styles.card,
           isMatched && palette
             ? {
-              backgroundColor: palette.bg,
-              borderColor: palette.border,
-              borderWidth: 3,
-            }
+                backgroundColor: palette.bg,
+                borderColor: palette.border,
+                borderWidth: 3,
+              }
             : null,
           isSelected && styles.cardSelected,
           isWrong && styles.cardWrong,
@@ -339,6 +431,7 @@ function MatchingCardItem({
         ]}
       >
         {children}
+        <SparkleEffect active={isMatched && !isReducedMotionEnabled} />
 
         {/* Color-coded Link Connector Badge */}
         {isMatched && palette ? (
@@ -444,31 +537,6 @@ const styles = createThemedStyles(() => ({
   },
   container: {
     gap: spacing.xs,
-  },
-  promptCard: {
-    alignItems: 'center',
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.xl,
-    borderWidth: 2,
-    flexDirection: 'row',
-    gap: spacing.sm,
-    justifyContent: 'flex-start',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-  },
-  promptTitle: {
-    color: colors.primaryDark,
-    ...typography.subtitle,
-    fontSize: 15,
-    lineHeight: 20,
-  },
-  promptTitleRow: {
-    alignItems: 'center',
-    flex: 1,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    justifyContent: 'center',
   },
   wordCardContent: {
     alignItems: 'center',

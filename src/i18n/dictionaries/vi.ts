@@ -410,7 +410,7 @@ export const vi = {
     'Tất cả bài bật toàn bộ lộ trình; Nhẹ nhàng chỉ bật vài bài gần bài bé đang học; Tự chọn để ba mẹ ẩn/hiện từng bài.',
   'parent.info.lessonPace.privacy':
     'Danh sách bài đang bật lưu trong cài đặt phụ huynh và chỉ sync cloud nếu ba mẹ bật đồng bộ.',
-  'parent.info.lessonPace.title': 'Chọn nhịp học',
+  'parent.info.lessonPace.title': 'Phạm vi bài học',
   'parent.info.lessonPace.what':
     'Điều chỉnh số bài xuất hiện trong khu vực học của bé.',
   'parent.info.openAccessibility': 'Xem giải thích',
@@ -521,19 +521,28 @@ export const vi = {
   'parent.settings.journeyModeTitle': 'Cách mở bài học',
   'parent.settings.journeySubtitle':
     'Chọn cách bé khám phá nội dung và mức thử thách phù hợp.',
-  'parent.settings.journeyTitle': 'Hành trình học',
+  'parent.settings.journeyTitle': 'Cách bé học',
   'parent.settings.learningSummaryLabel': 'Đang dùng',
   'parent.settings.learningSummarySubtitle':
-    'Chỉnh nhanh khi bé cần nhịp học khác.',
+    'Chỉnh nhanh cách mở bài và độ khó.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
   'parent.settings.profileBadge': 'Hồ sơ bé',
   'parent.settings.profileMissingBirthYear':
     'Thêm năm sinh để cá nhân hoá hành trình',
   'parent.settings.reminderDisabled': 'Bật nhắc học vào giờ bé thoải mái nhất',
   'parent.settings.reminderEnabled': 'Đang nhắc mỗi ngày lúc {time} ✎',
-  'parent.settings.reminderTimeSubtitle': 'Có thể chọn giờ trước khi bật nhắc.',
+  'parent.settings.reminderPermissionAction': 'Mở Cài đặt',
+  'parent.settings.reminderPermissionText':
+    'Thông báo đang bị tắt. Ba mẹ hãy cho phép thông báo trong Cài đặt để nhận lời nhắc học.',
+  'parent.settings.reminderPermissionTitle': 'Chưa thể bật nhắc học',
+  'parent.settings.reminderTimeDisabledSubtitle': 'Sẽ nhắc lúc {time} khi bật.',
+  'parent.settings.reminderTimeEnabledSubtitle':
+    'Đang nhắc mỗi ngày lúc {time}.',
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
+  'parent.settings.reminderUpdateErrorText':
+    'Chưa thể cập nhật lịch nhắc. Ba mẹ thử lại sau nhé.',
+  'parent.settings.reminderUpdateErrorTitle': 'Nhắc học chưa được cập nhật',
   'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
   'parent.settings.sheetEnglishAccentTitle': 'Chọn giọng tiếng Anh',
   'parent.settings.sheetJourneyTitle': 'Chọn cách mở bài',
@@ -819,6 +828,11 @@ export const vi = {
   'reviewGame.selectMemory': 'Lật thẻ',
   'reviewGame.selectListenChoose': 'Nghe & Chọn',
   'reviewGame.selectMatching': 'Nối hình',
+  'reviewGame.coachCorrect': 'Tuyệt lắm!',
+  'reviewGame.coachSpeaking': 'Sungy đang hướng dẫn…',
+  'reviewGame.coachTryAgain': 'Gần đúng rồi, thử lại nhé!',
+  'reviewGame.progressAccessibility':
+    'Đã hoàn thành {completed} trên {total} từ ôn tập',
   'matchingGame.progress': 'Đã nối {matched}/{total}',
   'matchingGame.prompt': 'Nối hình với từ tương ứng!',
   'matchingGame.imageColumn': 'Hình minh họa',
@@ -834,6 +848,7 @@ export const vi = {
     'Bé có thể chơi Lật thẻ, Nghe & Chọn hoặc Nối hình nhé.',
   'reviewGame.wordCount': '{count} từ',
   'memoryGame.pairCount': '{matched}/{total} cặp',
+  'memoryGame.prompt': 'Tìm hai hình giống nhau nhé!',
   'memoryGame.turnCount': '{count} lượt',
   'memoryGame.visibleCardAccessibility': 'Thẻ {word}',
   'listenChooseGame.prompt': 'Bé hãy chọn hình đúng!',
@@ -935,7 +950,7 @@ export const vi = {
   'parent.stats.openReviewActivity': 'Mở hoạt động ôn tập',
   'parent.stats.recentWords': 'Từ bé vừa gặp',
   'parent.stats.parentTip': 'Gợi ý cho ba mẹ',
-  'parent.stats.selectLearningPace': 'Chọn nhịp học',
+  'parent.stats.selectLearningPace': 'Chọn phạm vi bài học',
   'parent.stats.lessonOfChild': 'bài học của bé',
   'parent.stats.lesson': 'bài học',
   'parent.stats.totalLessons': '/{total} bài',
@@ -943,7 +958,7 @@ export const vi = {
   'parent.stats.completedEnabledLessons':
     'Đã hoàn thành {completed}/{total} bài đang bật.',
   'parent.stats.selectLearningPaceSubtitle':
-    'Ba mẹ có thể chọn một nhịp phù hợp hoặc tự tinh chỉnh từng bài.',
+    'Ba mẹ có thể chọn số bài phù hợp hoặc tự tinh chỉnh từng bài.',
   'parent.stats.allLessons': 'Tất cả bài',
   'parent.stats.guidedPlanTitle': 'Tất cả bài',
   'parent.stats.guidedPlanSubtitle': 'Bật toàn bộ lộ trình',

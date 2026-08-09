@@ -63,7 +63,9 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `src/engine/`: scene execution, progress, persistence, audio, recording, asset resolution.
 - `src/data/`: lesson/theme catalogs, authoring helpers, prompts và validators.
 - `src/data/lessons/`: một file cho mỗi lesson pack; đăng ký tại `src/data/lessons.ts`.
-- `src/games/`: review-game implementations; runtime hiện chỉ hỗ trợ game `memory`.
+- `src/games/`: review-game implementations cho `memory`, `listenAndChoose`, `matching`; chế độ
+  `random` resolve sang một trong ba game này. `difficulty.ts` là profile luật Dễ/Vừa/Khó dùng
+  chung; `reviewItems.ts` chọn 4/5/6 từ theo level và bổ sung ngoài authored anchor IDs.
 - `src/services/`: hiện chỉ có local notification service, chưa có API layer.
 - `src/config/`: R2/CDN và generated asset release config.
 - `src/theme/`: colors, theme synchronization, typography, spacing, shadows, responsive layout.
@@ -81,14 +83,16 @@ Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 
 - Onboarding hiện chỉ chọn `learningMode`; profile của bé được chỉnh sau trong Parent Mode.
+- Review games phải nhận `learningMode` xuyên suốt: `core` dùng 4 từ/2 lựa chọn nghe-chọn,
+  `expanded` dùng 5/3 và `challenge` dùng 6/4; không khóa cả ba mode vào cùng một pool bốn từ.
 - Parent Mode được mở bằng cách trả lời phép tính đơn giản; chưa có PIN hoặc biometric gate.
 - `journeyMode` gồm `guided` và `free`.
 - `learningMode` gồm `core`, `expanded`, `challenge`.
 - Lesson interaction types là `listen`, `tap`, `drag`, `find`.
 - Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; hiện không
   có speech recognition, transcription hay pronunciation scoring.
-- Review type union có `matching`, `memory`, `listenAndChoose`, nhưng registry chỉ implement
-  `memory`; không coi hai type còn lại là đã hỗ trợ.
+- Review type union và runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching`;
+  `random` được resolve thành một trong ba game executable khi bắt đầu lượt chơi.
 - Theme `light`, `dark`, `system` đã hoạt động. `appLanguage` được lưu nhưng chưa localize toàn
   bộ app.
 - `learningScope.minAge` có helper/test nhưng child age chưa được truyền vào lesson runtime;

@@ -112,7 +112,7 @@ const lessonIconById: Record<string, SKidsIconName> = {
   'personal-care': 'faceHairCare',
   playtime: 'playground',
   'snack-time': 'snackPrep',
-  'supermarket-trip': 'supermarketCart',
+  'supermarket-trip': 'milestoneSupermarketTrip',
   'speaking-up': 'bodyBoundaries',
   'toilet-routine': 'toiletSignals',
 };

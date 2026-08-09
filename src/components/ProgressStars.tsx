@@ -6,21 +6,41 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 
 type ProgressStarsProps = {
+  accessibilityLabel?: string;
   completed: number;
+  size?: 'md' | 'sm';
   total: number;
   style?: StyleProp<ViewStyle>;
 };
 
-export function ProgressStars({ completed, total, style }: ProgressStarsProps) {
+export function ProgressStars({
+  accessibilityLabel,
+  completed,
+  size = 'md',
+  total,
+  style,
+}: ProgressStarsProps) {
   useThemeSync();
   const t = useI18n();
   const safeTotal = Math.max(total, 1);
   const safeCompleted = Math.min(Math.max(completed, 0), safeTotal);
+  const resolvedAccessibilityLabel =
+    accessibilityLabel ??
+    t('progressStars.accessibilityLabel', {
+      completed: String(safeCompleted),
+      total: String(safeTotal),
+    });
 
   return (
     <View
-      accessibilityLabel={t('progressStars.accessibilityLabel', { completed: String(safeCompleted), total: String(safeTotal) })}
+      accessibilityLabel={resolvedAccessibilityLabel}
       accessibilityRole="progressbar"
+      accessibilityValue={{
+        max: safeTotal,
+        min: 0,
+        now: safeCompleted,
+      }}
+      accessible
       style={[styles.row, style]}
     >
       {Array.from({ length: safeTotal }).map((_, index) => {
@@ -29,7 +49,11 @@ export function ProgressStars({ completed, total, style }: ProgressStarsProps) {
         return (
           <Text
             key={index}
-            style={[styles.star, isFilled ? styles.filled : styles.empty]}
+            style={[
+              styles.star,
+              size === 'sm' && styles.starSmall,
+              isFilled ? styles.filled : styles.empty,
+            ]}
           >
             ★
           </Text>
@@ -60,5 +84,9 @@ const styles = createThemedStyles(() => ({
   star: {
     fontSize: 24,
     lineHeight: 28,
+  },
+  starSmall: {
+    fontSize: 18,
+    lineHeight: 21,
   },
 }));

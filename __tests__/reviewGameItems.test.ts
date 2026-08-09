@@ -1,4 +1,5 @@
 import { bedtimeLesson } from '../src/data/lessons/bedtime';
+import { lessons } from '../src/data/lessons';
 import {
   getReviewGameItems,
   getReviewItemCount,
@@ -6,41 +7,47 @@ import {
 import { hasPlayableReviewGame } from '../src/games/GameRegistry';
 import type { Lesson } from '../src/types/lesson';
 
-test('bedtime review uses its authored vocabulary ids in every learning mode', () => {
-  const expectedIds = bedtimeLesson.reviewGame?.config?.vocabularyIds;
-
-  expect(expectedIds).toEqual([
+test('bedtime review grows from authored easy words into medium and hard words', () => {
+  const expectedIds = [
     'vocab-bedtime-storybook',
     'vocab-bedtime-night-light',
     'vocab-bedtime-sound-machine',
     'vocab-bedtime-sleep-mask',
-  ]);
+  ];
 
-  for (const learningMode of ['core', 'expanded', 'challenge'] as const) {
-    expect(
-      getReviewGameItems(bedtimeLesson, learningMode).map(item => item.id),
-    ).toEqual(expectedIds);
-  }
+  expect(bedtimeLesson.reviewGame?.config?.vocabularyIds).toEqual(expectedIds);
+
+  expect(
+    getReviewGameItems(bedtimeLesson, 'core').map(item => item.id),
+  ).toEqual(expectedIds);
+  expect(
+    getReviewGameItems(bedtimeLesson, 'expanded').map(item => item.id),
+  ).toEqual([...expectedIds, 'vocab-bedtime-page-tab']);
+  expect(
+    getReviewGameItems(bedtimeLesson, 'challenge').map(item => item.id),
+  ).toEqual([...expectedIds, 'vocab-bedtime-page-tab', 'vocab-place-bookmark']);
 });
 
-test('bedtime review does not pull extra bedtime vocabulary outside config', () => {
-  const reviewedWords = getReviewGameItems(bedtimeLesson, 'challenge').map(
-    item => item.word,
-  );
+test('challenge review progresses from easy to medium and hard without duplicate visuals', () => {
+  const reviewedItems = getReviewGameItems(bedtimeLesson, 'challenge');
 
-  expect(reviewedWords).toEqual([
+  expect(reviewedItems.map(item => item.word)).toEqual([
     'storybook',
     'night light',
     'sound machine',
     'sleep mask',
+    'page tab',
+    'place the bookmark',
   ]);
-  expect(reviewedWords).not.toEqual(
-    expect.arrayContaining([
-      'dream journal',
-      'glow sticker',
-      'moon mobile',
-    ]),
-  );
+  expect(reviewedItems.map(item => item.level)).toEqual([
+    'easy',
+    'easy',
+    'easy',
+    'easy',
+    'medium',
+    'hard',
+  ]);
+  expect(new Set(reviewedItems.map(item => item.visualId)).size).toBe(6);
 });
 
 test('review items still respect learning mode scope when config includes later words', () => {
@@ -74,6 +81,41 @@ test('review item count and playable type helpers include matching support', () 
     }),
   ).toBe(true);
   expect(hasPlayableReviewGame(undefined)).toBe(false);
+});
+
+test('every authored review scales its playable pool across all three modes', () => {
+  const reviewLessons = lessons.filter(lesson => lesson.reviewGame);
+
+  for (const lesson of reviewLessons) {
+    const coreItems = getReviewGameItems(lesson, 'core');
+    const expandedItems = getReviewGameItems(lesson, 'expanded');
+    const challengeItems = getReviewGameItems(lesson, 'challenge');
+
+    expect({ count: coreItems.length, lessonId: lesson.id }).toEqual({
+      count: 4,
+      lessonId: lesson.id,
+    });
+    expect({ count: expandedItems.length, lessonId: lesson.id }).toEqual({
+      count: 5,
+      lessonId: lesson.id,
+    });
+    expect({ count: challengeItems.length, lessonId: lesson.id }).toEqual({
+      count: 6,
+      lessonId: lesson.id,
+    });
+    expect({
+      hasMedium: expandedItems.some(item => item.level === 'medium'),
+      lessonId: lesson.id,
+    }).toEqual({ hasMedium: true, lessonId: lesson.id });
+    expect({
+      hasHard: challengeItems.some(item => item.level === 'hard'),
+      lessonId: lesson.id,
+    }).toEqual({ hasHard: true, lessonId: lesson.id });
+    expect({
+      lessonId: lesson.id,
+      uniqueVisuals: new Set(challengeItems.map(item => item.visualId)).size,
+    }).toEqual({ lessonId: lesson.id, uniqueVisuals: challengeItems.length });
+  }
 });
 
 function createScopedReviewLesson(): Lesson {

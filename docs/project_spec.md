@@ -283,6 +283,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
   không dùng lại icon của bất kỳ scene nào.
+- Thẻ lesson/review ở Play tab dùng icon đại diện toàn bộ bài học; `supermarket-trip` dùng hình
+  mặt tiền siêu thị thay vì graphic túi có nhãn từ vựng `CART`.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
@@ -301,7 +303,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** adult gate yêu cầu trả lời phép tính đơn giản. Sau ba câu trả lời sai, gate
   cooldown 10 giây trước khi cho thử tiếp; PIN vẫn unsupported.
 - Quyền Parent là session in-memory, không persist. Session bị revoke khi app rời trạng thái active,
-  trừ thời gian store purchase/restore đang mở để callback thanh toán có thể quay lại đúng flow.
+  trừ các external flow do phụ huynh chủ động mở như sign-in, store purchase/restore, hộp thoại cấp
+  quyền thông báo hoặc system notification settings. Ngoại lệ notification kết thúc khi app trở lại
+  foreground; sau đó những lần rời app bình thường tiếp tục revoke session.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
 - Parent stats tổng quan là chỉ số lịch sử/all-time, không reset hay lọc lại theo `learningMode`
   hiện tại. `Tổng từ đã học` dùng unique learned word IDs; `Sticker nhận được` bao gồm sticker
@@ -311,11 +315,15 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
-- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Card
-  "Lộ trình học của bé" hiển thị số bài đang bật và thanh tiến độ theo
+- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Nội dung
+  được sắp theo luồng: tổng quan "Lộ trình học của bé" -> "Chọn phạm vi bài học" -> các chủ đề và
+  bài đang học -> "Cách bé học" (guided/free journey và difficulty). Card tổng quan hiển thị số bài
+  đang bật và thanh tiến độ theo
   `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
-  lesson trong plan, còn guided/free journey vẫn là setting riêng. Nhịp "Nhẹ nhàng" bật 3 bài gần
-  bài focus hiện tại, không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
+  lesson trong plan, còn guided/free journey vẫn là setting riêng. Ba lựa chọn phạm vi loại trừ
+  nhau; khi mở "Tự chọn", app giữ nguyên các bài đang bật để ba mẹ bắt đầu tinh chỉnh nhưng chỉ
+  hiển thị "Tự chọn" là lựa chọn hiện hành. Nhịp "Nhẹ nhàng" bật 3 bài gần bài focus hiện tại,
+  không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
   thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
   hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
@@ -426,6 +434,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Object target dùng viền silhouette trắng + teal thay vì viền theo bounding box. Với step chỉ có
+  một target không ở trạng thái kéo, object có cạnh hiển thị ngắn hơn `48dp` được phóng nhẹ tới
+  tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo geometry gốc. Target lớn, step nhiều
+  target và object đang kéo chỉ dùng viền highlight, không dùng zoom này.
 - Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
   scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
   `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm
@@ -452,6 +464,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, theo dõi audio level/silence,
   auto-stop và hỗ trợ phát lại local recording theo yêu cầu.
+- Permission flow phân biệt `granted`, từ chối có thể hỏi lại (`denied`), từ chối buộc mở Settings
+  (`blocked`) và recorder không khả dụng. Sau một lần từ chối, các teach step sau trong cùng phiên
+  không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm thu lại.
+- Chỉ trạng thái `blocked` mới dẫn phụ huynh tới Settings. Khi app active trở lại sau Settings,
+  `SpeakPracticeControls` kiểm tra lại quyền và mở lại nút ghi âm nếu quyền đã được cấp, nhưng không
+  tự bắt đầu ghi âm ngoài ý muốn.
 - Speech practice không phải một `SceneInteractionType` riêng.
 - **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Feedback sau
   recording chỉ khuyến khích, không xác nhận phát âm đúng; nếu lượt ghi âm không phát hiện
@@ -463,14 +481,28 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose | random` để mở rộng data model.
 - **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching` và chế độ xoay tua ngẫu nhiên `random`.
 - Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ**, 🎈 **Nghe & Chọn**, 🔗 **Nối hình**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
+- Header gồm nút đóng, tên bài và game selector giữ nguyên visual cũ nhưng được ghim khi phần nội
+  dung game cuộn. `learningMode` được truyền xuyên suốt từ route/settings qua `GamePlayer` xuống
+  cả ba game mà không thêm một hàng difficulty badge vào kid UI.
 - Khi vào game hoặc đổi tab game, màn hình phát lời hướng dẫn theo game và `teacherPromptMode`; các game khóa thao tác trong lúc intro đang phát. Listen & Choose chỉ tự phát từ đầu tiên sau khi intro kết thúc.
-- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item, đọc English word bằng accent đang chọn khi lật và hoàn tất khi ghép hết cặp.
-- Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa để bé nghe và chọn đáp án đúng.
-- Matching game hiển thị cột hình và cột từ để bé nối từng hình với từ tiếng Anh tương ứng.
-- `reviewGame.config.vocabularyIds` là allow-list có thứ tự cho các từ đưa vào game ôn tập.
-  Runtime vẫn lọc theo `learningMode`; các ID không khả dụng ở mode hiện tại hoặc không có object
-  hình ảnh render được sẽ không xuất hiện.
-- Pair count mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config override trong giới hạn runtime.
+- Ba game dùng shared Sungy coach để đổi pose và lời nhắc theo trạng thái intro, correct và wrong; shared star progress cho bé thấy số mục đã hoàn thành trong lượt ôn tập.
+- Correct/wrong feedback luôn có visual state rõ ràng bằng màu, icon và nội dung khích lệ, kết hợp SFX; animation game-specific chỉ là lớp tăng cường, không phải tín hiệu duy nhất.
+- Review-game animation tôn trọng system Reduce Motion: các hiệu ứng động trang trí được bỏ qua hoặc snap về trạng thái cuối, trong khi màu, icon, progress, audio và interaction feedback vẫn giữ nguyên.
+- Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item và hoàn tất khi ghép hết cặp.
+  Dễ/Vừa đọc English word khi lật; Khó bỏ audio gợi ý lúc lật và chỉ đọc sau khi ghép đúng.
+  Cặp sai giữ mở lâu nhất ở Dễ, ngắn dần ở Vừa và Khó. Phone portrait luôn dùng ba thẻ gần vuông
+  mỗi hàng và căn giữa hàng cuối; tablet/landscape dùng nhiều cột hơn theo responsive layout.
+- Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa. Dễ có
+  2 lựa chọn, Vừa có 3 lựa chọn, Khó có 4 lựa chọn.
+- Matching game hiển thị cột hình và cột từ. Dễ/Vừa đọc từ khi chọn thẻ; Khó chỉ đọc sau khi nối
+  đúng. Thời gian phản hồi sai ngắn dần theo mức.
+- `reviewGame.config.vocabularyIds` là danh sách từ neo có thứ tự, không còn khóa toàn bộ review
+  vào đúng bốn từ. Runtime giữ các từ neo hợp lệ rồi bổ sung từ có hình ở level phù hợp: Dễ chỉ
+  `easy`; Vừa thêm ít nhất một `medium`; Khó thêm ít nhất một `medium` và một `hard` khi content
+  có sẵn. Với phrase/verb khó, runtime có thể dùng object đại diện từ `SceneStep.targetObjectIds`
+  và loại visual trùng để đáp án hình không mơ hồ.
+- Số mục mặc định theo mode: 4 (`core`), 5 (`expanded`), 6 (`challenge`), trừ khi lesson config
+  override trong giới hạn runtime.
 
 ### Rewards và progress
 
@@ -525,7 +557,15 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 - **Implemented:** Notifee request permission và tạo một timestamp trigger lặp mỗi ngày.
 - Notification ID/channel ID: `daily-reminder`.
-- Khi bật reminder hoặc đổi giờ, Parent UI schedule/reschedule; khi tắt thì cancel.
+- Khi bật reminder hoặc đổi giờ, Parent UI schedule/reschedule; khi tắt thì cancel. Switch phản hồi
+  ngay theo thao tác của phụ huynh trong lúc native request đang chạy để tránh nhấp nháy, nhưng chỉ
+  persist `reminderEnabled: true` sau khi permission được cấp và trigger được tạo thành công;
+  permission bị từ chối rollback switch về tắt và hiển thị CTA mở system settings.
+- Khi Parent screen focus hoặc app trở lại foreground, UI đối chiếu saved preference với
+  notification permission và trigger `daily-reminder` thực tế để không báo đang nhắc khi lịch native
+  không hoạt động.
+- Row "Giờ nhắc" vẫn chỉnh được khi reminder đang tắt để phụ huynh chọn giờ trước; subtitle phân
+  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật.
 - Service cancel notification cũ trước khi tạo schedule mới.
 - **Partial verification:** chưa có native E2E tests trong repo chứng minh behavior trên cả hai OS;
   thay đổi reminder cần kiểm tra trên platform hoặc báo rõ chưa chạy.
@@ -673,8 +713,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   và `CustomerInfo.requestDate`; cutoff, `firstSeen`, `requestDate` hoặc duration không hợp lệ đều
   fail closed. Parent phải Firebase sign-in trước khi nội dung được mở. Verified paid RevenueCat
   entitlement luôn ưu tiên nhánh Founder.
-- Founder access không phải RevenueCat entitlement, không cấp receipt và không đảm bảo quota đúng
-  500. `firstSeen` là lúc RevenueCat lần đầu thấy App User ID, không phải số download/install tuyệt
+- Founder access không phải RevenueCat entitlement, không cấp receipt và không đảm bảo quota đúng 500. `firstSeen` là lúc RevenueCat lần đầu thấy App User ID, không phải số download/install tuyệt
   đối. Remote Config cutoff phải được giữ ít nhất tới khi Founder access cuối cùng hết hạn; mô hình
   một cutoff cũng không phù hợp để tái dùng trực tiếp cho nhiều campaign độc lập.
 - `max(Date.now(), CustomerInfo.requestDate)` chỉ neo thời gian vào response RevenueCat gần nhất;
@@ -958,12 +997,12 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 259/259 tests pass trong 33 suites.
+- Jest: 360/360 tests pass trong 54 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
   external keys/products/test accounts chưa có.
-- ESLint: pass với 28 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
+- ESLint: pass với 27 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
 
@@ -972,34 +1011,34 @@ baseline thay đổi.
 
 Support summary:
 
-| Area                                             | Status hiện tại |
-| ------------------------------------------------ | --------------- |
-| Memory, ListenAndChoose & Matching review games  | Implemented     |
-| Parent math adult gate                           | Implemented     |
-| Parent PIN gate                                  | Unsupported     |
-| Parent Google/Apple login                        | Implemented     |
-| Free tier + Premium content guards               | Implemented     |
-| RevenueCat client entitlement lifecycle          | Implemented     |
-| Store-ready keys/products/legal config           | Partial         |
-| Remote Config monetization switches              | Implemented     |
-| Founder cutoff/duration local access             | Implemented     |
-| Firebase App Check client initialization         | Implemented     |
-| Firebase App Check backend enforcement           | Partial         |
-| Theme Light/Dark/System                          | Implemented     |
-| Full VI/EN localization                          | Partial         |
-| Teacher prompt mode vi/en/bilingual              | Partial         |
-| English pronunciation en-US/en-GB                | Implemented     |
-| Mode-based lesson filtering                      | Implemented     |
-| Age-based runtime filtering                      | Partial         |
-| Scene-level resume                               | Implemented     |
-| Exact step resume                                | Partial         |
-| Record/playback speech practice                  | Implemented     |
-| Speech recognition/pronunciation scoring         | Unsupported     |
-| Android audio disk cache                         | Implemented     |
-| iOS audio disk cache                             | Unsupported     |
-| Full offline lesson bundle                       | Unsupported     |
-| Native reminder E2E coverage                     | Partial         |
-| Parent opt-in cloud learning data sync           | Implemented     |
+| Area                                            | Status hiện tại |
+| ----------------------------------------------- | --------------- |
+| Memory, ListenAndChoose & Matching review games | Implemented     |
+| Parent math adult gate                          | Implemented     |
+| Parent PIN gate                                 | Unsupported     |
+| Parent Google/Apple login                       | Implemented     |
+| Free tier + Premium content guards              | Implemented     |
+| RevenueCat client entitlement lifecycle         | Implemented     |
+| Store-ready keys/products/legal config          | Partial         |
+| Remote Config monetization switches             | Implemented     |
+| Founder cutoff/duration local access            | Implemented     |
+| Firebase App Check client initialization        | Implemented     |
+| Firebase App Check backend enforcement          | Partial         |
+| Theme Light/Dark/System                         | Implemented     |
+| Full VI/EN localization                         | Partial         |
+| Teacher prompt mode vi/en/bilingual             | Partial         |
+| English pronunciation en-US/en-GB               | Implemented     |
+| Mode-based lesson filtering                     | Implemented     |
+| Age-based runtime filtering                     | Partial         |
+| Scene-level resume                              | Implemented     |
+| Exact step resume                               | Partial         |
+| Record/playback speech practice                 | Implemented     |
+| Speech recognition/pronunciation scoring        | Unsupported     |
+| Android audio disk cache                        | Implemented     |
+| iOS audio disk cache                            | Unsupported     |
+| Full offline lesson bundle                      | Unsupported     |
+| Native reminder E2E coverage                    | Partial         |
+| Parent opt-in cloud learning data sync          | Implemented     |
 
 ## 12. Spec maintenance
 

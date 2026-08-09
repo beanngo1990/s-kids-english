@@ -1,6 +1,7 @@
 import { skidsIcons } from '../src/assets/icons/skids';
 import { lessons } from '../src/data/lessons';
 import {
+  getLessonIconName,
   getLessonMilestoneIconName,
   getMapSceneIconName,
   getSceneIconName,
@@ -64,6 +65,12 @@ test('at-school map nodes use three distinct matching icons', () => {
     'schoolSupplies',
     'teacherInstructions',
   ]);
+});
+
+test('supermarket lesson card uses the trip-level storefront icon', () => {
+  expect(getLessonIconName({ id: 'supermarket-trip' })).toBe(
+    'milestoneSupermarketTrip',
+  );
 });
 
 test('lesson milestones use dedicated icons that never repeat scene icons', () => {

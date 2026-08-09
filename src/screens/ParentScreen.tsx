@@ -68,6 +68,7 @@ import { useMonetizationSnapshot } from '../engine/MonetizationManager';
 import {
   grantParentAccess,
   revokeParentAccess,
+  setParentExternalFlowActive,
   useParentAccessSnapshot,
 } from '../engine/ParentAccessSession';
 import type {
@@ -100,13 +101,14 @@ import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName } from '../utils/lessonIcons';
 import {
   getLessonCompletionPercent,
-  haveSameLessonIds,
+  getLessonPlanSelection,
 } from '../utils/lessonPlan';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
 import {
   getParentReviewTipText,
   getParentReviewWords,
 } from '../utils/parentReviewWords';
+import { ReminderUpdateGuard } from '../utils/ReminderUpdateGuard';
 import { getEarnedStickerCount } from '../utils/stickerStats';
 
 const GATE_COOLDOWN_MS = 10000;
@@ -207,6 +209,8 @@ export function ParentScreen({ navigation, route }: Props) {
   const [isCrashReportActionPending, setIsCrashReportActionPending] =
     useState(false);
   const [reminderEnabled, setReminderEnabled] = useState(false);
+  const [isReminderUpdatePending, setIsReminderUpdatePending] =
+    useState(false);
   const [reminderTime, setReminderTime] = useState('19:30');
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
@@ -236,6 +240,10 @@ export function ParentScreen({ navigation, route }: Props) {
   const gateCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
+  const reminderExternalFlowRef = useRef(false);
+  const reminderExternalFlowFallbackTimerRef =
+    useRef<ReturnType<typeof setTimeout> | null>(null);
+  const reminderUpdateGuard = useMemo(() => new ReminderUpdateGuard(), []);
   const handledIntentRef = useRef<string | null>(null);
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
@@ -357,16 +365,15 @@ export function ParentScreen({ navigation, route }: Props) {
       .map(lesson => lesson.id);
   }, [focusLesson, journeyLessons]);
   const enabledLessonIds = visibleLessonIds ?? allLessonIds;
-  const isFullJourneyEnabled = haveSameLessonIds(
+  const lessonPlanSelection = getLessonPlanSelection(
     enabledLessonIds,
     allLessonIds,
-  );
-  const isGentlePlanEnabled = haveSameLessonIds(
-    enabledLessonIds,
     gentleLessonIds,
+    isCustomPlanMode,
   );
-  const isCustomPlanActive =
-    isCustomPlanMode || (!isFullJourneyEnabled && !isGentlePlanEnabled);
+  const isFullJourneyEnabled = lessonPlanSelection === 'full';
+  const isGentlePlanEnabled = lessonPlanSelection === 'gentle';
+  const isCustomPlanActive = lessonPlanSelection === 'custom';
   const currentLessonPlanTitle = isFullJourneyEnabled
     ? t('parent.stats.guidedPlanTitle')
     : isGentlePlanEnabled
@@ -610,37 +617,99 @@ export function ParentScreen({ navigation, route }: Props) {
     }
   }
 
-  const refreshParentData = useCallback(() => {
+  const finishReminderExternalFlow = useCallback(() => {
+    if (reminderExternalFlowFallbackTimerRef.current) {
+      clearTimeout(reminderExternalFlowFallbackTimerRef.current);
+      reminderExternalFlowFallbackTimerRef.current = null;
+    }
+    if (!reminderExternalFlowRef.current) {
+      return;
+    }
+
+    reminderExternalFlowRef.current = false;
+    setParentExternalFlowActive(false);
+  }, []);
+
+  const beginReminderExternalFlow = useCallback(() => {
+    if (reminderExternalFlowFallbackTimerRef.current) {
+      clearTimeout(reminderExternalFlowFallbackTimerRef.current);
+      reminderExternalFlowFallbackTimerRef.current = null;
+    }
+    reminderExternalFlowRef.current = true;
+    setParentExternalFlowActive(true);
+  }, []);
+
+  const scheduleReminderForParent = useCallback(
+    async (time: string) => {
+      beginReminderExternalFlow();
+      try {
+        return await NotificationService.scheduleDailyReminder(time);
+      } finally {
+        if (AppState.currentState === 'active') {
+          finishReminderExternalFlow();
+        }
+      }
+    },
+    [beginReminderExternalFlow, finishReminderExternalFlow],
+  );
+
+  const beginReminderUpdate = useCallback(() => {
+    if (!reminderUpdateGuard.beginUpdate()) {
+      return false;
+    }
+
+    setIsReminderUpdatePending(true);
+    return true;
+  }, [reminderUpdateGuard]);
+
+  const finishReminderUpdate = useCallback(() => {
+    reminderUpdateGuard.finishUpdate();
+    setIsReminderUpdatePending(false);
+  }, [reminderUpdateGuard]);
+
+  const refreshParentData = useCallback(async () => {
+    const reminderUpdateRevision =
+      reminderUpdateGuard.captureRefreshRevision();
     setIsDashboardReady(false);
-    Promise.all([
+    const [nextProgress, nextActivityLog, settings] = await Promise.all([
       getProgress().catch(() => null),
       getActivityLog().catch(() => null),
       getParentSettings().catch(() => null),
-    ]).then(([nextProgress, nextActivityLog, settings]) => {
-      setProgress(nextProgress);
-      setActivityLog(nextActivityLog);
+    ]);
+    const isReminderActive = settings?.reminderEnabled
+      ? await NotificationService.isDailyReminderActive().catch(() => false)
+      : false;
+    const shouldApplyReminderState =
+      reminderUpdateGuard.canApplyRefresh(reminderUpdateRevision);
 
-      if (settings) {
-        setLearningMode(settings.learningMode);
-        setJourneyMode(settings.journeyMode);
-        setEnableSceneEditor(settings.enableSceneEditor || false);
-        setAppLanguage(settings.appLanguage);
-        setEnglishAccent(settings.englishAccent);
-        setTeacherPromptMode(settings.teacherPromptMode);
-        setAppTheme(settings.appTheme);
-        setBackgroundMusicEnabled(settings.backgroundMusicEnabled);
-        setCrashReportingEnabled(settings.crashReportingEnabled);
-        setReminderEnabled(settings.reminderEnabled);
+    setProgress(nextProgress);
+    setActivityLog(nextActivityLog);
+
+    if (settings) {
+      setLearningMode(settings.learningMode);
+      setJourneyMode(settings.journeyMode);
+      setEnableSceneEditor(settings.enableSceneEditor || false);
+      setAppLanguage(settings.appLanguage);
+      setEnglishAccent(settings.englishAccent);
+      setTeacherPromptMode(settings.teacherPromptMode);
+      setAppTheme(settings.appTheme);
+      setBackgroundMusicEnabled(settings.backgroundMusicEnabled);
+      setCrashReportingEnabled(settings.crashReportingEnabled);
+      if (shouldApplyReminderState) {
+        setReminderEnabled(isReminderActive);
         setReminderTime(settings.reminderTime);
-        setVisibleLessonIds(settings.visibleLessonIds);
-        setChildProfile(settings.childProfile);
-      } else {
-        setLearningMode('core');
       }
+      setVisibleLessonIds(settings.visibleLessonIds);
+      setChildProfile(settings.childProfile);
+    } else {
+      setLearningMode('core');
+      if (shouldApplyReminderState) {
+        setReminderEnabled(false);
+      }
+    }
 
-      setIsDashboardReady(true);
-    });
-  }, []);
+    setIsDashboardReady(true);
+  }, [reminderUpdateGuard]);
 
   useEffect(() => {
     if (!isUnlocked) {
@@ -655,11 +724,27 @@ export function ParentScreen({ navigation, route }: Props) {
     return clearGateCooldownTimer;
   }, []);
 
+  useEffect(() => {
+    if (!isUnlocked) {
+      return;
+    }
+
+    const subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') {
+        finishReminderExternalFlow();
+        refreshParentData();
+      }
+    });
+
+    return () => subscription.remove();
+  }, [finishReminderExternalFlow, isUnlocked, refreshParentData]);
+
   useEffect(
     () => () => {
+      finishReminderExternalFlow();
       revokeParentAccess();
     },
-    [],
+    [finishReminderExternalFlow],
   );
 
   useEffect(() => {
@@ -981,28 +1066,107 @@ export function ParentScreen({ navigation, route }: Props) {
     }
   };
 
-  const handleToggleReminder = async () => {
-    const next = !reminderEnabled;
-    setReminderEnabled(next);
-    await saveParentSettings({ reminderEnabled: next });
-    if (next) {
-      await NotificationService.scheduleDailyReminder(reminderTime);
-    } else {
-      await NotificationService.cancelDailyReminder();
+  const openReminderNotificationSettings = async () => {
+    beginReminderExternalFlow();
+    try {
+      await Linking.openSettings();
+      reminderExternalFlowFallbackTimerRef.current = setTimeout(() => {
+        if (AppState.currentState === 'active') {
+          finishReminderExternalFlow();
+        }
+      }, 1000);
+    } catch {
+      finishReminderExternalFlow();
+      showReminderUpdateError();
+    }
+  };
+
+  const showReminderPermissionAlert = () => {
+    Alert.alert(
+      t('parent.settings.reminderPermissionTitle'),
+      t('parent.settings.reminderPermissionText'),
+      [
+        { style: 'cancel', text: t('common.close') },
+        {
+          onPress: openReminderNotificationSettings,
+          text: t('parent.settings.reminderPermissionAction'),
+        },
+      ],
+    );
+  };
+
+  const showReminderUpdateError = () => {
+    Alert.alert(
+      t('parent.settings.reminderUpdateErrorTitle'),
+      t('parent.settings.reminderUpdateErrorText'),
+    );
+  };
+
+  const resetReminderAfterFailure = async () => {
+    setReminderEnabled(false);
+    await Promise.all([
+      NotificationService.cancelDailyReminder().catch(() => undefined),
+      saveParentSettings({ reminderEnabled: false }).catch(() => undefined),
+    ]);
+  };
+
+  const handleToggleReminder = async (nextEnabled: boolean) => {
+    if (!beginReminderUpdate()) {
+      return;
+    }
+
+    setReminderEnabled(nextEnabled);
+    try {
+      if (!nextEnabled) {
+        await NotificationService.cancelDailyReminder();
+        await saveParentSettings({ reminderEnabled: false });
+        return;
+      }
+
+      const didSchedule = await scheduleReminderForParent(reminderTime);
+      if (!didSchedule) {
+        await resetReminderAfterFailure();
+        showReminderPermissionAlert();
+        return;
+      }
+
+      await saveParentSettings({ reminderEnabled: true });
+      setReminderEnabled(true);
+    } catch {
+      await resetReminderAfterFailure();
+      showReminderUpdateError();
+    } finally {
+      finishReminderUpdate();
     }
   };
 
   const handleTimeChange = async (event: any, selectedDate?: Date) => {
     setShowTimePicker(false);
-    if (selectedDate) {
+    if (selectedDate && beginReminderUpdate()) {
+      const previousTime = reminderTime;
       const hours = selectedDate.getHours().toString().padStart(2, '0');
       const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
       const timeString = `${hours}:${minutes}`;
       setReminderTime(timeString);
-      await saveParentSettings({ reminderTime: timeString });
 
-      if (reminderEnabled) {
-        await NotificationService.scheduleDailyReminder(timeString);
+      try {
+        await saveParentSettings({ reminderTime: timeString });
+
+        if (reminderEnabled) {
+          const didSchedule = await scheduleReminderForParent(timeString);
+          if (!didSchedule) {
+            await resetReminderAfterFailure();
+            showReminderPermissionAlert();
+          }
+        }
+      } catch {
+        setReminderTime(previousTime);
+        if (reminderEnabled) {
+          await resetReminderAfterFailure();
+        }
+        showReminderUpdateError();
+      } finally {
+        finishReminderUpdate();
       }
     }
   };
@@ -1798,8 +1962,6 @@ export function ParentScreen({ navigation, route }: Props) {
               ) : null}
             </AppCard>
 
-            {renderLearningSettingsCard()}
-
             <View style={styles.lessonSectionHeading}>
               <View style={styles.lessonSectionHeadingCopy}>
                 <Text style={styles.lessonSectionHeadingTitle}>
@@ -2147,6 +2309,8 @@ export function ParentScreen({ navigation, route }: Props) {
                 );
               })}
             </View>
+
+            {renderLearningSettingsCard()}
           </View>
         )}
 
@@ -2335,6 +2499,7 @@ export function ParentScreen({ navigation, route }: Props) {
                     </Text>
                   </View>
                   <Switch
+                    disabled={isReminderUpdatePending}
                     value={reminderEnabled}
                     onValueChange={handleToggleReminder}
                     trackColor={{ false: colors.border, true: colors.primary }}
@@ -2362,7 +2527,13 @@ export function ParentScreen({ navigation, route }: Props) {
                       numberOfLines={2}
                       style={styles.learningSettingsRowSubtitle}
                     >
-                      {t('parent.settings.reminderTimeSubtitle')}
+                      {reminderEnabled
+                        ? t('parent.settings.reminderTimeEnabledSubtitle', {
+                            time: reminderTime,
+                          })
+                        : t('parent.settings.reminderTimeDisabledSubtitle', {
+                            time: reminderTime,
+                          })}
                     </Text>
                   </View>
                   <View style={styles.learningSettingsRowValue}>

@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Animated,
   Easing,
@@ -9,10 +15,8 @@ import {
   type ImageSourcePropType,
 } from 'react-native';
 
-import { AppCard } from '../../components/AppCard';
-import { AppUiIcon } from '../../components/AppUiIcon';
-import { KidBadge } from '../../components/KidBadge';
 import { KidIconButton } from '../../components/KidIconButton';
+import { ReviewGameCoach } from '../../components/ReviewGameCoach';
 import { SKidsIcon } from '../../components/SKidsIcon';
 import {
   playCorrectSound,
@@ -21,10 +25,18 @@ import {
 } from '../../engine/AudioManager';
 import { createShakeAnimation } from '../../engine/animations';
 import { useI18n } from '../../i18n';
+import { useReducedMotion } from '../../theme/motion';
 import { colors, createThemedStyles, useThemeSync } from '../../theme/colors';
 import { useResponsiveLayout } from '../../theme/responsive';
 import { radius, spacing } from '../../theme/spacing';
 import { typography } from '../../theme/typography';
+import type { LearningMode } from '../../types/lesson';
+import { getReviewDifficultyProfile } from '../difficulty';
+import {
+  runGameMatchCallback,
+  useGameFeedback,
+  type GameMatchCallback,
+} from '../useGameFeedback';
 
 export type ListenChooseItem = {
   id: string;
@@ -36,8 +48,9 @@ export type ListenChooseItem = {
 type ListenChooseGameProps = {
   isIntroPlaying?: boolean;
   items: ListenChooseItem[];
+  learningMode?: LearningMode;
   onComplete: () => void;
-  onMatch?: (wordId: string, isFirstTry: boolean) => Promise<{ xpGained: number } | void> | void;
+  onMatch?: GameMatchCallback;
 };
 
 type OptionState = 'correct' | 'wrong' | null;
@@ -52,12 +65,16 @@ const BUBBLE_PALETTES = [
 export function ListenChooseGame({
   isIntroPlaying = false,
   items,
+  learningMode = 'core',
   onComplete,
   onMatch,
 }: ListenChooseGameProps) {
   useThemeSync();
   const t = useI18n();
   const responsiveLayout = useResponsiveLayout();
+  const isReducedMotionEnabled = useReducedMotion();
+  const difficulty = getReviewDifficultyProfile(learningMode);
+  const { feedback, resetFeedback, showFeedback } = useGameFeedback();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
@@ -66,8 +83,25 @@ export function ListenChooseGame({
 
   const firstTryRef = useRef(true);
   const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const itemKey = useMemo(() => items.map(item => item.id).join('|'), [items]);
 
   const currentTarget = items[currentIndex];
+  const completedCount = Math.min(
+    currentIndex + (optionState === 'correct' ? 1 : 0),
+    items.length,
+  );
+
+  const clearTransitionTimer = useCallback(() => {
+    if (transitionTimerRef.current) {
+      clearTimeout(transitionTimerRef.current);
+      transitionTimerRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    clearTransitionTimer();
+    setCurrentIndex(0);
+  }, [clearTransitionTimer, itemKey]);
 
   // Prepare shuffled options for current target (target + distractors)
   const options = useMemo(() => {
@@ -75,12 +109,14 @@ export function ListenChooseGame({
       return [];
     }
     const distractors = items.filter(item => item.id !== currentTarget.id);
-    const shuffledDistractors = [...distractors].sort(() => Math.random() - 0.5);
-    const numOptions = Math.min(items.length, 4);
+    const shuffledDistractors = [...distractors].sort(
+      () => Math.random() - 0.5,
+    );
+    const numOptions = Math.min(items.length, difficulty.listenOptionCount);
     const selectedDistractors = shuffledDistractors.slice(0, numOptions - 1);
     const roundOptions = [currentTarget, ...selectedDistractors];
     return roundOptions.sort(() => Math.random() - 0.5);
-  }, [currentTarget, items]);
+  }, [currentTarget, difficulty.listenOptionCount, items]);
 
   const handlePlayAudio = useCallback(() => {
     if (currentTarget && !isIntroPlaying) {
@@ -90,10 +126,12 @@ export function ListenChooseGame({
 
   // Play audio on round start
   useEffect(() => {
+    clearTransitionTimer();
     firstTryRef.current = true;
     setSelectedOptionId(null);
     setOptionState(null);
     setIsTransitioning(false);
+    resetFeedback();
 
     if (currentTarget && !isIntroPlaying) {
       const timer = setTimeout(() => {
@@ -101,15 +139,18 @@ export function ListenChooseGame({
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, currentTarget, handlePlayAudio, isIntroPlaying]);
+  }, [
+    clearTransitionTimer,
+    currentIndex,
+    currentTarget,
+    handlePlayAudio,
+    isIntroPlaying,
+    resetFeedback,
+  ]);
 
   useEffect(() => {
-    return () => {
-      if (transitionTimerRef.current) {
-        clearTimeout(transitionTimerRef.current);
-      }
-    };
-  }, []);
+    return clearTransitionTimer;
+  }, [clearTransitionTimer]);
 
   const handleOptionPress = (
     option: ListenChooseItem,
@@ -125,6 +166,7 @@ export function ListenChooseGame({
       setIsTransitioning(true);
       setSelectedOptionId(option.id);
       setOptionState('correct');
+      showFeedback('correct', 1200);
       if (triggerPopAnim) {
         triggerPopAnim();
       }
@@ -132,12 +174,20 @@ export function ListenChooseGame({
       playCorrectSound().catch(() => undefined);
       speakWord(currentTarget.word).catch(() => undefined);
 
-      if (onMatch) {
-        onMatch(currentTarget.id, firstTryRef.current);
-      }
+      runGameMatchCallback(
+        onMatch,
+        currentTarget.id,
+        firstTryRef.current,
+      ).catch(() => undefined);
 
+      clearTransitionTimer();
       transitionTimerRef.current = setTimeout(() => {
+        transitionTimerRef.current = null;
         if (currentIndex + 1 < items.length) {
+          resetFeedback();
+          setSelectedOptionId(null);
+          setOptionState(null);
+          setIsTransitioning(false);
           setCurrentIndex(prev => prev + 1);
         } else {
           onComplete();
@@ -146,18 +196,23 @@ export function ListenChooseGame({
     } else {
       // Wrong answer - Shake!
       firstTryRef.current = false;
+      setIsTransitioning(true);
       setSelectedOptionId(option.id);
       setOptionState('wrong');
+      showFeedback('wrong', difficulty.wrongFeedbackDurationMs);
       if (triggerShakeAnim) {
         triggerShakeAnim();
       }
 
       playWrongSound().catch(() => undefined);
 
-      setTimeout(() => {
+      clearTransitionTimer();
+      transitionTimerRef.current = setTimeout(() => {
+        transitionTimerRef.current = null;
         setSelectedOptionId(null);
         setOptionState(null);
-      }, 700);
+        setIsTransitioning(false);
+      }, difficulty.wrongFeedbackDurationMs);
     }
   };
 
@@ -169,53 +224,36 @@ export function ListenChooseGame({
 
   return (
     <View style={styles.container}>
-      {/* Compact Prompt Header Bar */}
-      <AppCard style={styles.promptCard}>
-        <View style={styles.promptLeft}>
+      <ReviewGameCoach
+        action={
           <KidIconButton
             accessibilityLabel={t('listenChooseGame.listenAgain')}
             icon="listen"
-            disabled={isIntroPlaying}
+            disabled={isIntroPlaying || isTransitioning}
             onPress={handlePlayAudio}
             size="md"
             tone="primary"
           />
-        </View>
-
-        <View style={styles.promptRight}>
-          <KidBadge tone="sun">
-            {t('listenChooseGame.progress', {
-              current: String(currentIndex + 1),
-              total: String(items.length),
-            })}
-          </KidBadge>
-          <View style={styles.promptTitleRow}>
-            <AppUiIcon name="gameListen" size={20} />
-            <Text
-              adjustsFontSizeToFit
-              minimumFontScale={0.85}
-              numberOfLines={1}
-              style={styles.promptTitle}
-            >
-              {t('listenChooseGame.prompt')}
-            </Text>
-          </View>
-        </View>
-      </AppCard>
+        }
+        completed={completedCount}
+        feedback={feedback}
+        isSpeaking={isIntroPlaying}
+        prompt={t('listenChooseGame.prompt')}
+        reduceMotion={isReducedMotionEnabled}
+        total={items.length}
+      />
 
       {/* Floating Bubbles 2x2 Grid */}
-      <View
-        style={[
-          styles.optionsGrid,
-          isTablet && styles.optionsGridTablet,
-        ]}
-      >
+      <View style={[styles.optionsGrid, isTablet && styles.optionsGridTablet]}>
         {options.map((option, index) => (
           <FloatingBubbleItem
             key={option.id}
             index={index}
-            isCorrect={selectedOptionId === option.id && optionState === 'correct'}
+            isCorrect={
+              selectedOptionId === option.id && optionState === 'correct'
+            }
             isDisabled={isIntroPlaying || isTransitioning}
+            isReducedMotionEnabled={isReducedMotionEnabled}
             isSelected={selectedOptionId === option.id}
             isTablet={isTablet}
             isWrong={selectedOptionId === option.id && optionState === 'wrong'}
@@ -233,18 +271,20 @@ type FloatingBubbleItemProps = {
   index: number;
   isCorrect: boolean;
   isDisabled: boolean;
+  isReducedMotionEnabled: boolean;
   isSelected: boolean;
   isTablet: boolean;
   isWrong: boolean;
   onPress: (popAnim: () => void, shakeAnim: () => void) => void;
   option: ListenChooseItem;
-  palette: typeof BUBBLE_PALETTES[number];
+  palette: (typeof BUBBLE_PALETTES)[number];
 };
 
 function FloatingBubbleItem({
   index,
   isCorrect,
   isDisabled,
+  isReducedMotionEnabled,
   isTablet,
   isWrong,
   onPress,
@@ -254,9 +294,17 @@ function FloatingBubbleItem({
   const floatAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const shakeAnim = useRef(new Animated.Value(0)).current;
+  const popAnimationRef = useRef<Animated.CompositeAnimation | null>(null);
+  const shakeAnimationRef = useRef<Animated.CompositeAnimation | null>(null);
 
   // Continuous floating bobbing animation (closed 0 -> -7 -> +7 -> 0 loop)
   useEffect(() => {
+    if (isReducedMotionEnabled) {
+      floatAnim.stopAnimation();
+      floatAnim.setValue(0);
+      return;
+    }
+
     const halfCycle = 900 + (index % 4) * 200;
     const loopAnim = Animated.loop(
       Animated.sequence([
@@ -282,10 +330,40 @@ function FloatingBubbleItem({
     );
     loopAnim.start();
     return () => loopAnim.stop();
-  }, [floatAnim, index]);
+  }, [floatAnim, index, isReducedMotionEnabled]);
+
+  useEffect(() => {
+    if (isReducedMotionEnabled || !isCorrect) {
+      popAnimationRef.current?.stop();
+      popAnimationRef.current = null;
+      scaleAnim.stopAnimation();
+      scaleAnim.setValue(1);
+    }
+
+    if (isReducedMotionEnabled || !isWrong) {
+      shakeAnimationRef.current?.stop();
+      shakeAnimationRef.current = null;
+      shakeAnim.stopAnimation();
+      shakeAnim.setValue(0);
+    }
+  }, [isCorrect, isReducedMotionEnabled, isWrong, scaleAnim, shakeAnim]);
+
+  useEffect(() => {
+    return () => {
+      popAnimationRef.current?.stop();
+      shakeAnimationRef.current?.stop();
+    };
+  }, []);
 
   const triggerPop = useCallback(() => {
-    Animated.sequence([
+    if (isReducedMotionEnabled) {
+      scaleAnim.stopAnimation();
+      scaleAnim.setValue(1);
+      return;
+    }
+
+    popAnimationRef.current?.stop();
+    const animation = Animated.sequence([
       Animated.spring(scaleAnim, {
         friction: 4,
         toValue: 1.15,
@@ -296,12 +374,31 @@ function FloatingBubbleItem({
         toValue: 1.05,
         useNativeDriver: true,
       }),
-    ]).start();
-  }, [scaleAnim]);
+    ]);
+    popAnimationRef.current = animation;
+    animation.start(() => {
+      if (popAnimationRef.current === animation) {
+        popAnimationRef.current = null;
+      }
+    });
+  }, [isReducedMotionEnabled, scaleAnim]);
 
   const triggerShake = useCallback(() => {
-    createShakeAnimation(shakeAnim).start();
-  }, [shakeAnim]);
+    if (isReducedMotionEnabled) {
+      shakeAnim.stopAnimation();
+      shakeAnim.setValue(0);
+      return;
+    }
+
+    shakeAnimationRef.current?.stop();
+    const animation = createShakeAnimation(shakeAnim);
+    shakeAnimationRef.current = animation;
+    animation.start(() => {
+      if (shakeAnimationRef.current === animation) {
+        shakeAnimationRef.current = null;
+      }
+    });
+  }, [isReducedMotionEnabled, shakeAnim]);
 
   return (
     <Animated.View
@@ -363,7 +460,9 @@ function FloatingBubbleItem({
         ) : null}
 
         {/* Bubble knot at bottom */}
-        <View style={[styles.bubbleKnot, { backgroundColor: palette.border }]} />
+        <View
+          style={[styles.bubbleKnot, { backgroundColor: palette.border }]}
+        />
       </Pressable>
     </Animated.View>
   );
@@ -482,38 +581,5 @@ const styles = createThemedStyles(() => ({
   optionsGridTablet: {
     gap: spacing.lg,
     paddingVertical: spacing.sm,
-  },
-  promptCard: {
-    alignItems: 'center',
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.xl,
-    borderWidth: 2,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  promptLeft: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  promptRight: {
-    alignItems: 'flex-start',
-    flex: 1,
-    gap: spacing.xxs,
-    paddingLeft: spacing.sm,
-  },
-  promptTitle: {
-    color: colors.primaryDark,
-    textAlign: 'left',
-    ...typography.subtitle,
-    fontSize: 15,
-    lineHeight: 20,
-  },
-  promptTitleRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.xs,
   },
 }));

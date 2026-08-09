@@ -22,3 +22,24 @@ export function haveSameLessonIds(first: string[], second: string[]) {
     Array.from(firstSet).every(id => secondSet.has(id))
   );
 }
+
+export function getLessonPlanSelection(
+  enabledLessonIds: string[],
+  allLessonIds: string[],
+  gentleLessonIds: string[],
+  isCustomPlanMode: boolean,
+): 'full' | 'gentle' | 'custom' {
+  if (isCustomPlanMode) {
+    return 'custom';
+  }
+
+  if (haveSameLessonIds(enabledLessonIds, allLessonIds)) {
+    return 'full';
+  }
+
+  if (haveSameLessonIds(enabledLessonIds, gentleLessonIds)) {
+    return 'gentle';
+  }
+
+  return 'custom';
+}

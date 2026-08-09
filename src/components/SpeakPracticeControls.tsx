@@ -2,11 +2,13 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Alert,
   Animated,
+  AppState,
   Easing,
   Linking,
   Pressable,
   Text,
   View,
+  type AppStateStatus,
 } from 'react-native';
 
 import { KidIconButton } from './KidIconButton';
@@ -24,12 +26,14 @@ import {
 } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import {
+  checkVoiceRecordingPermission,
   getVoiceRecordingLevel,
   isVoiceRecorderAvailable,
   playVoiceRecording,
   requestVoiceRecordingPermission,
   startVoiceRecording,
   stopVoiceRecording,
+  type VoiceRecordingPermissionStatus,
 } from '../engine/VoiceRecorder';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
@@ -170,6 +174,8 @@ export function SpeakPracticeControls({
     minListenBeforeSilenceStopMs: 900,
     silenceAfterSpeechMs: 900,
   });
+  const appStateRef = useRef<AppStateStatus>(AppState.currentState);
+  const isReturningFromSettingsRef = useRef(false);
 
   useEffect(() => {
     statusRef.current = status;
@@ -194,6 +200,38 @@ export function SpeakPracticeControls({
         status === 'encouraging',
     );
   }, [onBusyChange, status]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextState => {
+      const previousState = appStateRef.current;
+      appStateRef.current = nextState;
+      if (
+        nextState !== 'active' ||
+        previousState === 'active' ||
+        !isReturningFromSettingsRef.current
+      ) {
+        return;
+      }
+
+      isReturningFromSettingsRef.current = false;
+      checkVoiceRecordingPermission()
+        .then(permissionStatus => {
+          if (!isMountedRef.current) {
+            return;
+          }
+          setStatus(
+            permissionStatus === 'granted' ? 'idle' : 'unavailable',
+          );
+        })
+        .catch(() => {
+          if (isMountedRef.current) {
+            setStatus('unavailable');
+          }
+        });
+    });
+
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     if (status !== 'recording') {
@@ -359,9 +397,11 @@ export function SpeakPracticeControls({
 
   const beginRecording = useCallback(
     async ({
+      permissionRequestSource,
       playPrompt,
       playTap,
     }: {
+      permissionRequestSource: 'automatic' | 'manual';
       playPrompt: boolean;
       playTap: boolean;
     }) => {
@@ -385,24 +425,46 @@ export function SpeakPracticeControls({
         }
       }
 
-      const hasPermission = await requestVoiceRecordingPermission({
-        buttonNegative: t('voiceRecorder.permissionNegative'),
-        buttonPositive: t('voiceRecorder.permissionPositive'),
-        message: t('voiceRecorder.permissionMessage'),
-        title: t('voiceRecorder.permissionTitle'),
-      });
+      let permissionStatus: VoiceRecordingPermissionStatus;
+      try {
+        permissionStatus = await requestVoiceRecordingPermission(
+          {
+            buttonNegative: t('voiceRecorder.permissionNegative'),
+            buttonPositive: t('voiceRecorder.permissionPositive'),
+            message: t('voiceRecorder.permissionMessage'),
+            title: t('voiceRecorder.permissionTitle'),
+          },
+          { source: permissionRequestSource },
+        );
+      } catch {
+        if (isRequestActive()) {
+          setStatus('unavailable');
+        }
+        return;
+      }
       if (!isRequestActive()) {
         return;
       }
-      if (!hasPermission) {
+      if (permissionStatus !== 'granted') {
         setStatus('unavailable');
-        if (playTap) {
+        if (
+          permissionRequestSource === 'manual' &&
+          permissionStatus === 'blocked'
+        ) {
           Alert.alert(
             t('speakPractice.micPermissionTitle'),
             t('speakPractice.micPermissionText'),
             [
               { text: t('speakPractice.cancel'), style: 'cancel' },
-              { text: t('speakPractice.openSettings'), onPress: () => Linking.openSettings() },
+              {
+                text: t('speakPractice.openSettings'),
+                onPress: () => {
+                  isReturningFromSettingsRef.current = true;
+                  Linking.openSettings().catch(() => {
+                    isReturningFromSettingsRef.current = false;
+                  });
+                },
+              },
             ],
           );
         }
@@ -489,8 +551,12 @@ export function SpeakPracticeControls({
     }
 
     handledAutoStartRequestRef.current = autoStartRequestId;
-    beginRecording({ playPrompt: false, playTap: false }).catch(() => {
-      setStatus('idle');
+    beginRecording({
+      permissionRequestSource: 'automatic',
+      playPrompt: false,
+      playTap: false,
+    }).catch(() => {
+      setStatus('unavailable');
     });
   }, [autoStartRequestId, beginRecording]);
 
@@ -513,7 +579,17 @@ export function SpeakPracticeControls({
       return;
     }
 
-    await beginRecording({ playPrompt: true, playTap: true });
+    try {
+      await beginRecording({
+        permissionRequestSource: 'manual',
+        playPrompt: true,
+        playTap: true,
+      });
+    } catch {
+      if (isMountedRef.current) {
+        setStatus('unavailable');
+      }
+    }
   };
 
   const handlePlaybackPress = async () => {

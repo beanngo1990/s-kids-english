@@ -6,7 +6,7 @@ import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
-import type { ReviewGame } from '../types/lesson';
+import type { LearningMode, ReviewGame } from '../types/lesson';
 import { MemoryGame } from './memory/MemoryGame';
 import { ListenChooseGame } from './listenChoose/ListenChooseGame';
 import { MatchingGame } from './matching/MatchingGame';
@@ -52,6 +52,7 @@ export function resolveReviewGameType(
 
 type GamePlayerProps = {
   isIntroPlaying?: boolean;
+  learningMode: LearningMode;
   memoryItems: ReviewGameItem[];
   onComplete: () => void;
   onWordInteraction?: (wordId: string, isFirstTry: boolean) => void;
@@ -61,6 +62,7 @@ type GamePlayerProps = {
 
 export function GamePlayer({
   isIntroPlaying = false,
+  learningMode,
   memoryItems,
   onComplete,
   onWordInteraction,
@@ -77,6 +79,7 @@ export function GamePlayer({
         <MemoryGame
           isIntroPlaying={isIntroPlaying}
           items={memoryItems}
+          learningMode={learningMode}
           onComplete={onComplete}
           onMatch={onWordInteraction}
         />
@@ -86,6 +89,7 @@ export function GamePlayer({
         <ListenChooseGame
           isIntroPlaying={isIntroPlaying}
           items={memoryItems}
+          learningMode={learningMode}
           onComplete={onComplete}
           onMatch={onWordInteraction}
         />
@@ -95,6 +99,7 @@ export function GamePlayer({
         <MatchingGame
           isIntroPlaying={isIntroPlaying}
           items={memoryItems}
+          learningMode={learningMode}
           onComplete={onComplete}
           onMatch={onWordInteraction}
         />

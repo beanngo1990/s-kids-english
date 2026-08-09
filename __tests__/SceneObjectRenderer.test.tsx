@@ -1,9 +1,10 @@
 import React from 'react';
-import { Animated, Text } from 'react-native';
+import { Animated, StyleSheet, Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import { resolveAsset } from '../src/engine/AssetRegistry';
+import { getActiveColors } from '../src/theme/colors';
 import type { SceneObject } from '../src/types/lesson';
 
 jest.mock('../src/engine/AssetRegistry', () => ({
@@ -71,6 +72,103 @@ test('keeps a sourced image visible before native load callbacks fire', async ()
   const image = tree?.root.findByType(Animated.Image);
 
   expect(getOpacityValue(image?.props.style)).toBe(1);
+});
+
+test('uses the image silhouette for a targeted-object highlight', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted
+        label="cái đầu"
+        object={headObject}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const images = tree?.root.findAllByType(Animated.Image) ?? [];
+  const tintedImages = images.filter(image => {
+    const flattenedStyle = StyleSheet.flatten(image.props.style);
+    return typeof flattenedStyle?.tintColor === 'string';
+  });
+
+  expect(images).toHaveLength(3);
+  expect(tintedImages).toHaveLength(2);
+  expect(
+    tintedImages.map(image => StyleSheet.flatten(image.props.style).tintColor),
+  ).toEqual([getActiveColors().focusOutline, getActiveColors().white]);
+  expect(
+    tintedImages.every(image => image.props.source === images[2]?.props.source),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('magnifies a small target visually but not while it is draggable', async () => {
+  const smallObject: SceneObject = {
+    ...headObject,
+    position: { height: 5, width: 5, x: 40, y: 20 },
+  };
+  const springSpy = jest.spyOn(Animated, 'spring');
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted
+        label="vật nhỏ"
+        object={smallObject}
+        onPress={() => undefined}
+        stageSize={{ height: 480, width: 320 }}
+      />,
+    );
+  });
+
+  expect(
+    springSpy.mock.calls.some(([, config]) => config.toValue === 1.22),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  springSpy.mockClear();
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isDraggable
+        isTargeted
+        label="vật nhỏ"
+        object={smallObject}
+        onPress={() => undefined}
+        stageSize={{ height: 480, width: 320 }}
+      />,
+    );
+  });
+
+  expect(
+    springSpy.mock.calls.some(
+      ([, config]) =>
+        typeof config.toValue === 'number' && config.toValue > 1,
+    ),
+  ).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  springSpy.mockRestore();
 });
 
 function getOpacityValue(style: unknown) {
