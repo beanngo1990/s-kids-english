@@ -27,6 +27,7 @@ import {
 import type { TeacherPromptMode } from '../i18n/types';
 import {
   checkVoiceRecordingPermission,
+  getVoiceRecordingActivity,
   getVoiceRecordingLevel,
   isVoiceRecorderAvailable,
   playVoiceRecording,
@@ -34,12 +35,29 @@ import {
   startVoiceRecording,
   stopVoiceRecording,
   type VoiceRecordingPermissionStatus,
+  type VoiceRecordingSession,
+  type VoiceRecordingStopReason,
 } from '../engine/VoiceRecorder';
+import {
+  advanceVoiceEndpoint,
+  classifyVoiceLevel,
+  createLevelVoiceClassifierState,
+  createVoiceEndpointState,
+  toVoiceActivitySnapshot,
+  type LevelVoiceClassifierState,
+  type VoiceActivitySnapshot,
+  type VoiceEndpointOptions,
+  type VoiceEndpointState,
+} from '../engine/VoiceEndpointDetector';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import { useI18n } from '../i18n';
+import {
+  DEFAULT_ENGLISH_ACCENT,
+  type EnglishAccent,
+} from '../types/audio';
 
 type RecordingStatus =
   | 'idle'
@@ -52,6 +70,7 @@ type RecordingStatus =
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
   disabled?: boolean;
+  englishAccent?: EnglishAccent;
   isInstructionPreparing?: boolean;
   isInstructionPlaying?: boolean;
   onAudioStart?: () => void;
@@ -63,8 +82,7 @@ type SpeakPracticeControlsProps = {
 };
 
 const levelPollIntervalMs = 120;
-const minVoiceLevel = 0.065;
-const noiseFloorMultiplier = 2.35;
+const nativeSafetyMarginMs = 1500;
 
 function AnimatedAudioWave({ color }: { color: string }) {
   const anim1 = useRef(new Animated.Value(0)).current;
@@ -72,7 +90,11 @@ function AnimatedAudioWave({ color }: { color: string }) {
   const anim3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    const startAnim = (anim: Animated.Value, duration: number, delay: number) => {
+    const startAnim = (
+      anim: Animated.Value,
+      duration: number,
+      delay: number,
+    ) => {
       Animated.loop(
         Animated.sequence([
           Animated.timing(anim, {
@@ -86,7 +108,7 @@ function AnimatedAudioWave({ color }: { color: string }) {
             duration,
             useNativeDriver: true,
           }),
-        ])
+        ]),
       ).start();
     };
 
@@ -95,13 +117,40 @@ function AnimatedAudioWave({ color }: { color: string }) {
     startAnim(anim3, 450, 50);
   }, [anim1, anim2, anim3]);
 
-  const scaleY = (anim: Animated.Value) => anim.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1.2] });
+  const scaleY = (anim: Animated.Value) =>
+    anim.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1.2] });
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3, height: 16 }}>
-      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim1) }] }} />
-      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim2) }] }} />
-      <Animated.View style={{ width: 4, height: 16, backgroundColor: color, borderRadius: 2, transform: [{ scaleY: scaleY(anim3) }] }} />
+    <View
+      style={{ flexDirection: 'row', alignItems: 'center', gap: 3, height: 16 }}
+    >
+      <Animated.View
+        style={{
+          width: 4,
+          height: 16,
+          backgroundColor: color,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim1) }],
+        }}
+      />
+      <Animated.View
+        style={{
+          width: 4,
+          height: 16,
+          backgroundColor: color,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim2) }],
+        }}
+      />
+      <Animated.View
+        style={{
+          width: 4,
+          height: 16,
+          backgroundColor: color,
+          borderRadius: 2,
+          transform: [{ scaleY: scaleY(anim3) }],
+        }}
+      />
     </View>
   );
 }
@@ -112,25 +161,39 @@ function AnimatedRecordingDot() {
   useEffect(() => {
     Animated.loop(
       Animated.sequence([
-        Animated.timing(pulse, { toValue: 1, duration: 600, useNativeDriver: true }),
-        Animated.timing(pulse, { toValue: 0, duration: 600, useNativeDriver: true }),
-      ])
+        Animated.timing(pulse, {
+          toValue: 1,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulse, {
+          toValue: 0,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+      ]),
     ).start();
   }, [pulse]);
 
-  const opacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.3, 1] });
-  const scale = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.15] });
+  const opacity = pulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.3, 1],
+  });
+  const scale = pulse.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.85, 1.15],
+  });
 
   return (
-    <Animated.View 
-      style={{ 
-        width: 14, 
-        height: 14, 
-        backgroundColor: colors.alert, 
-        borderRadius: 7, 
-        opacity, 
-        transform: [{ scale }] 
-      }} 
+    <Animated.View
+      style={{
+        width: 14,
+        height: 14,
+        backgroundColor: colors.alert,
+        borderRadius: 7,
+        opacity,
+        transform: [{ scale }],
+      }}
     />
   );
 }
@@ -138,6 +201,7 @@ function AnimatedRecordingDot() {
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
   disabled = false,
+  englishAccent = DEFAULT_ENGLISH_ACCENT,
   isInstructionPreparing = false,
   isInstructionPlaying = false,
   onAudioStart,
@@ -159,21 +223,21 @@ export function SpeakPracticeControls({
   const levelPollTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const listeningPulse = useRef(new Animated.Value(0)).current;
   const recordingUriRef = useRef<string | null>(null);
+  const recordingSessionRef = useRef<VoiceRecordingSession | null>(null);
   const handledAutoStartRequestRef = useRef(0);
-  const hasDetectedSpeechRef = useRef(false);
+  const latestActivitySnapshotRef = useRef<VoiceActivitySnapshot | null>(null);
+  const fallbackEndpointStateRef = useRef<VoiceEndpointState | null>(null);
+  const fallbackLevelClassifierRef = useRef<LevelVoiceClassifierState | null>(
+    null,
+  );
   const isMountedRef = useRef(true);
   const isFinishingRecordingRef = useRef(false);
   const isPollingLevelRef = useRef(false);
-  const lastSpeechAtRef = useRef<number | null>(null);
-  const noiseFloorRef = useRef(0.025);
-  const recordingStartedAtRef = useRef(0);
   const recordingRequestIdRef = useRef(0);
   const statusRef = useRef<RecordingStatus>(status);
-  const recordingParamsRef = useRef({
-    fallbackRecordingDurationMs: 5200,
-    minListenBeforeSilenceStopMs: 900,
-    silenceAfterSpeechMs: 900,
-  });
+  const recordingParamsRef = useRef<VoiceEndpointOptions>(
+    resolveVoiceEndpointOptions(''),
+  );
   const appStateRef = useRef<AppStateStatus>(AppState.currentState);
   const isReturningFromSettingsRef = useRef(false);
 
@@ -187,8 +251,12 @@ export function SpeakPracticeControls({
       isMountedRef.current = false;
       recordingRequestIdRef.current += 1;
       clearRecordingTimers(timerRef, levelPollTimerRef);
-      if (statusRef.current === 'recording') {
-        stopVoiceRecording().catch(() => undefined);
+      const recordingSession = recordingSessionRef.current;
+      recordingSessionRef.current = null;
+      if (recordingSession) {
+        stopVoiceRecording(recordingSession, 'interrupted').catch(
+          () => undefined,
+        );
       }
     };
   }, []);
@@ -219,9 +287,7 @@ export function SpeakPracticeControls({
           if (!isMountedRef.current) {
             return;
           }
-          setStatus(
-            permissionStatus === 'granted' ? 'idle' : 'unavailable',
-          );
+          setStatus(permissionStatus === 'granted' ? 'idle' : 'unavailable');
         })
         .catch(() => {
           if (isMountedRef.current) {
@@ -256,102 +322,139 @@ export function SpeakPracticeControls({
     };
   }, [listeningPulse, status]);
 
-  const finishRecording = useCallback(async () => {
-    if (
-      isFinishingRecordingRef.current ||
-      statusRef.current !== 'recording'
-    ) {
-      return;
-    }
-
-    isFinishingRecordingRef.current = true;
-    clearRecordingTimers(timerRef, levelPollTimerRef);
-    const stoppedRecordingUri = await stopVoiceRecording();
-    if (!isMountedRef.current) {
-      isFinishingRecordingRef.current = false;
-      return;
-    }
-    const nextRecordingUri = stoppedRecordingUri ?? recordingUriRef.current;
-    const didDetectSpeech = hasDetectedSpeechRef.current;
-
-    if (!nextRecordingUri) {
-      setStatus('idle');
-      isFinishingRecordingRef.current = false;
-      return;
-    }
-
-    recordingUriRef.current = nextRecordingUri;
-    setRecordingUri(nextRecordingUri);
-    setLastRecordingHadDetectedSpeech(didDetectSpeech);
-    setStatus('encouraging');
-    const narrationSession = startNarrationSession();
-    try {
-      await narrationSession.ready;
-      if (!narrationSession.isActive()) {
+  const finishRecording = useCallback(
+    async (requestedReason: VoiceRecordingStopReason = 'manual') => {
+      if (
+        isFinishingRecordingRef.current ||
+        statusRef.current !== 'recording'
+      ) {
         return;
       }
-      if (didDetectSpeech) {
-        await playSoundEffect('yay');
+
+      isFinishingRecordingRef.current = true;
+      clearRecordingTimers(timerRef, levelPollTimerRef);
+      const recordingSession = recordingSessionRef.current;
+      if (!recordingSession) {
+        setStatus('idle');
+        isFinishingRecordingRef.current = false;
+        return;
+      }
+
+      const result = await stopVoiceRecording(
+        recordingSession,
+        requestedReason,
+      );
+      recordingSessionRef.current = null;
+      if (!isMountedRef.current) {
+        isFinishingRecordingRef.current = false;
+        return;
+      }
+      const nextRecordingUri =
+        result.stopReason === 'error' || result.stopReason === 'interrupted'
+          ? null
+          : result.uri;
+      const finalSnapshot =
+        result.finalSnapshot ?? latestActivitySnapshotRef.current;
+      const didDetectSpeech = finalSnapshot?.hadSpeech ?? false;
+
+      if (!nextRecordingUri) {
+        setStatus('idle');
+        isFinishingRecordingRef.current = false;
+        return;
+      }
+
+      recordingUriRef.current = nextRecordingUri;
+      setRecordingUri(nextRecordingUri);
+      setLastRecordingHadDetectedSpeech(didDetectSpeech);
+      setStatus('encouraging');
+      const narrationSession = startNarrationSession();
+      try {
+        await narrationSession.ready;
         if (!narrationSession.isActive()) {
           return;
         }
+        if (didDetectSpeech) {
+          await playSoundEffect('yay');
+          if (!narrationSession.isActive()) {
+            return;
+          }
+        }
+        await speakTeacherPromptSegments(
+          resolveRecordingEncouragementPrompt(
+            teacherPromptMode,
+            didDetectSpeech ? 'heardSpeech' : 'tryNextWord',
+          ).segments,
+          undefined,
+          narrationSession,
+        );
+      } finally {
+        if (isMountedRef.current) {
+          setStatus('recorded');
+        }
+        isFinishingRecordingRef.current = false;
       }
-      await speakTeacherPromptSegments(
-        resolveRecordingEncouragementPrompt(
-          teacherPromptMode,
-          didDetectSpeech ? 'heardSpeech' : 'tryNextWord',
-        ).segments,
-        undefined,
-        narrationSession,
+    },
+    [teacherPromptMode],
+  );
+
+  const handleVoiceActivitySnapshot = useCallback(
+    (snapshot: VoiceActivitySnapshot) => {
+      if (
+        statusRef.current !== 'recording' ||
+        isFinishingRecordingRef.current
+      ) {
+        return;
+      }
+
+      const currentSnapshot = latestActivitySnapshotRef.current;
+      if (
+        currentSnapshot &&
+        currentSnapshot.sessionId === snapshot.sessionId &&
+        currentSnapshot.sequence > snapshot.sequence
+      ) {
+        return;
+      }
+
+      latestActivitySnapshotRef.current = snapshot;
+      if (snapshot.shouldStop || snapshot.phase === 'ended') {
+        finishRecording(snapshot.stopReason ?? 'maxDuration').catch(
+          () => undefined,
+        );
+      }
+    },
+    [finishRecording],
+  );
+
+  const handleFallbackVoiceLevel = useCallback(
+    (level: number | null) => {
+      const recordingSession = recordingSessionRef.current;
+      const endpointState = fallbackEndpointStateRef.current;
+      const classifierState = fallbackLevelClassifierRef.current;
+      if (!recordingSession || !endpointState || !classifierState) {
+        return;
+      }
+
+      const classification = classifyVoiceLevel(classifierState, level);
+      fallbackLevelClassifierRef.current = classification.state;
+      const nextEndpointState = advanceVoiceEndpoint(
+        endpointState,
+        { atMs: Date.now(), isSpeech: classification.classification },
+        recordingParamsRef.current,
       );
-    } finally {
-      if (isMountedRef.current) {
-        setStatus('recorded');
-      }
-      isFinishingRecordingRef.current = false;
-    }
-  }, [teacherPromptMode]);
+      fallbackEndpointStateRef.current = nextEndpointState;
+      handleVoiceActivitySnapshot(
+        toVoiceActivitySnapshot(
+          nextEndpointState,
+          recordingSession.sessionId,
+          'levelFallback',
+          classification.level,
+        ),
+      );
+    },
+    [handleVoiceActivitySnapshot],
+  );
 
-  const handleVoiceLevel = useCallback((level: number | null) => {
-    if (
-      level === null ||
-      statusRef.current !== 'recording' ||
-      isFinishingRecordingRef.current
-    ) {
-      return;
-    }
-
-    const now = Date.now();
-    const elapsedMs = now - recordingStartedAtRef.current;
-    const clampedLevel = Math.max(0, Math.min(1, level));
-
-    if (!hasDetectedSpeechRef.current) {
-      noiseFloorRef.current =
-        noiseFloorRef.current * 0.92 + Math.min(clampedLevel, 0.16) * 0.08;
-    }
-
-    const speechThreshold = Math.max(
-      minVoiceLevel,
-      noiseFloorRef.current * noiseFloorMultiplier,
-    );
-
-    if (clampedLevel >= speechThreshold) {
-      hasDetectedSpeechRef.current = true;
-      lastSpeechAtRef.current = now;
-      return;
-    }
-
-    if (
-      hasDetectedSpeechRef.current &&
-      lastSpeechAtRef.current !== null &&
-      elapsedMs >= recordingParamsRef.current.minListenBeforeSilenceStopMs &&
-      now - lastSpeechAtRef.current >= recordingParamsRef.current.silenceAfterSpeechMs
-    ) {
-      finishRecording().catch(() => undefined);
-    }
-  }, [finishRecording]);
-
-  const pollVoiceLevel = useCallback(async () => {
+  const pollVoiceActivity = useCallback(async () => {
     if (
       isPollingLevelRef.current ||
       isFinishingRecordingRef.current ||
@@ -362,38 +465,54 @@ export function SpeakPracticeControls({
 
     isPollingLevelRef.current = true;
     try {
-      handleVoiceLevel(await getVoiceRecordingLevel());
+      const recordingSession = recordingSessionRef.current;
+      if (!recordingSession) {
+        return;
+      }
+
+      if (recordingSession.detector === 'nativeVoiceActivity') {
+        const snapshot = await getVoiceRecordingActivity(recordingSession);
+        if (snapshot) {
+          handleVoiceActivitySnapshot(snapshot);
+        }
+        return;
+      }
+
+      handleFallbackVoiceLevel(await getVoiceRecordingLevel());
     } finally {
       isPollingLevelRef.current = false;
     }
-  }, [handleVoiceLevel]);
+  }, [handleFallbackVoiceLevel, handleVoiceActivitySnapshot]);
 
-  const startVoiceActivityMonitoring = useCallback((targetWord: string) => {
-    clearRecordingTimers(timerRef, levelPollTimerRef);
+  const startVoiceActivityMonitoring = useCallback(
+    (
+      recordingSession: VoiceRecordingSession,
+      options: VoiceEndpointOptions,
+    ) => {
+      clearRecordingTimers(timerRef, levelPollTimerRef);
+      const startedAtMs = Date.now();
+      recordingParamsRef.current = options;
+      latestActivitySnapshotRef.current = null;
+      isPollingLevelRef.current = false;
+      fallbackEndpointStateRef.current =
+        recordingSession.detector === 'levelFallback'
+          ? createVoiceEndpointState(startedAtMs)
+          : null;
+      fallbackLevelClassifierRef.current =
+        recordingSession.detector === 'levelFallback'
+          ? createLevelVoiceClassifierState()
+          : null;
 
-    const wordCount = targetWord.trim().split(/\s+/).filter(Boolean).length;
-    const charCount = targetWord.replace(/\s+/g, '').length;
+      timerRef.current = setTimeout(() => {
+        finishRecording('maxDuration').catch(() => undefined);
+      }, options.maxDurationMs + nativeSafetyMarginMs);
 
-    recordingParamsRef.current = {
-      fallbackRecordingDurationMs: Math.max(5200, 3500 + charCount * 350),
-      minListenBeforeSilenceStopMs: wordCount > 1 ? 1200 : 800,
-      silenceAfterSpeechMs: wordCount > 1 ? 1100 : 750,
-    };
-
-    hasDetectedSpeechRef.current = false;
-    isPollingLevelRef.current = false;
-    lastSpeechAtRef.current = null;
-    noiseFloorRef.current = 0.025;
-    recordingStartedAtRef.current = Date.now();
-
-    timerRef.current = setTimeout(() => {
-      finishRecording().catch(() => undefined);
-    }, recordingParamsRef.current.fallbackRecordingDurationMs);
-
-    levelPollTimerRef.current = setInterval(() => {
-      pollVoiceLevel().catch(() => undefined);
-    }, levelPollIntervalMs);
-  }, [finishRecording, pollVoiceLevel]);
+      levelPollTimerRef.current = setInterval(() => {
+        pollVoiceActivity().catch(() => undefined);
+      }, levelPollIntervalMs);
+    },
+    [finishRecording, pollVoiceActivity],
+  );
 
   const beginRecording = useCallback(
     async ({
@@ -506,33 +625,36 @@ export function SpeakPracticeControls({
         }
       }
 
-      const nextRecordingUri = await startVoiceRecording();
+      const endpointOptions = resolveVoiceEndpointOptions(word, englishAccent);
+      const recordingSession = await startVoiceRecording(endpointOptions);
       if (!isRequestActive()) {
-        if (nextRecordingUri) {
-          await stopVoiceRecording();
+        if (recordingSession) {
+          await stopVoiceRecording(recordingSession, 'interrupted');
         }
         return;
       }
       if (!narrationSession.isActive()) {
-        if (nextRecordingUri) {
-          await stopVoiceRecording();
+        if (recordingSession) {
+          await stopVoiceRecording(recordingSession, 'interrupted');
         }
         setStatus('idle');
         return;
       }
-      if (!nextRecordingUri) {
+      if (!recordingSession) {
         setStatus('unavailable');
         return;
       }
 
-      recordingUriRef.current = nextRecordingUri;
-      setRecordingUri(nextRecordingUri);
+      recordingSessionRef.current = recordingSession;
+      recordingUriRef.current = recordingSession.uri;
+      setRecordingUri(recordingSession.uri);
       setStatus('recording');
       isFinishingRecordingRef.current = false;
-      startVoiceActivityMonitoring(word);
+      startVoiceActivityMonitoring(recordingSession, endpointOptions);
     },
     [
       disabled,
+      englishAccent,
       onAudioStart,
       startVoiceActivityMonitoring,
       status,
@@ -566,16 +688,12 @@ export function SpeakPracticeControls({
   // }
 
   const handleRecordPress = async () => {
-    if (
-      disabled ||
-      status === 'prompting' ||
-      status === 'encouraging'
-    ) {
+    if (disabled || status === 'prompting' || status === 'encouraging') {
       return;
     }
 
     if (status === 'recording') {
-      await finishRecording();
+      await finishRecording('manual');
       return;
     }
 
@@ -653,14 +771,14 @@ export function SpeakPracticeControls({
     : isPrompting
     ? t('speakPractice.promptPrepare')
     : isRecording
-      ? t('speakPractice.promptRecording')
-      : hasRecording
-        ? lastRecordingHadDetectedSpeech
-          ? t('speakPractice.promptRecorded')
-          : t('speakPractice.promptRecordedQuiet')
-        : isUnavailable
-          ? t('speakPractice.promptNoMic')
-          : t('speakPractice.promptSpeak');
+    ? t('speakPractice.promptRecording')
+    : hasRecording
+    ? lastRecordingHadDetectedSpeech
+      ? t('speakPractice.promptRecorded')
+      : t('speakPractice.promptRecordedQuiet')
+    : isUnavailable
+    ? t('speakPractice.promptNoMic')
+    : t('speakPractice.promptSpeak');
 
   return (
     <View style={styles.root}>
@@ -668,9 +786,7 @@ export function SpeakPracticeControls({
         <View
           style={[
             styles.statusIcon,
-            (isNarrating ||
-              isInstructionPreparing ||
-              isInstructionPlaying) &&
+            (isNarrating || isInstructionPreparing || isInstructionPlaying) &&
               styles.promptingStatusIcon,
             isRecording && styles.recordingStatusIcon,
             hasRecording && styles.recordedStatusIcon,
@@ -715,7 +831,9 @@ export function SpeakPracticeControls({
         </Text>
         {onReplayModel ? (
           <Pressable
-            accessibilityLabel={t('speakPractice.replayModelAccessibility', { word })}
+            accessibilityLabel={t('speakPractice.replayModelAccessibility', {
+              word,
+            })}
             accessibilityRole="button"
             disabled={isModelButtonDisabled}
             onPress={handleReplayModelPress}
@@ -730,7 +848,7 @@ export function SpeakPracticeControls({
         ) : null}
       </View>
 
-      {(hasRecording || isUnavailable) ? (
+      {hasRecording || isUnavailable ? (
         <View style={styles.actions}>
           <KidIconButton
             accessibilityLabel={t('speakPractice.recordAgainAccessibility')}
@@ -749,14 +867,22 @@ export function SpeakPracticeControls({
               icon="next"
               label={t('speakPractice.continue')}
               onPress={onContinue}
-              style={[styles.actionButton, styles.primaryAction, isUnavailable && { flex: 1 }]}
+              style={[
+                styles.actionButton,
+                styles.primaryAction,
+                isUnavailable && { flex: 1 },
+              ]}
             />
           ) : null}
         </View>
       ) : (
         <View style={styles.actions}>
           <Pressable
-            accessibilityLabel={isRecording ? t('speakPractice.stopRecordingAccessibility') : t('speakPractice.speakAccessibility', { word })}
+            accessibilityLabel={
+              isRecording
+                ? t('speakPractice.stopRecordingAccessibility')
+                : t('speakPractice.speakAccessibility', { word })
+            }
             accessibilityRole="button"
             disabled={isDisabled}
             onPress={handleRecordPress}
@@ -767,46 +893,48 @@ export function SpeakPracticeControls({
               isDisabled && styles.disabled,
             ]}
           >
-          {isRecording ? (
-            <View style={styles.listeningMicWrap}>
-              <Animated.View
-                pointerEvents="none"
-                style={[
-                  styles.listeningRipple,
-                  {
-                    opacity: rippleOpacity,
-                    transform: [{ scale: rippleScale }],
-                  },
-                ]}
-              />
-              <Animated.View
-                pointerEvents="none"
-                style={[
-                  styles.listeningRipple,
-                  styles.listeningRippleSecond,
-                  {
-                    opacity: secondRippleOpacity,
-                    transform: [{ scale: secondRippleScale }],
-                  },
-                ]}
-              />
-              <View style={styles.listeningMicCore}>
-                <SKidsIcon name="speak" size={56} />
+            {isRecording ? (
+              <View style={styles.listeningMicWrap}>
+                <Animated.View
+                  pointerEvents="none"
+                  style={[
+                    styles.listeningRipple,
+                    {
+                      opacity: rippleOpacity,
+                      transform: [{ scale: rippleScale }],
+                    },
+                  ]}
+                />
+                <Animated.View
+                  pointerEvents="none"
+                  style={[
+                    styles.listeningRipple,
+                    styles.listeningRippleSecond,
+                    {
+                      opacity: secondRippleOpacity,
+                      transform: [{ scale: secondRippleScale }],
+                    },
+                  ]}
+                />
+                <View style={styles.listeningMicCore}>
+                  <SKidsIcon name="speak" size={56} />
+                </View>
               </View>
+            ) : (
+              <SKidsIcon name="speak" size={48} />
+            )}
+            <View
+              style={[
+                styles.recordLabelPill,
+                isRecording && styles.listeningLabelPill,
+              ]}
+            >
+              <Text numberOfLines={1} style={styles.recordLabel}>
+                {isRecording
+                  ? t('speakPractice.tapToStop')
+                  : t('speakPractice.speak')}
+              </Text>
             </View>
-          ) : (
-            <SKidsIcon name="speak" size={48} />
-          )}
-          <View
-            style={[
-              styles.recordLabelPill,
-              isRecording && styles.listeningLabelPill,
-            ]}
-          >
-            <Text numberOfLines={1} style={styles.recordLabel}>
-              {isRecording ? t('speakPractice.tapToStop') : t('speakPractice.speak')}
-            </Text>
-          </View>
           </Pressable>
           {onContinue && !isRecording ? (
             <KidIconButton
@@ -838,6 +966,30 @@ function clearRecordingTimers(
     clearInterval(intervalRef.current);
     intervalRef.current = null;
   }
+}
+
+function resolveVoiceEndpointOptions(
+  word: string,
+  englishAccent: EnglishAccent = DEFAULT_ENGLISH_ACCENT,
+): VoiceEndpointOptions {
+  const wordCount = word.trim().split(/\s+/).filter(Boolean).length;
+  const charCount = word.replace(/\s+/g, '').length;
+  const noSpeechTimeoutMs = Math.max(5200, 3500 + charCount * 350);
+
+  return {
+    candidateGapMs: 160,
+    maxDurationMs: noSpeechTimeoutMs + 1500,
+    minSpeechMs: 240,
+    noSpeechTimeoutMs,
+    silenceAfterSpeechMs: wordCount > 1 ? 1100 : 750,
+    ...(word.trim()
+      ? {
+          targetLocale: englishAccent,
+          targetMatchPostRollMs: 350,
+          targetText: word.trim(),
+        }
+      : {}),
+  };
 }
 
 const styles = createThemedStyles(() => ({

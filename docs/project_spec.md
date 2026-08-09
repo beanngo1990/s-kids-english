@@ -462,19 +462,39 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 ### Speech practice
 
 - **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
-- **Implemented:** phát từ mẫu, request record permission, ghi âm, theo dõi audio level/silence,
-  auto-stop và hỗ trợ phát lại local recording theo yêu cầu.
+- **Implemented:** phát từ mẫu, request record permission, ghi âm, native on-device voice activity
+  detection/endpointing, auto-stop và hỗ trợ phát lại local recording theo yêu cầu. Native chỉ
+  đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
+  `ended`) qua React Native bridge; PCM không được truyền qua bridge.
+- Endpointing yêu cầu speech kéo dài qua nhiều frame trước khi xác nhận, chịu được khoảng nghỉ ngắn
+  trong lúc bé đọc và dừng sau khoảng im lặng cuối câu. Lượt chưa có speech và lượt kéo dài quá mức
+  có timeout riêng; manual stop và một JS safety timeout vẫn luôn khả dụng.
+- Khi hệ điều hành có recognizer on-device cho locale English đã chọn, native có thể dùng từ/cụm
+  từ mục tiêu làm tín hiệu **dừng sớm dương tính** sau khi VAD đã xác nhận speech và đã giữ thêm
+  một khoảng post-roll ngắn. Hypothesis không khớp hoặc recognizer không khả dụng không làm bé bị
+  giữ chờ, không tạo feedback sai và không thay thế các ngưỡng im lặng/timeout hiện có.
+- Khi enhanced native voice activity contract không có, runtime dùng detector audio-level thuần
+  TypeScript có calibration noise floor, hysteresis và multi-sample confirmation; nếu metering
+  cũng không có thì safety timeout vẫn kết thúc lượt ghi.
 - Permission flow phân biệt `granted`, từ chối có thể hỏi lại (`denied`), từ chối buộc mở Settings
   (`blocked`) và recorder không khả dụng. Sau một lần từ chối, các teach step sau trong cùng phiên
   không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm thu lại.
+- Trên iOS, quyền Speech Recognition được xin riêng theo kiểu best-effort để bật target hint; từ
+  chối quyền này chỉ tắt target hint và không làm mất khả năng ghi âm khi quyền microphone đã có.
 - Chỉ trạng thái `blocked` mới dẫn phụ huynh tới Settings. Khi app active trở lại sau Settings,
   `SpeakPracticeControls` kiểm tra lại quyền và mở lại nút ghi âm nếu quyền đã được cấp, nhưng không
   tự bắt đầu ghi âm ngoài ý muốn.
 - Speech practice không phải một `SceneInteractionType` riêng.
-- **Unsupported:** speech-to-text, transcription, pronunciation correctness/scoring. Feedback sau
-  recording chỉ khuyến khích, không xác nhận phát âm đúng; nếu lượt ghi âm không phát hiện
-  speech-level, app vẫn cho dừng và dùng lời nhắc tích cực để bé thử đọc ở từ sau thay vì khen là
-  đã đọc tốt.
+- Target-word endpoint hint chỉ là quyết định nội bộ có độ tin cậy bảo thủ, không phải kết luận bé
+  phát âm đúng. App không đưa transcript/hypothesis qua React Native bridge, không hiển thị từ đã
+  nhận diện và không dùng non-match để đánh giá bé.
+- **Unsupported:** general speech-to-text/transcription và pronunciation correctness/scoring.
+  Feedback sau recording chỉ khuyến khích, không xác nhận phát âm đúng; nếu lượt ghi âm không phát
+  hiện speech-level, app vẫn cho dừng và dùng lời nhắc tích cực để bé thử đọc ở từ sau thay vì khen
+  là đã đọc tốt.
+- Voice activity detection chỉ phân biệt speech/non-speech, không xác minh người nói là bé. Giọng
+  người khác hoặc tiếng nói từ TV vẫn có thể được coi là speech; nếu nguồn đó nói đúng target thì
+  target hint cũng có thể dừng lượt. App không lưu voiceprint.
 
 ### Review games
 
@@ -812,7 +832,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 1. Lesson vocabulary/prompt audio: generated en-US/en-GB English files và Vietnamese files,
    runtime R2-first.
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
-3. Voice recording: local file URI từ native module; không có upload backend hiện tại.
+3. Voice recording: local file URI từ native module; PCM/VAD/endpointing và target-word hint được
+   xử lý on-device. Hypothesis chỉ tồn tại tạm trong native để quyết định endpoint, không được persist
+   hoặc đưa qua bridge; không có upload backend cho recording/transcript hiện tại.
 4. Optional background music: bundled file `src/assets/ui/audio/music/sungy-background.mp3`,
    mặc định tắt và chỉ chạy sau parent opt-in local trên thiết bị. Android dùng mirror
    `android/app/src/main/res/raw/sungy_background.mp3` qua platform-specific
@@ -847,6 +869,8 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | `SkidsAudio` SFX/URI playback       | Implemented                   | Implemented                   | AudioManager best-effort          |
 | `SkidsAudio` background music       | Implemented                   | Implemented                   | Tắt nếu native method unavailable |
 | Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
+| Voice activity/endpoint auto-stop   | Implemented                   | Implemented                   | Audio-level detector + timeout    |
+| On-device target-word endpoint hint | API 33+/model dependent       | Permission/model dependent    | VAD/silence/timeout               |
 | `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
 
@@ -1032,8 +1056,9 @@ Support summary:
 | Age-based runtime filtering                     | Partial         |
 | Scene-level resume                              | Implemented     |
 | Exact step resume                               | Partial         |
-| Record/playback speech practice                 | Implemented     |
-| Speech recognition/pronunciation scoring        | Unsupported     |
+| Record/playback + endpoint speech practice      | Implemented     |
+| Target-word assisted endpointing                 | Implemented     |
+| Transcription/pronunciation scoring              | Unsupported     |
 | Android audio disk cache                        | Implemented     |
 | iOS audio disk cache                            | Unsupported     |
 | Full offline lesson bundle                      | Unsupported     |

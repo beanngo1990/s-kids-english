@@ -1750,6 +1750,7 @@ export function ScenePlayer({
                         : undefined
                     }
                     onReplayModel={handleReplayModelWord}
+                    englishAccent={englishAccent}
                     teacherPromptMode={teacherPromptMode}
                     word={speakPracticeWord}
                   />

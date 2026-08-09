@@ -5,14 +5,32 @@ import {
   type AudioAdapter,
   type SoundEffect,
 } from './AudioManager';
+import type {
+  NativeVoiceActivityOptions,
+  VoiceRecordingStopReason,
+} from './VoiceEndpointDetector';
 
 type SkidsAudioModule = {
+  checkRecordPermission?: () => Promise<boolean>;
+  getVoiceRecordingActivity?: (sessionId: string) => Promise<unknown>;
+  getVoiceRecordingLevel?: () => Promise<number | null>;
   play?: (effect: SoundEffect) => Promise<boolean>;
   playBackgroundMusic?: (uri: string, volume: number) => Promise<boolean>;
   playUri?: (uri: string) => Promise<boolean>;
+  requestRecordPermission?: () => Promise<boolean>;
+  requestTargetWordRecognitionPermission?: () => Promise<boolean>;
   setBackgroundMusicVolume?: (volume: number) => Promise<boolean>;
+  startVoiceActivityRecording?: (
+    options: NativeVoiceActivityOptions,
+  ) => Promise<unknown>;
+  startVoiceRecording?: () => Promise<string | null>;
   stopBackgroundMusic?: () => Promise<boolean>;
   stopSpeech?: () => Promise<boolean>;
+  stopVoiceActivityRecording?: (
+    sessionId: string,
+    reason: VoiceRecordingStopReason,
+  ) => Promise<unknown>;
+  stopVoiceRecording?: () => Promise<string | null>;
 };
 
 const nativeAudio = NativeModules.SkidsAudio as SkidsAudioModule | undefined;

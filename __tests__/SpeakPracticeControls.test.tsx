@@ -16,10 +16,13 @@ import {
 } from '../src/engine/AudioManager';
 import {
   checkVoiceRecordingPermission,
+  getVoiceRecordingActivity,
   getVoiceRecordingLevel,
   requestVoiceRecordingPermission,
   startVoiceRecording,
   stopVoiceRecording,
+  type VoiceActivitySnapshot,
+  type VoiceRecordingSession,
 } from '../src/engine/VoiceRecorder';
 
 jest.mock('../src/engine/AudioManager', () => ({
@@ -36,12 +39,25 @@ jest.mock('../src/engine/AudioManager', () => ({
 
 jest.mock('../src/engine/VoiceRecorder', () => ({
   checkVoiceRecordingPermission: jest.fn(() => Promise.resolve('denied')),
+  getVoiceRecordingActivity: jest.fn(() => Promise.resolve(null)),
   getVoiceRecordingLevel: jest.fn(() => Promise.resolve(null)),
   isVoiceRecorderAvailable: jest.fn(() => true),
   playVoiceRecording: jest.fn(() => Promise.resolve()),
   requestVoiceRecordingPermission: jest.fn(() => Promise.resolve('granted')),
-  startVoiceRecording: jest.fn(() => Promise.resolve('file://kid-voice.m4a')),
-  stopVoiceRecording: jest.fn(() => Promise.resolve('file://kid-voice.m4a')),
+  startVoiceRecording: jest.fn(() =>
+    Promise.resolve({
+      detector: 'levelFallback',
+      sessionId: 'level-fallback-test',
+      uri: 'file://kid-voice.m4a',
+    }),
+  ),
+  stopVoiceRecording: jest.fn(() =>
+    Promise.resolve({
+      finalSnapshot: null,
+      stopReason: 'manual',
+      uri: 'file://kid-voice.m4a',
+    }),
+  ),
 }));
 
 const flushPromises = () => Promise.resolve();
@@ -51,16 +67,23 @@ const mockedCheckVoiceRecordingPermission =
   >;
 const mockedGetVoiceRecordingLevel =
   getVoiceRecordingLevel as jest.MockedFunction<typeof getVoiceRecordingLevel>;
-const mockedStopVoiceRecording =
-  stopVoiceRecording as jest.MockedFunction<typeof stopVoiceRecording>;
+const mockedGetVoiceRecordingActivity =
+  getVoiceRecordingActivity as jest.MockedFunction<
+    typeof getVoiceRecordingActivity
+  >;
+const mockedStopVoiceRecording = stopVoiceRecording as jest.MockedFunction<
+  typeof stopVoiceRecording
+>;
 const mockedRequestVoiceRecordingPermission =
   requestVoiceRecordingPermission as jest.MockedFunction<
     typeof requestVoiceRecordingPermission
   >;
-const mockedStartVoiceRecording =
-  startVoiceRecording as jest.MockedFunction<typeof startVoiceRecording>;
-const mockedPlaySoundEffect =
-  playSoundEffect as jest.MockedFunction<typeof playSoundEffect>;
+const mockedStartVoiceRecording = startVoiceRecording as jest.MockedFunction<
+  typeof startVoiceRecording
+>;
+const mockedPlaySoundEffect = playSoundEffect as jest.MockedFunction<
+  typeof playSoundEffect
+>;
 const mockedSpeakTeacherPromptSegments =
   speakTeacherPromptSegments as jest.MockedFunction<
     typeof speakTeacherPromptSegments
@@ -71,21 +94,26 @@ const mockRemoveAppStateListener = jest.fn();
 beforeEach(() => {
   jest.clearAllMocks();
   mockAppStateListener = null;
-  jest.spyOn(AppState, 'addEventListener').mockImplementation(
-    (eventType, listener) => {
+  jest
+    .spyOn(AppState, 'addEventListener')
+    .mockImplementation((eventType, listener) => {
       if (eventType === 'change') {
         mockAppStateListener = listener as (state: AppStateStatus) => void;
       }
       return { remove: mockRemoveAppStateListener };
-    },
-  );
+    });
   jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   jest.spyOn(Linking, 'openSettings').mockResolvedValue(undefined);
   mockedCheckVoiceRecordingPermission.mockResolvedValue('denied');
+  mockedGetVoiceRecordingActivity.mockResolvedValue(null);
   mockedGetVoiceRecordingLevel.mockResolvedValue(null);
   mockedRequestVoiceRecordingPermission.mockResolvedValue('granted');
-  mockedStartVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
-  mockedStopVoiceRecording.mockResolvedValue('file://kid-voice.m4a');
+  mockedStartVoiceRecording.mockResolvedValue(fallbackRecordingSession);
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot: null,
+    stopReason: 'manual',
+    uri: fallbackRecordingSession.uri,
+  });
 });
 
 afterEach(() => {
@@ -226,7 +254,10 @@ test('opens Settings only when microphone permission is blocked and refreshes on
 
 test('auto-stops recording after speech followed by silence', async () => {
   jest.useFakeTimers();
-  const levels = [0.02, 0.18, 0.2, 0.025, 0.02, 0.018, 0.018, 0.016, 0.015];
+  const levels = [
+    0.02, 0.021, 0.019, 0.18, 0.2, 0.19, 0.025, 0.02, 0.018, 0.018, 0.016,
+    0.015, 0.015,
+  ];
   mockedGetVoiceRecordingLevel.mockImplementation(() =>
     Promise.resolve(levels.shift() ?? 0.015),
   );
@@ -241,12 +272,191 @@ test('auto-stops recording after speech followed by silence', async () => {
 
   expect(mockedStopVoiceRecording).not.toHaveBeenCalled();
 
-  await advanceRecordingClock(1500);
+  await advanceRecordingClock(1800);
 
   expect(mockedStopVoiceRecording).toHaveBeenCalledTimes(1);
   expect(mockedPlaySoundEffect).toHaveBeenCalledWith('yay');
   expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
     [{ language: 'vi', text: 'Cô nghe rồi! Giỏi quá!' }],
+    undefined,
+    expect.anything(),
+  );
+});
+
+test('does not treat one fallback level impulse as speech', async () => {
+  jest.useFakeTimers();
+  const levels = [0.02, 0.021, 0.019, 0.35, 0.018, 0.019, 0.017];
+  mockedGetVoiceRecordingLevel.mockImplementation(() =>
+    Promise.resolve(levels.shift() ?? 0.018),
+  );
+
+  await ReactTestRenderer.act(async () => {
+    ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await advanceRecordingClock(1800);
+
+  expect(mockedStopVoiceRecording).not.toHaveBeenCalled();
+  expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+});
+
+test('uses a likely target-word match only as an early stop signal', async () => {
+  jest.useFakeTimers();
+  const nativeSession: VoiceRecordingSession = {
+    detector: 'nativeVoiceActivity',
+    sessionId: 'native-session',
+    uri: 'file://native-kid-voice.m4a',
+  };
+  const finalSnapshot = createActivitySnapshot(nativeSession, {
+    hadSpeech: true,
+    phase: 'ended',
+    shouldStop: true,
+    stopReason: 'targetWordMatch',
+    targetMatchConfidence: 0.9,
+    targetMatchState: 'matched',
+  });
+  mockedStartVoiceRecording.mockResolvedValue(nativeSession);
+  mockedGetVoiceRecordingActivity.mockResolvedValue(finalSnapshot);
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot,
+    stopReason: 'targetWordMatch',
+    uri: nativeSession.uri,
+  });
+
+  await ReactTestRenderer.act(async () => {
+    ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+  await advanceRecordingClock(120);
+
+  expect(mockedGetVoiceRecordingActivity).toHaveBeenCalledWith(nativeSession);
+  expect(mockedGetVoiceRecordingLevel).not.toHaveBeenCalled();
+  expect(mockedStopVoiceRecording).toHaveBeenCalledWith(
+    nativeSession,
+    'targetWordMatch',
+  );
+  expect(mockedPlaySoundEffect).toHaveBeenCalledWith('yay');
+});
+
+test('passes the target word and selected accent to native endpointing', async () => {
+  jest.useFakeTimers();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        englishAccent="en-GB"
+        word="yellow sun"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartVoiceRecording).toHaveBeenCalledWith(
+    expect.objectContaining({
+      silenceAfterSpeechMs: 1100,
+      targetLocale: 'en-GB',
+      targetMatchPostRollMs: 350,
+      targetText: 'yellow sun',
+    }),
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+    await flushPromises();
+  });
+});
+
+test('does not treat a target hint as pronunciation correctness feedback', async () => {
+  jest.useFakeTimers();
+  const nativeSession: VoiceRecordingSession = {
+    detector: 'nativeVoiceActivity',
+    sessionId: 'native-unconfirmed-target-session',
+    uri: 'file://native-unconfirmed-target.m4a',
+  };
+  const finalSnapshot = createActivitySnapshot(nativeSession, {
+    hadSpeech: false,
+    phase: 'ended',
+    shouldStop: true,
+    stopReason: 'targetWordMatch',
+    targetMatchState: 'matched',
+  });
+  mockedStartVoiceRecording.mockResolvedValue(nativeSession);
+  mockedGetVoiceRecordingActivity.mockResolvedValue(finalSnapshot);
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot,
+    stopReason: 'targetWordMatch',
+    uri: nativeSession.uri,
+  });
+
+  await ReactTestRenderer.act(async () => {
+    ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+  await advanceRecordingClock(120);
+
+  expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+    [
+      {
+        language: 'vi',
+        text: 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+      },
+    ],
+    undefined,
+    expect.anything(),
+  );
+});
+
+test('does not celebrate a native no-speech timeout', async () => {
+  jest.useFakeTimers();
+  const nativeSession: VoiceRecordingSession = {
+    detector: 'nativeVoiceActivity',
+    sessionId: 'native-quiet-session',
+    uri: 'file://native-quiet.m4a',
+  };
+  const finalSnapshot = createActivitySnapshot(nativeSession, {
+    phase: 'ended',
+    shouldStop: true,
+    stopReason: 'noSpeechTimeout',
+  });
+  mockedStartVoiceRecording.mockResolvedValue(nativeSession);
+  mockedGetVoiceRecordingActivity.mockResolvedValue(finalSnapshot);
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot,
+    stopReason: 'noSpeechTimeout',
+    uri: nativeSession.uri,
+  });
+
+  await ReactTestRenderer.act(async () => {
+    ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+  await advanceRecordingClock(120);
+
+  expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
+    [
+      {
+        language: 'vi',
+        text: 'Không sao, từ sau mình thử đọc cùng cô nhé.',
+      },
+    ],
     undefined,
     expect.anything(),
   );
@@ -352,14 +562,42 @@ test('uses a try-next prompt when stopping without detected speech', async () =>
 
     const textValues =
       tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
-    expect(textValues).toContain(
-      'Không sao, từ sau mình thử đọc cùng cô nhé.',
-    );
+    expect(textValues).toContain('Không sao, từ sau mình thử đọc cùng cô nhé.');
   } finally {
     await ReactTestRenderer.act(async () => {
       tree?.unmount();
     });
   }
+});
+
+test('does not encourage or expose playback when stopping the recorder fails', async () => {
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot: null,
+    stopReason: 'error',
+    uri: null,
+  });
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    await findByAccessibilityLabel(tree, 'Dừng ghi âm').props.onPress();
+    await flushPromises();
+  });
+
+  expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+  expect(mockedSpeakTeacherPromptSegments).not.toHaveBeenCalled();
+  expect(findByAccessibilityLabel(tree, 'Bé nói sun')).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 function findByAccessibilityLabel(
@@ -390,19 +628,17 @@ function getLastPermissionAlertButtons() {
   return (lastAlertCall?.[2] ?? []) as PermissionAlertButton[];
 }
 
-function getTextValues(
-  tree: ReactTestRenderer.ReactTestRenderer | undefined,
-) {
+function getTextValues(tree: ReactTestRenderer.ReactTestRenderer | undefined) {
   return tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
 }
 
 test('stops a recorder that starts after the practice controls unmount', async () => {
   let finishStartingRecorder:
-    | ((recordingUri: string | null) => void)
+    | ((recordingSession: VoiceRecordingSession | null) => void)
     | undefined;
   mockedStartVoiceRecording.mockImplementationOnce(
     () =>
-      new Promise<string | null>(resolve => {
+      new Promise<VoiceRecordingSession | null>(resolve => {
         finishStartingRecorder = resolve;
       }),
   );
@@ -423,7 +659,11 @@ test('stops a recorder that starts after the practice controls unmount', async (
   });
   expect(mockedStopVoiceRecording).not.toHaveBeenCalled();
   await ReactTestRenderer.act(async () => {
-    finishStartingRecorder?.('file://late-kid-voice.m4a');
+    finishStartingRecorder?.({
+      detector: 'levelFallback',
+      sessionId: 'late-session',
+      uri: 'file://late-kid-voice.m4a',
+    });
     await flushPromises();
     await flushPromises();
   });
@@ -456,4 +696,29 @@ async function advanceRecordingClock(durationMs: number) {
       await flushPromises();
     });
   }
+}
+
+const fallbackRecordingSession: VoiceRecordingSession = {
+  detector: 'levelFallback',
+  sessionId: 'level-fallback-test',
+  uri: 'file://kid-voice.m4a',
+};
+
+function createActivitySnapshot(
+  session: VoiceRecordingSession,
+  overrides: Partial<VoiceActivitySnapshot> = {},
+): VoiceActivitySnapshot {
+  return {
+    detector: session.detector,
+    elapsedMs: 1200,
+    hadSpeech: false,
+    phase: 'waitingForSpeech',
+    sequence: 1,
+    sessionId: session.sessionId,
+    shouldStop: false,
+    speechDurationMs: 0,
+    stopReason: null,
+    trailingSilenceMs: 0,
+    ...overrides,
+  };
 }
