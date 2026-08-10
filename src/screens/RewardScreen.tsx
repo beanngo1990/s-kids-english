@@ -18,6 +18,7 @@ import {
 import {
   getLessonVocabulary,
   getProgress,
+  saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { playCompleteSound, playTapSound, speakVi, speakWord } from '../engine/AudioManager';
@@ -49,6 +50,7 @@ export function RewardScreen({ navigation, route }: Props) {
     [lesson],
   );
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [isOpeningNextLesson, setIsOpeningNextLesson] = useState(false);
   const displayWords = useMemo(() => {
     if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
       const playedSet = new Set(route.params.playedWordIds);
@@ -201,18 +203,26 @@ export function RewardScreen({ navigation, route }: Props) {
   };
 
   const handleNextLesson = () => {
-    if (!nextLesson) {
+    if (!nextLesson || isOpeningNextLesson) {
       return;
     }
+
     handleOpenLesson(nextLesson.id, () => {
-      if (route.params.sourceScreen === 'ReviewGame' && route.params.gameType) {
-        navigation.replace('ReviewGame', {
-          gameType: route.params.gameType,
-          lessonId: nextLesson.id,
-        });
-      } else {
-        navigation.replace('ScenePlayer', { lessonId: nextLesson.id });
+      setIsOpeningNextLesson(true);
+
+      const openNextLessonPack = () => {
+        navigation.replace('LessonPack', { lessonId: nextLesson.id });
+      };
+      const activeThemeId = progress?.activeThemeId;
+
+      if (activeThemeId === nextLesson.themeId) {
+        openNextLessonPack();
+        return;
       }
+
+      saveActiveThemeId(nextLesson.themeId)
+        .catch(() => undefined)
+        .finally(openNextLessonPack);
     });
   };
 
@@ -334,6 +344,7 @@ export function RewardScreen({ navigation, route }: Props) {
               {nextLesson ? (
                 <>
                   <AppButton
+                    disabled={isOpeningNextLesson}
                     iconName="next"
                     iconSize={30}
                     title={`${t('reward.nextLesson')}${getPremiumActionLabel(canOpenNextLesson)

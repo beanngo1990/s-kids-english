@@ -287,6 +287,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   mặt tiền siêu thị thay vì graphic túi có nhãn từ vựng `CART`.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
+- Sau reward, CTA **Bài tiếp theo** mở lesson pack kế tiếp thay vì đi thẳng vào scene/review;
+  nếu lesson kế tiếp thuộc theme khác thì `activeThemeId` được đồng bộ trước khi mở pack.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
   `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
@@ -501,6 +503,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `ReviewGame.type` khai báo `matching | memory | listenAndChoose | random` để mở rộng data model.
 - **Implemented:** runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching` và chế độ xoay tua ngẫu nhiên `random`.
 - Màn hình game ôn tập (`ReviewGameScreen`) cung cấp thanh Tab Selector (🃏 **Lật thẻ**, 🎈 **Nghe & Chọn**, 🔗 **Nối hình**) cho phép bé/phụ huynh tự do chuyển đổi game trực tiếp khi đang ôn tập.
+- `ReviewGameScreen` tự kiểm tra progress trước khi mount game/audio: trong `guided`, mọi scene
+  của lesson phải hoàn tất, nếu chưa thì quay về lesson pack; trong `free`, review vẫn có thể mở
+  không phụ thuộc scene progress.
 - Header gồm nút đóng, tên bài và game selector giữ nguyên visual cũ nhưng được ghim khi phần nội
   dung game cuộn. `learningMode` được truyền xuyên suốt từ route/settings qua `GamePlayer` xuống
   cả ba game mà không thêm một hàng difficulty badge vào kid UI.

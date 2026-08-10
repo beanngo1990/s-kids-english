@@ -29,6 +29,7 @@ import {
 } from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
+  getProgress,
   saveVocabularyInteraction,
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
@@ -48,6 +49,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
+import { isLessonComplete } from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
 
@@ -65,6 +67,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
+  const [isProgressReady, setIsProgressReady] = useState(false);
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>();
+  const [completedSceneIds, setCompletedSceneIds] = useState<Set<string>>(
+    () => new Set(),
+  );
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
     route.params.learningMode,
   );
@@ -172,6 +179,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     const applyTeacherSettings = (
       settings: Awaited<ReturnType<typeof getParentSettings>>,
     ) => {
+      setJourneyMode(settings.journeyMode);
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
     };
 
@@ -191,7 +199,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           setLearningMode(settings.learningMode);
         }
       })
-      .catch(() => undefined)
+      .catch(() => {
+        if (isMounted) {
+          setJourneyMode('guided');
+        }
+      })
       .finally(() => {
         if (isMounted) {
           setIsTeacherPromptReady(true);
@@ -204,12 +216,73 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     };
   }, [route.params.learningMode]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    setIsProgressReady(false);
+    getProgress()
+      .then(progress => {
+        if (isMounted) {
+          setCompletedSceneIds(new Set(progress.completedSceneIds));
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setCompletedSceneIds(new Set());
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsProgressReady(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [route.params.lessonId]);
+
+  const isProgressGateReady =
+    isTeacherPromptReady && isProgressReady && journeyMode !== undefined;
+  const isReviewProgressGranted = Boolean(
+    lesson &&
+      journeyMode &&
+      (journeyMode === 'free' ||
+        isLessonComplete(lesson.scenes, completedSceneIds, lesson.id)),
+  );
+
+  useEffect(() => {
+    if (
+      !lesson ||
+      !hasContentAccess ||
+      !isProgressGateReady ||
+      isReviewProgressGranted
+    ) {
+      return;
+    }
+
+    navigation.replace('LessonPack', {
+      lessonId: lesson.id,
+      openedFromParent,
+    });
+  }, [
+    hasContentAccess,
+    isProgressGateReady,
+    isReviewProgressGranted,
+    lesson,
+    navigation,
+    openedFromParent,
+  ]);
+
   const reviewItems = useMemo(
     () =>
-      lesson && learningMode && hasContentAccess
+      lesson &&
+      learningMode &&
+      hasContentAccess &&
+      isReviewProgressGranted
         ? getReviewGameItems(lesson, learningMode)
         : [],
-    [hasContentAccess, lesson, learningMode],
+    [hasContentAccess, isReviewProgressGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
     lesson?.reviewGame && reviewItems.length >= 2,
@@ -299,6 +372,14 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   }
 
   if (!hasContentAccess) {
+    return (
+      <Screen>
+        <View />
+      </Screen>
+    );
+  }
+
+  if (!isProgressGateReady || !isReviewProgressGranted) {
     return (
       <Screen>
         <View />
