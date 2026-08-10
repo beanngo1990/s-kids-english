@@ -824,7 +824,6 @@ export const familyDinnerLesson: Lesson = {
           id: 'dinner-cleanup-good-night-card',
           sceneId: 'dinner-cleanup',
           assetName: 'good-night-card',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(34, 34, 17, 13),
           touchArea: rect(28, 28, 29, 25),

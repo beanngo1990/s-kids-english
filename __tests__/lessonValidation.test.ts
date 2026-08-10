@@ -528,6 +528,74 @@ test('validator rejects a non-interactive drag target', () => {
   );
 });
 
+test.each(['tap', 'find'] as const)(
+  'validator rejects a non-interactive %s target',
+  interactionType => {
+    const invalidLesson: Lesson = {
+      ageRange: {
+        max: 5,
+        min: 3,
+      },
+      descriptionVi: 'Demo',
+      id: `invalid-${interactionType}-lesson`,
+      themeId: 'mot-ngay-cua-be',
+      scenes: [
+        {
+          background: {
+            id: `invalid-${interactionType}-background`,
+            source: `lessons/invalid-${interactionType}/images/background.png`,
+            type: 'image',
+          },
+          id: `invalid-${interactionType}-scene`,
+          objects: [
+            {
+              asset: {
+                id: `invalid-${interactionType}-target-asset`,
+                source: `lessons/invalid-${interactionType}/images/target.png`,
+                type: 'image',
+              },
+              id: `invalid-${interactionType}-target`,
+              isInteractive: false,
+              position: { height: 20, width: 20, x: 20, y: 20 },
+              role: 'learning',
+            },
+          ],
+          steps: [
+            {
+              id: `invalid-${interactionType}-step`,
+              instructionVi: 'Chạm vào đồ vật.',
+              interaction: {
+                correctObjectIds: [`invalid-${interactionType}-target`],
+                targetObjectId: `invalid-${interactionType}-target`,
+                type: interactionType,
+              },
+              successFeedbackVi: 'Đúng rồi!',
+              targetObjectIds: [`invalid-${interactionType}-target`],
+              type: 'practice',
+            },
+          ],
+          titleEn: 'Invalid interaction',
+          titleVi: 'Tương tác sai',
+        },
+      ],
+      titleEn: 'Invalid Lesson',
+      titleVi: 'Bài sai',
+    };
+
+    const issues = validateLesson(invalidLesson);
+    const interactionLabel = interactionType === 'tap' ? 'Tap' : 'Find';
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          message: `${interactionLabel} target "invalid-${interactionType}-target" must be interactive.`,
+          severity: 'error',
+        }),
+      ]),
+    );
+  },
+);
+
 test('bedroom scene keeps core short and unlocks older-child content by mode', () => {
   const bedroomScene = morningRoutineLesson.scenes.find(
     scene => scene.id === 'bedroom',
@@ -2337,6 +2405,11 @@ test('family-dinner cleanup scene covers leftovers and evening closeout', () => 
       step => step.id === 'dinner-cleanup-tap-good-night',
     )?.vocabId,
   ).toBe('vocab-say-good-night');
+  expect(
+    challengeScene.objects.find(
+      object => object.id === 'dinner-cleanup-good-night-card',
+    )?.isInteractive,
+  ).toBe(true);
 });
 
 test('family-dinner avoids exact repeats from earlier meal lessons', () => {
@@ -2515,6 +2588,10 @@ test('after-dinner-cleanup spot scene handles spills with new cleaning words', (
     challengeScene.steps.find(step => step.id === 'spot-clean-tap-dry-surface')
       ?.vocabId,
   ).toBe('vocab-dry-surface');
+  expect(
+    challengeScene.objects.find(object => object.id === 'spot-clean-surface')
+      ?.isInteractive,
+  ).toBe(true);
 });
 
 test('after-dinner-cleanup sort scene finishes with recycling and drying actions', () => {

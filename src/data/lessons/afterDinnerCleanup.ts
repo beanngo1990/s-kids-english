@@ -470,7 +470,6 @@ export const afterDinnerCleanupLesson: Lesson = {
           id: 'spot-clean-surface',
           sceneId: 'spot-clean',
           assetName: 'surface',
-          isInteractive: false,
           learningScope: challengeScope,
           position: rect(34, 74, 36, 10),
           touchArea: rect(28, 68, 48, 22),

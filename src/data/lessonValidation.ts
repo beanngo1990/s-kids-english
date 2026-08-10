@@ -220,6 +220,35 @@ function validateStep({
     }
   });
 
+  if (
+    step.interaction.type === 'tap' ||
+    step.interaction.type === 'find'
+  ) {
+    const interactionTargetIds =
+      step.interaction.correctObjectIds?.length
+        ? step.interaction.correctObjectIds
+        : step.interaction.targetObjectId
+          ? [step.interaction.targetObjectId]
+          : [];
+    const interactionLabel =
+      step.interaction.type === 'tap' ? 'Tap' : 'Find';
+
+    Array.from(new Set(interactionTargetIds)).forEach(targetObjectId => {
+      const interactionTarget = renderableObjects.find(
+        object => object.id === targetObjectId,
+      );
+
+      if (interactionTarget && !interactionTarget.isInteractive) {
+        issues.push(
+          error(
+            `${stepPath}.interaction`,
+            `${interactionLabel} target "${interactionTarget.id}" must be interactive.`,
+          ),
+        );
+      }
+    });
+  }
+
   if (step.interaction.type === 'drag') {
     const dragTarget = renderableObjects.find(
       object => object.id === step.interaction.targetObjectId,
