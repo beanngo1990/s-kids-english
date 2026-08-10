@@ -7,17 +7,14 @@ test('review difficulty profiles scale content and choices from easy to hard', (
   expect(getReviewDifficultyProfile('core')).toMatchObject({
     itemCount: 4,
     listenOptionCount: 2,
-    selectionAudioEnabled: true,
   });
   expect(getReviewDifficultyProfile('expanded')).toMatchObject({
     itemCount: 5,
     listenOptionCount: 3,
-    selectionAudioEnabled: true,
   });
   expect(getReviewDifficultyProfile('challenge')).toMatchObject({
     itemCount: 6,
     listenOptionCount: 4,
-    selectionAudioEnabled: false,
   });
 });
 

@@ -20,6 +20,12 @@ type SkidsAudioModule = {
   requestRecordPermission?: () => Promise<boolean>;
   requestTargetWordRecognitionPermission?: () => Promise<boolean>;
   setBackgroundMusicVolume?: (volume: number) => Promise<boolean>;
+  speak?: (
+    text: string,
+    language: string,
+    pitch: number,
+    rate: number,
+  ) => Promise<boolean>;
   startVoiceActivityRecording?: (
     options: NativeVoiceActivityOptions,
   ) => Promise<unknown>;
@@ -53,6 +59,17 @@ const nativeAudioAdapter: AudioAdapter = {
   },
   setBackgroundMusicVolume: async volume => {
     await nativeAudio?.setBackgroundMusicVolume?.(volume);
+  },
+  speak: async (text, options) => {
+    const didSpeak = await nativeAudio?.speak?.(
+      text,
+      options.language,
+      options.pitch,
+      options.rate,
+    );
+    if (didSpeak !== true) {
+      throw new Error(`Unable to speak text with locale: ${options.language}`);
+    }
   },
   stopBackgroundMusic: async () => {
     await nativeAudio?.stopBackgroundMusic?.();

@@ -193,7 +193,9 @@ Chi tiết đầy đủ nằm trong `src/data/README.md` và `docs/asset-pipelin
 
 ### `SkidsAudio` - Android và iOS
 
-Module này xử lý bundled SFX, URI playback, voice recording, metering và record permission.
+Module này xử lý bundled SFX, URI playback, native system TTS fallback, voice recording, metering
+và record permission. Generated/R2 lesson audio vẫn là nguồn production ưu tiên; TTS chỉ là
+best-effort fallback khi mọi URI candidate không phát được.
 Khi đổi public contract phải đồng bộ:
 
 - TypeScript: `src/engine/NativeAudioAdapter.ts`, `src/engine/VoiceRecorder.ts` và call sites.

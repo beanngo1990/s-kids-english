@@ -11,6 +11,8 @@ import android.media.SoundPool
 import android.media.audiofx.NoiseSuppressor
 import android.net.Uri
 import android.os.SystemClock
+import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.util.Log
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.LifecycleEventListener
@@ -24,6 +26,7 @@ import com.seduforge.skidsenglish.R
 import java.io.File
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
+import java.util.Locale
 import java.util.UUID
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
@@ -40,6 +43,15 @@ class SkidsAudioModule(
 
   private data class SpeechPlayback(
     val player: MediaPlayer,
+    val promise: Promise,
+  )
+
+  private data class TextToSpeechPlayback(
+    val utteranceId: String,
+    val text: String,
+    val language: String,
+    val pitch: Float,
+    val rate: Float,
     val promise: Promise,
   )
 
@@ -83,6 +95,7 @@ class SkidsAudioModule(
   private val soundIds = mutableMapOf<String, Int>()
   private val bundledRawResourceNamePattern = Regex("^[a-z][a-z0-9_]*$")
   private val speechPlaybackLock = Any()
+  private val textToSpeechLock = Any()
   private val backgroundMusicLock = Any()
   private val voiceRecordingLock = Any()
   private val voiceControlExecutor = Executors.newSingleThreadExecutor { runnable ->
@@ -91,6 +104,10 @@ class SkidsAudioModule(
     }
   }
   private var speechPlayback: SpeechPlayback? = null
+  private var textToSpeech: TextToSpeech? = null
+  private var textToSpeechPlayback: TextToSpeechPlayback? = null
+  private var isTextToSpeechReady = false
+  private var isTextToSpeechInitializationFinished = false
   private var backgroundMusicPlayer: MediaPlayer? = null
   private var backgroundMusicVolume = 0.16f
   private var latestVoiceSession: VoiceRecordingSession? = null
@@ -119,6 +136,39 @@ class SkidsAudioModule(
     soundIds["ding"] = soundPool.load(reactContext, R.raw.sfx_ding, 1)
     soundIds["yay"] = soundPool.load(reactContext, R.raw.sfx_yay, 1)
     soundIds["clap"] = soundPool.load(reactContext, R.raw.sfx_clap, 1)
+
+    textToSpeech = TextToSpeech(reactContext.applicationContext) { status ->
+      val playbackToStart = synchronized(textToSpeechLock) {
+        isTextToSpeechInitializationFinished = true
+        isTextToSpeechReady = status == TextToSpeech.SUCCESS && !isReleased
+        if (isTextToSpeechReady) textToSpeechPlayback else null
+      }
+
+      if (playbackToStart != null) {
+        startTextToSpeechPlayback(playbackToStart)
+      } else if (status != TextToSpeech.SUCCESS) {
+        finishTextToSpeechPlayback(didSpeak = false)
+      }
+    }.also { engine ->
+      engine.setOnUtteranceProgressListener(
+        object : UtteranceProgressListener() {
+          override fun onStart(utteranceId: String) = Unit
+
+          override fun onDone(utteranceId: String) {
+            finishTextToSpeechPlayback(utteranceId, didSpeak = true)
+          }
+
+          @Deprecated("Deprecated in Java")
+          override fun onError(utteranceId: String) {
+            finishTextToSpeechPlayback(utteranceId, didSpeak = false)
+          }
+
+          override fun onError(utteranceId: String, errorCode: Int) {
+            finishTextToSpeechPlayback(utteranceId, didSpeak = false)
+          }
+        },
+      )
+    }
 
     reactContext.addLifecycleEventListener(this)
   }
@@ -194,6 +244,52 @@ class SkidsAudioModule(
       if (pendingPlayback != null || !installedPlayback) {
         promise.reject("SKIDS_AUDIO_PLAY_URI_ERROR", error)
       }
+    }
+  }
+
+  @ReactMethod
+  fun speak(
+    text: String,
+    language: String,
+    pitch: Double,
+    rate: Double,
+    promise: Promise,
+  ) {
+    val trimmedText = text.trim()
+    if (isReleased || trimmedText.isEmpty()) {
+      promise.resolve(trimmedText.isEmpty() && !isReleased)
+      return
+    }
+
+    stopSpeechPlayer(resolvePendingPromise = true)
+    val playback = TextToSpeechPlayback(
+      utteranceId = UUID.randomUUID().toString(),
+      text = trimmedText,
+      language = language,
+      pitch = pitch
+        .takeIf { it.isFinite() }
+        ?.toFloat()
+        ?.coerceIn(0.5f, 2f)
+        ?: 1f,
+      rate = rate
+        .takeIf { it.isFinite() }
+        ?.toFloat()
+        ?.coerceIn(0.5f, 2f)
+        ?: 0.9f,
+      promise = promise,
+    )
+    val initializationState = synchronized(textToSpeechLock) {
+      textToSpeechPlayback = playback
+      when {
+        isTextToSpeechReady -> 1
+        isTextToSpeechInitializationFinished -> -1
+        else -> 0
+      }
+    }
+
+    when (initializationState) {
+      1 -> startTextToSpeechPlayback(playback)
+      -1 -> finishTextToSpeechPlayback(playback.utteranceId, didSpeak = false)
     }
   }
 
@@ -427,6 +523,12 @@ class SkidsAudioModule(
     if (!isReleased) {
       isReleased = true
       stopSpeechPlayer(resolvePendingPromise = true)
+      synchronized(textToSpeechLock) {
+        isTextToSpeechReady = false
+        isTextToSpeechInitializationFinished = true
+      }
+      textToSpeech?.shutdown()
+      textToSpeech = null
       stopBackgroundMusicPlayer()
       disposeLatestVoiceSession(deleteRecording = true)
       voiceControlExecutor.shutdownNow()
@@ -479,6 +581,80 @@ class SkidsAudioModule(
         playback.promise.resolve(false)
       }
     }
+
+    stopTextToSpeechPlayback(resolvePendingPromise)
+  }
+
+  private fun startTextToSpeechPlayback(playback: TextToSpeechPlayback) {
+    val engine = textToSpeech
+    if (engine == null || isReleased) {
+      finishTextToSpeechPlayback(playback.utteranceId, didSpeak = false)
+      return
+    }
+
+    val languageResult = engine.setLanguage(
+      Locale.forLanguageTag(playback.language),
+    )
+    if (
+      languageResult == TextToSpeech.LANG_MISSING_DATA ||
+      languageResult == TextToSpeech.LANG_NOT_SUPPORTED
+    ) {
+      finishTextToSpeechPlayback(playback.utteranceId, didSpeak = false)
+      return
+    }
+
+    engine.setPitch(playback.pitch)
+    engine.setSpeechRate(playback.rate)
+    val speakResult = synchronized(textToSpeechLock) {
+      if (textToSpeechPlayback?.utteranceId != playback.utteranceId) {
+        return@synchronized TextToSpeech.ERROR
+      }
+      engine.speak(
+        playback.text,
+        TextToSpeech.QUEUE_FLUSH,
+        null,
+        playback.utteranceId,
+      )
+    }
+    if (speakResult == TextToSpeech.ERROR) {
+      finishTextToSpeechPlayback(playback.utteranceId, didSpeak = false)
+    }
+  }
+
+  private fun stopTextToSpeechPlayback(resolvePendingPromise: Boolean) {
+    val pendingPlayback = synchronized(textToSpeechLock) {
+      val playback = textToSpeechPlayback
+      textToSpeechPlayback = null
+      playback
+    }
+
+    try {
+      textToSpeech?.stop()
+    } catch (_: Exception) {
+    }
+
+    if (resolvePendingPromise) {
+      pendingPlayback?.promise?.resolve(false)
+    }
+  }
+
+  private fun finishTextToSpeechPlayback(
+    utteranceId: String? = null,
+    didSpeak: Boolean,
+  ) {
+    val completedPlayback = synchronized(textToSpeechLock) {
+      val playback = textToSpeechPlayback
+      if (
+        playback == null ||
+        (utteranceId != null && playback.utteranceId != utteranceId)
+      ) {
+        return@synchronized null
+      }
+      textToSpeechPlayback = null
+      playback
+    }
+
+    completedPlayback?.promise?.resolve(didSpeak)
   }
 
   private fun startSpeechPlayerIfCurrent(player: MediaPlayer): Boolean =

@@ -5,7 +5,7 @@ import Speech
 import UIKit
 
 @objc(SkidsAudio)
-class SkidsAudio: NSObject {
+class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
 
   private final class SpeechPlayback {
     let player: AVPlayer
@@ -15,6 +15,19 @@ class SkidsAudio: NSObject {
 
     init(player: AVPlayer, resolve: @escaping RCTPromiseResolveBlock) {
       self.player = player
+      self.resolve = resolve
+    }
+  }
+
+  private final class TextToSpeechPlayback {
+    let utterance: AVSpeechUtterance
+    let resolve: RCTPromiseResolveBlock
+
+    init(
+      utterance: AVSpeechUtterance,
+      resolve: @escaping RCTPromiseResolveBlock
+    ) {
+      self.utterance = utterance
       self.resolve = resolve
     }
   }
@@ -767,6 +780,8 @@ class SkidsAudio: NSObject {
     label: "com.seduforge.skidsenglish.voice-recording"
   )
   private var speechPlayback: SpeechPlayback?
+  private var speechSynthesizer: AVSpeechSynthesizer?
+  private var textToSpeechPlayback: TextToSpeechPlayback?
   private var backgroundMusicPlayback: BackgroundMusicPlayback?
   private var voiceCapture: VoiceCapture?
   private var lastVoiceCaptureResult: VoiceCaptureResult?
@@ -837,6 +852,7 @@ class SkidsAudio: NSObject {
       finalizeVoiceCapture(capture, requestedReason: "manual")
     }
     stopSpeechPlayer(resolvePendingPromise: true)
+    speechSynthesizer?.delegate = nil
     stopBackgroundMusicPlayer()
   }
   
@@ -900,6 +916,56 @@ class SkidsAudio: NSObject {
     speechPlayback = playback
     player.play()
     speechPlaybackLock.unlock()
+  }
+
+  @objc func speak(_ text: String,
+                   language: String,
+                   pitch: NSNumber,
+                   rate: NSNumber,
+                   resolver resolve: @escaping RCTPromiseResolveBlock,
+                   rejecter reject: @escaping RCTPromiseRejectBlock) {
+    let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard !trimmedText.isEmpty else {
+      resolve(true)
+      return
+    }
+
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else {
+        resolve(false)
+        return
+      }
+
+      self.stopSpeechPlayer(resolvePendingPromise: true)
+      guard let voice = AVSpeechSynthesisVoice(language: language) else {
+        resolve(false)
+        return
+      }
+
+      let utterance = AVSpeechUtterance(string: trimmedText)
+      utterance.voice = voice
+      utterance.pitchMultiplier = min(2, max(0.5, pitch.floatValue))
+      let requestedRate = rate.floatValue.isFinite ? rate.floatValue : 0.9
+      utterance.rate = min(
+        AVSpeechUtteranceMaximumSpeechRate,
+        max(
+          AVSpeechUtteranceMinimumSpeechRate,
+          AVSpeechUtteranceDefaultSpeechRate * requestedRate
+        )
+      )
+
+      let synthesizer = self.speechSynthesizer ?? AVSpeechSynthesizer()
+      synthesizer.delegate = self
+      self.speechSynthesizer = synthesizer
+
+      self.speechPlaybackLock.lock()
+      self.textToSpeechPlayback = TextToSpeechPlayback(
+        utterance: utterance,
+        resolve: resolve
+      )
+      self.speechPlaybackLock.unlock()
+      synthesizer.speak(utterance)
+    }
   }
   
   @objc func stopSpeech(_ resolve: @escaping RCTPromiseResolveBlock,
@@ -1441,6 +1507,8 @@ class SkidsAudio: NSObject {
     speechPlaybackLock.lock()
     let playback = speechPlayback
     speechPlayback = nil
+    let ttsPlayback = textToSpeechPlayback
+    textToSpeechPlayback = nil
     speechPlaybackLock.unlock()
 
     playback?.player.pause()
@@ -1451,6 +1519,50 @@ class SkidsAudio: NSObject {
     if resolvePendingPromise, let playback = playback {
       playback.resolve(false)
     }
+
+    let stopSynthesizer = { [weak self] in
+      _ = self?.speechSynthesizer?.stopSpeaking(at: .immediate)
+    }
+    if Thread.isMainThread {
+      stopSynthesizer()
+    } else {
+      DispatchQueue.main.sync(execute: stopSynthesizer)
+    }
+
+    if resolvePendingPromise, let ttsPlayback = ttsPlayback {
+      ttsPlayback.resolve(false)
+    }
+  }
+
+  func speechSynthesizer(
+    _ synthesizer: AVSpeechSynthesizer,
+    didFinish utterance: AVSpeechUtterance
+  ) {
+    finishTextToSpeechPlayback(utterance, didSpeak: true)
+  }
+
+  func speechSynthesizer(
+    _ synthesizer: AVSpeechSynthesizer,
+    didCancel utterance: AVSpeechUtterance
+  ) {
+    finishTextToSpeechPlayback(utterance, didSpeak: false)
+  }
+
+  private func finishTextToSpeechPlayback(
+    _ utterance: AVSpeechUtterance,
+    didSpeak: Bool
+  ) {
+    speechPlaybackLock.lock()
+    let playback = textToSpeechPlayback
+    if playback?.utterance === utterance {
+      textToSpeechPlayback = nil
+    }
+    speechPlaybackLock.unlock()
+
+    guard let playback = playback, playback.utterance === utterance else {
+      return
+    }
+    playback.resolve(didSpeak)
   }
 
   private func detachSpeechPlayback(matching player: AVPlayer) -> SpeechPlayback? {

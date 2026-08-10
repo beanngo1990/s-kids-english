@@ -244,6 +244,25 @@ test('reports failure when native candidates fail and no speech fallback exists'
   consoleWarning.mockRestore();
 });
 
+test('uses native speech when every generated English asset fails', async () => {
+  const speak = jest.fn(() => Promise.resolve());
+  configureAudioManager({ playAudioUri, speak });
+  mockedGetWordAudioAssets.mockReturnValue([
+    { key: enUsWaterKey, text: 'water' },
+  ]);
+  mockedResolveRemoteAssetUri.mockResolvedValue(
+    'file:///cache/en-US-water.wav',
+  );
+  playAudioUri.mockRejectedValueOnce(new Error('decoder failed'));
+
+  await expect(playWordNarration('water', 'en-US')).resolves.toBe('completed');
+  expect(speak).toHaveBeenCalledWith('water', {
+    language: 'en-US',
+    pitch: 1,
+    rate: 0.9,
+  });
+});
+
 test('reports failure when Vietnamese native playback fails', async () => {
   const viKey = 'lessons/test/audio/vi/feedback.wav';
   const consoleWarning = jest

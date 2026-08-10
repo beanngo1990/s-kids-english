@@ -544,13 +544,14 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Correct/wrong feedback luôn có visual state rõ ràng bằng màu, icon và nội dung khích lệ, kết hợp SFX; animation game-specific chỉ là lớp tăng cường, không phải tín hiệu duy nhất.
 - Review-game animation tôn trọng system Reduce Motion: các hiệu ứng động trang trí được bỏ qua hoặc snap về trạng thái cuối, trong khi màu, icon, progress, audio và interaction feedback vẫn giữ nguyên.
 - Memory game tạo hai thẻ hình giống nhau cho mỗi vocabulary item và hoàn tất khi ghép hết cặp.
-  Dễ/Vừa đọc English word khi lật; Khó bỏ audio gợi ý lúc lật và chỉ đọc sau khi ghép đúng.
+  Cả Dễ/Vừa/Khó đều đọc English word khi lật để củng cố liên kết nghe-hình; độ khó tiếp tục tăng
+  bằng số lượng từ và thời gian giữ cặp sai thay vì bỏ phát âm.
   Cặp sai giữ mở lâu nhất ở Dễ, ngắn dần ở Vừa và Khó. Phone portrait luôn dùng ba thẻ gần vuông
   mỗi hàng và căn giữa hàng cuối; tablet/landscape dùng nhiều cột hơn theo responsive layout.
 - Listen & Choose game phát âm từ tiếng Anh và hiển thị các quả bóng bay hình minh họa. Dễ có
   2 lựa chọn, Vừa có 3 lựa chọn, Khó có 4 lựa chọn.
-- Matching game hiển thị cột hình và cột từ. Dễ/Vừa đọc từ khi chọn thẻ; Khó chỉ đọc sau khi nối
-  đúng. Thời gian phản hồi sai ngắn dần theo mức.
+- Matching game hiển thị cột hình và cột từ. Cả Dễ/Vừa/Khó đều đọc từ khi chọn thẻ hình hoặc chữ;
+  thời gian phản hồi sai ngắn dần theo mức.
 - `reviewGame.config.vocabularyIds` là danh sách từ neo có thứ tự, không còn khóa toàn bộ review
   vào đúng bốn từ. Runtime giữ các từ neo hợp lệ rồi bổ sung từ có hình ở level phù hợp: Dễ chỉ
   `easy`; Vừa thêm ít nhất một `medium`; Khó thêm ít nhất một `medium` và một `hard` khi content
@@ -910,11 +911,12 @@ readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa
 thử lại/thoát bài thay vì tiếp tục hoặc tự chuyển step trong im lặng. Teacher prompt mode English/
 bilingual dùng resolved English teacher instructions, shared English cues và generated audio
 manifest theo `englishAccent` khi có asset. Lookup ưu tiên accent được chọn, sau đó default en-US
-và legacy `audio/en/`; TTS fallback nếu có cũng dùng locale được chọn. Native adapter hiện tập
-trung vào SFX/URI playback, vì vậy production không được dựa vào TTS fallback để che một corpus
-en-GB thiếu. Narration dùng session latest-wins: session mới dừng session cũ, và session đã bị hủy
-không được tiếp tục segment hoặc accent/legacy fallback sau khi cache lookup hay native playback
-trả về.
+và legacy `audio/en/`. Nếu mọi URI candidate đều không phát được, `SkidsAudio` dùng system TTS
+best-effort với đúng locale đang chọn (`en-US`, `en-GB` hoặc `vi-VN`) trên cả Android và iOS.
+Production vẫn không được dựa vào TTS fallback để che một corpus generated audio thiếu; readiness
+gate của lesson audio bắt buộc vẫn giữ nguyên. Narration dùng session latest-wins: session mới dừng
+cả URI playback/TTS của session cũ, và session đã bị hủy không được tiếp tục segment hoặc
+accent/legacy fallback sau khi cache lookup hay native playback trả về.
 
 Background music dùng native playback channel riêng, loop ở âm lượng thấp trong foreground app và
 tự dừng khi app rời trạng thái active. Nhạc nền không phát trên các route học chủ động
@@ -927,6 +929,7 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | Capability                          | Android                       | iOS                           | Fallback/current behavior         |
 | ----------------------------------- | ----------------------------- | ----------------------------- | --------------------------------- |
 | `SkidsAudio` SFX/URI playback       | Implemented                   | Implemented                   | AudioManager best-effort          |
+| `SkidsAudio` system TTS fallback    | Implemented                   | Implemented                   | Sau khi mọi audio URI thất bại    |
 | `SkidsAudio` background music       | Implemented                   | Implemented                   | Tắt nếu native method unavailable |
 | Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
 | Voice activity/endpoint auto-stop   | Implemented                   | Implemented                   | Audio-level detector + timeout    |

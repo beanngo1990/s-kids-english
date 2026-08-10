@@ -103,7 +103,7 @@ describe('MatchingGame', () => {
     expect(playCorrectSound).not.toHaveBeenCalled();
   });
 
-  it('removes selection audio in challenge mode but speaks after a match', async () => {
+  it('keeps selection pronunciation enabled in challenge mode', async () => {
     const renderer = await renderWithinAct(
       <MatchingGame
         items={mockItems}
@@ -120,13 +120,14 @@ describe('MatchingGame', () => {
     act(() => {
       swingCards[0].props.onPress();
     });
-    expect(speakWord).not.toHaveBeenCalled();
+    expect(speakWord).toHaveBeenCalledTimes(1);
+    expect(speakWord).toHaveBeenLastCalledWith('swing');
 
     act(() => {
       swingCards[1].props.onPress();
     });
-    expect(speakWord).toHaveBeenCalledTimes(1);
-    expect(speakWord).toHaveBeenCalledWith('swing');
+    expect(speakWord).toHaveBeenCalledTimes(2);
+    expect(speakWord).toHaveBeenLastCalledWith('swing');
   });
 
   it('handles correct match and triggers completion when all matched', async () => {

@@ -10,6 +10,13 @@ RCT_EXTERN_METHOD(playUri:(NSString *)uri
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(speak:(NSString *)text
+                  language:(NSString *)language
+                  pitch:(nonnull NSNumber *)pitch
+                  rate:(nonnull NSNumber *)rate
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(stopSpeech:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 

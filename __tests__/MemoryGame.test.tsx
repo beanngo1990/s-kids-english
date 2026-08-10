@@ -131,15 +131,16 @@ describe('MemoryGame', () => {
     ).toBe(true);
   });
 
-  it('removes card audio hints in challenge mode and speaks on a match', async () => {
+  it('keeps card pronunciation enabled in challenge mode', async () => {
     await renderGame({ learningMode: 'challenge' });
 
     pressCard('vocab-swing-a');
-    expect(speakWord).not.toHaveBeenCalled();
+    expect(speakWord).toHaveBeenCalledTimes(1);
+    expect(speakWord).toHaveBeenLastCalledWith('swing');
 
     pressCard('vocab-swing-b');
-    expect(speakWord).toHaveBeenCalledTimes(1);
-    expect(speakWord).toHaveBeenCalledWith('swing');
+    expect(speakWord).toHaveBeenCalledTimes(2);
+    expect(speakWord).toHaveBeenLastCalledWith('swing');
   });
 
   it('keeps the board interactive when progress persistence is still pending', async () => {

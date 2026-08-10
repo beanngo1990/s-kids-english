@@ -144,10 +144,6 @@ export function MatchingGame({
         // Correct match!
         showFeedback('correct');
         playCorrectSound().catch(() => undefined);
-        const matchedItem = items.find(i => i.id === imageId);
-        if (matchedItem) {
-          speakWord(matchedItem.word).catch(() => undefined);
-        }
 
         const isFirstTry = firstTryMapRef.current.get(imageId) ?? true;
         runGameMatchCallback(onMatch, imageId, isFirstTry).catch(
@@ -206,9 +202,7 @@ export function MatchingGame({
       return;
     }
     resetFeedback();
-    if (difficulty.selectionAudioEnabled) {
-      speakWord(item.word).catch(() => undefined);
-    }
+    speakWord(item.word).catch(() => undefined);
 
     const nextImageId = selectedImageId === item.id ? null : item.id;
     setSelectedImageId(nextImageId);
@@ -223,9 +217,7 @@ export function MatchingGame({
       return;
     }
     resetFeedback();
-    if (difficulty.selectionAudioEnabled) {
-      speakWord(item.word).catch(() => undefined);
-    }
+    speakWord(item.word).catch(() => undefined);
 
     const nextWordId = selectedWordId === item.id ? null : item.id;
     setSelectedWordId(nextWordId);
