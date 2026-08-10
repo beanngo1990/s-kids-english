@@ -941,6 +941,99 @@ test('drops stale bilingual failure audio when a quick retry succeeds', async ()
   });
 });
 
+test('renders failure feedback text without blocking a retry', async () => {
+  jest.useFakeTimers();
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const findObject = (objectId: string) =>
+    tree?.root
+      .findAllByType(SceneObjectRenderer)
+      .find(node => node.props.object.id === objectId);
+
+  await ReactTestRenderer.act(async () => {
+    findObject('eraser')?.props.onPress('eraser');
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Chưa đúng, thử lại nhé.');
+  expect(findObject('pencil')?.props.isDisabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(401);
+    findObject('pencil')?.props.onPress('pencil');
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bút chì đã ở trên bàn.');
+  expect(getTextValues(tree)).not.toContain('Chưa đúng, thử lại nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('renders temporary info feedback when replaying an instruction', async () => {
+  jest.useFakeTimers();
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const replayButton = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Nghe lại hướng dẫn');
+
+  expect(replayButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    replayButton?.props.onPress();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Đặt bút chì lên bàn.');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1301);
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).not.toContain('Đặt bút chì lên bàn.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('dims unrelated learning objects while a retry hint is active', async () => {
   jest.useFakeTimers();
 

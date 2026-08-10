@@ -436,6 +436,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Success, fail và info feedback đều hiển thị text trong instruction card. Fail feedback giữ
+  tương tác object để bé thử lại; info feedback khi nghe lại instruction/từ vựng tự ẩn sau một
+  khoảng ngắn.
 - Object target dùng viền silhouette trắng + teal thay vì viền theo bounding box. Với step chỉ có
   một target không ở trạng thái kéo, object có cạnh hiển thị ngắn hơn `48dp` được phóng nhẹ tới
   tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo geometry gốc. Target lớn, step nhiều

@@ -1712,20 +1712,29 @@ export function ScenePlayer({
               isTabletLandscapeLayout && styles.instructionCardTabletLandscape,
             ]}
           >
-            {isAdvancing && feedback ? (
-              <View accessible style={styles.feedbackPanel}>
-                <View style={styles.feedbackStatusRow}>
-                  {feedbackAudioStatus === 'preparing' ? (
-                    <SKidsIcon name="listen" size={28} />
-                  ) : (
-                    <AnimatedAudioWave />
-                  )}
-                  <Text style={styles.feedbackStatusText}>
-                    {feedbackAudioStatus === 'preparing'
-                      ? t('scene.preparingFeedback')
-                      : t('scene.feedbackSpeaking')}
-                  </Text>
-                </View>
+            {feedback ? (
+              <View
+                accessible
+                style={[
+                  styles.feedbackPanel,
+                  feedback.type === 'fail' && styles.feedbackPanelFail,
+                  feedback.type === 'info' && styles.feedbackPanelInfo,
+                ]}
+              >
+                {isAdvancing ? (
+                  <View style={styles.feedbackStatusRow}>
+                    {feedbackAudioStatus === 'preparing' ? (
+                      <SKidsIcon name="listen" size={28} />
+                    ) : (
+                      <AnimatedAudioWave />
+                    )}
+                    <Text style={styles.feedbackStatusText}>
+                      {feedbackAudioStatus === 'preparing'
+                        ? t('scene.preparingFeedback')
+                        : t('scene.feedbackSpeaking')}
+                    </Text>
+                  </View>
+                ) : null}
                 <Text style={styles.feedbackText}>{feedback.text}</Text>
               </View>
             ) : (
@@ -2793,6 +2802,14 @@ const styles = createThemedStyles(() => ({
     justifyContent: 'center',
     minHeight: 148,
     padding: spacing.md,
+  },
+  feedbackPanelFail: {
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.accent,
+  },
+  feedbackPanelInfo: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.skyDeep,
   },
   feedbackStatusRow: {
     alignItems: 'center',
