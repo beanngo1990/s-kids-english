@@ -463,8 +463,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; timer
   được cleanup khi đổi step/scene hoặc unmount. Listen step không dùng Auto-Hint.
 - Success, fail và info feedback đều hiển thị text trong instruction card. Fail feedback giữ
-  tương tác object để bé thử lại; info feedback khi nghe lại instruction/từ vựng tự ẩn sau một
-  khoảng ngắn.
+  tương tác object để bé thử lại và tự ẩn ngay khi audio phản hồi phát xong; info feedback khi
+  nghe lại instruction/từ vựng tự ẩn sau một khoảng ngắn.
 - Khi target highlight được bật, object dùng viền silhouette trắng + teal thay vì viền theo
   bounding box. Với step chỉ có một target không ở trạng thái kéo, object có cạnh hiển thị ngắn
   hơn `48dp` được phóng nhẹ tới tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo

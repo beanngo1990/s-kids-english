@@ -1269,12 +1269,15 @@ test('keeps the auto hint paused while failure feedback audio is playing', async
     await flushPromises();
   });
   expect(pencil()?.props.isTargeted).toBe(false);
+  expect(getTextValues(tree)).toContain('Chưa đúng, thử lại nhé.');
 
   await ReactTestRenderer.act(async () => {
     finishFeedback?.();
     await flushPromises();
     await flushPromises();
   });
+  expect(getTextValues(tree)).not.toContain('Chưa đúng, thử lại nhé.');
+
   await ReactTestRenderer.act(async () => {
     jest.advanceTimersByTime(7000);
     await flushPromises();

@@ -1407,6 +1407,18 @@ export function ScenePlayer({
         )
           .then(playbackResult => {
             if (
+              playbackResult === 'completed' &&
+              narrationSession.isActive() &&
+              isMountedRef.current
+            ) {
+              setFeedback(currentFeedback =>
+                currentFeedback?.type === 'fail' &&
+                currentFeedback.text === feedbackPrompt.displayText
+                  ? null
+                  : currentFeedback,
+              );
+            }
+            if (
               playbackResult === 'failed' &&
               narrationSession.isActive() &&
               !canBypassMissingAudio
