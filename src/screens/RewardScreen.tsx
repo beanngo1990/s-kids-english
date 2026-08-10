@@ -489,7 +489,7 @@ const styles = createThemedStyles(() => ({
   },
   rewardGlow: {
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 4,
     bottom: 14,

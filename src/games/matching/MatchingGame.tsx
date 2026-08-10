@@ -474,13 +474,13 @@ const styles = createThemedStyles(() => ({
     opacity: 0.55,
   },
   cardSelected: {
-    backgroundColor: '#E0F2FE',
+    backgroundColor: colors.surfaceBlue,
     borderColor: colors.primaryDark,
     borderWidth: 3.5,
     transform: [{ scale: 1.03 }],
   },
   cardWrong: {
-    backgroundColor: '#FFE4E6',
+    backgroundColor: colors.accentSoft,
     borderColor: colors.accentDark,
     borderWidth: 3,
   },

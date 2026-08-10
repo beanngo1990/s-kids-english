@@ -157,7 +157,7 @@ const styles = createThemedStyles(() => ({
   iconBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     bottom: -4,

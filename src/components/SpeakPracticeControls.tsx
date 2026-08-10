@@ -1007,7 +1007,7 @@ const styles = createThemedStyles(() => ({
   modelButton: {
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     height: 52,
@@ -1030,7 +1030,7 @@ const styles = createThemedStyles(() => ({
   listeningMicCore: {
     alignItems: 'center',
     backgroundColor: colors.accentSoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 4,
     height: 76,
@@ -1060,7 +1060,7 @@ const styles = createThemedStyles(() => ({
   },
   primaryAction: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     flex: 1.35,
     minHeight: 76,
     ...shadows.warm,
@@ -1086,7 +1086,7 @@ const styles = createThemedStyles(() => ({
   recordButton: {
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 3,
     flex: 1,
@@ -1112,8 +1112,8 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.secondary,
   },
   root: {
-    backgroundColor: colors.surface,
-    borderColor: colors.primarySoft,
+    backgroundColor: colors.surfaceSoft,
+    borderColor: colors.border,
     borderRadius: radius.xl,
     borderWidth: 1,
     gap: spacing.xxs,
@@ -1122,7 +1122,7 @@ const styles = createThemedStyles(() => ({
   },
   secondaryAction: {
     backgroundColor: colors.surface,
-    borderColor: colors.primarySoft,
+    borderColor: colors.primary,
     flex: 0.95,
     minHeight: 76,
   },

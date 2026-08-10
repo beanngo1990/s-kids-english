@@ -439,7 +439,7 @@ const styles = createThemedStyles(() => ({
   iconBox: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 2.5,
     height: 72,
@@ -452,16 +452,16 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.border,
   },
   iconBoxMint: {
-    backgroundColor: '#E6FAF0',
-    borderColor: '#A1EBC6',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
   },
   iconBoxSky: {
-    backgroundColor: '#EBF8FF',
-    borderColor: '#BCE5FF',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.sky,
   },
   iconBoxSun: {
-    backgroundColor: '#FFF8DB',
-    borderColor: '#FCE082',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
   lessonTitle: {
     color: colors.text,

@@ -835,7 +835,7 @@ const styles = createThemedStyles(() => ({
   lessonIconBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     bottom: -4,
@@ -887,7 +887,7 @@ const styles = createThemedStyles(() => ({
   companionIconBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     bottom: 6,
@@ -929,7 +929,7 @@ const styles = createThemedStyles(() => ({
   modalCompanionIconBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     bottom: 18,
@@ -954,7 +954,7 @@ const styles = createThemedStyles(() => ({
   modalLessonIconBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     bottom: 2,
@@ -1079,7 +1079,7 @@ const styles = createThemedStyles(() => ({
   modalStickerIconFrame: {
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     height: 150,
@@ -1264,7 +1264,7 @@ const styles = createThemedStyles(() => ({
   stickerIconFrame: {
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 92,
@@ -1334,7 +1334,7 @@ const styles = createThemedStyles(() => ({
   timelineLessonBadge: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 1,
     bottom: -3,

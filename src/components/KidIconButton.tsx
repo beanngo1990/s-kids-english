@@ -71,7 +71,7 @@ export function KidIconButton({
 const styles = createThemedStyles(() => ({
   button: {
     alignItems: 'center',
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderWidth: 3,
     justifyContent: 'center',
     ...shadows.soft,
@@ -113,7 +113,7 @@ const styles = createThemedStyles(() => ({
   },
   quiet: {
     backgroundColor: colors.surface,
-    borderColor: colors.primarySoft,
+    borderColor: colors.border,
   },
   secondary: {
     backgroundColor: colors.primarySoft,

@@ -4536,7 +4536,7 @@ const styles = createThemedStyles(() => ({
   gateButton: {
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderWidth: 2,
     borderRadius: radius.pill,
     justifyContent: 'center',

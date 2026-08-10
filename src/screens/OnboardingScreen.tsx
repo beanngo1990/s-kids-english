@@ -436,7 +436,7 @@ const styles = createThemedStyles(() => ({
   },
   optionMarkSelected: {
     backgroundColor: colors.green,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
   },
   optionMarkText: {
     color: colors.white,
@@ -532,7 +532,6 @@ const styles = createThemedStyles(() => ({
     ...shadows.soft,
   },
 }));
-
 
 
 

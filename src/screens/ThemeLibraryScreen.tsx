@@ -521,7 +521,7 @@ const styles = createThemedStyles(() => ({
   themeIcon: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 3,
     height: 76,
@@ -531,16 +531,16 @@ const styles = createThemedStyles(() => ({
     ...shadows.soft,
   },
   themeIconLavender: {
-    backgroundColor: '#F3E8FF',
-    borderColor: '#D8B4FE',
+    backgroundColor: colors.lavenderSoft,
+    borderColor: colors.lavender,
   },
   themeIconMint: {
-    backgroundColor: '#E6FAF0',
-    borderColor: '#A1EBC6',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
   },
   themeIconSun: {
-    backgroundColor: '#FFF8DB',
-    borderColor: '#FCE082',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
   themeLockBadge: {
     alignItems: 'center',

@@ -616,7 +616,7 @@ const styles = createThemedStyles(() => ({
     top: '7%',
   },
   learningLabel: {
-    backgroundColor: 'rgba(255, 255, 255, 0.82)',
+    backgroundColor: colors.imageLabelSurface,
     borderRadius: radius.pill,
     marginTop: spacing.xs,
     overflow: 'hidden',
@@ -632,7 +632,7 @@ const styles = createThemedStyles(() => ({
   pressable: {
     alignItems: 'center',
     backgroundColor: colors.mint,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 3,
     elevation: 3,

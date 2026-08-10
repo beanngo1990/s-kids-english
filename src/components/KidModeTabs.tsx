@@ -102,7 +102,7 @@ const styles = createThemedStyles(() => ({
   },
   iconActiveBg: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: 22,
     borderWidth: 2,
     bottom: 0,

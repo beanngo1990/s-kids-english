@@ -1123,7 +1123,7 @@ const styles = createThemedStyles(() => ({
   },
   canvas: {
     backgroundColor: colors.surfaceBlue,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 3,
     flex: 1,
@@ -1291,7 +1291,7 @@ const styles = createThemedStyles(() => ({
   trayPlacedBadge: {
     alignItems: 'center',
     backgroundColor: colors.primary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 24,

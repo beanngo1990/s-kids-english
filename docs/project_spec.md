@@ -646,6 +646,8 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 - `system` resolve bằng React Native `Appearance` thành light hoặc dark.
 - `colors.ts` cung cấp token proxy, `createThemedStyles` và `useThemeSync` để styles cập nhật theo
   active scheme.
+- Viền trang trí, nhãn phủ trên hình và các nền pastel dùng semantic theme tokens; dark mode không
+  giữ viền trắng hoặc nền sáng cố định, ngoại trừ chữ/icon và silhouette cần màu trắng có chủ ý.
 
 ## 7. Local persistence, parent auth và cloud learning data
 

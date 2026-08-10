@@ -541,7 +541,7 @@ const styles = createThemedStyles(() => ({
     ...typography.caption,
   },
   learningLabel: {
-    backgroundColor: 'rgba(255, 255, 255, 0.82)',
+    backgroundColor: colors.imageLabelSurface,
     borderRadius: radius.pill,
     marginTop: spacing.xs,
     overflow: 'hidden',

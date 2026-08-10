@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -24,6 +24,10 @@ import {
 } from '../src/engine/ParentSettingsManager';
 import { remoteAssetsConfig } from '../src/config/remoteAssets';
 import type { Scene } from '../src/types/lesson';
+import {
+  darkColors,
+  setActiveColorScheme,
+} from '../src/theme/colors';
 
 jest.mock('../src/engine/AudioManager', () => {
   const speakViMock = jest.fn((_text: string) => Promise.resolve());
@@ -348,6 +352,25 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.useRealTimers();
+  setActiveColorScheme('light');
+});
+
+test('uses a readable dark surface for the lesson HUD', async () => {
+  setActiveColorScheme('dark');
+  const tree = await renderScenePlayer(listenScene);
+  const title = tree.root
+    .findAllByType(Text)
+    .find(node => node.props.children === 'Lắng nghe');
+
+  expect(title).toBeDefined();
+  expect(StyleSheet.flatten(title?.props.style).color).toBe(darkColors.text);
+  expect(StyleSheet.flatten(title?.parent?.props.style).backgroundColor).toBe(
+    darkColors.surface,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
 });
 
 test('keeps loading visible until the required scene audio is cached', async () => {

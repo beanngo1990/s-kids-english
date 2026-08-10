@@ -267,7 +267,7 @@ function CustomProgressBar({ progress }: { progress: number }) {
         style={{
           height: 14,
           width: 200,
-          backgroundColor: colors.white,
+          backgroundColor: colors.surface,
           borderRadius: radius.pill,
           overflow: 'hidden',
           marginTop: spacing.md,
@@ -2979,7 +2979,7 @@ const styles = createThemedStyles(() => ({
   exitButton: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     height: 50,
@@ -3017,8 +3017,8 @@ const styles = createThemedStyles(() => ({
     width: '100%',
   },
   instructionCard: {
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     gap: spacing.xs,
     padding: spacing.sm,
   },
@@ -3089,8 +3089,8 @@ const styles = createThemedStyles(() => ({
     gap: spacing.sm,
   },
   lessonHud: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    borderColor: colors.white,
+    backgroundColor: colors.surface,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     flex: 1,
@@ -3108,7 +3108,7 @@ const styles = createThemedStyles(() => ({
   },
   primaryActionButton: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     flex: 1.35,
     minHeight: 76,
     ...shadows.warm,
@@ -3147,7 +3147,7 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
   },
   stage: {
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 4,
     flex: 1,

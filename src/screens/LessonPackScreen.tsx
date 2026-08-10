@@ -608,7 +608,7 @@ const styles = createThemedStyles(() => ({
   packIcon: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 2,
     height: 88,
@@ -692,7 +692,7 @@ const styles = createThemedStyles(() => ({
   sceneIconContainer: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 64,

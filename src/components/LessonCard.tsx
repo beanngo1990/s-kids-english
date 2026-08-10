@@ -75,7 +75,7 @@ const styles = createThemedStyles(() => ({
   iconContainer: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 64,
