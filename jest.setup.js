@@ -1,5 +1,7 @@
 /* global jest */
 
+require('react-native-gesture-handler/jestSetup');
+
 const mockAsyncStorage = new Map();
 
 jest.mock('@react-native-async-storage/async-storage', () => ({

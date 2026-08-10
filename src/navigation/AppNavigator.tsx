@@ -4,7 +4,10 @@ import {
   NavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  type NativeStackHeaderProps,
+} from '@react-navigation/native-stack';
 
 import {
   HomeScreen,
@@ -17,9 +20,11 @@ import {
   ReviewLibraryScreen,
   ScenePlayerScreen,
   StickerCollectionScreen,
+  StickerPlaygroundScreen,
   ThemeLibraryScreen,
 } from '../screens';
 import { PremiumScreen } from '../screens/PremiumScreen';
+import { KidSafeRouteHeader } from '../components/KidRouteHeader';
 import { MascotImage } from '../components/mascot';
 import {
   isBackgroundMusicSuppressedRoute,
@@ -28,7 +33,6 @@ import {
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
-import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -130,14 +134,7 @@ function AnimatedSplashMascot() {
         initialRouteName={initialRouteName}
         screenOptions={{
           contentStyle: { backgroundColor: colors.background },
-          headerShadowVisible: false,
-          headerStyle: { backgroundColor: colors.background },
-          headerTintColor: colors.text,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            ...typography.body,
-            fontWeight: '900',
-          },
+          header: AppStackHeader,
         }}
       >
         <Stack.Screen
@@ -191,23 +188,61 @@ function AnimatedSplashMascot() {
           options={{ title: t('nav.stickerCollection') }}
         />
         <Stack.Screen
+          name="StickerPlayground"
+          component={StickerPlaygroundScreen}
+          options={{ title: t('nav.stickerPlayground') }}
+        />
+        <Stack.Screen
           name="Parent"
           component={ParentScreen}
-          options={{
-            headerBackButtonDisplayMode: 'minimal',
-            title: t('nav.parent'),
-          }}
+          options={{ title: t('nav.parent') }}
         />
         <Stack.Screen
           name="Premium"
           component={PremiumScreen}
-          options={{
-            headerBackButtonDisplayMode: 'minimal',
-            title: t('nav.premium'),
-          }}
+          options={{ title: t('nav.premium') }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+  );
+}
+
+function AppStackHeader({
+  navigation,
+  options,
+  route,
+}: NativeStackHeaderProps) {
+  const usesCloseAction =
+    route.name === 'Reward' || route.name === 'StickerPlayground';
+  const handleHeaderAction = () => {
+    if (route.name === 'Reward') {
+      const rewardParams = route.params as
+        | RootStackParamList['Reward']
+        | undefined;
+      navigation.navigate('Home', {
+        activeTab:
+          rewardParams?.sourceScreen === 'ReviewGame' ? 'play' : 'map',
+      });
+      return;
+    }
+
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+      return;
+    }
+
+    navigation.navigate(
+      'Home',
+      route.name === 'StickerPlayground' ? { activeTab: 'play' } : undefined,
+    );
+  };
+
+  return (
+    <KidSafeRouteHeader
+      action={usesCloseAction ? 'close' : 'back'}
+      onAction={handleHeaderAction}
+      title={options.title ?? route.name}
+    />
   );
 }
 

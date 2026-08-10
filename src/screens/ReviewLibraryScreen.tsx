@@ -72,6 +72,9 @@ export function ReviewLibraryScreen({ navigation }: Props) {
             onOpenReviewGame={lessonId =>
               navigation.navigate('ReviewGame', { lessonId })
             }
+            onOpenStickerPlayground={() =>
+              navigation.navigate('StickerPlayground')
+            }
             visibleLessonIds={visibleLessonIds}
           />
         </ScrollView>

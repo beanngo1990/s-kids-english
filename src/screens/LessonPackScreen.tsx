@@ -5,6 +5,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { AppCard } from '../components/AppCard';
 import { KidBadge } from '../components/KidBadge';
+import { KidRouteHeader } from '../components/KidRouteHeader';
 import { ProgressStars } from '../components/ProgressStars';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -303,30 +304,16 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
   return (
     <Screen scroll>
-      {/* Custom Kid Mode Top Navigation Header */}
-      <View style={styles.topHud}>
-        <Pressable
-          accessibilityLabel={t('common.close')}
-          accessibilityRole="button"
-          onPress={() =>
-            navigation.canGoBack()
-              ? navigation.goBack()
-              : navigation.navigate('Home')
-          }
-          style={styles.exitButton}
-        >
-          <View style={styles.exitIcon}>
-            <View style={styles.exitStroke} />
-            <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
-          </View>
-        </Pressable>
-
-        <View style={styles.topHudPill}>
-          <Text numberOfLines={1} style={styles.topHudTitle}>
-            {t('nav.lessonPack')}
-          </Text>
-        </View>
-      </View>
+      <KidRouteHeader
+        action="back"
+        onAction={() =>
+          navigation.canGoBack()
+            ? navigation.goBack()
+            : navigation.navigate('Home')
+        }
+        style={styles.topHud}
+        title={t('nav.lessonPack')}
+      />
 
       {openedFromParent ? (
         <AppCard style={styles.parentContextCard}>
@@ -616,54 +603,7 @@ const styles = createThemedStyles(() => ({
     gap: spacing.md,
   },
   topHud: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
     marginBottom: spacing.xs,
-  },
-  exitButton: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 48,
-    justifyContent: 'center',
-    width: 48,
-  },
-  exitIcon: {
-    alignItems: 'center',
-    height: 20,
-    justifyContent: 'center',
-    width: 20,
-  },
-  exitStroke: {
-    backgroundColor: colors.accentDark,
-    borderRadius: radius.pill,
-    height: 4,
-    position: 'absolute',
-    transform: [{ rotate: '45deg' }],
-    width: 20,
-  },
-  exitStrokeReverse: {
-    transform: [{ rotate: '-45deg' }],
-  },
-  topHudPill: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    flex: 1,
-    height: 48,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.md,
-  },
-  topHudTitle: {
-    color: colors.primaryDark,
-    ...typography.subtitle,
-    fontSize: 16,
-    fontWeight: '800',
   },
   packIcon: {
     alignItems: 'center',

@@ -28,6 +28,7 @@ import {
 import { lessons } from '../data/lessons';
 import type { MascotPoseId } from '../data/mascot';
 import {
+  getLocalizedLessonRewardName,
   lessonRewards,
   type StickerArtDirection,
   type StickerArtMotif,
@@ -217,7 +218,7 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
         id: item.reward.id,
         earnedAt: item.record?.earnedAt,
         iconName: item.reward.iconName,
-        title: item.reward.stickerName,
+        title: getLocalizedLessonRewardName(item.reward, appLanguage),
         tone: item.reward.tone,
       }));
     const achievementTimelineItems = achievementItems
@@ -253,9 +254,13 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
     () =>
       collectionItems.map(
         ({ isHighlighted, isUnlocked, lesson, record, reward }) => {
+          const stickerName = getLocalizedLessonRewardName(
+            reward,
+            appLanguage,
+          );
           const lessonTitle = lesson
             ? getLocalizedLessonTitle(lesson, appLanguage)
-            : reward.stickerName;
+            : stickerName;
           const earnedText = record?.earnedAt
             ? t('stickerCollection.earnedOn', {
                 date: formatCollectionDate(record.earnedAt, appLanguage),
@@ -264,14 +269,14 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
 
           return {
             cardTitle: isUnlocked
-              ? reward.stickerName
+              ? stickerName
               : t('stickerCollection.lockedSticker'),
             detailDescription: t('stickerCollection.lessonMeaning', {
               lessonTitle,
             }),
             detailSubtitle: lessonTitle,
             detailTitle: isUnlocked
-              ? reward.stickerName
+              ? stickerName
               : t('stickerCollection.lockedSticker'),
             earnedText: isUnlocked ? earnedText : undefined,
             iconName: reward.iconName,
@@ -461,6 +466,16 @@ export function StickerCollectionScreen({ navigation, route }: Props) {
                 />
               </View>
             </View>
+            {unlockedCount > 0 ? (
+              <AppButton
+                iconName="sticker"
+                iconSize={24}
+                onPress={() => navigation.navigate('StickerPlayground')}
+                style={styles.playgroundButton}
+                title={t('stickerCollection.decorate')}
+                variant="secondary"
+              />
+            ) : null}
           </View>
 
           <View style={styles.sectionBlock}>
@@ -1189,6 +1204,10 @@ const styles = createThemedStyles(() => ({
   progressPercent: {
     color: colors.primaryDark,
     ...typography.caption,
+  },
+  playgroundButton: {
+    alignSelf: 'stretch',
+    marginTop: spacing.xs,
   },
   progressTopRow: {
     alignItems: 'center',

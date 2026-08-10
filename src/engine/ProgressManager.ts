@@ -15,6 +15,16 @@ import {
   getSceneProgressId,
   isSceneProgressComplete,
 } from '../utils/lessonProgress';
+import {
+  createEmptyStickerPlaygroundState,
+  STICKER_PLAYGROUND_BACKGROUND_IDS,
+  STICKER_PLAYGROUND_MAX_PLACEMENTS,
+  STICKER_PLAYGROUND_MAX_SCALE,
+  STICKER_PLAYGROUND_MIN_SCALE,
+  type StickerPlacement,
+  type StickerPlaygroundBackgroundId,
+  type StickerPlaygroundState,
+} from '../types/stickerPlayground';
 
 const PROGRESS_STORAGE_KEY = '@skidsenglish/progress/v1';
 
@@ -45,6 +55,7 @@ export type LocalProgress = {
   completedReviewGameIds: string[];
   completedSceneIds: string[];
   learnedWordIds: string[];
+  stickerPlayground: StickerPlaygroundState;
   earnedStickerIds: string[];
   earnedStickerRecords: EarnedStickerRecord[];
   earnedAchievementRecords: EarnedAchievementRecord[];
@@ -96,6 +107,7 @@ const emptyProgress: LocalProgress = {
   earnedStickerRecords: [],
   earnedAchievementRecords: [],
   learnedWordIds: [],
+  stickerPlayground: createEmptyStickerPlaygroundState(),
   vocabularyProgress: {},
   totalXP: 0,
 };
@@ -307,6 +319,21 @@ export async function saveEarnedAchievementRecords(
       currentProgress.earnedAchievementRecords,
       records,
     ),
+  }));
+}
+
+export async function saveStickerPlaygroundState(
+  state: StickerPlaygroundState,
+) {
+  const updatedAt = new Date().toISOString();
+  const normalizedState = normalizeStickerPlaygroundState({
+    ...state,
+    updatedAt,
+  });
+
+  return updateProgress(currentProgress => ({
+    ...currentProgress,
+    stickerPlayground: normalizedState,
   }));
 }
 
@@ -528,6 +555,9 @@ export function normalizeProgress(value: unknown): LocalProgress {
       progress.earnedAchievementRecords,
     ),
     learnedWordIds: normalizeStringArray(progress.learnedWordIds),
+    stickerPlayground: normalizeStickerPlaygroundState(
+      progress.stickerPlayground,
+    ),
     vocabularyProgress: normalizeVocabularyProgress(
       progress.vocabularyProgress,
     ),
@@ -537,6 +567,43 @@ export function normalizeProgress(value: unknown): LocalProgress {
     ),
     updatedAt:
       typeof progress.updatedAt === 'string' ? progress.updatedAt : undefined,
+  };
+}
+
+export function normalizeStickerPlaygroundState(
+  value: unknown,
+): StickerPlaygroundState {
+  const emptyState = createEmptyStickerPlaygroundState();
+  if (!isRecord(value)) {
+    return emptyState;
+  }
+
+  const boards = STICKER_PLAYGROUND_BACKGROUND_IDS.reduce(
+    (result, backgroundId) => {
+      const boardValue = isRecord(value.boards)
+        ? value.boards[backgroundId]
+        : undefined;
+      const board = isRecord(boardValue) ? boardValue : {};
+
+      result[backgroundId] = {
+        placements: normalizeStickerPlacements(board.placements),
+        updatedAt:
+          typeof board.updatedAt === 'string' ? board.updatedAt : undefined,
+      };
+      return result;
+    },
+    { ...emptyState.boards },
+  );
+
+  return {
+    activeBackgroundId: isStickerPlaygroundBackgroundId(
+      value.activeBackgroundId,
+    )
+      ? value.activeBackgroundId
+      : emptyState.activeBackgroundId,
+    boards,
+    updatedAt:
+      typeof value.updatedAt === 'string' ? value.updatedAt : undefined,
   };
 }
 
@@ -626,6 +693,107 @@ function normalizeNonNegativeNumber(value: unknown) {
   return typeof value === 'number' && Number.isFinite(value)
     ? Math.max(0, value)
     : 0;
+}
+
+function normalizeStickerPlacements(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  const placements: StickerPlacement[] = [];
+  const instanceIds = new Set<string>();
+  const placementIndexByStickerId = new Map<string, number>();
+
+  value.forEach(item => {
+    if (!isRecord(item)) {
+      return;
+    }
+
+    const instanceId = normalizeNonEmptyString(item.instanceId);
+    const stickerId = normalizeNonEmptyString(item.stickerId);
+    if (!instanceId || !stickerId) {
+      return;
+    }
+
+    const normalizedPlacement: StickerPlacement = {
+      instanceId,
+      rotation: normalizeRotation(item.rotation),
+      scale: clampNumber(
+        item.scale,
+        STICKER_PLAYGROUND_MIN_SCALE,
+        STICKER_PLAYGROUND_MAX_SCALE,
+        1,
+      ),
+      stickerId,
+      x: clampNumber(item.x, 0, 1, 0.5),
+      y: clampNumber(item.y, 0, 1, 0.5),
+      zIndex: Math.floor(clampNumber(item.zIndex, 0, 10000, 0)),
+    };
+    const existingIndex = placementIndexByStickerId.get(stickerId);
+
+    if (existingIndex !== undefined) {
+      const existingPlacement = placements[existingIndex];
+      if (
+        normalizedPlacement.zIndex <= existingPlacement.zIndex ||
+        (instanceId !== existingPlacement.instanceId &&
+          instanceIds.has(instanceId))
+      ) {
+        return;
+      }
+
+      instanceIds.delete(existingPlacement.instanceId);
+      instanceIds.add(instanceId);
+      placements[existingIndex] = normalizedPlacement;
+      return;
+    }
+
+    if (
+      placements.length >= STICKER_PLAYGROUND_MAX_PLACEMENTS ||
+      instanceIds.has(instanceId)
+    ) {
+      return;
+    }
+
+    instanceIds.add(instanceId);
+    placementIndexByStickerId.set(stickerId, placements.length);
+    placements.push(normalizedPlacement);
+  });
+
+  return placements;
+}
+
+function normalizeNonEmptyString(value: unknown) {
+  return typeof value === 'string' && value.trim().length > 0
+    ? value
+    : undefined;
+}
+
+function normalizeRotation(value: unknown) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return 0;
+  }
+
+  const fullTurn = Math.PI * 2;
+  return ((value + Math.PI) % fullTurn + fullTurn) % fullTurn - Math.PI;
+}
+
+function clampNumber(
+  value: unknown,
+  minimum: number,
+  maximum: number,
+  fallback: number,
+) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return fallback;
+  }
+
+  return Math.min(maximum, Math.max(minimum, value));
+}
+
+function isStickerPlaygroundBackgroundId(
+  value: unknown,
+): value is StickerPlaygroundBackgroundId {
+  return STICKER_PLAYGROUND_BACKGROUND_IDS.some(id => id === value);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

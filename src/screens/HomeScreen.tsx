@@ -547,6 +547,11 @@ export function HomeScreen({ navigation, route }: Props) {
     navigation.navigate('StickerCollection');
   }, [navigation]);
 
+  const handleOpenStickerPlayground = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    navigation.navigate('StickerPlayground');
+  }, [navigation]);
+
   return (
     <Screen>
       <View style={styles.shell}>
@@ -1098,6 +1103,7 @@ export function HomeScreen({ navigation, route }: Props) {
                 journeyMode={journeyMode}
                 onOpenPremium={openParentPremium}
                 onOpenReviewGame={openReviewGame}
+                onOpenStickerPlayground={handleOpenStickerPlayground}
                 visibleLessonIds={visibleLessonIds}
               />
             </ScrollView>

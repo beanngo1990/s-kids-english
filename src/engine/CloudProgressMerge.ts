@@ -1,10 +1,16 @@
 import {
   normalizeProgress,
+  normalizeStickerPlaygroundState,
   type EarnedAchievementRecord,
   type EarnedStickerRecord,
   type LocalProgress,
   type WordProgress,
 } from './ProgressManager';
+import {
+  STICKER_PLAYGROUND_BACKGROUND_IDS,
+  type StickerPlaygroundBoard,
+  type StickerPlaygroundState,
+} from '../types/stickerPlayground';
 
 export function mergeProgressSnapshots(
   first: LocalProgress,
@@ -42,6 +48,10 @@ export function mergeProgressSnapshots(
       remote.earnedStickerRecords,
     ),
     learnedWordIds: mergeIds(local.learnedWordIds, remote.learnedWordIds),
+    stickerPlayground: mergeStickerPlaygroundStates(
+      local.stickerPlayground,
+      remote.stickerPlayground,
+    ),
     totalXP: Math.max(local.totalXP, remote.totalXP),
     updatedAt: latestTimestamp(local.updatedAt, remote.updatedAt),
     vocabularyProgress: mergeVocabularyProgress(
@@ -49,6 +59,49 @@ export function mergeProgressSnapshots(
       remote.vocabularyProgress,
     ),
   });
+}
+
+function mergeStickerPlaygroundStates(
+  first: StickerPlaygroundState,
+  second: StickerPlaygroundState,
+) {
+  const firstState = normalizeStickerPlaygroundState(first);
+  const secondState = normalizeStickerPlaygroundState(second);
+  const latestState = chooseLatestPlaygroundValue(firstState, secondState);
+  const boards = STICKER_PLAYGROUND_BACKGROUND_IDS.reduce(
+    (result, backgroundId) => {
+      result[backgroundId] = chooseLatestPlaygroundValue(
+        firstState.boards[backgroundId],
+        secondState.boards[backgroundId],
+      );
+      return result;
+    },
+    {} as Record<
+      (typeof STICKER_PLAYGROUND_BACKGROUND_IDS)[number],
+      StickerPlaygroundBoard
+    >,
+  );
+
+  return normalizeStickerPlaygroundState({
+    activeBackgroundId: latestState.activeBackgroundId,
+    boards,
+    updatedAt: latestTimestamp(firstState.updatedAt, secondState.updatedAt),
+  });
+}
+
+function chooseLatestPlaygroundValue<
+  TValue extends { updatedAt?: string },
+>(first: TValue, second: TValue) {
+  const firstTimestamp = toTimestamp(first.updatedAt);
+  const secondTimestamp = toTimestamp(second.updatedAt);
+
+  if (firstTimestamp !== secondTimestamp) {
+    return firstTimestamp > secondTimestamp ? first : second;
+  }
+
+  return JSON.stringify(first).localeCompare(JSON.stringify(second)) >= 0
+    ? first
+    : second;
 }
 
 export function areProgressSnapshotsEqual(

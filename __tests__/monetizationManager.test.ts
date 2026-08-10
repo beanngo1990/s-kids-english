@@ -31,6 +31,7 @@ import {
   type LocalProgress,
 } from '../src/engine/ProgressManager';
 import type { ParentAuthSnapshot } from '../src/engine/ParentAuthManager';
+import { createEmptyStickerPlaygroundState } from '../src/types/stickerPlayground';
 
 const signedInAuthSnapshot: ParentAuthSnapshot = {
   isReady: true,
@@ -416,6 +417,7 @@ function makeLearnedProgress(): LocalProgress {
       },
     ],
     learnedWordIds: ['bed'],
+    stickerPlayground: createEmptyStickerPlaygroundState(),
     totalXP: 12,
     vocabularyProgress: {
       bed: {

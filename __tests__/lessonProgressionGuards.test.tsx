@@ -120,6 +120,48 @@ test('next lesson from Reward opens its pack and keeps the active theme aligned'
   });
 });
 
+test('new sticker reward offers a contextual shortcut to Sticker Playground', async () => {
+  const lesson = lessons[0];
+  const navigation = createNavigation();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <RewardScreen
+        navigation={navigation as never}
+        route={{
+          key: 'Reward',
+          name: 'Reward',
+          params: {
+            lessonId: lesson.id,
+            unlockedSticker: {
+              id: 'reward-test',
+              stickerId: 'sticker-test',
+              stickerName: 'Sticker test',
+              title: 'Sticker test',
+            },
+          },
+        }}
+      />,
+    );
+    await flushPromises();
+  });
+
+  const decorateButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Trang trí ngay');
+
+  expect(decorateButton).toBeDefined();
+  ReactTestRenderer.act(() => {
+    decorateButton?.props.onPress();
+  });
+  expect(navigation.navigate).toHaveBeenCalledWith('StickerPlayground');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('guided mode redirects an unfinished lesson review back to its pack', async () => {
   const lesson = lessons[0];
   const navigation = createNavigation();

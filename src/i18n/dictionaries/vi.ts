@@ -1,5 +1,6 @@
 export const vi = {
   'common.auto': 'Auto',
+  'common.back': 'Quay lại',
   'common.close': 'Đóng',
   'common.edit': 'Chỉnh sửa',
   'common.loadingProgress': 'Đang tải tiến độ',
@@ -15,6 +16,7 @@ export const vi = {
   'nav.reviewGame': 'Game ôn tập',
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
+  'nav.stickerPlayground': 'Sân chơi Sticker',
   'nav.parent': 'Góc phụ huynh',
   'nav.premium': 'Sungy Premium',
 
@@ -623,6 +625,13 @@ export const vi = {
   'playPanel.playAgain': '🔄 Chơi lại',
   'playPanel.unlocked': '✨ Sẵn sàng',
   'playPanel.locked': '🔒 Đang khóa',
+  'playPanel.stickerPlaygroundAccessibility':
+    'Mở Sân chơi Sticker của Sungy',
+  'playPanel.stickerPlaygroundBadge': 'Sáng tạo tự do',
+  'playPanel.stickerPlaygroundTitle': 'Sân chơi Sticker',
+  'playPanel.stickerPlaygroundSubtitle':
+    'Dùng sticker đã mở để trang trí cùng Sungy.',
+  'playPanel.stickerPlaygroundAction': 'Trang trí',
   'tabs.mapAccessibility': 'Mở bản đồ bài học',
   'tabs.map': 'Bản đồ',
   'tabs.playAccessibility': 'Mở khu chơi',
@@ -749,9 +758,11 @@ export const vi = {
   'reward.nextLesson': 'Bài tiếp theo',
   'reward.replayLesson': 'Chơi lại',
   'reward.viewStickerCollection': 'Xem bộ sưu tập',
+  'reward.decorateNow': 'Trang trí ngay',
   'stickerCollection.badge': 'Album thành tựu',
   'stickerCollection.albumCover': 'Album Sungy',
   'stickerCollection.title': 'Bộ sưu tập sticker',
+  'stickerCollection.decorate': 'Mang sticker đi trang trí',
   'stickerCollection.subtitle':
     'Mỗi sticker là một khoảnh khắc Sungy đồng hành khi bé hoàn thành bài học và phần ôn tập.',
   'stickerCollection.progress': '{earned}/{total} sticker đã mở',
@@ -800,6 +811,30 @@ export const vi = {
     'Sticker {stickerName} chưa mở khóa',
   'stickerCollection.lockedAccessibility':
     'Sticker của bài {lessonTitle} chưa mở khóa',
+  'stickerPlayground.background.bedroom': 'Phòng ngủ',
+  'stickerPlayground.background.park': 'Công viên',
+  'stickerPlayground.background.beach': 'Bãi biển',
+  'stickerPlayground.saveError': 'Chưa lưu được',
+  'stickerPlayground.hint': 'Chạm sticker để chọn',
+  'stickerPlayground.gestureHint': 'Kéo • chụm để phóng • xoay hai ngón',
+  'stickerPlayground.selected': 'Sticker đang chọn',
+  'stickerPlayground.undo': 'Hoàn tác',
+  'stickerPlayground.delete': 'Xóa',
+  'stickerPlayground.clear': 'Dọn',
+  'stickerPlayground.clearTitle': 'Dọn bức tranh này?',
+  'stickerPlayground.clearText':
+    'Tất cả sticker trên hình nền hiện tại sẽ được gỡ xuống.',
+  'stickerPlayground.clearConfirm': 'Dọn hết',
+  'stickerPlayground.limitTitle': 'Bức tranh đã đầy rồi',
+  'stickerPlayground.limitText':
+    'Bé hãy gỡ bớt sticker trước khi thêm sticker mới nhé.',
+  'stickerPlayground.trayTitle': 'Sticker của bé',
+  'stickerPlayground.trayHint':
+    'Chạm để thêm hoặc chọn; nhấn giữ rồi kéo lên tranh.',
+  'stickerPlayground.placedHint':
+    'Sticker đã có trên nền này. Chạm để chọn lại.',
+  'stickerPlayground.empty':
+    'Bé chưa có sticker. Chạm để mở album và xem cách nhận sticker nhé!',
   'themeLibrary.badge': 'Thư viện chủ đề',
   'themeLibrary.title': 'Chọn lộ trình học',
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',

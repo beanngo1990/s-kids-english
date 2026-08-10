@@ -11,6 +11,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { AppUiIcon } from '../components/AppUiIcon';
 import { KidBadge } from '../components/KidBadge';
+import { KidRouteHeader } from '../components/KidRouteHeader';
 import { Screen } from '../components/Screen';
 import {
   getKidLockAudioPrompt,
@@ -434,33 +435,18 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     <Screen
       fixedHeader={
         <View style={styles.fixedHeader}>
-          {/* Custom Kid Mode Top Navigation Header */}
-          <View style={styles.topHud}>
-            <Pressable
-              accessibilityLabel={t('common.close')}
-              accessibilityRole="button"
-              onPress={() =>
-                navigation.canGoBack()
-                  ? navigation.goBack()
-                  : navigation.replace('LessonPack', {
-                      lessonId: lesson.id,
-                      openedFromParent,
-                    })
-              }
-              style={styles.exitButton}
-            >
-              <View style={styles.exitIcon}>
-                <View style={styles.exitStroke} />
-                <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
-              </View>
-            </Pressable>
-
-            <View style={styles.topHudPill}>
-              <Text numberOfLines={1} style={styles.topHudTitle}>
-                {getLocalizedLessonTitle(lesson, appLanguage)}
-              </Text>
-            </View>
-          </View>
+          <KidRouteHeader
+            action="close"
+            onAction={() =>
+              navigation.canGoBack()
+                ? navigation.goBack()
+                : navigation.replace('LessonPack', {
+                    lessonId: lesson.id,
+                    openedFromParent,
+                  })
+            }
+            title={getLocalizedLessonTitle(lesson, appLanguage)}
+          />
 
           {/* Game Type Switcher Bar */}
           <View style={styles.gameSelectorContainer}>
@@ -685,54 +671,5 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
     paddingBottom: spacing.xs,
     zIndex: 10,
-  },
-  topHud: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  exitButton: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 48,
-    justifyContent: 'center',
-    width: 48,
-  },
-  exitIcon: {
-    alignItems: 'center',
-    height: 20,
-    justifyContent: 'center',
-    width: 20,
-  },
-  exitStroke: {
-    backgroundColor: colors.accentDark,
-    borderRadius: radius.pill,
-    height: 4,
-    position: 'absolute',
-    transform: [{ rotate: '45deg' }],
-    width: 20,
-  },
-  exitStrokeReverse: {
-    transform: [{ rotate: '-45deg' }],
-  },
-  topHudPill: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    flex: 1,
-    height: 48,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.md,
-  },
-  topHudTitle: {
-    color: colors.primaryDark,
-    ...typography.subtitle,
-    fontSize: 16,
-    fontWeight: '800',
   },
 }));

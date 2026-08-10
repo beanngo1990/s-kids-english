@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
@@ -48,14 +49,22 @@ function ThemedApp() {
   const { colorScheme, colors } = useAppTheme();
 
   return (
-    <SafeAreaProvider>
-      <StatusBar
-        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={colors.background}
-      />
-      <AppNavigator />
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={styles.gestureRoot}>
+      <SafeAreaProvider>
+        <StatusBar
+          barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
+          backgroundColor={colors.background}
+        />
+        <AppNavigator />
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  gestureRoot: {
+    flex: 1,
+  },
+});
 
 export default App;

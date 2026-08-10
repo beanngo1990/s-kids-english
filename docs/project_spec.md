@@ -45,7 +45,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
-  reminder, Light/Dark/System theme.
+  reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
   mode `vi`/`en`/`bilingual`; chưa phải full-app localization.
 - **Implemented:** Parent Mode persist lựa chọn phát âm English `en-US`/`en-GB`; dữ liệu cũ và
@@ -56,8 +56,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
 - **Implemented:** parent opt-in cloud learning data sync qua Firestore; mặc định tắt và sync
-  `LocalProgress` cùng selected parent settings/child profile, không sync activity/voice
-  recordings.
+  các field học tập của `LocalProgress` cùng selected parent settings/child profile, không sync
+  activity/voice recordings hoặc bố cục Sticker Playground local-only.
 - **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
   adult gate, màn Premium và RevenueCat entitlement lifecycle.
 - **Implemented trong repository:** Remote Config purchase kill switch và Founder cutoff/duration;
@@ -77,6 +77,8 @@ URI và không có backend upload trong implementation hiện tại.
 - React `19.2.3`.
 - TypeScript strict; range khai báo là `^5.8.3`, `package-lock.json` hiện resolve `5.9.3`.
 - React Navigation v7: native container + native stack.
+- React Native Gesture Handler `3.1.0` cho gesture native pan/pinch/rotation; app root được bọc
+  trong `GestureHandlerRootView` và Playground dùng integration với React Native `Animated`.
 - AsyncStorage `3.x`.
 - Notifee `9.x`.
 - React Native Firebase App/Auth/Firestore/App Check/Functions/Remote Config `25.x`.
@@ -103,8 +105,9 @@ index.js
      -> startMonetization()
      -> startParentAccessSessionLifecycle()
      -> AppThemeProvider
-     -> SafeAreaProvider
-     -> AppNavigator
+     -> GestureHandlerRootView
+       -> SafeAreaProvider
+       -> AppNavigator
 ```
 
 `AppNavigator` đọc parent settings để chọn route ban đầu:
@@ -127,11 +130,18 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
 - `StickerCollection { highlightedStickerId? }`
+- `StickerPlayground`
 - `Parent { intent?: 'dashboard' | 'premium' | 'founderPromo', lessonId? }`
 - `Premium`
 
 Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
 cả registration, param types và call sites.
+
+Các route còn hiển thị stack header dùng chung `KidSafeRouteHeader`: title pill một dòng và
+safe-area spacing giống header trong Lesson Pack/Review. Route phân cấp dùng nút quay lại không
+kèm tên route trước đó; `Reward` và `StickerPlayground` dùng nút đóng vì là flow toàn màn hình.
+Đóng Reward kết thúc flow về Home thay vì quay lại game vừa hoàn thành. Các route fullscreen khác
+(`Home`, lesson runtime và review library) tiếp tục tự sở hữu header/HUD.
 
 ## 4. Source architecture
 
@@ -285,6 +295,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   không dùng lại icon của bất kỳ scene nào.
 - Thẻ lesson/review ở Play tab dùng icon đại diện toàn bộ bài học; `supermarket-trip` dùng hình
   mặt tiền siêu thị thay vì graphic túi có nhãn từ vựng `CART`.
+- Play tab có card mở `StickerPlaygroundScreen`. Bé chọn một trong ba nền phòng ngủ, công viên và
+  bãi biển; chỉ sticker bài học/thành tựu đã mở khóa mới xuất hiện trong khay. Mỗi sticker chỉ có
+  một placement trên từng nền: chạm lần đầu thêm ở giữa canvas, chạm lại chọn/đưa bản hiện có lên
+  trên, còn nhấn giữ và kéo lại sẽ chuyển bản hiện có tới vị trí thả. Sticker trên canvas hỗ trợ
+  pan, pinch zoom và rotation đồng thời, cùng các thao tác hoàn tác, xóa sticker đang chọn và dọn
+  riêng nền hiện tại có xác nhận.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - Sau reward, CTA **Bài tiếp theo** mở lesson pack kế tiếp thay vì đi thẳng vào scene/review;
@@ -553,6 +569,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - earned sticker IDs;
 - earned sticker records `{ stickerId, lessonId?, earnedAt?, source }` để hiển thị timeline;
 - earned achievement records `{ achievementId, stickerId, earnedAt? }` cho sticker thành tựu;
+- Sticker Playground gồm active background và ba board độc lập; mỗi placement lưu immutable
+  instance ID, sticker ID, tọa độ normalized `x/y`, scale, rotation và z-index;
 - total XP;
 - optional current lesson/scene/step pointer.
 
@@ -568,8 +586,9 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 đó, tránh ghi nhận trước vocabulary của mode cao hơn.
 
 - Sticker là phần thưởng theo lesson, không phải phần thưởng theo level. `src/data/rewards.ts`
-  khai báo catalog một sticker cho mỗi lesson pack hiện có, gồm `iconName` và `tone` để render
-  sticker art riêng bằng bundled SKids icons.
+  khai báo catalog một sticker cho mỗi lesson pack hiện có, gồm tên hiển thị Việt/Anh,
+  `iconName` và `tone` để render sticker art riêng bằng bundled SKids icons. Mọi UI kid-facing
+  resolve tên theo `appLanguage`; sticker siêu thị dùng icon mặt tiền không chứa chữ trong ảnh.
 - `src/data/achievementRewards.ts` khai báo 18 sticker thành tựu Sungy ngoài lesson, chia nhóm
   `firstSteps`, `habits`, `bigGoals`. Unlock condition hiện derive từ progress/activity counters:
   learned words, completed scenes, completed reviews, completed lessons, current streak và longest
@@ -584,8 +603,10 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 - `completeLessonProgress`: review mới +2 XP, replay +1 XP; đánh dấu lesson/review complete,
   thêm learned words và trao sticker của lesson nếu sticker đó chưa có. Replay không duplicate
   sticker nhưng có thể repair progress cũ đã complete lesson mà thiếu sticker.
-- `RewardScreen` hiển thị sticker mới khi `unlockedSticker` được trả về và có CTA mở
-  `StickerCollection`. `StickerCollectionScreen` có animation mở album Sungy, grid sticker đã
+- `RewardScreen` hiển thị sticker mới khi `unlockedSticker` được trả về, có CTA mở
+  `StickerCollection` và nút ngữ cảnh `Trang trí ngay` mở Sticker Playground; nút trang trí không
+  xuất hiện khi replay không trao sticker mới. `StickerCollectionScreen` có animation mở album
+  Sungy, CTA mang sticker sang Playground khi đã mở ít nhất một sticker, grid sticker đã
   mở/đang khóa dựa trên `earnedStickerIds`, optional `highlightedStickerId`, sticker art dạng
   huy hiệu Sungy + icon lesson, timeline ngày nhận dựa trên `earnedStickerRecords`, và achievement
   stickers ngoài lesson được render theo các nhóm dễ đến khó. Card sticker chỉ hiển thị hình, tên
@@ -594,6 +615,12 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
   app ghi `earnedAchievementRecords` best-effort để lưu ngày nhận.
   Legacy progress chỉ có `earnedStickerIds` được normalize thành record `source: 'legacy'` không có
   `earnedAt`.
+- `StickerPlaygroundScreen` dùng chung sticker renderer với collection và đưa cả sticker lesson lẫn
+  achievement đã mở vào khay. Ba background tái sử dụng các WebP tối ưu của bedroom, park entrance
+  và sand play. Mỗi nền giữ tối đa 80 placement và tối đa một instance cho mỗi sticker ID.
+  Tọa độ normalized giúp layout giữ ổn định theo kích thước canvas. UI ghi best-effort sau khi kết
+  thúc thao tác, đổi nền, app rời foreground hoặc hết debounce; không ghi AsyncStorage theo từng
+  frame gesture.
 
 ### Daily reminders
 
@@ -648,14 +675,22 @@ của learning progress và selected parent settings sau parent opt-in:
 - Key: `@skidsenglish/progress/v1`.
 - Manager: `src/engine/ProgressManager.ts`.
 - Lưu completion, review, vocabulary mastery, XP, sticker IDs, sticker records, achievement
-  records, active theme và resume pointer.
+  records, active theme, resume pointer và trạng thái Sticker Playground.
 - Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ; legacy
-  `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị.
+  `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị. Trạng
+  thái Playground thiếu/malformed normalize thành ba board rỗng; transform numbers được clamp,
+  rotation được chuẩn hóa, duplicate instance IDs bị bỏ và dữ liệu cũ có nhiều bản cùng sticker
+  giữ lại placement nằm trên cùng theo z-index.
 - Read, reset, full-snapshot save và các atomic field updater dùng chung một operation queue. Queue
   tiếp tục nhận operation mới sau lỗi đọc/ghi; primitive gây lỗi vẫn reject còn các flow
   best-effort giữ contract nuốt lỗi hiện có.
 - `ProgressManager` phát change source `local | cloud`; cloud-applied merge không bị enqueue lại như
   một local mutation và giữ nguyên source `updatedAt` thay vì tạo client timestamp mới.
+- Bố cục Playground là local-only: cloud serialization/fingerprint không chứa field này để gesture
+  autosave không tạo Firestore writes. Cloud merge vẫn chọn state/board local mới nhất theo
+  timestamp để một remote learning snapshot không xóa trang trí trên thiết bị.
+- Playground không hiện nhãn khi autosave đã hoàn tất; trạng thái chỉ xuất hiện tạm thời khi đang
+  lưu hoặc khi lần lưu gần nhất gặp lỗi để giữ thanh chọn hình nền gọn trên màn hình hẹp.
 
 ### Cloud sync checkpoint
 

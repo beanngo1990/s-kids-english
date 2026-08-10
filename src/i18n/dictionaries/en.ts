@@ -2,6 +2,7 @@ import type { TranslationDictionary } from './vi';
 
 export const en: TranslationDictionary = {
   'common.auto': 'Auto',
+  'common.back': 'Back',
   'common.close': 'Close',
   'common.edit': 'Edit',
   'common.loadingProgress': 'Loading progress',
@@ -17,6 +18,7 @@ export const en: TranslationDictionary = {
   'nav.reviewGame': 'Review Game',
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
+  'nav.stickerPlayground': 'Sticker Playground',
   'nav.parent': 'Parent Mode',
   'nav.premium': 'Sungy Premium',
 
@@ -627,6 +629,13 @@ export const en: TranslationDictionary = {
   'playPanel.playAgain': '🔄 Play Again',
   'playPanel.unlocked': '✨ Ready',
   'playPanel.locked': '🔒 Locked',
+  'playPanel.stickerPlaygroundAccessibility':
+    "Open Sungy's Sticker Playground",
+  'playPanel.stickerPlaygroundBadge': 'Free creativity',
+  'playPanel.stickerPlaygroundTitle': 'Sticker Playground',
+  'playPanel.stickerPlaygroundSubtitle':
+    'Decorate with Sungy using unlocked stickers.',
+  'playPanel.stickerPlaygroundAction': 'Decorate',
   'tabs.mapAccessibility': 'Open lesson map',
   'tabs.map': 'Map',
   'tabs.playAccessibility': 'Open play area',
@@ -751,9 +760,11 @@ export const en: TranslationDictionary = {
   'reward.nextLesson': 'Next Lesson',
   'reward.replayLesson': 'Replay',
   'reward.viewStickerCollection': 'View sticker collection',
+  'reward.decorateNow': 'Decorate now',
   'stickerCollection.badge': 'Achievement album',
   'stickerCollection.albumCover': 'Sungy album',
   'stickerCollection.title': 'Sticker collection',
+  'stickerCollection.decorate': 'Decorate with my stickers',
   'stickerCollection.subtitle':
     'Each sticker captures Sungy learning with you after a lesson and review are complete.',
   'stickerCollection.progress': '{earned}/{total} stickers unlocked',
@@ -803,6 +814,31 @@ export const en: TranslationDictionary = {
     '{stickerName} sticker is still locked',
   'stickerCollection.lockedAccessibility':
     'Sticker for {lessonTitle} is still locked',
+  'stickerPlayground.background.bedroom': 'Bedroom',
+  'stickerPlayground.background.park': 'Park',
+  'stickerPlayground.background.beach': 'Beach',
+  'stickerPlayground.saveError': 'Not saved yet',
+  'stickerPlayground.hint': 'Tap a sticker to select it',
+  'stickerPlayground.gestureHint':
+    'Drag • pinch to resize • twist with two fingers',
+  'stickerPlayground.selected': 'Selected sticker',
+  'stickerPlayground.undo': 'Undo',
+  'stickerPlayground.delete': 'Delete',
+  'stickerPlayground.clear': 'Clear',
+  'stickerPlayground.clearTitle': 'Clear this picture?',
+  'stickerPlayground.clearText':
+    'Every sticker on the current background will be removed.',
+  'stickerPlayground.clearConfirm': 'Clear all',
+  'stickerPlayground.limitTitle': 'This picture is full',
+  'stickerPlayground.limitText':
+    'Remove a few stickers before adding another one.',
+  'stickerPlayground.trayTitle': 'Your stickers',
+  'stickerPlayground.trayHint':
+    'Tap to add or select; press and hold to drag onto the picture.',
+  'stickerPlayground.placedHint':
+    'This sticker is already on this background. Tap to select it.',
+  'stickerPlayground.empty':
+    'No stickers yet. Tap to open the album and see how to earn one!',
   'themeLibrary.badge': 'Theme library',
   'themeLibrary.title': 'Choose a learning path',
   'themeLibrary.parentNote': 'Note for parents',

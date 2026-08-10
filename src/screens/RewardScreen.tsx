@@ -10,6 +10,7 @@ import { MascotImage } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { getLocalizedLessonRewardName } from '../data/rewards';
 import { canAccessLesson } from '../engine/ContentAccessPolicy';
 import {
   getMonetizationSnapshot,
@@ -279,10 +280,23 @@ export function RewardScreen({ navigation, route }: Props) {
               <Text style={styles.subtitle}>
                 {route.params.unlockedSticker
                   ? t('reward.levelUpSubtitle', {
-                    stickerName: route.params.unlockedSticker.stickerName,
+                    stickerName: getLocalizedLessonRewardName(
+                      route.params.unlockedSticker,
+                      appLanguage,
+                    ),
                   })
                   : t('reward.completedSubtitle')}
               </Text>
+              {route.params.unlockedSticker ? (
+                <AppButton
+                  iconName="sticker"
+                  iconSize={20}
+                  onPress={() => navigation.navigate('StickerPlayground')}
+                  style={styles.decorateNowButton}
+                  textStyle={styles.decorateNowButtonText}
+                  title={t('reward.decorateNow')}
+                />
+              ) : null}
             </AppCard>
 
             <AppCard style={styles.wordsCard}>
@@ -418,6 +432,16 @@ const styles = createThemedStyles(() => ({
   },
   container: {
     gap: spacing.lg,
+  },
+  decorateNowButton: {
+    alignSelf: 'center',
+    minHeight: 44,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    width: 'auto',
+  },
+  decorateNowButtonText: {
+    ...typography.caption,
   },
   errorContainer: {
     alignItems: 'center',
