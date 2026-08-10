@@ -550,6 +550,9 @@ không bị kẹt. Các primitive như đọc, save/reset toàn bộ progress ho
 throw; caller không được giả định mọi progress operation đều nuốt lỗi. Activity ghi words/scenes
 và ước lượng 3 phút cho mỗi scene event. Daily activity `scenesCompleted` dùng cho Parent stats
 như số lượt trạm trong ngày, không phải unique completed scene count.
+Mọi thao tác đọc/ghi `LocalProgress` đi qua một hàng đợi tuần tự trong `ProgressManager`; các
+mutation theo field thực hiện trọn vẹn chuỗi đọc–biến đổi–ghi trên snapshot mới nhất. Cloud merge
+cũng chạy bằng atomic updater trong cùng hàng đợi để không ghi đè local mutation vừa hoàn tất.
 Những completion flow biết `learningMode` hiện tại chỉ auto-add learned words khả dụng trong mode
 đó, tránh ghi nhận trước vocabulary của mode cao hơn.
 
@@ -637,6 +640,9 @@ của learning progress và selected parent settings sau parent opt-in:
   records, active theme và resume pointer.
 - Normalizer duy trì arrays/records/default theme khi persisted data thiếu hoặc cũ; legacy
   `earnedStickerIds` được backfill thành `earnedStickerRecords` để collection vẫn hiển thị.
+- Read, reset, full-snapshot save và các atomic field updater dùng chung một operation queue. Queue
+  tiếp tục nhận operation mới sau lỗi đọc/ghi; primitive gây lỗi vẫn reject còn các flow
+  best-effort giữ contract nuốt lỗi hiện có.
 - `ProgressManager` phát change source `local | cloud`; cloud-applied merge không bị enqueue lại như
   một local mutation và giữ nguyên source `updatedAt` thay vì tạo client timestamp mới.
 
