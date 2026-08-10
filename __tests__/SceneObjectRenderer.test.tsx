@@ -110,6 +110,32 @@ test('uses the image silhouette for a targeted-object highlight', async () => {
   });
 });
 
+test('raises an interaction target above overlapping siblings without showing a hint', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isInteractionTarget
+        isTargeted={false}
+        label="cái đầu"
+        object={headObject}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const wrapper = tree?.root.findAllByType(Animated.View)[0];
+  expect(StyleSheet.flatten(wrapper?.props.style).zIndex).toBe(2);
+  expect(tree?.root.findAllByType(Animated.Image)).toHaveLength(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('magnifies a small target visually but not while it is draggable', async () => {
   const smallObject: SceneObject = {
     ...headObject,
@@ -169,6 +195,55 @@ test('magnifies a small target visually but not while it is draggable', async ()
     tree?.unmount();
   });
   springSpy.mockRestore();
+});
+
+test('notifies the scene when a draggable gesture begins', async () => {
+  const onDragStart = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isDraggable
+        isTargeted={false}
+        label="cái đầu"
+        object={headObject}
+        onDragStart={onDragStart}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const dragWrapper = tree?.root
+    .findAllByType(Animated.View)
+    .find(node => typeof node.props.onResponderGrant === 'function');
+  expect(dragWrapper).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    dragWrapper?.props.onResponderGrant({
+      touchHistory: {
+        indexOfSingleActiveTouch: 0,
+        numberActiveTouches: 1,
+        touchBank: [
+          {
+            currentPageX: 10,
+            currentPageY: 20,
+            currentTimeStamp: 1,
+            touchActive: true,
+          },
+        ],
+      },
+    });
+  });
+
+  expect(onDragStart).toHaveBeenCalledWith('head');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
 });
 
 function getOpacityValue(style: unknown) {

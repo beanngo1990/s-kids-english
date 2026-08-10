@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Animated,
   ImageBackground,
@@ -133,6 +139,7 @@ type SceneCompletionState = {
 
 const objectAudioCooldownMs = 900;
 const interactionCooldownMs = 400;
+const autoHintDelayMs = 7000;
 const feedbackPlaybackTimeoutMs = 15000;
 const requiredImageRetryDelayMs = 300;
 
@@ -422,6 +429,8 @@ export function ScenePlayer({
     useState<ObjectEffectMap>({});
   const [shakeObjectIds, setShakeObjectIds] = useState<EntityId[]>([]);
   const [hintObjectIds, setHintObjectIds] = useState<EntityId[]>([]);
+  const [autoHintResetNonce, setAutoHintResetNonce] = useState(0);
+  const [isGuidanceAudioBusy, setIsGuidanceAudioBusy] = useState(false);
   const [wrongAttemptsByStepId, setWrongAttemptsByStepId] = useState<
     Record<EntityId, number>
   >({});
@@ -492,6 +501,31 @@ export function ScenePlayer({
   );
   const objectAudioLastPlayedAtRef = useRef<Record<EntityId, number>>({});
   const lastInteractionAtRef = useRef(0);
+  const guidanceAudioSessionIdRef = useRef(0);
+  const isMountedRef = useRef(true);
+
+  const beginGuidanceAudio = useCallback(() => {
+    const sessionId = guidanceAudioSessionIdRef.current + 1;
+    guidanceAudioSessionIdRef.current = sessionId;
+    setIsGuidanceAudioBusy(true);
+    setAutoHintResetNonce(value => value + 1);
+    let hasFinished = false;
+
+    return () => {
+      if (hasFinished) {
+        return;
+      }
+      hasFinished = true;
+
+      if (
+        isMountedRef.current &&
+        guidanceAudioSessionIdRef.current === sessionId
+      ) {
+        setIsGuidanceAudioBusy(false);
+        setAutoHintResetNonce(value => value + 1);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setSceneIndex(initialSceneIndex);
@@ -755,7 +789,10 @@ export function ScenePlayer({
   }, [requiredAssetFailure]);
 
   useEffect(() => {
+    isMountedRef.current = true;
+
     return () => {
+      isMountedRef.current = false;
       advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
       clearTimer(clearFeedbackTimerRef);
@@ -784,6 +821,7 @@ export function ScenePlayer({
           englishAccent,
         )
       : null;
+  const isAdvancing = feedback?.type === 'success';
 
   useEffect(() => {
     if (
@@ -797,6 +835,9 @@ export function ScenePlayer({
     }
 
     let isActive = true;
+    const finishGuidanceAudio = canBypassMissingAudio
+      ? undefined
+      : beginGuidanceAudio();
     setIsSpeechPracticeBusy(false);
     const isListeningStep = isListenStep(currentStep);
     const instructionKey = getListenInstructionKey(currentScene, currentStep);
@@ -823,6 +864,7 @@ export function ScenePlayer({
         return;
       }
       if (!isStepAudioReady) {
+        finishGuidanceAudio?.();
         setRequiredAssetFailure('step');
         return;
       }
@@ -849,6 +891,7 @@ export function ScenePlayer({
             setCompletedListenInstructionKey(instructionKey);
           }
         },
+        onAudioSettled: finishGuidanceAudio,
         onTeachAudioComplete: () => {
           setAutoRecordRequest(previousRequest => ({
             requestId: (previousRequest?.requestId ?? 0) + 1,
@@ -899,6 +942,7 @@ export function ScenePlayer({
     };
 
     prepareAndPlayStepAudio().catch(() => {
+      finishGuidanceAudio?.();
       if (isActive && !canBypassMissingAudio) {
         setRequiredAssetFailure('step');
       }
@@ -906,8 +950,10 @@ export function ScenePlayer({
 
     return () => {
       isActive = false;
+      finishGuidanceAudio?.();
     };
   }, [
+    beginGuidanceAudio,
     canBypassMissingAudio,
     currentScene,
     currentStep,
@@ -919,6 +965,41 @@ export function ScenePlayer({
     requiredAssetFailure,
     stepAudioPreparationKey,
     teacherPromptMode,
+  ]);
+
+  useEffect(() => {
+    if (
+      !currentStep ||
+      !canPressObjects(currentStep) ||
+      currentStep.targetObjectIds.length === 0 ||
+      isPreloading ||
+      !isLocalizationReady ||
+      requiredAssetFailure ||
+      isGuidanceAudioBusy ||
+      isSpeechPracticeBusy ||
+      isAdvancing ||
+      sceneCompletion
+    ) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setHintObjectIds(currentStep.targetObjectIds);
+    }, autoHintDelayMs);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [
+    autoHintResetNonce,
+    currentStep,
+    isGuidanceAudioBusy,
+    isAdvancing,
+    isLocalizationReady,
+    isPreloading,
+    isSpeechPracticeBusy,
+    requiredAssetFailure,
+    sceneCompletion,
   ]);
 
   const handleRequiredAssetRetry = () => {
@@ -1026,7 +1107,6 @@ export function ScenePlayer({
   const sidePanelStyle = isTabletLandscapeLayout
     ? { width: responsiveLayout.sidePanelWidth }
     : null;
-  const isAdvancing = feedback?.type === 'success';
   const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
   const backgroundSource = resolveAsset(currentScene.background.source);
@@ -1034,10 +1114,17 @@ export function ScenePlayer({
     !backgroundSource ||
     failedBackgroundIds[currentScene.background.id] === true;
 
+  const resetAutoHintTimer = () => {
+    setHintObjectIds([]);
+    setAutoHintResetNonce(value => value + 1);
+  };
+
   const handleReplayInstruction = () => {
     if (isAdvancing || isSceneComplete || isInstructionPreparing) {
       return;
     }
+
+    resetAutoHintTimer();
 
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
@@ -1046,6 +1133,7 @@ export function ScenePlayer({
     lastInteractionAtRef.current = now;
 
     runAudio(playTapSound());
+    const finishGuidanceAudio = beginGuidanceAudio();
     playAudioForStep(
       currentScene,
       currentStep,
@@ -1062,6 +1150,7 @@ export function ScenePlayer({
               setCompletedListenInstructionKey(currentListenInstructionKey),
             }
           : {}),
+        onAudioSettled: finishGuidanceAudio,
       },
     );
 
@@ -1088,6 +1177,8 @@ export function ScenePlayer({
       return;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return;
@@ -1112,6 +1203,8 @@ export function ScenePlayer({
       return;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return;
@@ -1127,6 +1220,8 @@ export function ScenePlayer({
     if (isAdvancing || isInstructionPending || isSceneComplete) {
       return;
     }
+
+    resetAutoHintTimer();
 
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
@@ -1194,6 +1289,8 @@ export function ScenePlayer({
       return false;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return false;
@@ -1238,6 +1335,14 @@ export function ScenePlayer({
 
     handleInteractionResult(currentScene, result);
     return result.status === 'correct';
+  };
+
+  const handleObjectDragStart = () => {
+    if (isAdvancing || isInstructionPending || isSceneComplete) {
+      return;
+    }
+
+    resetAutoHintTimer();
   };
 
   const handleStageLayout = (event: LayoutChangeEvent) => {
@@ -1293,20 +1398,23 @@ export function ScenePlayer({
         type: 'fail',
       });
       const narrationSession = startNarrationSession();
+      const finishGuidanceAudio = beginGuidanceAudio();
       runAudio(
         playInteractionFeedbackAudio(
           'fail',
           feedbackPrompt,
           narrationSession,
-        ).then(playbackResult => {
-          if (
-            playbackResult === 'failed' &&
-            narrationSession.isActive() &&
-            !canBypassMissingAudio
-          ) {
-            setRequiredAssetFailure('feedback');
-          }
-        }),
+        )
+          .then(playbackResult => {
+            if (
+              playbackResult === 'failed' &&
+              narrationSession.isActive() &&
+              !canBypassMissingAudio
+            ) {
+              setRequiredAssetFailure('feedback');
+            }
+          })
+          .finally(finishGuidanceAudio),
       );
       clearFeedbackTimerRef.current = setTimeout(() => {
         setShakeObjectIds([]);
@@ -2004,13 +2112,16 @@ export function ScenePlayer({
     }
 
     const hasActiveHint = hintObjectIds.length > 0;
+    const shouldHighlightTargetsImmediately =
+      currentStep.type === 'intro' || currentStep.type === 'teach';
 
     return (
       <>
         {renderActiveDropZone(currentScene, currentStep)}
         {allObjects.map(object => {
           const isTargeted =
-            isStepTargetObject(currentStep, object.id) ||
+            (shouldHighlightTargetsImmediately &&
+              isStepTargetObject(currentStep, object.id)) ||
             hintObjectIds.includes(object.id);
           const renderObject = {
             ...object,
@@ -2042,6 +2153,10 @@ export function ScenePlayer({
                 object.isInteractive &&
                 !isAdvancing
               }
+              isInteractionTarget={
+                canPressObjects(currentStep) &&
+                isStepTargetObject(currentStep, object.id)
+              }
               isDimmed={
                 hasActiveHint && !isTargeted && object.role === 'learning'
               }
@@ -2052,6 +2167,7 @@ export function ScenePlayer({
                 t('scene.characterLabel'),
               )}
               object={renderObject}
+              onDragStart={handleObjectDragStart}
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
               shouldMagnify={currentStep.targetObjectIds.length === 1}
@@ -2380,6 +2496,7 @@ function getListenInstructionKey(scene: Scene, step: SceneStep) {
 type PlayStepAudioOptions = {
   onAudioFailure?: () => void;
   onAudioComplete?: () => void;
+  onAudioSettled?: () => void;
   onTeachAudioComplete?: () => void;
 };
 
@@ -2403,11 +2520,15 @@ function playAudioForStep(
       narrationSession,
       isActive,
       options,
-    ).then(playbackResult => {
-      if (playbackResult === 'failed') {
-        options.onAudioFailure?.();
-      }
-    }),
+    )
+      .then(playbackResult => {
+        if (playbackResult === 'failed') {
+          options.onAudioFailure?.();
+        }
+      })
+      .finally(() => {
+        options.onAudioSettled?.();
+      }),
   );
 }
 

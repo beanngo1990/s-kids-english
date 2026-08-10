@@ -436,13 +436,24 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Step `intro`/`teach` highlight `targetObjectIds` ngay để bé nối instruction/từ mới với hình;
+  highlight hướng dẫn ban đầu này không làm mờ các object khác. Step `practice`/`review` giữ đáp
+  án trung tính lúc bắt đầu để bé có cơ hội tự nhớ; drag vẫn luôn hiển thị drop zone và affordance
+  kéo hiện có. Trong step tương tác, target được nâng lên trên các sibling object về z-order để
+  không bị hitbox của hình chồng lấp chặn thao tác; ưu tiên lớp này không tự bật glow/dimming.
+- Với step tương tác `tap`/`find`/`drag`, Auto-Hint bắt đầu đếm 7 giây sau khi instruction hoặc
+  feedback audio đã phát xong. Nếu bé chưa tương tác, runtime bật pulse glow cho toàn bộ
+  `targetObjectIds` và làm mờ nhẹ các learning object không liên quan. Chạm object, bắt đầu/thả
+  kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; timer
+  được cleanup khi đổi step/scene hoặc unmount. Listen step không dùng Auto-Hint.
 - Success, fail và info feedback đều hiển thị text trong instruction card. Fail feedback giữ
   tương tác object để bé thử lại; info feedback khi nghe lại instruction/từ vựng tự ẩn sau một
   khoảng ngắn.
-- Object target dùng viền silhouette trắng + teal thay vì viền theo bounding box. Với step chỉ có
-  một target không ở trạng thái kéo, object có cạnh hiển thị ngắn hơn `48dp` được phóng nhẹ tới
-  tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo geometry gốc. Target lớn, step nhiều
-  target và object đang kéo chỉ dùng viền highlight, không dùng zoom này.
+- Khi target highlight được bật, object dùng viền silhouette trắng + teal thay vì viền theo
+  bounding box. Với step chỉ có một target không ở trạng thái kéo, object có cạnh hiển thị ngắn
+  hơn `48dp` được phóng nhẹ tới tối đa `1.22x`; vị trí, touch area và collision vẫn giữ theo
+  geometry gốc. Target lớn, step nhiều target và object đang kéo chỉ dùng viền highlight, không
+  dùng zoom này.
 - Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
   scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
   `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm

@@ -35,9 +35,11 @@ type SceneObjectRendererProps = {
   isDimmed: boolean;
   isDisabled: boolean;
   isDraggable?: boolean;
+  isInteractionTarget?: boolean;
   shouldMagnify?: boolean;
   effect: SceneObjectEffect;
   onPress: (objectId: string) => void;
+  onDragStart?: (objectId: string) => void;
   onDragEnd?: (objectId: string, translation: DragTranslation) => boolean;
   style?: StyleProp<ViewStyle>;
   stageSize?: { width: number; height: number };
@@ -56,9 +58,11 @@ export function SceneObjectRenderer({
   isDimmed,
   isDisabled,
   isDraggable = false,
+  isInteractionTarget = false,
   shouldMagnify = true,
   effect,
   onPress,
+  onDragStart,
   onDragEnd,
   style,
   stageSize,
@@ -101,6 +105,9 @@ export function SceneObjectRenderer({
       PanResponder.create({
         onMoveShouldSetPanResponder: (_, gestureState) =>
           shouldStartDrag(gestureState, isDragEnabled),
+        onPanResponderGrant: () => {
+          onDragStart?.(object.id);
+        },
         onPanResponderMove: (_, gestureState) => {
           drag.setValue({
             x: gestureState.dx,
@@ -125,7 +132,7 @@ export function SceneObjectRenderer({
           resetDragPosition(drag);
         },
       }),
-    [drag, isDragEnabled, object.id, onDragEnd],
+    [drag, isDragEnabled, object.id, onDragEnd, onDragStart],
   );
 
   const hitSlop = useMemo(() => {
@@ -290,6 +297,7 @@ export function SceneObjectRenderer({
         getPercentRectStyle(object.position),
         styles.wrapper,
         isDimmed && styles.dimmed,
+        isInteractionTarget && styles.interactionTargetWrapper,
         isTargeted && styles.targetedWrapper,
         isDragEnabled && styles.draggableWrapper,
         {
@@ -583,6 +591,9 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     maxHeight: '100%',
     width: '100%',
+  },
+  interactionTargetWrapper: {
+    zIndex: 2,
   },
   label: {
     color: colors.text,
