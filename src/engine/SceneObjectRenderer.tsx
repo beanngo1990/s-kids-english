@@ -68,8 +68,12 @@ export function SceneObjectRenderer({
   stageSize,
 }: SceneObjectRendererProps) {
   useThemeSync();
-  const [hasImageError, setHasImageError] = React.useState(false);
-  const imageOpacity = useRef(new Animated.Value(1)).current;
+  const [failedImageSource, setFailedImageSource] = React.useState<
+    string | null
+  >(null);
+  const [loadedImageSource, setLoadedImageSource] = React.useState<
+    string | null
+  >(null);
   const targetPulse = useRef(new Animated.Value(0)).current;
   const focusScale = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(1)).current;
@@ -81,8 +85,13 @@ export function SceneObjectRenderer({
     label,
     objectId: object.id,
   });
-  const imageSource = useMemo(() => resolveAsset(object.asset.source), [object.asset.source]);
+  const imageSource = useMemo(
+    () => resolveAsset(object.asset.source),
+    [object.asset.source],
+  );
   const canUseImage = !!imageSource;
+  const hasImageError = failedImageSource === object.asset.source;
+  const hasLoadedImage = loadedImageSource === object.asset.source;
   const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
@@ -222,12 +231,6 @@ export function SceneObjectRenderer({
     object.position.y,
   ]);
 
-  useEffect(() => {
-    setHasImageError(false);
-    // Keep cached native images visible even if a remount skips load callbacks.
-    imageOpacity.setValue(1);
-  }, [object.asset.source, imageOpacity]);
-
   const targetOutlineScaleXRange = getTargetScaleRange(
     object.position.width * focusedObjectScale,
     stageSize?.width,
@@ -337,7 +340,7 @@ export function SceneObjectRenderer({
         >
           {/* Alpha-preserving copies follow irregular assets; adaptive scales
               keep the outline readable at any object size. */}
-          {isTargeted && canUseImage && !hasImageError ? (
+          {isTargeted && canUseImage && !hasImageError && hasLoadedImage ? (
             <>
               <Animated.Image
                 resizeMode="contain"
@@ -405,18 +408,16 @@ export function SceneObjectRenderer({
           {canUseImage && !hasImageError ? (
             <Animated.Image
               onError={() => {
-                imageOpacity.setValue(1);
-                setHasImageError(true);
+                setFailedImageSource(object.asset.source);
+                setLoadedImageSource(currentSource =>
+                  currentSource === object.asset.source ? null : currentSource,
+                );
               }}
-              onLoadEnd={() => {
-                Animated.timing(imageOpacity, {
-                  toValue: 1,
-                  duration: 300,
-                  useNativeDriver: true,
-                }).start();
-              }}
-              onLoadStart={() => {
-                imageOpacity.setValue(0);
+              onLoad={() => {
+                setFailedImageSource(currentSource =>
+                  currentSource === object.asset.source ? null : currentSource,
+                );
+                setLoadedImageSource(object.asset.source);
               }}
               resizeMode="contain"
               source={imageSource!}
@@ -424,7 +425,6 @@ export function SceneObjectRenderer({
                 styles.image,
                 isLearningObject && styles.learningImage,
                 object.role === 'character' && styles.characterImage,
-                { opacity: imageOpacity },
               ]}
             />
           ) : null}
