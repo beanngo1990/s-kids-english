@@ -1,0 +1,2 @@
+"NSMicrophoneUsageDescription" = "Sungy needs microphone access to record voice practice.";
+"NSSpeechRecognitionUsageDescription" = "Sungy uses on-device speech recognition to detect when a child finishes speaking and automatically stop the voice exercise.";

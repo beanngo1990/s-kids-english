@@ -514,6 +514,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm thu lại.
 - Trên iOS, quyền Speech Recognition được xin riêng theo kiểu best-effort để bật target hint; từ
   chối quyền này chỉ tắt target hint và không làm mất khả năng ghi âm khi quyền microphone đã có.
+  Purpose strings cho Microphone và Speech Recognition được localize theo ngôn ngữ hệ thống bằng
+  `en.lproj/InfoPlist.strings` và `vi.lproj/InfoPlist.strings`; English trong `Info.plist` là fallback.
 - Chỉ trạng thái `blocked` mới dẫn phụ huynh tới Settings. Khi app active trở lại sau Settings,
   `SpeakPracticeControls` kiểm tra lại quyền và mở lại nút ghi âm nếu quyền đã được cấp, nhưng không
   tự bắt đầu ghi âm ngoài ý muốn.

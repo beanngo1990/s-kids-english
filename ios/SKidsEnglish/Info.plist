@@ -52,9 +52,9 @@
 		<true/>
 	</dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>This app requires microphone access to record voice exercises.</string>
+	<string>Sungy needs microphone access to record voice practice.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>This app uses on-device speech recognition to help stop voice exercises at the right time.</string>
+	<string>Sungy uses on-device speech recognition to detect when a child finishes speaking and automatically stop the voice exercise.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
