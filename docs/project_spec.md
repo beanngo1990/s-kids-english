@@ -511,7 +511,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   cũng không có thì safety timeout vẫn kết thúc lượt ghi.
 - Permission flow phân biệt `granted`, từ chối có thể hỏi lại (`denied`), từ chối buộc mở Settings
   (`blocked`) và recorder không khả dụng. Sau một lần từ chối, các teach step sau trong cùng phiên
-  không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm thu lại.
+  không tự mở lại system permission prompt; bé vẫn có thể tiếp tục bài hoặc chủ động bấm bật mic.
+- UI giữ nguyên từng trạng thái quyền để hướng dẫn đúng ngữ cảnh: `denied` cho phép bấm **Bật mic**,
+  `blocked` hướng dẫn **Nhờ ba mẹ** mở Settings, còn `unavailable` vô hiệu hóa nút mic. Cả ba trạng
+  thái đều giữ nút **Tiếp tục** khả dụng và hiển thị badge `!` trên icon mic với tone cảnh báo phù
+  hợp; badge chỉ mang tính trang trí, accessibility dùng nhãn hành động đầy đủ.
 - Trên iOS, quyền Speech Recognition được xin riêng theo kiểu best-effort để bật target hint; từ
   chối quyền này chỉ tắt target hint và không làm mất khả năng ghi âm khi quyền microphone đã có.
   Purpose strings cho Microphone và Speech Recognition được localize theo ngôn ngữ hệ thống bằng

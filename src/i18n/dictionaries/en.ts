@@ -641,16 +641,16 @@ export const en: TranslationDictionary = {
   'tabs.playAccessibility': 'Open play area',
   'tabs.play': 'Play',
   'speakPractice.encouragement': 'I hear you! Great job!',
-  'speakPractice.micPermissionTitle': 'Microphone Permission',
+  'speakPractice.micPermissionTitle': 'Turn on the microphone',
   'speakPractice.micPermissionText':
-    'You need to grant Microphone permission in Settings to record.',
+    'Microphone access is turned off. A parent can enable it in Settings so your child can practice speaking.',
   'speakPractice.later': 'Later',
   'speakPractice.openSettings': 'Open Settings',
   'speakPractice.coachSpeaking': 'Coach is speaking...',
   'speakPractice.coachPreparing': 'Get ready...',
   'speakPractice.coachListening': 'Coach is listening...',
   'speakPractice.coachSuccess': 'Great! This word is:',
-  'speakPractice.coachNoMic': 'Microphone permission needed. This word is:',
+  'speakPractice.coachNoMic': 'The microphone is not on. This word is:',
   'speakPractice.coachPrompt': 'Repeat after me:',
   'speakPractice.listenAccessibility': 'Listen to recording',
   'speakPractice.recordAgainAccessibility': 'Record again',
@@ -934,8 +934,22 @@ export const en: TranslationDictionary = {
   'speakPractice.promptRecorded': 'Great! This word is:',
   'speakPractice.promptRecordedQuiet':
     'That is okay. Try saying the next word with me.',
-  'speakPractice.promptNoMic': 'Mic permission needed. This word is:',
+  'speakPractice.promptMicDenied':
+    'Mic is off. Turn it on, or listen and continue.',
+  'speakPractice.promptMicBlocked':
+    'Ask a parent to turn on the mic in Settings.',
+  'speakPractice.promptMicUnavailable':
+    'Mic unavailable. Listen to the sample and continue.',
   'speakPractice.promptSpeak': 'Repeat after me:',
+  'speakPractice.enableMicAccessibility':
+    'Turn on the microphone to practice speaking',
+  'speakPractice.enableMic': 'Turn on mic',
+  'speakPractice.askParentAccessibility':
+    'Ask a parent to turn on the microphone in Settings',
+  'speakPractice.askParent': 'Ask a parent',
+  'speakPractice.micUnavailableAccessibility':
+    'The microphone is not available right now. Listen to the sample and continue.',
+  'speakPractice.micUnavailable': 'Mic unavailable',
   'speakPractice.replayVoiceAccessibility': 'Replay your voice',
   'speakPractice.replayVoice': 'Your voice',
   'speakPractice.replayModelAccessibility': 'Hear sample for {word}',

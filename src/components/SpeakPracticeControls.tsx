@@ -11,7 +11,10 @@ import {
   type AppStateStatus,
 } from 'react-native';
 
-import { KidIconButton } from './KidIconButton';
+import {
+  KidIconButton,
+  type KidIconBadgeTone,
+} from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
 import {
   playSoundEffect,
@@ -64,8 +67,9 @@ type RecordingStatus =
   | 'prompting'
   | 'recording'
   | 'encouraging'
-  | 'recorded'
-  | 'unavailable';
+  | 'recorded';
+
+type MicrophoneAccessStatus = VoiceRecordingPermissionStatus | 'unknown';
 
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
@@ -213,9 +217,11 @@ export function SpeakPracticeControls({
 }: SpeakPracticeControlsProps) {
   useThemeSync();
   const t = useI18n();
-  const [status, setStatus] = useState<RecordingStatus>(() =>
-    isVoiceRecorderAvailable() ? 'idle' : 'unavailable',
-  );
+  const [status, setStatus] = useState<RecordingStatus>('idle');
+  const [microphoneAccessStatus, setMicrophoneAccessStatus] =
+    useState<MicrophoneAccessStatus>(() =>
+      isVoiceRecorderAvailable() ? 'unknown' : 'unavailable',
+    );
   const [lastRecordingHadDetectedSpeech, setLastRecordingHadDetectedSpeech] =
     useState(true);
   const [recordingUri, setRecordingUri] = useState<string | null>(null);
@@ -287,11 +293,13 @@ export function SpeakPracticeControls({
           if (!isMountedRef.current) {
             return;
           }
-          setStatus(permissionStatus === 'granted' ? 'idle' : 'unavailable');
+          setMicrophoneAccessStatus(permissionStatus);
+          setStatus('idle');
         })
         .catch(() => {
           if (isMountedRef.current) {
-            setStatus('unavailable');
+            setMicrophoneAccessStatus('unavailable');
+            setStatus('idle');
           }
         });
     });
@@ -557,15 +565,17 @@ export function SpeakPracticeControls({
         );
       } catch {
         if (isRequestActive()) {
-          setStatus('unavailable');
+          setMicrophoneAccessStatus('unavailable');
+          setStatus('idle');
         }
         return;
       }
       if (!isRequestActive()) {
         return;
       }
+      setMicrophoneAccessStatus(permissionStatus);
       if (permissionStatus !== 'granted') {
-        setStatus('unavailable');
+        setStatus('idle');
         if (
           permissionRequestSource === 'manual' &&
           permissionStatus === 'blocked'
@@ -640,7 +650,8 @@ export function SpeakPracticeControls({
         return;
       }
       if (!recordingSession) {
-        setStatus('unavailable');
+        setMicrophoneAccessStatus('unavailable');
+        setStatus('idle');
         return;
       }
 
@@ -677,14 +688,10 @@ export function SpeakPracticeControls({
       playPrompt: false,
       playTap: false,
     }).catch(() => {
-      setStatus('unavailable');
+      setMicrophoneAccessStatus('unavailable');
+      setStatus('idle');
     });
   }, [autoStartRequestId, beginRecording]);
-
-  // Removed early return for 'unavailable' status so UI can still render
-  // if (status === 'unavailable') {
-  //   return null;
-  // }
 
   const handleRecordPress = async () => {
     if (disabled || status === 'prompting' || status === 'encouraging') {
@@ -704,7 +711,8 @@ export function SpeakPracticeControls({
       });
     } catch {
       if (isMountedRef.current) {
-        setStatus('unavailable');
+        setMicrophoneAccessStatus('unavailable');
+        setStatus('idle');
       }
     }
   };
@@ -744,7 +752,19 @@ export function SpeakPracticeControls({
   const isNarrating = isPrompting || isEncouraging;
   const isRecording = status === 'recording';
   const hasRecording = status === 'recorded' || isEncouraging;
-  const isUnavailable = status === 'unavailable';
+  const isMicrophoneDenied = microphoneAccessStatus === 'denied';
+  const isMicrophoneBlocked = microphoneAccessStatus === 'blocked';
+  const isMicrophoneUnavailable = microphoneAccessStatus === 'unavailable';
+  const hasMicrophoneIssue =
+    isMicrophoneDenied || isMicrophoneBlocked || isMicrophoneUnavailable;
+  const microphoneBadgeTone: KidIconBadgeTone | undefined =
+    isMicrophoneDenied
+      ? 'warning'
+      : isMicrophoneBlocked
+      ? 'alert'
+      : isMicrophoneUnavailable
+      ? 'muted'
+      : undefined;
   const isDisabled = disabled || isNarrating;
   const isModelButtonDisabled = disabled || isNarrating || isRecording;
   const rippleScale = listeningPulse.interpolate({
@@ -775,9 +795,24 @@ export function SpeakPracticeControls({
     ? lastRecordingHadDetectedSpeech
       ? t('speakPractice.promptRecorded')
       : t('speakPractice.promptRecordedQuiet')
-    : isUnavailable
-    ? t('speakPractice.promptNoMic')
+    : isMicrophoneDenied
+    ? t('speakPractice.promptMicDenied')
+    : isMicrophoneBlocked
+    ? t('speakPractice.promptMicBlocked')
+    : isMicrophoneUnavailable
+    ? t('speakPractice.promptMicUnavailable')
     : t('speakPractice.promptSpeak');
+
+  const microphoneActionLabel = isMicrophoneDenied
+    ? t('speakPractice.enableMic')
+    : isMicrophoneBlocked
+    ? t('speakPractice.askParent')
+    : t('speakPractice.micUnavailable');
+  const microphoneActionAccessibilityLabel = isMicrophoneDenied
+    ? t('speakPractice.enableMicAccessibility')
+    : isMicrophoneBlocked
+    ? t('speakPractice.askParentAccessibility')
+    : t('speakPractice.micUnavailableAccessibility');
 
   return (
     <View style={styles.root}>
@@ -789,6 +824,9 @@ export function SpeakPracticeControls({
               styles.promptingStatusIcon,
             isRecording && styles.recordingStatusIcon,
             hasRecording && styles.recordedStatusIcon,
+            hasMicrophoneIssue &&
+              !hasRecording &&
+              styles.microphoneIssueStatusIcon,
           ]}
         >
           {isNarrating || isInstructionPlaying ? (
@@ -801,7 +839,11 @@ export function SpeakPracticeControls({
             <SKidsIcon name={hasRecording ? 'star' : 'speak'} size={26} />
           )}
         </View>
-        <Text numberOfLines={2} style={styles.prompt}>
+        <Text
+          accessibilityLiveRegion="polite"
+          numberOfLines={2}
+          style={styles.prompt}
+        >
           {promptText}
         </Text>
         {hasRecording ? (
@@ -847,16 +889,31 @@ export function SpeakPracticeControls({
         ) : null}
       </View>
 
-      {hasRecording || isUnavailable ? (
+      {hasRecording || hasMicrophoneIssue ? (
         <View style={styles.actions}>
           <KidIconButton
-            accessibilityLabel={t('speakPractice.recordAgainAccessibility')}
-            disabled={isDisabled}
+            accessibilityLabel={
+              hasRecording
+                ? t('speakPractice.recordAgainAccessibility')
+                : microphoneActionAccessibilityLabel
+            }
+            disabled={isDisabled || isMicrophoneUnavailable}
             icon="speak"
-            label={t('speakPractice.recordAgain')}
+            iconBadge={hasMicrophoneIssue ? microphoneBadgeTone : undefined}
+            label={
+              hasRecording
+                ? t('speakPractice.recordAgain')
+                : microphoneActionLabel
+            }
             onPress={handleRecordPress}
             size="md"
-            style={[styles.actionButton, styles.secondaryAction]}
+            style={[
+              styles.actionButton,
+              styles.secondaryAction,
+              isMicrophoneDenied && styles.microphoneDeniedAction,
+              isMicrophoneBlocked && styles.microphoneBlockedAction,
+              isMicrophoneUnavailable && styles.microphoneUnavailableAction,
+            ]}
             tone="quiet"
           />
           {onContinue ? (
@@ -866,11 +923,7 @@ export function SpeakPracticeControls({
               icon="next"
               label={t('speakPractice.continue')}
               onPress={onContinue}
-              style={[
-                styles.actionButton,
-                styles.primaryAction,
-                isUnavailable && { flex: 1 },
-              ]}
+              style={[styles.actionButton, styles.primaryAction]}
             />
           ) : null}
         </View>
@@ -1052,6 +1105,22 @@ const styles = createThemedStyles(() => ({
   },
   listeningRippleSecond: {
     backgroundColor: colors.secondary,
+  },
+  microphoneBlockedAction: {
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.alert,
+  },
+  microphoneDeniedAction: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondaryDark,
+  },
+  microphoneIssueStatusIcon: {
+    backgroundColor: colors.accentSoft,
+  },
+  microphoneUnavailableAction: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.muted,
+    opacity: 0.72,
   },
   pressed: {
     opacity: 0.9,

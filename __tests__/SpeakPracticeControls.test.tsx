@@ -4,6 +4,7 @@ import {
   AppState,
   Linking,
   Text,
+  View,
   type AppStateStatus,
 } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
@@ -166,7 +167,22 @@ test('keeps the lesson available when an automatic microphone request is denied'
   );
   expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
   expect(Alert.alert).not.toHaveBeenCalled();
-  expect(getTextValues(tree)).toContain('Cần cấp quyền Micro. Từ này đọc là:');
+  expect(getTextValues(tree)).toContain(
+    'Micrô chưa bật. Bé có thể bật mic hoặc nghe mẫu nhé.',
+  );
+  const microphoneButton = findKidIconButtonByAccessibilityLabel(
+    tree,
+    'Bật mic để bé luyện nói',
+  );
+  expect(microphoneButton.props.disabled).toBe(false);
+  expect(microphoneButton.props.iconBadge).toBe('warning');
+  const warningBadges = tree?.root.findAllByType(View).filter(
+    node => node.props.importantForAccessibility === 'no-hide-descendants',
+  );
+  expect(warningBadges).toHaveLength(1);
+  expect(warningBadges?.[0].props.accessibilityElementsHidden).toBe(true);
+  expect(getTextValues(tree)).toContain('!');
+  expect(getTextValues(tree)).not.toContain('Thu lại');
   expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
 
   await ReactTestRenderer.act(async () => {
@@ -207,7 +223,10 @@ test('does not send a simple microphone denial to Settings', async () => {
   });
 
   await ReactTestRenderer.act(async () => {
-    await findByAccessibilityLabel(tree, 'Thu âm lại').props.onPress();
+    await findByAccessibilityLabel(
+      tree,
+      'Bật mic để bé luyện nói',
+    ).props.onPress();
     await flushPromises();
   });
 
@@ -236,13 +255,23 @@ test('opens Settings only when microphone permission is blocked and refreshes on
     await flushPromises();
   });
 
+  const blockedMicrophoneButton = findKidIconButtonByAccessibilityLabel(
+    tree,
+    'Nhờ ba mẹ bật mic trong Cài đặt',
+  );
+  expect(blockedMicrophoneButton.props.disabled).toBe(false);
+  expect(blockedMicrophoneButton.props.iconBadge).toBe('alert');
+
   await ReactTestRenderer.act(async () => {
-    await findByAccessibilityLabel(tree, 'Thu âm lại').props.onPress();
+    await findByAccessibilityLabel(
+      tree,
+      'Nhờ ba mẹ bật mic trong Cài đặt',
+    ).props.onPress();
     await flushPromises();
   });
 
   expect(Alert.alert).toHaveBeenCalledWith(
-    'Quyền truy cập Micro',
+    'Bật micrô cho bé',
     expect.any(String),
     expect.any(Array),
   );
@@ -266,9 +295,45 @@ test('opens Settings only when microphone permission is blocked and refreshes on
 
   expect(mockedCheckVoiceRecordingPermission).toHaveBeenCalledTimes(1);
   expect(getTextValues(tree)).not.toContain(
-    'Cần cấp quyền Micro. Từ này đọc là:',
+    'Nhờ ba mẹ bật mic trong Cài đặt nhé. Bé vẫn có thể nghe mẫu.',
   );
   expect(findByAccessibilityLabel(tree, 'Bé nói sun')).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('explains an unavailable microphone and keeps Continue enabled', async () => {
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('unavailable');
+  const onContinue = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        onContinue={onContinue}
+        word="sun"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain(
+    'Mic chưa dùng được. Bé nghe mẫu rồi tiếp tục nhé.',
+  );
+  const microphoneButton = findKidIconButtonByAccessibilityLabel(
+    tree,
+    'Mic hiện chưa sẵn sàng. Bé nghe từ mẫu rồi tiếp tục nhé.',
+  );
+  expect(microphoneButton.props.disabled).toBe(true);
+  expect(microphoneButton.props.iconBadge).toBe('muted');
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+  expect(Alert.alert).not.toHaveBeenCalled();
+  expect(Linking.openSettings).not.toHaveBeenCalled();
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -636,6 +701,21 @@ function findByAccessibilityLabel(
   }
 
   return node;
+}
+
+function findKidIconButtonByAccessibilityLabel(
+  tree: ReactTestRenderer.ReactTestRenderer | undefined,
+  accessibilityLabel: string,
+) {
+  const button = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === accessibilityLabel);
+
+  if (!button) {
+    throw new Error(`${accessibilityLabel} KidIconButton was not rendered`);
+  }
+
+  return button;
 }
 
 type PermissionAlertButton = {

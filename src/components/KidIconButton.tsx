@@ -15,12 +15,14 @@ import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 
 type KidIconButtonTone = 'primary' | 'secondary' | 'quiet';
+export type KidIconBadgeTone = 'alert' | 'muted' | 'warning';
 
 type KidIconButtonProps = {
   accessibilityLabel: string;
   icon: SKidsIconName;
   onPress: () => void;
   disabled?: boolean;
+  iconBadge?: KidIconBadgeTone;
   label?: string;
   size?: 'md' | 'lg';
   style?: StyleProp<ViewStyle>;
@@ -31,6 +33,7 @@ export function KidIconButton({
   accessibilityLabel,
   disabled = false,
   icon,
+  iconBadge,
   label,
   onPress,
   size = 'lg',
@@ -56,7 +59,32 @@ export function KidIconButton({
         style,
       ]}
     >
-      <SKidsIcon name={icon} size={iconSize} />
+      <View style={styles.iconWrap}>
+        <SKidsIcon name={icon} size={iconSize} />
+        {iconBadge ? (
+          <View
+            accessibilityElementsHidden
+            accessible={false}
+            importantForAccessibility="no-hide-descendants"
+            style={[
+              styles.iconBadge,
+              iconBadge === 'alert' && styles.iconBadgeAlert,
+              iconBadge === 'muted' && styles.iconBadgeMuted,
+              iconBadge === 'warning' && styles.iconBadgeWarning,
+            ]}
+          >
+            <Text
+              accessible={false}
+              style={[
+                styles.iconBadgeText,
+                iconBadge === 'warning' && styles.iconBadgeWarningText,
+              ]}
+            >
+              !
+            </Text>
+          </View>
+        ) : null}
+      </View>
       {label ? (
         <View style={styles.labelPill}>
           <Text numberOfLines={1} style={styles.label}>
@@ -78,6 +106,40 @@ const styles = createThemedStyles(() => ({
   },
   disabled: {
     opacity: 0.45,
+  },
+  iconBadge: {
+    alignItems: 'center',
+    borderColor: colors.white,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 24,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -5,
+    top: -5,
+    width: 24,
+  },
+  iconBadgeAlert: {
+    backgroundColor: colors.alert,
+  },
+  iconBadgeMuted: {
+    backgroundColor: colors.muted,
+  },
+  iconBadgeText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: '900',
+    lineHeight: 18,
+    textAlign: 'center',
+  },
+  iconBadgeWarning: {
+    backgroundColor: colors.secondary,
+  },
+  iconBadgeWarningText: {
+    color: colors.focusOutline,
+  },
+  iconWrap: {
+    position: 'relative',
   },
   label: {
     color: colors.text,

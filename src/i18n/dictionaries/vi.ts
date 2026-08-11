@@ -637,16 +637,16 @@ export const vi = {
   'tabs.playAccessibility': 'Mở khu chơi',
   'tabs.play': 'Chơi',
   'speakPractice.encouragement': 'Cô nghe rồi! Giỏi quá!',
-  'speakPractice.micPermissionTitle': 'Quyền truy cập Micro',
+  'speakPractice.micPermissionTitle': 'Bật micrô cho bé',
   'speakPractice.micPermissionText':
-    'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
+    'Quyền micrô đang bị tắt. Ba mẹ hãy cho phép trong Cài đặt để bé có thể luyện nói.',
   'speakPractice.later': 'Để sau',
   'speakPractice.openSettings': 'Mở Cài đặt',
   'speakPractice.coachSpeaking': 'Cô đang nói...',
   'speakPractice.coachPreparing': 'Chuẩn bị đọc...',
   'speakPractice.coachListening': 'Cô đang nghe...',
   'speakPractice.coachSuccess': 'Giỏi quá! Từ này đọc là:',
-  'speakPractice.coachNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
+  'speakPractice.coachNoMic': 'Micrô chưa được bật. Từ này đọc là:',
   'speakPractice.coachPrompt': 'Bé nói theo cô:',
   'speakPractice.listenAccessibility': 'Nghe lại giọng bé',
   'speakPractice.recordAgainAccessibility': 'Thu âm lại',
@@ -931,8 +931,21 @@ export const vi = {
   'speakPractice.promptRecorded': 'Giỏi quá! Từ này đọc là:',
   'speakPractice.promptRecordedQuiet':
     'Không sao, từ sau mình thử đọc cùng cô nhé.',
-  'speakPractice.promptNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
+  'speakPractice.promptMicDenied':
+    'Micrô chưa bật. Bé có thể bật mic hoặc nghe mẫu nhé.',
+  'speakPractice.promptMicBlocked':
+    'Nhờ ba mẹ bật mic trong Cài đặt nhé. Bé vẫn có thể nghe mẫu.',
+  'speakPractice.promptMicUnavailable':
+    'Mic chưa dùng được. Bé nghe mẫu rồi tiếp tục nhé.',
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
+  'speakPractice.enableMicAccessibility': 'Bật mic để bé luyện nói',
+  'speakPractice.enableMic': 'Bật mic',
+  'speakPractice.askParentAccessibility':
+    'Nhờ ba mẹ bật mic trong Cài đặt',
+  'speakPractice.askParent': 'Nhờ ba mẹ',
+  'speakPractice.micUnavailableAccessibility':
+    'Mic hiện chưa sẵn sàng. Bé nghe từ mẫu rồi tiếp tục nhé.',
+  'speakPractice.micUnavailable': 'Mic chưa sẵn sàng',
   'speakPractice.replayVoiceAccessibility': 'Nghe lại giọng bé',
   'speakPractice.replayVoice': 'Giọng bé',
   'speakPractice.replayModelAccessibility': 'Nghe mẫu từ {word}',
@@ -941,7 +954,7 @@ export const vi = {
   'voiceRecorder.permissionNegative': 'Để sau',
   'voiceRecorder.permissionPositive': 'Cho phép',
   'voiceRecorder.permissionMessage':
-    'Sungy cần micro để bé nghe lại giọng của mình.',
+    'Sungy cần micrô để bé nghe lại giọng của mình.',
   'voiceRecorder.permissionTitle': 'Cho bé luyện nói',
   'mascot.touchAccessibility': 'Chạm vào Sungy',
   'mascot.name': 'Sungy',
