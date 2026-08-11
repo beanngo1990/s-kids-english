@@ -3,7 +3,9 @@ import { StatusBar, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { AppUpdateGate } from './src/components/AppUpdateGate';
 import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
+import { startAppUpdateManager } from './src/engine/AppUpdateManager';
 import { startBackgroundMusicManager } from './src/engine/BackgroundMusicManager';
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
 import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
@@ -25,6 +27,7 @@ function App() {
     startCloudProgressSync();
 
     startRemoteMonetizationConfig().catch(() => undefined);
+    const stopAppUpdateManager = startAppUpdateManager();
     const stopCrashReporting = startCrashReporting();
     const stopMonetization = startMonetization();
     const stopParentAccessLifecycle = startParentAccessSessionLifecycle();
@@ -32,6 +35,7 @@ function App() {
 
     return () => {
       stopBackgroundMusic();
+      stopAppUpdateManager();
       stopCrashReporting();
       stopMonetization();
       stopParentAccessLifecycle();
@@ -55,7 +59,9 @@ function ThemedApp() {
           barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
           backgroundColor={colors.background}
         />
-        <AppNavigator />
+        <AppUpdateGate>
+          <AppNavigator />
+        </AppUpdateGate>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

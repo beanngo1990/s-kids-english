@@ -10,6 +10,30 @@ export const vi = {
   'notifications.dailyTitle': 'Đã đến giờ học rồi!',
   'notifications.dailyBody': 'Bé ơi, mình cùng học tiếng Anh nhé!',
 
+  'appUpdate.laterAction': 'Để sau',
+  'appUpdate.callParentAction': 'Gọi ba mẹ',
+  'appUpdate.childReplayHint': 'Chạm vào Sungy để nghe lại',
+  'appUpdate.childTitle': 'Bé gọi ba mẹ giúp Sungy nhé!',
+  'appUpdate.openingStore': 'Đang mở cửa hàng...',
+  'appUpdate.optionalBadge': 'Có phiên bản mới',
+  'appUpdate.optionalText':
+    'Ba mẹ có thể cập nhật để bé nhận những cải tiến mới nhất. Bé vẫn có thể tiếp tục học với phiên bản hiện tại.',
+  'appUpdate.optionalTitle': 'Cập nhật Sungy',
+  'appUpdate.parentGateHint':
+    'Ba mẹ giải phép tính này để mở cửa hàng và cập nhật ứng dụng.',
+  'appUpdate.requiredBadge': 'Cần cập nhật',
+  'appUpdate.requiredText':
+    'Phiên bản này không còn được hỗ trợ. Ba mẹ vui lòng cập nhật để bé tiếp tục sử dụng Sungy an toàn.',
+  'appUpdate.requiredTitle': 'Ba mẹ hãy cập nhật ứng dụng',
+  'appUpdate.replayPromptAccessibility':
+    'Chạm vào Sungy để nghe lại lời nhờ gọi ba mẹ',
+  'appUpdate.storeErrorText':
+    'Chưa thể mở cửa hàng ứng dụng. Ba mẹ hãy kiểm tra kết nối rồi thử lại.',
+  'appUpdate.storeErrorTitle': 'Không mở được cửa hàng',
+  'appUpdate.updateAction': 'Cập nhật ngay',
+  'appUpdate.versionSummary':
+    'Đang dùng v{currentVersion} · Mới nhất v{latestVersion}',
+
   'nav.themeLibrary': 'Thư viện chủ đề',
   'nav.lessonList': 'Bài học',
   'nav.lessonPack': 'Gói bài học',

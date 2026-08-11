@@ -1230,7 +1230,7 @@ function getGoogleAuth() {
   const project =
     process.env.GOOGLE_CLOUD_PROJECT ??
     process.env.GCLOUD_PROJECT ??
-    'vertext-api-images';
+    'fir-rootwords-prod';
 
   if (project) {
     headers['x-goog-user-project'] = project;

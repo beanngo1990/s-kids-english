@@ -2,11 +2,11 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-07-22
+**Kiểm chứng gần nhất:** 2026-08-11
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
-audio rollout và monetization Phase 1-3 trong working tree hiện tại.
+audio rollout, monetization Phase 1-3 và app-update policy trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -64,6 +64,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   client tính Founder access từ RevenueCat `CustomerInfo.firstSeen` mà không dùng claim/quota/
   outbox. Backend chỉ còn callable xóa RevenueCat customer khi xóa parent account. RevenueCat
   public SDK keys và legal URLs vẫn chưa được điền.
+- **Implemented:** kiểm tra phiên bản phát hành qua Firebase Remote Config, nhắc cập nhật có thể
+  hoãn và chặn phiên bản thấp hơn ngưỡng hỗ trợ tối thiểu; thao tác mở store luôn qua adult gate.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -102,12 +104,14 @@ index.js
      -> startFirebaseAppCheck()
      -> startCloudProgressSync()
      -> startRemoteMonetizationConfig()
+     -> startAppUpdateManager()
      -> startMonetization()
      -> startParentAccessSessionLifecycle()
      -> AppThemeProvider
      -> GestureHandlerRootView
        -> SafeAreaProvider
-       -> AppNavigator
+       -> AppUpdateGate
+          -> AppNavigator
 ```
 
 `AppNavigator` đọc parent settings để chọn route ban đầu:
@@ -345,7 +349,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
   hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
-  background music, contact support email và app version.
+  background music, contact support email và app version đọc trực tiếp từ native release metadata.
 - Các config chính trong Góc phụ huynh có giải thích ngắn theo ba ý: tính năng là gì, ảnh hưởng
   tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
   sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
@@ -363,6 +367,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** entry từ Kid Mode có thể mở `Parent` với intent `premium`/`founderPromo`; sau
   khi adult gate pass, Parent Mode điều hướng sang `Premium`. `PremiumScreen` cũng tự trả về Parent
   gate nếu session chưa được cấp.
+- Update bắt buộc có thể xuất hiện ngoài navigation nhưng link App Store/Google Play không mở trực
+  tiếp cho trẻ. Màn này dùng Sungy, biểu tượng phụ huynh lớn, tự phát clip Kid Mode local nhắc gọi
+  ba mẹ và cho phép chạm Sungy để nghe lại; chỉ có một CTA hình phụ huynh để mở adult gate phép
+  tính, không có nút bỏ qua. Prompt khuyến nghị không che Kid Mode; nó chỉ hiện thành card trong
+  Parent Mode đã mở khóa, nơi phụ huynh có thể cập nhật hoặc hoãn 3 ngày.
 - **Implemented:** development-only scene editor flag; khi bật trong dev build, flag này cũng mở
   khóa Kid Map/Lesson Pack để QA nội dung mà không coi đây là production feature.
 - **Partial:** `appLanguage` (`vi`/`en`) được persist và dùng bởi i18n foundation cho Onboarding,
@@ -658,7 +667,7 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 ## 7. Local persistence, parent auth và cloud learning data
 
-App luôn dùng bốn AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng năm AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
@@ -721,6 +730,15 @@ của learning progress và selected parent settings sau parent opt-in:
 - Giữ tối đa 30 daily entries và tính current/longest streak.
 - Minutes hiện là estimate, không phải measured session duration.
 - Activity calls là best-effort; counters có thể phản ánh replay events thay vì chỉ unique scenes.
+
+### App-update prompt state
+
+- Key: `@skidsenglish/app-update-prompt/v1`.
+- Manager: `src/engine/AppUpdateManager.ts`.
+- Chỉ lưu `latestVersion` đã hoãn và thời điểm hoãn để prompt khuyến nghị không xuất hiện lại trong
+  3 ngày. Một `latestVersion` mới bỏ qua trạng thái hoãn cũ; update bắt buộc không bao giờ bị hoãn.
+- Đây là metadata kỹ thuật local theo thiết bị, không sync cloud và không bị xóa khi phụ huynh đăng
+  xuất hoặc xóa tài khoản.
 
 Mọi schema/key change cần migration hoặc backward-compatible normalization và tests.
 
@@ -786,13 +804,50 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   `com.google.gms.google-services`, để local build thiếu Firebase config không fail. iOS autolink
   qua CocoaPods/RNFirebase static frameworks.
 
-### Monetization lifecycle, Remote Config và App Check
+### App update, Monetization lifecycle, Remote Config và App Check
+
+- `src/services/RemoteConfigService.ts` sở hữu defaults, fetch/activate và realtime subscription
+  dùng chung. `RemoteMonetizationConfig.ts` và `AppUpdateManager.ts` lần lượt chiếu các key liên
+  quan thành snapshot riêng cho monetization và app-update UI.
+- App-update dùng một JSON key `app_update_policy_v1`. Default local là
+  `{ "schemaVersion": 1, "enabled": false }`; vì vậy build mới không tự chặn khi console chưa có
+  policy. Policy bật phải có `minimumSupportedVersion`, `latestVersion` và `storeUrls.android` /
+  `storeUrls.ios`. URL được giới hạn về Google Play/App Store.
+
+```json
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "minimumSupportedVersion": "1.0",
+  "latestVersion": "1.0.1",
+  "storeUrls": {
+    "android": "https://play.google.com/store/apps/details?id=com.seduforge.skidsenglish",
+    "ios": "https://apps.apple.com/app/id<app-store-id>"
+  }
+}
+```
+
+- Version contract chấp nhận hai hoặc ba numeric segment (`1.0`, `1.0.1`, `2.11`) và normalize
+  segment patch thiếu thành `0` khi so sánh. App không so sánh chuỗi theo lexical order và không
+  dùng Android `versionCode`/iOS `CFBundleVersion` cho policy này.
+- `SkidsAppInfo` đọc Android `BuildConfig.VERSION_NAME` và iOS
+  `CFBundleShortVersionString`; native version không còn được hardcode trong TypeScript. Config,
+  native version hoặc fetch không hợp lệ đều fail open.
+- `currentVersion < minimumSupportedVersion` tạo full-screen required gate;
+  `minimumSupportedVersion <= currentVersion < latestVersion` tạo optional update card chỉ trong
+  Parent Mode; version bằng hoặc mới hơn latest không hiện prompt. Required gate tự phát và cho
+  phép phát lại clip gọi phụ huynh đã bundle sẵn, dùng biểu tượng phụ huynh làm hành động chính,
+  rồi mới mở phép tính và store. Manager kiểm tra khi khởi động, khi app về foreground và nhận
+  realtime update sau lần fetch thành công.
+- Vận hành dùng cùng release version cho Android/iOS. Chỉ publish `enabled: true` hoặc nâng
+  `minimumSupportedVersion` sau khi phiên bản đích và cả hai store URL đã được kiểm tra từ thiết bị;
+  build đầu tiên chứa checker phải phát hành với default disabled trước khi dùng hard gate.
 
 - Lifecycle entry nằm trong `App.tsx`. `src/engine/MonetizationManager.ts` sở hữu RevenueCat
   identity, offering/packages, purchase/restore, `CustomerInfo` listener và normalized snapshot;
   `src/config/monetization.ts` sở hữu entitlement/offering/product IDs, Remote Config key names và
   public client configuration.
-- Remote Config service nằm tại `src/services/RemoteMonetizationConfig.ts`. Client set defaults,
+- Remote monetization projection nằm tại `src/services/RemoteMonetizationConfig.ts`. Client set defaults,
   fetch/activate lúc app khởi động, refresh khi mở Premium và lắng nghe realtime updates trong lúc
   màn Premium có focus. Các key/default hiện tại:
   - `premium_purchase_enabled = true`;
@@ -944,6 +999,7 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | Voice activity/endpoint auto-stop   | Implemented                   | Implemented                   | Audio-level detector + timeout    |
 | On-device target-word endpoint hint | API 33+/model dependent       | Permission/model dependent    | VAD/silence/timeout               |
 | `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
+| `SkidsAppInfo` release version      | Implemented                   | Implemented                   | Update policy fail open           |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
 
 `SkidsAudio` contract được nối qua `NativeAudioAdapter.ts` và `VoiceRecorder.ts`. Android
@@ -956,6 +1012,10 @@ mọi asset hợp lệ trong batch đã có file cache khác rỗng; lỗi từn
 để ScenePlayer chuyển sang màn thử lại/thoát bài thay vì tự động bỏ qua. Android tách foreground
 executor cho audio sắp phát khỏi hàng đợi bulk prefetch và khóa theo cache key để không tải trùng
 cùng file.
+
+`SkidsAppInfo` chỉ expose release version cho app-update policy, Parent support UI và Crashlytics
+technical attributes khi phụ huynh đã opt in; module không expose device identifier hoặc build
+number.
 
 ## 9. Asset delivery và authoring pipeline
 
@@ -974,6 +1034,9 @@ cùng file.
   chúng trong development để lesson được chọn phát WAV từ local asset server; lệnh không gọi
   Google TTS, không sửa production manifest, không bundle WAV và không upload R2. Các lesson khác
   vẫn giữ hành vi QA audio chưa publish hiện tại.
+- Production generator `generateMissingAudio.mjs` dùng `GOOGLE_CLOUD_PROJECT`, rồi
+  `GCLOUD_PROJECT`, và mặc định quota/billing project là `fir-rootwords-prod`; token OAuth vẫn lấy
+  từ account `gcloud` active trừ khi `GOOGLE_TTS_ACCOUNT` chọn account khác.
 - Image URLs có manifest revision query để tránh stale device/CDN image cache.
 - English audio cache identity chứa cả accent và immutable release segment
   `neural2-c-r1`; en-US và en-GB không dùng chung R2/device-cache key.
@@ -1098,7 +1161,7 @@ Tại lần kiểm chứng gần nhất:
 - Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
   chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
   external keys/products/test accounts chưa có.
-- ESLint: pass với 27 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
+- ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
 
@@ -1117,6 +1180,8 @@ Support summary:
 | RevenueCat client entitlement lifecycle         | Implemented     |
 | Store-ready keys/products/legal config          | Partial         |
 | Remote Config monetization switches             | Implemented     |
+| Remote Config app-update policy                  | Implemented     |
+| Parent-only optional + kid-safe required update  | Implemented     |
 | Founder cutoff/duration local access            | Implemented     |
 | Firebase App Check client initialization        | Implemented     |
 | Firebase App Check backend enforcement          | Partial         |

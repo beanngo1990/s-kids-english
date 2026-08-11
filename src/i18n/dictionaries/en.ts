@@ -12,6 +12,30 @@ export const en: TranslationDictionary = {
   'notifications.dailyTitle': 'Time to learn!',
   'notifications.dailyBody': 'Let’s learn English together.',
 
+  'appUpdate.laterAction': 'Later',
+  'appUpdate.callParentAction': 'Ask a parent',
+  'appUpdate.childReplayHint': 'Tap Sungy to hear it again',
+  'appUpdate.childTitle': 'Please ask a parent to help Sungy!',
+  'appUpdate.openingStore': 'Opening the store...',
+  'appUpdate.optionalBadge': 'Update available',
+  'appUpdate.optionalText':
+    'Update to get the latest improvements. Your child can keep learning with the current version for now.',
+  'appUpdate.optionalTitle': 'Update Sungy',
+  'appUpdate.parentGateHint':
+    'Solve this calculation to open the store and update the app.',
+  'appUpdate.requiredBadge': 'Update required',
+  'appUpdate.requiredText':
+    'This version is no longer supported. Please update so your child can continue using Sungy safely.',
+  'appUpdate.requiredTitle': 'Please update the app',
+  'appUpdate.replayPromptAccessibility':
+    'Tap Sungy to hear the request for a parent again',
+  'appUpdate.storeErrorText':
+    'The app store could not be opened. Check your connection and try again.',
+  'appUpdate.storeErrorTitle': 'Could not open the store',
+  'appUpdate.updateAction': 'Update now',
+  'appUpdate.versionSummary':
+    'Current v{currentVersion} · Latest v{latestVersion}',
+
   'nav.themeLibrary': 'Theme Library',
   'nav.lessonList': 'Lessons',
   'nav.lessonPack': 'Lesson Pack',

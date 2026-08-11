@@ -37,13 +37,15 @@ import { ChildProfileCard } from '../components/ChildProfileCard';
 import { KidBadge } from '../components/KidBadge';
 import { MascotImage } from '../components/mascot';
 import { ParentAccountCard } from '../components/ParentAccountCard';
+import { ParentAppUpdateCard } from '../components/ParentAppUpdateCard';
+import { ParentGateChallengeCard } from '../components/ParentGateChallengeCard';
 import { PremiumLessonLockIndicator } from '../components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
-import { APP_SUPPORT_EMAIL, APP_VERSION } from '../config/appInfo';
+import { APP_SUPPORT_EMAIL } from '../config/appInfo';
 import { monetizationConfig } from '../config/monetization';
 import { lessons } from '../data/lessons';
 import { themes } from '../data/themes';
@@ -56,6 +58,7 @@ import {
   canAccessLesson,
   canAccessReview,
 } from '../engine/ContentAccessPolicy';
+import { getAppVersion } from '../engine/AppInfo';
 import {
   getParentSettings,
   learningDifficultyOptions,
@@ -66,7 +69,6 @@ import {
 } from '../engine/ParentSettingsManager';
 import { useMonetizationSnapshot } from '../engine/MonetizationManager';
 import {
-  grantParentAccess,
   revokeParentAccess,
   setParentExternalFlowActive,
   useParentAccessSnapshot,
@@ -111,33 +113,7 @@ import {
 import { ReminderUpdateGuard } from '../utils/ReminderUpdateGuard';
 import { getEarnedStickerCount } from '../utils/stickerStats';
 
-const GATE_COOLDOWN_MS = 10000;
 const WEEKLY_WORD_TARGET = 30;
-
-type ParentGateChallenge = Readonly<{
-  answer: number;
-  expression: string;
-}>;
-
-function createParentGateChallenge(): ParentGateChallenge {
-  const first = 10 + Math.floor(Math.random() * 90);
-  const second = 10 + Math.floor(Math.random() * 90);
-  const shouldAdd = Math.random() >= 0.5;
-
-  if (shouldAdd) {
-    return {
-      answer: first + second,
-      expression: `${first} + ${second}`,
-    };
-  }
-
-  const larger = Math.max(first, second);
-  const smaller = Math.min(first, second);
-  return {
-    answer: larger - smaller,
-    expression: `${larger} − ${smaller}`,
-  };
-}
 
 type ParentTab = 'stats' | 'lessons' | 'settings';
 type LearningSettingsSheet = 'journey' | 'difficulty';
@@ -183,12 +159,8 @@ export function ParentScreen({ navigation, route }: Props) {
   const responsiveLayout = useResponsiveLayout();
   const { isGranted: isUnlocked } = useParentAccessSnapshot();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [gateChallenge, setGateChallenge] = useState(createParentGateChallenge);
-  const [gateAnswer, setGateAnswer] = useState('');
-  const [gateError, setGateError] = useState(false);
-  const [gateWrongAttemptCount, setGateWrongAttemptCount] = useState(0);
-  const [isGateCoolingDown, setIsGateCoolingDown] = useState(false);
   const [isDashboardReady, setIsDashboardReady] = useState(false);
+  const [appVersion, setAppVersion] = useState('—');
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
   const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
@@ -237,9 +209,6 @@ export function ParentScreen({ navigation, route }: Props) {
 
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [savingMode, setSavingMode] = useState<LearningMode | null>(null);
-  const gateCooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
-    null,
-  );
   const reminderExternalFlowRef = useRef(false);
   const reminderExternalFlowFallbackTimerRef =
     useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -610,13 +579,6 @@ export function ParentScreen({ navigation, route }: Props) {
     </View>
   );
 
-  function clearGateCooldownTimer() {
-    if (gateCooldownTimerRef.current) {
-      clearTimeout(gateCooldownTimerRef.current);
-      gateCooldownTimerRef.current = null;
-    }
-  }
-
   const finishReminderExternalFlow = useCallback(() => {
     if (reminderExternalFlowFallbackTimerRef.current) {
       clearTimeout(reminderExternalFlowFallbackTimerRef.current);
@@ -721,7 +683,17 @@ export function ParentScreen({ navigation, route }: Props) {
   }, [isUnlocked, navigation, refreshParentData]);
 
   useEffect(() => {
-    return clearGateCooldownTimer;
+    let isMounted = true;
+
+    getAppVersion().then(version => {
+      if (isMounted && version) {
+        setAppVersion(version);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -748,36 +720,6 @@ export function ParentScreen({ navigation, route }: Props) {
   );
 
   useEffect(() => {
-    const subscription = AppState.addEventListener('change', nextState => {
-      if (nextState === 'active' || isUnlocked) {
-        return;
-      }
-
-      clearGateCooldownTimer();
-      setGateChallenge(createParentGateChallenge());
-      setGateAnswer('');
-      setGateError(false);
-      setGateWrongAttemptCount(0);
-      setIsGateCoolingDown(false);
-    });
-
-    return () => subscription.remove();
-  }, [isUnlocked]);
-
-  useEffect(() => {
-    if (isUnlocked) {
-      return;
-    }
-
-    setGateChallenge(createParentGateChallenge());
-    setGateAnswer('');
-    setGateError(false);
-    setGateWrongAttemptCount(0);
-    setIsGateCoolingDown(false);
-    clearGateCooldownTimer();
-  }, [isUnlocked]);
-
-  useEffect(() => {
     if (!isUnlocked || !route.params?.intent) {
       return;
     }
@@ -795,38 +737,6 @@ export function ParentScreen({ navigation, route }: Props) {
       navigation.navigate('Premium');
     }
   }, [isUnlocked, navigation, route.params?.intent, route.params?.lessonId]);
-
-  const handleGateChallengeSubmit = () => {
-    if (isGateCoolingDown || gateAnswer.trim().length === 0) {
-      return;
-    }
-
-    if (Number(gateAnswer.trim()) === gateChallenge.answer) {
-      setGateError(false);
-      setGateWrongAttemptCount(0);
-      grantParentAccess();
-      return;
-    }
-
-    const nextWrongAttemptCount = gateWrongAttemptCount + 1;
-    setGateError(true);
-    setGateAnswer('');
-    setGateWrongAttemptCount(nextWrongAttemptCount);
-    setGateChallenge(createParentGateChallenge());
-
-    if (nextWrongAttemptCount < 3) {
-      return;
-    }
-
-    setGateWrongAttemptCount(0);
-    setIsGateCoolingDown(true);
-    clearGateCooldownTimer();
-    gateCooldownTimerRef.current = setTimeout(() => {
-      setIsGateCoolingDown(false);
-      setGateError(false);
-      gateCooldownTimerRef.current = null;
-    }, GATE_COOLDOWN_MS);
-  };
 
   const handleOpenLesson = (lessonId: string) => {
     if (!canAccessLesson(lessonId, monetizationSnapshot)) {
@@ -1491,55 +1401,7 @@ export function ParentScreen({ navigation, route }: Props) {
         keyboardOffset={90}
       >
         <View style={styles.gateContainer}>
-          <AppCard style={styles.gateCard}>
-            <KidBadge tone="teal">{t('parent.gate.badge')}</KidBadge>
-            <Text style={styles.title}>{t('parent.gate.challengeTitle')}</Text>
-            <Text style={styles.gateHint}>
-              {t('parent.gate.challengeHint')}
-            </Text>
-            <Text style={styles.gateQuestion}>
-              {gateChallenge.expression} = ?
-            </Text>
-            <TextInput
-              accessibilityLabel={t('parent.gate.challengePlaceholder')}
-              editable={!isGateCoolingDown}
-              keyboardType="number-pad"
-              onChangeText={value => {
-                setGateAnswer(value.replace(/[^0-9-]/g, ''));
-                setGateError(false);
-              }}
-              onSubmitEditing={handleGateChallengeSubmit}
-              placeholder={t('parent.gate.challengePlaceholder')}
-              placeholderTextColor={colors.muted}
-              returnKeyType="done"
-              style={styles.gateAnswerInput}
-              value={gateAnswer}
-            />
-            {isGateCoolingDown ? (
-              <Text style={styles.gateError}>
-                {t('parent.gate.challengeCooldown')}
-              </Text>
-            ) : gateError ? (
-              <Text style={styles.gateError}>
-                {t('parent.gate.challengeWrong')}
-              </Text>
-            ) : null}
-            <Pressable
-              accessibilityRole="button"
-              disabled={isGateCoolingDown || gateAnswer.trim().length === 0}
-              onPress={handleGateChallengeSubmit}
-              style={({ pressed }) => [
-                styles.gateButton,
-                (isGateCoolingDown || gateAnswer.trim().length === 0) &&
-                  styles.actionDisabled,
-                pressed && styles.gateButtonActive,
-              ]}
-            >
-              <Text style={styles.gateButtonText}>
-                {t('parent.gate.challengeSubmit')}
-              </Text>
-            </Pressable>
-          </AppCard>
+          <ParentGateChallengeCard />
         </View>
       </Screen>
     );
@@ -1548,6 +1410,8 @@ export function ParentScreen({ navigation, route }: Props) {
   return (
     <View style={styles.screenContainer}>
       <Screen scroll withBottomSpace={false} safeAreaEdges={['left', 'right']}>
+        <ParentAppUpdateCard />
+
         {activeTab === 'stats' && (
           <View style={styles.tabContent}>
             <ChildProfileCard
@@ -3137,7 +3001,7 @@ export function ParentScreen({ navigation, route }: Props) {
 
                 <View
                   accessibilityLabel={t('parent.support.versionAccessibility', {
-                    version: APP_VERSION,
+                    version: appVersion,
                   })}
                   style={[
                     styles.learningSettingsRow,
@@ -3161,7 +3025,7 @@ export function ParentScreen({ navigation, route }: Props) {
                   <View style={styles.learningSettingsRowValue}>
                     <Text style={styles.learningSettingsValueText}>
                       {t('parent.support.versionValue', {
-                        version: APP_VERSION,
+                        version: appVersion,
                       })}
                     </Text>
                   </View>
@@ -3586,44 +3450,16 @@ const styles = createThemedStyles(() => ({
     flexWrap: 'wrap',
     gap: spacing.md,
   },
-  gateCard: {
-    gap: spacing.lg,
-  },
   gateContainer: {
     flexGrow: 1,
     justifyContent: 'center',
     padding: spacing.lg,
-  },
-  gateHint: {
-    color: colors.textSoft,
-    ...typography.body,
-  },
-  gateQuestion: {
-    color: colors.text,
-    textAlign: 'center',
-    ...typography.hero,
   },
   configTitleRow: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.xs,
     justifyContent: 'space-between',
-  },
-  gateAnswerInput: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    color: colors.text,
-    minHeight: 56,
-    paddingHorizontal: spacing.md,
-    textAlign: 'center',
-    ...typography.title,
-  },
-  gateError: {
-    color: colors.alert,
-    textAlign: 'center',
-    ...typography.caption,
   },
   header: {
     gap: spacing.sm,
@@ -4532,25 +4368,6 @@ const styles = createThemedStyles(() => ({
     paddingVertical: spacing.xs,
     textAlign: 'right',
     ...typography.caption,
-  },
-  gateButton: {
-    alignItems: 'center',
-    backgroundColor: colors.secondary,
-    borderColor: colors.outlineStrong,
-    borderWidth: 2,
-    borderRadius: radius.pill,
-    justifyContent: 'center',
-    minHeight: 72,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-  },
-  gateButtonActive: {
-    backgroundColor: colors.secondaryDark,
-  },
-  gateButtonText: {
-    color: colors.text,
-    textAlign: 'center',
-    ...typography.button,
   },
   privacyCard: {
     backgroundColor: colors.surfaceBlue,

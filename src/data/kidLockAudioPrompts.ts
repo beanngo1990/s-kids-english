@@ -1,4 +1,8 @@
 export const kidLockAudioPrompts = {
+  appUpdate: {
+    en: 'Please ask a parent to help Sungy update the app.',
+    vi: 'Bé ơi, gọi ba mẹ giúp Sungy nhé!',
+  },
   premium: {
     en: 'This lesson needs a parent to unlock it. Ask a parent for help!',
     vi: 'Bài này cần ba mẹ mở khóa. Con gọi ba mẹ nhé!',

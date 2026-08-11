@@ -61085,6 +61085,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 46701,
+      "key": "ui/audio/en-GB/neural2-c-r1/kid_lock_appupdate_80559621.mp3",
+      "sha256": "7ba2b8b2d5769ade24e2a6b5b923d2c8ebc2415b6b12aa1af013dca102ec30e5",
+      "text": "Please ask a parent to help Sungy update the app.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 253892,
       "key": "ui/audio/en-GB/neural2-c-r1/kid_lock_premium_bf7ed6cb.wav",
       "sha256": "a3b64be577cea64ad4e8a64067acb1326a13505e2dad0c08430def2c074ee669",
@@ -61201,6 +61209,14 @@
       "key": "ui/audio/en-US/neural2-c-r1/home_review_tap_two.wav",
       "sha256": "d40f73a406586bde77482354402ab7685104cd315db86ce56d587a6d2a6f034b",
       "text": "Finish the review and Sungy will give a sticker!",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43245,
+      "key": "ui/audio/en-US/neural2-c-r1/kid_lock_appupdate_80559621.mp3",
+      "sha256": "73f3f74b1aa4d7bb97a6750ff10f9d2b7a2bd2afb01aa6402fd816afb7035ad8",
+      "text": "Please ask a parent to help Sungy update the app.",
       "voice": "en-US-Neural2-C"
     },
     {
