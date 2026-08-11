@@ -1,4 +1,4 @@
-# Đặc tả Dự án - SKidsEnglish
+# Đặc tả Dự án - Sungy
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
@@ -6,7 +6,8 @@
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
-audio rollout, monetization Phase 1-3 và app-update policy trong working tree hiện tại.
+audio rollout, monetization Phase 1-3, app-update policy và parent-only app review trong working
+tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -35,7 +36,7 @@ code theo spec hoặc sửa spec theo code một cách âm thầm.
 
 ## 2. Product snapshot
 
-SKidsEnglish là ứng dụng React Native giúp trẻ học từ/cụm từ tiếng Anh qua các tình huống sinh
+Sungy là ứng dụng React Native giúp trẻ học từ/cụm từ tiếng Anh qua các tình huống sinh
 hoạt thường ngày. Sản phẩm dạy tiếng Anh cố định; localization chỉ áp dụng cho UI và hướng dẫn
 của cô giáo. UI/hướng dẫn hiện vẫn Vietnamese-first, nhưng đã có foundation `vi`/`en` cho một số
 cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
@@ -66,6 +67,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   public SDK keys và legal URLs vẫn chưa được điền.
 - **Implemented:** kiểm tra phiên bản phát hành qua Firebase Remote Config, nhắc cập nhật có thể
   hoãn và chặn phiên bản thấp hơn ngưỡng hỗ trợ tối thiểu; thao tác mở store luôn qua adult gate.
+- **Implemented:** lời mời đánh giá hệ thống chỉ chạy trong Parent Mode đã mở khóa sau khi gia đình
+  có đủ thời gian/trải nghiệm học; Kid Mode, lesson, review game và reward không hiển thị prompt.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
 Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
@@ -105,6 +108,7 @@ index.js
      -> startCloudProgressSync()
      -> startRemoteMonetizationConfig()
      -> startAppUpdateManager()
+     -> initializeAppReviewTracking()
      -> startMonetization()
      -> startParentAccessSessionLifecycle()
      -> AppThemeProvider
@@ -350,6 +354,16 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
   background music, contact support email và app version đọc trực tiếp từ native release metadata.
+- **Implemented:** đánh giá ứng dụng là parent-only. Prompt native chỉ được cân nhắc khi Parent
+  dashboard đã ổn định, app đã được theo dõi ít nhất 7 ngày, có hoạt động học ở ít nhất 3 ngày và
+  đã hoàn thành ít nhất 3 lesson. App chờ 2,5 giây tại điểm nghỉ, không hiện cùng update/crash/
+  settings flow, không chạy tự động trong development, chỉ thử một lần mỗi app version, cooldown
+  tối thiểu 90 ngày và tối đa 2 lần trong 365 ngày. App chỉ lưu lần đã gọi API vì StoreKit/Google
+  Play không cho biết prompt có hiện hoặc phụ huynh có gửi đánh giá hay không.
+- Tab Settings có link chủ động "Đánh giá Sungy" trong nhóm hỗ trợ, vẫn nằm sau adult gate.
+  Android dùng Play Store package URL và browser fallback. iOS thêm `action=write-review` vào URL
+  App Store hợp lệ từ app-update policy hoặc fallback tĩnh `https://apps.apple.com/app/id6790650146`
+  trong `src/config/appInfo.ts`.
 - Các config chính trong Góc phụ huynh có giải thích ngắn theo ba ý: tính năng là gì, ảnh hưởng
   tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
   sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
@@ -667,7 +681,7 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 ## 7. Local persistence, parent auth và cloud learning data
 
-App luôn dùng năm AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng sáu AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
@@ -739,6 +753,19 @@ của learning progress và selected parent settings sau parent opt-in:
   3 ngày. Một `latestVersion` mới bỏ qua trạng thái hoãn cũ; update bắt buộc không bao giờ bị hoãn.
 - Đây là metadata kỹ thuật local theo thiết bị, không sync cloud và không bị xóa khi phụ huynh đăng
   xuất hoặc xóa tài khoản.
+
+### App-review prompt state
+
+- Key: `@skidsenglish/app-review/v1`.
+- Manager: `src/engine/AppReviewManager.ts`.
+- Schema giữ `firstSeenAt` và danh sách attempt gần đây gồm app version/thời điểm. Parser bỏ entry
+  malformed, giới hạn số attempt lưu và tạo state mới an toàn khi store thiếu/hỏng.
+- Eligibility dùng app age, số ngày có daily activity, số lesson hoàn thành, per-version guard,
+  cooldown 90 ngày và rolling cap 2 lần/365 ngày. Native API có thể no-op do quota/store history;
+  state không có field `hasRated` và không suy diễn kết quả đánh giá.
+- Đây là metadata kỹ thuật local theo install, không sync cloud, không chứa child profile/progress
+  chi tiết và không bị xóa khi phụ huynh đăng xuất/xóa tài khoản. Gỡ app có thể xóa state này,
+  nhưng App Store/Google Play vẫn tự quản lý rating history và quota của nền tảng.
 
 Mọi schema/key change cần migration hoặc backward-compatible normalization và tests.
 
@@ -822,7 +849,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
   "latestVersion": "1.0.1",
   "storeUrls": {
     "android": "https://play.google.com/store/apps/details?id=com.seduforge.skidsenglish",
-    "ios": "https://apps.apple.com/app/id<app-store-id>"
+    "ios": "https://apps.apple.com/app/id6790650146"
   }
 }
 ```
@@ -842,6 +869,18 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Vận hành dùng cùng release version cho Android/iOS. Chỉ publish `enabled: true` hoặc nâng
   `minimumSupportedVersion` sau khi phiên bản đích và cả hai store URL đã được kiểm tra từ thiết bị;
   build đầu tiên chứa checker phải phát hành với default disabled trước khi dùng hard gate.
+
+### Parent-only app review
+
+- `src/engine/AppReviewManager.ts` sở hữu eligibility, local attempt metadata, native request và
+  store-link resolution. `App.tsx` khởi tạo install-local tracking best-effort.
+- `SkidsAppReview` gọi Google Play In-App Review `2.0.2` trên Android và StoreKit
+  `AppStore.requestReview(in:)` trên iOS 16+, với `SKStoreReviewController` fallback cho iOS 15.
+  Bridge chỉ resolve rằng request đã được chuyển cho platform; không trả rating, review text hoặc
+  trạng thái submit.
+- Automatic request chỉ được schedule từ Parent stats sau adult gate. Persistent review link chỉ
+  nằm trong Parent settings; không có custom pre-prompt, sentiment filtering, phần thưởng, XP,
+  sticker hay lời nhờ bé đánh giá.
 
 - Lifecycle entry nằm trong `App.tsx`. `src/engine/MonetizationManager.ts` sở hữu RevenueCat
   identity, offering/packages, purchase/restore, `CustomerInfo` listener và normalized snapshot;
@@ -1000,6 +1039,7 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | On-device target-word endpoint hint | API 33+/model dependent       | Permission/model dependent    | VAD/silence/timeout               |
 | `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
 | `SkidsAppInfo` release version      | Implemented                   | Implemented                   | Update policy fail open           |
+| `SkidsAppReview` system prompt      | Implemented                   | Implemented                   | Silent no-op khi store từ chối    |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
 
 `SkidsAudio` contract được nối qua `NativeAudioAdapter.ts` và `VoiceRecorder.ts`. Android
@@ -1016,6 +1056,9 @@ cùng file.
 `SkidsAppInfo` chỉ expose release version cho app-update policy, Parent support UI và Crashlytics
 technical attributes khi phụ huynh đã opt in; module không expose device identifier hoặc build
 number.
+
+`SkidsAppReview` chỉ expose thao tác request system review prompt. Google Play/App Store sở hữu
+quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc biết prompt có thực sự xuất hiện.
 
 ## 9. Asset delivery và authoring pipeline
 
@@ -1156,11 +1199,13 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 360/360 tests pass trong 54 suites.
+- Jest: 442/442 tests pass trong 67 suites.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
-- Native build-only: Android Debug pass; iOS Simulator arm64 đã pass ở baseline trước nhưng chưa
-  chạy lại cho thay đổi này. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì
-  external keys/products/test accounts chưa có.
+- Native build-only: iOS Simulator arm64 pass cho working tree hiện tại. Android
+  `:app:compileDebugKotlin` pass; full `assembleDebug` hiện bị chặn trước app link bởi
+  `libreactnative.so` thiếu trong local Gradle transform cache, trong khi Android Debug baseline
+  trước đó đã pass. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì external
+  keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
@@ -1182,6 +1227,9 @@ Support summary:
 | Remote Config monetization switches             | Implemented     |
 | Remote Config app-update policy                  | Implemented     |
 | Parent-only optional + kid-safe required update  | Implemented     |
+| Parent-only system app review prompt            | Implemented     |
+| Persistent Android review store link            | Implemented     |
+| Persistent iOS review store link                | Implemented     |
 | Founder cutoff/duration local access            | Implemented     |
 | Firebase App Check client initialization        | Implemented     |
 | Firebase App Check backend enforcement          | Partial         |

@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AppUpdateGate } from './src/components/AppUpdateGate';
 import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
+import { initializeAppReviewTracking } from './src/engine/AppReviewManager';
 import { startAppUpdateManager } from './src/engine/AppUpdateManager';
 import { startBackgroundMusicManager } from './src/engine/BackgroundMusicManager';
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
@@ -21,6 +22,7 @@ configureNativeAudioAdapter();
 
 function App() {
   useEffect(() => {
+    initializeAppReviewTracking().catch(() => undefined);
     startFirebaseAppCheck()
       .then(() => syncAppCheckTokenToNativeCache())
       .catch(() => undefined);

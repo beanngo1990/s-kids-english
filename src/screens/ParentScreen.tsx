@@ -55,10 +55,16 @@ import {
   type ActivityLog,
 } from '../engine/DailyActivityTracker';
 import {
+  getAppReviewStoreUrl,
+  openAppReviewStore,
+  requestAutomaticAppReview,
+} from '../engine/AppReviewManager';
+import {
   canAccessLesson,
   canAccessReview,
 } from '../engine/ContentAccessPolicy';
 import { getAppVersion } from '../engine/AppInfo';
+import { useAppUpdateSnapshot } from '../engine/AppUpdateManager';
 import {
   getParentSettings,
   learningDifficultyOptions,
@@ -159,8 +165,10 @@ export function ParentScreen({ navigation, route }: Props) {
   const responsiveLayout = useResponsiveLayout();
   const { isGranted: isUnlocked } = useParentAccessSnapshot();
   const monetizationSnapshot = useMonetizationSnapshot();
+  const appUpdateSnapshot = useAppUpdateSnapshot();
   const [isDashboardReady, setIsDashboardReady] = useState(false);
   const [appVersion, setAppVersion] = useState('—');
+  const [isOpeningReviewStore, setIsOpeningReviewStore] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
   const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
@@ -214,6 +222,7 @@ export function ParentScreen({ navigation, route }: Props) {
     useRef<ReturnType<typeof setTimeout> | null>(null);
   const reminderUpdateGuard = useMemo(() => new ReminderUpdateGuard(), []);
   const handledIntentRef = useRef<string | null>(null);
+  const automaticReviewAttemptedRef = useRef(false);
   const learnedWordCount = progress?.learnedWordIds.length ?? 0;
   const completedLessonCount = progress?.completedLessonIds.length ?? 0;
   const earnedStickerCount = getEarnedStickerCount(progress, activityLog);
@@ -468,6 +477,7 @@ export function ParentScreen({ navigation, route }: Props) {
       : t('common.auto');
   const shouldShowCrashReportPrompt =
     isDashboardReady && hasPendingCrashReport && !crashReportingEnabled;
+  const appReviewStoreUrl = getAppReviewStoreUrl(appUpdateSnapshot.storeUrl);
   const getParentInfoContent = useCallback(
     (topic: ParentInfoTopic): ParentInfoContent => ({
       childImpact: t(`parent.info.${topic}.childImpact`),
@@ -697,6 +707,80 @@ export function ParentScreen({ navigation, route }: Props) {
   }, []);
 
   useEffect(() => {
+    const hasBlockingIntent =
+      route.params?.intent === 'premium' ||
+      route.params?.intent === 'founderPromo';
+    const hasBlockingOverlay = Boolean(
+      appSettingsSheet ||
+        infoTopic ||
+        learningSettingsSheet ||
+        showTimePicker ||
+        showYearPicker,
+    );
+
+    if (
+      __DEV__ ||
+      automaticReviewAttemptedRef.current ||
+      !isUnlocked ||
+      !isDashboardReady ||
+      activeTab !== 'stats' ||
+      !progress ||
+      !activityLog ||
+      appVersion === '—' ||
+      !appUpdateSnapshot.isReady ||
+      appUpdateSnapshot.status !== 'none' ||
+      hasBlockingIntent ||
+      hasBlockingOverlay ||
+      shouldShowCrashReportPrompt ||
+      isCrashReportActionPending ||
+      isOpeningReviewStore ||
+      isReminderUpdatePending ||
+      Boolean(savingMode)
+    ) {
+      return;
+    }
+
+    let isCancelled = false;
+    const timer = setTimeout(() => {
+      if (isCancelled || automaticReviewAttemptedRef.current) {
+        return;
+      }
+
+      automaticReviewAttemptedRef.current = true;
+      requestAutomaticAppReview({
+        activityEntries: activityLog.entries,
+        appVersion,
+        completedLessonCount: progress.completedLessonIds.length,
+      }).catch(() => undefined);
+    }, 2500);
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timer);
+    };
+  }, [
+    activeTab,
+    activityLog,
+    appSettingsSheet,
+    appUpdateSnapshot.isReady,
+    appUpdateSnapshot.status,
+    appVersion,
+    infoTopic,
+    isCrashReportActionPending,
+    isDashboardReady,
+    isOpeningReviewStore,
+    isReminderUpdatePending,
+    isUnlocked,
+    learningSettingsSheet,
+    progress,
+    route.params?.intent,
+    savingMode,
+    shouldShowCrashReportPrompt,
+    showTimePicker,
+    showYearPicker,
+  ]);
+
+  useEffect(() => {
     if (!isUnlocked) {
       return;
     }
@@ -877,6 +961,32 @@ export function ParentScreen({ navigation, route }: Props) {
       );
     });
   }, [t]);
+
+  const handleRateApp = useCallback(async () => {
+    if (!appReviewStoreUrl || isOpeningReviewStore) {
+      return;
+    }
+
+    setIsOpeningReviewStore(true);
+    setParentExternalFlowActive(true);
+    try {
+      const didOpen = await openAppReviewStore(appUpdateSnapshot.storeUrl);
+      if (!didOpen) {
+        Alert.alert(
+          t('parent.support.reviewErrorTitle'),
+          t('parent.support.reviewErrorText'),
+        );
+      }
+    } finally {
+      setParentExternalFlowActive(false);
+      setIsOpeningReviewStore(false);
+    }
+  }, [
+    appReviewStoreUrl,
+    appUpdateSnapshot.storeUrl,
+    isOpeningReviewStore,
+    t,
+  ]);
 
   const handleToggleCrashReporting = async (nextValue?: boolean) => {
     const next = nextValue ?? !crashReportingEnabled;
@@ -2998,6 +3108,40 @@ export function ParentScreen({ navigation, route }: Props) {
                   </View>
                   <Text style={styles.learningSettingsChevron}>›</Text>
                 </Pressable>
+
+                {appReviewStoreUrl ? (
+                  <Pressable
+                    accessibilityLabel={t(
+                      'parent.support.reviewAccessibility',
+                    )}
+                    accessibilityRole="link"
+                    disabled={isOpeningReviewStore}
+                    onPress={() => handleRateApp().catch(() => undefined)}
+                    style={({ pressed }) => [
+                      styles.learningSettingsRow,
+                      isOpeningReviewStore && styles.optionDisabled,
+                      pressed && !isOpeningReviewStore && styles.pressed,
+                    ]}
+                  >
+                    <View style={styles.learningSettingsRowIcon}>
+                      <AppUiIcon name="reward" size={30} />
+                    </View>
+                    <View style={styles.learningSettingsRowCopy}>
+                      <Text style={styles.learningSettingsRowTitle}>
+                        {t('parent.support.reviewTitle')}
+                      </Text>
+                      <Text
+                        numberOfLines={2}
+                        style={styles.learningSettingsRowSubtitle}
+                      >
+                        {isOpeningReviewStore
+                          ? t('parent.support.reviewOpening')
+                          : t('parent.support.reviewSubtitle')}
+                      </Text>
+                    </View>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </Pressable>
+                ) : null}
 
                 <View
                   accessibilityLabel={t('parent.support.versionAccessibility', {

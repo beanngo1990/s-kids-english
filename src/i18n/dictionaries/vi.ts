@@ -481,6 +481,14 @@ export const vi = {
     'Không mở được ứng dụng email. Bạn có thể gửi thư tới {email}.',
   'parent.support.emailErrorTitle': 'Không mở được email',
   'parent.support.emailSubject': 'Hỗ trợ Sungy',
+  'parent.support.reviewAccessibility': 'Đánh giá Sungy trên cửa hàng',
+  'parent.support.reviewErrorText':
+    'Không mở được cửa hàng ứng dụng. Vui lòng thử lại sau.',
+  'parent.support.reviewErrorTitle': 'Không mở được cửa hàng',
+  'parent.support.reviewOpening': 'Đang mở cửa hàng ứng dụng…',
+  'parent.support.reviewSubtitle':
+    'Chia sẻ cảm nhận của ba mẹ trên cửa hàng ứng dụng.',
+  'parent.support.reviewTitle': 'Đánh giá Sungy',
   'parent.support.title': 'Liên hệ & thông tin',
   'parent.support.versionAccessibility': 'Phiên bản ứng dụng {version}',
   'parent.support.versionSubtitle': 'Phiên bản đang cài đặt trên thiết bị.',

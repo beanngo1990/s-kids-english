@@ -10,6 +10,8 @@
 		0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45508575BE9ABA334A71E23 /* SkidsAudio.swift */; };
 		1A2B3C4D5E6F708192A3B401 /* SkidsAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */; };
 		1A2B3C4D5E6F708192A3B402 /* SkidsAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */; };
+		1B3C4D5E6F708192A3B4C501 /* SkidsAppReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */; };
+		1B3C4D5E6F708192A3B4C502 /* SkidsAppReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		26142D856EE9BF3E68464642 /* sfx_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF85A6E2DA29E4948141 /* sfx_tap.wav */; };
 		2BF9B38AB8B5B03F169B929B /* sfx_yay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2B2EC4B01265D9502528AE9B /* sfx_yay.wav */; };
@@ -37,6 +39,8 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SKidsEnglish/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAppInfo.swift; path = SKidsEnglish/SkidsAppInfo.swift; sourceTree = "<group>"; };
 		1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAppInfo.m; path = SKidsEnglish/SkidsAppInfo.m; sourceTree = "<group>"; };
+		1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAppReview.swift; path = SKidsEnglish/SkidsAppReview.swift; sourceTree = "<group>"; };
+		1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAppReview.m; path = SKidsEnglish/SkidsAppReview.m; sourceTree = "<group>"; };
 		2B2EC4B01265D9502528AE9B /* sfx_yay.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_yay.wav; path = ../src/assets/shared/audio/sfx/sfx_yay.wav; sourceTree = "<group>"; };
 		2EC9750D4DCA03C5EEF8FF53 /* sfx_wrong.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_wrong.wav; path = ../src/assets/shared/audio/sfx/sfx_wrong.wav; sourceTree = "<group>"; };
 		326BF4E71E08D1E97824F2BB /* sfx_clap.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_clap.wav; path = ../src/assets/shared/audio/sfx/sfx_clap.wav; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */,
 				1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */,
+				1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */,
+				1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */,
 				E45508575BE9ABA334A71E23 /* SkidsAudio.swift */,
 				DF55217C8A99849D57208CBB /* SkidsAudio.m */,
 				9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */,
@@ -355,6 +361,8 @@
 			files = (
 				1A2B3C4D5E6F708192A3B401 /* SkidsAppInfo.swift in Sources */,
 				1A2B3C4D5E6F708192A3B402 /* SkidsAppInfo.m in Sources */,
+				1B3C4D5E6F708192A3B4C501 /* SkidsAppReview.swift in Sources */,
+				1B3C4D5E6F708192A3B4C502 /* SkidsAppReview.m in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */,
 				E701EF0FF40040455674891C /* SkidsAudio.m in Sources */,

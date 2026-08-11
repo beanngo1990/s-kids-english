@@ -480,6 +480,14 @@ export const en: TranslationDictionary = {
     'Could not open an email app. You can send a message to {email}.',
   'parent.support.emailErrorTitle': 'Could not open email',
   'parent.support.emailSubject': 'Sungy support',
+  'parent.support.reviewAccessibility': 'Rate Sungy in the store',
+  'parent.support.reviewErrorText':
+    'Could not open the app store. Please try again later.',
+  'parent.support.reviewErrorTitle': 'Could not open the store',
+  'parent.support.reviewOpening': 'Opening the app store…',
+  'parent.support.reviewSubtitle':
+    'Share your experience as a parent in the app store.',
+  'parent.support.reviewTitle': 'Rate Sungy',
   'parent.support.title': 'Contact & app info',
   'parent.support.versionAccessibility': 'App version {version}',
   'parent.support.versionSubtitle': 'The version installed on this device.',

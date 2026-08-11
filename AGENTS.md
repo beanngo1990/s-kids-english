@@ -1,7 +1,20 @@
-# SKidsEnglish - AI Working Guide
+# Sungy (repository SKidsEnglish) - AI Working Guide
 
 Tài liệu này áp dụng cho toàn bộ repository. Mục tiêu là giúp AI hiểu nhanh kiến trúc,
 giới hạn và cách kiểm tra thay đổi mà không phải khảo sát lại toàn bộ dự án ở mỗi task.
+
+## 0. Product name và technical identifiers
+
+- Tên sản phẩm, tên hiển thị và tên dùng trong mọi user-facing copy là **Sungy**. Dùng `Sungy`
+  trong UI, accessibility label, store-facing copy, email subject và khi mô tả sản phẩm trong docs.
+- `SKidsEnglish` chỉ là technical identifier kế thừa của repository, npm/app registration, React
+  Native module, Xcode target/workspace và một số path native. Không hiển thị `SKidsEnglish` cho
+  người dùng và không tự đổi các identifier này nếu task không có migration plan rõ ràng.
+- Khi chưa chắc một chuỗi là product name hay technical identifier, đối chiếu `app.json`
+  (`displayName`), Android `app_name` và iOS `CFBundleDisplayName` trước khi viết copy.
+- Store identity hiện tại của Sungy: Android package `com.seduforge.skidsenglish`; iOS App Store
+  ID `6790650146`, canonical URL `https://apps.apple.com/app/id6790650146`. Dùng đúng identity này
+  cho app-update/review links; không dùng placeholder hoặc suy từ tên repository.
 
 ## 1. Cách dùng các nguồn thông tin
 
@@ -219,15 +232,31 @@ Khi đổi public contract phải đồng bộ:
 Không tuyên bố offline support chỉ dựa trên asset cache; lesson vẫn cần fallback/network cho asset
 chưa có trên disk.
 
+### `SkidsAppReview` - Android và iOS
+
+- JavaScript boundary: `src/engine/AppReviewManager.ts`.
+- Android implementation: `android/app/src/main/java/com/seduforge/skidsenglish/review/`, dùng
+  Google Play In-App Review.
+- iOS implementation: `ios/SKidsEnglish/SkidsAppReview.swift` với Objective-C bridge
+  `ios/SKidsEnglish/SkidsAppReview.m`, dùng StoreKit.
+- Native API chỉ xác nhận request đã được chuyển cho platform; không được suy diễn prompt đã hiện,
+  phụ huynh đã submit hay rating cụ thể.
+- Automatic request và persistent store link chỉ được gọi từ Parent Mode sau adult gate; không đặt
+  review UI, phần thưởng hoặc lời nhờ đánh giá trong Kid Mode.
+
 ## 9. Persistence và notifications
 
-Bốn local stores hiện tại:
+Sáu local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
 - `@skidsenglish/daily-activity/v1` qua `DailyActivityTracker.ts`.
 - `@skidsenglish/cloud-progress-sync-state/v1` qua `CloudProgressSyncState.ts`, gồm checkpoint
   cloud progress và metadata cooldown/backoff cho sync.
+- `@skidsenglish/app-update-prompt/v1` qua `AppUpdateManager.ts`, chỉ giữ optional update
+  dismissal local theo thiết bị.
+- `@skidsenglish/app-review/v1` qua `AppReviewManager.ts`, chỉ giữ first-seen/attempt metadata
+  local để throttle lời mời đánh giá trong Parent Mode.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.
