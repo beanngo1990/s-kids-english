@@ -53,6 +53,8 @@
 	</dict>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Sungy needs microphone access to record voice practice.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Sungy may access your photo library to save learning achievements.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Sungy uses on-device speech recognition to detect when a child finishes speaking and automatically stop the voice exercise.</string>
 	<key>RCTNewArchEnabled</key>

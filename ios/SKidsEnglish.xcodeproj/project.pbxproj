@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45508575BE9ABA334A71E23 /* SkidsAudio.swift */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		1A2B3C4D5E6F708192A3B401 /* SkidsAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */; };
 		1A2B3C4D5E6F708192A3B402 /* SkidsAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */; };
 		1B3C4D5E6F708192A3B4C501 /* SkidsAppReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */; };
 		1B3C4D5E6F708192A3B4C502 /* SkidsAppReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		26142D856EE9BF3E68464642 /* sfx_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF85A6E2DA29E4948141 /* sfx_tap.wav */; };
 		2BF9B38AB8B5B03F169B929B /* sfx_yay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2B2EC4B01265D9502528AE9B /* sfx_yay.wav */; };
 		3E8111AC177C907103171A18 /* Pods_SKidsEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02285CCC9E22562B713BE28B /* Pods_SKidsEnglish.framework */; };
@@ -393,7 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SKidsEnglish/SKidsEnglish.entitlements;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 92MAZTVASZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SKidsEnglish/Info.plist;
@@ -402,7 +402,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -426,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SKidsEnglish/SKidsEnglish.entitlements;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 92MAZTVASZ;
 				INFOPLIST_FILE = SKidsEnglish/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -434,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
