@@ -13,6 +13,7 @@ import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
 import {
   playSoundEffect,
   speakTeacherPromptSegments,
+  startNarrationSession,
 } from '../src/engine/AudioManager';
 import {
   checkVoiceRecordingPermission,
@@ -88,6 +89,8 @@ const mockedSpeakTeacherPromptSegments =
   speakTeacherPromptSegments as jest.MockedFunction<
     typeof speakTeacherPromptSegments
   >;
+const mockedStartNarrationSession =
+  startNarrationSession as jest.MockedFunction<typeof startNarrationSession>;
 let mockAppStateListener: ((state: AppStateStatus) => void) | null = null;
 const mockRemoveAppStateListener = jest.fn();
 
@@ -168,6 +171,26 @@ test('keeps the lesson available when an automatic microphone request is denied'
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
+  });
+});
+
+test('starts automatic recording without opening a redundant narration session', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartNarrationSession).not.toHaveBeenCalled();
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+    await flushPromises();
   });
 });
 

@@ -592,17 +592,16 @@ export function SpeakPracticeControls({
 
       setStatus('prompting');
       onAudioStart?.();
-      const narrationSession = startNarrationSession();
-      await narrationSession.ready;
-      if (!isRequestActive()) {
-        return;
-      }
-      if (!narrationSession.isActive()) {
-        setStatus('idle');
-        return;
-      }
-
-      if (playPrompt) {
+      const narrationSession = playPrompt ? startNarrationSession() : null;
+      if (narrationSession) {
+        await narrationSession.ready;
+        if (!isRequestActive()) {
+          return;
+        }
+        if (!narrationSession.isActive()) {
+          setStatus('idle');
+          return;
+        }
         await speakTeacherPromptSegments(
           resolveSpeechPracticePrompt(teacherPromptMode).segments,
           undefined,
@@ -633,7 +632,7 @@ export function SpeakPracticeControls({
         }
         return;
       }
-      if (!narrationSession.isActive()) {
+      if (narrationSession && !narrationSession.isActive()) {
         if (recordingSession) {
           await stopVoiceRecording(recordingSession, 'interrupted');
         }

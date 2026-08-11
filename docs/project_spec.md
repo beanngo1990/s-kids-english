@@ -497,7 +497,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, native on-device voice activity
   detection/endpointing, auto-stop và hỗ trợ phát lại local recording theo yêu cầu. Native chỉ
   đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
-  `ended`) qua React Native bridge; PCM không được truyền qua bridge.
+  `ended`) qua React Native bridge; PCM không được truyền qua bridge. Sau khi prompt và từ mẫu
+  phát xong, lượt tự ghi chuyển thẳng sang khởi động recorder, không tạo thêm narration session.
 - Endpointing yêu cầu speech kéo dài qua nhiều frame trước khi xác nhận, chịu được khoảng nghỉ ngắn
   trong lúc bé đọc và dừng sau khoảng im lặng cuối câu. Lượt chưa có speech và lượt kéo dài quá mức
   có timeout riêng; manual stop và một JS safety timeout vẫn luôn khả dụng.
