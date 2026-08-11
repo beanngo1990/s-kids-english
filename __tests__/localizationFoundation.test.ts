@@ -147,6 +147,7 @@ test('defaults new localization settings for legacy parent settings', async () =
     crashReportingEnabled: false,
     englishAccent: 'en-US',
     teacherPromptMode: 'vi',
+    voiceRecordingLibrary: { enabled: false },
   });
 
   await AsyncStorage.setItem(
@@ -163,6 +164,30 @@ test('defaults new localization settings for legacy parent settings', async () =
     crashReportingEnabled: false,
     englishAccent: 'en-US',
     teacherPromptMode: 'bilingual',
+    voiceRecordingLibrary: { enabled: false },
+  });
+});
+
+test('requires current local consent before enabling the voice library', async () => {
+  await saveParentSettings({
+    voiceRecordingLibrary: { enabled: true },
+  });
+  await expect(getParentSettings()).resolves.toMatchObject({
+    voiceRecordingLibrary: { enabled: false },
+  });
+
+  await saveParentSettings({
+    voiceRecordingLibrary: {
+      consentedAt: '2026-08-11T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+    },
+  });
+  await expect(getParentSettings()).resolves.toMatchObject({
+    voiceRecordingLibrary: {
+      consentVersion: 1,
+      enabled: true,
+    },
   });
 });
 

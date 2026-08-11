@@ -47,5 +47,6 @@ export type RootStackParamList = {
     intent?: 'dashboard' | 'premium' | 'founderPromo';
     lessonId?: string;
   } | undefined;
+  ParentVoiceLibrary: undefined;
   Premium: undefined;
 };

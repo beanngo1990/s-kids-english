@@ -1,4 +1,8 @@
 jest.mock('react-native', () => ({
+  AppState: {
+    addEventListener: jest.fn(),
+    currentState: 'active',
+  },
   NativeModules: {
     SkidsAudio: {
       checkRecordPermission: jest.fn(),
@@ -30,14 +34,21 @@ jest.mock('react-native', () => ({
 }));
 
 jest.mock('../src/engine/AudioManager', () => ({
-  playAudioUri: jest.fn(() => Promise.resolve()),
+  playAudioUri: jest.fn(() => Promise.resolve('completed')),
 }));
 
-import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
+import {
+  AppState,
+  NativeModules,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
+import { playAudioUri } from '../src/engine/AudioManager';
 
 import {
   checkVoiceRecordingPermission,
   getVoiceRecordingActivity,
+  playVoiceRecording,
   requestVoiceRecordingPermission,
   startVoiceRecording,
   stopVoiceRecording,
@@ -49,8 +60,15 @@ const mockedCheckPermission = PermissionsAndroid.check as jest.MockedFunction<
 >;
 const mockedRequestPermission =
   PermissionsAndroid.request as jest.MockedFunction<
-    typeof PermissionsAndroid.request
-  >;
+  typeof PermissionsAndroid.request
+>;
+const mockedPlayAudioUri = playAudioUri as jest.MockedFunction<
+  typeof playAudioUri
+>;
+const mockedAppState = AppState as typeof AppState & {
+  addEventListener: jest.Mock;
+  currentState: string;
+};
 const mockedNativeAudio = NativeModules.SkidsAudio as {
   checkRecordPermission: jest.Mock;
   getVoiceRecordingActivity: jest.Mock;
@@ -82,6 +100,8 @@ const endpointOptions: VoiceEndpointOptions = {
 beforeEach(async () => {
   jest.clearAllMocks();
   (Platform as { OS: string }).OS = 'android';
+  mockedAppState.currentState = 'active';
+  mockedAppState.addEventListener.mockReset();
   mockedCheckPermission.mockResolvedValue(true);
   await checkVoiceRecordingPermission();
   mockedCheckPermission.mockClear();
@@ -94,6 +114,14 @@ beforeEach(async () => {
   mockedNativeAudio.stopVoiceActivityRecording.mockReset();
   mockedNativeAudio.startVoiceRecording.mockReset();
   mockedNativeAudio.stopVoiceRecording.mockReset();
+});
+
+test('surfaces a local recording playback failure to the parent library', async () => {
+  mockedPlayAudioUri.mockResolvedValueOnce('failed');
+
+  await expect(
+    playVoiceRecording('file:///voice-recordings/sample.wav'),
+  ).rejects.toThrow('Unable to play the local voice recording.');
 });
 
 test('prepares optional iOS target recognition for an existing microphone grant', async () => {
@@ -111,6 +139,38 @@ test('prepares optional iOS target recognition for an existing microphone grant'
     mockedNativeAudio.requestTargetWordRecognitionPermission,
   ).toHaveBeenCalledTimes(1);
   expect(mockedNativeAudio.requestRecordPermission).not.toHaveBeenCalled();
+});
+
+test('waits for iOS to become active after a permission dialog before recording', async () => {
+  (Platform as { OS: string }).OS = 'ios';
+  mockedAppState.currentState = 'inactive';
+  let appStateListener: ((state: string) => void) | undefined;
+  const remove = jest.fn();
+  mockedAppState.addEventListener.mockImplementation(
+    (_event: string, listener: (state: string) => void) => {
+      appStateListener = listener;
+      return { remove };
+    },
+  );
+  mockedNativeAudio.startVoiceActivityRecording.mockResolvedValue({
+    detector: 'nativeVoiceActivity',
+    sessionId: 'permission-session',
+    uri: 'file://permission-recording.caf',
+  });
+
+  const recordingPromise = startVoiceRecording(endpointOptions);
+  await Promise.resolve();
+
+  expect(mockedNativeAudio.startVoiceActivityRecording).not.toHaveBeenCalled();
+  mockedAppState.currentState = 'active';
+  appStateListener?.('active');
+
+  await expect(recordingPromise).resolves.toEqual({
+    detector: 'nativeVoiceActivity',
+    sessionId: 'permission-session',
+    uri: 'file://permission-recording.caf',
+  });
+  expect(remove).toHaveBeenCalledTimes(1);
 });
 
 test('suppresses repeated automatic permission prompts after a denial', async () => {

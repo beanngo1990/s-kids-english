@@ -80,9 +80,18 @@ type SpeakPracticeControlsProps = {
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
   onContinue?: () => void;
+  onRecordingReady?: (
+    recording: SpeakPracticeRecording,
+  ) => Promise<void> | void;
   onReplayModel?: () => void;
   teacherPromptMode?: TeacherPromptMode;
   word: string;
+};
+
+export type SpeakPracticeRecording = {
+  durationMs: number;
+  stopReason: VoiceRecordingStopReason;
+  uri: string;
 };
 
 const levelPollIntervalMs = 120;
@@ -211,6 +220,7 @@ export function SpeakPracticeControls({
   onAudioStart,
   onBusyChange,
   onContinue,
+  onRecordingReady,
   onReplayModel,
   teacherPromptMode = 'vi',
   word,
@@ -375,6 +385,20 @@ export function SpeakPracticeControls({
       setRecordingUri(nextRecordingUri);
       setLastRecordingHadDetectedSpeech(didDetectSpeech);
       setStatus('encouraging');
+      const persistRecordingPromise = didDetectSpeech
+        ? Promise.resolve()
+            .then(() =>
+              onRecordingReady?.({
+                durationMs: Math.max(
+                  0,
+                  Math.round(finalSnapshot?.elapsedMs ?? 0),
+                ),
+                stopReason: result.stopReason,
+                uri: nextRecordingUri,
+              }),
+            )
+            .catch(() => undefined)
+        : Promise.resolve();
       const narrationSession = startNarrationSession();
       try {
         await narrationSession.ready;
@@ -396,13 +420,14 @@ export function SpeakPracticeControls({
           narrationSession,
         );
       } finally {
+        await persistRecordingPromise;
         if (isMountedRef.current) {
           setStatus('recorded');
         }
         isFinishingRecordingRef.current = false;
       }
     },
-    [teacherPromptMode],
+    [onRecordingReady, teacherPromptMode],
   );
 
   const handleVoiceActivitySnapshot = useCallback(

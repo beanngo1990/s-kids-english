@@ -268,7 +268,7 @@ export async function playAudioUri(
   uri: string,
   requestedSession?: NarrationSession,
 ) {
-  await playAudioUriWithResult(uri, requestedSession);
+  return playAudioUriWithResult(uri, requestedSession);
 }
 
 export async function playBackgroundMusicUri(

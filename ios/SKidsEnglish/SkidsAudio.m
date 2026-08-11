@@ -41,6 +41,18 @@ RCT_EXTERN_METHOD(stopVoiceRecording:(RCTPromiseResolveBlock)resolve
 RCT_EXTERN_METHOD(getVoiceRecordingLevel:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(promoteVoiceRecording:(NSString *)tempUri
+                  recordingId:(NSString *)recordingId
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(deleteStoredVoiceRecording:(NSString *)uri
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(clearStoredVoiceRecordings:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+
 RCT_EXTERN_METHOD(startVoiceActivityRecording:(NSDictionary *)options
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)

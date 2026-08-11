@@ -1,4 +1,9 @@
-import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
+import {
+  AppState,
+  NativeModules,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
 
 import { playAudioUri } from './AudioManager';
 import type {
@@ -34,8 +39,14 @@ type VoiceRecordingPermissionRequestOptions = {
 };
 
 type SkidsAudioModule = {
+  clearStoredVoiceRecordings?: () => Promise<boolean>;
+  deleteStoredVoiceRecording?: (uri: string) => Promise<boolean>;
   getVoiceRecordingActivity?: (sessionId: string) => Promise<unknown>;
   getVoiceRecordingLevel?: () => Promise<number | null>;
+  promoteVoiceRecording?: (
+    tempUri: string,
+    recordingId: string,
+  ) => Promise<string>;
   startVoiceActivityRecording?: (
     options: NativeVoiceActivityOptions,
   ) => Promise<unknown>;
@@ -63,6 +74,7 @@ export type VoiceRecordingResult = {
 };
 
 const nativeAudio = NativeModules.SkidsAudio as SkidsAudioModule | undefined;
+const IOS_APP_ACTIVE_WAIT_TIMEOUT_MS = 2000;
 let lastKnownPermissionStatus: Exclude<
   VoiceRecordingPermissionStatus,
   'unavailable'
@@ -173,6 +185,8 @@ export async function checkVoiceRecordingPermission(): Promise<VoiceRecordingPer
 export async function startVoiceRecording(
   options: VoiceEndpointOptions,
 ): Promise<VoiceRecordingSession | null> {
+  await waitForIosAppToBecomeActive();
+
   if (
     nativeAudio?.startVoiceActivityRecording &&
     nativeAudio.getVoiceRecordingActivity &&
@@ -207,6 +221,40 @@ export async function startVoiceRecording(
     sessionId: `level-fallback-${legacySessionSequence}`,
     uri,
   };
+}
+
+async function waitForIosAppToBecomeActive() {
+  if (
+    Platform.OS !== 'ios' ||
+    (AppState.currentState !== 'inactive' &&
+      AppState.currentState !== 'background')
+  ) {
+    return;
+  }
+
+  await new Promise<void>(resolve => {
+    let didFinish = false;
+    let subscription: { remove: () => void } | undefined;
+    const finish = () => {
+      if (didFinish) {
+        return;
+      }
+      didFinish = true;
+      clearTimeout(timeout);
+      subscription?.remove();
+      resolve();
+    };
+    const timeout = setTimeout(finish, IOS_APP_ACTIVE_WAIT_TIMEOUT_MS);
+    subscription = AppState.addEventListener('change', nextState => {
+      if (nextState === 'active') {
+        finish();
+      }
+    });
+
+    if (AppState.currentState === 'active') {
+      finish();
+    }
+  });
 }
 
 export async function getVoiceRecordingActivity(
@@ -286,7 +334,10 @@ export async function getVoiceRecordingLevel() {
 }
 
 export async function playVoiceRecording(recordingUri: string) {
-  await playAudioUri(recordingUri);
+  const result = await playAudioUri(recordingUri);
+  if (result === 'failed') {
+    throw new Error('Unable to play the local voice recording.');
+  }
 }
 
 function rememberPermissionStatus(

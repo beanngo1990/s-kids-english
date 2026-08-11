@@ -52,6 +52,9 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** Parent Mode persist lựa chọn phát âm English `en-US`/`en-GB`; dữ liệu cũ và
   setting thiếu mặc định `en-US`. Accent chỉ đổi audio phát âm, không đổi UI, app language,
   teacher prompt mode, vocabulary spelling hoặc lesson copy.
+- **Implemented:** thư viện giọng đọc local trong Parent Mode. Phụ huynh chủ động bật tự động lưu,
+  xem gần đây hoặc theo theme/bài học, nghe mốc đầu/gần nhất và xóa theo mẫu/từ/bài/theme/toàn bộ;
+  audio không đi vào cloud sync hoặc backup hệ điều hành.
 - **Implemented:** local persistence bằng AsyncStorage.
 - **Implemented:** lesson images và generated prompt/vocabulary audio phân phối qua Cloudflare R2.
 - **Implemented:** app UI icons dạng PNG nhỏ được bundle local, tách khỏi lesson image/R2 pipeline.
@@ -71,8 +74,9 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   có đủ thời gian/trải nghiệm học; Kid Mode, lesson, review game và reward không hiển thị prompt.
 - **Unsupported:** full offline lesson bundle; runtime lesson assets hiện phụ thuộc remote R2.
 
-Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording trả local
-URI và không có backend upload trong implementation hiện tại.
+Không mô tả app là hoàn toàn offline: app tải lesson assets qua network. Voice recording luôn là
+local file URI; implementation không có đường upload recording và chỉ promote file sang vùng lưu
+bền vững local khi phụ huynh đã bật thư viện giọng đọc.
 
 ## 3. Tech stack và platform
 
@@ -333,6 +337,15 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   quyền thông báo hoặc system notification settings. Ngoại lệ notification kết thúc khi app trở lại
   foreground; sau đó những lần rời app bình thường tiếp tục revoke session.
 - **Implemented:** xem activity/streak/weekly stats và progress tổng quan.
+- Dashboard phụ huynh có card giọng đọc gần đây và route `ParentVoiceLibrary` riêng, vẫn nằm sau
+  Parent access session. Từng nút play trong card dashboard phát trực tiếp mốc gần nhất của từ đó;
+  audio bị hủy khi card mất focus hoặc phụ huynh mở toàn bộ thư viện. Thư viện có hai cách xem
+  `Gần đây` và `Theo bài học`; cách xem theo bài nhóm theo theme -> lesson -> word để không biến
+  nhiều file rời thành danh sách khó quản lý. Mỗi hàng mốc là vùng phát hoàn chỉnh, tách nhãn mốc
+  khỏi ngày/thời lượng và cho metadata xuống dòng tự nhiên; thao tác xóa theme, lesson, word hoặc
+  mốc nằm sau menu `⋯` thay vì chiếm chiều ngang bằng nút chữ đỏ. Route dùng navigation title làm
+  tiêu đề duy nhất, đặt disclosure local-only sau icon thông tin ở header và đưa tabs/danh sách
+  hoặc empty state gọn lên đầu thay vì dùng hero giới thiệu lớn.
 - Parent stats tổng quan là chỉ số lịch sử/all-time, không reset hay lọc lại theo `learningMode`
   hiện tại. `Tổng từ đã học` dùng unique learned word IDs; `Sticker nhận được` bao gồm sticker
   lesson đã nhận và achievement stickers đã unlock/đã có record.
@@ -353,7 +366,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
   hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
-  background music, contact support email và app version đọc trực tiếp từ native release metadata.
+  background music, thư viện giọng đọc local, contact support email và app version đọc trực tiếp
+  từ native release metadata. Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ
+  huynh có thể dọn lịch sử mà vẫn giữ tự động lưu cho các buổi sau.
 - **Implemented:** đánh giá ứng dụng là parent-only. Prompt native chỉ được cân nhắc khi Parent
   dashboard đã ổn định, app đã được theo dõi ít nhất 7 ngày, có hoạt động học ở ít nhất 3 ngày và
   đã hoàn thành ít nhất 3 lesson. App chờ 2,5 giây tại điểm nghỉ, không hiện cùng update/crash/
@@ -368,7 +383,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   tới bé, dữ liệu/quyền riêng tư. Những row mở bottom sheet sẽ hiển thị phần giải thích trong
   sheet; những config dạng bật/tắt hoặc không có sheet riêng dùng nút info compact. Áp dụng cho
   cách mở bài học, độ khó, nhịp học, nhắc học, giờ nhắc, ngôn ngữ app, giọng hướng dẫn, giọng
-  tiếng Anh, giao diện, nhạc nền, crash reporting và cloud learning data sync.
+  tiếng Anh, giao diện, nhạc nền, thư viện giọng đọc, crash reporting và cloud learning data sync.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
   Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
@@ -522,6 +537,26 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
   `ended`) qua React Native bridge; PCM không được truyền qua bridge. Sau khi prompt và từ mẫu
   phát xong, lượt tự ghi chuyển thẳng sang khởi động recorder, không tạo thêm narration session.
+- Parent setting `voiceRecordingLibrary` mặc định tắt và là local-only. Settings chỉ hiển thị một
+  hàng toggle gọn cùng icon thông tin; lần bật đầu tiên cần xác nhận disclosure, các lần bật lại sau
+  khi consent hiện hành đã được lưu thì áp dụng trực tiếp. Tắt toggle chỉ ngừng lưu bản mới và luôn
+  giữ thư viện hiện có; xem/nghe/xóa, bao gồm xóa tất cả, chỉ nằm trong Parent voice library. Khi
+  bật, một lượt kết thúc có URI và VAD đã phát hiện speech được tự động promote từ cache sang
+  app-private durable storage; lượt không có speech, lỗi hoặc bị gián đoạn không được lưu. Kid Mode
+  không thêm nhãn hoặc thao tác lưu riêng ngoài indicator ghi âm/phát lại đang có.
+- Một encounter được xác định theo phiên mở lesson + scene/step. Thu lại trong cùng encounter tái
+  sử dụng sample ID và thay bản trước, nên thư viện giữ bản đọc hợp lệ cuối của lần luyện đó. Khi
+  bé gặp lại cùng `lessonId + vocabId` ở encounter khác, store giữ tối đa mốc đầu và mốc gần nhất;
+  một từ chỉ có một mốc vẫn là dữ liệu hợp lệ, không bắt buộc phải có mẫu so sánh thứ hai.
+- Metadata dùng key `@skidsenglish/voice-recordings/v1`, operation queue và backward-compatible
+  normalizer. Store giữ tối đa 100 samples; khi vượt giới hạn, toàn bộ word entry ít được cập nhật
+  gần đây nhất bị prune để không tách rời first/latest. Không có expiry theo ngày.
+- Parent library sắp theo word thay vì file thô, hỗ trợ nghe và xóa từng sample, toàn bộ word,
+  lesson, theme hoặc toàn bộ thư viện. Xóa tất cả gọi native bulk cleanup kể cả khi metadata trống
+  để dọn durable orphan/staging file còn lại sau process crash.
+- Durable audio nằm trong Android `noBackupFilesDir/voice-recordings` hoặc iOS Application Support
+  `voice-recordings`; iOS đặt complete file protection và cả directory/file đều excluded from
+  backup. File/URI/metadata và parent opt-in không được đưa vào Firestore/cloud sync.
 - Endpointing yêu cầu speech kéo dài qua nhiều frame trước khi xác nhận, chịu được khoảng nghỉ ngắn
   trong lúc bé đọc và dừng sau khoảng im lặng cuối câu. Lượt chưa có speech và lượt kéo dài quá mức
   có timeout riêng; manual stop và một JS safety timeout vẫn luôn khả dụng.
@@ -681,7 +716,7 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 ## 7. Local persistence, parent auth và cloud learning data
 
-App luôn dùng sáu AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng bảy AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
@@ -690,16 +725,19 @@ của learning progress và selected parent settings sau parent opt-in:
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
   app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile,
-  background music opt-in, crash reporting opt-in và `cloudProgressSync` consent preference.
+  background music opt-in, crash reporting opt-in, `voiceRecordingLibrary` local consent preference
+  và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 - `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
   giữ hành vi legacy.
 - `cloudProgressSync` mặc định `enabled: false`; chỉ normalize thành enabled khi có owner UID,
   consent version hiện tại và consent timestamp hợp lệ.
+- `voiceRecordingLibrary` mặc định `enabled: false`; trạng thái true chỉ được giữ khi có consent
+  version hiện tại và consent timestamp hợp lệ, nên dữ liệu legacy/malformed không tự bật ghi âm.
 - Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
   mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
   enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
-  `crashReportingEnabled` và `enableSceneEditor` là local-only.
+  `crashReportingEnabled`, `enableSceneEditor` và `voiceRecordingLibrary` là local-only.
 - Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
   trạng thái riêng trên từng thiết bị.
 
@@ -744,6 +782,23 @@ của learning progress và selected parent settings sau parent opt-in:
 - Giữ tối đa 30 daily entries và tính current/longest streak.
 - Minutes hiện là estimate, không phải measured session duration.
 - Activity calls là best-effort; counters có thể phản ánh replay events thay vì chỉ unique scenes.
+
+### Voice recording library
+
+- Key: `@skidsenglish/voice-recordings/v1`.
+- Manager: `src/engine/VoiceRecordingStore.ts`; file lifecycle đi qua native `SkidsAudio` methods
+  `promoteVoiceRecording`, `deleteStoredVoiceRecording` và `clearStoredVoiceRecordings`.
+- Mỗi sample lưu stable ID, durable local URI, theme/lesson/scene/step/vocabulary IDs, word, accent,
+  duration, encounter ID và timestamp. Normalizer loại record malformed, chỉ giữ first/latest cho
+  mỗi `lessonId + vocabId`, đưa URI bị thay/prune/discard vào pending cleanup và giới hạn toàn store
+  ở 100 samples.
+- File promotion, metadata update, replacement/pruning và cleanup được serialize. Metadata xóa
+  trước để item biến mất khỏi UI; cleanup lỗi được giữ để retry. Bulk clear chạy ngay cả khi store
+  không còn sample để xóa cả orphan/staging file do crash.
+- `App.tsx` chạy reconciliation best-effort khi khởi động: store trống dùng native bulk clear để
+  quét orphan/staging; store còn sample chỉ retry các pending URI, không xóa file đang được index.
+- Store và setting không có serializer/upload path tới Firestore. Audio nằm trong app-private,
+  no-backup storage; gỡ app có thể xóa toàn bộ thư viện và không có account restore.
 
 ### App-update prompt state
 
@@ -790,14 +845,14 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
 - Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
-  xuất rồi xóa local settings/progress/daily activity/cloud-sync checkpoint. Nhánh giữ local là mặc
-  định để tránh mất tiến độ ngoài ý muốn.
+  xuất rồi xóa local settings/progress/daily activity/voice recordings/cloud-sync checkpoint. Nhánh
+  giữ local là mặc định để tránh mất tiến độ ngoài ý muốn.
 - Account deletion UI xóa `users/{uid}/progress/current` và `users/{uid}/settings/current` trước
   khi xóa Firebase Auth. Nếu cloud deletion thất bại, auth deletion dừng để tránh để lại document
   không còn owner đăng nhập. Sau khi xóa cloud data, RevenueCat customer và Firebase Auth thành
   công, app xóa các local stores `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
-  `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1` và hủy daily
-  reminder local.
+  `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1`, metadata/file
+  của `@skidsenglish/voice-recordings/v1` và hủy daily reminder local.
 
 ### Crash reporting
 
@@ -945,7 +1000,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Settings payload gồm onboarding flag, journey/learning mode, visible lessons, app language,
   teacher prompt mode, English accent, app theme, child profile, reminder enabled state/time và
   client update timestamp. Không sync `cloudProgressSync` consent, `backgroundMusicEnabled`,
-  `crashReportingEnabled` hoặc `enableSceneEditor`.
+  `crashReportingEnabled`, `enableSceneEditor` hoặc `voiceRecordingLibrary`.
 - Không sync daily activity/streak, voice recording URI/file, lesson asset files hoặc native
   notification permission/schedule state. Reminder preference từ cloud chỉ cập nhật saved setting;
   từng thiết bị vẫn cần parent bật/cấp quyền reminder để native schedule được tạo tại chỗ.
@@ -998,7 +1053,9 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 2. Short feedback SFX (`tap`, `correct`, `wrong`, `yay`, ...): bundled trong native app.
 3. Voice recording: local file URI từ native module; PCM/VAD/endpointing và target-word hint được
    xử lý on-device. Hypothesis chỉ tồn tại tạm trong native để quyết định endpoint, không được persist
-   hoặc đưa qua bridge; không có upload backend cho recording/transcript hiện tại.
+   hoặc đưa qua bridge. Recording mặc định ở cache; khi parent opt-in và lượt có speech, runtime copy
+   sang durable no-backup storage và ghi metadata local. Không có upload backend/path cho recording
+   hoặc transcript.
 4. Optional background music: bundled file `src/assets/ui/audio/music/sungy-background.mp3`,
    mặc định tắt và chỉ chạy sau parent opt-in local trên thiết bị. Android dùng mirror
    `android/app/src/main/res/raw/sungy_background.mp3` qua platform-specific
@@ -1035,6 +1092,7 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | `SkidsAudio` system TTS fallback    | Implemented                   | Implemented                   | Sau khi mọi audio URI thất bại    |
 | `SkidsAudio` background music       | Implemented                   | Implemented                   | Tắt nếu native method unavailable |
 | Voice recording/metering/permission | Implemented                   | Implemented                   | UI báo/không ghi nếu unavailable  |
+| Durable voice promote/delete/clear  | Implemented                   | Implemented                   | Local-only; no backup/cloud       |
 | Voice activity/endpoint auto-stop   | Implemented                   | Implemented                   | Audio-level detector + timeout    |
 | On-device target-word endpoint hint | API 33+/model dependent       | Permission/model dependent    | VAD/silence/timeout               |
 | `SkidsAssetCache` disk cache        | Implemented                   | Implemented                   | JS trả remote URL khi module vắng |
@@ -1042,7 +1100,8 @@ vocabulary fallback speech ở các màn khác, để lời hướng dẫn và t
 | `SkidsAppReview` system prompt      | Implemented                   | Implemented                   | Silent no-op khi store từ chối    |
 | Lesson image prefetch               | React Native `Image.prefetch` | React Native `Image.prefetch` | Không dùng `SkidsAssetCache`      |
 
-`SkidsAudio` contract được nối qua `NativeAudioAdapter.ts` và `VoiceRecorder.ts`. Android
+`SkidsAudio` contract được nối qua `NativeAudioAdapter.ts`, `VoiceRecorder.ts` và
+`VoiceRecordingStore.ts`. Android
 implementation nằm trong package `audio`; iOS implementation là `SkidsAudio.swift` với Objective-C
 bridge `SkidsAudio.m`.
 
@@ -1242,6 +1301,7 @@ Support summary:
 | Scene-level resume                              | Implemented     |
 | Exact step resume                               | Partial         |
 | Record/playback + endpoint speech practice      | Implemented     |
+| Parent local voice recording library            | Implemented     |
 | Target-word assisted endpointing                 | Implemented     |
 | Transcription/pronunciation scoring              | Unsupported     |
 | Android audio disk cache                        | Implemented     |

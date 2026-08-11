@@ -22,7 +22,10 @@ import { AppCard } from '../components/AppCard';
 import { KidIconButton } from '../components/KidIconButton';
 import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { SKidsIcon } from '../components/SKidsIcon';
-import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
+import {
+  SpeakPracticeControls,
+  type SpeakPracticeRecording,
+} from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import {
   getViAudioAsset,
@@ -99,6 +102,7 @@ import {
   getParentSettings,
   subscribeParentSettings,
 } from './ParentSettingsManager';
+import { saveVoiceRecordingCandidate } from './VoiceRecordingStore';
 import {
   canPressObjects,
   getInitialStep,
@@ -142,6 +146,7 @@ const interactionCooldownMs = 400;
 const autoHintDelayMs = 7000;
 const feedbackPlaybackTimeoutMs = 15000;
 const requiredImageRetryDelayMs = 300;
+let globalVoiceRecordingSessionId = 0;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -392,6 +397,12 @@ export function ScenePlayer({
   const [englishAccent, setEnglishAccent] = useState<EnglishAccent>(
     DEFAULT_ENGLISH_ACCENT,
   );
+  const [isVoiceRecordingLibraryEnabled, setIsVoiceRecordingLibraryEnabled] =
+    useState(false);
+  const [voiceRecordingSessionId] = useState(() => {
+    globalVoiceRecordingSessionId += 1;
+    return `voice_${Date.now().toString(36)}_${globalVoiceRecordingSessionId}`;
+  });
   const [isLocalizationReady, setIsLocalizationReady] = useState(false);
   const t = useTranslations(appLanguage);
   const insets = useSafeAreaInsets();
@@ -539,6 +550,9 @@ export function ScenePlayer({
     ) => {
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
       setEnglishAccent(settings.englishAccent ?? DEFAULT_ENGLISH_ACCENT);
+      setIsVoiceRecordingLibraryEnabled(
+        settings.voiceRecordingLibrary.enabled,
+      );
       if (__DEV__) {
         setShowSceneEditorControl(settings.enableSceneEditor || false);
       }
@@ -803,6 +817,48 @@ export function ScenePlayer({
   const currentStep = currentScene
     ? getStepById(currentScene, stepId) ?? getInitialStep(currentScene)
     : undefined;
+  const handleRecordingReady = useCallback(
+    async (recording: SpeakPracticeRecording) => {
+      if (
+        !isVoiceRecordingLibraryEnabled ||
+        !lesson ||
+        !currentScene ||
+        !currentStep
+      ) {
+        return;
+      }
+
+      const vocabulary = getStepVocabulary(currentScene, currentStep);
+      if (!vocabulary) {
+        return;
+      }
+
+      await saveVoiceRecordingCandidate({
+        accent: englishAccent,
+        durationMs: recording.durationMs,
+        encounterId: `${voiceRecordingSessionId}_${sceneIndex}_${getStepIndex(
+          currentScene,
+          currentStep.id,
+        )}`,
+        lessonId: lesson.id,
+        sceneId: currentScene.id,
+        stepId: currentStep.id,
+        tempUri: recording.uri,
+        themeId: lesson.themeId,
+        vocabId: vocabulary.id,
+        word: vocabulary.word,
+      });
+    },
+    [
+      currentScene,
+      currentStep,
+      englishAccent,
+      isVoiceRecordingLibraryEnabled,
+      lesson,
+      sceneIndex,
+      voiceRecordingSessionId,
+    ],
+  );
   const stepAudioPreparationKey =
     currentScene && currentStep
       ? getStepAudioPreparationKey(
@@ -1876,6 +1932,11 @@ export function ScenePlayer({
                       !isInstructionPending &&
                       !isContinuePreparingFeedback
                         ? handleContinue
+                        : undefined
+                    }
+                    onRecordingReady={
+                      isVoiceRecordingLibraryEnabled
+                        ? handleRecordingReady
                         : undefined
                     }
                     onReplayModel={handleReplayModelWord}

@@ -12,11 +12,17 @@ import type {
 
 type SkidsAudioModule = {
   checkRecordPermission?: () => Promise<boolean>;
+  clearStoredVoiceRecordings?: () => Promise<boolean>;
+  deleteStoredVoiceRecording?: (uri: string) => Promise<boolean>;
   getVoiceRecordingActivity?: (sessionId: string) => Promise<unknown>;
   getVoiceRecordingLevel?: () => Promise<number | null>;
   play?: (effect: SoundEffect) => Promise<boolean>;
   playBackgroundMusic?: (uri: string, volume: number) => Promise<boolean>;
   playUri?: (uri: string) => Promise<boolean>;
+  promoteVoiceRecording?: (
+    tempUri: string,
+    recordingId: string,
+  ) => Promise<string>;
   requestRecordPermission?: () => Promise<boolean>;
   requestTargetWordRecognitionPermission?: () => Promise<boolean>;
   setBackgroundMusicVolume?: (volume: number) => Promise<boolean>;

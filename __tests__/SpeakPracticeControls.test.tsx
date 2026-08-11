@@ -433,6 +433,55 @@ test('uses a likely target-word match only as an early stop signal', async () =>
   expect(mockedPlaySoundEffect).toHaveBeenCalledWith('yay');
 });
 
+test('offers a completed spoken recording to local persistence', async () => {
+  jest.useFakeTimers();
+  const onRecordingReady = jest.fn(() => Promise.resolve());
+  const nativeSession: VoiceRecordingSession = {
+    detector: 'nativeVoiceActivity',
+    sessionId: 'native-persist-session',
+    uri: 'file://native-persist.caf',
+  };
+  const finalSnapshot = createActivitySnapshot(nativeSession, {
+    elapsedMs: 1840,
+    hadSpeech: true,
+    phase: 'ended',
+    shouldStop: true,
+    speechDurationMs: 720,
+    stopReason: 'endOfSpeech',
+  });
+  mockedStartVoiceRecording.mockResolvedValue(nativeSession);
+  mockedGetVoiceRecordingActivity.mockResolvedValue(finalSnapshot);
+  mockedStopVoiceRecording.mockResolvedValue({
+    finalSnapshot,
+    stopReason: 'endOfSpeech',
+    uri: nativeSession.uri,
+  });
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        onRecordingReady={onRecordingReady}
+        word="sun"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+  await advanceRecordingClock(120);
+
+  expect(onRecordingReady).toHaveBeenCalledWith({
+    durationMs: 1840,
+    stopReason: 'endOfSpeech',
+    uri: nativeSession.uri,
+  });
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('passes the target word and selected accent to native endpointing', async () => {
   jest.useFakeTimers();
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
@@ -466,6 +515,7 @@ test('passes the target word and selected accent to native endpointing', async (
 
 test('does not treat a target hint as pronunciation correctness feedback', async () => {
   jest.useFakeTimers();
+  const onRecordingReady = jest.fn();
   const nativeSession: VoiceRecordingSession = {
     detector: 'nativeVoiceActivity',
     sessionId: 'native-unconfirmed-target-session',
@@ -488,7 +538,11 @@ test('does not treat a target hint as pronunciation correctness feedback', async
 
   await ReactTestRenderer.act(async () => {
     ReactTestRenderer.create(
-      <SpeakPracticeControls autoStartRequestId={1} word="sun" />,
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        onRecordingReady={onRecordingReady}
+        word="sun"
+      />,
     );
     await flushPromises();
     await flushPromises();
@@ -496,6 +550,7 @@ test('does not treat a target hint as pronunciation correctness feedback', async
   await advanceRecordingClock(120);
 
   expect(mockedPlaySoundEffect).not.toHaveBeenCalledWith('yay');
+  expect(onRecordingReady).not.toHaveBeenCalled();
   expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledWith(
     [
       {

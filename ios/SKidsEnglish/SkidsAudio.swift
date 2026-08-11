@@ -772,6 +772,54 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
     let snapshot: [String: Any]
     let url: URL
   }
+
+  private enum VoiceRecordingStorageFailure: LocalizedError {
+    case invalidId
+    case invalidUri
+    case invalidSource
+    case sourceMissing
+    case storeFailed
+    case deleteFailed
+    case clearFailed
+
+    var bridgeCode: String {
+      switch self {
+      case .invalidId:
+        return "SKIDS_VOICE_RECORDING_ID_INVALID"
+      case .invalidUri:
+        return "SKIDS_VOICE_RECORDING_URI_INVALID"
+      case .invalidSource:
+        return "SKIDS_VOICE_RECORDING_SOURCE_INVALID"
+      case .sourceMissing:
+        return "SKIDS_VOICE_RECORDING_SOURCE_MISSING"
+      case .storeFailed:
+        return "SKIDS_VOICE_RECORDING_STORE_ERROR"
+      case .deleteFailed:
+        return "SKIDS_VOICE_RECORDING_DELETE_ERROR"
+      case .clearFailed:
+        return "SKIDS_VOICE_RECORDING_CLEAR_ERROR"
+      }
+    }
+
+    var errorDescription: String? {
+      switch self {
+      case .invalidId:
+        return "Voice recording IDs must contain 1-64 ASCII letters, digits, underscores, or hyphens"
+      case .invalidUri:
+        return "Voice recording URIs must identify a Sungy-owned local file"
+      case .invalidSource:
+        return "The source URI is not a completed Sungy temporary voice recording"
+      case .sourceMissing:
+        return "The temporary voice recording no longer exists"
+      case .storeFailed:
+        return "Unable to store the durable voice recording"
+      case .deleteFailed:
+        return "Unable to delete the durable voice recording"
+      case .clearFailed:
+        return "Unable to clear all durable voice recordings"
+      }
+    }
+  }
   
   private var audioPlayers: [String: AVAudioPlayer] = [:]
   private let speechPlaybackLock = NSLock()
@@ -1088,6 +1136,175 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
     }
   }
 
+  @objc func promoteVoiceRecording(
+    _ tempUri: String,
+    recordingId: String,
+    resolver resolve: @escaping RCTPromiseResolveBlock,
+    rejecter reject: @escaping RCTPromiseRejectBlock
+  ) {
+    voiceRecordingQueue.async { [weak self] in
+      guard let self = self else {
+        reject(
+          VoiceRecordingStorageFailure.storeFailed.bridgeCode,
+          VoiceRecordingStorageFailure.storeFailed.errorDescription,
+          VoiceRecordingStorageFailure.storeFailed as NSError
+        )
+        return
+      }
+
+      do {
+        let normalizedRecordingId = try self.validateVoiceRecordingId(recordingId)
+        let source = try self.resolveCompletedTempVoiceRecording(tempUri)
+        let storageDirectory = try self.durableVoiceRecordingDirectory(
+          createIfMissing: true
+        )
+        try self.deleteStaleVoiceRecordingStagingFiles(
+          in: storageDirectory,
+          failure: .storeFailed
+        )
+        let destination = storageDirectory.appendingPathComponent(
+          "\(normalizedRecordingId).\(source.pathExtension.lowercased())",
+          isDirectory: false
+        )
+        let staging = storageDirectory.appendingPathComponent(
+          ".\(normalizedRecordingId)-\(UUID().uuidString).tmp",
+          isDirectory: false
+        )
+        let fileManager = FileManager.default
+
+        defer {
+          try? fileManager.removeItem(at: staging)
+        }
+
+        do {
+          try fileManager.copyItem(at: source, to: staging)
+          try self.applyVoiceRecordingFileProtection(to: staging)
+
+          // Both URLs are in Application Support. replaceItemAt atomically
+          // installs a re-recorded take while preserving the stable URI.
+          if fileManager.fileExists(atPath: destination.path) {
+            _ = try fileManager.replaceItemAt(
+              destination,
+              withItemAt: staging,
+              backupItemName: nil,
+              options: []
+            )
+          } else {
+            try fileManager.moveItem(at: staging, to: destination)
+          }
+          try self.applyVoiceRecordingFileProtection(to: destination)
+        } catch let failure as VoiceRecordingStorageFailure {
+          throw failure
+        } catch {
+          throw VoiceRecordingStorageFailure.storeFailed
+        }
+
+        resolve(destination.absoluteString)
+      } catch {
+        self.rejectVoiceRecordingStorage(
+          error,
+          fallback: .storeFailed,
+          rejecter: reject
+        )
+      }
+    }
+  }
+
+  @objc func deleteStoredVoiceRecording(
+    _ uri: String,
+    resolver resolve: @escaping RCTPromiseResolveBlock,
+    rejecter reject: @escaping RCTPromiseRejectBlock
+  ) {
+    voiceRecordingQueue.async { [weak self] in
+      guard let self = self else {
+        reject(
+          VoiceRecordingStorageFailure.deleteFailed.bridgeCode,
+          VoiceRecordingStorageFailure.deleteFailed.errorDescription,
+          VoiceRecordingStorageFailure.deleteFailed as NSError
+        )
+        return
+      }
+
+      do {
+        let recordingUrl = try self.resolveDurableVoiceRecording(uri)
+        let fileManager = FileManager.default
+        guard fileManager.fileExists(atPath: recordingUrl.path) else {
+          resolve(false)
+          return
+        }
+
+        let values = try recordingUrl.resourceValues(forKeys: [.isRegularFileKey])
+        guard values.isRegularFile == true else {
+          throw VoiceRecordingStorageFailure.invalidUri
+        }
+        do {
+          try fileManager.removeItem(at: recordingUrl)
+        } catch {
+          throw VoiceRecordingStorageFailure.deleteFailed
+        }
+        resolve(true)
+      } catch {
+        self.rejectVoiceRecordingStorage(
+          error,
+          fallback: .deleteFailed,
+          rejecter: reject
+        )
+      }
+    }
+  }
+
+  @objc func clearStoredVoiceRecordings(
+    _ resolve: @escaping RCTPromiseResolveBlock,
+    rejecter reject: @escaping RCTPromiseRejectBlock
+  ) {
+    voiceRecordingQueue.async { [weak self] in
+      guard let self = self else {
+        reject(
+          VoiceRecordingStorageFailure.clearFailed.bridgeCode,
+          VoiceRecordingStorageFailure.clearFailed.errorDescription,
+          VoiceRecordingStorageFailure.clearFailed as NSError
+        )
+        return
+      }
+
+      do {
+        let storageDirectory = try self.durableVoiceRecordingDirectory(
+          createIfMissing: false
+        )
+        let fileManager = FileManager.default
+        guard fileManager.fileExists(atPath: storageDirectory.path) else {
+          resolve(true)
+          return
+        }
+
+        let children: [URL]
+        do {
+          children = try fileManager.contentsOfDirectory(
+            at: storageDirectory,
+            includingPropertiesForKeys: nil,
+            options: []
+          )
+        } catch {
+          throw VoiceRecordingStorageFailure.clearFailed
+        }
+        for file in children where self.isOwnedVoiceRecordingStorageFile(file) {
+          do {
+            try fileManager.removeItem(at: file)
+          } catch {
+            throw VoiceRecordingStorageFailure.clearFailed
+          }
+        }
+        resolve(true)
+      } catch {
+        self.rejectVoiceRecordingStorage(
+          error,
+          fallback: .clearFailed,
+          rejecter: reject
+        )
+      }
+    }
+  }
+
   @objc func startVoiceActivityRecording(
     _ rawOptions: NSDictionary,
     resolver resolve: @escaping RCTPromiseResolveBlock,
@@ -1392,6 +1609,221 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
         completion(.failure(error))
       }
     }
+  }
+
+  private func validateVoiceRecordingId(_ recordingId: String) throws -> String {
+    guard
+      !recordingId.isEmpty,
+      recordingId.utf8.count <= 64,
+      recordingId.unicodeScalars.allSatisfy({ scalar in
+        switch scalar.value {
+        case 45, 48...57, 65...90, 95, 97...122:
+          return true
+        default:
+          return false
+        }
+      })
+    else {
+      throw VoiceRecordingStorageFailure.invalidId
+    }
+    return recordingId
+  }
+
+  private func resolveCompletedTempVoiceRecording(_ uri: String) throws -> URL {
+    let source = try resolveVoiceRecordingFileUri(uri)
+    let cacheDirectory = FileManager.default.urls(
+      for: .cachesDirectory,
+      in: .userDomainMask
+    )[0].resolvingSymlinksInPath().standardizedFileURL
+    guard
+      source.deletingLastPathComponent().path == cacheDirectory.path,
+      source.lastPathComponent.hasPrefix("skids_voice_"),
+      source.pathExtension.lowercased() == "caf"
+    else {
+      throw VoiceRecordingStorageFailure.invalidSource
+    }
+    if
+      let activeCapture = voiceCapture,
+      activeCapture.url.resolvingSymlinksInPath().standardizedFileURL.path == source.path
+    {
+      throw VoiceRecordingStorageFailure.invalidSource
+    }
+
+    let fileManager = FileManager.default
+    guard fileManager.fileExists(atPath: source.path) else {
+      throw VoiceRecordingStorageFailure.sourceMissing
+    }
+    let values = try source.resourceValues(
+      forKeys: [.isRegularFileKey, .fileSizeKey]
+    )
+    guard values.isRegularFile == true, (values.fileSize ?? 0) > 0 else {
+      throw VoiceRecordingStorageFailure.invalidSource
+    }
+    return source
+  }
+
+  private func resolveDurableVoiceRecording(_ uri: String) throws -> URL {
+    let recordingUrl = try resolveVoiceRecordingFileUri(uri)
+    let storageDirectory = try durableVoiceRecordingDirectory(
+      createIfMissing: false
+    )
+    guard
+      recordingUrl.deletingLastPathComponent().path == storageDirectory.path,
+      recordingUrl.pathExtension.lowercased() == "caf"
+    else {
+      throw VoiceRecordingStorageFailure.invalidUri
+    }
+    _ = try validateVoiceRecordingId(
+      recordingUrl.deletingPathExtension().lastPathComponent
+    )
+    return recordingUrl
+  }
+
+  private func resolveVoiceRecordingFileUri(_ uri: String) throws -> URL {
+    guard
+      let url = URL(string: uri),
+      url.isFileURL,
+      url.host == nil || url.host?.isEmpty == true,
+      url.query == nil,
+      url.fragment == nil
+    else {
+      throw VoiceRecordingStorageFailure.invalidUri
+    }
+    return url.resolvingSymlinksInPath().standardizedFileURL
+  }
+
+  private func durableVoiceRecordingDirectory(
+    createIfMissing: Bool
+  ) throws -> URL {
+    let fileManager = FileManager.default
+    let applicationSupport = try fileManager.url(
+      for: .applicationSupportDirectory,
+      in: .userDomainMask,
+      appropriateFor: nil,
+      create: createIfMissing
+    ).resolvingSymlinksInPath().standardizedFileURL
+    var storageDirectory = applicationSupport.appendingPathComponent(
+      "voice-recordings",
+      isDirectory: true
+    ).standardizedFileURL
+    guard storageDirectory.deletingLastPathComponent().path == applicationSupport.path else {
+      throw VoiceRecordingStorageFailure.storeFailed
+    }
+
+    var isDirectory: ObjCBool = false
+    if fileManager.fileExists(
+      atPath: storageDirectory.path,
+      isDirectory: &isDirectory
+    ) {
+      guard isDirectory.boolValue else {
+        throw VoiceRecordingStorageFailure.storeFailed
+      }
+    } else if createIfMissing {
+      do {
+        try fileManager.createDirectory(
+          at: storageDirectory,
+          withIntermediateDirectories: true,
+          attributes: [.protectionKey: FileProtectionType.complete]
+        )
+      } catch {
+        throw VoiceRecordingStorageFailure.storeFailed
+      }
+    }
+
+    if fileManager.fileExists(atPath: storageDirectory.path) {
+      do {
+        try fileManager.setAttributes(
+          [.protectionKey: FileProtectionType.complete],
+          ofItemAtPath: storageDirectory.path
+        )
+        var resourceValues = URLResourceValues()
+        resourceValues.isExcludedFromBackup = true
+        try storageDirectory.setResourceValues(resourceValues)
+      } catch {
+        throw VoiceRecordingStorageFailure.storeFailed
+      }
+    }
+    return storageDirectory
+  }
+
+  private func applyVoiceRecordingFileProtection(to url: URL) throws {
+    do {
+      try FileManager.default.setAttributes(
+        [.protectionKey: FileProtectionType.complete],
+        ofItemAtPath: url.path
+      )
+      var protectedUrl = url
+      var resourceValues = URLResourceValues()
+      resourceValues.isExcludedFromBackup = true
+      try protectedUrl.setResourceValues(resourceValues)
+    } catch {
+      throw VoiceRecordingStorageFailure.storeFailed
+    }
+  }
+
+  private func deleteStaleVoiceRecordingStagingFiles(
+    in storageDirectory: URL,
+    failure: VoiceRecordingStorageFailure
+  ) throws {
+    let fileManager = FileManager.default
+    let children: [URL]
+    do {
+      children = try fileManager.contentsOfDirectory(
+        at: storageDirectory,
+        includingPropertiesForKeys: nil,
+        options: []
+      )
+    } catch {
+      throw failure
+    }
+    for file in children where isVoiceRecordingStagingFile(file) {
+      do {
+        try fileManager.removeItem(at: file)
+      } catch {
+        throw failure
+      }
+    }
+  }
+
+  private func isOwnedVoiceRecordingStorageFile(_ file: URL) -> Bool {
+    if isVoiceRecordingStagingFile(file) {
+      return true
+    }
+    guard file.pathExtension.lowercased() == "caf" else {
+      return false
+    }
+    return (try? validateVoiceRecordingId(
+      file.deletingPathExtension().lastPathComponent
+    )) != nil
+  }
+
+  private func isVoiceRecordingStagingFile(_ file: URL) -> Bool {
+    let name = file.lastPathComponent
+    return name.hasPrefix(".") && name.hasSuffix(".tmp")
+  }
+
+  private func rejectVoiceRecordingStorage(
+    _ error: Error,
+    fallback: VoiceRecordingStorageFailure,
+    rejecter reject: RCTPromiseRejectBlock
+  ) {
+    let failure = error as? VoiceRecordingStorageFailure ?? fallback
+    reject(
+      failure.bridgeCode,
+      failure.errorDescription,
+      failure as NSError
+    )
+  }
+
+  private func rejectVoiceRecordingStorage(
+    _ failure: VoiceRecordingStorageFailure,
+    rejecter reject: RCTPromiseRejectBlock
+  ) {
+    rejectVoiceRecordingStorage(
+      failure,
+      fallback: failure,
+      rejecter: reject
+    )
   }
 
   private func isApplicationActive() -> Bool {

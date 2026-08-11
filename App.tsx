@@ -13,6 +13,7 @@ import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
 import { startFirebaseAppCheck } from './src/engine/FirebaseAppCheckManager';
 import { startMonetization } from './src/engine/MonetizationManager';
 import { startParentAccessSessionLifecycle } from './src/engine/ParentAccessSession';
+import { reconcileVoiceRecordingStorage } from './src/engine/VoiceRecordingStore';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { startCrashReporting } from './src/services/CrashReportingService';
 import { startRemoteMonetizationConfig } from './src/services/RemoteMonetizationConfig';
@@ -23,6 +24,7 @@ configureNativeAudioAdapter();
 function App() {
   useEffect(() => {
     initializeAppReviewTracking().catch(() => undefined);
+    reconcileVoiceRecordingStorage().catch(() => undefined);
     startFirebaseAppCheck()
       .then(() => syncAppCheckTokenToNativeCache())
       .catch(() => undefined);

@@ -102,15 +102,17 @@ Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
 - `journeyMode` gồm `guided` và `free`.
 - `learningMode` gồm `core`, `expanded`, `challenge`.
 - Lesson interaction types là `listen`, `tap`, `drag`, `find`.
-- Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; hiện không
-  có speech recognition, transcription hay pronunciation scoring.
+- Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; target-word
+  recognition chỉ là native early-stop hint, không có transcript hay pronunciation scoring.
 - Review type union và runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching`;
   `random` được resolve thành một trong ba game executable khi bắt đầu lượt chơi.
 - Theme `light`, `dark`, `system` đã hoạt động. `appLanguage` được lưu nhưng chưa localize toàn
   bộ app.
 - `learningScope.minAge` có helper/test nhưng child age chưa được truyền vào lesson runtime;
   không mô tả app là đã cá nhân hóa nội dung theo tuổi.
-- Progress, settings và activity đều local bằng AsyncStorage; chưa có account/cloud sync.
+- Progress, settings, activity và metadata thư viện giọng đọc đều lưu local bằng AsyncStorage.
+  Parent account/optional cloud learning sync đã có, nhưng không sync activity, recording audio/
+  metadata hoặc setting thư viện giọng đọc.
 - Reward/sticker semantics đang có open conflict giữa runtime và tests; không đổi contract hoặc
   sửa test chỉ để pass trước khi đọc mục Rewards trong `docs/project_spec.md`.
 
@@ -206,9 +208,10 @@ Chi tiết đầy đủ nằm trong `src/data/README.md` và `docs/asset-pipelin
 
 ### `SkidsAudio` - Android và iOS
 
-Module này xử lý bundled SFX, URI playback, native system TTS fallback, voice recording, metering
-và record permission. Generated/R2 lesson audio vẫn là nguồn production ưu tiên; TTS chỉ là
-best-effort fallback khi mọi URI candidate không phát được.
+Module này xử lý bundled SFX, URI playback, native system TTS fallback, voice recording, metering,
+record permission và durable local recording promote/delete/clear. Generated/R2 lesson audio vẫn
+là nguồn production ưu tiên; TTS chỉ là best-effort fallback khi mọi URI candidate không phát
+được.
 Khi đổi public contract phải đồng bộ:
 
 - TypeScript: `src/engine/NativeAudioAdapter.ts`, `src/engine/VoiceRecorder.ts` và call sites.
@@ -246,7 +249,7 @@ chưa có trên disk.
 
 ## 9. Persistence và notifications
 
-Sáu local stores hiện tại:
+Bảy local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
@@ -257,6 +260,8 @@ Sáu local stores hiện tại:
   dismissal local theo thiết bị.
 - `@skidsenglish/app-review/v1` qua `AppReviewManager.ts`, chỉ giữ first-seen/attempt metadata
   local để throttle lời mời đánh giá trong Parent Mode.
+- `@skidsenglish/voice-recordings/v1` qua `VoiceRecordingStore.ts`, giữ metadata first/latest và
+  pending file cleanup cho thư viện giọng đọc local-only; audio nằm trong native no-backup storage.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.

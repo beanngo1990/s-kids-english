@@ -16,6 +16,7 @@ import {
   prepareRemoteAssets,
 } from '../src/engine/AssetCacheManager';
 import { AppButton } from '../src/components/AppButton';
+import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import { KidIconButton } from '../src/components/KidIconButton';
 import {
@@ -28,6 +29,7 @@ import {
   darkColors,
   setActiveColorScheme,
 } from '../src/theme/colors';
+import { saveVoiceRecordingCandidate } from '../src/engine/VoiceRecordingStore';
 
 jest.mock('../src/engine/AudioManager', () => {
   const speakViMock = jest.fn((_text: string) => Promise.resolve());
@@ -148,6 +150,10 @@ jest.mock('../src/engine/ParentSettingsManager', () => {
   };
 });
 
+jest.mock('../src/engine/VoiceRecordingStore', () => ({
+  saveVoiceRecordingCandidate: jest.fn(() => Promise.resolve()),
+}));
+
 const mockedSpeakVi = speakVi as jest.MockedFunction<typeof speakVi>;
 const mockedSpeakWord = speakWord as jest.MockedFunction<typeof speakWord>;
 const mockedCancelNarration = cancelNarration as jest.MockedFunction<
@@ -160,6 +166,10 @@ const mockedPlayTeacherPromptNarration =
 const mockedGetParentSettings = getParentSettings as jest.MockedFunction<
   typeof getParentSettings
 >;
+const mockedSaveVoiceRecordingCandidate =
+  saveVoiceRecordingCandidate as jest.MockedFunction<
+    typeof saveVoiceRecordingCandidate
+  >;
 const mockedPrefetchAssets = prefetchAssets as jest.MockedFunction<
   typeof prefetchAssets
 >;
@@ -341,6 +351,7 @@ beforeEach(() => {
   mockedSpeakWord.mockResolvedValue();
   mockedGetParentSettings.mockReset();
   mockedGetParentSettings.mockResolvedValue(defaultParentSettings);
+  mockedSaveVoiceRecordingCandidate.mockClear();
   mockedPrefetchAssets.mockReset();
   mockedPrefetchAssets.mockResolvedValue(true);
   mockedPrefetchRemoteAssets.mockReset();
@@ -1635,6 +1646,78 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
   );
   expect(tree?.root.findByType(SceneObjectRenderer).props.isTargeted).toBe(
     true,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('saves spoken vocabulary locally when the parent enables the library', async () => {
+  mockedGetParentSettings.mockResolvedValue({
+    ...defaultParentSettings,
+    voiceRecordingLibrary: {
+      consentedAt: '2026-08-11T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+    },
+  });
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer lessonId="bedtime" scene={teachListenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const practice = tree?.root.findByType(SpeakPracticeControls);
+  expect(practice?.props.onRecordingReady).toEqual(expect.any(Function));
+
+  await ReactTestRenderer.act(async () => {
+    await practice?.props.onRecordingReady({
+      durationMs: 1840,
+      stopReason: 'endOfSpeech',
+      uri: 'file:///cache/skids_voice_test.wav',
+    });
+  });
+
+  expect(mockedSaveVoiceRecordingCandidate).toHaveBeenCalledWith(
+    expect.objectContaining({
+      accent: 'en-US',
+      durationMs: 1840,
+      lessonId: 'bedtime',
+      sceneId: 'teach-listen-scene',
+      stepId: 'teach-listen-step',
+      tempUri: 'file:///cache/skids_voice_test.wav',
+      themeId: 'mot-ngay-cua-be',
+      vocabId: 'vocab-blanket',
+      word: 'blanket',
+    }),
+  );
+
+  const firstEncounterId = mockedSaveVoiceRecordingCandidate.mock.calls[0][0]
+    .encounterId;
+  await ReactTestRenderer.act(async () => {
+    await practice?.props.onRecordingReady({
+      durationMs: 2010,
+      stopReason: 'manual',
+      uri: 'file:///cache/skids_voice_retry.wav',
+    });
+  });
+
+  expect(mockedSaveVoiceRecordingCandidate.mock.calls[1][0].encounterId).toBe(
+    firstEncounterId,
   );
 
   await ReactTestRenderer.act(async () => {

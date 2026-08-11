@@ -39,6 +39,8 @@ import { MascotImage } from '../components/mascot';
 import { ParentAccountCard } from '../components/ParentAccountCard';
 import { ParentAppUpdateCard } from '../components/ParentAppUpdateCard';
 import { ParentGateChallengeCard } from '../components/ParentGateChallengeCard';
+import { ParentVoiceRecordingSettingsCard } from '../components/ParentVoiceRecordingSettingsCard';
+import { ParentVoiceSummaryCard } from '../components/ParentVoiceSummaryCard';
 import { PremiumLessonLockIndicator } from '../components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
@@ -1674,6 +1676,10 @@ export function ParentScreen({ navigation, route }: Props) {
 
             <WeeklyChart data={weeklyData} weeklyTarget={WEEKLY_WORD_TARGET} />
 
+            <ParentVoiceSummaryCard
+              onOpen={() => navigation.navigate('ParentVoiceLibrary')}
+            />
+
             <AppCard
               style={[
                 styles.reviewCard,
@@ -2419,6 +2425,8 @@ export function ParentScreen({ navigation, route }: Props) {
                 </Pressable>
               </Modal>
             </AppCard>
+
+            <ParentVoiceRecordingSettingsCard />
 
             <AppCard style={styles.dailySettingsCard}>
               <View style={styles.settingsCardHeader}>

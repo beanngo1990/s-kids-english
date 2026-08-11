@@ -44,6 +44,7 @@ export const en: TranslationDictionary = {
   'nav.stickerCollection': 'Sticker Collection',
   'nav.stickerPlayground': 'Sticker Playground',
   'nav.parent': 'Parent Mode',
+  'nav.parentVoiceLibrary': "Child's Reading Voice",
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'The fun learning journey begins!',
@@ -1079,6 +1080,79 @@ export const en: TranslationDictionary = {
   'parent.stats.viewLessonPrefix': 'View lesson ',
   'parent.stats.viewLesson': 'View lesson',
   'parent.stats.lessonPreviewLabel': 'Child will explore',
+
+  'parent.voice.autoSaveDisabled': 'Does not save new recordings.',
+  'parent.voice.autoSaveEnabled':
+    'Automatically saves when your child practices reading.',
+  'parent.voice.autoSaveTitle': 'Automatically save reading voice',
+  'parent.voice.byLessonTab': 'By lesson',
+  'parent.voice.cancel': 'Cancel',
+  'parent.voice.deleteAction': 'Delete',
+  'parent.voice.deleteAllAction': 'Delete all',
+  'parent.voice.deleteAllText':
+    'All voice recordings on this device will be deleted and cannot be recovered.',
+  'parent.voice.deleteAllTitle': 'Delete all recordings?',
+  'parent.voice.deleteCleanupText':
+    'The recording is no longer in the library, but some files could not be fully removed from this device. Choose “Try cleanup again”.',
+  'parent.voice.deleteCleanupTitle': 'Some files were not fully removed',
+  'parent.voice.deleteErrorText':
+    'The recording could not be deleted. Please try again.',
+  'parent.voice.deleteErrorTitle': 'Could not delete recording',
+  'parent.voice.deleteLessonAccessibility':
+    'Delete voice recordings from {lesson}',
+  'parent.voice.deleteLessonText':
+    'All voice recordings from “{lesson}” will be deleted from this device.',
+  'parent.voice.deleteLessonTitle': 'Delete recordings from this lesson?',
+  'parent.voice.deleteSampleAccessibility': 'Delete this voice milestone',
+  'parent.voice.deleteSampleText':
+    'This “{word}” voice milestone will be deleted from this device.',
+  'parent.voice.deleteSampleTitle': 'Delete this voice milestone?',
+  'parent.voice.deleteThemeAccessibility':
+    'Delete voice recordings from {theme}',
+  'parent.voice.deleteThemeText':
+    'All voice recordings from “{theme}” will be deleted from this device.',
+  'parent.voice.deleteThemeTitle': 'Delete recordings from this theme?',
+  'parent.voice.deleteWordAccessibility': 'Delete every recording of {word}',
+  'parent.voice.deleteWordText':
+    'All voice milestones for “{word}” will be deleted from this device.',
+  'parent.voice.deleteWordTitle': 'Delete recordings of this word?',
+  'parent.voice.durationSeconds': '{seconds} sec',
+  'parent.voice.enableAction': 'Enable automatic saving',
+  'parent.voice.enableText':
+    "Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.",
+  'parent.voice.enableTitle': "Save your child's reading voice?",
+  'parent.voice.emptyLibrary':
+    "Enable automatic saving to keep your child's reading practice.",
+  'parent.voice.emptyTitle': 'No reading voice yet',
+  'parent.voice.firstMilestone': 'First',
+  'parent.voice.infoAccessibility':
+    'Learn about automatically saving reading voice',
+  'parent.voice.latestMilestone': 'Recent',
+  'parent.voice.loading': "Loading your child's reading voice…",
+  'parent.voice.localOnlyText':
+    'Recordings stay only on this device. Sungy never uploads them to the cloud, includes them in system backups, or uses them for scoring. Sungy keeps up to 100 milestones and removes the oldest entries when full.',
+  'parent.voice.localOnlyTitle': 'Stored only on this device',
+  'parent.voice.playAccessibility': 'Play the recording of {word}',
+  'parent.voice.playErrorText':
+    'This recording could not be played. Please try again.',
+  'parent.voice.playErrorTitle': 'Could not play recording',
+  'parent.voice.playing': 'Playing…',
+  'parent.voice.recentTab': 'Recent',
+  'parent.voice.recordingLabel': 'Recording',
+  'parent.voice.retryCleanupAction': 'Try cleanup again',
+  'parent.voice.settingErrorText':
+    'The reading voice setting was not updated. Please try again.',
+  'parent.voice.settingErrorTitle': 'Could not update setting',
+  'parent.voice.summaryBadge': 'Recent reading voice',
+  'parent.voice.summaryEmpty':
+    'No recordings yet. Automatic saving can be enabled in Settings.',
+  'parent.voice.summaryMeta': '{lesson} · {date}',
+  'parent.voice.summarySubtitle':
+    'Listen to words your child has read whenever you need.',
+  'parent.voice.title': "Child's Reading Voice",
+  'parent.voice.twoMilestones': '2 milestones',
+  'parent.voice.viewAll': 'View all',
+  'parent.voice.wordCount': '{count} words',
   'progressDots.accessibilityLabel': 'Step {current} of {total}',
   'progressStars.accessibilityLabel': 'Completed {completed} of {total} scenes',
   'weeklyChart.day.sun': 'Sun',

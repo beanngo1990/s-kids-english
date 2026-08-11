@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { SKidsIcon } from './SKidsIcon';
 import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
@@ -39,12 +38,11 @@ export function KidHeaderActionButton({
       onPress={onPress}
       style={({ pressed }) => [
         styles.actionButton,
-        action === 'back' && styles.backButton,
         pressed && styles.actionButtonPressed,
       ]}
     >
       {action === 'back' ? (
-        <SKidsIcon name="next" size={44} style={styles.backIcon} />
+        <View style={styles.backIcon} />
       ) : (
         <View style={styles.closeIcon}>
           <View style={styles.closeStroke} />
@@ -57,14 +55,18 @@ export function KidHeaderActionButton({
 
 type KidRouteHeaderProps = {
   action: KidRouteHeaderAction;
+  infoAccessibilityLabel?: string;
   onAction: () => void;
+  onInfo?: () => void;
   style?: StyleProp<ViewStyle>;
   title: string;
 };
 
 export function KidRouteHeader({
   action,
+  infoAccessibilityLabel,
   onAction,
+  onInfo,
   style,
   title,
 }: KidRouteHeaderProps) {
@@ -84,6 +86,23 @@ export function KidRouteHeader({
           {title}
         </Text>
       </View>
+      {onInfo && infoAccessibilityLabel ? (
+        <Pressable
+          accessibilityLabel={infoAccessibilityLabel}
+          accessibilityRole="button"
+          hitSlop={8}
+          onPress={onInfo}
+          style={({ pressed }) => [
+            styles.infoButton,
+            pressed && styles.actionButtonPressed,
+          ]}
+        >
+          <View accessibilityElementsHidden style={styles.infoIcon}>
+            <View style={styles.infoDot} />
+            <View style={styles.infoStem} />
+          </View>
+        </Pressable>
+      ) : null}
     </View>
   );
 }
@@ -124,12 +143,15 @@ const styles = createThemedStyles(() => ({
     opacity: 0.86,
     transform: [{ translateY: 1 }, { scale: 0.98 }],
   },
-  backButton: {
-    backgroundColor: colors.transparent,
-    borderWidth: 0,
-  },
   backIcon: {
-    transform: [{ rotate: '180deg' }],
+    borderBottomColor: colors.primaryDark,
+    borderBottomLeftRadius: 2,
+    borderBottomWidth: 3,
+    borderLeftColor: colors.primaryDark,
+    borderLeftWidth: 3,
+    height: 15,
+    transform: [{ rotate: '45deg' }, { translateX: 1 }],
+    width: 15,
   },
   closeIcon: {
     alignItems: 'center',
@@ -147,6 +169,37 @@ const styles = createThemedStyles(() => ({
   },
   closeStrokeReverse: {
     transform: [{ rotate: '-45deg' }],
+  },
+  infoButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  infoDot: {
+    backgroundColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    height: 4,
+    position: 'absolute',
+    top: 2,
+    width: 4,
+  },
+  infoIcon: {
+    alignItems: 'center',
+    height: 24,
+    width: 14,
+  },
+  infoStem: {
+    backgroundColor: colors.primaryDark,
+    borderRadius: radius.pill,
+    bottom: 2,
+    height: 13,
+    position: 'absolute',
+    width: 3,
   },
   routeHeader: {
     alignItems: 'center',

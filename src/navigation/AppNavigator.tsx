@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
-import { Animated, View, Text } from 'react-native';
+import { Alert, Animated, View, Text } from 'react-native';
 import {
   NavigationContainer,
   useNavigationContainerRef,
@@ -15,6 +15,7 @@ import {
   LessonPackScreen,
   OnboardingScreen,
   ParentScreen,
+  ParentVoiceLibraryScreen,
   RewardScreen,
   ReviewGameScreen,
   ReviewLibraryScreen,
@@ -198,6 +199,11 @@ function AnimatedSplashMascot() {
           options={{ title: t('nav.parent') }}
         />
         <Stack.Screen
+          name="ParentVoiceLibrary"
+          component={ParentVoiceLibraryScreen}
+          options={{ title: t('nav.parentVoiceLibrary') }}
+        />
+        <Stack.Screen
           name="Premium"
           component={PremiumScreen}
           options={{ title: t('nav.premium') }}
@@ -212,8 +218,10 @@ function AppStackHeader({
   options,
   route,
 }: NativeStackHeaderProps) {
+  const t = useI18n();
   const usesCloseAction =
     route.name === 'Reward' || route.name === 'StickerPlayground';
+  const showsVoiceLibraryInfo = route.name === 'ParentVoiceLibrary';
   const handleHeaderAction = () => {
     if (route.name === 'Reward') {
       const rewardParams = route.params as
@@ -240,7 +248,22 @@ function AppStackHeader({
   return (
     <KidSafeRouteHeader
       action={usesCloseAction ? 'close' : 'back'}
+      infoAccessibilityLabel={
+        showsVoiceLibraryInfo
+          ? t('parent.voice.infoAccessibility')
+          : undefined
+      }
       onAction={handleHeaderAction}
+      onInfo={
+        showsVoiceLibraryInfo
+          ? () =>
+              Alert.alert(
+                t('parent.voice.localOnlyTitle'),
+                t('parent.voice.localOnlyText'),
+                [{ text: t('common.close') }],
+              )
+          : undefined
+      }
       title={options.title ?? route.name}
     />
   );

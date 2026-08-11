@@ -3,6 +3,7 @@ export { LessonPackScreen } from './LessonPackScreen';
 export { LessonListScreen } from './LessonListScreen';
 export { OnboardingScreen } from './OnboardingScreen';
 export { ParentScreen } from './ParentScreen';
+export { ParentVoiceLibraryScreen } from './ParentVoiceLibraryScreen';
 export { RewardScreen } from './RewardScreen';
 export { ReviewGameScreen } from './ReviewGameScreen';
 export { ReviewLibraryScreen } from './ReviewLibraryScreen';

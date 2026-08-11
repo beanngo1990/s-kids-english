@@ -42,6 +42,7 @@ export const vi = {
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.stickerPlayground': 'Sân chơi Sticker',
   'nav.parent': 'Góc phụ huynh',
+  'nav.parentVoiceLibrary': 'Giọng đọc của bé',
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'Hành trình vui học bắt đầu!',
@@ -1075,6 +1076,75 @@ export const vi = {
   'parent.stats.viewLessonPrefix': 'Xem bài ',
   'parent.stats.viewLesson': 'Xem bài học',
   'parent.stats.lessonPreviewLabel': 'Bé sẽ khám phá',
+
+  'parent.voice.autoSaveDisabled': 'Không lưu bản đọc mới.',
+  'parent.voice.autoSaveEnabled': 'Tự động lưu khi bé luyện đọc.',
+  'parent.voice.autoSaveTitle': 'Tự động lưu giọng đọc',
+  'parent.voice.byLessonTab': 'Theo bài học',
+  'parent.voice.cancel': 'Hủy',
+  'parent.voice.deleteAction': 'Xóa',
+  'parent.voice.deleteAllAction': 'Xóa tất cả',
+  'parent.voice.deleteAllText':
+    'Tất cả bản ghi giọng đọc trên thiết bị này sẽ bị xóa và không thể khôi phục.',
+  'parent.voice.deleteAllTitle': 'Xóa tất cả giọng đọc?',
+  'parent.voice.deleteCleanupText':
+    'Bản ghi không còn trong thư viện, nhưng một số tệp chưa được xóa hoàn toàn khỏi thiết bị. Ba mẹ có thể chọn “Thử dọn lại”.',
+  'parent.voice.deleteCleanupTitle': 'Một số tệp chưa được dọn xong',
+  'parent.voice.deleteErrorText':
+    'Chưa thể xóa bản ghi lúc này. Ba mẹ vui lòng thử lại.',
+  'parent.voice.deleteErrorTitle': 'Chưa xóa được bản ghi',
+  'parent.voice.deleteLessonAccessibility': 'Xóa giọng đọc trong bài {lesson}',
+  'parent.voice.deleteLessonText':
+    'Tất cả giọng đọc trong bài “{lesson}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteLessonTitle': 'Xóa giọng đọc của bài này?',
+  'parent.voice.deleteSampleAccessibility': 'Xóa mốc ghi âm này',
+  'parent.voice.deleteSampleText':
+    'Mốc giọng đọc “{word}” này sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteSampleTitle': 'Xóa mốc giọng đọc?',
+  'parent.voice.deleteThemeAccessibility': 'Xóa giọng đọc trong chủ đề {theme}',
+  'parent.voice.deleteThemeText':
+    'Tất cả giọng đọc trong chủ đề “{theme}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteThemeTitle': 'Xóa giọng đọc của chủ đề này?',
+  'parent.voice.deleteWordAccessibility': 'Xóa tất cả bản đọc từ {word}',
+  'parent.voice.deleteWordText':
+    'Tất cả mốc giọng đọc của từ “{word}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteWordTitle': 'Xóa giọng đọc của từ này?',
+  'parent.voice.durationSeconds': '{seconds} giây',
+  'parent.voice.enableAction': 'Bật tự động lưu',
+  'parent.voice.enableText':
+    'Sungy sẽ tự động lưu bản đọc cuối có tiếng nói của mỗi lần luyện từ. Bản ghi chỉ nằm trên thiết bị này, không tải lên cloud hoặc đưa vào bản sao lưu hệ thống. Sungy giữ tối đa 100 mốc giọng đọc.',
+  'parent.voice.enableTitle': 'Bật lưu giọng đọc của bé?',
+  'parent.voice.emptyLibrary':
+    'Bật tự động lưu để lưu lại khi bé luyện đọc.',
+  'parent.voice.emptyTitle': 'Chưa có giọng đọc',
+  'parent.voice.firstMilestone': 'Lần đầu',
+  'parent.voice.infoAccessibility':
+    'Xem thông tin về tự động lưu giọng đọc',
+  'parent.voice.latestMilestone': 'Gần đây',
+  'parent.voice.loading': 'Đang tải giọng đọc của bé…',
+  'parent.voice.localOnlyText':
+    'Các bản ghi chỉ nằm trên thiết bị này. Sungy không tải lên cloud, không đưa vào bản sao lưu hệ thống và không dùng để chấm điểm. Sungy giữ tối đa 100 mốc và tự dọn các mục cũ nhất khi đầy.',
+  'parent.voice.localOnlyTitle': 'Chỉ lưu trên thiết bị',
+  'parent.voice.playAccessibility': 'Nghe bé đọc từ {word}',
+  'parent.voice.playErrorText':
+    'Bản ghi này chưa thể phát. Ba mẹ vui lòng thử lại.',
+  'parent.voice.playErrorTitle': 'Chưa phát được bản ghi',
+  'parent.voice.playing': 'Đang phát…',
+  'parent.voice.recentTab': 'Gần đây',
+  'parent.voice.recordingLabel': 'Bản ghi',
+  'parent.voice.retryCleanupAction': 'Thử dọn lại',
+  'parent.voice.settingErrorText':
+    'Cài đặt giọng đọc chưa được cập nhật. Ba mẹ vui lòng thử lại.',
+  'parent.voice.settingErrorTitle': 'Chưa cập nhật được cài đặt',
+  'parent.voice.summaryBadge': 'Giọng đọc gần đây',
+  'parent.voice.summaryEmpty':
+    'Chưa có bản đọc nào. Ba mẹ có thể bật tự động lưu trong Cài đặt.',
+  'parent.voice.summaryMeta': '{lesson} · {date}',
+  'parent.voice.summarySubtitle': 'Nghe lại những từ bé đã đọc khi ba mẹ cần.',
+  'parent.voice.title': 'Giọng đọc của bé',
+  'parent.voice.twoMilestones': '2 mốc',
+  'parent.voice.viewAll': 'Xem tất cả',
+  'parent.voice.wordCount': '{count} từ',
   'progressDots.accessibilityLabel': 'Bước {current} trên {total}',
   'progressStars.accessibilityLabel':
     'Bé đã hoàn thành {completed} trên {total} cảnh',

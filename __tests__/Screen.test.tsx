@@ -72,3 +72,28 @@ test('renders a close action for immersive routes', () => {
 
   act(() => renderer!.unmount());
 });
+
+test('renders an optional information action in the shared route header', () => {
+  const onInfo = jest.fn();
+  let renderer: ReactTestRenderer.ReactTestRenderer;
+
+  act(() => {
+    renderer = ReactTestRenderer.create(
+      <KidRouteHeader
+        action="back"
+        infoAccessibilityLabel="Thông tin giọng đọc"
+        onAction={jest.fn()}
+        onInfo={onInfo}
+        title="Giọng đọc của bé"
+      />,
+    );
+  });
+
+  const infoButton = renderer!.root.findByProps({
+    accessibilityLabel: 'Thông tin giọng đọc',
+  });
+  act(() => infoButton.props.onPress());
+  expect(onInfo).toHaveBeenCalledTimes(1);
+
+  act(() => renderer!.unmount());
+});

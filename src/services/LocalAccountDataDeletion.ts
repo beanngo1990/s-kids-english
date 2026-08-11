@@ -2,6 +2,7 @@ import { clearLocalCloudProgressSyncData } from '../engine/CloudProgressSyncMana
 import { resetActivityLog } from '../engine/DailyActivityTracker';
 import { resetParentSettings } from '../engine/ParentSettingsManager';
 import { resetProgress } from '../engine/ProgressManager';
+import { clearVoiceRecordings } from '../engine/VoiceRecordingStore';
 import { NotificationService } from './NotificationService';
 
 export async function deleteLocalAccountData(): Promise<void> {
@@ -12,6 +13,7 @@ export async function deleteLocalAccountData(): Promise<void> {
     resetParentSettings(),
     resetProgress(),
     resetActivityLog(),
+    clearVoiceRecordingsForAccountDeletion(),
     cancelDailyReminderBestEffort(),
   ]);
 
@@ -23,6 +25,13 @@ export async function deleteLocalAccountData(): Promise<void> {
 
   if (failures.length > 0) {
     throw normalizeLocalDeletionError(failures[0]);
+  }
+}
+
+async function clearVoiceRecordingsForAccountDeletion() {
+  const result = await clearVoiceRecordings();
+  if (result.fileCleanupFailed) {
+    throw new Error('Could not delete all local voice recording files.');
   }
 }
 

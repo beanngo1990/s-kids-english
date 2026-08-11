@@ -200,6 +200,12 @@ test('cloud parent settings serialization excludes local-only fields', () => {
     appTheme: 'dark',
     reminderEnabled: true,
     reminderTime: '20:15',
+    voiceRecordingLibrary: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      updatedAt: '2026-07-15T08:00:00.000Z',
+    },
     childProfile: {
       avatarEmoji: ':)',
       birthYear: 2021,
@@ -231,6 +237,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
   expect(JSON.stringify(serialized)).not.toContain('backgroundMusicEnabled');
   expect(JSON.stringify(serialized)).not.toContain('crashReportingEnabled');
   expect(JSON.stringify(serialized)).not.toContain('enableSceneEditor');
+  expect(JSON.stringify(serialized)).not.toContain('voiceRecordingLibrary');
 });
 
 test('cloud parent settings parser rejects unsupported shapes', () => {
@@ -283,6 +290,12 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
       ownerUid: 'parent-a',
     },
     enableSceneEditor: true,
+    voiceRecordingLibrary: {
+      consentedAt: '2026-07-15T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+      updatedAt: '2026-07-15T08:00:00.000Z',
+    },
     appTheme: 'dark',
     updatedAt: '2026-07-15T08:00:00.000Z',
     visibleLessonIds: ['lesson-a'],
@@ -291,6 +304,7 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
   const nextSettings = await saveParentSettingsFromCloud({
     cloudProgressSync: { enabled: false },
     enableSceneEditor: false,
+    voiceRecordingLibrary: { enabled: false },
     appTheme: 'light',
     childProfile: {
       avatarEmoji: ':)',
@@ -308,6 +322,9 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
       ownerUid: 'parent-a',
     },
     enableSceneEditor: true,
+    voiceRecordingLibrary: {
+      enabled: true,
+    },
     appTheme: 'light',
     childProfile: {
       avatarEmoji: ':)',
@@ -438,6 +455,7 @@ function getTestParentSettings(): ParentSettings {
     appTheme: 'system',
     reminderEnabled: false,
     reminderTime: '19:30',
+    voiceRecordingLibrary: { enabled: false },
     childProfile: {
       avatarEmoji: ':)',
       name: 'Sweet kid',

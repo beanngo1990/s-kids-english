@@ -13,6 +13,8 @@ import { CLOUD_PROGRESS_SYNC_CONSENT_VERSION } from '../config/cloudProgressSync
 
 const PARENT_SETTINGS_STORAGE_KEY = '@skidsenglish/parent-settings/v1';
 
+export const VOICE_RECORDING_LIBRARY_CONSENT_VERSION = 1;
+
 export type { AppLanguage, TeacherPromptMode } from '../i18n/types';
 export type { EnglishAccent } from '../types/audio';
 export type AppTheme = 'light' | 'dark' | 'system';
@@ -28,6 +30,13 @@ export type CloudProgressSyncPreference = {
   consentVersion?: number;
   enabled: boolean;
   ownerUid?: string;
+};
+
+export type VoiceRecordingLibraryPreference = {
+  consentedAt?: string;
+  consentVersion?: number;
+  enabled: boolean;
+  updatedAt?: string;
 };
 
 export const AVATAR_EMOJI_OPTIONS = [
@@ -56,6 +65,7 @@ export type ParentSettings = {
   reminderEnabled: boolean;
   reminderTime: string; // e.g. "19:30"
   childProfile: ChildProfile;
+  voiceRecordingLibrary: VoiceRecordingLibraryPreference;
 };
 
 export type ParentSettingsListener = (settings: ParentSettings) => void;
@@ -159,6 +169,7 @@ export function getDefaultParentSettings(): ParentSettings {
     reminderEnabled: false,
     reminderTime: '19:30',
     childProfile: defaultChildProfile,
+    voiceRecordingLibrary: { enabled: false },
   };
 }
 
@@ -222,7 +233,10 @@ export async function saveParentSettingsFromCloud(
     ...currentSettings,
     ...settings,
     cloudProgressSync: currentSettings.cloudProgressSync,
+    backgroundMusicEnabled: currentSettings.backgroundMusicEnabled,
+    crashReportingEnabled: currentSettings.crashReportingEnabled,
     enableSceneEditor: currentSettings.enableSceneEditor,
+    voiceRecordingLibrary: currentSettings.voiceRecordingLibrary,
   });
 
   await AsyncStorage.setItem(
@@ -287,6 +301,9 @@ function normalizeParentSettings(value: unknown): ParentSettings {
     reminderTime:
       typeof settings.reminderTime === 'string' ? settings.reminderTime : '19:30',
     childProfile: normalizeChildProfile(settings.childProfile),
+    voiceRecordingLibrary: normalizeVoiceRecordingLibraryPreference(
+      settings.voiceRecordingLibrary,
+    ),
   };
 }
 
@@ -340,6 +357,37 @@ function normalizeCloudProgressSyncPreference(value: unknown) {
     ),
     ...(ownerUid ? { ownerUid } : {}),
   } satisfies CloudProgressSyncPreference;
+}
+
+function normalizeVoiceRecordingLibraryPreference(value: unknown) {
+  const preference = value as
+    | Partial<VoiceRecordingLibraryPreference>
+    | undefined;
+  const consentedAt = normalizeIsoTimestamp(preference?.consentedAt);
+  const updatedAt = normalizeIsoTimestamp(preference?.updatedAt);
+  const consentVersion =
+    typeof preference?.consentVersion === 'number' &&
+    Number.isInteger(preference.consentVersion) &&
+    preference.consentVersion > 0
+      ? preference.consentVersion
+      : undefined;
+  const enabled =
+    preference?.enabled === true &&
+    consentVersion === VOICE_RECORDING_LIBRARY_CONSENT_VERSION &&
+    Boolean(consentedAt);
+
+  return {
+    ...(consentedAt ? { consentedAt } : {}),
+    ...(consentVersion ? { consentVersion } : {}),
+    enabled,
+    ...(updatedAt ? { updatedAt } : {}),
+  } satisfies VoiceRecordingLibraryPreference;
+}
+
+function normalizeIsoTimestamp(value: unknown) {
+  return typeof value === 'string' && !Number.isNaN(new Date(value).getTime())
+    ? value
+    : undefined;
 }
 
 function notifyParentSettingsChanged(settings: ParentSettings) {

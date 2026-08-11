@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.SystemClock
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
+import android.system.Os
 import android.util.Log
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.LifecycleEventListener
@@ -24,6 +25,7 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.WritableMap
 import com.seduforge.skidsenglish.R
 import java.io.File
+import java.io.FileOutputStream
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 import java.util.Locale
@@ -519,6 +521,111 @@ class SkidsAudioModule(
     promise.resolve(snapshot.level)
   }
 
+  @ReactMethod
+  fun promoteVoiceRecording(
+    tempUri: String,
+    recordingId: String,
+    promise: Promise,
+  ) {
+    runVoiceRecordingStorageOperation(
+      promise = promise,
+      fallbackErrorCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+    ) {
+      val normalizedRecordingId = validateVoiceRecordingId(recordingId)
+      val source = resolveCompletedTempVoiceRecording(tempUri)
+      val storageDirectory = durableVoiceRecordingDirectory(createIfMissing = true)
+      deleteStaleVoiceRecordingStagingFiles(storageDirectory)
+      val destination = File(
+        storageDirectory,
+        "$normalizedRecordingId.${source.extension.lowercase(Locale.ROOT)}",
+      )
+      val stagingFile = File(
+        storageDirectory,
+        ".$normalizedRecordingId-${UUID.randomUUID()}.tmp",
+      )
+
+      try {
+        source.inputStream().use { input ->
+          FileOutputStream(stagingFile).use { output ->
+            input.copyTo(output)
+            output.fd.sync()
+          }
+        }
+        if (stagingFile.length() != source.length()) {
+          throw VoiceRecordingStorageException(
+            bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+            message = "The durable voice recording copy is incomplete",
+          )
+        }
+
+        // Staging and destination are on the same no-backup filesystem. rename(2)
+        // atomically installs the new take and safely replaces the previous take
+        // when callers intentionally reuse a recording ID.
+        Os.rename(stagingFile.absolutePath, destination.absolutePath)
+        promise.resolve(Uri.fromFile(destination).toString())
+      } finally {
+        stagingFile.delete()
+      }
+    }
+  }
+
+  @ReactMethod
+  fun deleteStoredVoiceRecording(uri: String, promise: Promise) {
+    runVoiceRecordingStorageOperation(
+      promise = promise,
+      fallbackErrorCode = "SKIDS_VOICE_RECORDING_DELETE_ERROR",
+    ) {
+      val recordingFile = resolveDurableVoiceRecording(uri)
+      if (!recordingFile.exists()) {
+        promise.resolve(false)
+        return@runVoiceRecordingStorageOperation
+      }
+      if (!recordingFile.isFile) {
+        throw VoiceRecordingStorageException(
+          bridgeCode = "SKIDS_VOICE_RECORDING_URI_INVALID",
+          message = "The durable voice recording URI does not identify a file",
+        )
+      }
+      if (!recordingFile.delete()) {
+        throw VoiceRecordingStorageException(
+          bridgeCode = "SKIDS_VOICE_RECORDING_DELETE_ERROR",
+          message = "Unable to delete the durable voice recording",
+        )
+      }
+      promise.resolve(true)
+    }
+  }
+
+  @ReactMethod
+  fun clearStoredVoiceRecordings(promise: Promise) {
+    runVoiceRecordingStorageOperation(
+      promise = promise,
+      fallbackErrorCode = "SKIDS_VOICE_RECORDING_CLEAR_ERROR",
+    ) {
+      val storageDirectory = durableVoiceRecordingDirectory(createIfMissing = false)
+      if (!storageDirectory.exists()) {
+        promise.resolve(true)
+        return@runVoiceRecordingStorageOperation
+      }
+
+      val children = storageDirectory.listFiles() ?: throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_CLEAR_ERROR",
+        message = "Unable to inspect the durable voice recording directory",
+      )
+      children
+        .filter(::isOwnedVoiceRecordingStorageFile)
+        .forEach { file ->
+          if (!file.delete()) {
+            throw VoiceRecordingStorageException(
+              bridgeCode = "SKIDS_VOICE_RECORDING_CLEAR_ERROR",
+              message = "Unable to clear all durable voice recordings",
+            )
+          }
+        }
+      promise.resolve(true)
+    }
+  }
+
   override fun invalidate() {
     if (!isReleased) {
       isReleased = true
@@ -855,6 +962,180 @@ class SkidsAudioModule(
       promise.reject(errorCode, error)
     }
   }
+
+  private fun runVoiceRecordingStorageOperation(
+    promise: Promise,
+    fallbackErrorCode: String,
+    action: () -> Unit,
+  ) {
+    try {
+      voiceControlExecutor.execute {
+        try {
+          action()
+        } catch (error: VoiceRecordingStorageException) {
+          promise.reject(error.bridgeCode, error.message, error)
+        } catch (error: Exception) {
+          promise.reject(fallbackErrorCode, error)
+        }
+      }
+    } catch (error: Exception) {
+      promise.reject(fallbackErrorCode, error)
+    }
+  }
+
+  private fun validateVoiceRecordingId(recordingId: String): String {
+    if (!VOICE_RECORDING_ID_PATTERN.matches(recordingId)) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_ID_INVALID",
+        message = "Voice recording IDs must contain 1-64 ASCII letters, digits, underscores, or hyphens",
+      )
+    }
+    return recordingId
+  }
+
+  private fun resolveCompletedTempVoiceRecording(uriString: String): File {
+    val source = resolveLocalFileUri(uriString)
+    val cacheDirectory = reactContext.cacheDir.canonicalFile
+    if (
+      source.parentFile != cacheDirectory ||
+      !source.name.startsWith(VOICE_RECORDING_TEMP_PREFIX) ||
+      source.extension.lowercase(Locale.ROOT) != VOICE_RECORDING_ANDROID_EXTENSION
+    ) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_SOURCE_INVALID",
+        message = "The source URI is not a Sungy temporary voice recording",
+      )
+    }
+
+    val isRecordingActive = synchronized(voiceRecordingLock) {
+      latestVoiceSession?.let { session ->
+        session.recordingFile.canonicalFile == source &&
+          session.completionLatch.count > 0L
+      } == true
+    }
+    if (isRecordingActive) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_SOURCE_INVALID",
+        message = "The temporary voice recording has not finished",
+      )
+    }
+    if (!source.exists()) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_SOURCE_MISSING",
+        message = "The temporary voice recording no longer exists",
+      )
+    }
+    if (!source.isFile || !source.canRead() || source.length() <= 0L) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_SOURCE_INVALID",
+        message = "The temporary voice recording is not a readable audio file",
+      )
+    }
+    return source
+  }
+
+  private fun resolveDurableVoiceRecording(uriString: String): File {
+    val recordingFile = resolveLocalFileUri(uriString)
+    val storageDirectory = durableVoiceRecordingDirectory(createIfMissing = false)
+    if (
+      recordingFile.parentFile != storageDirectory ||
+      recordingFile.extension.lowercase(Locale.ROOT) != VOICE_RECORDING_ANDROID_EXTENSION
+    ) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_URI_INVALID",
+        message = "The URI is not a Sungy durable voice recording",
+      )
+    }
+    validateVoiceRecordingId(recordingFile.nameWithoutExtension)
+    return recordingFile
+  }
+
+  private fun resolveLocalFileUri(uriString: String): File {
+    val uri = try {
+      Uri.parse(uriString)
+    } catch (error: Exception) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_URI_INVALID",
+        message = "The voice recording URI is invalid",
+        cause = error,
+      )
+    }
+    if (
+      uri.scheme != "file" ||
+      !uri.authority.isNullOrEmpty() ||
+      uri.path.isNullOrEmpty() ||
+      uri.query != null ||
+      uri.fragment != null
+    ) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_URI_INVALID",
+        message = "Voice recording URIs must be local file URIs",
+      )
+    }
+    return try {
+      File(uri.path!!).canonicalFile
+    } catch (error: Exception) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_URI_INVALID",
+        message = "The voice recording path is invalid",
+        cause = error,
+      )
+    }
+  }
+
+  private fun durableVoiceRecordingDirectory(createIfMissing: Boolean): File {
+    val noBackupDirectory = reactContext.noBackupFilesDir.canonicalFile
+    val storageDirectory = File(
+      noBackupDirectory,
+      VOICE_RECORDING_STORAGE_DIRECTORY,
+    ).canonicalFile
+    if (storageDirectory.parentFile != noBackupDirectory) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+        message = "The durable voice recording directory is invalid",
+      )
+    }
+    if (createIfMissing && !storageDirectory.exists() && !storageDirectory.mkdirs()) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+        message = "Unable to create the durable voice recording directory",
+      )
+    }
+    if (storageDirectory.exists() && !storageDirectory.isDirectory) {
+      throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+        message = "The durable voice recording path is not a directory",
+      )
+    }
+    return storageDirectory
+  }
+
+  private fun deleteStaleVoiceRecordingStagingFiles(storageDirectory: File) {
+    val staleFiles = storageDirectory.listFiles()
+      ?.filter(::isVoiceRecordingStagingFile)
+      ?: throw VoiceRecordingStorageException(
+        bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+        message = "Unable to inspect the durable voice recording directory",
+      )
+    staleFiles.forEach { file ->
+      if (!file.delete()) {
+        throw VoiceRecordingStorageException(
+          bridgeCode = "SKIDS_VOICE_RECORDING_STORE_ERROR",
+          message = "Unable to remove an incomplete voice recording copy",
+        )
+      }
+    }
+  }
+
+  private fun isOwnedVoiceRecordingStorageFile(file: File): Boolean =
+    isVoiceRecordingStagingFile(file) ||
+      (
+        file.extension.lowercase(Locale.ROOT) == VOICE_RECORDING_ANDROID_EXTENSION &&
+          VOICE_RECORDING_ID_PATTERN.matches(file.nameWithoutExtension)
+      )
+
+  private fun isVoiceRecordingStagingFile(file: File): Boolean =
+    VOICE_RECORDING_STAGING_PATTERN.matches(file.name)
 
   private fun startVoiceRecordingInternal(
     options: VoiceActivityRecordingOptions,
@@ -1279,7 +1560,20 @@ class SkidsAudioModule(
   }
 
   private companion object {
+    val VOICE_RECORDING_ID_PATTERN = Regex("^[A-Za-z0-9_-]{1,64}$")
+    val VOICE_RECORDING_STAGING_PATTERN = Regex(
+      "^\\.[A-Za-z0-9_-]{1,64}-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\.tmp$",
+    )
+    const val VOICE_RECORDING_ANDROID_EXTENSION = "wav"
+    const val VOICE_RECORDING_STORAGE_DIRECTORY = "voice-recordings"
+    const val VOICE_RECORDING_TEMP_PREFIX = "skids_voice_"
     const val VOICE_FRAMES_PER_SECOND = 50
     const val VOICE_STOP_TIMEOUT_MS = 3_000L
   }
+
+  private class VoiceRecordingStorageException(
+    val bridgeCode: String,
+    message: String,
+    cause: Throwable? = null,
+  ) : Exception(message, cause)
 }
