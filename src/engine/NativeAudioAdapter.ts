@@ -5,14 +5,44 @@ import {
   type AudioAdapter,
   type SoundEffect,
 } from './AudioManager';
+import type {
+  NativeVoiceActivityOptions,
+  VoiceRecordingStopReason,
+} from './VoiceEndpointDetector';
 
 type SkidsAudioModule = {
+  checkRecordPermission?: () => Promise<boolean>;
+  clearStoredVoiceRecordings?: () => Promise<boolean>;
+  deleteStoredVoiceRecording?: (uri: string) => Promise<boolean>;
+  getVoiceRecordingActivity?: (sessionId: string) => Promise<unknown>;
+  getVoiceRecordingLevel?: () => Promise<number | null>;
   play?: (effect: SoundEffect) => Promise<boolean>;
   playBackgroundMusic?: (uri: string, volume: number) => Promise<boolean>;
   playUri?: (uri: string) => Promise<boolean>;
+  promoteVoiceRecording?: (
+    tempUri: string,
+    recordingId: string,
+  ) => Promise<string>;
+  requestRecordPermission?: () => Promise<boolean>;
+  requestTargetWordRecognitionPermission?: () => Promise<boolean>;
   setBackgroundMusicVolume?: (volume: number) => Promise<boolean>;
+  speak?: (
+    text: string,
+    language: string,
+    pitch: number,
+    rate: number,
+  ) => Promise<boolean>;
+  startVoiceActivityRecording?: (
+    options: NativeVoiceActivityOptions,
+  ) => Promise<unknown>;
+  startVoiceRecording?: () => Promise<string | null>;
   stopBackgroundMusic?: () => Promise<boolean>;
   stopSpeech?: () => Promise<boolean>;
+  stopVoiceActivityRecording?: (
+    sessionId: string,
+    reason: VoiceRecordingStopReason,
+  ) => Promise<unknown>;
+  stopVoiceRecording?: () => Promise<string | null>;
 };
 
 const nativeAudio = NativeModules.SkidsAudio as SkidsAudioModule | undefined;
@@ -35,6 +65,17 @@ const nativeAudioAdapter: AudioAdapter = {
   },
   setBackgroundMusicVolume: async volume => {
     await nativeAudio?.setBackgroundMusicVolume?.(volume);
+  },
+  speak: async (text, options) => {
+    const didSpeak = await nativeAudio?.speak?.(
+      text,
+      options.language,
+      options.pitch,
+      options.rate,
+    );
+    if (didSpeak !== true) {
+      throw new Error(`Unable to speak text with locale: ${options.language}`);
+    }
   },
   stopBackgroundMusic: async () => {
     await nativeAudio?.stopBackgroundMusic?.();

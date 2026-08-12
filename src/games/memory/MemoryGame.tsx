@@ -148,9 +148,7 @@ export function MemoryGame({
 
     resetFeedback();
     playTapSound().catch(() => undefined);
-    if (difficulty.selectionAudioEnabled) {
-      speakWord(card.word).catch(() => undefined);
-    }
+    speakWord(card.word).catch(() => undefined);
 
     if (openCardIds.length === 0) {
       setOpenCardIds([card.cardId]);
@@ -177,9 +175,6 @@ export function MemoryGame({
 
     if (isMatchingPair) {
       playCorrectSound().catch(() => undefined);
-      if (!difficulty.selectionAudioEnabled) {
-        speakWord(card.word).catch(() => undefined);
-      }
     } else {
       playWrongSound().catch(() => undefined);
     }

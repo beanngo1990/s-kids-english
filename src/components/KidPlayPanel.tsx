@@ -41,6 +41,7 @@ type KidPlayPanelProps = {
   journeyMode?: 'guided' | 'free';
   onOpenPremium: (lessonId: string) => void;
   onOpenReviewGame: (lessonId: string) => void;
+  onOpenStickerPlayground: () => void;
   visibleLessonIds?: string[];
 };
 
@@ -52,6 +53,7 @@ export function KidPlayPanel({
   journeyMode = 'guided',
   onOpenPremium,
   onOpenReviewGame,
+  onOpenStickerPlayground,
   visibleLessonIds,
 }: KidPlayPanelProps) {
   useThemeSync();
@@ -186,6 +188,45 @@ export function KidPlayPanel({
       </View>
 
       <View style={styles.list}>
+        <Pressable
+          accessibilityLabel={t('playPanel.stickerPlaygroundAccessibility')}
+          accessibilityRole="button"
+          onPress={onOpenStickerPlayground}
+          style={({ pressed }) => [
+            styles.cardPressable,
+            pressed && styles.pressed,
+          ]}
+        >
+          <AppCard style={styles.playgroundCard}>
+            <View style={styles.cardMain}>
+              <View style={[styles.iconBox, styles.playgroundIconBox]}>
+                <SKidsIcon name="sticker" size={54} />
+              </View>
+              <View style={styles.cardText}>
+                <KidBadge tone="sun">
+                  {t('playPanel.stickerPlaygroundBadge')}
+                </KidBadge>
+                <Text style={styles.lessonTitle}>
+                  {t('playPanel.stickerPlaygroundTitle')}
+                </Text>
+                <Text style={styles.gameTitle}>
+                  {t('playPanel.stickerPlaygroundSubtitle')}
+                </Text>
+              </View>
+              <View style={styles.playButton}>
+                <Text
+                  style={[
+                    styles.playButtonText,
+                    styles.playButtonTextActive,
+                  ]}
+                >
+                  {t('playPanel.stickerPlaygroundAction')}
+                </Text>
+              </View>
+            </View>
+          </AppCard>
+        </Pressable>
+
         {orderedReviewLessons.map((lesson, index) => {
           const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
           const reviewGameTitle = getLocalizedReviewGameTitle(
@@ -398,7 +439,7 @@ const styles = createThemedStyles(() => ({
   iconBox: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 2.5,
     height: 72,
@@ -411,16 +452,16 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.border,
   },
   iconBoxMint: {
-    backgroundColor: '#E6FAF0',
-    borderColor: '#A1EBC6',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
   },
   iconBoxSky: {
-    backgroundColor: '#EBF8FF',
-    borderColor: '#BCE5FF',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.sky,
   },
   iconBoxSun: {
-    backgroundColor: '#FFF8DB',
-    borderColor: '#FCE082',
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
   lessonTitle: {
     color: colors.text,
@@ -469,6 +510,18 @@ const styles = createThemedStyles(() => ({
   pressed: {
     opacity: 0.92,
     transform: [{ scale: 0.99 }],
+  },
+  playgroundCard: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.xl,
+    borderWidth: 2,
+    padding: spacing.md,
+    ...shadows.warm,
+  },
+  playgroundIconBox: {
+    backgroundColor: colors.secondarySoft,
+    borderColor: colors.secondary,
   },
   reviewCard: {
     backgroundColor: colors.surface,

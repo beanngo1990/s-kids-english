@@ -1,7 +1,20 @@
-# SKidsEnglish - AI Working Guide
+# Sungy (repository SKidsEnglish) - AI Working Guide
 
 Tài liệu này áp dụng cho toàn bộ repository. Mục tiêu là giúp AI hiểu nhanh kiến trúc,
 giới hạn và cách kiểm tra thay đổi mà không phải khảo sát lại toàn bộ dự án ở mỗi task.
+
+## 0. Product name và technical identifiers
+
+- Tên sản phẩm, tên hiển thị và tên dùng trong mọi user-facing copy là **Sungy**. Dùng `Sungy`
+  trong UI, accessibility label, store-facing copy, email subject và khi mô tả sản phẩm trong docs.
+- `SKidsEnglish` chỉ là technical identifier kế thừa của repository, npm/app registration, React
+  Native module, Xcode target/workspace và một số path native. Không hiển thị `SKidsEnglish` cho
+  người dùng và không tự đổi các identifier này nếu task không có migration plan rõ ràng.
+- Khi chưa chắc một chuỗi là product name hay technical identifier, đối chiếu `app.json`
+  (`displayName`), Android `app_name` và iOS `CFBundleDisplayName` trước khi viết copy.
+- Store identity hiện tại của Sungy: Android package `com.seduforge.skidsenglish`; iOS App Store
+  ID `6790650146`, canonical URL `https://apps.apple.com/app/id6790650146`. Dùng đúng identity này
+  cho app-update/review links; không dùng placeholder hoặc suy từ tên repository.
 
 ## 1. Cách dùng các nguồn thông tin
 
@@ -89,15 +102,17 @@ Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
 - `journeyMode` gồm `guided` và `free`.
 - `learningMode` gồm `core`, `expanded`, `challenge`.
 - Lesson interaction types là `listen`, `tap`, `drag`, `find`.
-- Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; hiện không
-  có speech recognition, transcription hay pronunciation scoring.
+- Speech practice là UI hỗ trợ ở teach step, không phải một `SceneInteractionType`; target-word
+  recognition chỉ là native early-stop hint, không có transcript hay pronunciation scoring.
 - Review type union và runtime registry hỗ trợ `memory`, `listenAndChoose`, `matching`;
   `random` được resolve thành một trong ba game executable khi bắt đầu lượt chơi.
 - Theme `light`, `dark`, `system` đã hoạt động. `appLanguage` được lưu nhưng chưa localize toàn
   bộ app.
 - `learningScope.minAge` có helper/test nhưng child age chưa được truyền vào lesson runtime;
   không mô tả app là đã cá nhân hóa nội dung theo tuổi.
-- Progress, settings và activity đều local bằng AsyncStorage; chưa có account/cloud sync.
+- Progress, settings, activity và metadata thư viện giọng đọc đều lưu local bằng AsyncStorage.
+  Parent account/optional cloud learning sync đã có, nhưng không sync activity, recording audio/
+  metadata hoặc setting thư viện giọng đọc.
 - Reward/sticker semantics đang có open conflict giữa runtime và tests; không đổi contract hoặc
   sửa test chỉ để pass trước khi đọc mục Rewards trong `docs/project_spec.md`.
 
@@ -193,7 +208,10 @@ Chi tiết đầy đủ nằm trong `src/data/README.md` và `docs/asset-pipelin
 
 ### `SkidsAudio` - Android và iOS
 
-Module này xử lý bundled SFX, URI playback, voice recording, metering và record permission.
+Module này xử lý bundled SFX, URI playback, native system TTS fallback, voice recording, metering,
+record permission và durable local recording promote/delete/clear. Generated/R2 lesson audio vẫn
+là nguồn production ưu tiên; TTS chỉ là best-effort fallback khi mọi URI candidate không phát
+được.
 Khi đổi public contract phải đồng bộ:
 
 - TypeScript: `src/engine/NativeAudioAdapter.ts`, `src/engine/VoiceRecorder.ts` và call sites.
@@ -217,15 +235,33 @@ Khi đổi public contract phải đồng bộ:
 Không tuyên bố offline support chỉ dựa trên asset cache; lesson vẫn cần fallback/network cho asset
 chưa có trên disk.
 
+### `SkidsAppReview` - Android và iOS
+
+- JavaScript boundary: `src/engine/AppReviewManager.ts`.
+- Android implementation: `android/app/src/main/java/com/seduforge/skidsenglish/review/`, dùng
+  Google Play In-App Review.
+- iOS implementation: `ios/SKidsEnglish/SkidsAppReview.swift` với Objective-C bridge
+  `ios/SKidsEnglish/SkidsAppReview.m`, dùng StoreKit.
+- Native API chỉ xác nhận request đã được chuyển cho platform; không được suy diễn prompt đã hiện,
+  phụ huynh đã submit hay rating cụ thể.
+- Automatic request và persistent store link chỉ được gọi từ Parent Mode sau adult gate; không đặt
+  review UI, phần thưởng hoặc lời nhờ đánh giá trong Kid Mode.
+
 ## 9. Persistence và notifications
 
-Bốn local stores hiện tại:
+Bảy local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
 - `@skidsenglish/daily-activity/v1` qua `DailyActivityTracker.ts`.
 - `@skidsenglish/cloud-progress-sync-state/v1` qua `CloudProgressSyncState.ts`, gồm checkpoint
   cloud progress và metadata cooldown/backoff cho sync.
+- `@skidsenglish/app-update-prompt/v1` qua `AppUpdateManager.ts`, chỉ giữ optional update
+  dismissal local theo thiết bị.
+- `@skidsenglish/app-review/v1` qua `AppReviewManager.ts`, chỉ giữ first-seen/attempt metadata
+  local để throttle lời mời đánh giá trong Parent Mode.
+- `@skidsenglish/voice-recordings/v1` qua `VoiceRecordingStore.ts`, giữ metadata first/latest và
+  pending file cleanup cho thư viện giọng đọc local-only; audio nằm trong native no-backup storage.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.

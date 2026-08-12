@@ -141,6 +141,10 @@ GOOGLE_TTS_ACCESS_TOKEN
 gcloud auth print-access-token
 ```
 
+OAuth requests use `GOOGLE_CLOUD_PROJECT`, then `GCLOUD_PROJECT`, and default
+to the quota/billing project `fir-rootwords-prod`. The active `gcloud` account
+provides the token unless `GOOGLE_TTS_ACCOUNT` selects a different account.
+
 Optional filters:
 
 ```bash
@@ -281,7 +285,7 @@ dev. It catches common mistakes:
 
 - duplicated lesson, scene, object, drop zone, or step ids
 - missing `targetObjectId`, `correctObjectIds`, `dropZoneId`, or `nextStepId`
-- drag targets marked as non-interactive
+- tap, find, or drag targets marked as non-interactive
 - object `vocabId` not listed in scene vocabulary
 - invalid percent positions
 - unreachable steps

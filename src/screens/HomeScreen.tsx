@@ -547,6 +547,11 @@ export function HomeScreen({ navigation, route }: Props) {
     navigation.navigate('StickerCollection');
   }, [navigation]);
 
+  const handleOpenStickerPlayground = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    navigation.navigate('StickerPlayground');
+  }, [navigation]);
+
   return (
     <Screen>
       <View style={styles.shell}>
@@ -1098,6 +1103,7 @@ export function HomeScreen({ navigation, route }: Props) {
                 journeyMode={journeyMode}
                 onOpenPremium={openParentPremium}
                 onOpenReviewGame={openReviewGame}
+                onOpenStickerPlayground={handleOpenStickerPlayground}
                 visibleLessonIds={visibleLessonIds}
               />
             </ScrollView>
@@ -2220,12 +2226,12 @@ const styles = createThemedStyles(() => ({
   },
   connectorDotDone: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderWidth: 2,
   },
   connectorDotIdle: {
-    backgroundColor: '#FFFDF5',
-    borderColor: '#EDCE83',
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
     borderWidth: 2,
   },
   connectorDotOnPath: {
@@ -2241,7 +2247,7 @@ const styles = createThemedStyles(() => ({
   doneBadge: {
     alignItems: 'center',
     backgroundColor: colors.green,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     height: 32,
@@ -2309,7 +2315,7 @@ const styles = createThemedStyles(() => ({
   freePremiumCtaBadge: {
     alignSelf: 'flex-start',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 1,
     color: colors.primaryDark,
@@ -2325,7 +2331,7 @@ const styles = createThemedStyles(() => ({
   freePremiumCtaIcon: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 62,
@@ -2449,7 +2455,7 @@ const styles = createThemedStyles(() => ({
   hubHeroCard: {
     alignItems: 'center',
     backgroundColor: colors.primarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 3,
     flexDirection: 'row',
@@ -2506,7 +2512,7 @@ const styles = createThemedStyles(() => ({
   hubPrimaryAction: {
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     flex: 1,
@@ -2543,7 +2549,7 @@ const styles = createThemedStyles(() => ({
   },
   hubProgressTrack: {
     backgroundColor: colors.border,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 18,
@@ -2572,7 +2578,7 @@ const styles = createThemedStyles(() => ({
   },
   hubSheet: {
     backgroundColor: colors.surface,
-    borderColor: 'rgba(255, 255, 255, 0.9)',
+    borderColor: colors.outlineStrong,
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
     borderWidth: 1,
@@ -2723,7 +2729,7 @@ const styles = createThemedStyles(() => ({
   },
   lessonRiver: {
     backgroundColor: colors.sky,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 38,
@@ -2811,7 +2817,7 @@ const styles = createThemedStyles(() => ({
   },
   lessonSignPost: {
     backgroundColor: colors.secondaryDark,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.sm,
     borderWidth: 1,
     bottom: 0,
@@ -2905,7 +2911,7 @@ const styles = createThemedStyles(() => ({
   lessonMonumentBase: {
     alignItems: 'center',
     backgroundColor: colors.borderWarm,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.md,
     borderWidth: 3,
     bottom: 0,
@@ -2919,19 +2925,19 @@ const styles = createThemedStyles(() => ({
   },
   lessonMonumentBaseDark: {
     backgroundColor: '#BFAE73',
-    borderColor: '#F8FAFC',
+    borderColor: colors.outlineStrong,
     shadowColor: '#FACC15',
     shadowOpacity: 0.2,
     shadowRadius: 18,
   },
   lessonMonumentBaseCurrent: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     ...shadows.floating,
   },
   lessonMonumentBaseDone: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     ...shadows.warm,
   },
   lessonMonumentBaseShine: {
@@ -3148,7 +3154,7 @@ const styles = createThemedStyles(() => ({
   },
   lockBadge: {
     alignItems: 'center',
-    backgroundColor: '#F8FEFF',
+    backgroundColor: colors.surface,
     borderColor: colors.sky,
     borderRadius: radius.pill,
     borderWidth: 3,
@@ -3162,7 +3168,7 @@ const styles = createThemedStyles(() => ({
   },
   lessonMonumentLockBadge: {
     alignItems: 'center',
-    backgroundColor: '#F8FEFF',
+    backgroundColor: colors.surface,
     borderColor: colors.sky,
     borderRadius: radius.pill,
     borderWidth: 3,
@@ -3175,8 +3181,8 @@ const styles = createThemedStyles(() => ({
     ...shadows.soft,
   },
   lessonMonumentLockBadgeDark: {
-    backgroundColor: '#F8FEFF',
-    borderColor: '#67E8F9',
+    backgroundColor: colors.surface,
+    borderColor: colors.sky,
     shadowColor: '#67E8F9',
     shadowOpacity: 0.24,
     shadowRadius: 14,
@@ -3209,7 +3215,7 @@ const styles = createThemedStyles(() => ({
   },
   mapBrushLeaf: {
     backgroundColor: colors.mint,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     position: 'absolute',
@@ -3480,7 +3486,7 @@ const styles = createThemedStyles(() => ({
   },
   stopGlow: {
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     bottom: -12,
@@ -3493,7 +3499,7 @@ const styles = createThemedStyles(() => ({
   stopNode: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 4,
     height: 80,
@@ -3503,7 +3509,7 @@ const styles = createThemedStyles(() => ({
     ...shadows.floating,
   },
   stopNodeAvailable: {
-    backgroundColor: '#F9FDFF',
+    backgroundColor: colors.surfaceBlue,
     borderColor: colors.sky,
     borderWidth: 4,
   },
@@ -3520,8 +3526,8 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.primary,
   },
   stopNodeLocked: {
-    backgroundColor: '#F6FCFF',
-    borderColor: '#B9DDED',
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
     borderWidth: 4,
     elevation: 1,
     height: 90,
@@ -3532,7 +3538,7 @@ const styles = createThemedStyles(() => ({
   stopNumber: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderWidth: 2,
     borderRadius: radius.pill,
     bottom: -4,
@@ -3548,11 +3554,11 @@ const styles = createThemedStyles(() => ({
   },
   stopNumberDone: {
     backgroundColor: colors.primary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
   },
   stopNumberLocked: {
-    backgroundColor: '#EFF9FE',
-    borderColor: colors.white,
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.outlineStrong,
   },
   stopNumberText: {
     color: colors.text,

@@ -238,7 +238,7 @@ const styles = createThemedStyles(() => ({
   },
   header: {
     backgroundColor: colors.background,
-    borderBottomColor: 'rgba(215, 238, 248, 0.7)',
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     paddingBottom: spacing.xs,
     paddingHorizontal: layout.screenPadding,
@@ -251,7 +251,7 @@ const styles = createThemedStyles(() => ({
   parentGate: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 46,
@@ -266,7 +266,7 @@ const styles = createThemedStyles(() => ({
   themeLibrary: {
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     height: 46,
@@ -359,7 +359,7 @@ const styles = createThemedStyles(() => ({
   topStatusMetaIcon: {
     alignItems: 'center',
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     bottom: -3,

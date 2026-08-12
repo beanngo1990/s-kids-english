@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { trimWavSilence } from './audioSilence.mjs';
 
 const account = process.env.GOOGLE_TTS_ACCOUNT ?? 'tomtatvui@gmail.com';
-const project = process.env.GOOGLE_CLOUD_PROJECT ?? 'vertext-api-images';
+const project = process.env.GOOGLE_CLOUD_PROJECT ?? 'fir-rootwords-prod';
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 

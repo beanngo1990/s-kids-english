@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Animated,
   ImageBackground,
@@ -16,7 +22,10 @@ import { AppCard } from '../components/AppCard';
 import { KidIconButton } from '../components/KidIconButton';
 import { MascotImage, MascotSpeechBubble } from '../components/mascot';
 import { SKidsIcon } from '../components/SKidsIcon';
-import { SpeakPracticeControls } from '../components/SpeakPracticeControls';
+import {
+  SpeakPracticeControls,
+  type SpeakPracticeRecording,
+} from '../components/SpeakPracticeControls';
 import { getSceneForLearningMode } from '../data/learningModes';
 import {
   getViAudioAsset,
@@ -93,6 +102,7 @@ import {
   getParentSettings,
   subscribeParentSettings,
 } from './ParentSettingsManager';
+import { saveVoiceRecordingCandidate } from './VoiceRecordingStore';
 import {
   canPressObjects,
   getInitialStep,
@@ -133,8 +143,10 @@ type SceneCompletionState = {
 
 const objectAudioCooldownMs = 900;
 const interactionCooldownMs = 400;
+const autoHintDelayMs = 7000;
 const feedbackPlaybackTimeoutMs = 15000;
 const requiredImageRetryDelayMs = 300;
+let globalVoiceRecordingSessionId = 0;
 
 type ScenePlayerProps = {
   lessonId?: string;
@@ -260,7 +272,7 @@ function CustomProgressBar({ progress }: { progress: number }) {
         style={{
           height: 14,
           width: 200,
-          backgroundColor: colors.white,
+          backgroundColor: colors.surface,
           borderRadius: radius.pill,
           overflow: 'hidden',
           marginTop: spacing.md,
@@ -385,6 +397,12 @@ export function ScenePlayer({
   const [englishAccent, setEnglishAccent] = useState<EnglishAccent>(
     DEFAULT_ENGLISH_ACCENT,
   );
+  const [isVoiceRecordingLibraryEnabled, setIsVoiceRecordingLibraryEnabled] =
+    useState(false);
+  const [voiceRecordingSessionId] = useState(() => {
+    globalVoiceRecordingSessionId += 1;
+    return `voice_${Date.now().toString(36)}_${globalVoiceRecordingSessionId}`;
+  });
   const [isLocalizationReady, setIsLocalizationReady] = useState(false);
   const t = useTranslations(appLanguage);
   const insets = useSafeAreaInsets();
@@ -422,6 +440,8 @@ export function ScenePlayer({
     useState<ObjectEffectMap>({});
   const [shakeObjectIds, setShakeObjectIds] = useState<EntityId[]>([]);
   const [hintObjectIds, setHintObjectIds] = useState<EntityId[]>([]);
+  const [autoHintResetNonce, setAutoHintResetNonce] = useState(0);
+  const [isGuidanceAudioBusy, setIsGuidanceAudioBusy] = useState(false);
   const [wrongAttemptsByStepId, setWrongAttemptsByStepId] = useState<
     Record<EntityId, number>
   >({});
@@ -492,6 +512,31 @@ export function ScenePlayer({
   );
   const objectAudioLastPlayedAtRef = useRef<Record<EntityId, number>>({});
   const lastInteractionAtRef = useRef(0);
+  const guidanceAudioSessionIdRef = useRef(0);
+  const isMountedRef = useRef(true);
+
+  const beginGuidanceAudio = useCallback(() => {
+    const sessionId = guidanceAudioSessionIdRef.current + 1;
+    guidanceAudioSessionIdRef.current = sessionId;
+    setIsGuidanceAudioBusy(true);
+    setAutoHintResetNonce(value => value + 1);
+    let hasFinished = false;
+
+    return () => {
+      if (hasFinished) {
+        return;
+      }
+      hasFinished = true;
+
+      if (
+        isMountedRef.current &&
+        guidanceAudioSessionIdRef.current === sessionId
+      ) {
+        setIsGuidanceAudioBusy(false);
+        setAutoHintResetNonce(value => value + 1);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setSceneIndex(initialSceneIndex);
@@ -505,6 +550,9 @@ export function ScenePlayer({
     ) => {
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
       setEnglishAccent(settings.englishAccent ?? DEFAULT_ENGLISH_ACCENT);
+      setIsVoiceRecordingLibraryEnabled(
+        settings.voiceRecordingLibrary.enabled,
+      );
       if (__DEV__) {
         setShowSceneEditorControl(settings.enableSceneEditor || false);
       }
@@ -755,7 +803,10 @@ export function ScenePlayer({
   }, [requiredAssetFailure]);
 
   useEffect(() => {
+    isMountedRef.current = true;
+
     return () => {
+      isMountedRef.current = false;
       advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
       clearTimer(clearFeedbackTimerRef);
@@ -766,6 +817,48 @@ export function ScenePlayer({
   const currentStep = currentScene
     ? getStepById(currentScene, stepId) ?? getInitialStep(currentScene)
     : undefined;
+  const handleRecordingReady = useCallback(
+    async (recording: SpeakPracticeRecording) => {
+      if (
+        !isVoiceRecordingLibraryEnabled ||
+        !lesson ||
+        !currentScene ||
+        !currentStep
+      ) {
+        return;
+      }
+
+      const vocabulary = getStepVocabulary(currentScene, currentStep);
+      if (!vocabulary) {
+        return;
+      }
+
+      await saveVoiceRecordingCandidate({
+        accent: englishAccent,
+        durationMs: recording.durationMs,
+        encounterId: `${voiceRecordingSessionId}_${sceneIndex}_${getStepIndex(
+          currentScene,
+          currentStep.id,
+        )}`,
+        lessonId: lesson.id,
+        sceneId: currentScene.id,
+        stepId: currentStep.id,
+        tempUri: recording.uri,
+        themeId: lesson.themeId,
+        vocabId: vocabulary.id,
+        word: vocabulary.word,
+      });
+    },
+    [
+      currentScene,
+      currentStep,
+      englishAccent,
+      isVoiceRecordingLibraryEnabled,
+      lesson,
+      sceneIndex,
+      voiceRecordingSessionId,
+    ],
+  );
   const stepAudioPreparationKey =
     currentScene && currentStep
       ? getStepAudioPreparationKey(
@@ -784,6 +877,7 @@ export function ScenePlayer({
           englishAccent,
         )
       : null;
+  const isAdvancing = feedback?.type === 'success';
 
   useEffect(() => {
     if (
@@ -797,6 +891,9 @@ export function ScenePlayer({
     }
 
     let isActive = true;
+    const finishGuidanceAudio = canBypassMissingAudio
+      ? undefined
+      : beginGuidanceAudio();
     setIsSpeechPracticeBusy(false);
     const isListeningStep = isListenStep(currentStep);
     const instructionKey = getListenInstructionKey(currentScene, currentStep);
@@ -823,6 +920,7 @@ export function ScenePlayer({
         return;
       }
       if (!isStepAudioReady) {
+        finishGuidanceAudio?.();
         setRequiredAssetFailure('step');
         return;
       }
@@ -849,6 +947,7 @@ export function ScenePlayer({
             setCompletedListenInstructionKey(instructionKey);
           }
         },
+        onAudioSettled: finishGuidanceAudio,
         onTeachAudioComplete: () => {
           setAutoRecordRequest(previousRequest => ({
             requestId: (previousRequest?.requestId ?? 0) + 1,
@@ -899,6 +998,7 @@ export function ScenePlayer({
     };
 
     prepareAndPlayStepAudio().catch(() => {
+      finishGuidanceAudio?.();
       if (isActive && !canBypassMissingAudio) {
         setRequiredAssetFailure('step');
       }
@@ -906,8 +1006,10 @@ export function ScenePlayer({
 
     return () => {
       isActive = false;
+      finishGuidanceAudio?.();
     };
   }, [
+    beginGuidanceAudio,
     canBypassMissingAudio,
     currentScene,
     currentStep,
@@ -919,6 +1021,41 @@ export function ScenePlayer({
     requiredAssetFailure,
     stepAudioPreparationKey,
     teacherPromptMode,
+  ]);
+
+  useEffect(() => {
+    if (
+      !currentStep ||
+      !canPressObjects(currentStep) ||
+      currentStep.targetObjectIds.length === 0 ||
+      isPreloading ||
+      !isLocalizationReady ||
+      requiredAssetFailure ||
+      isGuidanceAudioBusy ||
+      isSpeechPracticeBusy ||
+      isAdvancing ||
+      sceneCompletion
+    ) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setHintObjectIds(currentStep.targetObjectIds);
+    }, autoHintDelayMs);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [
+    autoHintResetNonce,
+    currentStep,
+    isGuidanceAudioBusy,
+    isAdvancing,
+    isLocalizationReady,
+    isPreloading,
+    isSpeechPracticeBusy,
+    requiredAssetFailure,
+    sceneCompletion,
   ]);
 
   const handleRequiredAssetRetry = () => {
@@ -1026,7 +1163,6 @@ export function ScenePlayer({
   const sidePanelStyle = isTabletLandscapeLayout
     ? { width: responsiveLayout.sidePanelWidth }
     : null;
-  const isAdvancing = feedback?.type === 'success';
   const isSceneComplete = sceneCompletion !== null;
   const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
   const backgroundSource = resolveAsset(currentScene.background.source);
@@ -1034,10 +1170,17 @@ export function ScenePlayer({
     !backgroundSource ||
     failedBackgroundIds[currentScene.background.id] === true;
 
+  const resetAutoHintTimer = () => {
+    setHintObjectIds([]);
+    setAutoHintResetNonce(value => value + 1);
+  };
+
   const handleReplayInstruction = () => {
     if (isAdvancing || isSceneComplete || isInstructionPreparing) {
       return;
     }
+
+    resetAutoHintTimer();
 
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
@@ -1046,6 +1189,7 @@ export function ScenePlayer({
     lastInteractionAtRef.current = now;
 
     runAudio(playTapSound());
+    const finishGuidanceAudio = beginGuidanceAudio();
     playAudioForStep(
       currentScene,
       currentStep,
@@ -1062,6 +1206,7 @@ export function ScenePlayer({
               setCompletedListenInstructionKey(currentListenInstructionKey),
             }
           : {}),
+        onAudioSettled: finishGuidanceAudio,
       },
     );
 
@@ -1088,6 +1233,8 @@ export function ScenePlayer({
       return;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return;
@@ -1112,6 +1259,8 @@ export function ScenePlayer({
       return;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return;
@@ -1127,6 +1276,8 @@ export function ScenePlayer({
     if (isAdvancing || isInstructionPending || isSceneComplete) {
       return;
     }
+
+    resetAutoHintTimer();
 
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
@@ -1194,6 +1345,8 @@ export function ScenePlayer({
       return false;
     }
 
+    resetAutoHintTimer();
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return false;
@@ -1238,6 +1391,14 @@ export function ScenePlayer({
 
     handleInteractionResult(currentScene, result);
     return result.status === 'correct';
+  };
+
+  const handleObjectDragStart = () => {
+    if (isAdvancing || isInstructionPending || isSceneComplete) {
+      return;
+    }
+
+    resetAutoHintTimer();
   };
 
   const handleStageLayout = (event: LayoutChangeEvent) => {
@@ -1293,20 +1454,35 @@ export function ScenePlayer({
         type: 'fail',
       });
       const narrationSession = startNarrationSession();
+      const finishGuidanceAudio = beginGuidanceAudio();
       runAudio(
         playInteractionFeedbackAudio(
           'fail',
           feedbackPrompt,
           narrationSession,
-        ).then(playbackResult => {
-          if (
-            playbackResult === 'failed' &&
-            narrationSession.isActive() &&
-            !canBypassMissingAudio
-          ) {
-            setRequiredAssetFailure('feedback');
-          }
-        }),
+        )
+          .then(playbackResult => {
+            if (
+              playbackResult === 'completed' &&
+              narrationSession.isActive() &&
+              isMountedRef.current
+            ) {
+              setFeedback(currentFeedback =>
+                currentFeedback?.type === 'fail' &&
+                currentFeedback.text === feedbackPrompt.displayText
+                  ? null
+                  : currentFeedback,
+              );
+            }
+            if (
+              playbackResult === 'failed' &&
+              narrationSession.isActive() &&
+              !canBypassMissingAudio
+            ) {
+              setRequiredAssetFailure('feedback');
+            }
+          })
+          .finally(finishGuidanceAudio),
       );
       clearFeedbackTimerRef.current = setTimeout(() => {
         setShakeObjectIds([]);
@@ -1712,20 +1888,29 @@ export function ScenePlayer({
               isTabletLandscapeLayout && styles.instructionCardTabletLandscape,
             ]}
           >
-            {isAdvancing && feedback ? (
-              <View accessible style={styles.feedbackPanel}>
-                <View style={styles.feedbackStatusRow}>
-                  {feedbackAudioStatus === 'preparing' ? (
-                    <SKidsIcon name="listen" size={28} />
-                  ) : (
-                    <AnimatedAudioWave />
-                  )}
-                  <Text style={styles.feedbackStatusText}>
-                    {feedbackAudioStatus === 'preparing'
-                      ? t('scene.preparingFeedback')
-                      : t('scene.feedbackSpeaking')}
-                  </Text>
-                </View>
+            {feedback ? (
+              <View
+                accessible
+                style={[
+                  styles.feedbackPanel,
+                  feedback.type === 'fail' && styles.feedbackPanelFail,
+                  feedback.type === 'info' && styles.feedbackPanelInfo,
+                ]}
+              >
+                {isAdvancing ? (
+                  <View style={styles.feedbackStatusRow}>
+                    {feedbackAudioStatus === 'preparing' ? (
+                      <SKidsIcon name="listen" size={28} />
+                    ) : (
+                      <AnimatedAudioWave />
+                    )}
+                    <Text style={styles.feedbackStatusText}>
+                      {feedbackAudioStatus === 'preparing'
+                        ? t('scene.preparingFeedback')
+                        : t('scene.feedbackSpeaking')}
+                    </Text>
+                  </View>
+                ) : null}
                 <Text style={styles.feedbackText}>{feedback.text}</Text>
               </View>
             ) : (
@@ -1749,7 +1934,13 @@ export function ScenePlayer({
                         ? handleContinue
                         : undefined
                     }
+                    onRecordingReady={
+                      isVoiceRecordingLibraryEnabled
+                        ? handleRecordingReady
+                        : undefined
+                    }
                     onReplayModel={handleReplayModelWord}
+                    englishAccent={englishAccent}
                     teacherPromptMode={teacherPromptMode}
                     word={speakPracticeWord}
                   />
@@ -1994,13 +2185,16 @@ export function ScenePlayer({
     }
 
     const hasActiveHint = hintObjectIds.length > 0;
+    const shouldHighlightTargetsImmediately =
+      currentStep.type === 'intro' || currentStep.type === 'teach';
 
     return (
       <>
         {renderActiveDropZone(currentScene, currentStep)}
         {allObjects.map(object => {
           const isTargeted =
-            isStepTargetObject(currentStep, object.id) ||
+            (shouldHighlightTargetsImmediately &&
+              isStepTargetObject(currentStep, object.id)) ||
             hintObjectIds.includes(object.id);
           const renderObject = {
             ...object,
@@ -2032,6 +2226,10 @@ export function ScenePlayer({
                 object.isInteractive &&
                 !isAdvancing
               }
+              isInteractionTarget={
+                canPressObjects(currentStep) &&
+                isStepTargetObject(currentStep, object.id)
+              }
               isDimmed={
                 hasActiveHint && !isTargeted && object.role === 'learning'
               }
@@ -2042,6 +2240,7 @@ export function ScenePlayer({
                 t('scene.characterLabel'),
               )}
               object={renderObject}
+              onDragStart={handleObjectDragStart}
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
               shouldMagnify={currentStep.targetObjectIds.length === 1}
@@ -2370,6 +2569,7 @@ function getListenInstructionKey(scene: Scene, step: SceneStep) {
 type PlayStepAudioOptions = {
   onAudioFailure?: () => void;
   onAudioComplete?: () => void;
+  onAudioSettled?: () => void;
   onTeachAudioComplete?: () => void;
 };
 
@@ -2393,11 +2593,15 @@ function playAudioForStep(
       narrationSession,
       isActive,
       options,
-    ).then(playbackResult => {
-      if (playbackResult === 'failed') {
-        options.onAudioFailure?.();
-      }
-    }),
+    )
+      .then(playbackResult => {
+        if (playbackResult === 'failed') {
+          options.onAudioFailure?.();
+        }
+      })
+      .finally(() => {
+        options.onAudioSettled?.();
+      }),
   );
 }
 
@@ -2793,6 +2997,14 @@ const styles = createThemedStyles(() => ({
     minHeight: 148,
     padding: spacing.md,
   },
+  feedbackPanelFail: {
+    backgroundColor: colors.accentSoft,
+    borderColor: colors.accent,
+  },
+  feedbackPanelInfo: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.skyDeep,
+  },
   feedbackStatusRow: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -2840,7 +3052,7 @@ const styles = createThemedStyles(() => ({
   exitButton: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
     height: 50,
@@ -2878,8 +3090,8 @@ const styles = createThemedStyles(() => ({
     width: '100%',
   },
   instructionCard: {
-    backgroundColor: colors.cream,
-    borderColor: colors.borderWarm,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     gap: spacing.xs,
     padding: spacing.sm,
   },
@@ -2950,8 +3162,8 @@ const styles = createThemedStyles(() => ({
     gap: spacing.sm,
   },
   lessonHud: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    borderColor: colors.white,
+    backgroundColor: colors.surface,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 2,
     flex: 1,
@@ -2969,7 +3181,7 @@ const styles = createThemedStyles(() => ({
   },
   primaryActionButton: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     flex: 1.35,
     minHeight: 76,
     ...shadows.warm,
@@ -3008,7 +3220,7 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
   },
   stage: {
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 4,
     flex: 1,

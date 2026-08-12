@@ -4,7 +4,6 @@ export type ReviewDifficultyProfile = {
   itemCount: number;
   listenOptionCount: number;
   memoryMismatchDelayMs: number;
-  selectionAudioEnabled: boolean;
   wrongFeedbackDurationMs: number;
 };
 
@@ -14,21 +13,18 @@ const reviewDifficultyProfiles: Record<LearningMode, ReviewDifficultyProfile> =
       itemCount: 6,
       listenOptionCount: 4,
       memoryMismatchDelayMs: 560,
-      selectionAudioEnabled: false,
       wrongFeedbackDurationMs: 520,
     },
     core: {
       itemCount: 4,
       listenOptionCount: 2,
       memoryMismatchDelayMs: 1_050,
-      selectionAudioEnabled: true,
       wrongFeedbackDurationMs: 900,
     },
     expanded: {
       itemCount: 5,
       listenOptionCount: 3,
       memoryMismatchDelayMs: 820,
-      selectionAudioEnabled: true,
       wrongFeedbackDurationMs: 700,
     },
   };

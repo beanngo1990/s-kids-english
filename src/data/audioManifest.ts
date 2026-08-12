@@ -19591,6 +19591,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "playground",
     },
   },
+  [normalizeText("Please ask a parent to help Sungy update the app.")]: {
+    "en-US": {
+      key: "ui/audio/en-US/neural2-c-r1/kid_lock_appupdate_80559621.mp3",
+      text: "Please ask a parent to help Sungy update the app.",
+    },
+    "en-GB": {
+      key: "ui/audio/en-GB/neural2-c-r1/kid_lock_appupdate_80559621.mp3",
+      text: "Please ask a parent to help Sungy update the app.",
+    },
+  },
   [normalizeText("please give me privacy")]: {
     "en-US": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/please_give_me_privacy.mp3",
@@ -55539,6 +55549,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Xin chào! Mình là Sungy, bạn học của bé.")]: {
     key: "shared/audio/vi/sungy/xin_chao_minh_la_sungy_ban_hoc_cua_be_967fe8c4.mp3",
     text: "Xin chào! Mình là Sungy, bạn học của bé.",
+  },
+  [normalizeText("Bé ơi, gọi ba mẹ giúp Sungy nhé!")]: {
+    key: "ui/audio/vi/kid_lock_appupdate_fa3f1b48.mp3",
+    text: "Bé ơi, gọi ba mẹ giúp Sungy nhé!",
   },
   [normalizeText("Bài này cần ba mẹ mở khóa. Con gọi ba mẹ nhé!")]: {
     key: "ui/audio/vi/kid_lock_premium_9eb2b4f6.wav",

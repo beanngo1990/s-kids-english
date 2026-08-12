@@ -10,7 +10,7 @@ import {
   type Crashlytics,
 } from '@react-native-firebase/crashlytics';
 
-import { APP_VERSION } from '../config/appInfo';
+import { getAppVersion } from '../engine/AppInfo';
 import {
   getParentSettings,
   subscribeParentSettings,
@@ -110,10 +110,16 @@ export async function applyCrashReportingConsent(
 
   await setUserId(instance, '');
   await setAttributes(instance, {
-    app_version: APP_VERSION,
     crash_reporting_scope: 'technical_diagnostics_only',
     platform: Platform.OS,
   });
+  getAppVersion()
+    .then(appVersion =>
+      appVersion
+        ? setAttributes(instance, { app_version: appVersion })
+        : undefined,
+    )
+    .catch(() => undefined);
 
   if (
     options.sendPendingReports !== false &&

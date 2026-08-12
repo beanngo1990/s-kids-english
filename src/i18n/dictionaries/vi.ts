@@ -1,5 +1,6 @@
 export const vi = {
   'common.auto': 'Auto',
+  'common.back': 'Quay lại',
   'common.close': 'Đóng',
   'common.edit': 'Chỉnh sửa',
   'common.loadingProgress': 'Đang tải tiến độ',
@@ -9,13 +10,39 @@ export const vi = {
   'notifications.dailyTitle': 'Đã đến giờ học rồi!',
   'notifications.dailyBody': 'Bé ơi, mình cùng học tiếng Anh nhé!',
 
+  'appUpdate.laterAction': 'Để sau',
+  'appUpdate.callParentAction': 'Gọi ba mẹ',
+  'appUpdate.childReplayHint': 'Chạm vào Sungy để nghe lại',
+  'appUpdate.childTitle': 'Bé gọi ba mẹ giúp Sungy nhé!',
+  'appUpdate.openingStore': 'Đang mở cửa hàng...',
+  'appUpdate.optionalBadge': 'Có phiên bản mới',
+  'appUpdate.optionalText':
+    'Ba mẹ có thể cập nhật để bé nhận những cải tiến mới nhất. Bé vẫn có thể tiếp tục học với phiên bản hiện tại.',
+  'appUpdate.optionalTitle': 'Cập nhật Sungy',
+  'appUpdate.parentGateHint':
+    'Ba mẹ giải phép tính này để mở cửa hàng và cập nhật ứng dụng.',
+  'appUpdate.requiredBadge': 'Cần cập nhật',
+  'appUpdate.requiredText':
+    'Phiên bản này không còn được hỗ trợ. Ba mẹ vui lòng cập nhật để bé tiếp tục sử dụng Sungy an toàn.',
+  'appUpdate.requiredTitle': 'Ba mẹ hãy cập nhật ứng dụng',
+  'appUpdate.replayPromptAccessibility':
+    'Chạm vào Sungy để nghe lại lời nhờ gọi ba mẹ',
+  'appUpdate.storeErrorText':
+    'Chưa thể mở cửa hàng ứng dụng. Ba mẹ hãy kiểm tra kết nối rồi thử lại.',
+  'appUpdate.storeErrorTitle': 'Không mở được cửa hàng',
+  'appUpdate.updateAction': 'Cập nhật ngay',
+  'appUpdate.versionSummary':
+    'Đang dùng v{currentVersion} · Mới nhất v{latestVersion}',
+
   'nav.themeLibrary': 'Thư viện chủ đề',
   'nav.lessonList': 'Bài học',
   'nav.lessonPack': 'Gói bài học',
   'nav.reviewGame': 'Game ôn tập',
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
+  'nav.stickerPlayground': 'Sân chơi Sticker',
   'nav.parent': 'Góc phụ huynh',
+  'nav.parentVoiceLibrary': 'Giọng đọc của bé',
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'Hành trình vui học bắt đầu!',
@@ -455,6 +482,14 @@ export const vi = {
     'Không mở được ứng dụng email. Bạn có thể gửi thư tới {email}.',
   'parent.support.emailErrorTitle': 'Không mở được email',
   'parent.support.emailSubject': 'Hỗ trợ Sungy',
+  'parent.support.reviewAccessibility': 'Đánh giá Sungy trên cửa hàng',
+  'parent.support.reviewErrorText':
+    'Không mở được cửa hàng ứng dụng. Vui lòng thử lại sau.',
+  'parent.support.reviewErrorTitle': 'Không mở được cửa hàng',
+  'parent.support.reviewOpening': 'Đang mở cửa hàng ứng dụng…',
+  'parent.support.reviewSubtitle':
+    'Chia sẻ cảm nhận của ba mẹ trên cửa hàng ứng dụng.',
+  'parent.support.reviewTitle': 'Đánh giá Sungy',
   'parent.support.title': 'Liên hệ & thông tin',
   'parent.support.versionAccessibility': 'Phiên bản ứng dụng {version}',
   'parent.support.versionSubtitle': 'Phiên bản đang cài đặt trên thiết bị.',
@@ -623,21 +658,28 @@ export const vi = {
   'playPanel.playAgain': '🔄 Chơi lại',
   'playPanel.unlocked': '✨ Sẵn sàng',
   'playPanel.locked': '🔒 Đang khóa',
+  'playPanel.stickerPlaygroundAccessibility':
+    'Mở Sân chơi Sticker của Sungy',
+  'playPanel.stickerPlaygroundBadge': 'Sáng tạo tự do',
+  'playPanel.stickerPlaygroundTitle': 'Sân chơi Sticker',
+  'playPanel.stickerPlaygroundSubtitle':
+    'Dùng sticker đã mở để trang trí cùng Sungy.',
+  'playPanel.stickerPlaygroundAction': 'Trang trí',
   'tabs.mapAccessibility': 'Mở bản đồ bài học',
   'tabs.map': 'Bản đồ',
   'tabs.playAccessibility': 'Mở khu chơi',
   'tabs.play': 'Chơi',
   'speakPractice.encouragement': 'Cô nghe rồi! Giỏi quá!',
-  'speakPractice.micPermissionTitle': 'Quyền truy cập Micro',
+  'speakPractice.micPermissionTitle': 'Bật micrô cho bé',
   'speakPractice.micPermissionText':
-    'Bé cần cấp quyền truy cập Micro trong Cài đặt để có thể thu âm.',
+    'Quyền micrô đang bị tắt. Ba mẹ hãy cho phép trong Cài đặt để bé có thể luyện nói.',
   'speakPractice.later': 'Để sau',
   'speakPractice.openSettings': 'Mở Cài đặt',
   'speakPractice.coachSpeaking': 'Cô đang nói...',
   'speakPractice.coachPreparing': 'Chuẩn bị đọc...',
   'speakPractice.coachListening': 'Cô đang nghe...',
   'speakPractice.coachSuccess': 'Giỏi quá! Từ này đọc là:',
-  'speakPractice.coachNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
+  'speakPractice.coachNoMic': 'Micrô chưa được bật. Từ này đọc là:',
   'speakPractice.coachPrompt': 'Bé nói theo cô:',
   'speakPractice.listenAccessibility': 'Nghe lại giọng bé',
   'speakPractice.recordAgainAccessibility': 'Thu âm lại',
@@ -749,9 +791,11 @@ export const vi = {
   'reward.nextLesson': 'Bài tiếp theo',
   'reward.replayLesson': 'Chơi lại',
   'reward.viewStickerCollection': 'Xem bộ sưu tập',
+  'reward.decorateNow': 'Trang trí ngay',
   'stickerCollection.badge': 'Album thành tựu',
   'stickerCollection.albumCover': 'Album Sungy',
   'stickerCollection.title': 'Bộ sưu tập sticker',
+  'stickerCollection.decorate': 'Mang sticker đi trang trí',
   'stickerCollection.subtitle':
     'Mỗi sticker là một khoảnh khắc Sungy đồng hành khi bé hoàn thành bài học và phần ôn tập.',
   'stickerCollection.progress': '{earned}/{total} sticker đã mở',
@@ -800,6 +844,30 @@ export const vi = {
     'Sticker {stickerName} chưa mở khóa',
   'stickerCollection.lockedAccessibility':
     'Sticker của bài {lessonTitle} chưa mở khóa',
+  'stickerPlayground.background.bedroom': 'Phòng ngủ',
+  'stickerPlayground.background.park': 'Công viên',
+  'stickerPlayground.background.beach': 'Bãi biển',
+  'stickerPlayground.saveError': 'Chưa lưu được',
+  'stickerPlayground.hint': 'Chạm sticker để chọn',
+  'stickerPlayground.gestureHint': 'Kéo • chụm để phóng • xoay hai ngón',
+  'stickerPlayground.selected': 'Sticker đang chọn',
+  'stickerPlayground.undo': 'Hoàn tác',
+  'stickerPlayground.delete': 'Xóa',
+  'stickerPlayground.clear': 'Dọn',
+  'stickerPlayground.clearTitle': 'Dọn bức tranh này?',
+  'stickerPlayground.clearText':
+    'Tất cả sticker trên hình nền hiện tại sẽ được gỡ xuống.',
+  'stickerPlayground.clearConfirm': 'Dọn hết',
+  'stickerPlayground.limitTitle': 'Bức tranh đã đầy rồi',
+  'stickerPlayground.limitText':
+    'Bé hãy gỡ bớt sticker trước khi thêm sticker mới nhé.',
+  'stickerPlayground.trayTitle': 'Sticker của bé',
+  'stickerPlayground.trayHint':
+    'Chạm để thêm hoặc chọn; nhấn giữ rồi kéo lên tranh.',
+  'stickerPlayground.placedHint':
+    'Sticker đã có trên nền này. Chạm để chọn lại.',
+  'stickerPlayground.empty':
+    'Bé chưa có sticker. Chạm để mở album và xem cách nhận sticker nhé!',
   'themeLibrary.badge': 'Thư viện chủ đề',
   'themeLibrary.title': 'Chọn lộ trình học',
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',
@@ -896,8 +964,21 @@ export const vi = {
   'speakPractice.promptRecorded': 'Giỏi quá! Từ này đọc là:',
   'speakPractice.promptRecordedQuiet':
     'Không sao, từ sau mình thử đọc cùng cô nhé.',
-  'speakPractice.promptNoMic': 'Cần cấp quyền Micro. Từ này đọc là:',
+  'speakPractice.promptMicDenied':
+    'Micrô chưa bật. Bé có thể bật mic hoặc nghe mẫu nhé.',
+  'speakPractice.promptMicBlocked':
+    'Nhờ ba mẹ bật mic trong Cài đặt nhé. Bé vẫn có thể nghe mẫu.',
+  'speakPractice.promptMicUnavailable':
+    'Mic chưa dùng được. Bé nghe mẫu rồi tiếp tục nhé.',
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
+  'speakPractice.enableMicAccessibility': 'Bật mic để bé luyện nói',
+  'speakPractice.enableMic': 'Bật mic',
+  'speakPractice.askParentAccessibility':
+    'Nhờ ba mẹ bật mic trong Cài đặt',
+  'speakPractice.askParent': 'Nhờ ba mẹ',
+  'speakPractice.micUnavailableAccessibility':
+    'Mic hiện chưa sẵn sàng. Bé nghe từ mẫu rồi tiếp tục nhé.',
+  'speakPractice.micUnavailable': 'Mic chưa sẵn sàng',
   'speakPractice.replayVoiceAccessibility': 'Nghe lại giọng bé',
   'speakPractice.replayVoice': 'Giọng bé',
   'speakPractice.replayModelAccessibility': 'Nghe mẫu từ {word}',
@@ -906,7 +987,7 @@ export const vi = {
   'voiceRecorder.permissionNegative': 'Để sau',
   'voiceRecorder.permissionPositive': 'Cho phép',
   'voiceRecorder.permissionMessage':
-    'Sungy cần micro để bé nghe lại giọng của mình.',
+    'Sungy cần micrô để bé nghe lại giọng của mình.',
   'voiceRecorder.permissionTitle': 'Cho bé luyện nói',
   'mascot.touchAccessibility': 'Chạm vào Sungy',
   'mascot.name': 'Sungy',
@@ -995,6 +1076,75 @@ export const vi = {
   'parent.stats.viewLessonPrefix': 'Xem bài ',
   'parent.stats.viewLesson': 'Xem bài học',
   'parent.stats.lessonPreviewLabel': 'Bé sẽ khám phá',
+
+  'parent.voice.autoSaveDisabled': 'Không lưu bản đọc mới.',
+  'parent.voice.autoSaveEnabled': 'Tự động lưu khi bé luyện đọc.',
+  'parent.voice.autoSaveTitle': 'Tự động lưu giọng đọc',
+  'parent.voice.byLessonTab': 'Theo bài học',
+  'parent.voice.cancel': 'Hủy',
+  'parent.voice.deleteAction': 'Xóa',
+  'parent.voice.deleteAllAction': 'Xóa tất cả',
+  'parent.voice.deleteAllText':
+    'Tất cả bản ghi giọng đọc trên thiết bị này sẽ bị xóa và không thể khôi phục.',
+  'parent.voice.deleteAllTitle': 'Xóa tất cả giọng đọc?',
+  'parent.voice.deleteCleanupText':
+    'Bản ghi không còn trong thư viện, nhưng một số tệp chưa được xóa hoàn toàn khỏi thiết bị. Ba mẹ có thể chọn “Thử dọn lại”.',
+  'parent.voice.deleteCleanupTitle': 'Một số tệp chưa được dọn xong',
+  'parent.voice.deleteErrorText':
+    'Chưa thể xóa bản ghi lúc này. Ba mẹ vui lòng thử lại.',
+  'parent.voice.deleteErrorTitle': 'Chưa xóa được bản ghi',
+  'parent.voice.deleteLessonAccessibility': 'Xóa giọng đọc trong bài {lesson}',
+  'parent.voice.deleteLessonText':
+    'Tất cả giọng đọc trong bài “{lesson}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteLessonTitle': 'Xóa giọng đọc của bài này?',
+  'parent.voice.deleteSampleAccessibility': 'Xóa mốc ghi âm này',
+  'parent.voice.deleteSampleText':
+    'Mốc giọng đọc “{word}” này sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteSampleTitle': 'Xóa mốc giọng đọc?',
+  'parent.voice.deleteThemeAccessibility': 'Xóa giọng đọc trong chủ đề {theme}',
+  'parent.voice.deleteThemeText':
+    'Tất cả giọng đọc trong chủ đề “{theme}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteThemeTitle': 'Xóa giọng đọc của chủ đề này?',
+  'parent.voice.deleteWordAccessibility': 'Xóa tất cả bản đọc từ {word}',
+  'parent.voice.deleteWordText':
+    'Tất cả mốc giọng đọc của từ “{word}” sẽ bị xóa khỏi thiết bị.',
+  'parent.voice.deleteWordTitle': 'Xóa giọng đọc của từ này?',
+  'parent.voice.durationSeconds': '{seconds} giây',
+  'parent.voice.enableAction': 'Bật tự động lưu',
+  'parent.voice.enableText':
+    'Sungy sẽ tự động lưu bản đọc cuối có tiếng nói của mỗi lần luyện từ. Bản ghi chỉ nằm trên thiết bị này, không tải lên cloud hoặc đưa vào bản sao lưu hệ thống. Sungy giữ tối đa 100 mốc giọng đọc.',
+  'parent.voice.enableTitle': 'Bật lưu giọng đọc của bé?',
+  'parent.voice.emptyLibrary':
+    'Bật tự động lưu để lưu lại khi bé luyện đọc.',
+  'parent.voice.emptyTitle': 'Chưa có giọng đọc',
+  'parent.voice.firstMilestone': 'Lần đầu',
+  'parent.voice.infoAccessibility':
+    'Xem thông tin về tự động lưu giọng đọc',
+  'parent.voice.latestMilestone': 'Gần đây',
+  'parent.voice.loading': 'Đang tải giọng đọc của bé…',
+  'parent.voice.localOnlyText':
+    'Các bản ghi chỉ nằm trên thiết bị này. Sungy không tải lên cloud, không đưa vào bản sao lưu hệ thống và không dùng để chấm điểm. Sungy giữ tối đa 100 mốc và tự dọn các mục cũ nhất khi đầy.',
+  'parent.voice.localOnlyTitle': 'Chỉ lưu trên thiết bị',
+  'parent.voice.playAccessibility': 'Nghe bé đọc từ {word}',
+  'parent.voice.playErrorText':
+    'Bản ghi này chưa thể phát. Ba mẹ vui lòng thử lại.',
+  'parent.voice.playErrorTitle': 'Chưa phát được bản ghi',
+  'parent.voice.playing': 'Đang phát…',
+  'parent.voice.recentTab': 'Gần đây',
+  'parent.voice.recordingLabel': 'Bản ghi',
+  'parent.voice.retryCleanupAction': 'Thử dọn lại',
+  'parent.voice.settingErrorText':
+    'Cài đặt giọng đọc chưa được cập nhật. Ba mẹ vui lòng thử lại.',
+  'parent.voice.settingErrorTitle': 'Chưa cập nhật được cài đặt',
+  'parent.voice.summaryBadge': 'Giọng đọc gần đây',
+  'parent.voice.summaryEmpty':
+    'Chưa có bản đọc nào. Ba mẹ có thể bật tự động lưu trong Cài đặt.',
+  'parent.voice.summaryMeta': '{lesson} · {date}',
+  'parent.voice.summarySubtitle': 'Nghe lại những từ bé đã đọc khi ba mẹ cần.',
+  'parent.voice.title': 'Giọng đọc của bé',
+  'parent.voice.twoMilestones': '2 mốc',
+  'parent.voice.viewAll': 'Xem tất cả',
+  'parent.voice.wordCount': '{count} từ',
   'progressDots.accessibilityLabel': 'Bước {current} trên {total}',
   'progressStars.accessibilityLabel':
     'Bé đã hoàn thành {completed} trên {total} cảnh',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -16,6 +16,7 @@ import {
   prepareRemoteAssets,
 } from '../src/engine/AssetCacheManager';
 import { AppButton } from '../src/components/AppButton';
+import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
 import { SceneObjectRenderer } from '../src/engine/SceneObjectRenderer';
 import { KidIconButton } from '../src/components/KidIconButton';
 import {
@@ -24,6 +25,11 @@ import {
 } from '../src/engine/ParentSettingsManager';
 import { remoteAssetsConfig } from '../src/config/remoteAssets';
 import type { Scene } from '../src/types/lesson';
+import {
+  darkColors,
+  setActiveColorScheme,
+} from '../src/theme/colors';
+import { saveVoiceRecordingCandidate } from '../src/engine/VoiceRecordingStore';
 
 jest.mock('../src/engine/AudioManager', () => {
   const speakViMock = jest.fn((_text: string) => Promise.resolve());
@@ -144,6 +150,10 @@ jest.mock('../src/engine/ParentSettingsManager', () => {
   };
 });
 
+jest.mock('../src/engine/VoiceRecordingStore', () => ({
+  saveVoiceRecordingCandidate: jest.fn(() => Promise.resolve()),
+}));
+
 const mockedSpeakVi = speakVi as jest.MockedFunction<typeof speakVi>;
 const mockedSpeakWord = speakWord as jest.MockedFunction<typeof speakWord>;
 const mockedCancelNarration = cancelNarration as jest.MockedFunction<
@@ -156,6 +166,10 @@ const mockedPlayTeacherPromptNarration =
 const mockedGetParentSettings = getParentSettings as jest.MockedFunction<
   typeof getParentSettings
 >;
+const mockedSaveVoiceRecordingCandidate =
+  saveVoiceRecordingCandidate as jest.MockedFunction<
+    typeof saveVoiceRecordingCandidate
+  >;
 const mockedPrefetchAssets = prefetchAssets as jest.MockedFunction<
   typeof prefetchAssets
 >;
@@ -337,6 +351,7 @@ beforeEach(() => {
   mockedSpeakWord.mockResolvedValue();
   mockedGetParentSettings.mockReset();
   mockedGetParentSettings.mockResolvedValue(defaultParentSettings);
+  mockedSaveVoiceRecordingCandidate.mockClear();
   mockedPrefetchAssets.mockReset();
   mockedPrefetchAssets.mockResolvedValue(true);
   mockedPrefetchRemoteAssets.mockReset();
@@ -348,6 +363,25 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.useRealTimers();
+  setActiveColorScheme('light');
+});
+
+test('uses a readable dark surface for the lesson HUD', async () => {
+  setActiveColorScheme('dark');
+  const tree = await renderScenePlayer(listenScene);
+  const title = tree.root
+    .findAllByType(Text)
+    .find(node => node.props.children === 'Lắng nghe');
+
+  expect(title).toBeDefined();
+  expect(StyleSheet.flatten(title?.props.style).color).toBe(darkColors.text);
+  expect(StyleSheet.flatten(title?.parent?.props.style).backgroundColor).toBe(
+    darkColors.surface,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
 });
 
 test('keeps loading visible until the required scene audio is cached', async () => {
@@ -941,6 +975,99 @@ test('drops stale bilingual failure audio when a quick retry succeeds', async ()
   });
 });
 
+test('renders failure feedback text without blocking a retry', async () => {
+  jest.useFakeTimers();
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const findObject = (objectId: string) =>
+    tree?.root
+      .findAllByType(SceneObjectRenderer)
+      .find(node => node.props.object.id === objectId);
+
+  await ReactTestRenderer.act(async () => {
+    findObject('eraser')?.props.onPress('eraser');
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Chưa đúng, thử lại nhé.');
+  expect(findObject('pencil')?.props.isDisabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(401);
+    findObject('pencil')?.props.onPress('pencil');
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bút chì đã ở trên bàn.');
+  expect(getTextValues(tree)).not.toContain('Chưa đúng, thử lại nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('renders temporary info feedback when replaying an instruction', async () => {
+  jest.useFakeTimers();
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={practiceRetryScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const replayButton = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Nghe lại hướng dẫn');
+
+  expect(replayButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    replayButton?.props.onPress();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Đặt bút chì lên bàn.');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1301);
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).not.toContain('Đặt bút chì lên bàn.');
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('dims unrelated learning objects while a retry hint is active', async () => {
   jest.useFakeTimers();
 
@@ -997,6 +1124,240 @@ test('dims unrelated learning objects while a retry hint is active', async () =>
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
+  });
+});
+
+test('shows an auto hint after seven idle seconds and dims unrelated objects', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(practiceRetryScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const eraser = () => findSceneObject(tree, 'eraser');
+
+  expect(pencil()?.props.isTargeted).toBe(false);
+  expect(pencil()?.props.isInteractionTarget).toBe(true);
+  expect(eraser()?.props.isInteractionTarget).toBe(false);
+  expect(eraser()?.props.isDimmed).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(6999);
+    await flushPromises();
+  });
+
+  expect(pencil()?.props.isTargeted).toBe(false);
+  expect(eraser()?.props.isDimmed).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+  });
+
+  expect(pencil()?.props.isTargeted).toBe(true);
+  expect(eraser()?.props.isDimmed).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('starts the auto-hint delay after instruction audio finishes', async () => {
+  jest.useFakeTimers();
+  let finishInstruction: (() => void) | undefined;
+  mockedSpeakVi.mockImplementationOnce(
+    () =>
+      new Promise<void>(resolve => {
+        finishInstruction = resolve;
+      }),
+  );
+  const tree = await renderScenePlayer(practiceRetryScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(10000);
+    await flushPromises();
+  });
+
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    finishInstruction?.();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(100);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(6999);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('clears and restarts the auto hint after an object interaction', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(practiceRetryScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const eraser = () => findSceneObject(tree, 'eraser');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    eraser()?.props.onPress('eraser');
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(120);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(6999);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('keeps the auto hint paused while failure feedback audio is playing', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  let finishFeedback: (() => void) | undefined;
+  mockedSpeakVi.mockImplementation(text => {
+    if (text !== 'Chưa đúng, thử lại nhé.') {
+      return Promise.resolve();
+    }
+
+    return new Promise<void>(resolve => {
+      finishFeedback = resolve;
+    });
+  });
+  const tree = await renderScenePlayer(practiceRetryScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const eraser = () => findSceneObject(tree, 'eraser');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    eraser()?.props.onPress('eraser');
+    jest.advanceTimersByTime(120);
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(10000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+  expect(getTextValues(tree)).toContain('Chưa đúng, thử lại nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    finishFeedback?.();
+    await flushPromises();
+    await flushPromises();
+  });
+  expect(getTextValues(tree)).not.toContain('Chưa đúng, thử lại nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('clears the auto hint when replaying the instruction', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(practiceRetryScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const replayButton = tree.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Nghe lại hướng dẫn');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    replayButton?.props.onPress();
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('clears and restarts the auto hint when dragging begins', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(practiceDragScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    pencil()?.props.onDragStart('pencil');
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(6999);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+  });
+  expect(pencil()?.props.isTargeted).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
   });
 });
 
@@ -1283,6 +1644,81 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
   expect(tree?.root.findByType(SceneObjectRenderer).props.isDisabled).toBe(
     true,
   );
+  expect(tree?.root.findByType(SceneObjectRenderer).props.isTargeted).toBe(
+    true,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('saves spoken vocabulary locally when the parent enables the library', async () => {
+  mockedGetParentSettings.mockResolvedValue({
+    ...defaultParentSettings,
+    voiceRecordingLibrary: {
+      consentedAt: '2026-08-11T08:00:00.000Z',
+      consentVersion: 1,
+      enabled: true,
+    },
+  });
+
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer lessonId="bedtime" scene={teachListenScene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const practice = tree?.root.findByType(SpeakPracticeControls);
+  expect(practice?.props.onRecordingReady).toEqual(expect.any(Function));
+
+  await ReactTestRenderer.act(async () => {
+    await practice?.props.onRecordingReady({
+      durationMs: 1840,
+      stopReason: 'endOfSpeech',
+      uri: 'file:///cache/skids_voice_test.wav',
+    });
+  });
+
+  expect(mockedSaveVoiceRecordingCandidate).toHaveBeenCalledWith(
+    expect.objectContaining({
+      accent: 'en-US',
+      durationMs: 1840,
+      lessonId: 'bedtime',
+      sceneId: 'teach-listen-scene',
+      stepId: 'teach-listen-step',
+      tempUri: 'file:///cache/skids_voice_test.wav',
+      themeId: 'mot-ngay-cua-be',
+      vocabId: 'vocab-blanket',
+      word: 'blanket',
+    }),
+  );
+
+  const firstEncounterId = mockedSaveVoiceRecordingCandidate.mock.calls[0][0]
+    .encounterId;
+  await ReactTestRenderer.act(async () => {
+    await practice?.props.onRecordingReady({
+      durationMs: 2010,
+      stopReason: 'manual',
+      uri: 'file:///cache/skids_voice_retry.wav',
+    });
+  });
+
+  expect(mockedSaveVoiceRecordingCandidate.mock.calls[1][0].encounterId).toBe(
+    firstEncounterId,
+  );
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -1291,6 +1727,41 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
 
 function getTextValues(tree: ReactTestRenderer.ReactTestRenderer | undefined) {
   return tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
+}
+
+async function renderScenePlayer(scene: Scene) {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer scene={scene} />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  if (!tree) {
+    throw new Error('ScenePlayer did not render.');
+  }
+
+  return tree;
+}
+
+function findSceneObject(
+  tree: ReactTestRenderer.ReactTestRenderer,
+  objectId: string,
+) {
+  return tree.root
+    .findAllByType(SceneObjectRenderer)
+    .find(node => node.props.object.id === objectId);
 }
 
 function flushPromises() {

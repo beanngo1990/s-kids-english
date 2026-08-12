@@ -3,7 +3,10 @@ import { achievementStickerAssets } from '../src/assets/stickers/achievements';
 import { achievementRewards } from '../src/data/achievementRewards';
 import { lessons } from '../src/data/lessons';
 import { mascotProfiles } from '../src/data/mascot';
-import { lessonRewards } from '../src/data/rewards';
+import {
+  getLocalizedLessonRewardName,
+  lessonRewards,
+} from '../src/data/rewards';
 
 test('reward catalog maps one sticker to each lesson in catalog order', () => {
   const lessonIds = lessons.map(lesson => lesson.id);
@@ -22,6 +25,36 @@ test('reward catalog maps one sticker to each lesson in catalog order', () => {
     true,
   );
   expect(lessonRewards.every(reward => reward.tone)).toBe(true);
+  expect(
+    lessonRewards.every(
+      reward =>
+        reward.stickerNameEn.trim().length > 0 &&
+        reward.stickerNameVi.trim().length > 0,
+    ),
+  ).toBe(true);
+  expect(
+    lessonRewards.find(reward => reward.lessonId === 'supermarket-trip'),
+  ).toMatchObject({
+    iconName: 'milestoneSupermarketTrip',
+    stickerNameEn: 'Market Explorer',
+    stickerNameVi: 'Nhà khám phá siêu thị',
+  });
+});
+
+test('lesson reward names follow the selected app language', () => {
+  const reward = lessonRewards.find(
+    item => item.lessonId === 'supermarket-trip',
+  );
+
+  expect(reward).toBeDefined();
+  if (!reward) {
+    throw new Error('Supermarket reward is missing.');
+  }
+
+  expect(getLocalizedLessonRewardName(reward, 'vi')).toBe(
+    'Nhà khám phá siêu thị',
+  );
+  expect(getLocalizedLessonRewardName(reward, 'en')).toBe('Market Explorer');
 });
 
 test('achievement rewards provide ordered Sungy sticker goals', () => {

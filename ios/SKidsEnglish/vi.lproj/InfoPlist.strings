@@ -1,0 +1,2 @@
+"NSMicrophoneUsageDescription" = "Sungy cần quyền truy cập micrô để ghi lại phần luyện nói của bé.";
+"NSSpeechRecognitionUsageDescription" = "Sungy dùng nhận dạng lời nói trên thiết bị để xác định khi nào bé nói xong và tự động kết thúc lượt luyện nói.";

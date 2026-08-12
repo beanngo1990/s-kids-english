@@ -16,6 +16,7 @@ import {
 } from '../src/engine/ProgressManager';
 import { HomeScreen } from '../src/screens/HomeScreen';
 import { OnboardingScreen } from '../src/screens/OnboardingScreen';
+import { createEmptyStickerPlaygroundState } from '../src/types/stickerPlayground';
 import { getSceneProgressId } from '../src/utils/lessonProgress';
 
 let mockMonetizationStatus = 'free';
@@ -210,6 +211,7 @@ function createCompletedFreeProgress(): LocalProgress {
     earnedStickerIds: [],
     earnedStickerRecords: [],
     learnedWordIds: [],
+    stickerPlayground: createEmptyStickerPlaygroundState(),
     totalXP: 0,
     vocabularyProgress: {},
   };

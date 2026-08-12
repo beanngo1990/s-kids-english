@@ -11,6 +11,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AppButton } from '../components/AppButton';
 import { AppUiIcon } from '../components/AppUiIcon';
 import { KidBadge } from '../components/KidBadge';
+import { KidRouteHeader } from '../components/KidRouteHeader';
 import { Screen } from '../components/Screen';
 import {
   getKidLockAudioPrompt,
@@ -29,6 +30,7 @@ import {
 } from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
+  getProgress,
   saveVocabularyInteraction,
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
@@ -48,6 +50,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
+import { isLessonComplete } from '../utils/lessonProgress';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewGame'>;
 
@@ -65,6 +68,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
   const [teacherPromptMode, setTeacherPromptMode] =
     useState<TeacherPromptMode>('vi');
   const [isTeacherPromptReady, setIsTeacherPromptReady] = useState(false);
+  const [isProgressReady, setIsProgressReady] = useState(false);
+  const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>();
+  const [completedSceneIds, setCompletedSceneIds] = useState<Set<string>>(
+    () => new Set(),
+  );
   const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
     route.params.learningMode,
   );
@@ -172,6 +180,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     const applyTeacherSettings = (
       settings: Awaited<ReturnType<typeof getParentSettings>>,
     ) => {
+      setJourneyMode(settings.journeyMode);
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
     };
 
@@ -191,7 +200,11 @@ export function ReviewGameScreen({ navigation, route }: Props) {
           setLearningMode(settings.learningMode);
         }
       })
-      .catch(() => undefined)
+      .catch(() => {
+        if (isMounted) {
+          setJourneyMode('guided');
+        }
+      })
       .finally(() => {
         if (isMounted) {
           setIsTeacherPromptReady(true);
@@ -204,12 +217,73 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     };
   }, [route.params.learningMode]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    setIsProgressReady(false);
+    getProgress()
+      .then(progress => {
+        if (isMounted) {
+          setCompletedSceneIds(new Set(progress.completedSceneIds));
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setCompletedSceneIds(new Set());
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsProgressReady(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [route.params.lessonId]);
+
+  const isProgressGateReady =
+    isTeacherPromptReady && isProgressReady && journeyMode !== undefined;
+  const isReviewProgressGranted = Boolean(
+    lesson &&
+      journeyMode &&
+      (journeyMode === 'free' ||
+        isLessonComplete(lesson.scenes, completedSceneIds, lesson.id)),
+  );
+
+  useEffect(() => {
+    if (
+      !lesson ||
+      !hasContentAccess ||
+      !isProgressGateReady ||
+      isReviewProgressGranted
+    ) {
+      return;
+    }
+
+    navigation.replace('LessonPack', {
+      lessonId: lesson.id,
+      openedFromParent,
+    });
+  }, [
+    hasContentAccess,
+    isProgressGateReady,
+    isReviewProgressGranted,
+    lesson,
+    navigation,
+    openedFromParent,
+  ]);
+
   const reviewItems = useMemo(
     () =>
-      lesson && learningMode && hasContentAccess
+      lesson &&
+      learningMode &&
+      hasContentAccess &&
+      isReviewProgressGranted
         ? getReviewGameItems(lesson, learningMode)
         : [],
-    [hasContentAccess, lesson, learningMode],
+    [hasContentAccess, isReviewProgressGranted, lesson, learningMode],
   );
   const shouldPlayIntro = Boolean(
     lesson?.reviewGame && reviewItems.length >= 2,
@@ -306,6 +380,14 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     );
   }
 
+  if (!isProgressGateReady || !isReviewProgressGranted) {
+    return (
+      <Screen>
+        <View />
+      </Screen>
+    );
+  }
+
   if (!lesson.reviewGame) {
     return (
       <Screen>
@@ -353,33 +435,18 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     <Screen
       fixedHeader={
         <View style={styles.fixedHeader}>
-          {/* Custom Kid Mode Top Navigation Header */}
-          <View style={styles.topHud}>
-            <Pressable
-              accessibilityLabel={t('common.close')}
-              accessibilityRole="button"
-              onPress={() =>
-                navigation.canGoBack()
-                  ? navigation.goBack()
-                  : navigation.replace('LessonPack', {
-                      lessonId: lesson.id,
-                      openedFromParent,
-                    })
-              }
-              style={styles.exitButton}
-            >
-              <View style={styles.exitIcon}>
-                <View style={styles.exitStroke} />
-                <View style={[styles.exitStroke, styles.exitStrokeReverse]} />
-              </View>
-            </Pressable>
-
-            <View style={styles.topHudPill}>
-              <Text numberOfLines={1} style={styles.topHudTitle}>
-                {getLocalizedLessonTitle(lesson, appLanguage)}
-              </Text>
-            </View>
-          </View>
+          <KidRouteHeader
+            action="close"
+            onAction={() =>
+              navigation.canGoBack()
+                ? navigation.goBack()
+                : navigation.replace('LessonPack', {
+                    lessonId: lesson.id,
+                    openedFromParent,
+                  })
+            }
+            title={getLocalizedLessonTitle(lesson, appLanguage)}
+          />
 
           {/* Game Type Switcher Bar */}
           <View style={styles.gameSelectorContainer}>
@@ -604,54 +671,5 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
     paddingBottom: spacing.xs,
     zIndex: 10,
-  },
-  topHud: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  exitButton: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 48,
-    justifyContent: 'center',
-    width: 48,
-  },
-  exitIcon: {
-    alignItems: 'center',
-    height: 20,
-    justifyContent: 'center',
-    width: 20,
-  },
-  exitStroke: {
-    backgroundColor: colors.accentDark,
-    borderRadius: radius.pill,
-    height: 4,
-    position: 'absolute',
-    transform: [{ rotate: '45deg' }],
-    width: 20,
-  },
-  exitStrokeReverse: {
-    transform: [{ rotate: '-45deg' }],
-  },
-  topHudPill: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    flex: 1,
-    height: 48,
-    justifyContent: 'center',
-    paddingHorizontal: spacing.md,
-  },
-  topHudTitle: {
-    color: colors.primaryDark,
-    ...typography.subtitle,
-    fontSize: 16,
-    fontWeight: '800',
   },
 }));

@@ -5,6 +5,11 @@ import {
   DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS,
   remoteMonetizationConfigKeys,
 } from '../config/monetization';
+import {
+  refreshRemoteConfig,
+  startRemoteConfig,
+  subscribeRemoteConfigUpdates,
+} from './RemoteConfigService';
 
 export type RemoteMonetizationConfigErrorCode =
   | 'firebaseUnavailable'
@@ -17,13 +22,6 @@ export type RemoteMonetizationConfigSnapshot = Readonly<{
   isReady: boolean;
   premiumPurchaseEnabled: boolean;
 }>;
-
-const defaults = {
-  [remoteMonetizationConfigKeys.founderPremiumCutoffAt]: '',
-  [remoteMonetizationConfigKeys.founderPremiumDurationDays]:
-    DEFAULT_FOUNDER_PREMIUM_DURATION_DAYS,
-  [remoteMonetizationConfigKeys.premiumPurchaseEnabled]: true,
-};
 
 const listeners = new Set<() => void>();
 
@@ -64,8 +62,7 @@ export async function refreshRemoteMonetizationConfig() {
   await startRemoteMonetizationConfig();
 
   try {
-    const instance = remoteConfig();
-    await instance.fetchAndActivate();
+    const instance = await refreshRemoteConfig();
     applyRemoteValues(instance);
   } catch {
     updateSnapshot({
@@ -79,44 +76,18 @@ export async function refreshRemoteMonetizationConfig() {
 }
 
 export function subscribeRemoteMonetizationConfigUpdates() {
-  try {
-    const instance = remoteConfig();
-    return instance.onConfigUpdate({
-      complete: () => undefined,
-      error: () => {
-        updateSnapshot({ ...snapshot, errorCode: 'fetchFailed' });
-      },
-      next: async update => {
-        const relevantKeys = new Set(Object.values(remoteMonetizationConfigKeys));
-        const hasRelevantUpdate = Array.from(update.getUpdatedKeys()).some(key =>
-          relevantKeys.has(
-            key as (typeof remoteMonetizationConfigKeys)[keyof typeof remoteMonetizationConfigKeys],
-          ),
-        );
-
-        if (!hasRelevantUpdate) {
-          return;
-        }
-
-        await instance.activate();
-        applyRemoteValues(instance);
-      },
-    });
-  } catch {
-    return () => undefined;
-  }
+  return subscribeRemoteConfigUpdates(
+    Object.values(remoteMonetizationConfigKeys),
+    applyRemoteValues,
+    () => {
+      updateSnapshot({ ...snapshot, errorCode: 'fetchFailed' });
+    },
+  );
 }
 
 async function initializeRemoteConfig() {
   try {
-    const instance = remoteConfig();
-    await instance.setDefaults(defaults);
-    await instance.setConfigSettings({
-      fetchTimeMillis: 10_000,
-      minimumFetchIntervalMillis: __DEV__ ? 0 : 60 * 60 * 1000,
-    });
-    applyRemoteValues(instance);
-    await instance.fetchAndActivate();
+    const instance = await startRemoteConfig();
     applyRemoteValues(instance);
   } catch {
     updateSnapshot({

@@ -71,7 +71,8 @@ test('keeps a sourced image visible before native load callbacks fire', async ()
 
   const image = tree?.root.findByType(Animated.Image);
 
-  expect(getOpacityValue(image?.props.style)).toBe(1);
+  expect(StyleSheet.flatten(image?.props.style).opacity).toBeUndefined();
+  expect(image?.props.onLoadStart).toBeUndefined();
 });
 
 test('uses the image silhouette for a targeted-object highlight', async () => {
@@ -90,20 +91,64 @@ test('uses the image silhouette for a targeted-object highlight', async () => {
     );
   });
 
+  const loadingImages = tree?.root.findAllByType(Animated.Image) ?? [];
+  expect(loadingImages).toHaveLength(1);
+
+  await ReactTestRenderer.act(async () => {
+    loadingImages[0]?.props.onLoad();
+  });
+
   const images = tree?.root.findAllByType(Animated.Image) ?? [];
   const tintedImages = images.filter(image => {
     const flattenedStyle = StyleSheet.flatten(image.props.style);
     return typeof flattenedStyle?.tintColor === 'string';
   });
+  const fullColorImage = images.find(image => {
+    const flattenedStyle = StyleSheet.flatten(image.props.style);
+    return flattenedStyle?.tintColor === undefined;
+  });
 
   expect(images).toHaveLength(3);
   expect(tintedImages).toHaveLength(2);
+  expect(fullColorImage).toBeDefined();
+  expect(
+    StyleSheet.flatten(fullColorImage?.props.style).opacity,
+  ).toBeUndefined();
+  expect(fullColorImage?.props.onLoadStart).toBeUndefined();
   expect(
     tintedImages.map(image => StyleSheet.flatten(image.props.style).tintColor),
   ).toEqual([getActiveColors().focusOutline, getActiveColors().white]);
   expect(
-    tintedImages.every(image => image.props.source === images[2]?.props.source),
+    tintedImages.every(
+      image => image.props.source === fullColorImage?.props.source,
+    ),
   ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('raises an interaction target above overlapping siblings without showing a hint', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isInteractionTarget
+        isTargeted={false}
+        label="cái đầu"
+        object={headObject}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const wrapper = tree?.root.findAllByType(Animated.View)[0];
+  expect(StyleSheet.flatten(wrapper?.props.style).zIndex).toBe(2);
+  expect(tree?.root.findAllByType(Animated.Image)).toHaveLength(1);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -171,36 +216,51 @@ test('magnifies a small target visually but not while it is draggable', async ()
   springSpy.mockRestore();
 });
 
-function getOpacityValue(style: unknown) {
-  const styleEntries = Array.isArray(style) ? style : [style];
+test('notifies the scene when a draggable gesture begins', async () => {
+  const onDragStart = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
 
-  for (const styleEntry of styleEntries) {
-    if (!styleEntry || typeof styleEntry !== 'object') {
-      continue;
-    }
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isDraggable
+        isTargeted={false}
+        label="cái đầu"
+        object={headObject}
+        onDragStart={onDragStart}
+        onPress={() => undefined}
+      />,
+    );
+  });
 
-    const opacity = (styleEntry as { opacity?: unknown }).opacity;
+  const dragWrapper = tree?.root
+    .findAllByType(Animated.View)
+    .find(node => typeof node.props.onResponderGrant === 'function');
+  expect(dragWrapper).toBeDefined();
 
-    if (typeof opacity === 'number') {
-      return opacity;
-    }
+  await ReactTestRenderer.act(async () => {
+    dragWrapper?.props.onResponderGrant({
+      touchHistory: {
+        indexOfSingleActiveTouch: 0,
+        numberActiveTouches: 1,
+        touchBank: [
+          {
+            currentPageX: 10,
+            currentPageY: 20,
+            currentTimeStamp: 1,
+            touchActive: true,
+          },
+        ],
+      },
+    });
+  });
 
-    if (isAnimatedValueLike(opacity)) {
-      const value = opacity.__getValue();
-      return typeof value === 'number' ? value : undefined;
-    }
-  }
+  expect(onDragStart).toHaveBeenCalledWith('head');
 
-  return undefined;
-}
-
-function isAnimatedValueLike(
-  value: unknown,
-): value is { __getValue: () => unknown } {
-  return (
-    value !== null &&
-    typeof value === 'object' &&
-    '__getValue' in value &&
-    typeof (value as { __getValue?: unknown }).__getValue === 'function'
-  );
-}
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});

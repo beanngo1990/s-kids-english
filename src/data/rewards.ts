@@ -1,4 +1,5 @@
 import type { SKidsIconName } from '../assets/icons/skids';
+import type { AppLanguage } from '../i18n/types';
 import type { MascotPoseId } from './mascot';
 
 export type StickerArtTone = 'coral' | 'sky' | 'sun' | 'teal';
@@ -36,9 +37,24 @@ export type LessonReward = {
   lessonId: string;
   tone: StickerArtTone;
   stickerId: string;
+  /** @deprecated Use getLocalizedLessonRewardName for kid-facing copy. */
   stickerName: string;
+  stickerNameEn: string;
+  stickerNameVi: string;
   title: string;
 };
+
+type LocalizableLessonRewardName = Pick<LessonReward, 'stickerName'> &
+  Partial<Pick<LessonReward, 'stickerNameEn' | 'stickerNameVi'>>;
+
+export function getLocalizedLessonRewardName(
+  reward: LocalizableLessonRewardName,
+  appLanguage: AppLanguage,
+) {
+  return appLanguage === 'en'
+    ? reward.stickerNameEn ?? reward.stickerName
+    : reward.stickerNameVi ?? reward.stickerName;
+}
 
 export const lessonRewards: LessonReward[] = [
   {
@@ -47,6 +63,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'morning-routine',
     stickerId: 'sticker-morning-star',
     stickerName: 'Morning Star',
+    stickerNameEn: 'Morning Star',
+    stickerNameVi: 'Ngôi sao buổi sáng',
     tone: 'sun',
     title: 'Bé đã mở khoá Morning Star!',
   },
@@ -56,6 +74,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'at-school',
     stickerId: 'sticker-school-helper',
     stickerName: 'School Helper',
+    stickerNameEn: 'School Helper',
+    stickerNameVi: 'Trợ thủ trường học',
     tone: 'teal',
     title: 'Bé đã mở khoá School Helper!',
   },
@@ -65,6 +85,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'playtime',
     stickerId: 'sticker-playtime-buddy',
     stickerName: 'Playtime Buddy',
+    stickerNameEn: 'Playtime Buddy',
+    stickerNameVi: 'Bạn chơi vui vẻ',
     tone: 'coral',
     title: 'Bé đã mở khoá Playtime Buddy!',
   },
@@ -74,6 +96,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'lunch-time',
     stickerId: 'sticker-lunch-helper',
     stickerName: 'Lunch Helper',
+    stickerNameEn: 'Lunch Helper',
+    stickerNameVi: 'Trợ thủ bữa trưa',
     tone: 'sky',
     title: 'Bé đã mở khoá Lunch Helper!',
   },
@@ -83,6 +107,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'afternoon-home',
     stickerId: 'sticker-afternoon-home',
     stickerName: 'Home Helper',
+    stickerNameEn: 'Home Helper',
+    stickerNameVi: 'Trợ thủ ở nhà',
     tone: 'teal',
     title: 'Bé đã mở khoá Home Helper!',
   },
@@ -92,6 +118,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'snack-time',
     stickerId: 'sticker-snack-time',
     stickerName: 'Snack Helper',
+    stickerNameEn: 'Snack Helper',
+    stickerNameVi: 'Trợ thủ bữa xế',
     tone: 'sun',
     title: 'Bé đã mở khoá Snack Helper!',
   },
@@ -101,6 +129,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'home-play',
     stickerId: 'sticker-home-play',
     stickerName: 'Home Player',
+    stickerNameEn: 'Home Player',
+    stickerNameVi: 'Bạn chơi ở nhà',
     tone: 'coral',
     title: 'Bé đã mở khoá Home Player!',
   },
@@ -110,6 +140,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'afternoon-bath',
     stickerId: 'sticker-afternoon-bath',
     stickerName: 'Bath Helper',
+    stickerNameEn: 'Bath Helper',
+    stickerNameVi: 'Trợ thủ tắm rửa',
     tone: 'sky',
     title: 'Bé đã mở khoá Bath Helper!',
   },
@@ -119,6 +151,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'family-dinner',
     stickerId: 'sticker-family-dinner',
     stickerName: 'Dinner Helper',
+    stickerNameEn: 'Dinner Helper',
+    stickerNameVi: 'Trợ thủ bữa tối',
     tone: 'teal',
     title: 'Bé đã mở khoá Dinner Helper!',
   },
@@ -128,6 +162,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'after-dinner-cleanup',
     stickerId: 'sticker-after-dinner-cleanup',
     stickerName: 'Cleanup Helper',
+    stickerNameEn: 'Cleanup Helper',
+    stickerNameVi: 'Trợ thủ dọn dẹp',
     tone: 'coral',
     title: 'Bé đã mở khoá Cleanup Helper!',
   },
@@ -137,15 +173,19 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'bedtime',
     stickerId: 'sticker-bedtime',
     stickerName: 'Sleepy Star',
+    stickerNameEn: 'Sleepy Star',
+    stickerNameVi: 'Ngôi sao ngon giấc',
     tone: 'sky',
     title: 'Bé đã mở khoá Sleepy Star!',
   },
   {
     id: 'reward-supermarket-trip',
-    iconName: 'supermarketCart',
+    iconName: 'milestoneSupermarketTrip',
     lessonId: 'supermarket-trip',
     stickerId: 'sticker-supermarket-trip',
     stickerName: 'Market Explorer',
+    stickerNameEn: 'Market Explorer',
+    stickerNameVi: 'Nhà khám phá siêu thị',
     tone: 'teal',
     title: 'Bé đã mở khoá Market Explorer!',
   },
@@ -155,6 +195,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'park-visit',
     stickerId: 'sticker-park-visit',
     stickerName: 'Park Explorer',
+    stickerNameEn: 'Park Explorer',
+    stickerNameVi: 'Nhà khám phá công viên',
     tone: 'sun',
     title: 'Bé đã mở khoá Park Explorer!',
   },
@@ -164,6 +206,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'beach-day',
     stickerId: 'sticker-beach-day',
     stickerName: 'Beach Explorer',
+    stickerNameEn: 'Beach Explorer',
+    stickerNameVi: 'Nhà khám phá bãi biển',
     tone: 'sky',
     title: 'Bé đã mở khoá Beach Explorer!',
   },
@@ -173,6 +217,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'animal-trip',
     stickerId: 'sticker-animal-trip',
     stickerName: 'Animal Friend',
+    stickerNameEn: 'Animal Friend',
+    stickerNameVi: 'Bạn của muôn thú',
     tone: 'coral',
     title: 'Bé đã mở khoá Animal Friend!',
   },
@@ -182,6 +228,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'library-visit',
     stickerId: 'sticker-library-visit',
     stickerName: 'Book Explorer',
+    stickerNameEn: 'Book Explorer',
+    stickerNameVi: 'Nhà khám phá sách',
     tone: 'teal',
     title: 'Bé đã mở khoá Book Explorer!',
   },
@@ -191,6 +239,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'doctor-visit',
     stickerId: 'sticker-doctor-visit',
     stickerName: 'Clinic Helper',
+    stickerNameEn: 'Clinic Helper',
+    stickerNameVi: 'Trợ thủ phòng khám',
     tone: 'sky',
     title: 'Bé đã mở khoá Clinic Helper!',
   },
@@ -200,6 +250,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'birthday-party',
     stickerId: 'sticker-birthday-party',
     stickerName: 'Party Star',
+    stickerNameEn: 'Party Star',
+    stickerNameVi: 'Ngôi sao bữa tiệc',
     tone: 'coral',
     title: 'Bé đã mở khoá Party Star!',
   },
@@ -209,6 +261,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'grandparents-visit',
     stickerId: 'sticker-grandparents-visit',
     stickerName: 'Family Visitor',
+    stickerNameEn: 'Family Visitor',
+    stickerNameVi: 'Bạn nhỏ thăm ông bà',
     tone: 'sun',
     title: 'Bé đã mở khoá Family Visitor!',
   },
@@ -218,6 +272,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'my-body',
     stickerId: 'sticker-my-body',
     stickerName: 'Body Explorer',
+    stickerNameEn: 'Body Explorer',
+    stickerNameVi: 'Nhà khám phá cơ thể',
     tone: 'coral',
     title: 'Bé đã mở khoá Body Explorer!',
   },
@@ -227,6 +283,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'five-senses',
     stickerId: 'sticker-five-senses',
     stickerName: 'Senses Explorer',
+    stickerNameEn: 'Senses Explorer',
+    stickerNameVi: 'Nhà khám phá giác quan',
     tone: 'teal',
     title: 'Bé đã mở khoá Senses Explorer!',
   },
@@ -236,6 +294,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'my-feelings',
     stickerId: 'sticker-my-feelings',
     stickerName: 'Feelings Friend',
+    stickerNameEn: 'Feelings Friend',
+    stickerNameVi: 'Người bạn cảm xúc',
     tone: 'sun',
     title: 'Bé đã mở khoá Feelings Friend!',
   },
@@ -245,6 +305,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'calm-myself',
     stickerId: 'sticker-calm-myself',
     stickerName: 'Calm Breather',
+    stickerNameEn: 'Calm Breather',
+    stickerNameVi: 'Bạn nhỏ bình tâm',
     tone: 'sky',
     title: 'Bé đã mở khoá Calm Breather!',
   },
@@ -254,6 +316,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'personal-care',
     stickerId: 'sticker-personal-care',
     stickerName: 'Care Helper',
+    stickerNameEn: 'Care Helper',
+    stickerNameVi: 'Trợ thủ chăm sóc',
     tone: 'teal',
     title: 'Bé đã mở khoá Care Helper!',
   },
@@ -263,6 +327,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'dress-myself',
     stickerId: 'sticker-dress-myself',
     stickerName: 'Dressing Star',
+    stickerNameEn: 'Dressing Star',
+    stickerNameVi: 'Ngôi sao tự mặc đồ',
     tone: 'coral',
     title: 'Bé đã mở khoá Dressing Star!',
   },
@@ -272,6 +338,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'toilet-routine',
     stickerId: 'sticker-toilet-routine',
     stickerName: 'Routine Star',
+    stickerNameEn: 'Routine Star',
+    stickerNameVi: 'Ngôi sao vệ sinh',
     tone: 'sky',
     title: 'Bé đã mở khoá Routine Star!',
   },
@@ -281,6 +349,8 @@ export const lessonRewards: LessonReward[] = [
     lessonId: 'speaking-up',
     stickerId: 'sticker-speaking-up',
     stickerName: 'Brave Voice',
+    stickerNameEn: 'Brave Voice',
+    stickerNameVi: 'Tiếng nói dũng cảm',
     tone: 'sun',
     title: 'Bé đã mở khoá Brave Voice!',
   },

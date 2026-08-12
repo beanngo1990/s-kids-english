@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { AppUpdateGate } from './src/components/AppUpdateGate';
 import { syncAppCheckTokenToNativeCache } from './src/engine/AssetCacheManager';
+import { initializeAppReviewTracking } from './src/engine/AppReviewManager';
+import { startAppUpdateManager } from './src/engine/AppUpdateManager';
 import { startBackgroundMusicManager } from './src/engine/BackgroundMusicManager';
 import { configureNativeAudioAdapter } from './src/engine/NativeAudioAdapter';
 import { startCloudProgressSync } from './src/engine/CloudProgressSyncManager';
 import { startFirebaseAppCheck } from './src/engine/FirebaseAppCheckManager';
 import { startMonetization } from './src/engine/MonetizationManager';
 import { startParentAccessSessionLifecycle } from './src/engine/ParentAccessSession';
+import { reconcileVoiceRecordingStorage } from './src/engine/VoiceRecordingStore';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { startCrashReporting } from './src/services/CrashReportingService';
 import { startRemoteMonetizationConfig } from './src/services/RemoteMonetizationConfig';
@@ -18,12 +23,15 @@ configureNativeAudioAdapter();
 
 function App() {
   useEffect(() => {
+    initializeAppReviewTracking().catch(() => undefined);
+    reconcileVoiceRecordingStorage().catch(() => undefined);
     startFirebaseAppCheck()
       .then(() => syncAppCheckTokenToNativeCache())
       .catch(() => undefined);
     startCloudProgressSync();
 
     startRemoteMonetizationConfig().catch(() => undefined);
+    const stopAppUpdateManager = startAppUpdateManager();
     const stopCrashReporting = startCrashReporting();
     const stopMonetization = startMonetization();
     const stopParentAccessLifecycle = startParentAccessSessionLifecycle();
@@ -31,6 +39,7 @@ function App() {
 
     return () => {
       stopBackgroundMusic();
+      stopAppUpdateManager();
       stopCrashReporting();
       stopMonetization();
       stopParentAccessLifecycle();
@@ -48,14 +57,24 @@ function ThemedApp() {
   const { colorScheme, colors } = useAppTheme();
 
   return (
-    <SafeAreaProvider>
-      <StatusBar
-        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={colors.background}
-      />
-      <AppNavigator />
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={styles.gestureRoot}>
+      <SafeAreaProvider>
+        <StatusBar
+          barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
+          backgroundColor={colors.background}
+        />
+        <AppUpdateGate>
+          <AppNavigator />
+        </AppUpdateGate>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  gestureRoot: {
+    flex: 1,
+  },
+});
 
 export default App;

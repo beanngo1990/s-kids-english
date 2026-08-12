@@ -2,6 +2,7 @@ import type { TranslationDictionary } from './vi';
 
 export const en: TranslationDictionary = {
   'common.auto': 'Auto',
+  'common.back': 'Back',
   'common.close': 'Close',
   'common.edit': 'Edit',
   'common.loadingProgress': 'Loading progress',
@@ -11,13 +12,39 @@ export const en: TranslationDictionary = {
   'notifications.dailyTitle': 'Time to learn!',
   'notifications.dailyBody': 'Let’s learn English together.',
 
+  'appUpdate.laterAction': 'Later',
+  'appUpdate.callParentAction': 'Ask a parent',
+  'appUpdate.childReplayHint': 'Tap Sungy to hear it again',
+  'appUpdate.childTitle': 'Please ask a parent to help Sungy!',
+  'appUpdate.openingStore': 'Opening the store...',
+  'appUpdate.optionalBadge': 'Update available',
+  'appUpdate.optionalText':
+    'Update to get the latest improvements. Your child can keep learning with the current version for now.',
+  'appUpdate.optionalTitle': 'Update Sungy',
+  'appUpdate.parentGateHint':
+    'Solve this calculation to open the store and update the app.',
+  'appUpdate.requiredBadge': 'Update required',
+  'appUpdate.requiredText':
+    'This version is no longer supported. Please update so your child can continue using Sungy safely.',
+  'appUpdate.requiredTitle': 'Please update the app',
+  'appUpdate.replayPromptAccessibility':
+    'Tap Sungy to hear the request for a parent again',
+  'appUpdate.storeErrorText':
+    'The app store could not be opened. Check your connection and try again.',
+  'appUpdate.storeErrorTitle': 'Could not open the store',
+  'appUpdate.updateAction': 'Update now',
+  'appUpdate.versionSummary':
+    'Current v{currentVersion} · Latest v{latestVersion}',
+
   'nav.themeLibrary': 'Theme Library',
   'nav.lessonList': 'Lessons',
   'nav.lessonPack': 'Lesson Pack',
   'nav.reviewGame': 'Review Game',
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
+  'nav.stickerPlayground': 'Sticker Playground',
   'nav.parent': 'Parent Mode',
+  'nav.parentVoiceLibrary': "Child's Reading Voice",
   'nav.premium': 'Sungy Premium',
 
   'splash.loading': 'The fun learning journey begins!',
@@ -454,6 +481,14 @@ export const en: TranslationDictionary = {
     'Could not open an email app. You can send a message to {email}.',
   'parent.support.emailErrorTitle': 'Could not open email',
   'parent.support.emailSubject': 'Sungy support',
+  'parent.support.reviewAccessibility': 'Rate Sungy in the store',
+  'parent.support.reviewErrorText':
+    'Could not open the app store. Please try again later.',
+  'parent.support.reviewErrorTitle': 'Could not open the store',
+  'parent.support.reviewOpening': 'Opening the app store…',
+  'parent.support.reviewSubtitle':
+    'Share your experience as a parent in the app store.',
+  'parent.support.reviewTitle': 'Rate Sungy',
   'parent.support.title': 'Contact & app info',
   'parent.support.versionAccessibility': 'App version {version}',
   'parent.support.versionSubtitle': 'The version installed on this device.',
@@ -627,21 +662,28 @@ export const en: TranslationDictionary = {
   'playPanel.playAgain': '🔄 Play Again',
   'playPanel.unlocked': '✨ Ready',
   'playPanel.locked': '🔒 Locked',
+  'playPanel.stickerPlaygroundAccessibility':
+    "Open Sungy's Sticker Playground",
+  'playPanel.stickerPlaygroundBadge': 'Free creativity',
+  'playPanel.stickerPlaygroundTitle': 'Sticker Playground',
+  'playPanel.stickerPlaygroundSubtitle':
+    'Decorate with Sungy using unlocked stickers.',
+  'playPanel.stickerPlaygroundAction': 'Decorate',
   'tabs.mapAccessibility': 'Open lesson map',
   'tabs.map': 'Map',
   'tabs.playAccessibility': 'Open play area',
   'tabs.play': 'Play',
   'speakPractice.encouragement': 'I hear you! Great job!',
-  'speakPractice.micPermissionTitle': 'Microphone Permission',
+  'speakPractice.micPermissionTitle': 'Turn on the microphone',
   'speakPractice.micPermissionText':
-    'You need to grant Microphone permission in Settings to record.',
+    'Microphone access is turned off. A parent can enable it in Settings so your child can practice speaking.',
   'speakPractice.later': 'Later',
   'speakPractice.openSettings': 'Open Settings',
   'speakPractice.coachSpeaking': 'Coach is speaking...',
   'speakPractice.coachPreparing': 'Get ready...',
   'speakPractice.coachListening': 'Coach is listening...',
   'speakPractice.coachSuccess': 'Great! This word is:',
-  'speakPractice.coachNoMic': 'Microphone permission needed. This word is:',
+  'speakPractice.coachNoMic': 'The microphone is not on. This word is:',
   'speakPractice.coachPrompt': 'Repeat after me:',
   'speakPractice.listenAccessibility': 'Listen to recording',
   'speakPractice.recordAgainAccessibility': 'Record again',
@@ -751,9 +793,11 @@ export const en: TranslationDictionary = {
   'reward.nextLesson': 'Next Lesson',
   'reward.replayLesson': 'Replay',
   'reward.viewStickerCollection': 'View sticker collection',
+  'reward.decorateNow': 'Decorate now',
   'stickerCollection.badge': 'Achievement album',
   'stickerCollection.albumCover': 'Sungy album',
   'stickerCollection.title': 'Sticker collection',
+  'stickerCollection.decorate': 'Decorate with my stickers',
   'stickerCollection.subtitle':
     'Each sticker captures Sungy learning with you after a lesson and review are complete.',
   'stickerCollection.progress': '{earned}/{total} stickers unlocked',
@@ -803,6 +847,31 @@ export const en: TranslationDictionary = {
     '{stickerName} sticker is still locked',
   'stickerCollection.lockedAccessibility':
     'Sticker for {lessonTitle} is still locked',
+  'stickerPlayground.background.bedroom': 'Bedroom',
+  'stickerPlayground.background.park': 'Park',
+  'stickerPlayground.background.beach': 'Beach',
+  'stickerPlayground.saveError': 'Not saved yet',
+  'stickerPlayground.hint': 'Tap a sticker to select it',
+  'stickerPlayground.gestureHint':
+    'Drag • pinch to resize • twist with two fingers',
+  'stickerPlayground.selected': 'Selected sticker',
+  'stickerPlayground.undo': 'Undo',
+  'stickerPlayground.delete': 'Delete',
+  'stickerPlayground.clear': 'Clear',
+  'stickerPlayground.clearTitle': 'Clear this picture?',
+  'stickerPlayground.clearText':
+    'Every sticker on the current background will be removed.',
+  'stickerPlayground.clearConfirm': 'Clear all',
+  'stickerPlayground.limitTitle': 'This picture is full',
+  'stickerPlayground.limitText':
+    'Remove a few stickers before adding another one.',
+  'stickerPlayground.trayTitle': 'Your stickers',
+  'stickerPlayground.trayHint':
+    'Tap to add or select; press and hold to drag onto the picture.',
+  'stickerPlayground.placedHint':
+    'This sticker is already on this background. Tap to select it.',
+  'stickerPlayground.empty':
+    'No stickers yet. Tap to open the album and see how to earn one!',
   'themeLibrary.badge': 'Theme library',
   'themeLibrary.title': 'Choose a learning path',
   'themeLibrary.parentNote': 'Note for parents',
@@ -898,8 +967,22 @@ export const en: TranslationDictionary = {
   'speakPractice.promptRecorded': 'Great! This word is:',
   'speakPractice.promptRecordedQuiet':
     'That is okay. Try saying the next word with me.',
-  'speakPractice.promptNoMic': 'Mic permission needed. This word is:',
+  'speakPractice.promptMicDenied':
+    'Mic is off. Turn it on, or listen and continue.',
+  'speakPractice.promptMicBlocked':
+    'Ask a parent to turn on the mic in Settings.',
+  'speakPractice.promptMicUnavailable':
+    'Mic unavailable. Listen to the sample and continue.',
   'speakPractice.promptSpeak': 'Repeat after me:',
+  'speakPractice.enableMicAccessibility':
+    'Turn on the microphone to practice speaking',
+  'speakPractice.enableMic': 'Turn on mic',
+  'speakPractice.askParentAccessibility':
+    'Ask a parent to turn on the microphone in Settings',
+  'speakPractice.askParent': 'Ask a parent',
+  'speakPractice.micUnavailableAccessibility':
+    'The microphone is not available right now. Listen to the sample and continue.',
+  'speakPractice.micUnavailable': 'Mic unavailable',
   'speakPractice.replayVoiceAccessibility': 'Replay your voice',
   'speakPractice.replayVoice': 'Your voice',
   'speakPractice.replayModelAccessibility': 'Hear sample for {word}',
@@ -997,6 +1080,79 @@ export const en: TranslationDictionary = {
   'parent.stats.viewLessonPrefix': 'View lesson ',
   'parent.stats.viewLesson': 'View lesson',
   'parent.stats.lessonPreviewLabel': 'Child will explore',
+
+  'parent.voice.autoSaveDisabled': 'Does not save new recordings.',
+  'parent.voice.autoSaveEnabled':
+    'Automatically saves when your child practices reading.',
+  'parent.voice.autoSaveTitle': 'Automatically save reading voice',
+  'parent.voice.byLessonTab': 'By lesson',
+  'parent.voice.cancel': 'Cancel',
+  'parent.voice.deleteAction': 'Delete',
+  'parent.voice.deleteAllAction': 'Delete all',
+  'parent.voice.deleteAllText':
+    'All voice recordings on this device will be deleted and cannot be recovered.',
+  'parent.voice.deleteAllTitle': 'Delete all recordings?',
+  'parent.voice.deleteCleanupText':
+    'The recording is no longer in the library, but some files could not be fully removed from this device. Choose “Try cleanup again”.',
+  'parent.voice.deleteCleanupTitle': 'Some files were not fully removed',
+  'parent.voice.deleteErrorText':
+    'The recording could not be deleted. Please try again.',
+  'parent.voice.deleteErrorTitle': 'Could not delete recording',
+  'parent.voice.deleteLessonAccessibility':
+    'Delete voice recordings from {lesson}',
+  'parent.voice.deleteLessonText':
+    'All voice recordings from “{lesson}” will be deleted from this device.',
+  'parent.voice.deleteLessonTitle': 'Delete recordings from this lesson?',
+  'parent.voice.deleteSampleAccessibility': 'Delete this voice milestone',
+  'parent.voice.deleteSampleText':
+    'This “{word}” voice milestone will be deleted from this device.',
+  'parent.voice.deleteSampleTitle': 'Delete this voice milestone?',
+  'parent.voice.deleteThemeAccessibility':
+    'Delete voice recordings from {theme}',
+  'parent.voice.deleteThemeText':
+    'All voice recordings from “{theme}” will be deleted from this device.',
+  'parent.voice.deleteThemeTitle': 'Delete recordings from this theme?',
+  'parent.voice.deleteWordAccessibility': 'Delete every recording of {word}',
+  'parent.voice.deleteWordText':
+    'All voice milestones for “{word}” will be deleted from this device.',
+  'parent.voice.deleteWordTitle': 'Delete recordings of this word?',
+  'parent.voice.durationSeconds': '{seconds} sec',
+  'parent.voice.enableAction': 'Enable automatic saving',
+  'parent.voice.enableText':
+    "Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.",
+  'parent.voice.enableTitle': "Save your child's reading voice?",
+  'parent.voice.emptyLibrary':
+    "Enable automatic saving to keep your child's reading practice.",
+  'parent.voice.emptyTitle': 'No reading voice yet',
+  'parent.voice.firstMilestone': 'First',
+  'parent.voice.infoAccessibility':
+    'Learn about automatically saving reading voice',
+  'parent.voice.latestMilestone': 'Recent',
+  'parent.voice.loading': "Loading your child's reading voice…",
+  'parent.voice.localOnlyText':
+    'Recordings stay only on this device. Sungy never uploads them to the cloud, includes them in system backups, or uses them for scoring. Sungy keeps up to 100 milestones and removes the oldest entries when full.',
+  'parent.voice.localOnlyTitle': 'Stored only on this device',
+  'parent.voice.playAccessibility': 'Play the recording of {word}',
+  'parent.voice.playErrorText':
+    'This recording could not be played. Please try again.',
+  'parent.voice.playErrorTitle': 'Could not play recording',
+  'parent.voice.playing': 'Playing…',
+  'parent.voice.recentTab': 'Recent',
+  'parent.voice.recordingLabel': 'Recording',
+  'parent.voice.retryCleanupAction': 'Try cleanup again',
+  'parent.voice.settingErrorText':
+    'The reading voice setting was not updated. Please try again.',
+  'parent.voice.settingErrorTitle': 'Could not update setting',
+  'parent.voice.summaryBadge': 'Recent reading voice',
+  'parent.voice.summaryEmpty':
+    'No recordings yet. Automatic saving can be enabled in Settings.',
+  'parent.voice.summaryMeta': '{lesson} · {date}',
+  'parent.voice.summarySubtitle':
+    'Listen to words your child has read whenever you need.',
+  'parent.voice.title': "Child's Reading Voice",
+  'parent.voice.twoMilestones': '2 milestones',
+  'parent.voice.viewAll': 'View all',
+  'parent.voice.wordCount': '{count} words',
   'progressDots.accessibilityLabel': 'Step {current} of {total}',
   'progressStars.accessibilityLabel': 'Completed {completed} of {total} scenes',
   'weeklyChart.day.sun': 'Sun',

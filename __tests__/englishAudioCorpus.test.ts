@@ -49,7 +49,7 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const expectedEnglishTargetCountPerAccent = 3826;
+const expectedEnglishTargetCountPerAccent = 3827;
 const bundledEnglishUiPrompts = [
   'Hi! I am Sungy, your child’s learning buddy.',
   'Let’s learn with Sungy today!',

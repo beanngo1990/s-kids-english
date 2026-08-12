@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45508575BE9ABA334A71E23 /* SkidsAudio.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1A2B3C4D5E6F708192A3B401 /* SkidsAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */; };
+		1A2B3C4D5E6F708192A3B402 /* SkidsAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */; };
+		1B3C4D5E6F708192A3B4C501 /* SkidsAppReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */; };
+		1B3C4D5E6F708192A3B4C502 /* SkidsAppReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */; };
 		26142D856EE9BF3E68464642 /* sfx_tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 50F1FF85A6E2DA29E4948141 /* sfx_tap.wav */; };
 		2BF9B38AB8B5B03F169B929B /* sfx_yay.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2B2EC4B01265D9502528AE9B /* sfx_yay.wav */; };
 		3E8111AC177C907103171A18 /* Pods_SKidsEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02285CCC9E22562B713BE28B /* Pods_SKidsEnglish.framework */; };
@@ -21,6 +25,7 @@
 		A1485844B3F04A577C006948 /* sfx_wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2EC9750D4DCA03C5EEF8FF53 /* sfx_wrong.wav */; };
 		A2793C9BFDDC13A3892BF235 /* sfx_complete.wav in Resources */ = {isa = PBXBuildFile; fileRef = 71E9704A19E2BD8D668187FC /* sfx_complete.wav */; };
 		A75259EA89485B7495563554 /* sfx_ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = CED10C39E60445C54255317B /* sfx_ding.wav */; };
+		B5E2D301A8C64F37B9124001 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5E2D301A8C64F37B9124004 /* InfoPlist.strings */; };
 		C0D733C1E8495D36D5552670 /* sfx_correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A2D5E5821AE6610845C5EB5D /* sfx_correct.wav */; };
 		E701EF0FF40040455674891C /* SkidsAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = DF55217C8A99849D57208CBB /* SkidsAudio.m */; };
 		F2435B6A6B760EBE61349F54 /* sfx_clap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 326BF4E71E08D1E97824F2BB /* sfx_clap.wav */; };
@@ -32,6 +37,10 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SKidsEnglish/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SKidsEnglish/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SKidsEnglish/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAppInfo.swift; path = SKidsEnglish/SkidsAppInfo.swift; sourceTree = "<group>"; };
+		1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAppInfo.m; path = SKidsEnglish/SkidsAppInfo.m; sourceTree = "<group>"; };
+		1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAppReview.swift; path = SKidsEnglish/SkidsAppReview.swift; sourceTree = "<group>"; };
+		1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAppReview.m; path = SKidsEnglish/SkidsAppReview.m; sourceTree = "<group>"; };
 		2B2EC4B01265D9502528AE9B /* sfx_yay.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_yay.wav; path = ../src/assets/shared/audio/sfx/sfx_yay.wav; sourceTree = "<group>"; };
 		2EC9750D4DCA03C5EEF8FF53 /* sfx_wrong.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_wrong.wav; path = ../src/assets/shared/audio/sfx/sfx_wrong.wav; sourceTree = "<group>"; };
 		326BF4E71E08D1E97824F2BB /* sfx_clap.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_clap.wav; path = ../src/assets/shared/audio/sfx/sfx_clap.wav; sourceTree = "<group>"; };
@@ -46,6 +55,8 @@
 		9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAssetCache.swift; path = SKidsEnglish/SkidsAssetCache.swift; sourceTree = "<group>"; };
 		9F71A004AE834AF883CB1004 /* SkidsAssetCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAssetCache.m; path = SKidsEnglish/SkidsAssetCache.m; sourceTree = "<group>"; };
 		A2D5E5821AE6610845C5EB5D /* sfx_correct.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_correct.wav; path = ../src/assets/shared/audio/sfx/sfx_correct.wav; sourceTree = "<group>"; };
+		B5E2D301A8C64F37B9124002 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = SKidsEnglish/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5E2D301A8C64F37B9124003 /* vi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = vi; path = SKidsEnglish/vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CED10C39E60445C54255317B /* sfx_ding.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; name = sfx_ding.wav; path = ../src/assets/shared/audio/sfx/sfx_ding.wav; sourceTree = "<group>"; };
 		DF55217C8A99849D57208CBB /* SkidsAudio.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SkidsAudio.m; path = SKidsEnglish/SkidsAudio.m; sourceTree = "<group>"; };
 		E45508575BE9ABA334A71E23 /* SkidsAudio.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkidsAudio.swift; path = SKidsEnglish/SkidsAudio.swift; sourceTree = "<group>"; };
@@ -70,9 +81,14 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				B5E2D301A8C64F37B9124004 /* InfoPlist.strings */,
 				4A7D3C2B1E0F998877665544 /* SKidsEnglish.entitlements */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				1A2B3C4D5E6F708192A3B403 /* SkidsAppInfo.swift */,
+				1A2B3C4D5E6F708192A3B404 /* SkidsAppInfo.m */,
+				1B3C4D5E6F708192A3B4C503 /* SkidsAppReview.swift */,
+				1B3C4D5E6F708192A3B4C504 /* SkidsAppReview.m */,
 				E45508575BE9ABA334A71E23 /* SkidsAudio.swift */,
 				DF55217C8A99849D57208CBB /* SkidsAudio.m */,
 				9F71A003AE834AF883CB1003 /* SkidsAssetCache.swift */,
@@ -189,6 +205,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				vi,
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
@@ -208,6 +225,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B5E2D301A8C64F37B9124001 /* InfoPlist.strings in Resources */,
 				A00607014089002B76612F43 /* PrivacyInfo.xcprivacy in Resources */,
 				A75259EA89485B7495563554 /* sfx_ding.wav in Resources */,
 				A2793C9BFDDC13A3892BF235 /* sfx_complete.wav in Resources */,
@@ -341,6 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2B3C4D5E6F708192A3B401 /* SkidsAppInfo.swift in Sources */,
+				1A2B3C4D5E6F708192A3B402 /* SkidsAppInfo.m in Sources */,
+				1B3C4D5E6F708192A3B4C501 /* SkidsAppReview.swift in Sources */,
+				1B3C4D5E6F708192A3B4C502 /* SkidsAppReview.m in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				0832296B7842C293BE08FD30 /* SkidsAudio.swift in Sources */,
 				E701EF0FF40040455674891C /* SkidsAudio.m in Sources */,
@@ -351,6 +373,18 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		B5E2D301A8C64F37B9124004 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5E2D301A8C64F37B9124002 /* en */,
+				B5E2D301A8C64F37B9124003 /* vi */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -359,7 +393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SKidsEnglish/SKidsEnglish.entitlements;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 92MAZTVASZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SKidsEnglish/Info.plist;
@@ -368,7 +402,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -392,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SKidsEnglish/SKidsEnglish.entitlements;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 92MAZTVASZ;
 				INFOPLIST_FILE = SKidsEnglish/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -400,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

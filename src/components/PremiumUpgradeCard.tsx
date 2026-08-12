@@ -151,7 +151,7 @@ const styles = createThemedStyles(() => ({
   iconFrame: {
     alignItems: 'center',
     backgroundColor: colors.surface,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
     borderWidth: 2,
     height: 58,

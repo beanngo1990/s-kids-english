@@ -7,7 +7,9 @@ import com.facebook.react.ReactHost
 import com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.seduforge.skidsenglish.assets.SkidsAssetCachePackage
+import com.seduforge.skidsenglish.appinfo.SkidsAppInfoPackage
 import com.seduforge.skidsenglish.audio.SkidsAudioPackage
+import com.seduforge.skidsenglish.review.SkidsAppReviewPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -17,6 +19,8 @@ class MainApplication : Application(), ReactApplication {
       packageList =
         PackageList(this).packages.apply {
           // Packages that cannot be autolinked yet can be added manually here, for example:
+          add(SkidsAppInfoPackage())
+          add(SkidsAppReviewPackage())
           add(SkidsAssetCachePackage())
           add(SkidsAudioPackage())
         },

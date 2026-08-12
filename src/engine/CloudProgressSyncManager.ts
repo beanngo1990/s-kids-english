@@ -56,9 +56,9 @@ import {
 import {
   getProgress,
   normalizeProgress,
-  saveProgressFromCloud,
   subscribeProgress,
   type LocalProgress,
+  updateProgressFromCloud,
 } from './ProgressManager';
 
 export type CloudProgressSyncStatus =
@@ -683,19 +683,20 @@ async function handleRemoteSnapshot(
 
   await markRemoteChecked(uid);
 
-  const localProgress = await getProgress();
-  if (!isActiveSync(uid, generation)) {
-    return;
-  }
+  const mergedProgress = await updateProgressFromCloud(currentProgress => {
+    if (!isActiveSync(uid, generation)) {
+      return currentProgress;
+    }
 
-  let mergedProgress = mergeProgressSnapshots(
-    localProgress,
-    remoteProgress,
-  );
+    const nextProgress = mergeProgressSnapshots(
+      currentProgress,
+      remoteProgress,
+    );
 
-  if (!areProgressSnapshotsEqual(localProgress, mergedProgress)) {
-    mergedProgress = await saveProgressFromCloud(mergedProgress);
-  }
+    return areProgressSnapshotsEqual(currentProgress, nextProgress)
+      ? currentProgress
+      : nextProgress;
+  });
 
   if (!isActiveSync(uid, generation)) {
     return;

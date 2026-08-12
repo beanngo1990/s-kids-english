@@ -152,4 +152,5 @@ const enabledParentSettings: ParentSettings = {
   reminderEnabled: false,
   reminderTime: '19:30',
   teacherPromptMode: 'vi',
+  voiceRecordingLibrary: { enabled: false },
 };

@@ -93,7 +93,7 @@ const styles = createThemedStyles(() => ({
   },
   primary: {
     backgroundColor: colors.secondary,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderWidth: 2,
     ...shadows.warm,
   },

@@ -10,6 +10,7 @@ import { MascotImage } from '../components/mascot';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
 import { lessons } from '../data/lessons';
+import { getLocalizedLessonRewardName } from '../data/rewards';
 import { canAccessLesson } from '../engine/ContentAccessPolicy';
 import {
   getMonetizationSnapshot,
@@ -18,6 +19,7 @@ import {
 import {
   getLessonVocabulary,
   getProgress,
+  saveActiveThemeId,
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { playCompleteSound, playTapSound, speakVi, speakWord } from '../engine/AudioManager';
@@ -49,6 +51,7 @@ export function RewardScreen({ navigation, route }: Props) {
     [lesson],
   );
   const [progress, setProgress] = useState<LocalProgress | null>(null);
+  const [isOpeningNextLesson, setIsOpeningNextLesson] = useState(false);
   const displayWords = useMemo(() => {
     if (route.params.playedWordIds && route.params.playedWordIds.length > 0) {
       const playedSet = new Set(route.params.playedWordIds);
@@ -201,18 +204,26 @@ export function RewardScreen({ navigation, route }: Props) {
   };
 
   const handleNextLesson = () => {
-    if (!nextLesson) {
+    if (!nextLesson || isOpeningNextLesson) {
       return;
     }
+
     handleOpenLesson(nextLesson.id, () => {
-      if (route.params.sourceScreen === 'ReviewGame' && route.params.gameType) {
-        navigation.replace('ReviewGame', {
-          gameType: route.params.gameType,
-          lessonId: nextLesson.id,
-        });
-      } else {
-        navigation.replace('ScenePlayer', { lessonId: nextLesson.id });
+      setIsOpeningNextLesson(true);
+
+      const openNextLessonPack = () => {
+        navigation.replace('LessonPack', { lessonId: nextLesson.id });
+      };
+      const activeThemeId = progress?.activeThemeId;
+
+      if (activeThemeId === nextLesson.themeId) {
+        openNextLessonPack();
+        return;
       }
+
+      saveActiveThemeId(nextLesson.themeId)
+        .catch(() => undefined)
+        .finally(openNextLessonPack);
     });
   };
 
@@ -269,10 +280,23 @@ export function RewardScreen({ navigation, route }: Props) {
               <Text style={styles.subtitle}>
                 {route.params.unlockedSticker
                   ? t('reward.levelUpSubtitle', {
-                    stickerName: route.params.unlockedSticker.stickerName,
+                    stickerName: getLocalizedLessonRewardName(
+                      route.params.unlockedSticker,
+                      appLanguage,
+                    ),
                   })
                   : t('reward.completedSubtitle')}
               </Text>
+              {route.params.unlockedSticker ? (
+                <AppButton
+                  iconName="sticker"
+                  iconSize={20}
+                  onPress={() => navigation.navigate('StickerPlayground')}
+                  style={styles.decorateNowButton}
+                  textStyle={styles.decorateNowButtonText}
+                  title={t('reward.decorateNow')}
+                />
+              ) : null}
             </AppCard>
 
             <AppCard style={styles.wordsCard}>
@@ -334,6 +358,7 @@ export function RewardScreen({ navigation, route }: Props) {
               {nextLesson ? (
                 <>
                   <AppButton
+                    disabled={isOpeningNextLesson}
                     iconName="next"
                     iconSize={30}
                     title={`${t('reward.nextLesson')}${getPremiumActionLabel(canOpenNextLesson)
@@ -408,6 +433,16 @@ const styles = createThemedStyles(() => ({
   container: {
     gap: spacing.lg,
   },
+  decorateNowButton: {
+    alignSelf: 'center',
+    minHeight: 44,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    width: 'auto',
+  },
+  decorateNowButtonText: {
+    ...typography.caption,
+  },
   errorContainer: {
     alignItems: 'center',
     flex: 1,
@@ -454,7 +489,7 @@ const styles = createThemedStyles(() => ({
   },
   rewardGlow: {
     backgroundColor: colors.secondarySoft,
-    borderColor: colors.white,
+    borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 4,
     bottom: 14,
