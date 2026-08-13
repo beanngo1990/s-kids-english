@@ -3,6 +3,8 @@ import type {
   LearningMode,
   LearningScope,
   Scene,
+  SceneObject,
+  SceneStateChange,
 } from '../types/lesson';
 
 export const learningModes: readonly LearningMode[] = [
@@ -53,6 +55,12 @@ export function getSceneForLearningMode(
     ...(character ? [character.id] : []),
     ...objects.map(object => object.id),
   ]);
+  const objectsById = new Map(
+    [...(character ? [character] : []), ...objects].map(object => [
+      object.id,
+      object,
+    ]),
+  );
   const dropZones =
     scene.dropZones?.filter(dropZone =>
       isInLearningScope(dropZone, mode, childAge),
@@ -77,11 +85,25 @@ export function getSceneForLearningMode(
     character,
     dropZones,
     objects,
-    steps: steps.map(step =>
-      step.nextStepId && !stepIds.has(step.nextStepId)
-        ? { ...step, nextStepId: undefined }
-        : step,
-    ),
+    steps: steps.map(step => {
+      const shouldRemoveNextStep =
+        step.nextStepId !== undefined && !stepIds.has(step.nextStepId);
+      const successStateChanges = step.successStateChanges?.filter(change =>
+        isStateChangeAvailable(change, objectsById),
+      );
+      const didFilterStateChanges =
+        successStateChanges?.length !== step.successStateChanges?.length;
+
+      if (!shouldRemoveNextStep && !didFilterStateChanges) {
+        return step;
+      }
+
+      return {
+        ...step,
+        ...(didFilterStateChanges ? { successStateChanges } : {}),
+        ...(shouldRemoveNextStep ? { nextStepId: undefined } : {}),
+      };
+    }),
     vocabulary,
   };
 }
@@ -135,4 +157,21 @@ function areStepObjectsAvailable(
   availableObjectIds: Set<EntityId>,
 ) {
   return objectIds.every(objectId => availableObjectIds.has(objectId));
+}
+
+function isStateChangeAvailable(
+  change: SceneStateChange,
+  availableObjects: Map<EntityId, SceneObject>,
+) {
+  const targetObject = availableObjects.get(change.targetObjectId);
+
+  if (!targetObject) {
+    return false;
+  }
+
+  return (
+    change.type !== 'setObjectVariant' ||
+    targetObject.variants?.some(variant => variant.id === change.variantId) ===
+      true
+  );
 }

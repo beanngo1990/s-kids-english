@@ -49237,6 +49237,1926 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/check_damp_fail_46e5f072.mp3",
+      "sha256": "a0c4e40a18e2743349631b0506b72a793eb4ff005d78a501ca6df75a2fe376c4",
+      "text": "The damp soil patch is just above the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/check_damp_success_fa89917f.mp3",
+      "sha256": "917130b7653802d99d31ff7fe5dd9aa95821cf76a8363b17ecaeeaec827b9622",
+      "text": "Yes, damp means slightly wet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
+      "sha256": "353dce7c8664a81023e33ac3bef0b5788650a95b2e45e6ab816a7b955c2ee442",
+      "text": "Right, wait for the sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/choose_water_gently_success_eed54643.mp3",
+      "sha256": "ebbe64a7e491529c0e873b9e2cdc8d7c6f571ca15d776fa2963070e0106a5cc4",
+      "text": "Right, water it gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51597,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/completion_51de15d6.mp3",
+      "sha256": "4769907ac62524dba9623f3c87921c2dc8c58ee6c7a0f76e210753ab35386e6e",
+      "text": "You watered just enough and waited patiently for the sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10989,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/damp.mp3",
+      "sha256": "d94b5f6262cc9e186f4b2ed11fb9b450abd9b2fbe9b9d01ec657854b2d93c346",
+      "text": "damp",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59085,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_spout_fail_e6c2dca1.mp3",
+      "sha256": "d7b9a0c913288f5dbc191921a4f79fa88729f999027b7819fdc24264a26bee95",
+      "text": "Look at the watering can, then tap the green spout above it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_spout_success_38e349bb.mp3",
+      "sha256": "59cb0180ccdf8004f95bdf25bf3a3288d290cc9e4aa18c6224d4dd2f31d2e270",
+      "text": "The spout helps pour water gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53613,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_sprout_fail_040586f2.mp3",
+      "sha256": "3558d7f3a02ff7a147875def7d30bdc4c3ebe8e311a6cb6e208988671df30dba",
+      "text": "The small green sprout is growing in the middle of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_sprout_success_b07d313c.mp3",
+      "sha256": "27327095019fe0b590cfbccff5e9f0e335fabef4dad758a103ff31a104076ad9",
+      "text": "Yes, this is a sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_water_fail_50e2767b.mp3",
+      "sha256": "f8708b6697b17cf8ef07b2605faa4f6bfe923aea94c619eb01fb2e092f8c8f62",
+      "text": "The water drop is at the upper left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_water_success_868d7658.mp3",
+      "sha256": "47848fc7f3c55369ca3ddb555059e0b389aa1e3ae61e476e679cf53f0ed8ed3c",
+      "text": "Yes, a plant needs water to grow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/intro_success_70b06b76.mp3",
+      "sha256": "13b1d5e9c68146446c1e1be6f7ae3c76e7a9723951274afbb91499b96dee5cac",
+      "text": "The soil should be damp, without a puddle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51309,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_wait_sprout_fail_b94c7242.mp3",
+      "sha256": "b7ec8260c10a15808681e006d0c3819949e9c2b29c8fd2acf1df8d19e81b43fe",
+      "text": "The picture with the arrow and sprout is at the lower right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_wait_sprout_success_f45960ef.mp3",
+      "sha256": "f7ef8f15df322ab686d05d689d14e53b0e003fe6e9364d1d9fee00a0a1fd383d",
+      "text": "Yes, wait for the sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_water_gently_fail_474ab530.mp3",
+      "sha256": "08d7d32379dabdba831eb6fc1af333cae3555de0ccf16140cef2602de0e3b8c7",
+      "text": "The small watering picture is at the lower left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_water_gently_success_5e1e7cff.mp3",
+      "sha256": "ce1cec8badb2da3a5984e11652ec69647b5036cba53bf4ee17e607c75f582b84",
+      "text": "Yes, water it gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/notice_puddle_fail_ae5f7431.mp3",
+      "sha256": "6ec9166c29fb3ec3739e40f9fc11848df21825ae12a08eba17bc45abb49f9ef2",
+      "text": "The blue puddle is to the left of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/notice_puddle_success_7a674b3f.mp3",
+      "sha256": "c93bb862a00819d0a9cb2702a7234f3de69dcbb67a1e099a3e84a476c4b89167",
+      "text": "A puddle can mean there is too much water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60525,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_check_damp_36a98aee.mp3",
+      "sha256": "73d91c67c271fd95e88e31285cb0a7ae1ab78ba96dbb22d7dfcfda35b80ee038",
+      "text": "Damp soil is darker and slightly wet. Tap the soil patch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_choose_wait_sprout_11b701d9.mp3",
+      "sha256": "13629d54587e4383bf0ae002d993c96a8a2b0dae5e805b39eb444e79d9d590ed",
+      "text": "Which picture shows waiting for the sprout?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_choose_water_gently_b12f011d.mp3",
+      "sha256": "bbbafcadbb85614207c61207775d1c7b6af140b7b48c29da72920d8c3af73af7",
+      "text": "Which picture shows a watering can gently watering soil?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 52461,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
+      "sha256": "145f9957ec9cd576f09ec7015df2c53a1de00e995ef7b34faaf0608edce8da8f",
+      "text": "Tap the green spout. It is part of the watering can.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 21933,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_sprout_402e329f.mp3",
+      "sha256": "2d757bf7ffdc9a7670176a18f41c3b523a176eab565708e9a78521dded5ffcac",
+      "text": "Tap the new sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_water_63c1364b.mp3",
+      "sha256": "8e2d9e2281afc536567fb5319c2ea8b9b2d2103265deb8652990f0413975ddd3",
+      "text": "Find the blue water drop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54765,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_intro_a1112a49.mp3",
+      "sha256": "1503ba33222e8bcfa85024a5244f33fbf7976781db62d1922a311d8cff9eb729",
+      "text": "The seed is covered. Let’s add enough water, then wait.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59373,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_learn_wait_sprout_a499ddfd.mp3",
+      "sha256": "3aca3673b66d96fa595127ceedf6f4a88b0fe64e40f91507402c61f4d3ee4a30",
+      "text": "Wait a few days for the sprout. Tap the picture with the sprout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61101,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_learn_water_gently_d0210713.mp3",
+      "sha256": "610c02cd94a0374b84073129ffb950883fbe1a33669c46793e490de430ff44e8",
+      "text": "Pour a little water gently. Tap the picture of the watering can.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20205,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_notice_puddle_7919e0a2.mp3",
+      "sha256": "a1fbacf6a93884cb583a97f550bf82f012e2a421d3fe85156bec660a68d90507",
+      "text": "Tap the blue puddle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
+      "sha256": "3b3c8887653f0b91e2289bdee39e29957a51001bcc0d4c31204540f83073ecd3",
+      "text": "Tap the sun-and-moon circle above the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_water_pot_08e6a3b9.mp3",
+      "sha256": "d58b94c9b5bd35a576931092db78050cc2a1b313ef4524e5cb7a1b919b5544c9",
+      "text": "Drag the green watering can to the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10413,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/puddle.mp3",
+      "sha256": "2fdd04de60689c9c9628ffd0cb5ff89321f449323d8d94e3382aa07e7272fd4d",
+      "text": "puddle",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/spout.mp3",
+      "sha256": "43e93d92838ea83ff983bfe4ac48c9a058951eb0abf9bd3f7dba247f7fd20ee0",
+      "text": "spout",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/sprout.mp3",
+      "sha256": "a14af1a5c432ea4f5a6a10b7ea66d4606c19b04e2f8d0a84ca93570ff87df6af",
+      "text": "sprout",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20493,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_for_the_sprout.mp3",
+      "sha256": "269a70c9d07315824cf80f91196892efc2404fcf058597ec0d3fb8a6c57483f1",
+      "text": "wait for the sprout",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_through_time_fail_8e3147cf.mp3",
+      "sha256": "8794489fc792ac6587e6778276c07984a8866d88ff53481ac9e153cefae87d53",
+      "text": "The day-and-night circle is above the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_through_time_success_84fe48dd.mp3",
+      "sha256": "3ab81c21c0baec4cde92081ad96e135aa168f5066b01a3d176aec078e7bf2c14",
+      "text": "After days of care, a small sprout appears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20493,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_it_gently.mp3",
+      "sha256": "1513946ffebbd2862be072b6e56bbad17955c2f8f01aac38a7a7a5aa39ce1155",
+      "text": "water it gently",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_pot_fail_f9e196e6.mp3",
+      "sha256": "7076da5ccb3fbc9736976e4bd8ed70f475393e1bb840ebc6068aa4eb78e9ec78",
+      "text": "The soil in the pot is the target for the spout.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 58509,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_pot_success_943a6e0d.mp3",
+      "sha256": "58b8f6a35a52c41eebc1032a4e5d3ef380cd61fd9a761862dd47efae525e78e7",
+      "text": "The dry soil is now darker and slightly wet. It is damp.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/check_damp_fail_46e5f072.mp3",
+      "sha256": "c87dc03e100545f5c73b1b09d234ba17a6ef069930a9bd4d00aa5f89106939e6",
+      "text": "The damp soil patch is just above the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/check_damp_success_fa89917f.mp3",
+      "sha256": "e724a24682f85833b4bdc8ffe665dd9a39484d611e3c0b2b2175fd056a448c87",
+      "text": "Yes, damp means slightly wet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
+      "sha256": "64f6c928ae6f76b2c67158f6919fa0fa024835825cc3fb1a13e7a6abfe967b21",
+      "text": "Right, wait for the sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_water_gently_success_eed54643.mp3",
+      "sha256": "cfd41bb688b47e60037a3eead070e96b5721f53ca5bd90b8647f3c33c1ef2dc0",
+      "text": "Right, water it gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/completion_51de15d6.mp3",
+      "sha256": "33672b0e2a0b436f5474e18dd79d460fe00a9c4a391c5b1df8a0ac6b60ccf52f",
+      "text": "You watered just enough and waited patiently for the sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/damp.mp3",
+      "sha256": "2cf63d937532ada156440982cb66a88ede890e93e7f40d426262a1cf0b6fdde3",
+      "text": "damp",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53037,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_spout_fail_e6c2dca1.mp3",
+      "sha256": "3e60dfb4f45b5de95625bb02fb3ed72c017fbd2db737d2e45f9a3dc334f9b935",
+      "text": "Look at the watering can, then tap the green spout above it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_spout_success_38e349bb.mp3",
+      "sha256": "a410dc23541f399700a3745f9b92df9b71848c9bde0809ad5f024cad934657ff",
+      "text": "The spout helps pour water gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 49293,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_fail_040586f2.mp3",
+      "sha256": "f8457260440b17f2bc5b00a0c62dcfddffb459837dfd404999526ee17aa6f7e0",
+      "text": "The small green sprout is growing in the middle of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_success_b07d313c.mp3",
+      "sha256": "fbad0cb6857e4e2a4ed4b15434bb1814d02bee76a60ea51e4b7d3306508f1b39",
+      "text": "Yes, this is a sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_water_fail_50e2767b.mp3",
+      "sha256": "2d1ab1a9dd4290c756bcf15230e8e19a7055506358f9aa396d1666dd897d597a",
+      "text": "The water drop is at the upper left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_water_success_868d7658.mp3",
+      "sha256": "bd6e68bf6397a8c2a6a7a74b3c8807003df8cfddcc5b468c8e99ad129628b0e9",
+      "text": "Yes, a plant needs water to grow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/intro_success_70b06b76.mp3",
+      "sha256": "b61687f863946ffe4b3d92030448aeb431d60dd5f4edc23c6fcb12e20f893b11",
+      "text": "The soil should be damp, without a puddle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48429,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_fail_b94c7242.mp3",
+      "sha256": "7cceec4bc4a9d2ccaf71eeec19688ed214a07480223044074b41995ad22acbe3",
+      "text": "The picture with the arrow and sprout is at the lower right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_success_f45960ef.mp3",
+      "sha256": "1030f940fc57a6bb27f6dd7de2d6afa20b2171f9f4e304cb9bb52e0d782b7e95",
+      "text": "Yes, wait for the sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_water_gently_fail_474ab530.mp3",
+      "sha256": "de0b2a1d55668b54a5bb607296d69578cd305580c95fe95619b4e0d3af8b3e0f",
+      "text": "The small watering picture is at the lower left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_water_gently_success_5e1e7cff.mp3",
+      "sha256": "8088e35d0905bc516f451cc1fc05bf8cf3eb5f3b0857d6e6c5bb6a6cb3e50598",
+      "text": "Yes, water it gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/notice_puddle_fail_ae5f7431.mp3",
+      "sha256": "3fd63e86a81157aef995bb9f74b548c258129bc0ca11edec34a29f34e52f316e",
+      "text": "The blue puddle is to the left of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/notice_puddle_success_7a674b3f.mp3",
+      "sha256": "8ee6ff13f8fcfeb7ad4375bb6c9f19eef80b3cc20f35cbaf7e34ff76252f924f",
+      "text": "A puddle can mean there is too much water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 57069,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_check_damp_36a98aee.mp3",
+      "sha256": "5e02c03612304dd5f4d31f5554fe6a7faf718fcfbbcdf1a00ab2361156f57cd5",
+      "text": "Damp soil is darker and slightly wet. Tap the soil patch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_choose_wait_sprout_11b701d9.mp3",
+      "sha256": "9996479165853aa7ee60c3a021a98d074ac0271a7bfbf98061e8679e22b0e473",
+      "text": "Which picture shows waiting for the sprout?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47853,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_choose_water_gently_b12f011d.mp3",
+      "sha256": "97a2dea4d597d66582247d621a15d53e0e9791cb6c422a3ad14642fe0b9a04be",
+      "text": "Which picture shows a watering can gently watering soil?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46125,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
+      "sha256": "2b62b2d9e8c24915d782ba97e9c112d4705974fc28c7b28410c6da69748115d4",
+      "text": "Tap the green spout. It is part of the watering can.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19629,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_sprout_402e329f.mp3",
+      "sha256": "51dfda26c0971800138e50d949f38dfd6457847921c1ae6fffab253a6745a1dc",
+      "text": "Tap the new sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_water_63c1364b.mp3",
+      "sha256": "9c8374108c4865c841e2c451b028c8eac157e70a08d13ba77586e2e33893bf0d",
+      "text": "Find the blue water drop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_intro_a1112a49.mp3",
+      "sha256": "af908115bc3484632c72c697d138ca70dfe4f17a603af95610b20db4946f4986",
+      "text": "The seed is covered. Let’s add enough water, then wait.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53613,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_learn_wait_sprout_a499ddfd.mp3",
+      "sha256": "183bf74ddbce64e64c79181d5b5b5d6ea4ecf46f2a87d90db8ac61ca9fb59830",
+      "text": "Wait a few days for the sprout. Tap the picture with the sprout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 56205,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_learn_water_gently_d0210713.mp3",
+      "sha256": "3aaebbb2a8670c941eb1fc24d355dd5a84b3a000af084722f0e00ac754872e89",
+      "text": "Pour a little water gently. Tap the picture of the watering can.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19053,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_notice_puddle_7919e0a2.mp3",
+      "sha256": "075e9f6de7f66773ab11cdf0a32eaef05faacdb29ceb4220655cc0683be38f03",
+      "text": "Tap the blue puddle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
+      "sha256": "9e2757098e2eb9f7ac1b125322e096301c979a7529c47e7af0bee817f06b2bb2",
+      "text": "Tap the sun-and-moon circle above the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_water_pot_08e6a3b9.mp3",
+      "sha256": "266170cc33099cc30a81ac40121db9ddbce2de821b862dcccbab809fef73de13",
+      "text": "Drag the green watering can to the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/puddle.mp3",
+      "sha256": "2c4b7e05a78a6762e334b6410c2345a2b4bc6405922e79388e8c55ad713d03bc",
+      "text": "puddle",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10989,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/spout.mp3",
+      "sha256": "71eb5f3f92fd51aecb034bfd1aaf001679e3ed839fc9f77c19a0a67fe3b54d13",
+      "text": "spout",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11565,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/sprout.mp3",
+      "sha256": "c79317bdfbdf9a13e9fb5029aedf836ba8c652fc7c27107f24bf5ef87b444e27",
+      "text": "sprout",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 18189,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_for_the_sprout.mp3",
+      "sha256": "e791d6111fb026e776ce0e57a68fc2f74d9a261e97ad3f26e9af60e74620d9c3",
+      "text": "wait for the sprout",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_through_time_fail_8e3147cf.mp3",
+      "sha256": "e1e565d0ad9cd6da94688036c074d41903032b1259fa0ff7759ce250391c73e3",
+      "text": "The day-and-night circle is above the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41805,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_through_time_success_84fe48dd.mp3",
+      "sha256": "292cf30533f76be129e1aee65e59ec6691053cbc67a135555dc6b90064bb0f57",
+      "text": "After days of care, a small sprout appears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17901,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_it_gently.mp3",
+      "sha256": "fb55c03751d835190b690e03017405626cf254795f66a1409d97bfd00aa6c4e2",
+      "text": "water it gently",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_pot_fail_f9e196e6.mp3",
+      "sha256": "2d0f368accc6d244e491456834655b1af91c1f8e2bd89be03600f1ef8dfec747",
+      "text": "The soil in the pot is the target for the spout.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 54765,
+      "key": "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_pot_success_943a6e0d.mp3",
+      "sha256": "7b0b8b5f950cc2667fa18767fb009810f0199a678653f8adc18a6e527819b53f",
+      "text": "The dry soil is now darker and slightly wet. It is damp.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
+      "sha256": "be5244eacd52f3601803141450a624ef5e761f6cf08a6f2c1c0d39dd2df64e82",
+      "text": "Right, cover the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/choose_plant_seed_success_a451ce7b.mp3",
+      "sha256": "ee89d4486c407099bb43fe0d99415944065cea78a9558b41adacbb9db890bcd9",
+      "text": "Right, plant a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/completion_18da9879.mp3",
+      "sha256": "230a7f265c584fed147daf9af9843a61091f725d37a480897b23dcf82e6b6eca",
+      "text": "The seed was planted and covered in the right order.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50445,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_seed_fail_e3d3e839.mp3",
+      "sha256": "63700b1e1d42d1bfa0f9060189c26d7c8d3c201b41ef13b56e1fc9ffcdf76ffc",
+      "text": "The soil for covering the seed is to the right of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_seed_success_69d863a9.mp3",
+      "sha256": "87f068bb6b15e37f268c8b5d75a94ea65d5f4aef749667fc96d6ac67c3f4cbe0",
+      "text": "The seed is covered with a thin layer of soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_the_seed.mp3",
+      "sha256": "0bbc463da40edfdf1ae071563b862d61b891be21faed25067166cd7138b0f475",
+      "text": "cover the seed",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_hole_fail_82a839ba.mp3",
+      "sha256": "b23256b7f286b5ba94f3c1759646642d782b952c715c7b8bc91f7b4a52f2147b",
+      "text": "The small hole is in the middle of the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_hole_success_e4325464.mp3",
+      "sha256": "590eb32ffeb12935a4dd9a4070d94c448a511d9d53ea60ca3e14a2d45bc0bf28",
+      "text": "Yes, the seed goes into this hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_seed_packet_fail_42d593de.mp3",
+      "sha256": "71a0428dd5255f67a89fde4c5ae62aaceb506df4d900110df20d4d13d899ea6b",
+      "text": "The seed packet is to the left of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
+      "sha256": "987dffe1a6f78bee684f493bfba3d9b8f8c9431c567ead78f174cdc8b61621f4",
+      "text": "Yes, open the packet and take one seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11853,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/finger.mp3",
+      "sha256": "118796551d5b1be0cd0b2a2fe3cc9616928e0869f4a7fa55e8b595f261b6c6be",
+      "text": "finger",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/hole.mp3",
+      "sha256": "c53f46601a742fcda0e748e5ef1322d9e6336553cf5cd1ca3ca0df21f95dec80",
+      "text": "hole",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/intro_success_f21de28b.mp3",
+      "sha256": "283b998452ee76b7298e68ea16cf10261702ad846c3257050504cbf1583fa51d",
+      "text": "First, get a seed and make a small hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_cover_seed_fail_9f4e1623.mp3",
+      "sha256": "85187f00557d2251bbc413c9feec87e49d911433e2ef56c5faf52d527d60f40a",
+      "text": "The scoop covering the seed is in the lower-right picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27405,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_cover_seed_success_cde6011e.mp3",
+      "sha256": "56c1e9c94b668bd8d7dd511ed044630b1b8998a9ade356ef113558321e248b1c",
+      "text": "Yes, cover the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_finger_fail_a58b3ee4.mp3",
+      "sha256": "60748c6ab0f033261c643528cf3e6c458a15b7f6499a7f65aea87715599fc504",
+      "text": "The finger is at the upper right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_finger_success_877a46e5.mp3",
+      "sha256": "a87879f7dc232c422714f67d3acfbc555a187b2b96303bcea258e11101d3f040",
+      "text": "Use one finger to make a small hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_label_success_d0a03c07.mp3",
+      "sha256": "4519b8c833639bdff71f5772750ba2413f02417b4383f435964f15099762d426",
+      "text": "The label helps us remember what was planted.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_seed_fail_d541fd18.mp3",
+      "sha256": "122dd44a85981b796985094e39ee5ba871054d39a0c99afc1f1c456de910b20a",
+      "text": "The seed with the arrow is in the lower-left picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_seed_success_803bfd20.mp3",
+      "sha256": "01ed2b7948f15405319dead43fc13acd05a1c4fa83ffe34c7f6b33d40a2dc333",
+      "text": "Yes, plant a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_seed_fail_c9bb23a1.mp3",
+      "sha256": "97089f9ff901386c6f7bf74a44a5755fb05cb4cd628ef126e75d2a3ee6cc60f8",
+      "text": "The small seed is above and to the left of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_seed_success_3cf08e2d.mp3",
+      "sha256": "22f645d727f4fb1d2fd5c075d844c750c93125a50854d6687b0352f381cdc074",
+      "text": "Yes, this is a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/make_hole_fail_db3dde65.mp3",
+      "sha256": "47e32f21733b0c556399a3e3e59561862474d2f3a2f8bfed2f0af7d1a8d86269",
+      "text": "The soil in the middle of the pot is the target.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/make_hole_success_54180223.mp3",
+      "sha256": "6b7b54fbabc800b517f778922df56b0f76f5aea3f5e8bfca2623097636380f87",
+      "text": "A small hole is ready for the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/place_plant_label_fail_1f7bdb7e.mp3",
+      "sha256": "98599312a97d1d48dc263298e174df4eba36f63ff165f4ef97d0565b3cc26d74",
+      "text": "The edge of the pot is the target for the label.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/place_plant_label_success_e23932ed.mp3",
+      "sha256": "167d86af6d9479a228f4da2d41c33e5509a2c0906bb20ff07be89c110920813c",
+      "text": "The plant label is in place after covering the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_label.mp3",
+      "sha256": "9148ecad86ad2b6f66efd3c9b2f8013c47570e76a27412db58cd27a3e64d941b",
+      "text": "plant label",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_seed_fail_54f5e35d.mp3",
+      "sha256": "5dcb3a94061c2853c21fb53c76a65ec0640eab13e74a9c1e70209553975aadb0",
+      "text": "The hole in the middle of the pot is the target.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24813,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_seed_success_4d497ca2.mp3",
+      "sha256": "f2c77fd4e5f3f2dd6c555d422c262dd438ac7a23e4a4a5052b507936319ed285",
+      "text": "The seed is in the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_choose_cover_seed_cd520ec9.mp3",
+      "sha256": "f024b7854079aba4e7361f7320f8428b7e5f689a98f5bafe898201a74090b990",
+      "text": "Which picture shows a scoop covering the seed?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_choose_plant_seed_59745c09.mp3",
+      "sha256": "af43e5d5ff1b5289279fdf1be26171847ec06b3790a0b8c8b33edad0db4af96a",
+      "text": "Which picture shows a green arrow planting the seed?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51597,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_cover_seed_5f84d07f.mp3",
+      "sha256": "cd3bf90bf134bd2adfd64ba81b15f6c501972c24d65bcedae7c21601fda1da18",
+      "text": "Tap the loose soil pile on the right to cover the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20493,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
+      "sha256": "c91ef1d538664acefb3af73251d21378ffac17d5330417e3c66e278d215de784",
+      "text": "Tap the small hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24525,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_find_seed_packet_07d395fe.mp3",
+      "sha256": "938f3aa58412fdd0371721581e63cb230b8ab5b8df51e53f3c1ecd42f76f7264",
+      "text": "Find the seed packet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48717,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_intro_5fe09272.mp3",
+      "sha256": "c28a7b85cccc07cab1cacb6b3947f146c0838d684007aeabbd53abb2553be5fc",
+      "text": "The pot has soil. Let’s plant a seed in order.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55629,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_cover_seed_7f5a0af3.mp3",
+      "sha256": "57c90b9a64e9d55d7cb91a66e07cf0446df29347883d2417c7270cae70f1bc37",
+      "text": "Put a little soil over the seed. Tap the picture of the scoop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_finger_c6a35c67.mp3",
+      "sha256": "a3595cde8ab31f9baeb675f3eb8311891ff8ba907b816f54b81ff349edaabc15",
+      "text": "Tap the finger pointing down.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23949,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_plant_label_3367af72.mp3",
+      "sha256": "e4ab346ae7bbf3bc8c99246c5c61f8451a8d111ee92eb20aa7eac00b2ad34072",
+      "text": "This is a plant label.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55341,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_plant_seed_747003bf.mp3",
+      "sha256": "0ed8222f6c4f638169efc7e41847744a0fdfab09a0222fa9a0b5c8c19a756cc0",
+      "text": "Put the seed into the hole. Tap the picture with the green arrow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_seed_1e80fdd6.mp3",
+      "sha256": "5b2a886a2689aaa1d2db5353777fd6daf6e8405adbee468f17a94ad469084f4f",
+      "text": "Tap the small seed. This is a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_make_hole_28be8171.mp3",
+      "sha256": "33aeb4c729ecd1e7aee9ab8e8858ff66fabc862119bd656a545df92827a4562c",
+      "text": "Tap the soil inside the pot to make a hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_place_plant_label_174dc6fc.mp3",
+      "sha256": "71f0a31911d2f0890fe190cd2f8ccdfade3cfe6e4c20e184173464d7c130ef14",
+      "text": "Drag the plant label into the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_plant_seed_468a3dae.mp3",
+      "sha256": "10504b41de93888c9953329d354e3ccc4a889cb51f5ae985dca752596db7e9a0",
+      "text": "Drag the seed into the small hole.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17901,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/seed_packet.mp3",
+      "sha256": "76ef6b0a7dcdb97e42b4eb57cae24be845866235bf853b2f737dd87dec266a8a",
+      "text": "seed packet",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
+      "sha256": "f3a758b8ee955a7fea2330a8c4269a035c1df2ca126fb2ef5a556ee1df4b4a6d",
+      "text": "Right, cover the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/choose_plant_seed_success_a451ce7b.mp3",
+      "sha256": "dad5ac61b9273fc695226e8ef0ae864f2b8c174c72dde74a5f1bbb70bb48ea63",
+      "text": "Right, plant a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/completion_18da9879.mp3",
+      "sha256": "cf61c24cd37416263e9c2cd67f95242d31ed895c50e84621b5ac361267b5aef9",
+      "text": "The seed was planted and covered in the right order.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46989,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_seed_fail_e3d3e839.mp3",
+      "sha256": "5970e0cb86eda296d73f02b891efcf21b34eef57eb07aec19b33a868e1a7be4b",
+      "text": "The soil for covering the seed is to the right of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_seed_success_69d863a9.mp3",
+      "sha256": "e28934b117937894c6a59e3031e5d4e565e84ca7a0e3b982dcc272364fe5bb7a",
+      "text": "The seed is covered with a thin layer of soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_the_seed.mp3",
+      "sha256": "dc38882ba5bf14e703814acdda86ab8e708a371cbbbb6b81040ce928c3b6e4a0",
+      "text": "cover the seed",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_hole_fail_82a839ba.mp3",
+      "sha256": "59c76c608547e789f910d5bd79d0dd7ea683aab8d81d354bb40859b59bb6a76a",
+      "text": "The small hole is in the middle of the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_hole_success_e4325464.mp3",
+      "sha256": "f669ab3b1453e15c1f2955046417024a65e6b1106a5f83cecf61b726791af0e6",
+      "text": "Yes, the seed goes into this hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_seed_packet_fail_42d593de.mp3",
+      "sha256": "c2f049e6ece1c8dba036cf59167d1e4f189f09922471ba1375aba04a6475a812",
+      "text": "The seed packet is to the left of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
+      "sha256": "14dab8771ff0828061254c97b002e31abfb60dcd0cbf881de4cbb5009286b5a2",
+      "text": "Yes, open the packet and take one seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/finger.mp3",
+      "sha256": "6ce00615f08e32ab886825c386edabcb988112b6f7f773bc981a1cf3d6994635",
+      "text": "finger",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/hole.mp3",
+      "sha256": "55507caeddc1f18ff92de20d40b81e3a929285e0b00e43c377b6d0ce35e78b4a",
+      "text": "hole",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/intro_success_f21de28b.mp3",
+      "sha256": "df99351187efd37366579b3f6a46513c8edf852fcc9615823d9a4168993dfa6c",
+      "text": "First, get a seed and make a small hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_cover_seed_fail_9f4e1623.mp3",
+      "sha256": "1de472240aa7ba678c55bb6b6fcb7841a79604a484ad0caaa0b5427dde19cba7",
+      "text": "The scoop covering the seed is in the lower-right picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_cover_seed_success_cde6011e.mp3",
+      "sha256": "bd1e06c1b165e145540e52f965e17de3b7d360f25a334586a9d76150cf80a85c",
+      "text": "Yes, cover the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_finger_fail_a58b3ee4.mp3",
+      "sha256": "f949aae6c0b42df2b4a7ddc5fdc9fede89386d2f624da72c8b070470fc44c971",
+      "text": "The finger is at the upper right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_finger_success_877a46e5.mp3",
+      "sha256": "d34f3f3566022e0d39197034bef2799b6a80341777445253c912511d40d77af5",
+      "text": "Use one finger to make a small hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_label_success_d0a03c07.mp3",
+      "sha256": "292e132d44104953e91ef66262eefa096d127581b28eb3f57db9f4f269619640",
+      "text": "The label helps us remember what was planted.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_seed_fail_d541fd18.mp3",
+      "sha256": "3e9325bbfc0bb865e5a632346231ced0fb0e6edc192160f2369aa9f39894ae6e",
+      "text": "The seed with the arrow is in the lower-left picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23661,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_seed_success_803bfd20.mp3",
+      "sha256": "ecc1dd9ee96cd0137ee1433c8915e1d8dd6609a9b6a28ece68cd49b2c8b260b6",
+      "text": "Yes, plant a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45261,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_seed_fail_c9bb23a1.mp3",
+      "sha256": "7fac5911a7eb54329b77603e9c4e473c2acb5f0eaa79dedbae69ff41a9ddac7b",
+      "text": "The small seed is above and to the left of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23373,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_seed_success_3cf08e2d.mp3",
+      "sha256": "2513efae2d925d2c645b9b570d7c4098670b0f1109ecde9884937fee6dfca3ff",
+      "text": "Yes, this is a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/make_hole_fail_db3dde65.mp3",
+      "sha256": "2ae7dcad4d74c9267dfa51f200cb6eaaaf28713e68d821d0f41a5b2b1b23eaba",
+      "text": "The soil in the middle of the pot is the target.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/make_hole_success_54180223.mp3",
+      "sha256": "ec5324c45345a38eec1bed255daadc9f4b6d150e7d0211267f8e40b77207aca0",
+      "text": "A small hole is ready for the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/place_plant_label_fail_1f7bdb7e.mp3",
+      "sha256": "3bc3f0bd57d28b2963a6845eab0db172b7fe032da4141bc8f8b6cfece5767b9b",
+      "text": "The edge of the pot is the target for the label.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/place_plant_label_success_e23932ed.mp3",
+      "sha256": "3ba0c701f7449a1b45e3706708b269a013de61e84dff4e733034ddbf9349f8d2",
+      "text": "The plant label is in place after covering the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14445,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_label.mp3",
+      "sha256": "20a7da6e6e66b83e3a33850f633bddb3b61a7c15d8b8747b4fd7fdf0d15378af",
+      "text": "plant label",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_seed_fail_54f5e35d.mp3",
+      "sha256": "45c96f7f6daa47bd5b7754486266bac69716ea3eab4bad31f3e83c64be9b852f",
+      "text": "The hole in the middle of the pot is the target.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_seed_success_4d497ca2.mp3",
+      "sha256": "c641b072599b231e0f8f5914b4b70392126187a3473dd7a553c4611d5332aebe",
+      "text": "The seed is in the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_choose_cover_seed_cd520ec9.mp3",
+      "sha256": "0d2f34ee3fe2d8f56a9b8b13675363a0506b7dabefef50629246c6cebe4f43dd",
+      "text": "Which picture shows a scoop covering the seed?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_choose_plant_seed_59745c09.mp3",
+      "sha256": "607a41384041317126576e435ed89aea47e34536ae5ed90e2ebdd4ab16d3ff12",
+      "text": "Which picture shows a green arrow planting the seed?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48429,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_cover_seed_5f84d07f.mp3",
+      "sha256": "d21d978dbe3f88480efdf2ad50b4be7cc142020af90d27b0f6b2a75ffc36771d",
+      "text": "Tap the loose soil pile on the right to cover the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19341,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
+      "sha256": "1060ac816e74c12628d569d786b89053d317bfaffa6e14cbee6f7de7c166a98d",
+      "text": "Tap the small hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20205,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_seed_packet_07d395fe.mp3",
+      "sha256": "cca036f94f7816b7da3a7b4be2f9e3356fd5e3de31ced903c3bb5494bae2d3ef",
+      "text": "Find the seed packet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44973,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_intro_5fe09272.mp3",
+      "sha256": "d4b684aba4802f430d56c30b69d5f4dd4cd5c2035708457141de8ddffc339ba6",
+      "text": "The pot has soil. Let’s plant a seed in order.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52749,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_cover_seed_7f5a0af3.mp3",
+      "sha256": "2293e3066962e39a35b71b369a0725ec173062e8f5c64e79ab041d03c37bc2f1",
+      "text": "Put a little soil over the seed. Tap the picture of the scoop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27981,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_finger_c6a35c67.mp3",
+      "sha256": "2af765d7de3a37492a14dd4c041e49a147af2b1cd9335330bd8647caceeb8239",
+      "text": "Tap the finger pointing down.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_plant_label_3367af72.mp3",
+      "sha256": "15d206fa5e465b574f216c940aedc6ddced017f646736c286ff740677aba25ce",
+      "text": "This is a plant label.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51597,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_plant_seed_747003bf.mp3",
+      "sha256": "cad38a874858d7bc2cd2f58954a4819c20f5f57f7231a7c767b89e0f6d663995",
+      "text": "Put the seed into the hole. Tap the picture with the green arrow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_seed_1e80fdd6.mp3",
+      "sha256": "6915809607cd1d3bbada9e606e4cb3047e37e1aa27d5b53a58f4cb82306e6d9e",
+      "text": "Tap the small seed. This is a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_make_hole_28be8171.mp3",
+      "sha256": "99988697d0f83c9dde5ec1a5e01b0a861f116ca40a99c7b1df2d8245034c86e8",
+      "text": "Tap the soil inside the pot to make a hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_place_plant_label_174dc6fc.mp3",
+      "sha256": "edbe6716140ece10d87069073735ad7077b9fd3a1c4b5e9790d9a866c453ac8a",
+      "text": "Drag the plant label into the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_plant_seed_468a3dae.mp3",
+      "sha256": "7b19ce3118c2fb0dff794afd0d09f97147ab0f1eda929bd193b4cb6f690370a5",
+      "text": "Drag the seed into the small hole.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/seed_packet.mp3",
+      "sha256": "9825e356eacbc1bd182ad22899dbf6fd9b1626e601296a03d261dd5b9e50a3c4",
+      "text": "seed packet",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/check_drainage_hole_fail_8c304c23.mp3",
+      "sha256": "4f07fe3ace58bb92ba4b233e7447782ee83da818f05b94d49a621e1b49aa5b67",
+      "text": "The black hole is under the tilted pot on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/check_drainage_hole_success_c7120103.mp3",
+      "sha256": "863b8e8f137b14cb3ada23231d5995a45ecdba29b278a69aea892c0556a5d5f8",
+      "text": "This hole lets extra water drain away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_fill_pot_soil_success_ebba9ff5.mp3",
+      "sha256": "5d70e6e0989db316273bd13faac27164c551c1b5ba7741691e7b1442ccb9ed51",
+      "text": "Right, fill the pot with soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_potting_mix_fail_3cfb7d7c.mp3",
+      "sha256": "1db1172b80e2ede3b369221bbd518d488c5ef4e13faac782697cee8ca460dedb",
+      "text": "The bag with the sprout picture is at the upper right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49869,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
+      "sha256": "d4229058be6217632876af12936cce8fc41eed63383b3f0894cb2b6e90d9b3ce",
+      "text": "Yes, this bag contains potting mix for the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/completion_84062a15.mp3",
+      "sha256": "28e64eba8921bfd14c0f386a90e5204b65414572c137b90881f407a9e90b4cc3",
+      "text": "The pot of soil is ready for a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15597,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/drainage_hole.mp3",
+      "sha256": "b6e9b2af216d6540a0da4fff128037c126a554167e67b1190294188405f1eafc",
+      "text": "drainage hole",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_pot_fail_9ec3983b.mp3",
+      "sha256": "5bd0984bdb8f6d59da65ad029406915a1b79d25da3fd1b12a2bc3f584c6925f0",
+      "text": "The middle of the pot is ready for the scoop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_pot_success_a7b10191.mp3",
+      "sha256": "4c504d242e92789f69c3161957f7b58779651d2644f7c5e3f3168761f00871fe",
+      "text": "Great, the pot has enough soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_the_pot_with_soil.mp3",
+      "sha256": "236ceb24b92dea7ccf458adeb28ca3b6f615a3eed006cba712223f3df71bc3fd",
+      "text": "fill the pot with soil",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/find_plant_pot_fail_ea22eef3.mp3",
+      "sha256": "affdb3bf6b91a5e6fd54e7c7784af32fc726fa13321daa83039c207f847e76f8",
+      "text": "The orange pot is in the middle of the table.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/find_plant_pot_success_5ae8d948.mp3",
+      "sha256": "36edb89c33d86e013de3cbccbbe45ad537d50d20ea0f89ea1945eeabd54a4e5e",
+      "text": "Yes, this is the plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/intro_success_9b9c907e.mp3",
+      "sha256": "536b267bc5c48dc902e2780c385f4c5d56a0c6c26a416199064b27222db7d541",
+      "text": "The empty pot is ready for soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_fill_pot_soil_fail_d441d84f.mp3",
+      "sha256": "52e34792fba54984a7a8904f1b046917ae38784a1e411ee644ebefca505d41ff",
+      "text": "The pouring scoop is in the lower-left picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
+      "sha256": "24020234a491e74e63049d0c7eb0fc2c36b9492a80bc74e255ccbca6d6d99718",
+      "text": "Yes, soil goes into the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_leave_space_fail_22e526e5.mp3",
+      "sha256": "fa347f2d11b5bc9b38f94616665888dcfa35c4618c3e933db50d7e274a4b8e0a",
+      "text": "The small pot picture is at the lower right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_leave_space_success_55821044.mp3",
+      "sha256": "ded5b62a8af3e0a70cd8ebeb9f72cc88861dac2237013469bbd565ab3837434b",
+      "text": "Yes, leave some space at the top.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_scoop_success_0d1db796.mp3",
+      "sha256": "6a6a8fc5107d0685df990e42e3c424b7618ec76d735cfb15a8c0462cfaf26707",
+      "text": "A scoop helps carry a small amount of soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20205,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/leave_some_space.mp3",
+      "sha256": "8c04551eb12833f83ccb7bbd025e33eb547c38f8eecfd51e633c7b650f3b10eb",
+      "text": "leave some space",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/leave_space_success_fb55790e.mp3",
+      "sha256": "5dd96853e2e6e1734586143274cdc8af2a03be9999aa0e4e91d9e5a4e818169e",
+      "text": "Right, leave some space.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/potting_mix.mp3",
+      "sha256": "dedb2932c68c0c56f111e6f36f5599e7d46b9a5d08788d992fb6e4cec5148520",
+      "text": "potting mix",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_check_drainage_hole_a3a08c20.mp3",
+      "sha256": "82addc78db4ea2553d6dea4658ffdc53ea5e52679b4e2d9028b91e311d207055",
+      "text": "Tap the black drainage hole under the tilted pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_choose_fill_pot_soil_7dfcf55d.mp3",
+      "sha256": "2f025592937a445f923fbd2fdc18d0c7b005368c06fa93d8b328d710a4b7231f",
+      "text": "Which picture shows a scoop filling the pot with soil?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_choose_potting_mix_f7e1ab89.mp3",
+      "sha256": "ffaaf48814b5d0254a60808ca5b51531a4153801fe5d9d9dd9a8764af0453422",
+      "text": "Tap the potting mix bag with the sprout picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_fill_pot_5a293144.mp3",
+      "sha256": "4ae4d20018cea9707460f312fc0bcb96d7eb6f234a7770a1c93e60c6e35a2d25",
+      "text": "Drag the scoop of soil into the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22797,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
+      "sha256": "c3635056083ea7fd01a32149f10eef71ccc7de12aef228702a7d189df4ed81f3",
+      "text": "Find the plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_intro_d99c2a2d.mp3",
+      "sha256": "911bb885d6d2fc0f0fadb1dd0eb5d60b6147a024ea1b8d0db21c1962e9809894",
+      "text": "Let's prepare the pot before planting a seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59373,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_fill_pot_soil_68e10b13.mp3",
+      "sha256": "b8444c9f633e40bbbf1ed97b42ad44cb70c73d3510baba6f1b33b6c0229570db",
+      "text": "Scoop soil into the pot. Tap the picture of the pouring scoop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56493,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_leave_space_ab9551ad.mp3",
+      "sha256": "1a0ac212e1541e932851acfe45fd4db29727fbc9caca91b88a1ee21004c5229b",
+      "text": "Leave a little space at the top. Tap the small pot picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_scoop_1ed597a8.mp3",
+      "sha256": "65d6201b7e05922894698cf4ce1dc5f46cd64a0f5ce568e29c84dce989fcb441",
+      "text": "This is a scoop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45549,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_leave_space_21454905.mp3",
+      "sha256": "6552de8e0b00f5838e9d5d2dea4ce3e3d0ac37bf146fc28bb0e97f3a7397a5c5",
+      "text": "Which small pot picture leaves some space at the top?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51309,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_scoop_soil_e385e0a7.mp3",
+      "sha256": "df348b63be60861eaa4e7839f005abd5d2c5d2ab92e79cb67ad982f7dea947b2",
+      "text": "Tap the loose soil pile on the left. This is soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop_soil_fail_ab011675.mp3",
+      "sha256": "c923397c00fbeb80fb574d6cf29b0e02aef28dd24024f1ff85c6296ba0dd363f",
+      "text": "Tap the loose soil pile to the left of the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop_soil_success_e1ff8c92.mp3",
+      "sha256": "bbb7af62a71bf6231e4c91533059c8284bd9555ce9154168a59b715ecf786b6a",
+      "text": "Yes, this is soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11565,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop.mp3",
+      "sha256": "76eac2c7119cb160d56edb8b8cd2ea7591ccc1dc6efa1eefc2758bdf5df51c47",
+      "text": "scoop",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10989,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/soil.mp3",
+      "sha256": "1018e50b2df25a7c308b18e6e7fa9f098ca0dce56454b37b4d28727b013ea6a2",
+      "text": "soil",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/check_drainage_hole_fail_8c304c23.mp3",
+      "sha256": "ae7042314619d78d6c9095364dacdbefe6234b6c4c57da54197eb16bb27bd4f7",
+      "text": "The black hole is under the tilted pot on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/check_drainage_hole_success_c7120103.mp3",
+      "sha256": "de6370861cd6a9dd1518f4d1cdd2197d68916ec2a421d0ccb8c778b80fae1b3d",
+      "text": "This hole lets extra water drain away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_fill_pot_soil_success_ebba9ff5.mp3",
+      "sha256": "22527961542a3482933bb5820d67e552c0f5508259d33718c0e60a59f7ba1735",
+      "text": "Right, fill the pot with soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_fail_3cfb7d7c.mp3",
+      "sha256": "b5e992e435be8545375da5cad61150bad0c99e9a398ed63d129933c33626319f",
+      "text": "The bag with the sprout picture is at the upper right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43245,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
+      "sha256": "51ffaa2daccaa5bc72d2015a518b40df7d2a092d6bb1fd6b5f618eab971cd15f",
+      "text": "Yes, this bag contains potting mix for the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/completion_84062a15.mp3",
+      "sha256": "1e131e87192a40d99c864b4782f649a8ce68faa1bbf15b75c9db40522790a201",
+      "text": "The pot of soil is ready for a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14733,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/drainage_hole.mp3",
+      "sha256": "899d887d2ba59ff2eb93b66c6e6bef967af38bdf55edd9aa79f4856699ab41db",
+      "text": "drainage hole",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_pot_fail_9ec3983b.mp3",
+      "sha256": "ae426df3fae78c944539e199242d5f49876250fd7f4bf0c9025a9c678ef8587b",
+      "text": "The middle of the pot is ready for the scoop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_pot_success_a7b10191.mp3",
+      "sha256": "d4f405d6102f6a3bddfff2336c70465da0a1af3ef362e74987ff405a44a55f93",
+      "text": "Great, the pot has enough soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23661,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_the_pot_with_soil.mp3",
+      "sha256": "0dc55a33c7237c4df00c27ecd28368f48e2a51e7cc7687536a030d00fe66afd7",
+      "text": "fill the pot with soil",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/find_plant_pot_fail_ea22eef3.mp3",
+      "sha256": "a081352fb1589f05cbf0c7e3eacf932a0e13f5f056e21c41078e63c6a4707b88",
+      "text": "The orange pot is in the middle of the table.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/find_plant_pot_success_5ae8d948.mp3",
+      "sha256": "95fe8ca8430eb12443292ff0bedeb63cb71b55b145d75ebc495a3ca790fca4ef",
+      "text": "Yes, this is the plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/intro_success_9b9c907e.mp3",
+      "sha256": "7fc0fb9d24de9c5b3fa7c4ef00b4a0d27121734cade78075f8b82cc0a00b06f2",
+      "text": "The empty pot is ready for soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_fill_pot_soil_fail_d441d84f.mp3",
+      "sha256": "cb64c1a8e01a9263026aa1170dbdbec5162b6580c95e32c037e3bd98501c3030",
+      "text": "The pouring scoop is in the lower-left picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
+      "sha256": "3ce90f2a9ee50bedc16aaa72c2254ca8ad163c32cefbd5de6a27b0bce44ccc74",
+      "text": "Yes, soil goes into the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_leave_space_fail_22e526e5.mp3",
+      "sha256": "20b980bf064d46e6e1eb791109265876aa3b2aeb2c2d6c039e7660439cb07331",
+      "text": "The small pot picture is at the lower right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_leave_space_success_55821044.mp3",
+      "sha256": "32f986fb44945cb2bd1585de45e6f712ed3f417c58b1164eeda05de9618166c1",
+      "text": "Yes, leave some space at the top.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_scoop_success_0d1db796.mp3",
+      "sha256": "624840fb65aa882053c225deb4efc1a20b32b2ce21f8fa079f4b55bd98e66c5d",
+      "text": "A scoop helps carry a small amount of soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17613,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/leave_some_space.mp3",
+      "sha256": "daba39674052187d5a03a6b640c844945bd98c330c7586d6cf72bceb7aa970a1",
+      "text": "leave some space",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/leave_space_success_fb55790e.mp3",
+      "sha256": "e8aa49a320a090b0046835dc55e95936958e3094ec275a13967b8f264bf0d4ee",
+      "text": "Right, leave some space.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/potting_mix.mp3",
+      "sha256": "5291f27f7ea02481a85f9048489b992f2b9c3186707474b74d57497ace2789fa",
+      "text": "potting mix",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41805,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_check_drainage_hole_a3a08c20.mp3",
+      "sha256": "04e041ebbb2ea9d7035b2865ab8f130dd5011d16876ff60bc47e87bc7c2280c3",
+      "text": "Tap the black drainage hole under the tilted pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44109,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_choose_fill_pot_soil_7dfcf55d.mp3",
+      "sha256": "53856bac799edf4051a454f5e3d40f90e57c934c7c92ff0b6004bece9630bef6",
+      "text": "Which picture shows a scoop filling the pot with soil?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_choose_potting_mix_f7e1ab89.mp3",
+      "sha256": "319d5b63b6400bad62f74307cc811f373ad8dba0fc31614c13ee1f5dc6c9b195",
+      "text": "Tap the potting mix bag with the sprout picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_fill_pot_5a293144.mp3",
+      "sha256": "32d333c9e3880ec41124c96c98823d1d9c37296e6c47174d7dc81d119365f509",
+      "text": "Drag the scoop of soil into the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19917,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
+      "sha256": "4dc8301a911ecb1981a880fe3e5466b70dcb49fb3c650b6ae48b1571616456ac",
+      "text": "Find the plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_intro_d99c2a2d.mp3",
+      "sha256": "8c643ecd90301cefb2ea6f6415c1116165a9ff603c24284eb5dfd11d896ba034",
+      "text": "Let's prepare the pot before planting a seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55917,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_fill_pot_soil_68e10b13.mp3",
+      "sha256": "d7d0947b77f4db17068b5c4b03cdc24c23b01ab05ecacb9ff9dbca2e11024510",
+      "text": "Scoop soil into the pot. Tap the picture of the pouring scoop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52461,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_leave_space_ab9551ad.mp3",
+      "sha256": "b9e841a3dfd347bfce2fe868c462567b55f98939868a0ad820c71eb8a33e9412",
+      "text": "Leave a little space at the top. Tap the small pot picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15885,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_scoop_1ed597a8.mp3",
+      "sha256": "ae562a0e72854a64e1f8011d0db929077c7c2a620ea18204b06f7c73b4180a31",
+      "text": "This is a scoop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43533,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_leave_space_21454905.mp3",
+      "sha256": "95f3776572ba5615983b3ece56cc30ce4b0c02f219855501925b76ee9c13310c",
+      "text": "Which small pot picture leaves some space at the top?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47277,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_scoop_soil_e385e0a7.mp3",
+      "sha256": "797417040428719ae62be60de452b0e8553138287505c1a2244070d4908ddce3",
+      "text": "Tap the loose soil pile on the left. This is soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop_soil_fail_ab011675.mp3",
+      "sha256": "b7d5e6945d23b20701a0b0d13416acb7d74971abba07173d5dac79b6acf0d17d",
+      "text": "Tap the loose soil pile to the left of the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop_soil_success_e1ff8c92.mp3",
+      "sha256": "4d0c1dda6a75985770b8f08db6987b63f6949a2883f7a510845eb762cf94c6ab",
+      "text": "Yes, this is soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop.mp3",
+      "sha256": "91ef4bd669b1a635f23a99e095092fc35c65ababca70f738efa1c893ea96d0e8",
+      "text": "scoop",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/soil.mp3",
+      "sha256": "165e64047d4a5e739cba643b2330470a2193fd948ea2c3d761c24ea532bbd681",
+      "text": "soil",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 12141,
       "key": "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/blocks.mp3",
       "sha256": "3d5b0f9cfc3935e362b7e137d1fbf6fa004bf49c41beada1a67f4fd6cdafcff0",

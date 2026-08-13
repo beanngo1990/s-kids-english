@@ -89,8 +89,7 @@ jest.mock('../src/engine/AudioManager', () => {
         text: string,
         _accent?: string,
         session?: { isActive: () => boolean },
-      ) =>
-        playSegment('en', text, session),
+      ) => playSegment('en', text, session),
     ),
     playWrongSound: jest.fn(() => Promise.resolve()),
     speakTeacherPromptSegments: jest.fn(
@@ -244,6 +243,46 @@ const teachListenScene: Scene = {
   ],
 };
 
+const teachTapScene: Scene = {
+  ...teachListenScene,
+  id: 'teach-tap-scene',
+  steps: [
+    {
+      ...teachListenScene.steps[0],
+      id: 'teach-tap-step',
+      instructionVi: 'Chạm vào vòi bình tưới nhé.',
+      interaction: {
+        correctObjectIds: ['bed'],
+        targetObjectId: 'bed',
+        type: 'tap',
+      },
+      successFeedbackVi: 'Vòi bình giúp rót nước nhẹ nhàng.',
+    },
+  ],
+  titleEn: 'First watering',
+  titleVi: 'Tưới lần đầu',
+  vocabulary: [
+    {
+      id: 'vocab-blanket',
+      level: 'easy',
+      meaningVi: 'vòi bình tưới',
+      type: 'noun',
+      word: 'spout',
+    },
+  ],
+};
+
+const optionalTeachListenScene: Scene = {
+  ...teachListenScene,
+  id: 'optional-teach-listen-scene',
+  steps: [
+    {
+      ...teachListenScene.steps[0],
+      speechPractice: 'optional',
+    },
+  ],
+};
+
 const practiceDragScene: Scene = {
   background: {
     id: 'background',
@@ -342,6 +381,120 @@ const practiceRetryScene: Scene = {
   ],
 };
 
+const autoSpeechPracticeScene: Scene = {
+  ...practiceRetryScene,
+  id: 'auto-speech-practice-scene',
+  steps: [
+    {
+      ...practiceRetryScene.steps[0],
+      speechPractice: 'auto',
+    },
+    practiceRetryScene.steps[1],
+  ],
+};
+
+const optionalSpeechPracticeScene: Scene = {
+  ...practiceRetryScene,
+  id: 'optional-speech-practice-scene',
+  steps: [
+    {
+      ...practiceRetryScene.steps[0],
+      speechPractice: 'optional',
+    },
+    practiceRetryScene.steps[1],
+  ],
+};
+
+const reviewChoiceScene: Scene = {
+  ...practiceRetryScene,
+  id: 'review-choice-scene',
+  steps: [
+    {
+      ...practiceRetryScene.steps[0],
+      id: 'choose-pencil',
+      interaction: {
+        correctObjectIds: ['pencil'],
+        targetObjectId: 'pencil',
+        type: 'tap',
+      },
+      targetObjectIds: ['pencil', 'eraser'],
+      type: 'review',
+    },
+  ],
+};
+
+const sceneStateScene: Scene = {
+  background: {
+    id: 'state-background',
+    source: 'state-background',
+    type: 'image',
+  },
+  id: 'scene-state-scene',
+  objects: [
+    {
+      asset: { id: 'pot-empty', source: 'pot-empty', type: 'image' },
+      id: 'pot',
+      isInteractive: false,
+      position: { height: 20, width: 20, x: 40, y: 50 },
+      role: 'decoration',
+      variants: [
+        {
+          asset: { id: 'pot-filled', source: 'pot-filled', type: 'image' },
+          id: 'filled',
+        },
+      ],
+    },
+    {
+      asset: { id: 'seed', source: 'seed', type: 'image' },
+      id: 'seed',
+      isInteractive: true,
+      position: { height: 10, width: 10, x: 20, y: 60 },
+      role: 'learning',
+    },
+    {
+      asset: { id: 'sprout', source: 'sprout', type: 'image' },
+      id: 'sprout',
+      initialVisibility: 'hidden',
+      isInteractive: false,
+      position: { height: 18, width: 18, x: 42, y: 38 },
+      role: 'decoration',
+    },
+    {
+      asset: { id: 'stone', source: 'stone', type: 'image' },
+      id: 'stone',
+      isInteractive: true,
+      position: { height: 10, width: 10, x: 70, y: 60 },
+      role: 'decoration',
+    },
+  ],
+  steps: [
+    {
+      failFeedbackVi: 'Đó chưa phải hạt giống.',
+      id: 'plant-seed',
+      instructionVi: 'Chạm vào hạt giống nhé.',
+      interaction: {
+        correctObjectIds: ['seed'],
+        targetObjectId: 'seed',
+        type: 'tap',
+      },
+      successFeedbackVi: 'Hạt giống đã được trồng rồi!',
+      successStateChanges: [
+        {
+          targetObjectId: 'pot',
+          type: 'setObjectVariant',
+          variantId: 'filled',
+        },
+        { targetObjectId: 'seed', type: 'hideObject' },
+        { targetObjectId: 'sprout', type: 'showObject' },
+      ],
+      targetObjectIds: ['seed'],
+      type: 'practice',
+    },
+  ],
+  titleEn: 'Scene state',
+  titleVi: 'Trạng thái scene',
+};
+
 beforeEach(() => {
   mockedCancelNarration.mockClear();
   mockedPlayTeacherPromptNarration.mockClear();
@@ -381,6 +534,175 @@ test('uses a readable dark surface for the lesson HUD', async () => {
 
   await ReactTestRenderer.act(async () => {
     tree.unmount();
+  });
+});
+
+test('preloads base, hidden and variant object images for scene state', async () => {
+  const tree = await renderScenePlayer(sceneStateScene);
+  const preloadedSources = mockedPrefetchAssets.mock.calls.flatMap(
+    ([sources]) => sources,
+  );
+
+  expect(preloadedSources).toEqual(
+    expect.arrayContaining([
+      'state-background',
+      'pot-empty',
+      'pot-filled',
+      'seed',
+      'sprout',
+      'stone',
+    ]),
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('keeps the action instruction visible when a step has no vocabulary', async () => {
+  const tree = await renderScenePlayer(sceneStateScene);
+
+  expect(getTextValues(tree)).toContain('Chạm vào hạt giống nhé.');
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('keeps scene object state unchanged after an incorrect interaction', async () => {
+  const tree = await renderScenePlayer(sceneStateScene);
+
+  expect(findSceneObject(tree, 'sprout')).toBeUndefined();
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'stone')?.props.onPress('stone');
+    await flushPromises();
+  });
+
+  expect(findSceneObject(tree, 'pot')?.props.object.asset.source).toBe(
+    'pot-empty',
+  );
+  expect(findSceneObject(tree, 'seed')).toBeDefined();
+  expect(findSceneObject(tree, 'sprout')).toBeUndefined();
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('applies scene object state immediately after a correct interaction', async () => {
+  const tree = await renderScenePlayer(sceneStateScene);
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'seed')?.props.onPress('seed');
+    await flushPromises();
+  });
+
+  expect(findSceneObject(tree, 'pot')?.props.object.asset.source).toBe(
+    'pot-filled',
+  );
+  expect(findSceneObject(tree, 'seed')).toBeUndefined();
+  expect(findSceneObject(tree, 'sprout')).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('rolls back scene object state when required success feedback fails', async () => {
+  jest.useFakeTimers();
+  const tree = await renderScenePlayer(sceneStateScene);
+  mockedPlayTeacherPromptNarration.mockResolvedValueOnce('failed');
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'seed')?.props.onPress('seed');
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(120);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Bài học chưa sẵn sàng');
+  const retryButton = tree.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Thử lại');
+  expect(retryButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    retryButton?.props.onPress();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(findSceneObject(tree, 'pot')?.props.object.asset.source).toBe(
+    'pot-empty',
+  );
+  expect(findSceneObject(tree, 'seed')).toBeDefined();
+  expect(findSceneObject(tree, 'sprout')).toBeUndefined();
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('resets scene object state when the active scene changes', async () => {
+  const renderPlayer = (activeScene: Scene) => (
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { height: 800, width: 400, x: 0, y: 0 },
+        insets: { bottom: 0, left: 0, right: 0, top: 0 },
+      }}
+    >
+      <ScenePlayer scene={activeScene} />
+    </SafeAreaProvider>
+  );
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(renderPlayer(sceneStateScene));
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+  if (!tree) {
+    throw new Error('ScenePlayer did not render.');
+  }
+  const renderedTree = tree;
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(renderedTree, 'seed')?.props.onPress('seed');
+    await flushPromises();
+  });
+  expect(findSceneObject(renderedTree, 'sprout')).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    renderedTree.update(renderPlayer(listenScene));
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    renderedTree.update(renderPlayer(sceneStateScene));
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(findSceneObject(renderedTree, 'pot')?.props.object.asset.source).toBe(
+    'pot-empty',
+  );
+  expect(findSceneObject(renderedTree, 'seed')).toBeDefined();
+  expect(findSceneObject(renderedTree, 'sprout')).toBeUndefined();
+
+  await ReactTestRenderer.act(async () => {
+    renderedTree.unmount();
   });
 });
 
@@ -860,8 +1182,7 @@ test.each(['vi', 'bilingual'] as const)(
     expect(
       getTextValues(tree).some(
         value =>
-          typeof value === 'string' &&
-          value.includes('Bút chì đã ở trên bàn.'),
+          typeof value === 'string' && value.includes('Bút chì đã ở trên bàn.'),
       ),
     ).toBe(true);
 
@@ -1048,6 +1369,7 @@ test('renders temporary info feedback when replaying an instruction', async () =
     .find(node => node.props.accessibilityLabel === 'Nghe lại hướng dẫn');
 
   expect(replayButton).toBeDefined();
+  expect(getTextValues(tree)).toContain('Đặt bút chì lên bàn.');
 
   await ReactTestRenderer.act(async () => {
     replayButton?.props.onPress();
@@ -1061,7 +1383,7 @@ test('renders temporary info feedback when replaying an instruction', async () =
     await flushPromises();
   });
 
-  expect(getTextValues(tree)).not.toContain('Đặt bút chì lên bàn.');
+  expect(getTextValues(tree)).toContain('Đặt bút chì lên bàn.');
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -1154,6 +1476,49 @@ test('shows an auto hint after seven idle seconds and dims unrelated objects', a
 
   expect(pencil()?.props.isTargeted).toBe(true);
   expect(eraser()?.props.isDimmed).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('auto hint highlights only the correct option in a multi-choice step', async () => {
+  jest.useFakeTimers();
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(reviewChoiceScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const eraser = () => findSceneObject(tree, 'eraser');
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(7000);
+    await flushPromises();
+  });
+
+  expect(pencil()?.props.isTargeted).toBe(true);
+  expect(eraser()?.props.isTargeted).toBe(false);
+  expect(eraser()?.props.isDimmed).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('replaying a multi-choice instruction animates only the correct option', async () => {
+  mutableRemoteAssetsConfig.allowMissingLessonAudio = true;
+  const tree = await renderScenePlayer(reviewChoiceScene);
+  const pencil = () => findSceneObject(tree, 'pencil');
+  const eraser = () => findSceneObject(tree, 'eraser');
+  const replayButton = tree.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Nghe lại hướng dẫn');
+
+  await ReactTestRenderer.act(async () => {
+    replayButton?.props.onPress();
+    await flushPromises();
+  });
+
+  expect(pencil()?.props.effect).toBe('bounce');
+  expect(eraser()?.props.effect).toBe('none');
 
   await ReactTestRenderer.act(async () => {
     tree.unmount();
@@ -1652,6 +2017,129 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
     tree?.unmount();
   });
 });
+
+test('keeps the microphone idle for optional teach-and-listen practice', async () => {
+  jest.useFakeTimers();
+  const tree = await renderScenePlayer(optionalTeachListenScene);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(101);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(61);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const practice = tree.root.findByType(SpeakPracticeControls);
+  expect(practice.props.word).toBe('blanket');
+  expect(practice.props.autoStartRequestId).toBe(0);
+  expect(practice.props.autoStartWithPrompt).toBe(false);
+  expect(practice.props.onContinue).toEqual(expect.any(Function));
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('opens speech practice after completing a teach-and-tap interaction', async () => {
+  jest.useFakeTimers();
+  const tree = await renderScenePlayer(teachTapScene);
+
+  expect(tree.root.findAllByType(SpeakPracticeControls)).toHaveLength(0);
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'bed')?.props.onPress('bed');
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain(
+    'Vòi bình giúp rót nước nhẹ nhàng.',
+  );
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(261);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const practice = tree.root.findByType(SpeakPracticeControls);
+  expect(practice.props.word).toBe('spout');
+  expect(practice.props).not.toHaveProperty('meaning');
+  expect(practice.props.autoStartRequestId).toBeGreaterThan(0);
+  expect(practice.props.autoStartWithPrompt).toBe(true);
+  expect(practice.props.onContinue).toEqual(expect.any(Function));
+
+  await ReactTestRenderer.act(async () => {
+    practice.props.onBusyChange(false);
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    tree.root.findByType(SpeakPracticeControls).props.onContinue();
+    await flushPromises();
+  });
+
+  expect(tree.root.findAllByType(SpeakPracticeControls)).toHaveLength(0);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test.each([
+  ['auto', autoSpeechPracticeScene, true],
+  ['optional', optionalSpeechPracticeScene, false],
+] as const)(
+  'opens %s speech practice after a vocabulary interaction',
+  async (_mode, scene, shouldAutoStart) => {
+    jest.useFakeTimers();
+    const tree = await renderScenePlayer(scene);
+
+    await ReactTestRenderer.act(async () => {
+      findSceneObject(tree, 'pencil')?.props.onPress('pencil');
+      await flushPromises();
+    });
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(121);
+      await flushPromises();
+      await flushPromises();
+    });
+    await ReactTestRenderer.act(async () => {
+      jest.advanceTimersByTime(261);
+      await flushPromises();
+      await flushPromises();
+    });
+
+    const practice = tree.root.findByType(SpeakPracticeControls);
+    expect(practice.props.word).toBe('pencil');
+    expect(practice.props.autoStartRequestId > 0).toBe(shouldAutoStart);
+    expect(practice.props.autoStartWithPrompt).toBe(shouldAutoStart);
+    expect(practice.props.onContinue).toEqual(expect.any(Function));
+
+    await ReactTestRenderer.act(async () => {
+      practice.props.onContinue();
+      await flushPromises();
+    });
+
+    expect(tree.root.findAllByType(SpeakPracticeControls)).toHaveLength(0);
+
+    await ReactTestRenderer.act(async () => {
+      tree.unmount();
+    });
+  },
+);
 
 test('saves spoken vocabulary locally when the parent enables the library', async () => {
   mockedGetParentSettings.mockResolvedValue({

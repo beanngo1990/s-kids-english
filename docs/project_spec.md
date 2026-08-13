@@ -2,12 +2,12 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-08-11
+**Kiểm chứng gần nhất:** 2026-08-12
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
-audio rollout, monetization Phase 1-3, app-update policy và parent-only app review trong working
-tree hiện tại.
+audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
+pilot `plant-a-seed` của Theme 4 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -45,6 +45,11 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
+- **Implemented:** Scene State v1 cho object variants, trạng thái ẩn/hiện và thay đổi state chỉ sau
+  tương tác đúng trong phạm vi lượt chạy scene hiện tại.
+- **Implemented:** pilot `plant-a-seed` dùng Scene State v1 để nối ba scene chuẩn bị chậu, gieo hạt
+  và tưới lần đầu thành một chuỗi nhân-quả; ảnh pilot đã build/verify local nhưng lesson audio và
+  image release chưa publish lên R2.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -180,11 +185,12 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có ba themes:
+Hiện có bốn themes và 28 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
 - `co-the-cam-xuc-va-tu-cham-soc` / “Cơ thể, cảm xúc và tự chăm sóc”.
+- `khu-vuon-cua-be` / “Khu vườn của bé”.
 
 Theme `mot-ngay-cua-be` chứa 11 lesson packs theo thứ tự:
 
@@ -228,6 +234,19 @@ hàng dưới. Hướng dẫn chính không đọc vị trí màn hình; vị tr
 hint. Drag chỉ dùng khi object có đích đến trực quan, còn cảm xúc, trạng thái và phrase card dùng
 tap.
 
+Theme `khu-vuon-cua-be` hiện chứa một lesson pilot:
+
+1. `plant-a-seed`
+
+Pilot có ba scene theo thứ tự `prepare-the-pot` -> `plant-the-seed` -> `first-watering`. Mỗi scene
+có 3/5/7 vocabulary targets ở `core`/`expanded`/`challenge`; cả ba mode giữ cùng chuỗi core và
+cùng end state hợp lý. Chậu chuyển `empty -> soil-low -> soil-ready`, tiếp tục
+`flat -> hole-open -> seed-visible -> covered`, rồi `dry -> damp`. Mầm chỉ hiện sau cue ngày-đêm,
+không hiện ngay khi vừa tưới; success path giữ vũng nước ẩn. Review `random` dùng bốn anchor hình
+rõ. Bảy lesson Theme 4 còn lại trong `docs/theme-4-content-draft.md` chưa được đăng ký runtime.
+Vì free tier vẫn chỉ gồm `morning-routine` và `at-school`, pilot này là Premium theo policy hiện
+tại.
+
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
 
@@ -247,9 +266,9 @@ Scene
   -> background
   -> optional character
   -> vocabulary[]
-  -> objects[]
+  -> objects[] với optional variants/initial state
   -> dropZones[]
-  -> steps[]
+  -> steps[] với optional successStateChanges[]
   -> optional completionReward
 ```
 
@@ -261,6 +280,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Vocabulary level: `easy`, `medium`, `hard`.
 - Object roles: `learning`, `decoration`, `dropZone`, `character`.
 - Vị trí và touch areas dùng `PercentRect` để responsive theo scene.
+- `SceneObject` luôn có base asset và có thể thêm `variants[]`, `initialVariantId` hoặc
+  `initialVisibility`. Variant có thể override asset/position/touch area; phần thiếu kế thừa từ
+  object gốc.
 - `AssetRef` hỗ trợ type `image`, `audio`, `lottie`, `sprite`; runtime support thực tế phụ thuộc
   renderer/registry hiện có.
 
@@ -269,9 +291,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Step types: `intro`, `teach`, `practice`, `review`.
 - Interaction types: `listen`, `tap`, `drag`, `find`.
 - `StepController` quyết định listen/interactive flow, đánh giá tap/find/drag, next step và
-  success/fail feedback.
+  success/fail feedback; chỉ kết quả đúng mới trả `successStateChanges` cho runtime.
 - `ScenePlayer` render scene, phát instruction/audio, khóa tương tác trong thời điểm cần thiết,
-  điều phối effects, prefetch và progress.
+  điều phối effects, scene object state, prefetch và progress.
+- Scene State v1 có ba action: `setObjectVariant`, `showObject`, `hideObject`. Không có branching,
+  inventory, biến tùy ý hoặc state xuyên scene.
 
 ### Learning modes
 
@@ -280,7 +304,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `challenge`: thêm nội dung có `minMode: challenge`.
 
 `src/data/learningModes.ts` lọc đồng bộ vocabulary, character, objects, drop zones và steps theo
-`learningScope`, đồng thời bỏ dangling `nextStepId` sau khi lọc.
+`learningScope`, đồng thời bỏ dangling `nextStepId` và state action mất target/variant sau khi lọc.
 
 - **Implemented:** mode filtering bằng `learningScope.minMode`.
 - **Partial:** `learningScope.minAge` được hỗ trợ bởi helper và tests, nhưng runtime call sites
@@ -489,17 +513,59 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
-- Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Vocabulary English trên instruction/pronunciation card chỉ là copy hỗ trợ, không phải kênh giải
+  nghĩa chính cho trẻ chưa biết đọc; runtime không hiển thị `meaningVi` như một bản dịch phải đọc.
+  Với cụm hành động mới, một teach step phải cho bé xem hành động, nghe lời Việt giải thích nghĩa,
+  rồi nghe mẫu English và tập nói trước khi cụm đó xuất hiện trong step review. Lời hướng dẫn của
+  review phải nhắc lại nghĩa bằng tiếng Việt và mô tả dấu hiệu hình ảnh đủ cụ thể để bé thao tác
+  mà không cần đọc English hoặc `meaningVi`. Mỗi lời Việt chỉ nên có một ý và một yêu cầu thao
+  tác; pre-reader path đặt authoring target tối đa 12 từ cho teach và 10 từ cho review. Prompt
+  được audit trên toàn bộ scene: khi nhiều object cùng khớp một khái niệm, lời nói phải gọi đúng
+  dạng nhìn thấy hoặc dấu hiệu phân biệt của target; ảnh vocabulary phải thể hiện khái niệm dương,
+  không dùng ảnh có dấu phủ định hoặc before-state không thể hiện hành động đang dạy.
+- Speech practice là policy riêng trên step: `speechPractice: 'auto'` mở panel và tự bắt đầu micro
+  sau khi bé hoàn thành tương tác; `optional` mở panel nhưng cho bé chọn nói hoặc tiếp tục. Khi
+  không khai báo, teach step giữ hành vi `auto` cũ còn các step khác không mở luyện nói. Pilot
+  `plant-a-seed` cho đủ 21/21 vocabulary một cơ hội phát âm và dùng `auto` cho toàn bộ encounter,
+  để micro tự bật sau lời yêu cầu “Bé nói theo cô nhé.”; mỗi vocabulary vẫn chỉ có một encounter
+  để tránh micro bật lặp lại khi bé chạm lại object. Riêng `seed` được giới thiệu bằng một teach
+  step khi hạt rời vẫn hiện rõ: bé nghe nghĩa “hạt giống”, chạm đúng hạt, nghe mẫu và nói `seed`,
+  rồi mới kéo hạt giống vào lỗ ở step hành động tiếp theo. Pilot cũng dạy `soil` trước cụm
+  `fill the pot with soil`; gọi rõ `drainage hole` là “lỗ thoát nước”; gọi rõ quan hệ giữa bình
+  tưới với bộ phận `spout` trong khi chỉ đầu vòi là target tương tác;
+  giải thích chuyển đổi đất khô sang sẫm màu/hơi ướt trước khi dạy `damp`.
+- Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả. Hiệu
+  ứng success mặc định chỉ áp dụng lên đúng object bé vừa chọn, không áp dụng lên toàn bộ
+  `targetObjectIds` vì danh sách đó có thể gồm cả đáp án nhiễu; lesson chỉ làm nhiều object chuyển
+  động khi khai báo animation effect tường minh.
+- Khi step đúng có `successStateChanges`, ScenePlayer áp dụng tuần tự object variant/show/hide ngay
+  sau khi controller xác nhận success. Incorrect/ignored interaction không đổi state. Object ẩn
+  không render và không nhận hit test; variant mới có thể đổi asset cùng optional geometry. Nếu
+  required success feedback lỗi và runtime phải giữ nguyên step, state transaction của step được
+  rollback để target không biến mất hoặc làm bài bị kẹt.
+- Scene object state chỉ sống trong lượt chạy scene hiện tại và reset khi replay hoặc chuyển scene.
+  State này không persist qua scene/app session và current-step pointer hiện tại không khôi phục
+  chính xác state trung gian.
 - Step `intro`/`teach` highlight `targetObjectIds` ngay để bé nối instruction/từ mới với hình;
   highlight hướng dẫn ban đầu này không làm mờ các object khác. Step `practice`/`review` giữ đáp
   án trung tính lúc bắt đầu để bé có cơ hội tự nhớ; drag vẫn luôn hiển thị drop zone và affordance
   kéo hiện có. Trong step tương tác, target được nâng lên trên các sibling object về z-order để
   không bị hitbox của hình chồng lấp chặn thao tác; ưu tiên lớp này không tự bật glow/dimming.
 - Với step tương tác `tap`/`find`/`drag`, Auto-Hint bắt đầu đếm 7 giây sau khi instruction hoặc
-  feedback audio đã phát xong. Nếu bé chưa tương tác, runtime bật pulse glow cho toàn bộ
-  `targetObjectIds` và làm mờ nhẹ các learning object không liên quan. Chạm object, bắt đầu/thả
-  kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; timer
+  feedback audio đã phát xong. Nếu bé chưa tương tác, runtime bật pulse glow cho
+  `interaction.correctObjectIds` hoặc `targetObjectId`; `targetObjectIds` vẫn có thể mô tả toàn bộ
+  lựa chọn nhưng distractor không bị viền như đáp án. Runtime làm mờ nhẹ các learning object không
+  liên quan. Chạm object, bắt đầu/thả
+  kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; khi
+  nghe lại instruction của step tương tác, hiệu ứng nhắc chỉ áp dụng cho
+  `correctObjectIds` hoặc `targetObjectId`, không làm chuyển động cả đáp án nhiễu; timer
   được cleanup khi đổi step/scene hoặc unmount. Listen step không dùng Auto-Hint.
+- Với mọi step tương tác, instruction hành động được giữ trên instruction card; nếu step có
+  vocabulary thì từ tiếng Anh nằm ngay dưới instruction. Bé không phải nhớ câu vừa nghe để biết
+  cần chạm, tìm hay kéo gì.
+- Asset vật thể và lựa chọn hành động trong scene là cutout nền trong suốt, không chứa caption,
+  nhãn hoặc chữ vẽ chết trong raster; instruction card/vocabulary UI chịu trách nhiệm hiển thị
+  toàn bộ text để tránh lặp chữ và giữ khả năng localize.
 - Success, fail và info feedback đều hiển thị text trong instruction card. Fail feedback giữ
   tương tác object để bé thử lại và tự ẩn ngay khi audio phản hồi phát xong; info feedback khi
   nghe lại instruction/từ vựng tự ẩn sau một khoảng ngắn.
@@ -509,9 +575,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   geometry gốc. Target lớn, step nhiều target và object đang kéo chỉ dùng viền highlight, không
   dùng zoom này.
 - Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
-  scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
-  `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm
-  thời; các foreground audio trùng key dùng chung in-flight preparation.
+  scene cần render/effect, gồm base/hidden/variant object assets, và audio của entry step đúng với
+  `teacherPromptMode` cùng `englishAccent` đang chọn. Foreground image/audio preparation tự retry
+  một lần khi gặp lỗi tạm thời; các foreground audio trùng key dùng chung in-flight preparation.
 - Audio còn lại của current scene và next scene được warm best-effort ở nền theo batch nhỏ để
   không tạo một đợt request lớn chặn lần mở bài đầu tiên. Khi step thực sự cần audio, foreground
   prepare vẫn xác nhận file đã có trong cache trước khi phát.
@@ -531,7 +597,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Speech practice
 
-- **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
+- **Implemented:** mọi teach step có vocabulary đều cho bé luyện phát âm bằng
+  `SpeakPracticeControls`. Teach step dùng `listen` đi thẳng vào luyện nói; teach step dùng
+  `tap`/`find`/`drag` hoàn tất hành động và success feedback trước, sau đó mới mở luyện nói rồi
+  cho bé chủ động tiếp tục. Vì vậy speech practice không chiếm cú chạm scene và cũng không tạo
+  bước cụt khi recorder không nghe thấy giọng hoặc không khả dụng.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, native on-device voice activity
   detection/endpointing, auto-stop và hỗ trợ phát lại local recording theo yêu cầu. Native chỉ
   đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
@@ -1150,7 +1220,11 @@ quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc bi�
 - Raw/chroma inputs: `src/assets/source/lessons/` (Gitignored local build artifact).
 - Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp` (Gitignored local build artifact).
 - Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2 CDN.
-- Current/next scene image prefetch dùng React Native `Image.prefetch`.
+- Catalog/audit/build/verify và missing-image check scan cả base object asset lẫn mọi
+  `SceneObject.variants[].asset`; variant kế thừa role và dùng geometry override nếu có để chọn
+  image profile.
+- Current/next scene image prefetch dùng React Native `Image.prefetch` và bao gồm cả variant/hidden
+  object assets để state transition không đợi tải ảnh giữa bước.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
 - Bundled UI art như `src/assets/images/app-logo.png`, Sungy mascot poses/source poster,
@@ -1258,7 +1332,11 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 442/442 tests pass trong 67 suites.
+- Jest: 494/495 tests pass trong 74 suites. 1 baseline failure nằm ở
+  `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
+  `NSPhotoLibraryUsageDescription`; pilot `plant-a-seed` không chạm iOS/localization. Bốn suite mục
+  tiêu lesson validation/icon/Scene State/pilot pass 81/81 tests; reward catalog và normalization
+  lesson visibility của settings cũng pass sau khi catalog có Theme 4.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: iOS Simulator arm64 pass cho working tree hiện tại. Android
   `:app:compileDebugKotlin` pass; full `assembleDebug` hiện bị chặn trước app link bởi
@@ -1284,8 +1362,8 @@ Support summary:
 | RevenueCat client entitlement lifecycle         | Implemented     |
 | Store-ready keys/products/legal config          | Partial         |
 | Remote Config monetization switches             | Implemented     |
-| Remote Config app-update policy                  | Implemented     |
-| Parent-only optional + kid-safe required update  | Implemented     |
+| Remote Config app-update policy                 | Implemented     |
+| Parent-only optional + kid-safe required update | Implemented     |
 | Parent-only system app review prompt            | Implemented     |
 | Persistent Android review store link            | Implemented     |
 | Persistent iOS review store link                | Implemented     |
@@ -1298,12 +1376,13 @@ Support summary:
 | English pronunciation en-US/en-GB               | Implemented     |
 | Mode-based lesson filtering                     | Implemented     |
 | Age-based runtime filtering                     | Partial         |
+| Scene object state/variants v1                  | Implemented     |
 | Scene-level resume                              | Implemented     |
 | Exact step resume                               | Partial         |
 | Record/playback + endpoint speech practice      | Implemented     |
 | Parent local voice recording library            | Implemented     |
-| Target-word assisted endpointing                 | Implemented     |
-| Transcription/pronunciation scoring              | Unsupported     |
+| Target-word assisted endpointing                | Implemented     |
+| Transcription/pronunciation scoring             | Unsupported     |
 | Android audio disk cache                        | Implemented     |
 | iOS audio disk cache                            | Unsupported     |
 | Full offline lesson bundle                      | Unsupported     |

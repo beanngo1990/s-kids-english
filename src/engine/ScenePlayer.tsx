@@ -58,6 +58,7 @@ import type {
   Scene,
   SceneObject,
   SceneStep,
+  SpeechPracticeMode,
 } from '../types/lesson';
 import { DEFAULT_ENGLISH_ACCENT, type EnglishAccent } from '../types/audio';
 import {
@@ -99,12 +100,18 @@ import {
   type SceneObjectEffect,
 } from './SceneObjectRenderer';
 import {
+  applySceneStateChanges,
+  resolveSceneObject,
+  type SceneRuntimeState,
+} from './SceneState';
+import {
   getParentSettings,
   subscribeParentSettings,
 } from './ParentSettingsManager';
 import { saveVoiceRecordingCandidate } from './VoiceRecordingStore';
 import {
   canPressObjects,
+  getStepHintObjectIds,
   getInitialStep,
   getStepById,
   getStepIndex,
@@ -128,8 +135,20 @@ type RequiredAssetFailure = 'feedback' | 'scene' | 'step';
 
 type ObjectEffectMap = Partial<Record<EntityId, SceneObjectEffect>>;
 
+type SceneStateTransaction = {
+  after: SceneRuntimeState;
+  before: SceneRuntimeState;
+};
+
 type AutoRecordRequest = {
   requestId: number;
+  stepId: EntityId;
+};
+
+type PendingInteractiveSpeechPractice = {
+  mode: SpeechPracticeMode;
+  result: StepInteractionResult;
+  sceneId: EntityId;
   stepId: EntityId;
 };
 
@@ -452,8 +471,13 @@ export function ScenePlayer({
   const [snappedObjectPositions, setSnappedObjectPositions] = useState<
     Record<EntityId, PercentRect>
   >({});
+  const [sceneRuntimeState, setSceneRuntimeState] =
+    useState<SceneRuntimeState>({});
+  const sceneRuntimeStateRef = useRef<SceneRuntimeState>({});
   const [autoRecordRequest, setAutoRecordRequest] =
     useState<AutoRecordRequest | null>(null);
+  const [pendingInteractiveSpeechPractice, setPendingInteractiveSpeechPractice] =
+    useState<PendingInteractiveSpeechPractice | null>(null);
   const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [showSceneEditorControl, setShowSceneEditorControl] = useState(false);
@@ -592,7 +616,10 @@ export function ScenePlayer({
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
     setSnappedObjectPositions({});
+    sceneRuntimeStateRef.current = {};
+    setSceneRuntimeState({});
     setAutoRecordRequest(null);
+    setPendingInteractiveSpeechPractice(null);
     setIsSpeechPracticeBusy(false);
     setCompletedListenInstructionKey(null);
     setSceneCompletion(null);
@@ -817,6 +844,10 @@ export function ScenePlayer({
   const currentStep = currentScene
     ? getStepById(currentScene, stepId) ?? getInitialStep(currentScene)
     : undefined;
+  const currentStepVocabulary =
+    currentScene && currentStep
+      ? getStepVocabulary(currentScene, currentStep)
+      : undefined;
   const handleRecordingReady = useCallback(
     async (recording: SpeakPracticeRecording) => {
       if (
@@ -949,10 +980,12 @@ export function ScenePlayer({
         },
         onAudioSettled: finishGuidanceAudio,
         onTeachAudioComplete: () => {
-          setAutoRecordRequest(previousRequest => ({
-            requestId: (previousRequest?.requestId ?? 0) + 1,
-            stepId: currentStep.id,
-          }));
+          if (getSpeechPracticeMode(currentScene, currentStep) === 'auto') {
+            setAutoRecordRequest(previousRequest => ({
+              requestId: (previousRequest?.requestId ?? 0) + 1,
+              stepId: currentStep.id,
+            }));
+          }
         },
       });
 
@@ -1040,7 +1073,7 @@ export function ScenePlayer({
     }
 
     const timer = setTimeout(() => {
-      setHintObjectIds(currentStep.targetObjectIds);
+      setHintObjectIds(getStepHintObjectIds(currentStep));
     }, autoHintDelayMs);
 
     return () => {
@@ -1144,7 +1177,9 @@ export function ScenePlayer({
     preparedFeedbackAudioKey === feedbackAudioPreparationKey;
   const isContinuePreparingFeedback =
     isListenStep(currentStep) && !isInstructionPending && !isFeedbackAudioReady;
-  const allObjects = getRenderableObjects(currentScene);
+  const allObjects = getRenderableObjects(currentScene)
+    .map(object => resolveSceneObject(object, sceneRuntimeState[object.id]))
+    .filter((object): object is SceneObject => Boolean(object));
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const totalStepCount = Math.max(1, currentScene.steps.length);
   const progressPercent = `${Math.max(
@@ -1164,7 +1199,17 @@ export function ScenePlayer({
     ? { width: responsiveLayout.sidePanelWidth }
     : null;
   const isSceneComplete = sceneCompletion !== null;
-  const speakPracticeWord = getSpeakPracticeWord(currentScene, currentStep);
+  const isInteractiveSpeechPracticeActive =
+    pendingInteractiveSpeechPractice?.sceneId === currentScene.id &&
+    pendingInteractiveSpeechPractice.stepId === currentStep.id;
+  const shouldAutoStartInteractiveSpeechPractice =
+    isInteractiveSpeechPracticeActive &&
+    pendingInteractiveSpeechPractice?.mode === 'auto';
+  const speakPracticeWord = getSpeakPracticeWord(
+    currentScene,
+    currentStep,
+    isInteractiveSpeechPracticeActive,
+  );
   const backgroundSource = resolveAsset(currentScene.background.source);
   const shouldUseBackgroundFallback =
     !backgroundSource ||
@@ -1210,12 +1255,13 @@ export function ScenePlayer({
       },
     );
 
-    const targetIds =
-      currentStep.targetObjectIds.length > 0
-        ? currentStep.targetObjectIds
-        : currentScene.character
-        ? [currentScene.character.id]
-        : [];
+    const targetIds = canPressObjects(currentStep)
+      ? getStepHintObjectIds(currentStep)
+      : currentStep.targetObjectIds.length > 0
+      ? currentStep.targetObjectIds
+      : currentScene.character
+      ? [currentScene.character.id]
+      : [];
 
     setSuccessObjectEffects(createUniformObjectEffectMap(targetIds, 'bounce'));
     showTemporaryFeedback({
@@ -1261,6 +1307,14 @@ export function ScenePlayer({
 
     resetAutoHintTimer();
 
+    if (isInteractiveSpeechPracticeActive) {
+      runAudio(playTapSound());
+      const pendingResult = pendingInteractiveSpeechPractice.result;
+      setPendingInteractiveSpeechPractice(null);
+      goToNextStep(currentScene, pendingResult);
+      return;
+    }
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < interactionCooldownMs) {
       return;
@@ -1273,7 +1327,12 @@ export function ScenePlayer({
   };
 
   const handleObjectPress = (objectId: EntityId) => {
-    if (isAdvancing || isInstructionPending || isSceneComplete) {
+    if (
+      isAdvancing ||
+      isInstructionPending ||
+      isInteractiveSpeechPracticeActive ||
+      isSceneComplete
+    ) {
       return;
     }
 
@@ -1371,7 +1430,9 @@ export function ScenePlayer({
     }
 
     const currentPosition = snappedObjectPositions[objectId] ?? object.position;
-    const baseRect = object.touchArea ?? currentPosition;
+    const baseRect = snappedObjectPositions[objectId]
+      ? currentPosition
+      : object.touchArea ?? currentPosition;
     const draggedRect = getDraggedRect(baseRect, translation, stageSize);
     const targetDropZoneRect = dropZone.touchArea ?? dropZone.position;
     const isInsideDropZone = isDropAccepted(draggedRect, targetDropZoneRect);
@@ -1437,7 +1498,9 @@ export function ScenePlayer({
         ? (wrongAttemptsByStepId[currentStep.id] ?? 0) + 1
         : 1;
       const hintIds =
-        currentStep && nextAttemptCount >= 2 ? currentStep.targetObjectIds : [];
+        currentStep && nextAttemptCount >= 2
+          ? getStepHintObjectIds(currentStep)
+          : [];
 
       if (currentStep) {
         setWrongAttemptsByStepId(currentAttempts => ({
@@ -1502,18 +1565,46 @@ export function ScenePlayer({
     setShakeObjectIds([]);
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
+    const stateBeforeSuccess = sceneRuntimeStateRef.current;
+    const stateAfterSuccess = applySceneStateChanges(
+      stateBeforeSuccess,
+      result.stateChanges,
+    );
+    sceneRuntimeStateRef.current = stateAfterSuccess;
+    setSceneRuntimeState(stateAfterSuccess);
     setSuccessObjectEffects(createObjectEffectMap(result.objectEffects));
     setFeedback({
       text: feedbackPrompt.displayText,
       type: 'success',
     });
-    scheduleNextStepAfterFeedback(activeScene, result, feedbackPrompt);
+    const interactiveSpeechPractice =
+      currentStep && isInteractiveSpeechPracticeStep(activeScene, currentStep)
+        ? {
+            mode: getSpeechPracticeMode(activeScene, currentStep)!,
+            stepId: currentStep.id,
+          }
+        : undefined;
+    scheduleNextStepAfterFeedback(
+      activeScene,
+      result,
+      feedbackPrompt,
+      {
+        after: stateAfterSuccess,
+        before: stateBeforeSuccess,
+      },
+      interactiveSpeechPractice,
+    );
   };
 
   const scheduleNextStepAfterFeedback = (
     activeScene: Scene,
     result: StepInteractionResult,
     feedbackPrompt: ReturnType<typeof resolveTeacherFeedback>,
+    stateTransaction: SceneStateTransaction,
+    interactiveSpeechPractice?: {
+      mode: SpeechPracticeMode;
+      stepId: EntityId;
+    },
   ) => {
     const requestId = advanceRequestIdRef.current + 1;
     advanceRequestIdRef.current = requestId;
@@ -1526,11 +1617,39 @@ export function ScenePlayer({
       advanceRequestIdRef.current += 1;
       clearTimer(advanceTimerRef);
       setFeedbackAudioStatus(null);
+      if (interactiveSpeechPractice) {
+        setFeedback(null);
+        setSuccessObjectEffects({});
+        setPendingInteractiveSpeechPractice({
+          mode: interactiveSpeechPractice.mode,
+          result,
+          sceneId: activeScene.id,
+          stepId: interactiveSpeechPractice.stepId,
+        });
+        if (interactiveSpeechPractice.mode === 'auto') {
+          setAutoRecordRequest(previousRequest => ({
+            requestId: (previousRequest?.requestId ?? 0) + 1,
+            stepId: interactiveSpeechPractice.stepId,
+          }));
+        } else {
+          setAutoRecordRequest(null);
+        }
+        return;
+      }
       goToNextStep(activeScene, result);
     };
 
     clearTimer(advanceTimerRef);
     setFeedbackAudioStatus('preparing');
+
+    const rollbackSceneState = () => {
+      if (sceneRuntimeStateRef.current !== stateTransaction.after) {
+        return;
+      }
+
+      sceneRuntimeStateRef.current = stateTransaction.before;
+      setSceneRuntimeState(stateTransaction.before);
+    };
 
     const prepareAndPlayFeedback = async () => {
       const feedbackAssets = getPromptAudioAssets(
@@ -1545,6 +1664,7 @@ export function ScenePlayer({
         return;
       }
       if (!isFeedbackReady) {
+        rollbackSceneState();
         setFeedbackAudioStatus(null);
         if (!canBypassMissingAudio) {
           setRequiredAssetFailure('feedback');
@@ -1569,6 +1689,7 @@ export function ScenePlayer({
         }
 
         cancelStepAudioSequence();
+        rollbackSceneState();
         setFeedbackAudioStatus(null);
         if (!canBypassMissingAudio) {
           setRequiredAssetFailure('feedback');
@@ -1590,6 +1711,7 @@ export function ScenePlayer({
       clearTimer(advanceTimerRef);
       if (playbackResult !== 'completed') {
         if (playbackResult === 'failed') {
+          rollbackSceneState();
           setFeedbackAudioStatus(null);
           if (!canBypassMissingAudio) {
             setRequiredAssetFailure('feedback');
@@ -1609,6 +1731,7 @@ export function ScenePlayer({
 
     prepareAndPlayFeedback().catch(() => {
       if (advanceRequestIdRef.current === requestId) {
+        rollbackSceneState();
         setFeedbackAudioStatus(null);
         if (!canBypassMissingAudio) {
           setRequiredAssetFailure('feedback');
@@ -1756,7 +1879,10 @@ export function ScenePlayer({
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
     setSnappedObjectPositions({});
+    sceneRuntimeStateRef.current = {};
+    setSceneRuntimeState({});
     setAutoRecordRequest(null);
+    setPendingInteractiveSpeechPractice(null);
     setIsSpeechPracticeBusy(false);
     setSceneCompletion(null);
   };
@@ -1922,15 +2048,19 @@ export function ScenePlayer({
                         ? autoRecordRequest.requestId
                         : 0
                     }
+                    autoStartWithPrompt={
+                      shouldAutoStartInteractiveSpeechPractice
+                    }
                     disabled={isInstructionPending || isSceneComplete}
                     isInstructionPreparing={isInstructionPreparing}
                     isInstructionPlaying={isInstructionPlaying}
                     onAudioStart={cancelStepAudioSequence}
                     onBusyChange={setIsSpeechPracticeBusy}
                     onContinue={
-                      isListenStep(currentStep) &&
-                      !isInstructionPending &&
-                      !isContinuePreparingFeedback
+                      isInteractiveSpeechPracticeActive ||
+                      (isListenStep(currentStep) &&
+                        !isInstructionPending &&
+                        !isContinuePreparingFeedback)
                         ? handleContinue
                         : undefined
                     }
@@ -1944,14 +2074,30 @@ export function ScenePlayer({
                     teacherPromptMode={teacherPromptMode}
                     word={speakPracticeWord}
                   />
-                ) : getStepVocabulary(currentScene, currentStep) ? (
-                  <Text
-                    adjustsFontSizeToFit
-                    numberOfLines={1}
-                    style={styles.targetWord}
-                  >
-                    {getStepVocabulary(currentScene, currentStep)?.word}
-                  </Text>
+                ) : !isListenStep(currentStep) ? (
+                  <View style={styles.stepPromptBlock}>
+                    <Text
+                      adjustsFontSizeToFit
+                      minimumFontScale={0.75}
+                      numberOfLines={2}
+                      style={styles.stepInstruction}
+                    >
+                      {resolveTeacherInstruction(
+                        currentStep,
+                        teacherPromptMode,
+                        currentScene,
+                      ).displayText}
+                    </Text>
+                    {currentStepVocabulary ? (
+                      <Text
+                        adjustsFontSizeToFit
+                        numberOfLines={1}
+                        style={styles.targetWord}
+                      >
+                        {currentStepVocabulary.word}
+                      </Text>
+                    ) : null}
+                  </View>
                 ) : null}
 
                 {!speakPracticeWord ? (
@@ -2217,6 +2363,7 @@ export function ScenePlayer({
               isDisabled={
                 isAdvancing ||
                 isInstructionPending ||
+                isInteractiveSpeechPracticeActive ||
                 isSpeechPracticeBusy ||
                 (!canPressObjects(currentStep) && !canTapToHear)
               }
@@ -2293,7 +2440,10 @@ function getRenderableObjects(scene: Scene) {
 function getSceneImageSources(scene: Scene) {
   const sources = [
     scene.background.source,
-    ...getRenderableObjects(scene).map(object => object.asset.source),
+    ...getRenderableObjects(scene).flatMap(object => [
+      object.asset.source,
+      ...(object.variants?.map(variant => variant.asset.source) ?? []),
+    ]),
   ];
 
   for (const step of scene.steps) {
@@ -2369,7 +2519,7 @@ function getStepAudioAssets(
     englishAccent,
   );
 
-  if (step.type === 'teach' && vocabularyItem) {
+  if (getSpeechPracticeMode(scene, step) && vocabularyItem) {
     if (
       shouldPlayVocabularyAfterInstruction(
         step,
@@ -2540,12 +2690,42 @@ function getStepVocabulary(scene: Scene, step: SceneStep) {
   return getObjectVocabulary(scene, targetObject);
 }
 
-function getSpeakPracticeWord(scene: Scene, step: SceneStep) {
-  if (step.type !== 'teach') {
+function getSpeakPracticeWord(
+  scene: Scene,
+  step: SceneStep,
+  isInteractiveSpeechPracticeActive = false,
+) {
+  if (
+    !getSpeechPracticeMode(scene, step) ||
+    (!isListenStep(step) && !isInteractiveSpeechPracticeActive)
+  ) {
     return undefined;
   }
 
   return getStepVocabulary(scene, step)?.word;
+}
+
+function getSpeechPracticeMode(
+  scene: Scene,
+  step: SceneStep,
+): SpeechPracticeMode | undefined {
+  if (!getStepVocabulary(scene, step)) {
+    return undefined;
+  }
+
+  return step.speechPractice ?? (step.type === 'teach' ? 'auto' : undefined);
+}
+
+function isSpeechPracticeStep(scene: Scene, step: SceneStep) {
+  return Boolean(getSpeechPracticeMode(scene, step)) && isListenStep(step);
+}
+
+function isInteractiveSpeechPracticeStep(scene: Scene, step: SceneStep) {
+  return (
+    Boolean(getSpeechPracticeMode(scene, step)) &&
+    canPressObjects(step) &&
+    Boolean(getStepVocabulary(scene, step))
+  );
 }
 
 function canTapObjectToHear(
@@ -2554,7 +2734,7 @@ function canTapObjectToHear(
   object: SceneObject,
 ) {
   return (
-    step.type === 'teach' &&
+    isSpeechPracticeStep(scene, step) &&
     isStepTargetObject(step, object.id) &&
     Boolean(getObjectVocabulary(scene, object))
   );
@@ -2630,7 +2810,7 @@ async function playStepAudioSequence(
 ): Promise<NarrationPlaybackResult> {
   const vocabularyItem = getStepVocabulary(scene, step);
 
-  if (step.type === 'teach' && vocabularyItem) {
+  if (isSpeechPracticeStep(scene, step) && vocabularyItem) {
     if (!isActive()) return 'cancelled';
     const instructionResult = await playTeacherPromptNarration(
       resolveTeacherInstruction(step, teacherPromptMode, scene).segments,
@@ -3236,13 +3416,21 @@ const styles = createThemedStyles(() => ({
     textAlign: 'center',
     ...typography.caption,
   },
+  stepInstruction: {
+    color: colors.text,
+    textAlign: 'center',
+    ...typography.body,
+  },
+  stepPromptBlock: {
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
   targetWord: {
     color: colors.primaryDark,
     textAlign: 'center',
     ...typography.title,
-    fontSize: 42,
-    lineHeight: 52,
-    marginVertical: spacing.sm,
+    fontSize: 36,
+    lineHeight: 44,
   },
   topHud: {
     alignItems: 'center',

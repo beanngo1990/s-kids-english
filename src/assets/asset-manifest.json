@@ -15850,6 +15850,857 @@
     },
     {
       "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/plant-a-seed/first-watering/images/background.webp",
+      "outputBytes": 67072,
+      "outputSha256": "7862688356d1b23fb6a381a5285455b1cedba530d0d4f737de4fc15c9aba2257",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/background.png",
+      "sourceBytes": 3145093,
+      "sourceSha256": "d078565a83866fa7224603e0de9cd2ff3b360ded0de9763a0f27ff38936cc81b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/plant-a-seed/first-watering/images/damp.webp",
+      "outputBytes": 42518,
+      "outputSha256": "32bb834dd646ba1826553609d256eb7e2bc9b2b7919cedd34841701300fc57fe",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/damp.png",
+      "sourceBytes": 833469,
+      "sourceSha256": "f4371d0d8fed0bbdaabffb3a4cf97a3ffb5d56f2707ee713d414976fea8ca750",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/first-watering/images/pot-damp.webp",
+      "outputBytes": 33546,
+      "outputSha256": "c8a366ccad1cf8f763682d97b5146c1c72e8343ec1e2c506bce0a73b51e613be",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/pot-damp.png",
+      "sourceBytes": 1036805,
+      "sourceSha256": "7a23c6304efef70b7db8074b4e8ec945cb58e4a8cc72bcd16adc06208fe2824d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/first-watering/images/pot-dry.webp",
+      "outputBytes": 32162,
+      "outputSha256": "b84bea1f9383e3f3183f3f04abd7cceffb7362824ab171eddccb5b06dac60442",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/pot-dry.png",
+      "sourceBytes": 1011085,
+      "sourceSha256": "86e896802f7d274e23ff667f5eac688a2749d380442bcacaf4841edcd684cf2f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/first-watering/images/puddle.webp",
+      "outputBytes": 36784,
+      "outputSha256": "2e93b364fdb3b13707029595801d3eaf23a6e02b0785547ea003341d60e48fb3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/puddle.png",
+      "sourceBytes": 485381,
+      "sourceSha256": "c5a42f128251b559ab81963869c2e9b2d0a2e259e7976f63b62e0353a0672e6f",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/plant-a-seed/first-watering/images/spout.webp",
+      "outputBytes": 37140,
+      "outputSha256": "6a3f936a880d02a29a18912bc96aaf1dbce8ba54ea479aae8da63db5168a62f7",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/spout.png",
+      "sourceBytes": 873436,
+      "sourceSha256": "de613299ee5f5725f779a63d8737bf525f0511184406377ec9cf996d58cf8c39",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/plant-a-seed/first-watering/images/sprout.webp",
+      "outputBytes": 56502,
+      "outputSha256": "6b2cb733593a4f28f8b7e8faa4d4f61f0679a44bac23202db14814da253961a5",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/sprout.png",
+      "sourceBytes": 1061171,
+      "sourceSha256": "0536b19fdffd62cd77029ae62be41cf43d7c7e6166d230bc8773445c2e4f6c00",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/plant-a-seed/first-watering/images/time-cue.webp",
+      "outputBytes": 40652,
+      "outputSha256": "5926f0abf76af9657646b6f91cf66904ded111c93c546815b21a14b22d834a39",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/time-cue.png",
+      "sourceBytes": 1058120,
+      "sourceSha256": "9c10e42fc0d184cf8dd8a77e1d8bbf92dc6c278b8c634533e35b383b939421ec",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/first-watering/images/wait-sprout.webp",
+      "outputBytes": 46472,
+      "outputSha256": "4056c38ff2bea5b6c142eacecbcf0832b09d227fd52b04818c46595f8fbf5feb",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/wait-sprout.png",
+      "sourceBytes": 516715,
+      "sourceSha256": "97a2c782c82a9eccfd7aa19e4e7359397ea86d0ed0a0721556e5b5adbd2f0bf9",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/first-watering/images/water-gently.webp",
+      "outputBytes": 56608,
+      "outputSha256": "3c7725110c4ffb3560d29b2a35b6435f34fa1859463746f8983c3201204c9d4b",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/water-gently.png",
+      "sourceBytes": 691585,
+      "sourceSha256": "123aabed1e94c286a73d1490a1df9c992a194964edf4f5beddf3a8e0d5ecca5d",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/plant-a-seed/first-watering/images/water.webp",
+      "outputBytes": 17312,
+      "outputSha256": "9bbe7861aa0234a515f79b327537944f81ea0660ba413160965ce275c1014c0e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/water.png",
+      "sourceBytes": 535378,
+      "sourceSha256": "4011c2a644e8104976cef06a37ce3b23347e2799981124c61e72cf8645ab47cb",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/plant-a-seed/first-watering/images/watering-can.webp",
+      "outputBytes": 39832,
+      "outputSha256": "a1a556c415e283c872951844b56a02de9abd2f16effa4b7f8d86994af2afe054",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "first-watering"
+      ],
+      "source": "lessons/plant-a-seed/first-watering/images/watering-can.png",
+      "sourceBytes": 765298,
+      "sourceSha256": "f9366a6e4ac799ec5833c99a0316390ed77ba5088b50f83aee8cdfdb96929bf8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/background.webp",
+      "outputBytes": 67072,
+      "outputSha256": "7862688356d1b23fb6a381a5285455b1cedba530d0d4f737de4fc15c9aba2257",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/background.png",
+      "sourceBytes": 3145093,
+      "sourceSha256": "d078565a83866fa7224603e0de9cd2ff3b360ded0de9763a0f27ff38936cc81b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/cover-seed-v2.webp",
+      "outputBytes": 51888,
+      "outputSha256": "693b2273ea2c101043d1b02ee9ab2838a5df22b2d939a4edfecb35fd9726c1b6",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/cover-seed-v2.png",
+      "sourceBytes": 626955,
+      "sourceSha256": "f9d8f795dbea5ec3b0d2751049ffa09827e75d351bc0bd7c18f4d0c0a3579729",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/cover-soil.webp",
+      "outputBytes": 51180,
+      "outputSha256": "5a2f79e0b29bd0aca6a955733ccb9ba8ceb39fe551b033c0280889171b23c8e7",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/cover-soil.png",
+      "sourceBytes": 874690,
+      "sourceSha256": "1174ee9160ba7c38b5e61c022eb0a0621f3c529d47c4b3c65cb5cee1c2329744",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/finger.webp",
+      "outputBytes": 16018,
+      "outputSha256": "1cd2261f28c3e4f04bd996f56a47cc7941beea2fc8357c04a5beeda108a332bb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/finger.png",
+      "sourceBytes": 657498,
+      "sourceSha256": "a2d7ca8d651b0450fe6f124b344e6cd9ea8a512933f804b200986237ae6583a0",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/hole.webp",
+      "outputBytes": 35032,
+      "outputSha256": "6aeedd0ca4371e4902c8b35568886d7e2d54c9839d878279b2066056d0d80f44",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/hole.png",
+      "sourceBytes": 1093834,
+      "sourceSha256": "247719d3dd79dafe52305e6d944567abcb7528ad07b6d12bcf27199f0aedb5f6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/plant-label.webp",
+      "outputBytes": 12204,
+      "outputSha256": "e3d19865d4383a77b4ac3de288b89061c7d542dcb145d19534a7c2eb89c4b9cf",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/plant-label.png",
+      "sourceBytes": 530917,
+      "sourceSha256": "f462f888bf27228a15bc857eda4945e16a25a070f06e6b962087b02a47d1ffc6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/plant-seed.webp",
+      "outputBytes": 39500,
+      "outputSha256": "b8cc8f3d5b5d8f7594c3745b8bcec4e1169a2b40cd92102b2588af652a109646",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/plant-seed.png",
+      "sourceBytes": 562354,
+      "sourceSha256": "bc6dd54c946ab41653823fc91fde01b811c18ba565036e69a4e06c9aa329c4bc",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/planted-label.webp",
+      "outputBytes": 40534,
+      "outputSha256": "a81a9c1a290aab75c3fee0fd3230ede1cb7708e52994f5c15c34d57ee01ac830",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/planted-label.png",
+      "sourceBytes": 855760,
+      "sourceSha256": "e1a6ade2ada033c9a8eed4415d63f264d87f1839fe3161e1a38d34302f938437",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/pot-hole-open.webp",
+      "outputBytes": 30146,
+      "outputSha256": "1cd8ebf4d0d03684e9ee83ef05b14f778852a7368091d245c90812efb08d24a0",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/pot-hole-open.png",
+      "sourceBytes": 970533,
+      "sourceSha256": "b25c11dbca4cf64fe62e37d7549661404c44cec6d8a0f963cd9dd7d0457fc591",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/pot-seed-covered.webp",
+      "outputBytes": 32162,
+      "outputSha256": "b84bea1f9383e3f3183f3f04abd7cceffb7362824ab171eddccb5b06dac60442",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/pot-seed-covered.png",
+      "sourceBytes": 1011085,
+      "sourceSha256": "86e896802f7d274e23ff667f5eac688a2749d380442bcacaf4841edcd684cf2f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/pot-seed-visible.webp",
+      "outputBytes": 30504,
+      "outputSha256": "ccd391f9df88c3bfbc4654a257151a53c02c4da16f348be1c42108b361f03102",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/pot-seed-visible.png",
+      "sourceBytes": 973531,
+      "sourceSha256": "ecb23b88bcc00908237cc0538d66446eb900b11a5872bbf0166d68a863bd45d0",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/pot-soil-flat.webp",
+      "outputBytes": 31976,
+      "outputSha256": "58e80919ea54ebd7f6f02a7e33b0bab380f24a69365060e8661bed3a87fb9179",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/pot-soil-flat.png",
+      "sourceBytes": 1002141,
+      "sourceSha256": "358b4d287aa68245478d903c55b91eed65f6051a8b7e3f5259e9c0747474d81b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/seed-packet.webp",
+      "outputBytes": 32056,
+      "outputSha256": "e1a8795092693d241797fc4d8c41770e57ad86d62e5090aa36c3d459635f867f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/seed-packet.png",
+      "sourceBytes": 1030716,
+      "sourceSha256": "d4085dac31a63ea804859f19a94145f0fc588846bee74668c7ee9dd12e4ff29b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 14,
+      "output": "lessons/plant-a-seed/plant-the-seed/images/seed.webp",
+      "outputBytes": 19380,
+      "outputSha256": "403231c0f0c4bd4fea2d2fdddf33633013cf925bf07c959d68b6f81c69aa3f94",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "plant-the-seed"
+      ],
+      "source": "lessons/plant-a-seed/plant-the-seed/images/seed.png",
+      "sourceBytes": 891740,
+      "sourceSha256": "596d126a9747402be68a025ed0bdf0f8c686076b03570ea9727d36a25ee76322",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/background.webp",
+      "outputBytes": 67072,
+      "outputSha256": "7862688356d1b23fb6a381a5285455b1cedba530d0d4f737de4fc15c9aba2257",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/background.png",
+      "sourceBytes": 3145093,
+      "sourceSha256": "d078565a83866fa7224603e0de9cd2ff3b360ded0de9763a0f27ff38936cc81b",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/drainage-hole.webp",
+      "outputBytes": 20238,
+      "outputSha256": "ffd1e59c530e3c1824a44e752c32356897b9afbd12ed26b660e5fd50bb608936",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/drainage-hole.png",
+      "sourceBytes": 824280,
+      "sourceSha256": "0a15a67c25c6bd95f70d217faf4757da39d346725ea32fb37d1289a2a51d9389",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/fill-pot-soil.webp",
+      "outputBytes": 48104,
+      "outputSha256": "3f013c1fe544333503d3d4c8d64cbd2c4cc739343116736ca05cd4bcf98aa132",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/fill-pot-soil.png",
+      "sourceBytes": 621719,
+      "sourceSha256": "825327de039c601903324cb9d80bb66ca9d129aae3e3360eca995d0203673fbb",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/leave-space.webp",
+      "outputBytes": 46756,
+      "outputSha256": "98596e5d3decd965fd143b45e84933e23b0b9a9d1991f4b527d73eb5a7e43621",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/leave-space.png",
+      "sourceBytes": 798021,
+      "sourceSha256": "a1848fda268d4fba10afb898d921d3d4c8832be998fdba01689d423ab4c0d5e5",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-empty.webp",
+      "outputBytes": 26766,
+      "outputSha256": "4cdfca3cfc781039f91cfc69633e07efd668263b38d0bfebf3f4b0e51accc91f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-empty.png",
+      "sourceBytes": 971242,
+      "sourceSha256": "fca5771e6074a322480421fbccb69cd5e617b6d405097641707b8cfc5203504c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-soil-low.webp",
+      "outputBytes": 29884,
+      "outputSha256": "7f17cedc6b4dfaa28451278eef9ea485441de7680982b955544541d8c73043a2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-soil-low.png",
+      "sourceBytes": 991057,
+      "sourceSha256": "b177c4675d3186afaaf5f2e8b797c872e91cd29241b6c70dba6cc09fdbc89803",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-soil-ready.webp",
+      "outputBytes": 31976,
+      "outputSha256": "58e80919ea54ebd7f6f02a7e33b0bab380f24a69365060e8661bed3a87fb9179",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/plant-pot-soil-ready.png",
+      "sourceBytes": 1002141,
+      "sourceSha256": "358b4d287aa68245478d903c55b91eed65f6051a8b7e3f5259e9c0747474d81b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/potting-mix-v2.webp",
+      "outputBytes": 56378,
+      "outputSha256": "6f1d2d9bded32b677652e3468156fc45f861653e791e3dfd61dd8c41b351a085",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/potting-mix-v2.png",
+      "sourceBytes": 1095744,
+      "sourceSha256": "cb0a71c100230e8d72cb5c2a281051de0b17fc0b6f560e6130ca2618e84e0930",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/scoop-empty.webp",
+      "outputBytes": 32824,
+      "outputSha256": "505a1994fa34aa564b7d4c447e18e7279a8c4d0c73eb454fade71c0fd618f058",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/scoop-empty.png",
+      "sourceBytes": 591152,
+      "sourceSha256": "38d354f05770c397c8e67b192284157c30ef651e085e1d87ffcbff31e86e277f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/scoop-filled.webp",
+      "outputBytes": 45450,
+      "outputSha256": "1ef3be54576c678e5d55acb17c74d8d6052cbe8bd51d3af256b0f73b90b761fe",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/scoop-filled.png",
+      "sourceBytes": 855188,
+      "sourceSha256": "113228536ebc7762b497827ae9ecf5a7a6158c99d2b985851bd19acef35b5af5",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "plant-a-seed"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/plant-a-seed/prepare-the-pot/images/soil.webp",
+      "outputBytes": 42494,
+      "outputSha256": "8867eec580a4a86ed761ffaafb4b8d1de5851c8a014ad1f02db3b9490343a413",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-pot"
+      ],
+      "source": "lessons/plant-a-seed/prepare-the-pot/images/soil.png",
+      "sourceBytes": 772826,
+      "sourceSha256": "0d54aaaafcc9e7d272a1833c062624f7d2000252c890f28c9d731451274b4245",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
@@ -19483,7 +20334,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-02T15:37:44.586Z",
+  "generatedAt": "2026-08-13T03:10:12.523Z",
   "releaseVersion": "v1",
-  "revision": "496fd714b9cc4d5e"
+  "revision": "564a6060b3c1da13"
 }

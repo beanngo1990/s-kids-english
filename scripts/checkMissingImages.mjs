@@ -92,6 +92,25 @@ function checkMissingImages() {
   }
 
   const allImages = new Set();
+  const addObjectImages = object => {
+    if (
+      object?.asset &&
+      (object.asset.type === 'image' || object.asset.type === 'sprite') &&
+      object.asset.source
+    ) {
+      allImages.add(object.asset.source);
+    }
+
+    for (const variant of object?.variants ?? []) {
+      if (
+        variant.asset &&
+        (variant.asset.type === 'image' || variant.asset.type === 'sprite') &&
+        variant.asset.source
+      ) {
+        allImages.add(variant.asset.source);
+      }
+    }
+  };
   
   // Extract all images
   for (const lesson of lessons) {
@@ -100,14 +119,10 @@ function checkMissingImages() {
         allImages.add(scene.background.source);
       }
       
-      if (scene.character && scene.character.asset && scene.character.asset.type === 'sprite' && scene.character.asset.source) {
-        allImages.add(scene.character.asset.source);
-      }
+      addObjectImages(scene.character);
       
       for (const obj of scene.objects ?? []) {
-        if (obj.asset && (obj.asset.type === 'image' || obj.asset.type === 'sprite') && obj.asset.source) {
-          allImages.add(obj.asset.source);
-        }
+        addObjectImages(obj);
       }
       
       // Also check if any effects use images? effects typically use sound or animation

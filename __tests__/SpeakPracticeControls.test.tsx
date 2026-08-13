@@ -210,6 +210,32 @@ test('starts automatic recording without opening a redundant narration session',
   });
 });
 
+test('plays the practice prompt before auto-recording after a scene action', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        autoStartWithPrompt
+        word="spout"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartNarrationSession).toHaveBeenCalledTimes(1);
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledTimes(1);
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+    await flushPromises();
+  });
+});
+
 test('does not send a simple microphone denial to Settings', async () => {
   mockedRequestVoiceRecordingPermission.mockResolvedValue('denied');
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;

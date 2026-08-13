@@ -155,6 +155,7 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'dress-myself',
     'toilet-routine',
     'speaking-up',
+    'plant-a-seed',
   ]);
 });
 
@@ -496,6 +497,53 @@ test('validator catches missing object references', () => {
 
   expect(issues.some(issue => issue.message.includes('missing-object'))).toBe(
     true,
+  );
+});
+
+test('validator requires vocabulary for an authored speech-practice step', () => {
+  const invalidLesson: Lesson = {
+    ageRange: { max: 8, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-speech-practice-lesson',
+    scenes: [
+      {
+        background: {
+          id: 'invalid-speech-background',
+          source: 'lessons/invalid-speech/images/background.png',
+          type: 'image',
+        },
+        id: 'invalid-speech-scene',
+        objects: [],
+        steps: [
+          {
+            id: 'invalid-speech-step',
+            instructionVi: 'Nói cùng cô nhé.',
+            interaction: { type: 'listen' },
+            speechPractice: 'optional',
+            successFeedbackVi: 'Giỏi lắm!',
+            targetObjectIds: [],
+            type: 'practice',
+          },
+        ],
+        titleEn: 'Invalid speech practice',
+        titleVi: 'Luyện nói sai',
+      },
+    ],
+    themeId: 'mot-ngay-cua-be',
+    titleEn: 'Invalid speech practice',
+    titleVi: 'Luyện nói sai',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message:
+          'Speech-practice step must reference vocabulary through vocabId or a target object.',
+        severity: 'error',
+      }),
+    ]),
   );
 });
 

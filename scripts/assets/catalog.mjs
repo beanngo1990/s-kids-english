@@ -115,24 +115,29 @@ export function collectImageUsages() {
         source: scene.background?.source,
       });
 
-      if (scene.character?.asset?.source) {
-        addUsage({
-          lessonId: lesson.id,
-          maxPercent: maxPositionPercent(scene.character.position),
-          role: 'character',
-          sceneId: scene.id,
-          source: scene.character.asset.source,
-        });
-      }
+      const renderableObjects = scene.character
+        ? [scene.character, ...(scene.objects ?? [])]
+        : scene.objects ?? [];
 
-      for (const object of scene.objects ?? []) {
+      for (const object of renderableObjects) {
+        const role = object.role === 'character' ? 'character' : 'object';
         addUsage({
           lessonId: lesson.id,
           maxPercent: maxPositionPercent(object.position),
-          role: object.role === 'character' ? 'character' : 'object',
+          role,
           sceneId: scene.id,
           source: object.asset?.source,
         });
+
+        for (const variant of object.variants ?? []) {
+          addUsage({
+            lessonId: lesson.id,
+            maxPercent: maxPositionPercent(variant.position ?? object.position),
+            role,
+            sceneId: scene.id,
+            source: variant.asset?.source,
+          });
+        }
       }
 
       for (const step of scene.steps ?? []) {

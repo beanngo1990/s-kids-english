@@ -73,6 +73,7 @@ type MicrophoneAccessStatus = VoiceRecordingPermissionStatus | 'unknown';
 
 type SpeakPracticeControlsProps = {
   autoStartRequestId?: number;
+  autoStartWithPrompt?: boolean;
   disabled?: boolean;
   englishAccent?: EnglishAccent;
   isInstructionPreparing?: boolean;
@@ -213,6 +214,7 @@ function AnimatedRecordingDot() {
 
 export function SpeakPracticeControls({
   autoStartRequestId = 0,
+  autoStartWithPrompt = false,
   disabled = false,
   englishAccent = DEFAULT_ENGLISH_ACCENT,
   isInstructionPreparing = false,
@@ -710,13 +712,13 @@ export function SpeakPracticeControls({
     handledAutoStartRequestRef.current = autoStartRequestId;
     beginRecording({
       permissionRequestSource: 'automatic',
-      playPrompt: false,
+      playPrompt: autoStartWithPrompt,
       playTap: false,
     }).catch(() => {
       setMicrophoneAccessStatus('unavailable');
       setStatus('idle');
     });
-  }, [autoStartRequestId, beginRecording]);
+  }, [autoStartRequestId, autoStartWithPrompt, beginRecording]);
 
   const handleRecordPress = async () => {
     if (disabled || status === 'prompting' || status === 'encouraging') {

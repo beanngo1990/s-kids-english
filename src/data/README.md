@@ -213,6 +213,11 @@ scene position, uses up to 1280 pixels for large characters, and 2048 pixels
 for backgrounds. It never enlarges a master image. Configuration and per-asset
 overrides live in `scripts/assets/config.mjs`.
 
+Object state variants use the same master/generated layout as base object
+images. The catalog, audit, build, verify, missing-image check, and runtime
+preloader scan every `SceneObject.variants[].asset`; a variant may therefore be
+initially hidden and still remains a required scene image.
+
 R2 uses the `v1` prefix. Generated URLs include an image manifest revision so
 an iPad does not reuse a stale device cache after the R2/CDN cache is purged.
 Use `npm run r2:clear -- --prefix=v1/` to preview a purge; destructive execution
@@ -229,15 +234,80 @@ Use helpers from `src/data/lessonAuthoring.ts`:
 import {
   characterObject,
   dragStep,
+  findStep,
   imageAsset,
   learningObject,
   listenStep,
+  objectVariant,
   rect,
+  sceneObject,
+  sceneStateChanges,
   tapStep,
 } from '../lessonAuthoring';
 ```
 
 They keep object shape, position, and interaction config consistent.
+Use `sceneObject` for non-vocabulary action/decoration/drop-zone objects and
+`findStep` when the child is asked to locate an object. The registered
+`src/data/lessons/plantASeed.ts` pilot is the end-to-end reference for combining
+these helpers with learning-mode filtering and Scene State v1.
+
+## Scene State v1
+
+Use Scene State v1 when a successful action needs a visible, durable result for
+the rest of the current scene session. Objects keep their required base `asset`
+and may add image `variants`, an `initialVariantId`, or an
+`initialVisibility` of `hidden`/`visible`. A variant can override `position` and
+`touchArea`; otherwise it inherits the base object geometry.
+
+```ts
+const pot = learningObject({
+  assetSource: 'lessons/plant-a-seed/prepare-the-pot/images/pot-empty.webp',
+  id: 'prepare-pot-pot',
+  position: rect(38, 46, 24, 24),
+  variants: [
+    objectVariant({
+      assetSource:
+        'lessons/plant-a-seed/prepare-the-pot/images/pot-filled.webp',
+      id: 'soil-ready',
+    }),
+  ],
+  vocab: vocabulary.pot,
+});
+
+const step = tapStep({
+  id: 'prepare-pot-add-soil',
+  instructionVi: 'Chạm vào đất để cho vào chậu nhé.',
+  successFeedbackVi: 'Chậu đã có đất rồi!',
+  successStateChanges: [
+    sceneStateChanges.setVariant(pot.id, 'soil-ready'),
+    sceneStateChanges.hide('prepare-pot-soil-bag'),
+    sceneStateChanges.show('prepare-pot-ready-mark'),
+  ],
+  targetObjectId: 'prepare-pot-soil-bag',
+  type: 'practice',
+});
+```
+
+`successStateChanges` supports only three v1 actions:
+
+- `setObjectVariant`: switch one object to one of its authored variant IDs;
+- `showObject`: make an initially/runtime-hidden object visible;
+- `hideObject`: remove an object from rendering and hit testing.
+
+The controller exposes these changes only for a correct interaction. Incorrect
+and ignored interactions never change object state. Runtime applies the changes
+in authored order. If required success-feedback playback fails and the runtime
+must keep the child on the same step, that step's state transaction is rolled
+back so its target remains playable. Runtime resets all object state on scene
+replay/transition and does not persist state across scenes or app sessions. V1
+has no branching, inventory, arbitrary variables, cross-scene state, or
+exact-step resume.
+
+Variants inherit the parent object's `learningScope`. Mode filtering removes a
+state change if its target object is unavailable in the selected mode; it does
+not independently filter variants. Keep all core prerequisites and core end
+state objects in `core` scope.
 
 ## Learning Modes
 
@@ -260,6 +330,54 @@ needs author-written copy.
 Keep `VocabularyItem.word` natural when spoken aloud: action phrases should
 include required articles or possessives, such as `open the book`,
 `raise your hand`, and `wash your hands`.
+For pre-readers, never rely on a written `meaningVi` label to introduce an
+action phrase. Author a `teach` step before its first `review` step: highlight
+the text-free action image, explain the action naturally in `instructionVi`,
+then let the normal English model and speech-practice sequence run. Repeat the
+Vietnamese meaning and a concrete visual cue in the review instruction so the
+child can answer without reading the English phrase. Keep each Vietnamese
+instruction to one idea and one action; for the pre-reader path, aim for at
+most 12 spoken words in teach and 10 in review.
+
+Audit instructions against the whole visible scene, not only the correct
+object. If a concept matches more than one object, name the correct visual form
+or distinguishing feature (`túi đất có hình mầm`, `đống đất bên trái`, `giọt
+nước màu xanh`). A vocabulary image must show the positive concept itself; do
+not teach `puddle` with a crossed-out puddle or teach an action with a before-
+state that does not visibly perform that action.
+
+For a new concrete noun, introduce the English model and speech practice while
+the referenced object is still clearly visible. If a later action hides or
+transforms that object, teach the noun first, then use it in the action; do not
+wait until after the object disappears to ask the child to repeat the word.
+Teach a prerequisite noun such as `soil` before a longer phrase that contains
+it. For a part such as `spout`, keep the whole object visible in the scene and
+name its relationship to the part without adding the whole object to the
+interactive target list. For a visual state such as `damp`, narrate the visible
+before/after change before asking the child to identify the new state.
+
+After a correct tap/find/drag interaction, the engine applies its implicit
+success animation only to the object the child selected. `targetObjectIds` may
+include distractors and must not be treated as a list of objects to celebrate.
+Declare explicit animation effects when a successful action intentionally
+needs to animate additional scene objects.
+
+`SceneStep.speechPractice` separates vocabulary coverage from forced recording:
+
+- `auto` opens the pronunciation panel and starts the microphone after a correct
+  interaction.
+- `optional` opens the same panel without starting the microphone, so the child
+  can speak or continue.
+- When omitted, `teach` keeps the legacy `auto` behavior; other step types do
+  not open speech practice.
+
+Prefer one speech-practice encounter per vocabulary item. Use `auto` for core
+anchors and challenge action phrases, and `optional` for secondary expanded
+vocabulary so tapping an object does not repeatedly trigger recording.
+Do not narrate the imperative prompt `Bé nói theo cô nhé.` for an `optional`
+encounter. The `plant-a-seed` pilot uses `auto` for all authored encounters so
+the microphone starts after that prompt; each vocabulary still receives only
+one encounter.
 Use vocabulary type `adjective` for standalone describing words such as
 `happy`, `quiet`, or `hungry`; do not model them as nouns only to reuse noun
 teacher copy.
@@ -284,10 +402,12 @@ mode counts: 4 for `core`, 5 for `expanded`, and 6 for `challenge`.
 dev. It catches common mistakes:
 
 - duplicated lesson, scene, object, drop zone, or step ids
+- duplicated object variant ids or an invalid `initialVariantId`
 - missing `targetObjectId`, `correctObjectIds`, `dropZoneId`, or `nextStepId`
+- scene-state changes that reference a missing object or variant
 - tap, find, or drag targets marked as non-interactive
 - object `vocabId` not listed in scene vocabulary
-- invalid percent positions
+- invalid object, variant, or drop-zone percent positions
 - unreachable steps
 - review game vocabulary ids not included in the lesson
 

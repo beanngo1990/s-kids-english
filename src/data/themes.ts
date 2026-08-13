@@ -4,6 +4,7 @@ export const DEFAULT_THEME_ID = 'mot-ngay-cua-be';
 export const OUTSIDE_EXPLORATION_THEME_ID = 'be-ra-ngoai-kham-pha';
 export const BODY_FEELINGS_SELF_CARE_THEME_ID =
   'co-the-cam-xuc-va-tu-cham-soc';
+export const LITTLE_GARDEN_THEME_ID = 'khu-vuon-cua-be';
 
 const themeCatalog: LessonTheme[] = [
   {
@@ -71,6 +72,18 @@ const themeCatalog: LessonTheme[] = [
       'toilet-routine',
       'speaking-up',
     ],
+  },
+  {
+    id: LITTLE_GARDEN_THEME_ID,
+    titleVi: 'Khu vườn của bé',
+    titleEn: 'My Little Garden',
+    iconName: 'themeLittleGarden',
+    thumbnailEmoji: '🌱',
+    descriptionVi:
+      'Bé chuẩn bị, gieo hạt, chăm cây, thu hoạch và bắt đầu một mùa trồng mới.',
+    descriptionEn:
+      'Get ready, plant seeds, care for growing plants, harvest, and begin again.',
+    lessonIds: ['plant-a-seed'],
   },
 ];
 

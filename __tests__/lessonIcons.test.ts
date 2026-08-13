@@ -35,6 +35,7 @@ const expectedLessonMilestoneIcons = [
   ['dress-myself', 'milestoneDressMyself'],
   ['toilet-routine', 'milestoneToiletRoutine'],
   ['speaking-up', 'milestoneSpeakingUp'],
+  ['plant-a-seed', 'milestonePlantASeed'],
 ] as const;
 
 test('map scene icons preserve each scene semantic icon', () => {

@@ -119,6 +119,34 @@ function validateScene(scene: Scene, scenePath: string) {
       issues.push(...validateRect(object.touchArea, `${objectPath}.touchArea`));
     }
 
+    issues.push(
+      ...validateUniqueIds(object.variants ?? [], `${objectPath}.variants`),
+    );
+
+    object.variants?.forEach((variant, variantIndex) => {
+      const variantPath = `${objectPath}.variants[${variantIndex}:${variant.id}]`;
+
+      if (variant.position) {
+        issues.push(...validateRect(variant.position, `${variantPath}.position`));
+      }
+
+      if (variant.touchArea) {
+        issues.push(...validateRect(variant.touchArea, `${variantPath}.touchArea`));
+      }
+    });
+
+    if (
+      object.initialVariantId &&
+      !object.variants?.some(variant => variant.id === object.initialVariantId)
+    ) {
+      issues.push(
+        error(
+          `${objectPath}.initialVariantId`,
+          `Variant id "${object.initialVariantId}" does not exist on this object.`,
+        ),
+      );
+    }
+
     if (object.vocabId && !vocabularyIds.has(object.vocabId)) {
       issues.push(
         error(objectPath, `vocabId "${object.vocabId}" is missing from scene vocabulary.`),
@@ -275,14 +303,31 @@ function validateStep({
     }
   }
 
-  if (step.type === 'teach') {
-    const targetObject = renderableObjects.find(object =>
-      step.targetObjectIds.includes(object.id),
-    );
+  const targetVocabularyObject = renderableObjects.find(
+    object =>
+      step.targetObjectIds.includes(object.id) && Boolean(object.vocabId),
+  );
 
-    if (!targetObject?.vocabId && !step.vocabId) {
+  if (
+    step.speechPractice &&
+    !step.vocabId &&
+    !targetVocabularyObject?.vocabId
+  ) {
+    issues.push(
+      error(
+        stepPath,
+        'Speech-practice step must reference vocabulary through vocabId or a target object.',
+      ),
+    );
+  }
+
+  if (step.type === 'teach') {
+    if (!targetVocabularyObject?.vocabId && !step.vocabId) {
       issues.push(
-        warning(stepPath, 'Teach step should target a learning object with vocabId.'),
+        warning(
+          stepPath,
+          'Teach step should target a learning object with vocabId.',
+        ),
       );
     }
   }
@@ -293,6 +338,35 @@ function validateStep({
         error(
           `${stepPath}.effects[${effectIndex}]`,
           `targetObjectId "${effect.targetObjectId}" does not exist.`,
+        ),
+      );
+    }
+  });
+
+  step.successStateChanges?.forEach((change, changeIndex) => {
+    const changePath = `${stepPath}.successStateChanges[${changeIndex}]`;
+    const targetObject = renderableObjects.find(
+      object => object.id === change.targetObjectId,
+    );
+
+    if (!targetObject) {
+      issues.push(
+        error(
+          changePath,
+          `targetObjectId "${change.targetObjectId}" does not exist.`,
+        ),
+      );
+      return;
+    }
+
+    if (
+      change.type === 'setObjectVariant' &&
+      !targetObject.variants?.some(variant => variant.id === change.variantId)
+    ) {
+      issues.push(
+        error(
+          changePath,
+          `Variant id "${change.variantId}" does not exist on object "${targetObject.id}".`,
         ),
       );
     }

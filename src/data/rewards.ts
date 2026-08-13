@@ -354,6 +354,17 @@ export const lessonRewards: LessonReward[] = [
     tone: 'sun',
     title: 'Bé đã mở khoá Brave Voice!',
   },
+  {
+    id: 'reward-plant-a-seed',
+    iconName: 'milestonePlantASeed',
+    lessonId: 'plant-a-seed',
+    stickerId: 'sticker-plant-a-seed',
+    stickerName: 'Little Gardener',
+    stickerNameEn: 'Little Gardener',
+    stickerNameVi: 'Người làm vườn nhỏ',
+    tone: 'teal',
+    title: 'Bé đã mở khoá Little Gardener!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

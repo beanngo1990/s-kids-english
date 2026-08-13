@@ -155,6 +155,43 @@ test('raises an interaction target above overlapping siblings without showing a 
   });
 });
 
+test('renders action illustrations as transparent cutouts', async () => {
+  const actionObject: SceneObject = {
+    ...headObject,
+    id: 'water-gently',
+    presentation: 'cutout',
+  };
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="water it gently"
+        object={actionObject}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const pressable = tree?.root
+    .findAll(node => typeof node.props.style === 'function')
+    .find(node => node.props.accessibilityLabel === 'water it gently');
+  const pressableStyle = StyleSheet.flatten(pressable?.props.style({
+    pressed: false,
+  }));
+
+  expect(pressableStyle.backgroundColor).toBe('transparent');
+  expect(pressableStyle.borderWidth).toBe(0);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('magnifies a small target visually but not while it is draggable', async () => {
   const smallObject: SceneObject = {
     ...headObject,

@@ -43,6 +43,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A little cleaning after dinner keeps the kitchen tidy.",
     },
   },
+  [normalizeText("A puddle can mean there is too much water.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/notice_puddle_success_7a674b3f.mp3",
+      text: "A puddle can mean there is too much water.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/notice_puddle_success_7a674b3f.mp3",
+      text: "A puddle can mean there is too much water.",
+    },
+  },
+  [normalizeText("A scoop helps carry a small amount of soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_scoop_success_0d1db796.mp3",
+      text: "A scoop helps carry a small amount of soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_scoop_success_0d1db796.mp3",
+      text: "A scoop helps carry a small amount of soil.",
+    },
+  },
+  [normalizeText("A small hole is ready for the seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/make_hole_success_54180223.mp3",
+      text: "A small hole is ready for the seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/make_hole_success_54180223.mp3",
+      text: "A small hole is ready for the seed.",
+    },
+  },
   [normalizeText("A snack is a light meal after you get home.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-prep/audio/en-US/neural2-c-r1/intro_success_b0a714c6.mp3",
@@ -71,6 +101,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/intro_success_01d44195.mp3",
       text: "After a bath, put on dry clothes to keep warm.",
+    },
+  },
+  [normalizeText("After days of care, a small sprout appears.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_through_time_success_84fe48dd.mp3",
+      text: "After days of care, a small sprout appears.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_through_time_success_84fe48dd.mp3",
+      text: "After days of care, a small sprout appears.",
     },
   },
   [normalizeText("air-dry the dishes")]: {
@@ -1703,6 +1743,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cover",
     },
   },
+  [normalizeText("cover the seed")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_the_seed.mp3",
+      text: "cover the seed",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_the_seed.mp3",
+      text: "cover the seed",
+    },
+  },
   [normalizeText("cover your cough")]: {
     "en-US": {
       key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/cover_your_cough.mp3",
@@ -1831,6 +1881,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/cushion.mp3",
       text: "cushion",
+    },
+  },
+  [normalizeText("damp")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/damp.mp3",
+      text: "damp",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/damp.mp3",
+      text: "damp",
+    },
+  },
+  [normalizeText("Damp soil is darker and slightly wet. Tap the soil patch.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_check_damp_36a98aee.mp3",
+      text: "Damp soil is darker and slightly wet. Tap the soil patch.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_check_damp_36a98aee.mp3",
+      text: "Damp soil is darker and slightly wet. Tap the soil patch.",
     },
   },
   [normalizeText("dance")]: {
@@ -2601,6 +2671,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the green counter into the glowing circle.",
     },
   },
+  [normalizeText("Drag the green watering can to the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_water_pot_08e6a3b9.mp3",
+      text: "Drag the green watering can to the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_water_pot_08e6a3b9.mp3",
+      text: "Drag the green watering can to the pot.",
+    },
+  },
   [normalizeText("Drag the hand soap to the glowing sink.")]: {
     "en-US": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_drag_hand_soap_53a9e3cb.mp3",
@@ -2801,6 +2881,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the picture book into the glowing circle.",
     },
   },
+  [normalizeText("Drag the plant label into the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_place_plant_label_174dc6fc.mp3",
+      text: "Drag the plant label into the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_place_plant_label_174dc6fc.mp3",
+      text: "Drag the plant label into the pot.",
+    },
+  },
   [normalizeText("Drag the purple grapes above the scale into the glowing circle.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_grapes_32d4bb28.mp3",
@@ -2851,6 +2941,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the sandwich into the glowing circle.",
     },
   },
+  [normalizeText("Drag the scoop of soil into the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_fill_pot_5a293144.mp3",
+      text: "Drag the scoop of soil into the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_fill_pot_5a293144.mp3",
+      text: "Drag the scoop of soil into the pot.",
+    },
+  },
   [normalizeText("Drag the scooter into the glowing circle.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_drag_scooter_3fb4c0be.mp3",
@@ -2859,6 +2959,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/prompt_drag_scooter_3fb4c0be.mp3",
       text: "Drag the scooter into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the seed into the small hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_plant_seed_468a3dae.mp3",
+      text: "Drag the seed into the small hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_plant_seed_468a3dae.mp3",
+      text: "Drag the seed into the small hole.",
     },
   },
   [normalizeText("Drag the shell into the glowing circle.")]: {
@@ -3109,6 +3219,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_drag_map_30a7511e.mp3",
       text: "Drag the zoo map into the glowing circle.",
+    },
+  },
+  [normalizeText("drainage hole")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/drainage_hole.mp3",
+      text: "drainage hole",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/drainage_hole.mp3",
+      text: "drainage hole",
     },
   },
   [normalizeText("draw a circle")]: {
@@ -3577,6 +3697,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "feelings card",
     },
   },
+  [normalizeText("fill the pot with soil")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_the_pot_with_soil.mp3",
+      text: "fill the pot with soil",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_the_pot_with_soil.mp3",
+      text: "fill the pot with soil",
+    },
+  },
   [normalizeText("Finally, let's sort everything and let it dry.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_intro_7b2f65e5.mp3",
@@ -3587,6 +3717,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Finally, let's sort everything and let it dry.",
     },
   },
+  [normalizeText("Find the blue water drop.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_water_63c1364b.mp3",
+      text: "Find the blue water drop.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_water_63c1364b.mp3",
+      text: "Find the blue water drop.",
+    },
+  },
+  [normalizeText("Find the plant pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
+      text: "Find the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
+      text: "Find the plant pot.",
+    },
+  },
   [normalizeText("find the red circle")]: {
     "en-US": {
       key: "lessons/five-senses/seeing-world/audio/en-US/neural2-c-r1/find_the_red_circle.mp3",
@@ -3595,6 +3745,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/find_the_red_circle.mp3",
       text: "find the red circle",
+    },
+  },
+  [normalizeText("Find the seed packet.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_seed_packet_07d395fe.mp3",
+      text: "Find the seed packet.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_find_seed_packet_07d395fe.mp3",
+      text: "Find the seed packet.",
     },
   },
   [normalizeText("Find two matching pictures.")]: {
@@ -3609,6 +3769,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "shared/audio/en/memory_game_intro_2480d4dc.mp3",
       text: "Find two matching pictures.",
+    },
+  },
+  [normalizeText("finger")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/finger.mp3",
+      text: "finger",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/finger.mp3",
+      text: "finger",
     },
   },
   [normalizeText("fingers")]: {
@@ -3639,6 +3809,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_two.wav",
       text: "Finish the review and Sungy will give a sticker!",
+    },
+  },
+  [normalizeText("First, get a seed and make a small hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/intro_success_f21de28b.mp3",
+      text: "First, get a seed and make a small hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/intro_success_f21de28b.mp3",
+      text: "First, get a seed and make a small hole.",
     },
   },
   [normalizeText("fish")]: {
@@ -4173,6 +4353,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Great, the cart is ready for shopping.",
     },
   },
+  [normalizeText("Great, the pot has enough soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_pot_success_a7b10191.mp3",
+      text: "Great, the pot has enough soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_pot_success_a7b10191.mp3",
+      text: "Great, the pot has enough soil.",
+    },
+  },
   [normalizeText("Great, you chose the bowl of fruit.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/drag_fruit_success_42957bfc.mp3",
@@ -4441,6 +4631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/sungy_onboarding_greeting.wav",
       text: "Hi! I am Sungy, your child’s learning buddy.",
+    },
+  },
+  [normalizeText("hole")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/hole.mp3",
+      text: "hole",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/hole.mp3",
+      text: "hole",
     },
   },
   [normalizeText("home")]: {
@@ -12393,6 +12593,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "leaf",
     },
   },
+  [normalizeText("Leave a little space at the top. Tap the small pot picture.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_leave_space_ab9551ad.mp3",
+      text: "Leave a little space at the top. Tap the small pot picture.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_leave_space_ab9551ad.mp3",
+      text: "Leave a little space at the top. Tap the small pot picture.",
+    },
+  },
+  [normalizeText("leave some space")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/leave_some_space.mp3",
+      text: "leave some space",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/leave_some_space.mp3",
+      text: "leave some space",
+    },
+  },
   [normalizeText("leftovers")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/leftovers.mp3",
@@ -15857,6 +16077,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's practice words that help keep your boundaries safe.",
     },
   },
+  [normalizeText("Let's prepare the pot before planting a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_intro_d99c2a2d.mp3",
+      text: "Let's prepare the pot before planting a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_intro_d99c2a2d.mp3",
+      text: "Let's prepare the pot before planting a seed.",
+    },
+  },
   [normalizeText("Let's rest and recharge!")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/rest_intro_success_3c743312.mp3",
@@ -16215,6 +16445,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/look_at_the_map.mp3",
       text: "look at the map",
+    },
+  },
+  [normalizeText("Look at the watering can, then tap the green spout above it.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_spout_fail_e6c2dca1.mp3",
+      text: "Look at the watering can, then tap the green spout above it.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_spout_fail_e6c2dca1.mp3",
+      text: "Look at the watering can, then tap the green spout above it.",
     },
   },
   [normalizeText("look closely")]: {
@@ -19477,6 +19717,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "plant a seed",
     },
   },
+  [normalizeText("plant label")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_label.mp3",
+      text: "plant label",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_label.mp3",
+      text: "plant label",
+    },
+  },
   [normalizeText("plant pot")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/plant_pot.mp3",
@@ -19645,6 +19895,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "pot holder",
     },
   },
+  [normalizeText("potting mix")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/potting_mix.mp3",
+      text: "potting mix",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/potting_mix.mp3",
+      text: "potting mix",
+    },
+  },
   [normalizeText("potty")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/potty.mp3",
@@ -19653,6 +19913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/toilet-signals/audio/en-GB/neural2-c-r1/potty.mp3",
       text: "potty",
+    },
+  },
+  [normalizeText("Pour a little water gently. Tap the picture of the watering can.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_learn_water_gently_d0210713.mp3",
+      text: "Pour a little water gently. Tap the picture of the watering can.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_learn_water_gently_d0210713.mp3",
+      text: "Pour a little water gently. Tap the picture of the watering can.",
     },
   },
   [normalizeText("pour juice")]: {
@@ -19733,6 +20003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "proud",
     },
   },
+  [normalizeText("puddle")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/puddle.mp3",
+      text: "puddle",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/puddle.mp3",
+      text: "puddle",
+    },
+  },
   [normalizeText("pull down your trousers")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/pull_down_your_trousers.mp3",
@@ -19771,6 +20051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/push_the_cart.mp3",
       text: "push the cart",
+    },
+  },
+  [normalizeText("Put a little soil over the seed. Tap the picture of the scoop.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_cover_seed_7f5a0af3.mp3",
+      text: "Put a little soil over the seed. Tap the picture of the scoop.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_cover_seed_7f5a0af3.mp3",
+      text: "Put a little soil over the seed. Tap the picture of the scoop.",
     },
   },
   [normalizeText("put away the book")]: {
@@ -19941,6 +20231,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_drag_pillow_to_box_a658ae37.mp3",
       text: "Put the pillow in the box.",
+    },
+  },
+  [normalizeText("Put the seed into the hole. Tap the picture with the green arrow.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_plant_seed_747003bf.mp3",
+      text: "Put the seed into the hole. Tap the picture with the green arrow.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_plant_seed_747003bf.mp3",
+      text: "Put the seed into the hole. Tap the picture with the green arrow.",
     },
   },
   [normalizeText("Put the socks in the box.")]: {
@@ -20271,6 +20571,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/rice.mp3",
       text: "rice",
+    },
+  },
+  [normalizeText("Right, cover the seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
+      text: "Right, cover the seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
+      text: "Right, cover the seed.",
+    },
+  },
+  [normalizeText("Right, fill the pot with soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_fill_pot_soil_success_ebba9ff5.mp3",
+      text: "Right, fill the pot with soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_fill_pot_soil_success_ebba9ff5.mp3",
+      text: "Right, fill the pot with soil.",
+    },
+  },
+  [normalizeText("Right, leave some space.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/leave_space_success_fb55790e.mp3",
+      text: "Right, leave some space.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/leave_space_success_fb55790e.mp3",
+      text: "Right, leave some space.",
+    },
+  },
+  [normalizeText("Right, plant a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/choose_plant_seed_success_a451ce7b.mp3",
+      text: "Right, plant a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/choose_plant_seed_success_a451ce7b.mp3",
+      text: "Right, plant a seed.",
+    },
+  },
+  [normalizeText("Right, wait for the sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
+      text: "Right, wait for the sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
+      text: "Right, wait for the sprout.",
+    },
+  },
+  [normalizeText("Right, water it gently.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_water_gently_success_eed54643.mp3",
+      text: "Right, water it gently.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/choose_water_gently_success_eed54643.mp3",
+      text: "Right, water it gently.",
     },
   },
   [normalizeText("rinse your feet")]: {
@@ -20685,6 +21045,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "school",
     },
   },
+  [normalizeText("scoop")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop.mp3",
+      text: "scoop",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop.mp3",
+      text: "scoop",
+    },
+  },
+  [normalizeText("Scoop soil into the pot. Tap the picture of the pouring scoop.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_fill_pot_soil_68e10b13.mp3",
+      text: "Scoop soil into the pot. Tap the picture of the pouring scoop.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_fill_pot_soil_68e10b13.mp3",
+      text: "Scoop soil into the pot. Tap the picture of the pouring scoop.",
+    },
+  },
   [normalizeText("scooter")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/scooter.mp3",
@@ -20791,6 +21171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/seed.mp3",
       text: "seed",
+    },
+  },
+  [normalizeText("seed packet")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/seed_packet.mp3",
+      text: "seed packet",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/seed_packet.mp3",
+      text: "seed packet",
     },
   },
   [normalizeText("seesaw")]: {
@@ -21621,6 +22011,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "soft voice",
     },
   },
+  [normalizeText("soil")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/soil.mp3",
+      text: "soil",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/soil.mp3",
+      text: "soil",
+    },
+  },
   [normalizeText("solve a puzzle")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/solve_a_puzzle.mp3",
@@ -21777,6 +22177,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "spot the zebra",
     },
   },
+  [normalizeText("spout")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/spout.mp3",
+      text: "spout",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/spout.mp3",
+      text: "spout",
+    },
+  },
   [normalizeText("spray bottle")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/spray_bottle.mp3",
@@ -21819,6 +22229,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/spread_the_mat.mp3",
       text: "spread the mat",
+    },
+  },
+  [normalizeText("sprout")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/sprout.mp3",
+      text: "sprout",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/sprout.mp3",
+      text: "sprout",
     },
   },
   [normalizeText("stack coasters")]: {
@@ -22605,6 +23025,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bite.",
     },
   },
+  [normalizeText("Tap the black drainage hole under the tilted pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_check_drainage_hole_a3a08c20.mp3",
+      text: "Tap the black drainage hole under the tilted pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_check_drainage_hole_a3a08c20.mp3",
+      text: "Tap the black drainage hole under the tilted pot.",
+    },
+  },
   [normalizeText("Tap the blocks.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/prompt_tap_blocks_64372539.mp3",
@@ -22617,6 +23047,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/home-play/home-toy-corner/audio/en/prompt_tap_blocks_64372539.mp3",
       text: "Tap the blocks.",
+    },
+  },
+  [normalizeText("Tap the blue puddle.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_notice_puddle_7919e0a2.mp3",
+      text: "Tap the blue puddle.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_notice_puddle_7919e0a2.mp3",
+      text: "Tap the blue puddle.",
     },
   },
   [normalizeText("Tap the blue scale on the right.")]: {
@@ -23397,6 +23837,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the feelings card.",
     },
   },
+  [normalizeText("Tap the finger pointing down.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_finger_c6a35c67.mp3",
+      text: "Tap the finger pointing down.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_finger_c6a35c67.mp3",
+      text: "Tap the finger pointing down.",
+    },
+  },
   [normalizeText("Tap the fingers.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/prompt_tap_fingers_0b573a05.mp3",
@@ -23635,6 +24085,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/prompt_tap_goat_d6cfe324.mp3",
       text: "Tap the goat.",
+    },
+  },
+  [normalizeText("Tap the green spout. It is part of the watering can.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
+      text: "Tap the green spout. It is part of the watering can.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
+      text: "Tap the green spout. It is part of the watering can.",
     },
   },
   [normalizeText("Tap the habitat.")]: {
@@ -23931,6 +24391,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the little fan.",
     },
   },
+  [normalizeText("Tap the loose soil pile on the left. This is soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_scoop_soil_e385e0a7.mp3",
+      text: "Tap the loose soil pile on the left. This is soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_scoop_soil_e385e0a7.mp3",
+      text: "Tap the loose soil pile on the left. This is soil.",
+    },
+  },
+  [normalizeText("Tap the loose soil pile on the right to cover the seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_cover_seed_5f84d07f.mp3",
+      text: "Tap the loose soil pile on the right to cover the seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_cover_seed_5f84d07f.mp3",
+      text: "Tap the loose soil pile on the right to cover the seed.",
+    },
+  },
+  [normalizeText("Tap the loose soil pile to the left of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop_soil_fail_ab011675.mp3",
+      text: "Tap the loose soil pile to the left of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop_soil_fail_ab011675.mp3",
+      text: "Tap the loose soil pile to the left of the pot.",
+    },
+  },
   [normalizeText("Tap the lullaby.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/prompt_tap_lullaby_2dd7bc20.mp3",
@@ -24133,6 +24623,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-table/audio/en/prompt_tap_napkin_30441408.mp3",
       text: "Tap the napkin.",
+    },
+  },
+  [normalizeText("Tap the new sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_sprout_402e329f.mp3",
+      text: "Tap the new sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_sprout_402e329f.mp3",
+      text: "Tap the new sprout.",
     },
   },
   [normalizeText("Tap the night light.")]: {
@@ -24839,6 +25339,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the pot holder.",
     },
   },
+  [normalizeText("Tap the potting mix bag with the sprout picture.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_choose_potting_mix_f7e1ab89.mp3",
+      text: "Tap the potting mix bag with the sprout picture.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_choose_potting_mix_f7e1ab89.mp3",
+      text: "Tap the potting mix bag with the sprout picture.",
+    },
+  },
   [normalizeText("Tap the potty.")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-signals/audio/en-US/neural2-c-r1/prompt_tap_potty_42b5f182.mp3",
@@ -25421,6 +25931,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small bag on the right.",
     },
   },
+  [normalizeText("Tap the small hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
+      text: "Tap the small hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
+      text: "Tap the small hole.",
+    },
+  },
+  [normalizeText("Tap the small seed. This is a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_seed_1e80fdd6.mp3",
+      text: "Tap the small seed. This is a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_seed_1e80fdd6.mp3",
+      text: "Tap the small seed. This is a seed.",
+    },
+  },
   [normalizeText("Tap the smile.")]: {
     "en-US": {
       key: "lessons/my-feelings/happy-and-sad/audio/en-US/neural2-c-r1/prompt_tap_smile_52d1ce30.mp3",
@@ -25529,6 +26059,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/bedtime/bedtime-story/audio/en/prompt_tap_soft_voice_7fa58760.mp3",
       text: "Tap the soft voice.",
+    },
+  },
+  [normalizeText("Tap the soil inside the pot to make a hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_make_hole_28be8171.mp3",
+      text: "Tap the soil inside the pot to make a hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_make_hole_28be8171.mp3",
+      text: "Tap the soil inside the pot to make a hole.",
     },
   },
   [normalizeText("Tap the sound.")]: {
@@ -25683,6 +26223,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_storyteller_19dad341.mp3",
       text: "Tap the storyteller.",
+    },
+  },
+  [normalizeText("Tap the sun-and-moon circle above the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
+      text: "Tap the sun-and-moon circle above the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
+      text: "Tap the sun-and-moon circle above the pot.",
     },
   },
   [normalizeText("Tap the sun.")]: {
@@ -29623,6 +30173,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The bag is near the door.",
     },
   },
+  [normalizeText("The bag with the sprout picture is at the upper right.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_fail_3cfb7d7c.mp3",
+      text: "The bag with the sprout picture is at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_potting_mix_fail_3cfb7d7c.mp3",
+      text: "The bag with the sprout picture is at the upper right.",
+    },
+  },
   [normalizeText("The ball is in the yard.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/drag_ball_to_yard_success_e0447bde.mp3",
@@ -29863,6 +30423,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The bite is on the small table.",
     },
   },
+  [normalizeText("The black hole is under the tilted pot on the left.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/check_drainage_hole_fail_8c304c23.mp3",
+      text: "The black hole is under the tilted pot on the left.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/check_drainage_hole_fail_8c304c23.mp3",
+      text: "The black hole is under the tilted pot on the left.",
+    },
+  },
   [normalizeText("The blocks are in the basket.")]: {
     "en-US": {
       key: "lessons/home-play/toy-cleanup/audio/en-US/neural2-c-r1/drag_blocks_to_basket_success_6431e165.mp3",
@@ -29901,6 +30471,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/playtime/friend-games/audio/en-GB/neural2-c-r1/games_drag_blocks_to_mat_success_c2a17ae8.mp3",
       text: "The blocks are on the mat.",
+    },
+  },
+  [normalizeText("The blue puddle is to the left of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/notice_puddle_fail_ae5f7431.mp3",
+      text: "The blue puddle is to the left of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/notice_puddle_fail_ae5f7431.mp3",
+      text: "The blue puddle is to the left of the pot.",
     },
   },
   [normalizeText("The blue scale is on the right.")]: {
@@ -30723,6 +31303,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The cushion is on the right.",
     },
   },
+  [normalizeText("The damp soil patch is just above the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/check_damp_fail_46e5f072.mp3",
+      text: "The damp soil patch is just above the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/check_damp_fail_46e5f072.mp3",
+      text: "The damp soil patch is just above the pot.",
+    },
+  },
   [normalizeText("The dancing child is on the left.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/tap_dance_fail_35e55e1b.mp3",
@@ -30731,6 +31321,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/tap_dance_fail_35e55e1b.mp3",
       text: "The dancing child is on the left.",
+    },
+  },
+  [normalizeText("The day-and-night circle is above the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_through_time_fail_8e3147cf.mp3",
+      text: "The day-and-night circle is above the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_through_time_fail_8e3147cf.mp3",
+      text: "The day-and-night circle is above the pot.",
     },
   },
   [normalizeText("The desk is in the middle of the classroom.")]: {
@@ -30883,6 +31483,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The drum is under the play table.",
     },
   },
+  [normalizeText("The dry soil is now darker and slightly wet. It is damp.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_pot_success_943a6e0d.mp3",
+      text: "The dry soil is now darker and slightly wet. It is damp.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_pot_success_943a6e0d.mp3",
+      text: "The dry soil is now darker and slightly wet. It is damp.",
+    },
+  },
   [normalizeText("The drying mat is in the right place.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/drag_drying_mat_success_a5fdbb47.mp3",
@@ -30903,6 +31513,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The duck is on the right.",
     },
   },
+  [normalizeText("The edge of the pot is the target for the label.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/place_plant_label_fail_1f7bdb7e.mp3",
+      text: "The edge of the pot is the target for the label.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/place_plant_label_fail_1f7bdb7e.mp3",
+      text: "The edge of the pot is the target for the label.",
+    },
+  },
   [normalizeText("The egg is on the left.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/tap_egg_fail_37705334.mp3",
@@ -30921,6 +31541,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_elbow_fail_fb395f2b.mp3",
       text: "The elbow is by your body.",
+    },
+  },
+  [normalizeText("The empty pot is ready for soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/intro_success_9b9c907e.mp3",
+      text: "The empty pot is ready for soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/intro_success_9b9c907e.mp3",
+      text: "The empty pot is ready for soil.",
     },
   },
   [normalizeText("The eraser is on the right.")]: {
@@ -30961,6 +31591,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/intro_success_dab7c22d.mp3",
       text: "The farm animals are lovely!",
+    },
+  },
+  [normalizeText("The finger is at the upper right.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_finger_fail_a58b3ee4.mp3",
+      text: "The finger is at the upper right.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_finger_fail_a58b3ee4.mp3",
+      text: "The finger is at the upper right.",
     },
   },
   [normalizeText("The fish is in the middle of the dining table.")]: {
@@ -31243,6 +31883,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The helmet is nearby.",
     },
   },
+  [normalizeText("The hole in the middle of the pot is the target.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_seed_fail_54f5e35d.mp3",
+      text: "The hole in the middle of the pot is the target.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_seed_fail_54f5e35d.mp3",
+      text: "The hole in the middle of the pot is the target.",
+    },
+  },
   [normalizeText("The hook is on the wall.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-US/neural2-c-r1/tap_hook_fail_ffbc9f58.mp3",
@@ -31341,6 +31991,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_knee_fail_4525ad99.mp3",
       text: "The knee is at the bottom.",
+    },
+  },
+  [normalizeText("The label helps us remember what was planted.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_label_success_d0a03c07.mp3",
+      text: "The label helps us remember what was planted.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_label_success_d0a03c07.mp3",
+      text: "The label helps us remember what was planted.",
     },
   },
   [normalizeText("The label is above the small container.")]: {
@@ -31563,6 +32223,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The medicine spoon is in the right place.",
     },
   },
+  [normalizeText("The middle of the pot is ready for the scoop.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_pot_fail_9ec3983b.mp3",
+      text: "The middle of the pot is ready for the scoop.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_pot_fail_9ec3983b.mp3",
+      text: "The middle of the pot is ready for the scoop.",
+    },
+  },
   [normalizeText("The mirror is above the sink.")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/review_mirror_fail_05b23093.mp3",
@@ -31681,6 +32351,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_carrot_fail_1f644718.mp3",
       text: "The orange carrot is in the basket of vegetables.",
+    },
+  },
+  [normalizeText("The orange pot is in the middle of the table.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/find_plant_pot_fail_ea22eef3.mp3",
+      text: "The orange pot is in the middle of the table.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/find_plant_pot_fail_ea22eef3.mp3",
+      text: "The orange pot is in the middle of the table.",
     },
   },
   [normalizeText("The otoscope is at the top.")]: {
@@ -31873,6 +32553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The picture book is on the right.",
     },
   },
+  [normalizeText("The picture with the arrow and sprout is at the lower right.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_fail_b94c7242.mp3",
+      text: "The picture with the arrow and sprout is at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_wait_sprout_fail_b94c7242.mp3",
+      text: "The picture with the arrow and sprout is at the lower right.",
+    },
+  },
   [normalizeText("The piglet is on the right.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_piglet_fail_637bd2e6.mp3",
@@ -31913,6 +32603,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The placemat is in the right place.",
     },
   },
+  [normalizeText("The plant label is in place after covering the seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/place_plant_label_success_e23932ed.mp3",
+      text: "The plant label is in place after covering the seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/place_plant_label_success_e23932ed.mp3",
+      text: "The plant label is in place after covering the seed.",
+    },
+  },
   [normalizeText("The plant pot is on the right.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_plant_pot_fail_dba3b358.mp3",
@@ -31943,6 +32643,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The playground is so much fun!",
     },
   },
+  [normalizeText("The pot has soil. Let’s plant a seed in order.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_intro_5fe09272.mp3",
+      text: "The pot has soil. Let’s plant a seed in order.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_intro_5fe09272.mp3",
+      text: "The pot has soil. Let’s plant a seed in order.",
+    },
+  },
   [normalizeText("The pot holder is on the left.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/tap_pot_holder_fail_e8ce20ed.mp3",
@@ -31951,6 +32661,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/tap_pot_holder_fail_e8ce20ed.mp3",
       text: "The pot holder is on the left.",
+    },
+  },
+  [normalizeText("The pot of soil is ready for a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/completion_84062a15.mp3",
+      text: "The pot of soil is ready for a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/completion_84062a15.mp3",
+      text: "The pot of soil is ready for a seed.",
+    },
+  },
+  [normalizeText("The pouring scoop is in the lower-left picture.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_fill_pot_soil_fail_d441d84f.mp3",
+      text: "The pouring scoop is in the lower-left picture.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_fill_pot_soil_fail_d441d84f.mp3",
+      text: "The pouring scoop is in the lower-left picture.",
     },
   },
   [normalizeText("The prize is on the right side of the bench.")]: {
@@ -32273,6 +33003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The school is on the right.",
     },
   },
+  [normalizeText("The scoop covering the seed is in the lower-right picture.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_cover_seed_fail_9f4e1623.mp3",
+      text: "The scoop covering the seed is in the lower-right picture.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_cover_seed_fail_9f4e1623.mp3",
+      text: "The scoop covering the seed is in the lower-right picture.",
+    },
+  },
   [normalizeText("The scooter is in the right place.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/drag_scooter_success_546a43da.mp3",
@@ -32321,6 +33061,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_to_seat_success_9661f3b0.mp3",
       text: "The seat belt is in the right place.",
+    },
+  },
+  [normalizeText("The seed is covered with a thin layer of soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_seed_success_69d863a9.mp3",
+      text: "The seed is covered with a thin layer of soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_seed_success_69d863a9.mp3",
+      text: "The seed is covered with a thin layer of soil.",
+    },
+  },
+  [normalizeText("The seed is covered. Let’s add enough water, then wait.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_intro_a1112a49.mp3",
+      text: "The seed is covered. Let’s add enough water, then wait.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_intro_a1112a49.mp3",
+      text: "The seed is covered. Let’s add enough water, then wait.",
+    },
+  },
+  [normalizeText("The seed is in the soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/plant_seed_success_4d497ca2.mp3",
+      text: "The seed is in the soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/plant_seed_success_4d497ca2.mp3",
+      text: "The seed is in the soil.",
+    },
+  },
+  [normalizeText("The seed packet is to the left of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_seed_packet_fail_42d593de.mp3",
+      text: "The seed packet is to the left of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_seed_packet_fail_42d593de.mp3",
+      text: "The seed packet is to the left of the pot.",
+    },
+  },
+  [normalizeText("The seed was planted and covered in the right order.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/completion_18da9879.mp3",
+      text: "The seed was planted and covered in the right order.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/completion_18da9879.mp3",
+      text: "The seed was planted and covered in the right order.",
+    },
+  },
+  [normalizeText("The seed with the arrow is in the lower-left picture.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_seed_fail_d541fd18.mp3",
+      text: "The seed with the arrow is in the lower-left picture.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_seed_fail_d541fd18.mp3",
+      text: "The seed with the arrow is in the lower-left picture.",
     },
   },
   [normalizeText("The seesaw is near the middle of the playground.")]: {
@@ -32593,6 +33393,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The small bag is on the right.",
     },
   },
+  [normalizeText("The small green sprout is growing in the middle of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_fail_040586f2.mp3",
+      text: "The small green sprout is growing in the middle of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_sprout_fail_040586f2.mp3",
+      text: "The small green sprout is growing in the middle of the pot.",
+    },
+  },
+  [normalizeText("The small hole is in the middle of the soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_hole_fail_82a839ba.mp3",
+      text: "The small hole is in the middle of the soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_hole_fail_82a839ba.mp3",
+      text: "The small hole is in the middle of the soil.",
+    },
+  },
+  [normalizeText("The small pot picture is at the lower right.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_leave_space_fail_22e526e5.mp3",
+      text: "The small pot picture is at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_leave_space_fail_22e526e5.mp3",
+      text: "The small pot picture is at the lower right.",
+    },
+  },
+  [normalizeText("The small seed is above and to the left of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_seed_fail_c9bb23a1.mp3",
+      text: "The small seed is above and to the left of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_seed_fail_c9bb23a1.mp3",
+      text: "The small seed is above and to the left of the pot.",
+    },
+  },
   [normalizeText("The small sip is in the cup with the straw.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/tap_sip_fail_a65d8cf8.mp3",
@@ -32601,6 +33441,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/snack-time/snack-table/audio/en-GB/neural2-c-r1/tap_sip_fail_a65d8cf8.mp3",
       text: "The small sip is in the cup with the straw.",
+    },
+  },
+  [normalizeText("The small watering picture is at the lower left.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_water_gently_fail_474ab530.mp3",
+      text: "The small watering picture is at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_water_gently_fail_474ab530.mp3",
+      text: "The small watering picture is at the lower left.",
     },
   },
   [normalizeText("The snack box is behind the snack.")]: {
@@ -32703,6 +33553,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The soft voice is on the left.",
     },
   },
+  [normalizeText("The soil for covering the seed is to the right of the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/cover_seed_fail_e3d3e839.mp3",
+      text: "The soil for covering the seed is to the right of the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/cover_seed_fail_e3d3e839.mp3",
+      text: "The soil for covering the seed is to the right of the pot.",
+    },
+  },
+  [normalizeText("The soil in the middle of the pot is the target.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/make_hole_fail_db3dde65.mp3",
+      text: "The soil in the middle of the pot is the target.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/make_hole_fail_db3dde65.mp3",
+      text: "The soil in the middle of the pot is the target.",
+    },
+  },
+  [normalizeText("The soil in the pot is the target for the spout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_pot_fail_f9e196e6.mp3",
+      text: "The soil in the pot is the target for the spout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_pot_fail_f9e196e6.mp3",
+      text: "The soil in the pot is the target for the spout.",
+    },
+  },
+  [normalizeText("The soil should be damp, without a puddle.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/intro_success_70b06b76.mp3",
+      text: "The soil should be damp, without a puddle.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/intro_success_70b06b76.mp3",
+      text: "The soil should be damp, without a puddle.",
+    },
+  },
   [normalizeText("The sound machine is in the right place.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/drag_sound_machine_success_2648a76d.mp3",
@@ -32751,6 +33641,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_drag_spoon_to_soup_success_a896c3d1.mp3",
       text: "The spoon is next to the soup.",
+    },
+  },
+  [normalizeText("The spout helps pour water gently.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_spout_success_38e349bb.mp3",
+      text: "The spout helps pour water gently.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_spout_success_38e349bb.mp3",
+      text: "The spout helps pour water gently.",
     },
   },
   [normalizeText("The spray bottle is on the right.")]: {
@@ -33293,6 +34193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The water bottle is on the right.",
     },
   },
+  [normalizeText("The water drop is at the upper left.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_water_fail_50e2767b.mp3",
+      text: "The water drop is at the upper left.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_water_fail_50e2767b.mp3",
+      text: "The water drop is at the upper left.",
+    },
+  },
   [normalizeText("The water is at the top.")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_water_fail_964aae9f.mp3",
@@ -33831,6 +34741,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/thirsty.mp3",
       text: "thirsty",
+    },
+  },
+  [normalizeText("This hole lets extra water drain away.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/check_drainage_hole_success_c7120103.mp3",
+      text: "This hole lets extra water drain away.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/check_drainage_hole_success_c7120103.mp3",
+      text: "This hole lets extra water drain away.",
+    },
+  },
+  [normalizeText("This is a plant label.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_learn_plant_label_3367af72.mp3",
+      text: "This is a plant label.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_learn_plant_label_3367af72.mp3",
+      text: "This is a plant label.",
+    },
+  },
+  [normalizeText("This is a scoop.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_scoop_1ed597a8.mp3",
+      text: "This is a scoop.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_learn_scoop_1ed597a8.mp3",
+      text: "This is a scoop.",
     },
   },
   [normalizeText("This is dinner.")]: {
@@ -39341,6 +40281,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "use hand gel",
     },
   },
+  [normalizeText("Use one finger to make a small hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_finger_success_877a46e5.mp3",
+      text: "Use one finger to make a small hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_finger_success_877a46e5.mp3",
+      text: "Use one finger to make a small hole.",
+    },
+  },
   [normalizeText("use the toilet paper")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/use_the_toilet_paper.mp3",
@@ -39397,6 +40347,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/wait.mp3",
       text: "wait",
+    },
+  },
+  [normalizeText("Wait a few days for the sprout. Tap the picture with the sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_learn_wait_sprout_a499ddfd.mp3",
+      text: "Wait a few days for the sprout. Tap the picture with the sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_learn_wait_sprout_a499ddfd.mp3",
+      text: "Wait a few days for the sprout. Tap the picture with the sprout.",
+    },
+  },
+  [normalizeText("wait for the sprout")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/wait_for_the_sprout.mp3",
+      text: "wait for the sprout",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/wait_for_the_sprout.mp3",
+      text: "wait for the sprout",
     },
   },
   [normalizeText("Wait.")]: {
@@ -39531,6 +40501,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/water_bottle.mp3",
       text: "water bottle",
+    },
+  },
+  [normalizeText("water it gently")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_it_gently.mp3",
+      text: "water it gently",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/water_it_gently.mp3",
+      text: "water it gently",
     },
   },
   [normalizeText("water the plant")]: {
@@ -39681,6 +40661,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/wet_floor_sign.mp3",
       text: "wet floor sign",
+    },
+  },
+  [normalizeText("Which picture shows a green arrow planting the seed?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_choose_plant_seed_59745c09.mp3",
+      text: "Which picture shows a green arrow planting the seed?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_choose_plant_seed_59745c09.mp3",
+      text: "Which picture shows a green arrow planting the seed?",
+    },
+  },
+  [normalizeText("Which picture shows a scoop covering the seed?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_choose_cover_seed_cd520ec9.mp3",
+      text: "Which picture shows a scoop covering the seed?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_choose_cover_seed_cd520ec9.mp3",
+      text: "Which picture shows a scoop covering the seed?",
+    },
+  },
+  [normalizeText("Which picture shows a scoop filling the pot with soil?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_choose_fill_pot_soil_7dfcf55d.mp3",
+      text: "Which picture shows a scoop filling the pot with soil?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_choose_fill_pot_soil_7dfcf55d.mp3",
+      text: "Which picture shows a scoop filling the pot with soil?",
+    },
+  },
+  [normalizeText("Which picture shows a watering can gently watering soil?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_choose_water_gently_b12f011d.mp3",
+      text: "Which picture shows a watering can gently watering soil?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_choose_water_gently_b12f011d.mp3",
+      text: "Which picture shows a watering can gently watering soil?",
+    },
+  },
+  [normalizeText("Which picture shows waiting for the sprout?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_choose_wait_sprout_11b701d9.mp3",
+      text: "Which picture shows waiting for the sprout?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_choose_wait_sprout_11b701d9.mp3",
+      text: "Which picture shows waiting for the sprout?",
+    },
+  },
+  [normalizeText("Which small pot picture leaves some space at the top?")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_leave_space_21454905.mp3",
+      text: "Which small pot picture leaves some space at the top?",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_leave_space_21454905.mp3",
+      text: "Which small pot picture leaves some space at the top?",
     },
   },
   [normalizeText("whistle")]: {
@@ -39849,6 +40889,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Write your name.",
     },
   },
+  [normalizeText("Yes, a plant needs water to grow.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_water_success_868d7658.mp3",
+      text: "Yes, a plant needs water to grow.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_water_success_868d7658.mp3",
+      text: "Yes, a plant needs water to grow.",
+    },
+  },
+  [normalizeText("Yes, cover the seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_cover_seed_success_cde6011e.mp3",
+      text: "Yes, cover the seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_cover_seed_success_cde6011e.mp3",
+      text: "Yes, cover the seed.",
+    },
+  },
+  [normalizeText("Yes, damp means slightly wet.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/check_damp_success_fa89917f.mp3",
+      text: "Yes, damp means slightly wet.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/check_damp_success_fa89917f.mp3",
+      text: "Yes, damp means slightly wet.",
+    },
+  },
+  [normalizeText("Yes, leave some space at the top.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_leave_space_success_55821044.mp3",
+      text: "Yes, leave some space at the top.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_leave_space_success_55821044.mp3",
+      text: "Yes, leave some space at the top.",
+    },
+  },
+  [normalizeText("Yes, open the packet and take one seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
+      text: "Yes, open the packet and take one seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
+      text: "Yes, open the packet and take one seed.",
+    },
+  },
+  [normalizeText("Yes, plant a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_plant_seed_success_803bfd20.mp3",
+      text: "Yes, plant a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_plant_seed_success_803bfd20.mp3",
+      text: "Yes, plant a seed.",
+    },
+  },
   [normalizeText("Yes, please")]: {
     "en-US": {
       key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/yes_please.mp3",
@@ -39857,6 +40957,96 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/body-boundaries/audio/en-GB/neural2-c-r1/yes_please.mp3",
       text: "Yes, please",
+    },
+  },
+  [normalizeText("Yes, soil goes into the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
+      text: "Yes, soil goes into the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
+      text: "Yes, soil goes into the pot.",
+    },
+  },
+  [normalizeText("Yes, the seed goes into this hole.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_hole_success_e4325464.mp3",
+      text: "Yes, the seed goes into this hole.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_hole_success_e4325464.mp3",
+      text: "Yes, the seed goes into this hole.",
+    },
+  },
+  [normalizeText("Yes, this bag contains potting mix for the pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
+      text: "Yes, this bag contains potting mix for the pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
+      text: "Yes, this bag contains potting mix for the pot.",
+    },
+  },
+  [normalizeText("Yes, this is a seed.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_seed_success_3cf08e2d.mp3",
+      text: "Yes, this is a seed.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/learn_seed_success_3cf08e2d.mp3",
+      text: "Yes, this is a seed.",
+    },
+  },
+  [normalizeText("Yes, this is a sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_success_b07d313c.mp3",
+      text: "Yes, this is a sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_sprout_success_b07d313c.mp3",
+      text: "Yes, this is a sprout.",
+    },
+  },
+  [normalizeText("Yes, this is soil.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/scoop_soil_success_e1ff8c92.mp3",
+      text: "Yes, this is soil.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/scoop_soil_success_e1ff8c92.mp3",
+      text: "Yes, this is soil.",
+    },
+  },
+  [normalizeText("Yes, this is the plant pot.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/find_plant_pot_success_5ae8d948.mp3",
+      text: "Yes, this is the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/find_plant_pot_success_5ae8d948.mp3",
+      text: "Yes, this is the plant pot.",
+    },
+  },
+  [normalizeText("Yes, wait for the sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_success_f45960ef.mp3",
+      text: "Yes, wait for the sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_wait_sprout_success_f45960ef.mp3",
+      text: "Yes, wait for the sprout.",
+    },
+  },
+  [normalizeText("Yes, water it gently.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_water_gently_success_5e1e7cff.mp3",
+      text: "Yes, water it gently.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_water_gently_success_5e1e7cff.mp3",
+      text: "Yes, water it gently.",
     },
   },
   [normalizeText("yogurt")]: {
@@ -40791,6 +41981,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/completion_d2bb6188.mp3",
       text: "You watched the animals and stayed on the path.",
+    },
+  },
+  [normalizeText("You watered just enough and waited patiently for the sprout.")]: {
+    "en-US": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/completion_51de15d6.mp3",
+      text: "You watered just enough and waited patiently for the sprout.",
+    },
+    "en-GB": {
+      key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/completion_51de15d6.mp3",
+      text: "You watered just enough and waited patiently for the sprout.",
     },
   },
   [normalizeText("You're clean and ready!")]: {
@@ -52845,6 +54045,418 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là cái bấm móng tay.")]: {
     key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_nail_clippers_success_11d8c756.mp3",
     text: "Từ này nghĩa là cái bấm móng tay.",
+  },
+  [normalizeText("Đất ẩm sẫm màu và hơi ướt. Chạm vào mảng đất nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/check_damp_e8669589.mp3",
+    text: "Đất ẩm sẫm màu và hơi ướt. Chạm vào mảng đất nhé.",
+  },
+  [normalizeText("Chạm vào mảng đất sẫm màu phía trên chậu.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/check_damp_fail_bc4a95b9.mp3",
+    text: "Chạm vào mảng đất sẫm màu phía trên chậu.",
+  },
+  [normalizeText("Đúng rồi, đất đang hơi ướt và đủ ẩm.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/check_damp_success_74662a94.mp3",
+    text: "Đúng rồi, đất đang hơi ướt và đủ ẩm.",
+  },
+  [normalizeText("Đâu là hình chờ mầm cây nhú lên?")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/choose_wait_sprout_e4286536.mp3",
+    text: "Đâu là hình chờ mầm cây nhú lên?",
+  },
+  [normalizeText("Đúng rồi, đợi mầm nhú lên.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/choose_wait_sprout_success_c212af7e.mp3",
+    text: "Đúng rồi, đợi mầm nhú lên.",
+  },
+  [normalizeText("Đâu là hình bình tưới nhẹ nhàng vào đất?")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/choose_water_gently_1de4763f.mp3",
+    text: "Đâu là hình bình tưới nhẹ nhàng vào đất?",
+  },
+  [normalizeText("Đúng rồi, tưới nhẹ nhàng.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/choose_water_gently_success_7835f883.mp3",
+    text: "Đúng rồi, tưới nhẹ nhàng.",
+  },
+  [normalizeText("Bé đã tưới vừa đủ và kiên nhẫn chờ mầm cây.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/completion_695a62c4.mp3",
+    text: "Bé đã tưới vừa đủ và kiên nhẫn chờ mầm cây.",
+  },
+  [normalizeText("Đây là vòi bình tưới. Chạm vào đầu vòi xanh nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_spout_51b3e29f.mp3",
+    text: "Đây là vòi bình tưới. Chạm vào đầu vòi xanh nhé.",
+  },
+  [normalizeText("Nhìn bình tưới, rồi chạm đầu vòi xanh phía trên.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_spout_fail_e08428e8.mp3",
+    text: "Nhìn bình tưới, rồi chạm đầu vòi xanh phía trên.",
+  },
+  [normalizeText("Đúng rồi, vòi giúp bình tưới rót nước nhẹ.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_spout_success_86894591.mp3",
+    text: "Đúng rồi, vòi giúp bình tưới rót nước nhẹ.",
+  },
+  [normalizeText("Chạm vào mầm cây mới nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_sprout_202b97bc.mp3",
+    text: "Chạm vào mầm cây mới nhé.",
+  },
+  [normalizeText("Mầm xanh nhỏ mọc giữa chậu.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_sprout_fail_192e24fa.mp3",
+    text: "Mầm xanh nhỏ mọc giữa chậu.",
+  },
+  [normalizeText("Đúng rồi, đây là mầm cây.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_sprout_success_91591225.mp3",
+    text: "Đúng rồi, đây là mầm cây.",
+  },
+  [normalizeText("Tìm giọt nước màu xanh nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_water_c77172c5.mp3",
+    text: "Tìm giọt nước màu xanh nhé.",
+  },
+  [normalizeText("Giọt nước ở phía trên bên trái.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_water_fail_26f9ac02.mp3",
+    text: "Giọt nước ở phía trên bên trái.",
+  },
+  [normalizeText("Đúng rồi, cây cần nước để lớn lên.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/find_water_success_d7d79022.mp3",
+    text: "Đúng rồi, cây cần nước để lớn lên.",
+  },
+  [normalizeText("Hạt đã được phủ đất. Mình tưới vừa đủ rồi chờ nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/intro_75f95b24.mp3",
+    text: "Hạt đã được phủ đất. Mình tưới vừa đủ rồi chờ nhé.",
+  },
+  [normalizeText("Đất cần ẩm, nhưng không cần có vũng nước.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/intro_success_4a6570d3.mp3",
+    text: "Đất cần ẩm, nhưng không cần có vũng nước.",
+  },
+  [normalizeText("Đợi vài ngày, mầm nhú lên. Chạm vào hình có mầm nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_wait_sprout_1422440f.mp3",
+    text: "Đợi vài ngày, mầm nhú lên. Chạm vào hình có mầm nhé.",
+  },
+  [normalizeText("Hình có mũi tên và mầm cây ở hàng dưới bên phải.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_wait_sprout_fail_4f609419.mp3",
+    text: "Hình có mũi tên và mầm cây ở hàng dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, mình đang chờ mầm nhú lên.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_wait_sprout_success_69441292.mp3",
+    text: "Đúng rồi, mình đang chờ mầm nhú lên.",
+  },
+  [normalizeText("Rót nước thật nhẹ. Chạm vào hình bình đang tưới nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_water_gently_7705e839.mp3",
+    text: "Rót nước thật nhẹ. Chạm vào hình bình đang tưới nhé.",
+  },
+  [normalizeText("Hình bình tưới nhỏ ở hàng dưới bên trái.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_water_gently_fail_5437f839.mp3",
+    text: "Hình bình tưới nhỏ ở hàng dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, mình đang tưới nhẹ nhàng.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/learn_water_gently_success_d5551a26.mp3",
+    text: "Đúng rồi, mình đang tưới nhẹ nhàng.",
+  },
+  [normalizeText("Chạm vào vũng nước màu xanh nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/notice_puddle_a474a692.mp3",
+    text: "Chạm vào vũng nước màu xanh nhé.",
+  },
+  [normalizeText("Vũng nước màu xanh ở bên trái chậu.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/notice_puddle_fail_5cde11f4.mp3",
+    text: "Vũng nước màu xanh ở bên trái chậu.",
+  },
+  [normalizeText("Vũng nước có thể là dấu hiệu mình tưới quá nhiều.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/notice_puddle_success_1ccdc2fe.mp3",
+    text: "Vũng nước có thể là dấu hiệu mình tưới quá nhiều.",
+  },
+  [normalizeText("Chạm vào vòng mặt trời và mặt trăng phía trên chậu nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/wait_through_time_4abce533.mp3",
+    text: "Chạm vào vòng mặt trời và mặt trăng phía trên chậu nhé.",
+  },
+  [normalizeText("Vòng ngày đêm ở phía trên chậu.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/wait_through_time_fail_1be0d2c4.mp3",
+    text: "Vòng ngày đêm ở phía trên chậu.",
+  },
+  [normalizeText("Sau nhiều ngày chăm sóc, một mầm nhỏ xuất hiện.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/wait_through_time_success_a319d8e7.mp3",
+    text: "Sau nhiều ngày chăm sóc, một mầm nhỏ xuất hiện.",
+  },
+  [normalizeText("Kéo bình tưới xanh tới chậu nhé.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/water_pot_ccf5db4c.mp3",
+    text: "Kéo bình tưới xanh tới chậu nhé.",
+  },
+  [normalizeText("Đưa vòi bình tưới tới phần đất trong chậu.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/water_pot_fail_fcb653d5.mp3",
+    text: "Đưa vòi bình tưới tới phần đất trong chậu.",
+  },
+  [normalizeText("Đất khô đã sẫm màu và hơi ướt. Đất đã ẩm.")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/water_pot_success_d285bb8b.mp3",
+    text: "Đất khô đã sẫm màu và hơi ướt. Đất đã ẩm.",
+  },
+  [normalizeText("Đâu là hình phủ đất lên hạt bằng xẻng?")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/choose_cover_seed_f973a7f3.mp3",
+    text: "Đâu là hình phủ đất lên hạt bằng xẻng?",
+  },
+  [normalizeText("Đúng rồi, phủ đất lên hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/choose_cover_seed_success_cb6bc573.mp3",
+    text: "Đúng rồi, phủ đất lên hạt.",
+  },
+  [normalizeText("Đâu là hình gieo hạt có mũi tên xanh?")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/choose_plant_seed_dfb3315b.mp3",
+    text: "Đâu là hình gieo hạt có mũi tên xanh?",
+  },
+  [normalizeText("Đúng rồi, gieo hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/choose_plant_seed_success_f94470c0.mp3",
+    text: "Đúng rồi, gieo hạt.",
+  },
+  [normalizeText("Hạt đã được gieo và phủ đất đúng thứ tự.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/completion_5b67cc20.mp3",
+    text: "Hạt đã được gieo và phủ đất đúng thứ tự.",
+  },
+  [normalizeText("Chạm vào đống đất bên phải để phủ hạt nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/cover_seed_6fa53706.mp3",
+    text: "Chạm vào đống đất bên phải để phủ hạt nhé.",
+  },
+  [normalizeText("Đống đất để phủ hạt ở bên phải chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/cover_seed_fail_80ca0f7e.mp3",
+    text: "Đống đất để phủ hạt ở bên phải chậu.",
+  },
+  [normalizeText("Hạt đã được phủ bằng một lớp đất mỏng.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/cover_seed_success_46e137bd.mp3",
+    text: "Hạt đã được phủ bằng một lớp đất mỏng.",
+  },
+  [normalizeText("Chạm vào lỗ nhỏ nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_hole_7764ed11.mp3",
+    text: "Chạm vào lỗ nhỏ nhé.",
+  },
+  [normalizeText("Lỗ nhỏ nằm giữa mặt đất trong chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_hole_fail_58a7a3e0.mp3",
+    text: "Lỗ nhỏ nằm giữa mặt đất trong chậu.",
+  },
+  [normalizeText("Đúng rồi, hạt sẽ được đặt vào lỗ này.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_hole_success_87f57065.mp3",
+    text: "Đúng rồi, hạt sẽ được đặt vào lỗ này.",
+  },
+  [normalizeText("Tìm gói hạt giống nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_seed_packet_63ece0a8.mp3",
+    text: "Tìm gói hạt giống nhé.",
+  },
+  [normalizeText("Gói hạt giống ở bên trái chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_seed_packet_fail_7eefa758.mp3",
+    text: "Gói hạt giống ở bên trái chậu.",
+  },
+  [normalizeText("Đúng rồi, mình mở gói để lấy một hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/find_seed_packet_success_f973a2b6.mp3",
+    text: "Đúng rồi, mình mở gói để lấy một hạt.",
+  },
+  [normalizeText("Chậu đã có đất. Mình gieo hạt theo thứ tự nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/intro_089ec8c7.mp3",
+    text: "Chậu đã có đất. Mình gieo hạt theo thứ tự nhé.",
+  },
+  [normalizeText("Đầu tiên mình cần lấy hạt và tạo một lỗ nhỏ.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/intro_success_b3ceb809.mp3",
+    text: "Đầu tiên mình cần lấy hạt và tạo một lỗ nhỏ.",
+  },
+  [normalizeText("Lấp đất lên hạt. Chạm vào hình xẻng rắc đất nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_cover_seed_58e3fde7.mp3",
+    text: "Lấp đất lên hạt. Chạm vào hình xẻng rắc đất nhé.",
+  },
+  [normalizeText("Hình xẻng phủ đất ở hàng dưới bên phải.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_cover_seed_fail_b0d8b0a1.mp3",
+    text: "Hình xẻng phủ đất ở hàng dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, mình đang phủ đất lên hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_cover_seed_success_6d70a5d0.mp3",
+    text: "Đúng rồi, mình đang phủ đất lên hạt.",
+  },
+  [normalizeText("Chạm vào ngón tay đang chỉ xuống nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_finger_c2e732df.mp3",
+    text: "Chạm vào ngón tay đang chỉ xuống nhé.",
+  },
+  [normalizeText("Ngón tay ở phía trên bên phải.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_finger_fail_5df4ca24.mp3",
+    text: "Ngón tay ở phía trên bên phải.",
+  },
+  [normalizeText("Mình dùng một ngón tay để tạo lỗ nhỏ.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_finger_success_5a7f89bc.mp3",
+    text: "Mình dùng một ngón tay để tạo lỗ nhỏ.",
+  },
+  [normalizeText("Đây là thẻ tên cây.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_plant_label_5ec76fa6.mp3",
+    text: "Đây là thẻ tên cây.",
+  },
+  [normalizeText("Thẻ giúp mình nhớ hạt nào đã được gieo.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_plant_label_success_9962657a.mp3",
+    text: "Thẻ giúp mình nhớ hạt nào đã được gieo.",
+  },
+  [normalizeText("Đặt hạt vào lỗ. Chạm vào hình có mũi tên nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_plant_seed_823bc5a3.mp3",
+    text: "Đặt hạt vào lỗ. Chạm vào hình có mũi tên nhé.",
+  },
+  [normalizeText("Hình hạt có mũi tên ở hàng dưới bên trái.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_plant_seed_fail_7a2d71b1.mp3",
+    text: "Hình hạt có mũi tên ở hàng dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, mình đang gieo hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_plant_seed_success_b1cbf8e1.mp3",
+    text: "Đúng rồi, mình đang gieo hạt.",
+  },
+  [normalizeText("Đây là hạt giống. Chạm vào hạt nhỏ nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_seed_a955575d.mp3",
+    text: "Đây là hạt giống. Chạm vào hạt nhỏ nhé.",
+  },
+  [normalizeText("Hạt nhỏ ở phía trên bên trái chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_seed_fail_d3fcdfe2.mp3",
+    text: "Hạt nhỏ ở phía trên bên trái chậu.",
+  },
+  [normalizeText("Đúng rồi, đây là hạt giống.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/learn_seed_success_931c6f4d.mp3",
+    text: "Đúng rồi, đây là hạt giống.",
+  },
+  [normalizeText("Chạm vào đất trong chậu để tạo lỗ nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/make_hole_72202ece.mp3",
+    text: "Chạm vào đất trong chậu để tạo lỗ nhé.",
+  },
+  [normalizeText("Chạm vào phần đất giữa chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/make_hole_fail_0f5ca58c.mp3",
+    text: "Chạm vào phần đất giữa chậu.",
+  },
+  [normalizeText("Một lỗ nhỏ đã sẵn sàng cho hạt.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/make_hole_success_0744cd8b.mp3",
+    text: "Một lỗ nhỏ đã sẵn sàng cho hạt.",
+  },
+  [normalizeText("Kéo thẻ tên cây vào chậu nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/place_plant_label_bbba94a7.mp3",
+    text: "Kéo thẻ tên cây vào chậu nhé.",
+  },
+  [normalizeText("Đưa thẻ tên cây tới mép chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/place_plant_label_fail_103f90c3.mp3",
+    text: "Đưa thẻ tên cây tới mép chậu.",
+  },
+  [normalizeText("Thẻ tên cây đã được cắm sau khi phủ đất.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/place_plant_label_success_e5e53428.mp3",
+    text: "Thẻ tên cây đã được cắm sau khi phủ đất.",
+  },
+  [normalizeText("Kéo hạt giống vào lỗ nhỏ nhé.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/plant_seed_c037eef1.mp3",
+    text: "Kéo hạt giống vào lỗ nhỏ nhé.",
+  },
+  [normalizeText("Đưa hạt giống vào lỗ giữa chậu.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/plant_seed_fail_7b18d78b.mp3",
+    text: "Đưa hạt giống vào lỗ giữa chậu.",
+  },
+  [normalizeText("Hạt giống đã nằm trong đất.")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/plant_seed_success_d229efbb.mp3",
+    text: "Hạt giống đã nằm trong đất.",
+  },
+  [normalizeText("Đây là lỗ thoát nước. Chạm vào lỗ đen dưới chậu nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/check_drainage_hole_25a5b035.mp3",
+    text: "Đây là lỗ thoát nước. Chạm vào lỗ đen dưới chậu nhé.",
+  },
+  [normalizeText("Lỗ đen ở đáy chậu nghiêng bên trái.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/check_drainage_hole_fail_60249426.mp3",
+    text: "Lỗ đen ở đáy chậu nghiêng bên trái.",
+  },
+  [normalizeText("Đúng rồi, nước thừa thoát ra qua lỗ này.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/check_drainage_hole_success_9d25a903.mp3",
+    text: "Đúng rồi, nước thừa thoát ra qua lỗ này.",
+  },
+  [normalizeText("Đâu là hình xẻng cho đất vào chậu?")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/choose_fill_pot_soil_68910ccc.mp3",
+    text: "Đâu là hình xẻng cho đất vào chậu?",
+  },
+  [normalizeText("Đúng rồi, cho đất vào chậu.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/choose_fill_pot_soil_success_31045517.mp3",
+    text: "Đúng rồi, cho đất vào chậu.",
+  },
+  [normalizeText("Chạm vào túi đất trồng có hình mầm cây nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/choose_potting_mix_adcd0202.mp3",
+    text: "Chạm vào túi đất trồng có hình mầm cây nhé.",
+  },
+  [normalizeText("Túi có hình mầm cây ở phía trên bên phải.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/choose_potting_mix_fail_f88fdb73.mp3",
+    text: "Túi có hình mầm cây ở phía trên bên phải.",
+  },
+  [normalizeText("Đúng rồi, trong túi là đất trồng dành cho chậu.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/choose_potting_mix_success_378b3e3d.mp3",
+    text: "Đúng rồi, trong túi là đất trồng dành cho chậu.",
+  },
+  [normalizeText("Chậu đất đã sẵn sàng để gieo hạt.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/completion_06a205f4.mp3",
+    text: "Chậu đất đã sẵn sàng để gieo hạt.",
+  },
+  [normalizeText("Kéo xẻng đất vào chậu nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/fill_pot_78466e0f.mp3",
+    text: "Kéo xẻng đất vào chậu nhé.",
+  },
+  [normalizeText("Đưa xẻng đất vào miệng chậu ở giữa.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/fill_pot_fail_d1d44036.mp3",
+    text: "Đưa xẻng đất vào miệng chậu ở giữa.",
+  },
+  [normalizeText("Tuyệt lắm, chậu đã có đủ đất.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/fill_pot_success_5c358f50.mp3",
+    text: "Tuyệt lắm, chậu đã có đủ đất.",
+  },
+  [normalizeText("Tìm chậu cây nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/find_plant_pot_7f3cb396.mp3",
+    text: "Tìm chậu cây nhé.",
+  },
+  [normalizeText("Chậu màu cam ở giữa bàn.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/find_plant_pot_fail_6c41dd19.mp3",
+    text: "Chậu màu cam ở giữa bàn.",
+  },
+  [normalizeText("Đúng rồi, đây là chậu cây.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/find_plant_pot_success_e829716b.mp3",
+    text: "Đúng rồi, đây là chậu cây.",
+  },
+  [normalizeText("Mình chuẩn bị chậu trước khi gieo hạt nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/intro_b6a70ce1.mp3",
+    text: "Mình chuẩn bị chậu trước khi gieo hạt nhé.",
+  },
+  [normalizeText("Chậu rỗng đang chờ đất trồng.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/intro_success_4e454345.mp3",
+    text: "Chậu rỗng đang chờ đất trồng.",
+  },
+  [normalizeText("Xúc đất vào chậu. Chạm vào hình xẻng đang đổ nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_fill_pot_soil_4fdbafd3.mp3",
+    text: "Xúc đất vào chậu. Chạm vào hình xẻng đang đổ nhé.",
+  },
+  [normalizeText("Hình xẻng đổ đất ở hàng dưới bên trái.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_fill_pot_soil_fail_cddac431.mp3",
+    text: "Hình xẻng đổ đất ở hàng dưới bên trái.",
+  },
+  [normalizeText("Đúng rồi, mình đang cho đất vào chậu.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_fill_pot_soil_success_d76d98be.mp3",
+    text: "Đúng rồi, mình đang cho đất vào chậu.",
+  },
+  [normalizeText("Đổ đất gần đầy, chừa một chút. Chạm vào chậu nhỏ nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_leave_space_4437644e.mp3",
+    text: "Đổ đất gần đầy, chừa một chút. Chạm vào chậu nhỏ nhé.",
+  },
+  [normalizeText("Hình chậu nhỏ ở hàng dưới bên phải.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_leave_space_fail_105f12d1.mp3",
+    text: "Hình chậu nhỏ ở hàng dưới bên phải.",
+  },
+  [normalizeText("Đúng rồi, chậu còn một khoảng trống.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_leave_space_success_a1cfa3b4.mp3",
+    text: "Đúng rồi, chậu còn một khoảng trống.",
+  },
+  [normalizeText("Đây là xẻng xúc đất nhỏ.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_scoop_1e5b70d6.mp3",
+    text: "Đây là xẻng xúc đất nhỏ.",
+  },
+  [normalizeText("Xẻng nhỏ giúp mình xúc một ít đất.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/learn_scoop_success_c9ea99a5.mp3",
+    text: "Xẻng nhỏ giúp mình xúc một ít đất.",
+  },
+  [normalizeText("Đâu là hình chậu nhỏ còn một khoảng trống?")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/leave_space_3b095c63.mp3",
+    text: "Đâu là hình chậu nhỏ còn một khoảng trống?",
+  },
+  [normalizeText("Đúng rồi, chừa một khoảng trống.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/leave_space_success_32484947.mp3",
+    text: "Đúng rồi, chừa một khoảng trống.",
+  },
+  [normalizeText("Đây là đất trồng. Chạm vào đống đất bên trái nhé.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/scoop_soil_cdebb9ba.mp3",
+    text: "Đây là đất trồng. Chạm vào đống đất bên trái nhé.",
+  },
+  [normalizeText("Chạm vào đống đất rời bên trái chậu.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/scoop_soil_fail_fdbf712a.mp3",
+    text: "Chạm vào đống đất rời bên trái chậu.",
+  },
+  [normalizeText("Đúng rồi, đây là đất trồng.")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/scoop_soil_success_eb0d7bcf.mp3",
+    text: "Đúng rồi, đây là đất trồng.",
   },
   [normalizeText("Bé đã biết chơi vui và chia sẻ với bạn.")]: {
     key: "lessons/playtime/friend-games/audio/vi/completion_ba602849.mp3",

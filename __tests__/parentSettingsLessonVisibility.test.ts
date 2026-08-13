@@ -34,8 +34,10 @@ test('adds the first lesson of a newly cataloged theme to an existing custom pla
   ]);
 });
 
-test('preserves a custom lesson choice when the theme already has one visible lesson', async () => {
-  const selectedLessonIds = themes.map(theme => theme.lessonIds[1]);
+test('preserves a custom lesson choice when every theme already has one visible lesson', async () => {
+  const selectedLessonIds = themes.map(
+    theme => theme.lessonIds[1] ?? theme.lessonIds[0],
+  );
 
   await AsyncStorage.setItem(
     PARENT_SETTINGS_STORAGE_KEY,

@@ -95,6 +95,8 @@ export function SceneObjectRenderer({
   const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
+  const isTransparentObject =
+    isLearningObject || object.presentation === 'cutout';
   const imageHeightRatio = isLearningObject
     ? 0.86
     : object.role === 'character'
@@ -324,7 +326,7 @@ export function SceneObjectRenderer({
         onPress={() => onPress(object.id)}
         style={({ pressed }) => [
           styles.pressable,
-          isLearningObject && styles.learningPressable,
+          isTransparentObject && styles.transparentPressable,
           object.role === 'character' && styles.character,
           isDragEnabled && styles.draggable,
           pressed && !isDisabled && styles.pressed,
@@ -333,7 +335,7 @@ export function SceneObjectRenderer({
         <Animated.View
           style={[
             styles.assetBubble,
-            isLearningObject && styles.learningAssetBubble,
+            isTransparentObject && styles.transparentAssetBubble,
             object.role === 'character' && styles.characterAssetBubble,
             { transform: [{ scale: focusScale }] },
           ]}
@@ -600,7 +602,7 @@ const styles = createThemedStyles(() => ({
     textAlign: 'center',
     ...typography.caption,
   },
-  learningAssetBubble: {
+  transparentAssetBubble: {
     backgroundColor: 'transparent',
     padding: 0,
   },
@@ -623,7 +625,7 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: spacing.sm,
     paddingVertical: 2,
   },
-  learningPressable: {
+  transparentPressable: {
     backgroundColor: 'transparent',
     borderWidth: 0,
     elevation: 0,

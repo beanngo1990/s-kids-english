@@ -6,6 +6,10 @@
   `src/assets/source/master/lessons/<lesson>/<scene>/images/`.
 - Keep raw/chroma generation inputs in `src/assets/source/lessons/`.
 - Treat `src/assets/lessons/**/images/*.webp` as generated output.
+- Base object images and every `SceneObject.variants[].asset` follow the same
+  PNG-master/WebP contract. Generic catalog, audit/build/verify, missing-image,
+  and runtime preload scans include variants even when their object starts
+  hidden or the variant is not active at entry.
 - Keep bundled UI icons and mascot images outside this lesson pipeline.
 - Bundled app UI PNG icons live in `src/assets/icons/app-ui/`; they are imported
   with local `require(...)` calls and are not uploaded to R2.
@@ -98,6 +102,41 @@ through R2. Restart Metro after creating or changing the preview lesson.
 All image scripts accept `--lesson=<lesson-id>`. `assets:build` also accepts
 `--force`; otherwise it skips outputs whose source hash, profile, and config
 signature are unchanged.
+
+The `plant-a-seed` pilot has a bounded authoring command:
+
+```bash
+npm run assets:generate-plant-a-seed-pilot
+```
+
+It keeps the approved empty-pot master at
+`src/assets/source/master/lessons/plant-a-seed/shared/images/pot-empty.png`,
+derives same-canvas pot state masters, creates the remaining local pilot masters,
+and writes five optimized bundled map icons. Pass `--force` only when deliberately
+regenerating the pilot set. This command does not build WebP, generate audio, or
+contact R2; continue with the normal audit/build/verify commands afterward.
+
+Production art for this lesson is cut from a small set of shared generation
+sheets under
+`src/assets/source/lessons/plant-a-seed/production-sheets/`. Keep one portrait
+background master, one chroma-key object sheet per scene and the shared 3x2
+`action-objects-chroma.png`; objects must stay in the grid order encoded by the
+cutting script. Action cells are text-free transparent illustrations: do not put
+captions, card backgrounds, borders or labels into the raster. Runtime teacher
+copy and vocabulary own all child-facing text. After adding or replacing the
+sheets, generate all named PNG masters, pot state variants and bundled map icons
+together:
+
+```bash
+npm run assets:cut-plant-a-seed-production -- --force
+npm run assets:verify-plant-a-seed-cutouts
+```
+
+The cutter removes the magenta sheet background, writes final PNG masters to
+`src/assets/source/master/lessons/plant-a-seed/`, and preserves the approved
+empty-pot silhouette across every state. Continue with `assets:audit`,
+`assets:build`, and `assets:verify`; the cutter does not create WebP, synthesize
+audio, or contact R2.
 
 The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.
