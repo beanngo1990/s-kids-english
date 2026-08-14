@@ -83,7 +83,13 @@ const themeCatalog: LessonTheme[] = [
       'Bé gieo hạt, chăm cây, khám phá khu vườn, thu hoạch và bắt đầu một mùa mới.',
     descriptionEn:
       'Plant a seed, care for it, explore the garden, harvest, and begin again.',
-    lessonIds: ['plant-a-seed', 'help-it-grow', 'garden-friends'],
+    lessonIds: [
+      'plant-a-seed',
+      'help-it-grow',
+      'garden-friends',
+      'harvest-day',
+      'garden-to-table',
+    ],
   },
 ];
 

@@ -103,6 +103,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A long little neighbor is on the soil.",
     },
   },
+  [normalizeText("A new garden journey can begin from one small seed.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/celebrate_new_season_success_eaa67b24.mp3",
+      text: "A new garden journey can begin from one small seed.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/celebrate_new_season_success_eaa67b24.mp3",
+      text: "A new garden journey can begin from one small seed.",
+    },
+  },
   [normalizeText("A puddle can mean there is too much water.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/notice_puddle_success_7a674b3f.mp3",
@@ -151,6 +161,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/follow_soil_success_fb187a1f.mp3",
       text: "A small path appears, and a snail is here too.",
+    },
+  },
+  [normalizeText("A smaller green tomato is behind the leaf.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/lift_leaf_success_b1e9ca94.mp3",
+      text: "A smaller green tomato is behind the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/lift_leaf_success_b1e9ca94.mp3",
+      text: "A smaller green tomato is behind the leaf.",
     },
   },
   [normalizeText("A snack is a light meal after you get home.")]: {
@@ -241,6 +261,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/alphabet_book.mp3",
       text: "alphabet book",
+    },
+  },
+  [normalizeText("An adult prepared one dry tomato seed for next season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_intro_5cc2f75e.mp3",
+      text: "An adult prepared one dry tomato seed for next season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_intro_5cc2f75e.mp3",
+      text: "An adult prepared one dry tomato seed for next season.",
+    },
+  },
+  [normalizeText("An adult prepared the ingredients safely. Let us make a cold salad.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_intro_c1324f45.mp3",
+      text: "An adult prepared the ingredients safely. Let us make a cold salad.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_intro_c1324f45.mp3",
+      text: "An adult prepared the ingredients safely. Let us make a cold salad.",
+    },
+  },
+  [normalizeText("An adult will check the bruised tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/adult_check_bruised_success_3e56caee.mp3",
+      text: "An adult will check the bruised tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/adult_check_bruised_success_3e56caee.mp3",
+      text: "An adult will check the bruised tomato.",
     },
   },
   [normalizeText("An orange-winged visitor is flying over.")]: {
@@ -913,6 +963,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/breathe_out_slowly.mp3",
       text: "breathe out slowly",
+    },
+  },
+  [normalizeText("bruised")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/bruised.mp3",
+      text: "bruised",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/bruised.mp3",
+      text: "bruised",
     },
   },
   [normalizeText("brush your hair")]: {
@@ -1761,6 +1821,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "coaster",
     },
   },
+  [normalizeText("colander")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/colander.mp3",
+      text: "colander",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/colander.mp3",
+      text: "colander",
+    },
+  },
   [normalizeText("cold")]: {
     "en-US": {
       key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/cold.mp3",
@@ -1993,6 +2063,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/after-lunch/audio/en/crumbs.mp3",
       text: "crumbs",
+    },
+  },
+  [normalizeText("cucumber")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/cucumber.mp3",
+      text: "cucumber",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/cucumber.mp3",
+      text: "cucumber",
     },
   },
   [normalizeText("cup")]: {
@@ -2551,6 +2631,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the bowl of fruit on the scale into the glowing circle.",
     },
   },
+  [normalizeText("Drag the bowl to the two portions below.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share_salad_fail_89411e41.mp3",
+      text: "Drag the bowl to the two portions below.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share_salad_fail_89411e41.mp3",
+      text: "Drag the bowl to the two portions below.",
+    },
+  },
+  [normalizeText("Drag the bruised tomato to the adult-check tray.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_adult_check_bruised_1a341ff4.mp3",
+      text: "Drag the bruised tomato to the adult-check tray.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_adult_check_bruised_1a341ff4.mp3",
+      text: "Drag the bruised tomato to the adult-check tray.",
+    },
+  },
   [normalizeText("Drag the bus onto the road.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_drag_bus_to_road_fb2a0b56.mp3",
@@ -2601,6 +2701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the carafe onto the serving cart.",
     },
   },
+  [normalizeText("Drag the carrots and peas to the basket with the carrot shape.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_vegetables_fail_cf7a054d.mp3",
+      text: "Drag the carrots and peas to the basket with the carrot shape.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_vegetables_fail_cf7a054d.mp3",
+      text: "Drag the carrots and peas to the basket with the carrot shape.",
+    },
+  },
   [normalizeText("Drag the cart into the glowing circle next to you.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_drag_cart_4746d9e7.mp3",
@@ -2629,6 +2739,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/prompt_lunchtable_drag_chair_to_table_3f4204c2.mp3",
       text: "Drag the chair to the table.",
+    },
+  },
+  [normalizeText("Drag the clean cucumber into the colander.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_place_produce_in_colander_e867a469.mp3",
+      text: "Drag the clean cucumber into the colander.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_place_produce_in_colander_e867a469.mp3",
+      text: "Drag the clean cucumber into the colander.",
     },
   },
   [normalizeText("Drag the cleaning brush to the spill.")]: {
@@ -2731,6 +2851,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the crumbs into the trash bin.",
     },
   },
+  [normalizeText("Drag the cucumber into the colander with holes.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
+      text: "Drag the cucumber into the colander with holes.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
+      text: "Drag the cucumber into the colander with holes.",
+    },
+  },
+  [normalizeText("Drag the cucumber slices into the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_add_cucumber_9879e570.mp3",
+      text: "Drag the cucumber slices into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_add_cucumber_9879e570.mp3",
+      text: "Drag the cucumber slices into the bowl.",
+    },
+  },
+  [normalizeText("Drag the cucumber to the water on the right.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_rinse_cucumber_cf2022f0.mp3",
+      text: "Drag the cucumber to the water on the right.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_rinse_cucumber_cf2022f0.mp3",
+      text: "Drag the cucumber to the water on the right.",
+    },
+  },
   [normalizeText("Drag the cushion into the glowing circle.")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_drag_cushion_08590202.mp3",
@@ -2801,6 +2951,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the feather to the glowing stream of air.",
     },
   },
+  [normalizeText("Drag the folded towel below the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/place_towel_fail_b25f03ce.mp3",
+      text: "Drag the folded towel below the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/place_towel_fail_b25f03ce.mp3",
+      text: "Drag the folded towel below the bowl.",
+    },
+  },
   [normalizeText("Drag the food cover to the leftovers.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_drag_cover_to_leftovers_945ae221.mp3",
@@ -2851,6 +3011,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the green counter into the glowing circle.",
     },
   },
+  [normalizeText("Drag the green herb bunch to the basket with the leaf shape.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_herbs_fail_851ebab6.mp3",
+      text: "Drag the green herb bunch to the basket with the leaf shape.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_herbs_fail_851ebab6.mp3",
+      text: "Drag the green herb bunch to the basket with the leaf shape.",
+    },
+  },
+  [normalizeText("Drag the green leaves into the water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_lettuce_fail_6edd6b53.mp3",
+      text: "Drag the green leaves into the water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_lettuce_fail_6edd6b53.mp3",
+      text: "Drag the green leaves into the water.",
+    },
+  },
+  [normalizeText("Drag the green leaves on the left into the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_lettuce_fail_33cf6b8e.mp3",
+      text: "Drag the green leaves on the left into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_lettuce_fail_33cf6b8e.mp3",
+      text: "Drag the green leaves on the left into the bowl.",
+    },
+  },
   [normalizeText("Drag the green watering can to the plant pot.")]: {
     "en-US": {
       key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_fail_72752857.mp3",
@@ -2889,6 +3079,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/prompt_drag_hand_46a5a5d6.mp3",
       text: "Drag the hand to the glowing arm.",
+    },
+  },
+  [normalizeText("Drag the herb bunch into the basket on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_herbs_7f8251d6.mp3",
+      text: "Drag the herb bunch into the basket on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_herbs_7f8251d6.mp3",
+      text: "Drag the herb bunch into the basket on the right.",
+    },
+  },
+  [normalizeText("Drag the kitchen towel under the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_place_towel_39aea529.mp3",
+      text: "Drag the kitchen towel under the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_place_towel_39aea529.mp3",
+      text: "Drag the kitchen towel under the bowl.",
     },
   },
   [normalizeText("Drag the kite into the sky.")]: {
@@ -2931,6 +3141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the leftovers onto the kitchen counter.",
     },
   },
+  [normalizeText("Drag the lettuce to the water on the right.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_rinse_lettuce_1dc68a1b.mp3",
+      text: "Drag the lettuce to the water on the right.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_rinse_lettuce_1dc68a1b.mp3",
+      text: "Drag the lettuce to the water on the right.",
+    },
+  },
   [normalizeText("Drag the life jacket into the glowing circle.")]: {
     "en-US": {
       key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/prompt_drag_life_jacket_9b21da9c.mp3",
@@ -2939,6 +3159,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_drag_life_jacket_9b21da9c.mp3",
       text: "Drag the life jacket into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the long green cucumber into the water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_cucumber_fail_243540f4.mp3",
+      text: "Drag the long green cucumber into the water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_cucumber_fail_243540f4.mp3",
+      text: "Drag the long green cucumber into the water.",
     },
   },
   [normalizeText("Drag the long stick to the soil circle beside the plant.")]: {
@@ -3101,6 +3331,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the plant pot into the sunlight.",
     },
   },
+  [normalizeText("Drag the prepared lettuce into the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_add_lettuce_86c4d3f7.mp3",
+      text: "Drag the prepared lettuce into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_add_lettuce_86c4d3f7.mp3",
+      text: "Drag the prepared lettuce into the bowl.",
+    },
+  },
   [normalizeText("Drag the purple grapes above the scale into the glowing circle.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_grapes_32d4bb28.mp3",
@@ -3109,6 +3349,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_drag_grapes_32d4bb28.mp3",
       text: "Drag the purple grapes above the scale into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the red tomato into the basket in the middle.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_tomato_1700bc3b.mp3",
+      text: "Drag the red tomato into the basket in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_tomato_1700bc3b.mp3",
+      text: "Drag the red tomato into the basket in the middle.",
+    },
+  },
+  [normalizeText("Drag the red tomato into the basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_place_tomato_in_basket_98528eee.mp3",
+      text: "Drag the red tomato into the basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_place_tomato_in_basket_98528eee.mp3",
+      text: "Drag the red tomato into the basket.",
+    },
+  },
+  [normalizeText("Drag the red tomato on the plant to the basket on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
+      text: "Drag the red tomato on the plant to the basket on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
+      text: "Drag the red tomato on the plant to the basket on the right.",
+    },
+  },
+  [normalizeText("Drag the red tomato to the middle basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_tomato_fail_6e500a57.mp3",
+      text: "Drag the red tomato to the middle basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_tomato_fail_6e500a57.mp3",
+      text: "Drag the red tomato to the middle basket.",
     },
   },
   [normalizeText("Drag the rest into the glowing circle.")]: {
@@ -3121,6 +3401,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the rest into the glowing circle.",
     },
   },
+  [normalizeText("Drag the round green slices into the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_cucumber_fail_d8fe4972.mp3",
+      text: "Drag the round green slices into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_cucumber_fail_d8fe4972.mp3",
+      text: "Drag the round green slices into the bowl.",
+    },
+  },
   [normalizeText("Drag the ruler onto the notebook.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/prompt_supplies_drag_ruler_to_paper_2dd38cdc.mp3",
@@ -3129,6 +3419,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/prompt_supplies_drag_ruler_to_paper_2dd38cdc.mp3",
       text: "Drag the ruler onto the notebook.",
+    },
+  },
+  [normalizeText("Drag the salad bowl to the two portions.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_share_salad_b6942ad4.mp3",
+      text: "Drag the salad bowl to the two portions.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_share_salad_b6942ad4.mp3",
+      text: "Drag the salad bowl to the two portions.",
     },
   },
   [normalizeText("Drag the salad into the meal area.")]: {
@@ -3381,6 +3681,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the thank-you card into the glowing circle.",
     },
   },
+  [normalizeText("Drag the tomato with the brown mark to the tray with the hand.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/adult_check_bruised_fail_beb871cb.mp3",
+      text: "Drag the tomato with the brown mark to the tray with the hand.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/adult_check_bruised_fail_beb871cb.mp3",
+      text: "Drag the tomato with the brown mark to the tray with the hand.",
+    },
+  },
   [normalizeText("Drag the toothbrush into the glowing toothbrush cup.")]: {
     "en-US": {
       key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/prompt_drag_toothbrush_ffcb57cb.mp3",
@@ -3409,6 +3719,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/toy-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_toy_to_basket_6fbc1702.mp3",
       text: "Drag the toy into the basket.",
+    },
+  },
+  [normalizeText("Drag the vegetables into the basket on the left.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
+      text: "Drag the vegetables into the basket on the left.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
+      text: "Drag the vegetables into the basket on the left.",
     },
   },
   [normalizeText("Drag the watering can into the glowing circle.")]: {
@@ -3997,6 +4317,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Find the hand lifting the leaf to look underneath.",
     },
   },
+  [normalizeText("Find the hand that does not pull the green tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/choose_leave_unripe_one_fail_b1defe07.mp3",
+      text: "Find the hand that does not pull the green tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/choose_leave_unripe_one_fail_b1defe07.mp3",
+      text: "Find the hand that does not pull the green tomato.",
+    },
+  },
   [normalizeText("Find the picture of a hand lifting the leaf.")]: {
     "en-US": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/choose_look_under_leaf_fail_04cf9af4.mp3",
@@ -4037,6 +4367,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Find the picture of watching eyes and still hands.",
     },
   },
+  [normalizeText("Find the picture placing seeds into an envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/choose_save_the_seeds_fail_57d2b23d.mp3",
+      text: "Find the picture placing seeds into an envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/choose_save_the_seeds_fail_57d2b23d.mp3",
+      text: "Find the picture placing seeds into an envelope.",
+    },
+  },
+  [normalizeText("Find the picture saving dry seeds for next season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_choose_save_the_seeds_a6a89b8f.mp3",
+      text: "Find the picture saving dry seeds for next season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_choose_save_the_seeds_a6a89b8f.mp3",
+      text: "Find the picture saving dry seeds for next season.",
+    },
+  },
+  [normalizeText("Find the picture that keeps the green tomato on its branch.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_choose_leave_unripe_one_5dce787c.mp3",
+      text: "Find the picture that keeps the green tomato on its branch.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_choose_leave_unripe_one_5dce787c.mp3",
+      text: "Find the picture that keeps the green tomato on its branch.",
+    },
+  },
+  [normalizeText("Find the picture that rinses all of the produce.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_choose_rinse_it_well_cf438471.mp3",
+      text: "Find the picture that rinses all of the produce.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_choose_rinse_it_well_cf438471.mp3",
+      text: "Find the picture that rinses all of the produce.",
+    },
+  },
+  [normalizeText("Find the picture with each type in its own basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_choose_sort_by_type_2066e545.mp3",
+      text: "Find the picture with each type in its own basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_choose_sort_by_type_2066e545.mp3",
+      text: "Find the picture with each type in its own basket.",
+    },
+  },
   [normalizeText("Find the picture with still hands.")]: {
     "en-US": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
@@ -4045,6 +4425,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
       text: "Find the picture with still hands.",
+    },
+  },
+  [normalizeText("Find the picture with three separate baskets.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/choose_sort_by_type_fail_3adec8ae.mp3",
+      text: "Find the picture with three separate baskets.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/choose_sort_by_type_fail_3adec8ae.mp3",
+      text: "Find the picture with three separate baskets.",
+    },
+  },
+  [normalizeText("Find the picture with water over all the produce.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/choose_rinse_it_well_fail_450ef16e.mp3",
+      text: "Find the picture with water over all the produce.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/choose_rinse_it_well_fail_450ef16e.mp3",
+      text: "Find the picture with water over all the produce.",
     },
   },
   [normalizeText("Find the plant pot.")]: {
@@ -4075,6 +4475,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/find_the_red_circle.mp3",
       text: "find the red circle",
+    },
+  },
+  [normalizeText("Find the red, round, firm tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
+      text: "Find the red, round, firm tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
+      text: "Find the red, round, firm tomato.",
     },
   },
   [normalizeText("Find the seed packet.")]: {
@@ -4421,6 +4831,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-table/audio/en-GB/neural2-c-r1/fruit_plate.mp3",
       text: "fruit plate",
+    },
+  },
+  [normalizeText("fruit stem")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/fruit_stem.mp3",
+      text: "fruit stem",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/fruit_stem.mp3",
+      text: "fruit stem",
     },
   },
   [normalizeText("game")]: {
@@ -4961,6 +5381,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/helmet.mp3",
       text: "helmet",
+    },
+  },
+  [normalizeText("herb")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/herb.mp3",
+      text: "herb",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/herb.mp3",
+      text: "herb",
     },
   },
   [normalizeText("Hi! I am Sungy, your child’s learning buddy.")]: {
@@ -12799,6 +13229,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "kitchen counter",
     },
   },
+  [normalizeText("kitchen towel")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/kitchen_towel.mp3",
+      text: "kitchen towel",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/kitchen_towel.mp3",
+      text: "kitchen towel",
+    },
+  },
   [normalizeText("kite")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/kite.mp3",
@@ -12953,6 +13393,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "leave some space",
     },
   },
+  [normalizeText("leave the unripe one")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/leave_the_unripe_one.mp3",
+      text: "leave the unripe one",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/leave_the_unripe_one.mp3",
+      text: "leave the unripe one",
+    },
+  },
   [normalizeText("leftovers")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/leftovers.mp3",
@@ -12975,6 +13425,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/legs-and-feet/audio/en-GB/neural2-c-r1/leg.mp3",
       text: "leg",
+    },
+  },
+  [normalizeText("Let us place each type in its own basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/intro_success_c08906c6.mp3",
+      text: "Let us place each type in its own basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/intro_success_c08906c6.mp3",
+      text: "Let us place each type in its own basket.",
     },
   },
   [normalizeText("Let us quietly look for more little garden neighbors.")]: {
@@ -16661,6 +17121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Let's watch the animals quietly.",
     },
   },
+  [normalizeText("lettuce")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/lettuce.mp3",
+      text: "lettuce",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/lettuce.mp3",
+      text: "lettuce",
+    },
+  },
   [normalizeText("librarian")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/librarian.mp3",
@@ -19803,6 +20273,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "otoscope",
     },
   },
+  [normalizeText("Our tomato and produce from the next garden bed are on the table.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_intro_db5afb98.mp3",
+      text: "Our tomato and produce from the next garden bed are on the table.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_intro_db5afb98.mp3",
+      text: "Our tomato and produce from the next garden bed are on the table.",
+    },
+  },
   [normalizeText("Our trip home has begun!")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/intro_success_9968d2b4.mp3",
@@ -20017,6 +20497,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/pet_the_sheep_gently.mp3",
       text: "pet the sheep gently",
+    },
+  },
+  [normalizeText("pick")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/pick.mp3",
+      text: "pick",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/pick.mp3",
+      text: "pick",
     },
   },
   [normalizeText("pick up leaves")]: {
@@ -21023,6 +21513,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "rice",
     },
   },
+  [normalizeText("Right, an adult will store the dry seeds.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/choose_save_the_seeds_success_fa8083bb.mp3",
+      text: "Right, an adult will store the dry seeds.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/choose_save_the_seeds_success_fa8083bb.mp3",
+      text: "Right, an adult will store the dry seeds.",
+    },
+  },
   [normalizeText("Right, check the soil first.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/choose_check_soil_success_e3872a52.mp3",
@@ -21041,6 +21541,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
       text: "Right, cover the seed.",
+    },
+  },
+  [normalizeText("Right, each type has its own basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/choose_sort_by_type_success_94e123ac.mp3",
+      text: "Right, each type has its own basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/choose_sort_by_type_success_94e123ac.mp3",
+      text: "Right, each type has its own basket.",
+    },
+  },
+  [normalizeText("Right, every side is rinsed well.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/choose_rinse_it_well_success_3405309a.mp3",
+      text: "Right, every side is rinsed well.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/choose_rinse_it_well_success_3405309a.mp3",
+      text: "Right, every side is rinsed well.",
     },
   },
   [normalizeText("Right, fill the pot with soil.")]: {
@@ -21093,6 +21613,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Right, the eyes watch and the hands stay still.",
     },
   },
+  [normalizeText("Right, the green tomato can keep growing.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/choose_leave_unripe_one_success_e7c2ca84.mp3",
+      text: "Right, the green tomato can keep growing.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/choose_leave_unripe_one_success_e7c2ca84.mp3",
+      text: "Right, the green tomato can keep growing.",
+    },
+  },
   [normalizeText("Right, wait for the sprout.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
@@ -21133,6 +21663,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Right, we move the plant into the sunlight.",
     },
   },
+  [normalizeText("Right, we will pick the ripe tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
+      text: "Right, we will pick the ripe tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
+      text: "Right, we will pick the ripe tomato.",
+    },
+  },
+  [normalizeText("rinse")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse.mp3",
+      text: "rinse",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse.mp3",
+      text: "rinse",
+    },
+  },
+  [normalizeText("rinse it well")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_it_well.mp3",
+      text: "rinse it well",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_it_well.mp3",
+      text: "rinse it well",
+    },
+  },
   [normalizeText("rinse your feet")]: {
     "en-US": {
       key: "lessons/beach-day/sea-safety/audio/en-US/neural2-c-r1/rinse_your_feet.mp3",
@@ -21161,6 +21721,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/prompt_drag_shower_head_to_hair_213765c4.mp3",
       text: "Rinse your hair.",
+    },
+  },
+  [normalizeText("ripe")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/ripe.mp3",
+      text: "ripe",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/ripe.mp3",
+      text: "ripe",
     },
   },
   [normalizeText("road")]: {
@@ -21381,6 +21951,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_save_leftovers_3c4fe872.mp3",
       text: "Save the leftovers.",
+    },
+  },
+  [normalizeText("save the seeds")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/save_the_seeds.mp3",
+      text: "save the seeds",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/save_the_seeds.mp3",
+      text: "save the seeds",
     },
   },
   [normalizeText("say good night")]: {
@@ -21845,6 +22425,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/shape.mp3",
       text: "shape",
+    },
+  },
+  [normalizeText("share")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share.mp3",
+      text: "share",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share.mp3",
+      text: "share",
     },
   },
   [normalizeText("share food")]: {
@@ -22581,6 +23171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sore throat",
     },
   },
+  [normalizeText("sort by type")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_by_type.mp3",
+      text: "sort by type",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_by_type.mp3",
+      text: "sort by type",
+    },
+  },
   [normalizeText("sort the recycling")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/sort_the_recycling.mp3",
@@ -23119,6 +23719,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "sunscreen",
     },
   },
+  [normalizeText("Support the fruit with your hand without shaking the branch.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/intro_success_ea1894f9.mp3",
+      text: "Support the fruit with your hand without shaking the branch.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/intro_success_ea1894f9.mp3",
+      text: "Support the fruit with your hand without shaking the branch.",
+    },
+  },
   [normalizeText("support the stem")]: {
     "en-US": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/support_the_stem.mp3",
@@ -23353,6 +23963,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap Play to open the unlocked game.",
     },
   },
+  [normalizeText("Tap the adult hand saving the dry seeds.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
+      text: "Tap the adult hand saving the dry seeds.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
+      text: "Tap the adult hand saving the dry seeds.",
+    },
+  },
   [normalizeText("Tap the aisle between the two shelf rows at the top.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/prompt_tap_aisle_1a9ca2ac.mp3",
@@ -23451,6 +24071,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the banner at the top.",
     },
   },
+  [normalizeText("Tap the basket holding the tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_finish_36f42356.mp3",
+      text: "Tap the basket holding the tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_finish_36f42356.mp3",
+      text: "Tap the basket holding the tomato.",
+    },
+  },
   [normalizeText("Tap the basket of vegetables just to your right.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_vegetables_e7da8615.mp3",
@@ -23459,6 +24089,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_vegetables_e7da8615.mp3",
       text: "Tap the basket of vegetables just to your right.",
+    },
+  },
+  [normalizeText("Tap the basket with the red tomato on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_fail_89ff2ab9.mp3",
+      text: "Tap the basket with the red tomato on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_fail_89ff2ab9.mp3",
+      text: "Tap the basket with the red tomato on the right.",
     },
   },
   [normalizeText("Tap the basket.")]: {
@@ -23649,6 +24289,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the blue scale on the right.",
     },
   },
+  [normalizeText("Tap the blue water drop to turn on clean water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_turn_on_water_48a8b865.mp3",
+      text: "Tap the blue water drop to turn on clean water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_turn_on_water_48a8b865.mp3",
+      text: "Tap the blue water drop to turn on clean water.",
+    },
+  },
   [normalizeText("Tap the board.")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/prompt_tap_board_9165c834.mp3",
@@ -23713,6 +24363,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playtime-rest/audio/en/prompt_rest_tap_bottle_95db3e5a.mp3",
       text: "Tap the bottle.",
+    },
+  },
+  [normalizeText("Tap the bowl of prepared cold salad.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_salad_c23eae7c.mp3",
+      text: "Tap the bowl of prepared cold salad.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_salad_c23eae7c.mp3",
+      text: "Tap the bowl of prepared cold salad.",
+    },
+  },
+  [normalizeText("Tap the bowl with lettuce and cucumber.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_salad_fail_e90c1581.mp3",
+      text: "Tap the bowl with lettuce and cucumber.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_salad_fail_e90c1581.mp3",
+      text: "Tap the bowl with lettuce and cucumber.",
     },
   },
   [normalizeText("Tap the box.")]: {
@@ -23829,6 +24499,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/prompt_tap_buckle_c70ba819.mp3",
       text: "Tap the buckle.",
+    },
+  },
+  [normalizeText("Tap the bunch of lettuce leaves on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_lettuce_eea18687.mp3",
+      text: "Tap the bunch of lettuce leaves on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_lettuce_eea18687.mp3",
+      text: "Tap the bunch of lettuce leaves on the left.",
     },
   },
   [normalizeText("Tap the bus.")]: {
@@ -23949,6 +24629,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the carrot in the basket of vegetables.",
     },
   },
+  [normalizeText("Tap the carrots and peas on the left.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_vegetable_82a94c20.mp3",
+      text: "Tap the carrots and peas on the left.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_vegetable_82a94c20.mp3",
+      text: "Tap the carrots and peas on the left.",
+    },
+  },
   [normalizeText("Tap the cashier behind the green checkout counter.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/checkout-counter/audio/en-US/neural2-c-r1/prompt_tap_cashier_84f457ff.mp3",
@@ -23971,6 +24661,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-table/audio/en/prompt_tap_chicken_b3b60b80.mp3",
       text: "Tap the chicken.",
+    },
+  },
+  [normalizeText("Tap the circle with the sun and leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/wait_for_next_season_fail_e88924e1.mp3",
+      text: "Tap the circle with the sun and leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/wait_for_next_season_fail_e88924e1.mp3",
+      text: "Tap the circle with the sun and leaf.",
     },
   },
   [normalizeText("Tap the circle with the sun and moon.")]: {
@@ -24073,6 +24773,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_coaster_5d25af24.mp3",
       text: "Tap the coaster.",
+    },
+  },
+  [normalizeText("Tap the colander with many holes on the right.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_colander_b19daa36.mp3",
+      text: "Tap the colander with many holes on the right.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_colander_b19daa36.mp3",
+      text: "Tap the colander with many holes on the right.",
     },
   },
   [normalizeText("Tap the collar.")]: {
@@ -24209,6 +24919,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/snack-time/snack-cleanup/audio/en/prompt_tap_crumbs_37ce8f50.mp3",
       text: "Tap the crumbs.",
+    },
+  },
+  [normalizeText("Tap the cucumber with a little soil on it.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_cucumber_f0084e0d.mp3",
+      text: "Tap the cucumber with a little soil on it.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_cucumber_f0084e0d.mp3",
+      text: "Tap the cucumber with a little soil on it.",
     },
   },
   [normalizeText("Tap the cup.")]: {
@@ -24445,6 +25165,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the drum.",
     },
   },
+  [normalizeText("Tap the dry seed on the adult hand.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_notice_dry_seed_23bfb57b.mp3",
+      text: "Tap the dry seed on the adult hand.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_notice_dry_seed_23bfb57b.mp3",
+      text: "Tap the dry seed on the adult hand.",
+    },
+  },
   [normalizeText("Tap the duck.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_duck_c03c1960.mp3",
@@ -24491,6 +25221,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_elbow_1803bff1.mp3",
       text: "Tap the elbow.",
+    },
+  },
+  [normalizeText("Tap the empty bowl in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_bowl_9b1450b0.mp3",
+      text: "Tap the empty bowl in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_bowl_9b1450b0.mp3",
+      text: "Tap the empty bowl in the middle.",
+    },
+  },
+  [normalizeText("Tap the envelope flap to close it.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_close_envelope_cb210639.mp3",
+      text: "Tap the envelope flap to close it.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_close_envelope_cb210639.mp3",
+      text: "Tap the envelope flap to close it.",
     },
   },
   [normalizeText("Tap the eraser.")]: {
@@ -24627,6 +25377,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-rinse/audio/en/prompt_tap_foam_af13f63b.mp3",
       text: "Tap the foam.",
+    },
+  },
+  [normalizeText("Tap the folded kitchen towel on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
+      text: "Tap the folded kitchen towel on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
+      text: "Tap the folded kitchen towel on the left.",
     },
   },
   [normalizeText("Tap the folder.")]: {
@@ -24787,6 +25547,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the goat.",
     },
   },
+  [normalizeText("Tap the green fruit stem connecting the tomato to the branch.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_fruit_stem_3f1ad016.mp3",
+      text: "Tap the green fruit stem connecting the tomato to the branch.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_learn_fruit_stem_3f1ad016.mp3",
+      text: "Tap the green fruit stem connecting the tomato to the branch.",
+    },
+  },
+  [normalizeText("Tap the green herb bunch on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_herb_e75e7f9b.mp3",
+      text: "Tap the green herb bunch on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_herb_e75e7f9b.mp3",
+      text: "Tap the green herb bunch on the right.",
+    },
+  },
   [normalizeText("Tap the green leaf beside the plant.")]: {
     "en-US": {
       key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_leaf_fail_13f3d5a5.mp3",
@@ -24825,6 +25605,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
       text: "Tap the green spout. It is part of the watering can.",
+    },
+  },
+  [normalizeText("Tap the green stem above the red tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_fruit_stem_fail_ec4255ef.mp3",
+      text: "Tap the green stem above the red tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_fail_ec4255ef.mp3",
+      text: "Tap the green stem above the red tomato.",
+    },
+  },
+  [normalizeText("Tap the green tomato to see what we should do.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_notice_unripe_tomato_a608d76f.mp3",
+      text: "Tap the green tomato to see what we should do.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_notice_unripe_tomato_a608d76f.mp3",
+      text: "Tap the green tomato to see what we should do.",
     },
   },
   [normalizeText("Tap the habitat.")]: {
@@ -24877,6 +25677,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand gel.",
     },
   },
+  [normalizeText("Tap the hand gently picking the red tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_pick_0cbb0184.mp3",
+      text: "Tap the hand gently picking the red tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_learn_pick_0cbb0184.mp3",
+      text: "Tap the hand gently picking the red tomato.",
+    },
+  },
   [normalizeText("Tap the hand lifting the leaf to look underneath.")]: {
     "en-US": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
@@ -24887,6 +25697,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand lifting the leaf to look underneath.",
     },
   },
+  [normalizeText("Tap the hand so the adult can store the seed.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
+      text: "Tap the hand so the adult can store the seed.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
+      text: "Tap the hand so the adult can store the seed.",
+    },
+  },
+  [normalizeText("Tap the hand to ask an adult to store the envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
+      text: "Tap the hand to ask an adult to store the envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
+      text: "Tap the hand to ask an adult to store the envelope.",
+    },
+  },
   [normalizeText("Tap the hand towel.")]: {
     "en-US": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/prompt_tap_hand_towel_6eb10514.mp3",
@@ -24895,6 +25725,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_hand_towel_6eb10514.mp3",
       text: "Tap the hand towel.",
+    },
+  },
+  [normalizeText("Tap the hands rinsing the cucumber under water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
+      text: "Tap the hands rinsing the cucumber under water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
+      text: "Tap the hands rinsing the cucumber under water.",
     },
   },
   [normalizeText("Tap the head.")]: {
@@ -25045,6 +25885,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_gift_da560877.mp3",
       text: "Tap the large gift on the table.",
+    },
+  },
+  [normalizeText("Tap the large green leaves below.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_lettuce_fail_cc0e3730.mp3",
+      text: "Tap the large green leaves below.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_lettuce_fail_cc0e3730.mp3",
+      text: "Tap the large green leaves below.",
     },
   },
   [normalizeText("Tap the large leaf on the left to lift it gently.")]: {
@@ -25211,6 +26061,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the long green part below the leaves.",
     },
   },
+  [normalizeText("Tap the long green vegetable on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_cucumber_fail_599c2117.mp3",
+      text: "Tap the long green vegetable on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_cucumber_fail_599c2117.mp3",
+      text: "Tap the long green vegetable on the left.",
+    },
+  },
   [normalizeText("Tap the long plant support. It is a stake.")]: {
     "en-US": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
@@ -25229,6 +26089,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stake_fail_ac682c15.mp3",
       text: "Tap the long rounded stake beside the plant.",
+    },
+  },
+  [normalizeText("Tap the long spoon beside the bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
+      text: "Tap the long spoon beside the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
+      text: "Tap the long spoon beside the bowl.",
     },
   },
   [normalizeText("Tap the loose soil pile on the left. This is soil.")]: {
@@ -25337,6 +26207,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_butterfly_f2a319bf.mp3",
       text: "Tap the magnifying glass around the orange butterfly.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the red tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_inspect_red_tomato_bb1d21f7.mp3",
+      text: "Tap the magnifying glass around the red tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_inspect_red_tomato_bb1d21f7.mp3",
+      text: "Tap the magnifying glass around the red tomato.",
     },
   },
   [normalizeText("Tap the magnifying glass around the small green caterpillar.")]: {
@@ -25619,6 +26499,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the nurse.",
     },
   },
+  [normalizeText("Tap the open hand below to get ready to pick.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_prepare_hand_ad6d651d.mp3",
+      text: "Tap the open hand below to get ready to pick.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_prepare_hand_ad6d651d.mp3",
+      text: "Tap the open hand below to get ready to pick.",
+    },
+  },
+  [normalizeText("Tap the open hand beside the green tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_fail_4ca8d916.mp3",
+      text: "Tap the open hand beside the green tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_fail_4ca8d916.mp3",
+      text: "Tap the open hand beside the green tomato.",
+    },
+  },
+  [normalizeText("Tap the open hand that leaves the unripe tomato on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_leave_unripe_one_a5e72c1c.mp3",
+      text: "Tap the open hand that leaves the unripe tomato on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_leave_unripe_one_a5e72c1c.mp3",
+      text: "Tap the open hand that leaves the unripe tomato on the plant.",
+    },
+  },
   [normalizeText("Tap the open yellow flower.")]: {
     "en-US": {
       key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
@@ -25627,6 +26537,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
       text: "Tap the open yellow flower.",
+    },
+  },
+  [normalizeText("Tap the orange carrots and green peas.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_vegetable_fail_9ee2a868.mp3",
+      text: "Tap the orange carrots and green peas.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_vegetable_fail_9ee2a868.mp3",
+      text: "Tap the orange carrots and green peas.",
     },
   },
   [normalizeText("Tap the page.")]: {
@@ -26267,6 +27187,76 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture of watching eyes and still hands.",
     },
   },
+  [normalizeText("Tap the picture rinsing both sides well.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
+      text: "Tap the picture rinsing both sides well.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
+      text: "Tap the picture rinsing both sides well.",
+    },
+  },
+  [normalizeText("Tap the picture sharing the salad in two portions.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_share_ef92bd40.mp3",
+      text: "Tap the picture sharing the salad in two portions.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_share_ef92bd40.mp3",
+      text: "Tap the picture sharing the salad in two portions.",
+    },
+  },
+  [normalizeText("Tap the picture with a hand and envelope on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_save_the_seeds_fail_0f287dcd.mp3",
+      text: "Tap the picture with a hand and envelope on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_save_the_seeds_fail_0f287dcd.mp3",
+      text: "Tap the picture with a hand and envelope on the left.",
+    },
+  },
+  [normalizeText("Tap the picture with hands, cucumber, and water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_fail_81cc7084.mp3",
+      text: "Tap the picture with hands, cucumber, and water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_fail_81cc7084.mp3",
+      text: "Tap the picture with hands, cucumber, and water.",
+    },
+  },
+  [normalizeText("Tap the picture with three separate groups in three baskets.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_sort_by_type_ef75a69e.mp3",
+      text: "Tap the picture with three separate groups in three baskets.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_sort_by_type_ef75a69e.mp3",
+      text: "Tap the picture with three separate groups in three baskets.",
+    },
+  },
+  [normalizeText("Tap the picture with two portions below.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_share_fail_02a3a2d5.mp3",
+      text: "Tap the picture with two portions below.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_share_fail_02a3a2d5.mp3",
+      text: "Tap the picture with two portions below.",
+    },
+  },
+  [normalizeText("Tap the picture with water over every side.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_it_well_fail_130c8e95.mp3",
+      text: "Tap the picture with water over every side.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_it_well_fail_130c8e95.mp3",
+      text: "Tap the picture with water over every side.",
+    },
+  },
   [normalizeText("Tap the piglet.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_piglet_4ad245dd.mp3",
@@ -26347,6 +27337,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en/prompt_tap_pot_holder_289cb3d4.mp3",
       text: "Tap the pot holder.",
+    },
+  },
+  [normalizeText("Tap the pot with a seed for the new season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_celebrate_new_season_a445df9f.mp3",
+      text: "Tap the pot with a seed for the new season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_celebrate_new_season_a445df9f.mp3",
+      text: "Tap the pot with a seed for the new season.",
     },
   },
   [normalizeText("Tap the potting mix bag with the sprout picture.")]: {
@@ -26511,6 +27511,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the red basket on the right.",
     },
   },
+  [normalizeText("Tap the red tomato on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_tomato_6a127647.mp3",
+      text: "Tap the red tomato on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_tomato_6a127647.mp3",
+      text: "Tap the red tomato on the plant.",
+    },
+  },
+  [normalizeText("Tap the red tomato with the brown dent on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_bruised_fail_4d57f327.mp3",
+      text: "Tap the red tomato with the brown dent on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_bruised_fail_4d57f327.mp3",
+      text: "Tap the red tomato with the brown dent on the right.",
+    },
+  },
+  [normalizeText("Tap the red tomato with the small sparkles.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_ripe_fail_2fea1dcb.mp3",
+      text: "Tap the red tomato with the small sparkles.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_ripe_fail_2fea1dcb.mp3",
+      text: "Tap the red tomato with the small sparkles.",
+    },
+  },
+  [normalizeText("Tap the red, round, firm tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_ripe_73c54df8.mp3",
+      text: "Tap the red, round, firm tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_ripe_73c54df8.mp3",
+      text: "Tap the red, round, firm tomato.",
+    },
+  },
   [normalizeText("Tap the ribbon on the right side of the table.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/prompt_tap_ribbon_da6bc748.mp3",
@@ -26561,6 +27601,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_rope_1aea1747.mp3",
       text: "Tap the rope.",
+    },
+  },
+  [normalizeText("Tap the round colander below.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_colander_fail_94806b1f.mp3",
+      text: "Tap the round colander below.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_colander_fail_94806b1f.mp3",
+      text: "Tap the round colander below.",
+    },
+  },
+  [normalizeText("Tap the round red fruit on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_tomato_fail_96658067.mp3",
+      text: "Tap the round red fruit on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_tomato_fail_96658067.mp3",
+      text: "Tap the round red fruit on the plant.",
     },
   },
   [normalizeText("Tap the round window beside the pot.")]: {
@@ -27001,6 +28061,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small branches under the soil.",
     },
   },
+  [normalizeText("Tap the small green tomato on the left.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_unripe_fail_ff72064a.mp3",
+      text: "Tap the small green tomato on the left.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_unripe_fail_ff72064a.mp3",
+      text: "Tap the small green tomato on the left.",
+    },
+  },
+  [normalizeText("Tap the small green tomato on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_unripe_c2cb99f8.mp3",
+      text: "Tap the small green tomato on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_unripe_c2cb99f8.mp3",
+      text: "Tap the small green tomato on the plant.",
+    },
+  },
   [normalizeText("Tap the small hole.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
@@ -27029,6 +28109,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
       text: "Tap the small lens at the lower right.",
+    },
+  },
+  [normalizeText("Tap the small seed on the open hand.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      text: "Tap the small seed on the open hand.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      text: "Tap the small seed on the open hand.",
     },
   },
   [normalizeText("Tap the small seed. This is a seed.")]: {
@@ -27217,6 +28307,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en/prompt_tap_spill_e006b269.mp3",
       text: "Tap the spill.",
+    },
+  },
+  [normalizeText("Tap the spoon on the right to mix gently.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_mix_salad_d26fedb7.mp3",
+      text: "Tap the spoon on the right to mix gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_mix_salad_d26fedb7.mp3",
+      text: "Tap the spoon on the right to mix gently.",
     },
   },
   [normalizeText("Tap the spray bottle.")]: {
@@ -27471,6 +28571,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the teacher.",
     },
   },
+  [normalizeText("Tap the teal magnifying glass around the red tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/inspect_red_tomato_fail_7bea8970.mp3",
+      text: "Tap the teal magnifying glass around the red tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/inspect_red_tomato_fail_7bea8970.mp3",
+      text: "Tap the teal magnifying glass around the red tomato.",
+    },
+  },
   [normalizeText("Tap the team.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_team_79b39373.mp3",
@@ -27529,6 +28639,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_ticket_8d580d79.mp3",
       text: "Tap the ticket.",
+    },
+  },
+  [normalizeText("Tap the tied green leaves on the right.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_herb_fail_8aff2fa8.mp3",
+      text: "Tap the tied green leaves on the right.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_herb_fail_8aff2fa8.mp3",
+      text: "Tap the tied green leaves on the right.",
+    },
+  },
+  [normalizeText("Tap the time circle to move to the next season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_wait_for_next_season_b1874642.mp3",
+      text: "Tap the time circle to move to the next season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_wait_for_next_season_b1874642.mp3",
+      text: "Tap the time circle to move to the next season.",
     },
   },
   [normalizeText("Tap the timer.")]: {
@@ -27615,6 +28745,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the toiletry bag.",
     },
   },
+  [normalizeText("Tap the tomato basket in the middle.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_finish_c657da5e.mp3",
+      text: "Tap the tomato basket in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_finish_c657da5e.mp3",
+      text: "Tap the tomato basket in the middle.",
+    },
+  },
   [normalizeText("Tap the tomato in the basket of vegetables.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_tap_tomato_2b0a22e6.mp3",
@@ -27643,6 +28783,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/finish_fail_f0054600.mp3",
       text: "Tap the tomato plant on the right.",
+    },
+  },
+  [normalizeText("Tap the tomato with the brown bruise.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
+      text: "Tap the tomato with the brown bruise.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
+      text: "Tap the tomato with the brown bruise.",
     },
   },
   [normalizeText("Tap the tongs.")]: {
@@ -27777,6 +28927,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/prompt_tap_tree_3e01fb9c.mp3",
       text: "Tap the tree.",
+    },
+  },
+  [normalizeText("Tap the triangular flap on the envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/close_envelope_fail_b0b94699.mp3",
+      text: "Tap the triangular flap on the envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/close_envelope_fail_b0b94699.mp3",
+      text: "Tap the triangular flap on the envelope.",
     },
   },
   [normalizeText("Tap the trousers.")]: {
@@ -31343,6 +32503,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "That's right!",
     },
   },
+  [normalizeText("The adult hand is below the envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
+      text: "The adult hand is below the envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
+      text: "The adult hand is below the envelope.",
+    },
+  },
   [normalizeText("The aisle is between the two shelf rows at the top.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/tap_aisle_fail_13e458e8.mp3",
@@ -31721,6 +32891,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/tap_scale_fail_580848d3.mp3",
       text: "The blue scale is on the right.",
+    },
+  },
+  [normalizeText("The blue water drop is in the upper corner.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/turn_on_water_fail_bbae1b66.mp3",
+      text: "The blue water drop is in the upper corner.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/turn_on_water_fail_bbae1b66.mp3",
+      text: "The blue water drop is in the upper corner.",
     },
   },
   [normalizeText("The board is at the top of the classroom.")]: {
@@ -32153,6 +33333,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The card showing groceries being packed is in the middle.",
     },
   },
+  [normalizeText("The carrots and peas are in the correct basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_vegetables_success_beb9bf3a.mp3",
+      text: "The carrots and peas are in the correct basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_vegetables_success_beb9bf3a.mp3",
+      text: "The carrots and peas are in the correct basket.",
+    },
+  },
   [normalizeText("The cart is just to your right.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-US/neural2-c-r1/drag_cart_fail_cfdfcb20.mp3",
@@ -32231,6 +33421,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/drag_clap_hands_fail_3cbe5979.mp3",
       text: "The clapping card is in the bottom middle.",
+    },
+  },
+  [normalizeText("The clean produce is draining in the colander.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_produce_in_colander_success_e04fe82a.mp3",
+      text: "The clean produce is draining in the colander.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_produce_in_colander_success_e04fe82a.mp3",
+      text: "The clean produce is draining in the colander.",
+    },
+  },
+  [normalizeText("The clean water is flowing now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/turn_on_water_success_fbdb60a1.mp3",
+      text: "The clean water is flowing now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/turn_on_water_success_fbdb60a1.mp3",
+      text: "The clean water is flowing now.",
     },
   },
   [normalizeText("The cleaning brush is in the right place.")]: {
@@ -32321,6 +33531,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/drag_coaster_to_cart_success_d7504ff4.mp3",
       text: "The coaster is on the serving cart.",
+    },
+  },
+  [normalizeText("The cold salad is mixed now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_success_2163f57b.mp3",
+      text: "The cold salad is mixed now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_success_2163f57b.mp3",
+      text: "The cold salad is mixed now.",
     },
   },
   [normalizeText("The collar and tag can help you find the front and back.")]: {
@@ -32713,6 +33933,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The drum is under the play table.",
     },
   },
+  [normalizeText("The dry seed is inside the envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/place_seed_in_envelope_success_3758b70d.mp3",
+      text: "The dry seed is inside the envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/place_seed_in_envelope_success_3758b70d.mp3",
+      text: "The dry seed is inside the envelope.",
+    },
+  },
   [normalizeText("The dry soil is now darker and slightly wet. It is damp.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_pot_success_943a6e0d.mp3",
@@ -32781,6 +34011,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/intro_success_9b9c907e.mp3",
       text: "The empty pot is ready for soil.",
+    },
+  },
+  [normalizeText("The envelope is stored safely.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_success_b14363e1.mp3",
+      text: "The envelope is stored safely.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_success_b14363e1.mp3",
+      text: "The envelope is stored safely.",
     },
   },
   [normalizeText("The eraser is on the right.")]: {
@@ -32873,6 +34113,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The flower is growing on the right.",
     },
   },
+  [normalizeText("The flowerpot is in the lower middle.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/celebrate_new_season_fail_2b2ec4ef.mp3",
+      text: "The flowerpot is in the lower middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/celebrate_new_season_fail_2b2ec4ef.mp3",
+      text: "The flowerpot is in the lower middle.",
+    },
+  },
   [normalizeText("The foam is in the bathtub.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/tap_foam_fail_40329ddc.mp3",
@@ -32881,6 +34131,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-GB/neural2-c-r1/tap_foam_fail_40329ddc.mp3",
       text: "The foam is in the bathtub.",
+    },
+  },
+  [normalizeText("The folded kitchen cloth is below.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
+      text: "The folded kitchen cloth is below.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
+      text: "The folded kitchen cloth is below.",
     },
   },
   [normalizeText("The folder is on the small table.")]: {
@@ -33103,6 +34363,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The green counter is in the middle.",
     },
   },
+  [normalizeText("The green tomato needs more time on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/notice_unripe_tomato_success_8f9f2d17.mp3",
+      text: "The green tomato needs more time on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/notice_unripe_tomato_success_8f9f2d17.mp3",
+      text: "The green tomato needs more time on the plant.",
+    },
+  },
   [normalizeText("The habitat is on the right.")]: {
     "en-US": {
       key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/tap_habitat_fail_6103f170.mp3",
@@ -33123,6 +34393,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The hand gel is on the right.",
     },
   },
+  [normalizeText("The hand is supporting the red tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_pick_fail_1da40d79.mp3",
+      text: "The hand is supporting the red tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_pick_fail_1da40d79.mp3",
+      text: "The hand is supporting the red tomato.",
+    },
+  },
+  [normalizeText("The hand moving the seed is beside the envelope.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/place_seed_in_envelope_fail_19c50649.mp3",
+      text: "The hand moving the seed is beside the envelope.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/place_seed_in_envelope_fail_19c50649.mp3",
+      text: "The hand moving the seed is beside the envelope.",
+    },
+  },
+  [normalizeText("The hand will support and turn the tomato gently.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prepare_hand_success_b30897bb.mp3",
+      text: "The hand will support and turn the tomato gently.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prepare_hand_success_b30897bb.mp3",
+      text: "The hand will support and turn the tomato gently.",
+    },
+  },
   [normalizeText("The helmet is nearby.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_helmet_fail_0e4d1870.mp3",
@@ -33131,6 +34431,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-games/audio/en-GB/neural2-c-r1/tap_helmet_fail_0e4d1870.mp3",
       text: "The helmet is nearby.",
+    },
+  },
+  [normalizeText("The herbs are in the basket with the leaf shape.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_herbs_success_0e822beb.mp3",
+      text: "The herbs are in the basket with the leaf shape.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_herbs_success_0e822beb.mp3",
+      text: "The herbs are in the basket with the leaf shape.",
     },
   },
   [normalizeText("The hole in the middle of the pot is the target.")]: {
@@ -33221,6 +34531,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-picnic/audio/en-GB/neural2-c-r1/tap_juice_fail_f675ff27.mp3",
       text: "The juice is on the right.",
+    },
+  },
+  [normalizeText("The kitchen towel helps keep the counter dry.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
+      text: "The kitchen towel helps keep the counter dry.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
+      text: "The kitchen towel helps keep the counter dry.",
     },
   },
   [normalizeText("The kite is in the sky.")]: {
@@ -33373,6 +34693,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The leftovers are on the kitchen counter.",
     },
   },
+  [normalizeText("The lettuce and cucumber are together.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_cucumber_success_854b7877.mp3",
+      text: "The lettuce and cucumber are together.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_cucumber_success_854b7877.mp3",
+      text: "The lettuce and cucumber are together.",
+    },
+  },
+  [normalizeText("The lettuce is in the bowl now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_lettuce_success_9185f0e7.mp3",
+      text: "The lettuce is in the bowl now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_lettuce_success_9185f0e7.mp3",
+      text: "The lettuce is in the bowl now.",
+    },
+  },
+  [normalizeText("The lettuce leaves are clean now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_lettuce_success_9a876fa2.mp3",
+      text: "The lettuce leaves are clean now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_lettuce_success_9a876fa2.mp3",
+      text: "The lettuce leaves are clean now.",
+    },
+  },
   [normalizeText("The librarian is on the right.")]: {
     "en-US": {
       key: "lessons/library-visit/library-card/audio/en-US/neural2-c-r1/tap_librarian_fail_10c72b0b.mp3",
@@ -33523,6 +34873,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The medicine spoon is in the right place.",
     },
   },
+  [normalizeText("The middle basket has the red tomato shape.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_fail_700aa40d.mp3",
+      text: "The middle basket has the red tomato shape.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_fail_700aa40d.mp3",
+      text: "The middle basket has the red tomato shape.",
+    },
+  },
   [normalizeText("The middle of the pot is ready for the scoop.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/fill_pot_fail_9ec3983b.mp3",
@@ -33641,6 +35001,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/tap_nurse_fail_38e91079.mp3",
       text: "The nurse is at the top.",
+    },
+  },
+  [normalizeText("The open hand is at the lower left.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prepare_hand_fail_5c30c155.mp3",
+      text: "The open hand is at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prepare_hand_fail_5c30c155.mp3",
+      text: "The open hand is at the lower left.",
     },
   },
   [normalizeText("The orange carrot is in the basket of vegetables.")]: {
@@ -33873,6 +35243,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The picture with the arrow and sprout is at the lower right.",
     },
   },
+  [normalizeText("The picture with three separate baskets is above.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_sort_by_type_fail_5bd59416.mp3",
+      text: "The picture with three separate baskets is above.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_sort_by_type_fail_5bd59416.mp3",
+      text: "The picture with three separate baskets is above.",
+    },
+  },
   [normalizeText("The piglet is on the right.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_piglet_fail_637bd2e6.mp3",
@@ -34093,6 +35473,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The prize is on the right side of the bench.",
     },
   },
+  [normalizeText("The produce is ready. Let us wash it with clean water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_intro_29474391.mp3",
+      text: "The produce is ready. Let us wash it with clean water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_intro_29474391.mp3",
+      text: "The produce is ready. Let us wash it with clean water.",
+    },
+  },
   [normalizeText("The puppet is on the right.")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/tap_puppet_fail_94d53133.mp3",
@@ -34223,6 +35613,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The red tomato is in the basket of vegetables.",
     },
   },
+  [normalizeText("The red, round, firm tomato is easy to see.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/inspect_red_tomato_success_b113502d.mp3",
+      text: "The red, round, firm tomato is easy to see.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/inspect_red_tomato_success_b113502d.mp3",
+      text: "The red, round, firm tomato is easy to see.",
+    },
+  },
   [normalizeText("The rest is at the top.")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drag_rest_card_fail_dff37e06.mp3",
@@ -34251,6 +35651,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-box/audio/en-GB/neural2-c-r1/lunchbox_tap_rice_fail_e9d6516d.mp3",
       text: "The rice is to the left of the lunchbox.",
+    },
+  },
+  [normalizeText("The ripe one is red and round. Find it again.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_ripe_tomato_fail_e25bd12c.mp3",
+      text: "The ripe one is red and round. Find it again.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_ripe_tomato_fail_e25bd12c.mp3",
+      text: "The ripe one is red and round. Find it again.",
     },
   },
   [normalizeText("The robe is near the hook.")]: {
@@ -34341,6 +35751,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-table/audio/en-GB/neural2-c-r1/drag_salad_to_meal_success_6f6b2827.mp3",
       text: "The salad is next to the meal area.",
+    },
+  },
+  [normalizeText("The salad is ready to share.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share_salad_success_b67a5925.mp3",
+      text: "The salad is ready to share.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share_salad_success_b67a5925.mp3",
+      text: "The salad is ready to share.",
     },
   },
   [normalizeText("The sand feels soft!")]: {
@@ -34481,6 +35901,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/drag_seat_belt_to_seat_success_9661f3b0.mp3",
       text: "The seat belt is in the right place.",
+    },
+  },
+  [normalizeText("The seed envelope is closed now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/close_envelope_success_f8486e0d.mp3",
+      text: "The seed envelope is closed now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/close_envelope_success_f8486e0d.mp3",
+      text: "The seed envelope is closed now.",
     },
   },
   [normalizeText("The seed is covered with a thin layer of soil.")]: {
@@ -35033,6 +36463,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The soil in the pot is the target for the spout.",
     },
   },
+  [normalizeText("The soil is rinsed off the cucumber.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_cucumber_success_383f4132.mp3",
+      text: "The soil is rinsed off the cucumber.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_cucumber_success_383f4132.mp3",
+      text: "The soil is rinsed off the cucumber.",
+    },
+  },
   [normalizeText("The soil is still wet. We do not add more water.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_wet_soil_success_40f3e46d.mp3",
@@ -35061,6 +36501,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/intro_success_70b06b76.mp3",
       text: "The soil should be damp, without a puddle.",
+    },
+  },
+  [normalizeText("The solid round bowl is in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_bowl_fail_a55ae5b9.mp3",
+      text: "The solid round bowl is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_bowl_fail_a55ae5b9.mp3",
+      text: "The solid round bowl is in the middle.",
     },
   },
   [normalizeText("The sound machine is in the right place.")]: {
@@ -35493,6 +36943,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The tissue is on the right.",
     },
   },
+  [normalizeText("The tomato is in the basket with the red fruit shape.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_tomato_success_57df3982.mp3",
+      text: "The tomato is in the basket with the red fruit shape.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_tomato_success_57df3982.mp3",
+      text: "The tomato is in the basket with the red fruit shape.",
+    },
+  },
+  [normalizeText("The tomato is in the basket, and the branch is intact.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_tomato_in_basket_success_1986e806.mp3",
+      text: "The tomato is in the basket, and the branch is intact.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_tomato_in_basket_success_1986e806.mp3",
+      text: "The tomato is in the basket, and the branch is intact.",
+    },
+  },
   [normalizeText("The tomato plant is in the middle.")]: {
     "en-US": {
       key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
@@ -35501,6 +36971,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
       text: "The tomato plant is in the middle.",
+    },
+  },
+  [normalizeText("The tomatoes have grown. Let us find one ready to pick.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_intro_05a2fa38.mp3",
+      text: "The tomatoes have grown. Let us find one ready to pick.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_intro_05a2fa38.mp3",
+      text: "The tomatoes have grown. Let us find one ready to pick.",
+    },
+  },
+  [normalizeText("The tomatoes, vegetables, and herbs are sorted separately.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_success_83697327.mp3",
+      text: "The tomatoes, vegetables, and herbs are sorted separately.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_success_83697327.mp3",
+      text: "The tomatoes, vegetables, and herbs are sorted separately.",
     },
   },
   [normalizeText("The tongs are on the right.")]: {
@@ -35561,6 +37051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/cleanup_tap_towel_fail_e57434b4.mp3",
       text: "The towel is on the left.",
+    },
+  },
+  [normalizeText("The towel is under the bowl now.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/place_towel_success_c8c07b31.mp3",
+      text: "The towel is under the bowl now.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/place_towel_success_c8c07b31.mp3",
+      text: "The towel is under the bowl now.",
     },
   },
   [normalizeText("The toy is in the basket.")]: {
@@ -36301,6 +37801,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/thirsty.mp3",
       text: "thirsty",
+    },
+  },
+  [normalizeText("This colander lets the water drain away.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_colander_success_8faeb69b.mp3",
+      text: "This colander lets the water drain away.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_colander_success_8faeb69b.mp3",
+      text: "This colander lets the water drain away.",
     },
   },
   [normalizeText("This hole lets extra water drain away.")]: {
@@ -40403,6 +41913,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This lesson needs a parent to unlock it. Ask a parent for help!",
     },
   },
+  [normalizeText("This tomato seed has already been dried.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
+      text: "This tomato seed has already been dried.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
+      text: "This tomato seed has already been dried.",
+    },
+  },
   [normalizeText("throw away the wrapper")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/throw_away_the_wrapper.mp3",
@@ -40501,6 +42021,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/tight_fists.mp3",
       text: "tight fists",
+    },
+  },
+  [normalizeText("Time passes, and a new growing season begins.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/wait_for_next_season_success_ffd003c8.mp3",
+      text: "Time passes, and a new growing season begins.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/wait_for_next_season_success_ffd003c8.mp3",
+      text: "Time passes, and a new growing season begins.",
     },
   },
   [normalizeText("timer")]: {
@@ -41791,6 +43321,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "uniform",
     },
   },
+  [normalizeText("unripe")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/unripe.mp3",
+      text: "unripe",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/unripe.mp3",
+      text: "unripe",
+    },
+  },
   [normalizeText("upset")]: {
     "en-US": {
       key: "lessons/my-feelings/angry-and-scared/audio/en-US/neural2-c-r1/upset.mp3",
@@ -41871,6 +43411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "use the toilet paper",
     },
   },
+  [normalizeText("Use your hand to pick gently, then place the tomato in the basket.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_intro_102fb0b4.mp3",
+      text: "Use your hand to pick gently, then place the tomato in the basket.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_intro_102fb0b4.mp3",
+      text: "Use your hand to pick gently, then place the tomato in the basket.",
+    },
+  },
   [normalizeText("use your own toothbrush")]: {
     "en-US": {
       key: "lessons/personal-care/care-items/audio/en-US/neural2-c-r1/use_your_own_toothbrush.mp3",
@@ -41879,6 +43429,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/use_your_own_toothbrush.mp3",
       text: "use your own toothbrush",
+    },
+  },
+  [normalizeText("vegetable")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/vegetable.mp3",
+      text: "vegetable",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/vegetable.mp3",
+      text: "vegetable",
     },
   },
   [normalizeText("vegetables")]: {
@@ -42143,6 +43703,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "We are looking under the leaf.",
     },
   },
+  [normalizeText("We look at the color, shape, and firmness of the fruit.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/intro_success_14c6f41a.mp3",
+      text: "We look at the color, shape, and firmness of the fruit.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/intro_success_14c6f41a.mp3",
+      text: "We look at the color, shape, and firmness of the fruit.",
+    },
+  },
   [normalizeText("We look with our eyes and keep our hands still.")]: {
     "en-US": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/intro_success_66575f33.mp3",
@@ -42153,6 +43723,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "We look with our eyes and keep our hands still.",
     },
   },
+  [normalizeText("We only need to add the produce and mix gently.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/intro_success_0c1ab222.mp3",
+      text: "We only need to add the produce and mix gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/intro_success_0c1ab222.mp3",
+      text: "We only need to add the produce and mix gently.",
+    },
+  },
+  [normalizeText("We picked the ripe tomato very gently.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_success_412a67b4.mp3",
+      text: "We picked the ripe tomato very gently.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_success_412a67b4.mp3",
+      text: "We picked the ripe tomato very gently.",
+    },
+  },
   [normalizeText("We stay still, and the little neighbors appear again.")]: {
     "en-US": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
@@ -42161,6 +43751,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
       text: "We stay still, and the little neighbors appear again.",
+    },
+  },
+  [normalizeText("We will rinse each one and let the water drain away.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/intro_success_156d3d00.mp3",
+      text: "We will rinse each one and let the water drain away.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/intro_success_156d3d00.mp3",
+      text: "We will rinse each one and let the water drain away.",
+    },
+  },
+  [normalizeText("We will tap the pictures and ask an adult to store it.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/intro_success_8415ef81.mp3",
+      text: "We will tap the pictures and ask an adult to store it.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/intro_success_8415ef81.mp3",
+      text: "We will tap the pictures and ask an adult to store it.",
     },
   },
   [normalizeText("We will watch without scaring the little neighbors.")]: {
@@ -42599,6 +44209,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, leave some space at the top.",
     },
   },
+  [normalizeText("Yes, leave the unripe one on the plant.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
+      text: "Yes, leave the unripe one on the plant.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
+      text: "Yes, leave the unripe one on the plant.",
+    },
+  },
   [normalizeText("Yes, open the packet and take one seed.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
@@ -42607,6 +44227,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_seed_packet_success_c8c5c2e7.mp3",
       text: "Yes, open the packet and take one seed.",
+    },
+  },
+  [normalizeText("Yes, pick means to take the tomato gently.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_pick_success_2188e019.mp3",
+      text: "Yes, pick means to take the tomato gently.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_pick_success_2188e019.mp3",
+      text: "Yes, pick means to take the tomato gently.",
     },
   },
   [normalizeText("Yes, plant a seed.")]: {
@@ -42629,6 +44259,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, please",
     },
   },
+  [normalizeText("Yes, rinse it well means wash every side.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_it_well_success_7fda3865.mp3",
+      text: "Yes, rinse it well means wash every side.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_it_well_success_7fda3865.mp3",
+      text: "Yes, rinse it well means wash every side.",
+    },
+  },
+  [normalizeText("Yes, rinse means to wash it under clean water.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_success_9c9eca94.mp3",
+      text: "Yes, rinse means to wash it under clean water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_success_9c9eca94.mp3",
+      text: "Yes, rinse means to wash it under clean water.",
+    },
+  },
   [normalizeText("Yes, roots grow under the soil.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_success_45a33279.mp3",
@@ -42637,6 +44287,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_roots_success_45a33279.mp3",
       text: "Yes, roots grow under the soil.",
+    },
+  },
+  [normalizeText("Yes, save the seeds means keep them for next season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_save_the_seeds_success_61cd892e.mp3",
+      text: "Yes, save the seeds means keep them for next season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_save_the_seeds_success_61cd892e.mp3",
+      text: "Yes, save the seeds means keep them for next season.",
+    },
+  },
+  [normalizeText("Yes, share means to enjoy it together.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_share_success_a2e696a0.mp3",
+      text: "Yes, share means to enjoy it together.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_share_success_a2e696a0.mp3",
+      text: "Yes, share means to enjoy it together.",
     },
   },
   [normalizeText("Yes, soil goes into the pot.")]: {
@@ -42699,6 +44369,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, the stake supports the stem.",
     },
   },
+  [normalizeText("Yes, these are vegetables.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_vegetable_success_cfe19e5b.mp3",
+      text: "Yes, these are vegetables.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_vegetable_success_cfe19e5b.mp3",
+      text: "Yes, these are vegetables.",
+    },
+  },
   [normalizeText("Yes, this bag contains potting mix for the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
@@ -42729,6 +44409,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, this is a birdbath.",
     },
   },
+  [normalizeText("Yes, this is a bowl.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_bowl_success_b2ff8fac.mp3",
+      text: "Yes, this is a bowl.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_bowl_success_b2ff8fac.mp3",
+      text: "Yes, this is a bowl.",
+    },
+  },
   [normalizeText("Yes, this is a butterfly.")]: {
     "en-US": {
       key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_butterfly_success_e1621e2a.mp3",
@@ -42747,6 +44437,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_caterpillar_success_9b7e4f86.mp3",
       text: "Yes, this is a caterpillar.",
+    },
+  },
+  [normalizeText("Yes, this is a cold salad.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_salad_success_41566393.mp3",
+      text: "Yes, this is a cold salad.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_salad_success_41566393.mp3",
+      text: "Yes, this is a cold salad.",
+    },
+  },
+  [normalizeText("Yes, this is a cucumber.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_cucumber_success_9b473559.mp3",
+      text: "Yes, this is a cucumber.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_cucumber_success_9b473559.mp3",
+      text: "Yes, this is a cucumber.",
     },
   },
   [normalizeText("Yes, this is a flower.")]: {
@@ -42799,6 +44509,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, this is a sprout.",
     },
   },
+  [normalizeText("Yes, this is a tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_tomato_success_c0f232c4.mp3",
+      text: "Yes, this is a tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_tomato_success_c0f232c4.mp3",
+      text: "Yes, this is a tomato.",
+    },
+  },
   [normalizeText("Yes, this is a tunnel in the soil.")]: {
     "en-US": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_tunnel_success_1cb3f952.mp3",
@@ -42817,6 +44537,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_earthworm_success_1013d0c5.mp3",
       text: "Yes, this is an earthworm.",
+    },
+  },
+  [normalizeText("Yes, this is an herb.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_herb_success_86222663.mp3",
+      text: "Yes, this is an herb.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_herb_success_86222663.mp3",
+      text: "Yes, this is an herb.",
+    },
+  },
+  [normalizeText("Yes, this is lettuce.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_lettuce_success_d45a7b48.mp3",
+      text: "Yes, this is lettuce.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_lettuce_success_d45a7b48.mp3",
+      text: "Yes, this is lettuce.",
     },
   },
   [normalizeText("Yes, this is rain.")]: {
@@ -42849,6 +44589,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, this is soil.",
     },
   },
+  [normalizeText("Yes, this is the fruit stem.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_fruit_stem_success_5dec0c4f.mp3",
+      text: "Yes, this is the fruit stem.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_success_5dec0c4f.mp3",
+      text: "Yes, this is the fruit stem.",
+    },
+  },
   [normalizeText("Yes, this is the plant pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/find_plant_pot_success_5ae8d948.mp3",
@@ -42867,6 +44617,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_wind_success_69632e29.mp3",
       text: "Yes, this is wind.",
+    },
+  },
+  [normalizeText("Yes, this tomato is bruised.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
+      text: "Yes, this tomato is bruised.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
+      text: "Yes, this tomato is bruised.",
+    },
+  },
+  [normalizeText("Yes, this tomato is ripe.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_ripe_success_9d4e071e.mp3",
+      text: "Yes, this tomato is ripe.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_ripe_success_9d4e071e.mp3",
+      text: "Yes, this tomato is ripe.",
+    },
+  },
+  [normalizeText("Yes, this tomato is unripe.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_unripe_success_838aa313.mp3",
+      text: "Yes, this tomato is unripe.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_unripe_success_838aa313.mp3",
+      text: "Yes, this tomato is unripe.",
     },
   },
   [normalizeText("Yes, wait for the sprout.")]: {
@@ -42897,6 +44677,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
       text: "Yes, we look under the leaf.",
+    },
+  },
+  [normalizeText("Yes, we sort by type.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_sort_by_type_success_1767e8ac.mp3",
+      text: "Yes, we sort by type.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_sort_by_type_success_1767e8ac.mp3",
+      text: "Yes, we sort by type.",
     },
   },
   [normalizeText("Yes, we watch gently.")]: {
@@ -42941,6 +44731,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/completion_66024417.mp3",
       text: "You are ready to visit the animals.",
+    },
+  },
+  [normalizeText("You asked an adult to store the dry seed and begin a new season.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/completion_bc12e89a.mp3",
+      text: "You asked an adult to store the dry seed and begin a new season.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/completion_bc12e89a.mp3",
+      text: "You asked an adult to store the dry seed and begin a new season.",
     },
   },
   [normalizeText("You ate your snack so neatly!")]: {
@@ -43253,6 +45053,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You followed the teacher's instructions very well.",
     },
   },
+  [normalizeText("You found the ripe tomato and left the green one to grow.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/completion_5b943c07.mp3",
+      text: "You found the ripe tomato and left the green one to grow.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/completion_5b943c07.mp3",
+      text: "You found the ripe tomato and left the green one to grow.",
+    },
+  },
   [normalizeText("You found your way into the park.")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/completion_f724b40a.mp3",
@@ -43543,6 +45353,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You looked carefully at the world around you.",
     },
   },
+  [normalizeText("You made a cold salad from safely prepared ingredients and shared it.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/completion_1e723b4a.mp3",
+      text: "You made a cold salad from safely prepared ingredients and shared it.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/completion_1e723b4a.mp3",
+      text: "You made a cold salad from safely prepared ingredients and shared it.",
+    },
+  },
   [normalizeText("You made the room calm and ready for sleep!")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/completion_4180b3ef.mp3",
@@ -43591,6 +45411,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/calm-myself/body-signals/audio/en-GB/neural2-c-r1/completion_b9ab7345.mp3",
       text: "You noticed some signals from your body.",
+    },
+  },
+  [normalizeText("You picked the ripe tomato by hand and kept the branch safe.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/completion_704b0033.mp3",
+      text: "You picked the ripe tomato by hand and kept the branch safe.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/completion_704b0033.mp3",
+      text: "You picked the ripe tomato by hand and kept the branch safe.",
     },
   },
   [normalizeText("You played in the sand and explored the beach.")]: {
@@ -43743,6 +45573,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You remembered the school supplies very well!",
     },
   },
+  [normalizeText("You rinsed the produce and let the water drain away.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/completion_ec972de8.mp3",
+      text: "You rinsed the produce and let the water drain away.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/completion_ec972de8.mp3",
+      text: "You rinsed the produce and let the water drain away.",
+    },
+  },
   [normalizeText("You set up and cleaned up the little picnic.")]: {
     "en-US": {
       key: "lessons/park-visit/park-picnic/audio/en-US/neural2-c-r1/completion_950ba09c.mp3",
@@ -43791,6 +45631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-GB/neural2-c-r1/completion_cf8a7ba2.mp3",
       text: "You sorted and dried everything after dinner!",
+    },
+  },
+  [normalizeText("You sorted the harvest and asked an adult to check the bruised tomato.")]: {
+    "en-US": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/completion_09d015e2.mp3",
+      text: "You sorted the harvest and asked an adult to check the bruised tomato.",
+    },
+    "en-GB": {
+      key: "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/completion_09d015e2.mp3",
+      text: "You sorted the harvest and asked an adult to check the bruised tomato.",
     },
   },
   [normalizeText("You spoke about what your body needs.")]: {
@@ -51458,6 +53308,366 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/garden-friends/under-the-leaf/audio/vi/trace_tunnel_success_239df692.mp3",
     text: "Đường hầm chạy dưới lớp đất.",
   },
+  [normalizeText("Kéo các lát dưa leo vào tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_cucumber_bbcb44e7.mp3",
+    text: "Kéo các lát dưa leo vào tô nhé.",
+  },
+  [normalizeText("Kéo các lát tròn màu xanh vào tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_cucumber_fail_01ddde26.mp3",
+    text: "Kéo các lát tròn màu xanh vào tô nhé.",
+  },
+  [normalizeText("Rau và dưa leo đã ở cùng nhau.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_cucumber_success_f7ebdb7b.mp3",
+    text: "Rau và dưa leo đã ở cùng nhau.",
+  },
+  [normalizeText("Kéo xà lách đã chuẩn bị vào tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_lettuce_3947a749.mp3",
+    text: "Kéo xà lách đã chuẩn bị vào tô nhé.",
+  },
+  [normalizeText("Kéo các lá xanh bên trái vào tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_lettuce_fail_78be554c.mp3",
+    text: "Kéo các lá xanh bên trái vào tô nhé.",
+  },
+  [normalizeText("Xà lách đã vào tô rồi.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/add_lettuce_success_8e5c634d.mp3",
+    text: "Xà lách đã vào tô rồi.",
+  },
+  [normalizeText("Bé đã làm món nguội từ nguyên liệu an toàn và chia sẻ cùng nhau.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/completion_93d6d2a4.mp3",
+    text: "Bé đã làm món nguội từ nguyên liệu an toàn và chia sẻ cùng nhau.",
+  },
+  [normalizeText("Người lớn đã cắt rau an toàn. Mình làm món nguội nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/intro_515cdb92.mp3",
+    text: "Người lớn đã cắt rau an toàn. Mình làm món nguội nhé.",
+  },
+  [normalizeText("Mình chỉ cho rau vào tô rồi trộn nhẹ.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/intro_success_87613d60.mp3",
+    text: "Mình chỉ cho rau vào tô rồi trộn nhẹ.",
+  },
+  [normalizeText("Chạm chiếc tô trống ở giữa nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_bowl_926e2fec.mp3",
+    text: "Chạm chiếc tô trống ở giữa nhé.",
+  },
+  [normalizeText("Chạm vật tròn có thành kín ở giữa nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_bowl_fail_136fcb86.mp3",
+    text: "Chạm vật tròn có thành kín ở giữa nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là một chiếc tô.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_bowl_success_c7d92fb8.mp3",
+    text: "Đúng rồi, đây là một chiếc tô.",
+  },
+  [normalizeText("Chạm chiếc khăn bếp gấp bên trái nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_kitchen_towel_dcfc6a9d.mp3",
+    text: "Chạm chiếc khăn bếp gấp bên trái nhé.",
+  },
+  [normalizeText("Chạm miếng vải gấp ở phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_kitchen_towel_fail_d1576597.mp3",
+    text: "Chạm miếng vải gấp ở phía dưới nhé.",
+  },
+  [normalizeText("Khăn bếp giúp giữ mặt bàn khô.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_kitchen_towel_success_3f74b8db.mp3",
+    text: "Khăn bếp giúp giữ mặt bàn khô.",
+  },
+  [normalizeText("Chạm tô rau nguội đã chuẩn bị nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_salad_59a1ba67.mp3",
+    text: "Chạm tô rau nguội đã chuẩn bị nhé.",
+  },
+  [normalizeText("Chạm tô có xà lách và dưa leo nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_salad_fail_699f01f3.mp3",
+    text: "Chạm tô có xà lách và dưa leo nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là món rau trộn nguội.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_salad_success_86fa2045.mp3",
+    text: "Đúng rồi, đây là món rau trộn nguội.",
+  },
+  [normalizeText("Chạm hình chia món thành hai phần nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_share_c52660ec.mp3",
+    text: "Chạm hình chia món thành hai phần nhé.",
+  },
+  [normalizeText("Chạm hình có hai phần ăn phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_share_fail_217d4392.mp3",
+    text: "Chạm hình có hai phần ăn phía dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đó là cùng chia sẻ.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/learn_share_success_cb9768aa.mp3",
+    text: "Đúng rồi, đó là cùng chia sẻ.",
+  },
+  [normalizeText("Chạm chiếc thìa bên phải để trộn nhẹ nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/mix_salad_c0951d77.mp3",
+    text: "Chạm chiếc thìa bên phải để trộn nhẹ nhé.",
+  },
+  [normalizeText("Chạm chiếc thìa dài cạnh tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/mix_salad_fail_e0cf7db0.mp3",
+    text: "Chạm chiếc thìa dài cạnh tô nhé.",
+  },
+  [normalizeText("Món rau đã được trộn đều.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/mix_salad_success_18262123.mp3",
+    text: "Món rau đã được trộn đều.",
+  },
+  [normalizeText("Kéo khăn bếp xuống dưới chiếc tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/place_towel_bda07159.mp3",
+    text: "Kéo khăn bếp xuống dưới chiếc tô nhé.",
+  },
+  [normalizeText("Kéo khăn gấp vào vùng dưới tô nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/place_towel_fail_4f19fad5.mp3",
+    text: "Kéo khăn gấp vào vùng dưới tô nhé.",
+  },
+  [normalizeText("Khăn đã nằm dưới tô rồi.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/place_towel_success_f820afed.mp3",
+    text: "Khăn đã nằm dưới tô rồi.",
+  },
+  [normalizeText("Kéo tô rau tới hình hai phần ăn nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/share_salad_5e1f9437.mp3",
+    text: "Kéo tô rau tới hình hai phần ăn nhé.",
+  },
+  [normalizeText("Kéo chiếc tô tới hình hai phần phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/share_salad_fail_39df2758.mp3",
+    text: "Kéo chiếc tô tới hình hai phần phía dưới nhé.",
+  },
+  [normalizeText("Món rau đã được chia sẻ rồi.")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/share_salad_success_00f72822.mp3",
+    text: "Món rau đã được chia sẻ rồi.",
+  },
+  [normalizeText("Tìm hình rửa sạch toàn bộ rau quả nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/choose_rinse_it_well_a2a48432.mp3",
+    text: "Tìm hình rửa sạch toàn bộ rau quả nhé.",
+  },
+  [normalizeText("Tìm hình nước chảy trên cả rau quả nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/choose_rinse_it_well_fail_1a8333f8.mp3",
+    text: "Tìm hình nước chảy trên cả rau quả nhé.",
+  },
+  [normalizeText("Đúng rồi, mọi mặt đều được rửa sạch.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/choose_rinse_it_well_success_d34625f9.mp3",
+    text: "Đúng rồi, mọi mặt đều được rửa sạch.",
+  },
+  [normalizeText("Bé đã rửa sạch rau quả và để nước chảy xuống.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/completion_8a02881a.mp3",
+    text: "Bé đã rửa sạch rau quả và để nước chảy xuống.",
+  },
+  [normalizeText("Rau quả đã tới chỗ rửa. Mình dùng nước sạch nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/intro_d3af62c6.mp3",
+    text: "Rau quả đã tới chỗ rửa. Mình dùng nước sạch nhé.",
+  },
+  [normalizeText("Mình rửa từng loại rồi để nước chảy xuống.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/intro_success_8f49df31.mp3",
+    text: "Mình rửa từng loại rồi để nước chảy xuống.",
+  },
+  [normalizeText("Chạm chiếc rổ có nhiều lỗ bên phải nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_colander_3f9cce19.mp3",
+    text: "Chạm chiếc rổ có nhiều lỗ bên phải nhé.",
+  },
+  [normalizeText("Chạm chiếc rổ tròn phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_colander_fail_9523b1bc.mp3",
+    text: "Chạm chiếc rổ tròn phía dưới nhé.",
+  },
+  [normalizeText("Đây là chiếc rổ giúp nước chảy xuống.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_colander_success_29b9f09d.mp3",
+    text: "Đây là chiếc rổ giúp nước chảy xuống.",
+  },
+  [normalizeText("Chạm quả dưa leo còn ít đất nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_cucumber_18f40de9.mp3",
+    text: "Chạm quả dưa leo còn ít đất nhé.",
+  },
+  [normalizeText("Chạm quả dài màu xanh bên trái nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_cucumber_fail_2c68efb6.mp3",
+    text: "Chạm quả dài màu xanh bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là quả dưa leo.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_cucumber_success_5211bd02.mp3",
+    text: "Đúng rồi, đây là quả dưa leo.",
+  },
+  [normalizeText("Chạm cụm lá xà lách ở bên trái nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_lettuce_abae046a.mp3",
+    text: "Chạm cụm lá xà lách ở bên trái nhé.",
+  },
+  [normalizeText("Chạm cụm lá xanh lớn phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_lettuce_fail_14df6815.mp3",
+    text: "Chạm cụm lá xanh lớn phía dưới nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là rau xà lách.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_lettuce_success_89241528.mp3",
+    text: "Đúng rồi, đây là rau xà lách.",
+  },
+  [normalizeText("Chạm hình hai tay đang rửa dưa leo nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_19e0f2f1.mp3",
+    text: "Chạm hình hai tay đang rửa dưa leo nhé.",
+  },
+  [normalizeText("Chạm hình có tay, dưa leo và nước nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_fail_f6c26baf.mp3",
+    text: "Chạm hình có tay, dưa leo và nước nhé.",
+  },
+  [normalizeText("Chạm hình rửa sạch cả hai mặt nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_it_well_32d2eb58.mp3",
+    text: "Chạm hình rửa sạch cả hai mặt nhé.",
+  },
+  [normalizeText("Chạm hình có nhiều dòng nước bên trái nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_it_well_fail_6564f241.mp3",
+    text: "Chạm hình có nhiều dòng nước bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, mình rửa thật sạch.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_it_well_success_7fbce176.mp3",
+    text: "Đúng rồi, mình rửa thật sạch.",
+  },
+  [normalizeText("Đúng rồi, đó là rửa dưới nước sạch.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_success_b10d582c.mp3",
+    text: "Đúng rồi, đó là rửa dưới nước sạch.",
+  },
+  [normalizeText("Kéo dưa leo sạch vào chiếc rổ nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_produce_in_colander_edd498e3.mp3",
+    text: "Kéo dưa leo sạch vào chiếc rổ nhé.",
+  },
+  [normalizeText("Kéo dưa leo vào rổ có nhiều lỗ nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_produce_in_colander_fail_455861c2.mp3",
+    text: "Kéo dưa leo vào rổ có nhiều lỗ nhé.",
+  },
+  [normalizeText("Rau quả sạch đang để ráo nước.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_produce_in_colander_success_fe076d95.mp3",
+    text: "Rau quả sạch đang để ráo nước.",
+  },
+  [normalizeText("Kéo dưa leo tới dòng nước bên phải nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_cucumber_16a2908e.mp3",
+    text: "Kéo dưa leo tới dòng nước bên phải nhé.",
+  },
+  [normalizeText("Kéo quả dài màu xanh vào dòng nước nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_cucumber_fail_b23c83f0.mp3",
+    text: "Kéo quả dài màu xanh vào dòng nước nhé.",
+  },
+  [normalizeText("Dưa leo đã sạch đất rồi.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_cucumber_success_23da7d80.mp3",
+    text: "Dưa leo đã sạch đất rồi.",
+  },
+  [normalizeText("Kéo xà lách tới dòng nước bên phải nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_lettuce_139af51e.mp3",
+    text: "Kéo xà lách tới dòng nước bên phải nhé.",
+  },
+  [normalizeText("Kéo cụm lá xanh vào dòng nước nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_lettuce_fail_8bb0a9e4.mp3",
+    text: "Kéo cụm lá xanh vào dòng nước nhé.",
+  },
+  [normalizeText("Các lá xà lách đã sạch rồi.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/rinse_lettuce_success_2ffe4eae.mp3",
+    text: "Các lá xà lách đã sạch rồi.",
+  },
+  [normalizeText("Chạm giọt nước xanh để bật nước sạch nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/turn_on_water_a9283ae8.mp3",
+    text: "Chạm giọt nước xanh để bật nước sạch nhé.",
+  },
+  [normalizeText("Chạm giọt nước xanh ở góc trên nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/turn_on_water_fail_2d98dfec.mp3",
+    text: "Chạm giọt nước xanh ở góc trên nhé.",
+  },
+  [normalizeText("Dòng nước sạch đã chảy rồi.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/turn_on_water_success_58c528b3.mp3",
+    text: "Dòng nước sạch đã chảy rồi.",
+  },
+  [normalizeText("Chạm bàn tay để nhờ người lớn cất phong bì nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/ask_adult_to_store_7755c096.mp3",
+    text: "Chạm bàn tay để nhờ người lớn cất phong bì nhé.",
+  },
+  [normalizeText("Chạm bàn tay ở phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/ask_adult_to_store_fail_9801a198.mp3",
+    text: "Chạm bàn tay ở phía dưới nhé.",
+  },
+  [normalizeText("Phong bì đã được cất an toàn.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/ask_adult_to_store_success_45dbb032.mp3",
+    text: "Phong bì đã được cất an toàn.",
+  },
+  [normalizeText("Chạm chiếc chậu có hạt cho mùa mới nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/celebrate_new_season_38aacf90.mp3",
+    text: "Chạm chiếc chậu có hạt cho mùa mới nhé.",
+  },
+  [normalizeText("Chạm chiếc chậu ở giữa phía dưới nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/celebrate_new_season_fail_22c5e888.mp3",
+    text: "Chạm chiếc chậu ở giữa phía dưới nhé.",
+  },
+  [normalizeText("Từ một hạt nhỏ, khu vườn lại bắt đầu.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/celebrate_new_season_success_1e0b343e.mp3",
+    text: "Từ một hạt nhỏ, khu vườn lại bắt đầu.",
+  },
+  [normalizeText("Tìm hình cất hạt khô cho mùa sau nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/choose_save_the_seeds_840e1cfd.mp3",
+    text: "Tìm hình cất hạt khô cho mùa sau nhé.",
+  },
+  [normalizeText("Tìm hình hạt được cho vào phong bì nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/choose_save_the_seeds_fail_26e93865.mp3",
+    text: "Tìm hình hạt được cho vào phong bì nhé.",
+  },
+  [normalizeText("Đúng rồi, người lớn sẽ cất hạt khô.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/choose_save_the_seeds_success_dd16e6b5.mp3",
+    text: "Đúng rồi, người lớn sẽ cất hạt khô.",
+  },
+  [normalizeText("Chạm nắp phong bì để đóng lại nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/close_envelope_b4b87ff0.mp3",
+    text: "Chạm nắp phong bì để đóng lại nhé.",
+  },
+  [normalizeText("Chạm phần nắp tam giác của phong bì nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/close_envelope_fail_822fd11f.mp3",
+    text: "Chạm phần nắp tam giác của phong bì nhé.",
+  },
+  [normalizeText("Phong bì đã đóng kín rồi.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/close_envelope_success_d5236faf.mp3",
+    text: "Phong bì đã đóng kín rồi.",
+  },
+  [normalizeText("Bé đã nhờ người lớn cất hạt khô và bắt đầu một mùa mới.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/completion_dd587df6.mp3",
+    text: "Bé đã nhờ người lớn cất hạt khô và bắt đầu một mùa mới.",
+  },
+  [normalizeText("Người lớn đã chuẩn bị một hạt khô cho mùa sau.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/intro_2356e2f6.mp3",
+    text: "Người lớn đã chuẩn bị một hạt khô cho mùa sau.",
+  },
+  [normalizeText("Mình chỉ chạm hình và nhờ người lớn cất hạt nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/intro_success_02173ca3.mp3",
+    text: "Mình chỉ chạm hình và nhờ người lớn cất hạt nhé.",
+  },
+  [normalizeText("Chạm hình tay người lớn cất hạt khô nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/learn_save_the_seeds_d4ee4371.mp3",
+    text: "Chạm hình tay người lớn cất hạt khô nhé.",
+  },
+  [normalizeText("Chạm hình bàn tay và phong bì bên trái nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/learn_save_the_seeds_fail_35ab56fe.mp3",
+    text: "Chạm hình bàn tay và phong bì bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, mình giữ hạt cho mùa sau.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/learn_save_the_seeds_success_4faae9bf.mp3",
+    text: "Đúng rồi, mình giữ hạt cho mùa sau.",
+  },
+  [normalizeText("Chạm hạt khô trên tay người lớn nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/notice_dry_seed_0d03c187.mp3",
+    text: "Chạm hạt khô trên tay người lớn nhé.",
+  },
+  [normalizeText("Chạm hạt nhỏ trên lòng bàn tay nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/notice_dry_seed_fail_17f4c869.mp3",
+    text: "Chạm hạt nhỏ trên lòng bàn tay nhé.",
+  },
+  [normalizeText("Đây là hạt cà chua đã được làm khô.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/notice_dry_seed_success_c085fc0e.mp3",
+    text: "Đây là hạt cà chua đã được làm khô.",
+  },
+  [normalizeText("Chạm bàn tay để người lớn cất hạt nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/place_seed_in_envelope_d783a8f0.mp3",
+    text: "Chạm bàn tay để người lớn cất hạt nhé.",
+  },
+  [normalizeText("Chạm bàn tay đang đưa hạt tới phong bì nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/place_seed_in_envelope_fail_c5ff4880.mp3",
+    text: "Chạm bàn tay đang đưa hạt tới phong bì nhé.",
+  },
+  [normalizeText("Hạt khô đã ở trong phong bì.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/place_seed_in_envelope_success_9296be59.mp3",
+    text: "Hạt khô đã ở trong phong bì.",
+  },
+  [normalizeText("Chạm vòng thời gian để sang mùa mới nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/wait_for_next_season_c6eafa05.mp3",
+    text: "Chạm vòng thời gian để sang mùa mới nhé.",
+  },
+  [normalizeText("Chạm vòng có mặt trời và chiếc lá nhé.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/wait_for_next_season_fail_4f4d0681.mp3",
+    text: "Chạm vòng có mặt trời và chiếc lá nhé.",
+  },
+  [normalizeText("Thời gian trôi và một mùa mới bắt đầu.")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/wait_for_next_season_success_1c5c4bff.mp3",
+    text: "Thời gian trôi và một mùa mới bắt đầu.",
+  },
   [normalizeText("Bé đã chào ông bà thật vui.")]: {
     key: "lessons/grandparents-visit/family-visit/audio/vi/completion_38334838.mp3",
     text: "Bé đã chào ông bà thật vui.",
@@ -52017,6 +54227,318 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là vẫy tay tạm biệt.")]: {
     key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_success_d3a84260.mp3",
     text: "Câu này nghĩa là vẫy tay tạm biệt.",
+  },
+  [normalizeText("Tìm hình để quả xanh tiếp tục ở trên cành nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/choose_leave_unripe_one_a4b82391.mp3",
+    text: "Tìm hình để quả xanh tiếp tục ở trên cành nhé.",
+  },
+  [normalizeText("Tìm hình bàn tay không kéo quả xanh nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/choose_leave_unripe_one_fail_5148252f.mp3",
+    text: "Tìm hình bàn tay không kéo quả xanh nhé.",
+  },
+  [normalizeText("Đúng rồi, quả xanh sẽ tiếp tục lớn.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/choose_leave_unripe_one_success_07be5a5d.mp3",
+    text: "Đúng rồi, quả xanh sẽ tiếp tục lớn.",
+  },
+  [normalizeText("Bé đã tìm đúng quả chín và để quả xanh lớn tiếp.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/completion_7c9cf0db.mp3",
+    text: "Bé đã tìm đúng quả chín và để quả xanh lớn tiếp.",
+  },
+  [normalizeText("Tìm quả đỏ, tròn và căng nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/find_ripe_tomato_da57a9e8.mp3",
+    text: "Tìm quả đỏ, tròn và căng nhé.",
+  },
+  [normalizeText("Quả chín màu đỏ và tròn. Tìm lại nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/find_ripe_tomato_fail_3ccf14f0.mp3",
+    text: "Quả chín màu đỏ và tròn. Tìm lại nhé.",
+  },
+  [normalizeText("Đúng rồi, mình sẽ hái quả đã chín.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/find_ripe_tomato_success_9153ad5c.mp3",
+    text: "Đúng rồi, mình sẽ hái quả đã chín.",
+  },
+  [normalizeText("Chạm kính lúp quanh quả đỏ nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/inspect_red_tomato_ebaf4843.mp3",
+    text: "Chạm kính lúp quanh quả đỏ nhé.",
+  },
+  [normalizeText("Chạm kính lúp màu xanh quanh quả đỏ nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/inspect_red_tomato_fail_cdf00154.mp3",
+    text: "Chạm kính lúp màu xanh quanh quả đỏ nhé.",
+  },
+  [normalizeText("Quả đỏ, tròn và căng đã hiện rõ.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/inspect_red_tomato_success_c031956a.mp3",
+    text: "Quả đỏ, tròn và căng đã hiện rõ.",
+  },
+  [normalizeText("Cà chua đã lớn. Mình tìm quả sẵn sàng hái nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/intro_f2751cdc.mp3",
+    text: "Cà chua đã lớn. Mình tìm quả sẵn sàng hái nhé.",
+  },
+  [normalizeText("Mình nhìn màu, hình dáng và độ căng của quả.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/intro_success_3f8280c6.mp3",
+    text: "Mình nhìn màu, hình dáng và độ căng của quả.",
+  },
+  [normalizeText("Chạm hình bàn tay để quả chưa chín ở lại nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_leave_unripe_one_c9ea8653.mp3",
+    text: "Chạm hình bàn tay để quả chưa chín ở lại nhé.",
+  },
+  [normalizeText("Chạm hình bàn tay mở cạnh quả xanh nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_leave_unripe_one_fail_0b3e5536.mp3",
+    text: "Chạm hình bàn tay mở cạnh quả xanh nhé.",
+  },
+  [normalizeText("Đúng rồi, mình để quả chưa chín ở lại.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_leave_unripe_one_success_49b52715.mp3",
+    text: "Đúng rồi, mình để quả chưa chín ở lại.",
+  },
+  [normalizeText("Chạm quả đỏ, tròn và căng nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_ripe_cf7620e1.mp3",
+    text: "Chạm quả đỏ, tròn và căng nhé.",
+  },
+  [normalizeText("Chạm quả đỏ có các tia sáng nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_ripe_fail_50e35305.mp3",
+    text: "Chạm quả đỏ có các tia sáng nhé.",
+  },
+  [normalizeText("Đúng rồi, quả này đã chín.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_ripe_success_38825cbc.mp3",
+    text: "Đúng rồi, quả này đã chín.",
+  },
+  [normalizeText("Chạm quả cà chua đỏ trên cây nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_tomato_dc0a556d.mp3",
+    text: "Chạm quả cà chua đỏ trên cây nhé.",
+  },
+  [normalizeText("Chạm quả tròn màu đỏ trên cây nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_tomato_fail_69357928.mp3",
+    text: "Chạm quả tròn màu đỏ trên cây nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là quả cà chua.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_tomato_success_19df3a15.mp3",
+    text: "Đúng rồi, đây là quả cà chua.",
+  },
+  [normalizeText("Chạm quả xanh còn nhỏ trên cây nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_unripe_9a567f24.mp3",
+    text: "Chạm quả xanh còn nhỏ trên cây nhé.",
+  },
+  [normalizeText("Chạm quả nhỏ màu xanh bên trái nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_unripe_fail_9609d76c.mp3",
+    text: "Chạm quả nhỏ màu xanh bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, quả này chưa chín.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/learn_unripe_success_5adde20f.mp3",
+    text: "Đúng rồi, quả này chưa chín.",
+  },
+  [normalizeText("Một quả xanh còn nhỏ đang ở sau lá.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/lift_leaf_success_24a558e0.mp3",
+    text: "Một quả xanh còn nhỏ đang ở sau lá.",
+  },
+  [normalizeText("Chạm quả xanh để xem mình nên làm gì nhé.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/notice_unripe_tomato_8e38e463.mp3",
+    text: "Chạm quả xanh để xem mình nên làm gì nhé.",
+  },
+  [normalizeText("Quả xanh cần thêm thời gian trên cây.")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/notice_unripe_tomato_success_b6b4c70b.mp3",
+    text: "Quả xanh cần thêm thời gian trên cây.",
+  },
+  [normalizeText("Bé đã hái quả chín bằng tay và giữ cành cây an toàn.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/completion_58c63768.mp3",
+    text: "Bé đã hái quả chín bằng tay và giữ cành cây an toàn.",
+  },
+  [normalizeText("Chạm chiếc giỏ có quả cà chua nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/finish_4c5249a3.mp3",
+    text: "Chạm chiếc giỏ có quả cà chua nhé.",
+  },
+  [normalizeText("Chạm chiếc giỏ có quả đỏ bên phải nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/finish_fail_75cbfa43.mp3",
+    text: "Chạm chiếc giỏ có quả đỏ bên phải nhé.",
+  },
+  [normalizeText("Mình đã hái quả chín thật nhẹ nhàng.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/finish_success_adcd92d6.mp3",
+    text: "Mình đã hái quả chín thật nhẹ nhàng.",
+  },
+  [normalizeText("Mình dùng tay hái nhẹ rồi đặt quả vào giỏ nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/intro_7326c473.mp3",
+    text: "Mình dùng tay hái nhẹ rồi đặt quả vào giỏ nhé.",
+  },
+  [normalizeText("Mình đỡ quả bằng tay, không rung cành.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/intro_success_a7c2efb9.mp3",
+    text: "Mình đỡ quả bằng tay, không rung cành.",
+  },
+  [normalizeText("Chạm cuống xanh nối quả với cành nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_fruit_stem_245b178b.mp3",
+    text: "Chạm cuống xanh nối quả với cành nhé.",
+  },
+  [normalizeText("Chạm đoạn cuống xanh phía trên quả đỏ nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_fruit_stem_fail_3095a755.mp3",
+    text: "Chạm đoạn cuống xanh phía trên quả đỏ nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là cuống quả.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_fruit_stem_success_55a8efa5.mp3",
+    text: "Đúng rồi, đây là cuống quả.",
+  },
+  [normalizeText("Chạm hình bàn tay đang hái quả đỏ nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_pick_51cc284b.mp3",
+    text: "Chạm hình bàn tay đang hái quả đỏ nhé.",
+  },
+  [normalizeText("Chạm hình bàn tay đang đỡ quả đỏ nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_pick_fail_538808c2.mp3",
+    text: "Chạm hình bàn tay đang đỡ quả đỏ nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là hành động hái.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/learn_pick_success_750a91de.mp3",
+    text: "Đúng rồi, đây là hành động hái.",
+  },
+  [normalizeText("Kéo quả cà chua đỏ vào chiếc giỏ nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/place_tomato_in_basket_74c512f3.mp3",
+    text: "Kéo quả cà chua đỏ vào chiếc giỏ nhé.",
+  },
+  [normalizeText("Kéo quả đỏ trên cây vào giỏ bên phải nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/place_tomato_in_basket_fail_5e5c2870.mp3",
+    text: "Kéo quả đỏ trên cây vào giỏ bên phải nhé.",
+  },
+  [normalizeText("Quả đã vào giỏ. Cành cây vẫn nguyên vẹn.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/place_tomato_in_basket_success_d30298f8.mp3",
+    text: "Quả đã vào giỏ. Cành cây vẫn nguyên vẹn.",
+  },
+  [normalizeText("Chạm bàn tay mở ở dưới để chuẩn bị hái nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/prepare_hand_9955d647.mp3",
+    text: "Chạm bàn tay mở ở dưới để chuẩn bị hái nhé.",
+  },
+  [normalizeText("Chạm hình bàn tay mở ở dưới bên trái nhé.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/prepare_hand_fail_2470805d.mp3",
+    text: "Chạm hình bàn tay mở ở dưới bên trái nhé.",
+  },
+  [normalizeText("Bàn tay sẽ đỡ và xoay quả thật nhẹ.")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/prepare_hand_success_5608cca9.mp3",
+    text: "Bàn tay sẽ đỡ và xoay quả thật nhẹ.",
+  },
+  [normalizeText("Kéo quả bị dập vào khay người lớn kiểm tra nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/adult_check_bruised_3a476199.mp3",
+    text: "Kéo quả bị dập vào khay người lớn kiểm tra nhé.",
+  },
+  [normalizeText("Kéo quả có vết nâu vào khay có bàn tay nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/adult_check_bruised_fail_be1fabe9.mp3",
+    text: "Kéo quả có vết nâu vào khay có bàn tay nhé.",
+  },
+  [normalizeText("Mình để người lớn kiểm tra quả bị dập.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/adult_check_bruised_success_25d4b689.mp3",
+    text: "Mình để người lớn kiểm tra quả bị dập.",
+  },
+  [normalizeText("Tìm hình mỗi loại ở một giỏ nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/choose_sort_by_type_bb2376c5.mp3",
+    text: "Tìm hình mỗi loại ở một giỏ nhé.",
+  },
+  [normalizeText("Tìm hình có ba giỏ tách riêng nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/choose_sort_by_type_fail_188b9cdd.mp3",
+    text: "Tìm hình có ba giỏ tách riêng nhé.",
+  },
+  [normalizeText("Đúng rồi, mỗi loại đã có một giỏ riêng.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/choose_sort_by_type_success_b5a8fbce.mp3",
+    text: "Đúng rồi, mỗi loại đã có một giỏ riêng.",
+  },
+  [normalizeText("Bé đã xếp thành quả theo từng loại và nhờ người lớn kiểm tra quả bị dập.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/completion_2d32c0bd.mp3",
+    text: "Bé đã xếp thành quả theo từng loại và nhờ người lớn kiểm tra quả bị dập.",
+  },
+  [normalizeText("Chạm giỏ cà chua đỏ ở giữa nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/finish_d1232d0b.mp3",
+    text: "Chạm giỏ cà chua đỏ ở giữa nhé.",
+  },
+  [normalizeText("Chạm giỏ có hình quả cà chua đỏ ở giữa nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/finish_fail_170dc628.mp3",
+    text: "Chạm giỏ có hình quả cà chua đỏ ở giữa nhé.",
+  },
+  [normalizeText("Cà chua, rau củ và rau thơm đã được xếp riêng.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/finish_success_e7137625.mp3",
+    text: "Cà chua, rau củ và rau thơm đã được xếp riêng.",
+  },
+  [normalizeText("Cà chua của mình và rau từ luống bên cạnh đã về bàn.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/intro_73bebdf7.mp3",
+    text: "Cà chua của mình và rau từ luống bên cạnh đã về bàn.",
+  },
+  [normalizeText("Mình xếp mỗi loại vào một giỏ nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/intro_success_1b599f4e.mp3",
+    text: "Mình xếp mỗi loại vào một giỏ nhé.",
+  },
+  [normalizeText("Chạm quả cà chua có vết dập màu nâu nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_bruised_9113a095.mp3",
+    text: "Chạm quả cà chua có vết dập màu nâu nhé.",
+  },
+  [normalizeText("Chạm quả đỏ có vết lõm nâu bên phải nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_bruised_fail_d7273cee.mp3",
+    text: "Chạm quả đỏ có vết lõm nâu bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, quả này bị dập.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_bruised_success_f3b41b99.mp3",
+    text: "Đúng rồi, quả này bị dập.",
+  },
+  [normalizeText("Chạm bó rau thơm màu xanh bên phải nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_herb_9bc9f34f.mp3",
+    text: "Chạm bó rau thơm màu xanh bên phải nhé.",
+  },
+  [normalizeText("Chạm bó lá xanh buộc lại bên phải nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_herb_fail_327b4a10.mp3",
+    text: "Chạm bó lá xanh buộc lại bên phải nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là rau thơm.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_herb_success_4fcd0ac2.mp3",
+    text: "Đúng rồi, đây là rau thơm.",
+  },
+  [normalizeText("Chạm hình ba giỏ đựng ba nhóm riêng nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_sort_by_type_9d2373a6.mp3",
+    text: "Chạm hình ba giỏ đựng ba nhóm riêng nhé.",
+  },
+  [normalizeText("Chạm hình ba giỏ riêng ở phía trên nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_sort_by_type_fail_db8acd4b.mp3",
+    text: "Chạm hình ba giỏ riêng ở phía trên nhé.",
+  },
+  [normalizeText("Đúng rồi, mình xếp theo từng loại.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_sort_by_type_success_069d65f7.mp3",
+    text: "Đúng rồi, mình xếp theo từng loại.",
+  },
+  [normalizeText("Chạm nhóm cà rốt và đậu ở bên trái nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_vegetable_303bb7dc.mp3",
+    text: "Chạm nhóm cà rốt và đậu ở bên trái nhé.",
+  },
+  [normalizeText("Chạm cà rốt màu cam và đậu xanh nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_vegetable_fail_83033f73.mp3",
+    text: "Chạm cà rốt màu cam và đậu xanh nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là nhóm rau củ.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/learn_vegetable_success_a10cd13c.mp3",
+    text: "Đúng rồi, đây là nhóm rau củ.",
+  },
+  [normalizeText("Kéo bó rau thơm vào giỏ bên phải nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_herbs_72ac9aec.mp3",
+    text: "Kéo bó rau thơm vào giỏ bên phải nhé.",
+  },
+  [normalizeText("Kéo bó lá xanh vào giỏ có hình chiếc lá nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_herbs_fail_07e8447b.mp3",
+    text: "Kéo bó lá xanh vào giỏ có hình chiếc lá nhé.",
+  },
+  [normalizeText("Rau thơm đã vào giỏ có hình chiếc lá.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_herbs_success_0e70b4f7.mp3",
+    text: "Rau thơm đã vào giỏ có hình chiếc lá.",
+  },
+  [normalizeText("Kéo quả cà chua đỏ vào giỏ ở giữa nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_tomato_61a123da.mp3",
+    text: "Kéo quả cà chua đỏ vào giỏ ở giữa nhé.",
+  },
+  [normalizeText("Kéo quả đỏ vào giỏ ở giữa nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_tomato_fail_6a10fb34.mp3",
+    text: "Kéo quả đỏ vào giỏ ở giữa nhé.",
+  },
+  [normalizeText("Cà chua đã vào giỏ có hình quả đỏ.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_tomato_success_87d85482.mp3",
+    text: "Cà chua đã vào giỏ có hình quả đỏ.",
+  },
+  [normalizeText("Kéo nhóm rau củ vào giỏ bên trái nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_vegetables_c6527e5e.mp3",
+    text: "Kéo nhóm rau củ vào giỏ bên trái nhé.",
+  },
+  [normalizeText("Kéo cà rốt và đậu vào giỏ có hình cà rốt nhé.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_vegetables_fail_8032b5e8.mp3",
+    text: "Kéo cà rốt và đậu vào giỏ có hình cà rốt nhé.",
+  },
+  [normalizeText("Cà rốt và đậu đã vào đúng giỏ.")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_vegetables_success_04adce75.mp3",
+    text: "Cà rốt và đậu đã vào đúng giỏ.",
   },
   [normalizeText("Đâu là hình chuyển chậu vào vùng nắng?")]: {
     key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/choose_sunlight_action_a54feac6.mp3",

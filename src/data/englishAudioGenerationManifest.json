@@ -30917,6 +30917,1574 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_cucumber_fail_d8fe4972.mp3",
+      "sha256": "a8fb16794c2272fab9e73767fc92d7f168448a4a158c1675dddf4e41979debd6",
+      "text": "Drag the round green slices into the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_cucumber_success_854b7877.mp3",
+      "sha256": "d3586aabe4b68a4b65ee7600c02ae3a62e4d714779c6053a11cef1c8b4bf2418",
+      "text": "The lettuce and cucumber are together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_lettuce_fail_33cf6b8e.mp3",
+      "sha256": "5e2a7e9cae7a705c32184b8fcdc715b3a503229e1fc78d3893ec39e84ebb088e",
+      "text": "Drag the green leaves on the left into the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_lettuce_success_9185f0e7.mp3",
+      "sha256": "99803a947243eb848e5a9fffbacc92fd135343d91d0eeca118ec541cc2058c26",
+      "text": "The lettuce is in the bowl now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 67149,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/completion_1e723b4a.mp3",
+      "sha256": "2377586f25bfecdff67d43ffd2e39fc203c01af9cad6be550568b7f6756d995a",
+      "text": "You made a cold salad from safely prepared ingredients and shared it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/intro_success_0c1ab222.mp3",
+      "sha256": "4632c9634594d23ea7c735344203234aa2da75ab231b523c3e0eb98a1690add8",
+      "text": "We only need to add the produce and mix gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/kitchen_towel.mp3",
+      "sha256": "b5ffcc05638d5d724b08627465ee2062b0f09640b133d389afac5f8d294fa91b",
+      "text": "kitchen towel",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_bowl_fail_a55ae5b9.mp3",
+      "sha256": "a1831f61f8e89c0b4d4dd8df99a899da8d7c1e91c9b89c96bf694d9f5b6a3751",
+      "text": "The solid round bowl is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26253,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_bowl_success_b2ff8fac.mp3",
+      "sha256": "34b51ca458f7356202c7934880af800c374101e6f4f12accad20caad38e41fd7",
+      "text": "Yes, this is a bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
+      "sha256": "a1ddd69629d7344fad5c94f8ebbd59422fc815836d7f38b06b50a8dbe522a180",
+      "text": "The folded kitchen cloth is below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
+      "sha256": "7a389f44f85bba166dd7a8025e13c1e7c90f5e04d450c5bdb7a242a638841bf2",
+      "text": "The kitchen towel helps keep the counter dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_salad_fail_e90c1581.mp3",
+      "sha256": "5decdfd49f5f4274c0710baa0d69ceccd4142fd85289795fcb84dbb94cf6d40d",
+      "text": "Tap the bowl with lettuce and cucumber.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33165,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_salad_success_41566393.mp3",
+      "sha256": "c4dc491e9b9f277a86e682a163a996852fcd1e8a20b0b4dca42ed1d9f2e0f07a",
+      "text": "Yes, this is a cold salad.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_share_fail_02a3a2d5.mp3",
+      "sha256": "b8b579e9db7d1cb1e4ad9714145fd0c9d06da1183489bc55fd2e4f3bbc858e2d",
+      "text": "Tap the picture with two portions below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_share_success_a2e696a0.mp3",
+      "sha256": "22103a8a1cda37d3144016a160056be3d6ef94c9ef8589764a1a15144ae6494c",
+      "text": "Yes, share means to enjoy it together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
+      "sha256": "a7ac47f8f4244e3d985333b0e7d764e6a1e69ec87529124bb67ba1ad7712c7d5",
+      "text": "Tap the long spoon beside the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_success_2163f57b.mp3",
+      "sha256": "8dd187f59a8e82eabcddb929d176654a4fe942f59bd69f75ff364582ee9ce1c3",
+      "text": "The cold salad is mixed now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/place_towel_fail_b25f03ce.mp3",
+      "sha256": "be52a7abff23e526b9947f3ed421e9034ecb655e248db7a4625ef151be303bd8",
+      "text": "Drag the folded towel below the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/place_towel_success_c8c07b31.mp3",
+      "sha256": "2fe4b97a2e08779b8f39345a43f52c8b0965f84cd3da589425369b657807fd96",
+      "text": "The towel is under the bowl now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_add_cucumber_9879e570.mp3",
+      "sha256": "547220d4abfa46d6aec87cc8c9155697830466479ceab00f89426a88d5f1b660",
+      "text": "Drag the cucumber slices into the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_add_lettuce_86c4d3f7.mp3",
+      "sha256": "a7848c5c5289325d57962d6ec4549831dfdae4770fa4384a80203e8f64259b33",
+      "text": "Drag the prepared lettuce into the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 66861,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_intro_c1324f45.mp3",
+      "sha256": "ef70f1231d993f9f47f1139e5866703f24ab269d8fd31b9b6cd70f794253c853",
+      "text": "An adult prepared the ingredients safely. Let us make a cold salad.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_bowl_9b1450b0.mp3",
+      "sha256": "95e48fe055e47554a7108259059537ff25718213364e8e29a3351a7c816d5cb6",
+      "text": "Tap the empty bowl in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
+      "sha256": "244eecde507b9ed42fedbc9b6df0600f73ffb1ba5d8586c72b179daa0163dfdf",
+      "text": "Tap the folded kitchen towel on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_salad_c23eae7c.mp3",
+      "sha256": "73abb549c6bd80e42403d402905087076f6f5c1284b044c19e0ccd55fb8b49d1",
+      "text": "Tap the bowl of prepared cold salad.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_share_ef92bd40.mp3",
+      "sha256": "d46765fd4eaa126b33c8c53f157efc637645b7accde8007c178621f04f7ef894",
+      "text": "Tap the picture sharing the salad in two portions.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_mix_salad_d26fedb7.mp3",
+      "sha256": "d57d19a77fe154e8a98a7430a694f557f33b7dec11db591d20fb868d2c84da7f",
+      "text": "Tap the spoon on the right to mix gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_place_towel_39aea529.mp3",
+      "sha256": "4642aedf4c4d98075acd2115d1fa1b368bd67f40b8889d6022452f6cfbb23baf",
+      "text": "Drag the kitchen towel under the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_share_salad_b6942ad4.mp3",
+      "sha256": "88bc7992ce556972e922c89f07acf21d83f994bb2838544a1868b36f7b87de66",
+      "text": "Drag the salad bowl to the two portions.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share_salad_fail_89411e41.mp3",
+      "sha256": "5c44503268cb78fb46dd1ca07db0e89ba68ea1374f1ab08696b64216b7699188",
+      "text": "Drag the bowl to the two portions below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share_salad_success_b67a5925.mp3",
+      "sha256": "21dc128d17a2c9dfcab8232ca935375e716e3b24fee1a0bf7456a26ed97647d3",
+      "text": "The salad is ready to share.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/share.mp3",
+      "sha256": "a664668a2c638a484d2438cde2ed87a048af9d75593841866e3a2d03a3362d7d",
+      "text": "share",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_cucumber_fail_d8fe4972.mp3",
+      "sha256": "10ab18df49d656b5952205394da900928be9ba08e356e846b1957d928e41a4d7",
+      "text": "Drag the round green slices into the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_cucumber_success_854b7877.mp3",
+      "sha256": "f3fb1ac9edb6c13b4554e4e59bfd2fa6ef6cc08abe85233201450b2e66b336d8",
+      "text": "The lettuce and cucumber are together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_lettuce_fail_33cf6b8e.mp3",
+      "sha256": "5bc27658707aaf0c516f1afc008f77a458a2895dada802e8ed1433d6b183ed02",
+      "text": "Drag the green leaves on the left into the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/add_lettuce_success_9185f0e7.mp3",
+      "sha256": "71b007cd35f1e3a9c543ed6725b01677fe639a63c61abdf6ec801e5145b475c0",
+      "text": "The lettuce is in the bowl now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59373,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/completion_1e723b4a.mp3",
+      "sha256": "d9fe9c77f739df9f92c0c6e388caa1d5b69707fe1f78fc670b22dddc117a7dea",
+      "text": "You made a cold salad from safely prepared ingredients and shared it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/intro_success_0c1ab222.mp3",
+      "sha256": "e6dfc0370601607671c09e8f43e29225580349f24d70cb9530869d787275dcc6",
+      "text": "We only need to add the produce and mix gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14445,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/kitchen_towel.mp3",
+      "sha256": "86653a5df520af879b512cc0329150d6e05d49b8a71eceb97b2ba7d46f128c7c",
+      "text": "kitchen towel",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_bowl_fail_a55ae5b9.mp3",
+      "sha256": "53513fdb2889dbfeb2cb52d4d44e6bc6a1aaa8c9a97fd381ec7baded264f11b9",
+      "text": "The solid round bowl is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21933,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_bowl_success_b2ff8fac.mp3",
+      "sha256": "c781781d7806f3da19cdc4e4627571349576958a4a130dec760c0c0b68bbd9c2",
+      "text": "Yes, this is a bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
+      "sha256": "1b0945061d8938902f58173b2d2ec0500243cd29ff3db2349efe8fb03db052e6",
+      "text": "The folded kitchen cloth is below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
+      "sha256": "954292699262013e93795f2d790347473ca11129a6a4acdfab38c91611c5f4ee",
+      "text": "The kitchen towel helps keep the counter dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_salad_fail_e90c1581.mp3",
+      "sha256": "e94b242a47f1b21ace11c26d5ac8c207fc7b78ec9f1c210b17e973274f2af702",
+      "text": "Tap the bowl with lettuce and cucumber.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_salad_success_41566393.mp3",
+      "sha256": "948f01a0afcf1ff36d1700314c2c6a5032d7053bace8c23bd09a5998aeef6f75",
+      "text": "Yes, this is a cold salad.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_share_fail_02a3a2d5.mp3",
+      "sha256": "9e0a2e126aa7c372cf774f89b24b7d8d9cc2d847f0eae3400d15b4b0143bcc9a",
+      "text": "Tap the picture with two portions below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_share_success_a2e696a0.mp3",
+      "sha256": "81b9a0b2a0cb2a5ab615e71e15141dbcf10f26545567d38a071db743eca9193f",
+      "text": "Yes, share means to enjoy it together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
+      "sha256": "8272147510e20148b52a242739af5132f2ef6f15831ab4fe0587eb3e4b843bad",
+      "text": "Tap the long spoon beside the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_success_2163f57b.mp3",
+      "sha256": "8558408f92ba5ea0e4e59440cb0b029b75c03a69384d49d84a303d471c149a4b",
+      "text": "The cold salad is mixed now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/place_towel_fail_b25f03ce.mp3",
+      "sha256": "ba25d0ef4fe4445ca82cd4b5d491f8cf47a32d8a17c8ae6a2ed61b9c486f0d92",
+      "text": "Drag the folded towel below the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/place_towel_success_c8c07b31.mp3",
+      "sha256": "9c2cd2888b6d06a82190055631c1a425c343e01fa0f7949cb2f6e25ea3aa13db",
+      "text": "The towel is under the bowl now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_add_cucumber_9879e570.mp3",
+      "sha256": "341ae1cb3cbb72d75a6dfa9866fbeddbc438257327aeca9508f185d924149194",
+      "text": "Drag the cucumber slices into the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_add_lettuce_86c4d3f7.mp3",
+      "sha256": "d5ffb53c991bf49847b8a7b9a6a4087ce4ef8c1eb1b1a9bff1515d129b44e54b",
+      "text": "Drag the prepared lettuce into the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59949,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_intro_c1324f45.mp3",
+      "sha256": "050d888f99345de8de257950691033d0c2dbbbf1af5134e0fc5260bb5599927f",
+      "text": "An adult prepared the ingredients safely. Let us make a cold salad.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27981,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_bowl_9b1450b0.mp3",
+      "sha256": "72ef08dc144070aa9fcf18f65202c5e6033e86edbfb8bf38476a115f580e1d5e",
+      "text": "Tap the empty bowl in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
+      "sha256": "bbadb8bc0a15656dee5897bf0d38fb194c523060b79a35ab8f0eac126c052fb7",
+      "text": "Tap the folded kitchen towel on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_salad_c23eae7c.mp3",
+      "sha256": "8667411f74eedff43932a2534beee84025982cab3599b128fee33cc93e0597e3",
+      "text": "Tap the bowl of prepared cold salad.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_share_ef92bd40.mp3",
+      "sha256": "6f22e85559809e4f73c34593782ff1eb879e3120599fecaa185996460bcc2788",
+      "text": "Tap the picture sharing the salad in two portions.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_mix_salad_d26fedb7.mp3",
+      "sha256": "16fba35b8f3aa2d9e9eba871fd63918389b62099b3f6d1fe211083c322e3f795",
+      "text": "Tap the spoon on the right to mix gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_place_towel_39aea529.mp3",
+      "sha256": "41e62c915f22c500bd7f0c98c3a465e41ae695b95e2c6de04da26ba491260d02",
+      "text": "Drag the kitchen towel under the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_share_salad_b6942ad4.mp3",
+      "sha256": "63b5000999dbc671a5563db587675385869f756cb264064a0a2ba79174432301",
+      "text": "Drag the salad bowl to the two portions.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share_salad_fail_89411e41.mp3",
+      "sha256": "b5dc31ff1861842b96d659d6db258a9ecb67a1905a6c7e615ad509d5c89851de",
+      "text": "Drag the bowl to the two portions below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share_salad_success_b67a5925.mp3",
+      "sha256": "e018d5a358f9b1f4f66851a3774fbed33900ad45542c00696e0330bb9cd96f4a",
+      "text": "The salad is ready to share.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9549,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/share.mp3",
+      "sha256": "9870d3189e1a8b9b015ea9bc3ad2a292bd0bdf2fb41a2f93a6aca24b11d70474",
+      "text": "share",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/choose_rinse_it_well_fail_450ef16e.mp3",
+      "sha256": "c9605192d180f0b57e922e0b12469c6b3e94935b7dc4d9edbef04c97dbc16a7b",
+      "text": "Find the picture with water over all the produce.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/choose_rinse_it_well_success_3405309a.mp3",
+      "sha256": "43bdcd4f9b506d388c0e1dc6fbb9df5ff16fe811ec863f1690e876028407831f",
+      "text": "Right, every side is rinsed well.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/colander.mp3",
+      "sha256": "fe3da2efdafaa446afc31f8f7276c16ecae0ff2c1304796e0e8a73f6929118ef",
+      "text": "colander",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43533,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/completion_ec972de8.mp3",
+      "sha256": "080091dd39c092916fa7084ace589531c98a3cd02318480e03ff9da9c2cf14e0",
+      "text": "You rinsed the produce and let the water drain away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13293,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/cucumber.mp3",
+      "sha256": "45b05ef8126966e85bba4ff625126489095fecd7041f3faf7748e04b3d7aa48b",
+      "text": "cucumber",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/intro_success_156d3d00.mp3",
+      "sha256": "26b8d139534f8eafec90f177751609f536d09ac7f006ff8a0ef67423889c4e55",
+      "text": "We will rinse each one and let the water drain away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_colander_fail_94806b1f.mp3",
+      "sha256": "4ecf1a00ef0e87684ce9f0d62bf6f63ee45dbc02dac74b7cb97c88c5f3ab6466",
+      "text": "Tap the round colander below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_colander_success_8faeb69b.mp3",
+      "sha256": "017f7ceb6b7363cc3c4738e0f4d3bcde31e9ea8cb57b979f2d6f9f553e37cf56",
+      "text": "This colander lets the water drain away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_cucumber_fail_599c2117.mp3",
+      "sha256": "df839a2dcaf05d47aa0d94c5a051aef3d89b07b232c98492b2260728130d2ad1",
+      "text": "Tap the long green vegetable on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_cucumber_success_9b473559.mp3",
+      "sha256": "0ed2f9643394ea9db095059265bbef6355779cb3a5c4c97d2d4919afe4aa3617",
+      "text": "Yes, this is a cucumber.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_lettuce_fail_cc0e3730.mp3",
+      "sha256": "7528b074c437f8f3ea24c7cd940e65b2d5cc5dd2b0ab3044c6c0ed0a057f4cc0",
+      "text": "Tap the large green leaves below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_lettuce_success_d45a7b48.mp3",
+      "sha256": "6194900d5a1cceaf7eb0ba1490d6226a0c433e147526980989ec9293e9baae7e",
+      "text": "Yes, this is lettuce.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50157,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_fail_81cc7084.mp3",
+      "sha256": "78c26a896784795ce77bf819cfbc8e511908e9fa92904471e36f754f6df7207a",
+      "text": "Tap the picture with hands, cucumber, and water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_it_well_fail_130c8e95.mp3",
+      "sha256": "64ebede97c9724098f7187ff17a9bc9abaeb63ff70d666ab2aceb9614e0d04fb",
+      "text": "Tap the picture with water over every side.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48429,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_it_well_success_7fda3865.mp3",
+      "sha256": "b5e8ab2ad9714c0db140896d4952af4f55e81a1d27b2747d8640d8d030b32735",
+      "text": "Yes, rinse it well means wash every side.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/learn_rinse_success_9c9eca94.mp3",
+      "sha256": "ac8cad0983c368b88a275f1a1caa3137fbb2f9874f784b0d30d6ca32eae6530d",
+      "text": "Yes, rinse means to wash it under clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13293,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/lettuce.mp3",
+      "sha256": "15e190e5bc164ec1d1f52ecc15200bda24f58360efbcd8a298b4acf7055f3992",
+      "text": "lettuce",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
+      "sha256": "4ba896ebe2f615b60124c5ddcfb945c9a5be50e28acac866b4a9391d63f0bfb7",
+      "text": "Drag the cucumber into the colander with holes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_produce_in_colander_success_e04fe82a.mp3",
+      "sha256": "461d842ed1c7263683d23584a721eb4879c5f82bf91810629bbbf726f158b179",
+      "text": "The clean produce is draining in the colander.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_choose_rinse_it_well_cf438471.mp3",
+      "sha256": "cea470402adad7714952fbc8339c859c0c77e7d64fc5413ae604d5f7cc025d87",
+      "text": "Find the picture that rinses all of the produce.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50157,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_intro_29474391.mp3",
+      "sha256": "aa3ffe033b0dfe4cc20964a3483eb45df4ea1882cf3aeabb2d453e7659fb672e",
+      "text": "The produce is ready. Let us wash it with clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_colander_b19daa36.mp3",
+      "sha256": "b3641b7ce0c7b7210f6dfbdd299ca5bee6c82fe5e19ac347a5f994349fb33ab0",
+      "text": "Tap the colander with many holes on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_cucumber_f0084e0d.mp3",
+      "sha256": "7f07251fc3e51e69531a8557164cb121c82c3dda1ed753800eda11fee06f9d50",
+      "text": "Tap the cucumber with a little soil on it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_lettuce_eea18687.mp3",
+      "sha256": "169df7279f84256abcdea56dba898a4646597c4f8cc1744163337092592f7409",
+      "text": "Tap the bunch of lettuce leaves on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
+      "sha256": "1441e063195c9aaff8acbcbfdf1721b8186ada7e7e802b9eeefb95ed714fc636",
+      "text": "Tap the hands rinsing the cucumber under water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
+      "sha256": "e33f3152743b508c76add199ffec17a73c2b8db4cf5552c74ea6e9d08b64113c",
+      "text": "Tap the picture rinsing both sides well.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_place_produce_in_colander_e867a469.mp3",
+      "sha256": "0a775f44eb2f8ea8b36c02f2230510c864619dfc7d2d0e4acce4ac4f9f96d5ec",
+      "text": "Drag the clean cucumber into the colander.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_rinse_cucumber_cf2022f0.mp3",
+      "sha256": "45f20f25438c09e156c775b6ac7fe32f36491f518a9b1aede463dff40d2e1140",
+      "text": "Drag the cucumber to the water on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_rinse_lettuce_1dc68a1b.mp3",
+      "sha256": "1ccbaaaf92dda11bd655f3dc9413369780a61892ff4e3128114e09c31dcecd63",
+      "text": "Drag the lettuce to the water on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_turn_on_water_48a8b865.mp3",
+      "sha256": "0ebf6a704dedae5d370d5fa05366cf94535774168e0a3523473dd5e17adf7c11",
+      "text": "Tap the blue water drop to turn on clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_cucumber_fail_243540f4.mp3",
+      "sha256": "30ec643db0f00848eda2410de6c7b1f946a5fd3c6f9cded1295903a286c4e9e2",
+      "text": "Drag the long green cucumber into the water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_cucumber_success_383f4132.mp3",
+      "sha256": "b7433e89a0978fbbd9b9699850d3137f9ab6bdf858784959976916085b3d2a0d",
+      "text": "The soil is rinsed off the cucumber.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17325,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_it_well.mp3",
+      "sha256": "f6137f890f6e3397a7e5f00e854b185bfce460463c396ceec6f6abb73360631d",
+      "text": "rinse it well",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_lettuce_fail_6edd6b53.mp3",
+      "sha256": "07c87d519372e669d57e33229e1d0aa2884d801f22180de5cc8dc52fb480309e",
+      "text": "Drag the green leaves into the water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse_lettuce_success_9a876fa2.mp3",
+      "sha256": "b43c55e0caf1843a1e8130ba561559508fa2531ba677a7b204dc03eb016a94cd",
+      "text": "The lettuce leaves are clean now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/rinse.mp3",
+      "sha256": "6e0e3837824f7c7251c603f177817765417b9779e31e71243946cf5ae9ea4ed2",
+      "text": "rinse",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/turn_on_water_fail_bbae1b66.mp3",
+      "sha256": "2b56f0a60c4af6304633c98a6efed0c82faa996423ba04f4c97684b1f8b3eacd",
+      "text": "The blue water drop is in the upper corner.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/turn_on_water_success_fbdb60a1.mp3",
+      "sha256": "16b460d4db3a6600b8e05df7109470a46ceb4a44f1e2ca41d719357622520e04",
+      "text": "The clean water is flowing now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/choose_rinse_it_well_fail_450ef16e.mp3",
+      "sha256": "51c855e5f6c5ea2f99a2b1516fb47a502f505dcafaa097454c412baa71bc6f1f",
+      "text": "Find the picture with water over all the produce.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/choose_rinse_it_well_success_3405309a.mp3",
+      "sha256": "2faa69021b683cd1ec3dda0f00911f1d1e90656c59e0964b3f44fdec05afab3d",
+      "text": "Right, every side is rinsed well.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 12429,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/colander.mp3",
+      "sha256": "8bfecfbd7522fa11b0adf49aa230eac886b38b8570ef2b988b727fdc7477e59f",
+      "text": "colander",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/completion_ec972de8.mp3",
+      "sha256": "a715f0368ee01ab8f316de986e26aa35753f27526e164d8d71c3747431d37149",
+      "text": "You rinsed the produce and let the water drain away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/cucumber.mp3",
+      "sha256": "91d2760c67088269b785781d866a14fd9941a501c06adc70b90023a2ba6c36f5",
+      "text": "cucumber",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/intro_success_156d3d00.mp3",
+      "sha256": "992994cd4bf3e2279faa0e7d8686dec0e65ae42ac3c24b2c8760da206963c16b",
+      "text": "We will rinse each one and let the water drain away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_colander_fail_94806b1f.mp3",
+      "sha256": "c08f6265198933741018b7791b980610975f75b29778dc4df13491690793ac49",
+      "text": "Tap the round colander below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_colander_success_8faeb69b.mp3",
+      "sha256": "611bc49625bee114866908681e253782dd78d1d9eb08c79667f41dbbf3729367",
+      "text": "This colander lets the water drain away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_cucumber_fail_599c2117.mp3",
+      "sha256": "18dab22f87f85c1516531523d256c25cc2ec493bc426fc3cdf05130184871fd6",
+      "text": "Tap the long green vegetable on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_cucumber_success_9b473559.mp3",
+      "sha256": "a6c9f98ba0d6843ded79dc27f3bd7ebd536298e1b5b288cf2601c44e0007ddb2",
+      "text": "Yes, this is a cucumber.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_lettuce_fail_cc0e3730.mp3",
+      "sha256": "616e0342342ca5ba8f8d231222d585aa870b144dad5936f200cd725b26e15f24",
+      "text": "Tap the large green leaves below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23373,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_lettuce_success_d45a7b48.mp3",
+      "sha256": "2256080b00b4911abb607811dab2e954006561fac73b4b10d97feca5352d5e5b",
+      "text": "Yes, this is lettuce.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_fail_81cc7084.mp3",
+      "sha256": "b2ce68dd9fa00d93d77e70421c23976c8468c8371bc9ba33b39e1c8ffac9bf0a",
+      "text": "Tap the picture with hands, cucumber, and water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_it_well_fail_130c8e95.mp3",
+      "sha256": "d9a12f02a7181f9458957bc7ec995c1142d3e354daaa17f28b10aa0f5daf9fd5",
+      "text": "Tap the picture with water over every side.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_it_well_success_7fda3865.mp3",
+      "sha256": "b7f55d0f12bf6187fb344b684fa7ba93a9ed6926fe70b1a229bc598c927d1abe",
+      "text": "Yes, rinse it well means wash every side.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/learn_rinse_success_9c9eca94.mp3",
+      "sha256": "eb7d2ea90a061bb4f90b19e0151687458494167c47736fa6788eb8783d26b6b8",
+      "text": "Yes, rinse means to wash it under clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/lettuce.mp3",
+      "sha256": "6ed9b87ef64df4cf85d93da11195d252d2809f4b229e32f55cd65ac777219c0b",
+      "text": "lettuce",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
+      "sha256": "58262d7fbd82fc10f32d7e305cc138b42a4ff19b1c9f85e6558ad8d6500f3ca6",
+      "text": "Drag the cucumber into the colander with holes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_produce_in_colander_success_e04fe82a.mp3",
+      "sha256": "3e5c7d9f1f5f4843e515a285e3da20b6941a6e45c8c5dc55a02a4507ccab993b",
+      "text": "The clean produce is draining in the colander.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_choose_rinse_it_well_cf438471.mp3",
+      "sha256": "50fb4d4804d6dc7e2d542bcda0ee6b51fd92fcd6fd2793571cc57fa789653775",
+      "text": "Find the picture that rinses all of the produce.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_intro_29474391.mp3",
+      "sha256": "d0082f18ab67f96c9e60567ed73326f85dddb4374cdc5e8fb601f0ab140d4c29",
+      "text": "The produce is ready. Let us wash it with clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_colander_b19daa36.mp3",
+      "sha256": "f689865144a422b8d7c0da9b304b8e74873a31fbfafc0aec6bac74edf89e3b3c",
+      "text": "Tap the colander with many holes on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_cucumber_f0084e0d.mp3",
+      "sha256": "80921316706d3dac49af9968ca25ed85d26f7fd4d234035e24503a785b781fd2",
+      "text": "Tap the cucumber with a little soil on it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_lettuce_eea18687.mp3",
+      "sha256": "7f386fffc27dd0c927ec2839aa03b3433fe858d6e70f45d8107a7f4087812bac",
+      "text": "Tap the bunch of lettuce leaves on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
+      "sha256": "8a48dbb35b3b60eda5204b22fd4c2f579d050e77f9fd0dfd0a6a7236fd809652",
+      "text": "Tap the hands rinsing the cucumber under water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
+      "sha256": "ee77c752aa74ce1d19e2511b0ab391c33f75af0f8383a57b6d736326e07e284d",
+      "text": "Tap the picture rinsing both sides well.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_place_produce_in_colander_e867a469.mp3",
+      "sha256": "af29a62e82553e19c2f7927f64b2ea77e926b873cd14c18e7c61865e9173be9f",
+      "text": "Drag the clean cucumber into the colander.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_rinse_cucumber_cf2022f0.mp3",
+      "sha256": "5fffb505b740fc577973b9f94c2e502fdb2103552e66c93ebe33b595cb28d40d",
+      "text": "Drag the cucumber to the water on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_rinse_lettuce_1dc68a1b.mp3",
+      "sha256": "2b4eeb57b1ee0f1e1c5cbd91c23e866f1bd13be24a5b628f81e273bcc5f2473d",
+      "text": "Drag the lettuce to the water on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_turn_on_water_48a8b865.mp3",
+      "sha256": "1ed422a74d73837853a423e4c378964a45395df283a1d88a3dacad553118b947",
+      "text": "Tap the blue water drop to turn on clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_cucumber_fail_243540f4.mp3",
+      "sha256": "8a10484a5086057a81780f66be6ac02fc3d4ea13041836e5a370a5227ef8d461",
+      "text": "Drag the long green cucumber into the water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_cucumber_success_383f4132.mp3",
+      "sha256": "e169ffbf63111b6f5f630c58d9ee247a919b68a075c01d238a84acebbed35ac0",
+      "text": "The soil is rinsed off the cucumber.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_it_well.mp3",
+      "sha256": "684b1df4e8b36e9ef9d33c5cbe3c25151932e67d77793966a8379cfb52f34679",
+      "text": "rinse it well",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_lettuce_fail_6edd6b53.mp3",
+      "sha256": "d5a9e8a005935e57fa357ba9dd7b99c18db1439f07f3a0f4bc80a226a282983d",
+      "text": "Drag the green leaves into the water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse_lettuce_success_9a876fa2.mp3",
+      "sha256": "42743f1ec747088f646cef56f56ca59e2bef624f789633439805d28d62c659ce",
+      "text": "The lettuce leaves are clean now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/rinse.mp3",
+      "sha256": "f6aff676f55e19c780b292ff508e64d18d3a7d4bc2e37a698673df79d3fd0c98",
+      "text": "rinse",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/turn_on_water_fail_bbae1b66.mp3",
+      "sha256": "f287166435f96cd70acbfee271af6cd06157690daa3fc0e49d31159eccf7a209",
+      "text": "The blue water drop is in the upper corner.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/turn_on_water_success_fbdb60a1.mp3",
+      "sha256": "379e97fa9c08f950e4b7e466ac94660f9083fc143fc98fc92ffc1095289de11e",
+      "text": "The clean water is flowing now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
+      "sha256": "c9d5238b4f1be91b2b31c887964b342de82eb508c855a39daab22892a5d765c9",
+      "text": "The adult hand is below the envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_success_b14363e1.mp3",
+      "sha256": "0337be013bcc3b5ec9dd394eb91962074f69bb5fea404645c786d2233c8b7552",
+      "text": "The envelope is stored safely.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/celebrate_new_season_fail_2b2ec4ef.mp3",
+      "sha256": "09091eaaad1f47c81b9e902cd70ee8fad2c42ba3d8af74b36251addc3c6d0b51",
+      "text": "The flowerpot is in the lower middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48429,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/celebrate_new_season_success_eaa67b24.mp3",
+      "sha256": "2ff822255277597bddf81e3200206c43fa1a080c7578fcc89a7aeb7460f98b88",
+      "text": "A new garden journey can begin from one small seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/choose_save_the_seeds_fail_57d2b23d.mp3",
+      "sha256": "5ad246cf4846cec34e963f01e214d8a5b73a837b46ba34662cc8ba19bf15cd8c",
+      "text": "Find the picture placing seeds into an envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/choose_save_the_seeds_success_fa8083bb.mp3",
+      "sha256": "f2313813cb2f86911f93ae1a522d5a00f671e2f31540c34113b05ac3d7e49c21",
+      "text": "Right, an adult will store the dry seeds.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/close_envelope_fail_b0b94699.mp3",
+      "sha256": "4709a6477dcedd9c6ad54a2f8212c3d5d416c065772ccf8e79a7e9db147cdde0",
+      "text": "Tap the triangular flap on the envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/close_envelope_success_f8486e0d.mp3",
+      "sha256": "c3b4d3914b1d24b971e31fd0408ebd79dad6d0a5109fe712a66cc644b250561c",
+      "text": "The seed envelope is closed now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59661,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/completion_bc12e89a.mp3",
+      "sha256": "b0d7f63b4ad2de76f55d80b9e800dc841a751f2874ba76861f70aabd1704d412",
+      "text": "You asked an adult to store the dry seed and begin a new season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50157,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/intro_success_8415ef81.mp3",
+      "sha256": "6f1068397ac23449e9593af4e48f04c176a73b7b4294b317515ab23afba53a42",
+      "text": "We will tap the pictures and ask an adult to store it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_save_the_seeds_fail_0f287dcd.mp3",
+      "sha256": "078e031373027299a72f0383dbf35df9c46e2e7f451e48af675a55d714891ef0",
+      "text": "Tap the picture with a hand and envelope on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53037,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_save_the_seeds_success_61cd892e.mp3",
+      "sha256": "3abdec4852dbbf66423baf5a166b74f0880dac64abce4a0cd1a02d559ef8db78",
+      "text": "Yes, save the seeds means keep them for next season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      "sha256": "a403fa2a098e07ca1832f562aa537c8db2f79c58c195524c553927a65353e13a",
+      "text": "Tap the small seed on the open hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
+      "sha256": "b74a49e92ad1225a04ffa6a09dd4bcf5286c92fbdfa7b993b86abedac3f5bacb",
+      "text": "This tomato seed has already been dried.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/place_seed_in_envelope_fail_19c50649.mp3",
+      "sha256": "03127f2a4b47fad1a87601fa9db96aa21962bc9cbf7ea7443e7e797a0a65ed7f",
+      "text": "The hand moving the seed is beside the envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/place_seed_in_envelope_success_3758b70d.mp3",
+      "sha256": "f47118698b7e73b50f229ef2125d692d7637ea8f92b80b2426141d277c61cc6c",
+      "text": "The dry seed is inside the envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
+      "sha256": "40c95b23667e04ceb4191d8d424acbac941758f3032fec9e0d0045a82cc61206",
+      "text": "Tap the hand to ask an adult to store the envelope.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_celebrate_new_season_a445df9f.mp3",
+      "sha256": "70049b2fd5737c0f3eb13ba796e33ea0301fdf9a3f68a33e891f3de450da6bb1",
+      "text": "Tap the pot with a seed for the new season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49005,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_choose_save_the_seeds_a6a89b8f.mp3",
+      "sha256": "88a2f71476ba3fc712e29773f3810af51ec0bb12d778a8e676b6ac49b90e40d6",
+      "text": "Find the picture saving dry seeds for next season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_close_envelope_cb210639.mp3",
+      "sha256": "5b339d2168f7560ac7789b2e8b873f825f4425f79065892b869cbf046058c9cb",
+      "text": "Tap the envelope flap to close it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53037,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_intro_5cc2f75e.mp3",
+      "sha256": "2b858586e2c0365640309a9c8aa3cae973f264b8e5297918b171bbd13839cdb4",
+      "text": "An adult prepared one dry tomato seed for next season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
+      "sha256": "c09c2fa3cd33227f2d844167d382cf3bcc40fc6baca474075cda458f29b8c66a",
+      "text": "Tap the adult hand saving the dry seeds.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_notice_dry_seed_23bfb57b.mp3",
+      "sha256": "55b3d9506dd24020a02baec8b77d72464d57df1f689304d3aff96d35341cb43a",
+      "text": "Tap the dry seed on the adult hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
+      "sha256": "00ee0eaf04e31c17eabc7095be8002932b094d814a032aed16c104507c6c2d0f",
+      "text": "Tap the hand so the adult can store the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_wait_for_next_season_b1874642.mp3",
+      "sha256": "10648f8ce9eba0002819edf66e1a69816a45025720d1addead29be1ad7b1f2cb",
+      "text": "Tap the time circle to move to the next season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19629,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/save_the_seeds.mp3",
+      "sha256": "6656460ce78680a84e20b76c7d4c5ce9d9436a7aca40fc181a26dec008c598a0",
+      "text": "save the seeds",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/wait_for_next_season_fail_e88924e1.mp3",
+      "sha256": "2510d60796bbb1dbd73fab8fa5c0915e99c50c711c9d30b93ebf247d83bc6364",
+      "text": "Tap the circle with the sun and leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48429,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/wait_for_next_season_success_ffd003c8.mp3",
+      "sha256": "268f420d3181f7fd91e714bcb2d8c61c10aca22bd33b2a1e9ad785e772d145b6",
+      "text": "Time passes, and a new growing season begins.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
+      "sha256": "364cfccb81a3f47464c38d9b172a99c16679b1dab8b307a18c220a5cdb96f097",
+      "text": "The adult hand is below the envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_success_b14363e1.mp3",
+      "sha256": "dcc82ec55b5df1b9d4baa303d4962431987087409dc2a8bc7598fa5af5604f25",
+      "text": "The envelope is stored safely.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/celebrate_new_season_fail_2b2ec4ef.mp3",
+      "sha256": "2388c67ca620f944c71ce09e70ed7c0638a8e960dd4b84fe6d4bfadc5e0c3237",
+      "text": "The flowerpot is in the lower middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/celebrate_new_season_success_eaa67b24.mp3",
+      "sha256": "49350766611cc4260320b0a458519d5375e8b5bf963f601d7262ba394a9b2a93",
+      "text": "A new garden journey can begin from one small seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/choose_save_the_seeds_fail_57d2b23d.mp3",
+      "sha256": "7aa7f4a9d5bc7d00dece338220e74473e49ce72f413396adbec3c71e05a83d7f",
+      "text": "Find the picture placing seeds into an envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/choose_save_the_seeds_success_fa8083bb.mp3",
+      "sha256": "5b2bf5fb8c73d15f0f578dd74f160ed5f9fd6dbbcc39c8f86a5a82aaa1754c74",
+      "text": "Right, an adult will store the dry seeds.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/close_envelope_fail_b0b94699.mp3",
+      "sha256": "47427380c79565e546d85683334aca203b820dc1765390d52ba106e5d78fe6bb",
+      "text": "Tap the triangular flap on the envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/close_envelope_success_f8486e0d.mp3",
+      "sha256": "38b72ac5b4f48b9742749c3364579a9f81d72decec804371b3fc89bdb4051144",
+      "text": "The seed envelope is closed now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 57069,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/completion_bc12e89a.mp3",
+      "sha256": "92f82bc291403fbce601a5a33287405f93d47cb6ce197cf415c15519e038f47b",
+      "text": "You asked an adult to store the dry seed and begin a new season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/intro_success_8415ef81.mp3",
+      "sha256": "bf7a8ef7b96a40a2fe63c96cbc224e11a36907493ed9be4d3eab74945a371607",
+      "text": "We will tap the pictures and ask an adult to store it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_save_the_seeds_fail_0f287dcd.mp3",
+      "sha256": "23ac06bd64a40b272f8b7aa85217721298d1770fcaa69ced1d679dfe90b8d644",
+      "text": "Tap the picture with a hand and envelope on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46125,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_save_the_seeds_success_61cd892e.mp3",
+      "sha256": "7ac74bcfc446231fec6e55b7d639b68b380d7438e5735092fc2d8089db1f9bac",
+      "text": "Yes, save the seeds means keep them for next season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      "sha256": "f529174da0be708387656f6f744fb6cf018e8bd88b7e22027aaeb962d9589150",
+      "text": "Tap the small seed on the open hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
+      "sha256": "93d3dd25b182128f98a69917720c47ae3372e0ee7876898937557f878ba58964",
+      "text": "This tomato seed has already been dried.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/place_seed_in_envelope_fail_19c50649.mp3",
+      "sha256": "9517befe89aac5b5593959d5dbb94c6e262b756b82cbdeb5e54cbea194a1a9dd",
+      "text": "The hand moving the seed is beside the envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/place_seed_in_envelope_success_3758b70d.mp3",
+      "sha256": "f83afffaf0cc2cbb6fc745f109d287901b0c57d3b20e93c642a03a898d89975b",
+      "text": "The dry seed is inside the envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41805,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
+      "sha256": "d401f2e795fa0a6a2cd5c18f501d018e2d78396407d10390cb161cf4fe589174",
+      "text": "Tap the hand to ask an adult to store the envelope.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_celebrate_new_season_a445df9f.mp3",
+      "sha256": "162e58c9f6bf48b8addb99bc001d1f5113d482ca0043246c91d19de6c638b117",
+      "text": "Tap the pot with a seed for the new season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_choose_save_the_seeds_a6a89b8f.mp3",
+      "sha256": "8951cd866ebb0ec051deafc5901270500ae73e128c499b17e45d98a040914475",
+      "text": "Find the picture saving dry seeds for next season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_close_envelope_cb210639.mp3",
+      "sha256": "337143168986b1f6cbbf13a599e8dae522105b009a742783a064b1eb4b69dc68",
+      "text": "Tap the envelope flap to close it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 50157,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_intro_5cc2f75e.mp3",
+      "sha256": "475818a4703495115c2c975a0e8b0f96b6632b61e7ff653d5957520a96c513b0",
+      "text": "An adult prepared one dry tomato seed for next season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
+      "sha256": "10f01ce30a2c98980244e852ec788e518dc5a108c8755eafaf07985b74b40d22",
+      "text": "Tap the adult hand saving the dry seeds.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_notice_dry_seed_23bfb57b.mp3",
+      "sha256": "bf29b453ccecb6aa2b288ace8c46d7fcba63580fd7dfd25e655f940d88e91c97",
+      "text": "Tap the dry seed on the adult hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
+      "sha256": "7d0539052264cb2557194f8e99b659cc23cee2c2c74ba3c3efb62e5294d02d72",
+      "text": "Tap the hand so the adult can store the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_wait_for_next_season_b1874642.mp3",
+      "sha256": "5d1e707f4b51b3bc50d80adc7626544c142a2d3532f507e3f3f97cdbae181fc5",
+      "text": "Tap the time circle to move to the next season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17037,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/save_the_seeds.mp3",
+      "sha256": "e9fef3f3ec27debbb754aa2b6d955463d3735ea72a1bdba9b88dab4ff12c5e66",
+      "text": "save the seeds",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/wait_for_next_season_fail_e88924e1.mp3",
+      "sha256": "44e9b331eb391f542279be0caa95d1bce6aa91174c4c7071ac748bcd054c66f0",
+      "text": "Tap the circle with the sun and leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/wait_for_next_season_success_ffd003c8.mp3",
+      "sha256": "410a5b5e9fa5eb224367fcb0dbc5b93a778303fb0d88cf921b584e4cd4c71d31",
+      "text": "Time passes, and a new growing season begins.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 17037,
       "key": "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/ask_for_a_hug.mp3",
       "sha256": "47abb52db50fe39485d2012acf0ffeead0335631b7e58bd36070bd07db399b21",
@@ -33073,6 +34641,1398 @@
       "key": "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/wave_goodbye.mp3",
       "sha256": "ba5b56ba3ad9bea9b9d7e84044065f15f32ef9f1033e409f487291a456c7674a",
       "text": "wave goodbye",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/choose_leave_unripe_one_fail_b1defe07.mp3",
+      "sha256": "bc6d8802a326f53085b2f098e4c2b7563f7db0be12bd789e5dc6f3c3377e6c80",
+      "text": "Find the hand that does not pull the green tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/choose_leave_unripe_one_success_e7c2ca84.mp3",
+      "sha256": "b400072c473667fa9f61c2bafc7fc4d25be8c3c129228153d5d4993e0ec79f24",
+      "text": "Right, the green tomato can keep growing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55629,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/completion_5b943c07.mp3",
+      "sha256": "8e1c50d311fc779551668c4dea3a828f4650870c4d1514feb99e831ec094c6ee",
+      "text": "You found the ripe tomato and left the green one to grow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_ripe_tomato_fail_e25bd12c.mp3",
+      "sha256": "aae121073522830b0f1959e98aa55b4b4ff000ec6cbbe790eec1a41a2b0520b1",
+      "text": "The ripe one is red and round. Find it again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
+      "sha256": "37c02ccd31a7493745fe3117d53197645431d05323485128f4fb7e6176fd8ca3",
+      "text": "Right, we will pick the ripe tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49581,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/inspect_red_tomato_fail_7bea8970.mp3",
+      "sha256": "a35be09f930be6ec877377a81096a71cc1a8d279d3fd69556712cf6af5436d40",
+      "text": "Tap the teal magnifying glass around the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 52173,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/inspect_red_tomato_success_b113502d.mp3",
+      "sha256": "a53d089db7fc7ff5908317786043868fbd69173198a7e94e89570a93542d52a8",
+      "text": "The red, round, firm tomato is easy to see.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56205,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/intro_success_14c6f41a.mp3",
+      "sha256": "eaa4d6b1ef5f85299d956266958c491232bd92edd7c2a6257d1ee031511381e8",
+      "text": "We look at the color, shape, and firmness of the fruit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_fail_4ca8d916.mp3",
+      "sha256": "251c8c4b77f8df2ef7828c577ce273f5ac4243a8cd13cdfdffc4299c8dd9ac7a",
+      "text": "Tap the open hand beside the green tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
+      "sha256": "0b49c84df48f3be5e65ca426ecbec4206965d84238ec4ccca9abc381e626a7b8",
+      "text": "Yes, leave the unripe one on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_ripe_fail_2fea1dcb.mp3",
+      "sha256": "a3763e13706a350a1e8c393dc089262725486437e1686a99d03f496c8e9862e1",
+      "text": "Tap the red tomato with the small sparkles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_ripe_success_9d4e071e.mp3",
+      "sha256": "7c27f9f495e1b00f3c8a21df850480e6bc4988ebab7a336bf94ad87c784f21b7",
+      "text": "Yes, this tomato is ripe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_tomato_fail_96658067.mp3",
+      "sha256": "1a9059dc1c847ecd8d6ee4c8d7532057c4e7d17f14597f0db3ee05d5747331d3",
+      "text": "Tap the round red fruit on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_tomato_success_c0f232c4.mp3",
+      "sha256": "c272851284425135fbbb6b7c7d19c274e267e6e3f04905af57df032edfd3fb21",
+      "text": "Yes, this is a tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_unripe_fail_ff72064a.mp3",
+      "sha256": "4da1a028f4c63ddd89b7277388a9ca197f23070628491b632dc84335ece116d0",
+      "text": "Tap the small green tomato on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_unripe_success_838aa313.mp3",
+      "sha256": "3d31b61d3dbbe233622f6084a20ec7db972412a4f2b8c037acbf90cc3ce3eb3b",
+      "text": "Yes, this tomato is unripe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22509,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/leave_the_unripe_one.mp3",
+      "sha256": "73226374799ecdff9e54bab5a97c828f24704346924a068359ec36c25198eecd",
+      "text": "leave the unripe one",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/lift_leaf_success_b1e9ca94.mp3",
+      "sha256": "ab030aa4444b2f8d1e6931c8c564ea78e3a50982382c741b1c952ea63565fc25",
+      "text": "A smaller green tomato is behind the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/notice_unripe_tomato_success_8f9f2d17.mp3",
+      "sha256": "f3e7407c88617751321019319c7f6afcf600e529ad53e09b63e0ca181f219b35",
+      "text": "The green tomato needs more time on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_choose_leave_unripe_one_5dce787c.mp3",
+      "sha256": "041994baf373b3ba84a9d39d8149c87981228c44f5b5b29ee3ebda3a08a6d9a5",
+      "text": "Find the picture that keeps the green tomato on its branch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
+      "sha256": "ee6d642a90c21a28f320e71e69e84bb91959d0e185bb4cdacc3a3abcb76ac4ea",
+      "text": "Find the red, round, firm tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_inspect_red_tomato_bb1d21f7.mp3",
+      "sha256": "4efe6cea9af641023572b24c6d8fb2724ad83ea7b198d652f82aab291b2fbe3d",
+      "text": "Tap the magnifying glass around the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55053,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_intro_05a2fa38.mp3",
+      "sha256": "e986003421a0ad249fdc0e060a8081af5b7dcaa0aa8f8fb92b2653ba9279115b",
+      "text": "The tomatoes have grown. Let us find one ready to pick.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60237,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_leave_unripe_one_a5e72c1c.mp3",
+      "sha256": "daa01ccf02f5aad0f2264765603674457063ab1da719cb786ea72aaee729b280",
+      "text": "Tap the open hand that leaves the unripe tomato on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_ripe_73c54df8.mp3",
+      "sha256": "a59da8151934fafd01c6573e224076e44362f38aa1ff9d9c34be5a4ef530ec6a",
+      "text": "Tap the red, round, firm tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_tomato_6a127647.mp3",
+      "sha256": "46d229c63136d946491e92337a88fad46315303d789a21e7bffd24799f497860",
+      "text": "Tap the red tomato on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_unripe_c2cb99f8.mp3",
+      "sha256": "19e744959cc0907bc58b6e2092125745fcbbd4614fbe8e00e3b1900a069479b4",
+      "text": "Tap the small green tomato on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_notice_unripe_tomato_a608d76f.mp3",
+      "sha256": "9c3b2b87aa8d16dd2b15f097ef8a1678d1c9c870e348fa7fee446af728725b5c",
+      "text": "Tap the green tomato to see what we should do.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10989,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/ripe.mp3",
+      "sha256": "e85890e62ab81ba1eb11798951419d904295e8d98f1f63ac9895d3e22901e120",
+      "text": "ripe",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/unripe.mp3",
+      "sha256": "df5494a0928a857210ac7f13c202a6189e8ac6384dbe49b680c795016232aa37",
+      "text": "unripe",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/choose_leave_unripe_one_fail_b1defe07.mp3",
+      "sha256": "50a94193fe7442ee3a983706e6a58960e4550cefb46f35bd3d6faaed2cc3dae6",
+      "text": "Find the hand that does not pull the green tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/choose_leave_unripe_one_success_e7c2ca84.mp3",
+      "sha256": "c7ea023053382a6b32829eca9fd13e3b2ac72069ff943c064594de457a421a4a",
+      "text": "Right, the green tomato can keep growing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51885,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/completion_5b943c07.mp3",
+      "sha256": "1824633b13234f1ffae18def24b99523924d2ebcb18e3db3a8b9f358ea07624b",
+      "text": "You found the ripe tomato and left the green one to grow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_ripe_tomato_fail_e25bd12c.mp3",
+      "sha256": "2e639136ee76f2929cafa6b1914cb7b46efd7022c24c7a546095ff5e40b2f705",
+      "text": "The ripe one is red and round. Find it again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
+      "sha256": "ce3e60746f113b2e02c51f7bd38ceff7cee10a16d055aa25fa729a6afdc2a73f",
+      "text": "Right, we will pick the ripe tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46989,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/inspect_red_tomato_fail_7bea8970.mp3",
+      "sha256": "9d74d0b99399f82ea312c4cbcd2e04d552ba3d3af9892ee08f91293e4f608602",
+      "text": "Tap the teal magnifying glass around the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/inspect_red_tomato_success_b113502d.mp3",
+      "sha256": "dbc6a7feb5a477ba41dd2b94b794110116d6593402814bc14e48aca32cbf2859",
+      "text": "The red, round, firm tomato is easy to see.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 50157,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/intro_success_14c6f41a.mp3",
+      "sha256": "9e69abf47d81a066193a1e90281f2a6b03785030a39876d91f2435c6f8eba27e",
+      "text": "We look at the color, shape, and firmness of the fruit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_fail_4ca8d916.mp3",
+      "sha256": "cd76c525550a1b9ea9f45009c03b73c2e3d0bd15dd1679fa679df39482158f2c",
+      "text": "Tap the open hand beside the green tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
+      "sha256": "1eab91980e6ff0d81a8f595716c03e96454b2081ec16d9eb3778c03e13a11f5c",
+      "text": "Yes, leave the unripe one on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_ripe_fail_2fea1dcb.mp3",
+      "sha256": "2afc557e9efa414df4a09da0481d1780f8dc8c81d94fd7e5aceb34c8ecd5356f",
+      "text": "Tap the red tomato with the small sparkles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_ripe_success_9d4e071e.mp3",
+      "sha256": "c0a003a13ed1a6dc4bc3e02f7b726d7652751af51bc98f464431d3cbd3b9a258",
+      "text": "Yes, this tomato is ripe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_tomato_fail_96658067.mp3",
+      "sha256": "3dece2cb5a89481494157852dfa17a249568b9069539830c3bbb13163767e2a9",
+      "text": "Tap the round red fruit on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_tomato_success_c0f232c4.mp3",
+      "sha256": "ec218656d9821270c1f836986edff680e13058433e4d2e15ed5f05bf588b4df3",
+      "text": "Yes, this is a tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_unripe_fail_ff72064a.mp3",
+      "sha256": "7a8b12f348dec451b084a7883844fb8f01e61bd12aa41b99334af778f8ea8d15",
+      "text": "Tap the small green tomato on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_unripe_success_838aa313.mp3",
+      "sha256": "f5291668a4826810e98b49b911cc4647b4e8cc23d85bdbb6313313e3cefe2867",
+      "text": "Yes, this tomato is unripe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/leave_the_unripe_one.mp3",
+      "sha256": "35fb14abdd12d995b6707608ffa22b7884f3e238d2bbf5241207b32389897dad",
+      "text": "leave the unripe one",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/lift_leaf_success_b1e9ca94.mp3",
+      "sha256": "3af7fca884e7e292a9e1837175af1960de93088327f7d4a0b69edc9f951274d2",
+      "text": "A smaller green tomato is behind the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/notice_unripe_tomato_success_8f9f2d17.mp3",
+      "sha256": "da8ca47fad4c410ac6cc82fdcb2f1caf6cbab7b16302ade428c61e758a027500",
+      "text": "The green tomato needs more time on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46125,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_choose_leave_unripe_one_5dce787c.mp3",
+      "sha256": "8b1d94c0e8b49352d99644490b53eb267a26fb2ba4706e0c0be64d67ce66ea0a",
+      "text": "Find the picture that keeps the green tomato on its branch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
+      "sha256": "ac905ba6408da29963cd713af2020930cc891efe425c1b8a6394daea3d367d80",
+      "text": "Find the red, round, firm tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41805,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_inspect_red_tomato_bb1d21f7.mp3",
+      "sha256": "ca5490b2d6895b52f1726b76c451771b24eb86c68d5868223eb6c15680dcd995",
+      "text": "Tap the magnifying glass around the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46413,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_intro_05a2fa38.mp3",
+      "sha256": "bcbf0a549fc189a5dbd37456c5b8f97932f2f81c219522e8771164eb950a616e",
+      "text": "The tomatoes have grown. Let us find one ready to pick.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55341,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_leave_unripe_one_a5e72c1c.mp3",
+      "sha256": "6714e552f76cd3aa5dd6b3acbeda205d24d51159f51915e7009c7dff30a8cd9b",
+      "text": "Tap the open hand that leaves the unripe tomato on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_ripe_73c54df8.mp3",
+      "sha256": "2a1c0a93946f7ebcd12b51262936b3f95e56eb6e1b48bcf93069546133431e70",
+      "text": "Tap the red, round, firm tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_tomato_6a127647.mp3",
+      "sha256": "8a21c714af45c651a9933066d29504db03930460f6c82b7a5de132f19da6fee5",
+      "text": "Tap the red tomato on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_learn_unripe_c2cb99f8.mp3",
+      "sha256": "945831a01c4e8f04f8e5260e1480f04a33955229e11b9a9444b689d02b54792c",
+      "text": "Tap the small green tomato on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_notice_unripe_tomato_a608d76f.mp3",
+      "sha256": "1e3c3c85729f51a4d55bbb8f236b103ef1e16d21d3fe424e4c0eb0ed32c91763",
+      "text": "Tap the green tomato to see what we should do.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/ripe.mp3",
+      "sha256": "33954f72a0aae2ac02479f8f1c50eff417e64ec910ac0aeb76a93e61239f00b2",
+      "text": "ripe",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11277,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/unripe.mp3",
+      "sha256": "db44261260971ad914ed33a5e2c39410ab5fd66dfc901cf07851e6685fd5e237",
+      "text": "unripe",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60525,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/completion_704b0033.mp3",
+      "sha256": "a14c0b2d4b28053b84c262b50bbbf6a2b6b450f3e3dec9b3fee5d8e6986a7952",
+      "text": "You picked the ripe tomato by hand and kept the branch safe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43533,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_fail_89ff2ab9.mp3",
+      "sha256": "0e2ee7fd1b4cbe418bd59e017f2ce33b18c40662064146d5a4730ede678c4c87",
+      "text": "Tap the basket with the red tomato on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_success_412a67b4.mp3",
+      "sha256": "314ef710b2863a77e39524e9da6bee674b7a5007385687c0ad08717051df0f54",
+      "text": "We picked the ripe tomato very gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15309,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/fruit_stem.mp3",
+      "sha256": "f2908dd8cea47ff60ae3a25af45d438203fd435a56d19cea78e7498515606d05",
+      "text": "fruit stem",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50445,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/intro_success_ea1894f9.mp3",
+      "sha256": "0883ed95eb48e2d295be138810184efd866f98ba040777cef7494fc17c69a273",
+      "text": "Support the fruit with your hand without shaking the branch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_fail_ec4255ef.mp3",
+      "sha256": "6253ab24cb915eb2a8993d57cfed9575670eb3e32d33c1640379604e53363e5f",
+      "text": "Tap the green stem above the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_success_5dec0c4f.mp3",
+      "sha256": "a5a648030d1d668a563b1ced83f3e6aa31a9c3a5e6a1108d7a955ed62a129f92",
+      "text": "Yes, this is the fruit stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_pick_fail_1da40d79.mp3",
+      "sha256": "a3d21e6580290d505f5747fe7dbad098b87c6c92fddac4b5f4196cc69d8e36f5",
+      "text": "The hand is supporting the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_pick_success_2188e019.mp3",
+      "sha256": "6ef620804d71036d0659961e898d0793d0300a1eaf2dec91644e61a961586f11",
+      "text": "Yes, pick means to take the tomato gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 9837,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/pick.mp3",
+      "sha256": "e8b47ade75889380c7557bd6e4f3cc27a83c08505c7968f76e8b84de3ce9982c",
+      "text": "pick",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56493,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
+      "sha256": "2c29de25cd091e9f4fbedff7e35b2201f0324c35da747c2e9b6069dc5c621ccc",
+      "text": "Drag the red tomato on the plant to the basket on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55629,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_tomato_in_basket_success_1986e806.mp3",
+      "sha256": "4f94819776de0e788fb5dc4bd1f209793f2360357c8f53d68b94ec1c28e72ebb",
+      "text": "The tomato is in the basket, and the branch is intact.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prepare_hand_fail_5c30c155.mp3",
+      "sha256": "3298cec5b48a9fe4cef17d8badda66093255b64d593e5aae9c969cecb90ee2a1",
+      "text": "The open hand is at the lower left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prepare_hand_success_b30897bb.mp3",
+      "sha256": "d76c4c3a85da972dc20b6dbbd482eff8db92f13e446f67db22410dd5447ad9c0",
+      "text": "The hand will support and turn the tomato gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_finish_36f42356.mp3",
+      "sha256": "2f648e1d963bc108c568fd117d259d2b682b677c0b19382a5ddbe1dc6737d7aa",
+      "text": "Tap the basket holding the tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 67725,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_intro_102fb0b4.mp3",
+      "sha256": "3802e584ab50ef0ddc94c46b4d41d516632e306f0c712ce7f4cfb8ae63d761f4",
+      "text": "Use your hand to pick gently, then place the tomato in the basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55053,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_learn_fruit_stem_3f1ad016.mp3",
+      "sha256": "1f0f19d4bdd85f696031810a0e75ad418f855b74405c88066c7b7571e5ffe0fa",
+      "text": "Tap the green fruit stem connecting the tomato to the branch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_learn_pick_0cbb0184.mp3",
+      "sha256": "a4946d60da8b6638a2e2df80b6c580593acf5a4625c356bc8d3b36e63c2be4d2",
+      "text": "Tap the hand gently picking the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_place_tomato_in_basket_98528eee.mp3",
+      "sha256": "ec5eddb0844957d087aa006723cf4eacf63fbbb014f52ca34553bdddf7288eb0",
+      "text": "Drag the red tomato into the basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_prepare_hand_ad6d651d.mp3",
+      "sha256": "df9608abf3a413d93e3deddd5f3db1f46462e444613674b133a9819e6f297983",
+      "text": "Tap the open hand below to get ready to pick.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55341,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/completion_704b0033.mp3",
+      "sha256": "45dc681cd00718901dae8b2c2adb3826111a10f7e2126271da580b19932d81fc",
+      "text": "You picked the ripe tomato by hand and kept the branch safe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_fail_89ff2ab9.mp3",
+      "sha256": "2285b190a8c5cd48054ec98bcf98a02b93a6ee0b24cba6fdfb7ff0abc6827453",
+      "text": "Tap the basket with the red tomato on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_success_412a67b4.mp3",
+      "sha256": "d08e7f9c8b90adf15ac3fc0d663374174baf1c861f23d2868b9bdb5c6237156e",
+      "text": "We picked the ripe tomato very gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13869,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/fruit_stem.mp3",
+      "sha256": "a48b20ec58ff00fb5746fb3f587830fb038ddd4e6b1843764fef989c01f8b35e",
+      "text": "fruit stem",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/intro_success_ea1894f9.mp3",
+      "sha256": "5e0431835e88b95cce95cc0ab39dc0e0545d13e566ab8185a8d20524923dad11",
+      "text": "Support the fruit with your hand without shaking the branch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_fruit_stem_fail_ec4255ef.mp3",
+      "sha256": "5c55bb3afc53109b11e3e28ec0b92fcdf6e0a25b93f79d7eb17437a271c98ac6",
+      "text": "Tap the green stem above the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_fruit_stem_success_5dec0c4f.mp3",
+      "sha256": "7e1714af4bb3e9c16107b4a16204e67451f30aec4b2b7f84f6dae3dd4bb93f0c",
+      "text": "Yes, this is the fruit stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_pick_fail_1da40d79.mp3",
+      "sha256": "e6f20aa19cbfbd32c3e119396605857967815918f4e0c54fdb8207b95008645a",
+      "text": "The hand is supporting the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_pick_success_2188e019.mp3",
+      "sha256": "4171a398241157ca83e57d95e363fa99661fbad3cb6e6c9c9cdde015e6c740b0",
+      "text": "Yes, pick means to take the tomato gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8685,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/pick.mp3",
+      "sha256": "634a68a0aa1d8e18b2d9661204aeb31c0370239a5da825c49b441e0f6f39e184",
+      "text": "pick",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53037,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
+      "sha256": "2f368469e7975bd331e89072a212f3a6805b0bf8c035af1144038f84affbf024",
+      "text": "Drag the red tomato on the plant to the basket on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 49581,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_tomato_in_basket_success_1986e806.mp3",
+      "sha256": "a02f21ae0b410abefe1c22074643756be802ecf5e847f19558c8f6a3fc08f233",
+      "text": "The tomato is in the basket, and the branch is intact.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prepare_hand_fail_5c30c155.mp3",
+      "sha256": "6808121eb5d5730454b7ba3d3c32dfc7666dbd8a654dfe3199f9d61ec500c7c7",
+      "text": "The open hand is at the lower left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prepare_hand_success_b30897bb.mp3",
+      "sha256": "fcbb89b6ef3dca927a614f78ee3522a2fece121f9290d5f8aec39bd046f4ec5b",
+      "text": "The hand will support and turn the tomato gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_finish_36f42356.mp3",
+      "sha256": "43f25634a455fad0c5945708a9705cd31db608d29aaba34b69e8321d74f68cc3",
+      "text": "Tap the basket holding the tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59949,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_intro_102fb0b4.mp3",
+      "sha256": "87cc8c063575e6b4bb03b204a112a03860c97919b52bf5626e83ff6a7e08e515",
+      "text": "Use your hand to pick gently, then place the tomato in the basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_fruit_stem_3f1ad016.mp3",
+      "sha256": "b8add83172f4141acb031209d2f08bde5780dfc4d5f1d6e0f6545c67a2dde02c",
+      "text": "Tap the green fruit stem connecting the tomato to the branch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_pick_0cbb0184.mp3",
+      "sha256": "1333c23338861410f21450dd89a081880d80327da9446fc7122bf304b2ff92e9",
+      "text": "Tap the hand gently picking the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_place_tomato_in_basket_98528eee.mp3",
+      "sha256": "bb69d33079465e6f263295cada387fede39cda130d5cada69286d13a57815e15",
+      "text": "Drag the red tomato into the basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_prepare_hand_ad6d651d.mp3",
+      "sha256": "b881ae7f141d1e8288feb432c16c6a439a357cfc5b362c30edd2dbd0cf74869e",
+      "text": "Tap the open hand below to get ready to pick.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54477,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/adult_check_bruised_fail_beb871cb.mp3",
+      "sha256": "88c79b2680baa4d83db009c66d3883e23ae59b5c71507d12caa6181f16e85264",
+      "text": "Drag the tomato with the brown mark to the tray with the hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/adult_check_bruised_success_3e56caee.mp3",
+      "sha256": "5b5cceccc929387b3b9a5ce0d797307435446938fcd27fbf9d2c1d6341bc03af",
+      "text": "An adult will check the bruised tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/bruised.mp3",
+      "sha256": "85eedb9529fb767e537b34002ab57faf68c215b4422c2aab4a69263be05d7d11",
+      "text": "bruised",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/choose_sort_by_type_fail_3adec8ae.mp3",
+      "sha256": "6b40d655b33de31e72bd6af74ceca6d9813af4e6c5f9e34050b29073702f4f7c",
+      "text": "Find the picture with three separate baskets.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/choose_sort_by_type_success_94e123ac.mp3",
+      "sha256": "51e256eeb6a2e96337d86ae1c6aae58960e913602c37d8a18e7254669fb72a89",
+      "text": "Right, each type has its own basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 62541,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/completion_09d015e2.mp3",
+      "sha256": "8f2f01924f723410466a0888caebd0571e8ab8a3eeb73f9114edf30added8068",
+      "text": "You sorted the harvest and asked an adult to check the bruised tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_fail_700aa40d.mp3",
+      "sha256": "967f85c73d11966df59973c5f5298accf5afe4bf5a72de03341b242134fd8f4a",
+      "text": "The middle basket has the red tomato shape.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59085,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_success_83697327.mp3",
+      "sha256": "abf1e409e71dfd40aaffc2a20abcf108bed872306106c374e06408f2a8f5f6c0",
+      "text": "The tomatoes, vegetables, and herbs are sorted separately.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10701,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/herb.mp3",
+      "sha256": "5f29cf56e12b902e1f0ccab91b4ee0a8f26186ccf56d11a75d39da16a19540f1",
+      "text": "herb",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/intro_success_c08906c6.mp3",
+      "sha256": "1ce0ace0985da4215a5fd6e9a3ed0e83c4e6f5d7cb013baff5ee2bcb3688b35d",
+      "text": "Let us place each type in its own basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_bruised_fail_4d57f327.mp3",
+      "sha256": "f713834531bfb3a295a3e99a94d69dadd193649259090d8a9e66ce58fa53bb48",
+      "text": "Tap the red tomato with the brown dent on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
+      "sha256": "bbddbbc34a4fc4e43bd0b9269c2786725c89b297b0204add198b3c27266f09bf",
+      "text": "Yes, this tomato is bruised.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_herb_fail_8aff2fa8.mp3",
+      "sha256": "ff27bcf70016e25fba012072ae0108477c166e229287cd80e0a7c4ecc3f7876e",
+      "text": "Tap the tied green leaves on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_herb_success_86222663.mp3",
+      "sha256": "d4e439d88cb94d251b0fe31d93f8a68c43335e100534815eed5cee0a9062f9a7",
+      "text": "Yes, this is an herb.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_sort_by_type_fail_5bd59416.mp3",
+      "sha256": "c71a2433a3c6c8e95bce92cc1834124c6f33980b3583c3128ba61a1281913c90",
+      "text": "The picture with three separate baskets is above.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33165,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_sort_by_type_success_1767e8ac.mp3",
+      "sha256": "e8dce44d2442f2a38ef8377eb10d2a3006305672b24c9c5c71533e49c83b9e94",
+      "text": "Yes, we sort by type.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_vegetable_fail_9ee2a868.mp3",
+      "sha256": "ecd8ac7e99cb378d0ee492197c65a8dcbf8f5951a65caeab0050a0ffc52c86c7",
+      "text": "Tap the orange carrots and green peas.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_vegetable_success_cfe19e5b.mp3",
+      "sha256": "7aca2094014a4c4c6b804f413e17eb9093e112380c509de4d199d97a0b354a11",
+      "text": "Yes, these are vegetables.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_adult_check_bruised_1a341ff4.mp3",
+      "sha256": "d1192bb095078dbeb238c71877c75644ce510eec39a6a496fcc9cf612890c820",
+      "text": "Drag the bruised tomato to the adult-check tray.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45549,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_choose_sort_by_type_2066e545.mp3",
+      "sha256": "4b8b7399828fa1f31283039d57f0d0ca39fcc0054875c132ece2eb470a4d8652",
+      "text": "Find the picture with each type in its own basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_finish_c657da5e.mp3",
+      "sha256": "56fd833110c0ca5d73f1e83ee857eddeb824d51e00f6a9b5c686b97fb3ffe250",
+      "text": "Tap the tomato basket in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 57645,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_intro_db5afb98.mp3",
+      "sha256": "10849c5197c01405da7af34f8e002d1e2a617038456c320b55f51a55f03a5b0f",
+      "text": "Our tomato and produce from the next garden bed are on the table.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
+      "sha256": "c0545f477bed74f19cdaf656e7f4e8714939b0dd2c9fe38df21e7afa65e1b980",
+      "text": "Tap the tomato with the brown bruise.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_herb_e75e7f9b.mp3",
+      "sha256": "f2c7c6cff7493f62187b6c8677aadf0c8fdf67394ad03ecd76c49f583e87d6d1",
+      "text": "Tap the green herb bunch on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 52749,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_sort_by_type_ef75a69e.mp3",
+      "sha256": "ce97d362f5e6e812c2c688505719d57f2ace3577f7f636cc1cccf4ae3ce6e8c0",
+      "text": "Tap the picture with three separate groups in three baskets.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_vegetable_82a94c20.mp3",
+      "sha256": "007377b9399b6034206e714689001440aba77909932eb86bd71496bcbd72f6c9",
+      "text": "Tap the carrots and peas on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_herbs_7f8251d6.mp3",
+      "sha256": "113f4b578bf2d10d668273c75597bed72f7a0355e694f520563f9123f305247c",
+      "text": "Drag the herb bunch into the basket on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_tomato_1700bc3b.mp3",
+      "sha256": "3bdd87bbf0bf729ead2067c47ef5ca1cf0b444be85b6713bc9b8c26631e809d6",
+      "text": "Drag the red tomato into the basket in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
+      "sha256": "7d3e8e7d5cb7ffd01ffc097c4552bfdc6c60687db4de74b685e9dadd053a2280",
+      "text": "Drag the vegetables into the basket on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19629,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_by_type.mp3",
+      "sha256": "52e33490ddd61c7ac67d2269fd463d86dbc7ccdb7964c8844f3f20f6689de24d",
+      "text": "sort by type",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54189,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_herbs_fail_851ebab6.mp3",
+      "sha256": "ba877e8f578b5cd3504e81cf5a85f179720be568ba31e350976ee088b1285aa5",
+      "text": "Drag the green herb bunch to the basket with the leaf shape.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_herbs_success_0e822beb.mp3",
+      "sha256": "afd48dd016e3bd3c9fe4919fa59980d8a6a3a1807cba08b3ca821680e62fbd2d",
+      "text": "The herbs are in the basket with the leaf shape.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_tomato_fail_6e500a57.mp3",
+      "sha256": "021a6eb114b826c0f768a74f105fd65b452d3c14b398807196c9dcd76fa1ea40",
+      "text": "Drag the red tomato to the middle basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_tomato_success_57df3982.mp3",
+      "sha256": "1d7237e13ff0864802af735fd4134c736691bed0e735cebe2b305fd7a78b9083",
+      "text": "The tomato is in the basket with the red fruit shape.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56205,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_vegetables_fail_cf7a054d.mp3",
+      "sha256": "dbe97e4e83513b1193a3c6976bc97e313048ebc9d3d7ace26acf46aad9f2a496",
+      "text": "Drag the carrots and peas to the basket with the carrot shape.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/sort_vegetables_success_beb9bf3a.mp3",
+      "sha256": "120b66a9f20b3368c34257b0f21675ed5f0c4d248e434a9a9be7d2348ebfd3c5",
+      "text": "The carrots and peas are in the correct basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13869,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/vegetable.mp3",
+      "sha256": "b258676c2cca9f2a59c150434ef2a15e51b3640734d80a50c8583a2a057c1cc4",
+      "text": "vegetable",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52173,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/adult_check_bruised_fail_beb871cb.mp3",
+      "sha256": "d1944d2c620f2aa6d9f0c95a42558a6bd8ae908c5cfe25b957e2efb8e4ed350d",
+      "text": "Drag the tomato with the brown mark to the tray with the hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/adult_check_bruised_success_3e56caee.mp3",
+      "sha256": "a05a4ae2ce2b80e1eed3687f9d524f737033dfc9f96230f96e6ae081bde6c4b7",
+      "text": "An adult will check the bruised tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10989,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/bruised.mp3",
+      "sha256": "c04e935833d4d67fb17d8e5d0bb7cfcab7fef4e89c7a2de5d62d2e422d0f59ff",
+      "text": "bruised",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/choose_sort_by_type_fail_3adec8ae.mp3",
+      "sha256": "f778aa231fe89451f50ce23f00d6747f0c6e1536cf73026049a1841bdb0337b8",
+      "text": "Find the picture with three separate baskets.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/choose_sort_by_type_success_94e123ac.mp3",
+      "sha256": "764edbb3bf7038a2e3de9b970538b0edb9281b3fdae23bee0e70b01c1738c0b8",
+      "text": "Right, each type has its own basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59085,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/completion_09d015e2.mp3",
+      "sha256": "9c44abb925719b9ee3381cd83c068a1d134ff774b020ab17c38fd351fa5c0ece",
+      "text": "You sorted the harvest and asked an adult to check the bruised tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_fail_700aa40d.mp3",
+      "sha256": "096dcaa2bcc3b495bebc2e1dcf87d004b737f83fcaa5fb7ad7e774cc04b6b57c",
+      "text": "The middle basket has the red tomato shape.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51597,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_success_83697327.mp3",
+      "sha256": "505a19e93faa727c6592e25ed051291e9badad4888c27fc9f27d3bea937829de",
+      "text": "The tomatoes, vegetables, and herbs are sorted separately.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8685,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/herb.mp3",
+      "sha256": "92ceb210a5916db8d8542a91d8a19f4ece220a31aa25008a586b559a02dd6dab",
+      "text": "herb",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/intro_success_c08906c6.mp3",
+      "sha256": "159101dea774adc3e86ae6ef87d7ddbb6ec571805470c497b3327e4be1b5d363",
+      "text": "Let us place each type in its own basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_bruised_fail_4d57f327.mp3",
+      "sha256": "0488c574ebdc1d04ceb6fbb00ee8e6eab061f4a424682b8572845c8707f56f45",
+      "text": "Tap the red tomato with the brown dent on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
+      "sha256": "e830846541afcd649dc3261b29efbfabd209df76b2805406ada7fb95ad743c45",
+      "text": "Yes, this tomato is bruised.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_herb_fail_8aff2fa8.mp3",
+      "sha256": "007c7f939f6e37018911957eb3aae3115d4ebd95ead27ec13231011259a8588a",
+      "text": "Tap the tied green leaves on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_herb_success_86222663.mp3",
+      "sha256": "a52d8a4d9e56075148019bcb55e4b19b6de2a42233d801ed6b160f9ac845528d",
+      "text": "Yes, this is an herb.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_sort_by_type_fail_5bd59416.mp3",
+      "sha256": "08a25b075c636f69760d2d6d46932a93b809458e7d55ac75ccade6e7a609d708",
+      "text": "The picture with three separate baskets is above.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_sort_by_type_success_1767e8ac.mp3",
+      "sha256": "e09d456ca906fe47f8de5f522dc331495dc999495e367aeffd2111f5bda68de3",
+      "text": "Yes, we sort by type.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_vegetable_fail_9ee2a868.mp3",
+      "sha256": "dc105db1ae5cf2e27b0395dfaf3377662d28334fe4ef9e2a3e30d64dde1a7661",
+      "text": "Tap the orange carrots and green peas.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_vegetable_success_cfe19e5b.mp3",
+      "sha256": "a8745a869d6364f2a3402cb33e2fac61b03e239d40ea08cb351ab4c6023096ef",
+      "text": "Yes, these are vegetables.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_adult_check_bruised_1a341ff4.mp3",
+      "sha256": "81ed6644e7344ead4bd30ea68189ed9c9e3bc42525f4ee69e5e39931f4908485",
+      "text": "Drag the bruised tomato to the adult-check tray.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_choose_sort_by_type_2066e545.mp3",
+      "sha256": "21724a128d866200b7b442924747bd84e83a78c6808c3825447e2bc32c954954",
+      "text": "Find the picture with each type in its own basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_finish_c657da5e.mp3",
+      "sha256": "75a9b4b7c5fe543db3d76a58ef3619cd3e604e3797ca2b1cefa546f1cf902727",
+      "text": "Tap the tomato basket in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 54477,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_intro_db5afb98.mp3",
+      "sha256": "f1b14801a527f2178c46f4c401a8915c14cea96772c6633e1dc12fe2c6d2f05c",
+      "text": "Our tomato and produce from the next garden bed are on the table.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
+      "sha256": "02a6b0ed777189185ce8d26108f997e4ea6302804fce70af8d186e19991b3b9b",
+      "text": "Tap the tomato with the brown bruise.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_herb_e75e7f9b.mp3",
+      "sha256": "1d508c0b7d6f67ccb1def881bcdb14d0b2de119ea777b7e8bb7929a8b1ff5b22",
+      "text": "Tap the green herb bunch on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48717,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_sort_by_type_ef75a69e.mp3",
+      "sha256": "3218fa9dc4e0dc82fea84ac1e57dfd7839f37fc17cb7f1278b7e6588979bb5bf",
+      "text": "Tap the picture with three separate groups in three baskets.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_vegetable_82a94c20.mp3",
+      "sha256": "a8a5b196e6bafd6870eb01f138d60f73d93e09c6bd5e083777e556c11b7bc4b5",
+      "text": "Tap the carrots and peas on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_herbs_7f8251d6.mp3",
+      "sha256": "13ef1ca5765a6ad1c12a258158a80b2627b47dc2e163ea4a260e0ffe7571c668",
+      "text": "Drag the herb bunch into the basket on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_tomato_1700bc3b.mp3",
+      "sha256": "b28cf58c6989c6d553afb564899ded046463878363d95a51c322fdecb6b7c658",
+      "text": "Drag the red tomato into the basket in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
+      "sha256": "c8552b9701a10444087eb1b2295c76530caabe22a76b7995969ff39633663f0d",
+      "text": "Drag the vegetables into the basket on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16749,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_by_type.mp3",
+      "sha256": "ab5e1c495e1a9b3827aa01d9b5743252b3d5daccb43043b51d5513432a7f93a8",
+      "text": "sort by type",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 50733,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_herbs_fail_851ebab6.mp3",
+      "sha256": "34fd30b13776de840ad07561610a4b63c14943e005b9881ee9518ee91ed1c44b",
+      "text": "Drag the green herb bunch to the basket with the leaf shape.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_herbs_success_0e822beb.mp3",
+      "sha256": "6a90600b837d1f6a5e4cb41d54b31d71b12d9394741fd0d582da211e87ef3f58",
+      "text": "The herbs are in the basket with the leaf shape.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_tomato_fail_6e500a57.mp3",
+      "sha256": "a36710fb9d4e7ec6fd029a9987cc6d4a60e188c95a3ed5251e252421b079b288",
+      "text": "Drag the red tomato to the middle basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_tomato_success_57df3982.mp3",
+      "sha256": "7a41054c71952a9e349e5d7dd99163976c919c3f9e988034dc4bc3b581c1b59e",
+      "text": "The tomato is in the basket with the red fruit shape.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52749,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_vegetables_fail_cf7a054d.mp3",
+      "sha256": "0f4fb49b7d1b0a9448e61591376e8c06c3ad8e2a65eda2a0d7c844dd4ddc29e4",
+      "text": "Drag the carrots and peas to the basket with the carrot shape.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/sort_vegetables_success_beb9bf3a.mp3",
+      "sha256": "b1337de602c36c0bacb6c035e94faaa92a71ef5de441c527c608f9daae6cddf0",
+      "text": "The carrots and peas are in the correct basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 12141,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/vegetable.mp3",
+      "sha256": "c999737ea89b5466f220b2eb5d8f2c0c515251fa0bcf43e3d9908585ef0741fa",
+      "text": "vegetable",
       "voice": "en-US-Neural2-C"
     },
     {

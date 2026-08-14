@@ -158,6 +158,8 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'plant-a-seed',
     'help-it-grow',
     'garden-friends',
+    'harvest-day',
+    'garden-to-table',
   ]);
 });
 

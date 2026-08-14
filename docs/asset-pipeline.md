@@ -172,6 +172,36 @@ whose visible pixels reach the crop border, and the cutout verifier rejects
 detached fragments around an observation ring; this prevents a clipped pot
 bottom from leaking into a butterfly or magnifying-glass asset.
 
+`harvest-day` also uses three text-free chroma sheets and a bounded cutter:
+
+```bash
+npm run assets:cut-harvest-day-production -- --force
+```
+
+The cutter writes the eroded mask back as a raw alpha channel before trim/resize;
+do not replace this with `joinChannel` on the encoded grayscale PNG buffer, which
+can silently return RGB output and turn transparent pixels into an opaque black
+matte. In addition to transparent crop-border checks, the cutter rejects any
+harvest cutout whose near-black opaque pixels exceed 12% of its canvas. Continue
+with the standard lesson audit/build/verify commands afterward.
+
+`garden-to-table` uses the same bounded three-sheet pattern:
+
+```bash
+npm run assets:cut-garden-to-table-production -- --force
+npm run assets:verify-garden-to-table-cutouts
+```
+
+The cutter removes the flat magenta plate, strips small connected fragments that
+touch a cell gutter, writes raw alpha before trim/resize, and generates three
+scene icons plus the lesson milestone icon. Both cutter and verifier reject
+opaque corners, visible chroma residue, empty sprites, and an opaque near-black
+matte above 12% of the canvas. This is the required guard for all 36 source
+cutouts; visual QA should additionally flatten the resulting PNG masters onto a
+light background so detached fragments remain easy to spot. The approved Theme
+4 garden background is reused for all three scenes. These commands do not create
+audio, WebP release outputs, or contact R2.
+
 The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.
 `src/config/generatedAssetRelease.ts` exposes that revision to React Native.

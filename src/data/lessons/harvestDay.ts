@@ -1,0 +1,930 @@
+import type {
+  LearningMode,
+  LearningScope,
+  Lesson,
+  Scene,
+  VocabularyItem,
+  VocabularyType,
+} from '../../types/lesson';
+import {
+  dragStep,
+  findStep,
+  imageAsset,
+  learningObject,
+  lessonEffects,
+  listenStep,
+  objectVariant,
+  rect,
+  sceneObject,
+  sceneStateChanges,
+  tapStep,
+} from '../lessonAuthoring';
+
+const lessonId = 'harvest-day';
+const expandedScope = { minMode: 'expanded' } satisfies LearningScope;
+const challengeScope = { minMode: 'challenge' } satisfies LearningScope;
+
+type VocabularySpec = {
+  key: string;
+  meaningVi: string;
+  tier?: LearningMode;
+  type?: VocabularyType;
+  word: string;
+};
+
+function vocabularyItem(
+  sceneId: string,
+  { key, meaningVi, tier = 'core', type = 'noun', word }: VocabularySpec,
+): VocabularyItem {
+  return {
+    id: `vocab-${lessonId}-${sceneId}-${key}`,
+    learningScope:
+      tier === 'expanded'
+        ? expandedScope
+        : tier === 'challenge'
+        ? challengeScope
+        : undefined,
+    level:
+      tier === 'expanded' ? 'medium' : tier === 'challenge' ? 'hard' : 'easy',
+    meaningVi,
+    type,
+    word,
+  };
+}
+
+function sceneImageSource(sceneId: string, assetName: string) {
+  return `lessons/${lessonId}/${sceneId}/images/${assetName}.webp`;
+}
+
+function makeFindTheRipeOnesScene(): Scene {
+  const sceneId = 'find-the-ripe-ones';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'tomato',
+      meaningVi: 'quả cà chua',
+      word: 'tomato',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'ripe',
+      meaningVi: 'đã chín',
+      type: 'adjective',
+      word: 'ripe',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'unripe',
+      meaningVi: 'chưa chín',
+      type: 'adjective',
+      word: 'unripe',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'leave-unripe-one',
+      meaningVi: 'để quả chưa chín ở lại',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'leave the unripe one',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const heroPlantId = `${sceneId}-hero-plant`;
+  const ripeTomatoId = `${sceneId}-ripe-tomato`;
+  const unripeTomatoId = `${sceneId}-unripe-tomato`;
+  const observationRingId = `${sceneId}-observation-ring`;
+  const ripeCloseupId = `${sceneId}-ripe-closeup`;
+  const leafCoverId = `${sceneId}-leaf-cover`;
+  const leaveUnripeActionId = `${sceneId}-leave-unripe-action`;
+  const pullUnripeActionId = `${sceneId}-pull-unripe-action`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Tìm quả chín',
+    titleEn: 'Find the Ripe Ones',
+    thumbnailEmoji: '🍅',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      sceneObject({
+        id: heroPlantId,
+        assetSource: sceneImageSource(sceneId, 'hero-plant'),
+        position: rect(30, 19, 42, 57),
+        presentation: 'cutout',
+      }),
+      learningObject({
+        id: ripeTomatoId,
+        assetSource: sceneImageSource(sceneId, 'ripe-tomato'),
+        position: rect(47, 37, 19, 18),
+        touchArea: rect(42, 32, 29, 28),
+        vocab: vocab.get('tomato')!,
+      }),
+      learningObject({
+        id: unripeTomatoId,
+        assetSource: sceneImageSource(sceneId, 'unripe-tomato'),
+        initialVisibility: 'hidden',
+        position: rect(25, 42, 17, 16),
+        touchArea: rect(20, 37, 27, 26),
+        vocab: vocab.get('unripe')!,
+      }),
+      sceneObject({
+        id: leafCoverId,
+        assetSource: sceneImageSource(sceneId, 'leaf-cover-closed'),
+        isInteractive: true,
+        position: rect(18, 32, 28, 29),
+        presentation: 'cutout',
+        touchArea: rect(13, 27, 38, 39),
+        variants: [
+          objectVariant({
+            id: 'lifted',
+            assetSource: sceneImageSource(sceneId, 'leaf-cover-lifted'),
+          }),
+        ],
+      }),
+      sceneObject({
+        id: observationRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(42, 29, 30, 29),
+        presentation: 'cutout',
+        touchArea: rect(38, 25, 38, 37),
+      }),
+      learningObject({
+        id: ripeCloseupId,
+        assetSource: sceneImageSource(sceneId, 'ripe-closeup'),
+        initialVisibility: 'hidden',
+        position: rect(35, 62, 30, 25),
+        touchArea: rect(30, 57, 40, 35),
+        vocab: vocab.get('ripe')!,
+      }),
+      learningObject({
+        id: leaveUnripeActionId,
+        assetSource: sceneImageSource(sceneId, 'leave-unripe-action'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(5, 72, 42, 22),
+        touchArea: rect(2, 68, 48, 29),
+        vocab: vocab.get('leave the unripe one')!,
+      }),
+      sceneObject({
+        id: pullUnripeActionId,
+        assetSource: sceneImageSource(sceneId, 'pull-unripe-action'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        learningScope: challengeScope,
+        position: rect(53, 72, 42, 22),
+        presentation: 'cutout',
+        touchArea: rect(50, 68, 48, 29),
+      }),
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Cà chua đã lớn. Mình tìm quả sẵn sàng hái nhé.',
+        instructionEn: 'The tomatoes have grown. Let us find one ready to pick.',
+        successFeedbackVi: 'Mình nhìn màu, hình dáng và độ căng của quả.',
+        successFeedbackEn: 'We look at the color, shape, and firmness of the fruit.',
+        targetObjectIds: [heroPlantId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-tomato`,
+        instructionVi: 'Chạm quả cà chua đỏ trên cây nhé.',
+        instructionEn: 'Tap the red tomato on the plant.',
+        promptText: 'tomato',
+        successFeedbackVi: 'Đúng rồi, đây là quả cà chua.',
+        successFeedbackEn: 'Yes, this is a tomato.',
+        failFeedbackVi: 'Chạm quả tròn màu đỏ trên cây nhé.',
+        failFeedbackEn: 'Tap the round red fruit on the plant.',
+        speechPractice: 'auto',
+        successStateChanges: [sceneStateChanges.show(observationRingId)],
+        targetObjectId: ripeTomatoId,
+        type: 'teach',
+        vocabId: vocab.get('tomato')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-inspect-red-tomato`,
+        instructionVi: 'Chạm kính lúp quanh quả đỏ nhé.',
+        instructionEn: 'Tap the magnifying glass around the red tomato.',
+        successFeedbackVi: 'Quả đỏ, tròn và căng đã hiện rõ.',
+        successFeedbackEn: 'The red, round, firm tomato is easy to see.',
+        failFeedbackVi: 'Chạm kính lúp màu xanh quanh quả đỏ nhé.',
+        failFeedbackEn: 'Tap the teal magnifying glass around the red tomato.',
+        effects: [lessonEffects.sparkle(ripeCloseupId)],
+        successStateChanges: [sceneStateChanges.show(ripeCloseupId)],
+        targetObjectId: observationRingId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-ripe`,
+        instructionVi: 'Chạm quả đỏ, tròn và căng nhé.',
+        instructionEn: 'Tap the red, round, firm tomato.',
+        promptText: 'ripe',
+        successFeedbackVi: 'Đúng rồi, quả này đã chín.',
+        successFeedbackEn: 'Yes, this tomato is ripe.',
+        failFeedbackVi: 'Chạm quả đỏ có các tia sáng nhé.',
+        failFeedbackEn: 'Tap the red tomato with the small sparkles.',
+        speechPractice: 'auto',
+        afterSuccessStateChanges: [sceneStateChanges.hide(ripeCloseupId)],
+        targetObjectId: ripeCloseupId,
+        type: 'teach',
+        vocabId: vocab.get('ripe')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-lift-leaf`,
+        instructionVi: 'Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.',
+        instructionEn: 'Tap the large leaf on the left to look behind it.',
+        successFeedbackVi: 'Một quả xanh còn nhỏ đang ở sau lá.',
+        successFeedbackEn: 'A smaller green tomato is behind the leaf.',
+        failFeedbackVi: 'Chạm chiếc lá lớn bên trái nhé.',
+        failFeedbackEn: 'Tap the large leaf on the left.',
+        effects: [lessonEffects.sparkle(unripeTomatoId)],
+        successStateChanges: [
+          sceneStateChanges.setVariant(leafCoverId, 'lifted'),
+          sceneStateChanges.show(unripeTomatoId),
+        ],
+        targetObjectId: leafCoverId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-unripe`,
+        instructionVi: 'Chạm quả xanh còn nhỏ trên cây nhé.',
+        instructionEn: 'Tap the small green tomato on the plant.',
+        promptText: 'unripe',
+        successFeedbackVi: 'Đúng rồi, quả này chưa chín.',
+        successFeedbackEn: 'Yes, this tomato is unripe.',
+        failFeedbackVi: 'Chạm quả nhỏ màu xanh bên trái nhé.',
+        failFeedbackEn: 'Tap the small green tomato on the left.',
+        speechPractice: 'auto',
+        targetObjectId: unripeTomatoId,
+        type: 'teach',
+        vocabId: vocab.get('unripe')!.id,
+      }),
+      findStep({
+        id: `${sceneId}-find-ripe-tomato`,
+        instructionVi: 'Tìm quả đỏ, tròn và căng nhé.',
+        instructionEn: 'Find the red, round, firm tomato.',
+        promptText: 'ripe',
+        successFeedbackVi: 'Đúng rồi, mình sẽ hái quả đã chín.',
+        successFeedbackEn: 'Right, we will pick the ripe tomato.',
+        failFeedbackVi: 'Quả chín màu đỏ và tròn. Tìm lại nhé.',
+        failFeedbackEn: 'The ripe one is red and round. Find it again.',
+        correctObjectIds: [ripeTomatoId],
+        targetObjectId: ripeTomatoId,
+        targetObjectIds: [ripeTomatoId, unripeTomatoId],
+        type: 'review',
+        vocabId: vocab.get('ripe')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-notice-unripe-tomato`,
+        instructionVi: 'Chạm quả xanh để xem mình nên làm gì nhé.',
+        instructionEn: 'Tap the green tomato to see what we should do.',
+        learningScope: challengeScope,
+        successFeedbackVi: 'Quả xanh cần thêm thời gian trên cây.',
+        successFeedbackEn: 'The green tomato needs more time on the plant.',
+        failFeedbackVi: 'Chạm quả nhỏ màu xanh bên trái nhé.',
+        failFeedbackEn: 'Tap the small green tomato on the left.',
+        successStateChanges: [
+          sceneStateChanges.show(leaveUnripeActionId),
+          sceneStateChanges.show(pullUnripeActionId),
+        ],
+        targetObjectId: unripeTomatoId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-leave-unripe-one`,
+        instructionVi: 'Chạm hình bàn tay để quả chưa chín ở lại nhé.',
+        instructionEn: 'Tap the open hand that leaves the unripe tomato on the plant.',
+        learningScope: challengeScope,
+        promptText: 'leave the unripe one',
+        successFeedbackVi: 'Đúng rồi, mình để quả chưa chín ở lại.',
+        successFeedbackEn: 'Yes, leave the unripe one on the plant.',
+        failFeedbackVi: 'Chạm hình bàn tay mở cạnh quả xanh nhé.',
+        failFeedbackEn: 'Tap the open hand beside the green tomato.',
+        speechPractice: 'auto',
+        targetObjectId: leaveUnripeActionId,
+        type: 'teach',
+        vocabId: vocab.get('leave the unripe one')!.id,
+      }),
+      findStep({
+        id: `${sceneId}-choose-leave-unripe-one`,
+        instructionVi: 'Tìm hình để quả xanh tiếp tục ở trên cành nhé.',
+        instructionEn: 'Find the picture that keeps the green tomato on its branch.',
+        learningScope: challengeScope,
+        promptText: 'leave the unripe one',
+        successFeedbackVi: 'Đúng rồi, quả xanh sẽ tiếp tục lớn.',
+        successFeedbackEn: 'Right, the green tomato can keep growing.',
+        failFeedbackVi: 'Tìm hình bàn tay không kéo quả xanh nhé.',
+        failFeedbackEn: 'Find the hand that does not pull the green tomato.',
+        correctObjectIds: [leaveUnripeActionId],
+        targetObjectId: leaveUnripeActionId,
+        targetObjectIds: [leaveUnripeActionId, pullUnripeActionId],
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(leaveUnripeActionId),
+          sceneStateChanges.hide(pullUnripeActionId),
+        ],
+        type: 'review',
+        vocabId: vocab.get('leave the unripe one')!.id,
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã tìm đúng quả chín và để quả xanh lớn tiếp.',
+      messageEn: 'You found the ripe tomato and left the green one to grow.',
+    },
+  };
+}
+
+function makePickGentlyScene(): Scene {
+  const sceneId = 'pick-gently';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'pick',
+      meaningVi: 'hái',
+      type: 'verb',
+      word: 'pick',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'fruit-stem',
+      meaningVi: 'cuống quả',
+      tier: 'expanded',
+      word: 'fruit stem',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const heroPlantId = `${sceneId}-hero-plant`;
+  const ripeTomatoId = `${sceneId}-ripe-tomato`;
+  const fruitStemId = `${sceneId}-fruit-stem`;
+  const openHandId = `${sceneId}-open-hand`;
+  const pickActionId = `${sceneId}-pick-action`;
+  const basketId = `${sceneId}-basket`;
+  const basketZoneId = `${sceneId}-basket-zone`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Hái thật nhẹ',
+    titleEn: 'Pick Gently',
+    thumbnailEmoji: '🧺',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      sceneObject({
+        id: heroPlantId,
+        assetSource: sceneImageSource(sceneId, 'hero-plant'),
+        position: rect(25, 17, 46, 58),
+        presentation: 'cutout',
+      }),
+      sceneObject({
+        id: ripeTomatoId,
+        assetSource: sceneImageSource(sceneId, 'ripe-tomato'),
+        isInteractive: true,
+        position: rect(47, 39, 21, 20),
+        presentation: 'cutout',
+        touchArea: rect(42, 34, 31, 30),
+      }),
+      learningObject({
+        id: fruitStemId,
+        assetSource: sceneImageSource(sceneId, 'fruit-stem-closeup'),
+        learningScope: expandedScope,
+        position: rect(71, 18, 24, 25),
+        touchArea: rect(67, 14, 31, 33),
+        vocab: vocab.get('fruit stem')!,
+      }),
+      sceneObject({
+        id: openHandId,
+        assetSource: sceneImageSource(sceneId, 'open-hand-control'),
+        isInteractive: true,
+        position: rect(7, 66, 21, 20),
+        presentation: 'cutout',
+        touchArea: rect(3, 61, 30, 30),
+      }),
+      learningObject({
+        id: pickActionId,
+        assetSource: sceneImageSource(sceneId, 'pick-action'),
+        initialVisibility: 'hidden',
+        position: rect(6, 61, 34, 30),
+        touchArea: rect(2, 57, 42, 38),
+        vocab: vocab.get('pick')!,
+      }),
+      sceneObject({
+        id: basketId,
+        assetSource: sceneImageSource(sceneId, 'basket-empty'),
+        isInteractive: true,
+        position: rect(68, 64, 27, 25),
+        presentation: 'cutout',
+        touchArea: rect(62, 58, 37, 36),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'basket-filled'),
+          }),
+        ],
+      }),
+    ],
+    dropZones: [
+      {
+        id: basketZoneId,
+        position: rect(66, 61, 31, 30),
+        touchArea: rect(60, 55, 40, 41),
+      },
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Mình dùng tay hái nhẹ rồi đặt quả vào giỏ nhé.',
+        instructionEn: 'Use your hand to pick gently, then place the tomato in the basket.',
+        successFeedbackVi: 'Mình đỡ quả bằng tay, không rung cành.',
+        successFeedbackEn: 'Support the fruit with your hand without shaking the branch.',
+        targetObjectIds: [ripeTomatoId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-fruit-stem`,
+        instructionVi: 'Chạm cuống xanh nối quả với cành nhé.',
+        instructionEn: 'Tap the green fruit stem connecting the tomato to the branch.',
+        learningScope: expandedScope,
+        promptText: 'fruit stem',
+        successFeedbackVi: 'Đúng rồi, đây là cuống quả.',
+        successFeedbackEn: 'Yes, this is the fruit stem.',
+        failFeedbackVi: 'Chạm đoạn cuống xanh phía trên quả đỏ nhé.',
+        failFeedbackEn: 'Tap the green stem above the red tomato.',
+        speechPractice: 'optional',
+        afterSuccessStateChanges: [sceneStateChanges.hide(fruitStemId)],
+        targetObjectId: fruitStemId,
+        type: 'teach',
+        vocabId: vocab.get('fruit stem')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-prepare-hand`,
+        instructionVi: 'Chạm bàn tay mở ở dưới để chuẩn bị hái nhé.',
+        instructionEn: 'Tap the open hand below to get ready to pick.',
+        successFeedbackVi: 'Bàn tay sẽ đỡ và xoay quả thật nhẹ.',
+        successFeedbackEn: 'The hand will support and turn the tomato gently.',
+        failFeedbackVi: 'Chạm hình bàn tay mở ở dưới bên trái nhé.',
+        failFeedbackEn: 'The open hand is at the lower left.',
+        successStateChanges: [
+          sceneStateChanges.hide(openHandId),
+          sceneStateChanges.show(pickActionId),
+        ],
+        targetObjectId: openHandId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-pick`,
+        instructionVi: 'Chạm hình bàn tay đang hái quả đỏ nhé.',
+        instructionEn: 'Tap the hand gently picking the red tomato.',
+        promptText: 'pick',
+        successFeedbackVi: 'Đúng rồi, đây là hành động hái.',
+        successFeedbackEn: 'Yes, pick means to take the tomato gently.',
+        failFeedbackVi: 'Chạm hình bàn tay đang đỡ quả đỏ nhé.',
+        failFeedbackEn: 'The hand is supporting the red tomato.',
+        speechPractice: 'auto',
+        afterSuccessStateChanges: [sceneStateChanges.hide(pickActionId)],
+        targetObjectId: pickActionId,
+        type: 'teach',
+        vocabId: vocab.get('pick')!.id,
+      }),
+      dragStep({
+        id: `${sceneId}-place-tomato-in-basket`,
+        instructionVi: 'Kéo quả cà chua đỏ vào chiếc giỏ nhé.',
+        instructionEn: 'Drag the red tomato into the basket.',
+        successFeedbackVi: 'Quả đã vào giỏ. Cành cây vẫn nguyên vẹn.',
+        successFeedbackEn: 'The tomato is in the basket, and the branch is intact.',
+        failFeedbackVi: 'Kéo quả đỏ trên cây vào giỏ bên phải nhé.',
+        failFeedbackEn: 'Drag the red tomato on the plant to the basket on the right.',
+        effects: [lessonEffects.sparkle(basketId)],
+        successStateChanges: [
+          sceneStateChanges.hide(ripeTomatoId),
+          sceneStateChanges.setVariant(basketId, 'filled'),
+        ],
+        dropZoneId: basketZoneId,
+        targetObjectId: ripeTomatoId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-finish`,
+        instructionVi: 'Chạm chiếc giỏ có quả cà chua nhé.',
+        instructionEn: 'Tap the basket holding the tomato.',
+        successFeedbackVi: 'Mình đã hái quả chín thật nhẹ nhàng.',
+        successFeedbackEn: 'We picked the ripe tomato very gently.',
+        failFeedbackVi: 'Chạm chiếc giỏ có quả đỏ bên phải nhé.',
+        failFeedbackEn: 'Tap the basket with the red tomato on the right.',
+        targetObjectId: basketId,
+        type: 'practice',
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã hái quả chín bằng tay và giữ cành cây an toàn.',
+      messageEn: 'You picked the ripe tomato by hand and kept the branch safe.',
+    },
+  };
+}
+
+function makeSortTheHarvestScene(): Scene {
+  const sceneId = 'sort-the-harvest';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'vegetable',
+      meaningVi: 'rau củ',
+      word: 'vegetable',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'herb',
+      meaningVi: 'rau thơm',
+      word: 'herb',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'bruised',
+      meaningVi: 'bị dập',
+      tier: 'expanded',
+      type: 'adjective',
+      word: 'bruised',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'sort-by-type',
+      meaningVi: 'xếp theo từng loại',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'sort by type',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const vegetableGroupId = `${sceneId}-vegetable-group`;
+  const herbBunchId = `${sceneId}-herb-bunch`;
+  const tomatoId = `${sceneId}-tomato`;
+  const bruisedTomatoId = `${sceneId}-bruised-tomato`;
+  const vegetableBasketId = `${sceneId}-vegetable-basket`;
+  const herbBasketId = `${sceneId}-herb-basket`;
+  const tomatoBasketId = `${sceneId}-tomato-basket`;
+  const adultCheckTrayId = `${sceneId}-adult-check-tray`;
+  const sortByTypeActionId = `${sceneId}-sort-by-type-action`;
+  const mixedBasketActionId = `${sceneId}-mixed-basket-action`;
+  const vegetableZoneId = `${sceneId}-vegetable-zone`;
+  const herbZoneId = `${sceneId}-herb-zone`;
+  const tomatoZoneId = `${sceneId}-tomato-zone`;
+  const adultCheckZoneId = `${sceneId}-adult-check-zone`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Xếp thành quả',
+    titleEn: 'Sort the Harvest',
+    thumbnailEmoji: '🥕',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      learningObject({
+        id: vegetableGroupId,
+        assetSource: sceneImageSource(sceneId, 'vegetable-group'),
+        position: rect(5, 19, 27, 24),
+        touchArea: rect(2, 15, 34, 32),
+        vocab: vocab.get('vegetable')!,
+      }),
+      learningObject({
+        id: herbBunchId,
+        assetSource: sceneImageSource(sceneId, 'herb-bunch'),
+        position: rect(69, 18, 27, 25),
+        touchArea: rect(65, 14, 34, 33),
+        vocab: vocab.get('herb')!,
+      }),
+      sceneObject({
+        id: tomatoId,
+        assetSource: sceneImageSource(sceneId, 'ripe-tomato'),
+        isInteractive: true,
+        position: rect(40, 17, 21, 21),
+        presentation: 'cutout',
+        touchArea: rect(35, 12, 31, 31),
+      }),
+      learningObject({
+        id: bruisedTomatoId,
+        assetSource: sceneImageSource(sceneId, 'bruised-tomato'),
+        learningScope: expandedScope,
+        position: rect(72, 43, 20, 19),
+        touchArea: rect(67, 38, 30, 29),
+        vocab: vocab.get('bruised')!,
+      }),
+      sceneObject({
+        id: vegetableBasketId,
+        assetSource: sceneImageSource(sceneId, 'vegetable-basket-empty'),
+        isInteractive: true,
+        position: rect(5, 64, 26, 24),
+        presentation: 'cutout',
+        touchArea: rect(1, 59, 34, 34),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'vegetable-basket-filled'),
+          }),
+        ],
+      }),
+      sceneObject({
+        id: tomatoBasketId,
+        assetSource: sceneImageSource(sceneId, 'tomato-basket-empty'),
+        isInteractive: true,
+        position: rect(37, 64, 26, 24),
+        presentation: 'cutout',
+        touchArea: rect(33, 59, 34, 34),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'tomato-basket-filled'),
+          }),
+        ],
+      }),
+      sceneObject({
+        id: herbBasketId,
+        assetSource: sceneImageSource(sceneId, 'herb-basket-empty'),
+        isInteractive: true,
+        position: rect(69, 64, 26, 24),
+        presentation: 'cutout',
+        touchArea: rect(65, 59, 34, 34),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'herb-basket-filled'),
+          }),
+        ],
+      }),
+      sceneObject({
+        id: adultCheckTrayId,
+        assetSource: sceneImageSource(sceneId, 'adult-check-tray-empty'),
+        isInteractive: true,
+        learningScope: expandedScope,
+        position: rect(35, 43, 31, 20),
+        presentation: 'cutout',
+        touchArea: rect(30, 38, 41, 30),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'adult-check-tray-filled'),
+          }),
+        ],
+      }),
+      learningObject({
+        id: sortByTypeActionId,
+        assetSource: sceneImageSource(sceneId, 'sort-by-type-action'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(3, 6, 43, 29),
+        touchArea: rect(1, 3, 47, 35),
+        vocab: vocab.get('sort by type')!,
+      }),
+      sceneObject({
+        id: mixedBasketActionId,
+        assetSource: sceneImageSource(sceneId, 'mixed-basket-action'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        learningScope: challengeScope,
+        position: rect(54, 6, 43, 29),
+        presentation: 'cutout',
+        touchArea: rect(52, 3, 47, 35),
+      }),
+    ],
+    dropZones: [
+      {
+        id: vegetableZoneId,
+        position: rect(4, 62, 28, 27),
+        touchArea: rect(0, 57, 36, 37),
+      },
+      {
+        id: tomatoZoneId,
+        position: rect(36, 62, 28, 27),
+        touchArea: rect(32, 57, 36, 37),
+      },
+      {
+        id: herbZoneId,
+        position: rect(68, 62, 28, 27),
+        touchArea: rect(64, 57, 36, 37),
+      },
+      {
+        id: adultCheckZoneId,
+        position: rect(34, 41, 33, 24),
+        touchArea: rect(29, 36, 43, 34),
+      },
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Cà chua của mình và rau từ luống bên cạnh đã về bàn.',
+        instructionEn: 'Our tomato and produce from the next garden bed are on the table.',
+        successFeedbackVi: 'Mình xếp mỗi loại vào một giỏ nhé.',
+        successFeedbackEn: 'Let us place each type in its own basket.',
+        targetObjectIds: [vegetableGroupId, herbBunchId, tomatoId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-vegetable`,
+        instructionVi: 'Chạm nhóm cà rốt và đậu ở bên trái nhé.',
+        instructionEn: 'Tap the carrots and peas on the left.',
+        promptText: 'vegetable',
+        successFeedbackVi: 'Đúng rồi, đây là nhóm rau củ.',
+        successFeedbackEn: 'Yes, these are vegetables.',
+        failFeedbackVi: 'Chạm cà rốt màu cam và đậu xanh nhé.',
+        failFeedbackEn: 'Tap the orange carrots and green peas.',
+        speechPractice: 'auto',
+        targetObjectId: vegetableGroupId,
+        type: 'teach',
+        vocabId: vocab.get('vegetable')!.id,
+      }),
+      dragStep({
+        id: `${sceneId}-sort-vegetables`,
+        instructionVi: 'Kéo nhóm rau củ vào giỏ bên trái nhé.',
+        instructionEn: 'Drag the vegetables into the basket on the left.',
+        successFeedbackVi: 'Cà rốt và đậu đã vào đúng giỏ.',
+        successFeedbackEn: 'The carrots and peas are in the correct basket.',
+        failFeedbackVi: 'Kéo cà rốt và đậu vào giỏ có hình cà rốt nhé.',
+        failFeedbackEn: 'Drag the carrots and peas to the basket with the carrot shape.',
+        effects: [lessonEffects.sparkle(vegetableBasketId)],
+        successStateChanges: [
+          sceneStateChanges.hide(vegetableGroupId),
+          sceneStateChanges.setVariant(vegetableBasketId, 'filled'),
+        ],
+        dropZoneId: vegetableZoneId,
+        targetObjectId: vegetableGroupId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-herb`,
+        instructionVi: 'Chạm bó rau thơm màu xanh bên phải nhé.',
+        instructionEn: 'Tap the green herb bunch on the right.',
+        promptText: 'herb',
+        successFeedbackVi: 'Đúng rồi, đây là rau thơm.',
+        successFeedbackEn: 'Yes, this is an herb.',
+        failFeedbackVi: 'Chạm bó lá xanh buộc lại bên phải nhé.',
+        failFeedbackEn: 'Tap the tied green leaves on the right.',
+        speechPractice: 'auto',
+        targetObjectId: herbBunchId,
+        type: 'teach',
+        vocabId: vocab.get('herb')!.id,
+      }),
+      dragStep({
+        id: `${sceneId}-sort-herbs`,
+        instructionVi: 'Kéo bó rau thơm vào giỏ bên phải nhé.',
+        instructionEn: 'Drag the herb bunch into the basket on the right.',
+        successFeedbackVi: 'Rau thơm đã vào giỏ có hình chiếc lá.',
+        successFeedbackEn: 'The herbs are in the basket with the leaf shape.',
+        failFeedbackVi: 'Kéo bó lá xanh vào giỏ có hình chiếc lá nhé.',
+        failFeedbackEn: 'Drag the green herb bunch to the basket with the leaf shape.',
+        effects: [lessonEffects.sparkle(herbBasketId)],
+        successStateChanges: [
+          sceneStateChanges.hide(herbBunchId),
+          sceneStateChanges.setVariant(herbBasketId, 'filled'),
+        ],
+        dropZoneId: herbZoneId,
+        targetObjectId: herbBunchId,
+        type: 'practice',
+      }),
+      dragStep({
+        id: `${sceneId}-sort-tomato`,
+        instructionVi: 'Kéo quả cà chua đỏ vào giỏ ở giữa nhé.',
+        instructionEn: 'Drag the red tomato into the basket in the middle.',
+        successFeedbackVi: 'Cà chua đã vào giỏ có hình quả đỏ.',
+        successFeedbackEn: 'The tomato is in the basket with the red fruit shape.',
+        failFeedbackVi: 'Kéo quả đỏ vào giỏ ở giữa nhé.',
+        failFeedbackEn: 'Drag the red tomato to the middle basket.',
+        effects: [lessonEffects.sparkle(tomatoBasketId)],
+        successStateChanges: [
+          sceneStateChanges.hide(tomatoId),
+          sceneStateChanges.setVariant(tomatoBasketId, 'filled'),
+        ],
+        dropZoneId: tomatoZoneId,
+        targetObjectId: tomatoId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-bruised`,
+        instructionVi: 'Chạm quả cà chua có vết dập màu nâu nhé.',
+        instructionEn: 'Tap the tomato with the brown bruise.',
+        learningScope: expandedScope,
+        promptText: 'bruised',
+        successFeedbackVi: 'Đúng rồi, quả này bị dập.',
+        successFeedbackEn: 'Yes, this tomato is bruised.',
+        failFeedbackVi: 'Chạm quả đỏ có vết lõm nâu bên phải nhé.',
+        failFeedbackEn: 'Tap the red tomato with the brown dent on the right.',
+        speechPractice: 'optional',
+        targetObjectId: bruisedTomatoId,
+        type: 'teach',
+        vocabId: vocab.get('bruised')!.id,
+      }),
+      dragStep({
+        id: `${sceneId}-adult-check-bruised`,
+        instructionVi: 'Kéo quả bị dập vào khay người lớn kiểm tra nhé.',
+        instructionEn: 'Drag the bruised tomato to the adult-check tray.',
+        learningScope: expandedScope,
+        successFeedbackVi: 'Mình để người lớn kiểm tra quả bị dập.',
+        successFeedbackEn: 'An adult will check the bruised tomato.',
+        failFeedbackVi: 'Kéo quả có vết nâu vào khay có bàn tay nhé.',
+        failFeedbackEn: 'Drag the tomato with the brown mark to the tray with the hand.',
+        effects: [lessonEffects.sparkle(adultCheckTrayId)],
+        successStateChanges: [
+          sceneStateChanges.hide(bruisedTomatoId),
+          sceneStateChanges.setVariant(adultCheckTrayId, 'filled'),
+          sceneStateChanges.show(sortByTypeActionId),
+          sceneStateChanges.show(mixedBasketActionId),
+        ],
+        dropZoneId: adultCheckZoneId,
+        targetObjectId: bruisedTomatoId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-sort-by-type`,
+        instructionVi: 'Chạm hình ba giỏ đựng ba nhóm riêng nhé.',
+        instructionEn: 'Tap the picture with three separate groups in three baskets.',
+        learningScope: challengeScope,
+        promptText: 'sort by type',
+        successFeedbackVi: 'Đúng rồi, mình xếp theo từng loại.',
+        successFeedbackEn: 'Yes, we sort by type.',
+        failFeedbackVi: 'Chạm hình ba giỏ riêng ở phía trên nhé.',
+        failFeedbackEn: 'The picture with three separate baskets is above.',
+        speechPractice: 'auto',
+        targetObjectId: sortByTypeActionId,
+        type: 'teach',
+        vocabId: vocab.get('sort by type')!.id,
+      }),
+      findStep({
+        id: `${sceneId}-choose-sort-by-type`,
+        instructionVi: 'Tìm hình mỗi loại ở một giỏ nhé.',
+        instructionEn: 'Find the picture with each type in its own basket.',
+        learningScope: challengeScope,
+        promptText: 'sort by type',
+        successFeedbackVi: 'Đúng rồi, mỗi loại đã có một giỏ riêng.',
+        successFeedbackEn: 'Right, each type has its own basket.',
+        failFeedbackVi: 'Tìm hình có ba giỏ tách riêng nhé.',
+        failFeedbackEn: 'Find the picture with three separate baskets.',
+        correctObjectIds: [sortByTypeActionId],
+        targetObjectId: sortByTypeActionId,
+        targetObjectIds: [sortByTypeActionId, mixedBasketActionId],
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(sortByTypeActionId),
+          sceneStateChanges.hide(mixedBasketActionId),
+        ],
+        type: 'review',
+        vocabId: vocab.get('sort by type')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-finish`,
+        instructionVi: 'Chạm giỏ cà chua đỏ ở giữa nhé.',
+        instructionEn: 'Tap the tomato basket in the middle.',
+        successFeedbackVi: 'Cà chua, rau củ và rau thơm đã được xếp riêng.',
+        successFeedbackEn: 'The tomatoes, vegetables, and herbs are sorted separately.',
+        failFeedbackVi: 'Chạm giỏ có hình quả cà chua đỏ ở giữa nhé.',
+        failFeedbackEn: 'The middle basket has the red tomato shape.',
+        effects: [
+          lessonEffects.sparkle(vegetableBasketId),
+          lessonEffects.sparkle(tomatoBasketId),
+          lessonEffects.sparkle(herbBasketId),
+        ],
+        targetObjectId: tomatoBasketId,
+        type: 'practice',
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã xếp thành quả theo từng loại và nhờ người lớn kiểm tra quả bị dập.',
+      messageEn: 'You sorted the harvest and asked an adult to check the bruised tomato.',
+    },
+  };
+}
+
+export const harvestDayLesson: Lesson = {
+  id: lessonId,
+  themeId: 'khu-vuon-cua-be',
+  titleVi: 'Ngày thu hoạch',
+  titleEn: 'Harvest Day',
+  descriptionVi:
+    'Bé tìm quả chín, hái nhẹ bằng tay và xếp rau quả vào đúng giỏ.',
+  descriptionEn:
+    'Find ripe produce, pick it gently by hand, and sort the harvest.',
+  thumbnailEmoji: '🍅',
+  ageRange: { min: 6, max: 8, label: '6-8 tuổi · Nâng cao' },
+  scenes: [
+    makeFindTheRipeOnesScene(),
+    makePickGentlyScene(),
+    makeSortTheHarvestScene(),
+  ],
+  reviewGame: {
+    id: `${lessonId}-review`,
+    type: 'random',
+    titleVi: 'Ngày thu hoạch',
+    config: {
+      vocabularyIds: [
+        'vocab-harvest-day-find-the-ripe-ones-ripe',
+        'vocab-harvest-day-find-the-ripe-ones-unripe',
+        'vocab-harvest-day-pick-gently-pick',
+        'vocab-harvest-day-sort-the-harvest-vegetable',
+        'vocab-harvest-day-pick-gently-fruit-stem',
+        'vocab-harvest-day-sort-the-harvest-sort-by-type',
+      ],
+    },
+  },
+  metadata: {
+    parentTipVi:
+      'Ba mẹ cho bé dùng tay hái rau quả an toàn; đồ bị dập hoặc lạ cần để người lớn kiểm tra trước khi ăn.',
+  },
+};

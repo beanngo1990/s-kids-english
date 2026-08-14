@@ -7,7 +7,8 @@
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
-ba lesson `plant-a-seed`/`help-it-grow`/`garden-friends` của Theme 4 trong working tree hiện tại.
+năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
+Theme 4 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -59,6 +60,18 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   production PNG masters, bundled map icons, WebP và action-first audio đã có. Sau khi sửa cutter
   và tạo thêm 85 audio target, R2 đã upload delta 94 object và verify đủ 377/377 object ngày
   2026-08-14.
+- **Implemented:** `harvest-day` nối ba scene tìm quả chín, hái bằng tay và phân loại thành quả.
+  Lesson giữ quả xanh trên cây, chỉ cho quả chín rời cây, chuyển giỏ `empty -> filled` và đưa quả
+  bị dập sang khay người lớn kiểm tra. Runtime data, review 4/5/6, production PNG masters, 33 WebP
+  và bốn bundled map icons đã có. Google TTS đã tạo 252 audio production target mới; R2 đã upload
+  và verify đủ 285/285 object ngày 2026-08-14. Sau khi sửa cutter làm mất alpha nội bộ, 30 cutout
+  được rebuild/upload lại với asset revision mới; remote verify vẫn 285/285 và post-upload dry-run
+  còn `Changed/new: 0`.
+- **Implemented:** `garden-to-table` nối ba scene rửa rau quả, làm/chia sẻ món nguội và nhờ người
+  lớn giữ hạt khô cho mùa sau. Lesson có 6/8/10 vocabulary targets, nhịp 19/23/27 hành động,
+  review 4/5/6, state `dirty -> clean`, `empty -> shared`, `empty -> stored`, 38 WebP runtime
+  assets và bốn bundled icons. Google TTS đã tạo 286 production audio file bao phủ 371 target;
+  R2 đã upload/verify đủ 324/324 object, lỗi `0`, và post-upload dry-run còn `Changed/new: 0`.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -194,7 +207,7 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có bốn themes và 30 lesson packs:
+Hiện có bốn themes và 32 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
@@ -243,11 +256,13 @@ hàng dưới. Hướng dẫn chính không đọc vị trí màn hình; vị tr
 hint. Drag chỉ dùng khi object có đích đến trực quan, còn cảm xúc, trạng thái và phrase card dùng
 tap.
 
-Theme `khu-vuon-cua-be` hiện chứa ba lesson theo thứ tự:
+Theme `khu-vuon-cua-be` hiện chứa năm lesson theo thứ tự:
 
 1. `plant-a-seed`
 2. `help-it-grow`
 3. `garden-friends`
+4. `harvest-day`
+5. `garden-to-table`
 
 Pilot có ba scene theo thứ tự `prepare-the-pot` -> `plant-the-seed` -> `first-watering`. Mỗi scene
 có 3/5/7 vocabulary targets ở `core`/`expanded`/`challenge`; cả ba mode giữ cùng chuỗi core và
@@ -256,7 +271,7 @@ cùng end state hợp lý. Chậu chuyển `empty -> soil-low -> soil-ready`, ti
 không hiện ngay khi vừa tưới; success path giữ vũng nước ẩn. Review `random` dùng bốn anchor hình
 rõ. Content architecture v2 trong `docs/theme-4-content-draft.md` khóa hành trình năm lesson theo
 thứ tự `plant-a-seed` -> `help-it-grow` -> `garden-friends` -> `harvest-day` ->
-`garden-to-table`; hai lesson cuối chưa được đăng ký runtime. Ba blueprint cũ
+`garden-to-table`; cả năm lesson đã được đăng ký runtime. Ba blueprint cũ
 `garden-ready`, `garden-weather`, `garden-cycle` đã bị loại trước runtime registration nên không
 cần migration. Vì free tier vẫn chỉ gồm `morning-routine` và `at-school`, pilot này là Premium
 theo policy hiện tại.
@@ -281,7 +296,7 @@ Storyboard `docs/theme-4-garden-friends-storyboard.md` khóa `garden-friends` th
 executable 4/5/6. Nhịp ngoài intro là 16/20/25 hành động theo core/expanded/challenge. Animal
 cutouts luôn non-interactive; bé thao tác lên lá, đất, observation ring,
 time cue, nước hoặc hình hành động. Một production sheet text-free cho mỗi scene được cắt thành
-32 object masters, cùng ba background và bốn bundled map icons. Cả ba lesson Theme 4 hiển thị
+32 object masters, cùng ba background và bốn bundled map icons. Cả năm lesson Theme 4 hiển thị
 age label `6-8 tuổi · Nâng cao`; đây là nhãn content track cho phụ huynh, không thêm setting mới
 và không thay thế `core`/`expanded`/`challenge`. Đợt đầu có 257 file audio mới cùng 35 WebP được
 upload và verify đủ 292/292 object trên R2 ngày 2026-08-14 (`Changed/new: 0`, remote verify
@@ -293,6 +308,32 @@ Các step tương tác dùng hướng dẫn action-first, gọi observation cont
 lúp`, thêm đặc điểm hình và chỉ dẫn vị trí khi cảnh có nhiều mục tiêu tương tự. Không dùng câu chỉ
 giải nghĩa mà thiếu động từ `Chạm`/`Kéo`/`Tìm`, và vị trí trong câu hướng dẫn phải khớp geometry
 thực tế của object.
+
+Storyboard `docs/theme-4-harvest-day-storyboard.md` khóa `harvest-day` thành ba scene
+`find-the-ripe-ones` -> `pick-gently` -> `sort-the-harvest`, vocabulary 6/8/10 và review
+executable 4/5/6. Nhịp ngoài intro là 16/19/24 hành động theo core/expanded/challenge. Scene
+đầu dùng quả đỏ tròn căng và quả xanh nhỏ để dạy `ripe`/`unripe`; challenge giữ quả xanh trên
+cành. Scene hai chỉ dùng bàn tay, chuyển đúng quả đỏ vào giỏ và không đổi state cây. Scene cuối
+nói rõ rau củ/rau thơm đến từ luống bên cạnh, xếp ba nhóm theo marker hình và đưa quả bị dập tới
+khay có bàn tay người lớn. Ba production sheets text-free được cắt thành PNG master, build thành
+33 WebP production asset và tạo bốn bundled map icons. Local image verify pass 33/33; Google TTS
+đã tạo đủ 252 audio production file còn thiếu với hậu kiểm `Missing files: 0`, `Invalid files: 0`.
+R2 đã upload và verify 285/285 object, lỗi `0`; post-upload dry-run còn `Changed/new: 0`, nên lesson
+đã sẵn sàng cho R2-first device test. Cutter thay alpha bằng raw channel thay vì `joinChannel`
+trên PNG buffer và từ chối output có opaque-black matte vượt 12% canvas; guard này ngăn nền đen
+hình chữ nhật lọt qua kiểm tra alpha/corner như bản đầu.
+
+Storyboard `docs/theme-4-garden-to-table-storyboard.md` khóa lesson cuối thành ba scene
+`rinse-and-drain` -> `make-and-share` -> `save-for-next-season`, vocabulary 6/8/10 và review
+executable 4/5/6. Nhịp ngoài intro là 19/23/27 hành động. Rau quả chuyển `dirty -> clean`, tô
+chuyển `empty -> with-lettuce -> prepared -> mixed -> shared`, còn phong bì được người lớn xử lý
+theo `empty -> filled -> closed -> stored`; hạt nhỏ không draggable và không là core anchor. Ba
+sheet chroma text-free được cắt thành 36 cutout PNG, thêm ba background, build 38 WebP runtime
+asset và tạo bốn bundled map icons. Cutter loại component nhỏ chạm gutter và từ chối chroma,
+opaque corner hoặc opaque-black matte. Local cutout/image verify pass. Google TTS tạo 286 audio
+file bao phủ 371 target; full-corpus dry-run còn `Missing files: 0`, `Invalid files: 0`. R2 đã
+upload và verify 324/324 object của lesson, `Errors: 0`; post-upload dry-run `Changed/new: 0`, nên
+lesson đã sẵn sàng cho R2-first device test.
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
@@ -1396,15 +1437,15 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 575/576 tests pass trong 77 suites sau khi thêm guard cho action-first copy của
-  `garden-friends`.
+- Jest: 614/615 tests pass trong 79 suites sau khi thêm `garden-to-table` cùng guard cho
+  vocabulary, nhịp, action-first copy, food/seed safety, state và review 4/5/6.
   1 baseline failure nằm
   ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
   `NSPhotoLibraryUsageDescription`; thay đổi này không chạm iOS/localization. Các suite mục tiêu
   cho lesson, learning-mode propagation, navigation replay và audio provenance đều pass.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
-  `assembleDebug` pass ngày 2026-08-14 sau khi đăng ký `garden-friends`. Store sandbox/physical-
+  `assembleDebug` pass ngày 2026-08-14 sau khi đăng ký `garden-to-table`. Store sandbox/physical-
   device purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.

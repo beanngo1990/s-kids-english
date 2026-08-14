@@ -2,30 +2,35 @@
 
 **Freeze date:** 2026-08-13
 
-**Status:** Content architecture đã khóa; storyboard `help-it-grow` và `garden-friends` nằm tại
-`docs/theme-4-help-it-grow-storyboard.md` và `docs/theme-4-garden-friends-storyboard.md`. Runtime
-hiện đăng ký `plant-a-seed`, `help-it-grow` và `garden-friends`; `harvest-day` cùng
-`garden-to-table` chưa được author hoặc đăng ký catalog.
+**Status:** Content architecture và cả bốn storyboard sau pilot đã khóa. Runtime hiện đăng ký đủ
+năm lesson `plant-a-seed`, `help-it-grow`, `garden-friends`, `harvest-day` và
+`garden-to-table`. Storyboard cuối nằm tại `docs/theme-4-garden-to-table-storyboard.md`.
 
 **Scope:** Theme `khu-vuon-cua-be` / “Khu vườn của bé” / “My Little Garden”.
 
 Tài liệu này thay thế blueprint tám lesson trước đây. Mốc 4A khóa hành trình năm lesson, vai trò
 từ vựng, ngân sách nội dung, nhịp tương tác, cách phân bổ lại nội dung cũ và ranh giới an toàn.
-Tài liệu cấp theme này chưa khóa scene ID, exact English targets, copy, object/step/variant ID
-hoặc asset của các vertical slice. `help-it-grow` đã khóa riêng các nội dung đó ở Mốc 4B; ba
-lesson sau vẫn chờ storyboard freeze tương ứng.
+Tài liệu cấp theme này là kiến trúc tổng; exact English targets, copy, object/step/variant ID và
+asset inventory của từng vertical slice nằm trong storyboard riêng tương ứng.
 
 ## 1. Current state và phạm vi freeze
 
 ### Runtime hiện tại
 
-- Theme runtime hiện có ba lesson: `plant-a-seed`, `help-it-grow` và `garden-friends`.
+- Theme runtime hiện có đủ năm lesson theo thứ tự đã khóa.
 - Pilot có ba scene `prepare-the-pot` -> `plant-the-seed` -> `first-watering` và dùng Scene State
   v1 cho object variants, show/hide và success-only state changes.
-- Hai lesson còn lại chưa được đăng ký runtime. `help-it-grow` đã có lesson data, production PNG
-  masters và bundled icons; 40 ảnh cùng 246 audio production đã publish/verify trên R2.
+- `help-it-grow` đã có lesson data, production PNG masters và bundled icons; 40 ảnh cùng 246
+  audio production đã publish/verify trên R2.
 - `garden-friends` đã có lesson data, storyboard, production PNG masters, bundled icons, 35 WebP
   và 257 audio production mới; R2 đã upload/verify đủ 292/292 object ngày 2026-08-14.
+- `harvest-day` đã có lesson data, storyboard, production PNG masters, bundled icons và 33 WebP
+  production. Google TTS đã tạo 252 audio mới; R2 đã upload/verify đủ 285/285 object ngày
+  2026-08-14 và post-upload dry-run còn `Changed/new: 0`.
+- `garden-to-table` đã có lesson data, storyboard, 39 production PNG masters (36 cutout và ba
+  background), 38 WebP được runtime tham chiếu, bốn bundled icons và review 4/5/6. Google TTS đã
+  tạo 286 production audio file bao phủ 371 target. R2 đã upload/verify đủ 324/324 object của
+  lesson, `Errors: 0`; post-upload dry-run còn `Changed/new: 0` ngày 2026-08-14.
 - Free tier hiện vẫn chỉ gồm `morning-routine` và `at-school`; Mốc 4A không đổi access policy.
 
 ### Đã khóa ở Mốc 4A
@@ -38,13 +43,11 @@ lesson sau vẫn chờ storyboard freeze tương ứng.
 - Cách phân bổ hoặc loại bỏ nội dung từ ba blueprint đã nghỉ trong mục 9.
 - Visual, safety, pre-reader và factual contracts áp dụng cho toàn Theme 4.
 
-### Chưa khóa ở cấp Mốc 4A
+### Ownership sau khi các vertical slice đã khóa
 
-- Scene ID của hai lesson sau `garden-friends`; tên scene beat trong tài liệu chỉ mô tả câu chuyện.
-- Exact English word/phrase, Vietnamese meaning và teacher copy của ba vertical slice đó.
-- Object, drop-zone, step, state variant, asset và audio keys ngoài pilot và Mốc 4B storyboard.
-- Vị trí object cuối cùng của mọi lesson chưa implement; `help-it-grow` đã khóa số step và
-  production-sheet inventory nhưng chỉ khóa vị trí phần trăm sau khi cắt asset/Android QA.
+- Mốc 4A vẫn sở hữu thứ tự, outcome, vai trò từ vựng, nhịp và safety guard cấp theme.
+- Storyboard của từng lesson sở hữu exact targets, copy, ID, state map, review và asset inventory.
+- Code, validator và generated manifest là nguồn của hành vi/runtime asset hiện đang chạy.
 
 Các ID đã author trong `plant-a-seed` vẫn frozen. Đổi chúng cần task rename/migration cùng asset
 và audio plan riêng.
@@ -231,9 +234,8 @@ Scene IDs, asset, audio và speech behavior của pilot không đổi; metadata 
 
 ## 8. Content contracts cho các lesson tiếp theo
 
-Các từ của `harvest-day` và `garden-to-table` vẫn là candidate set, chưa phải exact-copy freeze.
-Mỗi vertical slice phải audit lại nghĩa, hình ảnh, app-wide overlap và audio text trước khi
-author. `help-it-grow` và `garden-friends` đã có storyboard riêng với exact contract.
+Cả bốn lesson sau pilot đã có storyboard riêng với exact contract. Mục này giữ bản tóm tắt cấp
+theme; storyboard tương ứng có ưu tiên khi mô tả chi tiết vertical slice.
 
 ### 8.1 `help-it-grow`
 
@@ -304,18 +306,21 @@ nằm trong `docs/theme-4-garden-friends-storyboard.md`; tài liệu đó có ư
 2. Hái nhẹ bằng tay và đặt vào giỏ; không dùng kéo hoặc dao.
 3. Phân loại thành quả và để món bị dập sang vùng người lớn kiểm tra.
 
-**Candidate New Anchors:**
+**Frozen New Anchors:**
 
-- Core candidates: `ripe`, `unripe`, `tomato`, `pick`, `vegetable`, `herb`.
-- Expanded candidates: `fruit stem`, `strawberry`, `pea pod`, `bruised`.
-- Challenge chọn tối đa 1-2 candidates: `leave the unripe one`, `pick it gently`,
-  `sort by type`.
+- Core: `ripe`, `unripe`, `tomato`, `pick`, `vegetable`, `herb`.
+- Expanded: `fruit stem`, `bruised`.
+- Challenge: `leave the unripe one`, `sort by type`.
 
 **Recall/enabler candidates:** `leaf`, `stem`, `basket`, `garden gloves`. `basket` hoặc `gloves`
 có thể là familiar visual enabler ngay cả khi bé chưa học exact English ở theme khác.
 
 **State direction:** produce `on-plant -> picked`; basket `empty -> filled`; unripe produce và cây
 chính giữ nguyên, không rung mạnh hoặc mất cành.
+
+**Frozen scene IDs:** `find-the-ripe-ones` -> `pick-gently` -> `sort-the-harvest`. Exact lesson
+metadata, VI/EN copy, speech policy, review 4/5/6, safety state changes và asset inventory nằm
+trong `docs/theme-4-harvest-day-storyboard.md`; tài liệu đó có ưu tiên cho vertical slice.
 
 ### 8.4 `garden-to-table`
 
@@ -328,11 +333,11 @@ chính giữ nguyên, không rung mạnh hoặc mất cành.
 2. Làm/chia sẻ món nguội với nguyên liệu người lớn đã chuẩn bị an toàn.
 3. Giữ một hạt khô vào phong bì; completion art nối lại chậu/hạt ở đầu theme.
 
-**Candidate New Anchors:**
+**Frozen New Anchors:**
 
-- Core candidates: `rinse`, `lettuce`, `cucumber`, `bowl`, `share`, `seed envelope`.
-- Expanded candidates: `colander`, `kitchen towel`, `drain`, `label`.
-- Challenge chọn tối đa 1-2 candidates: `rinse it well`, `share the salad`, `save the seeds`.
+- Core: `cucumber`, `rinse`, `lettuce`, `bowl`, `salad`, `share`.
+- Expanded: `colander`, `kitchen towel`.
+- Challenge: `rinse it well`, `save the seeds`.
 
 **Recall/enabler candidates:** `water`, `basket`, `seed`, `soil`. `seed` ở final beat là ký ức và
 công cụ nối vòng, không chạy lại deep-teach/auto-recording flow.
@@ -340,6 +345,10 @@ công cụ nối vòng, không chạy lại deep-teach/auto-recording flow.
 **State direction:** produce `dirty -> rinsed -> clean`; bowl `empty -> prepared -> shared`; seed
 envelope `empty -> filled -> stored`; completion visual trở lại hình hạt/chậu nhưng không reset
 runtime progress.
+
+**Frozen scene IDs:** `rinse-and-drain` -> `make-and-share` -> `save-for-next-season`. Exact
+metadata, VI/EN copy, speech policy, review 4/5/6, safety rules, state changes và asset inventory
+nằm trong `docs/theme-4-garden-to-table-storyboard.md`.
 
 ## 9. Retired blueprint redistribution
 

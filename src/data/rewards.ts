@@ -387,6 +387,28 @@ export const lessonRewards: LessonReward[] = [
     tone: 'teal',
     title: 'Bé đã mở khoá Garden Friend!',
   },
+  {
+    id: 'reward-harvest-day',
+    iconName: 'milestoneHarvestDay',
+    lessonId: 'harvest-day',
+    stickerId: 'sticker-harvest-day',
+    stickerName: 'Harvest Hero',
+    stickerNameEn: 'Harvest Hero',
+    stickerNameVi: 'Anh hùng thu hoạch',
+    tone: 'sun',
+    title: 'Bé đã mở khoá Harvest Hero!',
+  },
+  {
+    id: 'reward-garden-to-table',
+    iconName: 'milestoneGardenToTable',
+    lessonId: 'garden-to-table',
+    stickerId: 'sticker-garden-to-table',
+    stickerName: 'Garden Cycle Star',
+    stickerNameEn: 'Garden Cycle Star',
+    stickerNameVi: 'Ngôi sao mùa mới',
+    tone: 'teal',
+    title: 'Bé đã mở khoá Garden Cycle Star!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

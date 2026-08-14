@@ -38,6 +38,8 @@ const expectedLessonMilestoneIcons = [
   ['plant-a-seed', 'milestonePlantASeed'],
   ['help-it-grow', 'milestoneHelpItGrow'],
   ['garden-friends', 'milestoneGardenFriends'],
+  ['harvest-day', 'milestoneHarvestDay'],
+  ['garden-to-table', 'milestoneGardenToTable'],
 ] as const;
 
 test('help-it-grow uses distinct scene and lesson icons', () => {
@@ -60,6 +62,28 @@ test('garden-friends uses distinct scene and lesson icons', () => {
     'quietGardenWatch',
   ]);
   expect(getLessonIconName({ id: 'garden-friends' })).toBe('underTheLeaf');
+});
+
+test('harvest-day uses distinct scene and lesson icons', () => {
+  const harvestDay = lessons.find(lesson => lesson.id === 'harvest-day');
+
+  expect(harvestDay?.scenes.map(getMapSceneIconName)).toEqual([
+    'findTheRipeOnes',
+    'pickGently',
+    'sortTheHarvest',
+  ]);
+  expect(getLessonIconName({ id: 'harvest-day' })).toBe('findTheRipeOnes');
+});
+
+test('garden-to-table uses distinct scene and lesson icons', () => {
+  const gardenToTable = lessons.find(lesson => lesson.id === 'garden-to-table');
+
+  expect(gardenToTable?.scenes.map(getMapSceneIconName)).toEqual([
+    'rinseAndDrain',
+    'makeAndShare',
+    'saveForNextSeason',
+  ]);
+  expect(getLessonIconName({ id: 'garden-to-table' })).toBe('rinseAndDrain');
 });
 
 test('map scene icons preserve each scene semantic icon', () => {

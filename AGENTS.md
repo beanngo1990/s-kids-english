@@ -90,9 +90,9 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `__tests__/`: Jest tests.
 
 Catalog hiện có bốn themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
-`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`) và 30 lesson packs, theo thứ tự khai báo trong
+`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`) và 32 lesson packs, theo thứ tự khai báo trong
 `src/data/themes.ts` và `src/data/lessons.ts`. Theme 4 runtime hiện đăng ký `plant-a-seed`,
-`help-it-grow` và `garden-friends`; content architecture cho hai lesson tiếp theo nằm trong
+`help-it-grow`, `garden-friends`, `harvest-day` và `garden-to-table`; content architecture nằm trong
 `docs/theme-4-content-draft.md`.
 
 ## 4. Những fact sản phẩm cần biết trước khi sửa code

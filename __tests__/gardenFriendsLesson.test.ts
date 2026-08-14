@@ -1,5 +1,7 @@
 import { getSceneForLearningMode } from '../src/data/learningModes';
 import { gardenFriendsLesson } from '../src/data/lessons/gardenFriends';
+import { gardenToTableLesson } from '../src/data/lessons/gardenToTable';
+import { harvestDayLesson } from '../src/data/lessons/harvestDay';
 import { helpItGrowLesson } from '../src/data/lessons/helpItGrow';
 import { plantASeedLesson } from '../src/data/lessons/plantASeed';
 import { getReviewGameItems } from '../src/games/reviewItems';
@@ -183,7 +185,13 @@ test('review selection is the frozen executable 4-5-6 set', () => {
 });
 
 test('all Theme 4 lessons are visibly labelled as advanced', () => {
-  [plantASeedLesson, helpItGrowLesson, gardenFriendsLesson].forEach(lesson => {
+  [
+    plantASeedLesson,
+    helpItGrowLesson,
+    gardenFriendsLesson,
+    harvestDayLesson,
+    gardenToTableLesson,
+  ].forEach(lesson => {
     expect(lesson.ageRange).toEqual({
       min: 6,
       max: 8,
