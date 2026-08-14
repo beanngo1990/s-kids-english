@@ -608,6 +608,70 @@ test('applies scene object state immediately after a correct interaction', async
   });
 });
 
+test('keeps choices visible for success feedback and cleans them on advance', async () => {
+  jest.useFakeTimers();
+  const delayedCleanupScene: Scene = {
+    ...sceneStateScene,
+    id: 'delayed-cleanup-scene',
+    steps: [
+      {
+        ...sceneStateScene.steps[0],
+        afterSuccessStateChanges: [
+          { targetObjectId: 'seed', type: 'hideObject' },
+          { targetObjectId: 'stone', type: 'hideObject' },
+        ],
+        id: 'choose-seed',
+        successStateChanges: undefined,
+        targetObjectIds: ['seed', 'stone'],
+      },
+      {
+        id: 'next-step',
+        instructionEn: 'The choices are clear now.',
+        instructionVi: 'Mình sang bước tiếp theo nhé.',
+        interaction: { targetObjectId: 'pot', type: 'listen' },
+        successFeedbackEn: 'Ready for the next action.',
+        successFeedbackVi: 'Mình sẵn sàng rồi.',
+        targetObjectIds: ['pot'],
+        type: 'practice',
+      },
+    ],
+  };
+  const tree = await renderScenePlayer(delayedCleanupScene);
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'seed')?.props.onPress('seed');
+    await flushPromises();
+  });
+
+  expect(findSceneObject(tree, 'seed')).toBeDefined();
+  expect(findSceneObject(tree, 'stone')).toBeDefined();
+  expect(findSceneObject(tree, 'seed')?.props.effect).toBe('sparkle');
+  expect(findSceneObject(tree, 'stone')?.props.isDimmed).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(261);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(findSceneObject(tree, 'seed')).toBeUndefined();
+  expect(findSceneObject(tree, 'stone')).toBeUndefined();
+  expect(
+    tree.root
+      .findAllByType(KidIconButton)
+      .some(node => node.props.accessibilityLabel === 'Tiếp tục'),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
 test('rolls back scene object state when required success feedback fails', async () => {
   jest.useFakeTimers();
   const tree = await renderScenePlayer(sceneStateScene);

@@ -343,33 +343,42 @@ function validateStep({
     }
   });
 
-  step.successStateChanges?.forEach((change, changeIndex) => {
-    const changePath = `${stepPath}.successStateChanges[${changeIndex}]`;
-    const targetObject = renderableObjects.find(
-      object => object.id === change.targetObjectId,
-    );
-
-    if (!targetObject) {
-      issues.push(
-        error(
-          changePath,
-          `targetObjectId "${change.targetObjectId}" does not exist.`,
-        ),
+  (
+    [
+      ['successStateChanges', step.successStateChanges],
+      ['afterSuccessStateChanges', step.afterSuccessStateChanges],
+    ] as const
+  ).forEach(([fieldName, changes]) => {
+    changes?.forEach((change, changeIndex) => {
+      const changePath = `${stepPath}.${fieldName}[${changeIndex}]`;
+      const targetObject = renderableObjects.find(
+        object => object.id === change.targetObjectId,
       );
-      return;
-    }
 
-    if (
-      change.type === 'setObjectVariant' &&
-      !targetObject.variants?.some(variant => variant.id === change.variantId)
-    ) {
-      issues.push(
-        error(
-          changePath,
-          `Variant id "${change.variantId}" does not exist on object "${targetObject.id}".`,
-        ),
-      );
-    }
+      if (!targetObject) {
+        issues.push(
+          error(
+            changePath,
+            `targetObjectId "${change.targetObjectId}" does not exist.`,
+          ),
+        );
+        return;
+      }
+
+      if (
+        change.type === 'setObjectVariant' &&
+        !targetObject.variants?.some(
+          variant => variant.id === change.variantId,
+        )
+      ) {
+        issues.push(
+          error(
+            changePath,
+            `Variant id "${change.variantId}" does not exist on object "${targetObject.id}".`,
+          ),
+        );
+      }
+    });
   });
 
   return issues;

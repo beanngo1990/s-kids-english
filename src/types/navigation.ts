@@ -22,10 +22,11 @@ export type RootStackParamList = {
     gameType?: 'matching' | 'memory' | 'listenAndChoose' | 'random';
   };
   ReviewLibrary: undefined;
-  Reward: { 
-    lessonId: string; 
-    playedWordIds?: string[]; 
-    xpGained?: number; 
+  Reward: {
+    lessonId: string;
+    learningMode?: LearningMode;
+    playedWordIds?: string[];
+    xpGained?: number;
     leveledUp?: boolean;
     newLevel?: number;
     unlockedSticker?: {

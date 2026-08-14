@@ -1,788 +1,481 @@
-# Theme 4 Content Draft - Khu vườn của bé
+# Theme 4 Content Architecture v2 - Khu vườn của bé
 
-**Draft date:** 2026-08-12
+**Freeze date:** 2026-08-13
 
-**Status:** Mốc 3 pilot implemented cho `plant-a-seed`; bảy lesson còn lại vẫn là content blueprint
-và chưa phải content freeze.
+**Status:** Content architecture đã khóa; storyboard `help-it-grow` và `garden-friends` nằm tại
+`docs/theme-4-help-it-grow-storyboard.md` và `docs/theme-4-garden-friends-storyboard.md`. Runtime
+hiện đăng ký `plant-a-seed`, `help-it-grow` và `garden-friends`; `harvest-day` cùng
+`garden-to-table` chưa được author hoặc đăng ký catalog.
 
-**Proposed scope:** Theme `khu-vuon-cua-be` / “Khu vườn của bé” / “My Little Garden”.
+**Scope:** Theme `khu-vuon-cua-be` / “Khu vườn của bé” / “My Little Garden”.
 
-Tài liệu này định nghĩa hành trình nội dung, lesson/scene/vocabulary keys dự thảo, chuỗi hành động,
-trạng thái hình ảnh, review focus và ranh giới an toàn cho Theme 4. Scene State v1 đã được
-implement ở Mốc 2 với object variants, show/hide và success-only state changes; theme/lesson trong
-tài liệu này đã được dùng để author và đăng ký pilot `plant-a-seed`; các lesson khác vẫn chưa có
-runtime implementation.
+Tài liệu này thay thế blueprint tám lesson trước đây. Mốc 4A khóa hành trình năm lesson, vai trò
+từ vựng, ngân sách nội dung, nhịp tương tác, cách phân bổ lại nội dung cũ và ranh giới an toàn.
+Tài liệu cấp theme này chưa khóa scene ID, exact English targets, copy, object/step/variant ID
+hoặc asset của các vertical slice. `help-it-grow` đã khóa riêng các nội dung đó ở Mốc 4B; ba
+lesson sau vẫn chờ storyboard freeze tương ứng.
 
-## 1. Draft summary
+## 1. Current state và phạm vi freeze
 
-- Theme dự kiến có 8 lesson packs và 24 mini-scenes; runtime hiện đăng ký 1 lesson pilot với 3
-  mini-scenes.
-- Độ tuổi dự kiến: 3-5 tuổi; `learningMode` tiếp tục điều chỉnh độ sâu thay vì tạo ba lesson riêng.
-- Mỗi scene có 7 vocabulary targets:
-  - 3 `core` targets;
-  - 2 target bổ sung ở `expanded`;
-  - 2 action/logic phrases bổ sung ở `challenge`.
-- Toàn theme có 168 target strings dự thảo: 72 core, 48 expanded và 48 challenge.
-- 168 English target strings là duy nhất bên trong Theme 4.
-- 23 target strings trùng chính xác với catalog hiện tại và được chủ ý dùng như ôn lại; 145 target
-  strings còn lại chưa trùng chính xác với các `VocabularyItem.word` hiện có.
-- Mỗi lesson có một review game cấu hình `random` và bốn anchor vocabulary IDs có hình rõ ràng.
-- Free tier hiện vẫn chỉ gồm `morning-routine` và `at-school`; nếu Theme 4 được đăng ký mà policy
-  không đổi, toàn bộ theme mới sẽ là Premium.
-- Theme dùng một vòng kể chuyện khép kín: chuẩn bị -> gieo -> chăm -> ứng phó thời tiết -> quan sát
-  sinh vật -> thu hoạch -> dùng thành quả -> giữ hạt cho lần sau.
-- Pilot runtime hiện chỉ bao phủ đoạn `chuẩn bị chậu -> gieo hạt -> tưới lần đầu`. Ba scene dùng
-  21 vocabulary targets, review `random`, năm bundled map icons và 38 lesson image references đã
-  audit/build/verify local. Audio production chưa generate/publish.
+### Runtime hiện tại
 
-Theme này không thay thế scene `grandparents-visit/garden-help`. Scene cũ là một lần bé phụ giúp
-ông bà và dạy các vật quen thuộc trong vườn. Theme mới tập trung vào quan hệ nhân-quả xuyên suốt
-một chu kỳ chăm cây, với object state thay đổi sau hành động của bé.
+- Theme runtime hiện có ba lesson: `plant-a-seed`, `help-it-grow` và `garden-friends`.
+- Pilot có ba scene `prepare-the-pot` -> `plant-the-seed` -> `first-watering` và dùng Scene State
+  v1 cho object variants, show/hide và success-only state changes.
+- Hai lesson còn lại chưa được đăng ký runtime. `help-it-grow` đã có lesson data, production PNG
+  masters và bundled icons; 40 ảnh cùng 246 audio production đã publish/verify trên R2.
+- `garden-friends` đã có lesson data, storyboard, production PNG masters, bundled icons, 35 WebP
+  và 257 audio production mới; R2 đã upload/verify đủ 292/292 object ngày 2026-08-14.
+- Free tier hiện vẫn chỉ gồm `morning-routine` và `at-school`; Mốc 4A không đổi access policy.
+
+### Đã khóa ở Mốc 4A
+
+- Theme có năm lesson và giữ `plant-a-seed` ở vị trí mở đầu.
+- Lesson ID, thứ tự và outcome cấp lesson trong mục 6.
+- Ba vai trò `New Anchor`, `Quick Recall`, `Action Enabler` và cách map vào lesson schema hiện có.
+- Ngân sách từ mới, luyện nói, nhịp nhanh/chậm và review cho các lesson sau pilot.
+- `garden-ready`, `garden-weather`, `garden-cycle` không còn là lesson độc lập.
+- Cách phân bổ hoặc loại bỏ nội dung từ ba blueprint đã nghỉ trong mục 9.
+- Visual, safety, pre-reader và factual contracts áp dụng cho toàn Theme 4.
+
+### Chưa khóa ở cấp Mốc 4A
+
+- Scene ID của hai lesson sau `garden-friends`; tên scene beat trong tài liệu chỉ mô tả câu chuyện.
+- Exact English word/phrase, Vietnamese meaning và teacher copy của ba vertical slice đó.
+- Object, drop-zone, step, state variant, asset và audio keys ngoài pilot và Mốc 4B storyboard.
+- Vị trí object cuối cùng của mọi lesson chưa implement; `help-it-grow` đã khóa số step và
+  production-sheet inventory nhưng chỉ khóa vị trí phần trăm sau khi cắt asset/Android QA.
+
+Các ID đã author trong `plant-a-seed` vẫn frozen. Đổi chúng cần task rename/migration cùng asset
+và audio plan riêng.
 
 ## 2. Product and learning goals
 
-### Theme metadata dự thảo
+### Target theme metadata
+
+Mốc 4A khóa copy mục tiêu dưới đây nhưng không sửa runtime catalog; metadata hiện hành chỉ được
+đổi cùng task đăng ký lesson tiếp theo để tránh mô tả planned content như đã phát hành.
 
 - Theme ID: `khu-vuon-cua-be`.
 - `titleVi`: `Khu vườn của bé`.
 - `titleEn`: `My Little Garden`.
-- `descriptionVi`: `Bé chuẩn bị, gieo hạt, chăm cây, thu hoạch và bắt đầu một mùa trồng mới.`
-- `descriptionEn`: `Get ready, plant seeds, care for growing plants, harvest, and begin again.`
+- `descriptionVi`: `Bé gieo hạt, chăm cây, khám phá khu vườn, thu hoạch và bắt đầu một mùa mới.`
+- `descriptionEn`: `Plant a seed, care for it, explore the garden, harvest, and begin again.`
 - `thumbnailEmoji`: `🌱`.
-- Bundled theme icon key dự kiến: `themeLittleGarden`.
+- Bundled theme icon key: `themeLittleGarden`.
 
 ### Learning outcomes
 
 Sau theme, bé được làm quen với ba lớp kiến thức:
 
-1. **English in action:** gọi tên vật, trạng thái và cụm hành động ngay lúc dùng chúng.
-2. **Sequence and cause:** hiểu một bước chuẩn bị cho bước sau, ví dụ chậu phải có đất trước khi
-   gieo hạt và đất cần ẩm nhưng không ngập nước.
-3. **Care and safety:** biết quan sát nhẹ nhàng, không tự xử lý vật sắc/nhánh cây lớn, không nếm
-   cây lạ và nhờ người lớn khi cần.
+1. **English in action:** từ mới xuất hiện đúng lúc bé cần dùng hoặc vừa khám phá đối tượng.
+2. **Sequence and cause:** hành động của bé tạo ra kết quả nhìn thấy được, nhưng tăng trưởng vẫn có
+   cue thời gian hợp lý.
+3. **Care and safety:** bé quan sát nhẹ nhàng, dùng công cụ an toàn và nhờ người lớn với việc vượt
+   quá khả năng.
 
-### Experience contract
+### Child-first principles
 
-- Mỗi core scene phải có một mục tiêu cụ thể và một end state nhìn thấy được.
-- Core path dùng 3-5 hành động có ý nghĩa; không quá hai listen steps liên tiếp trước một action.
-- Expanded steps làm chuỗi giàu hơn nhưng không thay đổi điều kiện hoàn thành cốt lõi.
-- Challenge kiểm tra cụm hành động hoặc “bước nào tiếp theo?”, không chỉ thêm một thẻ từ rời rạc.
-- Cả ba mode phải kết thúc ở cùng một trạng thái hợp lý.
-- Success mới thay đổi scene state. Incorrect interaction chỉ phản hồi/hint và không làm mất,
-  hiện, di chuyển hoặc đổi variant của object.
-- Primary instruction chỉ nói hành động cần làm. Vị trí tuyệt đối dành cho retry hint và không
-  được dựa vào object có thể đã di chuyển ở bước trước.
-- Growth/flower/fruit transition phải có dấu hiệu thời gian trôi qua; không mô tả cây mọc ngay lập
-  tức sau khi vừa tưới.
+- Bài mở đầu phải cho kết quả hấp dẫn sớm. `plant-a-seed` được giữ ở vị trí 1 vì chuỗi đất -> hạt
+  -> nước -> mầm có hành động và phần thưởng trực quan mạnh hơn một bài chuẩn bị quần áo/dụng cụ.
+- Theme không tối ưu cho số lượng English strings duy nhất. Gặp lại một từ trong vai trò mới có
+  giá trị hơn liên tục thêm từ mới.
+- Từ cũ không mặc định chạy lại luồng giải nghĩa, model word và ghi âm.
+- Trẻ được giữ một ngữ pháp tương tác ổn định, nhưng nhịp nội dung phải thay đổi giữa học sâu,
+  hành động nhanh, khám phá, suy luận thứ tự và ăn mừng.
+- `core` phải tự đủ cho trẻ nhỏ nhất. Runtime hiện chưa truyền child age vào lesson filtering nên
+  không được dựa vào `minAge` để cứu một core path quá khó.
+- Onboarding đang preselect `expanded`, nên expanded là một primary pre-reader path thực tế chứ
+  không chỉ là enrichment cho trẻ lớn. Cả core và expanded phải được child-path QA riêng trên
+  Android; concept trừu tượng chỉ vào expanded khi hình/lời Việt chứng minh được nghĩa rõ.
 
-## 3. Draft identifier contract
+## 3. Vocabulary-role contract
 
-Lesson IDs, scene IDs và vocabulary keys ngoài `plant-a-seed` là stable draft candidates. Các ID
-đã author trong `plant-a-seed` được coi là frozen sau pilot Scene State v1; đổi chúng cần một task
-rename/migration và asset/audio plan riêng.
+Ba vai trò dưới đây là authoring semantics, không phải field mới trong `src/types/lesson.ts`.
 
-- Vocabulary ID khi author dự kiến dùng dạng
-  `vocab-<lesson-id>-<scene-id>-<vocabulary-key>`.
-- Object ID dự kiến dùng dạng `<scene-id>-<object-key>`.
-- Step ID dự kiến dùng dạng `<scene-id>-<action>-<target-key>`.
-- Variant/state labels trong mục scene blueprint phải được map vào contract Scene State v1 đã
-  implement; các label cụ thể vẫn là draft cho tới content freeze.
-- Không đổi key sau content freeze nếu không có migration/asset rename task riêng.
+| Role | Mục đích | Mapping vào schema hiện tại | Speech và review |
+| --- | --- | --- | --- |
+| **New Anchor** | Dạy một từ/cụm mới có vai trò quan trọng trong scene. | Có `VocabularyItem`, object/step có `vocabId`; có một encounter giải nghĩa rõ. | Core dùng `auto`; expanded thường `optional`; chỉ New Anchor được đưa vào lesson review pool. |
+| **Quick Recall** | Gọi lại một khái niệm/từ đã gặp qua lựa chọn hoặc hành động ngắn. | Object/step không tạo `VocabularyItem` trùng trong lesson mới; cue Việt và hình dẫn thao tác. `promptText` chỉ thêm context cho English teacher prompt, không tự phát model word độc lập ở Vietnamese mode. | Không mở speech practice, không tính như learned word mới, không vào review pool. |
+| **Action Enabler** | Là công cụ/đạo cụ giúp câu chuyện tiến lên và tạo kết quả tức thì. | Scene object tương tác thường, không cần `vocabId`; có thể chỉ được gọi bằng lời Việt và dấu hiệu hình ảnh. | Không model word bắt buộc, không ghi âm, không review. |
 
-## 4. Learning journey
+### Quy tắc dùng lại từ
 
-| Order | Lesson ID | Lesson title | Ordered scenes | Lesson outcome |
+- “Từ cũ” trong Theme 4 ưu tiên nghĩa là từ đã được giới thiệu ở lesson trước trong cùng hành
+  trình, không chỉ là exact string tồn tại ở một theme khác.
+- Một từ ở mode cao hơn chỉ được Quick Recall trong cùng hoặc mode cao hơn. Ví dụ từ expanded của
+  pilot không trở thành prerequisite của core lesson sau.
+- `journeyMode: free` có thể cho bé vào lesson mà chưa học lesson trước. Vì vậy mọi Quick Recall
+  vẫn phải giải được bằng hình và lời Việt; nhớ English giúp bé nhanh hơn nhưng không được là điều
+  kiện ẩn để hoàn thành.
+- Nếu một từ app-wide đã tồn tại nhưng Theme 4 cần dạy nó để scene đứng độc lập, từ đó vẫn có thể
+  là New Anchor trong lesson hiện tại. Uniqueness toàn catalog không phải KPI.
+- Với engine hiện tại, Quick Recall không phải một lượt kiểm tra khả năng nghe English độc lập.
+  Muốn audio English bắt buộc mà không tạo learned-word/review semantics cần một capability
+  non-progress model-word riêng trong task tương lai; Mốc 4A không giả lập bằng cách trộn English
+  vào `instructionVi`.
+- Không áp quota 30-40% từ cũ cho từng lesson. Ở cấp toàn theme, content review chỉ kiểm tra từ
+  trụ cột có tái xuất trong ngữ cảnh có ý nghĩa, không ép mọi từ lặp lại ở mọi bài.
+- Một New Anchor đã học chỉ chạy lại deep-teach flow khi có product decision tường minh; mặc định
+  lần gặp sau là Quick Recall hoặc Action Enabler.
+
+### Ví dụ chuẩn cho lesson sau pilot
+
+```text
+Cây đang rũ
+  -> bé kéo bình nước tới cây (Quick Recall khái niệm water, không mở micro)
+  -> cây tươi hơn ngay; cue ngày-đêm cho thấy thời gian trôi qua
+  -> cây xòe leaf mới (New Anchor, học sâu và nói)
+  -> bé đưa cây tới sunlight (New Anchor, học sâu và nói)
+  -> lá mở rộng và scene ăn mừng
+```
+
+`water` vẫn được truy hồi, nhưng không chiếm lại một lượt giải nghĩa và ghi âm như ở lesson trước.
+
+## 4. Learning-mode và content budgets
+
+Các ngân sách này áp dụng cho các lesson sau pilot; không hồi tố thay cấu trúc 3/5/7 target mỗi
+scene của `plant-a-seed`.
+
+### New Anchor budget cho mỗi lesson ba scene
+
+- `core`: 5-6 New Anchors tổng cộng, thường 1-2 mỗi scene.
+- `expanded`: thêm 2-3 New Anchors, tổng khoảng 7-9.
+- `challenge`: thêm 1-2 action/logic phrases, tổng khoảng 8-11.
+- Sau khi lọc `learningScope`, `VocabularyItem.level` và image availability, mỗi lesson phải còn
+  ít nhất 4/5/6 New Anchors có hình phân biệt rõ cho `core`/`expanded`/`challenge`. Không dùng hai
+  state variants gần giống của cùng object để giả lập hai review items.
+
+### Recall và action budget
+
+- Mỗi lesson nên có khoảng 3-5 nhóm concept Quick Recall/Action Enabler ở core; một concept có thể
+  tái xuất hiện khi câu chuyện cần nhưng không mở lại deep-teach. Các discovery control chỉ có ở
+  expanded không được tính thành từ mới.
+- Mọi deep-learn/speech-practice panels, kể cả `optional`, phải được ngăn bởi một hành động hoặc
+  visual payoff có ý nghĩa; không đặt hai pronunciation panels liền nhau.
+- Secondary expanded targets mặc định `optional`; chỉ dùng `auto` khi từ đó thực sự là production
+  anchor của scene.
+- Challenge phrase phải được dạy nghĩa bằng hình/lời Việt trước review; không chỉ hiện một phrase
+  card cho trẻ chưa biết đọc.
+- Expanded candidates như `moisture`, `pollen`, `nectar` hoặc `seed envelope` không được giữ chỉ
+  vì có trong candidate list; vertical slice phải chứng minh hình ảnh cụ thể và pre-reader value.
+
+## 5. Interaction rhythm contract
+
+### Ngữ pháp ổn định
+
+- Một instruction chỉ có một ý và một hành động.
+- Tap/find/drag tiếp tục dùng cùng affordance, feedback và Auto-Hint của engine.
+- Practice/review bắt đầu trung tính; đáp án nhiễu không nhấp nháy. Auto-Hint hoặc replay cue chỉ
+  làm chuyển động `correctObjectIds`/`targetObjectId`.
+- Success mới đổi scene state; incorrect interaction không làm mất/hiện/move/đổi variant object.
+- Bé luôn có thể hiểu target bằng audio và hình, không phải đọc title, English word hoặc
+  `meaningVi`.
+- Scene State v1 reset khi đổi scene. Mỗi scene tự author initial continuity state hợp lý từ scene
+  trước bằng asset/copy, không dựa vào state runtime được mang qua. Weather/soil beat là tình
+  huống có đáp án được author trước, không phải mô phỏng branching hoặc arbitrary variables mà
+  engine hiện chưa có.
+
+### Năm micro-flow archetypes
+
+1. **Deep Learn:** nhìn/hiểu nghĩa -> nghe English -> hành động -> nói -> thấy kết quả.
+2. **Quick Action:** một cue ngắn -> tap/drag -> SFX/state response trong vài giây.
+3. **Discovery:** bé hành động trước -> vật mới xuất hiện -> lúc đó mới gọi tên và học sâu.
+4. **Sequence Check:** chọn hoặc làm bước tiếp theo trong chuỗi nhân-quả.
+5. **Celebration:** animation/SFX/completion beat không đặt thêm yêu cầu học hay ghi âm.
+
+Deep Learn là default cho New Anchor, không phải template cho 100% step. Một nhịp tham khảo là:
+
+```text
+Quick Action -> Deep Learn -> Discovery -> Quick Action -> Deep Learn -> Celebration
+```
+
+Author được thay đổi thứ tự khi câu chuyện cần, nhưng mỗi core scene phải có:
+
+- một mục tiêu cụ thể;
+- 3-5 hành động có ý nghĩa;
+- ít nhất một end state nhìn thấy được;
+- ít nhất một fast beat hoặc delight beat không mở micro;
+- không quá hai listen steps liên tiếp trước khi bé được hành động.
+
+## 6. Frozen five-lesson journey
+
+| Order | Lesson ID | Lesson title | Story beats | Lesson outcome |
 | --- | --- | --- | --- | --- |
-| 1 | `garden-ready` | Sẵn sàng làm vườn / Garden Ready | `garden-weather-check`, `garden-clothes`, `garden-tools` | Bé kiểm tra điều kiện, mặc phù hợp và gom dụng cụ. |
-| 2 | `plant-a-seed` | Bé gieo hạt / Plant a Seed | `prepare-the-pot`, `plant-the-seed`, `first-watering` | Bé chuẩn bị chậu, gieo hạt và tạo độ ẩm vừa đủ. |
-| 3 | `help-it-grow` | Giúp cây lớn lên / Help It Grow | `sun-and-water`, `remove-the-weeds`, `support-the-plant` | Bé chọn nắng/nước phù hợp và giúp cây đứng vững. |
-| 4 | `garden-weather` | Thời tiết trong vườn / Garden Weather | `hot-sunny-day`, `rainy-garden-day`, `windy-garden-day` | Bé chọn cách chăm cây khác nhau theo thời tiết. |
-| 5 | `garden-friends` | Bạn nhỏ trong vườn / Garden Friends | `helpers-in-the-soil`, `garden-pollinators`, `watch-gently` | Bé quan sát sinh vật mà không làm xáo trộn nơi sống. |
-| 6 | `harvest-day` | Ngày thu hoạch / Harvest Day | `ready-to-pick`, `pick-carefully`, `sort-the-harvest` | Bé nhận biết đồ chín, hái nhẹ và phân loại. |
-| 7 | `garden-to-table` | Từ vườn tới bàn ăn / Garden to Table | `wash-the-harvest`, `make-a-garden-snack`, `set-and-share` | Bé rửa, chuẩn bị món nguội cùng người lớn và chia sẻ. |
-| 8 | `garden-cycle` | Vòng đời tiếp tục / The Garden Cycle | `sort-the-scraps`, `clean-the-tools`, `save-the-seeds` | Bé dọn sau hoạt động và giữ hạt cho mùa tiếp theo. |
-
-## 5. Lesson and scene blueprints
-
-### 5.1 `garden-ready` - Sẵn sàng làm vườn / Garden Ready
-
-- Description VI: `Bé xem thời tiết, chọn đồ mặc và chuẩn bị dụng cụ trước khi ra vườn.`
-- Description EN: `Check the weather, get dressed, and gather tools before going outside.`
-- Parent tip VI: `Ba mẹ có thể cùng bé gọi tên thời tiết và chọn một dụng cụ an toàn để quan sát.`
-- Review title VI: `Chuẩn bị ra vườn`.
-- Review anchors: `garden-weather-check/sunny`, `garden-clothes/garden-gloves`,
-  `garden-tools/trowel`, `garden-tools/tool-basket`.
-
-#### `garden-weather-check` - Xem thời tiết / Check the Weather
-
-- Goal: đọc dấu hiệu ngoài cửa sổ rồi hoàn thành bảng thời tiết trước khi chọn đồ.
-- Core flow: nghe ba trạng thái -> tìm dấu hiệu đúng ngoài cửa sổ -> đặt card tương ứng lên bảng.
-- Expanded insertion: tìm `raindrop` và đưa nó vào đúng vùng trên `weather chart`.
-- Challenge check: chọn phrase mô tả việc cần làm trước khi lấy quần áo.
-- Visible state: `weather-board/empty -> sunny -> cloudy -> rainy -> checked`; trạng thái cuối mở
-  CTA sang scene chọn quần áo.
-- Core vocabulary:
-  - `sunny` -> `sunny` -> trời nắng (`adjective`).
-  - `cloudy` -> `cloudy` -> trời nhiều mây (`adjective`).
-  - `rainy` -> `rainy` -> trời mưa (`adjective`).
-- Expanded vocabulary:
-  - `weather-chart` -> `weather chart` -> bảng thời tiết (`noun`).
-  - `raindrop` -> `raindrop` -> giọt mưa (`noun`).
-- Challenge vocabulary:
-  - `check-weather` -> `check the weather` -> kiểm tra thời tiết (`phrase`).
-  - `choose-clothes-weather` -> `choose clothes for the weather` -> chọn quần áo theo thời tiết
-    (`phrase`).
-
-#### `garden-clothes` - Mặc đồ làm vườn / Garden Clothes
-
-- Goal: mặc những món phù hợp với ngày nắng đã xác định ở scene trước.
-- Core flow: kéo ủng -> kéo găng tay -> chọn mũ che nắng.
-- Expanded insertion: thêm tạp dề và nhận biết tay áo dài.
-- Challenge check: chọn đúng thứ tự `put on your gloves` rồi `protect your skin`.
-- Visible state: `child/everyday -> boots-on -> gloves-on -> sun-ready`; expanded có variant
-  `apron-on` nhưng không thay đổi core completion.
-- Core vocabulary:
-  - `garden-boots` -> `garden boots` -> ủng làm vườn (`noun`).
-  - `garden-gloves` -> `garden gloves` -> găng tay làm vườn (`noun`).
-  - `sun-hat` -> `sun hat` -> mũ che nắng (`noun`).
-- Expanded vocabulary:
-  - `apron` -> `apron` -> tạp dề (`noun`).
-  - `long-sleeves` -> `long sleeves` -> tay áo dài (`noun`).
-- Challenge vocabulary:
-  - `put-on-gloves` -> `put on your gloves` -> đeo găng tay (`phrase`).
-  - `protect-skin` -> `protect your skin` -> bảo vệ làn da (`phrase`).
-
-#### `garden-tools` - Gom dụng cụ / Gather the Tools
-
-- Goal: chọn đúng dụng cụ làm vườn và cất chúng vào giỏ trước khi di chuyển.
-- Core flow: tìm xẻng nhỏ -> kéo cào -> kéo bình tưới vào giỏ.
-- Expanded insertion: thêm bình xịt nước; loại vật không phải dụng cụ khỏi lựa chọn.
-- Challenge check: gom đủ dụng cụ rồi chọn cách mang giỏ an toàn bằng hai tay.
-- Visible state: `tool-basket/empty -> trowel-added -> rake-added -> watering-can-added -> ready`;
-  object trên kệ ẩn sau khi đã được đặt vào giỏ.
-- Core vocabulary:
-  - `trowel` -> `trowel` -> xẻng làm vườn nhỏ (`noun`).
-  - `garden-rake` -> `garden rake` -> cào làm vườn (`noun`).
-  - `watering-can` -> `watering can` -> bình tưới cây (`noun`).
-- Expanded vocabulary:
-  - `spray-bottle` -> `spray bottle` -> bình xịt nước (`noun`).
-  - `tool-basket` -> `tool basket` -> giỏ dụng cụ (`noun`).
-- Challenge vocabulary:
-  - `gather-tools` -> `gather the tools` -> gom dụng cụ (`phrase`).
-  - `carry-tools-safely` -> `carry tools safely` -> mang dụng cụ an toàn (`phrase`).
-
-### 5.2 `plant-a-seed` - Bé gieo hạt / Plant a Seed
-
-- Description VI: `Bé cho đất vào chậu, gieo hạt và tưới vừa đủ để chờ mầm cây.`
-- Description EN: `Fill a pot, plant a seed, and add just enough water for a sprout.`
-- Parent tip VI: `Ba mẹ có thể cho bé gieo một hạt lớn, nhưng luôn rửa tay sau khi chạm đất.`
-- Review title VI: `Từ hạt tới mầm`.
-- Review anchors: `prepare-the-pot/soil`, `plant-the-seed/seed`, `first-watering/sprout`,
-  `prepare-the-pot/plant-pot`.
-
-#### `prepare-the-pot` - Chuẩn bị chậu / Prepare the Pot
-
-- Goal: tạo một chậu đất có khoảng trống phù hợp để gieo hạt.
-- Core flow: tìm chậu -> xúc đất -> kéo đất vào chậu đến vạch vừa đủ.
-- Expanded insertion: kiểm tra lỗ thoát nước và chọn đúng loại đất trồng trong chậu.
-- Challenge check: chọn `fill the pot with soil` trước `leave some space`.
-- Visible state: `plant-pot/empty -> soil-low -> soil-ready`; fill vượt vạch chỉ tạo fail feedback,
-  không đổi variant.
-- Core vocabulary:
-  - `plant-pot` -> `plant pot` -> chậu cây (`noun`).
-  - `soil` -> `soil` -> đất trồng (`noun`).
-  - `scoop` -> `scoop` -> xẻng xúc đất nhỏ (`noun`).
-- Expanded vocabulary:
-  - `drainage-hole` -> `drainage hole` -> lỗ thoát nước (`noun`).
-  - `potting-mix` -> `potting mix` -> đất trồng trong chậu (`noun`).
-- Challenge vocabulary:
-  - `fill-pot-soil` -> `fill the pot with soil` -> cho đất vào chậu (`phrase`).
-  - `leave-space` -> `leave some space` -> chừa lại một khoảng trống (`phrase`).
-
-#### `plant-the-seed` - Gieo hạt / Plant the Seed
-
-- Goal: tạo lỗ, đặt hạt, phủ đất và gắn nhãn theo đúng thứ tự.
-- Core flow: chạm tạo lỗ -> kéo hạt vào lỗ -> phủ đất.
-- Expanded insertion: mở gói hạt, gắn thẻ tên cây sau khi phủ đất.
-- Challenge check: sắp `plant a seed` trước `cover the seed`.
-- Visible state: `pot-soil/flat -> hole-open -> seed-visible -> covered`; expanded thêm
-  `plant-label/hidden -> visible`.
-- Core vocabulary:
-  - `seed` -> `seed` -> hạt giống (`noun`).
-  - `hole` -> `hole` -> lỗ nhỏ (`noun`).
-  - `seed-packet` -> `seed packet` -> gói hạt giống (`noun`).
-- Expanded vocabulary:
-  - `plant-label` -> `plant label` -> thẻ tên cây (`noun`).
-  - `finger` -> `finger` -> ngón tay (`noun`).
-- Challenge vocabulary:
-  - `plant-seed` -> `plant a seed` -> gieo hạt (`phrase`).
-  - `cover-seed` -> `cover the seed` -> phủ đất lên hạt (`phrase`).
-
-#### `first-watering` - Tưới lần đầu / First Watering
-
-- Goal: làm đất ẩm vừa đủ, tránh vũng nước và chờ mầm xuất hiện.
-- Core flow: tìm nước -> kéo vòi bình tưới tới chậu -> dừng khi đất chuyển sang ẩm.
-- Expanded insertion: phân biệt vòi bình tưới và vũng nước báo hiệu tưới quá nhiều.
-- Challenge check: chọn `water it gently`, sau đó `wait for the sprout`.
-- Visible state: `pot-soil/dry -> damp`; `puddle/hidden` phải giữ ẩn ở success path; sau cue
-  ngày-đêm, `sprout/hidden -> visible`.
-- Core vocabulary:
-  - `water` -> `water` -> nước (`noun`).
-  - `sprout` -> `sprout` -> mầm cây (`noun`).
-  - `damp` -> `damp` -> ẩm (`adjective`).
-- Expanded vocabulary:
-  - `spout` -> `spout` -> vòi bình tưới (`noun`).
-  - `puddle` -> `puddle` -> vũng nước (`noun`).
-- Challenge vocabulary:
-  - `water-gently` -> `water it gently` -> tưới nhẹ nhàng (`phrase`).
-  - `wait-sprout` -> `wait for the sprout` -> chờ mầm cây (`phrase`).
-
-### 5.3 `help-it-grow` - Giúp cây lớn lên / Help It Grow
-
-- Description VI: `Bé quan sát cây, chọn nắng và nước phù hợp rồi giúp cây đứng vững.`
-- Description EN: `Watch the plant, choose sunlight and water, and help the stem stand tall.`
-- Parent tip VI: `Ba mẹ có thể cùng bé chạm đất bằng một ngón tay để kiểm tra, không tưới theo lịch cứng.`
-- Review title VI: `Chăm cây lớn lên`.
-- Review anchors: `sun-and-water/sunlight`, `remove-the-weeds/weed`,
-  `support-the-plant/stem`, `support-the-plant/stake`.
-
-#### `sun-and-water` - Nắng và nước / Sun and Water
-
-- Goal: quan sát dấu hiệu cây rũ, kiểm tra đất rồi chọn nắng/nước phù hợp.
-- Core flow: tìm vùng có nắng -> chuyển chậu -> kiểm tra đất ở vùng rễ.
-- Expanded insertion: nhận biết độ ẩm và hình cây đang rũ trước khi quyết định tưới.
-- Challenge check: `check the soil` phải xảy ra trước khi chọn có tưới hay không.
-- Visible state: `plant/drooping -> sunlit -> checked -> upright`; water variant chỉ xuất hiện
-  khi scene biểu diễn đất khô.
-- Core vocabulary:
-  - `sunlight` -> `sunlight` -> ánh nắng (`noun`).
-  - `shade` -> `shade` -> bóng râm (`noun`).
-  - `roots` -> `roots` -> rễ cây (`noun`).
-- Expanded vocabulary:
-  - `moisture` -> `moisture` -> độ ẩm (`noun`).
-  - `drooping` -> `drooping` -> đang rũ xuống (`adjective`).
-- Challenge vocabulary:
-  - `move-sunlight` -> `move it into the sunlight` -> chuyển cây ra chỗ có nắng (`phrase`).
-  - `check-soil` -> `check the soil` -> kiểm tra đất (`phrase`).
-
-#### `remove-the-weeds` - Nhổ cỏ dại / Remove the Weeds
-
-- Goal: phân biệt cây đang trồng với cỏ dại rồi làm sạch luống mà không kéo nhầm cây.
-- Core flow: tìm cỏ dại -> kéo đúng cỏ cùng phần rễ -> phủ lớp mỏng quanh cây.
-- Expanded insertion: dùng cào tay để làm tơi vùng cỏ và quan sát rễ cỏ.
-- Challenge check: chọn `pull out the weed`, giữ `leave the plant in place`.
-- Visible state: `garden-bed/weedy -> one-weed-left -> clear -> mulched`; cây chính giữ nguyên vị trí.
-- Core vocabulary:
-  - `weed` -> `weed` -> cỏ dại (`noun`).
-  - `garden-bed` -> `garden bed` -> luống vườn (`noun`).
-  - `mulch` -> `mulch` -> lớp phủ gốc (`noun`).
-- Expanded vocabulary:
-  - `weed-root` -> `weed root` -> rễ cỏ dại (`noun`).
-  - `hand-fork` -> `hand fork` -> cào tay nhỏ (`noun`).
-- Challenge vocabulary:
-  - `pull-weed` -> `pull out the weed` -> nhổ cỏ dại (`phrase`).
-  - `leave-plant` -> `leave the plant in place` -> để cây trồng ở nguyên chỗ (`phrase`).
-
-#### `support-the-plant` - Đỡ thân cây / Support the Plant
-
-- Goal: đặt cọc và buộc lỏng để thân cây không đổ nhưng vẫn có chỗ lớn lên.
-- Core flow: đặt cọc cạnh cây -> đưa dây quanh cọc/thân -> chọn độ buộc lỏng.
-- Expanded insertion: ghép dây leo với giàn leo thay vì cọc đơn.
-- Challenge check: `tie it loosely` trước khi xác nhận `support the stem`.
-- Visible state: `plant/leaning -> stake-added -> string-loose -> upright`; tight-string choice chỉ
-  phát fail feedback.
-- Core vocabulary:
-  - `stem` -> `stem` -> thân cây (`noun`).
-  - `stake` -> `stake` -> cọc đỡ cây (`noun`).
-  - `string` -> `string` -> dây buộc (`noun`).
-- Expanded vocabulary:
-  - `vine` -> `vine` -> dây leo (`noun`).
-  - `trellis` -> `trellis` -> giàn leo (`noun`).
-- Challenge vocabulary:
-  - `tie-loosely` -> `tie it loosely` -> buộc lỏng tay (`phrase`).
-  - `support-stem` -> `support the stem` -> đỡ thân cây (`phrase`).
-
-### 5.4 `garden-weather` - Thời tiết trong vườn / Garden Weather
-
-- Description VI: `Bé chọn cách bảo vệ cây trong ngày nắng nóng, mưa lớn và nhiều gió.`
-- Description EN: `Choose gentle plant care for hot sun, heavy rain, and windy weather.`
-- Parent tip VI: `Ba mẹ nhắc bé không tự nhấc chậu nặng hoặc chạm cành cây lớn sau mưa gió.`
-- Review title VI: `Giúp cây qua thời tiết`.
-- Review anchors: `hot-sunny-day/shade-cloth`, `hot-sunny-day/thermometer`,
-  `rainy-garden-day/rain-gauge`, `windy-garden-day/plant-cover`.
-
-#### `hot-sunny-day` - Ngày nắng nóng / A Hot Sunny Day
-
-- Goal: nhận biết cây/đất khô, tạo bóng che và chọn lúc tưới dịu hơn.
-- Core flow: tìm dấu hiệu nóng -> kéo tấm che -> kiểm tra đất khô.
-- Expanded insertion: xem nhiệt kế và chọn biểu tượng buổi sáng.
-- Challenge check: `make some shade`, sau đó `water in the morning`.
-- Visible state: `plant/drooping-hot -> shaded -> watered-morning -> upright`; không diễn hoạt tưới
-  giữa nắng gắt.
-- Core vocabulary:
-  - `hot` -> `hot` -> nóng (`adjective`).
-  - `dry-soil` -> `dry soil` -> đất khô (`noun`).
-  - `shade-cloth` -> `shade cloth` -> tấm che nắng (`noun`).
-- Expanded vocabulary:
-  - `morning` -> `morning` -> buổi sáng (`noun`).
-  - `thermometer` -> `thermometer` -> nhiệt kế (`noun`).
-- Challenge vocabulary:
-  - `make-shade` -> `make some shade` -> tạo bóng che (`phrase`).
-  - `water-morning` -> `water in the morning` -> tưới vào buổi sáng (`phrase`).
-
-#### `rainy-garden-day` - Ngày mưa lớn / A Rainy Garden Day
-
-- Goal: đưa chậu nhỏ vào chỗ có mái che và đổ nước khỏi đĩa lót.
-- Core flow: quan sát mưa lớn -> chuyển chậu nhỏ vào chỗ che -> tìm đĩa lót đầy nước.
-- Expanded insertion: đọc ống đo mưa và nhận biết nước đang tràn.
-- Challenge check: `move the pot under cover` trước `empty the saucer`.
-- Visible state: `plant-pot/exposed -> under-cover`; `plant-saucer/full -> empty`;
-  `overflow/visible -> hidden`.
-- Core vocabulary:
-  - `heavy-rain` -> `heavy rain` -> mưa lớn (`noun`).
-  - `plant-saucer` -> `plant saucer` -> đĩa lót chậu (`noun`).
-  - `shelter` -> `shelter` -> chỗ có mái che (`noun`).
-- Expanded vocabulary:
-  - `rain-gauge` -> `rain gauge` -> ống đo mưa (`noun`).
-  - `overflow` -> `overflow` -> tràn nước (`noun`).
-- Challenge vocabulary:
-  - `move-under-cover` -> `move the pot under cover` -> chuyển chậu vào chỗ có mái che (`phrase`).
-  - `empty-saucer` -> `empty the saucer` -> đổ nước khỏi đĩa lót (`phrase`).
-
-#### `windy-garden-day` - Ngày nhiều gió / A Windy Garden Day
-
-- Goal: chuyển cây nhỏ tới chỗ kín gió, cố định tấm phủ và nhờ người lớn xử lý cành rơi.
-- Core flow: tìm cây nhỏ đang rung -> chuyển tới góc kín -> nhận biết cành cây là vùng không chạm.
-- Expanded insertion: gắn kẹp cây vào tấm phủ và tìm chiếc lá rơi an toàn.
-- Challenge check: `move it to shelter`; với cành lớn phải chọn `ask a grown-up for help`.
-- Visible state: `plant-pot/windy -> sheltered`; `plant-cover/loose -> clipped`;
-  `fallen-branch/hazard` không bao giờ trở thành draggable.
-- Core vocabulary:
-  - `windy` -> `windy` -> nhiều gió (`adjective`).
-  - `plant-cover` -> `plant cover` -> tấm phủ cây (`noun`).
-  - `fallen-branch` -> `fallen branch` -> cành cây rơi (`noun`).
-- Expanded vocabulary:
-  - `plant-clip` -> `plant clip` -> kẹp cây (`noun`).
-  - `fallen-leaf` -> `fallen leaf` -> lá rụng (`noun`).
-- Challenge vocabulary:
-  - `move-shelter` -> `move it to shelter` -> chuyển cây vào chỗ kín (`phrase`).
-  - `ask-grown-up` -> `ask a grown-up for help` -> nhờ người lớn giúp (`phrase`).
-
-### 5.5 `garden-friends` - Bạn nhỏ trong vườn / Garden Friends
-
-- Description VI: `Bé quan sát giun đất, ong, bướm và các vị khách nhỏ mà không làm phiền chúng.`
-- Description EN: `Observe worms, bees, butterflies, and other garden visitors without disturbing them.`
-- Parent tip VI: `Ba mẹ cùng bé nhìn từ xa; không cầm côn trùng, tổ chim hoặc động vật lạ.`
-- Review title VI: `Quan sát bạn trong vườn`.
-- Review anchors: `helpers-in-the-soil/earthworm`, `garden-pollinators/bee`,
-  `garden-pollinators/butterfly`, `watch-gently/birdbath`.
-
-#### `helpers-in-the-soil` - Bạn dưới lớp đất / Helpers in the Soil
-
-- Goal: nhẹ nhàng nâng lá mục, quan sát giun và đặt lớp lá trở lại.
-- Core flow: tìm chiếc lá che đất -> nâng mép lá -> quan sát giun/đường hầm.
-- Expanded insertion: nhận biết đất tơi và lớp lá mục quanh lỗ nhỏ.
-- Challenge check: `look under the leaf`, sau đó `put it back gently`.
-- Visible state: `leaf-cover/closed -> lifted -> replaced`; `earthworm/hidden -> visible -> hidden`;
-  không có thao tác kéo trực tiếp con vật.
-- Core vocabulary:
-  - `earthworm` -> `earthworm` -> giun đất (`noun`).
-  - `tunnel` -> `tunnel` -> đường hầm nhỏ (`noun`).
-  - `loose-soil` -> `loose soil` -> đất tơi xốp (`noun`).
-- Expanded vocabulary:
-  - `leaf-litter` -> `leaf litter` -> lớp lá mục (`noun`).
-  - `tiny-hole` -> `tiny hole` -> lỗ nhỏ (`noun`).
-- Challenge vocabulary:
-  - `look-under-leaf` -> `look under the leaf` -> nhìn dưới chiếc lá (`phrase`).
-  - `put-back-gently` -> `put it back gently` -> đặt lại nhẹ nhàng (`phrase`).
-
-#### `garden-pollinators` - Ong và bướm / Garden Pollinators
-
-- Goal: theo dõi ong/bướm ghé hoa từ khoảng cách an toàn và quan sát phấn hoa.
-- Core flow: tìm ong -> tìm bướm -> chạm vùng phấn hoa ở giữa bông hoa.
-- Expanded insertion: nối đường từ nectar tới flower center mà không chạm con vật.
-- Challenge check: chọn `watch from a safe distance` và `let the bee work`.
-- Visible state: `flower/no-visitor -> bee-visit -> butterfly-visit -> pollinated`; fruit bud chỉ
-  xuất hiện sau cue thời gian trôi qua.
-- Core vocabulary:
-  - `bee` -> `bee` -> con ong (`noun`).
-  - `butterfly` -> `butterfly` -> con bướm (`noun`).
-  - `pollen` -> `pollen` -> phấn hoa (`noun`).
-- Expanded vocabulary:
-  - `nectar` -> `nectar` -> mật hoa (`noun`).
-  - `flower-center` -> `flower center` -> giữa bông hoa (`noun`).
-- Challenge vocabulary:
-  - `watch-safe-distance` -> `watch from a safe distance` -> quan sát từ khoảng cách an toàn
-    (`phrase`).
-  - `let-bee-work` -> `let the bee work` -> để ong làm việc (`phrase`).
-
-#### `watch-gently` - Quan sát nhẹ nhàng / Watch Gently
-
-- Goal: làm khu vườn yên, quan sát ba con vật và giữ nguyên tổ/nơi trú ẩn.
-- Core flow: bật biểu tượng giọng nhỏ -> tìm ốc sên -> tìm sâu bướm -> tìm chim.
-- Expanded insertion: cho nước sạch vào birdbath và tìm insect hotel mà không mở nó.
-- Challenge check: chọn `use gentle hands`; với tổ chim chọn `do not touch the nest`.
-- Visible state: `observation-sign/noisy -> quiet`; animal objects `hidden -> visible` theo từng
-  lượt quan sát; nest giữ nguyên và không interactive.
-- Core vocabulary:
-  - `snail` -> `snail` -> ốc sên (`noun`).
-  - `caterpillar` -> `caterpillar` -> sâu bướm (`noun`).
-  - `bird` -> `bird` -> con chim (`noun`).
-- Expanded vocabulary:
-  - `birdbath` -> `birdbath` -> khay nước cho chim (`noun`).
-  - `insect-hotel` -> `insect hotel` -> nhà trú cho côn trùng (`noun`).
-- Challenge vocabulary:
-  - `gentle-hands` -> `use gentle hands` -> dùng đôi tay nhẹ nhàng (`phrase`).
-  - `do-not-touch-nest` -> `do not touch the nest` -> không chạm vào tổ chim (`phrase`).
-
-### 5.6 `harvest-day` - Ngày thu hoạch / Harvest Day
-
-- Description VI: `Bé nhận biết rau quả chín, hái nhẹ nhàng và phân loại thành quả.`
-- Description EN: `Find ripe produce, pick it gently, and sort the harvest.`
-- Parent tip VI: `Ba mẹ chỉ cho bé hái cây đã xác định an toàn; không ăn quả hoặc lá lạ.`
-- Review title VI: `Thu hoạch trong vườn`.
-- Review anchors: `ready-to-pick/ripe`, `ready-to-pick/tomato`,
-  `pick-carefully/basket`, `sort-the-harvest/herb`.
-
-#### `ready-to-pick` - Đã chín chưa? / Ready to Pick?
-
-- Goal: phân biệt đồ chín/chưa chín bằng nhiều dấu hiệu, không chỉ màu sắc.
-- Core flow: so sánh hai quả -> tìm quả chín -> để quả chưa chín trên cây.
-- Expanded insertion: kiểm tra strawberry và pea pod bằng hình dạng/kích thước rõ ràng.
-- Challenge check: `check the color` kết hợp kích thước; chọn `leave the unripe one`.
-- Visible state: ripe targets có outline/icon sẵn sàng; unripe target giữ trung tính và không bị
-  tháo khỏi cây. Color không phải tín hiệu đúng duy nhất.
-- Core vocabulary:
-  - `ripe` -> `ripe` -> đã chín (`adjective`).
-  - `unripe` -> `unripe` -> chưa chín (`adjective`).
-  - `tomato` -> `tomato` -> quả cà chua (`noun`).
-- Expanded vocabulary:
-  - `strawberry` -> `strawberry` -> quả dâu tây (`noun`).
-  - `pea-pod` -> `pea pod` -> quả đậu (`noun`).
-- Challenge vocabulary:
-  - `check-color` -> `check the color` -> kiểm tra màu sắc (`phrase`).
-  - `leave-unripe` -> `leave the unripe one` -> để quả chưa chín lại trên cây (`phrase`).
-
-#### `pick-carefully` - Hái nhẹ nhàng / Pick Carefully
-
-- Goal: giữ giỏ ổn định, hái đồ chín bằng thao tác nhẹ và đặt vào giỏ.
-- Core flow: đặt giỏ -> giữ gần cuống -> thực hiện chuyển động hái -> đặt vào giỏ.
-- Expanded insertion: chọn dùng hai tay và nhận biết gentle twist; không dùng kéo/dao.
-- Challenge check: `hold the basket`, sau đó `pick it gently`.
-- Visible state: `produce/on-plant -> picked`; `basket/empty -> one-item -> filled`; plant không
-  rung mạnh hoặc bị mất cành.
-- Core vocabulary:
-  - `basket` -> `basket` -> cái giỏ (`noun`).
-  - `fruit-stem` -> `fruit stem` -> cuống quả (`noun`).
-  - `harvest` -> `harvest` -> vụ thu hoạch (`noun`).
-- Expanded vocabulary:
-  - `two-hands` -> `two hands` -> hai tay (`noun`).
-  - `gentle-twist` -> `gentle twist` -> xoay nhẹ (`noun`).
-- Challenge vocabulary:
-  - `hold-basket` -> `hold the basket` -> giữ chiếc giỏ (`phrase`).
-  - `pick-gently` -> `pick it gently` -> hái nhẹ nhàng (`phrase`).
-
-#### `sort-the-harvest` - Phân loại thành quả / Sort the Harvest
-
-- Goal: phân loại đồ thu hoạch theo nhóm và để riêng món bị dập cho người lớn kiểm tra.
-- Core flow: kéo fruit -> vegetable -> herb vào ba vùng riêng.
-- Expanded insertion: so sánh large/small trong cùng nhóm mà không biến kích thước thành đúng/sai
-  cho loại thực phẩm.
-- Challenge check: `sort by type`; món bị dập dùng `put the bruised one aside`.
-- Visible state: `harvest-basket/mixed -> fruit-bin + vegetable-bin + herb-bin`; bruised item vào
-  vùng người lớn kiểm tra, không đi thẳng tới món ăn.
-- Core vocabulary:
-  - `fruit` -> `fruit` -> trái cây (`noun`).
-  - `vegetable` -> `vegetable` -> rau củ (`noun`).
-  - `herb` -> `herb` -> rau thơm (`noun`).
-- Expanded vocabulary:
-  - `large` -> `large` -> lớn (`adjective`).
-  - `small` -> `small` -> nhỏ (`adjective`).
-- Challenge vocabulary:
-  - `sort-type` -> `sort by type` -> phân loại theo nhóm (`phrase`).
-  - `bruised-aside` -> `put the bruised one aside` -> để món bị dập sang một bên (`phrase`).
-
-### 5.7 `garden-to-table` - Từ vườn tới bàn ăn / Garden to Table
-
-- Description VI: `Bé rửa rau quả, làm món nguội cùng người lớn và bày bàn để chia sẻ.`
-- Description EN: `Wash the harvest, make a cold snack with a grown-up, and share it at the table.`
-- Parent tip VI: `Ba mẹ phụ trách mọi thao tác cắt, bếp nóng và kiểm tra dị ứng trước khi bé nếm.`
-- Review title VI: `Chuẩn bị món từ vườn`.
-- Review anchors: `wash-the-harvest/colander`, `make-a-garden-snack/cucumber`,
-  `set-and-share/placemat`, `set-and-share/serving-bowl`.
-
-#### `wash-the-harvest` - Rửa rau quả / Wash the Harvest
-
-- Goal: cho rau quả vào rổ, rửa bằng nước sạch và để ráo.
-- Core flow: đặt đồ vào colander -> bật dòng clean water -> tìm dirt còn sót.
-- Expanded insertion: đặt kitchen towel dưới rổ và nhận biết nước đang drain.
-- Challenge check: `rinse it well`, sau đó `let it drain`.
-- Visible state: `produce/dirty -> rinsed -> draining -> clean`; nước dừng sau khi rửa, không chạy
-  liên tục như phần thưởng.
-- Core vocabulary:
-  - `colander` -> `colander` -> rổ để ráo nước (`noun`).
-  - `clean-water` -> `clean water` -> nước sạch (`noun`).
-  - `dirt` -> `dirt` -> đất bẩn (`noun`).
-- Expanded vocabulary:
-  - `kitchen-towel` -> `kitchen towel` -> khăn bếp (`noun`).
-  - `drain` -> `drain` -> để ráo nước (`verb`).
-- Challenge vocabulary:
-  - `rinse-well` -> `rinse it well` -> rửa kỹ (`phrase`).
-  - `let-drain` -> `let it drain` -> để cho ráo nước (`phrase`).
-
-#### `make-a-garden-snack` - Làm món nguội / Make a Garden Snack
-
-- Goal: xé lettuce, thêm nguyên liệu đã được người lớn chuẩn bị và trộn món nguội.
-- Core flow: đặt bowl -> xé lettuce bằng tay -> thêm cucumber đã cắt sẵn.
-- Expanded insertion: thêm corn và chọn salad spoon.
-- Challenge check: `tear the lettuce` trước `mix the salad`.
-- Visible state: `ingredients/whole-safe -> prepared-by-grown-up -> bowl-layered -> mixed`;
-  không có knife, stove hoặc hot surface trong scene.
-- Core vocabulary:
-  - `cucumber` -> `cucumber` -> dưa leo (`noun`).
-  - `lettuce` -> `lettuce` -> xà lách (`noun`).
-  - `bowl` -> `bowl` -> cái tô (`noun`).
-- Expanded vocabulary:
-  - `corn` -> `corn` -> bắp/ngô (`noun`).
-  - `salad-spoon` -> `salad spoon` -> muỗng trộn rau (`noun`).
-- Challenge vocabulary:
-  - `tear-lettuce` -> `tear the lettuce` -> xé xà lách (`phrase`).
-  - `mix-salad` -> `mix the salad` -> trộn món rau (`phrase`).
-
-#### `set-and-share` - Bày và chia sẻ / Set and Share
-
-- Goal: bày chỗ ăn, đặt tô dùng chung và chia phần cùng người lớn.
-- Core flow: đặt placemat -> plate -> serving bowl.
-- Expanded insertion: thêm napkin và cup vào touch zones ổn định.
-- Challenge check: `set the table`, sau đó `share the salad`.
-- Visible state: `table/empty -> one-place-set -> complete -> shared`; serving bowl không biến mất
-  sau khi chia để bé thấy nguồn và phần ăn.
-- Core vocabulary:
-  - `placemat` -> `placemat` -> tấm lót bàn ăn (`noun`).
-  - `plate` -> `plate` -> cái đĩa (`noun`).
-  - `serving-bowl` -> `serving bowl` -> tô đựng món chung (`noun`).
-- Expanded vocabulary:
-  - `napkin` -> `napkin` -> khăn ăn (`noun`).
-  - `cup` -> `cup` -> cái cốc (`noun`).
-- Challenge vocabulary:
-  - `set-table` -> `set the table` -> bày bàn ăn (`phrase`).
-  - `share-salad` -> `share the salad` -> chia sẻ món rau (`phrase`).
-
-### 5.8 `garden-cycle` - Vòng đời tiếp tục / The Garden Cycle
-
-- Description VI: `Bé phân loại phần thừa, làm sạch dụng cụ và giữ hạt cho mùa trồng mới.`
-- Description EN: `Sort suitable scraps, clean the tools, and save seeds for the next season.`
-- Parent tip VI: `Ba mẹ quyết định vật nào vào compost và cất hạt ở nơi khô, ngoài tầm em bé nhỏ.`
-- Review title VI: `Chuẩn bị cho mùa mới`.
-- Review anchors: `sort-the-scraps/compost-bin`, `clean-the-tools/tool-rack`,
-  `save-the-seeds/seed-pod`, `save-the-seeds/seed-envelope`.
-
-#### `sort-the-scraps` - Phân loại phần thừa / Sort the Scraps
-
-- Goal: chọn phần thực vật phù hợp cho compost và giữ nhựa ở ngoài.
-- Core flow: kéo fruit peel -> dry leaves -> compost bin.
-- Expanded insertion: phân biệt food scraps thực vật với plastic wrapper.
-- Challenge check: `put scraps in the compost`; chọn `keep plastic out` cho bao nhựa.
-- Visible state: `sorting-tray/mixed -> compost-items -> plastic-aside`; chỉ hiển thị vật liệu dễ
-  hiểu, không dạy meat/dairy hoặc quy tắc compost phức tạp.
-- Core vocabulary:
-  - `fruit-peel` -> `fruit peel` -> vỏ trái cây (`noun`).
-  - `dry-leaves` -> `dry leaves` -> lá khô (`noun`).
-  - `compost-bin` -> `compost bin` -> thùng ủ phân hữu cơ (`noun`).
-- Expanded vocabulary:
-  - `food-scraps` -> `food scraps` -> phần thức ăn thừa (`noun`).
-  - `plastic-wrapper` -> `plastic wrapper` -> bao nhựa (`noun`).
-- Challenge vocabulary:
-  - `put-scraps-compost` -> `put scraps in the compost` -> cho phần phù hợp vào compost (`phrase`).
-  - `keep-plastic-out` -> `keep plastic out` -> không cho nhựa vào (`phrase`).
-
-#### `clean-the-tools` - Làm sạch dụng cụ / Clean the Tools
-
-- Goal: phủi đất, rửa vừa đủ, lau khô và cất dụng cụ nhỏ lên giá.
-- Core flow: dùng brush phủi mud -> đặt dụng cụ vào rinse bucket -> cất lên tool rack.
-- Expanded insertion: lau bằng dry cloth trước khi cất.
-- Challenge check: `brush off the soil`, sau đó `put the tools away`.
-- Visible state: `tools/muddy -> brushed -> rinsed -> dry -> rack`; dòng nước không chạy liên tục.
-- Core vocabulary:
-  - `brush` -> `brush` -> bàn chải (`noun`).
-  - `mud` -> `mud` -> bùn đất (`noun`).
-  - `tool-rack` -> `tool rack` -> giá cất dụng cụ (`noun`).
-- Expanded vocabulary:
-  - `rinse-bucket` -> `rinse bucket` -> xô rửa dụng cụ (`noun`).
-  - `dry-cloth` -> `dry cloth` -> khăn khô (`noun`).
-- Challenge vocabulary:
-  - `brush-soil` -> `brush off the soil` -> phủi đất khỏi dụng cụ (`phrase`).
-  - `put-tools-away` -> `put the tools away` -> cất dụng cụ (`phrase`).
-
-#### `save-the-seeds` - Giữ hạt giống / Save the Seeds
-
-- Goal: lấy hạt khô, cho vào phong bì, gắn nhãn và cất ở nơi khô cho lần sau.
-- Core flow: mở seed pod khô -> cho hạt vào seed envelope -> đặt phong bì lên shelf.
-- Expanded insertion: gắn label và chọn dry place thay vì nơi ẩm.
-- Challenge check: `save the seeds`, kết thúc bằng `plant again next season`.
-- Visible state: `seed-pod/closed -> open`; `seed-envelope/empty -> filled -> labeled -> stored`;
-  completion art nối lại hình chậu rỗng ở đầu theme.
-- Core vocabulary:
-  - `seed-pod` -> `seed pod` -> quả chứa hạt (`noun`).
-  - `seed-envelope` -> `seed envelope` -> phong bì đựng hạt (`noun`).
-  - `shelf` -> `shelf` -> cái kệ (`noun`).
-- Expanded vocabulary:
-  - `label` -> `label` -> nhãn ghi tên (`noun`).
-  - `dry-place` -> `dry place` -> nơi khô ráo (`noun`).
-- Challenge vocabulary:
-  - `save-seeds` -> `save the seeds` -> giữ lại hạt giống (`phrase`).
-  - `plant-next-season` -> `plant again next season` -> trồng lại vào mùa sau (`phrase`).
-
-## 6. Vocabulary overlap audit
-
-Audit được thực hiện trên các `VocabularyItem.word` khai báo trong `src/data/`, không chỉ các file
-lesson factory. Theme 4 có 168 exact English strings duy nhất; 23 strings dưới đây đã tồn tại và
-được coi là deliberate review:
-
-| Existing target | Current source/context | Theme 4 purpose |
+| 1 | `plant-a-seed` | Bé gieo hạt / Plant a Seed | Chuẩn bị chậu -> gieo hạt -> tưới lần đầu | Bé tạo độ ẩm vừa đủ và thấy mầm xuất hiện sau cue thời gian. |
+| 2 | `help-it-grow` | Giúp cây lớn lên / Help It Grow | Lá và ánh nắng -> chăm cây ngày mưa -> đỡ cây ngày gió | Bé dùng dấu hiệu của cây/thời tiết để giúp cây có thêm lá và đứng vững. |
+| 3 | `garden-friends` | Bạn nhỏ trong vườn / Garden Friends | Bạn dưới đất -> ong và bướm -> quan sát nhẹ nhàng | Bé khám phá sinh vật trong vườn mà không kéo/chạm trực tiếp vào chúng. |
+| 4 | `harvest-day` | Ngày thu hoạch / Harvest Day | Nhận biết đồ chín -> hái nhẹ -> phân loại | Bé để đồ chưa chín lại trên cây và thu hoạch an toàn bằng tay. |
+| 5 | `garden-to-table` | Từ vườn tới bàn ăn / Garden to Table | Rửa -> làm/chia sẻ món nguội -> giữ hạt | Bé thưởng thức thành quả cùng người lớn và nối lại vòng đời bằng một hạt cho mùa mới. |
+
+Theme hoàn chỉnh dự kiến có 15 mini-scenes, 15 scene icons và 5 milestone icons. Một hero plant
+lineage được Mốc 4B khóa là cây cà chua và phải giữ silhouette/tiến trình xuyên theme;
+rau quả khác ở bài thu hoạch phải xuất hiện rõ là từ luống/cây khác, không ngụ ý một hạt duy nhất
+biến thành nhiều loài. Các con vật trong `garden-friends` là “bạn/hàng xóm trong vườn”; copy không
+khẳng định mọi loài đều trực tiếp giúp cây. Con số scene/icon là planning target; chỉ asset thực
+sự được author mới được thêm vào catalogs/manifests.
+
+## 7. `plant-a-seed` - implemented opening lesson
+
+`plant-a-seed` giữ nguyên vị trí đầu và contract runtime hiện có:
+
+- `prepare-the-pot`: chậu `empty -> soil-low -> soil-ready`.
+- `plant-the-seed`: đất `flat -> hole-open -> seed-visible -> covered`.
+- `first-watering`: đất `dry -> damp`; mầm chỉ hiện sau cue ngày-đêm; success path giữ puddle ẩn.
+- Review `random` dùng bốn anchor hình rõ.
+- Pilot có 21 vocabulary items và cho mỗi item một auto speech-practice encounter. Đây là ngoại
+  lệ lịch sử đã được kiểm thử, không phải production template cho các lesson tiếp theo.
+
+Scene IDs, asset, audio và speech behavior của pilot không đổi; metadata tuổi hiện hiển thị
+`6-8 tuổi · Nâng cao` để phụ huynh nhận biết content track của toàn Theme 4.
+
+## 8. Content contracts cho các lesson tiếp theo
+
+Các từ của `harvest-day` và `garden-to-table` vẫn là candidate set, chưa phải exact-copy freeze.
+Mỗi vertical slice phải audit lại nghĩa, hình ảnh, app-wide overlap và audio text trước khi
+author. `help-it-grow` và `garden-friends` đã có storyboard riêng với exact contract.
+
+### 8.1 `help-it-grow`
+
+**Purpose:** nối trực tiếp từ mầm của pilot, gộp chăm cây với nắng/mưa/gió và tạo payoff là cây có
+thêm lá, đứng thẳng.
+
+**Required beats:**
+
+1. Dùng nước như Action Enabler/Quick Recall, rồi khám phá `leaf` và `sunlight`.
+2. Quan sát `rain`, kiểm tra dấu hiệu đất/cây và chỉ can thiệp khi cần.
+3. `wind` làm cây nghiêng; bé nhận biết `stem` và giúp cây đứng vững.
+
+**Frozen New Anchors:**
+
+- Core: `leaf`, `sunlight`, `rain`, `wind`, `stem`.
+- Expanded: `shade`, `roots`, `stake`.
+- Challenge: `check the soil`, `support the stem`.
+
+**Frozen Quick Recall/Action Enablers:** nước/bình tưới; chậu cùng đích kéo nắng/mái che; đất;
+vòng thời gian; bộ que-dây. Những object này không mở lại deep-teach/recording flow. Nếu bé vào
+lesson theo free journey, cue Việt và hình vẫn phải đủ để thao tác.
+
+**Frozen scene IDs:** `new-leaf-and-sunlight` -> `rainy-day-care` -> `wind-and-support`.
+
+**State direction:** cây rũ -> được tưới -> tươi hơn ngay -> cue thời gian -> lá mở; cây gặp gió
+-> nghiêng -> được đỡ -> đứng thẳng -> cue thời gian -> nụ hoa. Rain, sunlight hoặc water không
+làm cây lớn tức thì. Mỗi weather scene dùng một tình huống được author sẵn; không yêu cầu runtime
+mô phỏng độ ẩm hoặc rẽ nhánh theo lịch sử tưới.
+
+Exact lesson metadata, IDs, VI/EN copy, speech policy, state map, review 4/5/6 và asset inventory
+nằm trong `docs/theme-4-help-it-grow-storyboard.md`; tài liệu đó có ưu tiên cho vertical slice này.
+
+### 8.2 `garden-friends`
+
+**Purpose:** chuyển từ chăm cây sang khám phá hệ sinh thái, ưu tiên bất ngờ thị giác và quan sát
+không xâm lấn.
+
+**Required beats:**
+
+1. Nâng mép lá/quan sát lớp đất để khám phá sinh vật dưới đất, sau đó đặt lại nhẹ nhàng.
+2. Theo dõi ong và bướm ghé hoa từ khoảng cách an toàn.
+3. Tìm các bạn nhỏ khác bằng giọng nhỏ và đôi tay đứng yên.
+
+**Frozen New Anchors:**
+
+- Core: `earthworm`, `bee`, `butterfly`, `snail`, `caterpillar`, `flower`.
+- Expanded: `tunnel`, `birdbath`.
+- Challenge: `look under the leaf`, `watch gently`.
+
+**Recall/enabler candidates:** `soil`, `leaf`, `water`. Animal objects không draggable; bé chạm
+vùng quan sát hoặc môi trường, không chạm/kéo trực tiếp con vật.
+
+**State direction:** vật che `closed -> lifted -> replaced`; animal `hidden -> visible`; flower
+visit chỉ tạo pollination/growth payoff sau cue thời gian.
+
+**Frozen scene IDs:** `under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`. Exact lesson
+metadata, VI/EN copy, speech policy, review 4/5/6, safety interaction targets và asset inventory
+nằm trong `docs/theme-4-garden-friends-storyboard.md`; tài liệu đó có ưu tiên cho vertical slice.
+
+### 8.3 `harvest-day`
+
+**Purpose:** tạo payoff lớn sau quá trình chăm cây, giúp bé nhận biết đồ sẵn sàng thu hoạch và giữ
+đồ chưa chín trên cây.
+
+**Required beats:**
+
+1. So sánh nhiều dấu hiệu để tìm đồ chín, không chỉ dựa vào màu.
+2. Hái nhẹ bằng tay và đặt vào giỏ; không dùng kéo hoặc dao.
+3. Phân loại thành quả và để món bị dập sang vùng người lớn kiểm tra.
+
+**Candidate New Anchors:**
+
+- Core candidates: `ripe`, `unripe`, `tomato`, `pick`, `vegetable`, `herb`.
+- Expanded candidates: `fruit stem`, `strawberry`, `pea pod`, `bruised`.
+- Challenge chọn tối đa 1-2 candidates: `leave the unripe one`, `pick it gently`,
+  `sort by type`.
+
+**Recall/enabler candidates:** `leaf`, `stem`, `basket`, `garden gloves`. `basket` hoặc `gloves`
+có thể là familiar visual enabler ngay cả khi bé chưa học exact English ở theme khác.
+
+**State direction:** produce `on-plant -> picked`; basket `empty -> filled`; unripe produce và cây
+chính giữ nguyên, không rung mạnh hoặc mất cành.
+
+### 8.4 `garden-to-table`
+
+**Purpose:** rửa, dùng thành quả trong món nguội cùng người lớn, chia sẻ và kết thúc bằng một hạt
+được giữ lại để nối về đầu theme.
+
+**Required beats:**
+
+1. Rửa rau quả bằng nước sạch và để ráo.
+2. Làm/chia sẻ món nguội với nguyên liệu người lớn đã chuẩn bị an toàn.
+3. Giữ một hạt khô vào phong bì; completion art nối lại chậu/hạt ở đầu theme.
+
+**Candidate New Anchors:**
+
+- Core candidates: `rinse`, `lettuce`, `cucumber`, `bowl`, `share`, `seed envelope`.
+- Expanded candidates: `colander`, `kitchen towel`, `drain`, `label`.
+- Challenge chọn tối đa 1-2 candidates: `rinse it well`, `share the salad`, `save the seeds`.
+
+**Recall/enabler candidates:** `water`, `basket`, `seed`, `soil`. `seed` ở final beat là ký ức và
+công cụ nối vòng, không chạy lại deep-teach/auto-recording flow.
+
+**State direction:** produce `dirty -> rinsed -> clean`; bowl `empty -> prepared -> shared`; seed
+envelope `empty -> filled -> stored`; completion visual trở lại hình hạt/chậu nhưng không reset
+runtime progress.
+
+## 9. Retired blueprint redistribution
+
+Ba lesson ID dưới đây đã bị loại khỏi future catalog trước khi runtime registration; không cần
+migration persisted data:
+
+- `garden-ready`
+- `garden-weather`
+- `garden-cycle`
+
+| Retired content | New home | Role/policy |
 | --- | --- | --- |
-| `check the weather` | `dress-myself` | Áp dụng lại trước khi ra vườn. |
-| `sun hat` | `beach-day` | Chuyển kiến thức che nắng sang hoạt động làm vườn. |
-| `apron` | Theme 1 shared vocabulary | Ôn đồ bảo vệ quần áo. |
-| `watering can` | `grandparents-visit/garden-help` | Dụng cụ đã biết, dùng trong chuỗi chuẩn bị. |
-| `spray bottle` | Theme 1 shared vocabulary | Nhận biết thêm dụng cụ; không thay thế bình tưới. |
-| `plant pot` | `grandparents-visit/garden-help` | Dùng như container có state rỗng/đất/hạt. |
-| `seed` | `grandparents-visit/garden-help` | Đưa từ đã biết vào chuỗi gieo thật sự. |
-| `plant a seed` | `grandparents-visit/garden-help` | Ôn phrase nhưng gắn với hành động nhiều bước. |
-| `water` | `doctor-visit` và Theme 1 shared vocabulary | Cùng từ nhưng ngữ cảnh mới là chăm cây. |
-| `shade` | Theme 1 shared vocabulary | Áp dụng vào vị trí đặt cây. |
-| `hot` | `speaking-up` | Chuyển từ trạng thái cơ thể sang mô tả thời tiết. |
-| `thermometer` | `doctor-visit` | Dùng hình nhiệt kế môi trường, không phải đo cơ thể. |
-| `tomato` | `supermarket-trip` | Nối thực phẩm trong siêu thị với nguồn trong vườn. |
-| `basket` | `supermarket-trip` và Theme 1 shared vocabulary | Dùng cho thu hoạch thay vì mua sắm. |
-| `fruit` | `supermarket-trip` và Theme 1 shared vocabulary | Dùng làm nhóm phân loại. |
-| `bowl` | Theme 1 shared vocabulary | Dùng trong món nguội có logic chuẩn bị. |
-| `placemat` | Theme 1 shared vocabulary | Ôn khi bày bàn. |
-| `plate` | Theme 1 shared vocabulary | Ôn khi bày bàn. |
-| `napkin` | `park-visit` và Theme 1 shared vocabulary | Ôn khi bày bàn. |
-| `cup` | Theme 1 shared vocabulary | Ôn khi bày bàn. |
-| `compost bin` | Theme 1 shared vocabulary | Mở rộng từ nhận biết sang phân loại phần thừa. |
-| `shelf` | `library-visit` và Theme 1 shared vocabulary | Cùng vật, ngữ cảnh cất hạt/dụng cụ. |
-| `label` | Theme 1 shared vocabulary | Dùng để ghi tên hạt/cây. |
+| Weather check | Mở đầu các beat nắng/mưa/gió trong `help-it-grow` | Visual cue hoặc Quick Recall, không là lesson riêng. |
+| `sun hat`, `garden boots` | Weather art trong `help-it-grow` khi phù hợp | Props/Action Enablers; chỉ thành New Anchor nếu vertical slice chứng minh cần thiết. |
+| `garden gloves` | `harvest-day` hoặc safety art | Familiar visual enabler, không chặn core path. |
+| `trowel`, `watering can`, tool basket | Cảnh cần công cụ | Action Enablers; không có bước gom dụng cụ bắt buộc. |
+| Hot/rain/wind care | Ba story beats của `help-it-grow` | Chỉ giữ tình huống cây nhỏ, an toàn và có dấu hiệu rõ. |
+| Fallen branch/extreme-weather hazards | Parent tip hoặc loại bỏ | Không biến thành child interaction target. |
+| Save seeds | Scene cuối `garden-to-table` | Payoff vòng đời; `seed` là Quick Recall/Action Enabler. |
+| Compost và clean-tools flows | Không bắt buộc trong Theme 4 v2 | Có thể xuất hiện như completion art nhanh; không giữ target budget nếu làm pacing dài. |
+| Shelf/label/storage details | Expanded final scene nếu cần | Không làm core closure phụ thuộc khả năng đọc nhãn. |
 
-Các overlap gần nghĩa nhưng không trùng exact string như `leaf`/`fallen leaf`/`dry leaves`,
-`flower`/`flower center`, `pick vegetables`/`harvest` vẫn cần được đánh dấu trong content review.
-Mốc 1 không thay progress schema. Runtime hiện đếm learned words theo vocabulary ID, nên các target
-ôn lại vẫn có thể được tính như một ID mới. Theme 4 giảm overlap có thể tránh được nhưng không tự
-đưa thêm khái niệm shared lexeme vào task này.
+Không cố giữ mọi từ của blueprint cũ. Một concept chỉ được chuyển sang lesson mới khi nó phục vụ
+câu chuyện, state change hoặc safety; không chuyển chỉ để bảo toàn target count lịch sử.
 
-## 7. Visual and asset direction
+## 10. Identifier contract
 
-### Continuity
+- Frozen lesson IDs theo thứ tự: `plant-a-seed`, `help-it-grow`, `garden-friends`, `harvest-day`,
+  `garden-to-table`.
+- Scene beat labels trong mục 6 và 8 chưa phải ID. Mỗi lesson vertical slice sẽ freeze scene IDs
+  trước khi tạo asset/audio.
+- Vocabulary ID khi author dùng dạng
+  `vocab-<lesson-id>-<scene-id>-<vocabulary-key>`.
+- Object ID dùng dạng `<scene-id>-<object-key>`.
+- Step ID dùng dạng `<scene-id>-<action>-<target-key>`.
+- Variant keys mô tả trạng thái, không dùng tên tuần tự chung như `image-2`.
+- Không đổi key đã content-frozen sau khi asset/audio được tạo nếu chưa có rename plan.
 
-- Lesson 2-4 tái sử dụng cùng một cây non về art direction để bé nhận ra hành trình tiếp nối.
-- Scene đầu của lesson sau phải bắt đầu bằng kết quả hợp lý từ lesson trước ở cấp hình ảnh/copy;
-  runtime không persist object state xuyên scene.
-- Mọi chuyển đổi mọc mầm, ra hoa hoặc có quả dùng cue ngày-đêm/lịch/thời tiết để thể hiện thời gian.
-- Background thay đổi theo tiến trình nhưng không chứa chữ English hoặc Vietnamese baked vào ảnh.
+## 11. Visual and asset direction
+
+### Continuity và production sheets
+
+- Cùng một cây được giữ art direction xuyên năm lesson để bé nhận ra hành trình tiếp nối.
+- Scene đầu của lesson sau bắt đầu bằng kết quả hợp lý từ lesson trước ở cấp hình ảnh/copy;
+  runtime không persist object state xuyên lesson.
+- Mỗi scene được tạo từ một production sheet thống nhất rồi cắt thành background và transparent
+  PNG masters để giữ style, ánh sáng và tỷ lệ nhất quán.
+- Source of truth vẫn là
+  `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png`; WebP, manifest và generated
+  release là output của pipeline, không sửa tay.
+- Background và cutout không chứa English/Vietnamese text baked vào raster.
 
 ### State variants
 
-- Các variant của cùng object phải giữ canvas, anchor và silhouette tương thích để không “nhảy”
-  vị trí khi đổi asset.
-- Variant keys phải mô tả trạng thái, ví dụ `plant-pot-empty`, `plant-pot-soil-ready`, không dùng
-  tên như `image-2`.
-- Transparent object PNG masters tách khỏi background khi object cần hiện/ẩn/đổi state.
-- Asset audit/build scripts và runtime preload đã scan mọi variant source; Theme 4 không được dựa
-  vào việc effect asset tình cờ kéo một state image vào pipeline.
-- Incorrect choice không cần một asset state riêng nếu shake/highlight hiện tại đã đủ.
+- Variant của cùng object giữ canvas, anchor và silhouette tương thích để không nhảy vị trí.
+- Object cần show/hide/variant phải là transparent cutout tách khỏi background.
+- Incorrect choice không cần state asset riêng nếu shake/highlight hiện tại đã đủ.
+- Growth, flower, fruit và seed-cycle payoff phải có cue ngày-đêm/lịch/thời tiết thể hiện thời gian.
 
 ### Child clarity and accessibility
 
-- Hình đúng/sai không chỉ phân biệt bằng màu. Dùng thêm độ lớn, hình dạng, icon trạng thái hoặc
-  bố cục để hỗ trợ color-vision differences.
-- Touch area hiệu dụng mục tiêu tối thiểu 48dp; vật nhỏ có touch area rộng hơn hình nhưng không
-  chồng lên target khác.
-- Primary target không bị character hoặc object sibling che hitbox.
-- Reduce Motion giữ state cuối, màu, icon và feedback; cue thời gian có bản tĩnh nếu animation bị tắt.
-- Mỗi scene cần một icon riêng, mỗi lesson cần một milestone icon riêng và theme cần một icon riêng.
-  Theo invariant hiện tại, 24 scene icons không lặp nhau và 8 milestone icons không dùng lại scene icon.
+- Đáp án không chỉ phân biệt bằng màu; dùng thêm silhouette, trạng thái, kích thước hoặc bố cục.
+- Touch target hiệu dụng tối thiểu 48dp và không chồng hit area của lựa chọn khác.
+- Primary target không bị character/sibling che hitbox.
+- Reduce Motion vẫn giữ state cuối, icon và feedback; cue thời gian có bản tĩnh.
+- Khi toàn theme được author, scene/milestone icons không lặp nhau và milestone icon không dùng
+  lại scene icon.
 
-## 8. Safety and factual boundaries
+## 12. Safety and factual boundaries
 
 - Không có pesticide, fertilizer concentrate, unknown mushroom/berry hoặc hành vi nếm cây lạ.
 - Không cho bé dùng knife, garden shears, lawn mower, stove, hot water hoặc electrical tool.
-- Scene món ăn chỉ dùng nguyên liệu đã được người lớn rửa/cắt khi cần; copy nhắc người lớn kiểm tra
-  dị ứng và độ an toàn trước khi nếm.
-- Fallen branch lớn, tổ chim, ong/bướm và mọi động vật không draggable. Câu đúng là quan sát từ xa
-  hoặc nhờ người lớn.
-- Chỉ chậu nhỏ được di chuyển trong interaction. Art không khuyến khích bé tự nâng chậu nặng.
-- Watering feedback dạy “ẩm vừa đủ”, không dạy một lịch tưới tuyệt đối cho mọi loại cây.
-- Pollination/growth/harvest diễn ra sau cue thời gian; không dùng quan hệ nhân-quả tức thời sai lệch.
-- Compost scene chỉ dùng fruit/vegetable scraps và dry leaves dễ hiểu; không dạy quy tắc về meat,
-  dairy, pet waste hoặc compost system cụ thể của địa phương.
-- Sau thao tác với đất/cây, completion/parent copy nhắc rửa tay nhưng không biến wash-hands thành
-  một duplicate lesson flow bắt buộc trong mọi scene.
+- Món ăn chỉ dùng nguyên liệu người lớn đã rửa/cắt khi cần; parent copy nhắc kiểm tra dị ứng và độ
+  an toàn trước khi nếm.
+- Hạt nhỏ do người lớn chuẩn bị/cất giữ, tránh tầm với của em bé và không được đưa vào miệng.
+- Ong, bướm, giun, tổ chim và các động vật khác không draggable. Bé tương tác với vùng quan sát
+  hoặc môi trường.
+- Chỉ chậu nhỏ được di chuyển. Art không khuyến khích bé tự nâng chậu nặng.
+- Watering feedback dạy quan sát đất/cây và “ẩm vừa đủ”, không dạy lịch tưới tuyệt đối.
+- Growth, pollination và harvest có cue thời gian; không dùng quan hệ nhân-quả tức thời sai lệch.
+- Sau thao tác với đất/cây, completion hoặc parent copy nhắc rửa tay nhưng không lặp một lesson
+  rửa tay bắt buộc ở mọi scene.
 
-## 9. Copy and localization requirements
+## 13. Copy, audio và speech-practice requirements
 
-- `instructionVi`, `successFeedbackVi`, `failFeedbackVi` phải là tiếng Việt tự nhiên; English chỉ
-  nằm trong vocabulary, `promptText` hoặc explicit English fields.
-- Primary Vietnamese practice instruction mục tiêu tối đa 12 từ, giống Theme 2/3 draft contract.
-- English vocabulary phải tự nhiên khi đọc thành tiếng, có article/possessive cần thiết.
-- Scene intro, narrative transition và completion phải có explicit VI/EN copy; không dùng scene title
-  thay cho bản dịch narrative.
-- Teacher prompt `vi`, `en`, `bilingual` phải dẫn đến cùng interaction và cùng state change.
-- `englishAccent` chỉ đổi en-US/en-GB audio, không tự đổi spelling/copy trong bảng trên.
-- Challenge phrase phải gắn với action/state thật. Chỉ dùng phrase card khi hành động không thể thể
-  hiện trực tiếp một cách an toàn hoặc rõ ràng.
-- Không có pronunciation scoring hoặc câu khẳng định bé phát âm đúng; speech practice tiếp tục chỉ
-  là ghi/phát lại và khích lệ.
+- `instructionVi`, `successFeedbackVi`, `failFeedbackVi` dùng tiếng Việt tự nhiên; English nằm ở
+  vocabulary, `promptText` hoặc explicit English fields.
+- Pre-reader target: tối đa 12 từ cho teach instruction và 10 từ cho review instruction; mỗi câu
+  chỉ một ý và một hành động.
+- New Anchor phải được giải nghĩa bằng lời Việt/hình trước hoặc ngay lúc model English phát.
+- Quick Recall không được dùng copy kiểu “Bé nói theo cô” và không mở pronunciation panel.
+- Action Enabler ưu tiên phản ứng nhanh; không chèn model word chỉ vì object có tên English.
+- Core New Anchor có một `auto` speech encounter; expanded mặc định `optional`; challenge phrase
+  chỉ `auto` khi đã có visual teach và không tạo chuỗi ghi âm dày.
+- Không có pronunciation scoring hoặc lời khẳng định bé phát âm đúng. Speech practice chỉ ghi,
+  phát lại và khích lệ.
+- Khóa VI/EN copy trước Google TTS generation. Luôn chạy audio dry-run trước; Mốc 4A không generate
+  hoặc publish audio.
 
-## 10. Review design
+## 14. Review design
 
-- Mỗi lesson dùng review type `random`; runtime tiếp tục cho phép đổi giữa Memory, Listen & Choose
-  và Matching.
-- Bốn anchor IDs ưu tiên core/expanded nouns hoặc adjective có hình rõ; phrase dài không làm anchor
-  mặc định.
-- Runtime vẫn chọn 4/5/6 items theo `learningMode` và có thể bổ sung ngoài bốn anchor.
-- Mốc 1 không thêm sequence-review game mới. Logic thứ tự được kiểm tra trong lesson scene bằng
-  action/state chain; một review type chuyên sắp thứ tự chỉ được cân nhắc sau pilot.
-- Visual đại diện một review item phải khác nhau đủ rõ; không dùng nhiều state variants của cùng
-  object làm hai đáp án hình dễ nhầm trong cùng lượt.
+- Mỗi lesson dùng review type `random`; runtime tiếp tục resolve Memory, Listen & Choose hoặc
+  Matching.
+- Review pool của lesson mới chỉ gồm New Anchors đã được dạy trong lesson đó.
+- Quick Recall/Action Enabler không được thêm thành `VocabularyItem` chỉ để tăng review pool.
+- Sau filtering, `getReviewGameItems()` phải trả 4/5/6 New Anchors executable theo learning mode
+  với `learningScope.minMode`, `VocabularyItem.level` và image objects đồng bộ. Verbs/states hoặc
+  hai variants của cùng object chỉ được dùng khi review art thể hiện chúng không mơ hồ.
+- Phrase dài không làm anchor mặc định; visual đại diện các item phải khác nhau đủ rõ.
+- Logic thứ tự được kiểm tra trong scene bằng action/state chain; Mốc 4A không thêm review-game
+  type mới.
 
-## 11. Content review gates và kết quả pilot Mốc 3
+## 15. Content gates và bước kế tiếp
 
-Các gate dưới đây tiếp tục áp dụng cho toàn Theme 4. Với phạm vi `plant-a-seed`, Mốc 3 đã xác nhận
-core chain/end state, filtering theo mode, safety/copy, mapping state visuals và review anchors bằng
-validator cùng test pilot. Những gate liên quan cả 8 lesson vẫn phải được kiểm lại trước khi author
-bảy lesson còn lại:
+### Gates áp dụng cho từng vertical slice
 
-1. Product duyệt theme title, 8-lesson order và kết thúc vòng lặp ở `save-the-seeds`.
-2. Mỗi core scene có một action chain hoàn chỉnh và end state nhìn thấy được.
-3. Expanded/challenge filtering không làm mất prerequisite của core state.
-4. Vocabulary review xác nhận 23 exact overlaps là deliberate reinforcement.
-5. Safety review duyệt weather, insects, harvesting, food preparation và compost boundaries.
-6. Visual feasibility review xác nhận từng state map được vào object variants, show/hide và drag
-   snap của Scene State v1; scene cần capability khác phải được giảm scope hoặc tách mốc riêng.
-7. VI/EN copy review duyệt natural English target strings trước Google TTS work.
-8. Sau pilot, object/step/variant IDs mới được freeze cùng lesson/scene/vocabulary keys.
+1. Core path hoàn thành được chỉ bằng audio/hình và có visible end state.
+2. New Anchor, Quick Recall và Action Enabler được phân loại tường minh trong storyboard.
+3. Expanded/challenge filtering không làm mất prerequisite hoặc end state của core.
+4. Không đặt hai deep-learn/pronunciation panels liền nhau, kể cả panel `optional`.
+5. Distractors trung tính; hint/replay cue chỉ animate correct target.
+6. Safety/factual review duyệt weather, animals, harvest và food boundaries liên quan.
+7. VI/EN copy và exact English targets được duyệt trước Google TTS/asset naming freeze.
+8. Production-sheet feasibility map được mọi visible state sang base/variant/show/hide assets.
+9. Lesson data, validation, asset audit/build/verify và Android child-path QA riêng cho core lẫn
+   expanded pass trước khi dùng lesson đó làm template tiếp theo.
 
-## 12. Ranh giới lịch sử của Mốc 1
+### Mốc 4B - đã khóa storyboard `help-it-grow`
 
-- Không sửa `src/types/lesson.ts`, `StepController`, `ScenePlayer` hoặc renderer.
-- Không thêm theme/lesson vào `src/data/themes.ts` hay `src/data/lessons.ts`.
-- Không thêm reward, icon hoặc Premium/free-tier policy.
-- Không tạo PNG/WebP, không sửa asset manifest/generated release.
-- Không generate audio, không sửa audio manifest/provenance và không upload R2.
-- Không thay progress schema, learned-word counting hoặc exact-step resume.
-- Không cập nhật `docs/project_spec.md` vì chưa có runtime/catalog behavior mới.
+`docs/theme-4-help-it-grow-storyboard.md` đã khóa:
 
-## 13. Mốc 3 pilot implementation
+- ba scene IDs và exact storyboards;
+- New Anchor/Quick Recall/Action Enabler cho từng step;
+- exact VI/EN copy và speech policy;
+- scene-state map, object list và production-sheet inventory;
+- review anchors và acceptance tests.
 
-- Đăng ký theme `khu-vuon-cua-be` với duy nhất `plant-a-seed`; chưa đưa bảy lesson draft còn lại
-  vào catalog.
-- Author ba scene `prepare-the-pot`, `plant-the-seed`, `first-watering` trong
-  `src/data/lessons/plantASeed.ts` với core action chain và expanded/challenge insertions.
-- Dùng Scene State v1 cho cùng-canvas pot variants, seed/hole/label/damp/sprout visibility và
-  success-only state changes. Không thêm branching, inventory, arbitrary variables hoặc cross-scene
-  persisted state.
-- Tạo local master/WebP pilot, năm bundled map icons và sticker lesson `Little Gardener` bằng
-  command/catalog chuyên biệt; không upload R2.
-- Chỉ chạy audio dry-run. Production audio en-US/en-GB/vi và generated manifest/provenance chưa
-  được tạo hoặc publish trong mốc này.
+Mốc 4C đã author runtime data, tạo/cắt production sheets và đăng ký `help-it-grow` vào catalog.
+Google TTS đã tạo corpus production và R2 đã verify 286/286 object của lesson.

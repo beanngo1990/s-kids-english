@@ -18,6 +18,7 @@ import { getSceneForLearningMode } from '../data/learningModes';
 import { lessons } from '../data/lessons';
 import {
   getParentSettings,
+  resolveLearningModePreference,
 } from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
@@ -62,7 +63,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   const scenes = lesson?.scenes ?? [];
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [isCompleting, setIsCompleting] = useState(false);
-  const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [learningMode, setLearningMode] = useState<LearningMode>();
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -101,7 +102,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
       ? reviewGameActionTitle
       : t('lessonPack.claimSticker');
 
-  const difficultyOption = getLearningModeCopy(learningMode, t);
+  const difficultyOption = getLearningModeCopy(learningMode ?? 'core', t);
 
   const refreshScreenData = useCallback(() => {
     getProgress()
@@ -212,7 +213,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
     showPremiumAccessPrompt,
   ]);
 
-  const openScene = (sceneId: string) => {
+  const openScene = async (sceneId: string) => {
     if (!lesson) {
       return;
     }
@@ -231,8 +232,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
       return;
     }
 
-    navigation.navigate('ScenePlayer', {
+    const activeLearningMode = await resolveLearningModePreference(
       learningMode,
+    );
+    navigation.navigate('ScenePlayer', {
+      learningMode: activeLearningMode,
       lessonId: lesson.id,
       openedFromParent,
       sceneId,
@@ -245,13 +249,16 @@ export function LessonPackScreen({ navigation, route }: Props) {
     }
 
     if (!isPackComplete) {
-      openScene(nextScene.id);
+      await openScene(nextScene.id);
       return;
     }
 
+    const activeLearningMode = await resolveLearningModePreference(
+      learningMode,
+    );
     if (shouldPlayReviewGame) {
       navigation.navigate('ReviewGame', {
-        learningMode,
+        learningMode: activeLearningMode,
         lessonId: lesson.id,
         openedFromParent,
       });
@@ -266,7 +273,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
     };
     try {
       completionResult = await completeLessonProgress(lesson, {
-        learningMode,
+        learningMode: activeLearningMode,
       });
     } catch {
       // Progress is best-effort; reward flow should still be reachable.
@@ -276,6 +283,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
 
     navigation.navigate('Reward', {
       lessonId: lesson.id,
+      learningMode: activeLearningMode,
       ...completionResult,
     });
   };
@@ -401,7 +409,10 @@ export function LessonPackScreen({ navigation, route }: Props) {
             );
           const isLocked = !isUnlocked;
           const rewardStars = scene.completionReward?.stars ?? 3;
-          const modeScene = getSceneForLearningMode(scene, learningMode);
+          const modeScene = getSceneForLearningMode(
+            scene,
+            learningMode ?? 'core',
+          );
           const vocabularyText =
             modeScene.vocabulary?.map(item => item.word).join(' · ') ?? '';
 
@@ -520,9 +531,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 : reviewGameActionTitle
             }
             variant="secondary"
-            onPress={() =>
+            onPress={async () =>
               navigation.navigate('ReviewGame', {
-                learningMode,
+                learningMode: await resolveLearningModePreference(
+                  learningMode,
+                ),
                 lessonId: lesson.id,
                 openedFromParent,
               })

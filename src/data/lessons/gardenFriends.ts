@@ -1,0 +1,969 @@
+import type {
+  LearningMode,
+  LearningScope,
+  Lesson,
+  Scene,
+  VocabularyItem,
+  VocabularyType,
+} from '../../types/lesson';
+import {
+  dragStep,
+  imageAsset,
+  learningObject,
+  lessonEffects,
+  listenStep,
+  objectVariant,
+  rect,
+  sceneObject,
+  sceneStateChanges,
+  tapStep,
+} from '../lessonAuthoring';
+
+const lessonId = 'garden-friends';
+const expandedScope = { minMode: 'expanded' } satisfies LearningScope;
+const challengeScope = { minMode: 'challenge' } satisfies LearningScope;
+
+type VocabularySpec = {
+  key: string;
+  meaningVi: string;
+  tier?: LearningMode;
+  type?: VocabularyType;
+  word: string;
+};
+
+function vocabularyItem(
+  sceneId: string,
+  { key, meaningVi, tier = 'core', type = 'noun', word }: VocabularySpec,
+): VocabularyItem {
+  return {
+    id: `vocab-${lessonId}-${sceneId}-${key}`,
+    learningScope:
+      tier === 'expanded'
+        ? expandedScope
+        : tier === 'challenge'
+        ? challengeScope
+        : undefined,
+    level:
+      tier === 'expanded' ? 'medium' : tier === 'challenge' ? 'hard' : 'easy',
+    meaningVi,
+    type,
+    word,
+  };
+}
+
+function sceneImageSource(sceneId: string, assetName: string) {
+  return `lessons/${lessonId}/${sceneId}/images/${assetName}.webp`;
+}
+
+function makeUnderTheLeafScene(): Scene {
+  const sceneId = 'under-the-leaf';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'earthworm',
+      meaningVi: 'giun đất',
+      word: 'earthworm',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'snail',
+      meaningVi: 'ốc sên',
+      word: 'snail',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'tunnel',
+      meaningVi: 'đường hầm',
+      tier: 'expanded',
+      word: 'tunnel',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'look-under-leaf',
+      meaningVi: 'nhìn dưới chiếc lá',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'look under the leaf',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const heroPlantId = `${sceneId}-hero-plant`;
+  const leafCoverId = `${sceneId}-leaf-cover`;
+  const earthwormId = `${sceneId}-earthworm`;
+  const snailId = `${sceneId}-snail`;
+  const earthwormRingId = `${sceneId}-earthworm-observation-ring`;
+  const snailRingId = `${sceneId}-snail-observation-ring`;
+  const soilPatchId = `${sceneId}-soil-patch`;
+  const tunnelId = `${sceneId}-tunnel`;
+  const lookUnderLeafActionId = `${sceneId}-look-under-leaf-action`;
+  const lookOverFlowerActionId = `${sceneId}-look-over-flower-action`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Nhìn dưới chiếc lá',
+    titleEn: 'Under the Leaf',
+    thumbnailEmoji: '🪱',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      sceneObject({
+        id: heroPlantId,
+        assetSource: sceneImageSource(sceneId, 'hero-plant'),
+        position: rect(61, 20, 34, 48),
+        presentation: 'cutout',
+      }),
+      sceneObject({
+        id: leafCoverId,
+        assetSource: sceneImageSource(sceneId, 'leaf-cover-closed'),
+        isInteractive: true,
+        position: rect(12, 44, 38, 28),
+        presentation: 'cutout',
+        touchArea: rect(6, 38, 50, 40),
+        variants: [
+          objectVariant({
+            id: 'lifted',
+            assetSource: sceneImageSource(sceneId, 'leaf-cover-lifted'),
+          }),
+          objectVariant({
+            id: 'replaced',
+            assetSource: sceneImageSource(sceneId, 'leaf-cover-replaced'),
+          }),
+        ],
+      }),
+      learningObject({
+        id: earthwormId,
+        assetSource: sceneImageSource(sceneId, 'earthworm'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        position: rect(19, 60, 24, 14),
+        vocab: vocab.get('earthworm')!,
+      }),
+      learningObject({
+        id: snailId,
+        assetSource: sceneImageSource(sceneId, 'snail'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        position: rect(48, 61, 20, 17),
+        vocab: vocab.get('snail')!,
+      }),
+      sceneObject({
+        id: earthwormRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(15, 54, 32, 25),
+        presentation: 'cutout',
+        touchArea: rect(10, 49, 42, 35),
+      }),
+      sceneObject({
+        id: snailRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(43, 55, 29, 27),
+        presentation: 'cutout',
+        touchArea: rect(38, 50, 39, 37),
+      }),
+      sceneObject({
+        id: soilPatchId,
+        assetSource: sceneImageSource(sceneId, 'soil-patch'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(29, 68, 34, 15),
+        presentation: 'cutout',
+        touchArea: rect(23, 63, 46, 25),
+      }),
+      learningObject({
+        id: tunnelId,
+        assetSource: sceneImageSource(sceneId, 'tunnel'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(8, 77, 31, 18),
+        touchArea: rect(4, 73, 39, 26),
+        vocab: vocab.get('tunnel')!,
+      }),
+      learningObject({
+        id: lookUnderLeafActionId,
+        assetSource: sceneImageSource(sceneId, 'look-under-leaf-action'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(8, 80, 38, 16),
+        touchArea: rect(4, 76, 46, 22),
+        vocab: vocab.get('look under the leaf')!,
+      }),
+      sceneObject({
+        id: lookOverFlowerActionId,
+        assetSource: sceneImageSource(sceneId, 'look-over-flower-action'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        learningScope: challengeScope,
+        position: rect(54, 80, 38, 16),
+        presentation: 'cutout',
+        touchArea: rect(50, 76, 46, 22),
+      }),
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Dưới chiếc lá có bạn nhỏ. Mình nhìn nhé.',
+        instructionEn: 'Little garden neighbors are under the leaf. Let us look.',
+        successFeedbackVi: 'Mình chỉ quan sát, không làm các bạn sợ nhé.',
+        successFeedbackEn: 'We will watch without scaring the little neighbors.',
+        targetObjectIds: [leafCoverId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-lift-leaf`,
+        instructionVi: 'Chạm chiếc lá lớn bên trái để nhấc lên nhé.',
+        instructionEn: 'Tap the large leaf on the left to lift it gently.',
+        successFeedbackVi: 'Có một bạn dài ở trên đất.',
+        successFeedbackEn: 'A long little neighbor is on the soil.',
+        failFeedbackVi: 'Chạm chiếc lá lớn bên trái nhé.',
+        failFeedbackEn: 'Tap the large leaf on the left.',
+        effects: [lessonEffects.sparkle(earthwormId)],
+        successStateChanges: [
+          sceneStateChanges.setVariant(leafCoverId, 'lifted'),
+          sceneStateChanges.show(earthwormId),
+          sceneStateChanges.show(earthwormRingId),
+          sceneStateChanges.show(soilPatchId),
+        ],
+        targetObjectId: leafCoverId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-earthworm`,
+        instructionVi: 'Chạm kính lúp quanh con giun đất màu nâu nhé.',
+        instructionEn: 'Tap the magnifying glass around the brown earthworm.',
+        promptText: 'earthworm',
+        successFeedbackVi: 'Đúng rồi, đây là giun đất.',
+        successFeedbackEn: 'Yes, this is an earthworm.',
+        failFeedbackVi: 'Chạm kính lúp quanh bạn dài màu nâu nhé.',
+        failFeedbackEn: 'Tap the magnifying glass around the long brown earthworm.',
+        speechPractice: 'auto',
+        targetObjectId: earthwormRingId,
+        targetObjectIds: [earthwormRingId, earthwormId],
+        type: 'teach',
+        vocabId: vocab.get('earthworm')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-follow-soil`,
+        instructionVi: 'Chạm mảng đất nâu dưới chiếc lá nhé.',
+        instructionEn: 'Tap the brown soil patch under the leaf.',
+        successFeedbackVi: 'Một đường nhỏ hiện ra. Ốc sên cũng ở đây.',
+        successFeedbackEn: 'A small path appears, and a snail is here too.',
+        failFeedbackVi: 'Chạm mảng đất dưới chiếc lá nhé.',
+        failFeedbackEn: 'Tap the soil patch below the leaf.',
+        effects: [lessonEffects.sparkle(snailId)],
+        successStateChanges: [
+          sceneStateChanges.show(tunnelId),
+          sceneStateChanges.show(snailId),
+          sceneStateChanges.show(snailRingId),
+        ],
+        targetObjectId: soilPatchId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-tunnel`,
+        instructionVi: 'Chạm đường hầm màu nâu dưới lớp đất nhé.',
+        instructionEn: 'Tap the brown tunnel under the soil.',
+        learningScope: expandedScope,
+        promptText: 'tunnel',
+        successFeedbackVi: 'Đúng rồi, đây là đường hầm trong đất.',
+        successFeedbackEn: 'Yes, this is a tunnel in the soil.',
+        failFeedbackVi: 'Chạm đường nâu dưới mặt đất nhé.',
+        failFeedbackEn: 'Tap the brown tunnel below the soil.',
+        speechPractice: 'optional',
+        targetObjectId: tunnelId,
+        type: 'teach',
+        vocabId: vocab.get('tunnel')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-trace-tunnel`,
+        instructionVi: 'Chạm mảng đất nâu ở giữa để theo đường hầm nhé.',
+        instructionEn: 'Tap the brown soil patch in the middle to follow the tunnel.',
+        learningScope: expandedScope,
+        successFeedbackVi: 'Đường hầm chạy dưới lớp đất.',
+        successFeedbackEn: 'The tunnel runs under the soil.',
+        failFeedbackVi: 'Chạm mảng đất ở giữa nhé.',
+        failFeedbackEn: 'The soil patch is in the middle.',
+        targetObjectId: soilPatchId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-snail`,
+        instructionVi: 'Chạm kính lúp quanh con ốc sên có vỏ xoắn nhé.',
+        instructionEn: 'Tap the magnifying glass around the snail with a spiral shell.',
+        promptText: 'snail',
+        successFeedbackVi: 'Đúng rồi, đây là ốc sên.',
+        successFeedbackEn: 'Yes, this is a snail.',
+        failFeedbackVi: 'Chạm kính lúp quanh bạn có vỏ xoắn nhé.',
+        failFeedbackEn: 'Tap the magnifying glass around the neighbor with a spiral shell.',
+        speechPractice: 'auto',
+        successStateChanges: [
+          sceneStateChanges.show(lookUnderLeafActionId),
+          sceneStateChanges.show(lookOverFlowerActionId),
+        ],
+        targetObjectId: snailRingId,
+        targetObjectIds: [snailRingId, snailId],
+        type: 'teach',
+        vocabId: vocab.get('snail')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-notice-open-leaf`,
+        instructionVi: 'Chạm chiếc lá lớn đang mở bên trái nhé.',
+        instructionEn: 'Tap the large open leaf on the left.',
+        learningScope: challengeScope,
+        successFeedbackVi: 'Mình đang nhìn phía dưới chiếc lá.',
+        successFeedbackEn: 'We are looking under the leaf.',
+        failFeedbackVi: 'Chạm chiếc lá lớn đang mở nhé.',
+        failFeedbackEn: 'The large open leaf is on the left.',
+        targetObjectId: leafCoverId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-look-under-leaf`,
+        instructionVi: 'Chạm hình bàn tay nâng lá để nhìn phía dưới nhé.',
+        instructionEn: 'Tap the hand lifting the leaf to look underneath.',
+        learningScope: challengeScope,
+        promptText: 'look under the leaf',
+        successFeedbackVi: 'Đúng rồi, mình nhìn dưới chiếc lá.',
+        successFeedbackEn: 'Yes, we look under the leaf.',
+        failFeedbackVi: 'Chạm hình bàn tay nâng chiếc lá nhé.',
+        failFeedbackEn: 'Tap the picture of a hand lifting the leaf.',
+        speechPractice: 'auto',
+        targetObjectId: lookUnderLeafActionId,
+        type: 'teach',
+        vocabId: vocab.get('look under the leaf')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-choose-look-under-leaf`,
+        instructionVi: 'Tìm hình bàn tay nâng lá để nhìn phía dưới nhé.',
+        instructionEn: 'Find the hand lifting the leaf to look underneath.',
+        learningScope: challengeScope,
+        promptText: 'look under the leaf',
+        successFeedbackVi: 'Đúng rồi, mình nâng lá và nhìn phía dưới.',
+        successFeedbackEn: 'Right, we lift the leaf and look underneath.',
+        failFeedbackVi: 'Tìm hình bàn tay nâng chiếc lá nhé.',
+        failFeedbackEn: 'Find the picture of a hand lifting the leaf.',
+        correctObjectIds: [lookUnderLeafActionId],
+        targetObjectId: lookUnderLeafActionId,
+        targetObjectIds: [lookUnderLeafActionId, lookOverFlowerActionId],
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(lookUnderLeafActionId),
+          sceneStateChanges.hide(lookOverFlowerActionId),
+        ],
+        type: 'review',
+        vocabId: vocab.get('look under the leaf')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-replace-leaf`,
+        instructionVi: 'Chạm chiếc lá lớn bên trái để đặt lại nhé.',
+        instructionEn: 'Tap the large leaf on the left to put it back gently.',
+        successFeedbackVi: 'Chiếc lá đã che chỗ nghỉ của các bạn.',
+        successFeedbackEn: 'The leaf covers the little neighbors again.',
+        failFeedbackVi: 'Chạm chiếc lá lớn bên trái nhé.',
+        failFeedbackEn: 'Tap the large leaf on the left.',
+        successStateChanges: [
+          sceneStateChanges.setVariant(leafCoverId, 'replaced'),
+          sceneStateChanges.hide(earthwormId),
+          sceneStateChanges.hide(snailId),
+          sceneStateChanges.hide(earthwormRingId),
+          sceneStateChanges.hide(snailRingId),
+          sceneStateChanges.hide(soilPatchId),
+          sceneStateChanges.hide(tunnelId),
+        ],
+        targetObjectId: leafCoverId,
+        type: 'practice',
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã quan sát các bạn dưới chiếc lá thật nhẹ nhàng.',
+      messageEn: 'You watched the little neighbors under the leaf very gently.',
+    },
+  };
+}
+
+function makeFlowerVisitorsScene(): Scene {
+  const sceneId = 'flower-visitors';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'flower',
+      meaningVi: 'bông hoa',
+      word: 'flower',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'bee',
+      meaningVi: 'con ong',
+      word: 'bee',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'butterfly',
+      meaningVi: 'con bướm',
+      word: 'butterfly',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const plantId = `${sceneId}-plant`;
+  const flowerId = `${sceneId}-flower`;
+  const beeId = `${sceneId}-bee`;
+  const butterflyId = `${sceneId}-butterfly`;
+  const beeRingId = `${sceneId}-bee-observation-ring`;
+  const butterflyRingId = `${sceneId}-butterfly-observation-ring`;
+  const lowWatchId = `${sceneId}-watch-control-low`;
+  const highWatchId = `${sceneId}-watch-control-high`;
+  const timeCueId = `${sceneId}-time-cue`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Bạn ghé thăm hoa',
+    titleEn: 'Flower Visitors',
+    thumbnailEmoji: '🐝',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      sceneObject({
+        id: plantId,
+        assetSource: sceneImageSource(sceneId, 'plant-flower'),
+        isInteractive: true,
+        position: rect(30, 27, 42, 50),
+        presentation: 'cutout',
+        variants: [
+          objectVariant({
+            id: 'tiny-fruit',
+            assetSource: sceneImageSource(sceneId, 'plant-tiny-fruit'),
+          }),
+        ],
+      }),
+      learningObject({
+        id: flowerId,
+        assetSource: sceneImageSource(sceneId, 'flower'),
+        position: rect(11, 20, 22, 20),
+        touchArea: rect(6, 15, 32, 30),
+        vocab: vocab.get('flower')!,
+      }),
+      learningObject({
+        id: beeId,
+        assetSource: sceneImageSource(sceneId, 'bee'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        position: rect(63, 31, 17, 15),
+        vocab: vocab.get('bee')!,
+      }),
+      learningObject({
+        id: butterflyId,
+        assetSource: sceneImageSource(sceneId, 'butterfly'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        position: rect(17, 42, 21, 19),
+        vocab: vocab.get('butterfly')!,
+      }),
+      sceneObject({
+        id: beeRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(58, 25, 27, 27),
+        presentation: 'cutout',
+        touchArea: rect(53, 20, 37, 37),
+      }),
+      sceneObject({
+        id: butterflyRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(13, 36, 29, 29),
+        presentation: 'cutout',
+        touchArea: rect(8, 31, 39, 39),
+      }),
+      sceneObject({
+        id: lowWatchId,
+        assetSource: sceneImageSource(sceneId, 'watch-control-low'),
+        isInteractive: true,
+        position: rect(73, 66, 17, 16),
+        presentation: 'cutout',
+        touchArea: rect(68, 61, 27, 26),
+      }),
+      sceneObject({
+        id: highWatchId,
+        assetSource: sceneImageSource(sceneId, 'watch-control-high'),
+        isInteractive: true,
+        position: rect(8, 65, 17, 16),
+        presentation: 'cutout',
+        touchArea: rect(3, 60, 27, 26),
+      }),
+      sceneObject({
+        id: timeCueId,
+        assetSource: sceneImageSource(sceneId, 'time-cue'),
+        isInteractive: true,
+        position: rect(40, 8, 20, 18),
+        presentation: 'cutout',
+        touchArea: rect(35, 4, 30, 27),
+      }),
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Vài ngày sau, nụ hoa đã nở.',
+        instructionEn: 'A few days later, the flower bud has opened.',
+        successFeedbackVi: 'Mình quan sát xem ai ghé thăm nhé.',
+        successFeedbackEn: 'Let us watch and see who visits.',
+        targetObjectIds: [plantId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-flower`,
+        instructionVi: 'Chạm bông hoa màu vàng bên trái nhé.',
+        instructionEn: 'Tap the open yellow flower.',
+        promptText: 'flower',
+        successFeedbackVi: 'Đúng rồi, đây là bông hoa.',
+        successFeedbackEn: 'Yes, this is a flower.',
+        failFeedbackVi: 'Chạm bông hoa vàng bên trái nhé.',
+        failFeedbackEn: 'Tap the yellow flower on the left.',
+        speechPractice: 'auto',
+        targetObjectId: flowerId,
+        type: 'teach',
+        vocabId: vocab.get('flower')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-wait-for-bee`,
+        instructionVi: 'Chạm kính lúp dưới bên phải để chờ ong nhé.',
+        instructionEn: 'Tap the magnifying glass at the lower right to wait for the bee.',
+        successFeedbackVi: 'Một bạn vàng đen đang bay tới.',
+        successFeedbackEn: 'A yellow-and-black visitor is flying over.',
+        failFeedbackVi: 'Chạm kính nhỏ phía dưới bên phải nhé.',
+        failFeedbackEn: 'Tap the small lens at the lower right.',
+        effects: [lessonEffects.sparkle(beeId)],
+        successStateChanges: [
+          sceneStateChanges.show(beeId),
+          sceneStateChanges.show(beeRingId),
+          sceneStateChanges.hide(lowWatchId),
+        ],
+        targetObjectId: lowWatchId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-bee`,
+        instructionVi: 'Chạm kính lúp quanh con ong vàng đen nhé.',
+        instructionEn: 'Tap the magnifying glass around the yellow-and-black bee.',
+        promptText: 'bee',
+        successFeedbackVi: 'Đúng rồi, đây là con ong.',
+        successFeedbackEn: 'Yes, this is a bee.',
+        failFeedbackVi: 'Chạm kính lúp quanh bạn vàng đen nhé.',
+        failFeedbackEn: 'Tap the magnifying glass around the yellow-and-black bee.',
+        speechPractice: 'auto',
+        targetObjectId: beeRingId,
+        targetObjectIds: [beeRingId, beeId],
+        type: 'teach',
+        vocabId: vocab.get('bee')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-wait-for-butterfly`,
+        instructionVi: 'Chạm kính lúp dưới bên trái để chờ bướm nhé.',
+        instructionEn: 'Tap the magnifying glass at the lower left to wait for the butterfly.',
+        successFeedbackVi: 'Một bạn cánh cam đang bay tới.',
+        successFeedbackEn: 'An orange-winged visitor is flying over.',
+        failFeedbackVi: 'Chạm kính nhỏ phía dưới bên trái nhé.',
+        failFeedbackEn: 'Tap the small lens at the lower left.',
+        effects: [lessonEffects.sparkle(butterflyId)],
+        successStateChanges: [
+          sceneStateChanges.show(butterflyId),
+          sceneStateChanges.show(butterflyRingId),
+          sceneStateChanges.hide(highWatchId),
+        ],
+        targetObjectId: highWatchId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-butterfly`,
+        instructionVi: 'Chạm kính lúp quanh con bướm cánh cam nhé.',
+        instructionEn: 'Tap the magnifying glass around the orange butterfly.',
+        promptText: 'butterfly',
+        successFeedbackVi: 'Đúng rồi, đây là con bướm.',
+        successFeedbackEn: 'Yes, this is a butterfly.',
+        failFeedbackVi: 'Chạm kính lúp quanh bạn có cánh cam nhé.',
+        failFeedbackEn: 'Tap the magnifying glass around the visitor with orange wings.',
+        speechPractice: 'auto',
+        targetObjectId: butterflyRingId,
+        targetObjectIds: [butterflyRingId, butterflyId],
+        type: 'teach',
+        vocabId: vocab.get('butterfly')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-wait-for-tiny-fruit`,
+        instructionVi: 'Chạm hình mặt trời và mặt trăng ở phía trên nhé.',
+        instructionEn: 'Tap the sun-and-moon picture at the top.',
+        successFeedbackVi: 'Vài ngày sau, một quả xanh nhỏ xuất hiện.',
+        successFeedbackEn: 'A few days later, a tiny green fruit appears.',
+        failFeedbackVi: 'Chạm vòng có mặt trời và mặt trăng nhé.',
+        failFeedbackEn: 'Tap the circle with the sun and moon.',
+        effects: [lessonEffects.sparkle(plantId)],
+        successStateChanges: [
+          sceneStateChanges.setVariant(plantId, 'tiny-fruit'),
+          sceneStateChanges.hide(beeId),
+          sceneStateChanges.hide(butterflyId),
+          sceneStateChanges.hide(beeRingId),
+          sceneStateChanges.hide(butterflyRingId),
+        ],
+        targetObjectId: timeCueId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-find-tiny-fruit`,
+        instructionVi: 'Chạm quả xanh nhỏ trên cây ở giữa nhé.',
+        instructionEn: 'Tap the tiny green fruit on the plant in the middle.',
+        successFeedbackVi: 'Quả xanh nhỏ bắt đầu lớn rồi.',
+        successFeedbackEn: 'The tiny green fruit has started to grow.',
+        failFeedbackVi: 'Chạm cây cà chua ở giữa nhé.',
+        failFeedbackEn: 'The tomato plant is in the middle.',
+        targetObjectId: plantId,
+        type: 'practice',
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã quan sát ong và bướm ghé thăm hoa.',
+      messageEn: 'You watched a bee and a butterfly visit the flower.',
+    },
+  };
+}
+
+function makeQuietGardenWatchScene(): Scene {
+  const sceneId = 'quiet-garden-watch';
+  const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'caterpillar',
+      meaningVi: 'sâu bướm',
+      word: 'caterpillar',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'birdbath',
+      meaningVi: 'khay nước cho chim',
+      tier: 'expanded',
+      word: 'birdbath',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'watch-gently',
+      meaningVi: 'quan sát nhẹ nhàng',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'watch gently',
+    }),
+  ];
+  const vocab = new Map(vocabulary.map(item => [item.word, item]));
+  const heroPlantId = `${sceneId}-hero-plant`;
+  const leafTipId = `${sceneId}-leaf-tip`;
+  const caterpillarId = `${sceneId}-caterpillar`;
+  const caterpillarRingId = `${sceneId}-caterpillar-observation-ring`;
+  const birdbathId = `${sceneId}-birdbath`;
+  const waterDropId = `${sceneId}-water-drop`;
+  const birdbathZoneId = `${sceneId}-birdbath-zone`;
+  const quietHandsId = `${sceneId}-quiet-hands-control`;
+  const gardenNeighborsId = `${sceneId}-garden-neighbors`;
+  const watchGentlyActionId = `${sceneId}-watch-gently-action`;
+  const waveHandsActionId = `${sceneId}-wave-hands-action`;
+
+  return {
+    id: sceneId,
+    titleVi: 'Quan sát nhẹ nhàng',
+    titleEn: 'Watch Gently',
+    thumbnailEmoji: '🐛',
+    background: imageAsset(
+      `${sceneId}-background`,
+      sceneImageSource(sceneId, 'background'),
+    ),
+    vocabulary,
+    objects: [
+      sceneObject({
+        id: heroPlantId,
+        assetSource: sceneImageSource(sceneId, 'hero-plant'),
+        isInteractive: true,
+        position: rect(57, 23, 38, 51),
+        presentation: 'cutout',
+        touchArea: rect(52, 18, 47, 61),
+      }),
+      sceneObject({
+        id: leafTipId,
+        assetSource: sceneImageSource(sceneId, 'leaf-tip'),
+        isInteractive: true,
+        position: rect(13, 35, 32, 25),
+        presentation: 'cutout',
+        touchArea: rect(7, 29, 44, 37),
+        variants: [
+          objectVariant({
+            id: 'lifted',
+            assetSource: sceneImageSource(sceneId, 'leaf-tip-lifted'),
+          }),
+        ],
+      }),
+      learningObject({
+        id: caterpillarId,
+        assetSource: sceneImageSource(sceneId, 'caterpillar'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        position: rect(20, 48, 22, 13),
+        vocab: vocab.get('caterpillar')!,
+      }),
+      sceneObject({
+        id: caterpillarRingId,
+        assetSource: sceneImageSource(sceneId, 'observation-ring'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        position: rect(15, 42, 32, 25),
+        presentation: 'cutout',
+        touchArea: rect(10, 37, 42, 35),
+      }),
+      learningObject({
+        id: birdbathId,
+        assetSource: sceneImageSource(sceneId, 'birdbath-empty'),
+        learningScope: expandedScope,
+        position: rect(8, 66, 27, 23),
+        touchArea: rect(3, 61, 37, 33),
+        variants: [
+          objectVariant({
+            id: 'filled',
+            assetSource: sceneImageSource(sceneId, 'birdbath-filled'),
+          }),
+        ],
+        vocab: vocab.get('birdbath')!,
+      }),
+      sceneObject({
+        id: waterDropId,
+        assetSource: sceneImageSource(sceneId, 'water-drop'),
+        isInteractive: true,
+        learningScope: expandedScope,
+        position: rect(38, 74, 14, 14),
+        presentation: 'cutout',
+        touchArea: rect(33, 69, 24, 24),
+      }),
+      sceneObject({
+        id: quietHandsId,
+        assetSource: sceneImageSource(sceneId, 'quiet-hands-control'),
+        isInteractive: true,
+        position: rect(40, 10, 20, 18),
+        presentation: 'cutout',
+        touchArea: rect(35, 6, 30, 27),
+      }),
+      sceneObject({
+        id: gardenNeighborsId,
+        assetSource: sceneImageSource(sceneId, 'garden-neighbors'),
+        initialVisibility: 'hidden',
+        position: rect(8, 13, 43, 24),
+        presentation: 'cutout',
+      }),
+      learningObject({
+        id: watchGentlyActionId,
+        assetSource: sceneImageSource(sceneId, 'watch-gently-action'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(8, 80, 38, 16),
+        touchArea: rect(4, 76, 46, 22),
+        vocab: vocab.get('watch gently')!,
+      }),
+      sceneObject({
+        id: waveHandsActionId,
+        assetSource: sceneImageSource(sceneId, 'wave-hands-action'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        learningScope: challengeScope,
+        position: rect(54, 80, 38, 16),
+        presentation: 'cutout',
+        touchArea: rect(50, 76, 46, 22),
+      }),
+    ],
+    dropZones: [
+      {
+        id: birdbathZoneId,
+        learningScope: expandedScope,
+        position: rect(9, 67, 25, 20),
+        touchArea: rect(3, 61, 37, 32),
+      },
+    ],
+    steps: [
+      listenStep({
+        id: `${sceneId}-intro`,
+        instructionVi: 'Mình tìm thêm bạn bằng giọng nhỏ nhé.',
+        instructionEn: 'Let us quietly look for more little garden neighbors.',
+        successFeedbackVi: 'Mình nhìn bằng mắt và để đôi tay đứng yên.',
+        successFeedbackEn: 'We look with our eyes and keep our hands still.',
+        targetObjectIds: [quietHandsId],
+        type: 'intro',
+      }),
+      tapStep({
+        id: `${sceneId}-lift-leaf-tip`,
+        instructionVi: 'Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.',
+        instructionEn: 'Tap the large leaf on the left to look behind it.',
+        successFeedbackVi: 'Có một bạn xanh nhỏ trên lá.',
+        successFeedbackEn: 'A small green neighbor is on the leaf.',
+        failFeedbackVi: 'Chạm chiếc lá lớn bên trái nhé.',
+        failFeedbackEn: 'Tap the large leaf on the left.',
+        effects: [lessonEffects.sparkle(caterpillarId)],
+        successStateChanges: [
+          sceneStateChanges.setVariant(leafTipId, 'lifted'),
+          sceneStateChanges.show(caterpillarId),
+          sceneStateChanges.show(caterpillarRingId),
+        ],
+        targetObjectId: leafTipId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-caterpillar`,
+        instructionVi: 'Chạm kính lúp quanh con sâu bướm xanh nhé.',
+        instructionEn: 'Tap the magnifying glass around the green caterpillar.',
+        promptText: 'caterpillar',
+        successFeedbackVi: 'Đúng rồi, đây là sâu bướm.',
+        successFeedbackEn: 'Yes, this is a caterpillar.',
+        failFeedbackVi: 'Chạm kính lúp quanh bạn xanh nhỏ nhé.',
+        failFeedbackEn: 'Tap the magnifying glass around the small green caterpillar.',
+        speechPractice: 'auto',
+        targetObjectId: caterpillarRingId,
+        targetObjectIds: [caterpillarRingId, caterpillarId],
+        type: 'teach',
+        vocabId: vocab.get('caterpillar')!.id,
+      }),
+      dragStep({
+        id: `${sceneId}-fill-birdbath`,
+        instructionVi: 'Kéo giọt nước xanh vào khay trống bên trái nhé.',
+        instructionEn: 'Drag the blue water drop into the empty birdbath on the left.',
+        learningScope: expandedScope,
+        successFeedbackVi: 'Khay đã có một ít nước sạch.',
+        successFeedbackEn: 'The shallow dish now has some clean water.',
+        failFeedbackVi: 'Kéo giọt nước xanh vào khay bên trái nhé.',
+        failFeedbackEn: 'Drag the blue water drop to the dish on the left.',
+        successStateChanges: [
+          sceneStateChanges.setVariant(birdbathId, 'filled'),
+          sceneStateChanges.hide(waterDropId),
+        ],
+        dropZoneId: birdbathZoneId,
+        targetObjectId: waterDropId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-birdbath`,
+        instructionVi: 'Chạm khay nước nông cho chim ở bên trái nhé.',
+        instructionEn: 'Tap the shallow birdbath on the left.',
+        learningScope: expandedScope,
+        promptText: 'birdbath',
+        successFeedbackVi: 'Đúng rồi, đây là khay nước cho chim.',
+        successFeedbackEn: 'Yes, this is a birdbath.',
+        failFeedbackVi: 'Chạm khay nước nông bên trái nhé.',
+        failFeedbackEn: 'Tap the shallow water dish on the left.',
+        speechPractice: 'optional',
+        targetObjectId: birdbathId,
+        type: 'teach',
+        vocabId: vocab.get('birdbath')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-keep-hands-still`,
+        instructionVi: 'Chạm hình mắt và hai tay để yên phía trên nhé.',
+        instructionEn: 'Tap the picture of watching eyes and still hands at the top.',
+        successFeedbackVi: 'Mình đứng yên. Các bạn lại xuất hiện.',
+        successFeedbackEn: 'We stay still, and the little neighbors appear again.',
+        failFeedbackVi: 'Chạm hình đôi tay ở phía trên nhé.',
+        failFeedbackEn: 'The picture of still hands is near the top.',
+        effects: [lessonEffects.sparkle(gardenNeighborsId)],
+        successStateChanges: [
+          sceneStateChanges.show(gardenNeighborsId),
+          sceneStateChanges.show(watchGentlyActionId),
+          sceneStateChanges.show(waveHandsActionId),
+        ],
+        targetObjectId: quietHandsId,
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-watch-gently`,
+        instructionVi: 'Chạm hình mắt nhìn và hai bàn tay đứng yên nhé.',
+        instructionEn: 'Tap the picture of watching eyes and still hands.',
+        learningScope: challengeScope,
+        promptText: 'watch gently',
+        successFeedbackVi: 'Đúng rồi, mình quan sát nhẹ nhàng.',
+        successFeedbackEn: 'Yes, we watch gently.',
+        failFeedbackVi: 'Chạm hình mắt nhìn và hai bàn tay để yên nhé.',
+        failFeedbackEn: 'Tap the picture of watching eyes and still hands.',
+        speechPractice: 'auto',
+        targetObjectId: watchGentlyActionId,
+        type: 'teach',
+        vocabId: vocab.get('watch gently')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-choose-watch-gently`,
+        instructionVi: 'Tìm hình mắt nhìn và hai bàn tay đứng yên nhé.',
+        instructionEn: 'Find the picture of watching eyes and still hands.',
+        learningScope: challengeScope,
+        promptText: 'watch gently',
+        successFeedbackVi: 'Đúng rồi, mắt nhìn và đôi tay đứng yên.',
+        successFeedbackEn: 'Right, the eyes watch and the hands stay still.',
+        failFeedbackVi: 'Tìm hình đôi tay đứng yên nhé.',
+        failFeedbackEn: 'Find the picture with still hands.',
+        correctObjectIds: [watchGentlyActionId],
+        targetObjectId: watchGentlyActionId,
+        targetObjectIds: [watchGentlyActionId, waveHandsActionId],
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(watchGentlyActionId),
+          sceneStateChanges.hide(waveHandsActionId),
+        ],
+        type: 'review',
+        vocabId: vocab.get('watch gently')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-finish`,
+        instructionVi: 'Chạm cây cà chua bên phải để chào các bạn nhé.',
+        instructionEn: 'Tap the tomato plant on the right to wave goodbye.',
+        successFeedbackVi: 'Khu vườn có rất nhiều bạn nhỏ.',
+        successFeedbackEn: 'The garden has many little neighbors.',
+        failFeedbackVi: 'Chạm cây cà chua bên phải nhé.',
+        failFeedbackEn: 'Tap the tomato plant on the right.',
+        targetObjectId: heroPlantId,
+        type: 'practice',
+      }),
+    ],
+    completionReward: {
+      stars: 3,
+      messageVi: 'Bé đã quan sát các bạn trong vườn thật nhẹ nhàng.',
+      messageEn: 'You watched the little garden neighbors very gently.',
+    },
+  };
+}
+
+export const gardenFriendsLesson: Lesson = {
+  id: lessonId,
+  themeId: 'khu-vuon-cua-be',
+  titleVi: 'Bạn nhỏ trong vườn',
+  titleEn: 'Garden Friends',
+  descriptionVi:
+    'Bé quan sát giun, ốc sên, ong, bướm và những bạn nhỏ quanh cây.',
+  descriptionEn:
+    'Observe earthworms, snails, bees, butterflies, and other little garden neighbors.',
+  thumbnailEmoji: '🐝',
+  ageRange: { min: 6, max: 8, label: '6-8 tuổi · Nâng cao' },
+  scenes: [
+    makeUnderTheLeafScene(),
+    makeFlowerVisitorsScene(),
+    makeQuietGardenWatchScene(),
+  ],
+  reviewGame: {
+    id: `${lessonId}-review`,
+    type: 'random',
+    titleVi: 'Bạn nhỏ trong vườn',
+    config: {
+      vocabularyIds: [
+        'vocab-garden-friends-under-the-leaf-earthworm',
+        'vocab-garden-friends-flower-visitors-bee',
+        'vocab-garden-friends-flower-visitors-butterfly',
+        'vocab-garden-friends-under-the-leaf-snail',
+        'vocab-garden-friends-under-the-leaf-tunnel',
+        'vocab-garden-friends-under-the-leaf-look-under-leaf',
+        'vocab-garden-friends-flower-visitors-flower',
+        'vocab-garden-friends-quiet-garden-watch-caterpillar',
+        'vocab-garden-friends-quiet-garden-watch-birdbath',
+        'vocab-garden-friends-quiet-garden-watch-watch-gently',
+      ],
+    },
+  },
+  metadata: {
+    parentTipVi:
+      'Ba mẹ nhắc bé quan sát con vật từ xa, không bắt hoặc kéo chúng, rồi rửa tay sau khi chơi ngoài vườn.',
+  },
+};

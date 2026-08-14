@@ -15,7 +15,9 @@ import { doctorVisitLesson } from './lessons/doctorVisit';
 import { dressMyselfLesson } from './lessons/dressMyself';
 import { familyDinnerLesson } from './lessons/familyDinner';
 import { fiveSensesLesson } from './lessons/fiveSenses';
+import { gardenFriendsLesson } from './lessons/gardenFriends';
 import { grandparentsVisitLesson } from './lessons/grandparentsVisit';
+import { helpItGrowLesson } from './lessons/helpItGrow';
 import { homePlayLesson } from './lessons/homePlay';
 import { libraryVisitLesson } from './lessons/libraryVisit';
 import { lunchTimeLesson } from './lessons/lunchTime';
@@ -60,6 +62,8 @@ const lessonCatalog: Lesson[] = [
   toiletRoutineLesson,
   speakingUpLesson,
   plantASeedLesson,
+  helpItGrowLesson,
+  gardenFriendsLesson,
 ];
 
 assertValidLessons(lessonCatalog);
@@ -81,7 +85,9 @@ export {
   dressMyselfLesson,
   familyDinnerLesson,
   fiveSensesLesson,
+  gardenFriendsLesson,
   grandparentsVisitLesson,
+  helpItGrowLesson,
   homePlayLesson,
   libraryVisitLesson,
   lunchTimeLesson,

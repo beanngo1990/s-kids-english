@@ -1163,7 +1163,7 @@ export const plantASeedLesson: Lesson = {
   descriptionEn:
     'Fill a pot, plant a seed, and add just enough water for a sprout.',
   thumbnailEmoji: '🌱',
-  ageRange: { min: 3, max: 5, label: '3-5 tuổi' },
+  ageRange: { min: 6, max: 8, label: '6-8 tuổi · Nâng cao' },
   scenes: [
     makePrepareThePotScene(),
     makePlantTheSeedScene(),

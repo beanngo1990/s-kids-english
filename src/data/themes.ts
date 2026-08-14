@@ -80,10 +80,10 @@ const themeCatalog: LessonTheme[] = [
     iconName: 'themeLittleGarden',
     thumbnailEmoji: '🌱',
     descriptionVi:
-      'Bé chuẩn bị, gieo hạt, chăm cây, thu hoạch và bắt đầu một mùa trồng mới.',
+      'Bé gieo hạt, chăm cây, khám phá khu vườn, thu hoạch và bắt đầu một mùa mới.',
     descriptionEn:
-      'Get ready, plant seeds, care for growing plants, harvest, and begin again.',
-    lessonIds: ['plant-a-seed'],
+      'Plant a seed, care for it, explore the garden, harvest, and begin again.',
+    lessonIds: ['plant-a-seed', 'help-it-grow', 'garden-friends'],
   },
 ];
 

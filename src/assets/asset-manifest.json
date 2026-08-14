@@ -9157,6 +9157,811 @@
     },
     {
       "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/garden-friends/flower-visitors/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/background.png",
+      "sourceBytes": 3142339,
+      "sourceSha256": "cfd137137dfbecd428c57ca2d4bf663e1def0b38177c96151e2583c0efdff576",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/garden-friends/flower-visitors/images/bee.webp",
+      "outputBytes": 43092,
+      "outputSha256": "bb728f57573a33241156dd0330d4cb3df6410519c64bed320b5a53d6788f65db",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/bee.png",
+      "sourceBytes": 911274,
+      "sourceSha256": "d0224c798ea1b009529698be505675afdc78a0e9dd0a361162c0950ee714fddd",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/garden-friends/flower-visitors/images/butterfly.webp",
+      "outputBytes": 54386,
+      "outputSha256": "042827754801bb3cbcc6a987f39ac7671b5d9ac845a17e5e5bc1048c96fda8ae",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/butterfly.png",
+      "sourceBytes": 874571,
+      "sourceSha256": "19be0c63a90c72113c3780b957ae9982a2398ecc5d914a06f448cbc31c3c182b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/garden-friends/flower-visitors/images/flower.webp",
+      "outputBytes": 55998,
+      "outputSha256": "bb57e215bedfe298fa56a4adea99d396a9bee2aed7e962a285c16a3fc18f51ec",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/flower.png",
+      "sourceBytes": 819322,
+      "sourceSha256": "0606678cfc164b83d06ae6d3155001b7541f730c31d77082e5e0ee669dc63482",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/garden-friends/flower-visitors/images/observation-ring.webp",
+      "outputBytes": 63552,
+      "outputSha256": "ed957cdf0de2e70e9cc4ec2e794a7ececf8f303116649a9b860128286d8094e7",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/observation-ring.png",
+      "sourceBytes": 642153,
+      "sourceSha256": "85dbb78ab842e41bc1a728c298f29b7a08d6fefb0e175dac76ec25de96e74259",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 50,
+      "output": "lessons/garden-friends/flower-visitors/images/plant-flower.webp",
+      "outputBytes": 68134,
+      "outputSha256": "9e9f48c16659727c188d1f78a5315a92abd6417fdeb4a505c08e6c8702f6558a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/plant-flower.png",
+      "sourceBytes": 737769,
+      "sourceSha256": "05940c1293e8f1bfc652a3582fc7cceca499207147defe747f0e4470a844a681",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 50,
+      "output": "lessons/garden-friends/flower-visitors/images/plant-tiny-fruit.webp",
+      "outputBytes": 70116,
+      "outputSha256": "0559b79d6092a4bacc706027021f21f9539e60a2706f6f081aaea50a749ea422",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/plant-tiny-fruit.png",
+      "sourceBytes": 744546,
+      "sourceSha256": "b7904caab95cd0df2c730241bcd0ef830860ba9f63bc9c517fe669be8c6483b7",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/garden-friends/flower-visitors/images/time-cue.webp",
+      "outputBytes": 26272,
+      "outputSha256": "a1ae947d4ea57183603a54a848c70977617073b912eed1eb4107e06edbbb8223",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/time-cue.png",
+      "sourceBytes": 896967,
+      "sourceSha256": "3f7434892aabb985ca09cee724c4c69caa8a0deb44d594bf8ddddef77d7c759d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/garden-friends/flower-visitors/images/watch-control-high.webp",
+      "outputBytes": 28540,
+      "outputSha256": "0dce84f2322b70d5e2a9a0ed5e7b994a9dae0c19156271981ce728fd6b1c6d00",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/watch-control-high.png",
+      "sourceBytes": 579634,
+      "sourceSha256": "ca8a09f82dcfb41481a11115b8ea42d84ac47812d8e56d2991601b6dc476d56c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/garden-friends/flower-visitors/images/watch-control-low.webp",
+      "outputBytes": 27768,
+      "outputSha256": "79751d37727e9562bd83dcacf85b9fd955afdee787d6dfdba124372f467e0d0b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "flower-visitors"
+      ],
+      "source": "lessons/garden-friends/flower-visitors/images/watch-control-low.png",
+      "sourceBytes": 546021,
+      "sourceSha256": "858c49e648e84ea7dfba9052bb176a43b441acbe3280693f0ee840870a036132",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/background.png",
+      "sourceBytes": 3142339,
+      "sourceSha256": "cfd137137dfbecd428c57ca2d4bf663e1def0b38177c96151e2583c0efdff576",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/birdbath-empty.webp",
+      "outputBytes": 40898,
+      "outputSha256": "c2c1a974bc0053e6d05c157a1ac2627357a4ef79a8dcc81cde49a4f39b1b9aa2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/birdbath-empty.png",
+      "sourceBytes": 954292,
+      "sourceSha256": "4cdbf4c5c01fe2413399a73960a0417aa1fc9f1487e20c44c44068ea7dfea903",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/birdbath-filled.webp",
+      "outputBytes": 41116,
+      "outputSha256": "a943c6f9ded31fc7f4557a52d3345d075bcd0e73596fe61cd3bf906188f5aadc",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/birdbath-filled.png",
+      "sourceBytes": 955068,
+      "sourceSha256": "89cb31ed0d7c4195eaf68dc48b0bc2bca5d177ba8dfa5873c11de76908269d33",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/caterpillar.webp",
+      "outputBytes": 31880,
+      "outputSha256": "84751f174a25cc6e6e2d3f9792d9411c7034b32165a0cfed854806a9bd744973",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/caterpillar.png",
+      "sourceBytes": 510676,
+      "sourceSha256": "80279b2d50fbdd35038beb2dc40f2f44689dab054c08904e885bfaaf6b70a906",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 43,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/garden-neighbors.webp",
+      "outputBytes": 94494,
+      "outputSha256": "ce41fd5f020c50688e47299f8b86641728513ca955acc434209b87c8dedc8d50",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/garden-neighbors.png",
+      "sourceBytes": 1038260,
+      "sourceSha256": "abcef6116e10cf5bc850e481a50d473d437c9bebe337ec60b64158b25cfae244",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 51,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/hero-plant.webp",
+      "outputBytes": 74390,
+      "outputSha256": "3069f603d099ac0d94b8d8964943ef6a1d2fa3c138eb119c299612002999724f",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/hero-plant.png",
+      "sourceBytes": 857119,
+      "sourceSha256": "53064794371254a8fc3122a516ae08f164527d8d827e127c93b3a921c330051e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/leaf-tip-lifted.webp",
+      "outputBytes": 46586,
+      "outputSha256": "8b10642d8481994a28321df5e9ab7629139a6fe1c2be135d666cf2aa123019af",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/leaf-tip-lifted.png",
+      "sourceBytes": 890659,
+      "sourceSha256": "24bae9fc56adac670b009653d1cd71c4c64253fb18fdf79d1b3aeb0cd39005eb",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/leaf-tip.webp",
+      "outputBytes": 44676,
+      "outputSha256": "536a420e278fee15f910a32ae9581006daceddbc7ce251e2887fadcf47a2da74",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/leaf-tip.png",
+      "sourceBytes": 1000280,
+      "sourceSha256": "ac1ec02581e5539e9b23775e2d716909c1c3cf8a9291cd5c1444af986330ae68",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/observation-ring.webp",
+      "outputBytes": 56334,
+      "outputSha256": "8189959d97b6bf97c5fd5582b0a9a0186b8ae83e0843383aaee93df4fc393f6a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/observation-ring.png",
+      "sourceBytes": 580258,
+      "sourceSha256": "a204497ad7c2920777ceea0e9fe5e9703967d66bfca0f05f5e19e68be50ae534",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/quiet-hands-control.webp",
+      "outputBytes": 32468,
+      "outputSha256": "f0d7fa01878492310c9ead19ffa72d39e2da979816b57cbd7b4f91aa8bde45b3",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/quiet-hands-control.png",
+      "sourceBytes": 714582,
+      "sourceSha256": "0868cbd248af75eec8967c95473def29a57f2016e7ed144d8b5cc0b96324f44a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/watch-gently-action.webp",
+      "outputBytes": 55168,
+      "outputSha256": "ac8c16d2c2d28e3ea7dc880a117d4a3934415131c3cde45f3801d8298cb17be1",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/watch-gently-action.png",
+      "sourceBytes": 547010,
+      "sourceSha256": "4803d742e02f99687378fd3c4b0601cc563903eebf104bad97c756eb47d96a62",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 14,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/water-drop.webp",
+      "outputBytes": 16898,
+      "outputSha256": "dde6cddcc47d5e470e26568e276100ccac8df62f93bdb597fee7c918b3f952a4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/water-drop.png",
+      "sourceBytes": 459976,
+      "sourceSha256": "222a9b29d84a8e019b9c1554de4a982c115a4fddd4283d54dc8e962d8707b83e",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/quiet-garden-watch/images/wave-hands-action.webp",
+      "outputBytes": 83494,
+      "outputSha256": "e31f0625153d09de32e828c15e86a4368fc38ce07cb286291c28ad4990bc7f65",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "quiet-garden-watch"
+      ],
+      "source": "lessons/garden-friends/quiet-garden-watch/images/wave-hands-action.png",
+      "sourceBytes": 621607,
+      "sourceSha256": "c7f9afa42cdfaf51410035b33e8a5fb5a0ba21ba3160db9ef62cfdc7d701d3be",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/garden-friends/under-the-leaf/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/background.png",
+      "sourceBytes": 3142339,
+      "sourceSha256": "cfd137137dfbecd428c57ca2d4bf663e1def0b38177c96151e2583c0efdff576",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/garden-friends/under-the-leaf/images/earthworm.webp",
+      "outputBytes": 41120,
+      "outputSha256": "9f4127bac7d3d69e7a8fad0a7ca07c2646385a7c45eedb543adbfaf0e8fc5cee",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/earthworm.png",
+      "sourceBytes": 839625,
+      "sourceSha256": "abea0d2c4f6c84ebf337a7dfbdaacfb1e4c42a08c8fdfc4dcb8e60d86ba1bc65",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 48,
+      "output": "lessons/garden-friends/under-the-leaf/images/hero-plant.webp",
+      "outputBytes": 72164,
+      "outputSha256": "0a69fa9f87349b7a99bf07b85e40f144b3b17dc05cd0f875dc69bc8654c53cd4",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/hero-plant.png",
+      "sourceBytes": 799032,
+      "sourceSha256": "bc2cbb141e841f180f86b1f7e60acaf1f9e629ef70aecff415d82e16ff6bf70b",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/under-the-leaf/images/leaf-cover-closed.webp",
+      "outputBytes": 52078,
+      "outputSha256": "5f9ef193a2f935dcaeda4ead62a682f3484e83b891efc5b97f6783754adf5dd3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/leaf-cover-closed.png",
+      "sourceBytes": 862934,
+      "sourceSha256": "bc7ffba73802583b7f504ec9e06322ffbfd67b7579681c239d753d55b162a48b",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/under-the-leaf/images/leaf-cover-lifted.webp",
+      "outputBytes": 60162,
+      "outputSha256": "0693a4c34ffddc5ee4e67df2a202f39fcb50123fc2e18ae553e4ef8beded5f06",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/leaf-cover-lifted.png",
+      "sourceBytes": 991899,
+      "sourceSha256": "e1058298780c4aad300b0f35481059e26233b33d57a66ca146bce764221c500a",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/under-the-leaf/images/leaf-cover-replaced.webp",
+      "outputBytes": 51086,
+      "outputSha256": "802fe252c80a979c10c6816469740dda9a419143fd7fffc931a37f15da169133",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/leaf-cover-replaced.png",
+      "sourceBytes": 853075,
+      "sourceSha256": "a7675cf1dd468db4b731a6dfd086de5730b8b3d24a509006dbbb0990fc924405",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/under-the-leaf/images/look-over-flower-action.webp",
+      "outputBytes": 51272,
+      "outputSha256": "00a30f329b7d3051b02e4937983b814d37a714bbf626b64002feb107dbe42cdc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/look-over-flower-action.png",
+      "sourceBytes": 815718,
+      "sourceSha256": "e4e26987fe1880a44a69c47319fb9a0c50cd936159fb1b1386d7d60aaee674f7",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/garden-friends/under-the-leaf/images/look-under-leaf-action.webp",
+      "outputBytes": 53532,
+      "outputSha256": "955db4f3459a8771aa986fedc74b21b15221d82e54093c858e8cf747d75e4841",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/look-under-leaf-action.png",
+      "sourceBytes": 819033,
+      "sourceSha256": "6420aa8418e501e0b5e3befc18a551952c7b294cd28ef4b97b82a05b2661709c",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/garden-friends/under-the-leaf/images/observation-ring.webp",
+      "outputBytes": 46242,
+      "outputSha256": "33981f608a808834ad0d6b2dc407505581b42712439f396f2e3cc50941167799",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/observation-ring.png",
+      "sourceBytes": 541329,
+      "sourceSha256": "93afbd707efcd4c9c828041ff1af1b8f6d6f24ea225dbc0a7e2fdf12e196d14e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 20,
+      "output": "lessons/garden-friends/under-the-leaf/images/snail.webp",
+      "outputBytes": 27854,
+      "outputSha256": "2acbfa3db527c29903592b107ec5d3dfc837fa8f44f621c447f9dc386164fcfc",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/snail.png",
+      "sourceBytes": 1021397,
+      "sourceSha256": "6e8adc8dcc4ca545f25d9c56ff5392b4ac1ab635e6830e1f43ab08d219ff0668",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/garden-friends/under-the-leaf/images/soil-patch.webp",
+      "outputBytes": 34804,
+      "outputSha256": "80c000cb59532218c336dff07a03f61248491243436558a865e68faf848c8f28",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/soil-patch.png",
+      "sourceBytes": 658798,
+      "sourceSha256": "624bbcfd88654b2cf5facb0235211d1d99ffe7208a5ddf1be66fe0aa9aa4b62e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "garden-friends"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/garden-friends/under-the-leaf/images/tunnel.webp",
+      "outputBytes": 45594,
+      "outputSha256": "015d0f54dd353f8eb62c39d89e9e50ef35e0006fb7a6717ab0f32bea58b2e9af",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "under-the-leaf"
+      ],
+      "source": "lessons/garden-friends/under-the-leaf/images/tunnel.png",
+      "sourceBytes": 1226141,
+      "sourceSha256": "67c71600533888abb0b898dc4a62623ce75212b35741f87bcdfe953939ffdfe6",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
       "height": 418,
       "lessonIds": [
@@ -9913,6 +10718,926 @@
       "sourceBytes": 260529,
       "sourceSha256": "88018299745aa1f220280de27eeb406d082c17bfbe4bcd6c11ced517c6f07c90",
       "width": 418
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/background.png",
+      "sourceBytes": 1975761,
+      "sourceSha256": "7968618968214c0bae0af97a0683a1f8f09b7a181deab5d838b9b57c7c3a8761",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/leaf.webp",
+      "outputBytes": 21368,
+      "outputSha256": "90a4d3b9e85b28bd5ca55548ca8efaa0c7814c91704036f6fa7d80bc0223ed67",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/leaf.png",
+      "sourceBytes": 711987,
+      "sourceSha256": "b70732a2a558c43d1d43491c151258a4bc8a1274bff176d3e1edc92ac063c8a3",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/move-sunlight-action.webp",
+      "outputBytes": 64960,
+      "outputSha256": "3d6cd1ef42c0861f2c0519d53546c30389720e8aa1d17d5469c54496d287e9b9",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/move-sunlight-action.png",
+      "sourceBytes": 510393,
+      "sourceSha256": "bb4824b16b1bb3ab54bae086a1c33d7c171004178898aac1c9bd233c9f398ec0",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-drooping.webp",
+      "outputBytes": 48200,
+      "outputSha256": "8bbacc28e86dfe32a4ce3ae2e6233fbdc9b84a0ab5578f6edd1e5aecbb93db0b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-drooping.png",
+      "sourceBytes": 859111,
+      "sourceSha256": "ffff4768c5e7d349f6630f7ad7222fe5e88d47b50136a3f60f0d775ce431de87",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-new-leaf.webp",
+      "outputBytes": 53390,
+      "outputSha256": "000717df767f59d4862d786a76b088414167e116ce1df24cc0d7879a4a14d756",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-new-leaf.png",
+      "sourceBytes": 832894,
+      "sourceSha256": "e1d9d283eaf71ebc11e9f03177da0f751df297e62d4dc18813a64da9cd591295",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-perked.webp",
+      "outputBytes": 51044,
+      "outputSha256": "22e283a9afbf026b29996b0eddf7628b4a562c19a60d877a6e677afa94d2bf66",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-perked.png",
+      "sourceBytes": 813232,
+      "sourceSha256": "d911ab366486cefbaba8fff31c09bac2dd9710c73ea9e8052def1b301f923058",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-sunlit.webp",
+      "outputBytes": 55868,
+      "outputSha256": "de290f5d79586c0bb07c3cd22ac8df6d2f7642048a9cf73d26bab050c2da6cbb",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/plant-sunlit.png",
+      "sourceBytes": 749077,
+      "sourceSha256": "72f8d5070282ae92f6632a19c46dcf5af7d710d7c849516205e4eebedb2fad96",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/shade-control.webp",
+      "outputBytes": 31004,
+      "outputSha256": "337181a5ce775ec37ee9feb1ab38e2b8839a90206d6fceadaf15de56ff51e890",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/shade-control.png",
+      "sourceBytes": 560129,
+      "sourceSha256": "8a8fe616d3914619fc3178560f5e51079adc9c67d98ba0148e587eefb44ca76c",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/shade.webp",
+      "outputBytes": 22808,
+      "outputSha256": "ea5fb5638ca08c801ece2f7eb7d200b67894061613a2f3769b9a0550fa599d52",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/shade.png",
+      "sourceBytes": 500353,
+      "sourceSha256": "26a039657349af6ee268273c4eb83fda4b24ac5d6aab72b5445788dcbb4aecb4",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/stay-shade-action.webp",
+      "outputBytes": 67228,
+      "outputSha256": "fdc3941e6f6c2e6f6294f021febd437cc788c96d4e12501f06506ab080bd5b1c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/stay-shade-action.png",
+      "sourceBytes": 849347,
+      "sourceSha256": "603f2abfd0e3924962a96135c314c24fc5c2000ef69a84568e241094ad7c6d1e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 21,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/sunlight.webp",
+      "outputBytes": 62738,
+      "outputSha256": "c2882161c7100bef8d0c31dcd075de5f00efae34e5c4df06a69af182ba5110de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/sunlight.png",
+      "sourceBytes": 647089,
+      "sourceSha256": "64a725d7806b4c3fe8099a171c90fdfcfe721943e6a97fc13ee0ca5d3337e304",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/time-cue.webp",
+      "outputBytes": 40652,
+      "outputSha256": "5926f0abf76af9657646b6f91cf66904ded111c93c546815b21a14b22d834a39",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/time-cue.png",
+      "sourceBytes": 1058120,
+      "sourceSha256": "9c10e42fc0d184cf8dd8a77e1d8bbf92dc6c278b8c634533e35b383b939421ec",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/help-it-grow/new-leaf-and-sunlight/images/watering-can.webp",
+      "outputBytes": 39832,
+      "outputSha256": "a1a556c415e283c872951844b56a02de9abd2f16effa4b7f8d86994af2afe054",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "new-leaf-and-sunlight"
+      ],
+      "source": "lessons/help-it-grow/new-leaf-and-sunlight/images/watering-can.png",
+      "sourceBytes": 765298,
+      "sourceSha256": "f9366a6e4ac799ec5833c99a0316390ed77ba5088b50f83aee8cdfdb96929bf8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/help-it-grow/rainy-day-care/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/background.png",
+      "sourceBytes": 1975761,
+      "sourceSha256": "7968618968214c0bae0af97a0683a1f8f09b7a181deab5d838b9b57c7c3a8761",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/rainy-day-care/images/check-soil-action.webp",
+      "outputBytes": 76594,
+      "outputSha256": "6a08028e197fd12365200a25b714938ec4b3887e98f50bc8260135cd367ddcd8",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/check-soil-action.png",
+      "sourceBytes": 925038,
+      "sourceSha256": "53d8e10ba5cca8ba2fc81ef508d5ae00a9c811fa1eb0c7abd9250c921b834889",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/help-it-grow/rainy-day-care/images/cloud-gray.webp",
+      "outputBytes": 23018,
+      "outputSha256": "ceff0230bcee34f988d762ee469ab965ad4774e312a60f640d97978c958b7106",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/cloud-gray.png",
+      "sourceBytes": 470603,
+      "sourceSha256": "306858ad364a289ab93ebea671e0103bb61de8f0ded75bf4c94ea669e66b39de",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/rainy-day-care/images/plant-rain-wet.webp",
+      "outputBytes": 52740,
+      "outputSha256": "4b1168be75bb4c049e81f6d9fd7ce06d4575a63767e1f690fe2432f1f5d7d7e0",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/plant-rain-wet.png",
+      "sourceBytes": 820796,
+      "sourceSha256": "d31e12bbf600d4f52aab0125f61d12fbbbc765090c0067028e7e83f07f57c5b6",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/help-it-grow/rainy-day-care/images/plant-sheltered.webp",
+      "outputBytes": 52144,
+      "outputSha256": "bcdfdea2555f75f37a8d139401cb36edc814901da2c6c746a4a1d293421b564d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/plant-sheltered.png",
+      "sourceBytes": 806317,
+      "sourceSha256": "e3bb6b8997b3de4013d725845338790e77a5eee8f74118fe4f81b8fac7dccec9",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/rainy-day-care/images/pour-water-action.webp",
+      "outputBytes": 82766,
+      "outputSha256": "b48487c30f09af62d5b87ff24c9607c212d69983ce755724a1635f210781bf24",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/pour-water-action.png",
+      "sourceBytes": 914711,
+      "sourceSha256": "68df7e87e5f3c1383ca49d0fda577556b20cef3a3a84a3568d8b8b5705e943db",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/help-it-grow/rainy-day-care/images/rain.webp",
+      "outputBytes": 41962,
+      "outputSha256": "93f704dde3aa33e4623cd884ae74ed62bbdf47ebf0340b41347246b826520973",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/rain.png",
+      "sourceBytes": 492880,
+      "sourceSha256": "21521050c3d732d5a765f6fd0f2aeff64347eb48e76e6e92eb2e51a19c78c294",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/help-it-grow/rainy-day-care/images/root-window-control.webp",
+      "outputBytes": 40348,
+      "outputSha256": "3b5fab1657ebb3a0cb54564da5288bcd0501352db9d394c3cc6ec12c130891c1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/root-window-control.png",
+      "sourceBytes": 793748,
+      "sourceSha256": "7e5f98ddb205284f4e229bf350e41e0a1b9d2e5db334606cf3d4177ec9d0deea",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/help-it-grow/rainy-day-care/images/roots.webp",
+      "outputBytes": 48656,
+      "outputSha256": "503de0b74d6f8010a8bbdf08c70dd8818129a893ea76101387c11dcba6184de4",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/roots.png",
+      "sourceBytes": 1169014,
+      "sourceSha256": "ba52dd4d89d897001b2a7d7d20be72fca701f6e1d97d180042b04fe89bd7dfc4",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/help-it-grow/rainy-day-care/images/soil-checked-wet.webp",
+      "outputBytes": 24600,
+      "outputSha256": "7c9e943e8e4354f092bc22233ea47fcbc9f11c21a36fab41cc0807221c7fef02",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/soil-checked-wet.png",
+      "sourceBytes": 856044,
+      "sourceSha256": "4a404ab2fa2df9ac320522ed6a350585bd5d5dd5c7f261918df3ea2ad437342a",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 16,
+      "output": "lessons/help-it-grow/rainy-day-care/images/soil-wet.webp",
+      "outputBytes": 24810,
+      "outputSha256": "59646f0bee27a210494c80fb385d5f75ba7c90f5bba0a0fe8fd006969583acf8",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rainy-day-care"
+      ],
+      "source": "lessons/help-it-grow/rainy-day-care/images/soil-wet.png",
+      "sourceBytes": 847868,
+      "sourceSha256": "542b936dcf275c238cbe5cd390eccf381cc917c9bc6a2f4d0536590eb370bfe6",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/help-it-grow/wind-and-support/images/background.webp",
+      "outputBytes": 74822,
+      "outputSha256": "767dea11f77a703e799bb964a140648a5be19922a2db00263ba216d2898cd5cb",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/background.png",
+      "sourceBytes": 1975761,
+      "sourceSha256": "7968618968214c0bae0af97a0683a1f8f09b7a181deab5d838b9b57c7c3a8761",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/help-it-grow/wind-and-support/images/installed-stake.webp",
+      "outputBytes": 18524,
+      "outputSha256": "03b5326f016813c99c7d6a6ba146578d40a97c3012491ac1e58cf17f4007bfd3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/installed-stake.png",
+      "sourceBytes": 254716,
+      "sourceSha256": "5e76b2eed269ce871234f487f7eb9497e9b4e537b7b0cdab3bf002284dc41dcf",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/help-it-grow/wind-and-support/images/installed-tie.webp",
+      "outputBytes": 53618,
+      "outputSha256": "a37e6785cd40403ed0577a6067fa98bb9fa1dbc22fe9c7d37aab161ca2ba45a7",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/installed-tie.png",
+      "sourceBytes": 1054414,
+      "sourceSha256": "cceeaa961970c1514ec1c189fed0533018b5484fba87156d81b6b1aecb7d1a8f",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/wind-and-support/images/leave-leaning-action.webp",
+      "outputBytes": 77276,
+      "outputSha256": "d3c4b6c9cc16409da16ada965a2df677e49780321bca3f8e6a3f5db009a75bba",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/leave-leaning-action.png",
+      "sourceBytes": 858241,
+      "sourceSha256": "be8f5091352a1ad5bc3917095a26af0a26e54c97d111e32afd392ec9eafa0a8a",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/help-it-grow/wind-and-support/images/plant-flower-bud.webp",
+      "outputBytes": 67518,
+      "outputSha256": "51b04c29398c0e9d2fdb725ebce91bd19ec27fc45bbfd7921f8d9b2ab05e436a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/plant-flower-bud.png",
+      "sourceBytes": 813348,
+      "sourceSha256": "3e9ec4c5ef54281b05c887a29e31071b499b90eb629acf4a5316e2089529fcbc",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/help-it-grow/wind-and-support/images/plant-leaning.webp",
+      "outputBytes": 64280,
+      "outputSha256": "23d593be19b49a72430141aa6b7810cdf917f821ce901212d8b4f6bab800787c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/plant-leaning.png",
+      "sourceBytes": 667406,
+      "sourceSha256": "ab8c17dac1b66c8a9e60c628180653600bc8a62245dec057a251758228f6edca",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/help-it-grow/wind-and-support/images/plant-staked.webp",
+      "outputBytes": 70924,
+      "outputSha256": "3c61d7d24a7ed06e5d0794046f6bac929f31a3f96f4ccdf368d7df87428a0e7c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/plant-staked.png",
+      "sourceBytes": 777396,
+      "sourceSha256": "25a3428164a1127b02f174ccb19d8d58e5670870be1473cdc71367a4e64624ec",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/help-it-grow/wind-and-support/images/plant-supported.webp",
+      "outputBytes": 62122,
+      "outputSha256": "4739e3c0504eaf78c7b51d54a1e0fc1710f3c42e205395678fd533af9610e0f1",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/plant-supported.png",
+      "sourceBytes": 751851,
+      "sourceSha256": "cc82f472c5246b30fd629de24ead9674765ab2781a0b96eb82eaea71a2c7b838",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/help-it-grow/wind-and-support/images/plant-swaying.webp",
+      "outputBytes": 76116,
+      "outputSha256": "f309b5173bdc09734c332e18470148df2204f8038101d6e5e5f753fbef447dfc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/plant-swaying.png",
+      "sourceBytes": 831179,
+      "sourceSha256": "a24c522b2a73774cc66d60d68260a8b56e4910bc7f6a36a392bc2d1ec2b8a647",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/help-it-grow/wind-and-support/images/soft-tie.webp",
+      "outputBytes": 37470,
+      "outputSha256": "d155d00483be6c83c02ad9f246f6ad2f6d7b7b539bea941cdb10b2abf225dd18",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/soft-tie.png",
+      "sourceBytes": 783446,
+      "sourceSha256": "4604e8b88f77b3e9efec1ab097f80c97bd5f7825267981dd16187190def5a617",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/help-it-grow/wind-and-support/images/stake.webp",
+      "outputBytes": 7202,
+      "outputSha256": "d3cc1f51c5d9e526721500d8dccaa95f9abba7a8df542043d574b1856a3c0ad2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/stake.png",
+      "sourceBytes": 202922,
+      "sourceSha256": "38eca13f0098325bce930610cef61b239df45e6dba8affd1fb1c94ac0622dd1f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/help-it-grow/wind-and-support/images/stem.webp",
+      "outputBytes": 50274,
+      "outputSha256": "07053ee8e6c1bf48d687c87fd27b99d0acf1667e3c7c6c34a4c7728fb0d4f913",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/stem.png",
+      "sourceBytes": 773931,
+      "sourceSha256": "9e186dbe33974bdaf6edf80a507538df52e8bb3d66f77ae50886249f195d9674",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/help-it-grow/wind-and-support/images/support-stem-action.webp",
+      "outputBytes": 66500,
+      "outputSha256": "31fd2c612d992c1d90811f0396d0bf524ac4736f45373ea4e8bb67a6761c8ccf",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/support-stem-action.png",
+      "sourceBytes": 813008,
+      "sourceSha256": "3f94c7265c9eec008370e6d5ad3a906eeca672e1643608e18f662638fd42b92b",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 37,
+      "output": "lessons/help-it-grow/wind-and-support/images/support-stick.webp",
+      "outputBytes": 10630,
+      "outputSha256": "1e1e0156240a6bcd6eaa745bae79ab23c76195925a65b76374ca50fe22fda01c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/support-stick.png",
+      "sourceBytes": 130791,
+      "sourceSha256": "3d391f28ce90b49a971e11a213d41c1c4913ed81ef759ff92722a9be63c07675",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/help-it-grow/wind-and-support/images/time-cue.webp",
+      "outputBytes": 24638,
+      "outputSha256": "cbefbaeb9af6648c9fce62e490cb89788a4a300c7bce5438a0d5e73a060cd2d4",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/time-cue.png",
+      "sourceBytes": 1058120,
+      "sourceSha256": "9c10e42fc0d184cf8dd8a77e1d8bbf92dc6c278b8c634533e35b383b939421ec",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "help-it-grow"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/help-it-grow/wind-and-support/images/wind.webp",
+      "outputBytes": 42548,
+      "outputSha256": "c7ddb582a5762b5a1149eeaf32e3f250da3222e4a3311833d8e3fe4febc9bf82",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wind-and-support"
+      ],
+      "source": "lessons/help-it-grow/wind-and-support/images/wind.png",
+      "sourceBytes": 418925,
+      "sourceSha256": "bf30bd425d4144df62adb2751a384a77d7ab1699d5abeaa097ec6ac655c62503",
+      "width": 768
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -20334,7 +22059,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-13T03:10:12.523Z",
+  "generatedAt": "2026-08-14T04:12:52.638Z",
   "releaseVersion": "v1",
-  "revision": "564a6060b3c1da13"
+  "revision": "5dad3175fd95c8cc"
 }

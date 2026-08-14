@@ -8,7 +8,7 @@ import {
   resolveObjectInteraction,
   resolveContinueInteraction,
 } from '../src/engine/StepController';
-import type { Lesson, Scene } from '../src/types/lesson';
+import type { Lesson, Scene, SceneStep } from '../src/types/lesson';
 
 const scene: Scene = {
   background: {
@@ -149,9 +149,37 @@ test('exposes durable state changes only for a correct interaction', () => {
   expect(resolveContinueInteraction(scene, step).stateChanges).toEqual([]);
 });
 
+test('exposes deferred state changes only after a correct interaction', () => {
+  const step: SceneStep = {
+    ...scene.steps[0],
+    afterSuccessStateChanges: [
+      { targetObjectId: 'stone', type: 'hideObject' },
+    ],
+  };
+
+  expect(
+    resolveObjectInteraction(scene, step, 'seed').afterSuccessStateChanges,
+  ).toEqual(step.afterSuccessStateChanges);
+  expect(
+    resolveObjectInteraction(scene, step, 'stone').afterSuccessStateChanges,
+  ).toEqual([]);
+});
+
 test('filters state changes whose target is unavailable in a learning mode', () => {
-  const coreScene = getSceneForLearningMode(scene, 'core');
-  const expandedScene = getSceneForLearningMode(scene, 'expanded');
+  const sceneWithDeferredState: Scene = {
+    ...scene,
+    steps: scene.steps.map(step => ({
+      ...step,
+      afterSuccessStateChanges: [
+        { targetObjectId: 'confetti', type: 'showObject' },
+      ],
+    })),
+  };
+  const coreScene = getSceneForLearningMode(sceneWithDeferredState, 'core');
+  const expandedScene = getSceneForLearningMode(
+    sceneWithDeferredState,
+    'expanded',
+  );
 
   expect(coreScene.objects.map(object => object.id)).not.toContain('confetti');
   expect(coreScene.steps[0].successStateChanges).toEqual(
@@ -159,6 +187,10 @@ test('filters state changes whose target is unavailable in a learning mode', () 
   );
   expect(expandedScene.steps[0].successStateChanges).toEqual(
     scene.steps[0].successStateChanges,
+  );
+  expect(coreScene.steps[0].afterSuccessStateChanges).toEqual([]);
+  expect(expandedScene.steps[0].afterSuccessStateChanges).toEqual(
+    sceneWithDeferredState.steps[0].afterSuccessStateChanges,
   );
 });
 
@@ -188,6 +220,9 @@ test('validates object variants, initial variants and state-change references', 
     steps: [
       {
         ...scene.steps[0],
+        afterSuccessStateChanges: [
+          { targetObjectId: 'missing-deferred-object', type: 'hideObject' },
+        ],
         successStateChanges: [
           {
             targetObjectId: 'pot',
@@ -224,6 +259,10 @@ test('validates object variants, initial variants and state-change references', 
       }),
       expect.objectContaining({
         message: 'targetObjectId "missing-object" does not exist.',
+      }),
+      expect.objectContaining({
+        message: 'targetObjectId "missing-deferred-object" does not exist.',
+        path: expect.stringContaining('afterSuccessStateChanges'),
       }),
     ]),
   );

@@ -21,6 +21,7 @@ export type StepInteractionResult = {
   feedbackVi?: string;
   effectObjectIds: EntityId[];
   objectEffects: StepObjectEffect[];
+  afterSuccessStateChanges: SceneStateChange[];
   stateChanges: SceneStateChange[];
   soundEffect?: SceneSoundEffect;
   nextStep?: SceneStep;
@@ -104,6 +105,7 @@ export function resolveContinueInteraction(
   if (!isListenStep(step)) {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
       stateChanges: [],
       isSceneComplete: false,
@@ -122,6 +124,7 @@ export function resolveObjectInteraction(
   if (!canPressObjects(step)) {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
       stateChanges: [],
       isSceneComplete: false,
@@ -135,6 +138,7 @@ export function resolveObjectInteraction(
 
   return {
     effectObjectIds: [objectId],
+    afterSuccessStateChanges: [],
     feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Thử lại nhé.',
     isSceneComplete: false,
@@ -153,6 +157,7 @@ export function resolveDragInteraction(
   if (step.interaction.type !== 'drag') {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
       stateChanges: [],
       isSceneComplete: false,
@@ -166,6 +171,7 @@ export function resolveDragInteraction(
 
   return {
     effectObjectIds: [objectId],
+    afterSuccessStateChanges: [],
     feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Kéo vào vùng đúng nhé.',
     isSceneComplete: false,
@@ -194,6 +200,7 @@ function buildCorrectResult(
   const objectEffects = getSuccessObjectEffects(step, objectId);
 
   return {
+    afterSuccessStateChanges: step.afterSuccessStateChanges ?? [],
     effectObjectIds: objectEffects.map(effect => effect.targetObjectId),
     feedbackEn: step.successFeedbackEn,
     feedbackVi: step.successFeedbackVi,

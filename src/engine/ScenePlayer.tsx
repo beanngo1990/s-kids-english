@@ -457,6 +457,9 @@ export function ScenePlayer({
   const [feedback, setFeedback] = useState<FeedbackState | null>(null);
   const [successObjectEffects, setSuccessObjectEffects] =
     useState<ObjectEffectMap>({});
+  const [successDimmedObjectIds, setSuccessDimmedObjectIds] = useState<
+    EntityId[]
+  >([]);
   const [shakeObjectIds, setShakeObjectIds] = useState<EntityId[]>([]);
   const [hintObjectIds, setHintObjectIds] = useState<EntityId[]>([]);
   const [autoHintResetNonce, setAutoHintResetNonce] = useState(0);
@@ -612,6 +615,7 @@ export function ScenePlayer({
     setStepId(currentScene ? getInitialStep(currentScene)?.id : undefined);
     setFeedback(null);
     setSuccessObjectEffects({});
+    setSuccessDimmedObjectIds([]);
     setShakeObjectIds([]);
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
@@ -1510,6 +1514,7 @@ export function ScenePlayer({
       }
 
       setSuccessObjectEffects({});
+      setSuccessDimmedObjectIds([]);
       setHintObjectIds(hintIds);
       setShakeObjectIds(dedupeIds([...result.effectObjectIds, ...hintIds]));
       setFeedback({
@@ -1573,6 +1578,9 @@ export function ScenePlayer({
     sceneRuntimeStateRef.current = stateAfterSuccess;
     setSceneRuntimeState(stateAfterSuccess);
     setSuccessObjectEffects(createObjectEffectMap(result.objectEffects));
+    setSuccessDimmedObjectIds(
+      currentStep ? getSuccessDimmedObjectIds(currentStep) : [],
+    );
     setFeedback({
       text: feedbackPrompt.displayText,
       type: 'success',
@@ -1620,6 +1628,7 @@ export function ScenePlayer({
       if (interactiveSpeechPractice) {
         setFeedback(null);
         setSuccessObjectEffects({});
+        setSuccessDimmedObjectIds([]);
         setPendingInteractiveSpeechPractice({
           mode: interactiveSpeechPractice.mode,
           result,
@@ -1746,14 +1755,25 @@ export function ScenePlayer({
     clearFeedbackTimerRef.current = setTimeout(() => {
       setFeedback(current => (current?.type === 'info' ? null : current));
       setSuccessObjectEffects({});
+      setSuccessDimmedObjectIds([]);
       setShakeObjectIds([]);
       setHintObjectIds([]);
     }, 1300);
   };
 
   const goToNextStep = (activeScene: Scene, result: StepInteractionResult) => {
+    if (result.afterSuccessStateChanges.length > 0) {
+      const stateAfterFeedback = applySceneStateChanges(
+        sceneRuntimeStateRef.current,
+        result.afterSuccessStateChanges,
+      );
+      sceneRuntimeStateRef.current = stateAfterFeedback;
+      setSceneRuntimeState(stateAfterFeedback);
+    }
+
     setFeedback(null);
     setSuccessObjectEffects({});
+    setSuccessDimmedObjectIds([]);
     setShakeObjectIds([]);
     setHintObjectIds([]);
 
@@ -1875,6 +1895,7 @@ export function ScenePlayer({
     setStepId(getInitialStep(targetScene)?.id);
     setFeedback(null);
     setSuccessObjectEffects({});
+    setSuccessDimmedObjectIds([]);
     setShakeObjectIds([]);
     setHintObjectIds([]);
     setWrongAttemptsByStepId({});
@@ -2378,7 +2399,8 @@ export function ScenePlayer({
                 isStepTargetObject(currentStep, object.id)
               }
               isDimmed={
-                hasActiveHint && !isTargeted && object.role === 'learning'
+                successDimmedObjectIds.includes(object.id) ||
+                (hasActiveHint && !isTargeted && object.role === 'learning')
               }
               isTargeted={isTargeted}
               label={getObjectLabel(
@@ -2407,6 +2429,26 @@ function clearTimer(
     clearTimeout(timerRef.current);
     timerRef.current = null;
   }
+}
+
+function getSuccessDimmedObjectIds(step: SceneStep): EntityId[] {
+  if (step.interaction.type !== 'tap' && step.interaction.type !== 'find') {
+    return [];
+  }
+
+  const correctObjectIds = step.interaction.correctObjectIds;
+  if (
+    !correctObjectIds?.length ||
+    step.targetObjectIds.length <= correctObjectIds.length
+  ) {
+    return [];
+  }
+
+  const correctObjectIdSet = new Set(correctObjectIds);
+
+  return step.targetObjectIds.filter(
+    objectId => !correctObjectIdSet.has(objectId),
+  );
 }
 
 async function prepareRequiredImage(asset: string, isActive: () => boolean) {

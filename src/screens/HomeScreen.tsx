@@ -44,7 +44,10 @@ import {
   getMonetizationSnapshot,
   useMonetizationSnapshot,
 } from '../engine/MonetizationManager';
-import { getParentSettings } from '../engine/ParentSettingsManager';
+import {
+  getParentSettings,
+  resolveLearningModePreference,
+} from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import {
   getLocalizedLessonTitle,
@@ -121,7 +124,7 @@ export function HomeScreen({ navigation, route }: Props) {
     }
   }, [route?.params?.activeTab]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
-  const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [learningMode, setLearningMode] = useState<LearningMode>();
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const appLanguage = useSavedAppLanguage();
   const [visibleLessonIds, setVisibleLessonIds] = useState<
@@ -483,14 +486,17 @@ export function HomeScreen({ navigation, route }: Props) {
   );
 
   const openNode = useCallback(
-    (node: ThemeMapNode) => {
+    async (node: ThemeMapNode) => {
       if (!canAccessLesson(node.lessonId, getMonetizationSnapshot())) {
         showPremiumLock(node.lessonId);
         return;
       }
 
-      navigation.navigate('ScenePlayer', {
+      const activeLearningMode = await resolveLearningModePreference(
         learningMode,
+      );
+      navigation.navigate('ScenePlayer', {
+        learningMode: activeLearningMode,
         lessonId: node.lessonId,
         sceneId: node.scene.id,
       });
@@ -499,15 +505,18 @@ export function HomeScreen({ navigation, route }: Props) {
   );
 
   const openReviewGame = useCallback(
-    (lessonId: string) => {
+    async (lessonId: string) => {
       if (!canAccessReview(lessonId, getMonetizationSnapshot())) {
         showPremiumLock(lessonId);
         return;
       }
 
+      const activeLearningMode = await resolveLearningModePreference(
+        learningMode,
+      );
       navigation.navigate('ReviewGame', {
         lessonId,
-        learningMode,
+        learningMode: activeLearningMode,
       });
     },
     [learningMode, navigation, showPremiumLock],

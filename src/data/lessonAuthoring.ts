@@ -180,6 +180,7 @@ export function objectVariant({
 }
 
 type BaseStepInput = {
+  afterSuccessStateChanges?: SceneStateChange[];
   id: EntityId;
   effects?: SceneEffect[];
   failFeedbackEn?: string;

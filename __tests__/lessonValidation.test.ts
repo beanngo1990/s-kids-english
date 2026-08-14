@@ -156,6 +156,8 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'toilet-routine',
     'speaking-up',
     'plant-a-seed',
+    'help-it-grow',
+    'garden-friends',
   ]);
 });
 

@@ -159,6 +159,7 @@ export type SceneStep = {
   failFeedbackEn?: string;
   effects?: SceneEffect[];
   successStateChanges?: SceneStateChange[];
+  afterSuccessStateChanges?: SceneStateChange[];
   learningScope?: LearningScope;
   nextStepId?: EntityId;
   speechPractice?: SpeechPracticeMode;

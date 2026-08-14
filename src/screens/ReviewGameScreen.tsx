@@ -352,6 +352,7 @@ export function ReviewGameScreen({ navigation, route }: Props) {
     navigation.replace('Reward', {
       gameType: activeGameType,
       lessonId: lesson.id,
+      learningMode,
       playedWordIds: reviewItems.map(item => item.id),
       sourceScreen: 'ReviewGame',
       ...completionResult,

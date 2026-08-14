@@ -162,6 +162,47 @@ test('new sticker reward offers a contextual shortcut to Sticker Playground', as
   });
 });
 
+test('reward replay preserves the selected challenge mode', async () => {
+  const lesson = lessons[0];
+  const navigation = createNavigation();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <RewardScreen
+        navigation={navigation as never}
+        route={{
+          key: 'Reward',
+          name: 'Reward',
+          params: {
+            lessonId: lesson.id,
+            learningMode: 'challenge',
+            sourceScreen: 'ScenePlayer',
+          },
+        }}
+      />,
+    );
+    await flushPromises();
+  });
+
+  const replayButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Chơi lại');
+
+  expect(replayButton).toBeDefined();
+  ReactTestRenderer.act(() => {
+    replayButton?.props.onPress();
+  });
+  expect(navigation.replace).toHaveBeenCalledWith('ScenePlayer', {
+    learningMode: 'challenge',
+    lessonId: lesson.id,
+  });
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('guided mode redirects an unfinished lesson review back to its pack', async () => {
   const lesson = lessons[0];
   const navigation = createNavigation();

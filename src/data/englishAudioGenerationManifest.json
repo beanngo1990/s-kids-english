@@ -29509,6 +29509,1414 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 8685,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/bee.mp3",
+      "sha256": "a5566be296dfed940c4a0fbae44ba3b5fd1d284772cd7722253c41c4183c9a8e",
+      "text": "bee",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/butterfly.mp3",
+      "sha256": "073e7e3a6668b451fb63a78c6c897fd98f883b8762fea3c19e5ea36d545b974c",
+      "text": "butterfly",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/completion_28761014.mp3",
+      "sha256": "4be876b6c73a5304217a8680df83c58eec005a6a95cf507bc4d86856b2e9937b",
+      "text": "You watched a bee and a butterfly visit the flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
+      "sha256": "1fd16638f1a50063ed07754aadb61c9d23d11d5b716ee7a362f157ffadd7ea3a",
+      "text": "The tomato plant is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/find_tiny_fruit_success_4f2c007e.mp3",
+      "sha256": "20ea938eb0ef7a1acb816e40b5ce598f956f10aabfcb06d690008802b190934a",
+      "text": "The tiny green fruit has started to grow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/intro_success_16538dd6.mp3",
+      "sha256": "d62833a18334d7a3e78233a8065e9440df1c1f8f28ce78e2f617a9abec9e5be3",
+      "text": "Let us watch and see who visits.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25965,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_bee_success_93b02f70.mp3",
+      "sha256": "1ff191ec36bee70736984ab7212ac421ab7777ff57bbff0321c675545801fb8f",
+      "text": "Yes, this is a bee.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55629,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_butterfly_fail_7aeadda7.mp3",
+      "sha256": "48a690db9fe2b604f207531878aa1090c1b4225c68c3a7db1b02ae2ea3a69dd2",
+      "text": "Tap the magnifying glass around the visitor with orange wings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_butterfly_success_e1621e2a.mp3",
+      "sha256": "4a6f39e488158151baa6805602b143b0c2c63b7d1bae256296aa800265898358",
+      "text": "Yes, this is a butterfly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_flower_fail_9ec764b3.mp3",
+      "sha256": "5922ba8117d5d962a2a089daaf4b56775ba871b8f21d8fc57485031a3bb875f6",
+      "text": "Tap the yellow flower on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_flower_success_48c32766.mp3",
+      "sha256": "117429b337e25b9adfeca178effba51a736119121470e190e77fcd4d9947344c",
+      "text": "Yes, this is a flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
+      "sha256": "8ffaad9533c7ba6402cb1b755cb6f1466422a3420a3c426327df6dcf4268762b",
+      "text": "Tap the tiny green fruit on the plant in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_intro_cecd1704.mp3",
+      "sha256": "4ea9ebbb71356fc16b226a10b360fb2247df559c5460190140150da466cf4534",
+      "text": "A few days later, the flower bud has opened.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49293,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_bee_b96cefbe.mp3",
+      "sha256": "db8c42ef2804d431b28b96a634e219843900d1d5acb10fec86b2edbe444a68a7",
+      "text": "Tap the magnifying glass around the yellow-and-black bee.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49005,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_butterfly_f2a319bf.mp3",
+      "sha256": "2baaa352292f29520a89410b11aaf0830303fb7b969d421565e6e4159e1d3a3d",
+      "text": "Tap the magnifying glass around the orange butterfly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
+      "sha256": "a5ec6714e952f1b28305f52373bd93a7ef2c6f9eb3696706901f9de806d6074c",
+      "text": "Tap the open yellow flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56205,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
+      "sha256": "42714b20bc7649d5a21c41127e8f843ebddf7f215b4e27814861a61f5cc76eb4",
+      "text": "Tap the magnifying glass at the lower right to wait for the bee.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60525,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_butterfly_1ccc498d.mp3",
+      "sha256": "d481242c377b499d5f3611252a85fe7dd447cc3fe0a4b3b4e150bd749d13a59f",
+      "text": "Tap the magnifying glass at the lower left to wait for the butterfly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
+      "sha256": "b0fb626f6cf3016d264701526702edc7c4196e6b688bddab1f199581be1fe23b",
+      "text": "Tap the sun-and-moon picture at the top.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
+      "sha256": "b956c51a9a05ebe2ca80919510aedeb6af961d7a6a3463cad13fa6477a51e8a5",
+      "text": "Tap the small lens at the lower right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_success_ba4d8f51.mp3",
+      "sha256": "aac2a65214aac8817c786d4a312d107079bd6eb88e884d47fe1a9f8368a22ceb",
+      "text": "A yellow-and-black visitor is flying over.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_butterfly_fail_17014460.mp3",
+      "sha256": "1abfafc3f84ee575c1cfc5882600717d8c3116d771f68af5ecb31d9e4420b3bf",
+      "text": "Tap the small lens at the lower left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_butterfly_success_6f11bd60.mp3",
+      "sha256": "5672a3544a22179182238370d265ba60df2256a9d588fed12459ad0418c27cdf",
+      "text": "An orange-winged visitor is flying over.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49869,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
+      "sha256": "dc95bb790befd3aa994733074b7603ffc2f0b0a2e6b951eb658193b741fde847",
+      "text": "A few days later, a tiny green fruit appears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8973,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/bee.mp3",
+      "sha256": "bd8e691a3fd46f145022d3f7cae412b984a632b92fd0fd4821157b7777da16df",
+      "text": "bee",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/butterfly.mp3",
+      "sha256": "14291bea80c247415095eadc25b0e883c9c50e7c9f88fe80ab8c9216a3b422b5",
+      "text": "butterfly",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/completion_28761014.mp3",
+      "sha256": "bcd48a4eb16c1ba8f02891dd82a662b313cdc22c3db8d91e7897e57fc6b3c6b2",
+      "text": "You watched a bee and a butterfly visit the flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27981,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
+      "sha256": "de36d7bf53cdeed3b38e83d1f27ee900d67672f186bff664befb66e2836f395a",
+      "text": "The tomato plant is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/find_tiny_fruit_success_4f2c007e.mp3",
+      "sha256": "cfef48f11323f7bd981f1c00886c3b466e615ad925026d7453cf5c4b5f6f57f6",
+      "text": "The tiny green fruit has started to grow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/intro_success_16538dd6.mp3",
+      "sha256": "a386b75a10b36ed8cd9ab74fd04996eb8b0fe43fbb15fd46f90d9e8d8e446dae",
+      "text": "Let us watch and see who visits.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_bee_success_93b02f70.mp3",
+      "sha256": "0145c000c98cb51d16812034adfadd3d8576a92077da3ddf5382f061c26b28ad",
+      "text": "Yes, this is a bee.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51021,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_butterfly_fail_7aeadda7.mp3",
+      "sha256": "50dcb5cc82358cd79b9086076122d39f211c51700d5f9ea599efcaaad3d28ae5",
+      "text": "Tap the magnifying glass around the visitor with orange wings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_butterfly_success_e1621e2a.mp3",
+      "sha256": "4ecfa827ea9ac8159072fa20ddea6543a99916bc406d45fc8507a3dd39438c04",
+      "text": "Yes, this is a butterfly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_flower_fail_9ec764b3.mp3",
+      "sha256": "6d3d45c3373df6016d4724e62ea36211eea6559e338f6ef2a5c449223dba90fb",
+      "text": "Tap the yellow flower on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_flower_success_48c32766.mp3",
+      "sha256": "4c582ca851588a7353b581f6f302fdf15dd2a8889d6974d5d9aac282c649e3bd",
+      "text": "Yes, this is a flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
+      "sha256": "77de6b7270802126aeb7d376e01f2b8caa157a2b46b19fee100d75a4c02664a5",
+      "text": "Tap the tiny green fruit on the plant in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_intro_cecd1704.mp3",
+      "sha256": "9a00f43ab6ed80c329c91fb146b057c32cf1a154d4482b70ac1a8de811d932fc",
+      "text": "A few days later, the flower bud has opened.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47277,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_bee_b96cefbe.mp3",
+      "sha256": "786232970bf9405b31eaba857998d64f3786d4cc30e6a3956485928d0ffb3fca",
+      "text": "Tap the magnifying glass around the yellow-and-black bee.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_butterfly_f2a319bf.mp3",
+      "sha256": "6a1993d22ce51107827fa9b8a42faeda23f33211ed3c1e1a48c0edb34214c59a",
+      "text": "Tap the magnifying glass around the orange butterfly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
+      "sha256": "4fd1bf890f3f48a4094b3e13a4d3559def7d5381b7ec16386c4ebc7010136c38",
+      "text": "Tap the open yellow flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 54477,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
+      "sha256": "8e87bbbf80e9cc44fcbbebbe78bda3d8d0e46b5887b7587430f9d459da125a0e",
+      "text": "Tap the magnifying glass at the lower right to wait for the bee.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59661,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_butterfly_1ccc498d.mp3",
+      "sha256": "2bbcf4030fa728c7e5ca48528120dd533dc516846e123570172510ca3e5d7cba",
+      "text": "Tap the magnifying glass at the lower left to wait for the butterfly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
+      "sha256": "b969e1e59ce9ea533dce472634d0ae3dcfcfcaf230b38167e3842c1d03ecf30d",
+      "text": "Tap the sun-and-moon picture at the top.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
+      "sha256": "c37ab5b7a64aa05537bed8f61cd840821a822b4ac5a7ad2a7c33529f46c55ca5",
+      "text": "Tap the small lens at the lower right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_bee_success_ba4d8f51.mp3",
+      "sha256": "e6a11f650c12057ef38b0ea62cee2cf090b3887b3c62e15279b4f69e12d23032",
+      "text": "A yellow-and-black visitor is flying over.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_butterfly_fail_17014460.mp3",
+      "sha256": "2a6afe16ea943c2ad8ab18fb7ca97f6caa82e82abf08c3e57c6866978484068d",
+      "text": "Tap the small lens at the lower left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_butterfly_success_6f11bd60.mp3",
+      "sha256": "be160677931791e10fc97cde5facd638ecbc650d2f1626ecb4ea83eb1d76ed68",
+      "text": "An orange-winged visitor is flying over.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44685,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
+      "sha256": "275bc9ee84c677f74ab52258866134894696b38e00d674ff0470be882804bce4",
+      "text": "A few days later, a tiny green fruit appears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15021,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/birdbath.mp3",
+      "sha256": "2f74d48e6fba23074430e544d2fa93aa423ee2ccc28a4495f8f3acd4122531db",
+      "text": "birdbath",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/caterpillar.mp3",
+      "sha256": "4ed8b633a1ae9c1e3237b7a470655516021734354549b02834b05adf09592f1f",
+      "text": "caterpillar",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
+      "sha256": "6b8985534e4fb79b9f19823ff0e111e1decb2f7763acc88336d424a541e812cf",
+      "text": "Find the picture with still hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/choose_watch_gently_success_ee319ce8.mp3",
+      "sha256": "3f1d1393ab05d9bd33d598178dc8573de183850b207fc8364322ecaee4469356",
+      "text": "Right, the eyes watch and the hands stay still.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43533,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/completion_a632d3e9.mp3",
+      "sha256": "1d30b16d2aeb8f44f83d816052508e9cc3748b7cf429eca4eb978d0e1355d986",
+      "text": "You watched the little garden neighbors very gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/fill_birdbath_fail_4d1fd97e.mp3",
+      "sha256": "90e5f9157f2c1936be13b27fa594cde47f31398b8a7c823e0310cfc454789c84",
+      "text": "Drag the blue water drop to the dish on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/fill_birdbath_success_e9a80fd9.mp3",
+      "sha256": "ce8d514e3b4214442a988de005ebeb51d8c569be7fd479e5ab330731f679ae68",
+      "text": "The shallow dish now has some clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/finish_fail_f0054600.mp3",
+      "sha256": "8419b8dac32d1bb71d8c5f4f7029e46ab830f8b9c12e2e26607ae002383a12a1",
+      "text": "Tap the tomato plant on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/finish_success_77b57035.mp3",
+      "sha256": "3ed1c6159c403a5f93fbf5d456c67a9f26039ec5fc5dfa4a728e39b3af46f7bf",
+      "text": "The garden has many little neighbors.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/intro_success_66575f33.mp3",
+      "sha256": "a098d8cdb4db99faf1e674fc3ecece3db2b0f814e3208c1a35348fce1fc70946",
+      "text": "We look with our eyes and keep our hands still.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/keep_hands_still_fail_e7fc86ef.mp3",
+      "sha256": "907503cd783dba7642f0ba524ae0bbab4f6fbcc749112ea6c579c7959fc90c3a",
+      "text": "The picture of still hands is near the top.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
+      "sha256": "6e42d820e0ee298359e0aa77f666912c8a024a2aa818dbac0f53bdab6a5630f0",
+      "text": "We stay still, and the little neighbors appear again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_birdbath_fail_90feb6e6.mp3",
+      "sha256": "fa33728e1290b412ca83412bdb8d66d9140d93cd853a985d1330a77150df25ee",
+      "text": "Tap the shallow water dish on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_birdbath_success_624d718c.mp3",
+      "sha256": "0a8921611a49f1ef6418c9a5d16eacc2b8d82348922041348627a2209d192a8e",
+      "text": "Yes, this is a birdbath.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53037,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_caterpillar_fail_561efd6b.mp3",
+      "sha256": "d0447eeb1f46053b8e2c5b00fd66b3187d4251a0a161337704c5e16a6aafd357",
+      "text": "Tap the magnifying glass around the small green caterpillar.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_caterpillar_success_9b7e4f86.mp3",
+      "sha256": "b816dd4342bef11caffa447e87f66df26fb6171480f22d4a1d19ac31358a553a",
+      "text": "Yes, this is a caterpillar.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_watch_gently_success_f093741d.mp3",
+      "sha256": "bd9e6f037aa8164fc2965bc490fef6b6d5bbac5c1c00b5d8093c5b4f4fb3dace",
+      "text": "Yes, we watch gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
+      "sha256": "46261b87d15b937b4b26b4991a98e24332f5f6cca59f102bc57ab9b0b4f1487c",
+      "text": "A small green neighbor is on the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_choose_watch_gently_f62064bd.mp3",
+      "sha256": "503be954cb9eb15ae45c608c23684a17c9cda55408fb7e8a9a97ee78f4e53332",
+      "text": "Find the picture of watching eyes and still hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59085,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_fill_birdbath_5f8946c9.mp3",
+      "sha256": "3577742c5a8c9c9e23ac2339ad29e6fd681566eb976534f1fb53053b82355ad7",
+      "text": "Drag the blue water drop into the empty birdbath on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_finish_c9960fdc.mp3",
+      "sha256": "764ae29d285a128e2dba4d66d1823c92385d3ce31cf8c050c493a5bf2a858512",
+      "text": "Tap the tomato plant on the right to wave goodbye.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_intro_1c97d9fb.mp3",
+      "sha256": "4bedb5d3bca178b4f90d252a0ec7717f5f835a070c763d44b500fe9264cffc38",
+      "text": "Let us quietly look for more little garden neighbors.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 52173,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_keep_hands_still_9c7bfde3.mp3",
+      "sha256": "36de23a3e7bb0b3e6383e8133fbc6d2b2b98b77ad1eaf64fee1fd866e97c3f99",
+      "text": "Tap the picture of watching eyes and still hands at the top.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_birdbath_6f219bf0.mp3",
+      "sha256": "b10093a125da1dcf9b95ffcbeb2fc751ab67dfca5e4a05fc75d4d3a4cc4cc7d8",
+      "text": "Tap the shallow birdbath on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47565,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_caterpillar_d8ef1ff9.mp3",
+      "sha256": "f18cc75634935004f238b22502d60729dc5a6208b8a98d3131120d812e0164ac",
+      "text": "Tap the magnifying glass around the green caterpillar.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_watch_gently_5ef558f8.mp3",
+      "sha256": "189e05ea17bfe229292968787d7ddeb98bc45e15fc5bc68dc95f95e993dbb73a",
+      "text": "Tap the picture of watching eyes and still hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
+      "sha256": "966068f838eb35db98579c7f830449f2053a08161ce8a62c04ff72e5591f613e",
+      "text": "Tap the large leaf on the left to look behind it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17037,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/watch_gently.mp3",
+      "sha256": "1c0b142900cab2c02ad80b01b45f55876a61411031209131958bf7db247cebb5",
+      "text": "watch gently",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/birdbath.mp3",
+      "sha256": "d8a47a8cdde7e22f958bfbafe47c87b3771b7b51de830df1e6e74e4d78b351ae",
+      "text": "birdbath",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13869,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/caterpillar.mp3",
+      "sha256": "e6ab3340369759be1670f6c7a01b21f0648d9f378995ce7f0bd696810a2e9529",
+      "text": "caterpillar",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
+      "sha256": "3ee211b198dc983f0a9a8d1a65c1feb58b79356be1a1b65250c0d957eef88887",
+      "text": "Find the picture with still hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/choose_watch_gently_success_ee319ce8.mp3",
+      "sha256": "8ef92fd988f73d55e828a120f27fd9fd095e5219253ae33ff62d3a9edcd8ced8",
+      "text": "Right, the eyes watch and the hands stay still.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/completion_a632d3e9.mp3",
+      "sha256": "c848e535c0bd47495a3154ecd5f45497c42837cf2a638b019eb4602c50a4b645",
+      "text": "You watched the little garden neighbors very gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/fill_birdbath_fail_4d1fd97e.mp3",
+      "sha256": "7e83aeacadb37ed89ff07aea6c532d2672b6f9da22a29c186acf7cdf3e50cce0",
+      "text": "Drag the blue water drop to the dish on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/fill_birdbath_success_e9a80fd9.mp3",
+      "sha256": "af719ed35db21fc27698ddaff347d864160cac968c3e16216e018ab05ee40d16",
+      "text": "The shallow dish now has some clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/finish_fail_f0054600.mp3",
+      "sha256": "dec467d85f8c32f79c536b582112d878728cf4cf35bb832273eef096650bd50c",
+      "text": "Tap the tomato plant on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/finish_success_77b57035.mp3",
+      "sha256": "a3c79c3bbf198649b194d6c25c40783a9ef4edff2ada6c057de28e5acea94ebf",
+      "text": "The garden has many little neighbors.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/intro_success_66575f33.mp3",
+      "sha256": "7d1657e9661b6b7e8e1b051bbb98216591a80edaa84e19992d1d302d492cee2e",
+      "text": "We look with our eyes and keep our hands still.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/keep_hands_still_fail_e7fc86ef.mp3",
+      "sha256": "8acb3c215f98ae08c2d9771b89326df28d0574337e1a46cceabbbb85296fcd97",
+      "text": "The picture of still hands is near the top.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
+      "sha256": "ef59aa385974929ede97e999d42ee10ff63911b282d8f998cd77ccab833d9574",
+      "text": "We stay still, and the little neighbors appear again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_birdbath_fail_90feb6e6.mp3",
+      "sha256": "dff8d6de0af6fb9d13bb13490cd4beae9de4b413ec001cf3431b3d83bc2f477c",
+      "text": "Tap the shallow water dish on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_birdbath_success_624d718c.mp3",
+      "sha256": "48e1c4afdec125131628a789d27066230f92ad4dae5217138483b879e9d29674",
+      "text": "Yes, this is a birdbath.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51309,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_caterpillar_fail_561efd6b.mp3",
+      "sha256": "03476feab8c82f35be895cd3be70d97f14427b9911f164a2c9074eb33daa9115",
+      "text": "Tap the magnifying glass around the small green caterpillar.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_caterpillar_success_9b7e4f86.mp3",
+      "sha256": "8cbb8eee0d04441336fc40b6eb46bc45aa425d3c978787f8cdfabed6a8b96750",
+      "text": "Yes, this is a caterpillar.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25101,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_watch_gently_success_f093741d.mp3",
+      "sha256": "ee2ccabc6f5e466545dab44f164d7b3759921df753584e8cda476c8795b16d60",
+      "text": "Yes, we watch gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
+      "sha256": "0ef905b3ce2cf2048fe8af71f8a202dc206ba853a65879bca3bdc20f93cf8a35",
+      "text": "A small green neighbor is on the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_choose_watch_gently_f62064bd.mp3",
+      "sha256": "294e2f224cf2b4e093b9a78c90b6863448e123fdbda2892b85ed86f0510e7536",
+      "text": "Find the picture of watching eyes and still hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 54477,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_fill_birdbath_5f8946c9.mp3",
+      "sha256": "d060d33626e0388b0b0e566d37eae7203c105fcd503bbe09ff7cf258de99153a",
+      "text": "Drag the blue water drop into the empty birdbath on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_finish_c9960fdc.mp3",
+      "sha256": "687c3401be800dead977adafc6ea91886d0af0a4cdcc691f9425e0cf0fab7782",
+      "text": "Tap the tomato plant on the right to wave goodbye.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_intro_1c97d9fb.mp3",
+      "sha256": "830c40892849e873073634c7738599f76e533ce94b13a15dfe0548c600ddd7ec",
+      "text": "Let us quietly look for more little garden neighbors.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51597,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_keep_hands_still_9c7bfde3.mp3",
+      "sha256": "ae8a12c12c06b66a8f387eb0202eddae8e90326563ba22fe677f9d571be795ac",
+      "text": "Tap the picture of watching eyes and still hands at the top.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_birdbath_6f219bf0.mp3",
+      "sha256": "48e7a3bc38904e2b9b59dcc118283839ad53790e2f16084b8497f4b13e4cbe2b",
+      "text": "Tap the shallow birdbath on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_caterpillar_d8ef1ff9.mp3",
+      "sha256": "406a7a1025ce4db32e7c702c68a85b34ecfc2eca757b3247d7ca0d9427fdd0ab",
+      "text": "Tap the magnifying glass around the green caterpillar.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_watch_gently_5ef558f8.mp3",
+      "sha256": "d0471b272408bc567ef43fd4a608b031545ef451aafab74838148c05c0e8f244",
+      "text": "Tap the picture of watching eyes and still hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
+      "sha256": "78bba43712d2cda94925faf3e7e748a922ec2ff13f21d3d750943642c3d9f0b1",
+      "text": "Tap the large leaf on the left to look behind it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/watch_gently.mp3",
+      "sha256": "aeae5348263ca6758c213072fdb42db804b70a269d8a53f3627e186295ea1ccc",
+      "text": "watch gently",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/choose_look_under_leaf_fail_04cf9af4.mp3",
+      "sha256": "41437fbde1dd6921fed3af231f21d3a873013ee899a373f3cc85c1ff2b83b28e",
+      "text": "Find the picture of a hand lifting the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/choose_look_under_leaf_success_ffaac53f.mp3",
+      "sha256": "ae7035fdb1de113a3578013af881e613823e8147a8650a1e20574af12e17b622",
+      "text": "Right, we lift the leaf and look underneath.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/completion_4062a86f.mp3",
+      "sha256": "a2b06748710657aa139dd7a09d3f8ae25fb399999a78ee1742860382b531ac2e",
+      "text": "You watched the little neighbors under the leaf very gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/earthworm.mp3",
+      "sha256": "72b3901021763b8d91ac0ce24ce0aa53752fc7e09ad5bc0179431de0e7b37440",
+      "text": "earthworm",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/follow_soil_fail_a750edc4.mp3",
+      "sha256": "aa6a16d79bcfb44b5b8b59d11c4c03d7efd393cf64f6d5efcbc9d1924d341803",
+      "text": "Tap the soil patch below the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/follow_soil_success_fb187a1f.mp3",
+      "sha256": "8f458ec929f42c3c76557d412a909de8323aed6fa3c3d088d2d938d0a44cefff",
+      "text": "A small path appears, and a snail is here too.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/intro_success_d9235408.mp3",
+      "sha256": "b9a436a1b1f36a6e91fe1e7672dd1db8736ddd758a3c30463d9413fdbeab38d0",
+      "text": "We will watch without scaring the little neighbors.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51885,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_earthworm_fail_1b439e79.mp3",
+      "sha256": "30b94011b358e38860d14f5331c2171a01dcf375211c376c6d77f5ab874ab46a",
+      "text": "Tap the magnifying glass around the long brown earthworm.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_earthworm_success_1013d0c5.mp3",
+      "sha256": "85c0835ceb8b4090ecee32891fbe26124dc843e452743efe7239b76717f506c2",
+      "text": "Yes, this is an earthworm.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
+      "sha256": "6f08e250a5cb3a71af48a4e88354e40a01700d848b13010155d4c23d6a1d9ec4",
+      "text": "Tap the picture of a hand lifting the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
+      "sha256": "a5bca0394ec1ce3a12adce563843db698eb166f3a27f61aa292942a92d9b47f1",
+      "text": "Yes, we look under the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54765,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_snail_fail_62882632.mp3",
+      "sha256": "696069650c7fbfbcffd7ee9e8c643bad0c070158862fe5ffa804e8450d90b204",
+      "text": "Tap the magnifying glass around the neighbor with a spiral shell.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_snail_success_36e65448.mp3",
+      "sha256": "2a421100e8f1e3ab28023b2525d476b59a5650ee03cc41b9239b544e86276002",
+      "text": "Yes, this is a snail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_tunnel_fail_24103a45.mp3",
+      "sha256": "6803ec6f1142fe1419b6463d2e141cc1c517e934d2c617a0775541f5466cb749",
+      "text": "Tap the brown tunnel below the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_tunnel_success_1cb3f952.mp3",
+      "sha256": "2ebc84bc68a0edd2803d0fe7406c9f751ffad3ee36ff6ccec2b6fdbebf599e25",
+      "text": "Yes, this is a tunnel in the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/lift_leaf_fail_18c75454.mp3",
+      "sha256": "db9e59b913a077df0875097ff5d9dfabea4adee3c1a7ebeaba49849c72d1fd64",
+      "text": "Tap the large leaf on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/lift_leaf_success_ffcd5559.mp3",
+      "sha256": "afc7ada7d3b86874ef6bdb432cdde885059c831e79347926a4e39aa0b615f901",
+      "text": "A long little neighbor is on the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19917,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/look_under_the_leaf.mp3",
+      "sha256": "b5f80cea8dbf4a7cc9a389dcd124194758e81b1500422049f7075e286b8e3905",
+      "text": "look under the leaf",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_open_leaf_fail_02bd19ba.mp3",
+      "sha256": "853901ee16651bb83844652ce7c5501f79ff43b31973d387ca40526f1ee31167",
+      "text": "The large open leaf is on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25677,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_open_leaf_success_ca5de947.mp3",
+      "sha256": "118f896ce6eb26e5b6623158d49da06822fa74f61ae31a47a3f3c7dd1b6d71a1",
+      "text": "We are looking under the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
+      "sha256": "68fcb08e1bda9c4e21f19c6eff0bc7bdf04f2f0f6cf8636d0b2c9ceb0c088a93",
+      "text": "Find the hand lifting the leaf to look underneath.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_follow_soil_5eef1581.mp3",
+      "sha256": "50513e9e00b17180ec9d84c5b5dbfe8964be302c4f37abb5e12168a4ece4679c",
+      "text": "Tap the brown soil patch under the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50157,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_intro_62af3f92.mp3",
+      "sha256": "5898656fcf6681abe6554c0164892147efef465f832f42797c5957bec2cc9e29",
+      "text": "Little garden neighbors are under the leaf. Let us look.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_earthworm_606a8b9b.mp3",
+      "sha256": "d35dd437fe85ad8ee0ecf4e8f06b35e7c0ec60b2608d72a9409623d86ac70962",
+      "text": "Tap the magnifying glass around the brown earthworm.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
+      "sha256": "d7ebdd2a1f972e37c8527688e5a752945bfa99ac7595a82a038eeea7fae2be58",
+      "text": "Tap the hand lifting the leaf to look underneath.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55917,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_snail_785602ea.mp3",
+      "sha256": "95c4a88b6b45810500a538e811e0670c53ae9af4b7aa4f3f841fea0cc7d16fa8",
+      "text": "Tap the magnifying glass around the snail with a spiral shell.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_tunnel_11ce726f.mp3",
+      "sha256": "fa744dffc242944da73649fc85ca93f9f701d8616441cb7b7581a8b200ed579b",
+      "text": "Tap the brown tunnel under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_lift_leaf_fc36e17f.mp3",
+      "sha256": "24190cd779d20adbd80404c32f27e55a31e627760f93f6d786c75551dc153491",
+      "text": "Tap the large leaf on the left to lift it gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
+      "sha256": "3af329d9eabecec6f1f1492a1a1f8c2a43b2da23c86c67acdd8e7afa64981460",
+      "text": "Tap the large open leaf on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50445,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_replace_leaf_bd4aa73c.mp3",
+      "sha256": "fd7e1fa900d7b8753cac585e3ee9b2610a2a20e87443c210f0bcfb604df92f51",
+      "text": "Tap the large leaf on the left to put it back gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53325,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_trace_tunnel_0744815d.mp3",
+      "sha256": "401bba246c10e8ce7a8fdf0d59812a1a78dff218820d7138aa6efb780cfc45fd",
+      "text": "Tap the brown soil patch in the middle to follow the tunnel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/replace_leaf_success_1e7986ff.mp3",
+      "sha256": "cc9c7c3d459c5c3eef4d249117e300dc6a5cc5c0b86e676be084ded7e49cf472",
+      "text": "The leaf covers the little neighbors again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12429,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/snail.mp3",
+      "sha256": "f8e4ac053e969b733218eb522326660b8c3fda7f4b5d0e370bb1b6b6f8c57e59",
+      "text": "snail",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29421,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/trace_tunnel_fail_cf636f72.mp3",
+      "sha256": "1ce8b9b1e67acaa07d67ed725b842f21ff1bb0019323db2de1f5298da7cd394c",
+      "text": "The soil patch is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/trace_tunnel_success_5b8a187e.mp3",
+      "sha256": "e28223235a9b4702e6df129255ed991bd071bb5775e08d66c919c0abe4cfc706",
+      "text": "The tunnel runs under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/tunnel.mp3",
+      "sha256": "34d1af1dbeecfe5156f0cc5031cbbd6cb4028f940a7e1bf19cd2038d067a531b",
+      "text": "tunnel",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/choose_look_under_leaf_fail_04cf9af4.mp3",
+      "sha256": "3b6896985ff3fdc724ac294aa75cd4e8b14696e04511db4defce7fd326716f1a",
+      "text": "Find the picture of a hand lifting the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/choose_look_under_leaf_success_ffaac53f.mp3",
+      "sha256": "576551eba22fbba549bd3dadf57fac63635894c828fb5f2577eb48b0cd279ac6",
+      "text": "Right, we lift the leaf and look underneath.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45261,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/completion_4062a86f.mp3",
+      "sha256": "bdd89204f8f708113993f8c228a0d01679ab8cda6fabb202666d6f7489d71f4a",
+      "text": "You watched the little neighbors under the leaf very gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11565,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/earthworm.mp3",
+      "sha256": "d66ab1ad06101ed2def560022d4d58a3588c180b53d86b5fc520cf67981c123f",
+      "text": "earthworm",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/follow_soil_fail_a750edc4.mp3",
+      "sha256": "b6368a8e46f468864fe5e6f579e6d075b70cad678bf112dcbb9d06e2a4cad763",
+      "text": "Tap the soil patch below the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/follow_soil_success_fb187a1f.mp3",
+      "sha256": "2f131fe2ab8015e35046cfd8d4b3e1b9b921ad9d96ccc22a1461be037b6a70c6",
+      "text": "A small path appears, and a snail is here too.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/intro_success_d9235408.mp3",
+      "sha256": "ca2d31c90dda09dad113095fbb0665ee6b4b3a12018bdb76212a832ec7abcb1f",
+      "text": "We will watch without scaring the little neighbors.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 49005,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_earthworm_fail_1b439e79.mp3",
+      "sha256": "168efc900c2190f0158f8671f1f6e22a05d113f3163600210606c19b22859168",
+      "text": "Tap the magnifying glass around the long brown earthworm.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_earthworm_success_1013d0c5.mp3",
+      "sha256": "fce0bbd2de25da1634a868c7c4285407ca12a0d2f843149828455d366c6c4c2e",
+      "text": "Yes, this is an earthworm.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
+      "sha256": "e93f6edaae829d6557f2c5647fcfb40e7a3a7e0d15f5b366cde398b40a87916f",
+      "text": "Tap the picture of a hand lifting the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
+      "sha256": "d415edc429a3622afaad8434eee625a0e10e9433bd368cb620402618904a76d0",
+      "text": "Yes, we look under the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52749,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_snail_fail_62882632.mp3",
+      "sha256": "2b7c474e8b860e9785df6e59a6ce7605cefc692c535eb705fc5c7cad89475f33",
+      "text": "Tap the magnifying glass around the neighbor with a spiral shell.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24237,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_snail_success_36e65448.mp3",
+      "sha256": "e3c5d34b5ce9541f8c4f0bbca53750a9b07492658d0d40687f2396e468319ead",
+      "text": "Yes, this is a snail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_tunnel_fail_24103a45.mp3",
+      "sha256": "ec9dbb4ea4781a878ca2e464397055670f0f2c29b9ed0ed39337a716839271e7",
+      "text": "Tap the brown tunnel below the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_tunnel_success_1cb3f952.mp3",
+      "sha256": "092fa0c67b9ee842df4b1d5ae5d8add61bfba09b90f8fdfa9f3dfc2717555777",
+      "text": "Yes, this is a tunnel in the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/lift_leaf_fail_18c75454.mp3",
+      "sha256": "2749a035ac73dbfbfbeca9720c725a61168a6db830cab2b99666eee80f5c15a3",
+      "text": "Tap the large leaf on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/lift_leaf_success_ffcd5559.mp3",
+      "sha256": "48235a7afc69be77accc9ad2596b1ff04a18274f4807919f675417be30a7b27f",
+      "text": "A long little neighbor is on the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17037,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/look_under_the_leaf.mp3",
+      "sha256": "07b1fb47b49298bf6095ca442c4e41ced72bd8d503540d965074a70d2476ff79",
+      "text": "look under the leaf",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_open_leaf_fail_02bd19ba.mp3",
+      "sha256": "d4d446fae97c149ee727802f1b95b95b65f7abc817d56e49fe998cc957279f7a",
+      "text": "The large open leaf is on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23949,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_open_leaf_success_ca5de947.mp3",
+      "sha256": "b5b6d8ef360ff7e871b6409e8a48ff8f89cc51ce9a2bc4b47280676300cb7142",
+      "text": "We are looking under the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
+      "sha256": "a116e66fb78cbd1cdda23ea894b8b0ea80a209dccfe22d2fe5fbabf53b5a4954",
+      "text": "Find the hand lifting the leaf to look underneath.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_follow_soil_5eef1581.mp3",
+      "sha256": "be9f73001b9231cbae7db452071bd71240f08434f1ba3bfa7302817d3b4b6f67",
+      "text": "Tap the brown soil patch under the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44685,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_intro_62af3f92.mp3",
+      "sha256": "6829de8d560d0f66ad7395de71f1a4f16cd2323c1cb7466be8c8b3d621b3c416",
+      "text": "Little garden neighbors are under the leaf. Let us look.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_earthworm_606a8b9b.mp3",
+      "sha256": "711bf832382ef71a23cfeb521997cac3320ca855b3fa3a56ba408ece42553468",
+      "text": "Tap the magnifying glass around the brown earthworm.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
+      "sha256": "1d4fda48601ff368c94fc0f215a8dcfd43aa6b1f8406a4c2587236e4192e7117",
+      "text": "Tap the hand lifting the leaf to look underneath.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53325,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_snail_785602ea.mp3",
+      "sha256": "521aeb500f4cf3eba96f8b0fe52ab3130a0e34a0057dbe63761f1c312a53b1b7",
+      "text": "Tap the magnifying glass around the snail with a spiral shell.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_tunnel_11ce726f.mp3",
+      "sha256": "277b13a23121cd4d32494b5129e2215dc26634df77ab31b227614301420dddf2",
+      "text": "Tap the brown tunnel under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_lift_leaf_fc36e17f.mp3",
+      "sha256": "94001db48fe99cde64eef25cc15c444ff4f2087378ad50d366a9d58417e33246",
+      "text": "Tap the large leaf on the left to lift it gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
+      "sha256": "2de2f1936c28577c9724ba6ee776eb82cb56dd9f2da9eec9cd98037730b6e5a5",
+      "text": "Tap the large open leaf on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48429,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_replace_leaf_bd4aa73c.mp3",
+      "sha256": "d270c634917fd3bb6c45685e1e31fd88142031b4e081ad796bd10fdb2c79ef25",
+      "text": "Tap the large leaf on the left to put it back gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 50157,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_trace_tunnel_0744815d.mp3",
+      "sha256": "d14b934ae54a66166b77525350c0cb18b1cf508d29b8911cad9a295d1b4625c7",
+      "text": "Tap the brown soil patch in the middle to follow the tunnel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/replace_leaf_success_1e7986ff.mp3",
+      "sha256": "6750142a31c30ef2fd6c0f1857752cd19844392d45c6fc41d2d44bdcc1be8b51",
+      "text": "The leaf covers the little neighbors again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/snail.mp3",
+      "sha256": "35b22ce642336880df9e20b3faf40a8f9a71782b33a7e212891ddbcc32669dbf",
+      "text": "snail",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/trace_tunnel_fail_cf636f72.mp3",
+      "sha256": "2b5031a1e7f0189728208bcf575102c4e9c4bf4f02066dfbbab1278abe5c6b69",
+      "text": "The soil patch is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/trace_tunnel_success_5b8a187e.mp3",
+      "sha256": "9fee8d84aefa7756c3155cfce2775541702c35bc2fdbd6f09b11bfb70633b8d8",
+      "text": "The tunnel runs under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/tunnel.mp3",
+      "sha256": "36b479924cd94a6562f8d26da271393d67037dc8619619e9e2803b1dd86f4fe8",
+      "text": "tunnel",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 17037,
       "key": "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/ask_for_a_hug.mp3",
       "sha256": "47abb52db50fe39485d2012acf0ffeead0335631b7e58bd36070bd07db399b21",
@@ -31665,6 +33073,1670 @@
       "key": "lessons/grandparents-visit/goodbye-home/audio/en-US/neural2-c-r1/wave_goodbye.mp3",
       "sha256": "ba5b56ba3ad9bea9b9d7e84044065f15f32ef9f1033e409f487291a456c7674a",
       "text": "wave goodbye",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49581,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/choose_sunlight_action_fail_b19a1c03.mp3",
+      "sha256": "7c6619f18216c2f7c2acc747ffc89ced8c38f740fb9b8b0db2f683ff74cc93a4",
+      "text": "Find the picture of the pot moving toward the sunbeams.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/choose_sunlight_action_success_eebb8efb.mp3",
+      "sha256": "a04d0ba16693dd59ed764aa7e87a985a408a34b3ad4bb058c58e3da15564896c",
+      "text": "Right, we move the plant into the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49869,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/completion_a9cf6e1d.mp3",
+      "sha256": "5df55b9522ca4949c83d30b6a464311a865822161796cbf14cc99ae785c70486",
+      "text": "You helped the plant grow a new leaf and find sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/follow_the_light_fail_3e3f2abc.mp3",
+      "sha256": "7a2467f0d4de9db90dcbb5816818c8a8aaa946d5f3e17893b709315612acdbdd",
+      "text": "Tap the green leaf beside the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/follow_the_light_success_45a5f447.mp3",
+      "sha256": "eb3b36f560fcee34d8a40df9fb7134d266c486b9ee650a7d2fb6ceb47426eb41",
+      "text": "The leaf is reaching toward the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/intro_success_9f2576eb.mp3",
+      "sha256": "86a1f797fb1eaae33b79b98e61356ad83a34d4fec59a1bb9cf2aa28c2bcaaa51",
+      "text": "Let's help the little plant grow strong.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_leaf_fail_13f3d5a5.mp3",
+      "sha256": "d35bb352d711a5dd19a47f5b321f6997501fb01bcf9f0720b2e863ef9b56d133",
+      "text": "Tap the green leaf beside the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_leaf_success_f8984f45.mp3",
+      "sha256": "dbb382682b18c020d419619ea804776e303f7712ada3eee8255098ee860f3bde",
+      "text": "Yes, this is a leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
+      "sha256": "3d9ccf9a5785b66922c4e4f24e764ea1ce4ef9c4a0a0bade28baf4b5ac31ec99",
+      "text": "Tap the cool area with the leaf shadow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_shade_success_f44f9735.mp3",
+      "sha256": "cb723e69dc5a2170980ce4e2ad731f571066fb74180e2e4fca8c10f41a5b7fa4",
+      "text": "Yes, this is shade.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_sunlight_fail_851472f9.mp3",
+      "sha256": "d57730533b2a856b41c725186c09c4db5930cafd14fedf363dc1164cf4df63e7",
+      "text": "Tap the area with the yellow sunbeams.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
+      "sha256": "bdb83374a2a20b05a097b4ed72c541f69f6b1b3a19b9a2be85bd1b3b6be95889",
+      "text": "Yes, the plant is enjoying the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/move_plant_fail_54f23b13.mp3",
+      "sha256": "61c44c642ee4cf2b2bc7e777fd7250d6879d4fd9cdfe9296879c0a07e893036f",
+      "text": "Move the pot to the area with yellow sunbeams.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/move_plant_success_7da3e03e.mp3",
+      "sha256": "24fb57243ea0459147887d32c73fa8eebd5675fd21662e7de7854d558f65710f",
+      "text": "The plant pot is now in the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_choose_sunlight_action_bdaefde7.mp3",
+      "sha256": "f153fe91a73cac109fc56e6e9e2251dfd098e913f2fd80cabce23aa45d0ffded",
+      "text": "Which picture moves the pot into the sunlight?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48717,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_follow_the_light_c5b4746f.mp3",
+      "sha256": "0d5337cf4610759148f9e49b242b5d3e0d7ad5899158a303135399b979e6ed83",
+      "text": "The leaf is turning toward the light. Tap the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54189,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_intro_6e95d605.mp3",
+      "sha256": "509bff008c3fba4538d19f8fad40e771e5ee97044c316fd492d18c3b76eb2c64",
+      "text": "A few days pass. The sprout is now a little plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_leaf_bbfb5ede.mp3",
+      "sha256": "094de687c632b5c3b6eb610bfb6d4a403251987acdbaff1dedef1f9715557174",
+      "text": "Tap the leaf. The new leaf is green.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43533,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
+      "sha256": "e9c517cb9b8372a593e59a6cda77eaa40fdfb24be267a604b526a11659afe8f2",
+      "text": "Tap the cool dark area. It is shade.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_sunlight_15cf030f.mp3",
+      "sha256": "d810a1c2e99c2c3c126da08e80701ea45915fa45e31b67755f3784c398e9d7c6",
+      "text": "Tap the warm bright area. It is sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_move_plant_88ce267b.mp3",
+      "sha256": "664620694d3d695de5818f352de4ddea83912a7bff1f9c0980c8f56031d848b6",
+      "text": "Drag the plant pot into the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56781,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_reveal_shade_fdef1c84.mp3",
+      "sha256": "b63f880749b821fb9ce74853a06627e4d07272f691a410d9cbd40a2d51b1f2f5",
+      "text": "Tap the sun to compare the sunny place and the shady place.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47277,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_see_healthy_plant_3420d95f.mp3",
+      "sha256": "f65a718455aae5b17592a510a2b3672fd4a77ae4591da490f3d63b7a39ad0ce2",
+      "text": "Tap the little plant that looks healthier in the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_wait_new_leaf_3f71f148.mp3",
+      "sha256": "ed27a98cbb858aded83bec9d99671e0c4f9d4f0479b8d75c008d5f84556c2677",
+      "text": "Tap the day-and-night circle to let time pass.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53613,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
+      "sha256": "57d57c796229b30a0f4e86b927c280d9191595ccf694becdeee289e69f7b955f",
+      "text": "The plant is drooping. Drag the watering can to the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20493,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/reveal_shade_fail_363e48b1.mp3",
+      "sha256": "c5ca0742a55da75f07b8068d56498524a5251fd25beaa72e9fdd6c8797093020",
+      "text": "Tap the yellow sun.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/reveal_shade_success_2eac21eb.mp3",
+      "sha256": "bcb9b8ff5ab320291ac9ef0b449fc2cce846dff241e7ff4ff794249c66b4e696",
+      "text": "Now we can see a shady area.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/see_healthy_plant_fail_15e250d6.mp3",
+      "sha256": "b5c857144f847313e08b63b41e01dc3195c1a5afc774b908ccd47d5bdce4d17e",
+      "text": "The plant pot is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/see_healthy_plant_success_8bef344c.mp3",
+      "sha256": "a878cb3821f9ea86e8fca95d1104511a69d804ac9d8791b70e5a35a841fefa5b",
+      "text": "The plant looks healthier and has a new leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14445,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/sunlight.mp3",
+      "sha256": "2c26080cf6854a59f9182467bc0ceceaf55d1fcd999ec7f6b0054412bea951e0",
+      "text": "sunlight",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/wait_new_leaf_fail_dd7083e3.mp3",
+      "sha256": "c43f0b751f3c260e727ba63e09a78a8f239d0705845ce785f706d3e0f681ab4e",
+      "text": "Tap the circle with the sun and moon.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/wait_new_leaf_success_941d5009.mp3",
+      "sha256": "d62d2d479097acfb16142b1c797152d97c2cce657d4f3bd33ea73e6f4fefd774",
+      "text": "A few days later, a new leaf opens.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_fail_72752857.mp3",
+      "sha256": "c380979b25faa1991b71fb1f67a4eb8ebe0a27d7c6f1945245a7e8bfd7f11f56",
+      "text": "Drag the green watering can to the plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28845,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
+      "sha256": "b8c75de5ccfcad3f0dc45e20bf6705b91403f06b63c9fcc0c1dfc0c8c0a9afc6",
+      "text": "The plant looks fresher now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43245,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/choose_sunlight_action_fail_b19a1c03.mp3",
+      "sha256": "aead0eec7506d60194279e5053b9a3d7a7431a2d2eb65d98c7a0178c5fdef231",
+      "text": "Find the picture of the pot moving toward the sunbeams.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/choose_sunlight_action_success_eebb8efb.mp3",
+      "sha256": "6a5cb5650bffe7e62c920e2e7cc49acebfe2dc990d02104a1004263b170e8ee4",
+      "text": "Right, we move the plant into the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45549,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/completion_a9cf6e1d.mp3",
+      "sha256": "726ba7fb82d9b8cbd3eab341b5c72ed5f218ad02bb9bbb762d649536476e3ac8",
+      "text": "You helped the plant grow a new leaf and find sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/follow_the_light_fail_3e3f2abc.mp3",
+      "sha256": "8b9c04b5e9744fb059b7dca77c8095291fe6a657fbb269f9c915369ddb7ac639",
+      "text": "Tap the green leaf beside the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/follow_the_light_success_45a5f447.mp3",
+      "sha256": "094a9fdf21f5831f6b52756e60dc373f7bba17f76182a46410228abb130124f5",
+      "text": "The leaf is reaching toward the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/intro_success_9f2576eb.mp3",
+      "sha256": "8b3e4aba2f4afe3118741460e29ad816eee8c6951d25505b7a4364a574dc3671",
+      "text": "Let's help the little plant grow strong.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_leaf_fail_13f3d5a5.mp3",
+      "sha256": "5b51aef43a7dc5f14aa8696ca6104e8a63cd44cae12c6c78d4fc79f018ab8487",
+      "text": "Tap the green leaf beside the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_leaf_success_f8984f45.mp3",
+      "sha256": "a771d7d2ea6d6560037a32aa8cea876c5e37c44b7bf7897d95cedc916dd6915f",
+      "text": "Yes, this is a leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
+      "sha256": "4a7073efcd0ae244116f484a70abdaef09f468a731cf3e6d579fc0269dc83e7b",
+      "text": "Tap the cool area with the leaf shadow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_shade_success_f44f9735.mp3",
+      "sha256": "94f7ab18bec89daeb389348707c5cbe2eb5f754ff3251c9b5c4704b44a8c7283",
+      "text": "Yes, this is shade.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_sunlight_fail_851472f9.mp3",
+      "sha256": "59f38ae1353b7297a193f8b0d9cfb90f0c90fb0187361413109cfb72017530ab",
+      "text": "Tap the area with the yellow sunbeams.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
+      "sha256": "c5bb8f4417f0aa397fd19620eeb268cea1d6f811a536be2c49f7edd3cf2f04ca",
+      "text": "Yes, the plant is enjoying the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/move_plant_fail_54f23b13.mp3",
+      "sha256": "46b31ae031e031d8a8b15e64b33fc38e6e74eb801fdfa3b03a34ba106e68c342",
+      "text": "Move the pot to the area with yellow sunbeams.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/move_plant_success_7da3e03e.mp3",
+      "sha256": "490960c2b72b2baac4d0749063044a0a158e212b1b3aadce60e57134eacfde33",
+      "text": "The plant pot is now in the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_choose_sunlight_action_bdaefde7.mp3",
+      "sha256": "95d1e35ebb78743f37d5e34debcfe4fad5d458c4313a7407d4708be3e96059c5",
+      "text": "Which picture moves the pot into the sunlight?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_follow_the_light_c5b4746f.mp3",
+      "sha256": "d88580ad5bedc62b878ef8e6e534f3ebbf9b483d3782ea6629fff5608603009d",
+      "text": "The leaf is turning toward the light. Tap the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47853,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_intro_6e95d605.mp3",
+      "sha256": "2cf0cfe72006f75a365bab722e5af899225ab0c660d03dd88cd0b0a96362a455",
+      "text": "A few days pass. The sprout is now a little plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_leaf_bbfb5ede.mp3",
+      "sha256": "60ad789cc36e292685d7c7c8f77a4cc1ce04f86b7827cdebf89320e809ff74e4",
+      "text": "Tap the leaf. The new leaf is green.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
+      "sha256": "93fddbb3aa64b9f91e048a70482619340411484cbff39cd044cb87ea5dfcbed9",
+      "text": "Tap the cool dark area. It is shade.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_sunlight_15cf030f.mp3",
+      "sha256": "6591476bf1f10091d7a937432a70bf3319c16a29081a0c53c529c8b8752de0e6",
+      "text": "Tap the warm bright area. It is sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_move_plant_88ce267b.mp3",
+      "sha256": "d8ea2a8950af086182d29568d8c5507b86de091bd8cbc7d76428b91c41bb361b",
+      "text": "Drag the plant pot into the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52461,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_reveal_shade_fdef1c84.mp3",
+      "sha256": "6c5c237cf6bde5a7f47d2dd42410e7fc4d8208dee7d028a208a87f05070baaca",
+      "text": "Tap the sun to compare the sunny place and the shady place.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_see_healthy_plant_3420d95f.mp3",
+      "sha256": "7a7a8d0f9d8bc9b0d68f91e33f1e1380ec47604f57e7829c26b7925a52ecc304",
+      "text": "Tap the little plant that looks healthier in the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_wait_new_leaf_3f71f148.mp3",
+      "sha256": "55facada287b285923d80e133116b5edcf0290f315a2130f4172d65536bd1fca",
+      "text": "Tap the day-and-night circle to let time pass.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47853,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
+      "sha256": "19824200da71fe325ae921f7b4087582d89d0a5ab4ce0f56f73d238c27d6040e",
+      "text": "The plant is drooping. Drag the watering can to the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19341,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/reveal_shade_fail_363e48b1.mp3",
+      "sha256": "c3bb74edf4fd4686a784637d86d27f7327812bf33d77eb92efd7338ce7ee653c",
+      "text": "Tap the yellow sun.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/reveal_shade_success_2eac21eb.mp3",
+      "sha256": "4c1812793ce8592dbe74f1a3fde83e0d81db28bc28c96895c0219350a8fcb50a",
+      "text": "Now we can see a shady area.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/see_healthy_plant_fail_15e250d6.mp3",
+      "sha256": "0e28022766eccd0b070c6bb854c6012a1fa08b9e5f9b62786f16ac97afbebf78",
+      "text": "The plant pot is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/see_healthy_plant_success_8bef344c.mp3",
+      "sha256": "63d283f521c8181c7987a71c3e5b2ca3e61df949c84ebb24ded392a442cb62e3",
+      "text": "The plant looks healthier and has a new leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11565,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/sunlight.mp3",
+      "sha256": "faf0d3d74456f5ef4b38b4c18f52a3ab42a66d51dc01931920425c53526cf121",
+      "text": "sunlight",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/wait_new_leaf_fail_dd7083e3.mp3",
+      "sha256": "1c1e93430b12b0011e4c544909b04732df4c20107049159d6074c66c53c7d004",
+      "text": "Tap the circle with the sun and moon.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/wait_new_leaf_success_941d5009.mp3",
+      "sha256": "21f0492fef7b01d4c90a55466dfe5ea0399f5181cd92af61c3fbaae33914dd46",
+      "text": "A few days later, a new leaf opens.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_fail_72752857.mp3",
+      "sha256": "ed140b0d34719cd68a4cbe01ffcdbfb683e80aafa6a21faf30a8b39fc1fd3c82",
+      "text": "Drag the green watering can to the plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
+      "sha256": "d92e513d872b4ec26ed8c1460dbc1fe0fab26abc2ee538f5708206515e7bafbe",
+      "text": "The plant looks fresher now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_sheltered_plant_fail_65e7cd19.mp3",
+      "sha256": "b6842bd13a426ecfd411a9da994a57a20723d17f2e84b72e544143e0cc81b99e",
+      "text": "The plant pot is under the shelter.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_sheltered_plant_success_1bed2f39.mp3",
+      "sha256": "536060bf4fd0e0920ff5bcf9efa0c1524e1e297821753b2e19aa81bb6ea6b508",
+      "text": "The rain is no longer hitting the little plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_the_soil.mp3",
+      "sha256": "3f568f48b1163172ab1afbdaaba9dd4e29fdd754cf1ee6699c0c599dd430ec76",
+      "text": "check the soil",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_wet_soil_fail_818f8a63.mp3",
+      "sha256": "1d9beabe5d43b62ab49cb7f56f7998b91143ecdd118740cae0a59fc137a84426",
+      "text": "Tap the dark soil in the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53325,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_wet_soil_success_40f3e46d.mp3",
+      "sha256": "e32734e852672d3d50cdc36b01f49acb1b91ef16ab087f7086020d70f767ea80",
+      "text": "The soil is still wet. We do not add more water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/choose_check_soil_fail_bea9d4f7.mp3",
+      "sha256": "e28c7997ca88ea28398a11d6568b565dd322b931d7cd78df578ecbedaa472573",
+      "text": "Find the picture of the finger touching the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/choose_check_soil_success_e3872a52.mp3",
+      "sha256": "6b2a493c9eccad28f4abfa4688d4a84da6ec9c784cbf96fde41800e118315d37",
+      "text": "Right, check the soil first.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50445,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/completion_dc340c4f.mp3",
+      "sha256": "991a7beae3886e80cc7392811fafb66c7413ba3854c3bebbd5e3a8b6b0e33c4a",
+      "text": "You sheltered the plant and checked the soil before watering.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/intro_success_44187401.mp3",
+      "sha256": "98f0d5a0298fc59b4f6ccbb7a1c33c9b1a043c8b3179f4018c2ad6e5c8ce3570",
+      "text": "Let's care for the little plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_check_soil_fail_6d28331f.mp3",
+      "sha256": "f3fbdf920d2a67e5f27f4cbab1d5615cc3704067f6b038e93df05dbe95e39938",
+      "text": "Tap the picture of the finger touching the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_check_soil_success_299f0b4b.mp3",
+      "sha256": "3bced97435355498adda68252425948038b042315bdddceeba9bc53f66512168",
+      "text": "Yes, check the soil first.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_rain_fail_1b024c1a.mp3",
+      "sha256": "42276e93ad7ed0218508e6aab6216e2c1ea87ce22ae51c5a84143476b1d0f053",
+      "text": "Tap the water drops below the cloud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_rain_success_8f9dcda1.mp3",
+      "sha256": "e9509f6f6200c16df7c2866b0ca201cc657e2e4551d95546e6542f8a030ac298",
+      "text": "Yes, this is rain.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
+      "sha256": "e4d141fb4490a4bdade12859a9283e142d2c2c63b53660946424997bc080cf80",
+      "text": "Tap the small branches under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_roots_success_45a33279.mp3",
+      "sha256": "7b92aaed4035874ff96586aa7e665e3b4ae4a7e9a6fb6573c0bc8bb06ebaa90a",
+      "text": "Yes, roots grow under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
+      "sha256": "ca7221b2366d7d739cc43cc6f5c4fe0a02fff6188130bd0284c49633fd84c01b",
+      "text": "The gray cloud is above the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54765,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/let_rain_pass_success_fc892799.mp3",
+      "sha256": "06d72aa632834b7c1aa2c6bd8f5eaa9e313761a4220d81172d666715d2eaa733",
+      "text": "The rain has stopped. The plant is safe under the shelter.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/move_under_shelter_fail_7c5d0f94.mp3",
+      "sha256": "5e9a81f7491612b5759c7a0941a7da750c2b75f37a92e385a408da10e707efca",
+      "text": "Drag the small pot to the covered area.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/move_under_shelter_success_541d9d4c.mp3",
+      "sha256": "f65cabb2228c93d57b223b2c6d52fd6b258c99be867fb32b4a0ac60fc4238989",
+      "text": "The small pot is under the shelter.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49293,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_check_sheltered_plant_b4e9d6ee.mp3",
+      "sha256": "936681fca1d5f4ae5b4489be4d1f8f91d62bb3b2aaa289b6c9b2e7d702e999bf",
+      "text": "The plant is under the shelter. Tap the plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_check_wet_soil_cdbb158a.mp3",
+      "sha256": "e9e49c649b725fa9eec6a39133eef6f3ffa7c8a54c4aeff111a30ba928917775",
+      "text": "Tap the soil to see whether it is still wet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_choose_check_soil_d2e0e8ea.mp3",
+      "sha256": "e3e160369af6d7c7c89bfda0bcf0059a86560d99fc60dd6ceab61aa0cd0898be",
+      "text": "Which picture shows checking the soil before watering?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_intro_f7210c22.mp3",
+      "sha256": "8dc7c7c1fdf638b02893d36699c263b70c2b787ec840e8b598fe1205eff8f762",
+      "text": "Gray clouds arrive. Rain begins to fall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56205,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_check_soil_1efad611.mp3",
+      "sha256": "ccbe48d4cb8d5edb17ed6a21ef3ed86972944fdd9dc539c7394c9dcd86b1fc88",
+      "text": "Check the soil before watering. Tap the picture with the finger.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56493,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_rain_afd5bb40.mp3",
+      "sha256": "484416dfb88be203eccc8ff32285952cce5e78d7cacdb32b0e00aa81f91bfc4b",
+      "text": "Tap the raindrops. Water falling from clouds is rain.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 52461,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_roots_525fe414.mp3",
+      "sha256": "52d9ed7a14fa7fd893608db58d4fb61e3ad41b111bf3251f4cdf629facfd283e",
+      "text": "Tap the branching parts under the soil. They are roots.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
+      "sha256": "3375bd3f5f66212bc52c4a9c46384fba01a2551821f6c2e35c888717fcf37f56",
+      "text": "Tap the cloud to let the rain pass.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 58509,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_move_under_shelter_528a47ef.mp3",
+      "sha256": "7c081a33f5a8f5ea7da8b64275fe7a90015c72fa3945559c7b03083693895f46",
+      "text": "There is plenty of rain. Drag the small pot under the shelter.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_reveal_roots_bd94fc88.mp3",
+      "sha256": "1882e68a0b9228da9c90065a5ef348c8bf3e073043ecb818ca3624d88bd49c9f",
+      "text": "Tap the round window to look under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_see_safe_plant_bfcf79d8.mp3",
+      "sha256": "fef4b7ad77fc372d9ac002e32d394d36e307ea36d80ddbd9bc43a7a5b4db54b5",
+      "text": "The sky is bright again. Tap the little plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10413,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/rain.mp3",
+      "sha256": "b396f7385f6678e75ac8876226cda1db1203ba30dc0983327cb797feaa3c827c",
+      "text": "rain",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/reveal_roots_fail_d2a718ec.mp3",
+      "sha256": "41fe702510e6841078e95f85f9ddec16393504fb018639b1f2506f3caaea10fe",
+      "text": "Tap the round window beside the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/reveal_roots_success_ae120700.mp3",
+      "sha256": "66a3d08334ab8736bbede8b75ff17e16a793b80820f35cf0aef4d3af3715cacf",
+      "text": "Now we can see the part of the plant under the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/roots.mp3",
+      "sha256": "71128da473578c62af0467de6c32d69a58e0a93e78debac5886aef2d3bc160ad",
+      "text": "roots",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/see_safe_plant_success_b3078240.mp3",
+      "sha256": "987dfd27b93bc2302d0ca07ff37ad24fa5236ba6109c8ec86354d7d5a0e8cd80",
+      "text": "The plant is safe, and the soil is still wet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_sheltered_plant_fail_65e7cd19.mp3",
+      "sha256": "826a81c4738529dab79f351ac3ea3c0d1780f4f4d11a3f354069e42147e68bcb",
+      "text": "The plant pot is under the shelter.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_sheltered_plant_success_1bed2f39.mp3",
+      "sha256": "5165dde83a2ff0682b509f5c89ac5555779055d7cea19970e25cce0ef1412c85",
+      "text": "The rain is no longer hitting the little plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_the_soil.mp3",
+      "sha256": "28357e46f8148b41b09b1326a6088f725d6ed014714c35dad7f2b36a18cd8ee4",
+      "text": "check the soil",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_wet_soil_fail_818f8a63.mp3",
+      "sha256": "64b59b9c1080eb3ac2634d31d02183a420ef26949adb504b5951759af6aba002",
+      "text": "Tap the dark soil in the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46701,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_wet_soil_success_40f3e46d.mp3",
+      "sha256": "9b74b14426b694af6c4b8a3ad78b639616dac654212ae11eb783113f3b44d31f",
+      "text": "The soil is still wet. We do not add more water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/choose_check_soil_fail_bea9d4f7.mp3",
+      "sha256": "6dcc1d5dafb5e6d694762173c78493a375d58ca9a7c06d258c1bb3cffafedf6b",
+      "text": "Find the picture of the finger touching the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/choose_check_soil_success_e3872a52.mp3",
+      "sha256": "737dbcf2d9b2e2295ef3d2d6460e3e9b46bb5c7d43f6ca95ab9b33e80c681839",
+      "text": "Right, check the soil first.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/completion_dc340c4f.mp3",
+      "sha256": "f335620f9109a8d2d51d3462b3655aeabda1fa381ddf7ae66a9d9084b318764e",
+      "text": "You sheltered the plant and checked the soil before watering.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/intro_success_44187401.mp3",
+      "sha256": "964d71b764d42411845a1a2e7565e08e04dfa6ebdc88f07aaace10d729694b42",
+      "text": "Let's care for the little plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_check_soil_fail_6d28331f.mp3",
+      "sha256": "9ad66f7d3dd08cb5af3e6f8d13f7f3df83ad50d1a1723d051fafb893fe0c94c9",
+      "text": "Tap the picture of the finger touching the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_check_soil_success_299f0b4b.mp3",
+      "sha256": "6ff202e507c345f14a1b4f7d3367621dd22b45973654d964797eca20fa0ec42d",
+      "text": "Yes, check the soil first.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_rain_fail_1b024c1a.mp3",
+      "sha256": "c84898866d9235c7e23a457fe7b2e252fa9d52c0996bba90a98f6527098eefe3",
+      "text": "Tap the water drops below the cloud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_rain_success_8f9dcda1.mp3",
+      "sha256": "a7ff4bac4bfbb165a8f71a93ccad50c0bde949e2fd44ed35d07e6e4bf2e00fea",
+      "text": "Yes, this is rain.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
+      "sha256": "cc1cc8e238f21698d3da56a184eb1d46032a3541f2530733e63268b59e3bbe6a",
+      "text": "Tap the small branches under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_success_45a33279.mp3",
+      "sha256": "ce3d569ead3c29ee365baaefe8efbd8ab68f77a6b84b2643361479d8ed824bde",
+      "text": "Yes, roots grow under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
+      "sha256": "e581288bcea3b83c57564672b9933dc9397f36d3992ae4d865fcd027ab34748c",
+      "text": "The gray cloud is above the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_success_fc892799.mp3",
+      "sha256": "53e7e6db211f0d735d0d19f9ecc1a4780c98414262d8c7dbc28fa1f7838b4cbc",
+      "text": "The rain has stopped. The plant is safe under the shelter.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/move_under_shelter_fail_7c5d0f94.mp3",
+      "sha256": "500231305c1cc9f30716167cb8b5f4d7b940cfbc110b2e0120dbd997b894b258",
+      "text": "Drag the small pot to the covered area.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/move_under_shelter_success_541d9d4c.mp3",
+      "sha256": "60b9efe40eae59a90a5be2de09c5f1e3d80d385c96cbf8244d83145a2ac23f6b",
+      "text": "The small pot is under the shelter.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_check_sheltered_plant_b4e9d6ee.mp3",
+      "sha256": "355f4a2f0ad2f1ff3352d31832c0b004f8d2571074b9993881d7f9ca7297475b",
+      "text": "The plant is under the shelter. Tap the plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_check_wet_soil_cdbb158a.mp3",
+      "sha256": "c08fcbc28fbd2a89dbc5b42d4845e46eeb164e583acc48c3b838e5fc5b6206c4",
+      "text": "Tap the soil to see whether it is still wet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_choose_check_soil_d2e0e8ea.mp3",
+      "sha256": "2894107b0673ea06dee4d7547de08db7d64819e53a687a7c1dbad462a4ad2223",
+      "text": "Which picture shows checking the soil before watering?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41805,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_intro_f7210c22.mp3",
+      "sha256": "f63743dd80664770843c75c4913f3fee2e08dc29bfe2cb307d7ceb8d3bbbea9b",
+      "text": "Gray clouds arrive. Rain begins to fall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52173,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_check_soil_1efad611.mp3",
+      "sha256": "4d6bfa928ba2812d9c99385aaab4a4d1b3bb388451995c82e07a10a57245f37b",
+      "text": "Check the soil before watering. Tap the picture with the finger.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51309,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_rain_afd5bb40.mp3",
+      "sha256": "d651d0575989632af118e2ada6b27b69d8c9dc4a4eee12fd1874219f32a9da0a",
+      "text": "Tap the raindrops. Water falling from clouds is rain.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47853,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_roots_525fe414.mp3",
+      "sha256": "bc25752a569b346e3977f04e69c4c0496f2deb387f2063a1543792f93f1396e7",
+      "text": "Tap the branching parts under the soil. They are roots.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
+      "sha256": "930cef189017077af578a3c11996340d32f401c8687e357934efdce4c4602ec9",
+      "text": "Tap the cloud to let the rain pass.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53037,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_move_under_shelter_528a47ef.mp3",
+      "sha256": "bd2ec2a86b73db90d471487d6c1c4289d6484d9b068206da2bd1078fc839a478",
+      "text": "There is plenty of rain. Drag the small pot under the shelter.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_reveal_roots_bd94fc88.mp3",
+      "sha256": "59a826af95884fda3304e97570b0c61bfd87e7838abcb9c56ce8c497330a4ffa",
+      "text": "Tap the round window to look under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_see_safe_plant_bfcf79d8.mp3",
+      "sha256": "e69644fa0353596005f6a4b6f784cddf707a5d660871c686f7c9660cc1567ed6",
+      "text": "The sky is bright again. Tap the little plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9549,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/rain.mp3",
+      "sha256": "08708ce71de70870161a745bd9c8c7518c92e331d5fe86fd47d636a624f5972c",
+      "text": "rain",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/reveal_roots_fail_d2a718ec.mp3",
+      "sha256": "c6a9a17e9d34269a25180a4c56a665a37f1c9395349d87fb7933f6c055f5defb",
+      "text": "Tap the round window beside the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/reveal_roots_success_ae120700.mp3",
+      "sha256": "4783809da75c2c649b2cd85304c30475505b66efccb3ea5379e20f04a70bfa83",
+      "text": "Now we can see the part of the plant under the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/roots.mp3",
+      "sha256": "7d8f4275fcb50a389bd80b983c80f9ba8aebd14694d03bb3e75c5f16055129e6",
+      "text": "roots",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/see_safe_plant_success_b3078240.mp3",
+      "sha256": "009da50b6664499d18258cb5f7dafb022ad7c0c65efa7ec566b1c8cd7b688d9c",
+      "text": "The plant is safe, and the soil is still wet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/choose_support_stem_fail_38ab03f3.mp3",
+      "sha256": "3f2f82cea433a42405bc56d118084add1b97220e3c722a6dac18588842503ed8",
+      "text": "Find the plant standing tall beside the stake.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/choose_support_stem_success_be79e112.mp3",
+      "sha256": "b79ea3c471ac3718de92c4ed85a0ab14f31fbcc879d999e66ad73afc115b95a3",
+      "text": "Right, support the stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/completion_a5992840.mp3",
+      "sha256": "5c6dd368bf5e7eab4628f74c26e9fb7ada5f9ad58fc71780f5c076e6ce1ba664",
+      "text": "You helped the plant grow new leaves and stand tall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
+      "sha256": "3c5299a43bf804862ca774fc76216f1d66b3340cd7375afdda0f50b2bcbf722f",
+      "text": "The plant stands tall and has a flower bud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/intro_success_d16c4413.mp3",
+      "sha256": "5d6fb9f7d74ee7dd3c3b7d8823c9970635bcaf66d4d153345bd8807fffd8ff69",
+      "text": "Let's help the plant stand tall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stake_fail_ac682c15.mp3",
+      "sha256": "7079e02ac013b5c2627de61fff2603f0d374c951a74d96b396ad7e1ea6037db9",
+      "text": "Tap the long rounded stake beside the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stake_success_286e1269.mp3",
+      "sha256": "87f7735caeb39b1820551f6d9b5a9b939372acecc2c9316602977dcc073332cc",
+      "text": "Yes, the stake helps support the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stem_fail_62bf9367.mp3",
+      "sha256": "50efc687e0bb5afa9abcf9eac4822355418e433a9c404ceb5b2ee70a0960d4c4",
+      "text": "Tap the long green part below the leaves.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stem_success_c59115d7.mp3",
+      "sha256": "28d443fdd602cdbb5bed39d16ebfa07aa55039caf584bff2d1c1dd26b06838a8",
+      "text": "Yes, the stake is supporting the stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_support_stem_fail_15b48150.mp3",
+      "sha256": "05b61c16659191192b08fab669a16b33d58ee270788cef7e39631aa31bfa161c",
+      "text": "Tap the picture of the plant standing with the stake.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_support_stem_success_679901bc.mp3",
+      "sha256": "56dac5948101b4b83691a34c5b4c91742c20320323fd1ee36d43ede5cd67718b",
+      "text": "Yes, the stake supports the stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_wind_fail_f71b0237.mp3",
+      "sha256": "4f897b88d4a2cb91dc3a24e11e24fda30fd29926e02a362937e61b06d34c1b3a",
+      "text": "Tap the swirl with the flying leaves.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_wind_success_69632e29.mp3",
+      "sha256": "a3b47385e2c65590b733b52454c1f1ac2dd6b3c555d3f6b8954d0e64bd45adc2",
+      "text": "Yes, this is wind.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_soft_tie_fail_6e3f41ed.mp3",
+      "sha256": "2019064195785576066ff1a3b2965d36fd0c9c2399106a6ece6b850909ae7d2f",
+      "text": "Drag the soft tie to the stake beside the stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_soft_tie_success_9d0f3566.mp3",
+      "sha256": "362ea06d75ccbd78df9935b7dc0aec0b3535fc70373c2de2076a5b9e5513ff30",
+      "text": "The loose tie helps the plant stand tall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_stick_fail_9d5dc042.mp3",
+      "sha256": "34911aae2c36122544c1e729356da5c99e126f596ac466d60b7f6aabc2ff0025",
+      "text": "Drag the long stick to the soil circle beside the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_stick_success_fd1c0f7c.mp3",
+      "sha256": "1c77251f7448e2f41b90e2f2271493f736326ba01caeb178ff7281e487831f79",
+      "text": "The support stick is standing beside the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_choose_support_stem_df2ab85c.mp3",
+      "sha256": "103bdea0e2d5833f2655b49ae5767353ad7cf78c4f819ddd58117b2ffa7ebe32",
+      "text": "Which picture shows supporting the stem?",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56205,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
+      "sha256": "0193190b7c06f7b1a334c75d1f72beec38f88012fa6e7be5b714777d06f086e8",
+      "text": "The wind has passed. Tap the plant to find the flower bud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
+      "sha256": "5538cd0e7815db3998ae4a44b0dc55949d2bbd24782c913d3bb93fd7e88c2672",
+      "text": "The wind is stronger. The little plant is moving.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
+      "sha256": "5e7d5e6c2ba46dfb6402f15e72f5c42235761efdf58591e1fd9bc7d7e148335d",
+      "text": "Tap the long plant support. It is a stake.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51597,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_stem_26be1a74.mp3",
+      "sha256": "574e0b5cdfcfdf896737bbbe800133363ea200a779a592b7e0edef7eb5ac1256",
+      "text": "Tap the green part holding the leaves. It is the stem.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 68013,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_support_stem_c07fa72b.mp3",
+      "sha256": "4638a004eaad0a151eb9feeb0ce3ea719492ebe99fa4c0180182849d47dc60b2",
+      "text": "Support the stem so the plant stands tall. Tap the picture with the stake.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49293,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_wind_f6fac563.mp3",
+      "sha256": "463451cffa590dd4ebb25dc10a6430d493d355152acba8d435aee0258acf59b1",
+      "text": "Tap the wind. Moving air makes the leaves shake.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_place_soft_tie_a1658076.mp3",
+      "sha256": "aa77a26b2a504bd196ab3a65bb6ed7ff12a496cf500fe202d6cbb03aab65bf88",
+      "text": "Drag the soft tie to the stake to hold the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_place_stick_d092e1dd.mp3",
+      "sha256": "907262c3452bcea842fbed59dd3d5299ada46c297d539514f873a3cfde571b5f",
+      "text": "Drag the support stick to the spot beside the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53613,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_test_support_e8e9cc42.mp3",
+      "sha256": "857d94228de3586c431e791f0e4e4e83bfc6899002d860cda4f6924ae9936469",
+      "text": "The wind blows again. Tap the wind to test the support.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_wait_for_flower_bud_6979a1fc.mp3",
+      "sha256": "efdbbc64a439b23270637e875bd9e7480083cebf06aa6cefb677b69cc25dffd5",
+      "text": "Tap the day-and-night circle and watch the plant grow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11853,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stake.mp3",
+      "sha256": "1094e79bb867881f289f3d2867e1b8d68c378d69e0daec3d1303a43262bc16fa",
+      "text": "stake",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10413,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stem.mp3",
+      "sha256": "c2bb2e06a2bfe52cfbece6cd873377d3df05682a900ac38461f1c5de223bf775",
+      "text": "stem",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19341,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/support_the_stem.mp3",
+      "sha256": "a34f089ff246d07a47ae353d849cf41cd606c5e4feadfb92d054c726af9dc35f",
+      "text": "support the stem",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/test_support_fail_25f5a301.mp3",
+      "sha256": "7a18e4d5329fda3cea1c111126a182d814e9128d808dadc06742ec8968830e23",
+      "text": "Tap the wind swirl with the flying leaves.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/test_support_success_16f0c29d.mp3",
+      "sha256": "75b6d30eb369778a67ef75469e824b4407063b5609aeab2df8919ade0fde56c8",
+      "text": "The stake and tie keep the plant standing tall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59949,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
+      "sha256": "4656ead8480557cfd4e3b2811a33a8bb317cac2bb201f607bf7cdbd4e5b5c517",
+      "text": "A few days later, the plant stands tall with a flower bud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10701,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wind.mp3",
+      "sha256": "3e541b46456f23ae883f43a70548ecf786da17f243f189f942cea11412403c39",
+      "text": "wind",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/choose_support_stem_fail_38ab03f3.mp3",
+      "sha256": "b644dd0352b4226d6a3a629ea34f42d3039a7a6dea9dbae4ce51567686d12664",
+      "text": "Find the plant standing tall beside the stake.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/choose_support_stem_success_be79e112.mp3",
+      "sha256": "3f867fe5684d9f19d82f287becef0133b75ad5074ac64451f7d52db2907f971b",
+      "text": "Right, support the stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43245,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/completion_a5992840.mp3",
+      "sha256": "0b9158dfba2992f5c8ca3cdb3581cdaad3b8e9cd5b84840e162e9b7a9f743187",
+      "text": "You helped the plant grow new leaves and stand tall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
+      "sha256": "0183c2a525bedfd41094d359cc0e683aeebdcf0b511ba7d56a0b799201d6df5b",
+      "text": "The plant stands tall and has a flower bud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/intro_success_d16c4413.mp3",
+      "sha256": "b6d03341766ca4c69ba018c67f8fd703e66f63bb7561250cf3169622f6f1b6de",
+      "text": "Let's help the plant stand tall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stake_fail_ac682c15.mp3",
+      "sha256": "c2cbda0e2fab1462fd32e294d8e7bc963ef0f1bc19625777dd6e22929ace8616",
+      "text": "Tap the long rounded stake beside the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stake_success_286e1269.mp3",
+      "sha256": "38ccabc875a09b999b55d96947c954ca7e08f23574ac741fe5b410f1bcb775da",
+      "text": "Yes, the stake helps support the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stem_fail_62bf9367.mp3",
+      "sha256": "b1910e26a6a6934603dc0de6ed17a005c4ec5752cc5c1229aeb6c45e87f20581",
+      "text": "Tap the long green part below the leaves.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stem_success_c59115d7.mp3",
+      "sha256": "0d3e90e034477b0edd08ceb5c96f9c60dc844a8a7db3c8d68ec76f69eb3c4591",
+      "text": "Yes, the stake is supporting the stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_support_stem_fail_15b48150.mp3",
+      "sha256": "905caa8d31ff503b4a14220b44cf89fc6a22f9afc95f58e3bf2e62c2fbba1d23",
+      "text": "Tap the picture of the plant standing with the stake.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_support_stem_success_679901bc.mp3",
+      "sha256": "58dc0e64153263cca274fc17e6f4cbd6178d83f716d9387e151612e83b8c2ea4",
+      "text": "Yes, the stake supports the stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_wind_fail_f71b0237.mp3",
+      "sha256": "41cdc490c6b6c1462ae3868b3d5eb1f8c346ae5fe42a5f0ac977f74d161a5910",
+      "text": "Tap the swirl with the flying leaves.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_wind_success_69632e29.mp3",
+      "sha256": "688e21c5897314f09272ab4d591291aca3d8c042e86e14ffd016393e840857bb",
+      "text": "Yes, this is wind.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_soft_tie_fail_6e3f41ed.mp3",
+      "sha256": "64a7377266cf84fb8773826f24419fb39e676455df031c3dfcffe56e4eba4c0b",
+      "text": "Drag the soft tie to the stake beside the stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_soft_tie_success_9d0f3566.mp3",
+      "sha256": "5b46d3f7f724d153a197f613369697ed55956c5ca2dbe504dfa21d92720d86ec",
+      "text": "The loose tie helps the plant stand tall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_stick_fail_9d5dc042.mp3",
+      "sha256": "2715a5a19d57205005b99c79de20136104d46470e86be3ab823da0c05f5fab56",
+      "text": "Drag the long stick to the soil circle beside the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_stick_success_fd1c0f7c.mp3",
+      "sha256": "1b8fc9740fdf5188f63ebbe140fdd6aec7e68e5fef73df54e1d3e805d4934f9c",
+      "text": "The support stick is standing beside the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_choose_support_stem_df2ab85c.mp3",
+      "sha256": "f854b1636f70a523b643a7db17a02d442e4a79242001917c1bd99bdca6a46c0e",
+      "text": "Which picture shows supporting the stem?",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51021,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
+      "sha256": "2a2dab54649d1d245369c918e9441efce8298caf0fef20b5e68afb0e33a1abba",
+      "text": "The wind has passed. Tap the plant to find the flower bud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
+      "sha256": "4cfe340d43fcc9b4ea759133123fbd82559c1177778d1b0cac7cd4ae1ca01a7a",
+      "text": "The wind is stronger. The little plant is moving.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
+      "sha256": "87b1bfc859859bb5284d9a12794c823171a64107afc1eaa29c015deeaa87ba95",
+      "text": "Tap the long plant support. It is a stake.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_stem_26be1a74.mp3",
+      "sha256": "21bc1b94dd5b498e52d1d1074494cf755700c7b3bd5ffbdd19461182f7a607de",
+      "text": "Tap the green part holding the leaves. It is the stem.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 62541,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_support_stem_c07fa72b.mp3",
+      "sha256": "15625cd8292756e82ea95b4542883092f26285ccd0a60fa33b78ee903b599678",
+      "text": "Support the stem so the plant stands tall. Tap the picture with the stake.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44109,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_wind_f6fac563.mp3",
+      "sha256": "1ab0f965005f522594348ff7b7758ad41117c1e0d4e3f4e0cdd5ec33b5bebb3c",
+      "text": "Tap the wind. Moving air makes the leaves shake.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_place_soft_tie_a1658076.mp3",
+      "sha256": "76c21758540fe077593a2dec55512be502f1b14bdc61022123aa656cc653b904",
+      "text": "Drag the soft tie to the stake to hold the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_place_stick_d092e1dd.mp3",
+      "sha256": "c1b069e5f1b288a745536d9bc03c274b5fb84186ff917f1d29b71856ac819d5f",
+      "text": "Drag the support stick to the spot beside the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48141,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_test_support_e8e9cc42.mp3",
+      "sha256": "ae9cb83fd6a9b71b868f176e6eea3d5291d6ea03005687d337601f0d98e61ccc",
+      "text": "The wind blows again. Tap the wind to test the support.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_wait_for_flower_bud_6979a1fc.mp3",
+      "sha256": "5c6616ce645de9f0f4f707bd761a19d730556cbf53cacd91b6ff8c2d80c1be7c",
+      "text": "Tap the day-and-night circle and watch the plant grow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/stake.mp3",
+      "sha256": "b080e7d4edf4d8d2aee0eab51b3db64cf113184bca6f254b414d681579a5caf3",
+      "text": "stake",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/stem.mp3",
+      "sha256": "19ea6ffa84848513022a04b1e8e43e0f53cd56c774c85a195f3fff995dbb49c9",
+      "text": "stem",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17613,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/support_the_stem.mp3",
+      "sha256": "ddcf3949d12c78935c723df7abd3a9cced7eaccac5e2182839e6a512d29923c1",
+      "text": "support the stem",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/test_support_fail_25f5a301.mp3",
+      "sha256": "ab6de01b20b7b7f856fd9ff913bdc597b42100e5976bb069ba9ba182d6b76e80",
+      "text": "Tap the wind swirl with the flying leaves.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/test_support_success_16f0c29d.mp3",
+      "sha256": "ae75fb84b2206b8bb425e5dad8ae92ba03b47ae676d00facbc6b9e9e3020b299",
+      "text": "The stake and tie keep the plant standing tall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55341,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
+      "sha256": "5c1c7d8c02590413e57ae184270c5d474a79dbfbf18224663e1609a3a229638c",
+      "text": "A few days later, the plant stands tall with a flower bud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wind.mp3",
+      "sha256": "68f3bacc0e9b8a16dcb346a91d56bbf355e8fbcfd2061672d11430db40ff85e5",
+      "text": "wind",
       "voice": "en-US-Neural2-C"
     },
     {

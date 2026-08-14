@@ -138,6 +138,40 @@ empty-pot silhouette across every state. Continue with `assets:audit`,
 `assets:build`, and `assets:verify`; the cutter does not create WebP, synthesize
 audio, or contact R2.
 
+The `help-it-grow` vertical slice follows the same bounded sheet workflow. Its
+three alpha-keyed scene sheets live under
+`src/assets/source/lessons/help-it-grow/production-sheets/`; the cutter also
+reuses the approved pilot background, watering can, and time cue so the garden
+and hero-plant journey remain visually continuous:
+
+```bash
+npm run assets:cut-help-it-grow-production -- --force
+npm run assets:verify-help-it-grow-cutouts
+```
+
+This writes text-free 1024x1024 transparent object/action masters, three
+941x1672 background masters, and four bundled map icons. Continue with the
+standard lesson audit/build/verify commands. Neither command generates audio or
+contacts R2.
+
+`garden-friends` continues the bounded workflow with one text-free chroma sheet
+per scene so related objects are generated together before being cut:
+
+```bash
+npm run assets:cut-garden-friends-production -- --force
+npm run assets:verify-garden-friends-cutouts
+```
+
+The cutter keys the three local sheets, writes 1024x1024 transparent PNG
+masters, reuses the approved 941x1672 garden background, and generates four
+bundled map icons. It does not create WebP, synthesize audio, or contact R2;
+continue with the standard lesson audit/build/verify commands. These sheets
+use authored row gutters instead of three equal-height rows because the tall
+plant cells extend below the first equal division. The cutter rejects a cell
+whose visible pixels reach the crop border, and the cutout verifier rejects
+detached fragments around an observation ring; this prevents a clipped pot
+bottom from leaking into a butterfly or magnifying-glass asset.
+
 The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.
 `src/config/generatedAssetRelease.ts` exposes that revision to React Native.

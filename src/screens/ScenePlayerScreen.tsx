@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -13,6 +13,7 @@ import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import { canAccessReview } from '../engine/ContentAccessPolicy';
 import { useI18n, useSavedPromptLanguage } from '../i18n';
 import { getMonetizationSnapshot } from '../engine/MonetizationManager';
+import { resolveLearningModePreference } from '../engine/ParentSettingsManager';
 import {
   completeLessonProgress,
   type ProgressCompletionResult,
@@ -24,6 +25,7 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
+import type { LearningMode } from '../types/lesson';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ScenePlayer'>;
 
@@ -33,6 +35,9 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
   const promptLanguage = useSavedPromptLanguage();
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const openedFromParent = route.params.openedFromParent === true;
+  const [learningMode, setLearningMode] = useState<LearningMode | undefined>(
+    route.params.learningMode,
+  );
   const hasShownAccessPromptRef = useRef(false);
   const scene = route.params.sceneId
     ? lesson?.scenes.find(item => item.id === route.params.sceneId)
@@ -46,6 +51,28 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     { latchWhenGranted: true },
   );
   const hasContentAccess = isAccessGranted;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (route.params.learningMode) {
+      setLearningMode(route.params.learningMode);
+      return () => {
+        isMounted = false;
+      };
+    }
+
+    setLearningMode(undefined);
+    resolveLearningModePreference().then(mode => {
+      if (isMounted) {
+        setLearningMode(mode);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [route.params.learningMode]);
 
   const playKidLockPrompt = useCallback(
     (reason: KidLockReason) => {
@@ -167,7 +194,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     );
   }
 
-  if (!hasContentAccess) {
+  if (!hasContentAccess || !learningMode) {
     return (
       <Screen>
         <View />
@@ -197,7 +224,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       }
 
       navigation.navigate('ReviewGame', {
-        learningMode: route.params.learningMode,
+        learningMode,
         lessonId: lesson.id,
         openedFromParent,
       });
@@ -211,7 +238,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     };
     try {
       completionResult = await completeLessonProgress(lesson, {
-        learningMode: route.params.learningMode,
+        learningMode,
       });
     } catch {
       // Progress is local best-effort; reward flow should not get stuck.
@@ -219,6 +246,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
 
     navigation.navigate('Reward', {
       lessonId: lesson.id,
+      learningMode,
       sourceScreen: 'ScenePlayer',
       ...completionResult,
     });
@@ -229,7 +257,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
       <ScenePlayer
         completeCurrentSceneOnly={Boolean(route.params.sceneId)}
         initialSceneId={route.params.sceneId}
-        learningMode={route.params.learningMode}
+        learningMode={learningMode}
         lessonId={route.params.lessonId}
         onComplete={handleComplete}
         onExit={handleExitToPack}

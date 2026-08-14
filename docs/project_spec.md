@@ -2,12 +2,12 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-08-12
+**Kiểm chứng gần nhất:** 2026-08-14
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
-pilot `plant-a-seed` của Theme 4 trong working tree hiện tại.
+ba lesson `plant-a-seed`/`help-it-grow`/`garden-friends` của Theme 4 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -50,6 +50,15 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** pilot `plant-a-seed` dùng Scene State v1 để nối ba scene chuẩn bị chậu, gieo hạt
   và tưới lần đầu thành một chuỗi nhân-quả; ảnh pilot đã build/verify local nhưng lesson audio và
   image release chưa publish lên R2.
+- **Implemented:** vertical slice `help-it-grow` nối ba tình huống nắng, mưa và gió bằng cùng một
+  lineage cây cà chua non; dữ liệu, review 4/5/6 item, production cutouts, map icons và audio
+  production đã có. Bản nhịp mở rộng dùng lại 40 ảnh hiện có, thêm 57 audio vào corpus ban đầu
+  246 file; R2 đã upload và verify đủ 343/343 object ngày 2026-08-13.
+- **Implemented:** `garden-friends` nối ba scene khám phá giun/ốc sên, ong/bướm và sâu bướm
+  bằng observation controls thay vì cho bé kéo/chạm trực tiếp con vật. Lesson data, review 4/5/6,
+  production PNG masters, bundled map icons, WebP và action-first audio đã có. Sau khi sửa cutter
+  và tạo thêm 85 audio target, R2 đã upload delta 94 object và verify đủ 377/377 object ngày
+  2026-08-14.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -185,7 +194,7 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có bốn themes và 28 lesson packs:
+Hiện có bốn themes và 30 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
@@ -234,18 +243,56 @@ hàng dưới. Hướng dẫn chính không đọc vị trí màn hình; vị tr
 hint. Drag chỉ dùng khi object có đích đến trực quan, còn cảm xúc, trạng thái và phrase card dùng
 tap.
 
-Theme `khu-vuon-cua-be` hiện chứa một lesson pilot:
+Theme `khu-vuon-cua-be` hiện chứa ba lesson theo thứ tự:
 
 1. `plant-a-seed`
+2. `help-it-grow`
+3. `garden-friends`
 
 Pilot có ba scene theo thứ tự `prepare-the-pot` -> `plant-the-seed` -> `first-watering`. Mỗi scene
 có 3/5/7 vocabulary targets ở `core`/`expanded`/`challenge`; cả ba mode giữ cùng chuỗi core và
 cùng end state hợp lý. Chậu chuyển `empty -> soil-low -> soil-ready`, tiếp tục
 `flat -> hole-open -> seed-visible -> covered`, rồi `dry -> damp`. Mầm chỉ hiện sau cue ngày-đêm,
 không hiện ngay khi vừa tưới; success path giữ vũng nước ẩn. Review `random` dùng bốn anchor hình
-rõ. Bảy lesson Theme 4 còn lại trong `docs/theme-4-content-draft.md` chưa được đăng ký runtime.
-Vì free tier vẫn chỉ gồm `morning-routine` và `at-school`, pilot này là Premium theo policy hiện
-tại.
+rõ. Content architecture v2 trong `docs/theme-4-content-draft.md` khóa hành trình năm lesson theo
+thứ tự `plant-a-seed` -> `help-it-grow` -> `garden-friends` -> `harvest-day` ->
+`garden-to-table`; hai lesson cuối chưa được đăng ký runtime. Ba blueprint cũ
+`garden-ready`, `garden-weather`, `garden-cycle` đã bị loại trước runtime registration nên không
+cần migration. Vì free tier vẫn chỉ gồm `morning-routine` và `at-school`, pilot này là Premium
+theo policy hiện tại.
+
+Storyboard Mốc 4B trong `docs/theme-4-help-it-grow-storyboard.md` khóa `help-it-grow` thành ba
+scene `new-leaf-and-sunlight` -> `rainy-day-care` -> `wind-and-support`, dùng cùng lineage cây cà
+chua non và kết thúc bằng nụ hoa sau cue thời gian. Vocabulary budget là 5/8/10 New Anchors theo
+core/expanded/challenge; nước, chậu cùng các đích kéo trực quan, đất, vòng thời gian và bộ
+que-dây chỉ là Quick Recall/Action Enabler. Sau kiểm thử Android, ba scene được mở rộng thành nhịp
+core 7/6/7, expanded 9/8/8 và challenge 10/10/10 tương tác ngoài intro; đây là số bước mỗi
+mini-scene vì map mở từng scene riêng. Không có hai pronunciation panels liền nhau, và review
+executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
+masters text-free từ ba production sheets. Đường mở lesson/review/replay luôn truyền learning
+mode đã chọn; nếu route cũ thiếu mode, ScenePlayer khôi phục setting đã lưu thay vì mặc định Core.
+Các illustration lựa chọn Challenge chỉ hiện trong đúng teach/review beat và được ẩn cả cặp ngay
+sau câu trả lời đúng, nên không trở thành đạo cụ thừa trong payoff/closure kế tiếp.
+Corpus Google TTS hiện có 303 audio; cùng 40 ảnh, R2 đã upload và dry-run verify đủ 343/343
+object (`Changed/new: 0`) ngày 2026-08-13.
+
+Storyboard `docs/theme-4-garden-friends-storyboard.md` khóa `garden-friends` thành ba scene
+`under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`, vocabulary 6/8/10 và review
+executable 4/5/6. Nhịp ngoài intro là 16/20/25 hành động theo core/expanded/challenge. Animal
+cutouts luôn non-interactive; bé thao tác lên lá, đất, observation ring,
+time cue, nước hoặc hình hành động. Một production sheet text-free cho mỗi scene được cắt thành
+32 object masters, cùng ba background và bốn bundled map icons. Cả ba lesson Theme 4 hiển thị
+age label `6-8 tuổi · Nâng cao`; đây là nhãn content track cho phụ huynh, không thêm setting mới
+và không thay thế `core`/`expanded`/`challenge`. Đợt đầu có 257 file audio mới cùng 35 WebP được
+upload và verify đủ 292/292 object trên R2 ngày 2026-08-14 (`Changed/new: 0`, remote verify
+`Errors: 0`). Sau khi sửa hướng dẫn action-first, pipeline resolve 343 audio target; 85 file mới
+đã được Google TTS tạo và publish. Cutter cũng được sửa theo gutter thực của sheet, build lại 9
+WebP từng bị cắt cụt hoặc dính mảnh từ hàng bên cạnh. R2 đã nhận delta 94/94, verify đủ 377/377;
+post-upload dry-run `Changed/new: 0`, audio dry-run `Missing files: 0`, `Invalid files: 0`.
+Các step tương tác dùng hướng dẫn action-first, gọi observation control bằng tên cụ thể `kính
+lúp`, thêm đặc điểm hình và chỉ dẫn vị trí khi cảnh có nhiều mục tiêu tương tự. Không dùng câu chỉ
+giải nghĩa mà thiếu động từ `Chạm`/`Kéo`/`Tìm`, và vị trí trong câu hướng dẫn phải khớp geometry
+thực tế của object.
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
@@ -268,7 +315,7 @@ Scene
   -> vocabulary[]
   -> objects[] với optional variants/initial state
   -> dropZones[]
-  -> steps[] với optional successStateChanges[]
+  -> steps[] với optional successStateChanges[] / afterSuccessStateChanges[]
   -> optional completionReward
 ```
 
@@ -534,15 +581,32 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `fill the pot with soil`; gọi rõ `drainage hole` là “lỗ thoát nước”; gọi rõ quan hệ giữa bình
   tưới với bộ phận `spout` trong khi chỉ đầu vòi là target tương tác;
   giải thích chuyển đổi đất khô sang sẫm màu/hơi ướt trước khi dạy `damp`.
+- Content architecture Theme 4 v2 phân biệt ba authoring roles mà không thêm field schema:
+  `New Anchor` có `VocabularyItem`/`vocabId`, được dạy sâu, luyện nói một lần và vào review pool;
+  `Quick Recall` gọi lại từ cũ bằng lựa chọn/hành động ngắn, không tạo learned-word ID hay mở
+  speech practice; `Action Enabler` là object/công cụ giúp câu chuyện tiến lên và ưu tiên phản ứng
+  state/SFX tức thì. Quick Recall phải vẫn giải được bằng lời Việt và hình nếu bé vào lesson theo
+  free journey mà bỏ qua bài trước; từ ở mode cao hơn không trở thành core prerequisite. Bốn
+  lesson sau pilot đặt mục tiêu 5-6 core New Anchors trên ba scene, expanded thêm 2-3 và challenge
+  thêm 1-2 phrases; mọi deep-learn/pronunciation panel (kể cả `optional`) phải được ngăn bởi
+  action/visual payoff. `promptText` không tự phát model word độc lập ở Vietnamese mode nếu step
+  không có vocabulary semantics, nên Quick Recall hiện là cue khái niệm bằng lời Việt và hình,
+  không phải bài kiểm tra nghe English ẩn. Pilot 21/21 auto encounters là ngoại lệ lịch sử, không
+  phải mẫu mật độ cho lesson mới. Onboarding preselect `expanded`, nên Theme 4 phải xem expanded
+  như một primary pre-reader path và QA riêng core/expanded; không coi expanded mặc định là nội
+  dung chỉ dành cho trẻ lớn.
 - Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả. Hiệu
   ứng success mặc định chỉ áp dụng lên đúng object bé vừa chọn, không áp dụng lên toàn bộ
   `targetObjectIds` vì danh sách đó có thể gồm cả đáp án nhiễu; lesson chỉ làm nhiều object chuyển
   động khi khai báo animation effect tường minh.
 - Khi step đúng có `successStateChanges`, ScenePlayer áp dụng tuần tự object variant/show/hide ngay
-  sau khi controller xác nhận success. Incorrect/ignored interaction không đổi state. Object ẩn
-  không render và không nhận hit test; variant mới có thể đổi asset cùng optional geometry. Nếu
-  required success feedback lỗi và runtime phải giữ nguyên step, state transaction của step được
-  rollback để target không biến mất hoặc làm bài bị kẹt.
+  sau khi controller xác nhận success. `afterSuccessStateChanges` dành cho cleanup sau khi lời
+  xác nhận đúng đã phát xong, ngay trước khi vào bước kế; nhờ vậy đáp án đúng còn đủ lâu để nhận
+  bounce/sparkle, distractor mờ đi, rồi cả cặp mới biến mất. Incorrect/ignored interaction không
+  đổi state. Object ẩn không render và không nhận hit test; variant mới có thể đổi asset cùng
+  optional geometry. Nếu required success feedback lỗi và runtime phải giữ nguyên step, state
+  transaction tức thời được rollback và deferred cleanup không chạy để target không biến mất hoặc
+  làm bài bị kẹt.
 - Scene object state chỉ sống trong lượt chạy scene hiện tại và reset khi replay hoặc chuyển scene.
   State này không persist qua scene/app session và current-step pointer hiện tại không khôi phục
   chính xác state trung gian.
@@ -1332,17 +1396,16 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 494/495 tests pass trong 74 suites. 1 baseline failure nằm ở
-  `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
-  `NSPhotoLibraryUsageDescription`; pilot `plant-a-seed` không chạm iOS/localization. Bốn suite mục
-  tiêu lesson validation/icon/Scene State/pilot pass 81/81 tests; reward catalog và normalization
-  lesson visibility của settings cũng pass sau khi catalog có Theme 4.
+- Jest: 575/576 tests pass trong 77 suites sau khi thêm guard cho action-first copy của
+  `garden-friends`.
+  1 baseline failure nằm
+  ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
+  `NSPhotoLibraryUsageDescription`; thay đổi này không chạm iOS/localization. Các suite mục tiêu
+  cho lesson, learning-mode propagation, navigation replay và audio provenance đều pass.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
-- Native build-only: iOS Simulator arm64 pass cho working tree hiện tại. Android
-  `:app:compileDebugKotlin` pass; full `assembleDebug` hiện bị chặn trước app link bởi
-  `libreactnative.so` thiếu trong local Gradle transform cache, trong khi Android Debug baseline
-  trước đó đã pass. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì external
-  keys/products/test accounts chưa có.
+- Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
+  `assembleDebug` pass ngày 2026-08-14 sau khi đăng ký `garden-friends`. Store sandbox/physical-
+  device purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.

@@ -91,15 +91,28 @@ export function getSceneForLearningMode(
       const successStateChanges = step.successStateChanges?.filter(change =>
         isStateChangeAvailable(change, objectsById),
       );
+      const afterSuccessStateChanges = step.afterSuccessStateChanges?.filter(
+        change => isStateChangeAvailable(change, objectsById),
+      );
       const didFilterStateChanges =
         successStateChanges?.length !== step.successStateChanges?.length;
+      const didFilterAfterSuccessStateChanges =
+        afterSuccessStateChanges?.length !==
+        step.afterSuccessStateChanges?.length;
 
-      if (!shouldRemoveNextStep && !didFilterStateChanges) {
+      if (
+        !shouldRemoveNextStep &&
+        !didFilterStateChanges &&
+        !didFilterAfterSuccessStateChanges
+      ) {
         return step;
       }
 
       return {
         ...step,
+        ...(didFilterAfterSuccessStateChanges
+          ? { afterSuccessStateChanges }
+          : {}),
         ...(didFilterStateChanges ? { successStateChanges } : {}),
         ...(shouldRemoveNextStep ? { nextStepId: undefined } : {}),
       };

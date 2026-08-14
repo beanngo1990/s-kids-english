@@ -196,9 +196,13 @@ export function RewardScreen({ navigation, route }: Props) {
         navigation.replace('ReviewGame', {
           gameType: route.params.gameType,
           lessonId: lesson.id,
+          learningMode: route.params.learningMode,
         });
       } else {
-        navigation.replace('ScenePlayer', { lessonId: lesson.id });
+        navigation.replace('ScenePlayer', {
+          learningMode: route.params.learningMode,
+          lessonId: lesson.id,
+        });
       }
     });
   };

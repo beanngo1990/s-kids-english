@@ -36,7 +36,31 @@ const expectedLessonMilestoneIcons = [
   ['toilet-routine', 'milestoneToiletRoutine'],
   ['speaking-up', 'milestoneSpeakingUp'],
   ['plant-a-seed', 'milestonePlantASeed'],
+  ['help-it-grow', 'milestoneHelpItGrow'],
+  ['garden-friends', 'milestoneGardenFriends'],
 ] as const;
+
+test('help-it-grow uses distinct scene and lesson icons', () => {
+  const helpItGrow = lessons.find(lesson => lesson.id === 'help-it-grow');
+
+  expect(helpItGrow?.scenes.map(getMapSceneIconName)).toEqual([
+    'newLeafSunlight',
+    'rainyDayCare',
+    'windAndSupport',
+  ]);
+  expect(getLessonIconName({ id: 'help-it-grow' })).toBe('newLeafSunlight');
+});
+
+test('garden-friends uses distinct scene and lesson icons', () => {
+  const gardenFriends = lessons.find(lesson => lesson.id === 'garden-friends');
+
+  expect(gardenFriends?.scenes.map(getMapSceneIconName)).toEqual([
+    'underTheLeaf',
+    'flowerVisitors',
+    'quietGardenWatch',
+  ]);
+  expect(getLessonIconName({ id: 'garden-friends' })).toBe('underTheLeaf');
+});
 
 test('map scene icons preserve each scene semantic icon', () => {
   lessons.forEach(lesson => {

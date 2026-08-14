@@ -89,9 +89,11 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `android/`, `ios/`: native configuration, permissions và custom native modules.
 - `__tests__/`: Jest tests.
 
-Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
-`co-the-cam-xuc-va-tu-cham-soc`) và 27 lesson packs, theo thứ tự khai báo trong
-`src/data/themes.ts` và `src/data/lessons.ts`.
+Catalog hiện có bốn themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
+`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`) và 30 lesson packs, theo thứ tự khai báo trong
+`src/data/themes.ts` và `src/data/lessons.ts`. Theme 4 runtime hiện đăng ký `plant-a-seed`,
+`help-it-grow` và `garden-friends`; content architecture cho hai lesson tiếp theo nằm trong
+`docs/theme-4-content-draft.md`.
 
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 

@@ -218,6 +218,17 @@ images. The catalog, audit, build, verify, missing-image check, and runtime
 preloader scan every `SceneObject.variants[].asset`; a variant may therefore be
 initially hidden and still remains a required scene image.
 
+The Theme 4 narrative slices have bounded sheet cutters before the standard
+pipeline. `plant-a-seed` uses `assets:cut-plant-a-seed-production` and
+`assets:verify-plant-a-seed-cutouts`; `help-it-grow` uses
+`assets:cut-help-it-grow-production` and `assets:verify-help-it-grow-cutouts`;
+`garden-friends` uses `assets:cut-garden-friends-production` and
+`assets:verify-garden-friends-cutouts`. The garden-friends cutter takes one
+text-free chroma sheet per scene, cuts transparent masters, reuses the approved
+garden background and creates its four bundled map icons.
+These commands only create local PNG masters and bundled map icons. They do not
+create WebP, synthesize audio, or contact R2.
+
 R2 uses the `v1` prefix. Generated URLs include an image manifest revision so
 an iPad does not reuse a stale device cache after the R2/CDN cache is purged.
 Use `npm run r2:clear -- --prefix=v1/` to preview a purge; destructive execution
@@ -295,14 +306,22 @@ const step = tapStep({
 - `showObject`: make an initially/runtime-hidden object visible;
 - `hideObject`: remove an object from rendering and hit testing.
 
+Use `afterSuccessStateChanges` for cleanup that must wait until the success
+feedback finishes. The chosen object stays rendered long enough for its
+bounce/sparkle and teacher confirmation; runtime applies the deferred changes
+only while advancing to the next step. A common use is hiding both illustrations
+after a two-choice review. Keep visible cause/effect changes in
+`successStateChanges`; do not use deferred changes as a general timing system.
+
 The controller exposes these changes only for a correct interaction. Incorrect
-and ignored interactions never change object state. Runtime applies the changes
-in authored order. If required success-feedback playback fails and the runtime
-must keep the child on the same step, that step's state transaction is rolled
-back so its target remains playable. Runtime resets all object state on scene
-replay/transition and does not persist state across scenes or app sessions. V1
-has no branching, inventory, arbitrary variables, cross-scene state, or
-exact-step resume.
+and ignored interactions never change object state. Runtime applies immediate
+changes in authored order, then applies deferred changes after successful
+feedback playback. If required success-feedback playback fails and the runtime
+must keep the child on the same step, that step's immediate state transaction is
+rolled back and deferred cleanup is never applied, so its target remains
+playable. Runtime resets all object state on scene replay/transition and does
+not persist state across scenes or app sessions. V1 has no branching, inventory,
+arbitrary variables, cross-scene state, or exact-step resume.
 
 Variants inherit the parent object's `learningScope`. Mode filtering removes a
 state change if its target object is unavailable in the selected mode; it does
@@ -372,12 +391,48 @@ needs to animate additional scene objects.
   not open speech practice.
 
 Prefer one speech-practice encounter per vocabulary item. Use `auto` for core
-anchors and challenge action phrases, and `optional` for secondary expanded
-vocabulary so tapping an object does not repeatedly trigger recording.
+anchors and selected challenge action phrases, and `optional` for secondary
+expanded vocabulary so tapping an object does not repeatedly trigger recording.
 Do not narrate the imperative prompt `Bé nói theo cô nhé.` for an `optional`
 encounter. The `plant-a-seed` pilot uses `auto` for all authored encounters so
 the microphone starts after that prompt; each vocabulary still receives only
-one encounter.
+one encounter. Treat that pilot coverage as an explicit historical exception,
+not as the default density for future narrative lessons.
+
+### Vocabulary encounter roles
+
+For a narrative lesson, classify each important English encounter during
+storyboarding. These roles are authoring semantics and do not add fields to the
+lesson schema:
+
+- **New Anchor** introduces a word or phrase that the current lesson owns. Add a
+  `VocabularyItem`, reference it with `vocabId`, teach its meaning through audio
+  and visuals, and give it one speech-practice encounter. Only New Anchors belong
+  in that lesson's review pool.
+- **Quick Recall** actively reuses a previously introduced concept in a short
+  choice or action. It normally does not duplicate the word as a new
+  `VocabularyItem`, set `vocabId`, or open speech practice. `promptText` can
+  provide context when resolving an English teacher prompt, but without
+  vocabulary/model-word semantics it does not independently play the English
+  word in Vietnamese teacher mode. Do not put English into `instructionVi` as a
+  workaround.
+- **Action Enabler** is a familiar object/action used to move the story forward.
+  Author it as a regular interactive scene object without `vocabId`; prioritize
+  immediate SFX/state feedback over another model-word or recording interruption.
+
+Do not use a global exact-string overlap as proof that a child already knows a
+word: free journey order and independently accessible themes mean prior exposure
+is not guaranteed. A Quick Recall must remain solvable through Vietnamese audio
+and a concrete visual cue even when the child skipped the earlier lesson. Respect
+learning-mode scope as well: an expanded-only word cannot become a core
+prerequisite later. Repeating a deep-teach flow for an old word requires an
+explicit content decision; default to Quick Recall or Action Enabler instead.
+
+Vary pacing around the stable interaction grammar. Reserve the full meaning ->
+English model -> action -> speech -> state-change flow for New Anchors. Interleave
+short actions, discovery reveals, sequence checks, and celebration beats. Separate
+every deep-learn/pronunciation panel with a meaningful action or visual payoff;
+`optional` still opens the panel and therefore counts as an interruption too.
 Use vocabulary type `adjective` for standalone describing words such as
 `happy`, `quiet`, or `hungry`; do not model them as nouns only to reuse noun
 teacher copy.

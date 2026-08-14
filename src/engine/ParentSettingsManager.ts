@@ -195,6 +195,20 @@ export async function getParentSettings(): Promise<ParentSettings> {
   return normalizeParentSettings(JSON.parse(rawSettings));
 }
 
+export async function resolveLearningModePreference(
+  preferredMode?: LearningMode,
+): Promise<LearningMode> {
+  if (preferredMode) {
+    return preferredMode;
+  }
+
+  try {
+    return (await getParentSettings()).learningMode;
+  } catch {
+    return 'core';
+  }
+}
+
 export async function saveParentSettings(
   settings: Partial<ParentSettings>,
   options: SaveParentSettingsOptions = {},

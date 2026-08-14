@@ -365,6 +365,28 @@ export const lessonRewards: LessonReward[] = [
     tone: 'teal',
     title: 'Bé đã mở khoá Little Gardener!',
   },
+  {
+    id: 'reward-help-it-grow',
+    iconName: 'milestoneHelpItGrow',
+    lessonId: 'help-it-grow',
+    stickerId: 'sticker-help-it-grow',
+    stickerName: 'Plant Helper',
+    stickerNameEn: 'Plant Helper',
+    stickerNameVi: 'Trợ thủ chăm cây',
+    tone: 'sun',
+    title: 'Bé đã mở khoá Plant Helper!',
+  },
+  {
+    id: 'reward-garden-friends',
+    iconName: 'milestoneGardenFriends',
+    lessonId: 'garden-friends',
+    stickerId: 'sticker-garden-friends',
+    stickerName: 'Garden Friend',
+    stickerNameEn: 'Garden Friend',
+    stickerNameVi: 'Người bạn khu vườn',
+    tone: 'teal',
+    title: 'Bé đã mở khoá Garden Friend!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

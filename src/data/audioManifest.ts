@@ -23,6 +23,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A bath helps you feel fresh after an active afternoon.",
     },
   },
+  [normalizeText("A few days later, a new leaf opens.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/wait_new_leaf_success_941d5009.mp3",
+      text: "A few days later, a new leaf opens.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/wait_new_leaf_success_941d5009.mp3",
+      text: "A few days later, a new leaf opens.",
+    },
+  },
+  [normalizeText("A few days later, a tiny green fruit appears.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
+      text: "A few days later, a tiny green fruit appears.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
+      text: "A few days later, a tiny green fruit appears.",
+    },
+  },
+  [normalizeText("A few days later, the flower bud has opened.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_intro_cecd1704.mp3",
+      text: "A few days later, the flower bud has opened.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_intro_cecd1704.mp3",
+      text: "A few days later, the flower bud has opened.",
+    },
+  },
+  [normalizeText("A few days later, the plant stands tall with a flower bud.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
+      text: "A few days later, the plant stands tall with a flower bud.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
+      text: "A few days later, the plant stands tall with a flower bud.",
+    },
+  },
+  [normalizeText("A few days pass. The sprout is now a little plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_intro_6e95d605.mp3",
+      text: "A few days pass. The sprout is now a little plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_intro_6e95d605.mp3",
+      text: "A few days pass. The sprout is now a little plant.",
+    },
+  },
   [normalizeText("A few small steps help keep you and others clean.")]: {
     "en-US": {
       key: "lessons/personal-care/cough-and-sneeze-care/audio/en-US/neural2-c-r1/intro_success_a0068f7a.mp3",
@@ -41,6 +91,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/intro_success_91ae067d.mp3",
       text: "A little cleaning after dinner keeps the kitchen tidy.",
+    },
+  },
+  [normalizeText("A long little neighbor is on the soil.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/lift_leaf_success_ffcd5559.mp3",
+      text: "A long little neighbor is on the soil.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/lift_leaf_success_ffcd5559.mp3",
+      text: "A long little neighbor is on the soil.",
     },
   },
   [normalizeText("A puddle can mean there is too much water.")]: {
@@ -63,6 +123,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A scoop helps carry a small amount of soil.",
     },
   },
+  [normalizeText("A small green neighbor is on the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
+      text: "A small green neighbor is on the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
+      text: "A small green neighbor is on the leaf.",
+    },
+  },
   [normalizeText("A small hole is ready for the seed.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/make_hole_success_54180223.mp3",
@@ -71,6 +141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/make_hole_success_54180223.mp3",
       text: "A small hole is ready for the seed.",
+    },
+  },
+  [normalizeText("A small path appears, and a snail is here too.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/follow_soil_success_fb187a1f.mp3",
+      text: "A small path appears, and a snail is here too.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/follow_soil_success_fb187a1f.mp3",
+      text: "A small path appears, and a snail is here too.",
     },
   },
   [normalizeText("A snack is a light meal after you get home.")]: {
@@ -91,6 +171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/bedtime-story/audio/en-GB/neural2-c-r1/intro_success_75aada47.mp3",
       text: "A soothing story helps you get ready for sleep.",
+    },
+  },
+  [normalizeText("A yellow-and-black visitor is flying over.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_bee_success_ba4d8f51.mp3",
+      text: "A yellow-and-black visitor is flying over.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_success_ba4d8f51.mp3",
+      text: "A yellow-and-black visitor is flying over.",
     },
   },
   [normalizeText("After a bath, put on dry clothes to keep warm.")]: {
@@ -151,6 +241,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/alphabet_book.mp3",
       text: "alphabet book",
+    },
+  },
+  [normalizeText("An orange-winged visitor is flying over.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_butterfly_success_6f11bd60.mp3",
+      text: "An orange-winged visitor is flying over.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_butterfly_success_6f11bd60.mp3",
+      text: "An orange-winged visitor is flying over.",
     },
   },
   [normalizeText("angry")]: {
@@ -487,6 +587,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "bed",
     },
   },
+  [normalizeText("bee")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/bee.mp3",
+      text: "bee",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/bee.mp3",
+      text: "bee",
+    },
+  },
   [normalizeText("bell")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/bell.mp3",
@@ -539,6 +649,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/binoculars.mp3",
       text: "binoculars",
+    },
+  },
+  [normalizeText("birdbath")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/birdbath.mp3",
+      text: "birdbath",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/birdbath.mp3",
+      text: "birdbath",
     },
   },
   [normalizeText("bite")]: {
@@ -935,6 +1055,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "bus",
     },
   },
+  [normalizeText("butterfly")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/butterfly.mp3",
+      text: "butterfly",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/butterfly.mp3",
+      text: "butterfly",
+    },
+  },
   [normalizeText("button")]: {
     "en-US": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/button.mp3",
@@ -1145,6 +1275,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "cashier",
     },
   },
+  [normalizeText("caterpillar")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/caterpillar.mp3",
+      text: "caterpillar",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/caterpillar.mp3",
+      text: "caterpillar",
+    },
+  },
   [normalizeText("chair")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/chair.mp3",
@@ -1167,6 +1307,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/check_the_list.mp3",
       text: "check the list",
+    },
+  },
+  [normalizeText("check the soil")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_the_soil.mp3",
+      text: "check the soil",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_the_soil.mp3",
+      text: "check the soil",
+    },
+  },
+  [normalizeText("Check the soil before watering. Tap the picture with the finger.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_check_soil_1efad611.mp3",
+      text: "Check the soil before watering. Tap the picture with the finger.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_check_soil_1efad611.mp3",
+      text: "Check the soil before watering. Tap the picture with the finger.",
     },
   },
   [normalizeText("check the temperature")]: {
@@ -2291,6 +2451,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the blocks onto the mat.",
     },
   },
+  [normalizeText("Drag the blue water drop into the empty birdbath on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_fill_birdbath_5f8946c9.mp3",
+      text: "Drag the blue water drop into the empty birdbath on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_fill_birdbath_5f8946c9.mp3",
+      text: "Drag the blue water drop into the empty birdbath on the left.",
+    },
+  },
+  [normalizeText("Drag the blue water drop to the dish on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/fill_birdbath_fail_4d1fd97e.mp3",
+      text: "Drag the blue water drop to the dish on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/fill_birdbath_fail_4d1fd97e.mp3",
+      text: "Drag the blue water drop to the dish on the left.",
+    },
+  },
   [normalizeText("Drag the body wash onto the bath sponge.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/prompt_drag_body_wash_to_sponge_c0010ff9.mp3",
@@ -2671,6 +2851,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the green counter into the glowing circle.",
     },
   },
+  [normalizeText("Drag the green watering can to the plant pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_fail_72752857.mp3",
+      text: "Drag the green watering can to the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_fail_72752857.mp3",
+      text: "Drag the green watering can to the plant pot.",
+    },
+  },
   [normalizeText("Drag the green watering can to the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_water_pot_08e6a3b9.mp3",
@@ -2749,6 +2939,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/sea-safety/audio/en-GB/neural2-c-r1/prompt_drag_life_jacket_9b21da9c.mp3",
       text: "Drag the life jacket into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the long stick to the soil circle beside the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_stick_fail_9d5dc042.mp3",
+      text: "Drag the long stick to the soil circle beside the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_stick_fail_9d5dc042.mp3",
+      text: "Drag the long stick to the soil circle beside the plant.",
     },
   },
   [normalizeText("Drag the matching action card into the glowing circle.")]: {
@@ -2891,6 +3091,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the plant label into the pot.",
     },
   },
+  [normalizeText("Drag the plant pot into the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_move_plant_88ce267b.mp3",
+      text: "Drag the plant pot into the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_move_plant_88ce267b.mp3",
+      text: "Drag the plant pot into the sunlight.",
+    },
+  },
   [normalizeText("Drag the purple grapes above the scale into the glowing circle.")]: {
     "en-US": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-US/neural2-c-r1/prompt_drag_grapes_32d4bb28.mp3",
@@ -3031,6 +3241,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Drag the slippers to your feet.",
     },
   },
+  [normalizeText("Drag the small pot to the covered area.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/move_under_shelter_fail_7c5d0f94.mp3",
+      text: "Drag the small pot to the covered area.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/move_under_shelter_fail_7c5d0f94.mp3",
+      text: "Drag the small pot to the covered area.",
+    },
+  },
   [normalizeText("Drag the snack onto the table.")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/prompt_rest_drag_snack_to_table_a530a3d6.mp3",
@@ -3049,6 +3269,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/prompt_drag_soap_to_hand_634ee73b.mp3",
       text: "Drag the soap to your hand.",
+    },
+  },
+  [normalizeText("Drag the soft tie to the stake beside the stem.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_soft_tie_fail_6e3f41ed.mp3",
+      text: "Drag the soft tie to the stake beside the stem.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_soft_tie_fail_6e3f41ed.mp3",
+      text: "Drag the soft tie to the stake beside the stem.",
+    },
+  },
+  [normalizeText("Drag the soft tie to the stake to hold the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_place_soft_tie_a1658076.mp3",
+      text: "Drag the soft tie to the stake to hold the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_place_soft_tie_a1658076.mp3",
+      text: "Drag the soft tie to the stake to hold the plant.",
     },
   },
   [normalizeText("Drag the sound machine to the quiet corner.")]: {
@@ -3119,6 +3359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_drag_sun_hat_3ebd3349.mp3",
       text: "Drag the sun hat into the glowing circle.",
+    },
+  },
+  [normalizeText("Drag the support stick to the spot beside the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_place_stick_d092e1dd.mp3",
+      text: "Drag the support stick to the spot beside the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_place_stick_d092e1dd.mp3",
+      text: "Drag the support stick to the spot beside the plant.",
     },
   },
   [normalizeText("Drag the thank-you card into the glowing circle.")]: {
@@ -3445,6 +3695,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "ears",
     },
   },
+  [normalizeText("earthworm")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/earthworm.mp3",
+      text: "earthworm",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/earthworm.mp3",
+      text: "earthworm",
+    },
+  },
   [normalizeText("eat a snack")]: {
     "en-US": {
       key: "lessons/playtime/playtime-rest/audio/en-US/neural2-c-r1/eat_a_snack.mp3",
@@ -3727,6 +3987,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Find the blue water drop.",
     },
   },
+  [normalizeText("Find the hand lifting the leaf to look underneath.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
+      text: "Find the hand lifting the leaf to look underneath.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
+      text: "Find the hand lifting the leaf to look underneath.",
+    },
+  },
+  [normalizeText("Find the picture of a hand lifting the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/choose_look_under_leaf_fail_04cf9af4.mp3",
+      text: "Find the picture of a hand lifting the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/choose_look_under_leaf_fail_04cf9af4.mp3",
+      text: "Find the picture of a hand lifting the leaf.",
+    },
+  },
+  [normalizeText("Find the picture of the finger touching the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/choose_check_soil_fail_bea9d4f7.mp3",
+      text: "Find the picture of the finger touching the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/choose_check_soil_fail_bea9d4f7.mp3",
+      text: "Find the picture of the finger touching the soil.",
+    },
+  },
+  [normalizeText("Find the picture of the pot moving toward the sunbeams.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/choose_sunlight_action_fail_b19a1c03.mp3",
+      text: "Find the picture of the pot moving toward the sunbeams.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/choose_sunlight_action_fail_b19a1c03.mp3",
+      text: "Find the picture of the pot moving toward the sunbeams.",
+    },
+  },
+  [normalizeText("Find the picture of watching eyes and still hands.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_choose_watch_gently_f62064bd.mp3",
+      text: "Find the picture of watching eyes and still hands.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_choose_watch_gently_f62064bd.mp3",
+      text: "Find the picture of watching eyes and still hands.",
+    },
+  },
+  [normalizeText("Find the picture with still hands.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
+      text: "Find the picture with still hands.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/choose_watch_gently_fail_4ea09305.mp3",
+      text: "Find the picture with still hands.",
+    },
+  },
   [normalizeText("Find the plant pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
@@ -3735,6 +4055,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/prompt_find_plant_pot_71b04b49.mp3",
       text: "Find the plant pot.",
+    },
+  },
+  [normalizeText("Find the plant standing tall beside the stake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/choose_support_stem_fail_38ab03f3.mp3",
+      text: "Find the plant standing tall beside the stake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/choose_support_stem_fail_38ab03f3.mp3",
+      text: "Find the plant standing tall beside the stake.",
     },
   },
   [normalizeText("find the red circle")]: {
@@ -4317,6 +4647,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/grapes.mp3",
       text: "grapes",
+    },
+  },
+  [normalizeText("Gray clouds arrive. Rain begins to fall.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_intro_f7210c22.mp3",
+      text: "Gray clouds arrive. Rain begins to fall.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_intro_f7210c22.mp3",
+      text: "Gray clouds arrive. Rain begins to fall.",
     },
   },
   [normalizeText("Great job!")]: {
@@ -12637,6 +12977,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "leg",
     },
   },
+  [normalizeText("Let us quietly look for more little garden neighbors.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_intro_1c97d9fb.mp3",
+      text: "Let us quietly look for more little garden neighbors.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_intro_1c97d9fb.mp3",
+      text: "Let us quietly look for more little garden neighbors.",
+    },
+  },
+  [normalizeText("Let us watch and see who visits.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/intro_success_16538dd6.mp3",
+      text: "Let us watch and see who visits.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/intro_success_16538dd6.mp3",
+      text: "Let us watch and see who visits.",
+    },
+  },
   [normalizeText("Let's breathe slowly and gently.")]: {
     "en-US": {
       key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_intro_d0a2e66a.mp3",
@@ -12645,6 +13005,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_intro_d0a2e66a.mp3",
       text: "Let's breathe slowly and gently.",
+    },
+  },
+  [normalizeText("Let's care for the little plant pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/intro_success_44187401.mp3",
+      text: "Let's care for the little plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/intro_success_44187401.mp3",
+      text: "Let's care for the little plant pot.",
     },
   },
   [normalizeText("Let's check what we need.")]: {
@@ -13055,6 +13425,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_intro_7b5e9f4c.mp3",
       text: "Let's help in the garden.",
+    },
+  },
+  [normalizeText("Let's help the little plant grow strong.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/intro_success_9f2576eb.mp3",
+      text: "Let's help the little plant grow strong.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/intro_success_9f2576eb.mp3",
+      text: "Let's help the little plant grow strong.",
+    },
+  },
+  [normalizeText("Let's help the plant stand tall.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/intro_success_d16c4413.mp3",
+      text: "Let's help the plant stand tall.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/intro_success_d16c4413.mp3",
+      text: "Let's help the plant stand tall.",
     },
   },
   [normalizeText("Let's identify and organize your personal care items.")]: {
@@ -16407,6 +16797,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Listen.",
     },
   },
+  [normalizeText("Little garden neighbors are under the leaf. Let us look.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_intro_62af3f92.mp3",
+      text: "Little garden neighbors are under the leaf. Let us look.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_intro_62af3f92.mp3",
+      text: "Little garden neighbors are under the leaf. Let us look.",
+    },
+  },
   [normalizeText("load the dishwasher")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/load_the_dishwasher.mp3",
@@ -18257,6 +18657,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the zipper in the middle of the upper shelf.",
     },
   },
+  [normalizeText("look under the leaf")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/look_under_the_leaf.mp3",
+      text: "look under the leaf",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/look_under_the_leaf.mp3",
+      text: "look under the leaf",
+    },
+  },
   [normalizeText("loud")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/loud.mp3",
@@ -18919,6 +19329,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Move the placemat to the seat.",
     },
   },
+  [normalizeText("Move the pot to the area with yellow sunbeams.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/move_plant_fail_54f23b13.mp3",
+      text: "Move the pot to the area with yellow sunbeams.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/move_plant_fail_54f23b13.mp3",
+      text: "Move the pot to the area with yellow sunbeams.",
+    },
+  },
   [normalizeText("Move the ruler onto the notebook.")]: {
     "en-US": {
       key: "lessons/at-school/school-supplies/audio/en-US/neural2-c-r1/supplies_drag_ruler_to_paper_fail_88c21e97.mp3",
@@ -19271,6 +19691,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/school-supplies/audio/en/notebook.mp3",
       text: "notebook",
+    },
+  },
+  [normalizeText("Now we can see a shady area.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/reveal_shade_success_2eac21eb.mp3",
+      text: "Now we can see a shady area.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/reveal_shade_success_2eac21eb.mp3",
+      text: "Now we can see a shady area.",
+    },
+  },
+  [normalizeText("Now we can see the part of the plant under the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/reveal_roots_success_ae120700.mp3",
+      text: "Now we can see the part of the plant under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/reveal_roots_success_ae120700.mp3",
+      text: "Now we can see the part of the plant under the soil.",
     },
   },
   [normalizeText("nurse")]: {
@@ -20345,6 +20785,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "quiet sign",
     },
   },
+  [normalizeText("rain")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/rain.mp3",
+      text: "rain",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/rain.mp3",
+      text: "rain",
+    },
+  },
   [normalizeText("raincoat")]: {
     "en-US": {
       key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/raincoat.mp3",
@@ -20573,6 +21023,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "rice",
     },
   },
+  [normalizeText("Right, check the soil first.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/choose_check_soil_success_e3872a52.mp3",
+      text: "Right, check the soil first.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/choose_check_soil_success_e3872a52.mp3",
+      text: "Right, check the soil first.",
+    },
+  },
   [normalizeText("Right, cover the seed.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/choose_cover_seed_success_6fd381f9.mp3",
@@ -20613,6 +21073,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Right, plant a seed.",
     },
   },
+  [normalizeText("Right, support the stem.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/choose_support_stem_success_be79e112.mp3",
+      text: "Right, support the stem.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/choose_support_stem_success_be79e112.mp3",
+      text: "Right, support the stem.",
+    },
+  },
+  [normalizeText("Right, the eyes watch and the hands stay still.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/choose_watch_gently_success_ee319ce8.mp3",
+      text: "Right, the eyes watch and the hands stay still.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/choose_watch_gently_success_ee319ce8.mp3",
+      text: "Right, the eyes watch and the hands stay still.",
+    },
+  },
   [normalizeText("Right, wait for the sprout.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/choose_wait_sprout_success_95087e33.mp3",
@@ -20631,6 +21111,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/choose_water_gently_success_eed54643.mp3",
       text: "Right, water it gently.",
+    },
+  },
+  [normalizeText("Right, we lift the leaf and look underneath.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/choose_look_under_leaf_success_ffaac53f.mp3",
+      text: "Right, we lift the leaf and look underneath.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/choose_look_under_leaf_success_ffaac53f.mp3",
+      text: "Right, we lift the leaf and look underneath.",
+    },
+  },
+  [normalizeText("Right, we move the plant into the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/choose_sunlight_action_success_eebb8efb.mp3",
+      text: "Right, we move the plant into the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/choose_sunlight_action_success_eebb8efb.mp3",
+      text: "Right, we move the plant into the sunlight.",
     },
   },
   [normalizeText("rinse your feet")]: {
@@ -20689,6 +21189,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/robe.mp3",
       text: "robe",
+    },
+  },
+  [normalizeText("roots")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/roots.mp3",
+      text: "roots",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/roots.mp3",
+      text: "roots",
     },
   },
   [normalizeText("rope")]: {
@@ -21899,6 +22409,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "snack box",
     },
   },
+  [normalizeText("snail")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/snail.mp3",
+      text: "snail",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/snail.mp3",
+      text: "snail",
+    },
+  },
   [normalizeText("snap fastener")]: {
     "en-US": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/snap_fastener.mp3",
@@ -22279,6 +22799,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "stain",
     },
   },
+  [normalizeText("stake")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/stake.mp3",
+      text: "stake",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stake.mp3",
+      text: "stake",
+    },
+  },
   [normalizeText("stand on tiptoes")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/stand_on_tiptoes.mp3",
@@ -22351,6 +22881,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-feelings/angry-and-scared/audio/en-GB/neural2-c-r1/stay_with_me.mp3",
       text: "stay with me",
+    },
+  },
+  [normalizeText("stem")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/stem.mp3",
+      text: "stem",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stem.mp3",
+      text: "stem",
     },
   },
   [normalizeText("step onto the mat")]: {
@@ -22559,6 +23099,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Sungy is going with you!",
     },
   },
+  [normalizeText("sunlight")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/sunlight.mp3",
+      text: "sunlight",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/sunlight.mp3",
+      text: "sunlight",
+    },
+  },
   [normalizeText("sunscreen")]: {
     "en-US": {
       key: "lessons/beach-day/beach-bag/audio/en-US/neural2-c-r1/sunscreen.mp3",
@@ -22567,6 +23117,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/sunscreen.mp3",
       text: "sunscreen",
+    },
+  },
+  [normalizeText("support the stem")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/support_the_stem.mp3",
+      text: "support the stem",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/support_the_stem.mp3",
+      text: "support the stem",
+    },
+  },
+  [normalizeText("Support the stem so the plant stands tall. Tap the picture with the stake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_support_stem_c07fa72b.mp3",
+      text: "Support the stem so the plant stands tall. Tap the picture with the stake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_support_stem_c07fa72b.mp3",
+      text: "Support the stem so the plant stands tall. Tap the picture with the stake.",
     },
   },
   [normalizeText("surprised")]: {
@@ -22825,6 +23395,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/family-dinner/dinner-prep/audio/en/prompt_tap_apron_9b1de408.mp3",
       text: "Tap the apron.",
+    },
+  },
+  [normalizeText("Tap the area with the yellow sunbeams.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_sunlight_fail_851472f9.mp3",
+      text: "Tap the area with the yellow sunbeams.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_sunlight_fail_851472f9.mp3",
+      text: "Tap the area with the yellow sunbeams.",
     },
   },
   [normalizeText("Tap the arm.")]: {
@@ -23149,6 +23729,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the box.",
     },
   },
+  [normalizeText("Tap the branching parts under the soil. They are roots.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_roots_525fe414.mp3",
+      text: "Tap the branching parts under the soil. They are roots.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_roots_525fe414.mp3",
+      text: "Tap the branching parts under the soil. They are roots.",
+    },
+  },
   [normalizeText("Tap the bread.")]: {
     "en-US": {
       key: "lessons/morning-routine/breakfast/audio/en-US/neural2-c-r1/prompt_review_bread_2e152ca0.mp3",
@@ -23161,6 +23751,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/breakfast/audio/en/prompt_review_bread_2e152ca0.mp3",
       text: "Tap the bread.",
+    },
+  },
+  [normalizeText("Tap the brown soil patch in the middle to follow the tunnel.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_trace_tunnel_0744815d.mp3",
+      text: "Tap the brown soil patch in the middle to follow the tunnel.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_trace_tunnel_0744815d.mp3",
+      text: "Tap the brown soil patch in the middle to follow the tunnel.",
+    },
+  },
+  [normalizeText("Tap the brown soil patch under the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_follow_soil_5eef1581.mp3",
+      text: "Tap the brown soil patch under the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_follow_soil_5eef1581.mp3",
+      text: "Tap the brown soil patch under the leaf.",
+    },
+  },
+  [normalizeText("Tap the brown tunnel below the soil.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_tunnel_fail_24103a45.mp3",
+      text: "Tap the brown tunnel below the soil.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_tunnel_fail_24103a45.mp3",
+      text: "Tap the brown tunnel below the soil.",
+    },
+  },
+  [normalizeText("Tap the brown tunnel under the soil.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_tunnel_11ce726f.mp3",
+      text: "Tap the brown tunnel under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_tunnel_11ce726f.mp3",
+      text: "Tap the brown tunnel under the soil.",
     },
   },
   [normalizeText("Tap the bubble.")]: {
@@ -23343,6 +23973,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the chicken.",
     },
   },
+  [normalizeText("Tap the circle with the sun and moon.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/wait_new_leaf_fail_dd7083e3.mp3",
+      text: "Tap the circle with the sun and moon.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/wait_new_leaf_fail_dd7083e3.mp3",
+      text: "Tap the circle with the sun and moon.",
+    },
+  },
   [normalizeText("Tap the circle.")]: {
     "en-US": {
       key: "lessons/library-visit/story-circle/audio/en-US/neural2-c-r1/prompt_tap_circle_d14312f2.mp3",
@@ -23411,6 +24051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the clothing tag.",
     },
   },
+  [normalizeText("Tap the cloud to let the rain pass.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
+      text: "Tap the cloud to let the rain pass.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
+      text: "Tap the cloud to let the rain pass.",
+    },
+  },
   [normalizeText("Tap the coaster.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-US/neural2-c-r1/prompt_tap_coaster_5d25af24.mp3",
@@ -23467,6 +24117,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en/prompt_tap_compost_bin_fbc83097.mp3",
       text: "Tap the compost bin.",
+    },
+  },
+  [normalizeText("Tap the cool area with the leaf shadow.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
+      text: "Tap the cool area with the leaf shadow.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
+      text: "Tap the cool area with the leaf shadow.",
+    },
+  },
+  [normalizeText("Tap the cool dark area. It is shade.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
+      text: "Tap the cool dark area. It is shade.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
+      text: "Tap the cool dark area. It is shade.",
     },
   },
   [normalizeText("Tap the cover.")]: {
@@ -23577,6 +24247,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/prompt_tap_dance_9b28133f.mp3",
       text: "Tap the dancing child on the left.",
+    },
+  },
+  [normalizeText("Tap the dark soil in the pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_wet_soil_fail_818f8a63.mp3",
+      text: "Tap the dark soil in the pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_wet_soil_fail_818f8a63.mp3",
+      text: "Tap the dark soil in the pot.",
+    },
+  },
+  [normalizeText("Tap the day-and-night circle and watch the plant grow.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_wait_for_flower_bud_6979a1fc.mp3",
+      text: "Tap the day-and-night circle and watch the plant grow.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_wait_for_flower_bud_6979a1fc.mp3",
+      text: "Tap the day-and-night circle and watch the plant grow.",
+    },
+  },
+  [normalizeText("Tap the day-and-night circle to let time pass.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_wait_new_leaf_3f71f148.mp3",
+      text: "Tap the day-and-night circle to let time pass.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_wait_new_leaf_3f71f148.mp3",
+      text: "Tap the day-and-night circle to let time pass.",
     },
   },
   [normalizeText("Tap the desk.")]: {
@@ -24087,6 +24787,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the goat.",
     },
   },
+  [normalizeText("Tap the green leaf beside the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_leaf_fail_13f3d5a5.mp3",
+      text: "Tap the green leaf beside the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_leaf_fail_13f3d5a5.mp3",
+      text: "Tap the green leaf beside the plant.",
+    },
+  },
+  [normalizeText("Tap the green leaf beside the pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/follow_the_light_fail_3e3f2abc.mp3",
+      text: "Tap the green leaf beside the pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/follow_the_light_fail_3e3f2abc.mp3",
+      text: "Tap the green leaf beside the pot.",
+    },
+  },
+  [normalizeText("Tap the green part holding the leaves. It is the stem.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_stem_26be1a74.mp3",
+      text: "Tap the green part holding the leaves. It is the stem.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_stem_26be1a74.mp3",
+      text: "Tap the green part holding the leaves. It is the stem.",
+    },
+  },
   [normalizeText("Tap the green spout. It is part of the watering can.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_find_spout_c20fff5f.mp3",
@@ -24145,6 +24875,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.mp3",
       text: "Tap the hand gel.",
+    },
+  },
+  [normalizeText("Tap the hand lifting the leaf to look underneath.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
+      text: "Tap the hand lifting the leaf to look underneath.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
+      text: "Tap the hand lifting the leaf to look underneath.",
     },
   },
   [normalizeText("Tap the hand towel.")]: {
@@ -24307,6 +25047,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the large gift on the table.",
     },
   },
+  [normalizeText("Tap the large leaf on the left to lift it gently.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_lift_leaf_fc36e17f.mp3",
+      text: "Tap the large leaf on the left to lift it gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_lift_leaf_fc36e17f.mp3",
+      text: "Tap the large leaf on the left to lift it gently.",
+    },
+  },
+  [normalizeText("Tap the large leaf on the left to look behind it.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
+      text: "Tap the large leaf on the left to look behind it.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
+      text: "Tap the large leaf on the left to look behind it.",
+    },
+  },
+  [normalizeText("Tap the large leaf on the left to put it back gently.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_replace_leaf_bd4aa73c.mp3",
+      text: "Tap the large leaf on the left to put it back gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_replace_leaf_bd4aa73c.mp3",
+      text: "Tap the large leaf on the left to put it back gently.",
+    },
+  },
+  [normalizeText("Tap the large leaf on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/lift_leaf_fail_18c75454.mp3",
+      text: "Tap the large leaf on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/lift_leaf_fail_18c75454.mp3",
+      text: "Tap the large leaf on the left.",
+    },
+  },
+  [normalizeText("Tap the large open leaf on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
+      text: "Tap the large open leaf on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
+      text: "Tap the large open leaf on the left.",
+    },
+  },
+  [normalizeText("Tap the leaf. The new leaf is green.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_leaf_bbfb5ede.mp3",
+      text: "Tap the leaf. The new leaf is green.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_leaf_bbfb5ede.mp3",
+      text: "Tap the leaf. The new leaf is green.",
+    },
+  },
   [normalizeText("Tap the leftovers.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/prompt_tap_leftovers_53145017.mp3",
@@ -24391,6 +25191,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the little fan.",
     },
   },
+  [normalizeText("Tap the little plant that looks healthier in the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_see_healthy_plant_3420d95f.mp3",
+      text: "Tap the little plant that looks healthier in the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_see_healthy_plant_3420d95f.mp3",
+      text: "Tap the little plant that looks healthier in the sunlight.",
+    },
+  },
+  [normalizeText("Tap the long green part below the leaves.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stem_fail_62bf9367.mp3",
+      text: "Tap the long green part below the leaves.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stem_fail_62bf9367.mp3",
+      text: "Tap the long green part below the leaves.",
+    },
+  },
+  [normalizeText("Tap the long plant support. It is a stake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
+      text: "Tap the long plant support. It is a stake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
+      text: "Tap the long plant support. It is a stake.",
+    },
+  },
+  [normalizeText("Tap the long rounded stake beside the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stake_fail_ac682c15.mp3",
+      text: "Tap the long rounded stake beside the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stake_fail_ac682c15.mp3",
+      text: "Tap the long rounded stake beside the plant.",
+    },
+  },
   [normalizeText("Tap the loose soil pile on the left. This is soil.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_scoop_soil_e385e0a7.mp3",
@@ -24447,6 +25287,116 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-box/audio/en/prompt_lunchbox_tap_lunchbox_a42178c4.mp3",
       text: "Tap the lunchbox.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the brown earthworm.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_earthworm_606a8b9b.mp3",
+      text: "Tap the magnifying glass around the brown earthworm.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_earthworm_606a8b9b.mp3",
+      text: "Tap the magnifying glass around the brown earthworm.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the green caterpillar.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_caterpillar_d8ef1ff9.mp3",
+      text: "Tap the magnifying glass around the green caterpillar.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_caterpillar_d8ef1ff9.mp3",
+      text: "Tap the magnifying glass around the green caterpillar.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the long brown earthworm.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_earthworm_fail_1b439e79.mp3",
+      text: "Tap the magnifying glass around the long brown earthworm.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_earthworm_fail_1b439e79.mp3",
+      text: "Tap the magnifying glass around the long brown earthworm.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the neighbor with a spiral shell.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_snail_fail_62882632.mp3",
+      text: "Tap the magnifying glass around the neighbor with a spiral shell.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_snail_fail_62882632.mp3",
+      text: "Tap the magnifying glass around the neighbor with a spiral shell.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the orange butterfly.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_butterfly_f2a319bf.mp3",
+      text: "Tap the magnifying glass around the orange butterfly.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_butterfly_f2a319bf.mp3",
+      text: "Tap the magnifying glass around the orange butterfly.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the small green caterpillar.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_caterpillar_fail_561efd6b.mp3",
+      text: "Tap the magnifying glass around the small green caterpillar.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_caterpillar_fail_561efd6b.mp3",
+      text: "Tap the magnifying glass around the small green caterpillar.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the snail with a spiral shell.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_snail_785602ea.mp3",
+      text: "Tap the magnifying glass around the snail with a spiral shell.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_snail_785602ea.mp3",
+      text: "Tap the magnifying glass around the snail with a spiral shell.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the visitor with orange wings.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_butterfly_fail_7aeadda7.mp3",
+      text: "Tap the magnifying glass around the visitor with orange wings.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_butterfly_fail_7aeadda7.mp3",
+      text: "Tap the magnifying glass around the visitor with orange wings.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass around the yellow-and-black bee.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_bee_b96cefbe.mp3",
+      text: "Tap the magnifying glass around the yellow-and-black bee.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_bee_b96cefbe.mp3",
+      text: "Tap the magnifying glass around the yellow-and-black bee.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass at the lower left to wait for the butterfly.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_butterfly_1ccc498d.mp3",
+      text: "Tap the magnifying glass at the lower left to wait for the butterfly.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_butterfly_1ccc498d.mp3",
+      text: "Tap the magnifying glass at the lower left to wait for the butterfly.",
+    },
+  },
+  [normalizeText("Tap the magnifying glass at the lower right to wait for the bee.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
+      text: "Tap the magnifying glass at the lower right to wait for the bee.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
+      text: "Tap the magnifying glass at the lower right to wait for the bee.",
     },
   },
   [normalizeText("Tap the magnifying glass.")]: {
@@ -24667,6 +25617,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/prompt_tap_nurse_0f7198f2.mp3",
       text: "Tap the nurse.",
+    },
+  },
+  [normalizeText("Tap the open yellow flower.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
+      text: "Tap the open yellow flower.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
+      text: "Tap the open yellow flower.",
     },
   },
   [normalizeText("Tap the page.")]: {
@@ -25257,6 +26217,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture for worried.",
     },
   },
+  [normalizeText("Tap the picture of a hand lifting the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
+      text: "Tap the picture of a hand lifting the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
+      text: "Tap the picture of a hand lifting the leaf.",
+    },
+  },
+  [normalizeText("Tap the picture of the finger touching the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_check_soil_fail_6d28331f.mp3",
+      text: "Tap the picture of the finger touching the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_check_soil_fail_6d28331f.mp3",
+      text: "Tap the picture of the finger touching the soil.",
+    },
+  },
+  [normalizeText("Tap the picture of the plant standing with the stake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_support_stem_fail_15b48150.mp3",
+      text: "Tap the picture of the plant standing with the stake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_support_stem_fail_15b48150.mp3",
+      text: "Tap the picture of the plant standing with the stake.",
+    },
+  },
+  [normalizeText("Tap the picture of watching eyes and still hands at the top.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_keep_hands_still_9c7bfde3.mp3",
+      text: "Tap the picture of watching eyes and still hands at the top.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_keep_hands_still_9c7bfde3.mp3",
+      text: "Tap the picture of watching eyes and still hands at the top.",
+    },
+  },
+  [normalizeText("Tap the picture of watching eyes and still hands.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_watch_gently_5ef558f8.mp3",
+      text: "Tap the picture of watching eyes and still hands.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_watch_gently_5ef558f8.mp3",
+      text: "Tap the picture of watching eyes and still hands.",
+    },
+  },
   [normalizeText("Tap the piglet.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/prompt_tap_piglet_4ad245dd.mp3",
@@ -25433,6 +26443,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the raincoat.",
     },
   },
+  [normalizeText("Tap the raindrops. Water falling from clouds is rain.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_rain_afd5bb40.mp3",
+      text: "Tap the raindrops. Water falling from clouds is rain.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_rain_afd5bb40.mp3",
+      text: "Tap the raindrops. Water falling from clouds is rain.",
+    },
+  },
   [normalizeText("Tap the raisins.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/prompt_tap_raisins_3e4d1aec.mp3",
@@ -25541,6 +26561,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/prompt_games_tap_rope_1aea1747.mp3",
       text: "Tap the rope.",
+    },
+  },
+  [normalizeText("Tap the round window beside the pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/reveal_roots_fail_d2a718ec.mp3",
+      text: "Tap the round window beside the pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/reveal_roots_fail_d2a718ec.mp3",
+      text: "Tap the round window beside the pot.",
+    },
+  },
+  [normalizeText("Tap the round window to look under the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_reveal_roots_bd94fc88.mp3",
+      text: "Tap the round window to look under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_reveal_roots_bd94fc88.mp3",
+      text: "Tap the round window to look under the soil.",
     },
   },
   [normalizeText("Tap the rubber gloves.")]: {
@@ -25713,6 +26753,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/seeing-world/audio/en-GB/neural2-c-r1/prompt_tap_shadow_71358bdb.mp3",
       text: "Tap the shadow.",
+    },
+  },
+  [normalizeText("Tap the shallow birdbath on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_birdbath_6f219bf0.mp3",
+      text: "Tap the shallow birdbath on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_birdbath_6f219bf0.mp3",
+      text: "Tap the shallow birdbath on the left.",
+    },
+  },
+  [normalizeText("Tap the shallow water dish on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_birdbath_fail_90feb6e6.mp3",
+      text: "Tap the shallow water dish on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_birdbath_fail_90feb6e6.mp3",
+      text: "Tap the shallow water dish on the left.",
     },
   },
   [normalizeText("Tap the shampoo.")]: {
@@ -25931,6 +26991,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small bag on the right.",
     },
   },
+  [normalizeText("Tap the small branches under the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
+      text: "Tap the small branches under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
+      text: "Tap the small branches under the soil.",
+    },
+  },
   [normalizeText("Tap the small hole.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
@@ -25939,6 +27009,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_find_hole_b59a855e.mp3",
       text: "Tap the small hole.",
+    },
+  },
+  [normalizeText("Tap the small lens at the lower left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_butterfly_fail_17014460.mp3",
+      text: "Tap the small lens at the lower left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_butterfly_fail_17014460.mp3",
+      text: "Tap the small lens at the lower left.",
+    },
+  },
+  [normalizeText("Tap the small lens at the lower right.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
+      text: "Tap the small lens at the lower right.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
+      text: "Tap the small lens at the lower right.",
     },
   },
   [normalizeText("Tap the small seed. This is a seed.")]: {
@@ -26069,6 +27159,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/prompt_make_hole_28be8171.mp3",
       text: "Tap the soil inside the pot to make a hole.",
+    },
+  },
+  [normalizeText("Tap the soil patch below the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/follow_soil_fail_a750edc4.mp3",
+      text: "Tap the soil patch below the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/follow_soil_fail_a750edc4.mp3",
+      text: "Tap the soil patch below the leaf.",
+    },
+  },
+  [normalizeText("Tap the soil to see whether it is still wet.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_check_wet_soil_cdbb158a.mp3",
+      text: "Tap the soil to see whether it is still wet.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_check_wet_soil_cdbb158a.mp3",
+      text: "Tap the soil to see whether it is still wet.",
     },
   },
   [normalizeText("Tap the sound.")]: {
@@ -26225,6 +27335,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the storyteller.",
     },
   },
+  [normalizeText("Tap the sun to compare the sunny place and the shady place.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_reveal_shade_fdef1c84.mp3",
+      text: "Tap the sun to compare the sunny place and the shady place.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_reveal_shade_fdef1c84.mp3",
+      text: "Tap the sun to compare the sunny place and the shady place.",
+    },
+  },
   [normalizeText("Tap the sun-and-moon circle above the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
@@ -26233,6 +27353,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/prompt_wait_through_time_5f22fb65.mp3",
       text: "Tap the sun-and-moon circle above the pot.",
+    },
+  },
+  [normalizeText("Tap the sun-and-moon picture at the top.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
+      text: "Tap the sun-and-moon picture at the top.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
+      text: "Tap the sun-and-moon picture at the top.",
     },
   },
   [normalizeText("Tap the sun.")]: {
@@ -26291,6 +27421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/playground/audio/en/prompt_tap_swing_8c5c43bd.mp3",
       text: "Tap the swing.",
+    },
+  },
+  [normalizeText("Tap the swirl with the flying leaves.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_wind_fail_f71b0237.mp3",
+      text: "Tap the swirl with the flying leaves.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_wind_fail_f71b0237.mp3",
+      text: "Tap the swirl with the flying leaves.",
     },
   },
   [normalizeText("Tap the T-shirt.")]: {
@@ -26405,6 +27545,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the timer.",
     },
   },
+  [normalizeText("Tap the tiny green fruit on the plant in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
+      text: "Tap the tiny green fruit on the plant in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
+      text: "Tap the tiny green fruit on the plant in the middle.",
+    },
+  },
   [normalizeText("Tap the tissue.")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/prompt_tap_tissue_0e1fc991.mp3",
@@ -26473,6 +27623,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/fresh-foods/audio/en-GB/neural2-c-r1/prompt_tap_tomato_2b0a22e6.mp3",
       text: "Tap the tomato in the basket of vegetables.",
+    },
+  },
+  [normalizeText("Tap the tomato plant on the right to wave goodbye.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_finish_c9960fdc.mp3",
+      text: "Tap the tomato plant on the right to wave goodbye.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_finish_c9960fdc.mp3",
+      text: "Tap the tomato plant on the right to wave goodbye.",
+    },
+  },
+  [normalizeText("Tap the tomato plant on the right.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/finish_fail_f0054600.mp3",
+      text: "Tap the tomato plant on the right.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/finish_fail_f0054600.mp3",
+      text: "Tap the tomato plant on the right.",
     },
   },
   [normalizeText("Tap the tongs.")]: {
@@ -26687,6 +27857,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the wallet in the red basket.",
     },
   },
+  [normalizeText("Tap the warm bright area. It is sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_sunlight_15cf030f.mp3",
+      text: "Tap the warm bright area. It is sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_sunlight_15cf030f.mp3",
+      text: "Tap the warm bright area. It is sunlight.",
+    },
+  },
   [normalizeText("Tap the waste bin.")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/prompt_tap_waste_bin_cf387a59.mp3",
@@ -26705,6 +27885,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/prompt_tap_water_bottle_743656bd.mp3",
       text: "Tap the water bottle.",
+    },
+  },
+  [normalizeText("Tap the water drops below the cloud.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_rain_fail_1b024c1a.mp3",
+      text: "Tap the water drops below the cloud.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_rain_fail_1b024c1a.mp3",
+      text: "Tap the water drops below the cloud.",
     },
   },
   [normalizeText("Tap the water.")]: {
@@ -26751,6 +27941,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the wet floor sign.",
     },
   },
+  [normalizeText("Tap the wind swirl with the flying leaves.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/test_support_fail_25f5a301.mp3",
+      text: "Tap the wind swirl with the flying leaves.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/test_support_fail_25f5a301.mp3",
+      text: "Tap the wind swirl with the flying leaves.",
+    },
+  },
+  [normalizeText("Tap the wind. Moving air makes the leaves shake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_wind_f6fac563.mp3",
+      text: "Tap the wind. Moving air makes the leaves shake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_wind_f6fac563.mp3",
+      text: "Tap the wind. Moving air makes the leaves shake.",
+    },
+  },
   [normalizeText("Tap the window.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/prompt_tap_window_a3528d6c.mp3",
@@ -26783,6 +27993,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_wristband_22b9db1c.mp3",
       text: "Tap the wristband.",
+    },
+  },
+  [normalizeText("Tap the yellow flower on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_flower_fail_9ec764b3.mp3",
+      text: "Tap the yellow flower on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_flower_fail_9ec764b3.mp3",
+      text: "Tap the yellow flower on the left.",
+    },
+  },
+  [normalizeText("Tap the yellow sun.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/reveal_shade_fail_363e48b1.mp3",
+      text: "Tap the yellow sun.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/reveal_shade_fail_363e48b1.mp3",
+      text: "Tap the yellow sun.",
     },
   },
   [normalizeText("Tap the yogurt.")]: {
@@ -31773,6 +33003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The garden bed is on the left.",
     },
   },
+  [normalizeText("The garden has many little neighbors.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/finish_success_77b57035.mp3",
+      text: "The garden has many little neighbors.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/finish_success_77b57035.mp3",
+      text: "The garden has many little neighbors.",
+    },
+  },
   [normalizeText("The garden is so green!")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/intro_success_146da1e0.mp3",
@@ -31841,6 +33081,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/farm-yard/audio/en-GB/neural2-c-r1/tap_goat_fail_f3e7245f.mp3",
       text: "The goat is on the right.",
+    },
+  },
+  [normalizeText("The gray cloud is above the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
+      text: "The gray cloud is above the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
+      text: "The gray cloud is above the plant.",
     },
   },
   [normalizeText("The green counter is in the middle.")]: {
@@ -32043,6 +33293,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The large gift is in the middle of the table.",
     },
   },
+  [normalizeText("The large open leaf is on the left.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_open_leaf_fail_02bd19ba.mp3",
+      text: "The large open leaf is on the left.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_open_leaf_fail_02bd19ba.mp3",
+      text: "The large open leaf is on the left.",
+    },
+  },
+  [normalizeText("The leaf covers the little neighbors again.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/replace_leaf_success_1e7986ff.mp3",
+      text: "The leaf covers the little neighbors again.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/replace_leaf_success_1e7986ff.mp3",
+      text: "The leaf covers the little neighbors again.",
+    },
+  },
   [normalizeText("The leaf is in the right place.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/drag_leaf_success_a24153e7.mp3",
@@ -32061,6 +33331,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/drag_leaf_fail_c1161848.mp3",
       text: "The leaf is on the ground.",
+    },
+  },
+  [normalizeText("The leaf is reaching toward the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/follow_the_light_success_45a5f447.mp3",
+      text: "The leaf is reaching toward the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/follow_the_light_success_45a5f447.mp3",
+      text: "The leaf is reaching toward the sunlight.",
+    },
+  },
+  [normalizeText("The leaf is turning toward the light. Tap the leaf.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_follow_the_light_c5b4746f.mp3",
+      text: "The leaf is turning toward the light. Tap the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_follow_the_light_c5b4746f.mp3",
+      text: "The leaf is turning toward the light. Tap the leaf.",
     },
   },
   [normalizeText("The leftovers are in the middle of the clean-up area.")]: {
@@ -32151,6 +33441,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/supermarket-trip/shopping-list/audio/en-GB/neural2-c-r1/tap_shopping_list_fail_8958c098.mp3",
       text: "The list is inside the cart.",
+    },
+  },
+  [normalizeText("The loose tie helps the plant stand tall.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_soft_tie_success_9d0f3566.mp3",
+      text: "The loose tie helps the plant stand tall.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_soft_tie_success_9d0f3566.mp3",
+      text: "The loose tie helps the plant stand tall.",
     },
   },
   [normalizeText("The lullaby is at the top.")]: {
@@ -32553,6 +33853,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The picture book is on the right.",
     },
   },
+  [normalizeText("The picture of still hands is near the top.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/keep_hands_still_fail_e7fc86ef.mp3",
+      text: "The picture of still hands is near the top.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/keep_hands_still_fail_e7fc86ef.mp3",
+      text: "The picture of still hands is near the top.",
+    },
+  },
   [normalizeText("The picture with the arrow and sprout is at the lower right.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_fail_b94c7242.mp3",
@@ -32603,6 +33913,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The placemat is in the right place.",
     },
   },
+  [normalizeText("The plant is drooping. Drag the watering can to the pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
+      text: "The plant is drooping. Drag the watering can to the pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
+      text: "The plant is drooping. Drag the watering can to the pot.",
+    },
+  },
+  [normalizeText("The plant is safe, and the soil is still wet.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/see_safe_plant_success_b3078240.mp3",
+      text: "The plant is safe, and the soil is still wet.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/see_safe_plant_success_b3078240.mp3",
+      text: "The plant is safe, and the soil is still wet.",
+    },
+  },
+  [normalizeText("The plant is under the shelter. Tap the plant pot.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_check_sheltered_plant_b4e9d6ee.mp3",
+      text: "The plant is under the shelter. Tap the plant pot.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_check_sheltered_plant_b4e9d6ee.mp3",
+      text: "The plant is under the shelter. Tap the plant pot.",
+    },
+  },
   [normalizeText("The plant label is in place after covering the seed.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/place_plant_label_success_e23932ed.mp3",
@@ -32613,6 +33953,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The plant label is in place after covering the seed.",
     },
   },
+  [normalizeText("The plant looks fresher now.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
+      text: "The plant looks fresher now.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
+      text: "The plant looks fresher now.",
+    },
+  },
+  [normalizeText("The plant looks healthier and has a new leaf.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/see_healthy_plant_success_8bef344c.mp3",
+      text: "The plant looks healthier and has a new leaf.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/see_healthy_plant_success_8bef344c.mp3",
+      text: "The plant looks healthier and has a new leaf.",
+    },
+  },
+  [normalizeText("The plant pot is in the middle.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/see_healthy_plant_fail_15e250d6.mp3",
+      text: "The plant pot is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/see_healthy_plant_fail_15e250d6.mp3",
+      text: "The plant pot is in the middle.",
+    },
+  },
+  [normalizeText("The plant pot is now in the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/move_plant_success_7da3e03e.mp3",
+      text: "The plant pot is now in the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/move_plant_success_7da3e03e.mp3",
+      text: "The plant pot is now in the sunlight.",
+    },
+  },
   [normalizeText("The plant pot is on the right.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/tap_plant_pot_fail_dba3b358.mp3",
@@ -32621,6 +34001,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/tap_plant_pot_fail_dba3b358.mp3",
       text: "The plant pot is on the right.",
+    },
+  },
+  [normalizeText("The plant pot is under the shelter.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_sheltered_plant_fail_65e7cd19.mp3",
+      text: "The plant pot is under the shelter.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_sheltered_plant_fail_65e7cd19.mp3",
+      text: "The plant pot is under the shelter.",
+    },
+  },
+  [normalizeText("The plant stands tall and has a flower bud.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
+      text: "The plant stands tall and has a flower bud.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
+      text: "The plant stands tall and has a flower bud.",
     },
   },
   [normalizeText("The plate is on the table.")]: {
@@ -32741,6 +34141,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/tap_quiet_sign_fail_028c64c3.mp3",
       text: "The quiet sign is on the right.",
+    },
+  },
+  [normalizeText("The rain has stopped. The plant is safe under the shelter.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_success_fc892799.mp3",
+      text: "The rain has stopped. The plant is safe under the shelter.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/let_rain_pass_success_fc892799.mp3",
+      text: "The rain has stopped. The plant is safe under the shelter.",
+    },
+  },
+  [normalizeText("The rain is no longer hitting the little plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_sheltered_plant_success_1bed2f39.mp3",
+      text: "The rain is no longer hitting the little plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_sheltered_plant_success_1bed2f39.mp3",
+      text: "The rain is no longer hitting the little plant.",
     },
   },
   [normalizeText("The raisins are next to the cracker.")]: {
@@ -33153,6 +34573,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The shade is on the right.",
     },
   },
+  [normalizeText("The shallow dish now has some clean water.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/fill_birdbath_success_e9a80fd9.mp3",
+      text: "The shallow dish now has some clean water.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/fill_birdbath_success_e9a80fd9.mp3",
+      text: "The shallow dish now has some clean water.",
+    },
+  },
   [normalizeText("The shampoo is next to the bath sponge.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/tap_shampoo_fail_0642b7ac.mp3",
@@ -33333,6 +34763,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The sink is on the right.",
     },
   },
+  [normalizeText("The sky is bright again. Tap the little plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_see_safe_plant_bfcf79d8.mp3",
+      text: "The sky is bright again. Tap the little plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_see_safe_plant_bfcf79d8.mp3",
+      text: "The sky is bright again. Tap the little plant.",
+    },
+  },
   [normalizeText("The sleep mask is in the middle of the room.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_sleep_mask_fail_d3a5127c.mp3",
@@ -33411,6 +34851,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-GB/neural2-c-r1/find_hole_fail_82a839ba.mp3",
       text: "The small hole is in the middle of the soil.",
+    },
+  },
+  [normalizeText("The small pot is under the shelter.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/move_under_shelter_success_541d9d4c.mp3",
+      text: "The small pot is under the shelter.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/move_under_shelter_success_541d9d4c.mp3",
+      text: "The small pot is under the shelter.",
     },
   },
   [normalizeText("The small pot picture is at the lower right.")]: {
@@ -33583,6 +35033,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The soil in the pot is the target for the spout.",
     },
   },
+  [normalizeText("The soil is still wet. We do not add more water.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_wet_soil_success_40f3e46d.mp3",
+      text: "The soil is still wet. We do not add more water.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/check_wet_soil_success_40f3e46d.mp3",
+      text: "The soil is still wet. We do not add more water.",
+    },
+  },
+  [normalizeText("The soil patch is in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/trace_tunnel_fail_cf636f72.mp3",
+      text: "The soil patch is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/trace_tunnel_fail_cf636f72.mp3",
+      text: "The soil patch is in the middle.",
+    },
+  },
   [normalizeText("The soil should be damp, without a puddle.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/intro_success_70b06b76.mp3",
@@ -33671,6 +35141,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-GB/neural2-c-r1/tap_stain_fail_6f29963a.mp3",
       text: "The stain is near the spray bottle.",
+    },
+  },
+  [normalizeText("The stake and tie keep the plant standing tall.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/test_support_success_16f0c29d.mp3",
+      text: "The stake and tie keep the plant standing tall.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/test_support_success_16f0c29d.mp3",
+      text: "The stake and tie keep the plant standing tall.",
     },
   },
   [normalizeText("The star projector is on the left.")]: {
@@ -33833,6 +35313,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The sunscreen is on the right.",
     },
   },
+  [normalizeText("The support stick is standing beside the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/place_stick_success_fd1c0f7c.mp3",
+      text: "The support stick is standing beside the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/place_stick_success_fd1c0f7c.mp3",
+      text: "The support stick is standing beside the plant.",
+    },
+  },
   [normalizeText("The swing is to the left of the playground.")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/tap_swing_fail_2d2d2267.mp3",
@@ -33983,6 +35473,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The timer is on the right.",
     },
   },
+  [normalizeText("The tiny green fruit has started to grow.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/find_tiny_fruit_success_4f2c007e.mp3",
+      text: "The tiny green fruit has started to grow.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/find_tiny_fruit_success_4f2c007e.mp3",
+      text: "The tiny green fruit has started to grow.",
+    },
+  },
   [normalizeText("The tissue is on the right.")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/tap_tissue_fail_a18fa66a.mp3",
@@ -33991,6 +35491,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/medicine-care/audio/en-GB/neural2-c-r1/tap_tissue_fail_a18fa66a.mp3",
       text: "The tissue is on the right.",
+    },
+  },
+  [normalizeText("The tomato plant is in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
+      text: "The tomato plant is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/find_tiny_fruit_fail_d3c34e87.mp3",
+      text: "The tomato plant is in the middle.",
     },
   },
   [normalizeText("The tongs are on the right.")]: {
@@ -34121,6 +35631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_tree_fail_c017a235.mp3",
       text: "The tree is on the right.",
+    },
+  },
+  [normalizeText("The tunnel runs under the soil.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/trace_tunnel_success_5b8a187e.mp3",
+      text: "The tunnel runs under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/trace_tunnel_success_5b8a187e.mp3",
+      text: "The tunnel runs under the soil.",
     },
   },
   [normalizeText("The uniform is on the left.")]: {
@@ -34293,6 +35813,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The whistle is on the right.",
     },
   },
+  [normalizeText("The wind blows again. Tap the wind to test the support.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_test_support_e8e9cc42.mp3",
+      text: "The wind blows again. Tap the wind to test the support.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_test_support_e8e9cc42.mp3",
+      text: "The wind blows again. Tap the wind to test the support.",
+    },
+  },
+  [normalizeText("The wind has passed. Tap the plant to find the flower bud.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
+      text: "The wind has passed. Tap the plant to find the flower bud.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
+      text: "The wind has passed. Tap the plant to find the flower bud.",
+    },
+  },
+  [normalizeText("The wind is stronger. The little plant is moving.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
+      text: "The wind is stronger. The little plant is moving.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
+      text: "The wind is stronger. The little plant is moving.",
+    },
+  },
   [normalizeText("The window is on the bus.")]: {
     "en-US": {
       key: "lessons/afternoon-home/ride-home/audio/en-US/neural2-c-r1/tap_window_fail_6f4f3cd0.mp3",
@@ -34431,6 +35981,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/intro_success_37bf8fc8.mp3",
       text: "There are so many books!",
+    },
+  },
+  [normalizeText("There is plenty of rain. Drag the small pot under the shelter.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_move_under_shelter_528a47ef.mp3",
+      text: "There is plenty of rain. Drag the small pot under the shelter.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_move_under_shelter_528a47ef.mp3",
+      text: "There is plenty of rain. Drag the small pot under the shelter.",
     },
   },
   [normalizeText("There's our home!")]: {
@@ -40147,6 +41707,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "tummy ache",
     },
   },
+  [normalizeText("tunnel")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/tunnel.mp3",
+      text: "tunnel",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/tunnel.mp3",
+      text: "tunnel",
+    },
+  },
   [normalizeText("turn on the shower")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-prep/audio/en-US/neural2-c-r1/turn_on_the_shower.mp3",
@@ -40479,6 +42049,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "waste bin",
     },
   },
+  [normalizeText("watch gently")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/watch_gently.mp3",
+      text: "watch gently",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/watch_gently.mp3",
+      text: "watch gently",
+    },
+  },
   [normalizeText("water")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/water.mp3",
@@ -40551,6 +42131,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/goodbye-home/audio/en-GB/neural2-c-r1/wave_goodbye.mp3",
       text: "wave goodbye",
+    },
+  },
+  [normalizeText("We are looking under the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_open_leaf_success_ca5de947.mp3",
+      text: "We are looking under the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_open_leaf_success_ca5de947.mp3",
+      text: "We are looking under the leaf.",
+    },
+  },
+  [normalizeText("We look with our eyes and keep our hands still.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/intro_success_66575f33.mp3",
+      text: "We look with our eyes and keep our hands still.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/intro_success_66575f33.mp3",
+      text: "We look with our eyes and keep our hands still.",
+    },
+  },
+  [normalizeText("We stay still, and the little neighbors appear again.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
+      text: "We stay still, and the little neighbors appear again.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/keep_hands_still_success_4791dc3a.mp3",
+      text: "We stay still, and the little neighbors appear again.",
+    },
+  },
+  [normalizeText("We will watch without scaring the little neighbors.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/intro_success_d9235408.mp3",
+      text: "We will watch without scaring the little neighbors.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/intro_success_d9235408.mp3",
+      text: "We will watch without scaring the little neighbors.",
     },
   },
   [normalizeText("We'll do each step gently.")]: {
@@ -40663,6 +42283,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wet floor sign",
     },
   },
+  [normalizeText("Which picture moves the pot into the sunlight?")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_choose_sunlight_action_bdaefde7.mp3",
+      text: "Which picture moves the pot into the sunlight?",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_choose_sunlight_action_bdaefde7.mp3",
+      text: "Which picture moves the pot into the sunlight?",
+    },
+  },
   [normalizeText("Which picture shows a green arrow planting the seed?")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_choose_plant_seed_59745c09.mp3",
@@ -40703,6 +42333,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Which picture shows a watering can gently watering soil?",
     },
   },
+  [normalizeText("Which picture shows checking the soil before watering?")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_choose_check_soil_d2e0e8ea.mp3",
+      text: "Which picture shows checking the soil before watering?",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_choose_check_soil_d2e0e8ea.mp3",
+      text: "Which picture shows checking the soil before watering?",
+    },
+  },
+  [normalizeText("Which picture shows supporting the stem?")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_choose_support_stem_df2ab85c.mp3",
+      text: "Which picture shows supporting the stem?",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_choose_support_stem_df2ab85c.mp3",
+      text: "Which picture shows supporting the stem?",
+    },
+  },
   [normalizeText("Which picture shows waiting for the sprout?")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/prompt_choose_wait_sprout_11b701d9.mp3",
@@ -40741,6 +42391,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/wiggle_your_fingers.mp3",
       text: "wiggle your fingers",
+    },
+  },
+  [normalizeText("wind")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wind.mp3",
+      text: "wind",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wind.mp3",
+      text: "wind",
     },
   },
   [normalizeText("window")]: {
@@ -40899,6 +42559,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, a plant needs water to grow.",
     },
   },
+  [normalizeText("Yes, check the soil first.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_check_soil_success_299f0b4b.mp3",
+      text: "Yes, check the soil first.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_check_soil_success_299f0b4b.mp3",
+      text: "Yes, check the soil first.",
+    },
+  },
   [normalizeText("Yes, cover the seed.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/learn_cover_seed_success_cde6011e.mp3",
@@ -40959,6 +42629,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, please",
     },
   },
+  [normalizeText("Yes, roots grow under the soil.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_success_45a33279.mp3",
+      text: "Yes, roots grow under the soil.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_roots_success_45a33279.mp3",
+      text: "Yes, roots grow under the soil.",
+    },
+  },
   [normalizeText("Yes, soil goes into the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
@@ -40967,6 +42647,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/learn_fill_pot_soil_success_1e4bd84b.mp3",
       text: "Yes, soil goes into the pot.",
+    },
+  },
+  [normalizeText("Yes, the plant is enjoying the sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
+      text: "Yes, the plant is enjoying the sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
+      text: "Yes, the plant is enjoying the sunlight.",
     },
   },
   [normalizeText("Yes, the seed goes into this hole.")]: {
@@ -40979,6 +42669,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, the seed goes into this hole.",
     },
   },
+  [normalizeText("Yes, the stake helps support the plant.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stake_success_286e1269.mp3",
+      text: "Yes, the stake helps support the plant.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stake_success_286e1269.mp3",
+      text: "Yes, the stake helps support the plant.",
+    },
+  },
+  [normalizeText("Yes, the stake is supporting the stem.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_stem_success_c59115d7.mp3",
+      text: "Yes, the stake is supporting the stem.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_stem_success_c59115d7.mp3",
+      text: "Yes, the stake is supporting the stem.",
+    },
+  },
+  [normalizeText("Yes, the stake supports the stem.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_support_stem_success_679901bc.mp3",
+      text: "Yes, the stake supports the stem.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_support_stem_success_679901bc.mp3",
+      text: "Yes, the stake supports the stem.",
+    },
+  },
   [normalizeText("Yes, this bag contains potting mix for the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
@@ -40987,6 +42707,66 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/choose_potting_mix_success_8908357f.mp3",
       text: "Yes, this bag contains potting mix for the pot.",
+    },
+  },
+  [normalizeText("Yes, this is a bee.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_bee_success_93b02f70.mp3",
+      text: "Yes, this is a bee.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_bee_success_93b02f70.mp3",
+      text: "Yes, this is a bee.",
+    },
+  },
+  [normalizeText("Yes, this is a birdbath.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_birdbath_success_624d718c.mp3",
+      text: "Yes, this is a birdbath.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_birdbath_success_624d718c.mp3",
+      text: "Yes, this is a birdbath.",
+    },
+  },
+  [normalizeText("Yes, this is a butterfly.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_butterfly_success_e1621e2a.mp3",
+      text: "Yes, this is a butterfly.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_butterfly_success_e1621e2a.mp3",
+      text: "Yes, this is a butterfly.",
+    },
+  },
+  [normalizeText("Yes, this is a caterpillar.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_caterpillar_success_9b7e4f86.mp3",
+      text: "Yes, this is a caterpillar.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_caterpillar_success_9b7e4f86.mp3",
+      text: "Yes, this is a caterpillar.",
+    },
+  },
+  [normalizeText("Yes, this is a flower.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_flower_success_48c32766.mp3",
+      text: "Yes, this is a flower.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_flower_success_48c32766.mp3",
+      text: "Yes, this is a flower.",
+    },
+  },
+  [normalizeText("Yes, this is a leaf.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_leaf_success_f8984f45.mp3",
+      text: "Yes, this is a leaf.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_leaf_success_f8984f45.mp3",
+      text: "Yes, this is a leaf.",
     },
   },
   [normalizeText("Yes, this is a seed.")]: {
@@ -40999,6 +42779,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, this is a seed.",
     },
   },
+  [normalizeText("Yes, this is a snail.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_snail_success_36e65448.mp3",
+      text: "Yes, this is a snail.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_snail_success_36e65448.mp3",
+      text: "Yes, this is a snail.",
+    },
+  },
   [normalizeText("Yes, this is a sprout.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_success_b07d313c.mp3",
@@ -41007,6 +42797,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/find_sprout_success_b07d313c.mp3",
       text: "Yes, this is a sprout.",
+    },
+  },
+  [normalizeText("Yes, this is a tunnel in the soil.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_tunnel_success_1cb3f952.mp3",
+      text: "Yes, this is a tunnel in the soil.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_tunnel_success_1cb3f952.mp3",
+      text: "Yes, this is a tunnel in the soil.",
+    },
+  },
+  [normalizeText("Yes, this is an earthworm.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_earthworm_success_1013d0c5.mp3",
+      text: "Yes, this is an earthworm.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_earthworm_success_1013d0c5.mp3",
+      text: "Yes, this is an earthworm.",
+    },
+  },
+  [normalizeText("Yes, this is rain.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_rain_success_8f9dcda1.mp3",
+      text: "Yes, this is rain.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_rain_success_8f9dcda1.mp3",
+      text: "Yes, this is rain.",
+    },
+  },
+  [normalizeText("Yes, this is shade.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_shade_success_f44f9735.mp3",
+      text: "Yes, this is shade.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_shade_success_f44f9735.mp3",
+      text: "Yes, this is shade.",
     },
   },
   [normalizeText("Yes, this is soil.")]: {
@@ -41029,6 +42859,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Yes, this is the plant pot.",
     },
   },
+  [normalizeText("Yes, this is wind.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_wind_success_69632e29.mp3",
+      text: "Yes, this is wind.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_wind_success_69632e29.mp3",
+      text: "Yes, this is wind.",
+    },
+  },
   [normalizeText("Yes, wait for the sprout.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/learn_wait_sprout_success_f45960ef.mp3",
@@ -41047,6 +42887,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/first-watering/audio/en-GB/neural2-c-r1/learn_water_gently_success_5e1e7cff.mp3",
       text: "Yes, water it gently.",
+    },
+  },
+  [normalizeText("Yes, we look under the leaf.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
+      text: "Yes, we look under the leaf.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
+      text: "Yes, we look under the leaf.",
+    },
+  },
+  [normalizeText("Yes, we watch gently.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_watch_gently_success_f093741d.mp3",
+      text: "Yes, we watch gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_watch_gently_success_f093741d.mp3",
+      text: "Yes, we watch gently.",
     },
   },
   [normalizeText("yogurt")]: {
@@ -41553,6 +43413,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You helped prepare dinner so thoughtfully!",
     },
   },
+  [normalizeText("You helped the plant grow a new leaf and find sunlight.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/completion_a9cf6e1d.mp3",
+      text: "You helped the plant grow a new leaf and find sunlight.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/completion_a9cf6e1d.mp3",
+      text: "You helped the plant grow a new leaf and find sunlight.",
+    },
+  },
+  [normalizeText("You helped the plant grow new leaves and stand tall.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/completion_a5992840.mp3",
+      text: "You helped the plant grow new leaves and stand tall.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/completion_a5992840.mp3",
+      text: "You helped the plant grow new leaves and stand tall.",
+    },
+  },
   [normalizeText("You kept your hands clean and spoke up for what you need.")]: {
     "en-US": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/completion_41ef8467.mp3",
@@ -41893,6 +43773,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You shared the dinner dishes so politely!",
     },
   },
+  [normalizeText("You sheltered the plant and checked the soil before watering.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/completion_dc340c4f.mp3",
+      text: "You sheltered the plant and checked the soil before watering.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/completion_dc340c4f.mp3",
+      text: "You sheltered the plant and checked the soil before watering.",
+    },
+  },
   [normalizeText("You sorted and dried everything after dinner!")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/completion_cf8a7ba2.mp3",
@@ -41973,6 +43863,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "You washed and rinsed yourself so well!",
     },
   },
+  [normalizeText("You watched a bee and a butterfly visit the flower.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/completion_28761014.mp3",
+      text: "You watched a bee and a butterfly visit the flower.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/completion_28761014.mp3",
+      text: "You watched a bee and a butterfly visit the flower.",
+    },
+  },
   [normalizeText("You watched the animals and stayed on the path.")]: {
     "en-US": {
       key: "lessons/animal-trip/zoo-path/audio/en-US/neural2-c-r1/completion_d2bb6188.mp3",
@@ -41981,6 +43881,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/zoo-path/audio/en-GB/neural2-c-r1/completion_d2bb6188.mp3",
       text: "You watched the animals and stayed on the path.",
+    },
+  },
+  [normalizeText("You watched the little garden neighbors very gently.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/completion_a632d3e9.mp3",
+      text: "You watched the little garden neighbors very gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/completion_a632d3e9.mp3",
+      text: "You watched the little garden neighbors very gently.",
+    },
+  },
+  [normalizeText("You watched the little neighbors under the leaf very gently.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/completion_4062a86f.mp3",
+      text: "You watched the little neighbors under the leaf very gently.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/completion_4062a86f.mp3",
+      text: "You watched the little neighbors under the leaf very gently.",
     },
   },
   [normalizeText("You watered just enough and waited patiently for the sprout.")]: {
@@ -49214,6 +51134,330 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_success_8730896a.mp3",
     text: "Từ này nghĩa là chạm.",
   },
+  [normalizeText("Bé đã quan sát ong và bướm ghé thăm hoa.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/completion_78e05d14.mp3",
+    text: "Bé đã quan sát ong và bướm ghé thăm hoa.",
+  },
+  [normalizeText("Chạm quả xanh nhỏ trên cây ở giữa nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/find_tiny_fruit_889b1d76.mp3",
+    text: "Chạm quả xanh nhỏ trên cây ở giữa nhé.",
+  },
+  [normalizeText("Chạm cây cà chua ở giữa nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/find_tiny_fruit_fail_e7a79aea.mp3",
+    text: "Chạm cây cà chua ở giữa nhé.",
+  },
+  [normalizeText("Quả xanh nhỏ bắt đầu lớn rồi.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/find_tiny_fruit_success_00a45acd.mp3",
+    text: "Quả xanh nhỏ bắt đầu lớn rồi.",
+  },
+  [normalizeText("Vài ngày sau, nụ hoa đã nở.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/intro_5ddc5276.mp3",
+    text: "Vài ngày sau, nụ hoa đã nở.",
+  },
+  [normalizeText("Mình quan sát xem ai ghé thăm nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/intro_success_40a168a7.mp3",
+    text: "Mình quan sát xem ai ghé thăm nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh con ong vàng đen nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_bee_c4df91a8.mp3",
+    text: "Chạm kính lúp quanh con ong vàng đen nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh bạn vàng đen nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_bee_fail_3dd93071.mp3",
+    text: "Chạm kính lúp quanh bạn vàng đen nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là con ong.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_bee_success_6e39625c.mp3",
+    text: "Đúng rồi, đây là con ong.",
+  },
+  [normalizeText("Chạm kính lúp quanh con bướm cánh cam nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_butterfly_5257ea22.mp3",
+    text: "Chạm kính lúp quanh con bướm cánh cam nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh bạn có cánh cam nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_butterfly_fail_0f373589.mp3",
+    text: "Chạm kính lúp quanh bạn có cánh cam nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là con bướm.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_butterfly_success_947f90e3.mp3",
+    text: "Đúng rồi, đây là con bướm.",
+  },
+  [normalizeText("Chạm bông hoa màu vàng bên trái nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_flower_914b14ed.mp3",
+    text: "Chạm bông hoa màu vàng bên trái nhé.",
+  },
+  [normalizeText("Chạm bông hoa vàng bên trái nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_flower_fail_0cbfb0b9.mp3",
+    text: "Chạm bông hoa vàng bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là bông hoa.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_flower_success_e564fcce.mp3",
+    text: "Đúng rồi, đây là bông hoa.",
+  },
+  [normalizeText("Chạm kính lúp dưới bên phải để chờ ong nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_bee_7631ea9b.mp3",
+    text: "Chạm kính lúp dưới bên phải để chờ ong nhé.",
+  },
+  [normalizeText("Chạm kính nhỏ phía dưới bên phải nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_bee_fail_2ff385c1.mp3",
+    text: "Chạm kính nhỏ phía dưới bên phải nhé.",
+  },
+  [normalizeText("Một bạn vàng đen đang bay tới.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_bee_success_82df6d5c.mp3",
+    text: "Một bạn vàng đen đang bay tới.",
+  },
+  [normalizeText("Chạm kính lúp dưới bên trái để chờ bướm nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_butterfly_b7cc1463.mp3",
+    text: "Chạm kính lúp dưới bên trái để chờ bướm nhé.",
+  },
+  [normalizeText("Chạm kính nhỏ phía dưới bên trái nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_butterfly_fail_92998058.mp3",
+    text: "Chạm kính nhỏ phía dưới bên trái nhé.",
+  },
+  [normalizeText("Một bạn cánh cam đang bay tới.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_butterfly_success_608d6938.mp3",
+    text: "Một bạn cánh cam đang bay tới.",
+  },
+  [normalizeText("Chạm hình mặt trời và mặt trăng ở phía trên nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_tiny_fruit_1bd84591.mp3",
+    text: "Chạm hình mặt trời và mặt trăng ở phía trên nhé.",
+  },
+  [normalizeText("Vài ngày sau, một quả xanh nhỏ xuất hiện.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_tiny_fruit_success_2d6aecbe.mp3",
+    text: "Vài ngày sau, một quả xanh nhỏ xuất hiện.",
+  },
+  [normalizeText("Tìm hình mắt nhìn và hai bàn tay đứng yên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/choose_watch_gently_bccdf2e1.mp3",
+    text: "Tìm hình mắt nhìn và hai bàn tay đứng yên nhé.",
+  },
+  [normalizeText("Tìm hình đôi tay đứng yên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/choose_watch_gently_fail_539ac4dc.mp3",
+    text: "Tìm hình đôi tay đứng yên nhé.",
+  },
+  [normalizeText("Đúng rồi, mắt nhìn và đôi tay đứng yên.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/choose_watch_gently_success_b2da728c.mp3",
+    text: "Đúng rồi, mắt nhìn và đôi tay đứng yên.",
+  },
+  [normalizeText("Bé đã quan sát các bạn trong vườn thật nhẹ nhàng.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/completion_b6e46516.mp3",
+    text: "Bé đã quan sát các bạn trong vườn thật nhẹ nhàng.",
+  },
+  [normalizeText("Kéo giọt nước xanh vào khay trống bên trái nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/fill_birdbath_23c55e82.mp3",
+    text: "Kéo giọt nước xanh vào khay trống bên trái nhé.",
+  },
+  [normalizeText("Kéo giọt nước xanh vào khay bên trái nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/fill_birdbath_fail_819cd347.mp3",
+    text: "Kéo giọt nước xanh vào khay bên trái nhé.",
+  },
+  [normalizeText("Khay đã có một ít nước sạch.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/fill_birdbath_success_136b10ff.mp3",
+    text: "Khay đã có một ít nước sạch.",
+  },
+  [normalizeText("Chạm cây cà chua bên phải nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/finish_fail_3f7aca0f.mp3",
+    text: "Chạm cây cà chua bên phải nhé.",
+  },
+  [normalizeText("Chạm cây cà chua bên phải để chào các bạn nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/finish_fe15d083.mp3",
+    text: "Chạm cây cà chua bên phải để chào các bạn nhé.",
+  },
+  [normalizeText("Khu vườn có rất nhiều bạn nhỏ.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/finish_success_5784904e.mp3",
+    text: "Khu vườn có rất nhiều bạn nhỏ.",
+  },
+  [normalizeText("Mình tìm thêm bạn bằng giọng nhỏ nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/intro_430fc8a5.mp3",
+    text: "Mình tìm thêm bạn bằng giọng nhỏ nhé.",
+  },
+  [normalizeText("Mình nhìn bằng mắt và để đôi tay đứng yên.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/intro_success_27dfea2e.mp3",
+    text: "Mình nhìn bằng mắt và để đôi tay đứng yên.",
+  },
+  [normalizeText("Chạm hình mắt và hai tay để yên phía trên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/keep_hands_still_3f223c91.mp3",
+    text: "Chạm hình mắt và hai tay để yên phía trên nhé.",
+  },
+  [normalizeText("Chạm hình đôi tay ở phía trên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/keep_hands_still_fail_72d2f5ad.mp3",
+    text: "Chạm hình đôi tay ở phía trên nhé.",
+  },
+  [normalizeText("Mình đứng yên. Các bạn lại xuất hiện.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/keep_hands_still_success_f44ed4ee.mp3",
+    text: "Mình đứng yên. Các bạn lại xuất hiện.",
+  },
+  [normalizeText("Chạm khay nước nông cho chim ở bên trái nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_birdbath_66830baa.mp3",
+    text: "Chạm khay nước nông cho chim ở bên trái nhé.",
+  },
+  [normalizeText("Chạm khay nước nông bên trái nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_birdbath_fail_203c89c3.mp3",
+    text: "Chạm khay nước nông bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là khay nước cho chim.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_birdbath_success_53c10d38.mp3",
+    text: "Đúng rồi, đây là khay nước cho chim.",
+  },
+  [normalizeText("Chạm kính lúp quanh con sâu bướm xanh nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_caterpillar_683a2653.mp3",
+    text: "Chạm kính lúp quanh con sâu bướm xanh nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh bạn xanh nhỏ nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_caterpillar_fail_a826b8b9.mp3",
+    text: "Chạm kính lúp quanh bạn xanh nhỏ nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là sâu bướm.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_caterpillar_success_c548ff35.mp3",
+    text: "Đúng rồi, đây là sâu bướm.",
+  },
+  [normalizeText("Chạm hình mắt nhìn và hai bàn tay đứng yên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_watch_gently_e6e256e2.mp3",
+    text: "Chạm hình mắt nhìn và hai bàn tay đứng yên nhé.",
+  },
+  [normalizeText("Chạm hình mắt nhìn và hai bàn tay để yên nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_watch_gently_fail_eb8a3ef5.mp3",
+    text: "Chạm hình mắt nhìn và hai bàn tay để yên nhé.",
+  },
+  [normalizeText("Đúng rồi, mình quan sát nhẹ nhàng.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/learn_watch_gently_success_05f8e1f9.mp3",
+    text: "Đúng rồi, mình quan sát nhẹ nhàng.",
+  },
+  [normalizeText("Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/lift_leaf_tip_23b975aa.mp3",
+    text: "Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.",
+  },
+  [normalizeText("Có một bạn xanh nhỏ trên lá.")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/lift_leaf_tip_success_2443a574.mp3",
+    text: "Có một bạn xanh nhỏ trên lá.",
+  },
+  [normalizeText("Tìm hình bàn tay nâng lá để nhìn phía dưới nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/choose_look_under_leaf_b87ad492.mp3",
+    text: "Tìm hình bàn tay nâng lá để nhìn phía dưới nhé.",
+  },
+  [normalizeText("Tìm hình bàn tay nâng chiếc lá nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/choose_look_under_leaf_fail_74b8eafa.mp3",
+    text: "Tìm hình bàn tay nâng chiếc lá nhé.",
+  },
+  [normalizeText("Đúng rồi, mình nâng lá và nhìn phía dưới.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/choose_look_under_leaf_success_fae202fa.mp3",
+    text: "Đúng rồi, mình nâng lá và nhìn phía dưới.",
+  },
+  [normalizeText("Bé đã quan sát các bạn dưới chiếc lá thật nhẹ nhàng.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/completion_d93649a1.mp3",
+    text: "Bé đã quan sát các bạn dưới chiếc lá thật nhẹ nhàng.",
+  },
+  [normalizeText("Chạm mảng đất nâu dưới chiếc lá nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/follow_soil_3af7cb26.mp3",
+    text: "Chạm mảng đất nâu dưới chiếc lá nhé.",
+  },
+  [normalizeText("Chạm mảng đất dưới chiếc lá nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/follow_soil_fail_93504fd3.mp3",
+    text: "Chạm mảng đất dưới chiếc lá nhé.",
+  },
+  [normalizeText("Một đường nhỏ hiện ra. Ốc sên cũng ở đây.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/follow_soil_success_4c76cccf.mp3",
+    text: "Một đường nhỏ hiện ra. Ốc sên cũng ở đây.",
+  },
+  [normalizeText("Dưới chiếc lá có bạn nhỏ. Mình nhìn nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/intro_960a05f3.mp3",
+    text: "Dưới chiếc lá có bạn nhỏ. Mình nhìn nhé.",
+  },
+  [normalizeText("Mình chỉ quan sát, không làm các bạn sợ nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/intro_success_ca326308.mp3",
+    text: "Mình chỉ quan sát, không làm các bạn sợ nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh con giun đất màu nâu nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_earthworm_dffeb1b2.mp3",
+    text: "Chạm kính lúp quanh con giun đất màu nâu nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh bạn dài màu nâu nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_earthworm_fail_4a9bd78c.mp3",
+    text: "Chạm kính lúp quanh bạn dài màu nâu nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là giun đất.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_earthworm_success_63efe1cb.mp3",
+    text: "Đúng rồi, đây là giun đất.",
+  },
+  [normalizeText("Chạm hình bàn tay nâng lá để nhìn phía dưới nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_look_under_leaf_7dffbe00.mp3",
+    text: "Chạm hình bàn tay nâng lá để nhìn phía dưới nhé.",
+  },
+  [normalizeText("Chạm hình bàn tay nâng chiếc lá nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_look_under_leaf_fail_af2163eb.mp3",
+    text: "Chạm hình bàn tay nâng chiếc lá nhé.",
+  },
+  [normalizeText("Đúng rồi, mình nhìn dưới chiếc lá.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_look_under_leaf_success_afcb7812.mp3",
+    text: "Đúng rồi, mình nhìn dưới chiếc lá.",
+  },
+  [normalizeText("Chạm kính lúp quanh con ốc sên có vỏ xoắn nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_snail_818edcde.mp3",
+    text: "Chạm kính lúp quanh con ốc sên có vỏ xoắn nhé.",
+  },
+  [normalizeText("Chạm kính lúp quanh bạn có vỏ xoắn nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_snail_fail_d17be6c5.mp3",
+    text: "Chạm kính lúp quanh bạn có vỏ xoắn nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là ốc sên.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_snail_success_4bc0e3b1.mp3",
+    text: "Đúng rồi, đây là ốc sên.",
+  },
+  [normalizeText("Chạm đường hầm màu nâu dưới lớp đất nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_tunnel_b5f7524c.mp3",
+    text: "Chạm đường hầm màu nâu dưới lớp đất nhé.",
+  },
+  [normalizeText("Chạm đường nâu dưới mặt đất nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_tunnel_fail_5a17bb7d.mp3",
+    text: "Chạm đường nâu dưới mặt đất nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là đường hầm trong đất.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/learn_tunnel_success_87abba27.mp3",
+    text: "Đúng rồi, đây là đường hầm trong đất.",
+  },
+  [normalizeText("Chạm chiếc lá lớn bên trái để nhấc lên nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/lift_leaf_19360462.mp3",
+    text: "Chạm chiếc lá lớn bên trái để nhấc lên nhé.",
+  },
+  [normalizeText("Chạm chiếc lá lớn bên trái nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/lift_leaf_fail_8ca1a39a.mp3",
+    text: "Chạm chiếc lá lớn bên trái nhé.",
+  },
+  [normalizeText("Có một bạn dài ở trên đất.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/lift_leaf_success_1d44b7b3.mp3",
+    text: "Có một bạn dài ở trên đất.",
+  },
+  [normalizeText("Chạm chiếc lá lớn đang mở bên trái nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/notice_open_leaf_52245be2.mp3",
+    text: "Chạm chiếc lá lớn đang mở bên trái nhé.",
+  },
+  [normalizeText("Chạm chiếc lá lớn đang mở nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/notice_open_leaf_fail_e34215bb.mp3",
+    text: "Chạm chiếc lá lớn đang mở nhé.",
+  },
+  [normalizeText("Mình đang nhìn phía dưới chiếc lá.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/notice_open_leaf_success_efdc9a30.mp3",
+    text: "Mình đang nhìn phía dưới chiếc lá.",
+  },
+  [normalizeText("Chạm chiếc lá lớn bên trái để đặt lại nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/replace_leaf_5ceab3c0.mp3",
+    text: "Chạm chiếc lá lớn bên trái để đặt lại nhé.",
+  },
+  [normalizeText("Chiếc lá đã che chỗ nghỉ của các bạn.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/replace_leaf_success_03e2ec8b.mp3",
+    text: "Chiếc lá đã che chỗ nghỉ của các bạn.",
+  },
+  [normalizeText("Chạm mảng đất nâu ở giữa để theo đường hầm nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/trace_tunnel_f0a6e2d0.mp3",
+    text: "Chạm mảng đất nâu ở giữa để theo đường hầm nhé.",
+  },
+  [normalizeText("Chạm mảng đất ở giữa nhé.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/trace_tunnel_fail_a5338374.mp3",
+    text: "Chạm mảng đất ở giữa nhé.",
+  },
+  [normalizeText("Đường hầm chạy dưới lớp đất.")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/trace_tunnel_success_239df692.mp3",
+    text: "Đường hầm chạy dưới lớp đất.",
+  },
   [normalizeText("Bé đã chào ông bà thật vui.")]: {
     key: "lessons/grandparents-visit/family-visit/audio/vi/completion_38334838.mp3",
     text: "Bé đã chào ông bà thật vui.",
@@ -49773,6 +52017,386 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là vẫy tay tạm biệt.")]: {
     key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_success_d3a84260.mp3",
     text: "Câu này nghĩa là vẫy tay tạm biệt.",
+  },
+  [normalizeText("Đâu là hình chuyển chậu vào vùng nắng?")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/choose_sunlight_action_a54feac6.mp3",
+    text: "Đâu là hình chuyển chậu vào vùng nắng?",
+  },
+  [normalizeText("Tìm hình chậu đi về phía tia nắng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/choose_sunlight_action_fail_31eefd65.mp3",
+    text: "Tìm hình chậu đi về phía tia nắng nhé.",
+  },
+  [normalizeText("Đúng rồi, mình đưa cây vào chỗ có nắng.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/choose_sunlight_action_success_4272618e.mp3",
+    text: "Đúng rồi, mình đưa cây vào chỗ có nắng.",
+  },
+  [normalizeText("Bé đã giúp cây có lá mới và đón ánh nắng.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/completion_cf888c77.mp3",
+    text: "Bé đã giúp cây có lá mới và đón ánh nắng.",
+  },
+  [normalizeText("Lá đang hướng về phía sáng. Chạm chiếc lá nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/follow_the_light_ad6ee794.mp3",
+    text: "Lá đang hướng về phía sáng. Chạm chiếc lá nhé.",
+  },
+  [normalizeText("Chạm chiếc lá xanh cạnh chậu nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/follow_the_light_fail_f00b5121.mp3",
+    text: "Chạm chiếc lá xanh cạnh chậu nhé.",
+  },
+  [normalizeText("Chiếc lá đang đón ánh nắng.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/follow_the_light_success_d6d9098e.mp3",
+    text: "Chiếc lá đang đón ánh nắng.",
+  },
+  [normalizeText("Vài ngày trôi qua. Mầm đã thành cây nhỏ.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/intro_0ecf0e57.mp3",
+    text: "Vài ngày trôi qua. Mầm đã thành cây nhỏ.",
+  },
+  [normalizeText("Mình cùng giúp cây lớn khỏe nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/intro_success_36c68dc5.mp3",
+    text: "Mình cùng giúp cây lớn khỏe nhé.",
+  },
+  [normalizeText("Lá mới màu xanh. Chạm vào chiếc lá nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_leaf_60e4a37a.mp3",
+    text: "Lá mới màu xanh. Chạm vào chiếc lá nhé.",
+  },
+  [normalizeText("Chạm chiếc lá xanh cạnh cây nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_leaf_fail_9657134d.mp3",
+    text: "Chạm chiếc lá xanh cạnh cây nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là chiếc lá.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_leaf_success_a53975e8.mp3",
+    text: "Đúng rồi, đây là chiếc lá.",
+  },
+  [normalizeText("Vùng tối mát là bóng râm. Chạm vào đó nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_shade_293592f7.mp3",
+    text: "Vùng tối mát là bóng râm. Chạm vào đó nhé.",
+  },
+  [normalizeText("Chạm vùng mát có bóng lá nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_shade_fail_aa7e3473.mp3",
+    text: "Chạm vùng mát có bóng lá nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là bóng râm.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_shade_success_a3bccc7f.mp3",
+    text: "Đúng rồi, đây là bóng râm.",
+  },
+  [normalizeText("Vùng sáng ấm là ánh nắng. Chạm vào đó nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_sunlight_f006e0bd.mp3",
+    text: "Vùng sáng ấm là ánh nắng. Chạm vào đó nhé.",
+  },
+  [normalizeText("Chạm vùng có các tia nắng vàng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_sunlight_fail_78462fec.mp3",
+    text: "Chạm vùng có các tia nắng vàng nhé.",
+  },
+  [normalizeText("Đúng rồi, cây đang đón ánh nắng.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/learn_sunlight_success_7d3f1b0e.mp3",
+    text: "Đúng rồi, cây đang đón ánh nắng.",
+  },
+  [normalizeText("Kéo chậu cây vào vùng nắng sáng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/move_plant_ddce82ac.mp3",
+    text: "Kéo chậu cây vào vùng nắng sáng nhé.",
+  },
+  [normalizeText("Đưa chậu tới vùng có tia nắng vàng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/move_plant_fail_9be1dd5b.mp3",
+    text: "Đưa chậu tới vùng có tia nắng vàng nhé.",
+  },
+  [normalizeText("Chậu cây đã ở chỗ có nắng.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/move_plant_success_c40be8be.mp3",
+    text: "Chậu cây đã ở chỗ có nắng.",
+  },
+  [normalizeText("Chạm mặt trời để xem chỗ nắng và chỗ râm nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/reveal_shade_c14e7571.mp3",
+    text: "Chạm mặt trời để xem chỗ nắng và chỗ râm nhé.",
+  },
+  [normalizeText("Chạm hình mặt trời màu vàng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/reveal_shade_fail_aa5732da.mp3",
+    text: "Chạm hình mặt trời màu vàng nhé.",
+  },
+  [normalizeText("Mình đã thấy một vùng có bóng râm.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/reveal_shade_success_1eec1653.mp3",
+    text: "Mình đã thấy một vùng có bóng râm.",
+  },
+  [normalizeText("Chạm cây nhỏ đang tươi hơn trong nắng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/see_healthy_plant_9c11ccbd.mp3",
+    text: "Chạm cây nhỏ đang tươi hơn trong nắng nhé.",
+  },
+  [normalizeText("Chạm chậu cây ở giữa nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/see_healthy_plant_fail_7e246363.mp3",
+    text: "Chạm chậu cây ở giữa nhé.",
+  },
+  [normalizeText("Cây tươi hơn và có thêm một chiếc lá.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/see_healthy_plant_success_ee7d9739.mp3",
+    text: "Cây tươi hơn và có thêm một chiếc lá.",
+  },
+  [normalizeText("Chạm vòng ngày đêm để thời gian trôi qua nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/wait_new_leaf_b53a5909.mp3",
+    text: "Chạm vòng ngày đêm để thời gian trôi qua nhé.",
+  },
+  [normalizeText("Chạm vòng có mặt trời và mặt trăng nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/wait_new_leaf_fail_a68777bb.mp3",
+    text: "Chạm vòng có mặt trời và mặt trăng nhé.",
+  },
+  [normalizeText("Vài ngày sau, một chiếc lá mới mở ra.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/wait_new_leaf_success_293ed2cd.mp3",
+    text: "Vài ngày sau, một chiếc lá mới mở ra.",
+  },
+  [normalizeText("Cây hơi rũ. Kéo bình tưới cây tới chậu nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/water_plant_4d6e1939.mp3",
+    text: "Cây hơi rũ. Kéo bình tưới cây tới chậu nhé.",
+  },
+  [normalizeText("Kéo bình tưới cây tới chậu nhé.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/water_plant_fail_73bf5cf7.mp3",
+    text: "Kéo bình tưới cây tới chậu nhé.",
+  },
+  [normalizeText("Cây tươi hơn rồi.")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/water_plant_success_b8f6ffcb.mp3",
+    text: "Cây tươi hơn rồi.",
+  },
+  [normalizeText("Cây đã dưới mái che. Chạm chậu cây nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_sheltered_plant_41fb785f.mp3",
+    text: "Cây đã dưới mái che. Chạm chậu cây nhé.",
+  },
+  [normalizeText("Chạm chậu cây dưới mái che nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_sheltered_plant_fail_539adabf.mp3",
+    text: "Chạm chậu cây dưới mái che nhé.",
+  },
+  [normalizeText("Mưa không còn tạt vào cây nhỏ.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_sheltered_plant_success_c06f17c1.mp3",
+    text: "Mưa không còn tạt vào cây nhỏ.",
+  },
+  [normalizeText("Chạm vào đất để xem còn ướt không nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_wet_soil_b20fda0f.mp3",
+    text: "Chạm vào đất để xem còn ướt không nhé.",
+  },
+  [normalizeText("Chạm phần đất sẫm màu trong chậu nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_wet_soil_fail_e3b9d634.mp3",
+    text: "Chạm phần đất sẫm màu trong chậu nhé.",
+  },
+  [normalizeText("Đất còn ướt. Mình chưa tưới thêm.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/check_wet_soil_success_812419fd.mp3",
+    text: "Đất còn ướt. Mình chưa tưới thêm.",
+  },
+  [normalizeText("Đâu là hình kiểm tra đất trước khi tưới?")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/choose_check_soil_507912b9.mp3",
+    text: "Đâu là hình kiểm tra đất trước khi tưới?",
+  },
+  [normalizeText("Tìm hình ngón tay chạm vào đất nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/choose_check_soil_fail_4f519934.mp3",
+    text: "Tìm hình ngón tay chạm vào đất nhé.",
+  },
+  [normalizeText("Đúng rồi, hãy kiểm tra đất trước.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/choose_check_soil_success_37d5c0d7.mp3",
+    text: "Đúng rồi, hãy kiểm tra đất trước.",
+  },
+  [normalizeText("Bé đã giúp cây trú mưa và kiểm tra đất trước khi tưới.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/completion_d3b195e9.mp3",
+    text: "Bé đã giúp cây trú mưa và kiểm tra đất trước khi tưới.",
+  },
+  [normalizeText("Mây xám kéo tới. Mưa bắt đầu rơi.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/intro_47a194ce.mp3",
+    text: "Mây xám kéo tới. Mưa bắt đầu rơi.",
+  },
+  [normalizeText("Mình cùng chăm chậu cây nhỏ nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/intro_success_896ff944.mp3",
+    text: "Mình cùng chăm chậu cây nhỏ nhé.",
+  },
+  [normalizeText("Kiểm tra đất trước khi tưới. Chạm hình ngón tay nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_check_soil_cae5634f.mp3",
+    text: "Kiểm tra đất trước khi tưới. Chạm hình ngón tay nhé.",
+  },
+  [normalizeText("Chạm hình ngón tay chạm vào đất nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_check_soil_fail_0822fd3a.mp3",
+    text: "Chạm hình ngón tay chạm vào đất nhé.",
+  },
+  [normalizeText("Đúng rồi, mình kiểm tra đất trước.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_check_soil_success_105a8d14.mp3",
+    text: "Đúng rồi, mình kiểm tra đất trước.",
+  },
+  [normalizeText("Nước rơi từ mây gọi là mưa. Chạm giọt mưa nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_rain_4251a6e4.mp3",
+    text: "Nước rơi từ mây gọi là mưa. Chạm giọt mưa nhé.",
+  },
+  [normalizeText("Chạm các giọt nước dưới đám mây nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_rain_fail_67925c8f.mp3",
+    text: "Chạm các giọt nước dưới đám mây nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là mưa.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_rain_success_dca3f373.mp3",
+    text: "Đúng rồi, đây là mưa.",
+  },
+  [normalizeText("Các nhánh dưới đất là rễ cây. Chạm vào rễ nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_roots_34094f5f.mp3",
+    text: "Các nhánh dưới đất là rễ cây. Chạm vào rễ nhé.",
+  },
+  [normalizeText("Chạm các nhánh nhỏ dưới lớp đất nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_roots_fail_a9e508fe.mp3",
+    text: "Chạm các nhánh nhỏ dưới lớp đất nhé.",
+  },
+  [normalizeText("Đúng rồi, rễ nằm dưới đất.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/learn_roots_success_3de1c5cb.mp3",
+    text: "Đúng rồi, rễ nằm dưới đất.",
+  },
+  [normalizeText("Chạm đám mây để cơn mưa đi qua nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/let_rain_pass_d414541d.mp3",
+    text: "Chạm đám mây để cơn mưa đi qua nhé.",
+  },
+  [normalizeText("Chạm đám mây xám phía trên nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/let_rain_pass_fail_3acc66d5.mp3",
+    text: "Chạm đám mây xám phía trên nhé.",
+  },
+  [normalizeText("Mưa đã ngớt. Cây vẫn an toàn dưới mái che.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/let_rain_pass_success_a2e141cf.mp3",
+    text: "Mưa đã ngớt. Cây vẫn an toàn dưới mái che.",
+  },
+  [normalizeText("Mưa nhiều rồi. Kéo chậu nhỏ vào mái che nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/move_under_shelter_090b0402.mp3",
+    text: "Mưa nhiều rồi. Kéo chậu nhỏ vào mái che nhé.",
+  },
+  [normalizeText("Kéo chậu nhỏ tới chỗ có mái che nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/move_under_shelter_fail_0c62d388.mp3",
+    text: "Kéo chậu nhỏ tới chỗ có mái che nhé.",
+  },
+  [normalizeText("Chậu nhỏ đã ở dưới mái che.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/move_under_shelter_success_d2451421.mp3",
+    text: "Chậu nhỏ đã ở dưới mái che.",
+  },
+  [normalizeText("Chạm kính tròn để nhìn dưới lớp đất nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/reveal_roots_c29dc10e.mp3",
+    text: "Chạm kính tròn để nhìn dưới lớp đất nhé.",
+  },
+  [normalizeText("Chạm chiếc kính tròn cạnh chậu nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/reveal_roots_fail_b9a228eb.mp3",
+    text: "Chạm chiếc kính tròn cạnh chậu nhé.",
+  },
+  [normalizeText("Mình đã nhìn thấy phần cây dưới đất.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/reveal_roots_success_b3b20772.mp3",
+    text: "Mình đã nhìn thấy phần cây dưới đất.",
+  },
+  [normalizeText("Trời sáng lại rồi. Chạm cây nhỏ nhé.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/see_safe_plant_c2512dee.mp3",
+    text: "Trời sáng lại rồi. Chạm cây nhỏ nhé.",
+  },
+  [normalizeText("Cây an toàn, đất vẫn còn ướt.")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/see_safe_plant_success_dce561ca.mp3",
+    text: "Cây an toàn, đất vẫn còn ướt.",
+  },
+  [normalizeText("Đâu là hình đỡ thân cây đứng vững?")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/choose_support_stem_4f6d2ac0.mp3",
+    text: "Đâu là hình đỡ thân cây đứng vững?",
+  },
+  [normalizeText("Tìm hình cây đứng thẳng cạnh cọc nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/choose_support_stem_fail_660e988d.mp3",
+    text: "Tìm hình cây đứng thẳng cạnh cọc nhé.",
+  },
+  [normalizeText("Đúng rồi, mình đỡ thân cây.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/choose_support_stem_success_f40cca21.mp3",
+    text: "Đúng rồi, mình đỡ thân cây.",
+  },
+  [normalizeText("Bé đã giúp cây có lá mới và đứng vững.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/completion_d94e11b5.mp3",
+    text: "Bé đã giúp cây có lá mới và đứng vững.",
+  },
+  [normalizeText("Gió đã qua. Chạm cây để tìm nụ hoa nhỏ nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/find_flower_bud_d4c832f1.mp3",
+    text: "Gió đã qua. Chạm cây để tìm nụ hoa nhỏ nhé.",
+  },
+  [normalizeText("Cây đứng vững và đã có một nụ hoa.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/find_flower_bud_success_9a7937fb.mp3",
+    text: "Cây đứng vững và đã có một nụ hoa.",
+  },
+  [normalizeText("Gió mạnh lên. Cây nhỏ đang lay động.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/intro_2ef4188b.mp3",
+    text: "Gió mạnh lên. Cây nhỏ đang lay động.",
+  },
+  [normalizeText("Mình cùng giúp cây đứng vững nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/intro_success_6a92d8ef.mp3",
+    text: "Mình cùng giúp cây đứng vững nhé.",
+  },
+  [normalizeText("Que dài đỡ cây là cọc đỡ. Chạm vào cọc nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stake_6015b3ea.mp3",
+    text: "Que dài đỡ cây là cọc đỡ. Chạm vào cọc nhé.",
+  },
+  [normalizeText("Chạm chiếc cọc dài đầu tròn cạnh cây nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stake_fail_ea97aedb.mp3",
+    text: "Chạm chiếc cọc dài đầu tròn cạnh cây nhé.",
+  },
+  [normalizeText("Đúng rồi, cọc giúp đỡ cây.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stake_success_96df180f.mp3",
+    text: "Đúng rồi, cọc giúp đỡ cây.",
+  },
+  [normalizeText("Phần xanh nâng lá là thân cây. Chạm vào thân nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stem_4b5e2096.mp3",
+    text: "Phần xanh nâng lá là thân cây. Chạm vào thân nhé.",
+  },
+  [normalizeText("Chạm phần xanh dài dưới các lá nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stem_fail_e7be0088.mp3",
+    text: "Chạm phần xanh dài dưới các lá nhé.",
+  },
+  [normalizeText("Đúng rồi, cọc đang đỡ thân cây.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_stem_success_21c8e186.mp3",
+    text: "Đúng rồi, cọc đang đỡ thân cây.",
+  },
+  [normalizeText("Đỡ thân cây cho cây đứng vững. Chạm hình có cọc nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_support_stem_c40d66d8.mp3",
+    text: "Đỡ thân cây cho cây đứng vững. Chạm hình có cọc nhé.",
+  },
+  [normalizeText("Chạm hình cây được cọc đỡ thẳng nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_support_stem_fail_08488d2f.mp3",
+    text: "Chạm hình cây được cọc đỡ thẳng nhé.",
+  },
+  [normalizeText("Không khí thổi làm lá rung. Chạm luồng gió nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_wind_60c53278.mp3",
+    text: "Không khí thổi làm lá rung. Chạm luồng gió nhé.",
+  },
+  [normalizeText("Chạm luồng xoáy có những chiếc lá bay nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_wind_fail_c1674797.mp3",
+    text: "Chạm luồng xoáy có những chiếc lá bay nhé.",
+  },
+  [normalizeText("Đúng rồi, đây là gió.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_wind_success_9b2896de.mp3",
+    text: "Đúng rồi, đây là gió.",
+  },
+  [normalizeText("Kéo dây mềm tới cọc để giữ cây nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_soft_tie_9d4e242e.mp3",
+    text: "Kéo dây mềm tới cọc để giữ cây nhé.",
+  },
+  [normalizeText("Kéo dây mềm tới chỗ cọc cạnh thân nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_soft_tie_fail_fa7b92b4.mp3",
+    text: "Kéo dây mềm tới chỗ cọc cạnh thân nhé.",
+  },
+  [normalizeText("Dây buộc lỏng giúp cây đứng thẳng.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_soft_tie_success_d8751f7b.mp3",
+    text: "Dây buộc lỏng giúp cây đứng thẳng.",
+  },
+  [normalizeText("Kéo que đỡ vào chỗ cạnh cây nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_stick_a54e89b8.mp3",
+    text: "Kéo que đỡ vào chỗ cạnh cây nhé.",
+  },
+  [normalizeText("Kéo que dài tới vòng đất cạnh cây nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_stick_fail_388057e6.mp3",
+    text: "Kéo que dài tới vòng đất cạnh cây nhé.",
+  },
+  [normalizeText("Que đỡ đã đứng cạnh cây.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/place_stick_success_56e98bcc.mp3",
+    text: "Que đỡ đã đứng cạnh cây.",
+  },
+  [normalizeText("Gió lại thổi. Chạm luồng gió để thử cọc đỡ nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/test_support_4346c691.mp3",
+    text: "Gió lại thổi. Chạm luồng gió để thử cọc đỡ nhé.",
+  },
+  [normalizeText("Chạm luồng gió có lá bay nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/test_support_fail_4f2434bd.mp3",
+    text: "Chạm luồng gió có lá bay nhé.",
+  },
+  [normalizeText("Cọc và dây giữ cây đứng vững.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/test_support_success_281dd531.mp3",
+    text: "Cọc và dây giữ cây đứng vững.",
+  },
+  [normalizeText("Chạm vòng ngày đêm để xem cây lớn thêm nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/wait_for_flower_bud_34292b0f.mp3",
+    text: "Chạm vòng ngày đêm để xem cây lớn thêm nhé.",
+  },
+  [normalizeText("Vài ngày sau, cây đứng thẳng và có nụ hoa.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/wait_for_flower_bud_success_9a9be394.mp3",
+    text: "Vài ngày sau, cây đứng thẳng và có nụ hoa.",
   },
   [normalizeText("Bé đã chơi sáng tạo thật khéo!")]: {
     key: "lessons/home-play/creative-play/audio/vi/completion_c2b144ec.mp3",
