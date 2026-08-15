@@ -42,6 +42,7 @@ function loadTsModule(filePath) {
     'module',
     '__filename',
     '__dirname',
+    '__DEV__',
     output,
   );
   compiledModule(
@@ -50,6 +51,7 @@ function loadTsModule(filePath) {
     module,
     absolutePath,
     dirname(absolutePath),
+    true,
   );
   return module.exports;
 }

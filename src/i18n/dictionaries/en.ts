@@ -642,6 +642,8 @@ export const en: TranslationDictionary = {
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
+  'scene.stepProgress':
+    '{mode} · scene {sceneCurrent}/{sceneTotal} · step {current}/{total}',
   'header.openHub': 'Open Sungy Hub',
   'header.themeLibrary': 'Change map theme',
   'header.parentGate': 'Parent mode',
@@ -662,8 +664,7 @@ export const en: TranslationDictionary = {
   'playPanel.playAgain': '🔄 Play Again',
   'playPanel.unlocked': '✨ Ready',
   'playPanel.locked': '🔒 Locked',
-  'playPanel.stickerPlaygroundAccessibility':
-    "Open Sungy's Sticker Playground",
+  'playPanel.stickerPlaygroundAccessibility': "Open Sungy's Sticker Playground",
   'playPanel.stickerPlaygroundBadge': 'Free creativity',
   'playPanel.stickerPlaygroundTitle': 'Sticker Playground',
   'playPanel.stickerPlaygroundSubtitle':
@@ -1119,7 +1120,7 @@ export const en: TranslationDictionary = {
   'parent.voice.durationSeconds': '{seconds} sec',
   'parent.voice.enableAction': 'Enable automatic saving',
   'parent.voice.enableText':
-    "Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.",
+    'Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.',
   'parent.voice.enableTitle': "Save your child's reading voice?",
   'parent.voice.emptyLibrary':
     "Enable automatic saving to keep your child's reading practice.",

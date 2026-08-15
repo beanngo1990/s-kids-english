@@ -75,6 +75,61 @@ test('keeps a sourced image visible before native load callbacks fire', async ()
   expect(image?.props.onLoadStart).toBeUndefined();
 });
 
+test('gently reveals a runtime-shown object and respects Reduce Motion', async () => {
+  const timingSpy = jest.spyOn(Animated, 'timing');
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        animateEntrance
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="vật vừa xuất hiện"
+        object={headObject}
+        onPress={() => undefined}
+        reduceMotion={false}
+      />,
+    );
+  });
+
+  expect(
+    timingSpy.mock.calls.some(([, config]) => config.duration === 260),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  timingSpy.mockClear();
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        animateEntrance
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="vật vừa xuất hiện"
+        object={headObject}
+        onPress={() => undefined}
+        reduceMotion
+      />,
+    );
+  });
+
+  expect(
+    timingSpy.mock.calls.some(([, config]) => config.duration === 260),
+  ).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  timingSpy.mockRestore();
+});
+
 test('uses the image silhouette for a targeted-object highlight', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
   await ReactTestRenderer.act(async () => {

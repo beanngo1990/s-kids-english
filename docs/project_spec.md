@@ -2,13 +2,14 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-08-14
+**Kiểm chứng gần nhất:** 2026-08-15
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
 năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
-Theme 4 trong working tree hiện tại.
+Theme 4 cùng ba vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten` của Theme 5
+trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -72,6 +73,42 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   review 4/5/6, state `dirty -> clean`, `empty -> shared`, `empty -> stored`, 38 WebP runtime
   assets và bốn bundled icons. Google TTS đã tạo 286 production audio file bao phủ 371 target;
   R2 đã upload/verify đủ 324/324 object, lỗi `0`, và post-upload dry-run còn `Changed/new: 0`.
+- **Implemented:** vertical slice Foundation `feed-the-puppy` v2 nối ba scene gặp cún,
+  chuẩn bị bát và giúp cún dùng bữa an toàn. Vocabulary/action/pronunciation budgets là 9/18/27,
+  18/36/54 và 9/18/27 theo core/expanded/challenge; auto-micro giảm còn 9/12/15, phân bố 3/4/5
+  mỗi scene. Mỗi lượt nói vẫn xen kẽ với action, còn cún thật non-interactive trong scene ăn.
+  Review vẫn chọn 4/5/6 visual
+  distinct item. HUD lesson ghi cả `cảnh hiện tại/tổng cảnh` và `bước hiện tại/tổng step của cảnh`
+  để parent QA không hiểu tổng của một scene là tổng lesson. Asset pipeline v2 có 43 lesson
+  master, 36 image được runtime tham chiếu; revision hậu bữa ăn thêm một sheet alpha 3×2 để mọi
+  cue `carry/ask/put down/step` đều dùng bát trống, còn cue `feed` trước bữa vẫn dùng bát đầy;
+  bốn map icons và theme icon giữ nguyên. Google TTS đã tạo 480 clip còn thiếu; audio audit v2
+  có 626 target, thiếu 0 và lỗi 0. R2 đã upload delta 490 object, verify đủ 801/801 object với
+  lỗi 0. Bản tối ưu cue-anchor tiếp theo upload thêm 6 WebP; tập authoring hiện hành verify đủ
+  798/798 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Publish không xóa key cũ
+  khỏi bucket. Revision local mới sửa scene dùng bữa thành `wait -> feed -> eat -> finished ->
+  happy -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
+  hồi bát đầy sau khi cún ăn. Google TTS đã tạo thêm 36 clip; audio audit revision có 629 target,
+  thiếu 0 và lỗi 0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và post-upload
+  dry-run còn `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2 verify đủ
+  835/835 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`.
+- **Implemented:** Foundation lesson `play-with-the-puppy` nối ba scene chọn bóng,
+  lăn/bắt bóng và cún mang bóng về. Budget vocabulary/action/pronunciation là 9/18/27,
+  18/36/54 và 9/18/27; auto-micro 9/12/15, review 4/5/6. Chỉ `roll` là drag, cún không phải drag
+  target và state đi một chiều `choose -> roll -> catch -> bring -> give`. Ba sheet chung đã
+  được tách alpha thật thành 33 PNG master, build 33 WebP và bốn bundled icon; local image verify
+  pass 33/33, lỗi 0. Google TTS đã tạo 508 clip còn thiếu; audio audit có 613 target, missing 0
+  và invalid 0. R2 upload/verify đúng 541/541 object gồm 508 audio + 33 image, lỗi 0;
+  post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy cho lesson này.
+- **Implemented:** Foundation lesson `find-the-kitten` nối ba scene nghe tiếng mèo, kiểm tra chỗ
+  trốn và gọi mèo bước ra. Budget vocabulary/action/pronunciation là 9/18/27, 18/36/54 và
+  9/18/27; auto-micro 9/12/15, review 4/5/6. State đi một chiều `sitting -> hiding`,
+  `hiding -> peeking -> found`, rồi `peeking -> out -> happy -> near -> rubbing`; không có drag.
+  Hai action cue kiểm tra hộp/giỏ đều hiển thị chỗ trống, còn tương tác cuối dạy đưa tay thấp,
+  chờ mèo tự đến và vuốt nhẹ. Ba sheet chung được tách theo component thành 40 PNG master,
+  build 40 WebP và bốn bundled icon; local cutout/image verify pass. Google TTS đã tạo 520 clip;
+  full-corpus audit có 14.279 target, missing 0 và invalid 0. R2 upload/verify 560/560 object, lỗi
+  0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy cho lesson này.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -207,12 +244,13 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có bốn themes và 32 lesson packs:
+Hiện có năm themes và 35 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
 - `co-the-cam-xuc-va-tu-cham-soc` / “Cơ thể, cảm xúc và tự chăm sóc”.
 - `khu-vuon-cua-be` / “Khu vườn của bé”.
+- `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật”.
 
 Theme `mot-ngay-cua-be` chứa 11 lesson packs theo thứ tự:
 
@@ -338,6 +376,54 @@ lesson đã sẵn sàng cho R2-first device test.
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
 
+Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký ba lesson Foundation:
+
+1. `feed-the-puppy`
+2. `play-with-the-puppy`
+3. `find-the-kitten`
+
+Mốc 5A khóa sáu lesson dự kiến trong `docs/theme-5-content-draft.md`; Mốc 5B khóa storyboard pilot
+tại `docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
+`fill-the-bowl` -> `puppy-eats`, vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter
+9/18/27 và auto-micro 9/12/15 theo core/expanded/challenge; review chọn 4/5/6 item. Mỗi lượt nói
+nối ngay với một action áp dụng nghĩa,
+state giữ các chuỗi `waiting -> looking/wagging`, `empty -> filled/ready` và
+`waiting -> eating -> happy`, còn prompt luôn có `Chạm`/`Kéo`/`Tìm`. Từ gắn với cún, bát hoặc
+thảm dùng story object; cue còn lại neo sát vùng hành động. Runtime v2 tham chiếu 36 lesson images,
+bốn map icons và `themeAnimalFriends`; HUD hiển thị mode, số scene và step của
+scene. Google TTS đã tạo 480 clip còn thiếu; audio audit có 626 target, thiếu 0 và lỗi 0. R2 đã
+upload delta 490 object, verify đủ 801/801 object với lỗi 0. Bản tối ưu cue-anchor sau đó upload
+thêm 6 WebP; tập authoring hiện hành verify đủ 798/798 object với lỗi 0 và post-upload dry-run
+còn `Changed/new: 0`; không xóa key cũ khỏi bucket. Revision local tiếp theo khóa scene dùng bữa
+theo thứ tự `wait -> feed -> eat -> finished -> happy -> carry -> ask an adult -> put it down ->
+step back`, chỉ `feed` kéo bát và không có state regression sau `eat`. Audio audit revision có 629
+target, thiếu 0 và lỗi 0. Google TTS đã tạo 36 clip mới; R2 đã upload delta 36 audio, verify đủ
+834/834 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Revision hình bát trống đã
+publish thêm năm WebP; R2 verify đủ 835/835 object với lỗi 0 và post-upload dry-run còn
+`Changed/new: 0`; chưa chạy device QA cho revision này.
+
+Storyboard `docs/theme-5-play-with-the-puppy-storyboard.md` khóa lesson thứ hai thành
+`choose-the-ball` -> `roll-and-catch` -> `bring-it-back`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Core đi đúng thứ tự
+`play -> ball -> choose`, `roll -> run -> catch`, `fetch -> bring -> give`; chỉ bước `roll` kéo
+bóng, mọi bước còn lại chạm/tìm để giữ mạch nhân-quả. Review trả 4/5/6 item. Local asset pipeline
+có 33 PNG master, 33 WebP và bốn icon; image verify pass 33/33. Google TTS đã tạo 508 clip còn
+thiếu; audio audit 613 target có missing 0, invalid 0. R2 upload/verify 541/541 object, lỗi 0 và
+post-upload dry-run còn `Changed/new: 0`. Scene authoring giữ tối đa một story puppy và một trạng
+thái bóng trong mỗi nhịp; cue có chứa cún/bóng dùng thẳng hero hoặc thay thế tạm story object để
+không chồng silhouette. Happy-puppy runtime dùng master đầy đủ phần đầu thay cho cell sheet bị cắt;
+revision đã upload delta một WebP lên R2, verify đủ 541/541 object, post-upload dry-run còn
+`Changed/new: 0`; device QA cho revision này chưa chạy.
+
+Storyboard `docs/theme-5-find-the-kitten-storyboard.md` khóa lesson thứ ba thành
+`hear-the-kitten` -> `check-the-hiding-spots` -> `welcome-the-kitten`. Runtime author 9/18/27
+vocabulary, 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ
+nghe tiếng `meow`/theo dấu chân tới kiểm tra hộp, giỏ và gọi mèo ra; không dùng drag. Review trả
+4/5/6 item. Local asset pipeline có 40 PNG master, 40 WebP và bốn icon; cutout audit cùng image
+verify đều pass. Google TTS đã tạo 520 clip; full-corpus audit có missing 0, invalid 0. R2
+upload/verify đủ 560/560 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa
+chạy.
+
 ### Hierarchy
 
 ```text
@@ -384,6 +470,8 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   điều phối effects, scene object state, prefetch và progress.
 - Scene State v1 có ba action: `setObjectVariant`, `showObject`, `hideObject`. Không có branching,
   inventory, biến tùy ý hoặc state xuyên scene.
+- Object có `initialVisibility: hidden` được `showObject` sẽ fade-scale trong 260 ms; Reduce Motion
+  bật thì snap thẳng về trạng thái cuối. Entrance này không dùng sparkle/bounce success semantic.
 
 ### Learning modes
 
@@ -1437,15 +1525,16 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 614/615 tests pass trong 79 suites sau khi thêm `garden-to-table` cùng guard cho
-  vocabulary, nhịp, action-first copy, food/seed safety, state và review 4/5/6.
-  1 baseline failure nằm
+- Jest: 727/728 tests pass trong 82 suites sau khi thêm `find-the-kitten`. Suite mới guard
+  vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter 9/18/27, auto-micro 9/12/15,
+  action-first copy, target visibility, không drag, state story, cue thay thế không chồng hình,
+  cat-safety và review 4/5/6. Guard tương ứng của hai lesson cún vẫn pass. 1 baseline failure nằm
   ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
   `NSPhotoLibraryUsageDescription`; thay đổi này không chạm iOS/localization. Các suite mục tiêu
   cho lesson, learning-mode propagation, navigation replay và audio provenance đều pass.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
-  `assembleDebug` pass ngày 2026-08-14 sau khi đăng ký `garden-to-table`. Store sandbox/physical-
+  `assembleDebug` pass ngày 2026-08-14 sau pacing revision `feed-the-puppy`. Store sandbox/physical-
   device purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.

@@ -14,6 +14,8 @@ import { calmMyselfLesson } from './lessons/calmMyself';
 import { doctorVisitLesson } from './lessons/doctorVisit';
 import { dressMyselfLesson } from './lessons/dressMyself';
 import { familyDinnerLesson } from './lessons/familyDinner';
+import { feedThePuppyLesson } from './lessons/feedThePuppy';
+import { findTheKittenLesson } from './lessons/findTheKitten';
 import { fiveSensesLesson } from './lessons/fiveSenses';
 import { gardenFriendsLesson } from './lessons/gardenFriends';
 import { gardenToTableLesson } from './lessons/gardenToTable';
@@ -29,6 +31,7 @@ import { myFeelingsLesson } from './lessons/myFeelings';
 import { parkVisitLesson } from './lessons/parkVisit';
 import { personalCareLesson } from './lessons/personalCare';
 import { plantASeedLesson } from './lessons/plantASeed';
+import { playWithThePuppyLesson } from './lessons/playWithThePuppy';
 import { playtimeLesson } from './lessons/playtime';
 import { snackTimeLesson } from './lessons/snackTime';
 import { speakingUpLesson } from './lessons/speakingUp';
@@ -68,6 +71,9 @@ const lessonCatalog: Lesson[] = [
   gardenFriendsLesson,
   harvestDayLesson,
   gardenToTableLesson,
+  feedThePuppyLesson,
+  playWithThePuppyLesson,
+  findTheKittenLesson,
 ];
 
 assertValidLessons(lessonCatalog);
@@ -88,6 +94,8 @@ export {
   doctorVisitLesson,
   dressMyselfLesson,
   familyDinnerLesson,
+  feedThePuppyLesson,
+  findTheKittenLesson,
   fiveSensesLesson,
   gardenFriendsLesson,
   gardenToTableLesson,
@@ -103,6 +111,7 @@ export {
   parkVisitLesson,
   personalCareLesson,
   plantASeedLesson,
+  playWithThePuppyLesson,
   playtimeLesson,
   snackTimeLesson,
   speakingUpLesson,

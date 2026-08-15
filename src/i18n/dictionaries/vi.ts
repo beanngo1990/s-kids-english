@@ -637,6 +637,8 @@ export const vi = {
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
+  'scene.stepProgress':
+    '{mode} · cảnh {sceneCurrent}/{sceneTotal} · bước {current}/{total}',
   'header.openHub': 'Mở Sungy Hub',
   'header.themeLibrary': 'Đổi chủ đề bản đồ',
   'header.parentGate': 'Góc phụ huynh',
@@ -658,8 +660,7 @@ export const vi = {
   'playPanel.playAgain': '🔄 Chơi lại',
   'playPanel.unlocked': '✨ Sẵn sàng',
   'playPanel.locked': '🔒 Đang khóa',
-  'playPanel.stickerPlaygroundAccessibility':
-    'Mở Sân chơi Sticker của Sungy',
+  'playPanel.stickerPlaygroundAccessibility': 'Mở Sân chơi Sticker của Sungy',
   'playPanel.stickerPlaygroundBadge': 'Sáng tạo tự do',
   'playPanel.stickerPlaygroundTitle': 'Sân chơi Sticker',
   'playPanel.stickerPlaygroundSubtitle':
@@ -973,8 +974,7 @@ export const vi = {
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
   'speakPractice.enableMicAccessibility': 'Bật mic để bé luyện nói',
   'speakPractice.enableMic': 'Bật mic',
-  'speakPractice.askParentAccessibility':
-    'Nhờ ba mẹ bật mic trong Cài đặt',
+  'speakPractice.askParentAccessibility': 'Nhờ ba mẹ bật mic trong Cài đặt',
   'speakPractice.askParent': 'Nhờ ba mẹ',
   'speakPractice.micUnavailableAccessibility':
     'Mic hiện chưa sẵn sàng. Bé nghe từ mẫu rồi tiếp tục nhé.',
@@ -1114,12 +1114,10 @@ export const vi = {
   'parent.voice.enableText':
     'Sungy sẽ tự động lưu bản đọc cuối có tiếng nói của mỗi lần luyện từ. Bản ghi chỉ nằm trên thiết bị này, không tải lên cloud hoặc đưa vào bản sao lưu hệ thống. Sungy giữ tối đa 100 mốc giọng đọc.',
   'parent.voice.enableTitle': 'Bật lưu giọng đọc của bé?',
-  'parent.voice.emptyLibrary':
-    'Bật tự động lưu để lưu lại khi bé luyện đọc.',
+  'parent.voice.emptyLibrary': 'Bật tự động lưu để lưu lại khi bé luyện đọc.',
   'parent.voice.emptyTitle': 'Chưa có giọng đọc',
   'parent.voice.firstMilestone': 'Lần đầu',
-  'parent.voice.infoAccessibility':
-    'Xem thông tin về tự động lưu giọng đọc',
+  'parent.voice.infoAccessibility': 'Xem thông tin về tự động lưu giọng đọc',
   'parent.voice.latestMilestone': 'Gần đây',
   'parent.voice.loading': 'Đang tải giọng đọc của bé…',
   'parent.voice.localOnlyText':

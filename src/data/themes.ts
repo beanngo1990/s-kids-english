@@ -2,9 +2,9 @@ import type { LessonTheme } from '../types/lesson';
 
 export const DEFAULT_THEME_ID = 'mot-ngay-cua-be';
 export const OUTSIDE_EXPLORATION_THEME_ID = 'be-ra-ngoai-kham-pha';
-export const BODY_FEELINGS_SELF_CARE_THEME_ID =
-  'co-the-cam-xuc-va-tu-cham-soc';
+export const BODY_FEELINGS_SELF_CARE_THEME_ID = 'co-the-cam-xuc-va-tu-cham-soc';
 export const LITTLE_GARDEN_THEME_ID = 'khu-vuon-cua-be';
+export const ANIMAL_FRIENDS_THEME_ID = 'nhung-nguoi-ban-dong-vat';
 
 const themeCatalog: LessonTheme[] = [
   {
@@ -90,6 +90,18 @@ const themeCatalog: LessonTheme[] = [
       'harvest-day',
       'garden-to-table',
     ],
+  },
+  {
+    id: ANIMAL_FRIENDS_THEME_ID,
+    titleVi: 'Những người bạn động vật',
+    titleEn: 'My Animal Friends',
+    iconName: 'themeAnimalFriends',
+    thumbnailEmoji: '🐾',
+    descriptionVi:
+      'Bé cho thú cưng ăn, chơi cùng các bạn, chăm sóc nhẹ nhàng và giúp các bạn đi ngủ.',
+    descriptionEn:
+      'Feed, play with, gently care for, and help familiar animal friends get ready for bed.',
+    lessonIds: ['feed-the-puppy', 'play-with-the-puppy', 'find-the-kitten'],
   },
 ];
 

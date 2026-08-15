@@ -8398,6 +8398,1754 @@
     },
     {
       "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-on-mat-empty.webp",
+      "outputBytes": 25854,
+      "outputSha256": "94dbcc1bbad29ccd843a4c4e84e3f532bc9861ceb68554bb74b23071fa3e6fd2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-on-mat-empty.png",
+      "sourceBytes": 628541,
+      "sourceSha256": "7c6da46cd7f514b90c690585686995188709d5498c15b646e155a636577ebd56",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-on-mat-filled.webp",
+      "outputBytes": 29224,
+      "outputSha256": "b55c58416be776248395ae824a09ad906051622959db86033ca7edb09baeb2f4",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-on-mat-filled.png",
+      "sourceBytes": 755824,
+      "sourceSha256": "ad11103b083b61df1891c3d54d36af563f3d9407d6491ed26667c14b120431af",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-ready.webp",
+      "outputBytes": 74038,
+      "outputSha256": "aba1b1d1366963ae810e886679df828804a97ba7d11401fa9d6e1fd219cde1a3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-ready.png",
+      "sourceBytes": 1002726,
+      "sourceSha256": "185df041550457b4b7f01d2cacb09a5b0efdd4d7f0d741eb7505e606e01418d0",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-shelf-empty.webp",
+      "outputBytes": 24322,
+      "outputSha256": "24f28874937da8de33d1bd26c3714793c742032e5dfa6aec8007e97c222b28e1",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/bowl-shelf-empty.png",
+      "sourceBytes": 552130,
+      "sourceSha256": "f0ef8e6f4251eaeb1a1a8d58d035fcb761645e07e5598f6a57f9e51b18798748",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 46,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/feeding-mat.webp",
+      "outputBytes": 26708,
+      "outputSha256": "6207e2fda50a0aae35bcb3ac13b1697ab5d8be606f5a982b6680bbf6ebdbec1f",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/feeding-mat.png",
+      "sourceBytes": 478932,
+      "sourceSha256": "a679d5e4e63253176f928d47ce14a9e025382d9020ad00b25811052e52eb80b3",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/food-scoop.webp",
+      "outputBytes": 35214,
+      "outputSha256": "77582e4897edddac7fd8f4b5db876d3f3b1f9456a5778247ab080f7e47581773",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/food-scoop.png",
+      "sourceBytes": 973407,
+      "sourceSha256": "4ed5b8bc989dd5d59919eea381a87c1d86336590590f1005e319eec2ad5a1fe5",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/one-scoop.webp",
+      "outputBytes": 29414,
+      "outputSha256": "41c02c0ce599c5be1dd6ab6a56abefbf732fc4d7a2fc34dcccff4f03472824c2",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/one-scoop.png",
+      "sourceBytes": 709883,
+      "sourceSha256": "201d4e2bd817d35d13373a32a6c7e4ce9493df76380a41c046b6b36a79b1979f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/target-glow.webp",
+      "outputBytes": 41288,
+      "outputSha256": "57866b641c43c7093c299f8f7ef5d4a2142c7163522a4ff7c9681c77ce5acc9a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/target-glow.png",
+      "sourceBytes": 448045,
+      "sourceSha256": "0034964ea78a311f8ddba99283b4ada07c28dd76caa4fedfaa9c8990eb4669cf",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/fill-the-bowl/images/too-much-scoop.webp",
+      "outputBytes": 46274,
+      "outputSha256": "12decca392772cd66c356e1d1fbe86404f2796ad28d41d4eace7940ff0facded",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-bowl"
+      ],
+      "source": "lessons/feed-the-puppy/fill-the-bowl/images/too-much-scoop.png",
+      "sourceBytes": 1044995,
+      "sourceSha256": "4f853c006945cfdfb8fc6d8af392bc853f18d5de5725e872bc0a9ffb2796b710",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/collar-closeup.webp",
+      "outputBytes": 18372,
+      "outputSha256": "deaac7707267bf06937de273495311c8a5e269ab3d5804683234d6c3239404e1",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/collar-closeup.png",
+      "sourceBytes": 577835,
+      "sourceSha256": "8ffedc49378a97cccbf5cb8a5b92ae55f571f959392e889663d93f0960988ef8",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/empty-bowl-cue.webp",
+      "outputBytes": 36670,
+      "outputSha256": "9e2c5647f1d73a31b3c5423e226d0e549d9a4a18ef2723d09440cdfa342fc65b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/empty-bowl-cue.png",
+      "sourceBytes": 616420,
+      "sourceSha256": "755da6623588c5ffa383f8c093202adfff6075530e0315ec920598afbe34df3c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/hello-hand.webp",
+      "outputBytes": 34156,
+      "outputSha256": "992b60895ee9c24578aeba2da1b4eac384b42b40607a204970a906dd0b18ef8e",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/hello-hand.png",
+      "sourceBytes": 640157,
+      "sourceSha256": "bfa27efe9b356e7f5da70f696e0491709af6a33f47cc70d86ffac642c640af80",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-holding-tummy.webp",
+      "outputBytes": 54908,
+      "outputSha256": "cc7451a6d1823fe14383ff8bda73a656482c729b85669f3fa6922a06973653a5",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-holding-tummy.png",
+      "sourceBytes": 1018733,
+      "sourceSha256": "0846447439331948d0f83de709bdbbcf6379cb6f15d9c82dee7ecad605742eb7",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 42,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-looking-at-bowl.webp",
+      "outputBytes": 96866,
+      "outputSha256": "1ebe56de5c21f4c64903a231408f8b8f66abf763d86cf760ec9ebe5934c884d7",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-looking-at-bowl.png",
+      "sourceBytes": 1181681,
+      "sourceSha256": "bb64acf7ac3a74c17718fcfa3827d2da0020ed736efa12111e75c426d4fe5036",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-sitting.webp",
+      "outputBytes": 57614,
+      "outputSha256": "c254204de6b7b9e600441a50f1cbce11e355c6df50f251e322f6b86b00ad57bd",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-sitting.png",
+      "sourceBytes": 1162651,
+      "sourceSha256": "2eae201be00c0e9d4c4aedce652715b50d1ca34effcb319e1cf788b3559fb5da",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-wagging.webp",
+      "outputBytes": 64208,
+      "outputSha256": "b97f90327f76d5115ef5742fe5d60b6b47e2a9f161cf5aa8031aa17fad45ce1c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-wagging.png",
+      "sourceBytes": 1090939,
+      "sourceSha256": "38887cbcf60841c840094f7641b4e7856ce8ebb754b662a5d21e10f66311c1ab",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-waiting.webp",
+      "outputBytes": 66340,
+      "outputSha256": "aa382b94de339e2035be1527b36928a496f82904b26103a34134ba3a7f74dfac",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-waiting.png",
+      "sourceBytes": 1222638,
+      "sourceSha256": "6eff5f556ff87abc4ff06b2cb8959e59bfc376193d80c63fb2d8307f3c7689de",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/tail-closeup.webp",
+      "outputBytes": 19450,
+      "outputSha256": "b0fbc9f8396e34b085ef1870c863aef339cdbe4cfe328c88472727550d6189d6",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/tail-closeup.png",
+      "sourceBytes": 772507,
+      "sourceSha256": "b6fe8945f8c168907cdbffe4174990161c2960fb086fe544d6088f198c10cf72",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/adult-hand-helping.webp",
+      "outputBytes": 39228,
+      "outputSha256": "1faa4098f3d36d750d31e676d328f63208d74d1c400a52af7bbe795f3f5b5789",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/adult-hand-helping.png",
+      "sourceBytes": 625034,
+      "sourceSha256": "113b2f2e7e243f61eb45f53f34ac54e55137155a613e8df1234fd9e35207ff6e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 24,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/bowl-empty.webp",
+      "outputBytes": 22380,
+      "outputSha256": "62767f2c70572bc36ad299fd98516bbc80d694155a9b2e666b6d4311e650cc0b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/bowl-empty.png",
+      "sourceBytes": 539294,
+      "sourceSha256": "4550b34dcc184b0ae32bc20c15dfe6f155de1453b7d17783f0741b8d5883ca3b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/bowl-full.webp",
+      "outputBytes": 27336,
+      "outputSha256": "dd01582af88ad6d28787d464f70d54b4c38a896d8ebbdb5ed8471ad30fea9ccc",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/bowl-full.png",
+      "sourceBytes": 742639,
+      "sourceSha256": "6523d4a2e437e245376765b99b0ad9c9ef5f7233b7e7aa0c027b1584ba6691a7",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/carry-bowl-action.webp",
+      "outputBytes": 37216,
+      "outputSha256": "30b243885ea2c6b98d036d912ba0f768c03533e9adc545559637629e558147c6",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/carry-bowl-action.png",
+      "sourceBytes": 603493,
+      "sourceSha256": "9068cb9bdc425e7a4f711b85d0e1e63048e70082b095e95e2b2a2a5540447c7d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/eat-action-finishing.webp",
+      "outputBytes": 40942,
+      "outputSha256": "3ed8a46518c0c2cc02f780747b3dcb478983be8f21f26d3c8ec3dbca8ebd9538",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/eat-action-finishing.png",
+      "sourceBytes": 969773,
+      "sourceSha256": "15c6916bae2cc90cf1159bcd2b90dc1370d534a050ff2a41c39f2e663f17ccd7",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/eat-action-preview.webp",
+      "outputBytes": 55664,
+      "outputSha256": "df9abb69ae3ae708afa4b1e9baf406d992d76fcaeb1b9fbb7f6b7bf38eeadddc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/eat-action-preview.png",
+      "sourceBytes": 1002786,
+      "sourceSha256": "4d1afa1856c3bbf7011b13933d7dcc0ef7afb051089733203e6d57a83574630b",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/feed-action.webp",
+      "outputBytes": 37000,
+      "outputSha256": "789504b0e390fb6e81c76d7d3ea7214f47271e73e91684834ef01bdbf5dd9174",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/feed-action.png",
+      "sourceBytes": 605583,
+      "sourceSha256": "b186e39c4984e944271b4d5b457a6e0b92cbe6a0c02a2d5a60bfcd9e74e785a1",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/feeding-mat.webp",
+      "outputBytes": 24124,
+      "outputSha256": "773f81612e80e69496baed2c1a244b6042ab39b0a9dc7830eefac9980cfcf71a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/feeding-mat.png",
+      "sourceBytes": 368018,
+      "sourceSha256": "b11db80cd481873d546f42035cb8d2a1e01c7179987e9d5449c54c1794e7ca7e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/heart.webp",
+      "outputBytes": 15652,
+      "outputSha256": "d323b5de74189b3de95fbabb2a30cddb9aef013c02713e3ccde76a6f6731e006",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/heart.png",
+      "sourceBytes": 402019,
+      "sourceSha256": "0cb73662a7daabbb18e8feb61e603605a801401dc3843ed0f2a02d256a0d2d67",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/puppy-eating.webp",
+      "outputBytes": 57642,
+      "outputSha256": "d7f81a9192058596bc20a88d49b4088092ac9405ca37e566a06828a070ae3a8c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/puppy-eating.png",
+      "sourceBytes": 1067306,
+      "sourceSha256": "f425ff80a9cb5cc61d499f8077e6871d36995b5d90248acc025983ebb3452d97",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/puppy-happy.webp",
+      "outputBytes": 47460,
+      "outputSha256": "adc1e9a1aa136f20a5abd50af0b81148ca8f7e048a29e803ab95be4dc8863f18",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/puppy-happy.png",
+      "sourceBytes": 1027433,
+      "sourceSha256": "4509d1a970da004636d7969cb046a5ef8d8f48764e068fb31988891c5ef019e8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/puppy-waiting.webp",
+      "outputBytes": 41128,
+      "outputSha256": "30d3191302ad3499a40c5515316f374175c19f1a351fade4e2b65fdbc936f7e3",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/puppy-waiting.png",
+      "sourceBytes": 1023551,
+      "sourceSha256": "50d5ce601ed8a550f04f6c29e126176e915c1d49b46610adbf1405581c6cb26a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 37,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/put-empty-bowl-action.webp",
+      "outputBytes": 57498,
+      "outputSha256": "09634e6a5dac5c3af57b76d1d1ba012f6bf447bee3163677385f233a664923ba",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/put-empty-bowl-action.png",
+      "sourceBytes": 644925,
+      "sourceSha256": "8e622da9581f74bac0df55dac22c2a1ac81438714722f69fc5dab3f3c5d55394",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/step-back-action.webp",
+      "outputBytes": 76096,
+      "outputSha256": "d1535dbb816f94de31f35349f2483a1f7e8680e16239c44a6a90961103f18e60",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/step-back-action.png",
+      "sourceBytes": 755318,
+      "sourceSha256": "56d9ad889bedccb6d8333b1ada242339f42db1ff5668bad7bbcbb0ee6ce1bd2f",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/feed-the-puppy/puppy-eats/images/step-forward-action.webp",
+      "outputBytes": 84154,
+      "outputSha256": "e4795784b9a8b5dc7ee40f401bc23d4e8ccd8ff1c47cbf2f6c839ab36e87fdb6",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "puppy-eats"
+      ],
+      "source": "lessons/feed-the-puppy/puppy-eats/images/step-forward-action.png",
+      "sourceBytes": 744975,
+      "sourceSha256": "af8d50841a53f6cb7972c5a287899f94ac77be45d419944f0572a8dd77dfe683",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/ball-behind-cushion.webp",
+      "outputBytes": 39140,
+      "outputSha256": "2f80e60d7914a52be2f0c92737c4d911d817802d94477ff0cb0da3606d50e518",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/ball-behind-cushion.png",
+      "sourceBytes": 1003078,
+      "sourceSha256": "f3d6d9d3f9d80e1e69d5656b6aabf9dac742bdd807873208d430dae02d038076",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/basket-covered.webp",
+      "outputBytes": 40704,
+      "outputSha256": "5d9d7441966601d0260ed7eecfc2304a864d781fbaa1ec351d5dddc04b3513e8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/basket-covered.png",
+      "sourceBytes": 1060726,
+      "sourceSha256": "888ed3b79bad23eff16a55b25176cccc5b036e123fc390b3ff556570178dc103",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/basket-open-empty.webp",
+      "outputBytes": 46650,
+      "outputSha256": "2cfc847cbeb30b5dbd175651cf4dc1f2a59904c44cac5b8e3e5a17a6b848ab89",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/basket-open-empty.png",
+      "sourceBytes": 1360559,
+      "sourceSha256": "49887938f1f69b4b4fbe8b0dcb7b01b3d0d7c589e2eabb809c307a3a83ef28c9",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/box-closed.webp",
+      "outputBytes": 26002,
+      "outputSha256": "168da7ea28e2a3a237e8fe0a47484a3d57fed2522d378537fc99eafa1b78357c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/box-closed.png",
+      "sourceBytes": 426958,
+      "sourceSha256": "35e8d01f639b5845d3e49dd5d2082fc42f554d741502f7dab0ae1b37fa0042ef",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/box-open-empty.webp",
+      "outputBytes": 30214,
+      "outputSha256": "34225001706b47db502ba2b0218c5c2d1b24c431b72d07f54cc9eaead653ecbf",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/box-open-empty.png",
+      "sourceBytes": 489922,
+      "sourceSha256": "1b4965d0377dc4130a326c3f01ed4ec44e133b3fed37093b41af74514d91032c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/find-kitten-action.webp",
+      "outputBytes": 48400,
+      "outputSha256": "9c7a34543f7fb4a6045c8cc1ed22b382e9fd8f38752fd817a2dd2f5d3ad8b913",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/find-kitten-action.png",
+      "sourceBytes": 1160305,
+      "sourceSha256": "e890dde64bdf594199abc6c977f60ec2d099948110bc204d4b7183ab1992e65d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-found.webp",
+      "outputBytes": 53898,
+      "outputSha256": "665c9cad18d68ebedba4434d613aac8a15df6b1fe9b093dbbd7bacd47394b5cc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-found.png",
+      "sourceBytes": 1054575,
+      "sourceSha256": "43efc6809bd3fad24913df7d1a8f86f003a4ffcb0fe90966bb56ea6c4baf4470",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-hiding.webp",
+      "outputBytes": 44168,
+      "outputSha256": "d66d9cb819357ffa6c6a5503bbb761ef347bc530b6e407aa9d6d5293824a91c3",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-hiding.png",
+      "sourceBytes": 1076470,
+      "sourceSha256": "23a68dd35e81d51e55b12b934622138c3171660620bea408a9bb1d7e42559163",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-peeking.webp",
+      "outputBytes": 48384,
+      "outputSha256": "60850c17055b23e55473680c1d3bd0f43cae7711f8e9a7b7e50ddf87f5e2aa33",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/kitten-peeking.png",
+      "sourceBytes": 1217096,
+      "sourceSha256": "3a362fcbd24a476326eb9b97dd1f475fd73d18615a350d12317540aec2fb8ced",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/look-behind-basket-action.webp",
+      "outputBytes": 39356,
+      "outputSha256": "22338c200c2401b75b13c8568c350a5c942866801e538d2737fa81a9f4075323",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/look-behind-basket-action.png",
+      "sourceBytes": 976397,
+      "sourceSha256": "2f4cb8a9306c335fcdbac810d82298846b76cf482897d90346f464609743a36a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 33,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/look-under-box-action.webp",
+      "outputBytes": 34742,
+      "outputSha256": "01f14bf1e9c4a71a1f55829b4c6519afc847ce1a13fc50e2f53dab2e67bbb84d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/look-under-box-action.png",
+      "sourceBytes": 577329,
+      "sourceSha256": "f865889bcb8b71ebb66b6f8789b41e4276f8030805b6bc6b127cadb96006544f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/mouse-under-stool.webp",
+      "outputBytes": 39102,
+      "outputSha256": "542e2014679dc88b217c4f78e852b850954c61b6b63e211f10211f23eb397467",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/mouse-under-stool.png",
+      "sourceBytes": 973436,
+      "sourceSha256": "3c05cffa8dcc3d2952abaa59ae27b041b6215dae7ea1a815f3c5fa18b6a89d69",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/check-the-hiding-spots/images/toy-inside-cube.webp",
+      "outputBytes": 30844,
+      "outputSha256": "9435428a25e8b910992f568aa2c602382d934904d4770c3248b26edde8d47e79",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "check-the-hiding-spots"
+      ],
+      "source": "lessons/find-the-kitten/check-the-hiding-spots/images/toy-inside-cube.png",
+      "sourceBytes": 967871,
+      "sourceSha256": "cbad60e96f29988873652ae275b7e0d1d89f0358bbd514a30246286dc92dc80b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/calling-where-are-you.webp",
+      "outputBytes": 32572,
+      "outputSha256": "b377d83bdd6b666f3b14826bf197b9dfffb7161df70a62802bdbb1edfc2a9c73",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/calling-where-are-you.png",
+      "sourceBytes": 1017239,
+      "sourceSha256": "798d6f223263d337f4d3d57102de060bee7054c07b0c7b8d1c4a5beaf44435da",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 49,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/curtain.webp",
+      "outputBytes": 40330,
+      "outputSha256": "b4cab511ba77d1c51eb24131aa89c63d0aecb85ccec089ebbad72903c9e45534",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/curtain.png",
+      "sourceBytes": 753045,
+      "sourceSha256": "cb56475e97d52b4dc23a0b0eb34e8c554a179dc0ad71814d6ce490a07df0eb25",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/i-hear-you.webp",
+      "outputBytes": 50050,
+      "outputSha256": "9daaaa213a4ab345a37244f2300bccb50e416b40bf952eee540a20cdc0e51a6a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/i-hear-you.png",
+      "sourceBytes": 514824,
+      "sourceSha256": "5f3a08e8cf7cffc1b69b9ef903acf920dea56370274fb278bba873f093cf89b4",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/kitten-ears-closeup.webp",
+      "outputBytes": 29736,
+      "outputSha256": "3e4e7560e32e1523d3435b96b9e7a52cdd5e90496fc64aaf346360b5df9f3b5f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/kitten-ears-closeup.png",
+      "sourceBytes": 699802,
+      "sourceSha256": "61f37b962fb25f1b5ee345efe7f864b5e439bbc3cf5ee0a0244d6e1c9eb517cc",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 33,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/kitten-hiding-curtain.webp",
+      "outputBytes": 36112,
+      "outputSha256": "6c4403bbc83f98fc34fc6a1c7038d2578edb757eadfaaf36937b29825e86d8bb",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/kitten-hiding-curtain.png",
+      "sourceBytes": 810452,
+      "sourceSha256": "b78eea0ec7bcefe887a670bcc839379d00bbf7024a0eccb6e027ecd649369000",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/kitten-sitting.webp",
+      "outputBytes": 48684,
+      "outputSha256": "505640e4c719bbb7925f5de5343e791b751b9353fe8af5d5048993b0e9e0ffe9",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/kitten-sitting.png",
+      "sourceBytes": 1028641,
+      "sourceSha256": "a3eef7ec684c29d127c544307a8f53c1ec994e0b1510cc848a47a7b0b67e4dd2",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/listen-carefully.webp",
+      "outputBytes": 39034,
+      "outputSha256": "561edd2ed48bc711ab46eaa0b81e0fd4d0aa622482cfb6999d9a24c612d65bfa",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/listen-carefully.png",
+      "sourceBytes": 623298,
+      "sourceSha256": "196f652674491dcfde441ec04e9d3962f1556b40fa7c047ce4b71d5ffaa1e767",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/listen-ear.webp",
+      "outputBytes": 35058,
+      "outputSha256": "1f9715fb7e2ad70fd6037d94e4036687c7f82be097aa9b0a723c5e7b1db4a6dc",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/listen-ear.png",
+      "sourceBytes": 773130,
+      "sourceSha256": "2c9576d2d22dd1e6d9e43348021b82012c52d5ba311e0e15127f4d441ba72370",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/meow-marks.webp",
+      "outputBytes": 28612,
+      "outputSha256": "70cf33ad574ddcbba3ae1e51e106a7f92d1a978090ddbe9b027b38cb283c5d37",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/meow-marks.png",
+      "sourceBytes": 469812,
+      "sourceSha256": "bfc0163ea0b8d0ba5979ece726610be18594ba79282bb98fcfb1c98954e09412",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/pawprints.webp",
+      "outputBytes": 51210,
+      "outputSha256": "b93c6c48a29ed3d9165451261688be123212dae9bb4eeafd537c6c65bf892f80",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/pawprints.png",
+      "sourceBytes": 309779,
+      "sourceSha256": "b6e7108d2b86892f2e65c5a5975f0248557e414c55d186732fa920336818fee8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/quiet-finger.webp",
+      "outputBytes": 33228,
+      "outputSha256": "2a455202c4f6190be94d8608fc8ae4e11f77f4a7eabc78cb7536a0e27bd0ff55",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/quiet-finger.png",
+      "sourceBytes": 932807,
+      "sourceSha256": "3d37838047d4b0497758d727efe89cb33543c790057aba60c618d0d87bbd9fba",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/find-the-kitten/hear-the-kitten/images/sound-waves.webp",
+      "outputBytes": 56688,
+      "outputSha256": "d8e352ba4b3243c81d2482b71d23f640b4fa983e9097a46f289a8948626e1837",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "hear-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/hear-the-kitten/images/sound-waves.png",
+      "sourceBytes": 548393,
+      "sourceSha256": "f0d7773ab9023eac60338c96f5401138b9e612c20aaa3a561cf6f758f27afa77",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/call-action.webp",
+      "outputBytes": 45214,
+      "outputSha256": "27ad66ef3a767eb1dada4f12db6f20dd0a05aa7390b8de6501d75b237c809548",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/call-action.png",
+      "sourceBytes": 1092191,
+      "sourceSha256": "9c016dc45db06ddc61be10f4b6aad64b02d0389c6751eef09d6f3f146ac39ea1",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-approaching-hand.webp",
+      "outputBytes": 54998,
+      "outputSha256": "e27bbe3fad83fb11212dbbb8d3305b74d27beaf0f2e29c7e4e6b64e80aa5be2b",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-approaching-hand.png",
+      "sourceBytes": 878769,
+      "sourceSha256": "7ec3b45f3f32fb4ff04f4e48625dda78aedafb3fb7bfd074f5fa491862f7da1e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 33,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-coming-out.webp",
+      "outputBytes": 46740,
+      "outputSha256": "208ef7ae82956e5dfa0d7d7c6a5d99303a747ccef3cb4e3fe52187db6f207c06",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-coming-out.png",
+      "sourceBytes": 1139305,
+      "sourceSha256": "ec7801bd9ded008dc59517cf5fe6356dbb17e118aca9c2504fb9de685d5a0f61",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-happy.webp",
+      "outputBytes": 48090,
+      "outputSha256": "8671c9058f28e1c126f61bc5496fd98908634765eb311cc286b5abff569c8f51",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-happy.png",
+      "sourceBytes": 1130829,
+      "sourceSha256": "80daa37815e9435baf6be036121de717f9a7b73d6bc3a8e6c3fc7a38310b5266",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-near-hand.webp",
+      "outputBytes": 53818,
+      "outputSha256": "31015915f9d1d0b441203b7a24f0a260265a65a9daca60c53d88b91f416e9205",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-near-hand.png",
+      "sourceBytes": 838329,
+      "sourceSha256": "fea2f995bdb3827fbeca33b1433230fea676223553102a46dead56ce477379e6",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-peeking.webp",
+      "outputBytes": 41298,
+      "outputSha256": "aa10b23f6073e4571d10c71e7a656f902e4a3c18ba3daf486d254aa5daf5320b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-peeking.png",
+      "sourceBytes": 1096567,
+      "sourceSha256": "d2220a6337687e2ad49f4a028d62d7c6f517e7ca2cf4e9f7ac4352ddeac8ff21",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-rubbing-hand.webp",
+      "outputBytes": 56360,
+      "outputSha256": "c520111f14eb1b39eb0cc055034fa325d837c8d4c4466e1e93858316f13f1587",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/kitten-rubbing-hand.png",
+      "sourceBytes": 953785,
+      "sourceSha256": "432c91f360b01f29c61abb451a87bf5c27afa6316bcaa769874a9877622eebb0",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 33,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/open-hand.webp",
+      "outputBytes": 26754,
+      "outputSha256": "7094fb0e45f718c7d6096f7bb30262903a0b3bf7ec21bcc05041dc4809bbe2de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/open-hand.png",
+      "sourceBytes": 508502,
+      "sourceSha256": "e65e50b8a265e80520fb6519474f559d02af9b1f795a92ee01ed4a7c2305c46f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/paw-closeup.webp",
+      "outputBytes": 29496,
+      "outputSha256": "caf0e2123bd0e93726b9e1d292fb4876f0fb6e3d1975af742e55cc42573115f3",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/paw-closeup.png",
+      "sourceBytes": 853051,
+      "sourceSha256": "555448112fa93f2ef682a8d7d90451f2bda383f9632e0dc85fb13ef83f190e6d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 36,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/pet-gently-action.webp",
+      "outputBytes": 57788,
+      "outputSha256": "1fc5fbfc2eedc3b147717b0be8e0f253d94423b7377ae8f07c335b7e6639b726",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/pet-gently-action.png",
+      "sourceBytes": 1030202,
+      "sourceSha256": "37264ce434e5c22f33b83957fbddeae15a45b7bab5b130968c90643f0d435f72",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/soft-fur-closeup.webp",
+      "outputBytes": 40494,
+      "outputSha256": "dc0dc3703c343c1c334780a658bdd80db25d2436bb254a5b8ef3900ba783e69a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/soft-fur-closeup.png",
+      "sourceBytes": 1533999,
+      "sourceSha256": "f840b3c0b634479cee62d7304397e7dc60dfccc02f51e403109edddf1f9ab96b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "find-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/find-the-kitten/welcome-the-kitten/images/tail-closeup.webp",
+      "outputBytes": 34028,
+      "outputSha256": "312329dbe5d25416693eba2843c0472a800d37838c9b005537a7e818bbc2c4df",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "welcome-the-kitten"
+      ],
+      "source": "lessons/find-the-kitten/welcome-the-kitten/images/tail-closeup.png",
+      "sourceBytes": 743893,
+      "sourceSha256": "4b5bfb211b4b0f1adfb173d5fca22d8c8962a4dc4e11f92dbc1c8d7ff171618b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
       "height": 900,
       "lessonIds": [
@@ -20059,6 +21807,765 @@
     },
     {
       "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/ball-in-hand.webp",
+      "outputBytes": 45498,
+      "outputSha256": "a1d8cbdd213db4917d2c90961ca0e2fa8dab7e89beb8975773b6045382326290",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/ball-in-hand.png",
+      "sourceBytes": 745298,
+      "sourceSha256": "a192157dc388a92a7243c49c037e73526e08c166a9c462ff110ddb1e516e3785",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/open-hand.webp",
+      "outputBytes": 43838,
+      "outputSha256": "b03c044a3b071c8320ab875ee8c3ceae5588f3352c10427660f593fb3f1e9a45",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/open-hand.png",
+      "sourceBytes": 520452,
+      "sourceSha256": "9fe7d3d0d837ef0917a57eb3d48d49c547f70fd98e46f85dddc74bfdf4f3f7ed",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/puppy-far-with-ball.webp",
+      "outputBytes": 77050,
+      "outputSha256": "17b43d638e0655179acbe4161ff2b528367aa9b9bbe812f2fdbf00de0c69ed6e",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/puppy-far-with-ball.png",
+      "sourceBytes": 1080569,
+      "sourceSha256": "064613d72a434e6856d4e3b95b22db08bc78b31c350bb906c8c027b0fb903adc",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 33,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/puppy-happy.webp",
+      "outputBytes": 47460,
+      "outputSha256": "adc1e9a1aa136f20a5abd50af0b81148ca8f7e048a29e803ab95be4dc8863f18",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/puppy-happy.png",
+      "sourceBytes": 1027433,
+      "sourceSha256": "4509d1a970da004636d7969cb046a5ef8d8f48764e068fb31988891c5ef019e8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/puppy-near-with-ball.webp",
+      "outputBytes": 80952,
+      "outputSha256": "965f3141e2f682bc5cc969b8aa8e49edd377ee120be70f4cf57825111283c0ae",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/puppy-near-with-ball.png",
+      "sourceBytes": 1205913,
+      "sourceSha256": "529cf54e51eea3d033ce245389cfc57e0a6a20ddc5998fda7f5d725d9503a0e6",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/puppy-returning-ball.webp",
+      "outputBytes": 112764,
+      "outputSha256": "59cb983bf7f70171ddbdebe2de10376c4b2c193b334d98b0a236332b84b35143",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/puppy-returning-ball.png",
+      "sourceBytes": 1266458,
+      "sourceSha256": "d207e81f7cb131c940b3a2a53454f2f469e15677a742cc9eb2347873404f8aeb",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 19,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/red-ball.webp",
+      "outputBytes": 31370,
+      "outputSha256": "000f8078c1d0c889966bacd8a44b49a00e012473c22d83720cb93a97e102a802",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/red-ball.png",
+      "sourceBytes": 924500,
+      "sourceSha256": "bfc7ff7934564bbb9a7f0b294fa351993ba37b7ed01e5998d59c8fa9574a6426",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/roll-the-ball-action.webp",
+      "outputBytes": 46314,
+      "outputSha256": "3cd51c755617ae4755a9c111add4268ef9f2b972b1a12d94a88db919130f157a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/roll-the-ball-action.png",
+      "sourceBytes": 549612,
+      "sourceSha256": "164bb7cb37cc28681287caa372fc7e430dfc5ae9c3e9e441e87322dc3d8a9bff",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/bring-it-back/images/your-turn-action.webp",
+      "outputBytes": 45078,
+      "outputSha256": "277f09c758f6650c6a21223fa685379a91f822b3db780f998bf63bda164c7576",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "bring-it-back"
+      ],
+      "source": "lessons/play-with-the-puppy/bring-it-back/images/your-turn-action.png",
+      "sourceBytes": 720881,
+      "sourceSha256": "66a6add6b137b70351db87aa7845becb983578403290c288784477aa3697f7de",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 17,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/blue-ball.webp",
+      "outputBytes": 18130,
+      "outputSha256": "9e6b94eca9d2fae7dd4b12ae4ef2d6a84fa58af42fd951197a7db2138e63ccbb",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/blue-ball.png",
+      "sourceBytes": 540265,
+      "sourceSha256": "82146e8ed86e6a19b413cb34fbc004812e78d188e8f1f6c5f660715452cc7d6d",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/choosing-hand.webp",
+      "outputBytes": 33984,
+      "outputSha256": "97c9ac045d78d5db2b84ca00e3fc0ea8f73c123dcbf60743dbbab60328132495",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/choosing-hand.png",
+      "sourceBytes": 446495,
+      "sourceSha256": "fff5ded929da4b0be1734bd77c5a416552818529d700f33b2c2d7f5c0750c0f8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/hard-block.webp",
+      "outputBytes": 24026,
+      "outputSha256": "fd851fbe888890eb23c1fd33359a41d983e08e1c6521fededd5de9f0ed10a2a0",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/hard-block.png",
+      "sourceBytes": 733813,
+      "sourceSha256": "e78e62570d4f68c34bded5e6f61c532ea303df8c208799a1f507054199a6c57f",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/pick-up-ball.webp",
+      "outputBytes": 39318,
+      "outputSha256": "08e3d8b74e86835e4392fac538b43d902c15d4ac602b1eafc80485955a9d53e4",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/pick-up-ball.png",
+      "sourceBytes": 624749,
+      "sourceSha256": "c2347f5be22e9ab0c12c53b404606f49915d26dca592a80ad880d6b5421a1cdd",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-play-bow.webp",
+      "outputBytes": 62740,
+      "outputSha256": "532a24b89d60e0284a8f1a320d65a80a2ae49d398b39abecd8ef66b42e43f58c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-play-bow.png",
+      "sourceBytes": 1107145,
+      "sourceSha256": "dc7f9b0e9550f589159b82abbc769d24c2774bd5dd76f96bfe9aa12f6666b111",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-ready.webp",
+      "outputBytes": 70658,
+      "outputSha256": "26b33682a6adaff21e407f947b167512dac00f655cc5d0129286f56e6a43a3a6",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-ready.png",
+      "sourceBytes": 1227371,
+      "sourceSha256": "ec9c63c08797e7d9baf21f63ac7202aa7270443a8d11e52b08ca9eb3a2ac37d3",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/red-ball.webp",
+      "outputBytes": 25094,
+      "outputSha256": "79a84396f9fc9863b99a2bbe96b52db6c3986c20e2c3d76ec86427eb251c350a",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/red-ball.png",
+      "sourceBytes": 701225,
+      "sourceSha256": "37a332597bf74aeb32f7b1a18709caf7535597de25992c45c12ad97a0f7818ea",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 23,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/rope-toy.webp",
+      "outputBytes": 47328,
+      "outputSha256": "bc55572abb7833b35c5e7bc40913314c85ea82f2d6ac7bc7719c5893b934d025",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/rope-toy.png",
+      "sourceBytes": 588137,
+      "sourceSha256": "f5423c56ba3f2ee982bfec4bc569a6d16205b1143dd4209c0a3266471f044c73",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/round-ball-cue.webp",
+      "outputBytes": 55390,
+      "outputSha256": "5a156f7edee345f8801621fedfa2d4e0d952a99d4d7c6ee6e0464e54c34f8720",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/round-ball-cue.png",
+      "sourceBytes": 637046,
+      "sourceSha256": "ec6f59120bd210dd83a19e438b87df9d8e8abf0c1ad5650b189cd7e8835fa8bf",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/soft-ball-squeeze.webp",
+      "outputBytes": 40726,
+      "outputSha256": "90fa70598515b04eda02c944dbb69eb293e1bf11fb046bec1a17f52b6ba091b4",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/soft-ball-squeeze.png",
+      "sourceBytes": 656219,
+      "sourceSha256": "b88ad3350bca60dc9b1f5c3c902f5cef9b57dc31ef9292a496f6729c8c24c95f",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/toy-basket-closed.webp",
+      "outputBytes": 67832,
+      "outputSha256": "1f1032514e3aacc7be02bdeeb23d1a2beb63a2e6526eef5656871a29538f78ea",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/toy-basket-closed.png",
+      "sourceBytes": 1493110,
+      "sourceSha256": "08fded572d41fea5801eb89631a7065cbf977a0c3c4d3cb622c6fef98d238b9e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/choose-the-ball/images/toy-basket-open.webp",
+      "outputBytes": 90444,
+      "outputSha256": "11dacd928e90c0e0bf71f2bea2f58dd81d00e59e4ef8858ed0033dc249aeec9f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "choose-the-ball"
+      ],
+      "source": "lessons/play-with-the-puppy/choose-the-ball/images/toy-basket-open.png",
+      "sourceBytes": 1835682,
+      "sourceSha256": "1d1a12b8ccb6c6058d0b542c0eb29bb3b19b762b2f2e69720781290dc67f24bd",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/hand-roll-action.webp",
+      "outputBytes": 47066,
+      "outputSha256": "6ae8dc6806fd4f7571797db01a7c9f40d0558ecf959f3a68aca7a3ae533e99c0",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/hand-roll-action.png",
+      "sourceBytes": 495788,
+      "sourceSha256": "52dae7a08681d87dd170187c03a364d664f2182341c0cdfca4d70b173dacdb96",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/mouth-with-ball-closeup.webp",
+      "outputBytes": 70882,
+      "outputSha256": "232a3ecc89350c461ea93105419b128b877f30b3c1d495b3d898e1f445fd194d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/mouth-with-ball-closeup.png",
+      "sourceBytes": 1288762,
+      "sourceSha256": "d3f76fc32c44d37a82d55371a550d5f81b938de957e59e2505e3ca4573064337",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-catching-ball.webp",
+      "outputBytes": 108294,
+      "outputSha256": "1de3c674bb4b26a68d1bb6e5a0fc9b52eafce4cf911201d88b29be72a9ef0bbf",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-catching-ball.png",
+      "sourceBytes": 1174631,
+      "sourceSha256": "d626e09297a985c96b6ee7628d7462943b9e60a0ae0c4b60c65c5c61e9edd0e9",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 35,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-holding-ball.webp",
+      "outputBytes": 84316,
+      "outputSha256": "9b43c2eeeb6e534bbc7822dbc11a1f58959c676587be9dd6e92cdbcde23617bd",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-holding-ball.png",
+      "sourceBytes": 1147299,
+      "sourceSha256": "45f0215c1a34333c4cabf59bd0e7bf6fdddcab2ab6512cffb31853b7dda229cd",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-running.webp",
+      "outputBytes": 117238,
+      "outputSha256": "aed2c3963afe2fd50e65f8099a3ef80d80a0baed1d57680a7746ac30c9ab73d9",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-running.png",
+      "sourceBytes": 993733,
+      "sourceSha256": "74ba3906f9b661112408c8bb7ad24a0e907a95ef2d3ca5ee62ef1defd68c7fc5",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-turning-with-ball.webp",
+      "outputBytes": 110714,
+      "outputSha256": "daf69e7c9385ce3c6003974b0da201bd35fa703ccbedc64b67c1e7b798cc500b",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-turning-with-ball.png",
+      "sourceBytes": 1032156,
+      "sourceSha256": "5d27389094c1d4521aed7459594956db2d8b93f4280f34b6a0e61cee23ea3ffa",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-waiting.webp",
+      "outputBytes": 86456,
+      "outputSha256": "543120d7492da3feb319190780eb2e81292bd5f68a94864263d185c90c105bf0",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/puppy-waiting.png",
+      "sourceBytes": 1138936,
+      "sourceSha256": "0c452142c4c1d2a9c5079c7bd5c397250f2f65bc5bbde19f7b981c85ea047766",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 18,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/red-ball.webp",
+      "outputBytes": 29000,
+      "outputSha256": "4d36a994e694493677d0ec0c5444b6c37526f79bb5a75beff38d2d25518db62b",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/red-ball.png",
+      "sourceBytes": 675215,
+      "sourceSha256": "eb78d663d7b4f4b98f05807b1921b64961bd07dc4cf8497b1734d08d262a2a61",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "play-with-the-puppy"
+      ],
+      "maxPercent": 34,
+      "output": "lessons/play-with-the-puppy/roll-and-catch/images/turn-around-action.webp",
+      "outputBytes": 85628,
+      "outputSha256": "0d47b9831b146acf52954685bca131ae69cb390a000f726c71857cb12e2a580b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "roll-and-catch"
+      ],
+      "source": "lessons/play-with-the-puppy/roll-and-catch/images/turn-around-action.png",
+      "sourceBytes": 1012633,
+      "sourceSha256": "2f5b1a223ebfa71b3e0fcb042e7a8616e495f93bc7ba6040cdf5c9ccd67f6464",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
       "height": 1024,
       "lessonIds": [
@@ -23692,7 +26199,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-14T08:14:17.448Z",
+  "generatedAt": "2026-08-15T10:40:13.511Z",
   "releaseVersion": "v1",
-  "revision": "ec98455faef7ce20"
+  "revision": "33e430aaa283f843"
 }

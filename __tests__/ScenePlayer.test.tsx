@@ -24,11 +24,8 @@ import {
   getParentSettings,
 } from '../src/engine/ParentSettingsManager';
 import { remoteAssetsConfig } from '../src/config/remoteAssets';
-import type { Scene } from '../src/types/lesson';
-import {
-  darkColors,
-  setActiveColorScheme,
-} from '../src/theme/colors';
+import type { LearningMode, Scene } from '../src/types/lesson';
+import { darkColors, setActiveColorScheme } from '../src/theme/colors';
 import { saveVoiceRecordingCandidate } from '../src/engine/VoiceRecordingStore';
 
 jest.mock('../src/engine/AudioManager', () => {
@@ -85,11 +82,8 @@ jest.mock('../src/engine/AudioManager', () => {
     playTapSound: jest.fn(() => Promise.resolve()),
     playTeacherPromptNarration: playTeacherPromptNarrationMock,
     playWordNarration: jest.fn(
-      (
-        text: string,
-        _accent?: string,
-        session?: { isActive: () => boolean },
-      ) => playSegment('en', text, session),
+      (text: string, _accent?: string, session?: { isActive: () => boolean }) =>
+        playSegment('en', text, session),
     ),
     playWrongSound: jest.fn(() => Promise.resolve()),
     speakTeacherPromptSegments: jest.fn(
@@ -203,6 +197,12 @@ const listenScene: Scene = {
   titleEn: 'Listen',
   titleVi: 'Lắng nghe',
 };
+
+test('HUD shows the selected mode and progress within the current scene', async () => {
+  const tree = await renderScenePlayer(listenScene, 'challenge');
+
+  expect(getTextValues(tree)).toContain('Khó · cảnh 1/1 · bước 1/1');
+});
 
 const teachListenScene: Scene = {
   ...listenScene,
@@ -2124,9 +2124,7 @@ test('opens speech practice after completing a teach-and-tap interaction', async
     await flushPromises();
   });
 
-  expect(getTextValues(tree)).toContain(
-    'Vòi bình giúp rót nước nhẹ nhàng.',
-  );
+  expect(getTextValues(tree)).toContain('Vòi bình giúp rót nước nhẹ nhàng.');
 
   await ReactTestRenderer.act(async () => {
     jest.advanceTimersByTime(121);
@@ -2258,8 +2256,8 @@ test('saves spoken vocabulary locally when the parent enables the library', asyn
     }),
   );
 
-  const firstEncounterId = mockedSaveVoiceRecordingCandidate.mock.calls[0][0]
-    .encounterId;
+  const firstEncounterId =
+    mockedSaveVoiceRecordingCandidate.mock.calls[0][0].encounterId;
   await ReactTestRenderer.act(async () => {
     await practice?.props.onRecordingReady({
       durationMs: 2010,
@@ -2281,7 +2279,10 @@ function getTextValues(tree: ReactTestRenderer.ReactTestRenderer | undefined) {
   return tree?.root.findAllByType(Text).map(node => node.props.children) ?? [];
 }
 
-async function renderScenePlayer(scene: Scene) {
+async function renderScenePlayer(
+  scene: Scene,
+  learningMode: LearningMode = 'core',
+) {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
   await ReactTestRenderer.act(async () => {
     tree = ReactTestRenderer.create(
@@ -2291,7 +2292,7 @@ async function renderScenePlayer(scene: Scene) {
           insets: { bottom: 0, left: 0, right: 0, top: 0 },
         }}
       >
-        <ScenePlayer scene={scene} />
+        <ScenePlayer learningMode={learningMode} scene={scene} />
       </SafeAreaProvider>,
     );
     await flushPromises();

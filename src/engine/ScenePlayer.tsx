@@ -37,6 +37,7 @@ import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { useSavedAppLanguage, useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
+import { getLearningModeCopy } from '../i18n/learningModeCopy';
 import {
   getTeacherInstructionEn,
   resolveRecordingEncouragementPrompt,
@@ -47,6 +48,7 @@ import {
 } from '../i18n/teacherPrompts';
 import type { TeacherPromptMode } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { useReducedMotion } from '../theme/motion';
 import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
@@ -426,6 +428,7 @@ export function ScenePlayer({
   const t = useTranslations(appLanguage);
   const insets = useSafeAreaInsets();
   const responsiveLayout = useResponsiveLayout();
+  const reduceMotion = useReducedMotion();
   const isTabletLandscapeLayout = responsiveLayout.isTabletLandscape;
   const lesson = useMemo(
     () => lessons.find(item => item.id === lessonId),
@@ -474,13 +477,16 @@ export function ScenePlayer({
   const [snappedObjectPositions, setSnappedObjectPositions] = useState<
     Record<EntityId, PercentRect>
   >({});
-  const [sceneRuntimeState, setSceneRuntimeState] =
-    useState<SceneRuntimeState>({});
+  const [sceneRuntimeState, setSceneRuntimeState] = useState<SceneRuntimeState>(
+    {},
+  );
   const sceneRuntimeStateRef = useRef<SceneRuntimeState>({});
   const [autoRecordRequest, setAutoRecordRequest] =
     useState<AutoRecordRequest | null>(null);
-  const [pendingInteractiveSpeechPractice, setPendingInteractiveSpeechPractice] =
-    useState<PendingInteractiveSpeechPractice | null>(null);
+  const [
+    pendingInteractiveSpeechPractice,
+    setPendingInteractiveSpeechPractice,
+  ] = useState<PendingInteractiveSpeechPractice | null>(null);
   const [isSpeechPracticeBusy, setIsSpeechPracticeBusy] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [showSceneEditorControl, setShowSceneEditorControl] = useState(false);
@@ -577,9 +583,7 @@ export function ScenePlayer({
     ) => {
       setTeacherPromptMode(settings.teacherPromptMode ?? 'vi');
       setEnglishAccent(settings.englishAccent ?? DEFAULT_ENGLISH_ACCENT);
-      setIsVoiceRecordingLibraryEnabled(
-        settings.voiceRecordingLibrary.enabled,
-      );
+      setIsVoiceRecordingLibraryEnabled(settings.voiceRecordingLibrary.enabled);
       if (__DEV__) {
         setShowSceneEditorControl(settings.enableSceneEditor || false);
       }
@@ -679,11 +683,7 @@ export function ScenePlayer({
         const imagePromises = imageAssets.map(async asset => {
           try {
             const isReady = await prepareRequiredImage(asset, () => isMounted);
-            if (
-              __DEV__ &&
-              process.env.NODE_ENV !== 'test' &&
-              !isReady
-            ) {
+            if (__DEV__ && process.env.NODE_ENV !== 'test' && !isReady) {
               console.warn(
                 `[ScenePlayer] Required image failed to preload: ${asset}`,
               );
@@ -708,11 +708,7 @@ export function ScenePlayer({
 
           try {
             const isReady = await prepareRemoteAssets(audioAssets);
-            if (
-              __DEV__ &&
-              process.env.NODE_ENV !== 'test' &&
-              !isReady
-            ) {
+            if (__DEV__ && process.env.NODE_ENV !== 'test' && !isReady) {
               console.warn(
                 '[ScenePlayer] Required entry audio failed to prepare:',
                 audioAssets.map(asset => asset.cacheKey),
@@ -1186,6 +1182,7 @@ export function ScenePlayer({
     .filter((object): object is SceneObject => Boolean(object));
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const totalStepCount = Math.max(1, currentScene.steps.length);
+  const learningModeCopy = getLearningModeCopy(learningMode, t);
   const progressPercent = `${Math.max(
     5,
     (currentStepIndex / totalStepCount) * 100,
@@ -1239,25 +1236,20 @@ export function ScenePlayer({
 
     runAudio(playTapSound());
     const finishGuidanceAudio = beginGuidanceAudio();
-    playAudioForStep(
-      currentScene,
-      currentStep,
-      teacherPromptMode,
-      {
-        onAudioFailure: () => {
-          if (!canBypassMissingAudio) {
-            setRequiredAssetFailure('step');
-          }
-        },
-        ...(isListenStep(currentStep) && isInstructionPlaying
-          ? {
+    playAudioForStep(currentScene, currentStep, teacherPromptMode, {
+      onAudioFailure: () => {
+        if (!canBypassMissingAudio) {
+          setRequiredAssetFailure('step');
+        }
+      },
+      ...(isListenStep(currentStep) && isInstructionPlaying
+        ? {
             onAudioComplete: () =>
               setCompletedListenInstructionKey(currentListenInstructionKey),
-            }
-          : {}),
-        onAudioSettled: finishGuidanceAudio,
-      },
-    );
+          }
+        : {}),
+      onAudioSettled: finishGuidanceAudio,
+    });
 
     const targetIds = canPressObjects(currentStep)
       ? getStepHintObjectIds(currentStep)
@@ -1524,11 +1516,7 @@ export function ScenePlayer({
       const narrationSession = startNarrationSession();
       const finishGuidanceAudio = beginGuidanceAudio();
       runAudio(
-        playInteractionFeedbackAudio(
-          'fail',
-          feedbackPrompt,
-          narrationSession,
-        )
+        playInteractionFeedbackAudio('fail', feedbackPrompt, narrationSession)
           .then(playbackResult => {
             if (
               playbackResult === 'completed' &&
@@ -1974,6 +1962,15 @@ export function ScenePlayer({
           <Text numberOfLines={1} style={styles.lessonTag}>
             {getLocalizedSceneTitle(currentScene, appLanguage)}
           </Text>
+          <Text numberOfLines={1} style={styles.lessonProgressMeta}>
+            {t('scene.stepProgress', {
+              current: currentStepIndex,
+              mode: learningModeCopy.title,
+              sceneCurrent: sceneIndex + 1,
+              sceneTotal: scenes.length,
+              total: totalStepCount,
+            })}
+          </Text>
           <View style={styles.hudProgressTrack}>
             <View
               style={[styles.hudProgressFill, { width: progressPercent }]}
@@ -2103,11 +2100,13 @@ export function ScenePlayer({
                       numberOfLines={2}
                       style={styles.stepInstruction}
                     >
-                      {resolveTeacherInstruction(
-                        currentStep,
-                        teacherPromptMode,
-                        currentScene,
-                      ).displayText}
+                      {
+                        resolveTeacherInstruction(
+                          currentStep,
+                          teacherPromptMode,
+                          currentScene,
+                        ).displayText
+                      }
                     </Text>
                     {currentStepVocabulary ? (
                       <Text
@@ -2234,11 +2233,8 @@ export function ScenePlayer({
       : completeCurrentSceneOnly
       ? t('scene.completion.backToLesson')
       : t('scene.completion.primaryReward');
-    const primaryIcon: import('../assets/icons/skids').SKidsIconName = hasNextScene
-      ? 'next'
-      : completeCurrentSceneOnly
-      ? 'map'
-      : 'sticker';
+    const primaryIcon: import('../assets/icons/skids').SKidsIconName =
+      hasNextScene ? 'next' : completeCurrentSceneOnly ? 'map' : 'sticker';
     const secondaryTitle =
       completion.isFinalScene && !completeCurrentSceneOnly
         ? t('scene.completion.replayScene')
@@ -2376,6 +2372,10 @@ export function ScenePlayer({
           return (
             <SceneObjectRenderer
               key={object.id}
+              animateEntrance={
+                object.initialVisibility === 'hidden' &&
+                sceneRuntimeState[object.id]?.visibility === 'visible'
+              }
               effect={getObjectEffect(
                 object.id,
                 successObjectEffects,
@@ -2413,6 +2413,7 @@ export function ScenePlayer({
               onDragEnd={handleObjectDrop}
               onPress={handleObjectPress}
               shouldMagnify={currentStep.targetObjectIds.length === 1}
+              reduceMotion={reduceMotion}
               stageSize={stageSize}
             />
           );
@@ -2531,10 +2532,8 @@ function getSceneRequiredAudioAssets(
       englishAccent,
     ),
     ...getPromptAudioAssets(
-      resolveRecordingEncouragementPrompt(
-        teacherPromptMode,
-        'tryNextWord',
-      ).segments,
+      resolveRecordingEncouragementPrompt(teacherPromptMode, 'tryNextWord')
+        .segments,
       englishAccent,
     ),
     ...getPromptAudioAssets(
@@ -3391,7 +3390,7 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     gap: spacing.xxs,
     justifyContent: 'center',
-    minHeight: 42,
+    minHeight: 54,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
     ...shadows.soft,
@@ -3400,6 +3399,13 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.caption,
+  },
+  lessonProgressMeta: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '800',
+    lineHeight: 15,
+    textAlign: 'center',
   },
   primaryActionButton: {
     backgroundColor: colors.secondary,
