@@ -1418,7 +1418,7 @@ quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc bi�
   Google TTS, không sửa production manifest, không bundle WAV và không upload R2. Các lesson khác
   vẫn giữ hành vi QA audio chưa publish hiện tại.
 - Production generator `generateMissingAudio.mjs` dùng `GOOGLE_CLOUD_PROJECT`, rồi
-  `GCLOUD_PROJECT`, và mặc định quota/billing project là `fir-rootwords-prod`; token OAuth vẫn lấy
+  `GCLOUD_PROJECT`, và mặc định quota/billing project là `project-264a7ff9-a6b6-41ab-90e`; token OAuth vẫn lấy
   từ account `gcloud` active trừ khi `GOOGLE_TTS_ACCOUNT` chọn account khác.
 - Image URLs có manifest revision query để tránh stale device/CDN image cache.
 - English audio cache identity chứa cả accent và immutable release segment

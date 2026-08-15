@@ -1230,7 +1230,7 @@ function getGoogleAuth() {
   const project =
     process.env.GOOGLE_CLOUD_PROJECT ??
     process.env.GCLOUD_PROJECT ??
-    'fir-rootwords-prod';
+    'project-264a7ff9-a6b6-41ab-90e';
 
   if (project) {
     headers['x-goog-user-project'] = project;

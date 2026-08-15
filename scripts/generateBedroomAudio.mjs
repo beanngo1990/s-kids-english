@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 import { trimWavSilence } from './audioSilence.mjs';
 
-const account = process.env.GOOGLE_TTS_ACCOUNT ?? 'tomtatvui@gmail.com';
-const project = process.env.GOOGLE_CLOUD_PROJECT ?? 'fir-rootwords-prod';
+const account = process.env.GOOGLE_TTS_ACCOUNT ?? 'uocbietsomtv@gmail.com';
+const project = process.env.GOOGLE_CLOUD_PROJECT ?? 'project-264a7ff9-a6b6-41ab-90e';
 const endpoint = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 

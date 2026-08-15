@@ -142,7 +142,7 @@ gcloud auth print-access-token
 ```
 
 OAuth requests use `GOOGLE_CLOUD_PROJECT`, then `GCLOUD_PROJECT`, and default
-to the quota/billing project `fir-rootwords-prod`. The active `gcloud` account
+to the quota/billing project `project-264a7ff9-a6b6-41ab-90e`. The active `gcloud` account
 provides the token unless `GOOGLE_TTS_ACCOUNT` selects a different account.
 
 Optional filters:
