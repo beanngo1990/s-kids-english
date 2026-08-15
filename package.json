@@ -41,6 +41,7 @@
     "generate:audio:dry-run": "node scripts/generateMissingAudio.mjs --dry-run",
     "trim:audio": "node scripts/trimGeneratedAudio.mjs",
     "r2:clear": "node scripts/r2/clearR2.mjs",
+    "r2:prune-wav": "node scripts/r2/pruneOrphanWav.mjs",
     "r2:verify": "node scripts/r2/verifyR2.mjs",
     "upload:r2": "node scripts/uploadToR2.mjs --apply",
     "upload:r2:dry-run": "node scripts/uploadToR2.mjs --dry-run",
