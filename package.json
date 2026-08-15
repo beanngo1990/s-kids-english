@@ -26,6 +26,8 @@
     "assets:verify-play-with-the-puppy-cutouts": "node scripts/assets/verifyPlayWithThePuppyCutouts.mjs",
     "assets:cut-find-the-kitten-production": "node scripts/assets/cutFindTheKittenProductionSheets.mjs",
     "assets:verify-find-the-kitten-cutouts": "node scripts/assets/verifyFindTheKittenCutouts.mjs",
+    "assets:cut-clean-muddy-paws-production": "node scripts/assets/cutCleanMuddyPawsProductionSheets.mjs",
+    "assets:verify-clean-muddy-paws-cutouts": "node scripts/assets/verifyCleanMuddyPawsCutouts.mjs",
     "assets:optimize-ui-art": "node scripts/assets/optimizeUiArt.mjs",
     "assets:optimize-ui-audio": "node scripts/optimizeUiAudio.mjs",
     "assets:optimize-ui-icons": "node scripts/assets/optimizeUiIcons.mjs",

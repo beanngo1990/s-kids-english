@@ -11,6 +11,7 @@ import { bedtimeLesson } from './lessons/bedtime';
 import { beachDayLesson } from './lessons/beachDay';
 import { birthdayPartyLesson } from './lessons/birthdayParty';
 import { calmMyselfLesson } from './lessons/calmMyself';
+import { cleanMuddyPawsLesson } from './lessons/cleanMuddyPaws';
 import { doctorVisitLesson } from './lessons/doctorVisit';
 import { dressMyselfLesson } from './lessons/dressMyself';
 import { familyDinnerLesson } from './lessons/familyDinner';
@@ -74,6 +75,7 @@ const lessonCatalog: Lesson[] = [
   feedThePuppyLesson,
   playWithThePuppyLesson,
   findTheKittenLesson,
+  cleanMuddyPawsLesson,
 ];
 
 assertValidLessons(lessonCatalog);
@@ -91,6 +93,7 @@ export {
   beachDayLesson,
   birthdayPartyLesson,
   calmMyselfLesson,
+  cleanMuddyPawsLesson,
   doctorVisitLesson,
   dressMyselfLesson,
   familyDinnerLesson,

@@ -160,6 +160,7 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'feed-the-puppy',
     'play-with-the-puppy',
     'find-the-kitten',
+    'clean-muddy-paws',
   ]);
 });
 

@@ -20645,6 +20645,2902 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 44685,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_practice_success_e33d4752.mp3",
+      "sha256": "bc9f937e1e226debf269e3b846ee4fef5041a402f18ae5081c76370431f6ee88",
+      "text": "All done. The puppy is clean and ready to play.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_teach_fail_7f415ad5.mp3",
+      "sha256": "0900d3d4f3ce5983ccf159a75d6ca701a44ceb36a7d6396795bb225f17a9d6af",
+      "text": "Look for the two thumbs-up hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_teach_success_d6302f1e.mp3",
+      "sha256": "322457eb0e2855acc0720e7baad28c77682ffd180d81fe591c2a93c923fe4f38",
+      "text": "All done means everything is finished.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done.mp3",
+      "sha256": "d98d88de036f67b54e5011f3272b35ff7a7a36fa7b3a7ab0f68aedce2f4b8d41",
+      "text": "all done",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 66861,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/completion_2d4277f9.mp3",
+      "sha256": "daebe4b44326c39a948ce3c5243b8ebb7aa05e35c14cf452bc2deddb453d4cf9",
+      "text": "The puppy paws are clean and dry, and you remembered to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_practice_success_e86ba1ff.mp3",
+      "sha256": "d845d61baa08d600c5176af515d164b669a65347b0db16b230958f8d6a282527",
+      "text": "Both paws are clean and dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_teach_fail_25bf1190.mp3",
+      "sha256": "44a8ae8dc2b3d721e3a6099ae8b24b3d202cf99bb3919d6620044eeeb9c0ec0f",
+      "text": "Look for the white paw with sparkles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_teach_success_2b47e747.mp3",
+      "sha256": "0e5ea1370ef1f65430b21af2898efc26d4b49b752f4f2fc22758a6ff1190f5f3",
+      "text": "Dry means not wet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_practice_fail_e37c82eb.mp3",
+      "sha256": "0ce6530225ac7e50a1dcbdeb4feccd65f287ebe342d71a8e91f0011c21598d3d",
+      "text": "Look for the puppy with dry paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_practice_success_5102420f.mp3",
+      "sha256": "8a5a4f25bc8490b748c94f9e30bce7c3442f2d1f6e70c02ad1a1ccec669614c8",
+      "text": "Both paws are completely dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_teach_fail_69ebf970.mp3",
+      "sha256": "e7ee02ea946546f7e68194c58c4d31754fa45ab54ef08ce729fee4b4c3750ea9",
+      "text": "Look for the two paws inside the towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_teach_success_4091108c.mp3",
+      "sha256": "206621beaed6076f0fe61d305a0ca9f6f93cbdb1a1416f343dcf4354dcc9eda6",
+      "text": "Dry the paws means remove water from the paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19629,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws.mp3",
+      "sha256": "ccd014f8593c801f1312677ff671a66d138859b85615083b65394336e6d37cf6",
+      "text": "dry the paws",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry.mp3",
+      "sha256": "230f8475347e8fa19924d5c2649466e034cd78bc64463bb78cc2ff188eb2e1c5",
+      "text": "dry",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/happy_practice_success_71586e9e.mp3",
+      "sha256": "9ef23972afe027e3867efb9fce0013beb8795bad876d2c638e950fe41d8a4099",
+      "text": "The puppy is happy with its clean dry paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/intro_success_b752d14d.mp3",
+      "sha256": "aa240cebcd137849b44baa7a5bc3b5f784a855fc8d0d5626b4a33523e81804f7",
+      "text": "The puppy is waiting calmly beside the towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25965,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_practice_success_c0a06907.mp3",
+      "sha256": "34ee8171ca8bfb3a9160fccab46995d1e372b42ac91b8d5141bf9f5aeec69a84",
+      "text": "The last drops are dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_teach_fail_fe7bb549.mp3",
+      "sha256": "8837f171c8ad3ae8660ff447b3e346ac712a4472805ed9fecf5e3d1d3083ae45",
+      "text": "Look for the hand and yellow towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_teach_success_f3337c64.mp3",
+      "sha256": "48822d1500f7cfa44736c2f2234f2b56388ebb5337935e895de0433ac9ed9153",
+      "text": "Pat means press gently again and again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat.mp3",
+      "sha256": "f9dc09dd5b3c0a98860c33239191fdcfc9a494a7f7c7067c4f6e7a5cf02a9dce",
+      "text": "pat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_all_done_practice_7fd3cc23.mp3",
+      "sha256": "43053822989fbbd3ebb0d36b5b83ed3f1a9ab499c1e476d93939455c95266660",
+      "text": "Tap the puppy so it steps off the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_all_done_teach_060e34bc.mp3",
+      "sha256": "8ce0f0301866c37db08263d27fd6d690c42553a38f24f10f0c261f4fc8702848",
+      "text": "Tap the thumbs saying all done.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_practice_f288df83.mp3",
+      "sha256": "1fd74bff7c81a05854b6f186e8a82f2d4867f3d89af033947e7ab471123ba6ce",
+      "text": "Tap the puppy to see both dry paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_teach_b722ae00.mp3",
+      "sha256": "6740a867d435c1280a25a346ff0a06007acc70000cba8e7306b8677ca6dd38e1",
+      "text": "Tap the clean dry paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_the_paws_practice_81ce7d1d.mp3",
+      "sha256": "2a8d227c5d8cc863c282df76caaeb3ea225648057d78249fc5a9e14435e0b8fb",
+      "text": "Tap the puppy to check that its paws are dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_the_paws_teach_4316d022.mp3",
+      "sha256": "616f7c1baf80e5d48bae63353ff97bdf0c5369c429b92da49391ab16881151eb",
+      "text": "Tap the towel drying both paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
+      "sha256": "427ec2f5154ce9fe1840ba545af669cfcd26b21c836e5cc22300354ed4d6cb4c",
+      "text": "Tap the puppy to celebrate its clean paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56493,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_intro_429dde8b.mp3",
+      "sha256": "9c2a6689c70e62e22b08c7435444e3ee8861f12e86c7c953932bffe5b7d498bc",
+      "text": "The puppy paws are clean but still wet. Let’s dry them.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_pat_practice_438fcb35.mp3",
+      "sha256": "84101ffb540fd7f47c5e2ea85fcccd3128383a1cc68a1b1615c71db20e74aafb",
+      "text": "Tap the puppy to pat away the last drops.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_pat_teach_ebca8123.mp3",
+      "sha256": "0bda847a575a9fcac997e534d0a142fd60755a18cd259e2f60fe09d2e05b1072",
+      "text": "Tap the hand patting the puppy paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
+      "sha256": "4e85a279dab41a3b5f914fbe2e9c58d4541224a9a1a9fba001ef13636a0167af",
+      "text": "Tap the towel to use its soft side.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
+      "sha256": "f6a2cc960e72d26003da3af08672f78b03babc7d008c047b03229cd338f6a8b7",
+      "text": "Tap the soft part of the towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_towel_practice_fc1eeb82.mp3",
+      "sha256": "32c00c826153bb8893c0823a3f047ae1c7725b9db7c0aff4fc2b45e16255f81e",
+      "text": "Tap the puppy to bring the towel near its paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20781,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_towel_teach_2880b0d5.mp3",
+      "sha256": "52e9bd7bcbc9c6da4ad80ab7ddaf01a7b128f564b0df78dbbd4bd58043ee3fd8",
+      "text": "Tap the yellow towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_hands_practice_3284092e.mp3",
+      "sha256": "7408af16111ae933f5e9ca52f1331ce5694b3e5ea5b3a36073f1a3eadc89f20d",
+      "text": "Tap the handwashing picture to finish.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_hands_teach_0db4d81d.mp3",
+      "sha256": "c70665f2140a2f9fb9d61f71c42992f410743743bab3acb8462b7b5257e69a11",
+      "text": "Tap the hands under running water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wipe_practice_c9f071f9.mp3",
+      "sha256": "4f096a582aa615c2e090be6712252bb21eea9c47a6110fb2df9db58f90bdb919",
+      "text": "Tap the puppy to wipe its wet paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wipe_teach_2fa6d70e.mp3",
+      "sha256": "95f870a43094f259b8a67a750a8a22106cb1bb009f30fc085aeeeab50e72acf3",
+      "text": "Tap the towel wiping the wet paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23949,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_fail_f7fc7c06.mp3",
+      "sha256": "0223884cd28e97e0efbdde703f094056884c04ce8c438a83908c86ea2bac02f2",
+      "text": "Look for the yellow towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_success_043448a2.mp3",
+      "sha256": "5d73f4947634a0f7d5aade4fdfb7e850cfd74cf4b965192ba1bcc407c76671fa",
+      "text": "The soft towel dries the paws gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
+      "sha256": "b165273cee3c7855b6bd27981f35674fb8579dde8cc72960c72b93b269ffa9dd",
+      "text": "Look for the fluffy yellow towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_success_e2c64965.mp3",
+      "sha256": "8ee27aa57233e62a4dc5e16dd7aab42c8175876e022696e21d568f4df5764e33",
+      "text": "Soft means gentle to touch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_practice_fail_75692a18.mp3",
+      "sha256": "f0918a51d0da83e40c7100d8606bf49dffe23f0682506aeab5a39aef4a41ccee",
+      "text": "Look for the puppy with wet paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_practice_success_bfc0de9c.mp3",
+      "sha256": "d961bf048bb0c0e853ce8292ecf4390677cfbe458c0f0cd3df5a6c3b7f56858d",
+      "text": "The towel is ready to dry the paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_teach_fail_e792f4bd.mp3",
+      "sha256": "9855f699e6f602381680132720506229ae3b151681b77ae4e47a2039f5f23aa7",
+      "text": "Look for the folded towel on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_teach_success_e0dc15a6.mp3",
+      "sha256": "4ca22dd840e15e3bfe1be5e7784e64a84eb6a23a28660340b537fdef77625086",
+      "text": "This is a towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_practice_fail_381426e1.mp3",
+      "sha256": "450cc824f224408143beb406d3e0c290ca8a69973646649d4c030a741f33b17e",
+      "text": "Look for the hands under running water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_practice_success_8abc66af.mp3",
+      "sha256": "3a09789616c1a197ac7b6e58a8e62c94186c0bc5549c0df297e191bb81450ced",
+      "text": "You remembered to wash your hands after helping the puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_teach_fail_0e61fd90.mp3",
+      "sha256": "d43bf6c187f61ccb18f5ea35508cd0f339ec7cc0b29d20c78c399a9c9ef2a47e",
+      "text": "Look for the hands with soap bubbles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_teach_success_243b9318.mp3",
+      "sha256": "206e9a70b479c36aefc4c72a39598a529b4c04e2f06a7eddc4bf9c308c19287a",
+      "text": "Wash hands means clean your hands with soap and water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands.mp3",
+      "sha256": "9598db36fb927d1e3d7c659fd6f9548e2d7001acc6e65c30cbc1abc94a5ab9ca",
+      "text": "wash hands",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_practice_fail_bb51c9ed.mp3",
+      "sha256": "01e9285ee275b9a80702d10fe8c9d3f0439e06b3612603fa8ba2dcd31f3dcf36",
+      "text": "Look for the puppy having its paws wiped.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_practice_success_f08e2211.mp3",
+      "sha256": "b6d8583038ca65ddde9e411e14ac0c5f7b8762d3730aa597a169e0a936b258dc",
+      "text": "An adult is gently wiping away the water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_teach_fail_474b2b4b.mp3",
+      "sha256": "19ee23c9e399e30c764cab6acd6669e88457fbc1415f905dd7c41fc221acaec2",
+      "text": "Look for the hand holding the yellow towel.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 58221,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_teach_success_42567962.mp3",
+      "sha256": "3407134ab651f6a65146a5c05334ad010c1f711821ee545897a2bf6e1d7fda09",
+      "text": "Wipe means move a cloth over something to clean or dry it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe.mp3",
+      "sha256": "9d2427eedecef6aa880aba0a7ad06968d43b6ce7a1c03a1f208b44de3bd07528",
+      "text": "wipe",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_practice_success_e33d4752.mp3",
+      "sha256": "d571994f6e5039069d15b4a18f1eac01cfaa58d42ecb1e4650f1057b4e19ae8b",
+      "text": "All done. The puppy is clean and ready to play.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_teach_fail_7f415ad5.mp3",
+      "sha256": "1cbd8f95f6a1f07d704446b6f7363a5b750b00dec2cbc7e81b4abb9edfc23b7b",
+      "text": "Look for the two thumbs-up hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_teach_success_d6302f1e.mp3",
+      "sha256": "664bb124cdb3df5c56038ba83743ffffb00b496af2d49b39666746df5069e929",
+      "text": "All done means everything is finished.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 12141,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done.mp3",
+      "sha256": "b3c3680a11d84f54a6f772436027d68f984254b3465f7df2d0633d61ed649862",
+      "text": "all done",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 61965,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/completion_2d4277f9.mp3",
+      "sha256": "b0f57122e823815b48c484c6c627c1da1e00a640e6408ce0dc64571c93f4511a",
+      "text": "The puppy paws are clean and dry, and you remembered to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_practice_success_e86ba1ff.mp3",
+      "sha256": "cd96772338dc5494bc45175632e6b3d4364c1922d9afa78b94b78c487baa13a6",
+      "text": "Both paws are clean and dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_teach_fail_25bf1190.mp3",
+      "sha256": "7ad932d235e9a71e1e989e80003c6637efad8231616ed1a5f96a581d9c116f07",
+      "text": "Look for the white paw with sparkles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_teach_success_2b47e747.mp3",
+      "sha256": "863028632579156e564d1701275eaf4830d96c8fc8f728483d535b3e00a4c12c",
+      "text": "Dry means not wet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_practice_fail_e37c82eb.mp3",
+      "sha256": "e80b248676fff90357c5ed14bfca6f3415f5378e37912b1fdc82b88eb4defb27",
+      "text": "Look for the puppy with dry paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_practice_success_5102420f.mp3",
+      "sha256": "d783faf6cfb37b0f990e60e585f3bbe5212ccbd1996b1fb250341ca6845beb53",
+      "text": "Both paws are completely dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_teach_fail_69ebf970.mp3",
+      "sha256": "66c8d1e50b42acab09d62b3d6692aabd011cb327d2e4040e03ebf543b7b023b8",
+      "text": "Look for the two paws inside the towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_teach_success_4091108c.mp3",
+      "sha256": "c4023f10b49de36f8cd5e4587a9ab346565bd36f74c9b99d68a07ed922c97df4",
+      "text": "Dry the paws means remove water from the paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws.mp3",
+      "sha256": "2ce6a2caf128d4c9407bfb5f0c33e2caf4d172ce4a7b67002abb013e7dee34a4",
+      "text": "dry the paws",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry.mp3",
+      "sha256": "ca7a9dcf6aa5580e3e001df6fb816aac1cfc916df7b64346ed6fd2e32b122346",
+      "text": "dry",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/happy_practice_success_71586e9e.mp3",
+      "sha256": "1a3c2d1358dc7380fa563c17e893d6745d8e67096eadea6248bf701221e32989",
+      "text": "The puppy is happy with its clean dry paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/intro_success_b752d14d.mp3",
+      "sha256": "10def842fab7c5488b92cc73e3e1f3e3ac958ac824bc52d4384253aeeb4e1570",
+      "text": "The puppy is waiting calmly beside the towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_practice_success_c0a06907.mp3",
+      "sha256": "551ba69afd368bdff78c26c39095b80ff64c930b93b1a87a0e1b59f505b189f2",
+      "text": "The last drops are dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_teach_fail_fe7bb549.mp3",
+      "sha256": "527cc7f985e1c79bf3ed98ceacb3e45575300cec14a4a64650a936f11e09e373",
+      "text": "Look for the hand and yellow towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_teach_success_f3337c64.mp3",
+      "sha256": "76eea7d27270e1b8ea3ee7e811a25db4f697661a68e0998bd0401c69d4701872",
+      "text": "Pat means press gently again and again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat.mp3",
+      "sha256": "2680902beb1fbc3706f2d26a588adca17c809527ba8df1f867aa270773ff39f2",
+      "text": "pat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_all_done_practice_7fd3cc23.mp3",
+      "sha256": "36c3f33e4d7bbc382ca13901a57d7af096e58f9253cdd4f6372212b599308f78",
+      "text": "Tap the puppy so it steps off the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_all_done_teach_060e34bc.mp3",
+      "sha256": "4fce4605431543ce32c0481135dc0fc193d95088b033d8a3039e87e8b4e670cb",
+      "text": "Tap the thumbs saying all done.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_practice_f288df83.mp3",
+      "sha256": "5df096231d24439172584469b03fa939c693e396a228e91db9817e6c67f818c0",
+      "text": "Tap the puppy to see both dry paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_teach_b722ae00.mp3",
+      "sha256": "046e931d546093aca87c5a53550141ec5449c653e48d430f1ae5520661f74dd7",
+      "text": "Tap the clean dry paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_the_paws_practice_81ce7d1d.mp3",
+      "sha256": "8e101d66378b514fc4c3f95441630facbbcddf7c101e23c8617b4327277f95e2",
+      "text": "Tap the puppy to check that its paws are dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_the_paws_teach_4316d022.mp3",
+      "sha256": "9a92b66ea14e40d941f4c97ad95c2e472f3512c1f0017fe6f7dfcc57d4e6d86e",
+      "text": "Tap the towel drying both paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
+      "sha256": "c026ca7f46b2ba8e392514160ffc4bfbfcb7bda1576d8ac20b3694c634e73dc2",
+      "text": "Tap the puppy to celebrate its clean paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51021,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_intro_429dde8b.mp3",
+      "sha256": "2b0fa9d92723927ec824c49638ef58b66f9bdaac155f10e130aca9456ef0901b",
+      "text": "The puppy paws are clean but still wet. Let’s dry them.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_pat_practice_438fcb35.mp3",
+      "sha256": "6b317056b3dc6b8db3c28ce24beb1ec0b223455f83f588f28b78f8f0be15d697",
+      "text": "Tap the puppy to pat away the last drops.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_pat_teach_ebca8123.mp3",
+      "sha256": "1699f36ef93968d2343780f3bd3ae807aa97d399633d10853e12daa7806fac08",
+      "text": "Tap the hand patting the puppy paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
+      "sha256": "d00959f185e82124917e2f018fa9618d1b0534620a4160a345e09b6c479a4990",
+      "text": "Tap the towel to use its soft side.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
+      "sha256": "af18b1bcdeaefbfcb45484dc005f98e1f02e1fd49ab917256a1457277cc708b6",
+      "text": "Tap the soft part of the towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_towel_practice_fc1eeb82.mp3",
+      "sha256": "87f81e6442243ecdb0ab1092a0051ff2eb78f52ab65e834618192e1fcd42c77f",
+      "text": "Tap the puppy to bring the towel near its paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19629,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_towel_teach_2880b0d5.mp3",
+      "sha256": "ab44b9a8391356b7ecc2c40f75866fab965377ca9cc9beb50d3f4b1659f5a6c6",
+      "text": "Tap the yellow towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wash_hands_practice_3284092e.mp3",
+      "sha256": "2601997d7c7ddfafdac021e1a00648435c4a32b75e7fb134238cd2913558257e",
+      "text": "Tap the handwashing picture to finish.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wash_hands_teach_0db4d81d.mp3",
+      "sha256": "b449935aa244aeff8fafebbc9192a573c692988ba394f0a9da94c00caba9e14f",
+      "text": "Tap the hands under running water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wipe_practice_c9f071f9.mp3",
+      "sha256": "76daae878f5bd3cc1b100293fbc604edb3ceff7284ece4e98f7e0e1553f800a8",
+      "text": "Tap the puppy to wipe its wet paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wipe_teach_2fa6d70e.mp3",
+      "sha256": "1d37a024eea4722f3eca529248cda24fff14c6cbfb2fd7e7cf673f1c04868873",
+      "text": "Tap the towel wiping the wet paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_fail_f7fc7c06.mp3",
+      "sha256": "97e0ff79c162a15e59a2bd14d2c4ef56170263e12db07f4a8f1a15c4538f1536",
+      "text": "Look for the yellow towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_success_043448a2.mp3",
+      "sha256": "4a892571087e4d922fcbdf327abefbe52142888168f9f92bbe5d8dc11d74529f",
+      "text": "The soft towel dries the paws gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
+      "sha256": "d051931fc6335bd3a6852caef88f6a41d55f9489ec07c6fdff1ea4c497b1f4cf",
+      "text": "Look for the fluffy yellow towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_success_e2c64965.mp3",
+      "sha256": "7428d259c81f11a2acf6735bba40a9824320dc0cbd3bf11e25caa75dc91306cb",
+      "text": "Soft means gentle to touch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_practice_fail_75692a18.mp3",
+      "sha256": "12e5410620c6c4eacb3248adfceb9e3404d1d589bbdc524a814011839d057353",
+      "text": "Look for the puppy with wet paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_practice_success_bfc0de9c.mp3",
+      "sha256": "78acae90ebe845d7d7d7e956653fab2f82f39e8d5600cc46ed8799946d586b76",
+      "text": "The towel is ready to dry the paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_teach_fail_e792f4bd.mp3",
+      "sha256": "f880ef8fb2071187c399e6e7606358cea44f7924d592417385002681255a9c81",
+      "text": "Look for the folded towel on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_teach_success_e0dc15a6.mp3",
+      "sha256": "1d870b848fddc32a5c39e46ecc9b40194c4e28b3d7a2d313945a5894ce6dcc4e",
+      "text": "This is a towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_practice_fail_381426e1.mp3",
+      "sha256": "a191ff6fd59419b5c53065d5ba145db94d7597fe754bd389d0e70c650f2195e4",
+      "text": "Look for the hands under running water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_practice_success_8abc66af.mp3",
+      "sha256": "a31d5fe013a6885d7b4af30bf98084cbc4ca052af48859535a734796bc007885",
+      "text": "You remembered to wash your hands after helping the puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_teach_fail_0e61fd90.mp3",
+      "sha256": "d26ff6e7fe62afa4ab7329772a47dd7ffb85ce57e1e4482bb7ca45f8aa905876",
+      "text": "Look for the hands with soap bubbles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46413,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_teach_success_243b9318.mp3",
+      "sha256": "137c4cf50db331bdd9614cfddc74e21ece97a4738b75e89e0f7c3710cc0f487b",
+      "text": "Wash hands means clean your hands with soap and water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands.mp3",
+      "sha256": "1df84774637718e979bbb2e015dd09285879cb4428829b830c6c42efb649b14a",
+      "text": "wash hands",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_practice_fail_bb51c9ed.mp3",
+      "sha256": "dc755d6b1d16472cdbd34b92d5165a9fa1dfc63008d927d75a2d1d54e5ea51cc",
+      "text": "Look for the puppy having its paws wiped.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_practice_success_f08e2211.mp3",
+      "sha256": "6f105247435fb3cbb00126e3ba90019748eb60e748b89ba5a0c48ea42551be1e",
+      "text": "An adult is gently wiping away the water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_teach_fail_474b2b4b.mp3",
+      "sha256": "d6663dcf44d169b024ac50f8a8a408160921182c48044b7ad227eafbdeefc628",
+      "text": "Look for the hand holding the yellow towel.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55341,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_teach_success_42567962.mp3",
+      "sha256": "f7dd0c7498364ff2286f4ce173117b2f18c8ec4d3fc5aa9fbd5c2a7474d32b63",
+      "text": "Wipe means move a cloth over something to clean or dry it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9549,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe.mp3",
+      "sha256": "06851645d46e59c38d823f0ed9fe286ffd3580da9dbef26e2b3b4eab11569769",
+      "text": "wipe",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_practice_fail_08beec69.mp3",
+      "sha256": "c14e0970e8f0b34083ce7a2256583c2fa78e558d249e23a1b6363dea970d6db1",
+      "text": "Look for the adult hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_practice_success_c6790ab6.mp3",
+      "sha256": "dc848b4463d3c69955255f2031d6d33db049e95ec54d1f2636e8ee56e48880fd",
+      "text": "An adult is ready to help wash the puppy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_teach_fail_b06ca6ef.mp3",
+      "sha256": "f7dbbd39f4cd5104dfd92f590de5ca76e42dabebca3c3b6110c9c3390120caf4",
+      "text": "Look for the hand beside the puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_teach_success_0ebe506d.mp3",
+      "sha256": "8a063928f7d04f8f8bec442031e3ad84f0e6db8b9f5517dcd1f10900a53ee8e8",
+      "text": "Ask an adult means get help from a grown-up.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47277,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/completion_1b701f3e.mp3",
+      "sha256": "daa8c51de221ee58346ef16dd486a91669e3c2d3670eb1f3c5c17575c4c3853e",
+      "text": "The puppy waited for an adult to help wash its paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_practice_fail_39a6791a.mp3",
+      "sha256": "7212b6c284a0e9a86db58bc4809b9d5a826944dd63ff09f15212e016853ba520",
+      "text": "Look for the puppy with dirty paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33165,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_practice_success_0927372f.mp3",
+      "sha256": "dd04500eda7ab479107e5307206fe36c3007668c04d613363006cc6745405dad",
+      "text": "The puppy waits on the mat for help.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_teach_fail_a5f7f955.mp3",
+      "sha256": "6af0e2c65a9be4cde80722216123e928bdf25d0005c45534a78f378112d694f3",
+      "text": "Look for the paw covered with mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26541,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_teach_success_6ddf813c.mp3",
+      "sha256": "cbd96a2b1a20ef8f252e508ca3022fda6fcb94c1413fe62d6232be8b4bdcc567",
+      "text": "Dirty means not clean.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11853,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty.mp3",
+      "sha256": "53ed579f662110c9696c83e29fdf6d83a0c4c1a81d01592d90141b598dcc9668",
+      "text": "dirty",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27405,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_practice_fail_7b4d149b.mp3",
+      "sha256": "1b51f90ae818a0eea4757b803f4550b2da09bda393119bf4f13e794a22995268",
+      "text": "Look for the green doormat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_practice_success_b9ee4ce8.mp3",
+      "sha256": "2d022538a4ef6d41e769ab1e76ba8bbc0d11144ac961d7104bf1b0554606269e",
+      "text": "The puppy will wait on the doormat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_teach_fail_01279ffe.mp3",
+      "sha256": "d32822c7baf6eef18bea81d78f453ce5bc7dad0e1b731ab064e331d6b48cfc21",
+      "text": "Look for the oval green mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19341,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_teach_success_fffd998f.mp3",
+      "sha256": "bf6c4f06a66d2dc726d48bf196fb9824fc4ad3ccb595e33e23adc1e368c1d272",
+      "text": "This is a doormat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13581,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat.mp3",
+      "sha256": "dca1565923602b4a790ff6ecd081be19f81e912a2d83e938ba2ecdf9b1c3fdc0",
+      "text": "doormat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/intro_success_602602e2.mp3",
+      "sha256": "09cd3396c6c3471f75d88a9bcceee501c14ac160b07454639e0d612b156e60e0",
+      "text": "The puppy is waiting on the mat for help.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28845,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_practice_fail_0f29e971.mp3",
+      "sha256": "2e253cc92b0ce116b29acde17a20d2080b608b591a131460934f29263ee782d9",
+      "text": "Look for the brown mud puddle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_practice_success_eb0df85c.mp3",
+      "sha256": "8b0c1f5403270d09a690673c5ae61fa78ffdb8f0d701459963d0ea2469ca135f",
+      "text": "The mud left small pawprints.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_teach_fail_a3a9d295.mp3",
+      "sha256": "3f1bb19b68a0ab5a681b1ac87103aa10d0e0b28d268c264804c93ca883aa29e0",
+      "text": "Look for the brown puddle on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15309,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_teach_success_072d66c7.mp3",
+      "sha256": "9855c7119def8b7a33933207db4c9541bc52400b5ab1a523ab73c5eb02546c01",
+      "text": "This is mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 9549,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud.mp3",
+      "sha256": "d02ae73cd25d5328a4a6b7388810109b0715b5df6fa7cbdd3c4d33da3d8b18e4",
+      "text": "mud",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_practice_success_5c0c269e.mp3",
+      "sha256": "600a90b12983d74df2d1408f4bcc5c83a6d5e62255bb5e63e926ff1b4b32adb9",
+      "text": "Right, the puppy needs its paws washed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_teach_fail_a08e5676.mp3",
+      "sha256": "0e7cc10fb98d0ab081999e136ffe8e56944f6b9757be99a9efd45ec6d5aae27e",
+      "text": "Look for the two paws covered in brown mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_teach_success_b6cf22f0.mp3",
+      "sha256": "1d78e6647fe657cdbbca506745809c525f69154ddd9de3b8048affee8c69f9bf",
+      "text": "Muddy paws are paws covered with mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws.mp3",
+      "sha256": "9a40d986bcfba15f176d9207164a777b079ff0bf8c275710c03f0770f5697ea8",
+      "text": "muddy paws",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_practice_fail_956a23f2.mp3",
+      "sha256": "e7e41c182cc6cdfc8fa02da8a4728e67c81cb856ae0dd03e48daa55a2957cee4",
+      "text": "Look for the muddy pawprints.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_practice_success_81ab54a2.mp3",
+      "sha256": "98dbbbaa3432ea85b8704514e8067658f697697067f7da3e70265f41dd78e278",
+      "text": "The pawprints lead to the waiting puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_teach_fail_8d8bd79e.mp3",
+      "sha256": "3924349ed6556e0815e508e6dc07fb977562eae976034fdc17956cd94563fbc0",
+      "text": "Look for the row of brown pawprints.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26541,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_teach_success_24b37f45.mp3",
+      "sha256": "46f104a43ced1c4b4550625d628e33867c415ad4b87c12f4f0a2b392a4ee003f",
+      "text": "These are muddy pawprints.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints.mp3",
+      "sha256": "408a5ab9a301da8c6a2bd7f3040e55c7e4eed610d288be3b2d3e2c68188f8023",
+      "text": "pawprints",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27405,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_practice_fail_a2b2b285.mp3",
+      "sha256": "516f2443387b16e7fbc571b73c96df0ab698d885a675993c518af82e908dc731",
+      "text": "Look for the puppy on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_practice_success_af1e13b6.mp3",
+      "sha256": "0964a222e3e587c8943eee4f99929f5b011d0e7d68c8661c7097b790c77ffe7c",
+      "text": "The puppy paws have mud on them.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_teach_fail_f7af04fe.mp3",
+      "sha256": "009fe36cdfe69414baf704fad5d42913af8b185e461be2998f80879a633f8491",
+      "text": "Look for the two paws with pink pads.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26253,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_teach_success_7aef3f93.mp3",
+      "sha256": "3eda1b2162bd6017981634f6568dce0019f09073a4abf684e86fa7a8cf7510fb",
+      "text": "These are the puppy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws.mp3",
+      "sha256": "f175b0163e7de37f1751e8a6a298154b1176cd5f4723f8aba70fa406a0cb07e0",
+      "text": "paws",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_ask_an_adult_practice_aaa70bb1.mp3",
+      "sha256": "91fecdbd4ce528e153d51f5e424a6e8d3aa6fae8c00d9084af291d755043ca2b",
+      "text": "Tap the adult hand to start helping the puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_ask_an_adult_teach_e9a9426c.mp3",
+      "sha256": "e88dd9da177287aecb0b8ce1354eda002087e6befa0d85eb28c5dcb1c49dfe92",
+      "text": "Tap the adult hand offering help.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_dirty_practice_7c77ba1b.mp3",
+      "sha256": "ca9fa9dbf4edb9beefd481ac3774aa9ca385314285e2284eb4284b6236fda024",
+      "text": "Tap the puppy so it waits.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27981,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_dirty_teach_0bea93a5.mp3",
+      "sha256": "29ff4bb9dabebbc48b60637ef8ace8ff6131ce4a7a0dcd8701fded50eb7e4d58",
+      "text": "Tap the dirty muddy paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_doormat_practice_1c3d6fa2.mp3",
+      "sha256": "b3b57a7e6e90addaf673bdb24a7955899ae463955ae7833c696d137b8dc30d01",
+      "text": "Tap the doormat to keep the mud in one place.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23661,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_doormat_teach_45573540.mp3",
+      "sha256": "aebf0bdc60c83511400932ddfc0ac5f8cb6df887194db75fae78640c82705bdf",
+      "text": "Tap the green doormat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54477,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_intro_15a0a5df.mp3",
+      "sha256": "49cad10ad352ccc77708d22c8826ac125c6e4292509df8eb022f49aff1977b8c",
+      "text": "The puppy walked through mud. Look at your friend’s paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_mud_practice_c2a06514.mp3",
+      "sha256": "feb733ad1dd35b68aa159d70cd228d1fc3ba72bbdad84cd26871c5ee1543c15a",
+      "text": "Tap the mud to find the pawprints.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_mud_teach_599a4a5c.mp3",
+      "sha256": "c15d4aec88a4352cad6c474607b75b2237151822b593c6cab930c0bd853c9116",
+      "text": "Tap the brown mud puddle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_muddy_paws_practice_0b9c414a.mp3",
+      "sha256": "fc797c57a801f77970cafa4e90739e14bb84c5aecd8c9a75f73e766cd0bb4284",
+      "text": "Tap the puppy with muddy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23085,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_muddy_paws_teach_80ee2a79.mp3",
+      "sha256": "a7712f7bee1ffa01456c1dddea95abff562939cb570569152226b5d30520cc12",
+      "text": "Tap the muddy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_pawprints_practice_099410ab.mp3",
+      "sha256": "733c2fbae6308a5de9f66e96c4b71f27330d3d6a2386c8ae86245d27b8a471be",
+      "text": "Tap the pawprints and look toward the puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_pawprints_teach_51c1d904.mp3",
+      "sha256": "736a7a8c7c60c0f83d104566a7971fde2bcb8571ce7373cb8f74965a9d00c41f",
+      "text": "Tap the small pawprints on the floor.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_paws_practice_8a90740a.mp3",
+      "sha256": "61c2edca1e9bacfe52acaf3df90f2e278f185840738551ae0c27d0e3b2e2bf70",
+      "text": "Tap the puppy and look at its paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23373,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_paws_teach_492e50d7.mp3",
+      "sha256": "2a9dad1aeb358cb40ec8b65e43146d926966b8313b7f50f2c06d9096457e6046",
+      "text": "Tap the puppy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_stop_here_practice_d2318d96.mp3",
+      "sha256": "36e1e356da72693b61f72dfc500e3f42d7ebaec20cf631e7e9e63cd75cfe1adf",
+      "text": "Tap the hand so the puppy keeps waiting.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_stop_here_teach_b3c60e23.mp3",
+      "sha256": "1c9c62e620f22ec6854503ef23a5bb171ed461e5177f624760b10155924692ae",
+      "text": "Tap the hand saying stop here.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_wait_practice_acfb0124.mp3",
+      "sha256": "0dd67114c2af124a3bb1ef9ec8c10ac00cae5c4aa0bc18e2495efc2f6d8c80d5",
+      "text": "Tap the puppy so it waits for an adult.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_wait_teach_00f50fa7.mp3",
+      "sha256": "cb8f28b4d347a8cd5f1fa5230c8d061fbc28ed4414cb346c5b995f3b35924f99",
+      "text": "Tap the puppy waiting on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24525,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_practice_fail_5dd4948d.mp3",
+      "sha256": "ceadeb2a6b981e3f315647b267dc0f55445a3b02cc2f05ff461692efc045d131",
+      "text": "Look for the stop hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_practice_success_008d93a2.mp3",
+      "sha256": "e0babe58e5be37d38ab1aeca5214f38c406efa5be971fa32ad7bb5b007549bab",
+      "text": "The puppy stops on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_teach_fail_0d7c7113.mp3",
+      "sha256": "ec5f84784a0cb1f8b9b77d83b67508df4471b31f91dc518ab7bbf4b9c2ff3755",
+      "text": "Look for the open palm.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_teach_success_18b142d6.mp3",
+      "sha256": "9ae5d7e8e9f88fc7dc97c199dd9b05e5d79d9fa4bf64ac5b4868c905949abf09",
+      "text": "Stop here means do not move past this place.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13293,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here.mp3",
+      "sha256": "578ea1d42e5d2840016761bda14681d6c4e942b6de46402ee130f7bae73c0651",
+      "text": "stop here",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_practice_fail_3f58fbfb.mp3",
+      "sha256": "41887a6d96ae9fa2e972aa1ab194c002677ad113d04b6f501111e3758693bd1d",
+      "text": "Look for the sitting puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_teach_fail_4df8243a.mp3",
+      "sha256": "99979224c66b0fe6ad9e93c303cffeb461018e494037da9ac5aea3b8884f7747",
+      "text": "Look for the puppy sitting still on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_teach_success_dcac2d59.mp3",
+      "sha256": "8cbfd6fe5601161b6dc20873f6a2230a8dc8d4eed8592a369f1ad89d2ca99b6e",
+      "text": "Wait means stay until it is time to move.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22797,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_practice_fail_08beec69.mp3",
+      "sha256": "04c465157af4ed371e26cc89518ad786843e2bf6b84d5942217ddc76e6acf71e",
+      "text": "Look for the adult hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_practice_success_c6790ab6.mp3",
+      "sha256": "977c6269041290aa54994fd10c5679ac1c36b3b9b151bc532aee58de1cef73be",
+      "text": "An adult is ready to help wash the puppy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_teach_fail_b06ca6ef.mp3",
+      "sha256": "6c9e2801b6763b572bbd5e515614cede2e5db3067611d0496f16ceae8770fd7d",
+      "text": "Look for the hand beside the puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_teach_success_0ebe506d.mp3",
+      "sha256": "12edc79c73b7f9cfc4ea8cec0b2535016098041aeac570e3b86469ff1b5fe70a",
+      "text": "Ask an adult means get help from a grown-up.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/completion_1b701f3e.mp3",
+      "sha256": "32daa1978b457cd4b3afe38945f9ab8657118c4cbba510b5c5ebbbf3906d0c69",
+      "text": "The puppy waited for an adult to help wash its paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_practice_fail_39a6791a.mp3",
+      "sha256": "4fc2f3575c6e0388815ab812ad338718b2e8d6458fb607300db9dea0cd3041c8",
+      "text": "Look for the puppy with dirty paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_practice_success_0927372f.mp3",
+      "sha256": "100f9fb0ac3a80365e82ce4f0e0f36883ed1ecf5bf7a8e5b4a041d00df58a154",
+      "text": "The puppy waits on the mat for help.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_teach_fail_a5f7f955.mp3",
+      "sha256": "40011313ac6926a600d7154c2dcbec207564f0c7c3d77e239a6fc5ba80a660ef",
+      "text": "Look for the paw covered with mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24237,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_teach_success_6ddf813c.mp3",
+      "sha256": "e1bfbaf2902a5d9e3682db61b22ac540f5da3c521fcda851c0e9cea60e5b7b75",
+      "text": "Dirty means not clean.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty.mp3",
+      "sha256": "e25eca03d13ffe7e5d233c4874af4362677a21f6d12d027cef0fc455c809944c",
+      "text": "dirty",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_practice_fail_7b4d149b.mp3",
+      "sha256": "855a86e2efc0444ceedb0408e3198c827ba67c8de9b43343674e2f2b4cad210e",
+      "text": "Look for the green doormat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_practice_success_b9ee4ce8.mp3",
+      "sha256": "03c779d0f8b1af5d980abe8dce733918a73fb17ee42ba296e2607691c24c1d81",
+      "text": "The puppy will wait on the doormat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_teach_fail_01279ffe.mp3",
+      "sha256": "803e4d162e92efaeb392d7da297e4fa86c728fe3807ad3ea5105ff794b9dd479",
+      "text": "Look for the oval green mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 18189,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_teach_success_fffd998f.mp3",
+      "sha256": "36049a52bb10f97db09961a8c372404cc28ef73ab49ea7e03095bdbf83442004",
+      "text": "This is a doormat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 12141,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat.mp3",
+      "sha256": "2082820d60ee1ac923be882c47d753713da914f68dd0361aaeaca3301bb9b739",
+      "text": "doormat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/intro_success_602602e2.mp3",
+      "sha256": "58832e6392a339b81d6552d316678d7b6e880073fa4e7d0641bbf2b766f8f74a",
+      "text": "The puppy is waiting on the mat for help.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_practice_fail_0f29e971.mp3",
+      "sha256": "b3785227a7b30445f0e51048433874a46a632b2d5124ff405fd270b9d9e725a1",
+      "text": "Look for the brown mud puddle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_practice_success_eb0df85c.mp3",
+      "sha256": "feb689b0e16bf97fd6232cdcdd046e42ba69f239160d762f5a9a34dc3254a89b",
+      "text": "The mud left small pawprints.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_teach_fail_a3a9d295.mp3",
+      "sha256": "01b421c744fadaa29bef8714166c35c0e2fc2b0774190d22fe2a070f072c8df0",
+      "text": "Look for the brown puddle on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14157,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_teach_success_072d66c7.mp3",
+      "sha256": "4ade6829c7987d0ae069e421d180c0ae0d292e74813267b0edfdfb5e50384c4a",
+      "text": "This is mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8685,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud.mp3",
+      "sha256": "88abe0cb9ab07b7a2abae12a6dc649a50c07042c0387f1f56d9bc1a919d8241f",
+      "text": "mud",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_practice_success_5c0c269e.mp3",
+      "sha256": "759f69c0ad10dbc5031d46be60238583d4762248f0e9dd7877110c4d76e5644a",
+      "text": "Right, the puppy needs its paws washed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_teach_fail_a08e5676.mp3",
+      "sha256": "dea8e656fea1e8eba3883383d782d91a3a4cb781ae82f5490421a8ff7866b3be",
+      "text": "Look for the two paws covered in brown mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_teach_success_b6cf22f0.mp3",
+      "sha256": "250367304ef44bd42ee8b59f198e4aae1854cb00831b3694b804ec080f4c89a1",
+      "text": "Muddy paws are paws covered with mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws.mp3",
+      "sha256": "eb64cbbc6715de504076b37ff4d67766bd6d7d4214c0e2f6509bab1f72be36ce",
+      "text": "muddy paws",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_practice_fail_956a23f2.mp3",
+      "sha256": "43e55f9fecc411e962bfb459d30bd4f169c22e15b9e1d43e0f45b6cb9da7c9f5",
+      "text": "Look for the muddy pawprints.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_practice_success_81ab54a2.mp3",
+      "sha256": "a13a53a4278a6a560ff421370a883a9e6dcd9d4b02b04e0e98bc6cd8c4948462",
+      "text": "The pawprints lead to the waiting puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_teach_fail_8d8bd79e.mp3",
+      "sha256": "d39c7e0f6dbbb6b96c07b475469cc305ba53764c3b50522120b60568de6cf551",
+      "text": "Look for the row of brown pawprints.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_teach_success_24b37f45.mp3",
+      "sha256": "753641bf393f6aedc6e17885981448d717aba0053b71e8959e6ac81cc9cb9415",
+      "text": "These are muddy pawprints.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints.mp3",
+      "sha256": "fb21d8bd1af841c79c4a6c105549bf3742a7583a4b43ae7c9f4b064afe0a4847",
+      "text": "pawprints",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_practice_fail_a2b2b285.mp3",
+      "sha256": "58cb127b7a213cab6f71a8c39bbb647b8d335eff33f6521f7f726199a5345f3a",
+      "text": "Look for the puppy on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_practice_success_af1e13b6.mp3",
+      "sha256": "20df17d7ff98df5c71cd5f189024d304aab79fc5193edf7a210d14bf5c2b8d96",
+      "text": "The puppy paws have mud on them.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_teach_fail_f7af04fe.mp3",
+      "sha256": "2c565bf78f06f96d61e252822aef61380516c6d76878ef3f430fc52c1f5593e5",
+      "text": "Look for the two paws with pink pads.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23949,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_teach_success_7aef3f93.mp3",
+      "sha256": "f7ba302f9b8b1aad11a785c55f6c8a81114bbabd4810a085726f5200899c5ad9",
+      "text": "These are the puppy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws.mp3",
+      "sha256": "402a26816c92dac6966e10b2ade22f514e8c20319ff821b7dbd257790a7486f2",
+      "text": "paws",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_ask_an_adult_practice_aaa70bb1.mp3",
+      "sha256": "584119df13a6667b7dea404e6443c6e4be89099b8a0508ea4e60e26d771bde77",
+      "text": "Tap the adult hand to start helping the puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_ask_an_adult_teach_e9a9426c.mp3",
+      "sha256": "3a5768ea23df3f597c67e45e43c03336bce0badac5c1939d873371cedd176746",
+      "text": "Tap the adult hand offering help.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_dirty_practice_7c77ba1b.mp3",
+      "sha256": "28800baccfa759d39e0d564257282153ee6b7f2cfe033c058e4f79211586cf02",
+      "text": "Tap the puppy so it waits.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_dirty_teach_0bea93a5.mp3",
+      "sha256": "8a06cdec29b547b4439f82664a94e562d8a1a80b5f4eb7715be5446e03d9a5ed",
+      "text": "Tap the dirty muddy paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_doormat_practice_1c3d6fa2.mp3",
+      "sha256": "24205be8e95899bbcf4e3162b224c49ecd33ba2eea29013624df9e35acddcdf4",
+      "text": "Tap the doormat to keep the mud in one place.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_doormat_teach_45573540.mp3",
+      "sha256": "1b089feefe36d17bcfa3110080fa4b932a32ca39803e5a66a10ed4d79796d13e",
+      "text": "Tap the green doormat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 47565,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_intro_15a0a5df.mp3",
+      "sha256": "98c14608e5b423989ab24c5cc5acfedb977e55ec61a556ec0f994e9fd0e264b0",
+      "text": "The puppy walked through mud. Look at your friend’s paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_mud_practice_c2a06514.mp3",
+      "sha256": "b54de252d5fc362e378ae3e6fc96c8d2d5224fe4df968c17651356b9827fc77f",
+      "text": "Tap the mud to find the pawprints.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_mud_teach_599a4a5c.mp3",
+      "sha256": "2e95a1aceec6c3a394e0061ad5c6dfbfdd9930b30e56b99a69921afd1aa87a61",
+      "text": "Tap the brown mud puddle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_muddy_paws_practice_0b9c414a.mp3",
+      "sha256": "57f1424873ceb8383dc7eb7ced8655224627a3ef1421914adfd46f8b28d61657",
+      "text": "Tap the puppy with muddy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20781,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_muddy_paws_teach_80ee2a79.mp3",
+      "sha256": "982689c50ae0745f49a1be68de1052589ccf577a09245fdf14f91643e4820f5b",
+      "text": "Tap the muddy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_pawprints_practice_099410ab.mp3",
+      "sha256": "440f9fcddd82d8c4c29fb992d6f05bfec55229135bfe268ca06e2d557b9e97a8",
+      "text": "Tap the pawprints and look toward the puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_pawprints_teach_51c1d904.mp3",
+      "sha256": "35c962e2ff6b63e375c87750c4ebf4a5d7e52e3a38094b1bdcead806dacdbfd8",
+      "text": "Tap the small pawprints on the floor.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_paws_practice_8a90740a.mp3",
+      "sha256": "eb879ff1aa5385fc57f6e49da90b282df763aaa5ded84b9350fe47565079ae26",
+      "text": "Tap the puppy and look at its paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_paws_teach_492e50d7.mp3",
+      "sha256": "a15e0b590a12ad2c0a0b58d51c6d8a89489d2753106898e7d95cf2f99199c105",
+      "text": "Tap the puppy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_stop_here_practice_d2318d96.mp3",
+      "sha256": "37940c96e70f99da8b8a1cac060379b135914bca49c83d420734d42ba0c5c8d9",
+      "text": "Tap the hand so the puppy keeps waiting.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_stop_here_teach_b3c60e23.mp3",
+      "sha256": "0ba2fae697d4eeec9e9f843b59335510f4295dd88cc294b357ada26af9449695",
+      "text": "Tap the hand saying stop here.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_wait_practice_acfb0124.mp3",
+      "sha256": "481cedea8699f6c608c0d2b2241c9f155ad730e59a27ce8d9b7d5f58e01222e1",
+      "text": "Tap the puppy so it waits for an adult.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_wait_teach_00f50fa7.mp3",
+      "sha256": "c695eb1a55ea9c7c25da946ff0ccbad8ecf7f8eca9caeab9a0ac400ea46ca38e",
+      "text": "Tap the puppy waiting on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21357,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_practice_fail_5dd4948d.mp3",
+      "sha256": "52a21359546d6f56e9f6d9270c0732d0b12d419f0f3066fc10d71cf7c2c7da3c",
+      "text": "Look for the stop hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_practice_success_008d93a2.mp3",
+      "sha256": "f1293590b2f61be0a70822ae6e0b8c8f0bb0d610e298ac4cbb434b0ced59c82e",
+      "text": "The puppy stops on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21933,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_teach_fail_0d7c7113.mp3",
+      "sha256": "8ce8a9075eb3dec74eebd71204f481e1ed2c4a1fe4e51b35b02513379fcf704d",
+      "text": "Look for the open palm.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_teach_success_18b142d6.mp3",
+      "sha256": "8a805dc9ea153de78cdfef6c7fe95809b39af09e71f6a66043d0189b997701b3",
+      "text": "Stop here means do not move past this place.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here.mp3",
+      "sha256": "04a9ba4f85b467a9054379a4c05752ad02ae155e83fd6871651ee3c728c1e374",
+      "text": "stop here",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_practice_fail_3f58fbfb.mp3",
+      "sha256": "8c903c7d35ad933b8134ae1c2dd7ae7a1f5f113adc728ecb298ece407f8ae1fc",
+      "text": "Look for the sitting puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_teach_fail_4df8243a.mp3",
+      "sha256": "71c6caf3c7ced685716de1a2f2fd7916656335f344a63e207d0d681a7241a7d1",
+      "text": "Look for the puppy sitting still on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_teach_success_dcac2d59.mp3",
+      "sha256": "e459319366d3059c3c2e88e08826a5525144e21e949527ae770e3679863a4450",
+      "text": "Wait means stay until it is time to move.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_practice_success_dd7b2ba4.mp3",
+      "sha256": "c866ef4d338c5fe87a8181c39d100b44b4dce27f00ddea771a93a842a9ee4805",
+      "text": "The water changed color because of the mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_teach_fail_28a9f39e.mp3",
+      "sha256": "e65f7a384ae436f99a99ffa0bc4cdaca239cfba6e47ace76f8f3c9e08efc47a0",
+      "text": "Look for the blue basin on the floor.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18189,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_teach_success_420af2dd.mp3",
+      "sha256": "9acdaee011abfc55f966d2350e8fac9fcbb29041206bd220486ac30d32cffe3f",
+      "text": "This is a basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin.mp3",
+      "sha256": "854d270a997386c7c384ac3e49750679dfd2eeb34547f007e989eebc80732026",
+      "text": "basin",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_practice_fail_0483332c.mp3",
+      "sha256": "a8179b2099308a4828c045b834af02cd944fea4c51d47f45884b32cdc2f85dcf",
+      "text": "Look for the clean puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_practice_success_aa43e340.mp3",
+      "sha256": "bef8a962a5fb0ceba25706ef5c73d1f19619eb22c3ec9fe76033b3959fd78e5c",
+      "text": "There is no mud left on the paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_teach_fail_66eb8899.mp3",
+      "sha256": "f5c20857b893277e1d96565e1939ce21bb57d7ec9cdda8f56e8b949a3156e237",
+      "text": "Look for the two white paws with water drops.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_teach_success_66dc1c2a.mp3",
+      "sha256": "b99ada05a61f75aa227213b1c9efa8711031b6314a5953de3ad24151823bef19",
+      "text": "Check the paws means look closely at the paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws.mp3",
+      "sha256": "9c1d254da4284577317b3376ed65f72916cfa2dcde06929baaa4d34ce19a3714",
+      "text": "check the paws",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_practice_fail_ca6d11bc.mp3",
+      "sha256": "858d52c26bbd294f104ced905aebf9d025f8338445d7edb2a0c1385cab73d67b",
+      "text": "Look for the clean paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_practice_success_252477d9.mp3",
+      "sha256": "01c9198ee898100eb281dabfee0353af2650442ccdb900f7ac93212905990eee",
+      "text": "The mud from the paws is now in the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_teach_fail_378dd3b9.mp3",
+      "sha256": "c7b917d0c3922b1501078df338ec3c682b0b31da41c159a0f30032af61b24a69",
+      "text": "Look for the two white paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_teach_success_bb4266eb.mp3",
+      "sha256": "f5e29968854d480e8f521d63fb87efcf4ef0944e92c1d6448b2737252fb66406",
+      "text": "Clean paws have no dirt or mud on them.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17037,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws.mp3",
+      "sha256": "f9ab18d2deba270cbead280340a75c387952bf62695e5f19c734c8bf92e81dec",
+      "text": "clean paws",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_practice_success_a360dd07.mp3",
+      "sha256": "c701ea9010e6b90323aad76bd53753b454884ae26fd601a3e841cbf1765be2e6",
+      "text": "The mud is gone. Both paws are clean.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_teach_fail_6f2d94b1.mp3",
+      "sha256": "a935433b8e1e01c515188a46aeb1e8f891723fdbbf6e1ec8da61c252e72a1a72",
+      "text": "Look for the white paw with water drops.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_teach_success_4f8ef1e0.mp3",
+      "sha256": "b8546aee2ffbbb38844141b37864b6b8ab1b7c8bbd7582cdf020e607437a66e7",
+      "text": "Clean means the dirt is gone.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean.mp3",
+      "sha256": "ad6580e62639a8c264b664a790c59bde31428e9afbd8a1fa40b108bc5030bc2a",
+      "text": "clean",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/completion_e2eaa929.mp3",
+      "sha256": "e81ce27332062c56a7cb5796cfc385077342cf2fc5de3bdeea8c9eecbed2176e",
+      "text": "The mud is gone and both paws are clean.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_practice_fail_2694da91.mp3",
+      "sha256": "a5cbfd832d1a03b36235e39cecaff3d7be86ff847bf490f3217b0650b8e477a6",
+      "text": "Look for the hands carrying the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_practice_success_2fd896a6.mp3",
+      "sha256": "cec5ea924733ac076e9a317e5b13324b2b7d27bd6e0c82d41cc7eeece672c22a",
+      "text": "An adult safely took the used water away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_teach_fail_b608213d.mp3",
+      "sha256": "5057427136532dc11ff7dc7efab7d6e311d1cc6a56a9e1a82362010ebe7e4689",
+      "text": "Look for the hands holding the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_teach_success_9d7caec5.mp3",
+      "sha256": "8604988c422d3dc2a9d68dbf58c068fcb2d94e293e9fa6fc9de1d58ef7480c07",
+      "text": "Empty the tub means remove the used water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub.mp3",
+      "sha256": "e82d404ac7298006ff2684ae429b5455683a5ab21f62f407e27e2377e5609ceb",
+      "text": "empty the tub",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_practice_fail_4d4897c9.mp3",
+      "sha256": "b9709b2c1724a34eb1b278cfbf9dfe7ae7c7199ae71b976302f36bee1aae62b0",
+      "text": "Look for the puppy with clean paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_practice_success_158f2089.mp3",
+      "sha256": "0420c2e2590609185cc2bcaa2538a8e2d8adf8f9f5c662157485acd97fa88d94",
+      "text": "Washing is finished. Now it is time to dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_teach_fail_d89849aa.mp3",
+      "sha256": "2a4be30c58297268472cd4da8eb4168e34268a79348cae8cab6a94ced69097ad",
+      "text": "Look for the clean puppy beside the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_teach_success_31827b7f.mp3",
+      "sha256": "416f610a03b4d44c09f1e517ca9e0facff76e31fa22eb2ade1284e8b32c197f6",
+      "text": "Finished washing means the washing is complete.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing.mp3",
+      "sha256": "e9559de9b721d68d8dea80d9e3b3968348526dedacd0c319a56febe6048898e3",
+      "text": "finished washing",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/intro_success_a3df0a94.mp3",
+      "sha256": "74a0df4d08f6654b21c452774e037d22cad24c762af23482f06f262d30103ef1",
+      "text": "The puppy is waiting calmly beside the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_practice_fail_6589e736.mp3",
+      "sha256": "d62b490ccae5a9b613a59aaadf4dffeca2657ebf10ce1a41734970c9669fdcbf",
+      "text": "Look for the basin of brown water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_practice_success_ead0fc0b.mp3",
+      "sha256": "082d787eacd92133e1ecf55ab702d50ab03d3690eacaefe38905f6f126f4b2e2",
+      "text": "The muddy water will not be used again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_teach_fail_9ddfe4a1.mp3",
+      "sha256": "22d5f82808fc28493eca3adecdefbf3c35ac6103ec479c6973df4d78fa873bd3",
+      "text": "Look for the basin with brown water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_teach_success_46989712.mp3",
+      "sha256": "6a13510dfc64af08cc5c0866199abc7fe581b1af4ce90a38bc6bf4000f08ef92",
+      "text": "Muddy water is water mixed with mud.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16173,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water.mp3",
+      "sha256": "a2a3f208a854caaefd9f4f0a32fea7a45f0fbce187f8bf5bbd75827ab9e1bd00",
+      "text": "muddy water",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_basin_practice_83fe802f.mp3",
+      "sha256": "01d4f9398fac74b222d54ab8538f8d32b4ae440b43728c7a08062d6c25bb34ec",
+      "text": "Tap the basin to check the water after washing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23661,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_basin_teach_5b30236a.mp3",
+      "sha256": "d7397687af5bc6f7f26e9d9848a579a1ae09af70c4fbc9ebad9dcee96e1aa687",
+      "text": "Tap the small basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_check_the_paws_practice_8c917538.mp3",
+      "sha256": "442b740e37e88e8106c1244363017ed5538c8bfd27591ab0614c27aa9c1a0b17",
+      "text": "Tap the puppy to check that the mud is gone.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_check_the_paws_teach_30d7a6c5.mp3",
+      "sha256": "72f5ae250e99dfd46ee5a7f67ee9448b3be038ebc8cb7bca8de6e913e13c06ab",
+      "text": "Tap the clean paws to check them.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_paws_practice_3c992e6c.mp3",
+      "sha256": "a02155523b30f35c29ef303d5025894868af352d53bc10db5b15708a29bfe817",
+      "text": "Tap the clean paws, then look at the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22797,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_paws_teach_55139ebf.mp3",
+      "sha256": "ae29dc75d157a89a0114c1b155cf270106231b4ec0fef3c97bb0b5831cb45833",
+      "text": "Tap the clean paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_practice_69ce8c6d.mp3",
+      "sha256": "f8099e96b7f3d106de82465d8648596df1e25838cfe507381977fd1a57969c07",
+      "text": "Tap the puppy to see both clean paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26253,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_teach_a90e814f.mp3",
+      "sha256": "303435d44de2a19db2edeefb9ca856af0c7dd05bb28efc4f734e87796461f88c",
+      "text": "Tap the clean wet paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_empty_the_tub_practice_cd467b90.mp3",
+      "sha256": "cdb91e7368cef23acf28407b0095d1eaf536d827ce1d3dc48aac3f673a6ad274",
+      "text": "Tap the picture so an adult takes the basin away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_empty_the_tub_teach_e0eacf34.mp3",
+      "sha256": "d00a8c3868ae84edfdbad7d2202013471fdf1b6d0aa4321147d9c6d79fb884cb",
+      "text": "Tap the adult hands carrying the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_finished_washing_practice_52e613fd.mp3",
+      "sha256": "d6c0284086f6102c2cd49e01d7cd560d8b737bf4c0a2f3c9805796b41fb05417",
+      "text": "Tap the puppy to move on to drying.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
+      "sha256": "9408ea7eb08f5761388bddb2394b607385d96a13248ae64b4f9ce4baa18a5f63",
+      "text": "Tap the puppy that has finished washing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55917,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_intro_f9949bc2.mp3",
+      "sha256": "747dba7b71aa22a24cee95e0c00c347d929352bfc069a757258db84008846667",
+      "text": "An adult prepared a basin. Let’s wash the puppy paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_muddy_water_practice_6ce729ca.mp3",
+      "sha256": "b076184d904138546f2b10d0902f2d53d0ed622181ad80b35b22115c8ec73fad",
+      "text": "Tap the muddy water before an adult takes it away.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_muddy_water_teach_ba7ea11a.mp3",
+      "sha256": "9afaa47f778a2aaeee5821e708a42cbc123cd5712a1d4be3c8b194d560765487",
+      "text": "Tap the basin of muddy water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_practice_8ecc8169.mp3",
+      "sha256": "766be33708106f876662a5651dea6c41a99f7f9d083e75e7fa9048697d91f797",
+      "text": "Tap the puppy so an adult washes its paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_teach_b7ff8796.mp3",
+      "sha256": "7252f212451696d0e9a97f47241f8af3d9222169129f80e68d30867104288dd4",
+      "text": "Tap the hand washing one puppy paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_water_practice_b45476e8.mp3",
+      "sha256": "fdef52798b7df2534c05763478f2b104ca3f28a1981f92dc22fc290c0a690a2b",
+      "text": "Tap the basin so an adult can add water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_water_teach_db43b1de.mp3",
+      "sha256": "fb73b7df12347bd62ebb8504313e78b7c207fb64fc91222546298c0ddaa78ef0",
+      "text": "Tap the pitcher of clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_practice_fail_32458d76.mp3",
+      "sha256": "5e7f2c8d69ccc3cac6b2c21a029594bee019dbbe7a6a41857a953771ed309d1d",
+      "text": "Look for the puppy beside the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_practice_success_837b8ccd.mp3",
+      "sha256": "a1c2096f18b012f21be57665e59bca6983571e3dce7837f9d4f081c36314b01f",
+      "text": "An adult is gently washing each paw.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_teach_fail_27bf5714.mp3",
+      "sha256": "9c4fc204c01888df1093e4d30b0c780abb70d088746a5f6b36e295cd442df6f7",
+      "text": "Look for the hand and paw by the basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_teach_success_9d85a6b8.mp3",
+      "sha256": "3df137c91daf1d1369a4fe4deab7d6cfefe811f1dd767710cd8111191a5be9e4",
+      "text": "Wash means clean with water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10989,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash.mp3",
+      "sha256": "eb983c2ea5938b35b4b27e7ecacd0c9101f7f2bc2241be3b8a8db5e12078522b",
+      "text": "wash",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_practice_fail_a287ebcc.mp3",
+      "sha256": "ec2e10a870f12c41ad5199fa7fd924fc35323e4af32a52cd664369d6bdf5e597",
+      "text": "Look for the blue basin.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_practice_success_0a73f85b.mp3",
+      "sha256": "aff4de3466500ff8102664d567abe3d7a983d0932bc73c34417ec1bc22cb7ff0",
+      "text": "The basin has clean water for washing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32877,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_teach_fail_528bb7d0.mp3",
+      "sha256": "52dadbcbddc2cab80fd278a76ee3711257b594dcf9d5bc780420bdb6f162e2f3",
+      "text": "Look for the clear pitcher on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_teach_success_f6b235db.mp3",
+      "sha256": "6669ad268ea65e126cf5a19cb4ce58c2df665e78e66b83e12bd11cff249d9b86",
+      "text": "This is water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_practice_success_dd7b2ba4.mp3",
+      "sha256": "f3e4325647ac6c17f058a1016afc10b20d7711c2fd9b867b1d59f5c02e170311",
+      "text": "The water changed color because of the mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_teach_fail_28a9f39e.mp3",
+      "sha256": "8fc60ec8433426b3ee1f9fd541b13518e5b96d612114e60ef58067eed563dfa2",
+      "text": "Look for the blue basin on the floor.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17037,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_teach_success_420af2dd.mp3",
+      "sha256": "2fe698bde60e0d018d13e93cf15bff46d70d6fd1140834a427cb96db84a500c1",
+      "text": "This is a basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10989,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin.mp3",
+      "sha256": "73dd245c4482a7ba71a636306b14caa3978acf7399a814fb5863555aabd6c16b",
+      "text": "basin",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_practice_fail_0483332c.mp3",
+      "sha256": "2f4b70f93c058e0a79c92555b591895f986d2f94c5fbf37c7b22d9749926fe37",
+      "text": "Look for the clean puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_practice_success_aa43e340.mp3",
+      "sha256": "bb124c76b22dca5aaafa45cc527abe88d30e6bb6af99eb03602cf3b9af8afa75",
+      "text": "There is no mud left on the paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_teach_fail_66eb8899.mp3",
+      "sha256": "919bd8cf5640e515c0da14270fc541cf71d8c69821710f4f7616335a6ad5ec51",
+      "text": "Look for the two white paws with water drops.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_teach_success_66dc1c2a.mp3",
+      "sha256": "1b8d35f33d2d51c9c890712fceedef762f2c36f7caa85ef4eb3a5490cd70d6bd",
+      "text": "Check the paws means look closely at the paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws.mp3",
+      "sha256": "d7341788a69e0467653372b3507568f197cb184daea5112b69a9c768409295ed",
+      "text": "check the paws",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23661,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_practice_fail_ca6d11bc.mp3",
+      "sha256": "5feef2b3c59300afa54eb86cca9220a0d17e851ce79543680b7f50beb0310ef6",
+      "text": "Look for the clean paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_practice_success_252477d9.mp3",
+      "sha256": "b6d6ca04d770ba07f22887bc293c7c493ef6f77076aa3c96d91f70bd094525ad",
+      "text": "The mud from the paws is now in the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_teach_fail_378dd3b9.mp3",
+      "sha256": "50171d73358785f41c702742b67e4ae27f624503aca25c527f6acc9f67508aaf",
+      "text": "Look for the two white paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_teach_success_bb4266eb.mp3",
+      "sha256": "3bcac8d269ddee1891c8fa0b5ea2cd935b766e703f86cc933e7092ba2ff4fcc6",
+      "text": "Clean paws have no dirt or mud on them.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws.mp3",
+      "sha256": "f70a89a8461f30024eb0567ceed13cbb76f116f049b488e982fdebc361b36f30",
+      "text": "clean paws",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_practice_success_a360dd07.mp3",
+      "sha256": "acd25127974a28ef18adb1aa09be560f0370fca5320252680316e18ed8eeb8ae",
+      "text": "The mud is gone. Both paws are clean.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_teach_fail_6f2d94b1.mp3",
+      "sha256": "b4d2674b2796ecd865f7c71a077eff50ee637393a16ed00d0c11b8eb5a4e4edb",
+      "text": "Look for the white paw with water drops.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_teach_success_4f8ef1e0.mp3",
+      "sha256": "b239b23f753d7fbe40e6819c89935916e4fbd2e6a88ffc81f210fd7e553c6282",
+      "text": "Clean means the dirt is gone.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean.mp3",
+      "sha256": "5bc6c59eccd55f3d0aaf139255bf47eaa3325261fcfd2ba1aca82bc3deabca9e",
+      "text": "clean",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/completion_e2eaa929.mp3",
+      "sha256": "0f546d6cd3571c7ab87c3b26adf431ca67c0be148cdd5d9403323e823544e090",
+      "text": "The mud is gone and both paws are clean.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_practice_fail_2694da91.mp3",
+      "sha256": "246cc8b370a2dd0a562836132f79b97d465a0accabd966c16b48379e10e02a37",
+      "text": "Look for the hands carrying the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_practice_success_2fd896a6.mp3",
+      "sha256": "76f3c715106fb2b7e0c989c684f191a3de78f5af2f4ceb1718de81ee5e949d45",
+      "text": "An adult safely took the used water away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_teach_fail_b608213d.mp3",
+      "sha256": "460bda91cd09e0631cdef53738f0ff0fecfb4126b1b03df99bb298c447b6a28e",
+      "text": "Look for the hands holding the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_teach_success_9d7caec5.mp3",
+      "sha256": "6f28839b5c1dc9b972beba6d6514655745253dede955eab820417409d0f9226a",
+      "text": "Empty the tub means remove the used water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub.mp3",
+      "sha256": "12d9dba025ec083d804eb429b1500f83ba59d803ee01ac6eadca028b1cd7db9d",
+      "text": "empty the tub",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_practice_fail_4d4897c9.mp3",
+      "sha256": "2a2e035c123338fed2741da529833883763363013997a476912f363210201a15",
+      "text": "Look for the puppy with clean paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_practice_success_158f2089.mp3",
+      "sha256": "ce7795a9ebc64dc62b8f119cea8a81ab26b1b6856e09bca86ed0cc4395fc3eab",
+      "text": "Washing is finished. Now it is time to dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_teach_fail_d89849aa.mp3",
+      "sha256": "8a6d80ab91082b1b6ae4c47e53b69abfe351d0c95bf5f6c97be75b40f7a2f29a",
+      "text": "Look for the clean puppy beside the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_teach_success_31827b7f.mp3",
+      "sha256": "73d055825532f95a9a4ce72be71d82872c3422ddbb46b5df7184aab70b9e215d",
+      "text": "Finished washing means the washing is complete.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16749,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing.mp3",
+      "sha256": "bfcd95b696a54c6d7046e94f50a3f357e7fbc343f4a63cfe19b872fa16b5d9a8",
+      "text": "finished washing",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/intro_success_a3df0a94.mp3",
+      "sha256": "522f99c5fa7c442d6e2a63551cfc59c6a1c9e76df3b06fcee24cd2c84c48bb6e",
+      "text": "The puppy is waiting calmly beside the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_practice_fail_6589e736.mp3",
+      "sha256": "117d94f63386781b16537eaf51bbcb5ee05f76f0eee4c07394d75d057ba4b4eb",
+      "text": "Look for the basin of brown water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_practice_success_ead0fc0b.mp3",
+      "sha256": "67375f6738dee07fe13e3d691d8ce948ef4aa9aaa55bc5ce24cfa471073e5444",
+      "text": "The muddy water will not be used again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_teach_fail_9ddfe4a1.mp3",
+      "sha256": "365c172bef9c39f068cada72f4f459096dca1149fad9c6412a16234d500d5423",
+      "text": "Look for the basin with brown water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_teach_success_46989712.mp3",
+      "sha256": "abfe761072f051d3d83272436293af184d8bcc06ba98ac07d57ddde46a4c10f4",
+      "text": "Muddy water is water mixed with mud.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14445,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water.mp3",
+      "sha256": "e67827cbc06cdb53e346ffdf567d362dfccff1aeaeda361e8468baaab784bc04",
+      "text": "muddy water",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_basin_practice_83fe802f.mp3",
+      "sha256": "e3d91ae410a0c82fbbc3fc1f2587927b3f267d719bc892fd4aad3be01db75846",
+      "text": "Tap the basin to check the water after washing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_basin_teach_5b30236a.mp3",
+      "sha256": "97df5da18fc28784da1700b1a01e5fe0f3a12f123806ff062435c2b53a909cad",
+      "text": "Tap the small basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_check_the_paws_practice_8c917538.mp3",
+      "sha256": "efe47298922e3de21b1906ef8bf0449b132cfe161e0ae77fe4654f054ade294b",
+      "text": "Tap the puppy to check that the mud is gone.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_check_the_paws_teach_30d7a6c5.mp3",
+      "sha256": "d4f5584874ea3fd8ca539b669ca30d9e4582c6c9665af401a725be4355aa885a",
+      "text": "Tap the clean paws to check them.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_paws_practice_3c992e6c.mp3",
+      "sha256": "de7c7c5b27eea1f1f001ab1b1ea02fc4a520d8f3c737fb3a051c6d7bafe28437",
+      "text": "Tap the clean paws, then look at the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_paws_teach_55139ebf.mp3",
+      "sha256": "193aa6ca267d8bfcd20818940c8514a9dc35cc1f79d9bf4915caba2bb30190d9",
+      "text": "Tap the clean paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_practice_69ce8c6d.mp3",
+      "sha256": "91a01f4401cd439044d794d821db54e61991ce8c04c423fb1bf25b66789e297b",
+      "text": "Tap the puppy to see both clean paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_teach_a90e814f.mp3",
+      "sha256": "b17b30582cc94a7823dcd1b1336e117b4b9dc4b079e5dec3080f08f760f7ecb1",
+      "text": "Tap the clean wet paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43533,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_empty_the_tub_practice_cd467b90.mp3",
+      "sha256": "5d4d3e3a0968d54b79b9a56095814fb2b59f0589316d7304501c2082ebc957ce",
+      "text": "Tap the picture so an adult takes the basin away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_empty_the_tub_teach_e0eacf34.mp3",
+      "sha256": "1515df05f511fed2892cbccfa28f5847ae04ebdb8f8cbcbc7d579a70a96b89f1",
+      "text": "Tap the adult hands carrying the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_finished_washing_practice_52e613fd.mp3",
+      "sha256": "d9a4b759081fb36457b01a8fc8132ad1749a9cf04ddc6d77518330b7a5c3dd95",
+      "text": "Tap the puppy to move on to drying.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
+      "sha256": "6a4b35c4c5e0f4f0009ffd6b99f7efd400e03094a76f59c88b581fef3aeecebd",
+      "text": "Tap the puppy that has finished washing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51885,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_intro_f9949bc2.mp3",
+      "sha256": "b48d23283dfa0493900533587a6c97954bd15575f9e6e9ac857ff1f9964b5e21",
+      "text": "An adult prepared a basin. Let’s wash the puppy paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_muddy_water_practice_6ce729ca.mp3",
+      "sha256": "3b5506224c5c74d91bfdd010159dc61618868ae7f370d9d906eb45091559d09c",
+      "text": "Tap the muddy water before an adult takes it away.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_muddy_water_teach_ba7ea11a.mp3",
+      "sha256": "da4c48a8e1463abb211c8e3cc3349b145fc01653d8fa26dcad91e85f15ec1609",
+      "text": "Tap the basin of muddy water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_wash_practice_8ecc8169.mp3",
+      "sha256": "a624b87641c5e38cab03e81099c003daf69fefe9e8a02f00ad7c5e015f7e7f6d",
+      "text": "Tap the puppy so an adult washes its paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_wash_teach_b7ff8796.mp3",
+      "sha256": "15343a6317d2ce48f121cf618ce25eff09b4e83256f1f35389fa23995daab535",
+      "text": "Tap the hand washing one puppy paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_water_practice_b45476e8.mp3",
+      "sha256": "9930aa73224a06857bbc22089462ab73a854ce75faec5069a78c0ff45c8e7bc1",
+      "text": "Tap the basin so an adult can add water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_water_teach_db43b1de.mp3",
+      "sha256": "436fd75fa3800b2ffeb1107e1a01f3a8a0ca5fe3fcee6ca870da485593b45a71",
+      "text": "Tap the pitcher of clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_practice_fail_32458d76.mp3",
+      "sha256": "6303bd4b0a2e6806749956448c28f9ef1d6360671c05f76ffd24c1ec0b674b73",
+      "text": "Look for the puppy beside the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_practice_success_837b8ccd.mp3",
+      "sha256": "6911f8552dd8a142a2fb823f2bea22b5e54f583a4e0988b70b60fb692b807405",
+      "text": "An adult is gently washing each paw.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_teach_fail_27bf5714.mp3",
+      "sha256": "2b6487ddd8a08e9a1337109bb7c3d1cf173d524b4c63305c627df2d85110a7dd",
+      "text": "Look for the hand and paw by the basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_teach_success_9d85a6b8.mp3",
+      "sha256": "f0502d2d885551fd79d1755b3cc0ba6f1b3bfbe5551944b2e906f229c01c517b",
+      "text": "Wash means clean with water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash.mp3",
+      "sha256": "3181cc77ac5e3ff4788fc459c547c768ac123d0cdfc4e78f880ce55bde21fb9d",
+      "text": "wash",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_practice_fail_a287ebcc.mp3",
+      "sha256": "07cddd6b83aaecf6d2d3ac6c0e783cfa821aed4a817c8a712f297188351ef2e4",
+      "text": "Look for the blue basin.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_practice_success_0a73f85b.mp3",
+      "sha256": "d7a7b3f666c7216411dc853a53f4d1471f8da235bce3535fc9720e1460ffd4e3",
+      "text": "The basin has clean water for washing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_teach_fail_528bb7d0.mp3",
+      "sha256": "3be53ccfa7cba63d4eb55faab4a4957c2f8c943864ffbe034bec2ab35090de1f",
+      "text": "Look for the clear pitcher on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14733,
+      "key": "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_teach_success_f6b235db.mp3",
+      "sha256": "81690a08b90c4ff49e97042da06bbf9e61fd30efe1923f3e35f045b7f88a48ff",
+      "text": "This is water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 11277,
       "key": "lessons/doctor-visit/clinic-room/audio/en-GB/neural2-c-r1/clinic.mp3",
       "sha256": "e280176762d1861b25eab0ec6883d475c8a840e7a729e56366be95bb8d58251f",

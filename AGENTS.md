@@ -90,13 +90,13 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `__tests__/`: Jest tests.
 
 Catalog hiện có năm themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
-`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`, `nhung-nguoi-ban-dong-vat`) và 35 lesson
+`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`, `nhung-nguoi-ban-dong-vat`) và 36 lesson
 packs, theo thứ tự khai báo trong
 `src/data/themes.ts` và `src/data/lessons.ts`. Theme 4 runtime hiện đăng ký `plant-a-seed`,
 `help-it-grow`, `garden-friends`, `harvest-day` và `garden-to-table`; content architecture nằm trong
-`docs/theme-4-content-draft.md`. Theme 5 hiện đăng ký `feed-the-puppy`, `play-with-the-puppy` và
-`find-the-kitten`; architecture cùng storyboard nằm trong `docs/theme-5-content-draft.md` và các
-file `docs/theme-5-*-storyboard.md` tương ứng.
+`docs/theme-4-content-draft.md`. Theme 5 hiện đăng ký `feed-the-puppy`, `play-with-the-puppy`,
+`find-the-kitten` và `clean-muddy-paws`; architecture cùng storyboard nằm trong
+`docs/theme-5-content-draft.md` và các file `docs/theme-5-*-storyboard.md` tương ứng.
 
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 

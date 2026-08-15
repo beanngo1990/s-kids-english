@@ -6237,6 +6237,857 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/all-done.webp",
+      "outputBytes": 31848,
+      "outputSha256": "fc69c1ad648091df3864c74ec9da8110ca9d06a402790cd6cbcac38d466cf67d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/all-done.png",
+      "sourceBytes": 534782,
+      "sourceSha256": "7730c8aa7884803a42a1eb96ad6e4e47053e2fa837a2a6453bd498e6ddadc711",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/dry-both-paws.webp",
+      "outputBytes": 51374,
+      "outputSha256": "351d53c97469b88a7a2f0e5736d9b36260e4a97821805be238e748089b25dad1",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/dry-both-paws.png",
+      "sourceBytes": 1271160,
+      "sourceSha256": "a2678f639c739a221c4ff28b3a15c33cd2e13de73caa0c9ed733518d48e4d3e1",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/dry-paw.webp",
+      "outputBytes": 36498,
+      "outputSha256": "7ee1c192612a600bc5cb3473d5a85e1661ff38ce7a2c6852fcd7482acc8b54e8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/dry-paw.png",
+      "sourceBytes": 861880,
+      "sourceSha256": "727c3c871e80ca1ab244e577d44648c5803fec094d4401aded862133bfbd6ebb",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/pat-paw.webp",
+      "outputBytes": 54192,
+      "outputSha256": "eb1b8242629695fedb997833758c1da86751ca9394e56d2a0c03c21e4e4e0089",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/pat-paw.png",
+      "sourceBytes": 1285559,
+      "sourceSha256": "05da8c62c448be24c0486ce200b3eb7c9a2a8d493ded8e9cc345c17bc9696b5b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 37,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-all-done.webp",
+      "outputBytes": 63970,
+      "outputSha256": "fe85189fc7a2ba70283ec78ebf88a542eee90d534a06d238e2d5c4ba19aed9c9",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-all-done.png",
+      "sourceBytes": 1057241,
+      "sourceSha256": "82cea6d2a745eee7f19414f24a77b4a547c016958e9d03e0df268718ef6c2333",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-clean-wet.webp",
+      "outputBytes": 81578,
+      "outputSha256": "86be099ff7c67a503facbdea36d48654451147c10fdb4d01eecac9edb7606aff",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-clean-wet.png",
+      "sourceBytes": 1168134,
+      "sourceSha256": "0c30d518081538858acd068b2b0c52e4eaa6bd234d7c26c4782187d4fcb20b4d",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-dry.webp",
+      "outputBytes": 66470,
+      "outputSha256": "6161c15dce54fa9e4bcbfe24a3456ba8b98b159e01bf2b18dcebecfd9e080060",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-dry.png",
+      "sourceBytes": 1111137,
+      "sourceSha256": "15e951b31a5ed842b26fa1080966f2cd4af55ee8f85026554b243f8a1e66ac26",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-drying.webp",
+      "outputBytes": 80976,
+      "outputSha256": "5573cf3233eae37ff2f2f30f907033e07e8e83f0cdbd61c2849a1c2590f7c1bc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/puppy-drying.png",
+      "sourceBytes": 1261767,
+      "sourceSha256": "40fb1ded8cf87061236e620dd1ed724611739813fd44d8c2df349eff982a4402",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/soft-towel.webp",
+      "outputBytes": 44640,
+      "outputSha256": "f440c20930632fdbf3f1dff5dc36df0f505dc1d1e0db406b83a93605e7d6227e",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/soft-towel.png",
+      "sourceBytes": 939307,
+      "sourceSha256": "1823551f89ea435e5d75f00c5c482254d209224fe96f1064e0827505b4bd2e3a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/towel.webp",
+      "outputBytes": 44796,
+      "outputSha256": "98e4c8f254445d19262a44d06dc49cc501d54f4061857954f3364fe3e81a6169",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/towel.png",
+      "sourceBytes": 911883,
+      "sourceSha256": "20dd4e3237f7be24bf91c211adebe0f5d4d9207cfda5d8dd99a4449507b6cb4c",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/wash-hands.webp",
+      "outputBytes": 38234,
+      "outputSha256": "5b68fca7b7e2b1cdbf2ccb88f0574cabead7276a9881961f88eb9b06fa271f29",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/wash-hands.png",
+      "sourceBytes": 771548,
+      "sourceSha256": "63f1a7be7b18e866c534ce54565e962c72b73a0a789c7102295ba37e1b3d184a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/dry-the-paws/images/wipe-wet-paw.webp",
+      "outputBytes": 45630,
+      "outputSha256": "c01f909ba3e3d67cb2b573842c76efe82dc6bf06d2c7fd059b52c4bfa1a459ad",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "dry-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/dry-the-paws/images/wipe-wet-paw.png",
+      "sourceBytes": 1082369,
+      "sourceSha256": "f946622468f1dc5b266fac4561b2467df4cca3bf04aa1446ee3dba16d678d2df",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 37,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/adult-help.webp",
+      "outputBytes": 37568,
+      "outputSha256": "5a23178d6c690735ce06b7170b09cc4acacde29629487659ea64e746a39024a2",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/adult-help.png",
+      "sourceBytes": 528515,
+      "sourceSha256": "3a0adb03fe3a17002b6a65b92d1b84be151d65629a54a4111af51544c94b3027",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/dirty-paw-closeup.webp",
+      "outputBytes": 48350,
+      "outputSha256": "da896d9390da04d8b81f782677129b45013a85a111c97fbb0dfa31110c80c027",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/dirty-paw-closeup.png",
+      "sourceBytes": 1166745,
+      "sourceSha256": "16458010d594c00647d3cd72f7f146339001ab760aa8e5c24936535865722790",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/doormat.webp",
+      "outputBytes": 44344,
+      "outputSha256": "900e32d9874c5d8506b984e1ab60867cbce2acfa6c4d758149a7b10f4031f2f8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/doormat.png",
+      "sourceBytes": 926417,
+      "sourceSha256": "2b7268cde7e811dbfc217c38e37956e1a4602a9850201d5e599dc4e59851a968",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/mud-puddle.webp",
+      "outputBytes": 30502,
+      "outputSha256": "6d930fb0bb586e954544a9ac71fee50a60b265557292c85db8365184c719a034",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/mud-puddle.png",
+      "sourceBytes": 571891,
+      "sourceSha256": "34f3dc0629b39c545a83723e4b7a658b0cb1f30d662cb383909ed2df2ddd61d4",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/muddy-pawprints.webp",
+      "outputBytes": 18542,
+      "outputSha256": "0c436938110d6ba5dfb21defa0f909254a9b4d2daa50a81069f4a4572328c9b3",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/muddy-pawprints.png",
+      "sourceBytes": 185642,
+      "sourceSha256": "cf0bf258e9663c8596e396db9ba4ede9fa3e47767eee09fa5275a09f43080838",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/muddy-paws-action.webp",
+      "outputBytes": 60170,
+      "outputSha256": "935e3b00547b87973a867b79ef55089dd773a335836f79ad2301d5273093cb7c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/muddy-paws-action.png",
+      "sourceBytes": 1273640,
+      "sourceSha256": "093a62d3b7707b954661b4fc6de344ddde4a04626f0d5d011ba353cd1fc701b4",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/paws-closeup.webp",
+      "outputBytes": 43564,
+      "outputSha256": "dbb8ec6c51542458833d235bdcea4365bcc36a0f79cf8e45e419b04a517c598d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/paws-closeup.png",
+      "sourceBytes": 926652,
+      "sourceSha256": "6beec86b1ad28d84ab1b4b4d1843c22af056b0794daea1a0ed703226750b4e23",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/puppy-muddy-on-mat.webp",
+      "outputBytes": 69426,
+      "outputSha256": "ae4f2553cda4647363a269d71b6c9860333f0db4dc6e81793e9cea5818e3bbab",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/puppy-muddy-on-mat.png",
+      "sourceBytes": 1284677,
+      "sourceSha256": "9e7ef24e3ebb7f83f80b8528937e86f4c976a586aca7c0e33a3461d7c5daf4cb",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 39,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/puppy-waiting-on-mat.webp",
+      "outputBytes": 73004,
+      "outputSha256": "425f3583277f71f1cfc4e66a65cd0040cf84ca2e9175b472ac8911523b94d23e",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/puppy-waiting-on-mat.png",
+      "sourceBytes": 1279026,
+      "sourceSha256": "d8a48f649549dc87d47676e0bb80bb274e372a9a44c69ecf31ab9996fc6e19d2",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/stop-hand.webp",
+      "outputBytes": 32340,
+      "outputSha256": "527a3fe518d14b9de29781bbae0a68549365d28aeb070c1a331ac16d91744bdd",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/stop-hand.png",
+      "sourceBytes": 552715,
+      "sourceSha256": "84e782f27c4aa22ff6db6d3e87b6b27602958794d9d2f08e821fa208557eea35",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/wait-on-mat-action.webp",
+      "outputBytes": 57036,
+      "outputSha256": "74f7b3cb3dfa630d620056d1f5818bc0af7aed85d3f06756e4ba5e363c80a54f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "notice-the-muddy-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/notice-the-muddy-paws/images/wait-on-mat-action.png",
+      "sourceBytes": 1246523,
+      "sourceSha256": "b72ca4feb3acc25b596e265c86dbac52eff2523dde52bece61f1c904ad673186",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 37,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/adult-carrying-basin.webp",
+      "outputBytes": 58836,
+      "outputSha256": "7b16cc3129d444a951f46700b03762f56753b8491371be8862efeadb4fc48b83",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/adult-carrying-basin.png",
+      "sourceBytes": 786275,
+      "sourceSha256": "8d2d74d01713f27a94f7ccc7228204751116fb16e3a59901f060426c73c22803",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/basin-empty.webp",
+      "outputBytes": 26950,
+      "outputSha256": "1026cb1a2f54e65877a3f731f100b819dd491cc75c4647058d5fabbcedd7d97c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/basin-empty.png",
+      "sourceBytes": 340215,
+      "sourceSha256": "ba44cce91876e250fc93da1192ddc0a2117dd77bbd7235e9c9815b0a64675af3",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/basin-filled.webp",
+      "outputBytes": 32228,
+      "outputSha256": "5c5d697e448fc5dea3e5c8161db8693971d7a22f391bd7a5c55e629d9fdf8d02",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/basin-filled.png",
+      "sourceBytes": 508760,
+      "sourceSha256": "31a21c1e4f23cfe3aa7485c17ef06cde6a3c64476f8826247cfb276eccdf5da0",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/clean-water.webp",
+      "outputBytes": 59260,
+      "outputSha256": "96506a93431b19b832e026a51bb9e2465f58420319bc6fd92203e4bff401f257",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/clean-water.png",
+      "sourceBytes": 1086121,
+      "sourceSha256": "917815e348c10d75756ee05f7d528af7b59bc135c8a594f2c0d3fc46f6025f47",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/clean-wet-paw.webp",
+      "outputBytes": 40662,
+      "outputSha256": "0ea915d85d5728c09777157e1e6d012d6e1f3aa9a66260db824a938e8f679050",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/clean-wet-paw.png",
+      "sourceBytes": 758504,
+      "sourceSha256": "f7667572b91c3222cc4fb1f6f85d9363e913fd4ac245b6c97dd2c30f1759ea42",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/clean-wet-paws.webp",
+      "outputBytes": 60480,
+      "outputSha256": "85fb8cfc00b1876717496141978bd6fe9424d6821ff2572555519d0c47143e49",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/clean-wet-paws.png",
+      "sourceBytes": 1101689,
+      "sourceSha256": "6e9cb6bf158ee9f3778023fb9c006ec4163d6c0293c77a57123ab05907b028cd",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 31,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/muddy-water.webp",
+      "outputBytes": 40030,
+      "outputSha256": "01293101c67e8d2c0832ba54b10951e0890706e49edb9a6ba7622cd277493be5",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/muddy-water.png",
+      "sourceBytes": 766237,
+      "sourceSha256": "ea7e085504315c1a04db76f8106257b803fffb0b1d0fe3ed91e80954ed980213",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-clean-wet.webp",
+      "outputBytes": 81578,
+      "outputSha256": "86be099ff7c67a503facbdea36d48654451147c10fdb4d01eecac9edb7606aff",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-clean-wet.png",
+      "sourceBytes": 1168134,
+      "sourceSha256": "0c30d518081538858acd068b2b0c52e4eaa6bd234d7c26c4782187d4fcb20b4d",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-muddy-basin.webp",
+      "outputBytes": 67982,
+      "outputSha256": "9763a8ec882cfe6941d996d0dfc9ee55c35bb77a3f44de5a89945477e30290b4",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-muddy-basin.png",
+      "sourceBytes": 953387,
+      "sourceSha256": "e1daa34ea65cfc1e7b6d90327876c702ac579010325b229a337b8a100178cafe",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 44,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-paw-washing.webp",
+      "outputBytes": 97424,
+      "outputSha256": "48050ab1c6dd13c9fe48bb2f505f7fea9b7003dcae6cd7724fb38cf54e5757e3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/puppy-paw-washing.png",
+      "sourceBytes": 1262585,
+      "sourceSha256": "65b3dad12e2d2dcff3d5eb6009ceac277a1f77bcd0654b2ede55b2ca2128e675",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "clean-muddy-paws"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/clean-muddy-paws/wash-the-paws/images/wash-one-paw-action.webp",
+      "outputBytes": 75550,
+      "outputSha256": "87a14b99ed78fb257179bf3d0cf245fafe1f80844192e088e67ae4e94905e409",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "wash-the-paws"
+      ],
+      "source": "lessons/clean-muddy-paws/wash-the-paws/images/wash-one-paw-action.png",
+      "sourceBytes": 1276199,
+      "sourceSha256": "70ec48b7390263ae3dd78925d04aeca14475a4487d38c5fdeef4b36038054a64",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
       "height": 900,
       "lessonIds": [
         "doctor-visit"
@@ -26199,7 +27050,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-15T10:40:13.511Z",
+  "generatedAt": "2026-08-15T12:24:23.088Z",
   "releaseVersion": "v1",
-  "revision": "33e430aaa283f843"
+  "revision": "8ddce1a633e15d15"
 }

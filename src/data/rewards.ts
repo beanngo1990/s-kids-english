@@ -442,6 +442,17 @@ export const lessonRewards: LessonReward[] = [
     tone: 'teal',
     title: 'Bé đã mở khoá Kitten Friend!',
   },
+  {
+    id: 'reward-clean-muddy-paws',
+    iconName: 'milestoneCleanMuddyPaws',
+    lessonId: 'clean-muddy-paws',
+    stickerId: 'sticker-clean-muddy-paws',
+    stickerName: 'Clean Paws Helper',
+    stickerNameEn: 'Clean Paws Helper',
+    stickerNameVi: 'Trợ thủ chân sạch',
+    tone: 'sky',
+    title: 'Bé đã mở khoá Clean Paws Helper!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

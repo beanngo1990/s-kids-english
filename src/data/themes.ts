@@ -101,7 +101,12 @@ const themeCatalog: LessonTheme[] = [
       'Bé cho thú cưng ăn, chơi cùng các bạn, chăm sóc nhẹ nhàng và giúp các bạn đi ngủ.',
     descriptionEn:
       'Feed, play with, gently care for, and help familiar animal friends get ready for bed.',
-    lessonIds: ['feed-the-puppy', 'play-with-the-puppy', 'find-the-kitten'],
+    lessonIds: [
+      'feed-the-puppy',
+      'play-with-the-puppy',
+      'find-the-kitten',
+      'clean-muddy-paws',
+    ],
   },
 ];
 

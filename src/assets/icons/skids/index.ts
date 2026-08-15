@@ -27,6 +27,7 @@ export const skidsIcons = {
   clinicRoom: require('./clinic-room.png'),
   chooseClothes: require('./choose-clothes.png'),
   chooseTheBall: require('./choose-the-ball.png'),
+  noticeMuddyPaws: require('./notice-the-muddy-paws.png'),
   comfortCorner: require('./comfort-corner.png'),
   coughSneezeCare: require('./cough-and-sneeze-care.png'),
   creativePlay: require('./creative-play.png'),
@@ -81,6 +82,7 @@ export const skidsIcons = {
   milestoneLibraryVisit: require('./milestone-library-visit.png'),
   milestoneLunchTime: require('./milestone-lunch-time.png'),
   milestoneCalmMyself: require('./milestone-calm-myself.png'),
+  milestoneCleanMuddyPaws: require('./milestone-clean-muddy-paws.png'),
   milestoneDressMyself: require('./milestone-dress-myself.png'),
   milestoneFiveSenses: require('./milestone-five-senses.png'),
   milestoneFeedThePuppy: require('./milestone-feed-the-puppy.png'),
@@ -122,6 +124,7 @@ export const skidsIcons = {
   quietGardenWatch: require('./quiet-garden-watch.png'),
   rainyDayCare: require('./rainy-day-care.png'),
   rinseAndDrain: require('./rinse-and-drain.png'),
+  washThePaws: require('./wash-the-paws.png'),
   rollAndCatch: require('./roll-and-catch.png'),
   replay: require('./replay.png'),
   rideHome: require('./ride-home.png'),
@@ -158,6 +161,7 @@ export const skidsIcons = {
   saveForNextSeason: require('./save-for-next-season.png'),
   windAndSupport: require('./wind-and-support.png'),
   welcomeTheKitten: require('./welcome-the-kitten.png'),
+  dryThePaws: require('./dry-the-paws.png'),
   zooPath: require('./zoo-path.png'),
 } as const;
 

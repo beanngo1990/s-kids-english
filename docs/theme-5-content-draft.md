@@ -1,8 +1,8 @@
 # Theme 5 Content Architecture v2 — Những người bạn động vật
 
 **Freeze date:** 2026-08-14
-**Status:** Content architecture v2 frozen; ba lesson đầu đã đăng ký runtime và publish audio/ảnh
-lên R2
+**Status:** Content architecture v2 frozen; bốn lesson đầu đã đăng ký runtime; ba lesson đầu đã
+publish audio/ảnh lên R2, lesson 4 đã có vertical slice local
 **Content track:** `3-8 tuổi · Làm quen` / Foundation
 **Scope:** Theme dự kiến `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật” /
 “My Animal Friends”.
@@ -147,7 +147,7 @@ Danh sách dưới đây khóa semantic seed và tính khả thi của review, k
 | `feed-the-puppy` | puppy, hello, hungry; bowl, food, scoop; wait, eat, happy | sit, tummy, look; mat, empty, full; carry, feed, finished | tail, collar, wag; one scoop, meal, ready; ask an adult, put it down, step back |
 | `play-with-the-puppy` | ball, run, catch, play | fetch | roll the ball |
 | `find-the-kitten` | kitten, box, basket, hide | under | find the kitten |
-| `clean-muddy-paws` | paws, mud, water, towel | clean | dry the paws |
+| `clean-muddy-paws` | paws, mud, water, towel | basin | dry the paws |
 | `care-for-the-rabbit` | rabbit, hay, water bowl, hop | carrot | feed the rabbit |
 | `pet-bedtime` | bed, blanket, lamp, sleep | quiet | turn off the light |
 
@@ -203,6 +203,18 @@ tự đến -> `pet gently`. Vertical slice có 40 PNG/WebP runtime asset cùng 
 được tách theo component để không dính hình ở ô bên cạnh. Google TTS đã tạo 520 clip production;
 full-corpus audit có 14.279 target với missing 0, invalid 0. R2 upload/verify đủ 560/560 object,
 lỗi 0; post-upload dry-run còn `Changed/new: 0`.
+
+### Lesson 4 contract — `clean-muddy-paws`
+
+Storyboard `docs/theme-5-clean-muddy-paws-storyboard.md` khóa ba scene
+`notice-the-muddy-paws` -> `wash-the-paws` -> `dry-the-paws`. Lesson giữ
+vocabulary/action/pronunciation budget 9/18/27, 18/36/54 và 9/18/27; auto-micro 9/12/15;
+review executable 4/5/6. Core tự khép kín chuỗi nhìn chân dính bùn -> rửa sạch -> lau khô;
+Expanded/Challenge nối thêm chờ người lớn, kiểm tra nước có bùn, dọn chậu và rửa tay mà không
+đưa state về bẩn hoặc lặp thao tác rửa. Vertical slice có 37 PNG master, 37 WebP runtime cùng
+bốn bundled icon. Google TTS đã tạo 512 clip production; full-corpus audit có 14.791 target,
+missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0; post-upload dry-run còn
+`Changed/new: 0`.
 
 ## 8. Interaction and visual guardrails
 
@@ -263,7 +275,8 @@ minh pre-reader floor nhưng vẫn là tín hiệu quan trọng cho expanded pat
    với lỗi 0 và post-upload dry-run còn `Changed/new: 0`.
 5. **5E — Child test/template freeze:** `feed-the-puppy` và `play-with-the-puppy` đã được xác
    nhận hoàn tất sau device QA; lesson 3 `find-the-kitten` đã author và publish theo template đã
-   tinh chỉnh, đang chờ device/child test. Lesson 4–6 vẫn chưa author.
+   tinh chỉnh. Lesson 4 `clean-muddy-paws` đã author và publish production assets, đang chờ
+   device QA. Lesson 5–6 vẫn chưa author.
 
 Catalog order, free/premium access và theme map layout chỉ thay đổi trong task runtime tương ứng;
 Mốc 5A không ngầm quyết định các contract đó.

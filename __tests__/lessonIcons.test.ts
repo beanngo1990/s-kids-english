@@ -43,6 +43,7 @@ const expectedLessonMilestoneIcons = [
   ['feed-the-puppy', 'milestoneFeedThePuppy'],
   ['play-with-the-puppy', 'milestonePlayWithThePuppy'],
   ['find-the-kitten', 'milestoneFindTheKitten'],
+  ['clean-muddy-paws', 'milestoneCleanMuddyPaws'],
 ] as const;
 
 test('help-it-grow uses distinct scene and lesson icons', () => {
@@ -122,6 +123,19 @@ test('find-the-kitten uses distinct scene and lesson icons', () => {
     'welcomeTheKitten',
   ]);
   expect(getLessonIconName({ id: 'find-the-kitten' })).toBe('hearTheKitten');
+});
+
+test('clean-muddy-paws uses distinct scene and lesson icons', () => {
+  const lesson = lessons.find(item => item.id === 'clean-muddy-paws');
+
+  expect(lesson?.scenes.map(getMapSceneIconName)).toEqual([
+    'noticeMuddyPaws',
+    'washThePaws',
+    'dryThePaws',
+  ]);
+  expect(getLessonIconName({ id: 'clean-muddy-paws' })).toBe(
+    'noticeMuddyPaws',
+  );
 });
 
 test('map scene icons preserve each scene semantic icon', () => {

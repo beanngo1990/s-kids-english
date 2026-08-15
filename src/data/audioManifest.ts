@@ -333,6 +333,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "aisle",
     },
   },
+  [normalizeText("all done")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done.mp3",
+      text: "all done",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done.mp3",
+      text: "all done",
+    },
+  },
+  [normalizeText("All done means everything is finished.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_teach_success_d6302f1e.mp3",
+      text: "All done means everything is finished.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_teach_success_d6302f1e.mp3",
+      text: "All done means everything is finished.",
+    },
+  },
+  [normalizeText("All done. The puppy is clean and ready to play.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_practice_success_e33d4752.mp3",
+      text: "All done. The puppy is clean and ready to play.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_practice_success_e33d4752.mp3",
+      text: "All done. The puppy is clean and ready to play.",
+    },
+  },
   [normalizeText("alphabet book")]: {
     "en-US": {
       key: "lessons/library-visit/book-corner/audio/en-US/neural2-c-r1/alphabet_book.mp3",
@@ -341,6 +371,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/alphabet_book.mp3",
       text: "alphabet book",
+    },
+  },
+  [normalizeText("An adult is gently washing each paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_practice_success_837b8ccd.mp3",
+      text: "An adult is gently washing each paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_practice_success_837b8ccd.mp3",
+      text: "An adult is gently washing each paw.",
+    },
+  },
+  [normalizeText("An adult is gently wiping away the water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_practice_success_f08e2211.mp3",
+      text: "An adult is gently wiping away the water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_practice_success_f08e2211.mp3",
+      text: "An adult is gently wiping away the water.",
+    },
+  },
+  [normalizeText("An adult is ready to help wash the puppy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_practice_success_c6790ab6.mp3",
+      text: "An adult is ready to help wash the puppy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_practice_success_c6790ab6.mp3",
+      text: "An adult is ready to help wash the puppy paws.",
+    },
+  },
+  [normalizeText("An adult prepared a basin. Let’s wash the puppy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_intro_f9949bc2.mp3",
+      text: "An adult prepared a basin. Let’s wash the puppy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_intro_f9949bc2.mp3",
+      text: "An adult prepared a basin. Let’s wash the puppy paws.",
     },
   },
   [normalizeText("An adult prepared one dry tomato seed for next season.")]: {
@@ -371,6 +441,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_intro_c1324f45.mp3",
       text: "An adult prepared the ingredients safely. Let us make a cold salad.",
+    },
+  },
+  [normalizeText("An adult safely took the used water away.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_practice_success_2fd896a6.mp3",
+      text: "An adult safely took the used water away.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_practice_success_2fd896a6.mp3",
+      text: "An adult safely took the used water away.",
     },
   },
   [normalizeText("An adult will check the bruised tomato.")]: {
@@ -483,6 +563,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/ask_an_adult.mp3",
       text: "ask an adult",
+    },
+  },
+  [normalizeText("Ask an adult means get help from a grown-up.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_teach_success_0ebe506d.mp3",
+      text: "Ask an adult means get help from a grown-up.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_teach_success_0ebe506d.mp3",
+      text: "Ask an adult means get help from a grown-up.",
     },
   },
   [normalizeText("Ask an adult means to get help from a grown-up.")]: {
@@ -605,6 +695,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/banner.mp3",
       text: "banner",
+    },
+  },
+  [normalizeText("basin")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin.mp3",
+      text: "basin",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin.mp3",
+      text: "basin",
     },
   },
   [normalizeText("basket")]: {
@@ -997,6 +1097,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/book-corner/audio/en-GB/neural2-c-r1/borrow_a_book.mp3",
       text: "borrow a book",
+    },
+  },
+  [normalizeText("Both paws are clean and dry.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_practice_success_e86ba1ff.mp3",
+      text: "Both paws are clean and dry.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_practice_success_e86ba1ff.mp3",
+      text: "Both paws are clean and dry.",
+    },
+  },
+  [normalizeText("Both paws are completely dry.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_practice_success_5102420f.mp3",
+      text: "Both paws are completely dry.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_practice_success_5102420f.mp3",
+      text: "Both paws are completely dry.",
     },
   },
   [normalizeText("bottle")]: {
@@ -1609,6 +1729,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "check the list",
     },
   },
+  [normalizeText("check the paws")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws.mp3",
+      text: "check the paws",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws.mp3",
+      text: "check the paws",
+    },
+  },
+  [normalizeText("Check the paws means look closely at the paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_teach_success_66dc1c2a.mp3",
+      text: "Check the paws means look closely at the paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_teach_success_66dc1c2a.mp3",
+      text: "Check the paws means look closely at the paws.",
+    },
+  },
   [normalizeText("check the soil")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/check_the_soil.mp3",
@@ -1857,6 +1997,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "classroom",
     },
   },
+  [normalizeText("clean")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean.mp3",
+      text: "clean",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean.mp3",
+      text: "clean",
+    },
+  },
   [normalizeText("clean hands")]: {
     "en-US": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-US/neural2-c-r1/clean_hands.mp3",
@@ -1865,6 +2015,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/clean_hands.mp3",
       text: "clean hands",
+    },
+  },
+  [normalizeText("Clean means the dirt is gone.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_teach_success_4f8ef1e0.mp3",
+      text: "Clean means the dirt is gone.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_teach_success_4f8ef1e0.mp3",
+      text: "Clean means the dirt is gone.",
+    },
+  },
+  [normalizeText("clean paws")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws.mp3",
+      text: "clean paws",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws.mp3",
+      text: "clean paws",
+    },
+  },
+  [normalizeText("Clean paws have no dirt or mud on them.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_teach_success_bb4266eb.mp3",
+      text: "Clean paws have no dirt or mud on them.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_teach_success_bb4266eb.mp3",
+      text: "Clean paws have no dirt or mud on them.",
     },
   },
   [normalizeText("clean up")]: {
@@ -2583,6 +2763,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Dinner is over. Let's gather the small items.",
     },
   },
+  [normalizeText("dirty")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty.mp3",
+      text: "dirty",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty.mp3",
+      text: "dirty",
+    },
+  },
+  [normalizeText("Dirty means not clean.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_teach_success_6ddf813c.mp3",
+      text: "Dirty means not clean.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_teach_success_6ddf813c.mp3",
+      text: "Dirty means not clean.",
+    },
+  },
   [normalizeText("disappointed")]: {
     "en-US": {
       key: "lessons/my-feelings/excited-and-proud/audio/en-US/neural2-c-r1/disappointed.mp3",
@@ -2677,6 +2877,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/doorbell.mp3",
       text: "doorbell",
+    },
+  },
+  [normalizeText("doormat")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat.mp3",
+      text: "doormat",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat.mp3",
+      text: "doormat",
     },
   },
   [normalizeText("Drag the apple.")]: {
@@ -4271,6 +4481,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "drum",
     },
   },
+  [normalizeText("dry")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry.mp3",
+      text: "dry",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry.mp3",
+      text: "dry",
+    },
+  },
+  [normalizeText("Dry means not wet.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_teach_success_2b47e747.mp3",
+      text: "Dry means not wet.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_teach_success_2b47e747.mp3",
+      text: "Dry means not wet.",
+    },
+  },
+  [normalizeText("dry the paws")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws.mp3",
+      text: "dry the paws",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws.mp3",
+      text: "dry the paws",
+    },
+  },
+  [normalizeText("Dry the paws means remove water from the paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_teach_success_4091108c.mp3",
+      text: "Dry the paws means remove water from the paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_teach_success_4091108c.mp3",
+      text: "Dry the paws means remove water from the paws.",
+    },
+  },
   [normalizeText("dry the surface")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/spot-clean/audio/en-US/neural2-c-r1/dry_the_surface.mp3",
@@ -4517,6 +4767,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-GB/neural2-c-r1/empty_teach_success_de24e4ed.mp3",
       text: "Empty means there is nothing inside.",
+    },
+  },
+  [normalizeText("empty the tub")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub.mp3",
+      text: "empty the tub",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub.mp3",
+      text: "empty the tub",
+    },
+  },
+  [normalizeText("Empty the tub means remove the used water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_teach_success_9d7caec5.mp3",
+      text: "Empty the tub means remove the used water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_teach_success_9d7caec5.mp3",
+      text: "Empty the tub means remove the used water.",
     },
   },
   [normalizeText("eraser")]: {
@@ -5149,6 +5419,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/finished_teach_success_bcc97926.mp3",
       text: "Finished means the action is done.",
+    },
+  },
+  [normalizeText("finished washing")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing.mp3",
+      text: "finished washing",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing.mp3",
+      text: "finished washing",
+    },
+  },
+  [normalizeText("Finished washing means the washing is complete.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_teach_success_31827b7f.mp3",
+      text: "Finished washing means the washing is complete.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_teach_success_31827b7f.mp3",
+      text: "Finished washing means the washing is complete.",
     },
   },
   [normalizeText("First, get a seed and make a small hole.")]: {
@@ -18287,6 +18577,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the adult hand on the left.",
     },
   },
+  [normalizeText("Look for the adult hand.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_practice_fail_08beec69.mp3",
+      text: "Look for the adult hand.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_practice_fail_08beec69.mp3",
+      text: "Look for the adult hand.",
+    },
+  },
   [normalizeText("Look for the ankle at the lower left.")]: {
     "en-US": {
       key: "lessons/my-body/legs-and-feet/audio/en-US/neural2-c-r1/tap_ankle_fail_54d4f3d4.mp3",
@@ -18347,6 +18647,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the ball, not the rope.",
     },
   },
+  [normalizeText("Look for the basin of brown water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_practice_fail_6589e736.mp3",
+      text: "Look for the basin of brown water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_practice_fail_6589e736.mp3",
+      text: "Look for the basin of brown water.",
+    },
+  },
+  [normalizeText("Look for the basin with brown water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_teach_fail_9ddfe4a1.mp3",
+      text: "Look for the basin with brown water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_teach_fail_9ddfe4a1.mp3",
+      text: "Look for the basin with brown water.",
+    },
+  },
   [normalizeText("Look for the basket on the left.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/play_practice_fail_4676833b.mp3",
@@ -18405,6 +18725,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-GB/neural2-c-r1/turn_teach_fail_b18b783b.mp3",
       text: "Look for the blue arrow behind the puppy.",
+    },
+  },
+  [normalizeText("Look for the blue basin on the floor.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_teach_fail_28a9f39e.mp3",
+      text: "Look for the blue basin on the floor.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_teach_fail_28a9f39e.mp3",
+      text: "Look for the blue basin on the floor.",
+    },
+  },
+  [normalizeText("Look for the blue basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_practice_fail_a287ebcc.mp3",
+      text: "Look for the blue basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_practice_fail_a287ebcc.mp3",
+      text: "Look for the blue basin.",
     },
   },
   [normalizeText("Look for the blue bowl on the left.")]: {
@@ -18515,6 +18855,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-GB/neural2-c-r1/full_practice_fail_cc4d31d6.mp3",
       text: "Look for the bowl with pieces of food.",
+    },
+  },
+  [normalizeText("Look for the brown mud puddle.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_practice_fail_0f29e971.mp3",
+      text: "Look for the brown mud puddle.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_practice_fail_0f29e971.mp3",
+      text: "Look for the brown mud puddle.",
+    },
+  },
+  [normalizeText("Look for the brown puddle on the left.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_teach_fail_a3a9d295.mp3",
+      text: "Look for the brown puddle on the left.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_teach_fail_a3a9d295.mp3",
+      text: "Look for the brown puddle on the left.",
     },
   },
   [normalizeText("Look for the brown woven basket.")]: {
@@ -18665,6 +19025,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_clean_hands_fail_4d28b19f.mp3",
       text: "Look for the clean hands picture in the middle of the shelf.",
+    },
+  },
+  [normalizeText("Look for the clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_practice_fail_ca6d11bc.mp3",
+      text: "Look for the clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_practice_fail_ca6d11bc.mp3",
+      text: "Look for the clean paws.",
+    },
+  },
+  [normalizeText("Look for the clean puppy beside the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_teach_fail_d89849aa.mp3",
+      text: "Look for the clean puppy beside the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_teach_fail_d89849aa.mp3",
+      text: "Look for the clean puppy beside the basin.",
+    },
+  },
+  [normalizeText("Look for the clean puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_practice_fail_0483332c.mp3",
+      text: "Look for the clean puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_practice_fail_0483332c.mp3",
+      text: "Look for the clean puppy.",
+    },
+  },
+  [normalizeText("Look for the clear pitcher on the left.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_teach_fail_528bb7d0.mp3",
+      text: "Look for the clear pitcher on the left.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_teach_fail_528bb7d0.mp3",
+      text: "Look for the clear pitcher on the left.",
     },
   },
   [normalizeText("Look for the clothing tag at the lower right.")]: {
@@ -18947,6 +19347,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the fingers on the right.",
     },
   },
+  [normalizeText("Look for the fluffy yellow towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
+      text: "Look for the fluffy yellow towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
+      text: "Look for the fluffy yellow towel.",
+    },
+  },
   [normalizeText("Look for the flush button on the wall on the right.")]: {
     "en-US": {
       key: "lessons/toilet-routine/toilet-steps/audio/en-US/neural2-c-r1/tap_flush_button_fail_79cd6719.mp3",
@@ -18955,6 +19365,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/toilet-steps/audio/en-GB/neural2-c-r1/tap_flush_button_fail_79cd6719.mp3",
       text: "Look for the flush button on the wall on the right.",
+    },
+  },
+  [normalizeText("Look for the folded towel on the left.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_teach_fail_e792f4bd.mp3",
+      text: "Look for the folded towel on the left.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_teach_fail_e792f4bd.mp3",
+      text: "Look for the folded towel on the left.",
     },
   },
   [normalizeText("Look for the food bowl in the middle of the mat.")]: {
@@ -19077,6 +19497,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the green and yellow rope.",
     },
   },
+  [normalizeText("Look for the green doormat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_practice_fail_7b4d149b.mp3",
+      text: "Look for the green doormat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_practice_fail_7b4d149b.mp3",
+      text: "Look for the green doormat.",
+    },
+  },
   [normalizeText("Look for the green mat in the middle.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-US/neural2-c-r1/mat_teach_fail_85532287.mp3",
@@ -19147,6 +19577,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hand above the red ball.",
     },
   },
+  [normalizeText("Look for the hand and paw by the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_teach_fail_27bf5714.mp3",
+      text: "Look for the hand and paw by the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_teach_fail_27bf5714.mp3",
+      text: "Look for the hand and paw by the basin.",
+    },
+  },
+  [normalizeText("Look for the hand and yellow towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_teach_fail_fe7bb549.mp3",
+      text: "Look for the hand and yellow towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_teach_fail_fe7bb549.mp3",
+      text: "Look for the hand and yellow towel.",
+    },
+  },
   [normalizeText("Look for the hand at the upper right.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
@@ -19155,6 +19605,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-body/arms-and-hands/audio/en-GB/neural2-c-r1/drag_hand_fail_50e08d9d.mp3",
       text: "Look for the hand at the upper right.",
+    },
+  },
+  [normalizeText("Look for the hand beside the puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/ask_an_adult_teach_fail_b06ca6ef.mp3",
+      text: "Look for the hand beside the puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/ask_an_adult_teach_fail_b06ca6ef.mp3",
+      text: "Look for the hand beside the puppy.",
     },
   },
   [normalizeText("Look for the hand beside the red ball.")]: {
@@ -19175,6 +19635,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-GB/neural2-c-r1/soft_teach_fail_6e11ccdd.mp3",
       text: "Look for the hand holding the ball.",
+    },
+  },
+  [normalizeText("Look for the hand holding the yellow towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_teach_fail_474b2b4b.mp3",
+      text: "Look for the hand holding the yellow towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_teach_fail_474b2b4b.mp3",
+      text: "Look for the hand holding the yellow towel.",
     },
   },
   [normalizeText("Look for the hand lifting the box.")]: {
@@ -19327,6 +19797,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hands around the mouth.",
     },
   },
+  [normalizeText("Look for the hands carrying the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_practice_fail_2694da91.mp3",
+      text: "Look for the hands carrying the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_practice_fail_2694da91.mp3",
+      text: "Look for the hands carrying the basin.",
+    },
+  },
+  [normalizeText("Look for the hands holding the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/empty_the_tub_teach_fail_b608213d.mp3",
+      text: "Look for the hands holding the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/empty_the_tub_teach_fail_b608213d.mp3",
+      text: "Look for the hands holding the basin.",
+    },
+  },
   [normalizeText("Look for the hands holding the bowl on the left.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/carry_teach_fail_035685e5.mp3",
@@ -19335,6 +19825,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/carry_teach_fail_035685e5.mp3",
       text: "Look for the hands holding the bowl on the left.",
+    },
+  },
+  [normalizeText("Look for the hands under running water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_practice_fail_381426e1.mp3",
+      text: "Look for the hands under running water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_practice_fail_381426e1.mp3",
+      text: "Look for the hands under running water.",
+    },
+  },
+  [normalizeText("Look for the hands with soap bubbles.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_teach_fail_0e61fd90.mp3",
+      text: "Look for the hands with soap bubbles.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_teach_fail_0e61fd90.mp3",
+      text: "Look for the hands with soap bubbles.",
     },
   },
   [normalizeText("Look for the handwashing card on the left.")]: {
@@ -19737,6 +20247,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the mouth at the lower right.",
     },
   },
+  [normalizeText("Look for the muddy pawprints.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_practice_fail_956a23f2.mp3",
+      text: "Look for the muddy pawprints.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_practice_fail_956a23f2.mp3",
+      text: "Look for the muddy pawprints.",
+    },
+  },
   [normalizeText("Look for the music at the upper right.")]: {
     "en-US": {
       key: "lessons/five-senses/hearing-world/audio/en-US/neural2-c-r1/tap_music_fail_67b8699c.mp3",
@@ -19805,6 +20325,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/give_practice_fail_fb5f2aed.mp3",
       text: "Look for the open hand on the left.",
+    },
+  },
+  [normalizeText("Look for the open palm.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_teach_fail_0d7c7113.mp3",
+      text: "Look for the open palm.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_teach_fail_0d7c7113.mp3",
+      text: "Look for the open palm.",
+    },
+  },
+  [normalizeText("Look for the oval green mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_teach_fail_01279ffe.mp3",
+      text: "Look for the oval green mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_teach_fail_01279ffe.mp3",
+      text: "Look for the oval green mat.",
+    },
+  },
+  [normalizeText("Look for the paw covered with mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_teach_fail_a5f7f955.mp3",
+      text: "Look for the paw covered with mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_teach_fail_a5f7f955.mp3",
+      text: "Look for the paw covered with mud.",
     },
   },
   [normalizeText("Look for the people sharing a hug.")]: {
@@ -20307,6 +20857,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy bending down to the bowl.",
     },
   },
+  [normalizeText("Look for the puppy beside the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_practice_fail_32458d76.mp3",
+      text: "Look for the puppy beside the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_practice_fail_32458d76.mp3",
+      text: "Look for the puppy beside the basin.",
+    },
+  },
   [normalizeText("Look for the puppy bowing on the right.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/play_teach_fail_52205700.mp3",
@@ -20367,6 +20927,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy facing the bowl.",
     },
   },
+  [normalizeText("Look for the puppy having its paws wiped.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_practice_fail_bb51c9ed.mp3",
+      text: "Look for the puppy having its paws wiped.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_practice_fail_bb51c9ed.mp3",
+      text: "Look for the puppy having its paws wiped.",
+    },
+  },
   [normalizeText("Look for the puppy holding its tummy on the right.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/hungry_teach_fail_03246aa8.mp3",
@@ -20417,6 +20987,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy on the left.",
     },
   },
+  [normalizeText("Look for the puppy on the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_practice_fail_a2b2b285.mp3",
+      text: "Look for the puppy on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_practice_fail_a2b2b285.mp3",
+      text: "Look for the puppy on the mat.",
+    },
+  },
   [normalizeText("Look for the puppy on the right.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/ready_practice_fail_c52f6d1e.mp3",
@@ -20447,6 +21027,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy sitting in the middle.",
     },
   },
+  [normalizeText("Look for the puppy sitting still on the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_teach_fail_4df8243a.mp3",
+      text: "Look for the puppy sitting still on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_teach_fail_4df8243a.mp3",
+      text: "Look for the puppy sitting still on the mat.",
+    },
+  },
   [normalizeText("Look for the puppy sitting still.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/wait_teach_fail_14b38981.mp3",
@@ -20465,6 +21055,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-GB/neural2-c-r1/catch_teach_fail_3cad9852.mp3",
       text: "Look for the puppy stopping the ball.",
+    },
+  },
+  [normalizeText("Look for the puppy with clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_practice_fail_4d4897c9.mp3",
+      text: "Look for the puppy with clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_practice_fail_4d4897c9.mp3",
+      text: "Look for the puppy with clean paws.",
+    },
+  },
+  [normalizeText("Look for the puppy with dirty paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_practice_fail_39a6791a.mp3",
+      text: "Look for the puppy with dirty paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_practice_fail_39a6791a.mp3",
+      text: "Look for the puppy with dirty paws.",
+    },
+  },
+  [normalizeText("Look for the puppy with dry paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_practice_fail_e37c82eb.mp3",
+      text: "Look for the puppy with dry paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_practice_fail_e37c82eb.mp3",
+      text: "Look for the puppy with dry paws.",
     },
   },
   [normalizeText("Look for the puppy with the blue collar.")]: {
@@ -20505,6 +21125,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-GB/neural2-c-r1/hold_teach_fail_98289ab3.mp3",
       text: "Look for the puppy with the red ball.",
+    },
+  },
+  [normalizeText("Look for the puppy with wet paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_practice_fail_75692a18.mp3",
+      text: "Look for the puppy with wet paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_practice_fail_75692a18.mp3",
+      text: "Look for the puppy with wet paws.",
     },
   },
   [normalizeText("Look for the puppy’s belly.")]: {
@@ -20657,6 +21287,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the round red toy.",
     },
   },
+  [normalizeText("Look for the row of brown pawprints.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_teach_fail_8d8bd79e.mp3",
+      text: "Look for the row of brown pawprints.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_teach_fail_8d8bd79e.mp3",
+      text: "Look for the row of brown pawprints.",
+    },
+  },
   [normalizeText("Look for the running puppy.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/run_practice_fail_5abfac3c.mp3",
@@ -20775,6 +21415,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_sink_fail_1ac7d577.mp3",
       text: "Look for the sink in the middle of the wall.",
+    },
+  },
+  [normalizeText("Look for the sitting puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_practice_fail_3f58fbfb.mp3",
+      text: "Look for the sitting puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_practice_fail_3f58fbfb.mp3",
+      text: "Look for the sitting puppy.",
     },
   },
   [normalizeText("Look for the sleeve on the left shelf.")]: {
@@ -20997,6 +21647,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the stop card on the right shelf.",
     },
   },
+  [normalizeText("Look for the stop hand.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_practice_fail_5dd4948d.mp3",
+      text: "Look for the stop hand.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_practice_fail_5dd4948d.mp3",
+      text: "Look for the stop hand.",
+    },
+  },
   [normalizeText("Look for the strap on the shoe at the right.")]: {
     "en-US": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-US/neural2-c-r1/tap_shoe_strap_fail_eb92f61b.mp3",
@@ -21217,6 +21877,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the two hands carrying the bowl.",
     },
   },
+  [normalizeText("Look for the two paws covered in brown mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_teach_fail_a08e5676.mp3",
+      text: "Look for the two paws covered in brown mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_teach_fail_a08e5676.mp3",
+      text: "Look for the two paws covered in brown mud.",
+    },
+  },
+  [normalizeText("Look for the two paws inside the towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_the_paws_teach_fail_69ebf970.mp3",
+      text: "Look for the two paws inside the towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_the_paws_teach_fail_69ebf970.mp3",
+      text: "Look for the two paws inside the towel.",
+    },
+  },
+  [normalizeText("Look for the two paws with pink pads.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_teach_fail_f7af04fe.mp3",
+      text: "Look for the two paws with pink pads.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_teach_fail_f7af04fe.mp3",
+      text: "Look for the two paws with pink pads.",
+    },
+  },
   [normalizeText("Look for the two pointed ears.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-US/neural2-c-r1/ears_teach_fail_d3f57196.mp3",
@@ -21225,6 +21915,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-GB/neural2-c-r1/ears_teach_fail_d3f57196.mp3",
       text: "Look for the two pointed ears.",
+    },
+  },
+  [normalizeText("Look for the two thumbs-up hands.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/all_done_teach_fail_7f415ad5.mp3",
+      text: "Look for the two thumbs-up hands.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_teach_fail_7f415ad5.mp3",
+      text: "Look for the two thumbs-up hands.",
+    },
+  },
+  [normalizeText("Look for the two white paws with water drops.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_teach_fail_66eb8899.mp3",
+      text: "Look for the two white paws with water drops.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_teach_fail_66eb8899.mp3",
+      text: "Look for the two white paws with water drops.",
+    },
+  },
+  [normalizeText("Look for the two white paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_teach_fail_378dd3b9.mp3",
+      text: "Look for the two white paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_teach_fail_378dd3b9.mp3",
+      text: "Look for the two white paws.",
     },
   },
   [normalizeText("Look for the uncomfortable picture by the right table.")]: {
@@ -21327,6 +22047,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the wet floor sign on the floor on the right.",
     },
   },
+  [normalizeText("Look for the white paw with sparkles.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/dry_teach_fail_25bf1190.mp3",
+      text: "Look for the white paw with sparkles.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/dry_teach_fail_25bf1190.mp3",
+      text: "Look for the white paw with sparkles.",
+    },
+  },
+  [normalizeText("Look for the white paw with water drops.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_teach_fail_6f2d94b1.mp3",
+      text: "Look for the white paw with water drops.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_teach_fail_6f2d94b1.mp3",
+      text: "Look for the white paw with water drops.",
+    },
+  },
   [normalizeText("Look for the wrist at the lower left.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
@@ -21345,6 +22085,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-GB/neural2-c-r1/box_teach_fail_5c3947b1.mp3",
       text: "Look for the yellow box with a lid.",
+    },
+  },
+  [normalizeText("Look for the yellow towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_fail_f7fc7c06.mp3",
+      text: "Look for the yellow towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_fail_f7fc7c06.mp3",
+      text: "Look for the yellow towel.",
     },
   },
   [normalizeText("Look for the yes card on the upper-left wall.")]: {
@@ -22329,6 +23079,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Move the wrapper to the tray.",
     },
   },
+  [normalizeText("mud")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud.mp3",
+      text: "mud",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud.mp3",
+      text: "mud",
+    },
+  },
+  [normalizeText("muddy paws")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws.mp3",
+      text: "muddy paws",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws.mp3",
+      text: "muddy paws",
+    },
+  },
+  [normalizeText("Muddy paws are paws covered with mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_teach_success_b6cf22f0.mp3",
+      text: "Muddy paws are paws covered with mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_teach_success_b6cf22f0.mp3",
+      text: "Muddy paws are paws covered with mud.",
+    },
+  },
+  [normalizeText("muddy water")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water.mp3",
+      text: "muddy water",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water.mp3",
+      text: "muddy water",
+    },
+  },
+  [normalizeText("Muddy water is water mixed with mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_teach_success_46989712.mp3",
+      text: "Muddy water is water mixed with mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_teach_success_46989712.mp3",
+      text: "Muddy water is water mixed with mud.",
+    },
+  },
   [normalizeText("music")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/music.mp3",
@@ -22785,6 +23585,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Pass the dish.",
     },
   },
+  [normalizeText("pat")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat.mp3",
+      text: "pat",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat.mp3",
+      text: "pat",
+    },
+  },
+  [normalizeText("Pat means press gently again and again.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_teach_success_f3337c64.mp3",
+      text: "Pat means press gently again and again.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_teach_success_f3337c64.mp3",
+      text: "Pat means press gently again and again.",
+    },
+  },
   [normalizeText("path")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/path.mp3",
@@ -22803,6 +23623,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/paw.mp3",
       text: "paw",
+    },
+  },
+  [normalizeText("pawprints")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints.mp3",
+      text: "pawprints",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints.mp3",
+      text: "pawprints",
+    },
+  },
+  [normalizeText("paws")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws.mp3",
+      text: "paws",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws.mp3",
+      text: "paws",
     },
   },
   [normalizeText("pencil")]: {
@@ -24191,6 +25031,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/look_practice_success_6a36d4e7.mp3",
       text: "Right, the puppy is looking at the empty bowl.",
+    },
+  },
+  [normalizeText("Right, the puppy needs its paws washed.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/muddy_paws_practice_success_5c0c269e.mp3",
+      text: "Right, the puppy needs its paws washed.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/muddy_paws_practice_success_5c0c269e.mp3",
+      text: "Right, the puppy needs its paws washed.",
     },
   },
   [normalizeText("Right, this ball is red.")]: {
@@ -25827,6 +26677,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Soft means gentle to touch, not hard.",
     },
   },
+  [normalizeText("Soft means gentle to touch.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_success_e2c64965.mp3",
+      text: "Soft means gentle to touch.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_success_e2c64965.mp3",
+      text: "Soft means gentle to touch.",
+    },
+  },
   [normalizeText("soft toy")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/soft_toy.mp3",
@@ -26303,6 +27163,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "stomp your feet",
     },
   },
+  [normalizeText("stop here")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here.mp3",
+      text: "stop here",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here.mp3",
+      text: "stop here",
+    },
+  },
+  [normalizeText("Stop here means do not move past this place.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_teach_success_18b142d6.mp3",
+      text: "Stop here means do not move past this place.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_teach_success_18b142d6.mp3",
+      text: "Stop here means do not move past this place.",
+    },
+  },
   [normalizeText("Stop, please")]: {
     "en-US": {
       key: "lessons/speaking-up/body-boundaries/audio/en-US/neural2-c-r1/stop_please.mp3",
@@ -26733,6 +27613,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap Play to open the unlocked game.",
     },
   },
+  [normalizeText("Tap the adult hand offering help.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_ask_an_adult_teach_e9a9426c.mp3",
+      text: "Tap the adult hand offering help.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_ask_an_adult_teach_e9a9426c.mp3",
+      text: "Tap the adult hand offering help.",
+    },
+  },
   [normalizeText("Tap the adult hand saving the dry seeds.")]: {
     "en-US": {
       key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
@@ -26751,6 +27641,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_ask_an_adult_teach_e99dc510.mp3",
       text: "Tap the adult hand that is helping.",
+    },
+  },
+  [normalizeText("Tap the adult hand to start helping the puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_ask_an_adult_practice_aaa70bb1.mp3",
+      text: "Tap the adult hand to start helping the puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_ask_an_adult_practice_aaa70bb1.mp3",
+      text: "Tap the adult hand to start helping the puppy.",
+    },
+  },
+  [normalizeText("Tap the adult hands carrying the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_empty_the_tub_teach_e0eacf34.mp3",
+      text: "Tap the adult hands carrying the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_empty_the_tub_teach_e0eacf34.mp3",
+      text: "Tap the adult hands carrying the basin.",
     },
   },
   [normalizeText("Tap the aisle between the two shelf rows at the top.")]: {
@@ -26949,6 +27859,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-prep/audio/en-GB/neural2-c-r1/prompt_tap_banner_180d747f.mp3",
       text: "Tap the banner at the top.",
+    },
+  },
+  [normalizeText("Tap the basin of muddy water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_muddy_water_teach_ba7ea11a.mp3",
+      text: "Tap the basin of muddy water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_muddy_water_teach_ba7ea11a.mp3",
+      text: "Tap the basin of muddy water.",
+    },
+  },
+  [normalizeText("Tap the basin so an adult can add water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_water_practice_b45476e8.mp3",
+      text: "Tap the basin so an adult can add water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_water_practice_b45476e8.mp3",
+      text: "Tap the basin so an adult can add water.",
+    },
+  },
+  [normalizeText("Tap the basin to check the water after washing.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_basin_practice_83fe802f.mp3",
+      text: "Tap the basin to check the water after washing.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_basin_practice_83fe802f.mp3",
+      text: "Tap the basin to check the water after washing.",
     },
   },
   [normalizeText("Tap the basket full of toys.")]: {
@@ -27383,6 +28323,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bread.",
     },
   },
+  [normalizeText("Tap the brown mud puddle.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_mud_teach_599a4a5c.mp3",
+      text: "Tap the brown mud puddle.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_mud_teach_599a4a5c.mp3",
+      text: "Tap the brown mud puddle.",
+    },
+  },
   [normalizeText("Tap the brown soil patch in the middle to follow the tunnel.")]: {
     "en-US": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_trace_tunnel_0744815d.mp3",
@@ -27671,6 +28621,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_circle_d14312f2.mp3",
       text: "Tap the circle.",
+    },
+  },
+  [normalizeText("Tap the clean dry paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_teach_b722ae00.mp3",
+      text: "Tap the clean dry paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_teach_b722ae00.mp3",
+      text: "Tap the clean dry paw.",
+    },
+  },
+  [normalizeText("Tap the clean paws to check them.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_check_the_paws_teach_30d7a6c5.mp3",
+      text: "Tap the clean paws to check them.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_check_the_paws_teach_30d7a6c5.mp3",
+      text: "Tap the clean paws to check them.",
+    },
+  },
+  [normalizeText("Tap the clean paws, then look at the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_paws_practice_3c992e6c.mp3",
+      text: "Tap the clean paws, then look at the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_paws_practice_3c992e6c.mp3",
+      text: "Tap the clean paws, then look at the basin.",
+    },
+  },
+  [normalizeText("Tap the clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_paws_teach_55139ebf.mp3",
+      text: "Tap the clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_paws_teach_55139ebf.mp3",
+      text: "Tap the clean paws.",
+    },
+  },
+  [normalizeText("Tap the clean wet paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_teach_a90e814f.mp3",
+      text: "Tap the clean wet paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_teach_a90e814f.mp3",
+      text: "Tap the clean wet paw.",
     },
   },
   [normalizeText("Tap the climbing frame.")]: {
@@ -28045,6 +29045,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the dinner bell.",
     },
   },
+  [normalizeText("Tap the dirty muddy paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_dirty_teach_0bea93a5.mp3",
+      text: "Tap the dirty muddy paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_dirty_teach_0bea93a5.mp3",
+      text: "Tap the dirty muddy paw.",
+    },
+  },
   [normalizeText("Tap the dish rack.")]: {
     "en-US": {
       key: "lessons/after-dinner-cleanup/sort-and-dry/audio/en-US/neural2-c-r1/prompt_tap_dish_rack_98765d42.mp3",
@@ -28105,6 +29115,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_doorbell_1551c24d.mp3",
       text: "Tap the doorbell on the right.",
+    },
+  },
+  [normalizeText("Tap the doormat to keep the mud in one place.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_doormat_practice_1c3d6fa2.mp3",
+      text: "Tap the doormat to keep the mud in one place.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_doormat_practice_1c3d6fa2.mp3",
+      text: "Tap the doormat to keep the mud in one place.",
     },
   },
   [normalizeText("Tap the dream journal.")]: {
@@ -28667,6 +29687,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the goat.",
     },
   },
+  [normalizeText("Tap the green doormat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_doormat_teach_45573540.mp3",
+      text: "Tap the green doormat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_doormat_teach_45573540.mp3",
+      text: "Tap the green doormat.",
+    },
+  },
   [normalizeText("Tap the green fruit stem connecting the tomato to the branch.")]: {
     "en-US": {
       key: "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_fruit_stem_3f1ad016.mp3",
@@ -28897,6 +29927,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand offering the ball for your turn.",
     },
   },
+  [normalizeText("Tap the hand patting the puppy paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_pat_teach_ebca8123.mp3",
+      text: "Tap the hand patting the puppy paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_pat_teach_ebca8123.mp3",
+      text: "Tap the hand patting the puppy paw.",
+    },
+  },
   [normalizeText("Tap the hand petting the kitten gently.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_pet_gently_teach_e38aae11.mp3",
@@ -28937,6 +29977,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand rolling the ball.",
     },
   },
+  [normalizeText("Tap the hand saying stop here.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_stop_here_teach_b3c60e23.mp3",
+      text: "Tap the hand saying stop here.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_stop_here_teach_b3c60e23.mp3",
+      text: "Tap the hand saying stop here.",
+    },
+  },
   [normalizeText("Tap the hand so the adult can store the seed.")]: {
     "en-US": {
       key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
@@ -28945,6 +29995,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_place_seed_in_envelope_f1a5c759.mp3",
       text: "Tap the hand so the adult can store the seed.",
+    },
+  },
+  [normalizeText("Tap the hand so the puppy keeps waiting.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_stop_here_practice_d2318d96.mp3",
+      text: "Tap the hand so the puppy keeps waiting.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_stop_here_practice_d2318d96.mp3",
+      text: "Tap the hand so the puppy keeps waiting.",
     },
   },
   [normalizeText("Tap the hand to ask an adult to put the bowl away.")]: {
@@ -28975,6 +30035,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_hand_towel_6eb10514.mp3",
       text: "Tap the hand towel.",
+    },
+  },
+  [normalizeText("Tap the hand washing one puppy paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_wash_teach_b7ff8796.mp3",
+      text: "Tap the hand washing one puppy paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_teach_b7ff8796.mp3",
+      text: "Tap the hand washing one puppy paw.",
     },
   },
   [normalizeText("Tap the hands calling the kitten.")]: {
@@ -29015,6 +30085,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
       text: "Tap the hands rinsing the cucumber under water.",
+    },
+  },
+  [normalizeText("Tap the hands under running water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wash_hands_teach_0db4d81d.mp3",
+      text: "Tap the hands under running water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_hands_teach_0db4d81d.mp3",
+      text: "Tap the hands under running water.",
+    },
+  },
+  [normalizeText("Tap the handwashing picture to finish.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wash_hands_practice_3284092e.mp3",
+      text: "Tap the handwashing picture to finish.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_hands_practice_3284092e.mp3",
+      text: "Tap the handwashing picture to finish.",
     },
   },
   [normalizeText("Tap the happy kitten.")]: {
@@ -29971,6 +31061,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the moving picture to check behind the basket.",
     },
   },
+  [normalizeText("Tap the mud to find the pawprints.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_mud_practice_c2a06514.mp3",
+      text: "Tap the mud to find the pawprints.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_mud_practice_c2a06514.mp3",
+      text: "Tap the mud to find the pawprints.",
+    },
+  },
+  [normalizeText("Tap the muddy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_muddy_paws_teach_80ee2a79.mp3",
+      text: "Tap the muddy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_muddy_paws_teach_80ee2a79.mp3",
+      text: "Tap the muddy paws.",
+    },
+  },
+  [normalizeText("Tap the muddy water before an adult takes it away.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_muddy_water_practice_6ce729ca.mp3",
+      text: "Tap the muddy water before an adult takes it away.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_muddy_water_practice_6ce729ca.mp3",
+      text: "Tap the muddy water before an adult takes it away.",
+    },
+  },
   [normalizeText("Tap the music speaker on the bench.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-games/audio/en-US/neural2-c-r1/prompt_tap_music_7263443c.mp3",
@@ -30201,6 +31321,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_paw_practice_a8f8d44f.mp3",
       text: "Tap the paw to look at it gently.",
+    },
+  },
+  [normalizeText("Tap the pawprints and look toward the puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_pawprints_practice_099410ab.mp3",
+      text: "Tap the pawprints and look toward the puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_pawprints_practice_099410ab.mp3",
+      text: "Tap the pawprints and look toward the puppy.",
     },
   },
   [normalizeText("Tap the pawprints and search quietly.")]: {
@@ -30867,6 +31997,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the picture sharing the salad in two portions.",
     },
   },
+  [normalizeText("Tap the picture so an adult takes the basin away.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_empty_the_tub_practice_cd467b90.mp3",
+      text: "Tap the picture so an adult takes the basin away.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_empty_the_tub_practice_cd467b90.mp3",
+      text: "Tap the picture so an adult takes the basin away.",
+    },
+  },
   [normalizeText("Tap the picture with a hand and envelope on the left.")]: {
     "en-US": {
       key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_save_the_seeds_fail_0f287dcd.mp3",
@@ -30969,6 +32109,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/calm-myself/slow-breathing/audio/en-GB/neural2-c-r1/prompt_tap_pinwheel_3d1f85e3.mp3",
       text: "Tap the pinwheel.",
+    },
+  },
+  [normalizeText("Tap the pitcher of clean water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_water_teach_db43b1de.mp3",
+      text: "Tap the pitcher of clean water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_water_teach_db43b1de.mp3",
+      text: "Tap the pitcher of clean water.",
     },
   },
   [normalizeText("Tap the plant pot on the right.")]: {
@@ -31089,6 +32239,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy and let it hold the ball.",
     },
   },
+  [normalizeText("Tap the puppy and look at its paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_paws_practice_8a90740a.mp3",
+      text: "Tap the puppy and look at its paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_paws_practice_8a90740a.mp3",
+      text: "Tap the puppy and look at its paws.",
+    },
+  },
   [normalizeText("Tap the puppy asking you to play.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/prompt_play_teach_6d328983.mp3",
@@ -31189,6 +32349,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy mouth holding the ball.",
     },
   },
+  [normalizeText("Tap the puppy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_paws_teach_492e50d7.mp3",
+      text: "Tap the puppy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_paws_teach_492e50d7.mp3",
+      text: "Tap the puppy paws.",
+    },
+  },
   [normalizeText("Tap the puppy running after the ball.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/prompt_run_teach_3e2c0c46.mp3",
@@ -31207,6 +32377,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/prompt_sit_teach_e2b1835f.mp3",
       text: "Tap the puppy sitting down.",
+    },
+  },
+  [normalizeText("Tap the puppy so an adult washes its paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_wash_practice_8ecc8169.mp3",
+      text: "Tap the puppy so an adult washes its paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_wash_practice_8ecc8169.mp3",
+      text: "Tap the puppy so an adult washes its paws.",
     },
   },
   [normalizeText("Tap the puppy so it brings the ball close to you.")]: {
@@ -31249,6 +32429,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy so it starts bringing the ball back.",
     },
   },
+  [normalizeText("Tap the puppy so it steps off the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_all_done_practice_7fd3cc23.mp3",
+      text: "Tap the puppy so it steps off the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_all_done_practice_7fd3cc23.mp3",
+      text: "Tap the puppy so it steps off the mat.",
+    },
+  },
   [normalizeText("Tap the puppy so it turns all the way toward you.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/prompt_turn_around_practice_2ad03c2e.mp3",
@@ -31279,6 +32469,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy so it wags hello.",
     },
   },
+  [normalizeText("Tap the puppy so it waits for an adult.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_wait_practice_acfb0124.mp3",
+      text: "Tap the puppy so it waits for an adult.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_wait_practice_acfb0124.mp3",
+      text: "Tap the puppy so it waits for an adult.",
+    },
+  },
+  [normalizeText("Tap the puppy so it waits.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_dirty_practice_7c77ba1b.mp3",
+      text: "Tap the puppy so it waits.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_dirty_practice_7c77ba1b.mp3",
+      text: "Tap the puppy so it waits.",
+    },
+  },
+  [normalizeText("Tap the puppy that has finished washing.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
+      text: "Tap the puppy that has finished washing.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
+      text: "Tap the puppy that has finished washing.",
+    },
+  },
   [normalizeText("Tap the puppy that has nearly finished eating.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_teach_831ffa9c.mp3",
@@ -31299,6 +32519,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy that is ready to play.",
     },
   },
+  [normalizeText("Tap the puppy to bring the towel near its paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_towel_practice_fc1eeb82.mp3",
+      text: "Tap the puppy to bring the towel near its paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_towel_practice_fc1eeb82.mp3",
+      text: "Tap the puppy to bring the towel near its paws.",
+    },
+  },
+  [normalizeText("Tap the puppy to celebrate its clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
+      text: "Tap the puppy to celebrate its clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
+      text: "Tap the puppy to celebrate its clean paws.",
+    },
+  },
   [normalizeText("Tap the puppy to celebrate your kind play.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
@@ -31307,6 +32547,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
       text: "Tap the puppy to celebrate your kind play.",
+    },
+  },
+  [normalizeText("Tap the puppy to check that its paws are dry.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_the_paws_practice_81ce7d1d.mp3",
+      text: "Tap the puppy to check that its paws are dry.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_the_paws_practice_81ce7d1d.mp3",
+      text: "Tap the puppy to check that its paws are dry.",
+    },
+  },
+  [normalizeText("Tap the puppy to check that the mud is gone.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_check_the_paws_practice_8c917538.mp3",
+      text: "Tap the puppy to check that the mud is gone.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_check_the_paws_practice_8c917538.mp3",
+      text: "Tap the puppy to check that the mud is gone.",
     },
   },
   [normalizeText("Tap the puppy to hear its tummy rumble.")]: {
@@ -31329,6 +32589,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy to invite it to keep playing.",
     },
   },
+  [normalizeText("Tap the puppy to move on to drying.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_finished_washing_practice_52e613fd.mp3",
+      text: "Tap the puppy to move on to drying.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_finished_washing_practice_52e613fd.mp3",
+      text: "Tap the puppy to move on to drying.",
+    },
+  },
+  [normalizeText("Tap the puppy to pat away the last drops.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_pat_practice_438fcb35.mp3",
+      text: "Tap the puppy to pat away the last drops.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_pat_practice_438fcb35.mp3",
+      text: "Tap the puppy to pat away the last drops.",
+    },
+  },
   [normalizeText("Tap the puppy to say hello.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/prompt_hello_practice_de530065.mp3",
@@ -31339,6 +32619,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy to say hello.",
     },
   },
+  [normalizeText("Tap the puppy to see both clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_clean_practice_69ce8c6d.mp3",
+      text: "Tap the puppy to see both clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_practice_69ce8c6d.mp3",
+      text: "Tap the puppy to see both clean paws.",
+    },
+  },
+  [normalizeText("Tap the puppy to see both dry paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_practice_f288df83.mp3",
+      text: "Tap the puppy to see both dry paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_practice_f288df83.mp3",
+      text: "Tap the puppy to see both dry paws.",
+    },
+  },
   [normalizeText("Tap the puppy to show you are ready.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/prompt_ready_practice_51c9db6c.mp3",
@@ -31347,6 +32647,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-GB/neural2-c-r1/prompt_ready_practice_51c9db6c.mp3",
       text: "Tap the puppy to show you are ready.",
+    },
+  },
+  [normalizeText("Tap the puppy to wipe its wet paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wipe_practice_c9f071f9.mp3",
+      text: "Tap the puppy to wipe its wet paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wipe_practice_c9f071f9.mp3",
+      text: "Tap the puppy to wipe its wet paws.",
     },
   },
   [normalizeText("Tap the puppy turning around with the ball.")]: {
@@ -31377,6 +32687,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_wait_teach_3ecab628.mp3",
       text: "Tap the puppy waiting calmly.",
+    },
+  },
+  [normalizeText("Tap the puppy waiting on the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_wait_teach_00f50fa7.mp3",
+      text: "Tap the puppy waiting on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_wait_teach_00f50fa7.mp3",
+      text: "Tap the puppy waiting on the mat.",
+    },
+  },
+  [normalizeText("Tap the puppy with muddy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_muddy_paws_practice_0b9c414a.mp3",
+      text: "Tap the puppy with muddy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_muddy_paws_practice_0b9c414a.mp3",
+      text: "Tap the puppy with muddy paws.",
     },
   },
   [normalizeText("Tap the puppy’s tail.")]: {
@@ -32131,6 +33461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small bag on the right.",
     },
   },
+  [normalizeText("Tap the small basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_basin_teach_5b30236a.mp3",
+      text: "Tap the small basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_basin_teach_5b30236a.mp3",
+      text: "Tap the small basin.",
+    },
+  },
   [normalizeText("Tap the small branches under the soil.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
@@ -32189,6 +33529,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_bee_fail_d5115954.mp3",
       text: "Tap the small lens at the lower right.",
+    },
+  },
+  [normalizeText("Tap the small pawprints on the floor.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_pawprints_teach_51c1d904.mp3",
+      text: "Tap the small pawprints on the floor.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_pawprints_teach_51c1d904.mp3",
+      text: "Tap the small pawprints on the floor.",
     },
   },
   [normalizeText("Tap the small seed on the open hand.")]: {
@@ -32305,6 +33655,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/bedroom/audio/en/prompt_practice_socks_3e603a84.mp3",
       text: "Tap the socks.",
+    },
+  },
+  [normalizeText("Tap the soft part of the towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
+      text: "Tap the soft part of the towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
+      text: "Tap the soft part of the towel.",
     },
   },
   [normalizeText("Tap the soft toy.")]: {
@@ -32761,6 +34121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the thumb.",
     },
   },
+  [normalizeText("Tap the thumbs saying all done.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_all_done_teach_060e34bc.mp3",
+      text: "Tap the thumbs saying all done.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_all_done_teach_060e34bc.mp3",
+      text: "Tap the thumbs saying all done.",
+    },
+  },
   [normalizeText("Tap the ticket.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/prompt_tap_ticket_8d580d79.mp3",
@@ -32971,6 +34341,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/personal-care/care-items/audio/en-GB/neural2-c-r1/prompt_tap_toothpaste_eeb30682.mp3",
       text: "Tap the toothpaste.",
+    },
+  },
+  [normalizeText("Tap the towel drying both paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_dry_the_paws_teach_4316d022.mp3",
+      text: "Tap the towel drying both paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_dry_the_paws_teach_4316d022.mp3",
+      text: "Tap the towel drying both paws.",
+    },
+  },
+  [normalizeText("Tap the towel to use its soft side.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
+      text: "Tap the towel to use its soft side.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
+      text: "Tap the towel to use its soft side.",
+    },
+  },
+  [normalizeText("Tap the towel wiping the wet paw.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wipe_teach_2fa6d70e.mp3",
+      text: "Tap the towel wiping the wet paw.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_wipe_teach_2fa6d70e.mp3",
+      text: "Tap the towel wiping the wet paw.",
     },
   },
   [normalizeText("Tap the towel.")]: {
@@ -33363,6 +34763,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/reveal_shade_fail_363e48b1.mp3",
       text: "Tap the yellow sun.",
+    },
+  },
+  [normalizeText("Tap the yellow towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_towel_teach_2880b0d5.mp3",
+      text: "Tap the yellow towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_towel_teach_2880b0d5.mp3",
+      text: "Tap the yellow towel.",
     },
   },
   [normalizeText("Tap the yogurt.")]: {
@@ -36893,6 +38303,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The banner is at the top.",
     },
   },
+  [normalizeText("The basin has clean water for washing.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_practice_success_0a73f85b.mp3",
+      text: "The basin has clean water for washing.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_practice_success_0a73f85b.mp3",
+      text: "The basin has clean water for washing.",
+    },
+  },
   [normalizeText("The basket is at the back.")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/tap_basket_fail_df43c0be.mp3",
@@ -39133,6 +40553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The large open leaf is on the left.",
     },
   },
+  [normalizeText("The last drops are dry.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/pat_practice_success_c0a06907.mp3",
+      text: "The last drops are dry.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/pat_practice_success_c0a06907.mp3",
+      text: "The last drops are dry.",
+    },
+  },
   [normalizeText("The leaf covers the little neighbors again.")]: {
     "en-US": {
       key: "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/replace_leaf_success_1e7986ff.mp3",
@@ -39463,6 +40893,56 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The mouth is where an animal eats and holds things.",
     },
   },
+  [normalizeText("The mud from the paws is now in the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_paws_practice_success_252477d9.mp3",
+      text: "The mud from the paws is now in the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_paws_practice_success_252477d9.mp3",
+      text: "The mud from the paws is now in the basin.",
+    },
+  },
+  [normalizeText("The mud is gone and both paws are clean.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/completion_e2eaa929.mp3",
+      text: "The mud is gone and both paws are clean.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/completion_e2eaa929.mp3",
+      text: "The mud is gone and both paws are clean.",
+    },
+  },
+  [normalizeText("The mud is gone. Both paws are clean.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/clean_practice_success_a360dd07.mp3",
+      text: "The mud is gone. Both paws are clean.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_practice_success_a360dd07.mp3",
+      text: "The mud is gone. Both paws are clean.",
+    },
+  },
+  [normalizeText("The mud left small pawprints.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_practice_success_eb0df85c.mp3",
+      text: "The mud left small pawprints.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_practice_success_eb0df85c.mp3",
+      text: "The mud left small pawprints.",
+    },
+  },
+  [normalizeText("The muddy water will not be used again.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/muddy_water_practice_success_ead0fc0b.mp3",
+      text: "The muddy water will not be used again.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/muddy_water_practice_success_ead0fc0b.mp3",
+      text: "The muddy water will not be used again.",
+    },
+  },
   [normalizeText("The music sounds fun!")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_music_success_c323e44d.mp3",
@@ -39711,6 +41191,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-GB/neural2-c-r1/prompt_intro_123641be.mp3",
       text: "The pawprints lead to a box and a basket. Check each hiding spot.",
+    },
+  },
+  [normalizeText("The pawprints lead to the waiting puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_practice_success_81ab54a2.mp3",
+      text: "The pawprints lead to the waiting puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_practice_success_81ab54a2.mp3",
+      text: "The pawprints lead to the waiting puppy.",
     },
   },
   [normalizeText("The payment card is left of the receipt.")]: {
@@ -40163,6 +41653,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy is happy to play gently with you.",
     },
   },
+  [normalizeText("The puppy is happy with its clean dry paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/happy_practice_success_71586e9e.mp3",
+      text: "The puppy is happy with its clean dry paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/happy_practice_success_71586e9e.mp3",
+      text: "The puppy is happy with its clean dry paws.",
+    },
+  },
   [normalizeText("The puppy is holding the ball in its mouth.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/mouth_practice_success_9196d62f.mp3",
@@ -40253,6 +41753,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy is waiting beside the mat.",
     },
   },
+  [normalizeText("The puppy is waiting calmly beside the basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/intro_success_a3df0a94.mp3",
+      text: "The puppy is waiting calmly beside the basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/intro_success_a3df0a94.mp3",
+      text: "The puppy is waiting calmly beside the basin.",
+    },
+  },
+  [normalizeText("The puppy is waiting calmly beside the towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/intro_success_b752d14d.mp3",
+      text: "The puppy is waiting calmly beside the towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/intro_success_b752d14d.mp3",
+      text: "The puppy is waiting calmly beside the towel.",
+    },
+  },
   [normalizeText("The puppy is waiting calmly.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/wait_practice_success_b11607c1.mp3",
@@ -40273,6 +41793,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy is waiting for you to choose a toy.",
     },
   },
+  [normalizeText("The puppy is waiting on the mat for help.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/intro_success_602602e2.mp3",
+      text: "The puppy is waiting on the mat for help.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/intro_success_602602e2.mp3",
+      text: "The puppy is waiting on the mat for help.",
+    },
+  },
+  [normalizeText("The puppy paws are clean and dry, and you remembered to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/completion_2d4277f9.mp3",
+      text: "The puppy paws are clean and dry, and you remembered to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/completion_2d4277f9.mp3",
+      text: "The puppy paws are clean and dry, and you remembered to wash your hands.",
+    },
+  },
+  [normalizeText("The puppy paws are clean but still wet. Let’s dry them.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_intro_429dde8b.mp3",
+      text: "The puppy paws are clean but still wet. Let’s dry them.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_intro_429dde8b.mp3",
+      text: "The puppy paws are clean but still wet. Let’s dry them.",
+    },
+  },
+  [normalizeText("The puppy paws have mud on them.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_practice_success_af1e13b6.mp3",
+      text: "The puppy paws have mud on them.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_practice_success_af1e13b6.mp3",
+      text: "The puppy paws have mud on them.",
+    },
+  },
   [normalizeText("The puppy ran to the ball.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/run_practice_success_7ce32789.mp3",
@@ -40281,6 +41841,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-GB/neural2-c-r1/run_practice_success_7ce32789.mp3",
       text: "The puppy ran to the ball.",
+    },
+  },
+  [normalizeText("The puppy stops on the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/stop_here_practice_success_008d93a2.mp3",
+      text: "The puppy stops on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_practice_success_008d93a2.mp3",
+      text: "The puppy stops on the mat.",
     },
   },
   [normalizeText("The puppy turned around toward you.")]: {
@@ -40313,6 +41883,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy wagged its tail. Let us prepare its meal.",
     },
   },
+  [normalizeText("The puppy waited for an adult to help wash its paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/completion_1b701f3e.mp3",
+      text: "The puppy waited for an adult to help wash its paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/completion_1b701f3e.mp3",
+      text: "The puppy waited for an adult to help wash its paws.",
+    },
+  },
+  [normalizeText("The puppy waits on the mat for help.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/dirty_practice_success_0927372f.mp3",
+      text: "The puppy waits on the mat for help.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/dirty_practice_success_0927372f.mp3",
+      text: "The puppy waits on the mat for help.",
+    },
+  },
+  [normalizeText("The puppy walked through mud. Look at your friend’s paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_intro_15a0a5df.mp3",
+      text: "The puppy walked through mud. Look at your friend’s paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/prompt_intro_15a0a5df.mp3",
+      text: "The puppy walked through mud. Look at your friend’s paws.",
+    },
+  },
   [normalizeText("The puppy wants to play. Open the basket and choose a ball.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/prompt_intro_f430ff0d.mp3",
@@ -40321,6 +41921,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-GB/neural2-c-r1/prompt_intro_f430ff0d.mp3",
       text: "The puppy wants to play. Open the basket and choose a ball.",
+    },
+  },
+  [normalizeText("The puppy will wait on the doormat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_practice_success_b9ee4ce8.mp3",
+      text: "The puppy will wait on the doormat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_practice_success_b9ee4ce8.mp3",
+      text: "The puppy will wait on the doormat.",
     },
   },
   [normalizeText("The puppy’s meal is prepared.")]: {
@@ -41273,6 +42883,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The socks are near the bed.",
     },
   },
+  [normalizeText("The soft towel dries the paws gently.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_success_043448a2.mp3",
+      text: "The soft towel dries the paws gently.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_success_043448a2.mp3",
+      text: "The soft towel dries the paws gently.",
+    },
+  },
   [normalizeText("The soft toy is next to the sleep mask.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_comfort_plush_fail_f5d67e59.mp3",
@@ -41933,6 +43553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The towel is on the left.",
     },
   },
+  [normalizeText("The towel is ready to dry the paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_practice_success_bfc0de9c.mp3",
+      text: "The towel is ready to dry the paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_practice_success_bfc0de9c.mp3",
+      text: "The towel is ready to dry the paws.",
+    },
+  },
   [normalizeText("The towel is under the bowl now.")]: {
     "en-US": {
       key: "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/place_towel_success_c8c07b31.mp3",
@@ -42121,6 +43751,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/beach-day/beach-bag/audio/en-GB/neural2-c-r1/tap_water_bottle_fail_da85021a.mp3",
       text: "The water bottle is on the right.",
+    },
+  },
+  [normalizeText("The water changed color because of the mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_practice_success_dd7b2ba4.mp3",
+      text: "The water changed color because of the mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_practice_success_dd7b2ba4.mp3",
+      text: "The water changed color because of the mud.",
     },
   },
   [normalizeText("The water drop is at the upper left.")]: {
@@ -42393,6 +44033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "There are so many books!",
     },
   },
+  [normalizeText("There is no mud left on the paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_practice_success_aa43e340.mp3",
+      text: "There is no mud left on the paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_practice_success_aa43e340.mp3",
+      text: "There is no mud left on the paws.",
+    },
+  },
   [normalizeText("There is plenty of rain. Drag the small pot under the shelter.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_move_under_shelter_528a47ef.mp3",
@@ -42421,6 +44071,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/thermometer.mp3",
       text: "thermometer",
+    },
+  },
+  [normalizeText("These are muddy pawprints.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/pawprints_teach_success_24b37f45.mp3",
+      text: "These are muddy pawprints.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/pawprints_teach_success_24b37f45.mp3",
+      text: "These are muddy pawprints.",
     },
   },
   [normalizeText("These are the binoculars.")]: {
@@ -42571,6 +44231,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-bath/bath-finish/audio/en-GB/neural2-c-r1/prompt_teach_pajamas_a30012b8.mp3",
       text: "These are the pajamas.",
+    },
+  },
+  [normalizeText("These are the puppy paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/paws_teach_success_7aef3f93.mp3",
+      text: "These are the puppy paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/paws_teach_success_7aef3f93.mp3",
+      text: "These are the puppy paws.",
     },
   },
   [normalizeText("These are the raisins.")]: {
@@ -42763,6 +44433,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is a ball.",
     },
   },
+  [normalizeText("This is a basin.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_teach_success_420af2dd.mp3",
+      text: "This is a basin.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/basin_teach_success_420af2dd.mp3",
+      text: "This is a basin.",
+    },
+  },
   [normalizeText("This is a basket.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-US/neural2-c-r1/basket_teach_success_32172f7f.mp3",
@@ -42781,6 +44461,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-GB/neural2-c-r1/box_teach_success_d8742496.mp3",
       text: "This is a box.",
+    },
+  },
+  [normalizeText("This is a doormat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/doormat_teach_success_fffd998f.mp3",
+      text: "This is a doormat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/doormat_teach_success_fffd998f.mp3",
+      text: "This is a doormat.",
     },
   },
   [normalizeText("This is a hand.")]: {
@@ -42843,6 +44533,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is a scoop.",
     },
   },
+  [normalizeText("This is a towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/towel_teach_success_e0dc15a6.mp3",
+      text: "This is a towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/towel_teach_success_e0dc15a6.mp3",
+      text: "This is a towel.",
+    },
+  },
   [normalizeText("This is dinner.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-prep/audio/en-US/neural2-c-r1/prompt_teach_dinner_54b38984.mp3",
@@ -42851,6 +44551,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/prompt_teach_dinner_54b38984.mp3",
       text: "This is dinner.",
+    },
+  },
+  [normalizeText("This is mud.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_teach_success_072d66c7.mp3",
+      text: "This is mud.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/mud_teach_success_072d66c7.mp3",
+      text: "This is mud.",
     },
   },
   [normalizeText("This is music.")]: {
@@ -46843,6 +48553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the zookeeper.",
     },
   },
+  [normalizeText("This is water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/water_teach_success_f6b235db.mp3",
+      text: "This is water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/water_teach_success_f6b235db.mp3",
+      text: "This is water.",
+    },
+  },
   [normalizeText("This is your family.")]: {
     "en-US": {
       key: "lessons/afternoon-home/home-arrival/audio/en-US/neural2-c-r1/prompt_teach_family_e084c76d.mp3",
@@ -48619,6 +50339,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wait for the sprout",
     },
   },
+  [normalizeText("Wait means stay until it is time to move.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/wait_teach_success_dcac2d59.mp3",
+      text: "Wait means stay until it is time to move.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/wait_teach_success_dcac2d59.mp3",
+      text: "Wait means stay until it is time to move.",
+    },
+  },
   [normalizeText("Wait means to stay until it is time.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/wait_teach_success_8f8880cb.mp3",
@@ -48679,6 +50409,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "warm face",
     },
   },
+  [normalizeText("wash")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash.mp3",
+      text: "wash",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash.mp3",
+      text: "wash",
+    },
+  },
+  [normalizeText("wash hands")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands.mp3",
+      text: "wash hands",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands.mp3",
+      text: "wash hands",
+    },
+  },
+  [normalizeText("Wash hands means clean your hands with soap and water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_teach_success_243b9318.mp3",
+      text: "Wash hands means clean your hands with soap and water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_teach_success_243b9318.mp3",
+      text: "Wash hands means clean your hands with soap and water.",
+    },
+  },
+  [normalizeText("Wash means clean with water.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/wash_teach_success_9d85a6b8.mp3",
+      text: "Wash means clean with water.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/wash_teach_success_9d85a6b8.mp3",
+      text: "Wash means clean with water.",
+    },
+  },
   [normalizeText("wash your face")]: {
     "en-US": {
       key: "lessons/morning-routine/bathroom/audio/en-US/neural2-c-r1/wash_your_face.mp3",
@@ -48727,6 +50497,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/after-lunch/audio/en-GB/neural2-c-r1/prompt_cleanup_drag_soap_to_hands_99e43999.mp3",
       text: "Wash your hands.",
+    },
+  },
+  [normalizeText("Washing is finished. Now it is time to dry.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/finished_washing_practice_success_158f2089.mp3",
+      text: "Washing is finished. Now it is time to dry.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/finished_washing_practice_success_158f2089.mp3",
+      text: "Washing is finished. Now it is time to dry.",
     },
   },
   [normalizeText("waste bin")]: {
@@ -49195,6 +50975,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/ride-home/audio/en/window.mp3",
       text: "window",
+    },
+  },
+  [normalizeText("wipe")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe.mp3",
+      text: "wipe",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe.mp3",
+      text: "wipe",
+    },
+  },
+  [normalizeText("Wipe means move a cloth over something to clean or dry it.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_teach_success_42567962.mp3",
+      text: "Wipe means move a cloth over something to clean or dry it.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wipe_teach_success_42567962.mp3",
+      text: "Wipe means move a cloth over something to clean or dry it.",
     },
   },
   [normalizeText("wipe the table")]: {
@@ -50931,6 +52731,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/at-school/school-supplies/audio/en-GB/neural2-c-r1/supplies_review_book_success_ef604f16.mp3",
       text: "You remembered the school supplies very well!",
+    },
+  },
+  [normalizeText("You remembered to wash your hands after helping the puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_practice_success_8abc66af.mp3",
+      text: "You remembered to wash your hands after helping the puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/wash_hands_practice_success_8abc66af.mp3",
+      text: "You remembered to wash your hands after helping the puppy.",
     },
   },
   [normalizeText("You rinsed the produce and let the water drain away.")]: {
@@ -56235,6 +58045,606 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là chong chóng.")]: {
     key: "lessons/calm-myself/slow-breathing/audio/vi/teach_pinwheel_success_8537625d.mp3",
     text: "Từ này nghĩa là chong chóng.",
+  },
+  [normalizeText("Chạm cún để bạn bước khỏi thảm nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_practice_5db23403.mp3",
+    text: "Chạm cún để bạn bước khỏi thảm nhé.",
+  },
+  [normalizeText("Xong rồi. Cún đã sạch và sẵn sàng chơi.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_practice_success_c928ea62.mp3",
+    text: "Xong rồi. Cún đã sạch và sẵn sàng chơi.",
+  },
+  [normalizeText("Chạm hai ngón cái báo xong rồi nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_teach_435e7b4d.mp3",
+    text: "Chạm hai ngón cái báo xong rồi nhé.",
+  },
+  [normalizeText("Chạm hai bàn tay giơ ngón cái nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_teach_fail_7b17ef1f.mp3",
+    text: "Chạm hai bàn tay giơ ngón cái nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là xong rồi.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_teach_success_d3f8c640.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là xong rồi.",
+  },
+  [normalizeText("Chân cún đã sạch, khô và bé cũng nhớ rửa tay.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/completion_68dd9159.mp3",
+    text: "Chân cún đã sạch, khô và bé cũng nhớ rửa tay.",
+  },
+  [normalizeText("Chạm cún để xem hai chân đã khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_practice_810b411b.mp3",
+    text: "Chạm cún để xem hai chân đã khô nhé.",
+  },
+  [normalizeText("Hai bàn chân đã sạch và khô.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_practice_success_c850d294.mp3",
+    text: "Hai bàn chân đã sạch và khô.",
+  },
+  [normalizeText("Chạm bàn chân sạch và khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_teach_2a67d9fc.mp3",
+    text: "Chạm bàn chân sạch và khô nhé.",
+  },
+  [normalizeText("Chạm bàn chân trắng có tia sáng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_teach_fail_17d4baf3.mp3",
+    text: "Chạm bàn chân trắng có tia sáng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là khô.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_teach_success_1dc42c99.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là khô.",
+  },
+  [normalizeText("Chạm cún để kiểm tra chân đã khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_practice_525b64f3.mp3",
+    text: "Chạm cún để kiểm tra chân đã khô nhé.",
+  },
+  [normalizeText("Chạm chú cún có chân khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_practice_fail_f5d01a8d.mp3",
+    text: "Chạm chú cún có chân khô nhé.",
+  },
+  [normalizeText("Hai bàn chân đã khô hoàn toàn.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_practice_success_9bee96c4.mp3",
+    text: "Hai bàn chân đã khô hoàn toàn.",
+  },
+  [normalizeText("Chạm hình khăn lau cả hai chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_teach_34d1921b.mp3",
+    text: "Chạm hình khăn lau cả hai chân nhé.",
+  },
+  [normalizeText("Chạm hai chân đang được khăn lau nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_teach_fail_19a484f6.mp3",
+    text: "Chạm hai chân đang được khăn lau nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là lau khô bàn chân.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_teach_success_9783f174.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là lau khô bàn chân.",
+  },
+  [normalizeText("Chạm cún để chúc mừng bạn sạch sẽ nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_practice_cd76261f.mp3",
+    text: "Chạm cún để chúc mừng bạn sạch sẽ nhé.",
+  },
+  [normalizeText("Cún vui vì chân đã sạch và khô.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_practice_success_741a694d.mp3",
+    text: "Cún vui vì chân đã sạch và khô.",
+  },
+  [normalizeText("Chạm chú cún đang vui nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_teach_e0f93044.mp3",
+    text: "Chạm chú cún đang vui nhé.",
+  },
+  [normalizeText("Chân cún đã sạch nhưng còn ướt. Mình lau khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/intro_a1a5768f.mp3",
+    text: "Chân cún đã sạch nhưng còn ướt. Mình lau khô nhé.",
+  },
+  [normalizeText("Cún đang ngồi yên cạnh chiếc khăn.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/intro_success_c466c7d1.mp3",
+    text: "Cún đang ngồi yên cạnh chiếc khăn.",
+  },
+  [normalizeText("Chạm cún để thấm nhẹ giọt nước cuối nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_practice_0898aa0a.mp3",
+    text: "Chạm cún để thấm nhẹ giọt nước cuối nhé.",
+  },
+  [normalizeText("Giọt nước cuối đã được thấm khô.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_practice_success_e015abfb.mp3",
+    text: "Giọt nước cuối đã được thấm khô.",
+  },
+  [normalizeText("Chạm tay đang thấm nhẹ bàn chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_teach_8c94f88b.mp3",
+    text: "Chạm tay đang thấm nhẹ bàn chân nhé.",
+  },
+  [normalizeText("Chạm bàn tay và khăn vàng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_teach_fail_0c33344c.mp3",
+    text: "Chạm bàn tay và khăn vàng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là thấm nhẹ.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_teach_success_60e62f35.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là thấm nhẹ.",
+  },
+  [normalizeText("Chạm khăn để dùng mặt mềm lau chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_practice_2417cce5.mp3",
+    text: "Chạm khăn để dùng mặt mềm lau chân nhé.",
+  },
+  [normalizeText("Khăn mềm giúp lau chân thật nhẹ.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_practice_success_c857d146.mp3",
+    text: "Khăn mềm giúp lau chân thật nhẹ.",
+  },
+  [normalizeText("Chạm phần khăn mềm nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_teach_d92f76a7.mp3",
+    text: "Chạm phần khăn mềm nhé.",
+  },
+  [normalizeText("Chạm chiếc khăn vàng xốp nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_teach_fail_4eddd489.mp3",
+    text: "Chạm chiếc khăn vàng xốp nhé.",
+  },
+  [normalizeText("Chạm cún để đặt khăn gần bàn chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_practice_eb2e6cb4.mp3",
+    text: "Chạm cún để đặt khăn gần bàn chân nhé.",
+  },
+  [normalizeText("Chạm chú cún có chân ướt nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_practice_fail_5c69034c.mp3",
+    text: "Chạm chú cún có chân ướt nhé.",
+  },
+  [normalizeText("Chiếc khăn đã sẵn sàng lau chân.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_practice_success_913032d7.mp3",
+    text: "Chiếc khăn đã sẵn sàng lau chân.",
+  },
+  [normalizeText("Chạm chiếc khăn vàng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_teach_6818a772.mp3",
+    text: "Chạm chiếc khăn vàng nhé.",
+  },
+  [normalizeText("Chạm chiếc khăn gấp bên trái nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_teach_fail_f2b05cad.mp3",
+    text: "Chạm chiếc khăn gấp bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_teach_success_13d149d1.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn.",
+  },
+  [normalizeText("Chạm hình rửa tay để kết thúc nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_practice_a2246d7d.mp3",
+    text: "Chạm hình rửa tay để kết thúc nhé.",
+  },
+  [normalizeText("Bé đã nhớ rửa tay sau khi chăm cún.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_practice_success_427963aa.mp3",
+    text: "Bé đã nhớ rửa tay sau khi chăm cún.",
+  },
+  [normalizeText("Chạm hai bàn tay dưới vòi nước nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_teach_880e3440.mp3",
+    text: "Chạm hai bàn tay dưới vòi nước nhé.",
+  },
+  [normalizeText("Chạm hai bàn tay có bọt xà phòng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_teach_fail_3c8599d3.mp3",
+    text: "Chạm hai bàn tay có bọt xà phòng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là rửa tay.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_teach_success_2c971093.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là rửa tay.",
+  },
+  [normalizeText("Chạm cún để lau chân còn ướt nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_practice_b2978f09.mp3",
+    text: "Chạm cún để lau chân còn ướt nhé.",
+  },
+  [normalizeText("Chạm chú cún đang được lau chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_practice_fail_415848df.mp3",
+    text: "Chạm chú cún đang được lau chân nhé.",
+  },
+  [normalizeText("Người lớn đang lau nhẹ các giọt nước.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_practice_success_bd4db9ff.mp3",
+    text: "Người lớn đang lau nhẹ các giọt nước.",
+  },
+  [normalizeText("Chạm khăn đang lau bàn chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_teach_3bc1d8a5.mp3",
+    text: "Chạm khăn đang lau bàn chân nhé.",
+  },
+  [normalizeText("Chạm bàn tay cầm khăn vàng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_teach_fail_ddc586b9.mp3",
+    text: "Chạm bàn tay cầm khăn vàng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là lau.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wipe_teach_success_7ca6bcb1.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là lau.",
+  },
+  [normalizeText("Chạm bàn tay để bắt đầu giúp cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/ask_an_adult_practice_7a64ffed.mp3",
+    text: "Chạm bàn tay để bắt đầu giúp cún nhé.",
+  },
+  [normalizeText("Chạm bàn tay người lớn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/ask_an_adult_practice_fail_d4a2d688.mp3",
+    text: "Chạm bàn tay người lớn nhé.",
+  },
+  [normalizeText("Người lớn đã tới giúp rửa chân cho cún.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/ask_an_adult_practice_success_d396fed0.mp3",
+    text: "Người lớn đã tới giúp rửa chân cho cún.",
+  },
+  [normalizeText("Chạm bàn tay cạnh chú cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/ask_an_adult_teach_fail_41bd7149.mp3",
+    text: "Chạm bàn tay cạnh chú cún nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nhờ người lớn.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/ask_an_adult_teach_success_2d33f9d5.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nhờ người lớn.",
+  },
+  [normalizeText("Cún đã đứng chờ để người lớn giúp rửa chân.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/completion_95e3f5bc.mp3",
+    text: "Cún đã đứng chờ để người lớn giúp rửa chân.",
+  },
+  [normalizeText("Chạm cún để bạn đứng chờ nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_practice_a2f120e5.mp3",
+    text: "Chạm cún để bạn đứng chờ nhé.",
+  },
+  [normalizeText("Chạm chú cún có chân bẩn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_practice_fail_ef889940.mp3",
+    text: "Chạm chú cún có chân bẩn nhé.",
+  },
+  [normalizeText("Cún đứng yên trên thảm để chờ giúp đỡ.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_practice_success_58900448.mp3",
+    text: "Cún đứng yên trên thảm để chờ giúp đỡ.",
+  },
+  [normalizeText("Chạm bàn chân đang dính bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_teach_d2c0118d.mp3",
+    text: "Chạm bàn chân đang dính bùn nhé.",
+  },
+  [normalizeText("Chạm bàn chân có nhiều bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_teach_fail_ea76187f.mp3",
+    text: "Chạm bàn chân có nhiều bùn nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bẩn.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/dirty_teach_success_3d7c0c0c.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bẩn.",
+  },
+  [normalizeText("Chạm thảm để giữ bùn ở một chỗ nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/doormat_practice_43c4b5b0.mp3",
+    text: "Chạm thảm để giữ bùn ở một chỗ nhé.",
+  },
+  [normalizeText("Cún sẽ chờ trên tấm thảm.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/doormat_practice_success_db08de7a.mp3",
+    text: "Cún sẽ chờ trên tấm thảm.",
+  },
+  [normalizeText("Chạm tấm thảm xanh nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/doormat_teach_7abc69eb.mp3",
+    text: "Chạm tấm thảm xanh nhé.",
+  },
+  [normalizeText("Chạm tấm thảm hình bầu dục nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/doormat_teach_fail_14c0a28c.mp3",
+    text: "Chạm tấm thảm hình bầu dục nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là tấm thảm chùi chân.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/doormat_teach_success_adb9b05b.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là tấm thảm chùi chân.",
+  },
+  [normalizeText("Cún vừa đi qua bùn. Mình nhìn bàn chân của bạn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/intro_6939f6df.mp3",
+    text: "Cún vừa đi qua bùn. Mình nhìn bàn chân của bạn nhé.",
+  },
+  [normalizeText("Cún đang đứng trên thảm và chờ bé giúp.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/intro_success_4a0769f9.mp3",
+    text: "Cún đang đứng trên thảm và chờ bé giúp.",
+  },
+  [normalizeText("Chạm bùn để tìm dấu chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/mud_practice_b89a6625.mp3",
+    text: "Chạm bùn để tìm dấu chân nhé.",
+  },
+  [normalizeText("Bùn đã để lại các dấu chân nhỏ.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/mud_practice_success_c2979674.mp3",
+    text: "Bùn đã để lại các dấu chân nhỏ.",
+  },
+  [normalizeText("Chạm vũng bùn màu nâu nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/mud_teach_ee6b1f8a.mp3",
+    text: "Chạm vũng bùn màu nâu nhé.",
+  },
+  [normalizeText("Chạm vũng màu nâu bên trái nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/mud_teach_fail_795b9cd6.mp3",
+    text: "Chạm vũng màu nâu bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bùn.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/mud_teach_success_3edc02c8.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bùn.",
+  },
+  [normalizeText("Chạm cún có bàn chân dính bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/muddy_paws_practice_e62c35d1.mp3",
+    text: "Chạm cún có bàn chân dính bùn nhé.",
+  },
+  [normalizeText("Đúng rồi, cún cần được rửa chân.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/muddy_paws_practice_success_7ab494c9.mp3",
+    text: "Đúng rồi, cún cần được rửa chân.",
+  },
+  [normalizeText("Chạm đôi chân dính bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/muddy_paws_teach_21a959c9.mp3",
+    text: "Chạm đôi chân dính bùn nhé.",
+  },
+  [normalizeText("Chạm hai chân phủ bùn màu nâu nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/muddy_paws_teach_fail_451aa97f.mp3",
+    text: "Chạm hai chân phủ bùn màu nâu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bàn chân dính bùn.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/muddy_paws_teach_success_fc983c81.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bàn chân dính bùn.",
+  },
+  [normalizeText("Chạm dấu chân rồi nhìn về phía cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/pawprints_practice_37a9750d.mp3",
+    text: "Chạm dấu chân rồi nhìn về phía cún nhé.",
+  },
+  [normalizeText("Chạm các dấu chân bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/pawprints_practice_fail_13ec1f5e.mp3",
+    text: "Chạm các dấu chân bùn nhé.",
+  },
+  [normalizeText("Dấu chân dẫn tới chú cún đang chờ.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/pawprints_practice_success_d09b6f38.mp3",
+    text: "Dấu chân dẫn tới chú cún đang chờ.",
+  },
+  [normalizeText("Chạm hàng dấu chân màu nâu nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/pawprints_teach_fail_b2068a1d.mp3",
+    text: "Chạm hàng dấu chân màu nâu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là những dấu chân.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/pawprints_teach_success_c8f40e03.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là những dấu chân.",
+  },
+  [normalizeText("Chạm cún để nhìn bàn chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_practice_a1f8ebce.mp3",
+    text: "Chạm cún để nhìn bàn chân nhé.",
+  },
+  [normalizeText("Chạm chú cún trên thảm nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_practice_fail_e83580af.mp3",
+    text: "Chạm chú cún trên thảm nhé.",
+  },
+  [normalizeText("Bàn chân cún đang dính bùn.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_practice_success_52afdc67.mp3",
+    text: "Bàn chân cún đang dính bùn.",
+  },
+  [normalizeText("Chạm hai bàn chân của cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_teach_045d5b37.mp3",
+    text: "Chạm hai bàn chân của cún nhé.",
+  },
+  [normalizeText("Chạm hai bàn chân có đệm hồng nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_teach_fail_14eea6e3.mp3",
+    text: "Chạm hai bàn chân có đệm hồng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là những bàn chân của cún.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/paws_teach_success_a0620f6c.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là những bàn chân của cún.",
+  },
+  [normalizeText("Chạm bàn tay để cún tiếp tục chờ nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_practice_c6d20f4d.mp3",
+    text: "Chạm bàn tay để cún tiếp tục chờ nhé.",
+  },
+  [normalizeText("Cún dừng trên thảm và không làm bẩn thêm.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_practice_success_eccde7f1.mp3",
+    text: "Cún dừng trên thảm và không làm bẩn thêm.",
+  },
+  [normalizeText("Chạm bàn tay báo dừng nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_teach_d500facf.mp3",
+    text: "Chạm bàn tay báo dừng nhé.",
+  },
+  [normalizeText("Chạm bàn tay đang mở nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_teach_fail_8bc5f495.mp3",
+    text: "Chạm bàn tay đang mở nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là dừng ở đây.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_teach_success_14052fd2.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là dừng ở đây.",
+  },
+  [normalizeText("Chạm cún để bạn chờ người lớn nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/wait_practice_5fb774ed.mp3",
+    text: "Chạm cún để bạn chờ người lớn nhé.",
+  },
+  [normalizeText("Chạm chú cún đang ngồi nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/wait_practice_fail_bea43bc7.mp3",
+    text: "Chạm chú cún đang ngồi nhé.",
+  },
+  [normalizeText("Chạm cún đang ngồi chờ nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/wait_teach_7e3df017.mp3",
+    text: "Chạm cún đang ngồi chờ nhé.",
+  },
+  [normalizeText("Chạm cún ngồi yên trên thảm nhé.")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/wait_teach_fail_514070a4.mp3",
+    text: "Chạm cún ngồi yên trên thảm nhé.",
+  },
+  [normalizeText("Chạm chậu để xem nước sau khi rửa nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/basin_practice_88ae3bb2.mp3",
+    text: "Chạm chậu để xem nước sau khi rửa nhé.",
+  },
+  [normalizeText("Nước trong chậu đã đổi màu vì bùn.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/basin_practice_success_d2dad940.mp3",
+    text: "Nước trong chậu đã đổi màu vì bùn.",
+  },
+  [normalizeText("Chạm chiếc chậu nhỏ nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/basin_teach_517fa9fe.mp3",
+    text: "Chạm chiếc chậu nhỏ nhé.",
+  },
+  [normalizeText("Chạm chiếc chậu xanh dưới sàn nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/basin_teach_fail_4ba776d2.mp3",
+    text: "Chạm chiếc chậu xanh dưới sàn nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chiếc chậu nhỏ.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/basin_teach_success_9972150d.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chiếc chậu nhỏ.",
+  },
+  [normalizeText("Chạm cún để kiểm tra hết bùn chưa nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_practice_a2b2d73c.mp3",
+    text: "Chạm cún để kiểm tra hết bùn chưa nhé.",
+  },
+  [normalizeText("Chạm chú cún sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_practice_fail_c87c1cc4.mp3",
+    text: "Chạm chú cún sạch nhé.",
+  },
+  [normalizeText("Hai bàn chân không còn bùn nữa.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_practice_success_ad1b4618.mp3",
+    text: "Hai bàn chân không còn bùn nữa.",
+  },
+  [normalizeText("Chạm hai bàn chân sạch để kiểm tra nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_teach_28210958.mp3",
+    text: "Chạm hai bàn chân sạch để kiểm tra nhé.",
+  },
+  [normalizeText("Chạm hai bàn chân trắng có giọt nước nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_teach_fail_1e9e2c79.mp3",
+    text: "Chạm hai bàn chân trắng có giọt nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là kiểm tra bàn chân.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/check_the_paws_teach_success_a620c2d7.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là kiểm tra bàn chân.",
+  },
+  [normalizeText("Chạm hai chân sạch rồi nhìn chậu nước nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_paws_practice_9bc9b1b4.mp3",
+    text: "Chạm hai chân sạch rồi nhìn chậu nước nhé.",
+  },
+  [normalizeText("Bùn ở chân đã chuyển vào nước trong chậu.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_paws_practice_success_f8fc5b9a.mp3",
+    text: "Bùn ở chân đã chuyển vào nước trong chậu.",
+  },
+  [normalizeText("Chạm hai bàn chân sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_paws_teach_b6f6b912.mp3",
+    text: "Chạm hai bàn chân sạch nhé.",
+  },
+  [normalizeText("Chạm hai bàn chân trắng nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_paws_teach_fail_fffb9823.mp3",
+    text: "Chạm hai bàn chân trắng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là những bàn chân sạch.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_paws_teach_success_4fe3ea56.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là những bàn chân sạch.",
+  },
+  [normalizeText("Chạm cún để nhìn hai chân sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_practice_32ccf3b7.mp3",
+    text: "Chạm cún để nhìn hai chân sạch nhé.",
+  },
+  [normalizeText("Bùn đã trôi hết. Hai bàn chân đã sạch.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_practice_success_2348444d.mp3",
+    text: "Bùn đã trôi hết. Hai bàn chân đã sạch.",
+  },
+  [normalizeText("Chạm bàn chân sạch có giọt nước nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_teach_855359c9.mp3",
+    text: "Chạm bàn chân sạch có giọt nước nhé.",
+  },
+  [normalizeText("Chạm bàn chân trắng có giọt nước nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_teach_fail_928a3ab8.mp3",
+    text: "Chạm bàn chân trắng có giọt nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là sạch.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/clean_teach_success_178efea9.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là sạch.",
+  },
+  [normalizeText("Bùn đã trôi hết và hai bàn chân đã sạch.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/completion_75d2bf4d.mp3",
+    text: "Bùn đã trôi hết và hai bàn chân đã sạch.",
+  },
+  [normalizeText("Chạm hình để người lớn mang chậu đi nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/empty_the_tub_practice_c89aa914.mp3",
+    text: "Chạm hình để người lớn mang chậu đi nhé.",
+  },
+  [normalizeText("Người lớn đã mang nước bẩn đi đổ an toàn.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/empty_the_tub_practice_success_e6fe711c.mp3",
+    text: "Người lớn đã mang nước bẩn đi đổ an toàn.",
+  },
+  [normalizeText("Chạm tay người lớn đang cất chậu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/empty_the_tub_teach_533b15f5.mp3",
+    text: "Chạm tay người lớn đang cất chậu nhé.",
+  },
+  [normalizeText("Chạm hai tay đang cầm chậu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/empty_the_tub_teach_fail_364a6fb7.mp3",
+    text: "Chạm hai tay đang cầm chậu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đổ nước trong chậu đi.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/empty_the_tub_teach_success_414dc0ef.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đổ nước trong chậu đi.",
+  },
+  [normalizeText("Chạm cún để chuyển sang lau khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_practice_a1555e07.mp3",
+    text: "Chạm cún để chuyển sang lau khô nhé.",
+  },
+  [normalizeText("Chạm chú cún có chân sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_practice_fail_c8e3fab6.mp3",
+    text: "Chạm chú cún có chân sạch nhé.",
+  },
+  [normalizeText("Rửa xong rồi. Bây giờ mình lau khô.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_practice_success_c24429cc.mp3",
+    text: "Rửa xong rồi. Bây giờ mình lau khô.",
+  },
+  [normalizeText("Chạm cún có hai chân sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_teach_ba8904e6.mp3",
+    text: "Chạm cún có hai chân sạch nhé.",
+  },
+  [normalizeText("Chạm chú cún sạch cạnh chậu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_teach_fail_93f60fa1.mp3",
+    text: "Chạm chú cún sạch cạnh chậu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là rửa xong rồi.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/finished_washing_teach_success_2e0e49c7.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là rửa xong rồi.",
+  },
+  [normalizeText("Người lớn đã chuẩn bị chậu. Mình rửa chân cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/intro_28a53cc5.mp3",
+    text: "Người lớn đã chuẩn bị chậu. Mình rửa chân cún nhé.",
+  },
+  [normalizeText("Cún đang đứng yên cạnh chậu nước.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/intro_success_f72ad552.mp3",
+    text: "Cún đang đứng yên cạnh chậu nước.",
+  },
+  [normalizeText("Chạm chậu nước bẩn để chuẩn bị cất đi nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_practice_a722faa2.mp3",
+    text: "Chạm chậu nước bẩn để chuẩn bị cất đi nhé.",
+  },
+  [normalizeText("Chạm chậu nước màu nâu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_practice_fail_6f98bda2.mp3",
+    text: "Chạm chậu nước màu nâu nhé.",
+  },
+  [normalizeText("Nước có bùn sẽ không dùng lại.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_practice_success_179abbf7.mp3",
+    text: "Nước có bùn sẽ không dùng lại.",
+  },
+  [normalizeText("Chạm chậu nước có bùn nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_teach_abd6bf76.mp3",
+    text: "Chạm chậu nước có bùn nhé.",
+  },
+  [normalizeText("Chạm chậu có nước màu nâu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_teach_fail_484e9d22.mp3",
+    text: "Chạm chậu có nước màu nâu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nước có bùn.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_teach_success_84697050.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nước có bùn.",
+  },
+  [normalizeText("Chạm cún để người lớn rửa chân nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_practice_ea58ca18.mp3",
+    text: "Chạm cún để người lớn rửa chân nhé.",
+  },
+  [normalizeText("Chạm chú cún cạnh chậu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_practice_fail_4ae0a368.mp3",
+    text: "Chạm chú cún cạnh chậu nhé.",
+  },
+  [normalizeText("Người lớn đang rửa nhẹ từng bàn chân.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_practice_success_2ffe3608.mp3",
+    text: "Người lớn đang rửa nhẹ từng bàn chân.",
+  },
+  [normalizeText("Chạm bàn tay đang rửa chân cún nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_teach_835f166d.mp3",
+    text: "Chạm bàn tay đang rửa chân cún nhé.",
+  },
+  [normalizeText("Chạm bàn tay và bàn chân cạnh chậu nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_teach_fail_fc0495bf.mp3",
+    text: "Chạm bàn tay và bàn chân cạnh chậu nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là rửa.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_teach_success_40241731.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là rửa.",
+  },
+  [normalizeText("Chạm chậu để người lớn cho nước vào nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_practice_44b2ab0f.mp3",
+    text: "Chạm chậu để người lớn cho nước vào nhé.",
+  },
+  [normalizeText("Chạm chiếc chậu xanh nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_practice_fail_43ae8d88.mp3",
+    text: "Chạm chiếc chậu xanh nhé.",
+  },
+  [normalizeText("Chậu đã có nước sạch để rửa chân.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_practice_success_e7bd0fa1.mp3",
+    text: "Chậu đã có nước sạch để rửa chân.",
+  },
+  [normalizeText("Chạm bình nước trong nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_teach_c3ec5e17.mp3",
+    text: "Chạm bình nước trong nhé.",
+  },
+  [normalizeText("Chạm bình nước bên trái nhé.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_teach_fail_d8d031f7.mp3",
+    text: "Chạm bình nước bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nước.")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/water_teach_success_0b9d4bc5.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nước.",
   },
   [normalizeText("Bé đã chào bác sĩ và nói cảm giác của mình.")]: {
     key: "lessons/doctor-visit/clinic-room/audio/vi/completion_486beca9.mp3",

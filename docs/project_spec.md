@@ -8,8 +8,8 @@
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
 năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
-Theme 4 cùng ba vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten` của Theme 5
-trong working tree hiện tại.
+Theme 4 cùng bốn vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
+`clean-muddy-paws` của Theme 5 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -109,6 +109,14 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   build 40 WebP và bốn bundled icon; local cutout/image verify pass. Google TTS đã tạo 520 clip;
   full-corpus audit có 14.279 target, missing 0 và invalid 0. R2 upload/verify 560/560 object, lỗi
   0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy cho lesson này.
+- **Implemented:** Foundation lesson `clean-muddy-paws` nối ba scene nhận ra chân cún dính bùn,
+  rửa bằng nước sạch với người lớn và lau khô. Budget vocabulary/action/pronunciation là
+  9/18/27, 18/36/54 và 9/18/27; auto-micro 9/12/15, review 4/5/6. Core tự kết thúc ở state
+  `muddy -> washing -> clean-wet -> dry`; Expanded/Challenge chỉ nối thêm chờ trên thảm, kiểm tra
+  nước có bùn, để người lớn mang chậu đi và rửa tay, không quay lại state bẩn. Local pipeline có
+  37 PNG master cùng bốn bundled icon; cutout audit pass. Google TTS đã tạo 512 clip; production
+  audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
+  post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -376,11 +384,12 @@ lesson đã sẵn sàng cho R2-first device test.
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
 
-Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký ba lesson Foundation:
+Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký bốn lesson Foundation:
 
 1. `feed-the-puppy`
 2. `play-with-the-puppy`
 3. `find-the-kitten`
+4. `clean-muddy-paws`
 
 Mốc 5A khóa sáu lesson dự kiến trong `docs/theme-5-content-draft.md`; Mốc 5B khóa storyboard pilot
 tại `docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
@@ -423,6 +432,15 @@ nghe tiếng `meow`/theo dấu chân tới kiểm tra hộp, giỏ và gọi mè
 verify đều pass. Google TTS đã tạo 520 clip; full-corpus audit có missing 0, invalid 0. R2
 upload/verify đủ 560/560 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa
 chạy.
+
+Storyboard `docs/theme-5-clean-muddy-paws-storyboard.md` khóa lesson thứ tư thành
+`notice-the-muddy-paws` -> `wash-the-paws` -> `dry-the-paws`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ nhận ra
+`paws` có `mud`, đứng chờ người lớn, rửa sạch, kiểm tra nước đã có bùn, lau khô rồi rửa tay.
+Review trả 4/5/6 item `paws`/`mud`/`water`/`towel` + `basin` + `dry the paws`. Local asset
+pipeline có 37 PNG master và bốn icon; cutout audit pass. Google TTS đã tạo 512 clip; production
+audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
+post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
 
 ### Hierarchy
 
@@ -1525,11 +1543,11 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 727/728 tests pass trong 82 suites sau khi thêm `find-the-kitten`. Suite mới guard
+- Jest: 755/756 tests pass trong 83 suites sau khi thêm `clean-muddy-paws`. Suite mới guard
   vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter 9/18/27, auto-micro 9/12/15,
-  action-first copy, target visibility, không drag, state story, cue thay thế không chồng hình,
-  cat-safety và review 4/5/6. Guard tương ứng của hai lesson cún vẫn pass. 1 baseline failure nằm
-  ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
+  action-first copy, target visibility, không drag, state `muddy -> clean-wet -> dry`, pet-care
+  safety và review 4/5/6. Guard tương ứng của ba lesson Theme 5 trước vẫn pass. 1 baseline failure
+  nằm ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
   `NSPhotoLibraryUsageDescription`; thay đổi này không chạm iOS/localization. Các suite mục tiêu
   cho lesson, learning-mode propagation, navigation replay và audio provenance đều pass.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
