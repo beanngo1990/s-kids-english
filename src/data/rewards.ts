@@ -453,6 +453,17 @@ export const lessonRewards: LessonReward[] = [
     tone: 'sky',
     title: 'Bé đã mở khoá Clean Paws Helper!',
   },
+  {
+    id: 'reward-care-for-the-rabbit',
+    iconName: 'milestoneCareForTheRabbit',
+    lessonId: 'care-for-the-rabbit',
+    stickerId: 'sticker-care-for-the-rabbit',
+    stickerName: 'Rabbit Caregiver',
+    stickerNameEn: 'Rabbit Caregiver',
+    stickerNameVi: 'Người chăm sóc thỏ',
+    tone: 'coral',
+    title: 'Bé đã mở khoá Rabbit Caregiver!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

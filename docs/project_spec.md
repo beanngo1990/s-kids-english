@@ -8,8 +8,8 @@
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
 năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
-Theme 4 cùng bốn vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
-`clean-muddy-paws` của Theme 5 trong working tree hiện tại.
+Theme 4 cùng năm vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
+`clean-muddy-paws`/`care-for-the-rabbit` của Theme 5 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -384,12 +384,13 @@ lesson đã sẵn sàng cho R2-first device test.
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
 
-Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký bốn lesson Foundation:
+Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký năm lesson Foundation:
 
 1. `feed-the-puppy`
 2. `play-with-the-puppy`
 3. `find-the-kitten`
 4. `clean-muddy-paws`
+5. `care-for-the-rabbit`
 
 Mốc 5A khóa sáu lesson dự kiến trong `docs/theme-5-content-draft.md`; Mốc 5B khóa storyboard pilot
 tại `docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
@@ -441,6 +442,16 @@ Review trả 4/5/6 item `paws`/`mud`/`water`/`towel` + `basin` + `dry the paws`.
 pipeline có 37 PNG master và bốn icon; cutout audit pass. Google TTS đã tạo 512 clip; production
 audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
 post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
+
+Storyboard `docs/theme-5-care-for-the-rabbit-storyboard.md` khóa lesson thứ năm thành
+`prepare-the-hay` -> `fill-the-water` -> `rabbit-snack-and-hop`. Runtime author 9/18/27
+vocabulary, 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ
+chuẩn bị cỏ khô thơm vào máng, thêm nước sạch vào bát, thưởng mẩu cà rốt nhỏ đã chuẩn bị, vuốt nhẹ
+và nhìn thỏ nhảy vui vẻ (`hop`). Review trả 4/5/6 item `rabbit`/`hay`/`water`/`hop` + `hay rack` +
+`feed the rabbit`. Local asset pipeline có 37 PNG master, 37 WebP và bốn icon map/milestone;
+cutout audit pass. Google TTS đã tạo 495 clip; audio audit có 607 target, missing 0 và invalid 0.
+R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
+chạy.
 
 ### Hierarchy
 

@@ -216,6 +216,15 @@ bốn bundled icon. Google TTS đã tạo 512 clip production; full-corpus audit
 missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0; post-upload dry-run còn
 `Changed/new: 0`.
 
+### Lesson 5 contract — `care-for-the-rabbit`
+
+Storyboard `docs/theme-5-care-for-the-rabbit-storyboard.md` khóa ba scene
+`prepare-the-hay` -> `fill-the-water` -> `rabbit-snack-and-hop`. Lesson giữ
+vocabulary/action/pronunciation budget 9/18/27, 18/36/54 và 9/18/27; auto-micro 9/12/15;
+review executable 4/5/6. Core đi qua chuỗi làm quen -> chuẩn bị cỏ khô -> thêm nước sạch ->
+cho món cà rốt nhỏ đã chuẩn bị -> thỏ nhảy vui vẻ (`hop`). An toàn: cỏ khô và nước là thức ăn
+chính; cà rốt chỉ là món thưởng phụ; không bế xốc hay kéo tai thỏ; kết thúc bằng rửa tay sạch sẽ.
+
 ## 8. Interaction and visual guardrails
 
 - Target đang được yêu cầu là affordance nổi bật duy nhất. Distractor không nhấp nháy cùng đáp

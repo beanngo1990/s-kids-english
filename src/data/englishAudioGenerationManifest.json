@@ -20645,6 +20645,2758 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_practice_success_88521ad8.mp3",
+      "sha256": "324f419e5c2846096af40f6bba46819f00adc8a6c9c75342459c6eb7d811b305",
+      "text": "The water bowl is neatly on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_teach_fail_62299e62.mp3",
+      "sha256": "b231ba7b278cc019860725ca22a6a629db17b2b89a0e8a88595711949c4a0a9f",
+      "text": "Look for the small blue bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_teach_success_f2cc83f7.mp3",
+      "sha256": "d176beef16188393c1de658e2aeb339d1ad4d048c7955dc4cc07bf2d11d82138",
+      "text": "This is a bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22509,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_practice_fail_f79d2066.mp3",
+      "sha256": "18593a997d86d140194dea537d8753e9cae4857c54432e2af6b3779035153956",
+      "text": "Look for the water bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_practice_success_a1b18157.mp3",
+      "sha256": "4bf610b609ae1b6dcfdb518c3b234e23cdce92467f7ab818b2e89616957eecc7",
+      "text": "The bowl is full of fresh clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_teach_fail_3ff59daf.mp3",
+      "sha256": "135b01a84244c8a3b7a2d72e0ec4111c694172b178bd6ab75ce548df26e78883",
+      "text": "Look for the clear blue water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_teach_success_3bab3982.mp3",
+      "sha256": "23cb3cfc4a150726e9e62dbaf38f75801e43c915f8e13161e8136f4238843e80",
+      "text": "Clean water is fresh and clear.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water.mp3",
+      "sha256": "67451f606856e1d1569465111d2f84068c45deb1943e9fa81461226efb95c3f3",
+      "text": "clean water",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/completion_03387eb0.mp3",
+      "sha256": "3295e13c1638328e1694d3aa2740438af0da3581533c12e39ff98912df1357ca",
+      "text": "The rabbit enjoyed fresh and cool clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_practice_fail_1b71ac19.mp3",
+      "sha256": "55798333cb917fce7ef627e0f0d18fd749b66f6b68490920cfabb963840388a6",
+      "text": "Look for the rabbit beside the water bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_practice_success_a286aa05.mp3",
+      "sha256": "37810abcecfb19c1399933ffebe15056e61f63bfef81f2a3d41d22da84ae6705",
+      "text": "The rabbit is sipping cool water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_teach_fail_f358cd9c.mp3",
+      "sha256": "81310bf6e2d246d21425e3d574142cbedaed8d7e129d0ade1ad4fe20d3b988e9",
+      "text": "Look for the rabbit drinking from the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_teach_success_cc3c08dd.mp3",
+      "sha256": "13a2ff72e24a7e693a01208de50216ac5967b9a198e388e36af7f9e0b899b31c",
+      "text": "Drink means take water into the mouth.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11565,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink.mp3",
+      "sha256": "05fc32bfa4a61949bbba89a00953d62bd2585b61d1f71687f3a67c6a0ef3ce11",
+      "text": "drink",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24525,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_practice_fail_a0e9fbd2.mp3",
+      "sha256": "7c3a5febab426536b6ebbf797f484fbb2657f347a4f2e04316c518c4e1c00324",
+      "text": "Look for the empty bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_practice_success_ef4c99b0.mp3",
+      "sha256": "e6a2657b093e0f962e14f1890be115e053e0c4a03f416488e6c3a82c81a34ad4",
+      "text": "The empty bowl needs fresh water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_teach_fail_ead5bbc1.mp3",
+      "sha256": "093b638ce55dd24295a33b7310ace4c6d84fef0674dc001593feb2923fde8d75",
+      "text": "Look for the bowl with no water inside.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/intro_success_c9f55f26.mp3",
+      "sha256": "63e207c06475dc5370a624966be0d10866961982afe630c5753b7d41011f0e2e",
+      "text": "The clean cool water is ready for the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_bowl_practice_b247f5d1.mp3",
+      "sha256": "e8d206b138e212ca23522acc284b90cef277700caf3737616fb53b61125123f4",
+      "text": "Tap the bowl to place it neatly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20781,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_bowl_teach_70bf8e10.mp3",
+      "sha256": "89a3d8760fe02423d484d4fafca37b47992e5f33bc933c7591f02bfe55717a4d",
+      "text": "Tap the small bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_clean_water_practice_1a2d8171.mp3",
+      "sha256": "e7d7ee2a5fd3f768e0699455996588a96421d8ab13f61d37d4ca8b9609967c8e",
+      "text": "Tap the bowl to fill it with clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_clean_water_teach_a85bba02.mp3",
+      "sha256": "aac67fc8be0c84f9e02258b476a3274a654a7920ab6b6d580332e89d9320a4b9",
+      "text": "Tap the stream of clean water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_drink_practice_7d2e96e6.mp3",
+      "sha256": "37b1a20869cc347c0316fbd7891fa0584121c6fbe779af278f9ec8307db6a1ee",
+      "text": "Tap the rabbit so it drinks cool water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
+      "sha256": "30b57fe0351ce6527d8beea3d2e29c169d9872f8e97e1605bafef831e8c32e6d",
+      "text": "Tap the rabbit drinking water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_empty_practice_8fc084ba.mp3",
+      "sha256": "afc82bb1a737ab907536862fb11f254cf08d2726af058361b491c2f4789ec2e9",
+      "text": "Tap the empty bowl to add fresh water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20781,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_empty_teach_39215d8c.mp3",
+      "sha256": "0ec3c07e662cfb8afaa396b2a8cb54109ad0fde0f08df546875eec34c5e957f3",
+      "text": "Tap the empty bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55917,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_intro_b2c548fc.mp3",
+      "sha256": "b12ce1d5b4f380a817133c231a9e2da6d352e671e401f4b4d7857e7856faa2af",
+      "text": "The rabbit is thirsty. Let’s pour clean water into the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_put_it_down_practice_5eeda4e8.mp3",
+      "sha256": "86523be12ebb27dd41e7d649836b3296dce10a77d7d307955d6d541a0e305d76",
+      "text": "Tap the corner to place the bowl safely.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33165,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_put_it_down_teach_cc42a9f9.mp3",
+      "sha256": "e9d88801849835e5a64a3cc262f192c6222576d54299a1b679f3b7b1b84fa6d3",
+      "text": "Tap the hands putting the bowl down.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_rabbit_drinks_practice_547466ad.mp3",
+      "sha256": "ca6b28f6ca74979ca21a8b0312de53d3aab013517e54bf64d7169dcad501e48d",
+      "text": "Tap the rabbit as it finishes drinking.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_thirsty_practice_a4296227.mp3",
+      "sha256": "a978153321e3e6b7ca85e3d787a9e4a4da2b38bc8230cb86324ef87b404b6005",
+      "text": "Tap the rabbit to bring the water closer.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24813,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_thirsty_teach_96950811.mp3",
+      "sha256": "3d3a8fed447bb763ecaa1489705c663e2052b7cd38ed9b7193b011baec0dbe49",
+      "text": "Tap the thirsty rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_bowl_practice_d4253a3c.mp3",
+      "sha256": "7d654735802d261564439dfb79e23ea7bb008b438023d8bc3566105571d0028c",
+      "text": "Tap the water bowl to make sure it is clean.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_bowl_teach_9ab6b3ca.mp3",
+      "sha256": "fb43f4f7dc2a015e08ecbe31070f47c81ccad043f37ba1886535de910f289863",
+      "text": "Tap the clean water bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_practice_b700aabf.mp3",
+      "sha256": "22e8fda276b75ff0db6b89b709cff3dc886e2a4e082ad85b3f3ccb2db4945dcd",
+      "text": "Tap the bowl to pour clean water in.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_teach_b2ec3df6.mp3",
+      "sha256": "f5986683a362ac0ca9b6fbec19debc67fb4613f690a8fb8f3839cf8e5ef808f3",
+      "text": "Tap the clean water pitcher.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_practice_fail_98aeb690.mp3",
+      "sha256": "469f4be3e339cf0cc06966eebbcbf0260ff5ffe5903420635877daf2fa94e491",
+      "text": "Look for where the bowl goes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_practice_success_2eb44526.mp3",
+      "sha256": "d1b8699f92aea9c8e33bac69f44485aaf513f538c2f99eae526a23b477a75e80",
+      "text": "The bowl is placed safely without spilling.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_teach_fail_e77fab40.mp3",
+      "sha256": "7c2f703f5d7dcc686a3ca2d2f2733231dae37169a898657815f394bf386b6864",
+      "text": "Look for the hands placing the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46125,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_teach_success_40cecec7.mp3",
+      "sha256": "3bea039f2cff4e907c1c6f24deb188382d3378f9b82ba0ed7986100714ff94ba",
+      "text": "Put it down means place something gently on the floor.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
+      "sha256": "65cd83ef1ecb6e5328c70906a9079bb76c2c999f9bde4abd3034f3d72fdfffb7",
+      "text": "The rabbit finished drinking and feels refreshed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_teach_fail_8373411e.mp3",
+      "sha256": "7cccae84b94f4c03ac6e6bf9a76e00f502a984479e32ace13cecfd09e75ba806",
+      "text": "Look for the rabbit leaning over the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_teach_success_d80df23e.mp3",
+      "sha256": "30329c6d1b4e0b41fa9aa8168cd53ba67dee7756dd201e7b01e14cf720ab0f7b",
+      "text": "The rabbit drinks when it is thirsty.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18477,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks.mp3",
+      "sha256": "5aed124f7ace31816db6bcd958852ed7beb9ad0272c943f813d60109a506c73d",
+      "text": "rabbit drinks",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
+      "sha256": "b9b80b9d548412b97193ecb05b2aa40122be3b4fda47b2d3f46abeeac12d12b1",
+      "text": "The thirsty rabbit is glad to have water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_teach_fail_87cb249c.mp3",
+      "sha256": "025a85cbf447ff6e04f855235f0792a5ec5ffd9db6423a74d1671ed8ec34a3f1",
+      "text": "Look for the rabbit looking at the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_teach_success_1869aa2d.mp3",
+      "sha256": "28095e3963d12311bf5f36c1384df725a8664e82804bb6aaeb3137974201cff5",
+      "text": "Thirsty means needing water to drink.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_practice_success_bd488940.mp3",
+      "sha256": "9363814d4f2ac45a7c210950eccff9b917f9cd4015a39ed032bfb188eb17f63a",
+      "text": "The water bowl is clean and full.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_teach_fail_db5f37d6.mp3",
+      "sha256": "ed78e024a565300d3187d184341d1c35d1c1138cc93f66b946909f636099d536",
+      "text": "Look for the bowl full of water.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_teach_success_a597b083.mp3",
+      "sha256": "caba2b3cd354d33069ac6b36c51a60aee80b2c80fc55e05d5bb3c6fde9b24def",
+      "text": "A water bowl holds water for pets to drink.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14157,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl.mp3",
+      "sha256": "44340ebad92284aacd10c61de2509fba5c0026f73b535b424612d4e13d513c17",
+      "text": "water bowl",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24237,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_practice_fail_f99a8181.mp3",
+      "sha256": "06d1c44eafae81835803e1b68af0173ce1a738493ee2a134b8a3078e8cd81695",
+      "text": "Look for the small bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_practice_success_04889b14.mp3",
+      "sha256": "48f67aefb09eddb976cfca88a36318f3896e85d17362e8467e02fd53bd6d149b",
+      "text": "The bowl has clean water for the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_teach_fail_8eb9583f.mp3",
+      "sha256": "858f841fa58a2df9bef79d1fd1da73b98e59344980acaae8f0d9f65db9a99277",
+      "text": "Look for the pitcher of clear water on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_practice_success_88521ad8.mp3",
+      "sha256": "a56019e79814bd0e14f171d44eb376e9e36148e0343f166424b53b5d0e362545",
+      "text": "The water bowl is neatly on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_teach_fail_62299e62.mp3",
+      "sha256": "f7bee8f55e34ea4869a4621dd3c3a9efba57ac19821eaff799b5f04b6269e619",
+      "text": "Look for the small blue bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_teach_success_f2cc83f7.mp3",
+      "sha256": "0d66a3ab7ee4786b0782b032b0b9156fe62db0c562622b52d034a95ae02ae9de",
+      "text": "This is a bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_practice_fail_f79d2066.mp3",
+      "sha256": "b584d47ab8ebe92f585d9baeb838b7c64ad3d716eb38232bfa3745619157e0e7",
+      "text": "Look for the water bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_practice_success_a1b18157.mp3",
+      "sha256": "6db13c21e342985f2027032134ea21caefcabada9080b363e8ae49d1abb4da68",
+      "text": "The bowl is full of fresh clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_teach_fail_3ff59daf.mp3",
+      "sha256": "4cfbe5307cdc73437ca926648b47a34483ab3b28e9dba8017ab85431e81941e8",
+      "text": "Look for the clear blue water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_teach_success_3bab3982.mp3",
+      "sha256": "247717482edc4bcfda4e32495a32c2aa883a219c491bd423c5c822c3a59a1fb4",
+      "text": "Clean water is fresh and clear.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14445,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water.mp3",
+      "sha256": "633cc0f2d28a736a847b09a37e8636b7995368caa68a1c2d7cf69d10b8a03fc5",
+      "text": "clean water",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/completion_03387eb0.mp3",
+      "sha256": "810ebef56399ec56da446d0bdfef63ddf212c1bcc0fc1699e4a2fe6532c843fc",
+      "text": "The rabbit enjoyed fresh and cool clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_practice_fail_1b71ac19.mp3",
+      "sha256": "44be862082dba488165f14ae62ddfb40c8c22b482e0beef693ac8d697de08a87",
+      "text": "Look for the rabbit beside the water bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_practice_success_a286aa05.mp3",
+      "sha256": "92fa28d9b06afd6d360d2b9260ff8836204fed0bc095d35c080bb08c760d83de",
+      "text": "The rabbit is sipping cool water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_teach_fail_f358cd9c.mp3",
+      "sha256": "b2367b38cecaa188a99796dfc1210e768bd5748facddd11edb5bd774ac5826f8",
+      "text": "Look for the rabbit drinking from the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_teach_success_cc3c08dd.mp3",
+      "sha256": "6ff70816a98e7fc16f96cc8edee0a47ba28fe9a931cc2b8db8dbc2cf61b036a4",
+      "text": "Drink means take water into the mouth.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink.mp3",
+      "sha256": "5674808e2dcf1b3628ab58ba14bcf9480681abc98c1b15043e712982267657a3",
+      "text": "drink",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21933,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_practice_fail_a0e9fbd2.mp3",
+      "sha256": "519eac6af046eb85fed4d2528a79c232d264ef1a812d805bf0c4430a67033827",
+      "text": "Look for the empty bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_practice_success_ef4c99b0.mp3",
+      "sha256": "80e567536c7a16f0ef5d0d444c02e351bea3bd32970a41adda1dff0679ab41d2",
+      "text": "The empty bowl needs fresh water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_teach_fail_ead5bbc1.mp3",
+      "sha256": "ad129f365e883ab1a6f2948f10e121d5d9db07aa9f700dfcfed79996c6e7f9f9",
+      "text": "Look for the bowl with no water inside.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/intro_success_c9f55f26.mp3",
+      "sha256": "ea2c587647743e5f649c2711213a183d701cbfe5d5be41785699ecdb96f78d39",
+      "text": "The clean cool water is ready for the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_bowl_practice_b247f5d1.mp3",
+      "sha256": "fcfece339863a38e225a7065ea77a2ec3c54027451046ce2c24b464f9e075475",
+      "text": "Tap the bowl to place it neatly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19053,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_bowl_teach_70bf8e10.mp3",
+      "sha256": "30549d9c36de30ad81bc4cf4e314b763e2f26bdc40d7852d5764e7712b94c71b",
+      "text": "Tap the small bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_clean_water_practice_1a2d8171.mp3",
+      "sha256": "1182487e5033bf0341e2b64095c54d1b1ab6032d72ea4dfdf45aff233d954cfb",
+      "text": "Tap the bowl to fill it with clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_clean_water_teach_a85bba02.mp3",
+      "sha256": "0a7256a535f29c7b240c4f8dd6ce3a12b6bdcd459f7a582883cc71713b2581c2",
+      "text": "Tap the stream of clean water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_drink_practice_7d2e96e6.mp3",
+      "sha256": "eb1898b54a103f816b9353cd5d0c2e7a52ddd3614bf78944f5898af3560225ae",
+      "text": "Tap the rabbit so it drinks cool water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
+      "sha256": "c5ccabd29097ce9e5e3b22592f491b6ad16fd8d4b9589b146046829162965db5",
+      "text": "Tap the rabbit drinking water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_empty_practice_8fc084ba.mp3",
+      "sha256": "48540e6dc1155bf752a7499e5ac51cd51461afa5990828018107b1ee7cdeaa84",
+      "text": "Tap the empty bowl to add fresh water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19053,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_empty_teach_39215d8c.mp3",
+      "sha256": "c9599b580f49dd196499c550159e0e09447a3c564a9d89d78f5ed82a570ebcc4",
+      "text": "Tap the empty bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 50157,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_intro_b2c548fc.mp3",
+      "sha256": "8fc6049182a6733cb23b3277186b49e2ee9846c3a4f84d236a1a483399691357",
+      "text": "The rabbit is thirsty. Let’s pour clean water into the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_put_it_down_practice_5eeda4e8.mp3",
+      "sha256": "3bae60a11ca76f60bd4b8d73d4f5636096969a19859e84391f55e9efad5f25e5",
+      "text": "Tap the corner to place the bowl safely.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_put_it_down_teach_cc42a9f9.mp3",
+      "sha256": "72332d67488ff5cd2de548fa41b9d1c3209f836568b19a5093a4aa913b74ca80",
+      "text": "Tap the hands putting the bowl down.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_rabbit_drinks_practice_547466ad.mp3",
+      "sha256": "4a3a744afc53824739a85fdda6fee33e0f2bf27ceff188f1356c8881d2c347c5",
+      "text": "Tap the rabbit as it finishes drinking.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_thirsty_practice_a4296227.mp3",
+      "sha256": "1432411738f1ad99014bc8283027881ccbff7a068bda4926e937efab316bcfb7",
+      "text": "Tap the rabbit to bring the water closer.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_thirsty_teach_96950811.mp3",
+      "sha256": "d978aea365222e4a25fd2d3f06963c4fb704947b870cdee443df6867f9549242",
+      "text": "Tap the thirsty rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_bowl_practice_d4253a3c.mp3",
+      "sha256": "797bc2494babde24d12337c2c7fa0a042b15f6d3df06110f29280abe0030e3ff",
+      "text": "Tap the water bowl to make sure it is clean.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_bowl_teach_9ab6b3ca.mp3",
+      "sha256": "c0df0d4287e25424059a9025d2be7393f55445eeb6c6be2e3e81cf3ead44ebc9",
+      "text": "Tap the clean water bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_practice_b700aabf.mp3",
+      "sha256": "7b5cab8ee6efa7fefa8f05a38b559ab3ca7082673352af9fc7be531b1bce48e1",
+      "text": "Tap the bowl to pour clean water in.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_teach_b2ec3df6.mp3",
+      "sha256": "eb6248f6719a684ef130fa2c0f09e41d1801a8fb13a9660745310fa96ba95004",
+      "text": "Tap the clean water pitcher.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_practice_fail_98aeb690.mp3",
+      "sha256": "73e51364e3b8b8cd81af54a4b91c2e72f946945e58fc1d4c7f8445d4ace5de54",
+      "text": "Look for where the bowl goes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_practice_success_2eb44526.mp3",
+      "sha256": "c099b182e8d34d319c2607394c8eab1e1ef712b0ed9721127fce740be0cb6b01",
+      "text": "The bowl is placed safely without spilling.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_teach_fail_e77fab40.mp3",
+      "sha256": "9f04b5440fd9a116511537872a31cae2b5caf1b52d5e0917fa8e1ee04db854d7",
+      "text": "Look for the hands placing the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44397,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_teach_success_40cecec7.mp3",
+      "sha256": "80fd5c7fdffe96b5967455d03565eeba585cff44733af4116a8a57c4563c64b9",
+      "text": "Put it down means place something gently on the floor.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
+      "sha256": "a832ed1a7a3cf946708348d9666d8acc5d2359ebd345c0a850ef40d7887b533e",
+      "text": "The rabbit finished drinking and feels refreshed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_teach_fail_8373411e.mp3",
+      "sha256": "5083318f18ac4cdd76c13d9088c484632227a7cc1ea324bf007aa7e68c5085a3",
+      "text": "Look for the rabbit leaning over the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_teach_success_d80df23e.mp3",
+      "sha256": "ca3326a819d0f2d9318b2a3acad1471210eb8ad9787235f7e68c0c835815864c",
+      "text": "The rabbit drinks when it is thirsty.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks.mp3",
+      "sha256": "a4c61861f6df2f342e556a2a4eed2f591c23abe6fb195e6d7935979ab7b19bb4",
+      "text": "rabbit drinks",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
+      "sha256": "43b9dd9949c4ade69f72a0e1ed5ea9375164fbd1d7215b4585e5bb7707ae1e10",
+      "text": "The thirsty rabbit is glad to have water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_teach_fail_87cb249c.mp3",
+      "sha256": "9714d42930fafd2228b03693c4e0a90cab246c95aae700a2f91b4c99975201b3",
+      "text": "Look for the rabbit looking at the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_teach_success_1869aa2d.mp3",
+      "sha256": "44c3d3a43a1b434a34efcd7e7aceb92ad5cda19cd523ba8e6e6025323062ff7a",
+      "text": "Thirsty means needing water to drink.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_practice_success_bd488940.mp3",
+      "sha256": "99e78d448f3267342f67165aa84b2cb43e3e6cc6fa470716048d4fabc0176f5e",
+      "text": "The water bowl is clean and full.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_teach_fail_db5f37d6.mp3",
+      "sha256": "e84ba778540427414f857e01d6c6f9804283a15d5fe7b360e9ea00a6cc9360aa",
+      "text": "Look for the bowl full of water.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_teach_success_a597b083.mp3",
+      "sha256": "33ad2cdc0d73e74c61987fef79cc0dc7b86113d21b85b39f2f767746a8cf79a0",
+      "text": "A water bowl holds water for pets to drink.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13293,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl.mp3",
+      "sha256": "a6ab378107a1cb092e9b0ab04276406e40201fdbf9be45c913c75f549c1f34f1",
+      "text": "water bowl",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_practice_fail_f99a8181.mp3",
+      "sha256": "603a58c4bb4145dd166ee58931ea51bae844589f90dd831ce7b294846f043689",
+      "text": "Look for the small bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_practice_success_04889b14.mp3",
+      "sha256": "c5e8b5a85df8fee32ad4bc409c7b2d881498429862b29b19978d62cb65b6619c",
+      "text": "The bowl has clean water for the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_teach_fail_8eb9583f.mp3",
+      "sha256": "520a56c2e981c473ed7439e444fcc371e1cae724811c90fda40fa90045384c30",
+      "text": "Look for the pitcher of clear water on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_fail_d148b911.mp3",
+      "sha256": "e2667fd74126e0e4c8e97cc4f2d1bf7ede60010c37e4aaf4b97fcfc714f3ba9d",
+      "text": "Look for the rabbit beside the hay rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_a789d365.mp3",
+      "sha256": "81f75748bdc4061b91d776764d72ab8f1f4ce0cb556c135a3448a78c0979c0ed",
+      "text": "The rabbit chews the crisp hay happily.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_teach_fail_b6225c82.mp3",
+      "sha256": "a6fce211f591802343f25b698eaa82a1bf953e0464c87ad27f709e1443a8eb9e",
+      "text": "Look for the rabbit mouth with a piece of hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_teach_success_bfd96c87.mp3",
+      "sha256": "e25a7593b55e5e1fe0611339c5e6fc0a9817f43e4b9c431889def542baaadbd6",
+      "text": "Chew means bite food again and again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10413,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew.mp3",
+      "sha256": "b6bbe4ba06bb30d6e119f1db0802dfb434b96efee75d6f2bd50d77f2fa9302ec",
+      "text": "chew",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/completion_eabcbbde.mp3",
+      "sha256": "68478ecb2fc66dcb993668a5914c976cef66486b0680ce0ac77f0abc1b012edb",
+      "text": "The hay rack is full and the rabbit enjoyed its meal.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_practice_success_90e86338.mp3",
+      "sha256": "e348f429cb19ecb216a01553efa0ae6f2e5d3bf954f9b38f9322aabd719d2488",
+      "text": "The rack is filled with sweet hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_teach_fail_fcae9a86.mp3",
+      "sha256": "1138bdffe1f3c16aa9cf8b94900c6d42730b6811da6077e69a069315c3f22e99",
+      "text": "Look for the hand putting hay into the rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_teach_success_7a95b6f5.mp3",
+      "sha256": "f4899c78f9ee0334461d72c78ddd329ee985848710e7d6c738369c671667dc3a",
+      "text": "Fill the rack means put plenty of hay inside.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack.mp3",
+      "sha256": "2e2e4e693269aaed0facbf4a7b1fa7a0d2bb23f1294a7a66b08e15c75de1e661",
+      "text": "fill the rack",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27981,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_practice_fail_394591b5.mp3",
+      "sha256": "49206fb970c50005809bf82fd10117be1b7bfde0aa09af3573098b8696abac21",
+      "text": "Look for the fresh hay pile.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_practice_success_f953ae9e.mp3",
+      "sha256": "b7927424adbed0b7f2b9447d47086b4e32c41f78f1a33050a9f8bc5275221459",
+      "text": "Fresh hay is great for the rabbit’s teeth.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_teach_fail_62b19cb8.mp3",
+      "sha256": "0c0a288abe7f2fc8f19d57d3862bca77ddd879e4e015ca2107dbe946ea5dddc5",
+      "text": "Look for the sweet-smelling green hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_teach_success_78048242.mp3",
+      "sha256": "c0fb48163c8ab0ee4110528858815331d153cea1db4475736e9a39f01e8fa5db",
+      "text": "Fresh hay is clean and smells good.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13869,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay.mp3",
+      "sha256": "b08b2ef0f7254d318f90e1da5c612327231171ed106e58247458bb0dd61f3227",
+      "text": "fresh hay",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_practice_fail_f79d5fd5.mp3",
+      "sha256": "f8d2c89a24eab381b8e80163c8eee3adbfadc964fbdd2bda7591e0edfbcdea42",
+      "text": "Look for the gentle rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_practice_success_9f131692.mp3",
+      "sha256": "24ca8f7d20b443818443c77f84a10bf2c4c42d8b77282034823d199da54fa875",
+      "text": "The gentle rabbit stays calm by the full rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_teach_fail_83e97bca.mp3",
+      "sha256": "b40c67440b263c173d7ce7a0b67a1f7cb37e01e7dd232e7e829f0a8743ebbf82",
+      "text": "Look for the quiet rabbit beside the rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
+      "sha256": "9e699cc9dba47c980c77785a78af612cd45688f30b11d7c07695154b747d9896",
+      "text": "A gentle rabbit is calm and sweet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18477,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit.mp3",
+      "sha256": "407b297d28b00d559e9a1492bcd8df5e006c1706c306b08ca8a5ae9e2ba15821",
+      "text": "gentle rabbit",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24237,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_practice_fail_11958d4c.mp3",
+      "sha256": "4991d0ee5e881c5a1afb169aa62b709cc7c41a1141ada369b4129367f98d5bcc",
+      "text": "Look for the bunch of hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_practice_success_5fa2dbf3.mp3",
+      "sha256": "f6582b0cf69d4c5fe7e405989f2a29d43f63c97589da2be3663fcdd71e923014",
+      "text": "The hay is ready for the rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23661,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_practice_fail_3d3069fa.mp3",
+      "sha256": "7a6e1eae3d11a035bc3e44752e0a5e850c92cd9ece9cdf3eae443a2482a5963c",
+      "text": "Look for the hay rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_practice_success_4f62ca8d.mp3",
+      "sha256": "780ed1efa159c4ef55dd074fbf93c99899241f8a95748f2d8113157d7030e7ff",
+      "text": "The hay rack is securely in place.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_teach_fail_edaf6657.mp3",
+      "sha256": "b75a16862b4627df3bf77ef1220299c1482877732b53ce34faf7b087cd23c911",
+      "text": "Look for the wooden rack on the wall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_teach_success_efda633f.mp3",
+      "sha256": "e6fa068a85ffc603fffe3c507f9bce0a55bcd6fe35db4ccb0e02804cbbdbbefa",
+      "text": "A hay rack holds hay for the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14445,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack.mp3",
+      "sha256": "4b5b4f8d9886c24c69b0389a73dd718f8a88b696083b0890d020f60868e6097c",
+      "text": "hay rack",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_teach_fail_15d38749.mp3",
+      "sha256": "97d61e4d8af99d13f21d7870cf8756562cd5c8f71fe92a88b772b1971f32fd8f",
+      "text": "Look for the bunch of light green hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15309,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_teach_success_6f1fbfcc.mp3",
+      "sha256": "a87fcd18479c0e166b74972a6049f85a6fcd23912f8bb0fbff3978defb8f2ac7",
+      "text": "This is hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 9549,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay.mp3",
+      "sha256": "eeae4d2d716daa6a8afebca2e0bebebcff113083d0d30f5590a1f1ce23c5fa38",
+      "text": "hay",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_practice_success_3cb8a27f.mp3",
+      "sha256": "e499ddade10f5b148bf4ef08a024d3c1505347a8bbb988a9bb2dbac88ec5c800",
+      "text": "The hungry rabbit looks at the rack waiting for food.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_teach_fail_138fc6b4.mp3",
+      "sha256": "8b615c93f5db7fb857dd2694fffc1940cc3f472f137a184944774bafc46d40ab",
+      "text": "Look for the rabbit waiting for food.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_teach_success_c2c5461c.mp3",
+      "sha256": "a42a8e3eebedf9ec8f43b2f7bb6d7a6033cf7f144371bf262dfedb3263d792be",
+      "text": "Hungry means wanting food.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_practice_fail_bfe5646b.mp3",
+      "sha256": "38c3922aa140f3bae8108149378c46ffe4ae22c619efc4fbf9ea47501b3f4ce9",
+      "text": "Look for the rabbit hutch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_practice_success_9695a4bb.mp3",
+      "sha256": "87b6fa7fb42db49aeb09880fc4334e26ba8aa4b58f4a502292a7ad597ff67999",
+      "text": "The hutch is clean and airy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_fail_8d6bc88a.mp3",
+      "sha256": "a8ca1c0b713a56a201bf03e2f35647bb36ebd6bed9794c4883da033c68a3c0f2",
+      "text": "Look for the wooden rabbit hutch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
+      "sha256": "3a3e3bf990e6d6971f3c15379ff626febcd52c37d9b92397ee0508620ee2c885",
+      "text": "A hutch is a home for a rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11853,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch.mp3",
+      "sha256": "484d4adc709738ad582e86b1fd01767063b48801fd1de9114015c4d9b524c72a",
+      "text": "hutch",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/intro_success_78315574.mp3",
+      "sha256": "39a441e60464f0aacdb965c36b19f89e9386ef2a6aee06a7b0690ba5939e0ff4",
+      "text": "The rabbit is waiting calmly for help.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_chew_practice_a2bece54.mp3",
+      "sha256": "8d4fa96538f3647dbf9475874f0ef49742197624196ef2a01436dcf20da6c574",
+      "text": "Tap the rabbit to watch it chew crisp hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_chew_teach_cd30d679.mp3",
+      "sha256": "0ec11bf87015bf613504b634a9377f46c8d800a112fbcd65cd1df13e8cc28d32",
+      "text": "Tap the rabbit mouth chewing hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fill_the_rack_practice_f5943429.mp3",
+      "sha256": "301d33d532f43fcbac3a8ad43d8a9d7994e6feac4e9e7ec8fb8105f7e7752340",
+      "text": "Tap the rack to fill it with hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fill_the_rack_teach_3a3b22d0.mp3",
+      "sha256": "2f6957b4d867e7586ad01b89fed780b079e52f4dd34e385608c2dd9e8ea15d69",
+      "text": "Tap the hand filling the rack with hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fresh_hay_practice_69939b57.mp3",
+      "sha256": "c676e2d2b2b7914ab6cc32668c97e3259ff2fa8cfa05c0d761426c78cb1ff4a6",
+      "text": "Tap the fresh hay to prepare it for the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27981,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fresh_hay_teach_74612ff1.mp3",
+      "sha256": "bbf10cebc949fb51c51321a3ac3df854209abae3e31bf0b65449ae7c1de5fff3",
+      "text": "Tap the pile of fresh hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_gentle_rabbit_practice_d360286b.mp3",
+      "sha256": "4c17d3353f3b6198de1b927bd0d75a7206660a7a92c1557d16affc3b97c4c900",
+      "text": "Tap the rabbit to praise how calm it is.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_gentle_rabbit_teach_f922bec2.mp3",
+      "sha256": "7febf5f5177881603a0fa0f2321536143d9e12c1ea26b46bfb81cb01633ce959",
+      "text": "Tap the gentle rabbit standing quietly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_practice_2c1bd9db.mp3",
+      "sha256": "271cebf76ea9d6efa5981da4226e36b885327a00ccda22fea2ab571ba162cf96",
+      "text": "Tap the hay to prepare it for the rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_rack_practice_f825cd15.mp3",
+      "sha256": "972f2d16d32c901189e9c343d38105bbe0921ebb22a08523b4ef92f1be3e8066",
+      "text": "Tap the rack so it is fastened safely.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 19917,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_rack_teach_3b54128b.mp3",
+      "sha256": "ccfe57f354b00926d0aabb8ec10afacdefee47ba8d1b8e6d6b4743d691e7dacb",
+      "text": "Tap the hay rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27405,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_teach_a0baf23f.mp3",
+      "sha256": "a65e825f7fc607e99fa64616509745513caf3c5d7aa8571b56dd3d2f611522e0",
+      "text": "Tap the bunch of fresh hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hungry_practice_9f312b8f.mp3",
+      "sha256": "a6283d99c5f0230f36824405dfecf22c9087d5f94d8f31e70849b6d1aa6b462a",
+      "text": "Tap the rabbit so it looks at the rack.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24237,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hungry_teach_a02b5112.mp3",
+      "sha256": "6758187dffae62581875368a048386be0ad205ddff761f6b93fcef351264358e",
+      "text": "Tap the hungry rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hutch_practice_2f55f150.mp3",
+      "sha256": "d04fa41fd49393a297f248ef0bd4beac3f19204b3d2b2176561873a587a2b333",
+      "text": "Tap the hutch to open the door.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hutch_teach_db5925f0.mp3",
+      "sha256": "7ebceeb8c4e612b9bd4163477b50f47df6727244a3920a006587e1e04640f2e9",
+      "text": "Tap the clean rabbit hutch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51597,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_intro_3e1725af.mp3",
+      "sha256": "ea4508defede46b965b6c249dac8b7307c72146e62982a861955c9d8864e636e",
+      "text": "The rabbit is hungry. Let’s prepare fresh sweet hay.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_rabbit_practice_5f5cc9f0.mp3",
+      "sha256": "bd8b7628e1567d41cad1f41466aa86d50d8c1ad9a49654badda3bd0b04d53c65",
+      "text": "Tap the rabbit so it wiggles its ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 21357,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_rabbit_teach_d54063ae.mp3",
+      "sha256": "c6f37dcb98de9d6b0edbc3c8252a3c9b2e29e1aac6531ea1907fbf38bc0f4908",
+      "text": "Tap the white rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24813,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_practice_fail_af86c42b.mp3",
+      "sha256": "a09ba0b08a5f4b2fd2b3d5a9d7e1428c556c6d350bd42b523659fde038a6e902",
+      "text": "Look for the white rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_practice_success_bd724fd8.mp3",
+      "sha256": "45eaca576e0b15308a068ac68c11108b30cb25fc0eb2a72fc6d599198f13f9dd",
+      "text": "The rabbit gently wiggles its ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_teach_fail_fa4f1e6c.mp3",
+      "sha256": "ce6e636a98ca8cbed2fa7e51b3f76f5cc784d931401b8c45923cab91e142100d",
+      "text": "Look for the rabbit with long ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17901,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_teach_success_ba5fa4e6.mp3",
+      "sha256": "769b14c1a974294fd6be9f7c04571a50ba6de9d26c9da6a7c8dfb942cc4a030a",
+      "text": "This is a rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit.mp3",
+      "sha256": "4b04e69dac133fce794965cd54b68ab90a23ecbfc5c5be9ed63bf1175f0c4114",
+      "text": "rabbit",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_fail_d148b911.mp3",
+      "sha256": "47b46911d926025e9662c82e5dfc724e20e1a381a82964ef2a43c84d865b2b53",
+      "text": "Look for the rabbit beside the hay rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_a789d365.mp3",
+      "sha256": "afeba056c661d9f98aa4213ca5885f7860edbce21b67b6aa318201c30b22b3b4",
+      "text": "The rabbit chews the crisp hay happily.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_teach_fail_b6225c82.mp3",
+      "sha256": "c4a558d1699cb50df0a6f4a1901b797a5f9d02b3f8fc62dfff59a28a82c80672",
+      "text": "Look for the rabbit mouth with a piece of hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_teach_success_bfd96c87.mp3",
+      "sha256": "23e3d493ab8931f4ae01f8e3fd814ba6d813703fc07cf1c70f790955630533cf",
+      "text": "Chew means bite food again and again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew.mp3",
+      "sha256": "94b65175cbfa1d92d591185b7a5e46908636e9471f39e6cdf16e27d6d0de7d19",
+      "text": "chew",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/completion_eabcbbde.mp3",
+      "sha256": "43878b76fb18438ba25440c2f0b4933d88deeb97b463d171304232f786bd9d6f",
+      "text": "The hay rack is full and the rabbit enjoyed its meal.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_practice_success_90e86338.mp3",
+      "sha256": "4d7fd7689ca92ec25b2567177fc58c0fdb56efb8f8de86494ef4937d6c54dc69",
+      "text": "The rack is filled with sweet hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_teach_fail_fcae9a86.mp3",
+      "sha256": "95d901ba2303eecd714181b55fcc22fc7866beba0f22cfbc87e62737645ad229",
+      "text": "Look for the hand putting hay into the rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_teach_success_7a95b6f5.mp3",
+      "sha256": "2c9f3be8c37efa4972f8086339e706373e3d1aa075440c5c3ec6f84815d9817a",
+      "text": "Fill the rack means put plenty of hay inside.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14157,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack.mp3",
+      "sha256": "c155a9b8e0ef7595c9cce755e2648eb70008e0d8d8babbcf0da7ca49681f001f",
+      "text": "fill the rack",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_practice_fail_394591b5.mp3",
+      "sha256": "cda6255294436b699ec68164ebfffd775c82a7f5b0b4e097ec55c2bb347687d1",
+      "text": "Look for the fresh hay pile.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_practice_success_f953ae9e.mp3",
+      "sha256": "afff3359430e382255e41c00e68f5257ad2068401f3db389cc45e08d2bbcd058",
+      "text": "Fresh hay is great for the rabbit’s teeth.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_teach_fail_62b19cb8.mp3",
+      "sha256": "0c060bdd2523c078dc2b938225f40b7a97e2b730ee5ca97ceacf09c72c76123b",
+      "text": "Look for the sweet-smelling green hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_teach_success_78048242.mp3",
+      "sha256": "c1115ed294cdefe27ef2c43fc680df3478a33c42a0293df50c1110daf461336c",
+      "text": "Fresh hay is clean and smells good.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13869,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay.mp3",
+      "sha256": "12c321998fb3251da5321c39c8559aecb416eff48825edcfca253a1681645447",
+      "text": "fresh hay",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23949,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_practice_fail_f79d5fd5.mp3",
+      "sha256": "2adadb4e451b5ce184915c05fde0f5539aa180f48adf2d88f7b181cce6865c35",
+      "text": "Look for the gentle rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_practice_success_9f131692.mp3",
+      "sha256": "1c3aa1665bee415f7f7f6377df6cfc5dc26e4d880b3d26009ff9b43c218ec1e8",
+      "text": "The gentle rabbit stays calm by the full rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_teach_fail_83e97bca.mp3",
+      "sha256": "debaea2afc0f59495c975587a50b765b1d475de1016247810846653c3aec86bd",
+      "text": "Look for the quiet rabbit beside the rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
+      "sha256": "a5d9549d747b3351f058b1e91853d1fc7a7e9021a7da673a740c89c7aac1ff17",
+      "text": "A gentle rabbit is calm and sweet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15885,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit.mp3",
+      "sha256": "35e9e5e2225f6e468fdf6635736151797f8d16586009ac8982cc4b85052c60de",
+      "text": "gentle rabbit",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_practice_fail_11958d4c.mp3",
+      "sha256": "4988fa1be87cbf3725a84c606cb137bc610b99c3b2049db202c5927bfbbfea7b",
+      "text": "Look for the bunch of hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25101,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_practice_success_5fa2dbf3.mp3",
+      "sha256": "619d736366070f5e1b6b0976091bbc77d58c10950386f2b3f62c6a24cf07b690",
+      "text": "The hay is ready for the rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20205,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_practice_fail_3d3069fa.mp3",
+      "sha256": "5fa357a77f66d8b3b62b43f5804c87900f73165f971fd3c1bc8d71f41617a07c",
+      "text": "Look for the hay rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_practice_success_4f62ca8d.mp3",
+      "sha256": "5a55a967621ff6d679088d9d13028593746ac1a982e73886ee06bd79f2b7c528",
+      "text": "The hay rack is securely in place.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_teach_fail_edaf6657.mp3",
+      "sha256": "c1b196593ad6e0a2b2534509d1d5fde846823958df6e6d7ed9d1e24704e3a068",
+      "text": "Look for the wooden rack on the wall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_teach_success_efda633f.mp3",
+      "sha256": "3ef30d1339459979c2fe9791d994fe6bc4f1ea30f8c342a47a895bd8b3f19acd",
+      "text": "A hay rack holds hay for the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11853,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack.mp3",
+      "sha256": "1a895dafd9c12b47a1db6a949b52d63cb29de0b1d63edddd890cee1fd1292a72",
+      "text": "hay rack",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_teach_fail_15d38749.mp3",
+      "sha256": "19ac5bc8c9644cae162a9eb9ab3e6efab378073ef53aae1260a9f870f8fa91b9",
+      "text": "Look for the bunch of light green hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13581,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_teach_success_6f1fbfcc.mp3",
+      "sha256": "ec11a7e74386166eb570161524abe4ac174c350038b20956266c89e8190558a8",
+      "text": "This is hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8973,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay.mp3",
+      "sha256": "a61b3882801b3a83a11ff888f6e93bed50a4ce8ce55bad6611f10d78da777819",
+      "text": "hay",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_practice_success_3cb8a27f.mp3",
+      "sha256": "e200b1b6241d044b369a3d59957ba84046e7c93e94f93120d537fafc67b0a20e",
+      "text": "The hungry rabbit looks at the rack waiting for food.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_teach_fail_138fc6b4.mp3",
+      "sha256": "4096767dbcf3a1bd721f1671ca4836a12eed4ef33a40c60084e3919cf5fb2877",
+      "text": "Look for the rabbit waiting for food.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_teach_success_c2c5461c.mp3",
+      "sha256": "9b4710ecad43642f6a6c2b91e6b613d92e55696970857b1a846d06985d5507f6",
+      "text": "Hungry means wanting food.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22797,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_practice_fail_bfe5646b.mp3",
+      "sha256": "24096edfd3a7e5ef1ed27fc66a75f88f7afd4d07dcdc862909959845e9dc317e",
+      "text": "Look for the rabbit hutch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_practice_success_9695a4bb.mp3",
+      "sha256": "3687aff8c7e066e2feda3e0c0b24e7920712b5f078b6c16e9df1f29da5815a25",
+      "text": "The hutch is clean and airy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_fail_8d6bc88a.mp3",
+      "sha256": "eb44fe63637196de695ff56ab5bc5a7507f9dad841ab96b105cb4c889e203448",
+      "text": "Look for the wooden rabbit hutch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
+      "sha256": "b7f1faad5b675fe301bb2c46b16e555126c65820dd925451ca7710763580a63e",
+      "text": "A hutch is a home for a rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9837,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch.mp3",
+      "sha256": "fcb3c84722216a92b1edb1a36c73c785ee0b3cca81059bdae29a8658ca00d2ed",
+      "text": "hutch",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/intro_success_78315574.mp3",
+      "sha256": "c419cd3cfddac347e7650b34c68b42219d51473b47923b7dc6bb54c4574b815b",
+      "text": "The rabbit is waiting calmly for help.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_chew_practice_a2bece54.mp3",
+      "sha256": "0edc22f8ff043ba4dc449927ca2e78689d1eb18e029132a482582c79892344c7",
+      "text": "Tap the rabbit to watch it chew crisp hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_chew_teach_cd30d679.mp3",
+      "sha256": "6d109601dcffcf5f67ac9de9008c20adcc1f6337c23828fe9769f836e5d29c13",
+      "text": "Tap the rabbit mouth chewing hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27981,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fill_the_rack_practice_f5943429.mp3",
+      "sha256": "d1a18814f6e5b1e3d80144fc9279e478e140dab89ed07715a84be7be690d3d94",
+      "text": "Tap the rack to fill it with hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fill_the_rack_teach_3a3b22d0.mp3",
+      "sha256": "d3ccb8e42804b8c996beb6275a295f92997d611efdbbabc535f136d4f94f8dae",
+      "text": "Tap the hand filling the rack with hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36333,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fresh_hay_practice_69939b57.mp3",
+      "sha256": "62826beeb2d579b2b590f773f5e52bd602abae5e8190dd53dd8d775b5dfdcfc5",
+      "text": "Tap the fresh hay to prepare it for the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fresh_hay_teach_74612ff1.mp3",
+      "sha256": "f860cea0377e36e55a4fcdbdedcae432e2c881e5a24dd2afd157f4630107e31e",
+      "text": "Tap the pile of fresh hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_gentle_rabbit_practice_d360286b.mp3",
+      "sha256": "052c507af0fdcd4bd5df8cb6b91866a41235f63a1559f32138cd29705af6767c",
+      "text": "Tap the rabbit to praise how calm it is.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_gentle_rabbit_teach_f922bec2.mp3",
+      "sha256": "ef16dffc9c7143d1d134a708d6d02d3a2b5c7a2d81ee33ce437dea9255364708",
+      "text": "Tap the gentle rabbit standing quietly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_practice_2c1bd9db.mp3",
+      "sha256": "2ff544680db97dbc20ff2cfd836c231cf44ab8453f629bd3213a3c53f5a1f15b",
+      "text": "Tap the hay to prepare it for the rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_rack_practice_f825cd15.mp3",
+      "sha256": "0d9ac30d0d7085f5971a36ea1806e2e315ffc375fc4a973d1ed952f6dc874e97",
+      "text": "Tap the rack so it is fastened safely.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17325,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_rack_teach_3b54128b.mp3",
+      "sha256": "1df448c7a6c226eb3962f3c060d82b43094988a8fcb3857a1ceb29372a998919",
+      "text": "Tap the hay rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_teach_a0baf23f.mp3",
+      "sha256": "c29d5e836049ccb18e17eb8caf517d57df7b9948b3facbf3286dc97478ceb893",
+      "text": "Tap the bunch of fresh hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hungry_practice_9f312b8f.mp3",
+      "sha256": "f9703678c03a7604b85683a79b38b8c8a508af2705e61b597c050625c0746e1e",
+      "text": "Tap the rabbit so it looks at the rack.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hungry_teach_a02b5112.mp3",
+      "sha256": "61d12e600e46c3d6d5d8e547cb1548566d630fbec4eb2ca673545772f1f97693",
+      "text": "Tap the hungry rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hutch_practice_2f55f150.mp3",
+      "sha256": "229d127aaa48f7dd5a7f7517e14e0e007b1f29da4e3d4ab95c755992d631859a",
+      "text": "Tap the hutch to open the door.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hutch_teach_db5925f0.mp3",
+      "sha256": "b0cf461cc4cce2c929c27e5940c08f2c02a2053aec4ee86ff9cdabdc07c57301",
+      "text": "Tap the clean rabbit hutch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48429,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_intro_3e1725af.mp3",
+      "sha256": "ab6eb7625dd75d95ef17e885023badade386f8f0b0ffdc1781f4e46dd8c1f246",
+      "text": "The rabbit is hungry. Let’s prepare fresh sweet hay.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_rabbit_practice_5f5cc9f0.mp3",
+      "sha256": "5237ffcd6846a66c73847570df379ebf2c3a9ae4b83e2df9417e0195e297dd5e",
+      "text": "Tap the rabbit so it wiggles its ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19341,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_rabbit_teach_d54063ae.mp3",
+      "sha256": "271fc6535e40c8d41f18b21ce7cedf8234c0c5691f61ff8daade51b8f08d1dfa",
+      "text": "Tap the white rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_practice_fail_af86c42b.mp3",
+      "sha256": "62d6da32d74c7c8697265a5d776f059309e1e426a29f98cd1b723d467f08df28",
+      "text": "Look for the white rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_practice_success_bd724fd8.mp3",
+      "sha256": "12249f48a50d1ba6beecca380c9f872e1038948782cd0f92fab3128934eaf8d4",
+      "text": "The rabbit gently wiggles its ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_teach_fail_fa4f1e6c.mp3",
+      "sha256": "ebffcd3b1f33847e8436b54ba9d8ffd76745346ed0b6bcd063674153ad23c564",
+      "text": "Look for the rabbit with long ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_teach_success_ba5fa4e6.mp3",
+      "sha256": "a9b2f7205cc57b48bd06fe10b6cc761635c66f838301faf185c0018e4b5a3bfd",
+      "text": "This is a rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit.mp3",
+      "sha256": "789c4759c0d15418c2ed7748cb7fd79ded8c93297be9c762e6520bcb6838b2c2",
+      "text": "rabbit",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_practice_fail_81d7ba0d.mp3",
+      "sha256": "1d5454e9ab909c4bc8fdb13275fffe386f1369c4d466d699279faf10dffa92a7",
+      "text": "Look for the orange carrot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_practice_success_20af68f1.mp3",
+      "sha256": "dbd730a1faf18a16c61ef0e01881e92eb8e5738e32a5ffaa6cc5b95b29c37896",
+      "text": "The small carrot treat is ready.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_teach_fail_0f55dada.mp3",
+      "sha256": "cd63714be77d3ef2b6f857a1cdc18c0cca3c7a63e6cd38ab6420bfca06f8cc3b",
+      "text": "Look for the small carrot piece on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18765,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_teach_success_b0aea1f6.mp3",
+      "sha256": "31f45ef54387b136114fc337c256611f2bbf734d1a09b436a9868572ad4f67c1",
+      "text": "This is a carrot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_5bceb0a0.mp3",
+      "sha256": "22f2e323d44ece3a880a261e2cfd91331b38a07bc4aa89bb5bb4083c17d46a2d",
+      "text": "The rabbit enjoyed the treat and hopped around with joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
+      "sha256": "5e235d23163615389571ba2ce2b2d2a8e4c5f0b6b50dd581c1f8f632682d582e",
+      "text": "The rabbit ears wiggle with happiness.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
+      "sha256": "7f358a6564e8069f1bef6180515d2ec2eef9c070d073547d475bfcf961a2073d",
+      "text": "Look for the two upright ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
+      "sha256": "8d8c9a6d680f10fd7d70a80dbcf1fc8b13ccf8ad0e2ae3a93d336cc08cadd1d1",
+      "text": "These are long soft rabbit ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_practice_success_062a9d85.mp3",
+      "sha256": "2b8e7129483608fc0fd80ce559448b369436773dce5fe0f5bd8dcaa57ee0e0e5",
+      "text": "You fed the rabbit gently and safely.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_teach_fail_17929af2.mp3",
+      "sha256": "9b1deafa6153cd14851cd3057f8e4a92f20324c8e407f37207b9c0f9af8b2985",
+      "text": "Look for the hand holding the carrot treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_teach_success_15573abb.mp3",
+      "sha256": "8381e1241fb20a147e684db27371b6bc2df06805b6aaf4fd95c5bd9ea05fb48f",
+      "text": "Feed the rabbit means give food to the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18477,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit.mp3",
+      "sha256": "6f50f82f725797d5f2afb23d665cb0200878c2265724a1f2be79fb7da41f5379",
+      "text": "feed the rabbit",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
+      "sha256": "55d92b784afc77ce89d7e7b264b5f204a2128f7020cb6141a1cfeca139a67deb",
+      "text": "The rabbit is happy from your gentle care.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
+      "sha256": "6167e8b70902aeeb0fccd7890905c4a89647e2525a0760311bbd3cec1952e774",
+      "text": "Look for the happy rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48717,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
+      "sha256": "d859b63ef1605ec8ae2c256378f1c0007e6eb13a13b7e2d0cf3745d42044f53a",
+      "text": "The happy rabbit hops and you remember to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
+      "sha256": "1dcb6b44a329fa68772c664383e523a775e38a441bf81254ca322a37d139def9",
+      "text": "Look for the rabbit hopping with joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
+      "sha256": "261ebd7dd479353bc6ecfe993e9b8b48efda456b2d860d72c0b7a105d4681710",
+      "text": "A happy rabbit jumps and plays with joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit.mp3",
+      "sha256": "7608d3b6e4e758af858a89e3b9dc3e2fb27d4611805a7f8b333ee6d724c882ca",
+      "text": "happy rabbit",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
+      "sha256": "bbedf3d5ff2a972c4a84c8650c1234a2e8e37dd0d0fae451092ae463f43fb05f",
+      "text": "Look for the smiling rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
+      "sha256": "eb22348c88c54d3e5928d91bc34ad14ee9c672074efe5b963a677dc03b253f40",
+      "text": "Happy means full of joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
+      "sha256": "a9d8727a0957f878f48d4e5a06f13c16a93148f791aeee695ec2d411b62f0df7",
+      "text": "The rabbit hops around with joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_teach_fail_c224a74a.mp3",
+      "sha256": "44157c9eb6354542a151a5e7293106a60bf58619ca84baee0f8ca84bd890bafd",
+      "text": "Look for the rabbit jumping in the air.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_teach_success_f0581e59.mp3",
+      "sha256": "d54582b27be60d9a4844eb6fa62fcb9269a18c1aa3046ee6ec4aee3ae73c5327",
+      "text": "Hop means jump with light springy steps.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop.mp3",
+      "sha256": "e55c8d78ed079ee361792f885e4a91f319c461a6e5196e004a7a88ba52ed0642",
+      "text": "hop",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/intro_success_9a16a854.mp3",
+      "sha256": "6895c6f0457ed5e8b455aa63a46e23908f30280f03b2894ae9b3173d223f2702",
+      "text": "The rabbit is eagerly waiting for the treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
+      "sha256": "81b47f19f771739ee61ba0ce8de908c3c714d8511323d2cabbf5bdad7e7d57d5",
+      "text": "The rabbit rests calmly when petted gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_teach_fail_0f1f9f4c.mp3",
+      "sha256": "81a6e1a5be0038a4b58ba90236e4a958e39e8e7d63a24fd1ce2faae618163f1f",
+      "text": "Look for the hand stroking the rabbit softly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
+      "sha256": "c7bd6aee088bb4bea243bad426ba4e5c18c912ddd2f7a17c7a74026fd4cd73e4",
+      "text": "Pet gently means stroke softly with care.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_carrot_practice_9e268256.mp3",
+      "sha256": "6e3114c389353000bf379e8c39e6a0ec3134d11859f0209d7b72f327a1ea71bf",
+      "text": "Tap the carrot to offer it to the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_carrot_teach_27a68bda.mp3",
+      "sha256": "0a30f2bf30d74bc2ae5232f3e16bb7432761a6186a871b18dfb0b5a192f706a8",
+      "text": "Tap the orange carrot piece.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_ears_practice_2f55390d.mp3",
+      "sha256": "3c1548c9db8dba125c796d1fcae15f4948b0920ce4b465e602b15994955c2357",
+      "text": "Tap the rabbit to see its ears wiggle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27981,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_ears_teach_9a2d5153.mp3",
+      "sha256": "76606fe98b1806f4ecea2bc63aac2ef651d8c4ae68e148ec38d64741513033e1",
+      "text": "Tap the long rabbit ears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_feed_the_rabbit_practice_4d05f692.mp3",
+      "sha256": "871732942aab2c86de2df26b1f3b8fb4557724516718a4c560c7f67b7b8dad36",
+      "text": "Tap the rabbit to finish feeding.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_feed_the_rabbit_teach_0d72bb16.mp3",
+      "sha256": "fcaa23ba2e7c4405c83690770e3ee4e0ecde77bc7ce8ac3307fe94c6c49b896f",
+      "text": "Tap the hand feeding the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
+      "sha256": "52ba008c18e5b31943545b2bcabaee04cdb86d101d814a67ecd5fd7d8f40c295",
+      "text": "Tap the rabbit to share the joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
+      "sha256": "61bc6cee9c54bd3644e3c62fa68983091b5ca13448c9914f946ad00e325110d0",
+      "text": "Tap the rabbit and remember to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
+      "sha256": "ddbc31d045ec763ceb28bddf4a295c5e69bff409686d8bd4c7ec7f39ba5725b0",
+      "text": "Tap the happy rabbit jumping in circles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22509,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
+      "sha256": "b3477b7f6825d65d3fc60ff6c11624ffce881818bb3bf37e9daf81a206ecfe75",
+      "text": "Tap the happy rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
+      "sha256": "ee5c8eba0c0c443564c4f242e385ff907abd5fcda8b27b4853a01e50532ff6f9",
+      "text": "Tap the rabbit to watch it hop happily.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 21645,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_teach_4f79e88a.mp3",
+      "sha256": "4f71b002f206df4766ec0438f372bec76fa56530fdd5185f6566cb2f3354c835",
+      "text": "Tap the rabbit hopping.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 62541,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_intro_877668d7.mp3",
+      "sha256": "9cd4de1e3b43ba4e8d75cc5809aece52f0aa5adafd1611d9313ad17b38fdb67b",
+      "text": "An adult prepared a small carrot piece. Let’s offer it to the rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_pet_gently_practice_5aefbc02.mp3",
+      "sha256": "69a6b8ba0a2d4314a3d50e85fba11b0b1a1e8f2c5ddc629d155de046dcd7616c",
+      "text": "Tap the rabbit to pet along its fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_pet_gently_teach_01351125.mp3",
+      "sha256": "b93e1f6812aef4f3455973f1a994573f60ae88387e8308e3b8f7fef97f454107",
+      "text": "Tap the hand petting the rabbit gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
+      "sha256": "ec830e682cb9d4c787ab269a32261296969644af398e47c910d8537d28b59d30",
+      "text": "Tap the rabbit back very gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26253,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_teach_f267ed06.mp3",
+      "sha256": "6c9158a5c347a946aa112c0da9fc3732fb47c5cbf936babc9fc02109ee417d0d",
+      "text": "Tap the soft white fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_treat_practice_52cad10b.mp3",
+      "sha256": "676e5e1e07d212146d1b9e0fa20ed2f38974ca5653c1c0b6cfc3f21ff96d3d07",
+      "text": "Tap the rabbit to let it nibble the treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_treat_teach_1a082153.mp3",
+      "sha256": "ee74da206c02c37d3b552da460e1fcacb54a5c38fb7fd6669f13710e364166fd",
+      "text": "Tap the plate of small treats.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
+      "sha256": "53090cf33ecfda4d023420e59e4e087ff3d229f9c9dfe72de134fb467bd33ae6",
+      "text": "The rabbit’s fur is warm and soft.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_fail_444585c7.mp3",
+      "sha256": "d0d270c53996429561568b4c01ebbed5b31349215ffe46909dc6d573356b9b13",
+      "text": "Look for the fluffy white fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_success_0f04e912.mp3",
+      "sha256": "102ca156315ceadd7de051e02bea04e3514e98d4cbfb4e797e37104ad6156609",
+      "text": "Soft fur feels gentle and fluffy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_fail_9291787a.mp3",
+      "sha256": "e580ededfa0b4d4a2521b98d58f8cb90347094d5eef6fa1378c6a04fea23ad65",
+      "text": "Look for the rabbit eating the treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
+      "sha256": "3bd66cacf2e525643dd5e2e30ab67bbac33ba7cdc4592fc59c06d62c1f537156",
+      "text": "The rabbit enjoys nibbling the small treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_teach_fail_2459fc2b.mp3",
+      "sha256": "8d9c914a41e3185dc988110650199d79d8ee9f439f8044945cae68e8aa84170f",
+      "text": "Look for the small plate with a treat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_teach_success_d441570d.mp3",
+      "sha256": "92556361a0922b2f550ce5aab1d98ee0bdc50c70dfc83586cae6126935d1e8f3",
+      "text": "A treat is a special snack for pets.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11565,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat.mp3",
+      "sha256": "53c02cf7032ab9796cd3e3e38342e9ca5f3a7e213111f550bff25b090d3ce2de",
+      "text": "treat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_practice_fail_81d7ba0d.mp3",
+      "sha256": "e8f926b88fe21eeb59a82ca4454ac2e5fc4dcb7a822b3a18308f93b9124ed041",
+      "text": "Look for the orange carrot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_practice_success_20af68f1.mp3",
+      "sha256": "be37be402696a26e04d1b57405cb65356e12b0bcc7fedb01770aee3329f2b206",
+      "text": "The small carrot treat is ready.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_teach_fail_0f55dada.mp3",
+      "sha256": "73fbf4e1c392740b60a891cbd0a714caee9b8f153aca7f57f1e3cf36a72f0e50",
+      "text": "Look for the small carrot piece on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16461,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_teach_success_b0aea1f6.mp3",
+      "sha256": "7109fcfa31298592cc83ccc8695eb7c07c0a285cb03856c994a7d335305896c0",
+      "text": "This is a carrot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_5bceb0a0.mp3",
+      "sha256": "aec5b3c67931924238a4ffe74d1a822278c6ba49b01a80c409bd1f4301a4ba7b",
+      "text": "The rabbit enjoyed the treat and hopped around with joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
+      "sha256": "0cebffda0fd00d013c08867934efc2bc57587f5fe1e64b7fb18738c26985064e",
+      "text": "The rabbit ears wiggle with happiness.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
+      "sha256": "8fe4ba814a2c844edd9ad93dcbe5dda5ed55ece56a872d2c1d2b4be062a2c6f9",
+      "text": "Look for the two upright ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
+      "sha256": "48c5dc1078dad31ac6c7c9a2a162672f4a25e6c816a367a2a7922dda2905b867",
+      "text": "These are long soft rabbit ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_practice_success_062a9d85.mp3",
+      "sha256": "f0897f34a5223601feaf7f68dce78898a426c1efcc8531bb6aa3d5d42b1af5a9",
+      "text": "You fed the rabbit gently and safely.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_teach_fail_17929af2.mp3",
+      "sha256": "6ccadd4776aadd54fdc49c6bdf6f1fd2506aaaeec9a94574686bc2d5964da75a",
+      "text": "Look for the hand holding the carrot treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_teach_success_15573abb.mp3",
+      "sha256": "6f4ad93bb93541af495ee256a6662b56351753572dece95e17b738703344e3ca",
+      "text": "Feed the rabbit means give food to the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit.mp3",
+      "sha256": "1571ca822a083885a68deb8b8515b974a70283eda858f46e325122fa653f5832",
+      "text": "feed the rabbit",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
+      "sha256": "bb670e81f7a060212e552ee0acd670ca2bdb495081b92e731168fe759a6e6eb5",
+      "text": "The rabbit is happy from your gentle care.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
+      "sha256": "9958579326e5a81a44f0c077ed7cb7a8a022e22b570b9284bf5ab7a4c05412bb",
+      "text": "Look for the happy rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45261,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
+      "sha256": "eb405163e6aaf7a21e0152c0c882c932004acd8fcdc6a5977f8149ed713997b6",
+      "text": "The happy rabbit hops and you remember to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
+      "sha256": "aeae8a604f5fcfc7ea84d6a7e45aefe1be39f31857bd7e9542db5192787e3ec5",
+      "text": "Look for the rabbit hopping with joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
+      "sha256": "be9e909cf23035584fd4206b3f8f14629da90283a1b82403c8aeaafb2905e84a",
+      "text": "A happy rabbit jumps and plays with joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit.mp3",
+      "sha256": "257183147e3890b094c3c4826907452a7b4152e628fa6e83cc81e599cc1b31e6",
+      "text": "happy rabbit",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25101,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
+      "sha256": "406d0737bff69e2eb422d35dea6c263d23303c9e2ccdf2410d4178208a73cc36",
+      "text": "Look for the smiling rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
+      "sha256": "59e3c59b13a96dd545cce4fd834820eadaf3155872b0d7b5a9c4f8b8d7f61d36",
+      "text": "Happy means full of joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
+      "sha256": "79586c21b028708ef73df8e71bf483fb07bdd9eeef2cbf62fcf2155d83e3b85c",
+      "text": "The rabbit hops around with joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_teach_fail_c224a74a.mp3",
+      "sha256": "471c12161844e36b778ab54d0eee31a018721321bcc2bd98617041b17a2dfb08",
+      "text": "Look for the rabbit jumping in the air.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_teach_success_f0581e59.mp3",
+      "sha256": "2a3cb09faac26fe267b0ba996f73619f6e972d0cf6094f509c51bbdba4cebc64",
+      "text": "Hop means jump with light springy steps.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop.mp3",
+      "sha256": "4c180f2f128d075ae283ae161ac2205f74f6fc127439e6158f3b23acfb7daa7c",
+      "text": "hop",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/intro_success_9a16a854.mp3",
+      "sha256": "294f6dcd84ee0915cd061306acbe856b006461a93b899cda600c83c2a2962ac2",
+      "text": "The rabbit is eagerly waiting for the treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
+      "sha256": "9f4ee75886bb80bdf1eea65e587d176c60cfd5139b90c15a1ff888ea0e72db70",
+      "text": "The rabbit rests calmly when petted gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_teach_fail_0f1f9f4c.mp3",
+      "sha256": "5c5da50309c6005454d37806591b0c7e341d7dbbb1d58d4bbb4b84c759a704a0",
+      "text": "Look for the hand stroking the rabbit softly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
+      "sha256": "1094a0716354c1a004ffb1c0a0d95f672986827adec21ea728bc8c47d508c273",
+      "text": "Pet gently means stroke softly with care.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_carrot_practice_9e268256.mp3",
+      "sha256": "d68adc107ba78a0bf38c969806951a4c95e426df4c9efd1e45767df77bac71cd",
+      "text": "Tap the carrot to offer it to the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_carrot_teach_27a68bda.mp3",
+      "sha256": "de2a3fe8bb80aca25ad0cbe5bf79f1dd464899f199d3627d86c9a6011faeabe2",
+      "text": "Tap the orange carrot piece.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_ears_practice_2f55390d.mp3",
+      "sha256": "1ee48cc9d3a28330c5228166593795c5b52692721a0a8a925a8ca21473ce2fbf",
+      "text": "Tap the rabbit to see its ears wiggle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_ears_teach_9a2d5153.mp3",
+      "sha256": "dd07016be676f482c68abde5203472a197cdfb7fe31fa910ec488284f5d94c89",
+      "text": "Tap the long rabbit ears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_feed_the_rabbit_practice_4d05f692.mp3",
+      "sha256": "c61e6e414b53a3aaf69139302bd4a24e17cef54420cb363f3478e449fdcf13e2",
+      "text": "Tap the rabbit to finish feeding.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_feed_the_rabbit_teach_0d72bb16.mp3",
+      "sha256": "bbf7f3be26b7067fc58bf753bc96dc79193352eca81616cb4e918778ef7bc7d1",
+      "text": "Tap the hand feeding the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
+      "sha256": "c4ee0b699a61cf3bba67e795b9ac78a5b9ffc5d01f70c0ad62bb81fc44d60308",
+      "text": "Tap the rabbit to share the joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
+      "sha256": "43ba3e9ea95e8cfb90e39a56b55c55eea99df7e7adf1b9dcb87a0dfc6d776b11",
+      "text": "Tap the rabbit and remember to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
+      "sha256": "ded882b73ce49f78bb9bf38e21d969ac31b5a5bd4cfe4f3a1ae923487f45e8ac",
+      "text": "Tap the happy rabbit jumping in circles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20493,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
+      "sha256": "a5d3cc5ff48c63bc3e3b6ab3c7a69c1490d653c6786e58eb7538ba132732dd3d",
+      "text": "Tap the happy rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
+      "sha256": "48f15b595396dd1c03f87d85bc8badc1efcebe24ea033cbf8cbf30361e5ba9e9",
+      "text": "Tap the rabbit to watch it hop happily.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20781,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_teach_4f79e88a.mp3",
+      "sha256": "188608ff9cb1cb0d6dc36e1b16de17c8390048603b734112c89af6101f774ebe",
+      "text": "Tap the rabbit hopping.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 58221,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_intro_877668d7.mp3",
+      "sha256": "5dac7093b61507b5ef074a7de41a0fed9710697222892da538c8172507f12604",
+      "text": "An adult prepared a small carrot piece. Let’s offer it to the rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_pet_gently_practice_5aefbc02.mp3",
+      "sha256": "c2c3d1413fe6b0a2f4f895b1ed92f45512aece406f2e3fa7220f67c8bea644fb",
+      "text": "Tap the rabbit to pet along its fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_pet_gently_teach_01351125.mp3",
+      "sha256": "84520516a5aaf5020747b1d4691fd3e795078d9c07ac538539bd9bb58a1be548",
+      "text": "Tap the hand petting the rabbit gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
+      "sha256": "871482defbfe9fcc1ae39b91665ae4741b6761fc0d374301e171e9755d215424",
+      "text": "Tap the rabbit back very gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25677,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_teach_f267ed06.mp3",
+      "sha256": "72b3a8ad44d162b7b0a54a74f5b361c9fb7a1df2301351c82a513fe3745aad4d",
+      "text": "Tap the soft white fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_treat_practice_52cad10b.mp3",
+      "sha256": "c81e729dfd13031e562c48d84d4a88d827772612214e238bc438f1982f99c635",
+      "text": "Tap the rabbit to let it nibble the treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_treat_teach_1a082153.mp3",
+      "sha256": "8378a5b853c3f07308de8455bfae42860a7ceab056cfe84216243115a5d4a050",
+      "text": "Tap the plate of small treats.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
+      "sha256": "bf06f41c1ec717b9b7fbac163a4f2165045957da29d8ec2d24c292f42a6ce236",
+      "text": "The rabbit’s fur is warm and soft.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_fail_444585c7.mp3",
+      "sha256": "0bf62558a0bd387d9e2f982e754bbb5856c8d0525ad403bd5dd4aa2eb6523aa8",
+      "text": "Look for the fluffy white fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_success_0f04e912.mp3",
+      "sha256": "8630d110f2904080fb156130e041e0004acf302491aef98e2175fab58cb40fa0",
+      "text": "Soft fur feels gentle and fluffy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_fail_9291787a.mp3",
+      "sha256": "d3d6121abb65097d2b316ea2ad35a2d3576028ae1f48a52216df84203c6367f4",
+      "text": "Look for the rabbit eating the treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
+      "sha256": "7e476eb11c1178f2daa6ce03cba963f3f6297e6a37893f6193b4a5df761315bf",
+      "text": "The rabbit enjoys nibbling the small treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_teach_fail_2459fc2b.mp3",
+      "sha256": "7f304d62b615f25ad3e964bf6a80d8c0672766e6ecd005244af45497afd711e1",
+      "text": "Look for the small plate with a treat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_teach_success_d441570d.mp3",
+      "sha256": "bcfde0d89f7cf7d5688a3b37c7c5f7bf7eb717d46ab999152470c03922924e94",
+      "text": "A treat is a special snack for pets.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10125,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat.mp3",
+      "sha256": "c86f473fd73ce08f579aaf959b6771352eba4d40f00f670bba872cc91f5d9c14",
+      "text": "treat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 44685,
       "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/all_done_practice_success_e33d4752.mp3",
       "sha256": "bc9f937e1e226debf269e3b846ee4fef5041a402f18ae5081c76370431f6ee88",

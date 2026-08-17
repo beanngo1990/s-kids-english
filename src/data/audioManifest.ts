@@ -83,6 +83,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A few small steps help keep you and others clean.",
     },
   },
+  [normalizeText("A gentle rabbit is calm and sweet.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
+      text: "A gentle rabbit is calm and sweet.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
+      text: "A gentle rabbit is calm and sweet.",
+    },
+  },
+  [normalizeText("A happy rabbit jumps and plays with joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
+      text: "A happy rabbit jumps and plays with joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
+      text: "A happy rabbit jumps and plays with joy.",
+    },
+  },
+  [normalizeText("A hay rack holds hay for the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_teach_success_efda633f.mp3",
+      text: "A hay rack holds hay for the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_teach_success_efda633f.mp3",
+      text: "A hay rack holds hay for the rabbit.",
+    },
+  },
+  [normalizeText("A hutch is a home for a rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
+      text: "A hutch is a home for a rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
+      text: "A hutch is a home for a rabbit.",
+    },
+  },
   [normalizeText("A little cleaning after dinner keeps the kitchen tidy.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-US/neural2-c-r1/intro_success_91ae067d.mp3",
@@ -253,6 +293,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A toy is something we play with.",
     },
   },
+  [normalizeText("A treat is a special snack for pets.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_teach_success_d441570d.mp3",
+      text: "A treat is a special snack for pets.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_teach_success_d441570d.mp3",
+      text: "A treat is a special snack for pets.",
+    },
+  },
+  [normalizeText("A water bowl holds water for pets to drink.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_teach_success_a597b083.mp3",
+      text: "A water bowl holds water for pets to drink.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_teach_success_a597b083.mp3",
+      text: "A water bowl holds water for pets to drink.",
+    },
+  },
   [normalizeText("A yellow-and-black visitor is flying over.")]: {
     "en-US": {
       key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_bee_success_ba4d8f51.mp3",
@@ -411,6 +471,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_intro_f9949bc2.mp3",
       text: "An adult prepared a basin. Let’s wash the puppy paws.",
+    },
+  },
+  [normalizeText("An adult prepared a small carrot piece. Let’s offer it to the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_intro_877668d7.mp3",
+      text: "An adult prepared a small carrot piece. Let’s offer it to the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_intro_877668d7.mp3",
+      text: "An adult prepared a small carrot piece. Let’s offer it to the rabbit.",
     },
   },
   [normalizeText("An adult prepared one dry tomato seed for next season.")]: {
@@ -1829,6 +1899,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "check your heartbeat",
     },
   },
+  [normalizeText("chew")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew.mp3",
+      text: "chew",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew.mp3",
+      text: "chew",
+    },
+  },
+  [normalizeText("Chew means bite food again and again.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_teach_success_bfd96c87.mp3",
+      text: "Chew means bite food again and again.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_teach_success_bfd96c87.mp3",
+      text: "Chew means bite food again and again.",
+    },
+  },
   [normalizeText("chicken")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/chicken.mp3",
@@ -2103,6 +2193,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/at-school/teacher-instructions/audio/en/prompt_instructions_drag_book_to_box_b9751a3d.mp3",
       text: "Clean up.",
+    },
+  },
+  [normalizeText("clean water")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water.mp3",
+      text: "clean water",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water.mp3",
+      text: "clean water",
+    },
+  },
+  [normalizeText("Clean water is fresh and clear.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_teach_success_3bab3982.mp3",
+      text: "Clean water is fresh and clear.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_teach_success_3bab3982.mp3",
+      text: "Clean water is fresh and clear.",
     },
   },
   [normalizeText("cleaning brush")]: {
@@ -4433,6 +4543,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "dress",
     },
   },
+  [normalizeText("drink")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink.mp3",
+      text: "drink",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink.mp3",
+      text: "drink",
+    },
+  },
+  [normalizeText("Drink means take water into the mouth.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_teach_success_cc3c08dd.mp3",
+      text: "Drink means take water into the mouth.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_teach_success_cc3c08dd.mp3",
+      text: "Drink means take water into the mouth.",
+    },
+  },
   [normalizeText("drink some water")]: {
     "en-US": {
       key: "lessons/doctor-visit/medicine-care/audio/en-US/neural2-c-r1/drink_some_water.mp3",
@@ -4947,6 +5077,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "feed the goat",
     },
   },
+  [normalizeText("feed the rabbit")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit.mp3",
+      text: "feed the rabbit",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit.mp3",
+      text: "feed the rabbit",
+    },
+  },
+  [normalizeText("Feed the rabbit means give food to the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_teach_success_15573abb.mp3",
+      text: "Feed the rabbit means give food to the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_teach_success_15573abb.mp3",
+      text: "Feed the rabbit means give food to the rabbit.",
+    },
+  },
   [normalizeText("feelings card")]: {
     "en-US": {
       key: "lessons/calm-myself/comfort-corner/audio/en-US/neural2-c-r1/feelings_card.mp3",
@@ -4985,6 +5135,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/fill_the_pot_with_soil.mp3",
       text: "fill the pot with soil",
+    },
+  },
+  [normalizeText("fill the rack")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack.mp3",
+      text: "fill the rack",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack.mp3",
+      text: "fill the rack",
+    },
+  },
+  [normalizeText("Fill the rack means put plenty of hay inside.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_teach_success_7a95b6f5.mp3",
+      text: "Fill the rack means put plenty of hay inside.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_teach_success_7a95b6f5.mp3",
+      text: "Fill the rack means put plenty of hay inside.",
     },
   },
   [normalizeText("Finally, let's sort everything and let it dry.")]: {
@@ -5665,6 +5835,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Fresh foods are colorful!",
     },
   },
+  [normalizeText("fresh hay")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay.mp3",
+      text: "fresh hay",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay.mp3",
+      text: "fresh hay",
+    },
+  },
+  [normalizeText("Fresh hay is clean and smells good.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_teach_success_78048242.mp3",
+      text: "Fresh hay is clean and smells good.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_teach_success_78048242.mp3",
+      text: "Fresh hay is clean and smells good.",
+    },
+  },
+  [normalizeText("Fresh hay is great for the rabbit’s teeth.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_practice_success_f953ae9e.mp3",
+      text: "Fresh hay is great for the rabbit’s teeth.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_practice_success_f953ae9e.mp3",
+      text: "Fresh hay is great for the rabbit’s teeth.",
+    },
+  },
   [normalizeText("friend")]: {
     "en-US": {
       key: "lessons/playtime/friend-games/audio/en-US/neural2-c-r1/friend.mp3",
@@ -5811,6 +6011,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/after-dinner-cleanup/clear-dinner/audio/en-GB/neural2-c-r1/intro_success_8286c84c.mp3",
       text: "Gathering one small item at a time keeps the dining area tidy.",
+    },
+  },
+  [normalizeText("gentle rabbit")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit.mp3",
+      text: "gentle rabbit",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit.mp3",
+      text: "gentle rabbit",
     },
   },
   [normalizeText("get on the bus")]: {
@@ -6283,6 +6493,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Happy means feeling joyful.",
     },
   },
+  [normalizeText("Happy means full of joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
+      text: "Happy means full of joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
+      text: "Happy means full of joy.",
+    },
+  },
+  [normalizeText("happy rabbit")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit.mp3",
+      text: "happy rabbit",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit.mp3",
+      text: "happy rabbit",
+    },
+  },
   [normalizeText("Have fun and remember to keep your toys tidy.")]: {
     "en-US": {
       key: "lessons/home-play/home-toy-corner/audio/en-US/neural2-c-r1/intro_success_ccaf36cf.mp3",
@@ -6291,6 +6521,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/home-play/home-toy-corner/audio/en-GB/neural2-c-r1/intro_success_ccaf36cf.mp3",
       text: "Have fun and remember to keep your toys tidy.",
+    },
+  },
+  [normalizeText("hay")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay.mp3",
+      text: "hay",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay.mp3",
+      text: "hay",
+    },
+  },
+  [normalizeText("hay rack")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack.mp3",
+      text: "hay rack",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack.mp3",
+      text: "hay rack",
     },
   },
   [normalizeText("head")]: {
@@ -6511,6 +6761,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "hook",
     },
   },
+  [normalizeText("hop")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop.mp3",
+      text: "hop",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop.mp3",
+      text: "hop",
+    },
+  },
+  [normalizeText("Hop means jump with light springy steps.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_teach_success_f0581e59.mp3",
+      text: "Hop means jump with light springy steps.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_teach_success_f0581e59.mp3",
+      text: "Hop means jump with light springy steps.",
+    },
+  },
   [normalizeText("hot")]: {
     "en-US": {
       key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/hot.mp3",
@@ -6615,6 +6885,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Hungry means its tummy needs food.",
     },
   },
+  [normalizeText("Hungry means wanting food.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_teach_success_c2c5461c.mp3",
+      text: "Hungry means wanting food.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_teach_success_c2c5461c.mp3",
+      text: "Hungry means wanting food.",
+    },
+  },
   [normalizeText("hurt")]: {
     "en-US": {
       key: "lessons/speaking-up/pain-and-help/audio/en-US/neural2-c-r1/hurt.mp3",
@@ -6623,6 +6903,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/hurt.mp3",
       text: "hurt",
+    },
+  },
+  [normalizeText("hutch")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch.mp3",
+      text: "hutch",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch.mp3",
+      text: "hutch",
     },
   },
   [normalizeText("I am excited")]: {
@@ -18807,6 +19097,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the blue sound lines by the curtain.",
     },
   },
+  [normalizeText("Look for the bowl full of water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_teach_fail_db5f37d6.mp3",
+      text: "Look for the bowl full of water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_teach_fail_db5f37d6.mp3",
+      text: "Look for the bowl full of water.",
+    },
+  },
   [normalizeText("Look for the bowl of food in the middle.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-US/neural2-c-r1/meal_practice_fail_be646cad.mp3",
@@ -18845,6 +19145,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-GB/neural2-c-r1/empty_practice_fail_e0e5f372.mp3",
       text: "Look for the bowl with no pieces of food.",
+    },
+  },
+  [normalizeText("Look for the bowl with no water inside.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_teach_fail_ead5bbc1.mp3",
+      text: "Look for the bowl with no water inside.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_teach_fail_ead5bbc1.mp3",
+      text: "Look for the bowl with no water inside.",
     },
   },
   [normalizeText("Look for the bowl with pieces of food.")]: {
@@ -18905,6 +19215,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_buckle_fail_abf56e82.mp3",
       text: "Look for the buckle on the left side of the bench.",
+    },
+  },
+  [normalizeText("Look for the bunch of hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_practice_fail_11958d4c.mp3",
+      text: "Look for the bunch of hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_practice_fail_11958d4c.mp3",
+      text: "Look for the bunch of hay.",
+    },
+  },
+  [normalizeText("Look for the bunch of light green hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_teach_fail_15d38749.mp3",
+      text: "Look for the bunch of light green hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_teach_fail_15d38749.mp3",
+      text: "Look for the bunch of light green hay.",
     },
   },
   [normalizeText("Look for the button on the left side of the upper shelf.")]: {
@@ -19055,6 +19385,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/check_the_paws_practice_fail_0483332c.mp3",
       text: "Look for the clean puppy.",
+    },
+  },
+  [normalizeText("Look for the clear blue water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_teach_fail_3ff59daf.mp3",
+      text: "Look for the clear blue water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_teach_fail_3ff59daf.mp3",
+      text: "Look for the clear blue water.",
     },
   },
   [normalizeText("Look for the clear pitcher on the left.")]: {
@@ -19237,6 +19577,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the empty bowl on the right.",
     },
   },
+  [normalizeText("Look for the empty bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_practice_fail_a0e9fbd2.mp3",
+      text: "Look for the empty bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_practice_fail_a0e9fbd2.mp3",
+      text: "Look for the empty bowl.",
+    },
+  },
   [normalizeText("Look for the eyes at the upper right.")]: {
     "en-US": {
       key: "lessons/my-body/head-and-face/audio/en-US/neural2-c-r1/drag_eyes_fail_40492d55.mp3",
@@ -19347,6 +19697,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the fingers on the right.",
     },
   },
+  [normalizeText("Look for the fluffy white fur.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_fail_444585c7.mp3",
+      text: "Look for the fluffy white fur.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_fail_444585c7.mp3",
+      text: "Look for the fluffy white fur.",
+    },
+  },
   [normalizeText("Look for the fluffy yellow towel.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
@@ -19407,6 +19767,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the foot at the upper right.",
     },
   },
+  [normalizeText("Look for the fresh hay pile.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_practice_fail_394591b5.mp3",
+      text: "Look for the fresh hay pile.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_practice_fail_394591b5.mp3",
+      text: "Look for the fresh hay pile.",
+    },
+  },
   [normalizeText("Look for the front of the shirt to the left of the child.")]: {
     "en-US": {
       key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_front_fail_df31b7be.mp3",
@@ -19455,6 +19825,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-GB/neural2-c-r1/full_teach_fail_ebd3ba8e.mp3",
       text: "Look for the full bowl on the right.",
+    },
+  },
+  [normalizeText("Look for the gentle rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_practice_fail_f79d5fd5.mp3",
+      text: "Look for the gentle rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_practice_fail_f79d5fd5.mp3",
+      text: "Look for the gentle rabbit.",
     },
   },
   [normalizeText("Look for the going-home card in the bottom row.")]: {
@@ -19637,6 +20017,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hand holding the ball.",
     },
   },
+  [normalizeText("Look for the hand holding the carrot treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_teach_fail_17929af2.mp3",
+      text: "Look for the hand holding the carrot treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_teach_fail_17929af2.mp3",
+      text: "Look for the hand holding the carrot treat.",
+    },
+  },
   [normalizeText("Look for the hand holding the yellow towel.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wipe_teach_fail_474b2b4b.mp3",
@@ -19717,6 +20107,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hand petting the kitten.",
     },
   },
+  [normalizeText("Look for the hand putting hay into the rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_teach_fail_fcae9a86.mp3",
+      text: "Look for the hand putting hay into the rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_teach_fail_fcae9a86.mp3",
+      text: "Look for the hand putting hay into the rack.",
+    },
+  },
   [normalizeText("Look for the hand putting the bowl down.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/put_it_down_teach_fail_e00a0c4a.mp3",
@@ -19755,6 +20155,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/drag_hand_soap_fail_1982b65d.mp3",
       text: "Look for the hand soap on the right side of the sink.",
+    },
+  },
+  [normalizeText("Look for the hand stroking the rabbit softly.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_teach_fail_0f1f9f4c.mp3",
+      text: "Look for the hand stroking the rabbit softly.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_teach_fail_0f1f9f4c.mp3",
+      text: "Look for the hand stroking the rabbit softly.",
     },
   },
   [normalizeText("Look for the hand towel on the wall on the right.")]: {
@@ -19827,6 +20237,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the hands holding the bowl on the left.",
     },
   },
+  [normalizeText("Look for the hands placing the bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_teach_fail_e77fab40.mp3",
+      text: "Look for the hands placing the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_teach_fail_e77fab40.mp3",
+      text: "Look for the hands placing the bowl.",
+    },
+  },
   [normalizeText("Look for the hands under running water.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/wash_hands_practice_fail_381426e1.mp3",
@@ -19875,6 +20295,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_practice_fail_a019f2a7.mp3",
       text: "Look for the happy puppy.",
+    },
+  },
+  [normalizeText("Look for the happy rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
+      text: "Look for the happy rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
+      text: "Look for the happy rabbit.",
+    },
+  },
+  [normalizeText("Look for the hay rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_practice_fail_3d3069fa.mp3",
+      text: "Look for the hay rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_practice_fail_3d3069fa.mp3",
+      text: "Look for the hay rack.",
     },
   },
   [normalizeText("Look for the head on the left.")]: {
@@ -20335,6 +20775,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-GB/neural2-c-r1/stop_here_teach_fail_0d7c7113.mp3",
       text: "Look for the open palm.",
+    },
+  },
+  [normalizeText("Look for the orange carrot.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_practice_fail_81d7ba0d.mp3",
+      text: "Look for the orange carrot.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_practice_fail_81d7ba0d.mp3",
+      text: "Look for the orange carrot.",
     },
   },
   [normalizeText("Look for the oval green mat.")]: {
@@ -20807,6 +21257,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the pinwheel at the upper right.",
     },
   },
+  [normalizeText("Look for the pitcher of clear water on the left.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_teach_fail_8eb9583f.mp3",
+      text: "Look for the pitcher of clear water on the left.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_teach_fail_8eb9583f.mp3",
+      text: "Look for the pitcher of clear water on the left.",
+    },
+  },
   [normalizeText("Look for the pointed ears.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-US/neural2-c-r1/ears_practice_fail_8194335a.mp3",
@@ -21167,6 +21627,136 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the quiet corner near the top center.",
     },
   },
+  [normalizeText("Look for the quiet rabbit beside the rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_teach_fail_83e97bca.mp3",
+      text: "Look for the quiet rabbit beside the rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_teach_fail_83e97bca.mp3",
+      text: "Look for the quiet rabbit beside the rack.",
+    },
+  },
+  [normalizeText("Look for the rabbit beside the hay rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_fail_d148b911.mp3",
+      text: "Look for the rabbit beside the hay rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_fail_d148b911.mp3",
+      text: "Look for the rabbit beside the hay rack.",
+    },
+  },
+  [normalizeText("Look for the rabbit beside the water bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_practice_fail_1b71ac19.mp3",
+      text: "Look for the rabbit beside the water bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_practice_fail_1b71ac19.mp3",
+      text: "Look for the rabbit beside the water bowl.",
+    },
+  },
+  [normalizeText("Look for the rabbit drinking from the bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_teach_fail_f358cd9c.mp3",
+      text: "Look for the rabbit drinking from the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_teach_fail_f358cd9c.mp3",
+      text: "Look for the rabbit drinking from the bowl.",
+    },
+  },
+  [normalizeText("Look for the rabbit eating the treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_fail_9291787a.mp3",
+      text: "Look for the rabbit eating the treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_fail_9291787a.mp3",
+      text: "Look for the rabbit eating the treat.",
+    },
+  },
+  [normalizeText("Look for the rabbit hopping with joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
+      text: "Look for the rabbit hopping with joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
+      text: "Look for the rabbit hopping with joy.",
+    },
+  },
+  [normalizeText("Look for the rabbit hutch.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_practice_fail_bfe5646b.mp3",
+      text: "Look for the rabbit hutch.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_practice_fail_bfe5646b.mp3",
+      text: "Look for the rabbit hutch.",
+    },
+  },
+  [normalizeText("Look for the rabbit jumping in the air.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_teach_fail_c224a74a.mp3",
+      text: "Look for the rabbit jumping in the air.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_teach_fail_c224a74a.mp3",
+      text: "Look for the rabbit jumping in the air.",
+    },
+  },
+  [normalizeText("Look for the rabbit leaning over the bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_teach_fail_8373411e.mp3",
+      text: "Look for the rabbit leaning over the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_teach_fail_8373411e.mp3",
+      text: "Look for the rabbit leaning over the bowl.",
+    },
+  },
+  [normalizeText("Look for the rabbit looking at the bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_teach_fail_87cb249c.mp3",
+      text: "Look for the rabbit looking at the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_teach_fail_87cb249c.mp3",
+      text: "Look for the rabbit looking at the bowl.",
+    },
+  },
+  [normalizeText("Look for the rabbit mouth with a piece of hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_teach_fail_b6225c82.mp3",
+      text: "Look for the rabbit mouth with a piece of hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_teach_fail_b6225c82.mp3",
+      text: "Look for the rabbit mouth with a piece of hay.",
+    },
+  },
+  [normalizeText("Look for the rabbit waiting for food.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_teach_fail_138fc6b4.mp3",
+      text: "Look for the rabbit waiting for food.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_teach_fail_138fc6b4.mp3",
+      text: "Look for the rabbit waiting for food.",
+    },
+  },
+  [normalizeText("Look for the rabbit with long ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_teach_fail_fa4f1e6c.mp3",
+      text: "Look for the rabbit with long ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_teach_fail_fa4f1e6c.mp3",
+      text: "Look for the rabbit with long ears.",
+    },
+  },
   [normalizeText("Look for the raincoat in the middle of the clothes rail.")]: {
     "en-US": {
       key: "lessons/dress-myself/choose-clothes/audio/en-US/neural2-c-r1/tap_raincoat_fail_34830fbc.mp3",
@@ -21437,6 +22027,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the sleeve on the left shelf.",
     },
   },
+  [normalizeText("Look for the small blue bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_teach_fail_62299e62.mp3",
+      text: "Look for the small blue bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_teach_fail_62299e62.mp3",
+      text: "Look for the small blue bowl.",
+    },
+  },
+  [normalizeText("Look for the small bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_practice_fail_f99a8181.mp3",
+      text: "Look for the small bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_practice_fail_f99a8181.mp3",
+      text: "Look for the small bowl.",
+    },
+  },
+  [normalizeText("Look for the small carrot piece on the left.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_teach_fail_0f55dada.mp3",
+      text: "Look for the small carrot piece on the left.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_teach_fail_0f55dada.mp3",
+      text: "Look for the small carrot piece on the left.",
+    },
+  },
   [normalizeText("Look for the small cat with the blue collar.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-US/neural2-c-r1/kitten_teach_fail_b2f8ec7c.mp3",
@@ -21487,6 +22107,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the small pawprints on the floor.",
     },
   },
+  [normalizeText("Look for the small plate with a treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_teach_fail_2459fc2b.mp3",
+      text: "Look for the small plate with a treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_teach_fail_2459fc2b.mp3",
+      text: "Look for the small plate with a treat.",
+    },
+  },
   [normalizeText("Look for the small toy in the cube.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-US/neural2-c-r1/inside_practice_fail_f514e40e.mp3",
@@ -21535,6 +22165,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_teach_fail_a78e8495.mp3",
       text: "Look for the smiling puppy.",
+    },
+  },
+  [normalizeText("Look for the smiling rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
+      text: "Look for the smiling rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
+      text: "Look for the smiling rabbit.",
     },
   },
   [normalizeText("Look for the snap fastener in the middle of the bench.")]: {
@@ -21675,6 +22315,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/dress-myself/choose-clothes/audio/en-GB/neural2-c-r1/tap_sweater_fail_64fed28e.mp3",
       text: "Look for the sweater on the left side of the bench.",
+    },
+  },
+  [normalizeText("Look for the sweet-smelling green hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fresh_hay_teach_fail_62b19cb8.mp3",
+      text: "Look for the sweet-smelling green hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fresh_hay_teach_fail_62b19cb8.mp3",
+      text: "Look for the sweet-smelling green hay.",
     },
   },
   [normalizeText("Look for the T-shirt on the left side of the clothes rail.")]: {
@@ -21927,6 +22577,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the two thumbs-up hands.",
     },
   },
+  [normalizeText("Look for the two upright ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
+      text: "Look for the two upright ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
+      text: "Look for the two upright ears.",
+    },
+  },
   [normalizeText("Look for the two white paws with water drops.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/check_the_paws_teach_fail_66eb8899.mp3",
@@ -21995,6 +22655,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_thirsty_fail_450fb6fa.mp3",
       text: "Look for the water bottle on the right shelf.",
+    },
+  },
+  [normalizeText("Look for the water bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_practice_fail_f79d2066.mp3",
+      text: "Look for the water bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_practice_fail_f79d2066.mp3",
+      text: "Look for the water bowl.",
     },
   },
   [normalizeText("Look for the water card at the bottom center.")]: {
@@ -22067,6 +22737,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the white paw with water drops.",
     },
   },
+  [normalizeText("Look for the white rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_practice_fail_af86c42b.mp3",
+      text: "Look for the white rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_practice_fail_af86c42b.mp3",
+      text: "Look for the white rabbit.",
+    },
+  },
+  [normalizeText("Look for the wooden rabbit hutch.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_fail_8d6bc88a.mp3",
+      text: "Look for the wooden rabbit hutch.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_fail_8d6bc88a.mp3",
+      text: "Look for the wooden rabbit hutch.",
+    },
+  },
+  [normalizeText("Look for the wooden rack on the wall.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_teach_fail_edaf6657.mp3",
+      text: "Look for the wooden rack on the wall.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_teach_fail_edaf6657.mp3",
+      text: "Look for the wooden rack on the wall.",
+    },
+  },
   [normalizeText("Look for the wrist at the lower left.")]: {
     "en-US": {
       key: "lessons/my-body/arms-and-hands/audio/en-US/neural2-c-r1/tap_wrist_fail_d8581241.mp3",
@@ -22115,6 +22815,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/drag_zipper_fail_feb56793.mp3",
       text: "Look for the zipper in the middle of the upper shelf.",
+    },
+  },
+  [normalizeText("Look for where the bowl goes.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_practice_fail_98aeb690.mp3",
+      text: "Look for where the bowl goes.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_practice_fail_98aeb690.mp3",
+      text: "Look for where the bowl goes.",
     },
   },
   [normalizeText("Look means to point your eyes at something.")]: {
@@ -23689,6 +24399,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "pet gently",
     },
   },
+  [normalizeText("Pet gently means stroke softly with care.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
+      text: "Pet gently means stroke softly with care.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
+      text: "Pet gently means stroke softly with care.",
+    },
+  },
   [normalizeText("Pet gently means touch an animal softly and calmly.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/pet_gently_teach_success_abb16b03.mp3",
@@ -24303,6 +25023,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "put it down",
     },
   },
+  [normalizeText("Put it down means place something gently on the floor.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_teach_success_40cecec7.mp3",
+      text: "Put it down means place something gently on the floor.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_teach_success_40cecec7.mp3",
+      text: "Put it down means place something gently on the floor.",
+    },
+  },
   [normalizeText("Put it down means to place it on a surface.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/put_it_down_teach_success_e9972877.mp3",
@@ -24573,6 +25303,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/quiet_sign.mp3",
       text: "quiet sign",
+    },
+  },
+  [normalizeText("rabbit")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit.mp3",
+      text: "rabbit",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit.mp3",
+      text: "rabbit",
+    },
+  },
+  [normalizeText("rabbit drinks")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks.mp3",
+      text: "rabbit drinks",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks.mp3",
+      text: "rabbit drinks",
     },
   },
   [normalizeText("rain")]: {
@@ -26647,6 +27397,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "soft",
     },
   },
+  [normalizeText("Soft fur feels gentle and fluffy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_success_0f04e912.mp3",
+      text: "Soft fur feels gentle and fluffy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_success_0f04e912.mp3",
+      text: "Soft fur feels gentle and fluffy.",
+    },
+  },
   [normalizeText("Soft light and gentle sounds make bedtime more relaxing.")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/intro_success_3c1ed6eb.mp3",
@@ -28255,6 +29015,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bowl that is ready.",
     },
   },
+  [normalizeText("Tap the bowl to fill it with clean water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_clean_water_practice_1a2d8171.mp3",
+      text: "Tap the bowl to fill it with clean water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_clean_water_practice_1a2d8171.mp3",
+      text: "Tap the bowl to fill it with clean water.",
+    },
+  },
+  [normalizeText("Tap the bowl to place it neatly.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_bowl_practice_b247f5d1.mp3",
+      text: "Tap the bowl to place it neatly.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_bowl_practice_b247f5d1.mp3",
+      text: "Tap the bowl to place it neatly.",
+    },
+  },
+  [normalizeText("Tap the bowl to pour clean water in.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_practice_b700aabf.mp3",
+      text: "Tap the bowl to pour clean water in.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_practice_b700aabf.mp3",
+      text: "Tap the bowl to pour clean water in.",
+    },
+  },
   [normalizeText("Tap the bowl with food inside.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-US/neural2-c-r1/check_full_bowl_fail_d8a861a9.mp3",
@@ -28411,6 +29201,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the buckle.",
     },
   },
+  [normalizeText("Tap the bunch of fresh hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_teach_a0baf23f.mp3",
+      text: "Tap the bunch of fresh hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_teach_a0baf23f.mp3",
+      text: "Tap the bunch of fresh hay.",
+    },
+  },
   [normalizeText("Tap the bunch of lettuce leaves on the left.")]: {
     "en-US": {
       key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_lettuce_eea18687.mp3",
@@ -28559,6 +29359,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the carrot in the basket of vegetables.",
     },
   },
+  [normalizeText("Tap the carrot to offer it to the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_carrot_practice_9e268256.mp3",
+      text: "Tap the carrot to offer it to the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_carrot_practice_9e268256.mp3",
+      text: "Tap the carrot to offer it to the rabbit.",
+    },
+  },
   [normalizeText("Tap the carrots and peas on the left.")]: {
     "en-US": {
       key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_vegetable_82a94c20.mp3",
@@ -28661,6 +29471,36 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_clean_paws_teach_55139ebf.mp3",
       text: "Tap the clean paws.",
+    },
+  },
+  [normalizeText("Tap the clean rabbit hutch.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hutch_teach_db5925f0.mp3",
+      text: "Tap the clean rabbit hutch.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hutch_teach_db5925f0.mp3",
+      text: "Tap the clean rabbit hutch.",
+    },
+  },
+  [normalizeText("Tap the clean water bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_bowl_teach_9ab6b3ca.mp3",
+      text: "Tap the clean water bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_bowl_teach_9ab6b3ca.mp3",
+      text: "Tap the clean water bowl.",
+    },
+  },
+  [normalizeText("Tap the clean water pitcher.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_teach_b2ec3df6.mp3",
+      text: "Tap the clean water pitcher.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_teach_b2ec3df6.mp3",
+      text: "Tap the clean water pitcher.",
     },
   },
   [normalizeText("Tap the clean wet paw.")]: {
@@ -28827,6 +29667,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
       text: "Tap the cool dark area. It is shade.",
+    },
+  },
+  [normalizeText("Tap the corner to place the bowl safely.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_put_it_down_practice_5eeda4e8.mp3",
+      text: "Tap the corner to place the bowl safely.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_put_it_down_practice_5eeda4e8.mp3",
+      text: "Tap the corner to place the bowl safely.",
     },
   },
   [normalizeText("Tap the cover.")]: {
@@ -29283,6 +30133,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the empty bowl in the middle.",
     },
   },
+  [normalizeText("Tap the empty bowl to add fresh water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_empty_practice_8fc084ba.mp3",
+      text: "Tap the empty bowl to add fresh water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_empty_practice_8fc084ba.mp3",
+      text: "Tap the empty bowl to add fresh water.",
+    },
+  },
   [normalizeText("Tap the empty bowl to check that the puppy finished.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_practice_996c9247.mp3",
@@ -29301,6 +30161,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_put_it_down_practice_9091d7f9.mp3",
       text: "Tap the empty bowl to put it down on the side.",
+    },
+  },
+  [normalizeText("Tap the empty bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_empty_teach_39215d8c.mp3",
+      text: "Tap the empty bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_empty_teach_39215d8c.mp3",
+      text: "Tap the empty bowl.",
     },
   },
   [normalizeText("Tap the envelope flap to close it.")]: {
@@ -29557,6 +30427,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the fountain.",
     },
   },
+  [normalizeText("Tap the fresh hay to prepare it for the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fresh_hay_practice_69939b57.mp3",
+      text: "Tap the fresh hay to prepare it for the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fresh_hay_practice_69939b57.mp3",
+      text: "Tap the fresh hay to prepare it for the rabbit.",
+    },
+  },
   [normalizeText("Tap the frisbee.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/prompt_tap_frisbee_b7fe3681.mp3",
@@ -29655,6 +30535,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_pet_gently_practice_169e5501.mp3",
       text: "Tap the gentle pet so the kitten rubs its head.",
+    },
+  },
+  [normalizeText("Tap the gentle rabbit standing quietly.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_gentle_rabbit_teach_f922bec2.mp3",
+      text: "Tap the gentle rabbit standing quietly.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_gentle_rabbit_teach_f922bec2.mp3",
+      text: "Tap the gentle rabbit standing quietly.",
     },
   },
   [normalizeText("Tap the giraffe.")]: {
@@ -29837,6 +30727,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand and keep it still for the kitten.",
     },
   },
+  [normalizeText("Tap the hand feeding the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_feed_the_rabbit_teach_0d72bb16.mp3",
+      text: "Tap the hand feeding the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_feed_the_rabbit_teach_0d72bb16.mp3",
+      text: "Tap the hand feeding the rabbit.",
+    },
+  },
+  [normalizeText("Tap the hand filling the rack with hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fill_the_rack_teach_3a3b22d0.mp3",
+      text: "Tap the hand filling the rack with hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fill_the_rack_teach_3a3b22d0.mp3",
+      text: "Tap the hand filling the rack with hay.",
+    },
+  },
   [normalizeText("Tap the hand gel.")]: {
     "en-US": {
       key: "lessons/doctor-visit/health-check/audio/en-US/neural2-c-r1/prompt_tap_hand_gel_fd9b4643.mp3",
@@ -29945,6 +30855,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_pet_gently_teach_e38aae11.mp3",
       text: "Tap the hand petting the kitten gently.",
+    },
+  },
+  [normalizeText("Tap the hand petting the rabbit gently.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_pet_gently_teach_01351125.mp3",
+      text: "Tap the hand petting the rabbit gently.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_pet_gently_teach_01351125.mp3",
+      text: "Tap the hand petting the rabbit gently.",
     },
   },
   [normalizeText("Tap the hand picking up the ball.")]: {
@@ -30077,6 +30997,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hands carrying the bowl.",
     },
   },
+  [normalizeText("Tap the hands putting the bowl down.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_put_it_down_teach_cc42a9f9.mp3",
+      text: "Tap the hands putting the bowl down.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_put_it_down_teach_cc42a9f9.mp3",
+      text: "Tap the hands putting the bowl down.",
+    },
+  },
   [normalizeText("Tap the hands rinsing the cucumber under water.")]: {
     "en-US": {
       key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_f0ca9571.mp3",
@@ -30135,6 +31065,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_teach_e999f52d.mp3",
       text: "Tap the happy puppy.",
+    },
+  },
+  [normalizeText("Tap the happy rabbit jumping in circles.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
+      text: "Tap the happy rabbit jumping in circles.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
+      text: "Tap the happy rabbit jumping in circles.",
+    },
+  },
+  [normalizeText("Tap the happy rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
+      text: "Tap the happy rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
+      text: "Tap the happy rabbit.",
+    },
+  },
+  [normalizeText("Tap the hay rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_rack_teach_3b54128b.mp3",
+      text: "Tap the hay rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_rack_teach_3b54128b.mp3",
+      text: "Tap the hay rack.",
+    },
+  },
+  [normalizeText("Tap the hay to prepare it for the rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_practice_2c1bd9db.mp3",
+      text: "Tap the hay to prepare it for the rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_practice_2c1bd9db.mp3",
+      text: "Tap the hay to prepare it for the rack.",
     },
   },
   [normalizeText("Tap the head.")]: {
@@ -30219,6 +31189,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/family-visit/audio/en-GB/neural2-c-r1/prompt_tap_hug_e88a6ee6.mp3",
       text: "Tap the hug picture.",
+    },
+  },
+  [normalizeText("Tap the hungry rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hungry_teach_a02b5112.mp3",
+      text: "Tap the hungry rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hungry_teach_a02b5112.mp3",
+      text: "Tap the hungry rabbit.",
+    },
+  },
+  [normalizeText("Tap the hutch to open the door.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hutch_practice_2f55f150.mp3",
+      text: "Tap the hutch to open the door.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hutch_practice_2f55f150.mp3",
+      text: "Tap the hutch to open the door.",
     },
   },
   [normalizeText("Tap the invitation on the left side of the table.")]: {
@@ -30619,6 +31609,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_stake_c59165bb.mp3",
       text: "Tap the long plant support. It is a stake.",
+    },
+  },
+  [normalizeText("Tap the long rabbit ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_ears_teach_9a2d5153.mp3",
+      text: "Tap the long rabbit ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_ears_teach_9a2d5153.mp3",
+      text: "Tap the long rabbit ears.",
     },
   },
   [normalizeText("Tap the long rounded stake beside the plant.")]: {
@@ -31227,6 +32227,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_flower_0d672a76.mp3",
       text: "Tap the open yellow flower.",
+    },
+  },
+  [normalizeText("Tap the orange carrot piece.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_carrot_teach_27a68bda.mp3",
+      text: "Tap the orange carrot piece.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_carrot_teach_27a68bda.mp3",
+      text: "Tap the orange carrot piece.",
     },
   },
   [normalizeText("Tap the orange carrots and green peas.")]: {
@@ -32077,6 +33087,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the piglet.",
     },
   },
+  [normalizeText("Tap the pile of fresh hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fresh_hay_teach_74612ff1.mp3",
+      text: "Tap the pile of fresh hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fresh_hay_teach_74612ff1.mp3",
+      text: "Tap the pile of fresh hay.",
+    },
+  },
   [normalizeText("Tap the pillow and blanket.")]: {
     "en-US": {
       key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/prompt_tap_tired_6c5f7df3.mp3",
@@ -32129,6 +33149,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/grandparents-visit/garden-help/audio/en-GB/neural2-c-r1/prompt_tap_plant_pot_63ae74f3.mp3",
       text: "Tap the plant pot on the right.",
+    },
+  },
+  [normalizeText("Tap the plate of small treats.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_treat_teach_1a082153.mp3",
+      text: "Tap the plate of small treats.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_treat_teach_1a082153.mp3",
+      text: "Tap the plate of small treats.",
     },
   },
   [normalizeText("Tap the plate.")]: {
@@ -32761,6 +33791,206 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/library-card/audio/en-GB/neural2-c-r1/prompt_tap_quiet_sign_a3417d4e.mp3",
       text: "Tap the quiet sign.",
+    },
+  },
+  [normalizeText("Tap the rabbit and remember to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
+      text: "Tap the rabbit and remember to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
+      text: "Tap the rabbit and remember to wash your hands.",
+    },
+  },
+  [normalizeText("Tap the rabbit as it finishes drinking.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_rabbit_drinks_practice_547466ad.mp3",
+      text: "Tap the rabbit as it finishes drinking.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_rabbit_drinks_practice_547466ad.mp3",
+      text: "Tap the rabbit as it finishes drinking.",
+    },
+  },
+  [normalizeText("Tap the rabbit back very gently.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
+      text: "Tap the rabbit back very gently.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
+      text: "Tap the rabbit back very gently.",
+    },
+  },
+  [normalizeText("Tap the rabbit drinking water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
+      text: "Tap the rabbit drinking water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
+      text: "Tap the rabbit drinking water.",
+    },
+  },
+  [normalizeText("Tap the rabbit hopping.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_teach_4f79e88a.mp3",
+      text: "Tap the rabbit hopping.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_teach_4f79e88a.mp3",
+      text: "Tap the rabbit hopping.",
+    },
+  },
+  [normalizeText("Tap the rabbit mouth chewing hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_chew_teach_cd30d679.mp3",
+      text: "Tap the rabbit mouth chewing hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_chew_teach_cd30d679.mp3",
+      text: "Tap the rabbit mouth chewing hay.",
+    },
+  },
+  [normalizeText("Tap the rabbit so it drinks cool water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_drink_practice_7d2e96e6.mp3",
+      text: "Tap the rabbit so it drinks cool water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_drink_practice_7d2e96e6.mp3",
+      text: "Tap the rabbit so it drinks cool water.",
+    },
+  },
+  [normalizeText("Tap the rabbit so it looks at the rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hungry_practice_9f312b8f.mp3",
+      text: "Tap the rabbit so it looks at the rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hungry_practice_9f312b8f.mp3",
+      text: "Tap the rabbit so it looks at the rack.",
+    },
+  },
+  [normalizeText("Tap the rabbit so it wiggles its ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_rabbit_practice_5f5cc9f0.mp3",
+      text: "Tap the rabbit so it wiggles its ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_rabbit_practice_5f5cc9f0.mp3",
+      text: "Tap the rabbit so it wiggles its ears.",
+    },
+  },
+  [normalizeText("Tap the rabbit to bring the water closer.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_thirsty_practice_a4296227.mp3",
+      text: "Tap the rabbit to bring the water closer.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_thirsty_practice_a4296227.mp3",
+      text: "Tap the rabbit to bring the water closer.",
+    },
+  },
+  [normalizeText("Tap the rabbit to finish feeding.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_feed_the_rabbit_practice_4d05f692.mp3",
+      text: "Tap the rabbit to finish feeding.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_feed_the_rabbit_practice_4d05f692.mp3",
+      text: "Tap the rabbit to finish feeding.",
+    },
+  },
+  [normalizeText("Tap the rabbit to let it nibble the treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_treat_practice_52cad10b.mp3",
+      text: "Tap the rabbit to let it nibble the treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_treat_practice_52cad10b.mp3",
+      text: "Tap the rabbit to let it nibble the treat.",
+    },
+  },
+  [normalizeText("Tap the rabbit to pet along its fur.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_pet_gently_practice_5aefbc02.mp3",
+      text: "Tap the rabbit to pet along its fur.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_pet_gently_practice_5aefbc02.mp3",
+      text: "Tap the rabbit to pet along its fur.",
+    },
+  },
+  [normalizeText("Tap the rabbit to praise how calm it is.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_gentle_rabbit_practice_d360286b.mp3",
+      text: "Tap the rabbit to praise how calm it is.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_gentle_rabbit_practice_d360286b.mp3",
+      text: "Tap the rabbit to praise how calm it is.",
+    },
+  },
+  [normalizeText("Tap the rabbit to see its ears wiggle.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_ears_practice_2f55390d.mp3",
+      text: "Tap the rabbit to see its ears wiggle.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_ears_practice_2f55390d.mp3",
+      text: "Tap the rabbit to see its ears wiggle.",
+    },
+  },
+  [normalizeText("Tap the rabbit to share the joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
+      text: "Tap the rabbit to share the joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
+      text: "Tap the rabbit to share the joy.",
+    },
+  },
+  [normalizeText("Tap the rabbit to watch it chew crisp hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_chew_practice_a2bece54.mp3",
+      text: "Tap the rabbit to watch it chew crisp hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_chew_practice_a2bece54.mp3",
+      text: "Tap the rabbit to watch it chew crisp hay.",
+    },
+  },
+  [normalizeText("Tap the rabbit to watch it hop happily.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
+      text: "Tap the rabbit to watch it hop happily.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
+      text: "Tap the rabbit to watch it hop happily.",
+    },
+  },
+  [normalizeText("Tap the rack so it is fastened safely.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_rack_practice_f825cd15.mp3",
+      text: "Tap the rack so it is fastened safely.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hay_rack_practice_f825cd15.mp3",
+      text: "Tap the rack so it is fastened safely.",
+    },
+  },
+  [normalizeText("Tap the rack to fill it with hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_fill_the_rack_practice_f5943429.mp3",
+      text: "Tap the rack to fill it with hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fill_the_rack_practice_f5943429.mp3",
+      text: "Tap the rack to fill it with hay.",
     },
   },
   [normalizeText("Tap the raincoat.")]: {
@@ -33471,6 +34701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the small basin.",
     },
   },
+  [normalizeText("Tap the small bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_bowl_teach_70bf8e10.mp3",
+      text: "Tap the small bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_bowl_teach_70bf8e10.mp3",
+      text: "Tap the small bowl.",
+    },
+  },
   [normalizeText("Tap the small branches under the soil.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_roots_fail_d992a54f.mp3",
@@ -33691,6 +34931,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the soft voice.",
     },
   },
+  [normalizeText("Tap the soft white fur.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_teach_f267ed06.mp3",
+      text: "Tap the soft white fur.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_teach_f267ed06.mp3",
+      text: "Tap the soft white fur.",
+    },
+  },
   [normalizeText("Tap the soil inside the pot to make a hole.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/plant-the-seed/audio/en-US/neural2-c-r1/prompt_make_hole_28be8171.mp3",
@@ -33905,6 +35155,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the storyteller.",
     },
   },
+  [normalizeText("Tap the stream of clean water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_clean_water_teach_a85bba02.mp3",
+      text: "Tap the stream of clean water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_clean_water_teach_a85bba02.mp3",
+      text: "Tap the stream of clean water.",
+    },
+  },
   [normalizeText("Tap the sun to compare the sunny place and the shady place.")]: {
     "en-US": {
       key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_reveal_shade_fdef1c84.mp3",
@@ -34109,6 +35369,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/prompt_tap_thermometer_09d31d89.mp3",
       text: "Tap the thermometer.",
+    },
+  },
+  [normalizeText("Tap the thirsty rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_thirsty_teach_96950811.mp3",
+      text: "Tap the thirsty rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_thirsty_teach_96950811.mp3",
+      text: "Tap the thirsty rabbit.",
     },
   },
   [normalizeText("Tap the thumb.")]: {
@@ -34627,6 +35897,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the water bottle.",
     },
   },
+  [normalizeText("Tap the water bowl to make sure it is clean.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_water_bowl_practice_d4253a3c.mp3",
+      text: "Tap the water bowl to make sure it is clean.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_water_bowl_practice_d4253a3c.mp3",
+      text: "Tap the water bowl to make sure it is clean.",
+    },
+  },
   [normalizeText("Tap the water drops below the cloud.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_rain_fail_1b024c1a.mp3",
@@ -34689,6 +35969,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/prompt_tap_wet_floor_sign_0a78ed0c.mp3",
       text: "Tap the wet floor sign.",
+    },
+  },
+  [normalizeText("Tap the white rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_rabbit_teach_d54063ae.mp3",
+      text: "Tap the white rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_rabbit_teach_d54063ae.mp3",
+      text: "Tap the white rabbit.",
     },
   },
   [normalizeText("Tap the wind swirl with the flying leaves.")]: {
@@ -38733,6 +40023,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The bowl and mat are waiting for you.",
     },
   },
+  [normalizeText("The bowl has clean water for the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_practice_success_04889b14.mp3",
+      text: "The bowl has clean water for the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_practice_success_04889b14.mp3",
+      text: "The bowl has clean water for the rabbit.",
+    },
+  },
+  [normalizeText("The bowl is full of fresh clean water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/clean_water_practice_success_a1b18157.mp3",
+      text: "The bowl is full of fresh clean water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/clean_water_practice_success_a1b18157.mp3",
+      text: "The bowl is full of fresh clean water.",
+    },
+  },
   [normalizeText("The bowl is in the right place.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-US/neural2-c-r1/place_bowl_success_75a8d081.mp3",
@@ -38741,6 +40051,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/fill-the-bowl/audio/en-GB/neural2-c-r1/place_bowl_success_75a8d081.mp3",
       text: "The bowl is in the right place.",
+    },
+  },
+  [normalizeText("The bowl is placed safely without spilling.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/put_it_down_practice_success_2eb44526.mp3",
+      text: "The bowl is placed safely without spilling.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/put_it_down_practice_success_2eb44526.mp3",
+      text: "The bowl is placed safely without spilling.",
     },
   },
   [normalizeText("The bowl is ready. Let us help the puppy eat safely.")]: {
@@ -39131,6 +40451,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/birthday-party/party-games/audio/en-GB/neural2-c-r1/drag_clap_hands_fail_3cbe5979.mp3",
       text: "The clapping card is in the bottom middle.",
+    },
+  },
+  [normalizeText("The clean cool water is ready for the rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/intro_success_c9f55f26.mp3",
+      text: "The clean cool water is ready for the rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/intro_success_c9f55f26.mp3",
+      text: "The clean cool water is ready for the rabbit.",
     },
   },
   [normalizeText("The clean produce is draining in the colander.")]: {
@@ -39733,6 +41063,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The empty bowl is down for an adult to put away.",
     },
   },
+  [normalizeText("The empty bowl needs fresh water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/empty_practice_success_ef4c99b0.mp3",
+      text: "The empty bowl needs fresh water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/empty_practice_success_ef4c99b0.mp3",
+      text: "The empty bowl needs fresh water.",
+    },
+  },
   [normalizeText("The empty pot is ready for soil.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/intro_success_9b9c907e.mp3",
@@ -40043,6 +41383,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The gate is on the left.",
     },
   },
+  [normalizeText("The gentle rabbit stays calm by the full rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_practice_success_9f131692.mp3",
+      text: "The gentle rabbit stays calm by the full rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_practice_success_9f131692.mp3",
+      text: "The gentle rabbit stays calm by the full rack.",
+    },
+  },
   [normalizeText("The gift and decorations are ready.")]: {
     "en-US": {
       key: "lessons/birthday-party/party-prep/audio/en-US/neural2-c-r1/completion_b11dc213.mp3",
@@ -40183,6 +41533,46 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The hand will support and turn the tomato gently.",
     },
   },
+  [normalizeText("The happy rabbit hops and you remember to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
+      text: "The happy rabbit hops and you remember to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
+      text: "The happy rabbit hops and you remember to wash your hands.",
+    },
+  },
+  [normalizeText("The hay is ready for the rack.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_practice_success_5fa2dbf3.mp3",
+      text: "The hay is ready for the rack.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_practice_success_5fa2dbf3.mp3",
+      text: "The hay is ready for the rack.",
+    },
+  },
+  [normalizeText("The hay rack is full and the rabbit enjoyed its meal.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/completion_eabcbbde.mp3",
+      text: "The hay rack is full and the rabbit enjoyed its meal.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/completion_eabcbbde.mp3",
+      text: "The hay rack is full and the rabbit enjoyed its meal.",
+    },
+  },
+  [normalizeText("The hay rack is securely in place.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_practice_success_4f62ca8d.mp3",
+      text: "The hay rack is securely in place.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_rack_practice_success_4f62ca8d.mp3",
+      text: "The hay rack is securely in place.",
+    },
+  },
   [normalizeText("The helmet is nearby.")]: {
     "en-US": {
       key: "lessons/park-visit/park-games/audio/en-US/neural2-c-r1/tap_helmet_fail_0e4d1870.mp3",
@@ -40241,6 +41631,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/bedtime/calm-room/audio/en-GB/neural2-c-r1/drag_humidifier_success_b7bc6b59.mp3",
       text: "The humidifier is in the right place.",
+    },
+  },
+  [normalizeText("The hungry rabbit looks at the rack waiting for food.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hungry_practice_success_3cb8a27f.mp3",
+      text: "The hungry rabbit looks at the rack waiting for food.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hungry_practice_success_3cb8a27f.mp3",
+      text: "The hungry rabbit looks at the rack waiting for food.",
+    },
+  },
+  [normalizeText("The hutch is clean and airy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_practice_success_9695a4bb.mp3",
+      text: "The hutch is clean and airy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_practice_success_9695a4bb.mp3",
+      text: "The hutch is clean and airy.",
     },
   },
   [normalizeText("The invitation is on the left side of the table.")]: {
@@ -41993,6 +43403,186 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The quiet sign is on the right.",
     },
   },
+  [normalizeText("The rabbit chews the crisp hay happily.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_a789d365.mp3",
+      text: "The rabbit chews the crisp hay happily.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_a789d365.mp3",
+      text: "The rabbit chews the crisp hay happily.",
+    },
+  },
+  [normalizeText("The rabbit drinks when it is thirsty.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_teach_success_d80df23e.mp3",
+      text: "The rabbit drinks when it is thirsty.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_teach_success_d80df23e.mp3",
+      text: "The rabbit drinks when it is thirsty.",
+    },
+  },
+  [normalizeText("The rabbit ears wiggle with happiness.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
+      text: "The rabbit ears wiggle with happiness.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
+      text: "The rabbit ears wiggle with happiness.",
+    },
+  },
+  [normalizeText("The rabbit enjoyed fresh and cool clean water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/completion_03387eb0.mp3",
+      text: "The rabbit enjoyed fresh and cool clean water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/completion_03387eb0.mp3",
+      text: "The rabbit enjoyed fresh and cool clean water.",
+    },
+  },
+  [normalizeText("The rabbit enjoyed the treat and hopped around with joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_5bceb0a0.mp3",
+      text: "The rabbit enjoyed the treat and hopped around with joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_5bceb0a0.mp3",
+      text: "The rabbit enjoyed the treat and hopped around with joy.",
+    },
+  },
+  [normalizeText("The rabbit enjoys nibbling the small treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
+      text: "The rabbit enjoys nibbling the small treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
+      text: "The rabbit enjoys nibbling the small treat.",
+    },
+  },
+  [normalizeText("The rabbit finished drinking and feels refreshed.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
+      text: "The rabbit finished drinking and feels refreshed.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
+      text: "The rabbit finished drinking and feels refreshed.",
+    },
+  },
+  [normalizeText("The rabbit gently wiggles its ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_practice_success_bd724fd8.mp3",
+      text: "The rabbit gently wiggles its ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_practice_success_bd724fd8.mp3",
+      text: "The rabbit gently wiggles its ears.",
+    },
+  },
+  [normalizeText("The rabbit hops around with joy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
+      text: "The rabbit hops around with joy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
+      text: "The rabbit hops around with joy.",
+    },
+  },
+  [normalizeText("The rabbit is eagerly waiting for the treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/intro_success_9a16a854.mp3",
+      text: "The rabbit is eagerly waiting for the treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/intro_success_9a16a854.mp3",
+      text: "The rabbit is eagerly waiting for the treat.",
+    },
+  },
+  [normalizeText("The rabbit is happy from your gentle care.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
+      text: "The rabbit is happy from your gentle care.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
+      text: "The rabbit is happy from your gentle care.",
+    },
+  },
+  [normalizeText("The rabbit is hungry. Let’s prepare fresh sweet hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_intro_3e1725af.mp3",
+      text: "The rabbit is hungry. Let’s prepare fresh sweet hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_intro_3e1725af.mp3",
+      text: "The rabbit is hungry. Let’s prepare fresh sweet hay.",
+    },
+  },
+  [normalizeText("The rabbit is sipping cool water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/drink_practice_success_a286aa05.mp3",
+      text: "The rabbit is sipping cool water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/drink_practice_success_a286aa05.mp3",
+      text: "The rabbit is sipping cool water.",
+    },
+  },
+  [normalizeText("The rabbit is thirsty. Let’s pour clean water into the bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_intro_b2c548fc.mp3",
+      text: "The rabbit is thirsty. Let’s pour clean water into the bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_intro_b2c548fc.mp3",
+      text: "The rabbit is thirsty. Let’s pour clean water into the bowl.",
+    },
+  },
+  [normalizeText("The rabbit is waiting calmly for help.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/intro_success_78315574.mp3",
+      text: "The rabbit is waiting calmly for help.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/intro_success_78315574.mp3",
+      text: "The rabbit is waiting calmly for help.",
+    },
+  },
+  [normalizeText("The rabbit rests calmly when petted gently.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
+      text: "The rabbit rests calmly when petted gently.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
+      text: "The rabbit rests calmly when petted gently.",
+    },
+  },
+  [normalizeText("The rabbit’s fur is warm and soft.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
+      text: "The rabbit’s fur is warm and soft.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
+      text: "The rabbit’s fur is warm and soft.",
+    },
+  },
+  [normalizeText("The rack is filled with sweet hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/fill_the_rack_practice_success_90e86338.mp3",
+      text: "The rack is filled with sweet hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/fill_the_rack_practice_success_90e86338.mp3",
+      text: "The rack is filled with sweet hay.",
+    },
+  },
   [normalizeText("The rain has stopped. The plant is safe under the shelter.")]: {
     "en-US": {
       key: "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_success_fc892799.mp3",
@@ -42733,6 +44323,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The small bag is on the right.",
     },
   },
+  [normalizeText("The small carrot treat is ready.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_practice_success_20af68f1.mp3",
+      text: "The small carrot treat is ready.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_practice_success_20af68f1.mp3",
+      text: "The small carrot treat is ready.",
+    },
+  },
   [normalizeText("The small green sprout is growing in the middle of the pot.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/find_sprout_fail_040586f2.mp3",
@@ -43403,6 +45003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The thermometer is on the right.",
     },
   },
+  [normalizeText("The thirsty rabbit is glad to have water.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
+      text: "The thirsty rabbit is glad to have water.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
+      text: "The thirsty rabbit is glad to have water.",
+    },
+  },
   [normalizeText("The ticket is on the right.")]: {
     "en-US": {
       key: "lessons/animal-trip/animal-gate/audio/en-US/neural2-c-r1/tap_ticket_fail_d37bb98b.mp3",
@@ -43753,6 +45363,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The water bottle is on the right.",
     },
   },
+  [normalizeText("The water bowl is clean and full.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl_practice_success_bd488940.mp3",
+      text: "The water bowl is clean and full.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl_practice_success_bd488940.mp3",
+      text: "The water bowl is clean and full.",
+    },
+  },
+  [normalizeText("The water bowl is neatly on the mat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_practice_success_88521ad8.mp3",
+      text: "The water bowl is neatly on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_practice_success_88521ad8.mp3",
+      text: "The water bowl is neatly on the mat.",
+    },
+  },
   [normalizeText("The water changed color because of the mud.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/basin_practice_success_dd7b2ba4.mp3",
@@ -44071,6 +45701,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/thermometer.mp3",
       text: "thermometer",
+    },
+  },
+  [normalizeText("These are long soft rabbit ears.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
+      text: "These are long soft rabbit ears.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
+      text: "These are long soft rabbit ears.",
     },
   },
   [normalizeText("These are muddy pawprints.")]: {
@@ -44393,6 +46033,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "thirsty",
     },
   },
+  [normalizeText("Thirsty means needing water to drink.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_teach_success_1869aa2d.mp3",
+      text: "Thirsty means needing water to drink.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_teach_success_1869aa2d.mp3",
+      text: "Thirsty means needing water to drink.",
+    },
+  },
   [normalizeText("This ball is soft and safe to roll.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-US/neural2-c-r1/soft_practice_success_e4277c3c.mp3",
@@ -44453,6 +46103,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is a basket.",
     },
   },
+  [normalizeText("This is a bowl.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/bowl_teach_success_f2cc83f7.mp3",
+      text: "This is a bowl.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/bowl_teach_success_f2cc83f7.mp3",
+      text: "This is a bowl.",
+    },
+  },
   [normalizeText("This is a box.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-US/neural2-c-r1/box_teach_success_d8742496.mp3",
@@ -44461,6 +46121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-GB/neural2-c-r1/box_teach_success_d8742496.mp3",
       text: "This is a box.",
+    },
+  },
+  [normalizeText("This is a carrot.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/carrot_teach_success_b0aea1f6.mp3",
+      text: "This is a carrot.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_teach_success_b0aea1f6.mp3",
+      text: "This is a carrot.",
     },
   },
   [normalizeText("This is a doormat.")]: {
@@ -44523,6 +46193,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is a puppy.",
     },
   },
+  [normalizeText("This is a rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/rabbit_teach_success_ba5fa4e6.mp3",
+      text: "This is a rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/rabbit_teach_success_ba5fa4e6.mp3",
+      text: "This is a rabbit.",
+    },
+  },
   [normalizeText("This is a scoop.")]: {
     "en-US": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-US/neural2-c-r1/prompt_learn_scoop_1ed597a8.mp3",
@@ -44551,6 +46231,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-prep/audio/en-GB/neural2-c-r1/prompt_teach_dinner_54b38984.mp3",
       text: "This is dinner.",
+    },
+  },
+  [normalizeText("This is hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_teach_success_6f1fbfcc.mp3",
+      text: "This is hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hay_teach_success_6f1fbfcc.mp3",
+      text: "This is hay.",
     },
   },
   [normalizeText("This is mud.")]: {
@@ -49019,6 +50709,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "tray",
     },
   },
+  [normalizeText("treat")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat.mp3",
+      text: "treat",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat.mp3",
+      text: "treat",
+    },
+  },
   [normalizeText("tree")]: {
     "en-US": {
       key: "lessons/park-visit/park-entrance/audio/en-US/neural2-c-r1/tree.mp3",
@@ -50553,6 +52253,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "water bottle",
     },
   },
+  [normalizeText("water bowl")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/water_bowl.mp3",
+      text: "water bowl",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/water_bowl.mp3",
+      text: "water bowl",
+    },
+  },
   [normalizeText("water it gently")]: {
     "en-US": {
       key: "lessons/plant-a-seed/first-watering/audio/en-US/neural2-c-r1/water_it_gently.mp3",
@@ -52071,6 +53781,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/five-senses/smell-taste-touch/audio/en-GB/neural2-c-r1/completion_d17476e9.mp3",
       text: "You explored with several senses.",
+    },
+  },
+  [normalizeText("You fed the rabbit gently and safely.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/feed_the_rabbit_practice_success_062a9d85.mp3",
+      text: "You fed the rabbit gently and safely.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/feed_the_rabbit_practice_success_062a9d85.mp3",
+      text: "You fed the rabbit gently and safely.",
     },
   },
   [normalizeText("You followed the teacher's instructions very well!")]: {
@@ -58045,6 +59765,606 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là chong chóng.")]: {
     key: "lessons/calm-myself/slow-breathing/audio/vi/teach_pinwheel_success_8537625d.mp3",
     text: "Từ này nghĩa là chong chóng.",
+  },
+  [normalizeText("Chạm bát để đặt ngay ngắn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/bowl_practice_caaf83be.mp3",
+    text: "Chạm bát để đặt ngay ngắn nhé.",
+  },
+  [normalizeText("Bát nước đã đặt ngay ngắn trên thảm.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/bowl_practice_success_90fef5bb.mp3",
+    text: "Bát nước đã đặt ngay ngắn trên thảm.",
+  },
+  [normalizeText("Chạm bát để rót đầy nước sạch nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_practice_f1a634bf.mp3",
+    text: "Chạm bát để rót đầy nước sạch nhé.",
+  },
+  [normalizeText("Chạm chiếc bát nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_practice_fail_63de2496.mp3",
+    text: "Chạm chiếc bát nước nhé.",
+  },
+  [normalizeText("Nước sạch mát lành đã đầy bát.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_practice_success_2c8ad431.mp3",
+    text: "Nước sạch mát lành đã đầy bát.",
+  },
+  [normalizeText("Chạm dòng nước sạch trong veo nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_teach_a387b4a9.mp3",
+    text: "Chạm dòng nước sạch trong veo nhé.",
+  },
+  [normalizeText("Chạm dòng nước sạch màu xanh nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_teach_fail_7e73aceb.mp3",
+    text: "Chạm dòng nước sạch màu xanh nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nước sạch.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/clean_water_teach_success_0b3e1521.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nước sạch.",
+  },
+  [normalizeText("Thỏ đã được uống nước sạch mát lành.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/completion_d3619f4e.mp3",
+    text: "Thỏ đã được uống nước sạch mát lành.",
+  },
+  [normalizeText("Chạm thỏ để bạn uống nước mát nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_practice_a499422e.mp3",
+    text: "Chạm thỏ để bạn uống nước mát nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ cạnh bát nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_practice_fail_5aac9bf8.mp3",
+    text: "Chạm bạn thỏ cạnh bát nước nhé.",
+  },
+  [normalizeText("Thỏ đang uống từng ngụm nước mát lành.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_practice_success_b2f6c830.mp3",
+    text: "Thỏ đang uống từng ngụm nước mát lành.",
+  },
+  [normalizeText("Chạm hình thỏ uống nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_teach_7bdac6e4.mp3",
+    text: "Chạm hình thỏ uống nước nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ cúi đầu uống nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_teach_fail_6cb05bc4.mp3",
+    text: "Chạm bạn thỏ cúi đầu uống nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là uống nước.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/drink_teach_success_4f3ab4bb.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là uống nước.",
+  },
+  [normalizeText("Chạm bát trống để thêm nước mới nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_practice_5e45ffdd.mp3",
+    text: "Chạm bát trống để thêm nước mới nhé.",
+  },
+  [normalizeText("Chạm chiếc bát trống nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_practice_fail_c5fdb3cd.mp3",
+    text: "Chạm chiếc bát trống nhé.",
+  },
+  [normalizeText("Bát cạn cần được rửa và thêm nước mới.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_practice_success_0ce17e35.mp3",
+    text: "Bát cạn cần được rửa và thêm nước mới.",
+  },
+  [normalizeText("Chạm chiếc bát cạn nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_teach_025cfd72.mp3",
+    text: "Chạm chiếc bát cạn nước nhé.",
+  },
+  [normalizeText("Chạm chiếc bát trống chưa có nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_teach_fail_bd952cab.mp3",
+    text: "Chạm chiếc bát trống chưa có nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cạn nước.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/empty_teach_success_a6c2e8b1.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là cạn nước.",
+  },
+  [normalizeText("Thỏ đang khát nước. Mình rót nước sạch vào bát cho bạn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/intro_7fbc6cad.mp3",
+    text: "Thỏ đang khát nước. Mình rót nước sạch vào bát cho bạn nhé.",
+  },
+  [normalizeText("Bát nước sạch mát đã sẵn sàng cho thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/intro_success_bcae6338.mp3",
+    text: "Bát nước sạch mát đã sẵn sàng cho thỏ.",
+  },
+  [normalizeText("Chạm góc chuồng để đặt bát vững vàng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_practice_5f9a3947.mp3",
+    text: "Chạm góc chuồng để đặt bát vững vàng nhé.",
+  },
+  [normalizeText("Chạm vị trí đặt bát nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_practice_fail_84450e89.mp3",
+    text: "Chạm vị trí đặt bát nhé.",
+  },
+  [normalizeText("Bát nước đã đặt vững vàng, không bị đổ.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_practice_success_d98b7604.mp3",
+    text: "Bát nước đã đặt vững vàng, không bị đổ.",
+  },
+  [normalizeText("Chạm tay đặt bát nước xuống nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_teach_1240b0c7.mp3",
+    text: "Chạm tay đặt bát nước xuống nhé.",
+  },
+  [normalizeText("Chạm hai tay đang đặt bát nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_teach_fail_75d4cc7a.mp3",
+    text: "Chạm hai tay đang đặt bát nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đặt bát xuống.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_teach_success_83f1dafe.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đặt bát xuống.",
+  },
+  [normalizeText("Chạm thỏ để bạn ngẩng đầu vui vẻ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_93c52f0a.mp3",
+    text: "Chạm thỏ để bạn ngẩng đầu vui vẻ nhé.",
+  },
+  [normalizeText("Thỏ đã uống no nước và rất sảng khoái.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_success_b3a56ee2.mp3",
+    text: "Thỏ đã uống no nước và rất sảng khoái.",
+  },
+  [normalizeText("Chạm bạn thỏ đang uống nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_teach_2e36c1c4.mp3",
+    text: "Chạm bạn thỏ đang uống nước nhé.",
+  },
+  [normalizeText("Chạm chú thỏ cúi bên bát nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_teach_fail_e1d5ea96.mp3",
+    text: "Chạm chú thỏ cúi bên bát nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là thỏ uống nước.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_teach_success_62eceb56.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là thỏ uống nước.",
+  },
+  [normalizeText("Chạm thỏ để đưa bát nước lại gần nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_practice_6ba024da.mp3",
+    text: "Chạm thỏ để đưa bát nước lại gần nhé.",
+  },
+  [normalizeText("Thỏ rất thích nước mát sạch.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_practice_success_e2bb7264.mp3",
+    text: "Thỏ rất thích nước mát sạch.",
+  },
+  [normalizeText("Chạm bạn thỏ đang khát nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_teach_3ffac82c.mp3",
+    text: "Chạm bạn thỏ đang khát nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ đang nhìn bát nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_teach_fail_679ca499.mp3",
+    text: "Chạm bạn thỏ đang nhìn bát nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là khát nước.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_teach_success_854e18bf.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là khát nước.",
+  },
+  [normalizeText("Chạm bát nước để kiểm tra thật sạch nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_practice_794a4325.mp3",
+    text: "Chạm bát nước để kiểm tra thật sạch nhé.",
+  },
+  [normalizeText("Bát nước rất sạch và đầy ắp.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_practice_success_0335b50a.mp3",
+    text: "Bát nước rất sạch và đầy ắp.",
+  },
+  [normalizeText("Chạm chiếc bát nước sạch nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_teach_b6cfb072.mp3",
+    text: "Chạm chiếc bát nước sạch nhé.",
+  },
+  [normalizeText("Chạm chiếc bát có đầy nước nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_teach_fail_b89874d1.mp3",
+    text: "Chạm chiếc bát có đầy nước nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bát nước sạch.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_teach_success_76fe880e.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bát nước sạch.",
+  },
+  [normalizeText("Chạm bát để rót nước sạch vào nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_practice_b64e8b61.mp3",
+    text: "Chạm bát để rót nước sạch vào nhé.",
+  },
+  [normalizeText("Chạm chiếc bát nhỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_practice_fail_c9e7aee7.mp3",
+    text: "Chạm chiếc bát nhỏ nhé.",
+  },
+  [normalizeText("Bát đã có nước trong veo cho thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_practice_success_3d599428.mp3",
+    text: "Bát đã có nước trong veo cho thỏ.",
+  },
+  [normalizeText("Chạm bình nước sạch nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_teach_78274583.mp3",
+    text: "Chạm bình nước sạch nhé.",
+  },
+  [normalizeText("Chạm bình nước trong bên trái nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_teach_fail_38672a58.mp3",
+    text: "Chạm bình nước trong bên trái nhé.",
+  },
+  [normalizeText("Chạm thỏ để bạn gặm cỏ giòn tan nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_practice_05fd6bc3.mp3",
+    text: "Chạm thỏ để bạn gặm cỏ giòn tan nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ bên máng cỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_practice_fail_7a07ffcf.mp3",
+    text: "Chạm bạn thỏ bên máng cỏ nhé.",
+  },
+  [normalizeText("Thỏ nhai cỏ giòn tan ngon lành.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_practice_success_458a7b96.mp3",
+    text: "Thỏ nhai cỏ giòn tan ngon lành.",
+  },
+  [normalizeText("Chạm miệng thỏ đang nhai cỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_teach_888c4032.mp3",
+    text: "Chạm miệng thỏ đang nhai cỏ nhé.",
+  },
+  [normalizeText("Chạm miệng thỏ có cọng cỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_teach_fail_c2a0c849.mp3",
+    text: "Chạm miệng thỏ có cọng cỏ nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nhai gặm.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/chew_teach_success_6055e502.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nhai gặm.",
+  },
+  [normalizeText("Máng cỏ đã đầy ắp và bạn thỏ được ăn ngon lành.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/completion_f9060457.mp3",
+    text: "Máng cỏ đã đầy ắp và bạn thỏ được ăn ngon lành.",
+  },
+  [normalizeText("Chạm máng để cho đầy cỏ khô nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fill_the_rack_practice_63d84b16.mp3",
+    text: "Chạm máng để cho đầy cỏ khô nhé.",
+  },
+  [normalizeText("Máng cỏ đã đầy ắp cỏ khô thơm ngon.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fill_the_rack_practice_success_f0e342cc.mp3",
+    text: "Máng cỏ đã đầy ắp cỏ khô thơm ngon.",
+  },
+  [normalizeText("Chạm tay cho đầy cỏ vào máng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fill_the_rack_teach_93b6e160.mp3",
+    text: "Chạm tay cho đầy cỏ vào máng nhé.",
+  },
+  [normalizeText("Chạm tay đang gài cỏ vào máng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fill_the_rack_teach_fail_ee109811.mp3",
+    text: "Chạm tay đang gài cỏ vào máng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bỏ đầy máng cỏ.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fill_the_rack_teach_success_227dc0a2.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bỏ đầy máng cỏ.",
+  },
+  [normalizeText("Chạm cỏ tươi để chuẩn bị cho thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_practice_67b23a86.mp3",
+    text: "Chạm cỏ tươi để chuẩn bị cho thỏ nhé.",
+  },
+  [normalizeText("Chạm phần cỏ khô tươi nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_practice_fail_b749b0fc.mp3",
+    text: "Chạm phần cỏ khô tươi nhé.",
+  },
+  [normalizeText("Cỏ khô tươi rất tốt cho răng của thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_practice_success_42968202.mp3",
+    text: "Cỏ khô tươi rất tốt cho răng của thỏ.",
+  },
+  [normalizeText("Chạm phần cỏ khô mới lấy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_teach_4d7e0312.mp3",
+    text: "Chạm phần cỏ khô mới lấy nhé.",
+  },
+  [normalizeText("Chạm búi cỏ xanh thơm nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_teach_fail_e5603406.mp3",
+    text: "Chạm búi cỏ xanh thơm nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cỏ khô tươi ngon.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/fresh_hay_teach_success_84762284.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là cỏ khô tươi ngon.",
+  },
+  [normalizeText("Chạm thỏ để khen bạn ngoan nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_practice_73bd3209.mp3",
+    text: "Chạm thỏ để khen bạn ngoan nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ hiền nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_practice_fail_671a8fa9.mp3",
+    text: "Chạm bạn thỏ hiền nhé.",
+  },
+  [normalizeText("Thỏ đứng ngoan ngoãn bên máng cỏ đầy.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_practice_success_3cfa8082.mp3",
+    text: "Thỏ đứng ngoan ngoãn bên máng cỏ đầy.",
+  },
+  [normalizeText("Chạm chú thỏ hiền đang đứng ngoan nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_teach_26a4b8f2.mp3",
+    text: "Chạm chú thỏ hiền đang đứng ngoan nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ đứng yên bên máng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_teach_fail_679e4be7.mp3",
+    text: "Chạm bạn thỏ đứng yên bên máng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ hiền ngoan.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/gentle_rabbit_teach_success_3ea37e7d.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ hiền ngoan.",
+  },
+  [normalizeText("Chạm cỏ khô để chuẩn bị cho vào máng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_practice_5777ea31.mp3",
+    text: "Chạm cỏ khô để chuẩn bị cho vào máng nhé.",
+  },
+  [normalizeText("Chạm búi cỏ khô nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_practice_fail_236cb0b5.mp3",
+    text: "Chạm búi cỏ khô nhé.",
+  },
+  [normalizeText("Búi cỏ khô đã sẵn sàng.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_practice_success_9654f135.mp3",
+    text: "Búi cỏ khô đã sẵn sàng.",
+  },
+  [normalizeText("Chạm máng để gài chắc chắn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_rack_practice_9e18ff06.mp3",
+    text: "Chạm máng để gài chắc chắn nhé.",
+  },
+  [normalizeText("Chạm chiếc máng cỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_rack_practice_fail_489c21c4.mp3",
+    text: "Chạm chiếc máng cỏ nhé.",
+  },
+  [normalizeText("Máng cỏ đã được gắn ngay ngắn.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_rack_practice_success_a923e9b4.mp3",
+    text: "Máng cỏ đã được gắn ngay ngắn.",
+  },
+  [normalizeText("Chạm chiếc máng gỗ trên vách nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_rack_teach_fail_f393e0f2.mp3",
+    text: "Chạm chiếc máng gỗ trên vách nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là máng cỏ.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_rack_teach_success_8ed706e8.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là máng cỏ.",
+  },
+  [normalizeText("Chạm búi cỏ khô thơm nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_teach_dfeecf04.mp3",
+    text: "Chạm búi cỏ khô thơm nhé.",
+  },
+  [normalizeText("Chạm búi cỏ khô màu xanh ngà nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_teach_fail_bdc7e080.mp3",
+    text: "Chạm búi cỏ khô màu xanh ngà nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cỏ khô.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hay_teach_success_e2ccbb12.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là cỏ khô.",
+  },
+  [normalizeText("Chạm thỏ để bạn nhìn về phía máng cỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hungry_practice_24e51656.mp3",
+    text: "Chạm thỏ để bạn nhìn về phía máng cỏ nhé.",
+  },
+  [normalizeText("Thỏ đang đói bụng và nhìn máng cỏ đợi thức ăn.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hungry_practice_success_7e9618c1.mp3",
+    text: "Thỏ đang đói bụng và nhìn máng cỏ đợi thức ăn.",
+  },
+  [normalizeText("Chạm bạn thỏ đang đói bụng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hungry_teach_19a7504f.mp3",
+    text: "Chạm bạn thỏ đang đói bụng nhé.",
+  },
+  [normalizeText("Chạm chú thỏ đang chờ ăn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hungry_teach_fail_3d7a1a0d.mp3",
+    text: "Chạm chú thỏ đang chờ ăn nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đói.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hungry_teach_success_2c73bae3.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đói.",
+  },
+  [normalizeText("Chạm chuồng thỏ để mở cửa nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_practice_ca549793.mp3",
+    text: "Chạm chuồng thỏ để mở cửa nhé.",
+  },
+  [normalizeText("Chạm chuồng thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_practice_fail_0db5e12a.mp3",
+    text: "Chạm chuồng thỏ nhé.",
+  },
+  [normalizeText("Chuồng thỏ rất sạch sẽ và thoáng mát.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_practice_success_3a5559c6.mp3",
+    text: "Chuồng thỏ rất sạch sẽ và thoáng mát.",
+  },
+  [normalizeText("Chạm chuồng thỏ sạch sẽ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_teach_6676a31e.mp3",
+    text: "Chạm chuồng thỏ sạch sẽ nhé.",
+  },
+  [normalizeText("Chạm chuồng thỏ bằng gỗ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_teach_fail_e38c80f5.mp3",
+    text: "Chạm chuồng thỏ bằng gỗ nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chuồng thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/hutch_teach_success_358a276b.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chuồng thỏ.",
+  },
+  [normalizeText("Thỏ con đang đói bụng. Mình chuẩn bị cỏ khô thơm nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/intro_0679fe80.mp3",
+    text: "Thỏ con đang đói bụng. Mình chuẩn bị cỏ khô thơm nhé.",
+  },
+  [normalizeText("Thỏ đang ngồi ngoan và đợi bé giúp.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/intro_success_05da6759.mp3",
+    text: "Thỏ đang ngồi ngoan và đợi bé giúp.",
+  },
+  [normalizeText("Chạm thỏ để bạn vẫy tai chào bé nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_practice_fcdcd876.mp3",
+    text: "Chạm thỏ để bạn vẫy tai chào bé nhé.",
+  },
+  [normalizeText("Thỏ vẫy nhẹ đôi tai dài chào bé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_practice_success_2b0af978.mp3",
+    text: "Thỏ vẫy nhẹ đôi tai dài chào bé.",
+  },
+  [normalizeText("Chạm bạn thỏ trắng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_teach_e0b8f011.mp3",
+    text: "Chạm bạn thỏ trắng nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ có đôi tai dài nhé.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_teach_fail_b142abfe.mp3",
+    text: "Chạm bạn thỏ có đôi tai dài nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ con.")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_teach_success_8f698971.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ con.",
+  },
+  [normalizeText("Chạm cà rốt để chuẩn bị đưa cho thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_practice_08d1e7db.mp3",
+    text: "Chạm cà rốt để chuẩn bị đưa cho thỏ nhé.",
+  },
+  [normalizeText("Miếng cà rốt nhỏ đã sẵn sàng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_practice_success_3634da86.mp3",
+    text: "Miếng cà rốt nhỏ đã sẵn sàng.",
+  },
+  [normalizeText("Chạm miếng cà rốt cam nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_teach_288daa81.mp3",
+    text: "Chạm miếng cà rốt cam nhé.",
+  },
+  [normalizeText("Chạm miếng cà rốt nhỏ bên trái nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_teach_fail_55e70221.mp3",
+    text: "Chạm miếng cà rốt nhỏ bên trái nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cà rốt.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_teach_success_efb12e1d.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là cà rốt.",
+  },
+  [normalizeText("Thỏ đã ăn ngon và nhảy nhót thật vui vẻ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/completion_e05f68e8.mp3",
+    text: "Thỏ đã ăn ngon và nhảy nhót thật vui vẻ.",
+  },
+  [normalizeText("Chạm thỏ để nhìn tai ngọ nguậy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_practice_ce6e3b76.mp3",
+    text: "Chạm thỏ để nhìn tai ngọ nguậy nhé.",
+  },
+  [normalizeText("Đôi tai thỏ ngọ nguậy rung rinh vui thích.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_practice_success_09a2c056.mp3",
+    text: "Đôi tai thỏ ngọ nguậy rung rinh vui thích.",
+  },
+  [normalizeText("Chạm đôi tai dài của thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_c07da640.mp3",
+    text: "Chạm đôi tai dài của thỏ nhé.",
+  },
+  [normalizeText("Chạm hai chiếc tai vểnh cao nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_fail_5f1c2568.mp3",
+    text: "Chạm hai chiếc tai vểnh cao nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đôi tai thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_success_af1175bc.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đôi tai thỏ.",
+  },
+  [normalizeText("Chạm thỏ để hoàn thành bữa ăn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_practice_8c5c8709.mp3",
+    text: "Chạm thỏ để hoàn thành bữa ăn nhé.",
+  },
+  [normalizeText("Bé đã cho thỏ ăn rất ngoan và đúng cách.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_practice_success_33c83991.mp3",
+    text: "Bé đã cho thỏ ăn rất ngoan và đúng cách.",
+  },
+  [normalizeText("Chạm tay cho thỏ ăn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_teach_0ea94c05.mp3",
+    text: "Chạm tay cho thỏ ăn nhé.",
+  },
+  [normalizeText("Chạm bàn tay đang cho thỏ ăn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_teach_fail_231cc37c.mp3",
+    text: "Chạm bàn tay đang cho thỏ ăn nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cho thỏ ăn.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_teach_success_3d681974.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là cho thỏ ăn.",
+  },
+  [normalizeText("Chạm thỏ để bạn vui cùng bé nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_practice_90066236.mp3",
+    text: "Chạm thỏ để bạn vui cùng bé nhé.",
+  },
+  [normalizeText("Thỏ rất vui vì được chăm sóc chu đáo.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_practice_success_e452b205.mp3",
+    text: "Thỏ rất vui vì được chăm sóc chu đáo.",
+  },
+  [normalizeText("Chạm thỏ và nhớ rửa tay nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_908a790c.mp3",
+    text: "Chạm thỏ và nhớ rửa tay nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ vui vẻ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_fail_c88de101.mp3",
+    text: "Chạm bạn thỏ vui vẻ nhé.",
+  },
+  [normalizeText("Thỏ nhảy vui sướng và bé nhớ rửa tay sạch sẽ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_success_7e380013.mp3",
+    text: "Thỏ nhảy vui sướng và bé nhớ rửa tay sạch sẽ.",
+  },
+  [normalizeText("Chạm chú thỏ vui sướng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_df5a836b.mp3",
+    text: "Chạm chú thỏ vui sướng nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ vui sướng nhảy tung tăng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_fail_6b5d3692.mp3",
+    text: "Chạm bạn thỏ vui sướng nhảy tung tăng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ vui sướng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_success_4e1e7184.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ vui sướng.",
+  },
+  [normalizeText("Chạm bạn thỏ đang vui nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_teach_8eea7886.mp3",
+    text: "Chạm bạn thỏ đang vui nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ đang mỉm cười nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_teach_fail_4c1b059a.mp3",
+    text: "Chạm bạn thỏ đang mỉm cười nhé.",
+  },
+  [normalizeText("Chạm thỏ để xem bạn nhảy vui vẻ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_27b28087.mp3",
+    text: "Chạm thỏ để xem bạn nhảy vui vẻ nhé.",
+  },
+  [normalizeText("Thỏ bật nhảy tung tăng vui sướng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_success_5d0b9dbc.mp3",
+    text: "Thỏ bật nhảy tung tăng vui sướng.",
+  },
+  [normalizeText("Chạm bạn thỏ đang nhảy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_teach_8cee8c39.mp3",
+    text: "Chạm bạn thỏ đang nhảy nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ bật nhảy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_teach_fail_44ecc597.mp3",
+    text: "Chạm bạn thỏ bật nhảy nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nhảy nhót.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_teach_success_1422eb62.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là nhảy nhót.",
+  },
+  [normalizeText("Người lớn đã chuẩn bị mẩu cà rốt nhỏ. Mình thưởng cho thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/intro_f42b3953.mp3",
+    text: "Người lớn đã chuẩn bị mẩu cà rốt nhỏ. Mình thưởng cho thỏ nhé.",
+  },
+  [normalizeText("Thỏ đang háo hức chờ món thưởng nhỏ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/intro_success_354d891f.mp3",
+    text: "Thỏ đang háo hức chờ món thưởng nhỏ.",
+  },
+  [normalizeText("Chạm thỏ để vuốt theo chiều lông nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_practice_72e8615d.mp3",
+    text: "Chạm thỏ để vuốt theo chiều lông nhé.",
+  },
+  [normalizeText("Thỏ nằm yên thích thú khi được vuốt nhẹ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_practice_success_84f01093.mp3",
+    text: "Thỏ nằm yên thích thú khi được vuốt nhẹ.",
+  },
+  [normalizeText("Chạm tay vuốt ve thỏ nhẹ nhàng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_teach_0b165f5c.mp3",
+    text: "Chạm tay vuốt ve thỏ nhẹ nhàng nhé.",
+  },
+  [normalizeText("Chạm bàn tay vuốt ve lưng thỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_teach_fail_f9f06a20.mp3",
+    text: "Chạm bàn tay vuốt ve lưng thỏ nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là vuốt ve nhẹ nhàng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_teach_success_ea66dab2.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là vuốt ve nhẹ nhàng.",
+  },
+  [normalizeText("Chạm lưng thỏ thật nhẹ nhàng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_practice_be6cd7e2.mp3",
+    text: "Chạm lưng thỏ thật nhẹ nhàng nhé.",
+  },
+  [normalizeText("Lớp lông của bạn thỏ rất mềm và ấm.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_practice_success_c2a655a5.mp3",
+    text: "Lớp lông của bạn thỏ rất mềm và ấm.",
+  },
+  [normalizeText("Chạm lớp lông trắng mềm nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_teach_4549c558.mp3",
+    text: "Chạm lớp lông trắng mềm nhé.",
+  },
+  [normalizeText("Chạm mảng lông trắng mịn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_teach_fail_2902182d.mp3",
+    text: "Chạm mảng lông trắng mịn nhé.",
+  },
+  [normalizeText("Chạm thỏ để bạn gặm món thưởng nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_b0fde799.mp3",
+    text: "Chạm thỏ để bạn gặm món thưởng nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ đang ăn nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_fail_3c85d5e0.mp3",
+    text: "Chạm bạn thỏ đang ăn nhé.",
+  },
+  [normalizeText("Thỏ gặm mẩu cà rốt nhỏ rất thích thú.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_success_e10a46a9.mp3",
+    text: "Thỏ gặm mẩu cà rốt nhỏ rất thích thú.",
+  },
+  [normalizeText("Chạm đĩa món thưởng nhỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_teach_17531ec4.mp3",
+    text: "Chạm đĩa món thưởng nhỏ nhé.",
+  },
+  [normalizeText("Chạm chiếc đĩa có mẩu nhỏ nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_teach_fail_8f9d319a.mp3",
+    text: "Chạm chiếc đĩa có mẩu nhỏ nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là món thưởng nhỏ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_teach_success_4ab209bf.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là món thưởng nhỏ.",
   },
   [normalizeText("Chạm cún để bạn bước khỏi thảm nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_practice_5db23403.mp3",

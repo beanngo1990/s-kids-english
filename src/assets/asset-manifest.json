@@ -6236,6 +6236,857 @@
     },
     {
       "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-empty.webp",
+      "outputBytes": 23806,
+      "outputSha256": "c4f8886379b35bf190936389fbf24bb72864b46e3238edb81dd75133d2a1e209",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-empty.png",
+      "sourceBytes": 462288,
+      "sourceSha256": "14b75a425e6d870efc023b324f1a81fe07309d36d48132811c10a7d8a56fb665",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-filled.webp",
+      "outputBytes": 24438,
+      "outputSha256": "920e0972452f5a80deb069bef66b47dfbb84a700de82a6df138b6d6e546cd3a7",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-filled.png",
+      "sourceBytes": 483915,
+      "sourceSha256": "a764c151d6af33c44668d0334ded3bb655cb966f651f29443ef51e5f45c237a8",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/clean-water-stream.webp",
+      "outputBytes": 27296,
+      "outputSha256": "54c6ac606dd57d26e68eda755d8c153bc8be878de60900ed8b536c56f3da0c98",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/clean-water-stream.png",
+      "sourceBytes": 370876,
+      "sourceSha256": "20ad1d2b5ad3285bfd4bcb1f9f6dae2d35b4f4cb3687de9385f78016e46c9da9",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/drink-water-action.webp",
+      "outputBytes": 32540,
+      "outputSha256": "4da6162f33ad1a0b9b9bac22ed74f40f572d1c2c0d176233f7f76e0a9306c328",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/drink-water-action.png",
+      "sourceBytes": 672378,
+      "sourceSha256": "b56f67d5bfcb439d4cee9392b931cdab1adccc34713f0c444ed8001b46550808",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/put-bowl-down-action.webp",
+      "outputBytes": 30796,
+      "outputSha256": "955f35109c7478e20c92003530f8ce95f1304c1837c69efc844087741915aa4b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/put-bowl-down-action.png",
+      "sourceBytes": 536280,
+      "sourceSha256": "faea344840de56365504d49f7f5ae01100e32db6af5ba6b5ae616eba0d2a0ce1",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-drinking-water.webp",
+      "outputBytes": 55846,
+      "outputSha256": "ffd6dc232c5200a91ce9c87c19b7ed52478ae6213982ccc6a16ddf3e7ab22bb2",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-drinking-water.png",
+      "sourceBytes": 647599,
+      "sourceSha256": "334d0462223f9e805f021bc58a2a11c2b16fb3db1ffe64df28f8d1c26ad3a861",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-refreshed.webp",
+      "outputBytes": 38826,
+      "outputSha256": "08ce67fbe62dd0b4371b4e05dacd042fee92afa3884110e0ffd1a7729b2defb4",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-refreshed.png",
+      "sourceBytes": 416771,
+      "sourceSha256": "b6fe24001b5eac49553951a56b81fa796f1efffff54e1e43a54e879e9a6d6335",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-thirsty.webp",
+      "outputBytes": 47700,
+      "outputSha256": "5a53436a9a25de9395e5c0506c82cc8408560e09913b360086689d136561fc56",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-thirsty.png",
+      "sourceBytes": 491782,
+      "sourceSha256": "330a9d66852747f6553e37a4063dcad11971f3fe5a606218344cdbb95b12fa2e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 27,
+      "output": "lessons/care-for-the-rabbit/fill-the-water/images/water-pitcher.webp",
+      "outputBytes": 39260,
+      "outputSha256": "ad99cb6c04e5072df9b98826e422f948c6943e169c2d6e020715cb6bca5d1843",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "fill-the-water"
+      ],
+      "source": "lessons/care-for-the-rabbit/fill-the-water/images/water-pitcher.png",
+      "sourceBytes": 684492,
+      "sourceSha256": "a032a748c0b3fc7949df7958d0f04a60f6ea15566aa54cbc698099180e0ce0f6",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/fill-hay-rack-action.webp",
+      "outputBytes": 44826,
+      "outputSha256": "ddf82743f0295f0f6e388c206d0bc72cc082e4b284d5385a3f3b70080f1d88fd",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/fill-hay-rack-action.png",
+      "sourceBytes": 1107807,
+      "sourceSha256": "b14f9d5950851257c23a59de75b9118c1fb54cbee7a7e6bfae0e96d656ba162a",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/fresh-hay-pile.webp",
+      "outputBytes": 53980,
+      "outputSha256": "e9f4c3b73fb02ed2b421d6a92a58266a941333156ed5468dd54a413e2d3767f8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/fresh-hay-pile.png",
+      "sourceBytes": 777401,
+      "sourceSha256": "bb80ce49e332335cecbaa89bf5320468c80ab2995ae9ae57830b13ea36ade364",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 30,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-bundle.webp",
+      "outputBytes": 59312,
+      "outputSha256": "6013f146a8b60ce41b5a43c664b1cad8929def34e4c60227f56c00fb26b6f98f",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-bundle.png",
+      "sourceBytes": 1016261,
+      "sourceSha256": "e30dde76c61d8059c0eacf5a883f7267307b058443be7a1dcdea971d2fdfc265",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-empty.webp",
+      "outputBytes": 25956,
+      "outputSha256": "8bd671fda402970fa94ebffb0cecfe3a2c74c11f9f42257032b3f49d4b7b64de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-empty.png",
+      "sourceBytes": 726654,
+      "sourceSha256": "ff5b88b4e25bb7515de7eef01eed8df1feb9fe6610aa162d004306c48fbb7fe3",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 25,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-full.webp",
+      "outputBytes": 38534,
+      "outputSha256": "dbe263fc796a3177a177afd8f9792b9c819d2ef4b57c3b743f5fd71542a45f45",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-full.png",
+      "sourceBytes": 1106453,
+      "sourceSha256": "0ff8b7b83a7a360285b559a4aafdbaf828d2f611a0fc044cb4cfb50b4106e69b",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-closeup.webp",
+      "outputBytes": 27078,
+      "outputSha256": "8df4a39cc20726f9048612d8acde55ba3992f734dfab05f4d70c6efb20075e70",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-closeup.png",
+      "sourceBytes": 709913,
+      "sourceSha256": "5b6909e0d65202a31a92ce60db84d9ae3be35abfb2d5adaf8e7bf4eff4bd2128",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-hay.webp",
+      "outputBytes": 56090,
+      "outputSha256": "44ad4542effd37e112519324ced7b9f8921e3810f678c3ca8693f94ad0968d28",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-hay.png",
+      "sourceBytes": 685111,
+      "sourceSha256": "a09dbed25c293373034d0226c15b1248c694af437cb6bb9a72fad462bf7459c2",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 38,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-hutch.webp",
+      "outputBytes": 44392,
+      "outputSha256": "7f6ab4a63baedf9a2156bf5fdabddf1953c9b71b9b69a8e98c4dfa9103d7033f",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-hutch.png",
+      "sourceBytes": 617639,
+      "sourceSha256": "feda1f13f3302edbcdfccedf65fa55cde4d2dcb2169b22a1e65ed734c8dbab48",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-looking-rack.webp",
+      "outputBytes": 46044,
+      "outputSha256": "17bc243096ac7393876440ae317bdd283b528b2c33ccc05145eb7eb4c90d21a5",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-looking-rack.png",
+      "sourceBytes": 581415,
+      "sourceSha256": "d74273497f0dc80748b54e34339a264fa08a9b958298bcc89ced03534a978760",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-sitting.webp",
+      "outputBytes": 46132,
+      "outputSha256": "84f03c9dbd73954feda09cd207115cf8111310201d14005ad4e07e5bcb149de7",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-sitting.png",
+      "sourceBytes": 583116,
+      "sourceSha256": "5a6e584396e3fc34c373e40ab1f1d58b82f192d183a5f39f8106a37a3eb24205",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-standing-calm.webp",
+      "outputBytes": 43950,
+      "outputSha256": "239aa9a96822bbd724dc05fbfb1b87a4713b2e10ca9c5b20cddaf5177ea51f66",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "prepare-the-hay"
+      ],
+      "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-standing-calm.png",
+      "sourceBytes": 491514,
+      "sourceSha256": "0fd4b0f1d5e1a180f97682f67ebb48cb85369afbd7aef205ff92e6179c4d2a3e",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 512,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 12,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-crumb.webp",
+      "outputBytes": 14204,
+      "outputSha256": "66109a52c0c95aacc1da840bfd9bd2e51f9add96719087865593540625a508ac",
+      "profile": "objectSmall",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-crumb.png",
+      "sourceBytes": 300486,
+      "sourceSha256": "452a87fe696adcfa3d4baf6b3305dc37160d15ad657393e0fdf77767357241c4",
+      "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 22,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-offered.webp",
+      "outputBytes": 23516,
+      "outputSha256": "c2f808e57ee35cdc5bb628845051272fd2648d056fa3e6980116ced4eb301f2b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-offered.png",
+      "sourceBytes": 427678,
+      "sourceSha256": "4ee3f8c0c7a0af0c409a9bc0a8403a0f6d50e37d9f984d565339799615f823af",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 26,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-slice.webp",
+      "outputBytes": 34488,
+      "outputSha256": "e34e804493469782a02e4ea3956810b87e8c80220b5d6f06f0d4cf6419b5840c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-slice.png",
+      "sourceBytes": 594872,
+      "sourceSha256": "c4b2aa5d12eca2536b9b15b2984fc7c02ffb35d92d7f3e108f5066cadbbc0b5d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/feed-rabbit-action.webp",
+      "outputBytes": 35498,
+      "outputSha256": "aaaedc3a8e20bfc83a9132f106f8a60053b7abbb780b5daa1b02f2ea8dd8e87c",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/feed-rabbit-action.png",
+      "sourceBytes": 590286,
+      "sourceSha256": "043f67975796a883a90662fad9aeb4c149ca81102d75e16339d5ff119da35093",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/pet-rabbit-gently.webp",
+      "outputBytes": 30094,
+      "outputSha256": "54b607a59db9caa2852d1a2037886d73fb3e683b4c644c6707067d992316a0ea",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/pet-rabbit-gently.png",
+      "sourceBytes": 562885,
+      "sourceSha256": "8da0cb0bda7608766a0edb176c75944ba2bec77eeb145cf611fbca0aa39a5c12",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-curious.webp",
+      "outputBytes": 42946,
+      "outputSha256": "3a5d2e6194bd71d4dc29c91ffcb06f7409c2dc8ae80306e50b256e3503b794f5",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-curious.png",
+      "sourceBytes": 498122,
+      "sourceSha256": "79f4e6bc555f4f67fd753b42549d051176d85511ba012954b51da7652c461ac9",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-ears-closeup.webp",
+      "outputBytes": 36612,
+      "outputSha256": "7d7586757d57f02a76357c3ac04dac1fee9c78148689ff9dd78dc299d070ad24",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-ears-closeup.png",
+      "sourceBytes": 662034,
+      "sourceSha256": "d11139cf66ec640898359fb3dadf1f7ddae8a6fada10bd46038363713593af19",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-happy.webp",
+      "outputBytes": 44028,
+      "outputSha256": "d32f3efa6543d728902feb97d8effd54d468d4b3d91190e48562b708a10959fc",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-happy.png",
+      "sourceBytes": 529927,
+      "sourceSha256": "aca42bea01a8652225c4c289d73aa1f84991a88c797384339b9d7306653a7cd4",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hop-action.webp",
+      "outputBytes": 50968,
+      "outputSha256": "f6e31560e6326eea61776541db83fd0291118839ea42ecd5bb438bb9e5c1b9fc",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hop-action.png",
+      "sourceBytes": 609595,
+      "sourceSha256": "2c25870a91403cddd1c508bcd8a31fbcf8ec2c381aab290ba39023018de61d36",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hopping-binky.webp",
+      "outputBytes": 67300,
+      "outputSha256": "1083cc12f6396086e4452c1861402ab912ee6043bdc298f6e3f0a7258aea5e0a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hopping-binky.png",
+      "sourceBytes": 609595,
+      "sourceSha256": "2c25870a91403cddd1c508bcd8a31fbcf8ec2c381aab290ba39023018de61d36",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-nibbling-carrot.webp",
+      "outputBytes": 46652,
+      "outputSha256": "6747dfa184d62f4d73a115a115e81a98c19c63286c5aa64a6e8a98aa50fdd063",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-nibbling-carrot.png",
+      "sourceBytes": 590286,
+      "sourceSha256": "043f67975796a883a90662fad9aeb4c149ca81102d75e16339d5ff119da35093",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-pet-soft.webp",
+      "outputBytes": 39140,
+      "outputSha256": "5a0c7bf7c262a3d812a8691b49c3448925ed327cf25e83dfb732c6b25ba1afc8",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-pet-soft.png",
+      "sourceBytes": 562885,
+      "sourceSha256": "8da0cb0bda7608766a0edb176c75944ba2bec77eeb145cf611fbca0aa39a5c12",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/soft-rabbit-fur.webp",
+      "outputBytes": 29436,
+      "outputSha256": "72571e3af2b224d142f8dd666dd756a211aa5c34d64e91a24a1d675eec5421a5",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/soft-rabbit-fur.png",
+      "sourceBytes": 1121559,
+      "sourceSha256": "537b6699c677b34bbcb6d999996fc4b77d5829dd410336aed7fcb08b90655378",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "care-for-the-rabbit"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/treat-plate.webp",
+      "outputBytes": 22356,
+      "outputSha256": "a74eeb198b52b3671184158da89a89163d1dd69da29df88dce3eb9337c70d344",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "rabbit-snack-and-hop"
+      ],
+      "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/treat-plate.png",
+      "sourceBytes": 345072,
+      "sourceSha256": "9b7b36a4a1f31e52ca9230505446e0d23694fcb78119ba028c439aa7392b1776",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
       "height": 768,
       "lessonIds": [
@@ -27050,7 +27901,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-15T12:24:23.088Z",
+  "generatedAt": "2026-08-17T04:32:59.076Z",
   "releaseVersion": "v1",
-  "revision": "8ddce1a633e15d15"
+  "revision": "0525aa95622bff9d"
 }
