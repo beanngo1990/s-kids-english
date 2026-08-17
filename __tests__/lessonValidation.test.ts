@@ -162,6 +162,7 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'find-the-kitten',
     'clean-muddy-paws',
     'care-for-the-rabbit',
+    'groom-the-kitten',
   ]);
 });
 

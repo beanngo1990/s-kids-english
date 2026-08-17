@@ -453,6 +453,16 @@ cutout audit pass. Google TTS đã tạo 495 clip; audio audit có 607 target, m
 R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
 chạy.
 
+Storyboard `docs/theme-5-groom-the-kitten-storyboard.md` khóa lesson thứ sáu thành
+`get-the-brush` -> `brush-the-fur` -> `kitten-purrs`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ lấy chiếc bàn chải
+lông chuyên dụng, chải lông nhẹ nhàng xuôi chiều gỡ rối, đến khi bộ lông suôn mượt và mèo con
+gừ gừ hạnh phúc (`purr`). Review trả 4/5/6 item `kitten`/`brush`/`smooth`/`purr` + `mat` +
+`brush the fur`. Local asset pipeline có 28 PNG master, 28 WebP và bốn icon map/milestone;
+cutout audit pass. Google TTS đã tạo 587 clip; audio audit có 610 target, missing 0 và invalid 0.
+R2 upload/verify đủ 615/615 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
+chạy.
+
 ### Hierarchy
 
 ```text

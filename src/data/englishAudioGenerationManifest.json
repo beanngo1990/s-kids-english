@@ -46133,6 +46133,2870 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 18189,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_fail_b582fead.mp3",
+      "sha256": "d2a133eb0927a449565a098126f21ee559970cf1aa25f081c74724ca9f4d7bd0",
+      "text": "Look for the hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
+      "sha256": "b26ce59286abe453ac836118e89e60a2c828dbc788b364dcfa44f0a5ef692b78",
+      "text": "Soft brushing keeps the kitten cozy and safe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_teach_fail_fea0d856.mp3",
+      "sha256": "9059c66edc84625b119bb604e5651f451753fc637e05c61ef80cd3070cbf11a7",
+      "text": "Look for the soft brushing stroke.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_teach_success_a75f4e24.mp3",
+      "sha256": "96319ec1c0896a4d6f0a954f2d6e94416866301e8abe863d2f0b47b1d1d67d2b",
+      "text": "Brush softly means groom without pulling.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly.mp3",
+      "sha256": "3095cbc35440b0641163125d6a22212b9986ae0350f84cbf501f4fe1e9494661",
+      "text": "brush softly",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_practice_fail_202985de.mp3",
+      "sha256": "868665d7bbd0a9bb856aa51fe0dc248d94c775576d401b00bffa97edb8423eaa",
+      "text": "Look for the picture of brushing the fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_practice_success_4d558751.mp3",
+      "sha256": "dd35e554e8eaab4643891458472f617c896a1a9718b0c25153361d0b4d791aef",
+      "text": "You brushed the kitten’s fur with great care.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27981,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_fail_0b5f43a2.mp3",
+      "sha256": "ece7b1e13f902a53275715b9fa0728b6894891cee87c99b3a46f77bbf3e42fd1",
+      "text": "Look for the picture on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
+      "sha256": "e88c26ac027d5815f1c1227061d9b921f8d7d144810b9e84921aeaf9dfe178eb",
+      "text": "Brush the fur keeps pets clean and happy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur.mp3",
+      "sha256": "5f9c502ba54b0a586d7983b3b806abc4718ecbaf0da0f8b00e1443e66e0ecd48",
+      "text": "brush the fur",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25677,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_fail_334b0002.mp3",
+      "sha256": "1bd9893efc69dc0f85fab8d6b2f7aedc1d4c68b668eafb2e79afa73b33dbef6e",
+      "text": "Look for the clean kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
+      "sha256": "bcf2f3bfdea27754ae29c5d46fc611619dad8d9a9b5cc68dfcc1c5d3f3034ccd",
+      "text": "The kitten looks clean and adorable.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
+      "sha256": "79eae54fb26af4ec967139199d162891e60fc26d40f41c9f011f223d50f0d55e",
+      "text": "Look for the clean and fresh kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
+      "sha256": "660d731da267b6d1007812a14fea1f1b4a48f814daeb2ab6c5e62c801f779a34",
+      "text": "Clean means free from dust and neat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/comb_teach_fail_1ff6b134.mp3",
+      "sha256": "d6910163111b686796b0cd1b0b5f04569bc69202aad8840b50ec928cf40242b7",
+      "text": "Look for the blue grooming brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/completion_b3890fdf.mp3",
+      "sha256": "93a8a4b7a45dca3fa2b6d936fc7a8f635777eec56cc426a883df0a07aa8c9ab6",
+      "text": "The kitten’s coat is smooth and shiny.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten_practice_success_e9694104.mp3",
+      "sha256": "0309bf91ddbf312e9dca07aab7346470aa47aa73f4355802a426b925ea82fece",
+      "text": "The fluffy kitten looks like a soft little puff.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten_teach_fail_12550250.mp3",
+      "sha256": "6070bcead5675ac990a1f94274a3080a5f46a290eef06408023316f679c8bcb7",
+      "text": "Look for the adorable fluffy kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten_teach_success_ef523eb9.mp3",
+      "sha256": "b9c7a39524f71582ee8f4dfe4d6af44af8f90ef71e29a724bc4689e8cd93af5e",
+      "text": "A fluffy kitten has soft puffy clean fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17901,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten.mp3",
+      "sha256": "e2022e450e73cf6f4463b060fecf65aac235b08f3afa7a6a94e6104a0f56f1e2",
+      "text": "fluffy kitten",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/gentle_practice_fail_6c7de44a.mp3",
+      "sha256": "50c108ebee15aabff74c9f5aac09075c1fd1fded3a22d51fbba96dfb7eeae8c2",
+      "text": "Look for the gentle hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/gentle_practice_success_09fc30d3.mp3",
+      "sha256": "021c0f1394baec75b3df61c0378e060931cd68db9ce05d0b7ea3fdbbb48e3fb9",
+      "text": "You groom the kitten softly and gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/gentle_teach_fail_20e9fa07.mp3",
+      "sha256": "4b087323d5d6c1f6fce9ade41dd2c77ed582129ef942ec2c141a0d4054a8088f",
+      "text": "Look for the careful and soft hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/gentle_teach_success_58647023.mp3",
+      "sha256": "a381c16858d43c9e77d635a4ede4eba280de9cf39c33c76c1869e8de9ff7ac88",
+      "text": "Gentle means kind and soft.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/gentle.mp3",
+      "sha256": "7fad8af2ec3f17636678e04fcc0cc25de98ff989060f9c8d9728bad45a38e0c7",
+      "text": "gentle",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/groom_practice_success_a0284a23.mp3",
+      "sha256": "769c94c665714d05312e041cc3ae64f085b8ccd9cece400f4eef07d4e1b97304",
+      "text": "You groom the kitten gently and neatly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/groom_teach_success_0a2a608c.mp3",
+      "sha256": "bfb6217119fc2a4f613083574cf0f9e5311812b025538d9d4a2a70bd2b6c30a6",
+      "text": "Groom means brush and care for a pet’s fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10125,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/groom.mp3",
+      "sha256": "94ecae807d47068610d141b8d545daa06df7be6b188e8e8bb0f8e01954e3da8e",
+      "text": "groom",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/intro_success_b07ac083.mp3",
+      "sha256": "14f62086ab58748eeaa814294ac1fe60261f98b519f42fdf9be15e12c928286c",
+      "text": "The kitten enjoys the soft gentle brushing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
+      "sha256": "01d6747d47cc052702facda83acdfd96bf7d813ed14ca6a9da31d78718a18555",
+      "text": "Tap softly so the kitten stays comfortable.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_teach_74e736ec.mp3",
+      "sha256": "9f8556d692354b943009216cd3035b4e879420df0c4197f6c0c446ad2c81f43a",
+      "text": "Tap the hand brushing softly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_the_fur_practice_8a7c7374.mp3",
+      "sha256": "87f0dea8a3290db44fde5fd86114ccbf2b4a5f1355df23d3b19b83f5a8bab91d",
+      "text": "Tap the picture to finish grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_the_fur_teach_f770f334.mp3",
+      "sha256": "5079dd0048baecd65bf7659fcdd21115060fc630847eff507941f291191539ed",
+      "text": "Tap the picture of brushing the fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
+      "sha256": "cad546b9b1f51b486d9650a5280d5801d3c61c82677c5976a5301038a6368c8f",
+      "text": "Tap the kitten to admire its clean look.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
+      "sha256": "373a59acd03855d1294fe4482a23ef727681734ae51f8ff3da35a9e5dca67165",
+      "text": "Tap the clean and neat kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_fluffy_kitten_practice_33b9401c.mp3",
+      "sha256": "d5f3c1029fdcf09952b0eee964ac160f805f79c6647e307351dded74ee463099",
+      "text": "Tap the kitten to see how pretty it looks.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_fluffy_kitten_teach_a5327141.mp3",
+      "sha256": "fc5ab0e704243d6e58dc90f1360db38d00f664662eda25b0d725884f4de7e08a",
+      "text": "Tap the fluffy cute kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_gentle_practice_0f6c8596.mp3",
+      "sha256": "0bbd2df9cab0e33b2aa8feb1cc49972a581caa23c13602819565a8cacc88be80",
+      "text": "Tap the hands to brush very softly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25389,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_gentle_teach_5fc9d86e.mp3",
+      "sha256": "ffc8a0010052d62701deeef951ff52ea1e491f5580b4657c91d4a06337eae4c0",
+      "text": "Tap the gentle hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_groom_practice_739f28ed.mp3",
+      "sha256": "c5501000d636fcecd2e192fbf3e697cd7b521c34eaf6f1d64cdfad28fb634dee",
+      "text": "Tap the brush to groom the fluffy fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_groom_teach_d55ecf4e.mp3",
+      "sha256": "bc7ea004e6b6a9a766e7c4e2b6add1e407a4f8918442313183ccf849d50f32d3",
+      "text": "Tap the brush to groom the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_intro_05948111.mp3",
+      "sha256": "dcae50e16643d2b44601edb2fb9935b3112af5befa1bd72052f4abfa125eb02f",
+      "text": "Groom gently in the direction the fur grows.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_shiny_coat_practice_461fa6e3.mp3",
+      "sha256": "7997dd68e2bffd0298d1ccb797fa81b7ff778b76dc335364543741986e69935a",
+      "text": "Tap the fur to see it shine brightly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_shiny_coat_teach_cdb45143.mp3",
+      "sha256": "b94e8a0d74a2e4d62ded7ee81faeb0f35f4cacc5fb6deba15793baa09b2e4f89",
+      "text": "Tap the shiny coat of fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_smooth_practice_c0401211.mp3",
+      "sha256": "ded90764e85bc6d0d1188cce93a13b50935e76284681d72fb7d7fbf441ca4e57",
+      "text": "Tap the fur to feel how smooth it is.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_smooth_teach_e0e61430.mp3",
+      "sha256": "13871cb99288bf12ce71d86531db61afc64c8f9bc1300d46cf8d487bfbcc2a60",
+      "text": "Tap the smooth kitten fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_stroke_practice_7fdd2ba5.mp3",
+      "sha256": "cf163a7dd4c8c71eee7f79561168e8026c496ab56f9832cc631883c1121e2033",
+      "text": "Tap the hand to stroke down the back.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_stroke_teach_d932295b.mp3",
+      "sha256": "d41bfeaf63424f68814e719a80b4c18d54436504c177464d23c0047868057756",
+      "text": "Tap the hand stroking the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
+      "sha256": "63fc5d00147493aa299b7536933956443e6302691d3b8660c97c3fe0868d5da2",
+      "text": "The kitten’s coat shines bright and healthy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
+      "sha256": "43063de3ad7aeeca92cbb84fb7f66e9ea506c60a29f3ba4b1bdae682a51e2d5b",
+      "text": "Look for the bright and healthy fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
+      "sha256": "e7cd59d2e25dc95076b336be64822a370190c7d2b80bf91d53c2cd9cff617081",
+      "text": "A shiny coat looks bright and healthy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17901,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat.mp3",
+      "sha256": "dbda6c31fbc20d566edb86b75d0c275182fcaaf87ef4a8289a77b0de7b7f14a7",
+      "text": "shiny coat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/smooth_practice_success_63334c0d.mp3",
+      "sha256": "b6af743f571d940359e152a5959cea265f4b67d36041113013a5a6720f9d92c7",
+      "text": "The kitten’s fur is now smooth and neat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/smooth_teach_fail_d2bbb822.mp3",
+      "sha256": "ba7d46970e592a32074a728c709c914aac544446a5b7af91aaf26ff07f8d5fb8",
+      "text": "Look for the neat and silky fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/smooth_teach_success_efdac5df.mp3",
+      "sha256": "848edf89007886b20d74472b20ae1f42f231b9cfc79cbfe67befc3d2c5518140",
+      "text": "Smooth fur feels neat and silky.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/smooth.mp3",
+      "sha256": "c4ade7e8526e2ff0ec11ba9c0641eb3306a9088d4bec035af884c662084c3631",
+      "text": "smooth",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/stroke_practice_fail_b92824d5.mp3",
+      "sha256": "a83be5fc5fdea4827177e87ecbd3003c1d505c3528d90b690d9899e7f4840bde",
+      "text": "Look for the gentle hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/stroke_practice_success_f51130ed.mp3",
+      "sha256": "10d66c6fcd6fd607ad4835a64fe3c8d2859ce730327e40dd2d75e0f3309033b7",
+      "text": "Gentle strokes help the kitten relax.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/stroke_teach_fail_3c14e050.mp3",
+      "sha256": "6d854fe4b6d2c5fb71774814f65859a10762e8b14862f3b8b09c3763ddc02992",
+      "text": "Look for the hand moving softly on the fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/stroke_teach_success_a8a23ad4.mp3",
+      "sha256": "6bbd64db85fdf224ba8cb446cbcee8d9b8bd18f1989d63e79481c892c0108b58",
+      "text": "Stroke means move the hand gently over fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/stroke.mp3",
+      "sha256": "bc452d3dfc1740b41d223dc00520deead87fac8fa03e7a265533dd7998163150",
+      "text": "stroke",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15885,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_fail_b582fead.mp3",
+      "sha256": "6cd8bcc3cd48fd08a33d2a372e26a4b74964878b1fff87d7492005021f4b9d0a",
+      "text": "Look for the hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
+      "sha256": "a852ef0dc0cc7edc354fd9f86ebc6c0a7459ec0705091b8b4d3f13cde4e53599",
+      "text": "Soft brushing keeps the kitten cozy and safe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_teach_fail_fea0d856.mp3",
+      "sha256": "54457ecd61561c200e801ebdb385ccf0447de06ba77200fe344161dc3fefffcf",
+      "text": "Look for the soft brushing stroke.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_teach_success_a75f4e24.mp3",
+      "sha256": "655f6071ff039d149eee5daa911738c32f03442258e0e0f39441fa1a275b737e",
+      "text": "Brush softly means groom without pulling.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16749,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly.mp3",
+      "sha256": "c26c75ab66ab3a1a9359117aef4a65ae6e0bd4aeeb464a3627238934764142cf",
+      "text": "brush softly",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_practice_fail_202985de.mp3",
+      "sha256": "4d3266c83b983854199b2d4d335d4d642a0c713c03de6ed86e52e6d3f7693421",
+      "text": "Look for the picture of brushing the fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_practice_success_4d558751.mp3",
+      "sha256": "93df645c326fd60c09629635308e0b395bb5ad4df28c199f184387765dd96aa9",
+      "text": "You brushed the kitten’s fur with great care.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_fail_0b5f43a2.mp3",
+      "sha256": "64eb1f0caa90416b04b69e3c70a184bb35c7cdd2ddeba9fd970e56efc111467d",
+      "text": "Look for the picture on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38349,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
+      "sha256": "af31753b72c7b9def858e9e97e99084dbd676d8dbe77c4af55d8032cb8c00fd3",
+      "text": "Brush the fur keeps pets clean and happy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur.mp3",
+      "sha256": "ceaba4e88b8f8deecaf4236d2b8377e377fcbf63f36947b0914c6a593cba6e47",
+      "text": "brush the fur",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_fail_334b0002.mp3",
+      "sha256": "2fa63dc1a415c3b54357a2d51f610ef89d19137a012014a309fec1cac9c93b4e",
+      "text": "Look for the clean kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
+      "sha256": "02cee7131f82852e964834355ac6360b3e9b5406ba004614b0cab5cd4c3d11b0",
+      "text": "The kitten looks clean and adorable.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
+      "sha256": "26f15292f1a67d316b81d79527179a01fbd75415c4f9026828079ed3662dc4ee",
+      "text": "Look for the clean and fresh kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
+      "sha256": "f9951f06a0a81f883744983d2f455ea7d0a331c244a63a639417db0b356a8fcc",
+      "text": "Clean means free from dust and neat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/comb_teach_fail_1ff6b134.mp3",
+      "sha256": "1223b3b90ea46bfa97eb510aa0c98c3ea2a26d0fb280ceaf31796552a2bbee5d",
+      "text": "Look for the blue grooming brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/completion_b3890fdf.mp3",
+      "sha256": "d15e140e2a6c1e58d094b92074bdc1c79e27c3a46f23476efed093ac33c6fb5c",
+      "text": "The kitten’s coat is smooth and shiny.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/fluffy_kitten_practice_success_e9694104.mp3",
+      "sha256": "ce93c3f6eaf61449d21c5d45d4e1cfca4acce5228110bae32189f55d008d5c0c",
+      "text": "The fluffy kitten looks like a soft little puff.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/fluffy_kitten_teach_fail_12550250.mp3",
+      "sha256": "e26d1659336398a238b1734ff89bc7b8d5e0dad90a39ac7571816c254b8f7d73",
+      "text": "Look for the adorable fluffy kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41517,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/fluffy_kitten_teach_success_ef523eb9.mp3",
+      "sha256": "c08efe204592b9784996ae24ca60354d5c0119e76592103b81f4d39e7cdea2b1",
+      "text": "A fluffy kitten has soft puffy clean fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/fluffy_kitten.mp3",
+      "sha256": "dabd393e2b2ff555792e1225451a99ded231e39068687e82c76a455a97373122",
+      "text": "fluffy kitten",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24237,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/gentle_practice_fail_6c7de44a.mp3",
+      "sha256": "47bb07d154422eab357034e480204127dc1a55287ee299b5e22fcbdbc28a6f8f",
+      "text": "Look for the gentle hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/gentle_practice_success_09fc30d3.mp3",
+      "sha256": "4c9dc99809cfa1235e8816635179ad55f253e1ad2e90f6a710fd325054773368",
+      "text": "You groom the kitten softly and gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30861,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/gentle_teach_fail_20e9fa07.mp3",
+      "sha256": "ae369a89f3211cc3ce59790488c59a14c49e3b6b62798359cc95ef89f4a7b22e",
+      "text": "Look for the careful and soft hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/gentle_teach_success_58647023.mp3",
+      "sha256": "fbd05270479f1681b3d3c3bdd7e93452e40b3b85abfd51a9ab21b7471aff3ec0",
+      "text": "Gentle means kind and soft.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/gentle.mp3",
+      "sha256": "0cf70e5ef6935dad84875de60fe4c6dc7a90f1565a5b825c7101d5b264192ce0",
+      "text": "gentle",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/groom_practice_success_a0284a23.mp3",
+      "sha256": "88101e46d295095eb73f666aa8b21a5e51201dd884174e4b96900e64296afb95",
+      "text": "You groom the kitten gently and neatly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/groom_teach_success_0a2a608c.mp3",
+      "sha256": "507170672326b09c2f423f486ea6ef294538990412fd15adf6013dbdeb24e963",
+      "text": "Groom means brush and care for a pet’s fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9837,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/groom.mp3",
+      "sha256": "ff797a9551d6afd5fb29ddcd8e7a45ece2a8baebda3d3df7ebba75dcaeaa8e85",
+      "text": "groom",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/intro_success_b07ac083.mp3",
+      "sha256": "9b0e7743e018d6fda138865006091959d830780136de7b530ad7844c4cd834ff",
+      "text": "The kitten enjoys the soft gentle brushing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
+      "sha256": "457925e4ff73a2a87bfebf6480291f1c54a54a97a45502fb0074adad67824ccb",
+      "text": "Tap softly so the kitten stays comfortable.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_teach_74e736ec.mp3",
+      "sha256": "1c633c254d38819fedab09e038b4a2f934cb0a53332ed86d8bc7d5b55537b3a8",
+      "text": "Tap the hand brushing softly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_the_fur_practice_8a7c7374.mp3",
+      "sha256": "ed1f53dc6398b6d882fc2a84f2eb03e40a20689978c109323b752a65ebedf1bd",
+      "text": "Tap the picture to finish grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_the_fur_teach_f770f334.mp3",
+      "sha256": "4ac2980686ed4db153c3ec4039c36ceecdc4560bfc3bc1969b1936f288b2ee99",
+      "text": "Tap the picture of brushing the fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
+      "sha256": "0a31cb796bdd1985cde6ce1159c1658e52f941eb48dfef014f1a3164324f40a1",
+      "text": "Tap the kitten to admire its clean look.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
+      "sha256": "44ad1e94d263783e90b54316c081980cbb790a57d52b9c90392619ac9b7c47b9",
+      "text": "Tap the clean and neat kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_fluffy_kitten_practice_33b9401c.mp3",
+      "sha256": "4eb1ebdc63d6806a4b8ed7232fd668e0f63b2bb41fd6bee4d9ef7c16665b13cd",
+      "text": "Tap the kitten to see how pretty it looks.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_fluffy_kitten_teach_a5327141.mp3",
+      "sha256": "91e3b9a21256db8b1886ebbc33f04495383014aa9f97a20540759744f115db09",
+      "text": "Tap the fluffy cute kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_gentle_practice_0f6c8596.mp3",
+      "sha256": "b2e38038db12b71a10cec8fd2993fc215804d215461679a3d8dbe4dc0b1c2567",
+      "text": "Tap the hands to brush very softly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21357,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_gentle_teach_5fc9d86e.mp3",
+      "sha256": "57908606c0ca345654b78c83160ac57dc7ad9182f1aef8108ff01e732906674b",
+      "text": "Tap the gentle hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_groom_practice_739f28ed.mp3",
+      "sha256": "47c81e788aa0ce468d85738e830cbe76c1c993c513675e2755af99cca4663d1e",
+      "text": "Tap the brush to groom the fluffy fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_groom_teach_d55ecf4e.mp3",
+      "sha256": "c192954d098dfa98902fa1a6e5368a5c94aa212ed884e12fbd8e0ba258a6f7fe",
+      "text": "Tap the brush to groom the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_intro_05948111.mp3",
+      "sha256": "164d65a7aa36e833e48e8dc93d33530600f4a200f8aabcd1e0d2bbd4fbb831b4",
+      "text": "Groom gently in the direction the fur grows.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_shiny_coat_practice_461fa6e3.mp3",
+      "sha256": "86da240f9fb770a89d79052cab5174c6ae5073ae6df19343eee276a0c0d0e7a6",
+      "text": "Tap the fur to see it shine brightly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_shiny_coat_teach_cdb45143.mp3",
+      "sha256": "dd41e64368bb1ab401b1ff76162b9b95f35b3f2aed8ef43d09ca45e1a01d0105",
+      "text": "Tap the shiny coat of fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_smooth_practice_c0401211.mp3",
+      "sha256": "a3b6c4e3e67d4d7ceca62355fb41cd633db10fa631ad6f2ea46f08609a8e6724",
+      "text": "Tap the fur to feel how smooth it is.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_smooth_teach_e0e61430.mp3",
+      "sha256": "6d892ab9d45165eb4e231f6c57595a9166adaef7b5b908046979ce09ace58b78",
+      "text": "Tap the smooth kitten fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_stroke_practice_7fdd2ba5.mp3",
+      "sha256": "53a7e51da6217ba90ca176f8f13fff16040c0fe1c7f415fb8e432359955ec437",
+      "text": "Tap the hand to stroke down the back.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_stroke_teach_d932295b.mp3",
+      "sha256": "b74a78a6e56283ede8bff9680bafb1ab0594998bf7c6ed2c924c54bf0c590345",
+      "text": "Tap the hand stroking the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
+      "sha256": "21a1b4a594c3a3e596378ff2eb4097066085c2b580cb0dacbda5b99c3f97d4d5",
+      "text": "The kitten’s coat shines bright and healthy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
+      "sha256": "de77e179c4bd127b2c3b7faaee561cba7c23094e78b459a40bc914cd90a97ffd",
+      "text": "Look for the bright and healthy fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
+      "sha256": "f1e14e85039d068e8250d1d2ae985c8ebfe3b8f6da31787279e80a776be0bbfe",
+      "text": "A shiny coat looks bright and healthy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat.mp3",
+      "sha256": "246176ce821e56ea4bf6e321c6ec2e6d324dfaa1bb0395d5967272cf548d8881",
+      "text": "shiny coat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/smooth_practice_success_63334c0d.mp3",
+      "sha256": "9248819c0feeeb5a4ede9f33068add9143db77d7f0f153895a7de0892f90347d",
+      "text": "The kitten’s fur is now smooth and neat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/smooth_teach_fail_d2bbb822.mp3",
+      "sha256": "e1c903013858c75014238e8bc0ecbc77f6ee7790a539402a25600e586aab485b",
+      "text": "Look for the neat and silky fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/smooth_teach_success_efdac5df.mp3",
+      "sha256": "a945530ab02f47ded8d1f22b8a43865d4d08689903dbb3bc70e56885c8997460",
+      "text": "Smooth fur feels neat and silky.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/smooth.mp3",
+      "sha256": "c7b65dad03b2de43b6fde3016e58478acf36ad4f4c10268ed2009ba25ebae54b",
+      "text": "smooth",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/stroke_practice_fail_b92824d5.mp3",
+      "sha256": "55d08ca9ebb0682cf911db46070473f1a2442255193823ff22675cc224a66790",
+      "text": "Look for the gentle hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/stroke_practice_success_f51130ed.mp3",
+      "sha256": "7df7b0a2e9efe87494135ef95e686dc71e4074c1641a84255c9c887ef436858d",
+      "text": "Gentle strokes help the kitten relax.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/stroke_teach_fail_3c14e050.mp3",
+      "sha256": "e464c385b7c1e817167c2ad55d6db504faf5e8ece403851cc598d8519725d341",
+      "text": "Look for the hand moving softly on the fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/stroke_teach_success_a8a23ad4.mp3",
+      "sha256": "33af894e0b4c72dbe061aebd54b78a151a12df82c8ad419ddc324839a4956120",
+      "text": "Stroke means move the hand gently over fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10989,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/stroke.mp3",
+      "sha256": "16e9d77329f20ca3588334030632afa57d21e59083d809803619cad0721106da",
+      "text": "stroke",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18765,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_practice_fail_8ebf1971.mp3",
+      "sha256": "586bfd71a983d14a228a5e89f368fa0c84956ac65f4c4355b198d9ae13ebb724",
+      "text": "Look for the brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_practice_success_ec929e65.mp3",
+      "sha256": "d6843ecbe3057fec1a96133e9c3a7796c9641ac1579bf816a53fd0a23f86712a",
+      "text": "The gentle brush is ready to use.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_teach_fail_f8383fd7.mp3",
+      "sha256": "b61a9da2232ad6e5b17cb9bd6c578737d3553bb646bc51ff1e63ae06a338c881",
+      "text": "Look for the blue brush on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_teach_success_6bdfd368.mp3",
+      "sha256": "b2483836eebd5b1920f5a9004e9c305ced5f780750f1f15fd3c0e408aa22fc55",
+      "text": "A brush makes fur smooth and neat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11277,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush.mp3",
+      "sha256": "5dbfa7a148b6c4490c47c03c22ae94b75037f9eb678f562cc6f5e3552956eb34",
+      "text": "brush",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26541,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_fail_ee0b0863.mp3",
+      "sha256": "b0a3c5447ddf0a2922fa9e5bc5862122e3a38ad1371e62de027971eff1eb61ee",
+      "text": "Look for the clean brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
+      "sha256": "8c5171894d1d39e6976311a7c32c474474a56987020658056f6aa0f9b2f6ea9c",
+      "text": "The clean brush keeps the kitten fresh.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_fail_0e560d1b.mp3",
+      "sha256": "cc03433fa7d67b1c23a329b0693fb0f9f4aa722c51fb0ddcaa0a2e8323189768",
+      "text": "Look for the clean brush on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
+      "sha256": "47052d62786ffb56b604c1fb174829765b51d7cadbbb8aa9640761f580143fa2",
+      "text": "A clean brush is ready for healthy grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16173,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush.mp3",
+      "sha256": "3582e96f22d835fd56544de66e27031d69cf76e4f34d7ac4b642871e95353c1c",
+      "text": "clean brush",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/completion_962292c9.mp3",
+      "sha256": "4ae95f92826178889e3372e310f5300e2c4a1176d69eeb0514cfcc19b96287bd",
+      "text": "The brush is ready and the kitten sits calmly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23085,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/fur_practice_fail_92e2884c.mp3",
+      "sha256": "5b62e5a75940f49b715bab9b56c88d55615cd91789347d8fb5520cdce9a6f143",
+      "text": "Look for the soft fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/fur_practice_success_66331603.mp3",
+      "sha256": "6dd1d37c22429377f7daa7e0475f892ded9043ca1532585856266a9d1a0b87f4",
+      "text": "The fur is fluffy and needs gentle brushing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/fur_teach_fail_4cb916ea.mp3",
+      "sha256": "d52f006c3dbb323ab494a71a0c7289e4a922e14fa55838eb0a7c923f4287b7c8",
+      "text": "Look for the soft orange fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/fur_teach_success_b80c6255.mp3",
+      "sha256": "b02e114c1f21e6e4ff73402132267e8b4b130e13a03b68584eafd16678ce760c",
+      "text": "Fur is the soft hair on pets.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 9549,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/fur.mp3",
+      "sha256": "365e40ac437b8b7bcffe44c4e692c2029962ae94f3221228223c27614d7d748a",
+      "text": "fur",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/intro_success_33d7e4d4.mp3",
+      "sha256": "cb316201b890945fe71d05bb5daa3e44653639ce3b747201242899f4e4c2cbc9",
+      "text": "The kitten is sitting calmly waiting for brushing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24237,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/kitten_practice_fail_00c57b1d.mp3",
+      "sha256": "fbea02fe01f369f903691e5bc8852ad1455dc8da183ee08e7a1ea3552c6244fb",
+      "text": "Look for the little kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/kitten_practice_success_2da698be.mp3",
+      "sha256": "33db862c70875a0c75fa6bb99835b5af9e44630d190de4a6389718ce481691d4",
+      "text": "The kitten gently wiggles its tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/kitten_teach_fail_f1ea9c1f.mp3",
+      "sha256": "177924506430fdc663f4d26d0e0d223ea019491dc99f41b64a3fef45877d888b",
+      "text": "Look for the fluffy little kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17325,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/kitten_teach_success_548549ae.mp3",
+      "sha256": "ab9486e19e11930a3dc788590848e7a7a4b7ef3ddbb83660468d2138991d40fd",
+      "text": "This is a kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25965,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/mat_practice_fail_51ba258a.mp3",
+      "sha256": "338a5646b1c78d68499e541a220426c24fd2437370014ff9f03ee4cce84e770d",
+      "text": "Look for the cozy mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/mat_practice_success_bf8d953a.mp3",
+      "sha256": "a24c82ae64d69d0a00e3591cde16f2cee1d31644a4396dea18bfb198be01d6eb",
+      "text": "The soft mat is placed neatly on the floor.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/mat_teach_fail_fe5f2ea8.mp3",
+      "sha256": "040d9438901dcd5d7ea35e3835a3bc9d60e8c427821450a4d8212a3f449ab805",
+      "text": "Look for the small yellow mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/mat_teach_success_255325ee.mp3",
+      "sha256": "221c07815957f5d5ad4159280d6b73d305ce5bd7c808addb396c55713e0baa5a",
+      "text": "A mat is a cozy pad to sit on.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 24525,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_fail_0a99aa27.mp3",
+      "sha256": "365af0b638047274c9b77c96b2d5e823eedd30fd3ea510f6bc555defb2d88cdd",
+      "text": "Look for the pet brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
+      "sha256": "7b76e04fb3dde25b3ab3e0f75340be0f860c6f98f075081c6f3f5dd4d675bf3d",
+      "text": "The pet brush is soft and safe for the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_teach_fail_705cffec.mp3",
+      "sha256": "ecee63bcb2d8287a7d5c1973a8dd8a9cb0f233b3cb87a572a49e57dd2c2e947f",
+      "text": "Look for the brush with soft bristles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42381,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_teach_success_aee92ce7.mp3",
+      "sha256": "c22fc661fe9303df3b90296997180a839e7c49756112d52c9d3763eb5d22fb3f",
+      "text": "A pet brush has soft bristles for pets.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14733,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush.mp3",
+      "sha256": "9cf4e881869912cfe7541a4838f5273e3b8a059f690345b679be1b0aa7e3676d",
+      "text": "pet brush",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_brush_practice_4969378f.mp3",
+      "sha256": "3f06c005a187e1f1bc637fcd9431b498e28b68321f420386655aea649bb02e44",
+      "text": "Tap the brush to get ready for grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23373,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_brush_teach_20a3b3e4.mp3",
+      "sha256": "e3d791ee98716c5a265c1c5ba899eebb340a16ac7db0509fc05ffae6bf2dbb11",
+      "text": "Tap the grooming brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_clean_brush_practice_d968aefd.mp3",
+      "sha256": "4d5a425c4ed00db32101aed77974052e98a66ea91cb1716f9b87f69232e61fac",
+      "text": "Tap the clean brush to begin grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_clean_brush_teach_e8f13563.mp3",
+      "sha256": "4d81b016a9f06ca9941eb1e067a9cc188e1cee4b2f6c2b66186913c5dc5073e0",
+      "text": "Tap the clean grooming brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_fur_practice_bb7c799e.mp3",
+      "sha256": "a55f76e942b76dcbf80f67d3045566fabf42f3facd8af9106cbe7c896d686515",
+      "text": "Tap the fur to see it looks a little messy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28269,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_fur_teach_177a3438.mp3",
+      "sha256": "09fd3756a2c4f6f512d9368df0ca84d9a675f773a25a36078b0a9f343e16de4a",
+      "text": "Tap the soft kitten fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 59085,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_intro_bb9d3742.mp3",
+      "sha256": "4fad72a2106a9eb14f9cebc788e08310b8b540a49aae9db4c1156caca961c6cc",
+      "text": "The kitten’s fur is a little messy. Let’s get a soft brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_kitten_practice_5883e7d7.mp3",
+      "sha256": "56e5db6d0af4b38b30c6028d8dbc2684a319dd5087f8a713b77d472c1093005e",
+      "text": "Tap the kitten so it wiggles its tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 20781,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_kitten_teach_5e1aa705.mp3",
+      "sha256": "d961bbbd134a008332d3b4ccf361d9dcee8d9ee5f54f95fb00c843949d555939",
+      "text": "Tap the little kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_mat_practice_6d4a5bb6.mp3",
+      "sha256": "58cb4a707fcc968448727a7eba5416736912c8a909f8d387755e6b48d5a0c5e7",
+      "text": "Tap the mat to place it neatly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_mat_teach_b49d7c8c.mp3",
+      "sha256": "07bb4a26a673b545b9d339fbfa56d5d95038f078917c0dbf907340199cf70149",
+      "text": "Tap the soft mat for the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_pet_brush_practice_dc61398f.mp3",
+      "sha256": "e1c8a122ae572899e8880f2f306e183fdebc244174ddb67306f891b7463ce87c",
+      "text": "Tap the brush to check its soft bristles.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 21645,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_pet_brush_teach_f70afc11.mp3",
+      "sha256": "a14e1b46c8f2854fb613921b270260da43fe80567bea90c32d8c032940109f61",
+      "text": "Tap the pet brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34029,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_sit_nicely_practice_86e55346.mp3",
+      "sha256": "d2918b6a7d86a23faee4bfd0a0b8ff8dfb4d7f86dc5b50da811234a142d1f0e7",
+      "text": "Tap the kitten so it sits neatly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_sit_nicely_teach_323838c1.mp3",
+      "sha256": "914fdbee945da26102a9d1a3f5772b545955c9f1410fd6c80678e99d61fd8dec",
+      "text": "Tap the kitten sitting nicely.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
+      "sha256": "ff4ad4a04487cef60e9c756d9ac0959a6614cb33aa54e5e88a369a9b3f079881",
+      "text": "Tap the soft fur to praise the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
+      "sha256": "ca245cb3e6185dd13209d197e2f9894f2c3b6a67b1a638ee01889834e97abee2",
+      "text": "Tap the fluffy soft fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_tangle_practice_46aa21f7.mp3",
+      "sha256": "1bea920d0548e7200890bf9879d7aa1abb8bf435e2278d37156b32b9a958fe5e",
+      "text": "Tap the tangle to prepare for gentle brushing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_tangle_teach_39e549d6.mp3",
+      "sha256": "d21bd84c1356c23d648a592e1496a53579a93eb098971f442c688d17a6e8894a",
+      "text": "Tap the messy tangle of fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely_practice_success_99306765.mp3",
+      "sha256": "b34633959245d6a3776975f481de520518e51558c08d2ff551bfbf5af22dc921",
+      "text": "The kitten sits nicely on the mat for grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely_teach_fail_5fb241f7.mp3",
+      "sha256": "76ef3f443d19f68897eefb2a13267061a4e2ad5c96768ce01b387a2394f7c855",
+      "text": "Look for the kitten sitting calmly on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely_teach_success_f50e200f.mp3",
+      "sha256": "7da19adabb857f2d73971a336c4c8fb9de2142dd412387682e9217bdaef3fd69",
+      "text": "Sit nicely means stay calm and still.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely.mp3",
+      "sha256": "13bd84e676e67121d531829a08aa4a52f603602f8fd7b86a8a1a379ec17a66b3",
+      "text": "sit nicely",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
+      "sha256": "e05c1525a920f161ed5c36983f86b8e1c5dad510496cc12b8d7747d38c140553",
+      "text": "The kitten has delightfully soft fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
+      "sha256": "9fe08b15b6eb320e0620b7588762cc587a8f5a4c9d51d5486a8a2eac50a7adf7",
+      "text": "Look for the soft and fluffy fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
+      "sha256": "b283f6ddf43248269602bb9c98dc00bd5cc3aac317b8bfa1e1d3d95754868618",
+      "text": "Soft fur feels warm and pleasant to touch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15021,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur.mp3",
+      "sha256": "39e14d3b98d859ec9d95b8a6ae2bd695240a174d54a7defb0a933d5c58c8fce7",
+      "text": "soft fur",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle_practice_fail_964f06cc.mp3",
+      "sha256": "42b04225dedf2ec07237382d17a52335fcba4f103d7f5f11fa4304d89c3e39c5",
+      "text": "Look for the fluffy tangle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle_practice_success_caf3b6dd.mp3",
+      "sha256": "1ba576de20babb91c2852252d8270c5fef8d20d195e06bfbe6f6349227415af3",
+      "text": "You will help untangle the fur gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle_teach_fail_78db7bbc.mp3",
+      "sha256": "b26f3b108216e52993d807c4b4f35f2c260d9c65bc1172ac400c1b1b6424b981",
+      "text": "Look for the fur that needs gentle brushing.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle_teach_success_ed78fb1b.mp3",
+      "sha256": "eef93202519319792296b2ef22ff6c8905b52b95cfd7d29180c155d22cc165e6",
+      "text": "A tangle means fur twisted together gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12429,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle.mp3",
+      "sha256": "1217a8fd40c2591464111357376a3745df05230f59a1836b10525873c715cf74",
+      "text": "tangle",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16461,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush_practice_fail_8ebf1971.mp3",
+      "sha256": "5b318e6bf4add5cce0b28eb7d290cb212f5bf47e361f97ac764f0fc9560c9069",
+      "text": "Look for the brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush_practice_success_ec929e65.mp3",
+      "sha256": "698cf923409f36fde1679623b5f6181ae324e2d29e2068d97ada3ebfbe8d9353",
+      "text": "The gentle brush is ready to use.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush_teach_fail_f8383fd7.mp3",
+      "sha256": "8ff6c14b6a4575eb738c15299715efc2ccfa6b25360b8c4e3dca983ff51f0d2d",
+      "text": "Look for the blue brush on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush_teach_success_6bdfd368.mp3",
+      "sha256": "4c8cc7ddc2dd6889fe3733ee3339b43758a79325470ec628a85682544f3e49b3",
+      "text": "A brush makes fur smooth and neat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush.mp3",
+      "sha256": "a7750418562b0d55b3160a7a196429d072e050d0a161f7a8ec0ce187b8b93f1d",
+      "text": "brush",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_fail_ee0b0863.mp3",
+      "sha256": "118253a8a8f80294a89ccb1c339597ba9a0517f2d621cb6825be9cc8632cc0d9",
+      "text": "Look for the clean brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
+      "sha256": "b102b115393eca007b0363176c96e8676afb660580c2454dc5fdddd49c572f7c",
+      "text": "The clean brush keeps the kitten fresh.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_fail_0e560d1b.mp3",
+      "sha256": "d6c7093912d08c5732c43069603be1a57ce96b617e2a78e7f2d929029bde5f67",
+      "text": "Look for the clean brush on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
+      "sha256": "0c530be0ab799770c68c6d480f7f5e8763ecf9044c3a11cae92ed98f5295eefa",
+      "text": "A clean brush is ready for healthy grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15597,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush.mp3",
+      "sha256": "309e9b0aa9f04ab5ebf0dfc048930aff09e520ded491d818ec7d70eb745c52e6",
+      "text": "clean brush",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/completion_962292c9.mp3",
+      "sha256": "afe90fc78a7bce1cd4ba69106ae052e853248e762178949c87ab2e411cd5e51c",
+      "text": "The brush is ready and the kitten sits calmly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/fur_practice_fail_92e2884c.mp3",
+      "sha256": "5549968217dff867ff1f956f4df9a1f35f2b480f9603dac0e6e683668f4a27a8",
+      "text": "Look for the soft fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/fur_practice_success_66331603.mp3",
+      "sha256": "8c54921914168383fb9d5bcadebb3784026d1dcba385620526540c6f1b238012",
+      "text": "The fur is fluffy and needs gentle brushing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/fur_teach_fail_4cb916ea.mp3",
+      "sha256": "c164de6769e635b8453fedc7583fcc83e40d68dc58d8b5b9426a734d38e999d8",
+      "text": "Look for the soft orange fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30573,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/fur_teach_success_b80c6255.mp3",
+      "sha256": "1437cbab6f4b1a4d9ad864520387528a9444321d2355b0355cf8869f07d04aef",
+      "text": "Fur is the soft hair on pets.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9549,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/fur.mp3",
+      "sha256": "6bb948ce0c05d86c6187fa7b7ddffc75f1bd2762129f3862c22948b4b2febe60",
+      "text": "fur",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/intro_success_33d7e4d4.mp3",
+      "sha256": "8f5b273a74d64d993f5bc8643f129340bdd62d19f287279a795acd372a41088d",
+      "text": "The kitten is sitting calmly waiting for brushing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/kitten_practice_fail_00c57b1d.mp3",
+      "sha256": "3407d698ae4be07567b2ee5071c990cb417ff8e4e4ecf61e75609bb737140f42",
+      "text": "Look for the little kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/kitten_practice_success_2da698be.mp3",
+      "sha256": "18d05a723253af18343a4a33aad94c30ea4d114b24260dfd239ee34b86185506",
+      "text": "The kitten gently wiggles its tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/kitten_teach_fail_f1ea9c1f.mp3",
+      "sha256": "679f9f224722067de49cd5ebaf1f0e24f085fbb25c7bf4068f67065c4c0efc17",
+      "text": "Look for the fluffy little kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15885,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/kitten_teach_success_548549ae.mp3",
+      "sha256": "58aa39c12ab78b1434a53c05d7d28e115354fb9982dc2ca7d75f4384253ca0e4",
+      "text": "This is a kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22509,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/mat_practice_fail_51ba258a.mp3",
+      "sha256": "fc1207ec25850e9ebe97f64f96c030cf0e9fd001dcb3ad7acd2bffece51e88cd",
+      "text": "Look for the cozy mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/mat_practice_success_bf8d953a.mp3",
+      "sha256": "0248fa93d044e84c45fa0898c407293dcff0600c76ef892b585525d503185d71",
+      "text": "The soft mat is placed neatly on the floor.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/mat_teach_fail_fe5f2ea8.mp3",
+      "sha256": "33b4cdd512da68ee98875bc78a033953073946e0c686233862897a504328f9fd",
+      "text": "Look for the small yellow mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/mat_teach_success_255325ee.mp3",
+      "sha256": "78d0cf9e781d449f17b5521a3889cc2ac2a2772449d81d1e53fd7719a79aaefe",
+      "text": "A mat is a cozy pad to sit on.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21645,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_fail_0a99aa27.mp3",
+      "sha256": "7d8539b57ebe9425c7a83b9eba400b115b08215b7af77bb1f1ba0abc0f3578d4",
+      "text": "Look for the pet brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
+      "sha256": "6b09b639f1685ec053f9a512e78a076aaabce2152a5bc26b90b228ca47ca1ada",
+      "text": "The pet brush is soft and safe for the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_teach_fail_705cffec.mp3",
+      "sha256": "e73d4e6379c5f14290321addf5715dd84ec79d1492ed4278c2c67a6854df260c",
+      "text": "Look for the brush with soft bristles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_teach_success_aee92ce7.mp3",
+      "sha256": "6d1eb4e826bcad2e5e1b08b42ed1f14ce26bf4beef3548068526444ab1549d49",
+      "text": "A pet brush has soft bristles for pets.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 14157,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush.mp3",
+      "sha256": "0eb41c3b8efcbbbdbc6378bd66799234a41ab2fdc4f0d78d1ee3be36777164f5",
+      "text": "pet brush",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_brush_practice_4969378f.mp3",
+      "sha256": "d74f26e2f4d12f83fec7875613af58a0d78c58e5bcf752a14ca7e5b0663280d1",
+      "text": "Tap the brush to get ready for grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21357,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_brush_teach_20a3b3e4.mp3",
+      "sha256": "bb0e3974759a82237aca1c116a4def633bf55929f7d3d3a4c5c2a56d50e8ff18",
+      "text": "Tap the grooming brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_clean_brush_practice_d968aefd.mp3",
+      "sha256": "bf06ae1bdcb934fc504412eba0f38dc8587e78879fa13f12f57334a3c6617d6b",
+      "text": "Tap the clean brush to begin grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_clean_brush_teach_e8f13563.mp3",
+      "sha256": "6fed00ad423295455382ca1cd4358a8949dfe1d17d6ed430a940181e9fabd490",
+      "text": "Tap the clean grooming brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_fur_practice_bb7c799e.mp3",
+      "sha256": "ca80e398aa29efa26542a2d7ad3bbfd1da55a18a845eb80296176efdab5d5d91",
+      "text": "Tap the fur to see it looks a little messy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_fur_teach_177a3438.mp3",
+      "sha256": "db06655b9c410832305a7817402cfa916dfac66493546ceb0bbd49aa5b1c278f",
+      "text": "Tap the soft kitten fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53037,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_intro_bb9d3742.mp3",
+      "sha256": "3b9339dfe25b828eaa350b05bdadc92a20e26b9fcb3e28ce097c2751a56d0860",
+      "text": "The kitten’s fur is a little messy. Let’s get a soft brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_kitten_practice_5883e7d7.mp3",
+      "sha256": "e46a80e8f9b203fc84ffc6e08c63c42cdc37dac59d69ac7c88cc2c01954c5e35",
+      "text": "Tap the kitten so it wiggles its tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19053,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_kitten_teach_5e1aa705.mp3",
+      "sha256": "bb704c93f3195fedeea13599149ee78a0479246f0373befeace987419a3a1240",
+      "text": "Tap the little kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_mat_practice_6d4a5bb6.mp3",
+      "sha256": "034841dae006652b5cc6e7ce348fca54f09f7973281b0a8d90ff3b5988b177ee",
+      "text": "Tap the mat to place it neatly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28557,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_mat_teach_b49d7c8c.mp3",
+      "sha256": "576c40aebfd531da5cff9566ad90d171ae022818f13286fd7cab4ef18cf9c6a9",
+      "text": "Tap the soft mat for the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_pet_brush_practice_dc61398f.mp3",
+      "sha256": "3e3a848838292a2191e4d25579685d66d9189083af88219f55ecf58580c2c8af",
+      "text": "Tap the brush to check its soft bristles.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 19341,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_pet_brush_teach_f70afc11.mp3",
+      "sha256": "eba426564ddd7119e1cacf103885c85aca926b5f239f1e51732bb37e28ab73e5",
+      "text": "Tap the pet brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_sit_nicely_practice_86e55346.mp3",
+      "sha256": "bad3a8961ca211895867a2ff48ba7f8c17803f2453d3daf9079f1bd25b5a3ce9",
+      "text": "Tap the kitten so it sits neatly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_sit_nicely_teach_323838c1.mp3",
+      "sha256": "78fda85766b527d83149724ec34e190ce917d169460e26269a42ef238fda7e53",
+      "text": "Tap the kitten sitting nicely.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
+      "sha256": "b5f3de20b4b4155b59adfba9879d6352f941cd13addceec1af7d009963d8e57c",
+      "text": "Tap the soft fur to praise the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
+      "sha256": "30b5808eef9f0d90c725c473107ad7bb57f897ecc2a49dd5e5bfb6f68be7ba4e",
+      "text": "Tap the fluffy soft fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_tangle_practice_46aa21f7.mp3",
+      "sha256": "d589af0e3fc6bba31999388a39cac6fcce11dffaab298c33ae7735982ad5dcc4",
+      "text": "Tap the tangle to prepare for gentle brushing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_tangle_teach_39e549d6.mp3",
+      "sha256": "609f5cd5a7c82cdd08f91564cf2b8357608727ba29ce91c7895c72abd39122ef",
+      "text": "Tap the messy tangle of fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely_practice_success_99306765.mp3",
+      "sha256": "987d23e92b6ebfd62f6a9aa4ddeace44d150e2ac7d4c0da234d58d5d971b3c06",
+      "text": "The kitten sits nicely on the mat for grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36045,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely_teach_fail_5fb241f7.mp3",
+      "sha256": "48204dd2b0e6c40274fb919cf99647923aec0043542ff459d2ed1fe04c69d568",
+      "text": "Look for the kitten sitting calmly on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely_teach_success_f50e200f.mp3",
+      "sha256": "864bc23269f36939e42a5a0c5d0e7c78ce5511b03e005fdfbd25d515c9353a52",
+      "text": "Sit nicely means stay calm and still.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely.mp3",
+      "sha256": "012e738be1e6c5d5c193494a3a92a8cdac277b9cf89e3ac226affa59e729c73b",
+      "text": "sit nicely",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
+      "sha256": "e2266956ab52ee75ec0a74bd979bbfb3b0ee2c263bb9164665133db29a7cde7f",
+      "text": "The kitten has delightfully soft fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
+      "sha256": "b11279deeb3238067e037885dad623a3d3efbdc7e099be5d14b8d7ec801db598",
+      "text": "Look for the soft and fluffy fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
+      "sha256": "5f58505cc72cc37c6143edaa45eeebbff81560bc34d99e33ecaae2594dd5234e",
+      "text": "Soft fur feels warm and pleasant to touch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur.mp3",
+      "sha256": "ffcb9e40f1baa4f7f19e90929f7395bdfdc39d4ec182e91187b07a936ee21a59",
+      "text": "soft fur",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/tangle_practice_fail_964f06cc.mp3",
+      "sha256": "9103de0747528f11234344e5734b23c675c33e9d9d912359b3afad6bda2f1e97",
+      "text": "Look for the fluffy tangle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/tangle_practice_success_caf3b6dd.mp3",
+      "sha256": "6aeafc0dc5f41824f7eaae4f15a69eaaec83f30cdfa915ea4cfb061288e1a0e8",
+      "text": "You will help untangle the fur gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/tangle_teach_fail_78db7bbc.mp3",
+      "sha256": "23499e5819cb6dfc30c128cd33d365749b3ddfa1384f1eb125f741ad6f9d8c67",
+      "text": "Look for the fur that needs gentle brushing.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/tangle_teach_success_ed78fb1b.mp3",
+      "sha256": "dc74eb6f0ce6072d398e09aa09de1da10fb32c18884201576e65de147b3ec09b",
+      "text": "A tangle means fur twisted together gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10413,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/tangle.mp3",
+      "sha256": "26fa67f05d82906e7332e38830ea668d2a648d5706573029637c9e498b3d300c",
+      "text": "tangle",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/completion_70e8e7ff.mp3",
+      "sha256": "0f06cf7acd6900a5f089dcf1d5b19522258bc7f52d2bfd8fa53e2b64c6ff4913",
+      "text": "The kitten is neatly groomed and purring happily.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cozy_practice_success_fbf1ce36.mp3",
+      "sha256": "b2b1bcfde3349d30d88eb25ce5251c21a310b7daa8006a78edf047531d3f871c",
+      "text": "The kitten curls up warm and cozy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cozy_teach_fail_6ede7a72.mp3",
+      "sha256": "3c1acc81818c061c5b6ce6a2b14c68fed005470c267b0dbf871211cbae60d05c",
+      "text": "Look for the kitten resting comfortably.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49581,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cozy_teach_success_ea7f77a9.mp3",
+      "sha256": "aff363f4be4a271dc16eaa3c8c4b92a466ce294ae985a60a5947480590237cce",
+      "text": "Cozy means warm, snug, and comfortable.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cozy.mp3",
+      "sha256": "f209dcd9541dc67cfef3890c1d4e0b705c09627a9133b93374a2ed83b0eb568a",
+      "text": "cozy",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
+      "sha256": "bd7fcc652425ad7a5b27ae871bb8d99f8b370a0eaf207ceb4e515ed2de0068a2",
+      "text": "Look for the happy cat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
+      "sha256": "d683641f75c50438e313f44cc4d2cbaa36b2d3ec1e143bee82108847533765ee",
+      "text": "The happy cat feels loved and peaceful.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
+      "sha256": "cb8ddf68bfaa2f8ee44fe3257213f368a2b1692c2fae7b16211deeccb03cabde",
+      "text": "Look for the relaxed and contented cat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
+      "sha256": "a296e3a416b757da12e3eadbd15afd8b264f20e8dc5eb09232d6c7b253fe1179",
+      "text": "A happy cat is relaxed and loved.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15885,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat.mp3",
+      "sha256": "e7bdce47f6f21d7a2472d2fc18956f9ba3ea42a32a8320413fa094981cd6b1ab",
+      "text": "happy cat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
+      "sha256": "494d52172ba007d1f03def52a72002606a6699daf02b6504cc6ce0c920f43628",
+      "text": "The kitten smiles with sweet joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_teach_fail_cfe0c2c5.mp3",
+      "sha256": "63f8257bcdacbf60017e343406ee3408bdab0f51ea39ed558911b551115a4502",
+      "text": "Look for the smiling kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_teach_success_318918f1.mp3",
+      "sha256": "f0a287eaaca673992dcae70591a2a3a295f43b6628649bc694ed03ee36377909",
+      "text": "Happy means feeling cheerful and content.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/intro_success_54cdcf69.mp3",
+      "sha256": "aaada59f9c086077861b8711cfc8b2b17371f9f1d28ed377eca1194b2703bd77",
+      "text": "The kitten is relaxing in your gentle care.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44397,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
+      "sha256": "98575e4291e93893ef58a61f4dfefc88c5cd7598c8f8b8fccce370c6cff485fd",
+      "text": "The gentle purring sounds like a sweet lullaby.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_teach_fail_eb2ded6f.mp3",
+      "sha256": "27647743a858b3706ea5506196a06558e6713e183e866a34d2577de049540179",
+      "text": "Look for the icon listening to the purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
+      "sha256": "4fddad2d33a048c1315b8fc1794218af6ee522ccc3d93148ee712db5f75a6215",
+      "text": "Listen to purr brings calmness and joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16461,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr.mp3",
+      "sha256": "e8deedb6ca69f39c587740f1ec87d501ebc21d89fe027973db0f332250a10d05",
+      "text": "listen to purr",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 56781,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/love_the_kitten_practice_success_56f81b2d.mp3",
+      "sha256": "5a31da353bc3d25b409837c979d282d52463e57fcc7952929ab5b16dc86246db",
+      "text": "You showed love to the kitten and remembered to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/love_the_kitten_teach_fail_4e499ae5.mp3",
+      "sha256": "9a3ef07df3cd053e072bcb0795c4d2c3c99e8de50eb6b5c30392b0d7cbcf3a60",
+      "text": "Look for the hand loving the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/love_the_kitten_teach_success_944cd9ba.mp3",
+      "sha256": "c79d632448883f28474af5f1fc3e046ee8aecfeab27460fadce032ace871eb34",
+      "text": "Love the kitten means caring gently and kindly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/love_the_kitten.mp3",
+      "sha256": "3444150fc334b186161cec616f3d9354f1b186a610d107e1219db5e533f87b33",
+      "text": "love the kitten",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cozy_practice_bd28b5f6.mp3",
+      "sha256": "b63c3d1578ae23cdb8070271d56c756e5df87d15fcdc67bd559ff972eccea950",
+      "text": "Tap the kitten to help it rest comfortably.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cozy_teach_3696277b.mp3",
+      "sha256": "348e385c1192acade4c137772a720ac70ca3baba4bf9168723bb9185d745556c",
+      "text": "Tap the cozy kitten resting.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
+      "sha256": "76e8d28e7865971be49f6a0163b13a2d959709966f743eff44173ea3f13d46c8",
+      "text": "Tap the kitten to share its happiness.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
+      "sha256": "263e45573fe009b1592a29d72d0ad9fa72bcfd118997ef609e78c5f3027b0e19",
+      "text": "Tap the happy contented cat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
+      "sha256": "ce7feca8873ff7fb64be8f241729921378e903d27738746c165b53501ca06101",
+      "text": "Tap the kitten to see its happy smile.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60237,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_intro_18134f85.mp3",
+      "sha256": "67f4d8358812b85bff5c4408c35b8d33b32a7c8da6444f131c2c3c1e86755b64",
+      "text": "The kitten feels so relaxed. It purrs happily with joy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_listen_to_purr_practice_00afa8d8.mp3",
+      "sha256": "1e0d946aed7b593cd0ad7ab902ec1236fed3fba0d1a6c2321e1898f80542f6a4",
+      "text": "Tap the kitten to hear the gentle purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_listen_to_purr_teach_6972ee93.mp3",
+      "sha256": "3e54868b181d79ffbf84a15456fbca31c51641475e29bde35f137087395eca4c",
+      "text": "Tap the ear to listen to the purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_love_the_kitten_practice_54dde678.mp3",
+      "sha256": "708d416df31def4d4f34dc7c3268f6131695e5e20eea6b69e0db7b52ea10d62c",
+      "text": "Tap the kitten and remember to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_love_the_kitten_teach_0599215c.mp3",
+      "sha256": "d3b367bf10b602d3ce37cf25aa9262918e3d6bf35424b49cad4fe9cc893579f0",
+      "text": "Tap the hand showing love to the kitten.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
+      "sha256": "5ee39a24adb5588cec737841c472d9a04b325b04ee091d10c082bc82dd30f617",
+      "text": "Tap the kitten to hear its joyful purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
+      "sha256": "810fab946ec9213d8f01878d0c769f6e51ff35445cc3da65b5127bd104fc011d",
+      "text": "Tap the kitten purring happily.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_snuggle_practice_9cb21b8c.mp3",
+      "sha256": "db34ec81e644ea941f7a16e66f34d0e60bac398820d7cbf3edabc709e8811ee2",
+      "text": "Tap the kitten as it snuggles against your hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34317,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_snuggle_teach_8af6753e.mp3",
+      "sha256": "7ddcb1865a2c516461226f6ccfbd75846b7ca0f9127553e1e4e8fafd40f0e0e2",
+      "text": "Tap the kitten snuggling close.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
+      "sha256": "15650411b7fc7e42120faededb00ab0dcb68a4f4ab5f191e6c986f20210a497d",
+      "text": "Tap the kitten to enjoy its sweet purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28845,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_sweet_purr_teach_a3bac58c.mp3",
+      "sha256": "d47e10d37770b47aadfe5d135d152b0f94bf642be5c4aff05585df60f89a0511",
+      "text": "Tap the sweet purr sound.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
+      "sha256": "6a411a244e991d717652f34e8466d1e95244f2f1dca7f8de3203e66f5f83848d",
+      "text": "Tap the tail to see it sway gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
+      "sha256": "a0b3066bc837be8e60d71af6f425b660f59d1414d32160f4f51ae02ef3b3883d",
+      "text": "Tap the curled kitten tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
+      "sha256": "02b097fc75fcdc0aa178b0503411e914f2488822243f8548476229d7573e8182",
+      "text": "The kitten purrs with warm happy vibrations.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_fail_1c9a6ec7.mp3",
+      "sha256": "397d9b861f8f32470683a1fbd48154fdb4443faed47bd73e3a86b352d7ecf99a",
+      "text": "Look for the kitten making a gentle purring sound.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_success_09c18159.mp3",
+      "sha256": "8272d661d64048ee0cdac4dd0e85821e662ed6b016c247f44ae89d842c552896",
+      "text": "Purr is the happy vibrating sound a cat makes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 8685,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr.mp3",
+      "sha256": "7762de94fd826d42e235427ca00ac0fc39a41de89499ddf6cea9d6f60f9f4035",
+      "text": "purr",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/snuggle_practice_success_9e1f99ca.mp3",
+      "sha256": "ab7234658c7980406d95c0865b8612220939e18565a6daa972aa5d5f319068a4",
+      "text": "The kitten snuggles against your hand with love.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/snuggle_teach_fail_0a7a6cd1.mp3",
+      "sha256": "0434fe7921e4e764665299499e9946acff16f9eaf7643fd04c3876606efe2b21",
+      "text": "Look for the kitten nuzzling gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/snuggle_teach_success_8fd70841.mp3",
+      "sha256": "2ab7e004be1cb350967dfdc4ba919c91e73d6a521edc16881bc48ec1d6ba4c11",
+      "text": "Snuggle means cuddle up lovingly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/snuggle.mp3",
+      "sha256": "8a209446784b96560230ae73b85d60fac7054f1e4a7d4f42f495f1a47465aa0d",
+      "text": "snuggle",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
+      "sha256": "ba09adcec65760068db434cac697955a6d9cea1a2a7c33f075ab25460c8d5857",
+      "text": "The kitten makes a sweet purr and dozes peacefully.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_fail_dd018284.mp3",
+      "sha256": "532cceecbb4412861a138d885a9b432d27d8bc94a8443cfd120c6df7e5084198",
+      "text": "Look for the gentle purr notes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50157,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
+      "sha256": "7b3d98800d5e5a709783cef260cdb4bcaaf521d29b7f0262ad2f88b1d56d85fc",
+      "text": "A sweet purr means the kitten feels completely safe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14733,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr.mp3",
+      "sha256": "7b79e9c0fd53f1d3a319c5426854cc3551a8f8775355130557f008397dc89a7d",
+      "text": "sweet purr",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25101,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
+      "sha256": "2cd6d92a697365c02ee417badbb0aa6783894350816d6d20c6c116832383dbc1",
+      "text": "Look for the kitten tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_success_12907e40.mp3",
+      "sha256": "fbb9599af1b2c885c1488989b1d368a90130a3047fe714464844620de34c166e",
+      "text": "The kitten’s tail sways gently with happiness.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29997,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_teach_fail_13583932.mp3",
+      "sha256": "d18ac744d04044055e8661190cf0195075091ede81c8bda9bde896892491dd29",
+      "text": "Look for the soft orange tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
+      "sha256": "fe6fcc5357f6ae9c43a7d21a4b299f2ad9dd32f62fa562d4578b87fc144a4f77",
+      "text": "A tail sways gently when a cat is calm.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/completion_70e8e7ff.mp3",
+      "sha256": "e0c7198f585b25638bb88e8cff5140d263cf17f0b366fcc27c46dc229a647085",
+      "text": "The kitten is neatly groomed and purring happily.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cozy_practice_success_fbf1ce36.mp3",
+      "sha256": "e114325670613ca97c17e4fd34d5c2b5c4fdc0e9c095785a63b3e2be7c340d4c",
+      "text": "The kitten curls up warm and cozy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cozy_teach_fail_6ede7a72.mp3",
+      "sha256": "3d68a72ee8649c78229f10cbc4e735882b5eb83a46c04e0d774b6b0ae08165c0",
+      "text": "Look for the kitten resting comfortably.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cozy_teach_success_ea7f77a9.mp3",
+      "sha256": "9300503735793be525c6586e8dc6ec2b51cf01f7806725c3de57294712da6ae1",
+      "text": "Cozy means warm, snug, and comfortable.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cozy.mp3",
+      "sha256": "f2ca8dccfb7e5e720e2e9ac189508ef578060d3dac58bb756a5c237066964b4d",
+      "text": "cozy",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 22221,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
+      "sha256": "940e5b8c040dca248f1dc9eb7c51c25da8e89b50412c54867f3d232c350c286b",
+      "text": "Look for the happy cat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
+      "sha256": "2669831827547823285f575cf7937ca0a80bd5efdc162f52e0738b63c11ee3b5",
+      "text": "The happy cat feels loved and peaceful.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
+      "sha256": "ba0f58c4818d6805d5fa016b192a9d57de9d73824612b9146d71118cca56ab9c",
+      "text": "Look for the relaxed and contented cat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
+      "sha256": "bcab3fe65a6a9723fb9295b3e06d0ffa06df6dbc76362a2c8ddf59cbd8c1d163",
+      "text": "A happy cat is relaxed and loved.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13581,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat.mp3",
+      "sha256": "8c9b17d8bca789c7039aad5a5d188c07d758308c4a33f4130b56d30c198c1f1f",
+      "text": "happy cat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
+      "sha256": "01bed70c3359fea10eaf9f29410b2fba1f0c9ff1f9932380c765ccf373d1f4df",
+      "text": "The kitten smiles with sweet joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24525,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_teach_fail_cfe0c2c5.mp3",
+      "sha256": "0220d855283fe7a7f49e64cafe8a523e2435a8d9fe0ae9e85793eaa9b60d895b",
+      "text": "Look for the smiling kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_teach_success_318918f1.mp3",
+      "sha256": "5e1377f577076b74dae0557449f94b6778fa4a40df569b8d94a89a2b19c91481",
+      "text": "Happy means feeling cheerful and content.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/intro_success_54cdcf69.mp3",
+      "sha256": "e898c3d5911cbfe82a1760f98531463e0ad651d48e3768fad0d14830bd421967",
+      "text": "The kitten is relaxing in your gentle care.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
+      "sha256": "643cf280f0e645ac9eb78dfca258d4ed1c82eb1b2ce285f49617a202d778f67c",
+      "text": "The gentle purring sounds like a sweet lullaby.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_teach_fail_eb2ded6f.mp3",
+      "sha256": "06c3dad3a6b8eefbc0de3603cf7b3b2ea07a32f57ce4d6a332b330527b465482",
+      "text": "Look for the icon listening to the purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
+      "sha256": "86501529aa12c45961fdc1b5e3a36117ec703835558642a18e05dcdc45cf28cd",
+      "text": "Listen to purr brings calmness and joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr.mp3",
+      "sha256": "c5cf84405e06ff28c23af230726c4946280fa340c1f3d57f0152fa1513e4d852",
+      "text": "listen to purr",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51021,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/love_the_kitten_practice_success_56f81b2d.mp3",
+      "sha256": "a16dc063ede50931cee52e3c37f38c96d5c9114618f2f8eb81f3594a62d6cc9a",
+      "text": "You showed love to the kitten and remembered to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/love_the_kitten_teach_fail_4e499ae5.mp3",
+      "sha256": "e97444a03bf38635630db05c829aa74c332f8b5944b63158aa82e573941d2c62",
+      "text": "Look for the hand loving the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/love_the_kitten_teach_success_944cd9ba.mp3",
+      "sha256": "6b1636e58af13a96459f7016cb00cc5752bbf7e6b5c2f75516a954c9bec19daf",
+      "text": "Love the kitten means caring gently and kindly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/love_the_kitten.mp3",
+      "sha256": "307626715a58a6cb406f20a4c59283755e6151aa879978e3701ed63b3ad25832",
+      "text": "love the kitten",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cozy_practice_bd28b5f6.mp3",
+      "sha256": "f160654d1391049f78b26cabc2a6a2409477137f052cbb1523a970f9b42a4656",
+      "text": "Tap the kitten to help it rest comfortably.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27981,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cozy_teach_3696277b.mp3",
+      "sha256": "c891984257f8fa6dcb8160f2a27efeff2fee6c769d7d952eec8e005443b0bf65",
+      "text": "Tap the cozy kitten resting.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
+      "sha256": "51f6f887ba35314f4d29bafffb223bc7985e0644a51e27bdd2e068d19f1f306a",
+      "text": "Tap the kitten to share its happiness.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
+      "sha256": "c637504e0fa74fc47d76afd7f13a53469aa8e36263a232f4a1761c417896cf5c",
+      "text": "Tap the happy contented cat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
+      "sha256": "153478b6df91fb69d625512c49830ce2356f67cacd6da6ecac36ef44cff3a4cb",
+      "text": "Tap the kitten to see its happy smile.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55341,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_intro_18134f85.mp3",
+      "sha256": "9894b8546f9b667f3d87c49338894d7076a1429dee45db2cdaaaa2f095f8c84b",
+      "text": "The kitten feels so relaxed. It purrs happily with joy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_listen_to_purr_practice_00afa8d8.mp3",
+      "sha256": "7ab9add41f92913563f46fea76f4470f18be72711b723492a78cccc21eaf89f3",
+      "text": "Tap the kitten to hear the gentle purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_listen_to_purr_teach_6972ee93.mp3",
+      "sha256": "c66cc579a46fa20c49dfeeb0631ce100d8d57f187494019fdeaaa2ea4115e8bd",
+      "text": "Tap the ear to listen to the purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_love_the_kitten_practice_54dde678.mp3",
+      "sha256": "17c82dc40200b9ec0ddc10f3052513f97fb2d989c2d97d16d62f4e5420af5520",
+      "text": "Tap the kitten and remember to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_love_the_kitten_teach_0599215c.mp3",
+      "sha256": "77001b9930ac3e13e671575a66ddfe8447cde66e326a6672906ef58af628a73b",
+      "text": "Tap the hand showing love to the kitten.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
+      "sha256": "a3fc1b7e5b7c504c0f72e8f403d6de3ac99af8621ca3fed79263ed2a7470bd9e",
+      "text": "Tap the kitten to hear its joyful purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
+      "sha256": "8138c329bb4ee2b1effa2c2a9fcc1fa9f2720b14cdcd42c204fad96540a572a3",
+      "text": "Tap the kitten purring happily.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_snuggle_practice_9cb21b8c.mp3",
+      "sha256": "580c59ebd2ce497e47f0c2450e1b593306a2f0ee4d02df63c5db032b4dd255b4",
+      "text": "Tap the kitten as it snuggles against your hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29997,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_snuggle_teach_8af6753e.mp3",
+      "sha256": "7964bf9358c576702926b52061a9f58e0e0c1e032658a4efeb8bce8e7590e986",
+      "text": "Tap the kitten snuggling close.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
+      "sha256": "2347001b70c5a99f56a5334c3655c0c90e6053419e8f34c8fc33f57811e34462",
+      "text": "Tap the kitten to enjoy its sweet purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25965,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_sweet_purr_teach_a3bac58c.mp3",
+      "sha256": "bfa555087a64f25a3b04921c999956f674644be110cf3bc9cec63432749aee0e",
+      "text": "Tap the sweet purr sound.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
+      "sha256": "458f20866579333feb2de0a6743e900891c84806b2240b840e0ccf81140a79b7",
+      "text": "Tap the tail to see it sway gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
+      "sha256": "7344fc3a7e2c6f860aa6b99e481bc7aff8f1629d1427f7f47bb347ba2a642ebc",
+      "text": "Tap the curled kitten tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
+      "sha256": "e56a590acf39806ac35ed0cf60d33b30e95b768ee8f1965aa0fd4a930fd3390f",
+      "text": "The kitten purrs with warm happy vibrations.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_fail_1c9a6ec7.mp3",
+      "sha256": "c422b779a6f0c94039b2786a610f88677d003caad4849f7071b41a784390b3b2",
+      "text": "Look for the kitten making a gentle purring sound.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43533,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_success_09c18159.mp3",
+      "sha256": "85fab69715972aeb5f2bd997bae6988e66fd82ccec9e821e7ced52fb0c0807d7",
+      "text": "Purr is the happy vibrating sound a cat makes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9261,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr.mp3",
+      "sha256": "e9e2a08c7be0bab249137274438618143f1f622d3db59358746e475bb7c8f14c",
+      "text": "purr",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/snuggle_practice_success_9e1f99ca.mp3",
+      "sha256": "2fea98f762289d805da793b9f83362d6ce697225665a8408e5960825364a3be3",
+      "text": "The kitten snuggles against your hand with love.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31437,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/snuggle_teach_fail_0a7a6cd1.mp3",
+      "sha256": "9138d80592f7f0d03d47f37a90c8d517c6b5be5a9a7a8378b0b505f11b6cdbe3",
+      "text": "Look for the kitten nuzzling gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/snuggle_teach_success_8fd70841.mp3",
+      "sha256": "3a943a7391fe24d9ffba8251533bb5072716a7d2aae77486834c53a44cf1ad84",
+      "text": "Snuggle means cuddle up lovingly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/snuggle.mp3",
+      "sha256": "f4307cf3c70b4f6230f1aa1d14921ebabac756ebf8a5328955551764111e653c",
+      "text": "snuggle",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
+      "sha256": "d8e7416c6a662d375ee9426f145454e8b6f400bc11ee62039c2cda475ead78a9",
+      "text": "The kitten makes a sweet purr and dozes peacefully.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_fail_dd018284.mp3",
+      "sha256": "085ad88102fa72122df05b1f65acbf790b37daed63d69a33a90f2531a282b8ff",
+      "text": "Look for the gentle purr notes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46701,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
+      "sha256": "376fb4969a45dcfbafa01b1f7859a7547d4e986d07cbdb3dc16d4fd934b21eaa",
+      "text": "A sweet purr means the kitten feels completely safe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15021,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr.mp3",
+      "sha256": "114c76db1d69c068fb5cf52108c872fd510af8b4ac5129c84524768b8ba9a8c9",
+      "text": "sweet purr",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21933,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
+      "sha256": "5d5906199ee24de03bcd215209a4b13b1f9a281c625b3bd6bace28a491016f5b",
+      "text": "Look for the kitten tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_success_12907e40.mp3",
+      "sha256": "738fd706d4ca39ed4b214fb234034ea4bbcd9a16d3d76a55291bd0c25f0e81d0",
+      "text": "The kitten’s tail sways gently with happiness.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_teach_fail_13583932.mp3",
+      "sha256": "d4f9d3987db0061184fb4040b8bb67eeecbe04c770e78ba44ce941691f8c850c",
+      "text": "Look for the soft orange tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
+      "sha256": "540c2ff68b065704c41976bc14cd4567e3d6fc9cb82634ca7b42c4b9c57ee8fb",
+      "text": "A tail sways gently when a cat is calm.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 42669,
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/choose_leave_unripe_one_fail_b1defe07.mp3",
       "sha256": "bc6d8802a326f53085b2f098e4c2b7563f7db0be12bd789e5dc6f3c3377e6c80",

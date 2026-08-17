@@ -107,6 +107,7 @@ const themeCatalog: LessonTheme[] = [
       'find-the-kitten',
       'clean-muddy-paws',
       'care-for-the-rabbit',
+      'groom-the-kitten',
     ],
   },
 ];

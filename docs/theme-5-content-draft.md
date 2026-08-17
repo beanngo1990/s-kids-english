@@ -131,9 +131,9 @@ tối đa số lần micro xuất hiện hoặc ngụ ý engine đã chấm đú
 | 3 | `find-the-kitten` | Tìm mèo con / Find the Kitten | Nghe tiếng mèo -> tìm chỗ trốn -> gọi mèo ra | Mèo bước ra và dụi đầu vui vẻ |
 | 4 | `clean-muddy-paws` | Rửa chân bẩn / Clean Muddy Paws | Nhìn chân bẩn -> rửa nhẹ -> lau khô | Dấu bùn biến mất, chân sạch và khô |
 | 5 | `care-for-the-rabbit` | Chăm thỏ con / Care for the Rabbit | Chuẩn bị cỏ khô -> thêm nước -> cho món nhỏ đã chuẩn bị | Thỏ ăn, uống và nhảy vui |
-| 6 | `pet-bedtime` | Giờ đi ngủ / Pet Bedtime | Tìm giường -> đắp chăn -> tắt đèn | Các bạn nằm yên dưới ánh đèn ngủ |
+| 6 | `groom-the-kitten` | Chải lông cho mèo con / Groom the Kitten | Lấy lược -> chải lông mượt -> mèo gừ gừ hạnh phúc | Mèo con lông mượt và gừ gừ âu yếm |
 
-Hành trình đi từ nhu cầu dễ hiểu nhất đến routine khép lại một ngày. `feed-the-puppy` mở đầu vì
+Hành trình đi từ nhu cầu dễ hiểu nhất đến chăm sóc và gắn kết yêu thương với thú cưng. `feed-the-puppy` mở đầu vì
 đói -> bát -> thức ăn -> ăn là quan hệ nhìn thấy ngay và phù hợp nhất để child-test template.
 
 ## 6. Anchor families and role boundaries
@@ -148,8 +148,8 @@ Danh sách dưới đây khóa semantic seed và tính khả thi của review, k
 | `play-with-the-puppy` | ball, run, catch, play | fetch | roll the ball |
 | `find-the-kitten` | kitten, box, basket, hide | under | find the kitten |
 | `clean-muddy-paws` | paws, mud, water, towel | basin | dry the paws |
-| `care-for-the-rabbit` | rabbit, hay, water bowl, hop | carrot | feed the rabbit |
-| `pet-bedtime` | bed, blanket, lamp, sleep | quiet | turn off the light |
+| `care-for-the-rabbit` | rabbit, hay, water, hop | hay rack | feed the rabbit |
+| `groom-the-kitten` | kitten, brush, smooth, purr | mat, comb | brush the fur |
 
 - Exact review anchors phải có visual dương, rõ và không phụ thuộc chữ.
 - `hungry`, `hide`, `clean`, `quiet` chỉ được giữ nếu storyboard chứng minh meaning bằng trạng

@@ -464,6 +464,17 @@ export const lessonRewards: LessonReward[] = [
     tone: 'coral',
     title: 'Bé đã mở khoá Rabbit Caregiver!',
   },
+  {
+    id: 'reward-groom-the-kitten',
+    iconName: 'milestoneGroomTheKitten',
+    lessonId: 'groom-the-kitten',
+    stickerId: 'sticker-groom-the-kitten',
+    stickerName: 'Gentle Groomer',
+    stickerNameEn: 'Gentle Groomer',
+    stickerNameVi: 'Trợ thủ chải lông khéo',
+    tone: 'sun',
+    title: 'Bé đã mở khoá Gentle Groomer!',
+  },
 ];
 
 export function getLessonReward(lessonId: string) {

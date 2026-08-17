@@ -15048,6 +15048,650 @@
       "hasAlpha": false,
       "height": 1672,
       "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/brush-fur-action.webp",
+      "outputBytes": 33318,
+      "outputSha256": "408e3973cc2c1e7326ae922fbaa812bfe2a02ece63fbaeb8d006d94d5409c0e9",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/brush-fur-action.png",
+      "sourceBytes": 639812,
+      "sourceSha256": "d8d7bf1023adaa1e0d9730f3a735db2feac10ad0ab37392c7cb5d63c416d45a3",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/brush-softly-cue.webp",
+      "outputBytes": 27660,
+      "outputSha256": "f02a0fd0399e647cafaafcecc5eaa0251862cb969ecb6039805c486887640df7",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/brush-softly-cue.png",
+      "sourceBytes": 747853,
+      "sourceSha256": "63620278d83b5f61dad52629aae5f7ba6e071ab10eb70309134698f6a5f9d378",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/gentle-brushing-cue.webp",
+      "outputBytes": 34272,
+      "outputSha256": "fca44d74dd301a36365a45f5a13d6bdff2f4cd01608627b13f35c9ed095eb8b8",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/gentle-brushing-cue.png",
+      "sourceBytes": 802015,
+      "sourceSha256": "5f01a79cedb14228dd1317a7625e6eb8c6f0faf0e02856d037a156956e4e2dab",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/grooming-brush-active.webp",
+      "outputBytes": 35912,
+      "outputSha256": "0b90ea7aa20f25557ffbc8b321df54eed79277ddfaafae6c22e971fc9097512b",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/grooming-brush-active.png",
+      "sourceBytes": 737220,
+      "sourceSha256": "783292b55cc2168c51d92bc6cc65ef181790e3a70b9237e9d970e60b13a47d9e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-being-brushed.webp",
+      "outputBytes": 68850,
+      "outputSha256": "e24eeaa5889cfef00825a00a764eac1586699a8ab8fac7e447e9ac2a61060b68",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-being-brushed.png",
+      "sourceBytes": 1099734,
+      "sourceSha256": "4371c0189b8299303695e8d84289dbb86251c74c4d11de42c687c23d5bf9f5b4",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-fluffy-neat.webp",
+      "outputBytes": 67578,
+      "outputSha256": "6d6d53715c8726355f803daf32c2b2d0c7887b5c38ea4c9f8b2dbcd928643bdd",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-fluffy-neat.png",
+      "sourceBytes": 1109065,
+      "sourceSha256": "d2123abb785821416666c3e71202da6cb8e0de1497d05d0a6aa2afeda3bfc5fd",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-sitting-calm.webp",
+      "outputBytes": 47324,
+      "outputSha256": "c24566379c8b15a4dd09613a044817709577bc236df5a8467f093ebe675368f5",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-sitting-calm.png",
+      "sourceBytes": 897666,
+      "sourceSha256": "45c26fb89bd032078b11466f284b33834ba486b7b5bbf4ba0e9f04b0255c8041",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-smooth-fur.webp",
+      "outputBytes": 61484,
+      "outputSha256": "be8dd5a7e64f0ce4fc470de19ed5e906bd6c4c6de934efd26385ef038d755195",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-smooth-fur.png",
+      "sourceBytes": 993685,
+      "sourceSha256": "7c347a5419fdf8863908c979b243b02d372a35798dd28a3115688e032fad4c68",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/stroke-fur-action.webp",
+      "outputBytes": 28846,
+      "outputSha256": "577752ad7dc83e211e466910ee2f5d64af89f4d61a95b79d4c9578ceb6a48d1d",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/stroke-fur-action.png",
+      "sourceBytes": 847823,
+      "sourceSha256": "4e2163276c2c56eff5fc99c0e37f48530f336e19ac0775ee4484cc3480889d59",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/fur-tangle-closeup.webp",
+      "outputBytes": 98710,
+      "outputSha256": "c2dd9bb420f7ce3e65786abb228918bf51a6e7afe780d05b1b3cc111e60102bb",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/fur-tangle-closeup.png",
+      "sourceBytes": 1647102,
+      "sourceSha256": "b2d34b8666665bf321bc039e816eea0abafd4da197efdf1b4b0ee885c2747d17",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 28,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/grooming-brush.webp",
+      "outputBytes": 32360,
+      "outputSha256": "83b6d5cf66a83b3013a16bf1603c6a093e1c0a57cb64059355da64378d4d5f85",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/grooming-brush.png",
+      "sourceBytes": 609286,
+      "sourceSha256": "9bad248a1fa9ef089f2ee10cfabb5a4002351e92d9b2a553960189958f675acc",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-fur-closeup.webp",
+      "outputBytes": 65592,
+      "outputSha256": "c05f00202ed809d7cc82a17db2adeec4b78feb96a6f3a168baabd7333c3bad70",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-fur-closeup.png",
+      "sourceBytes": 1703586,
+      "sourceSha256": "832a899fb0156a14225243357e5a18870fd7edf969c91651855a54169d23c4cd",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-calm.webp",
+      "outputBytes": 47324,
+      "outputSha256": "c24566379c8b15a4dd09613a044817709577bc236df5a8467f093ebe675368f5",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-calm.png",
+      "sourceBytes": 897666,
+      "sourceSha256": "45c26fb89bd032078b11466f284b33834ba486b7b5bbf4ba0e9f04b0255c8041",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-messy.webp",
+      "outputBytes": 70138,
+      "outputSha256": "3366153b837e2052e00872595dcb14f7154e7bdc359e19a83a0e47e2fa109a6b",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-messy.png",
+      "sourceBytes": 1164963,
+      "sourceSha256": "1b60516c6f3e197dd89260efb29c6edfceb42c02428f6c5a682d084dd8a1a399",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 50,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/sitting-mat.webp",
+      "outputBytes": 40112,
+      "outputSha256": "e6a9428708710d704a9176c35b562fb7231a6a84f21900189ac751ab619b8774",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/sitting-mat.png",
+      "sourceBytes": 566192,
+      "sourceSha256": "3e6bb28dfb3354b441d441d629979f41a0718d0c1a898e454453ecf8d643e2e2",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/get-the-brush/images/soft-kitten-fur.webp",
+      "outputBytes": 40340,
+      "outputSha256": "4c611d816ca1052c0bd62b195b9629c3624585950dff88f86001da42b21e99de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "get-the-brush"
+      ],
+      "source": "lessons/groom-the-kitten/get-the-brush/images/soft-kitten-fur.png",
+      "sourceBytes": 801627,
+      "sourceSha256": "d0c37f58f68a8a0a36106a8284e4158c223a63efbf4bd3adaa8fd92f2eb95d2e",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 100,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/background.webp",
+      "outputBytes": 24150,
+      "outputSha256": "facd6070dc127230be10389f108aa3c7a2b4c75f492a93279b1022327be03570",
+      "profile": "background",
+      "roles": [
+        "background"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/background.png",
+      "sourceBytes": 1590182,
+      "sourceSha256": "25082c30735f133a91ae662c8dcf6be99eb5de755efded251c830f83ca3560e4",
+      "width": 941
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-content.webp",
+      "outputBytes": 46074,
+      "outputSha256": "d4da13322bf3ae2c50dae8fa98033b4a7e62d9f09b9bc2c500298887f0b721aa",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-content.png",
+      "sourceBytes": 875937,
+      "sourceSha256": "ff5ad6dc8f2734c26cf5aa5773c28f3e019cc3013c48603d6d9cb9f2435868ea",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-cozy-curled.webp",
+      "outputBytes": 48854,
+      "outputSha256": "e29108c93f8eecc0d9ea1d16f968d0379b6d0b7c83037343f53e7ecdaa455a7c",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-cozy-curled.png",
+      "sourceBytes": 947496,
+      "sourceSha256": "2ce7786e0810bd0820bcdb4491e3417d7be82c9c78ffad66b2e8022d34367704",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-happy-smile.webp",
+      "outputBytes": 65278,
+      "outputSha256": "8eeddb4863865cdd105131059e042419e5ae41f4d64f275ae08bf3f3b5c133a3",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-happy-smile.png",
+      "sourceBytes": 1098589,
+      "sourceSha256": "1fabac4d36a8e9a092e2c7dec3da43e8fe897e96e73126aea96dc0d12a6dbd00",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-loved-peaceful.webp",
+      "outputBytes": 42436,
+      "outputSha256": "4fa7854a397a6b89104271b953754c4bea9f2ea0f3749b8d0ebbbe4a7eb0dacb",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-loved-peaceful.png",
+      "sourceBytes": 788487,
+      "sourceSha256": "6b0dc7da3fc93a9ca9444203f53ff8dd8bb925c3d81621d1621d7bda8c067345",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-purring-hearts.webp",
+      "outputBytes": 43812,
+      "outputSha256": "2cafb0e6fe63912a2e30771616a0c94ec3140af5443fc92489c95743ac985776",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-purring-hearts.png",
+      "sourceBytes": 1044158,
+      "sourceSha256": "fb3193ed25df9de2ad2bd587fb2e8f845d55a18156ce8c8daedd3e08d8c4d70f",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-tail-closeup.webp",
+      "outputBytes": 39248,
+      "outputSha256": "ff211c223e3a93e0a0735a8a607616ecf6e9655a14316c8364c6a462cad4ef67",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-tail-closeup.png",
+      "sourceBytes": 823664,
+      "sourceSha256": "b342bb79202f43284858156289f3b282e83aafa4002cf0b98348555616a9945d",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/listen-purr-cue.webp",
+      "outputBytes": 32926,
+      "outputSha256": "7c67c94c3c8a6c015655e85e4e7e54bc4f3c3dc2dae8592083ef58bcb8dee8b0",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/listen-purr-cue.png",
+      "sourceBytes": 703620,
+      "sourceSha256": "9ebbc8cd71c9a92a7b50ade6317c31de96900bc3b98b594b6985c51b43651ae5",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/snuggle-action-cue.webp",
+      "outputBytes": 42318,
+      "outputSha256": "491a8b2f0da3b973a3c9bd61914dfdd2db9f89894a79447a0602e5807f856d7a",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/snuggle-action-cue.png",
+      "sourceBytes": 965702,
+      "sourceSha256": "82506fea8cf0190b738ec014a4fe5db27cbee7603d91d9faa7ddd8e203978584",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 29,
+      "output": "lessons/groom-the-kitten/kitten-purrs/images/sweet-purr-soundwave.webp",
+      "outputBytes": 32190,
+      "outputSha256": "ed680e3af647a6302a7710d1991d0e0c5180a6938eb91f0376fc3d68ecc7c9d1",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "kitten-purrs"
+      ],
+      "source": "lessons/groom-the-kitten/kitten-purrs/images/sweet-purr-soundwave.png",
+      "sourceBytes": 368398,
+      "sourceSha256": "c5c4e80b3e332138442d6c4e2145453bfa32135ea7da2c7306067092623723d6",
+      "width": 768
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": false,
+      "height": 1672,
+      "lessonIds": [
         "harvest-day"
       ],
       "maxPercent": 100,
@@ -27901,7 +28545,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-17T04:32:59.076Z",
+  "generatedAt": "2026-08-17T11:19:44.948Z",
   "releaseVersion": "v1",
-  "revision": "0525aa95622bff9d"
+  "revision": "f10f24bf80397323"
 }
