@@ -103,7 +103,6 @@ await cutObjects('save-for-next-season', 'save', [
   ['envelope-closed', 4],
   ['envelope-stored', 5],
   ['place-seed-control', 6],
-  ['adult-store-control', 7],
   ['time-cue', 8],
   ['new-season-pot', 9],
   ['save-seeds-action', 10],

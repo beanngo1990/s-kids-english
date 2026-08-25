@@ -2,8 +2,8 @@
 
 **Freeze date:** 2026-08-13
 
-**Status:** Mốc 4B frozen; Mốc 4C vertical slice đã author. Nhịp tương tác được mở rộng ngày
-2026-08-13 sau kiểm thử thực tế trên Android.
+**Status:** Vocabulary-first revision 8/12/16 implemented and published on 2026-08-25. Mốc 4B/4C
+cũ được giữ làm lịch sử và các delta trong mục 13 có ưu tiên khi mô tả runtime.
 
 **Lesson ID:** `help-it-grow`
 
@@ -50,7 +50,7 @@ hoặc audio key; không âm thầm đổi ID/copy trong code.
 3. `wind-and-support` — Gió và cây đứng vững / Wind and Support — `🌬️`
 
 Core/expanded/challenge đều đi qua cùng ba scene và kết thúc bằng cùng hero plant đứng thẳng, có
-nhiều lá và một nụ hoa nhỏ sau cue ngày-đêm. Expanded/challenge chỉ thêm encounter; không thay đổi
+nhiều lá và một bông hoa vàng sau cue ngày-đêm. Expanded/challenge chỉ thêm encounter; không thay đổi
 core prerequisite hoặc end state.
 
 ## 3. Hero plant continuity
@@ -58,7 +58,7 @@ core prerequisite hoặc end state.
 - Hero plant lineage được khóa là **cây cà chua**.
 - `plant-a-seed` vẫn dùng hình hạt/mầm chung; `help-it-grow` tiếp nối bằng một cây cà chua non chưa
   có hoa/quả. Teacher copy chỉ gọi là `cây nhỏ` hoặc `the little plant`, không dạy `tomato` sớm.
-- `wind-and-support` kết thúc bằng một nụ hoa nhỏ sau cue thời gian. `garden-friends` có thể tiếp
+- `wind-and-support` kết thúc bằng một bông hoa vàng sau cue thời gian. `garden-friends` có thể tiếp
   nối với hoa; `harvest-day` mới giới thiệu từ `tomato` khi quả hiện rõ.
 - Cây cà chua giữ một silhouette, chậu đất nung và hướng sáng nhất quán. Mỗi scene tự author initial
   state vì Scene State v1 reset khi chuyển scene.
@@ -74,29 +74,41 @@ core prerequisite hoặc end state.
 
 | Scene | Key | Word | Nghĩa Việt | Type | Level / scope | Speech | Review visual |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| `new-leaf-and-sunlight` | `watering-can` | `watering can` | bình tưới cây | noun | easy / core | `auto` | Bình tưới cây xanh có vòi sen rõ. |
 | `new-leaf-and-sunlight` | `leaf` | `leaf` | chiếc lá | noun | easy / core | `auto` | Một lá cà chua xanh tách nền. |
 | `new-leaf-and-sunlight` | `sunlight` | `sunlight` | ánh nắng | noun | easy / core | `auto` | Một vùng tia nắng vàng, không có chậu cây. |
 | `new-leaf-and-sunlight` | `shade` | `shade` | bóng râm | noun | medium / expanded | `optional` | Vùng râm xanh mát có silhouette lá. |
+| `new-leaf-and-sunlight` | `move-into-sunlight` | `move into sunlight` | đưa vào vùng nắng | phrase | hard / challenge | `auto` | Chậu cây, mũi tên và tia nắng cùng một hình. |
 | `rainy-day-care` | `rain` | `rain` | mưa | noun | easy / core | `auto` | Mây và các giọt mưa rõ silhouette. |
+| `rainy-day-care` | `soil` | `soil` | đất trồng cây | noun | easy / core | `auto` | Mảng đất nâu sẫm còn ướt trong chậu. |
 | `rainy-day-care` | `roots` | `roots` | rễ cây | noun | medium / expanded | `optional` | Cụm rễ cà chua nhìn qua ô đất cắt lớp. |
 | `rainy-day-care` | `check-soil` | `check the soil` | kiểm tra đất | phrase | hard / challenge | `auto` | Một ngón tay chạm nhẹ mặt đất trong chậu. |
+| `rainy-day-care` | `wait-for-rain-to-stop` | `wait for the rain to stop` | chờ mưa tạnh | phrase | hard / challenge | `auto` | Các giọt mưa xanh trước khi mưa biến mất. |
+| `wind-and-support` | `flower` | `flower` | bông hoa | noun | easy / core | `auto` | Cây đứng vững có bông hoa vàng đã nở. |
 | `wind-and-support` | `wind` | `wind` | gió | noun | easy / core | `auto` | Luồng gió xoáy cùng hai chiếc lá bay. |
 | `wind-and-support` | `stem` | `stem` | thân cây | noun | easy / core | `auto` | Phần thân xanh giữa rễ và lá, crop đủ ngữ cảnh. |
 | `wind-and-support` | `stake` | `stake` | cọc đỡ cây | noun | medium / expanded | `optional` | Một cọc làm vườn đầu tròn, không có chữ. |
+| `wind-and-support` | `soft-tie` | `soft tie` | dây buộc mềm | noun | medium / expanded | `optional` | Dải dây mềm màu xanh, không phải cọc. |
 | `wind-and-support` | `support-stem` | `support the stem` | đỡ thân cây | phrase | hard / challenge | `auto` | Cây nghiêng được cọc và dây mềm đỡ thẳng. |
 
 Vocabulary IDs dùng đúng dạng:
 
 ```text
+vocab-help-it-grow-new-leaf-and-sunlight-watering-can
 vocab-help-it-grow-new-leaf-and-sunlight-leaf
 vocab-help-it-grow-new-leaf-and-sunlight-sunlight
 vocab-help-it-grow-new-leaf-and-sunlight-shade
+vocab-help-it-grow-new-leaf-and-sunlight-move-into-sunlight
 vocab-help-it-grow-rainy-day-care-rain
+vocab-help-it-grow-rainy-day-care-soil
 vocab-help-it-grow-rainy-day-care-roots
 vocab-help-it-grow-rainy-day-care-check-soil
+vocab-help-it-grow-rainy-day-care-wait-for-rain-to-stop
+vocab-help-it-grow-wind-and-support-flower
 vocab-help-it-grow-wind-and-support-wind
 vocab-help-it-grow-wind-and-support-stem
 vocab-help-it-grow-wind-and-support-stake
+vocab-help-it-grow-wind-and-support-soft-tie
 vocab-help-it-grow-wind-and-support-support-stem
 ```
 
@@ -107,15 +119,14 @@ expanded/medium, challenge/hard. Không dùng `minAge` vì runtime chưa truyề
 
 | Concept/object | Role | Scene use | Runtime mapping |
 | --- | --- | --- | --- |
-| Nước / bình tưới | Quick Recall concept | Làm cây đang rũ tươi hơn ở scene 1. | Regular draggable object, không `VocabularyItem`, `vocabId`, `promptText` hoặc speech panel. |
 | Chậu cây và đích trực quan | Action Enabler | Kéo cây vào vùng nắng hoặc dưới mái che. | Regular draggable hero-plant object/drop zones; cue Việt/visual đủ cho free journey. |
-| Đất | Quick Recall concept | Bé chạm đất để xem còn ướt sau mưa. | Regular interactive soil patch; không phát model word `soil`. |
-| Vòng ngày-đêm | Action Enabler | Thể hiện thời gian trước lá mới và nụ hoa. | Regular tap object; success đổi state sau cue. |
-| Que đỡ, dây mềm | Action Enabler ở core | Giúp mọi mode đạt cùng end state. | Regular draggable objects; expanded dạy `stake` qua một close-up learning object riêng. |
+| Vòng ngày-đêm | Action Enabler | Thể hiện thời gian trước lá mới và hoa. | Regular tap object; success đổi state sau cue. |
+| Mái che, mây và đích trú mưa | Action Enabler | Di chuyển chậu và cho cơn mưa đi qua. | Regular visual/drag/tap controls; phrase challenge dùng learning duplicate riêng. |
+| Que đỡ | Action Enabler ở core | Giúp mọi mode đạt cùng end state. | Que kéo vẫn là regular object; `stake` và `soft tie` dùng close-up learning object riêng ở expanded. |
 
-Quick Recall trong lesson này là recall khái niệm bằng lời Việt và hình. Engine hiện không có lượt
-model-word English non-progress riêng; không đặt English vào `instructionVi` để giả lập.
-Năm nhóm core là nước, chậu/đích kéo, đất, vòng thời gian và bộ que-dây. Hai control khám phá
+Vocabulary-first revision nâng `watering can` và `soil` từ Quick Recall thành core anchors vì hình
+và hành động đã đủ rõ; `soft tie` thành expanded anchor. Chậu/đích kéo, vòng thời gian, mái che,
+mây và que đỡ vẫn là Action Enablers không mở pronunciation panel riêng. Hai control khám phá
 `shade`/`roots` chỉ có ở expanded, không mang vocabulary riêng.
 
 ## 5. Scene 1 - `new-leaf-and-sunlight`
@@ -126,7 +137,7 @@ Năm nhóm core là nước, chậu/đích kéo, đất, vòng thời gian và b
 - Core rhythm: Narrative -> Quick Action -> Time Discovery -> Deep Learn -> Drag Action ->
   Deep Learn/Delight.
 - Expanded thêm một reveal action và `shade` trước thao tác kéo chậu vào vùng nắng.
-- Challenge thêm một Sequence Check bằng hình; không thêm vocabulary phrase ở scene này.
+- Challenge thêm phrase `move into sunlight`, rồi mới chạy Sequence Check bằng đúng hình hành động.
 - Initial state: cây non hơi rũ trong chậu, bình tưới, vòng thời gian và vùng nắng hiện; leaf
   close-up và expanded shade ẩn; action choices neutral theo scope.
 - End state: cây ở vùng nắng, tươi và có thêm lá; không mọc lá tức thì ngay sau khi tưới.
@@ -136,14 +147,14 @@ Năm nhóm core là nước, chậu/đích kéo, đất, vòng thời gian và b
 | Object ID | Scope/role | Base/variants or visibility | Purpose |
 | --- | --- | --- | --- |
 | `new-leaf-and-sunlight-plant` | core / interactive hero | base `drooping`; variants `perked`, `new-leaf`, `sunlit` | Kéo tới sunlight zone; giữ continuity. |
-| `new-leaf-and-sunlight-watering-can` | core / Action Enabler | visible -> hidden | Quick Recall nước qua thao tác tưới. |
+| `new-leaf-and-sunlight-watering-can` | core / learning + draggable | visible -> hidden | New Anchor `watering can`, được dạy qua chính thao tác tưới. |
 | `new-leaf-and-sunlight-pot-zone` | core / drop zone | tại chậu cây | Snap target cho bình tưới. |
 | `new-leaf-and-sunlight-first-time-cue` | core / Action Enabler | visible | Cue ngày-đêm trước khi lá mới xuất hiện. |
 | `new-leaf-and-sunlight-leaf` | core / learning | hidden -> visible | New Anchor `leaf` và review visual. |
 | `new-leaf-and-sunlight-sunlight` | core / learning/drop target visual | visible | New Anchor `sunlight`; gắn với drop zone riêng. |
 | `new-leaf-and-sunlight-shade-control` | expanded / Action Enabler | visible in expanded | Một fast beat mở shade trước expanded panel. |
 | `new-leaf-and-sunlight-shade` | expanded / learning | hidden -> visible | New Anchor `shade`; không chặn core. |
-| `new-leaf-and-sunlight-move-sunlight-action` | challenge / choice | visible in challenge | Text-free correct sequence illustration. |
+| `new-leaf-and-sunlight-move-sunlight-action` | challenge / learning + choice | visible in challenge | New Anchor `move into sunlight`; text-free teach/review illustration. |
 | `new-leaf-and-sunlight-stay-shade-action` | challenge / choice | visible in challenge | Text-free distractor; luôn neutral trước hint. |
 | `new-leaf-and-sunlight-sunlight-zone` | core / drop zone | visible/available | Snap target cho hero plant. |
 
@@ -167,15 +178,16 @@ learn sunlight    -> plant/sunlit
    - `successFeedbackEn`: `Let’s help the little plant grow strong.`
    - Speech/state: none.
 
-2. `new-leaf-and-sunlight-water-plant` — core, `practice/drag`, Quick Recall.
+2. `new-leaf-and-sunlight-water-plant` — core, `teach/drag`, New Anchor.
    - Drag `new-leaf-and-sunlight-watering-can` to `new-leaf-and-sunlight-pot-zone`.
-   - `instructionVi`: `Cây hơi rũ. Kéo bình tưới cây tới chậu nhé.`
-   - `instructionEn`: `The plant is drooping. Drag the watering can to the pot.`
-   - `successFeedbackVi`: `Cây tươi hơn rồi.`
-   - `successFeedbackEn`: `The plant looks fresher now.`
+   - `instructionVi`: `Kéo bình tưới cây tới chậu cây đang hơi rũ nhé.`
+   - `instructionEn`: `Drag the watering can to the pot with the drooping plant.`
+   - `promptText`: `watering can`.
+   - `successFeedbackVi`: `Cây tươi hơn rồi. Đây là bình tưới cây.`
+   - `successFeedbackEn`: `The plant looks fresher. This is a watering can.`
    - `failFeedbackVi`: `Kéo bình tưới cây tới chậu nhé.`
    - `failFeedbackEn`: `Drag the green watering can to the plant pot.`
-   - State: plant -> `perked`; hide watering can. Speech: none.
+   - State: plant -> `perked`; hide watering can. Speech: `auto`.
 
 3. `new-leaf-and-sunlight-wait-new-leaf` — core, `practice/tap`, Time Discovery.
    - Target: `new-leaf-and-sunlight-first-time-cue`.
@@ -441,23 +453,24 @@ let rain pass      -> cloud/hidden + rain/hidden
 - Expanded dạy `stake` sau khi bé đã dùng que đỡ như Action Enabler.
 - Challenge dạy/review `support the stem` sau visible supported state.
 - Initial state: cây nhiều lá lay động, wind visible, support objects tách rời.
-- End state: hero plant được cọc và dây mềm đỡ thẳng; cue ngày-đêm cho thấy nụ hoa nhỏ xuất hiện.
+- End state: hero plant được cọc và dây mềm đỡ thẳng; cue ngày-đêm cho thấy bông hoa vàng đã nở.
 
 ### Objects and state map
 
 | Object ID | Scope/role | Base/variants or visibility | Purpose |
 | --- | --- | --- | --- |
-| `wind-and-support-plant` | core / hero | base `swaying`; variants `leaning`, `staked`, `supported`, `flower-bud` | Main state chain. |
+| `wind-and-support-plant` | core / hero + learning | base `swaying`; variants `leaning`, `staked`, `supported`, `flower-bud` | Main state chain; variant cuối dạy New Anchor `flower`. |
 | `wind-and-support-wind` | core / learning | visible -> hidden | New Anchor `wind` và review visual. |
 | `wind-and-support-stem` | core / learning close-up | visible | New Anchor `stem`, giữ đủ ngữ cảnh lá/thân. |
 | `wind-and-support-stick` | core / Action Enabler | visible -> hidden | Que đỡ dùng ở mọi mode. |
 | `wind-and-support-installed-stake` | core / decoration | hidden -> visible | End-state support asset. |
 | `wind-and-support-stake` | expanded / learning close-up | visible in expanded | Cọc đầu tròn; New Anchor `stake` và review visual. |
 | `wind-and-support-soft-tie` | core / Action Enabler | visible -> hidden | Dây mềm, không target word. |
+| `wind-and-support-soft-tie-vocabulary` | expanded / learning close-up | hidden -> visible sau time cue | New Anchor `soft tie`, dùng lại cutout dây xanh. |
 | `wind-and-support-installed-tie` | core / decoration | hidden -> visible | Hiện dây buộc lỏng ở end state. |
 | `wind-and-support-support-stem-action` | challenge / phrase learning choice | visible in challenge | Text-free correct action visual. |
 | `wind-and-support-leave-leaning-action` | challenge / distractor | visible in challenge | Neutral distractor, không dấu X. |
-| `wind-and-support-time-cue` | core / Action Enabler | visible | Cue ngày-đêm trước flower bud. |
+| `wind-and-support-time-cue` | core / Action Enabler | visible | Cue ngày-đêm trước bông hoa. |
 | `wind-and-support-stick-zone` | core / drop zone | cạnh cây | Snap target cho support stick. |
 | `wind-and-support-tie-zone` | core / drop zone | quanh stake/stem | Snap target cho soft tie. |
 
@@ -538,8 +551,8 @@ test support       -> wind/hidden
    - Target: `wind-and-support-time-cue`.
    - `instructionVi`: `Chạm vòng ngày đêm để xem cây lớn thêm nhé.`
    - `instructionEn`: `Tap the day-and-night circle and watch the plant grow.`
-   - `successFeedbackVi`: `Vài ngày sau, cây đứng thẳng và có nụ hoa.`
-   - `successFeedbackEn`: `A few days later, the plant stands tall with a flower bud.`
+   - `successFeedbackVi`: `Vài ngày sau, cây đứng thẳng và có một bông hoa.`
+   - `successFeedbackEn`: `A few days later, the plant stands tall with a flower.`
    - `failFeedbackVi`: `Chạm vòng có mặt trời và mặt trăng nhé.`
    - `failFeedbackEn`: `Tap the circle with the sun and moon.`
    - State: plant -> `flower-bud`; sparkle plant. Speech: none.
@@ -553,14 +566,16 @@ test support       -> wind/hidden
    - Fail: `Chạm luồng gió có lá bay nhé.` / `Tap the wind swirl with the flying leaves.`
    - State: hide wind; bounce installed stake/tie; sparkle hero plant. Speech: none.
 
-9. `wind-and-support-find-flower-bud` — core, `practice/tap`, Payoff.
-   - Bé chạm hero plant để tìm nụ hoa sau cue thời gian.
-   - `instructionVi` / `instructionEn`: `Gió đã qua. Chạm cây để tìm nụ hoa nhỏ nhé.` /
-     `The wind has passed. Tap the plant to find the flower bud.`
-   - Success: `Cây đứng vững và đã có một nụ hoa.` /
-     `The plant stands tall and has a flower bud.`
-   - Fail: `Chạm chậu cây ở giữa nhé.` / `The plant pot is in the middle.`
-   - Challenge action choices chỉ hiện sau payoff này.
+9. `wind-and-support-find-flower-bud` — core, `teach/tap`, New Anchor + payoff.
+   - Bé chạm hero plant để tìm bông hoa vàng sau cue thời gian.
+   - `instructionVi` / `instructionEn`: `Chạm cây đứng vững để tìm bông hoa màu vàng nhé.` /
+     `Tap the standing plant to find the yellow flower.`
+   - `promptText`: `flower`.
+   - Success: `Đúng rồi, cây đã có một bông hoa.` / `Yes, the plant now has a flower.`
+   - Fail: `Chạm chậu cây có bông hoa vàng ở giữa nhé.` /
+     `The plant with the yellow flower is in the middle.`
+   - Speech: `auto`. Vocabulary-first runtime đặt payoff này sau challenge teach/review để luôn
+     kết thúc mini-scene bằng target `flower`.
 
 10. `wind-and-support-learn-support-stem` — challenge, `teach/tap`, New Anchor.
    - Target/vocab: `wind-and-support-support-stem-action` / `support the stem`.
@@ -596,27 +611,29 @@ test support       -> wind/hidden
 
 | Mode | Pronunciation panels in authored order | Separation evidence |
 | --- | --- | --- |
-| core | `leaf`, `sunlight`, `rain`, `wind`, `stem` | Mỗi cặp được ngăn bởi reveal/drag/protection/time beat; không có hai panel liền nhau. |
-| expanded | Core + `shade`, `roots`, `stake` (`optional`) | Mỗi optional panel đứng sau một action và trước một action khác. |
-| challenge | Expanded + `check the soil`, `support the stem` | Phrase panel đứng sau cause/support action; các panel vẫn được ngăn bằng action/time/review beat. |
+| core | `watering can`, `leaf`, `sunlight`, `rain`, `soil`, `wind`, `stem`, `flower` (`auto`) | Mỗi cặp được ngăn bởi reveal/drag/protection/time beat; không có hai panel liền nhau. |
+| expanded | Core + `shade`, `roots`, `stake`, `soft tie` (`optional`) | Mỗi optional panel đứng sau một action và trước một action khác. |
+| challenge | 12 mục trên + `move into sunlight`, `check the soil`, `wait for the rain to stop`, `support the stem` (`auto`) | Phrase teach đứng trước phrase review; các panel vẫn được ngăn bằng action/time/review beat. |
 
 - Mỗi New Anchor có đúng một speech-practice encounter.
-- Quick Recall/Action Enabler không có `vocabId`, `speechPractice` hoặc model-word audio riêng.
+- Các Quick Recall/Action Enabler còn lại không có `vocabId`, `speechPractice` hoặc model-word
+  audio riêng; `watering can`, `soil` và `soft tie` không còn thuộc nhóm này.
 - `optional` vẫn là interruption và đã được tính trong pacing audit.
 - Challenge phrase có text-free teach image trước review; review instruction nhắc nghĩa Việt.
-- Core có nhịp 7-6-7: mỗi scene thêm các nhịp quan sát/thử lại/payoff ngắn sau hành động chính,
-  nhưng không tạo thêm pronunciation panel. Expanded là 9-8-8; Challenge là 10-10-10. Đây là số
+- Core có nhịp 7-7-7, expanded là 9-9-9 và challenge là 11-12-11. Đây là số
   tương tác của từng mini-scene ngoài intro, không phải tổng bước của cả lesson hiển thị một lần.
 
 ## 9. Review freeze
 
-`reviewGame.config.vocabularyIds` khóa bốn core anchors theo thứ tự:
+`reviewGame.config.vocabularyIds` khóa bốn core anchors và hai mục bổ sung xác định theo thứ tự:
 
 ```text
 vocab-help-it-grow-new-leaf-and-sunlight-leaf
 vocab-help-it-grow-new-leaf-and-sunlight-sunlight
 vocab-help-it-grow-rainy-day-care-rain
 vocab-help-it-grow-wind-and-support-wind
+vocab-help-it-grow-new-leaf-and-sunlight-shade
+vocab-help-it-grow-rainy-day-care-check-soil
 ```
 
 Với vocabulary/scene order đã khóa, `getReviewGameItems()` phải trả:
@@ -625,8 +642,8 @@ Với vocabulary/scene order đã khóa, `getReviewGameItems()` phải trả:
 - expanded (5): bốn core items + `shade`;
 - challenge (6): năm expanded items + `check the soil`.
 
-`stem`, `roots`, `stake` và `support the stem` vẫn là learned New Anchors nhưng không nằm trong
-default 4/5/6 selection. Runtime không được đưa Quick Recall/Action Enabler vào review pool.
+Các New Anchor còn lại vẫn được học và luyện phát âm nhưng không nằm trong default 4/5/6
+selection. Runtime không được đưa Quick Recall/Action Enabler vào review pool.
 Review art của `sunlight`/`shade`, `wind`/`rain` và phrase/action phải có silhouette khác nhau,
 không chỉ khác màu hoặc state của cùng một object.
 
@@ -712,19 +729,21 @@ Các PNG đã tồn tại trước khi keys được thêm vào `SKidsIconName` 
 ### Data and mode filtering
 
 1. Lesson ID/theme ID/order và ba scene IDs đúng freeze.
-2. Mode vocabulary counts là 5 core, 8 expanded và 10 challenge.
+2. Mode vocabulary counts là 8 core, 12 expanded và 16 challenge.
 3. `learningScope.minMode`/`level` đồng bộ easy/medium/hard.
 4. Mọi object/step/drop zone/state target còn tồn tại sau filtering ở từng mode.
-5. Cả ba mode kết thúc ở hero plant `flower-bud`; expanded/challenge không đổi core end state.
+5. Cả ba mode kết thúc ở hero plant variant kỹ thuật `flower-bud`, nhưng user-facing target và
+   hình hiện hành là bông hoa vàng đã nở; expanded/challenge không đổi core end state.
 
 ### Role and speech policy
 
 6. New Anchors có đúng một encounter với speech mode đã khóa.
-7. Quick Recall/Action Enablers không tạo `VocabularyItem`, learned-word ID hoặc speech panel.
+7. Các Quick Recall/Action Enablers còn lại không tạo `VocabularyItem`, learned-word ID hoặc
+   speech panel.
 8. Không có hai pronunciation panels liền nhau trong core/expanded/challenge sau filtering.
 9. Phrase teach xảy ra trước phrase review và dùng visual không chữ.
-10. Số tương tác ngoài intro theo thứ tự scene là core 7/6/7, expanded 9/8/8 và challenge
-    10/10/10; test phải đếm kết quả sau `getSceneForLearningMode()` thay vì raw authoring steps.
+10. Số tương tác ngoài intro theo thứ tự scene là core 7/7/7, expanded 9/9/9 và challenge
+    11/12/11; test phải đếm kết quả sau `getSceneForLearningMode()` thay vì raw authoring steps.
 
 ### Scene State and interaction
 
@@ -750,3 +769,39 @@ Mốc 4C đã author `src/data/lessons/helpItGrow.ts`, đăng ký lesson ngay sa
 validator/tests, tạo ba production sheets và cắt thành masters theo inventory này. Corpus ban
 đầu có 246 audio và 40 ảnh. Bản nhịp mở rộng dùng lại toàn bộ assets/state, thêm 57 audio Google
 TTS; R2 đã upload và dry-run verify đủ 343/343 object (`Changed/new: 0`) ngày 2026-08-13.
+
+## 13. Vocabulary-first revision - 2026-08-25
+
+Mục này thay thế các chi tiết 5/8/10 và copy `flower bud` còn được giữ trong storyboard lịch sử ở
+trên. Runtime mới ưu tiên số encounter có ý nghĩa cho việc học từ và phát âm, không thêm bước chỉ
+để kéo dài bài.
+
+### Contract thực thi
+
+- Vocabulary: core 8, expanded 12, challenge 16, đúng thứ tự bảng New Anchors ở mục 4.
+- Pronunciation: core 8 `auto`; expanded giữ 8 `auto` và thêm 4 `optional`; challenge có 12
+  encounter trước đó và thêm 4 phrase `auto`.
+- Meaningful turns ngoài intro: core `7/7/7` (21), expanded `9/9/9` (27), challenge
+  `11/12/11` (34).
+- Không có hai pronunciation panel liền nhau sau mode filtering.
+- Review vẫn là 4/5/6: `leaf`, `sunlight`, `rain`, `wind`; thêm `shade`; rồi thêm
+  `check the soil`.
+
+### Các encounter mới hoặc được nâng cấp
+
+1. `watering can` dùng chính bình tưới kéo tới chậu; hành động dạy từ và phát âm `auto`.
+2. `move into sunlight` dùng illustration chậu + mũi tên + tia nắng; challenge teach xảy ra trước
+   câu chọn hình review.
+3. `soil` dùng mảng đất ướt trong chậu sau khi bé quan sát mưa; core teach và phát âm `auto`.
+4. `wait for the rain to stop` dùng duplicate giọt mưa chỉ hiện đúng beat challenge; phrase teach
+   xảy ra sau `check the soil` và trước khi cơn mưa đi qua.
+5. `soft tie` dùng close-up dây xanh tách khỏi cọc; expanded teach `optional` sau cue thời gian.
+6. `flower` dùng cây đứng vững có bông hoa vàng đã nở; core teach `auto` là payoff cuối scene.
+
+Asset filename/variant `plant-flower-bud.png` và ID `find-flower-bud` được giữ ổn định để tránh
+đổi technical key, nhưng tuyệt đối không đọc thành `flower bud` trong copy/audio. Revision dùng
+lại toàn bộ 40 image assets. Google TTS tạo đúng 58 audio delta; lesson audit đạt 439 target và
+full-corpus audit đạt 16.012 target, đều missing 0/invalid 0. Image build chỉ rebuild
+`rain.webp` từ master hiện hành, nên R2 upload tổng cộng 59 object delta và verify đủ 401/401;
+post-upload dry-run còn `Changed/new: 0`. Audio en-US `move_into_sunlight.mp3` tải qua production
+CDN khớp local theo size 18.477 byte và SHA-256 ngày 2026-08-25.

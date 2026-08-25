@@ -2,6 +2,9 @@
 
 **Freeze date:** 2026-08-14
 
+**Status:** Vocabulary-first revision 8/12/16 implemented and published on 2026-08-25. Các
+contract revision trong tài liệu này thay thế budget và pacing cũ.
+
 **Lesson ID:** `garden-friends`
 
 **Content track:** Advanced. `learningMode` vẫn lọc core/expanded/challenge bên trong lesson.
@@ -15,8 +18,8 @@
 - `ageRange`: `6-8 tuổi · Nâng cao`
 - Scene order: `under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`
 - Review: `random`, executable 4/5/6 items.
-- Interaction rhythm ngoài intro: core `5/7/4`, expanded `7/7/6`, challenge `10/7/8`
-  theo ba scene; tổng lesson là 16/20/25 hành động.
+- Interaction rhythm ngoài intro: core `6/8/5`, expanded `8/9/8`, challenge `13/11/10`
+  theo ba scene; tổng lesson là 19/25/34 meaningful turns.
 - Safety: animal objects are never draggable. The child taps a leaf, flower, observation ring,
   water drop, time cue, or action illustration instead of touching an animal directly.
 
@@ -24,15 +27,21 @@
 
 | Scene | Word | Nghĩa Việt | Scope | Speech | Review visual |
 | --- | --- | --- | --- | --- | --- |
+| `under-the-leaf` | `leaf` | chiếc lá | core/easy | auto | Chiếc lá xanh lớn che mặt đất. |
 | `under-the-leaf` | `earthworm` | giun đất | core/easy | auto | Một con giun đất nâu hồng trên đất. |
 | `under-the-leaf` | `snail` | ốc sên | core/easy | auto | Ốc sên có vỏ xoắn rõ. |
 | `under-the-leaf` | `tunnel` | đường hầm | expanded/medium | optional | Đường hầm cắt lớp trong đất. |
+| `under-the-leaf` | `shell` | vỏ ốc | challenge/hard | auto | Vòng vỏ xoắn lớn trên lưng ốc sên. |
 | `under-the-leaf` | `look under the leaf` | nhìn dưới chiếc lá | challenge/hard | auto | Bàn tay nâng mép lá và đôi mắt quan sát. |
 | `flower-visitors` | `flower` | bông hoa | core/easy | auto | Hoa cà chua vàng tách nền. |
 | `flower-visitors` | `bee` | con ong | core/easy | auto | Ong vàng đen cạnh hoa, không có tổ. |
 | `flower-visitors` | `butterfly` | con bướm | core/easy | auto | Bướm cam, silhouette khác ong. |
+| `flower-visitors` | `fruit` | quả | core/easy | auto | Quả xanh tròn trên cây cà chua. |
+| `flower-visitors` | `wings` | đôi cánh | expanded/medium | optional | Hai cánh cam mở rộng của bướm. |
+| `flower-visitors` | `visit the flower` | ghé thăm bông hoa | challenge/hard | auto | Ong và bướm hiện quanh bông hoa vàng. |
 | `quiet-garden-watch` | `caterpillar` | sâu bướm | core/easy | auto | Sâu bướm xanh trên mép lá. |
 | `quiet-garden-watch` | `birdbath` | khay nước cho chim | expanded/medium | optional | Khay nước nông trên chân thấp. |
+| `quiet-garden-watch` | `water drop` | giọt nước | expanded/medium | optional | Một giọt nước xanh tách nền. |
 | `quiet-garden-watch` | `watch gently` | quan sát nhẹ nhàng | challenge/hard | auto | Đôi mắt nhìn, hai tay đứng yên. |
 
 Không giữ `pollen` hoặc `nectar`: hai khái niệm này khó tạo review art rõ và không cần để hoàn
@@ -43,7 +52,7 @@ thành câu chuyện. Các con vật được gọi là bạn/hàng xóm trong v
 
 ### State và object
 
-- Hero plant tiếp nối cây cà chua đã có nụ từ `help-it-grow`.
+- Hero plant tiếp nối cây cà chua đã có bông hoa vàng từ `help-it-grow`.
 - `leaf-cover`: `closed -> lifted -> replaced`.
 - `earthworm`, `snail`, hai observation ring và `tunnel` bắt đầu hidden.
 - Challenge action illustrations bắt đầu hidden và được cleanup sau sequence check.
@@ -51,17 +60,17 @@ thành câu chuyện. Các con vật được gọi là bạn/hàng xóm trong v
 ### Step order
 
 1. Intro: `Dưới chiếc lá có bạn nhỏ. Mình nhìn nhé.`
-2. Tap leaf edge: `Chạm chiếc lá lớn bên trái để nhấc lên nhé.` -> leaf lifted, earthworm visible.
-3. Teach `earthworm`: `Chạm kính lúp quanh con giun đất màu nâu nhé.`
-4. Tap soil patch: `Chạm mảng đất nâu dưới chiếc lá nhé.` -> tunnel visible in expanded, snail visible.
-5. Teach `tunnel` expanded: `Chạm đường hầm màu nâu dưới lớp đất nhé.`
-6. Expanded fast beat: follow the tunnel through the soil patch.
-7. Teach `snail`: `Chạm kính lúp quanh con ốc sên có vỏ xoắn nhé.`
-8. Challenge fast beat: touch the open leaf and connect the visual with looking underneath.
-9. Teach challenge phrase `look under the leaf` using the positive action illustration.
-10. Challenge sequence check: choose the illustration that looks under the leaf; correct sparkles,
-   distractor dims, both hide at transition.
-11. Tap leaf: `Chạm chiếc lá để đặt lại nhẹ nhàng nhé.` -> leaf replaced; animals and controls hide.
+2. Teach core `leaf` while the large green leaf is still closed and fully visible.
+3. Tap leaf edge -> leaf lifted, earthworm and observation control visible.
+4. Teach `earthworm` through the magnifying-glass control.
+5. Tap soil patch -> tunnel visible in expanded, snail visible.
+6. Teach `tunnel` expanded, then follow it through the soil patch.
+7. Teach `snail` through the magnifying-glass control.
+8. Challenge observation beat identifies the hard spiral on the snail without touching the animal.
+9. Teach `shell` while the same spiral shell remains visible.
+10. Challenge fast beat: touch the open leaf and reveal the two positive/distractor illustrations.
+11. Teach `look under the leaf`, then run its sequence check.
+12. Tap leaf -> leaf replaced; animals, shell duplicate and controls hide.
 
 ## 4. Scene `flower-visitors`
 
@@ -79,8 +88,12 @@ thành câu chuyện. Các con vật được gọi là bạn/hàng xóm trong v
 4. Teach `bee`: `Chạm kính lúp quanh con ong vàng đen nhé.`
 5. Tap second watch control: `Chạm kính lúp dưới bên trái để chờ bướm nhé.` -> butterfly visible.
 6. Teach `butterfly`: `Chạm kính lúp quanh con bướm cánh cam nhé.`
-7. Tap time cue: `Chạm hình mặt trời và mặt trăng ở phía trên nhé.` -> visitors leave, tiny fruit appears.
-8. Closure: `Quả xanh nhỏ bắt đầu lớn rồi.`
+7. Challenge observation beat: tap the plant while both visitors are visibly near the flower.
+8. Teach `visit the flower` by tapping the yellow flower, never an animal.
+9. Tap time cue -> tiny fruit appears; expanded keeps a butterfly close-up for the next word.
+10. Teach expanded `wings` through a magnifying-glass control, then clean up the close-up.
+11. Find the tiny green fruit on the plant.
+12. Teach core `fruit` while the green fruit variant is still visible.
 
 Visitor reveal is observation, not a claim that tapping creates an animal. Tiny fruit only appears
 after the explicit time cue.
@@ -98,15 +111,16 @@ after the explicit time cue.
 ### Step order
 
 1. Intro: `Mình tìm thêm bạn bằng giọng nhỏ nhé.`
-2. Tap leaf tip: `Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.` -> caterpillar visible.
-3. Teach `caterpillar`: `Chạm kính lúp quanh con sâu bướm xanh nhé.`
-4. Expanded drag water drop to birdbath: `Kéo giọt nước xanh vào khay trống bên trái nhé.`
-5. Teach `birdbath` optional: `Chạm khay nước nông cho chim ở bên trái nhé.`
-6. Fast beat: tap quiet-hands control; earlier neighbors appear in separate spots.
-7. Teach challenge phrase `watch gently` with positive still-hands illustration.
-8. Challenge choice: choose still hands/eyes, not the waving-hands illustration; success cleanup
-   hides both choices.
-9. Closure: `Mình quan sát nhẹ nhàng. Khu vườn thật vui.`
+2. Teach expanded `water drop` while the blue drop is still visible.
+3. Tap leaf tip -> caterpillar visible.
+4. Teach `caterpillar` through the magnifying-glass control.
+5. Expanded drag the learned water drop into the empty birdbath.
+6. Teach `birdbath` optional after its filled state is visible.
+7. Tap quiet-hands control; earlier neighbors appear in separate spots.
+8. Teach challenge phrase `watch gently` with positive still-hands illustration.
+9. Challenge choice: choose still hands/eyes, not the waving-hands illustration.
+10. Tap the large leaf to cover the caterpillar’s resting place again.
+11. Closure: tap the tomato plant to say goodbye.
 
 ## 6. Image inventory
 
@@ -135,7 +149,7 @@ Bundled map icons: `under-the-leaf`, `flower-visitors`, `quiet-garden-watch`, an
 
 ## 7. Acceptance gates
 
-1. Core/expanded/challenge vocabulary counts are 6/8/10; review returns 4/5/6 visually distinct
+1. Core/expanded/challenge vocabulary counts are 8/12/16; review returns 4/5/6 visually distinct
    executable items.
 2. No animal object is draggable or an interaction target.
 3. Every animal New Anchor is visible while its model word/speech panel runs.
@@ -155,3 +169,9 @@ Bundled map icons: `under-the-leaf`, `flower-visitors`, `quiet-garden-watch`, an
 - Cutter đã sửa gutter của sheet để giữ trọn đáy chậu và không kéo mảnh hàng trên vào bướm/kính
   lúp; 9 WebP được build lại. R2 nhận delta 94/94 và verify `377/377` object ngày 2026-08-14;
   post-upload dry-run `Changed/new: 0`, remote verify `Errors: 0`.
+- Vocabulary-first revision ngày 2026-08-25 dùng lại toàn bộ 35 WebP, nâng vocabulary và
+  pronunciation lên 8/12/16, nhịp meaningful turn lên 19/25/34 và giữ review 4/5/6. Google TTS
+  tạo đúng 78 audio delta; lesson audit đạt 432 target và full-corpus audit đạt 16.090 target,
+  đều missing 0/invalid 0. R2 upload 78 audio, verify đủ 455/455 và post-upload dry-run còn
+  `Changed/new: 0`. Audio en-US `visit_the_flower.mp3` tải qua production CDN khớp local theo
+  size 17.325 byte và SHA-256 ngày 2026-08-25.

@@ -11,8 +11,10 @@ const modes: LearningMode[] = ['core', 'expanded', 'challenge'];
 const animalObjectIds = new Set([
   'under-the-leaf-earthworm',
   'under-the-leaf-snail',
+  'under-the-leaf-shell',
   'flower-visitors-bee',
   'flower-visitors-butterfly',
+  'flower-visitors-wings',
   'quiet-garden-watch-caterpillar',
 ]);
 
@@ -21,10 +23,10 @@ function hasPronunciationPanel(step: SceneStep) {
 }
 
 test.each([
-  ['core', 6],
-  ['expanded', 8],
-  ['challenge', 10],
-] as const)('%s mode exposes the frozen vocabulary budget', (mode, count) => {
+  ['core', 8],
+  ['expanded', 12],
+  ['challenge', 16],
+] as const)('%s mode exposes the vocabulary-first budget', (mode, count) => {
   const vocabulary = gardenFriendsLesson.scenes.flatMap(
     scene => getSceneForLearningMode(scene, mode).vocabulary,
   );
@@ -42,9 +44,69 @@ test.each([
 });
 
 test.each([
-  ['core', 6, 0],
-  ['expanded', 6, 2],
-  ['challenge', 8, 2],
+  [
+    'core',
+    [
+      'leaf',
+      'earthworm',
+      'snail',
+      'flower',
+      'bee',
+      'butterfly',
+      'fruit',
+      'caterpillar',
+    ],
+  ],
+  [
+    'expanded',
+    [
+      'leaf',
+      'earthworm',
+      'snail',
+      'tunnel',
+      'flower',
+      'bee',
+      'butterfly',
+      'fruit',
+      'wings',
+      'caterpillar',
+      'birdbath',
+      'water drop',
+    ],
+  ],
+  [
+    'challenge',
+    [
+      'leaf',
+      'earthworm',
+      'snail',
+      'tunnel',
+      'shell',
+      'look under the leaf',
+      'flower',
+      'bee',
+      'butterfly',
+      'fruit',
+      'wings',
+      'visit the flower',
+      'caterpillar',
+      'birdbath',
+      'water drop',
+      'watch gently',
+    ],
+  ],
+] as const)('%s mode exposes the intended vocabulary set', (mode, words) => {
+  expect(
+    gardenFriendsLesson.scenes.flatMap(scene =>
+      getSceneForLearningMode(scene, mode).vocabulary.map(item => item.word),
+    ),
+  ).toEqual(words);
+});
+
+test.each([
+  ['core', 8, 0],
+  ['expanded', 8, 4],
+  ['challenge', 12, 4],
 ] as const)(
   '%s mode keeps one pronunciation encounter per New Anchor',
   (mode, autoCount, optionalCount) => {
@@ -127,10 +189,10 @@ test('observation prompts use concrete controls and match their authored positio
 });
 
 test.each([
-  ['core', [5, 7, 4]],
-  ['expanded', [7, 7, 6]],
-  ['challenge', [10, 7, 8]],
-] as const)('%s mode keeps the frozen interaction rhythm', (mode, counts) => {
+  ['core', [6, 8, 5]],
+  ['expanded', [8, 9, 8]],
+  ['challenge', [13, 11, 10]],
+] as const)('%s mode keeps the vocabulary-first interaction rhythm', (mode, counts) => {
   expect(
     gardenFriendsLesson.scenes.map(
       scene =>
@@ -139,6 +201,45 @@ test.each([
         ).length,
     ),
   ).toEqual(counts);
+});
+
+test('new vocabulary uses visuals that directly show each meaning', () => {
+  const leafScene = gardenFriendsLesson.scenes.find(
+    scene => scene.id === 'under-the-leaf',
+  )!;
+  const flowerScene = gardenFriendsLesson.scenes.find(
+    scene => scene.id === 'flower-visitors',
+  )!;
+  const quietScene = gardenFriendsLesson.scenes.find(
+    scene => scene.id === 'quiet-garden-watch',
+  )!;
+
+  expect(
+    leafScene.objects.find(object => object.id === 'under-the-leaf-leaf-cover')
+      ?.vocabId,
+  ).toBe('vocab-garden-friends-under-the-leaf-leaf');
+  expect(
+    leafScene.objects.find(object => object.id === 'under-the-leaf-shell')
+      ?.asset.source,
+  ).toBe('lessons/garden-friends/under-the-leaf/images/snail.webp');
+  expect(
+    flowerScene.objects.find(object => object.id === 'flower-visitors-plant')
+      ?.vocabId,
+  ).toBe('vocab-garden-friends-flower-visitors-fruit');
+  expect(
+    flowerScene.objects.find(object => object.id === 'flower-visitors-wings')
+      ?.asset.source,
+  ).toBe('lessons/garden-friends/flower-visitors/images/butterfly.webp');
+  expect(
+    flowerScene.objects.find(
+      object => object.id === 'flower-visitors-visit-flower',
+    )?.asset.source,
+  ).toBe('lessons/garden-friends/flower-visitors/images/flower.webp');
+  expect(
+    quietScene.objects.find(
+      object => object.id === 'quiet-garden-watch-water-drop',
+    )?.vocabId,
+  ).toBe('vocab-garden-friends-quiet-garden-watch-water-drop');
 });
 
 test('children observe animals through controls instead of manipulating them', () => {

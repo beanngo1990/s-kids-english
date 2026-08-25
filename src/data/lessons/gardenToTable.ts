@@ -409,10 +409,29 @@ function makeAndShareScene(): Scene {
       word: 'share',
     }),
     vocabularyItem(sceneId, {
+      key: 'spoon',
+      meaningVi: 'chiếc thìa',
+      word: 'spoon',
+    }),
+    vocabularyItem(sceneId, {
       key: 'kitchen-towel',
       meaningVi: 'khăn bếp',
       tier: 'expanded',
       word: 'kitchen towel',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'cucumber-slices',
+      meaningVi: 'các lát dưa leo',
+      tier: 'expanded',
+      type: 'phrase',
+      word: 'cucumber slices',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'mix-the-salad',
+      meaningVi: 'trộn món rau',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'mix the salad',
     }),
   ];
   const vocab = new Map(vocabulary.map(item => [item.word, item]));
@@ -420,7 +439,10 @@ function makeAndShareScene(): Scene {
   const bowlId = `${sceneId}-bowl`;
   const lettucePiecesId = `${sceneId}-lettuce-pieces`;
   const cucumberSlicesId = `${sceneId}-cucumber-slices`;
+  const cucumberSlicesVocabId = `${sceneId}-cucumber-slices-vocabulary`;
   const spoonId = `${sceneId}-spoon`;
+  const mixSaladActionId = `${sceneId}-mix-salad-action`;
+  const unmixedSaladActionId = `${sceneId}-unmixed-salad-action`;
   const saladCloseupId = `${sceneId}-salad-closeup`;
   const shareActionId = `${sceneId}-share-action`;
   const towelZoneId = `${sceneId}-towel-zone`;
@@ -497,13 +519,40 @@ function makeAndShareScene(): Scene {
         presentation: 'cutout',
         touchArea: rect(63, 17, 36, 34),
       }),
-      sceneObject({
+      learningObject({
+        id: cucumberSlicesVocabId,
+        assetSource: sceneImageSource(sceneId, 'cucumber-slices'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(35, 13, 30, 25),
+        touchArea: rect(30, 8, 40, 35),
+        vocab: vocab.get('cucumber slices')!,
+      }),
+      learningObject({
         id: spoonId,
         assetSource: sceneImageSource(sceneId, 'spoon'),
-        isInteractive: true,
         position: rect(72, 54, 22, 28),
-        presentation: 'cutout',
         touchArea: rect(67, 49, 31, 38),
+        vocab: vocab.get('spoon')!,
+      }),
+      learningObject({
+        id: mixSaladActionId,
+        assetSource: sceneImageSource(sceneId, 'bowl-mixed'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(3, 14, 42, 26),
+        touchArea: rect(1, 10, 47, 34),
+        vocab: vocab.get('mix the salad')!,
+      }),
+      sceneObject({
+        id: unmixedSaladActionId,
+        assetSource: sceneImageSource(sceneId, 'bowl-prepared'),
+        initialVisibility: 'hidden',
+        isInteractive: true,
+        learningScope: challengeScope,
+        position: rect(55, 14, 42, 26),
+        presentation: 'cutout',
+        touchArea: rect(52, 10, 47, 34),
       }),
       learningObject({
         id: saladCloseupId,
@@ -606,10 +655,29 @@ function makeAndShareScene(): Scene {
         successStateChanges: [
           sceneStateChanges.hide(lettucePiecesId),
           sceneStateChanges.setVariant(bowlId, 'with-lettuce'),
+          sceneStateChanges.show(cucumberSlicesVocabId),
         ],
         dropZoneId: bowlZoneId,
         targetObjectId: lettucePiecesId,
         type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-cucumber-slices`,
+        instructionVi: 'Chạm các lát dưa leo tròn màu xanh nhé.',
+        instructionEn: 'Tap the round green cucumber slices.',
+        learningScope: expandedScope,
+        promptText: 'cucumber slices',
+        successFeedbackVi: 'Đúng rồi, đây là các lát dưa leo.',
+        successFeedbackEn: 'Yes, these are cucumber slices.',
+        failFeedbackVi: 'Chạm các lát tròn màu xanh ở phía trên nhé.',
+        failFeedbackEn: 'The round green slices are above the bowl.',
+        speechPractice: 'optional',
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(cucumberSlicesVocabId),
+        ],
+        targetObjectId: cucumberSlicesVocabId,
+        type: 'teach',
+        vocabId: vocab.get('cucumber slices')!.id,
       }),
       dragStep({
         id: `${sceneId}-add-cucumber`,
@@ -643,6 +711,33 @@ function makeAndShareScene(): Scene {
         type: 'teach',
         vocabId: vocab.get('salad')!.id,
       }),
+      findStep({
+        id: `${sceneId}-find-spoon`,
+        instructionVi: 'Tìm chiếc thìa dài ở bên phải nhé.',
+        instructionEn: 'Find the long spoon on the right.',
+        successFeedbackVi: 'Đúng rồi, chiếc thìa ở cạnh chiếc tô.',
+        successFeedbackEn: 'Right, the spoon is beside the bowl.',
+        failFeedbackVi: 'Tìm vật dài có đầu tròn cạnh tô nhé.',
+        failFeedbackEn: 'Find the long tool with a round end beside the bowl.',
+        correctObjectIds: [spoonId],
+        targetObjectId: spoonId,
+        targetObjectIds: [spoonId, bowlId],
+        type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-spoon`,
+        instructionVi: 'Chạm chiếc thìa dài cạnh tô nhé.',
+        instructionEn: 'Tap the long spoon beside the bowl.',
+        promptText: 'spoon',
+        successFeedbackVi: 'Đúng rồi, đây là chiếc thìa.',
+        successFeedbackEn: 'Yes, this is a spoon.',
+        failFeedbackVi: 'Chạm vật dài ở bên phải chiếc tô nhé.',
+        failFeedbackEn: 'The long spoon is on the right side of the bowl.',
+        speechPractice: 'auto',
+        targetObjectId: spoonId,
+        type: 'teach',
+        vocabId: vocab.get('spoon')!.id,
+      }),
       tapStep({
         id: `${sceneId}-mix-salad`,
         instructionVi: 'Chạm chiếc thìa bên phải để trộn nhẹ nhé.',
@@ -656,9 +751,46 @@ function makeAndShareScene(): Scene {
           sceneStateChanges.setVariant(bowlId, 'mixed'),
           sceneStateChanges.hide(saladCloseupId),
           sceneStateChanges.show(shareActionId),
+          sceneStateChanges.show(mixSaladActionId),
+          sceneStateChanges.show(unmixedSaladActionId),
         ],
         targetObjectId: spoonId,
         type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-mix-the-salad`,
+        instructionVi: 'Chạm hình món rau đã được trộn đều nhé.',
+        instructionEn: 'Tap the picture of the mixed salad.',
+        learningScope: challengeScope,
+        promptText: 'mix the salad',
+        successFeedbackVi: 'Đúng rồi, mình trộn món rau.',
+        successFeedbackEn: 'Yes, we mix the salad.',
+        failFeedbackVi: 'Chạm chiếc tô đã trộn ở phía trên bên trái nhé.',
+        failFeedbackEn: 'The mixed salad is in the upper-left picture.',
+        speechPractice: 'auto',
+        targetObjectId: mixSaladActionId,
+        type: 'teach',
+        vocabId: vocab.get('mix the salad')!.id,
+      }),
+      findStep({
+        id: `${sceneId}-choose-mix-the-salad`,
+        instructionVi: 'Tìm hình món rau đã được trộn nhé.',
+        instructionEn: 'Find the picture showing the mixed salad.',
+        learningScope: challengeScope,
+        promptText: 'mix the salad',
+        successFeedbackVi: 'Đúng rồi, các nguyên liệu đã trộn cùng nhau.',
+        successFeedbackEn: 'Right, the ingredients are mixed together.',
+        failFeedbackVi: 'Tìm chiếc tô có các nguyên liệu đã trộn đều nhé.',
+        failFeedbackEn: 'Find the bowl with the ingredients mixed together.',
+        correctObjectIds: [mixSaladActionId],
+        targetObjectId: mixSaladActionId,
+        targetObjectIds: [mixSaladActionId, unmixedSaladActionId],
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(mixSaladActionId),
+          sceneStateChanges.hide(unmixedSaladActionId),
+        ],
+        type: 'review',
+        vocabId: vocab.get('mix the salad')!.id,
       }),
       tapStep({
         id: `${sceneId}-learn-share`,
@@ -705,19 +837,38 @@ function makeSaveForNextSeasonScene(): Scene {
   const sceneId = 'save-for-next-season';
   const vocabulary = [
     vocabularyItem(sceneId, {
+      key: 'seed',
+      meaningVi: 'hạt giống',
+      word: 'seed',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'envelope',
+      meaningVi: 'phong bì',
+      tier: 'expanded',
+      word: 'envelope',
+    }),
+    vocabularyItem(sceneId, {
       key: 'save-the-seeds',
       meaningVi: 'giữ hạt cho mùa sau',
       tier: 'challenge',
       type: 'phrase',
       word: 'save the seeds',
     }),
+    vocabularyItem(sceneId, {
+      key: 'store-it-for-next-season',
+      meaningVi: 'cất lại cho mùa sau',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'store it for next season',
+    }),
   ];
   const vocab = new Map(vocabulary.map(item => [item.word, item]));
   const adultHandSeedId = `${sceneId}-adult-hand-seed`;
   const seedCloseupId = `${sceneId}-seed-closeup`;
   const envelopeId = `${sceneId}-envelope`;
+  const envelopeVocabularyId = `${sceneId}-envelope-vocabulary`;
   const placeSeedControlId = `${sceneId}-place-seed-control`;
-  const adultStoreControlId = `${sceneId}-adult-store-control`;
+  const storeForNextSeasonActionId = `${sceneId}-store-for-next-season-action`;
   const timeCueId = `${sceneId}-time-cue`;
   const newSeasonPotId = `${sceneId}-new-season-pot`;
   const saveSeedsActionId = `${sceneId}-save-seeds-action`;
@@ -742,12 +893,13 @@ function makeSaveForNextSeasonScene(): Scene {
         presentation: 'cutout',
         touchArea: rect(2, 22, 42, 38),
       }),
-      sceneObject({
+      learningObject({
         id: seedCloseupId,
         assetSource: sceneImageSource(sceneId, 'seed-closeup'),
         initialVisibility: 'hidden',
         position: rect(37, 13, 26, 23),
-        presentation: 'cutout',
+        touchArea: rect(32, 8, 36, 33),
+        vocab: vocab.get('seed')!,
       }),
       sceneObject({
         id: envelopeId,
@@ -773,6 +925,15 @@ function makeSaveForNextSeasonScene(): Scene {
           }),
         ],
       }),
+      learningObject({
+        id: envelopeVocabularyId,
+        assetSource: sceneImageSource(sceneId, 'envelope-filled'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(35, 13, 30, 25),
+        touchArea: rect(30, 8, 40, 35),
+        vocab: vocab.get('envelope')!,
+      }),
       sceneObject({
         id: placeSeedControlId,
         assetSource: sceneImageSource(sceneId, 'place-seed-control'),
@@ -782,14 +943,14 @@ function makeSaveForNextSeasonScene(): Scene {
         presentation: 'cutout',
         touchArea: rect(25, 41, 48, 34),
       }),
-      sceneObject({
-        id: adultStoreControlId,
-        assetSource: sceneImageSource(sceneId, 'adult-store-control'),
+      learningObject({
+        id: storeForNextSeasonActionId,
+        assetSource: sceneImageSource(sceneId, 'envelope-stored'),
         initialVisibility: 'hidden',
-        isInteractive: true,
-        position: rect(34, 64, 32, 24),
-        presentation: 'cutout',
-        touchArea: rect(29, 59, 42, 34),
+        learningScope: challengeScope,
+        position: rect(15, 10, 34, 31),
+        touchArea: rect(10, 5, 44, 41),
+        vocab: vocab.get('store it for next season')!,
       }),
       sceneObject({
         id: timeCueId,
@@ -843,16 +1004,19 @@ function makeSaveForNextSeasonScene(): Scene {
         id: `${sceneId}-notice-dry-seed`,
         instructionVi: 'Chạm hạt khô trên tay người lớn nhé.',
         instructionEn: 'Tap the dry seed on the adult hand.',
-        successFeedbackVi: 'Đây là hạt cà chua đã được làm khô.',
-        successFeedbackEn: 'This tomato seed has already been dried.',
+        promptText: 'seed',
+        successFeedbackVi: 'Đúng rồi, đây là một hạt giống.',
+        successFeedbackEn: 'Yes, this is a seed.',
         failFeedbackVi: 'Chạm hạt nhỏ trên lòng bàn tay nhé.',
         failFeedbackEn: 'Tap the small seed on the open hand.',
+        speechPractice: 'auto',
         successStateChanges: [
           sceneStateChanges.show(seedCloseupId),
           sceneStateChanges.show(placeSeedControlId),
         ],
         targetObjectId: adultHandSeedId,
-        type: 'practice',
+        type: 'teach',
+        vocabId: vocab.get('seed')!.id,
       }),
       tapStep({
         id: `${sceneId}-place-seed-in-envelope`,
@@ -868,9 +1032,28 @@ function makeSaveForNextSeasonScene(): Scene {
           sceneStateChanges.hide(adultHandSeedId),
           sceneStateChanges.hide(seedCloseupId),
           sceneStateChanges.hide(placeSeedControlId),
+          sceneStateChanges.show(envelopeVocabularyId),
         ],
         targetObjectId: placeSeedControlId,
         type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-envelope`,
+        instructionVi: 'Chạm chiếc phong bì đang đựng hạt nhé.',
+        instructionEn: 'Tap the envelope holding the seed.',
+        learningScope: expandedScope,
+        promptText: 'envelope',
+        successFeedbackVi: 'Đúng rồi, đây là một chiếc phong bì.',
+        successFeedbackEn: 'Yes, this is an envelope.',
+        failFeedbackVi: 'Chạm chiếc phong bì ở phía trên nhé.',
+        failFeedbackEn: 'The envelope is above the table.',
+        speechPractice: 'optional',
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(envelopeVocabularyId),
+        ],
+        targetObjectId: envelopeVocabularyId,
+        type: 'teach',
+        vocabId: vocab.get('envelope')!.id,
       }),
       tapStep({
         id: `${sceneId}-close-envelope`,
@@ -882,7 +1065,6 @@ function makeSaveForNextSeasonScene(): Scene {
         failFeedbackEn: 'Tap the triangular flap on the envelope.',
         successStateChanges: [
           sceneStateChanges.setVariant(envelopeId, 'closed'),
-          sceneStateChanges.show(adultStoreControlId),
           sceneStateChanges.show(saveSeedsActionId),
           sceneStateChanges.show(plantNowActionId),
         ],
@@ -917,6 +1099,9 @@ function makeSaveForNextSeasonScene(): Scene {
         correctObjectIds: [saveSeedsActionId],
         targetObjectId: saveSeedsActionId,
         targetObjectIds: [saveSeedsActionId, plantNowActionId],
+        successStateChanges: [
+          sceneStateChanges.show(storeForNextSeasonActionId),
+        ],
         afterSuccessStateChanges: [
           sceneStateChanges.hide(saveSeedsActionId),
           sceneStateChanges.hide(plantNowActionId),
@@ -925,20 +1110,37 @@ function makeSaveForNextSeasonScene(): Scene {
         vocabId: vocab.get('save the seeds')!.id,
       }),
       tapStep({
+        id: `${sceneId}-learn-store-for-next-season`,
+        instructionVi: 'Chạm hình phong bì đã được cất an toàn trên kệ nhé.',
+        instructionEn: 'Tap the envelope stored safely on the shelf.',
+        learningScope: challengeScope,
+        promptText: 'store it for next season',
+        successFeedbackVi: 'Đúng rồi, mình cất lại cho mùa sau.',
+        successFeedbackEn: 'Yes, store it for next season.',
+        failFeedbackVi: 'Chạm chiếc kệ có phong bì ở phía trên nhé.',
+        failFeedbackEn: 'The shelf with the envelope is above.',
+        speechPractice: 'auto',
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(storeForNextSeasonActionId),
+        ],
+        targetObjectId: storeForNextSeasonActionId,
+        type: 'teach',
+        vocabId: vocab.get('store it for next season')!.id,
+      }),
+      tapStep({
         id: `${sceneId}-ask-adult-to-store`,
-        instructionVi: 'Chạm bàn tay để nhờ người lớn cất phong bì nhé.',
-        instructionEn: 'Tap the hand to ask an adult to store the envelope.',
+        instructionVi: 'Chạm phong bì để nhờ người lớn cất lên kệ nhé.',
+        instructionEn: 'Tap the envelope to ask an adult to store it on the shelf.',
         successFeedbackVi: 'Phong bì đã được cất an toàn.',
         successFeedbackEn: 'The envelope is stored safely.',
-        failFeedbackVi: 'Chạm bàn tay ở phía dưới nhé.',
-        failFeedbackEn: 'The adult hand is below the envelope.',
+        failFeedbackVi: 'Chạm chiếc phong bì đã đóng ở bên phải nhé.',
+        failFeedbackEn: 'The closed envelope is on the right.',
         effects: [lessonEffects.sparkle(envelopeId)],
         successStateChanges: [
           sceneStateChanges.setVariant(envelopeId, 'stored'),
-          sceneStateChanges.hide(adultStoreControlId),
           sceneStateChanges.show(timeCueId),
         ],
-        targetObjectId: adultStoreControlId,
+        targetObjectId: envelopeId,
         type: 'practice',
       }),
       tapStep({

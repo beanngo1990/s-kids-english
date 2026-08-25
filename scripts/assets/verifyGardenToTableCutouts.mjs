@@ -49,7 +49,6 @@ const expectedAssets = {
     'envelope-closed',
     'envelope-stored',
     'place-seed-control',
-    'adult-store-control',
     'time-cue',
     'new-season-pot',
     'save-seeds-action',

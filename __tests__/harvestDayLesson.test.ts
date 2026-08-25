@@ -10,10 +10,10 @@ function hasPronunciationPanel(step: SceneStep) {
 }
 
 test.each([
-  ['core', 6],
-  ['expanded', 8],
-  ['challenge', 10],
-] as const)('%s mode exposes the frozen vocabulary budget', (mode, count) => {
+  ['core', 8],
+  ['expanded', 12],
+  ['challenge', 16],
+] as const)('%s mode exposes the vocabulary-first budget', (mode, count) => {
   const vocabulary = harvestDayLesson.scenes.flatMap(scene =>
     getSceneForLearningMode(scene, mode).vocabulary,
   );
@@ -31,9 +31,69 @@ test.each([
 });
 
 test.each([
-  ['core', 6, 0],
-  ['expanded', 6, 2],
-  ['challenge', 8, 2],
+  [
+    'core',
+    [
+      'tomato',
+      'ripe',
+      'unripe',
+      'pick',
+      'basket',
+      'vegetable',
+      'herb',
+      'carrot',
+    ],
+  ],
+  [
+    'expanded',
+    [
+      'tomato',
+      'ripe',
+      'unripe',
+      'red',
+      'pick',
+      'basket',
+      'fruit stem',
+      'gentle',
+      'vegetable',
+      'herb',
+      'carrot',
+      'bruised',
+    ],
+  ],
+  [
+    'challenge',
+    [
+      'tomato',
+      'ripe',
+      'unripe',
+      'red',
+      'leave it on the plant',
+      'pick',
+      'basket',
+      'fruit stem',
+      'gentle',
+      'branch',
+      'vegetable',
+      'herb',
+      'carrot',
+      'bruised',
+      'sort by type',
+      'separate',
+    ],
+  ],
+] as const)('%s mode exposes the intended vocabulary set', (mode, words) => {
+  expect(
+    harvestDayLesson.scenes.flatMap(scene =>
+      getSceneForLearningMode(scene, mode).vocabulary.map(item => item.word),
+    ),
+  ).toEqual(words);
+});
+
+test.each([
+  ['core', 8, 0],
+  ['expanded', 8, 4],
+  ['challenge', 12, 4],
 ] as const)(
   '%s mode keeps one pronunciation encounter per New Anchor',
   (mode, autoCount, optionalCount) => {
@@ -102,9 +162,9 @@ test.each(modes)(
 );
 
 test.each([
-  ['core', [6, 4, 6]],
-  ['expanded', [6, 5, 8]],
-  ['challenge', [9, 5, 10]],
+  ['core', [6, 6, 6]],
+  ['expanded', [9, 9, 9]],
+  ['challenge', [12, 12, 12]],
 ] as const)('%s mode keeps the frozen interaction rhythm', (mode, counts) => {
   expect(
     harvestDayLesson.scenes.map(
@@ -116,7 +176,7 @@ test.each([
   ).toEqual(counts);
 });
 
-test('only the ripe tomato can leave the hero plant', () => {
+test('only ripe tomatoes can leave the hero plant and the basket fills in two beats', () => {
   const findScene = harvestDayLesson.scenes.find(
     scene => scene.id === 'find-the-ripe-ones',
   )!;
@@ -124,7 +184,10 @@ test('only the ripe tomato can leave the hero plant', () => {
     scene => scene.id === 'pick-gently',
   )!;
   const greenTomatoId = 'find-the-ripe-ones-unripe-tomato';
-  const ripeTomatoId = 'pick-gently-ripe-tomato';
+  const ripeTomatoIds = [
+    'pick-gently-ripe-tomato',
+    'pick-gently-second-ripe-tomato',
+  ];
 
   expect(
     findScene.steps.some(
@@ -134,23 +197,41 @@ test('only the ripe tomato can leave the hero plant', () => {
     ),
   ).toBe(false);
 
-  const pickingStep = pickScene.steps.find(
-    step => step.id === 'pick-gently-place-tomato-in-basket',
-  )!;
-  expect(pickingStep.interaction).toMatchObject({
-    type: 'drag',
-    targetObjectId: ripeTomatoId,
-    dropZoneId: 'pick-gently-basket-zone',
+  const pickingSteps = pickScene.steps.filter(
+    step =>
+      step.interaction.type === 'drag' &&
+      ripeTomatoIds.includes(step.interaction.targetObjectId ?? ''),
+  );
+
+  expect(pickingSteps.map(step => step.interaction.targetObjectId)).toEqual(
+    ripeTomatoIds,
+  );
+  pickingSteps.forEach((step, index) => {
+    expect(step.interaction).toMatchObject({
+      type: 'drag',
+      targetObjectId: ripeTomatoIds[index],
+      dropZoneId: 'pick-gently-basket-zone',
+    });
+    expect(step.successStateChanges).toContainEqual({
+      targetObjectId: ripeTomatoIds[index],
+      type: 'hideObject',
+    });
+    expect(
+      step.successStateChanges?.some(
+        change => change.targetObjectId === 'pick-gently-hero-plant',
+      ),
+    ).toBe(false);
   });
-  expect(pickingStep.successStateChanges).toContainEqual({
-    targetObjectId: ripeTomatoId,
-    type: 'hideObject',
+
+  expect(pickingSteps[0].successStateChanges).toContainEqual({
+    targetObjectId: 'pick-gently-basket',
+    type: 'setObjectVariant',
+    variantId: 'filled',
   });
-  expect(
-    pickingStep.successStateChanges?.some(
-      change => change.targetObjectId === 'pick-gently-hero-plant',
-    ),
-  ).toBe(false);
+  expect(pickingSteps[1].successStateChanges).toContainEqual({
+    targetObjectId: 'pick-gently-basket-second-tomato',
+    type: 'showObject',
+  });
 });
 
 test('bruised produce goes to an adult-check tray', () => {
@@ -167,6 +248,34 @@ test('bruised produce goes to an adult-check tray', () => {
     targetObjectId: 'sort-the-harvest-bruised-tomato',
     dropZoneId: 'sort-the-harvest-adult-check-zone',
   });
+
+  const confirmation = sortScene.steps.find(
+    step => step.id === 'sort-the-harvest-confirm-adult-check',
+  )!;
+  expect(confirmation.learningScope).toEqual({ minMode: 'expanded' });
+  expect(confirmation.interaction.targetObjectId).toBe(
+    'sort-the-harvest-adult-check-tray',
+  );
+});
+
+test('challenge verifies the sorted-basket payoff before scene completion', () => {
+  const sortScene = harvestDayLesson.scenes.find(
+    scene => scene.id === 'sort-the-harvest',
+  )!;
+  const choice = sortScene.steps.find(
+    step => step.id === 'sort-the-harvest-choose-sort-by-type',
+  )!;
+  const confirmation = sortScene.steps.find(
+    step => step.id === 'sort-the-harvest-confirm-sorted-baskets',
+  )!;
+
+  expect(choice.successStateChanges).toContainEqual({
+    targetObjectId: 'sort-the-harvest-sorted-baskets',
+    type: 'showObject',
+  });
+  expect(confirmation.interaction.targetObjectId).toBe(
+    'sort-the-harvest-sorted-baskets',
+  );
 });
 
 test('review selection is the frozen executable 4-5-6 set', () => {

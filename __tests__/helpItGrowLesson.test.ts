@@ -37,11 +37,11 @@ function countWords(value: string | undefined) {
 }
 
 test.each([
-  ['core', 5],
-  ['expanded', 8],
-  ['challenge', 10],
+  ['core', 8],
+  ['expanded', 12],
+  ['challenge', 16],
 ] as const)(
-  '%s mode exposes the frozen lesson vocabulary budget',
+  '%s mode exposes the vocabulary-first lesson budget',
   (mode, count) => {
     const vocabulary = helpItGrowLesson.scenes.flatMap(
       scene => getSceneForLearningMode(scene, mode).vocabulary,
@@ -61,9 +61,69 @@ test.each([
 );
 
 test.each([
-  ['core', 5, 0],
-  ['expanded', 5, 3],
-  ['challenge', 7, 3],
+  [
+    'core',
+    [
+      'watering can',
+      'leaf',
+      'sunlight',
+      'rain',
+      'soil',
+      'flower',
+      'wind',
+      'stem',
+    ],
+  ],
+  [
+    'expanded',
+    [
+      'watering can',
+      'leaf',
+      'sunlight',
+      'shade',
+      'rain',
+      'soil',
+      'roots',
+      'flower',
+      'wind',
+      'stem',
+      'stake',
+      'soft tie',
+    ],
+  ],
+  [
+    'challenge',
+    [
+      'watering can',
+      'leaf',
+      'sunlight',
+      'shade',
+      'move into sunlight',
+      'rain',
+      'soil',
+      'roots',
+      'check the soil',
+      'wait for the rain to stop',
+      'flower',
+      'wind',
+      'stem',
+      'stake',
+      'soft tie',
+      'support the stem',
+    ],
+  ],
+] as const)('%s mode exposes the intended vocabulary set', (mode, words) => {
+  expect(
+    helpItGrowLesson.scenes.flatMap(scene =>
+      getSceneForLearningMode(scene, mode).vocabulary.map(item => item.word),
+    ),
+  ).toEqual(words);
+});
+
+test.each([
+  ['core', 8, 0],
+  ['expanded', 8, 4],
+  ['challenge', 12, 4],
 ] as const)(
   '%s mode keeps one pronunciation encounter per New Anchor',
   (mode, autoCount, optionalCount) => {
@@ -100,19 +160,19 @@ test.each(modes)('%s mode never places pronunciation panels together', mode => {
   });
 });
 
-test('core scenes keep the extended 7-6-7 interaction rhythm', () => {
+test('core scenes keep the vocabulary-first 7-7-7 interaction rhythm', () => {
   expect(
     helpItGrowLesson.scenes.map(sourceScene => {
       const scene = getSceneForLearningMode(sourceScene, 'core');
       return scene.steps.filter(step => step.type !== 'intro').length;
     }),
-  ).toEqual([7, 6, 7]);
+  ).toEqual([7, 7, 7]);
 });
 
 test.each([
-  ['core', [7, 6, 7]],
-  ['expanded', [9, 8, 8]],
-  ['challenge', [10, 10, 10]],
+  ['core', [7, 7, 7]],
+  ['expanded', [9, 9, 9]],
+  ['challenge', [11, 12, 11]],
 ] as const)('%s mode exposes the expected per-scene interaction count', (mode, expected) => {
   expect(
     helpItGrowLesson.scenes.map(sourceScene =>
@@ -183,6 +243,7 @@ test('challenge choices stay visible for success feedback, then clean up', () =>
         'new-leaf-and-sunlight-move-sunlight-action',
         'new-leaf-and-sunlight-stay-shade-action',
       ],
+      [],
     ],
     [
       'rainy-day-care',
@@ -190,6 +251,12 @@ test('challenge choices stay visible for success feedback, then clean up', () =>
       [
         'rainy-day-care-check-soil-action',
         'rainy-day-care-pour-water-action',
+      ],
+      [
+        {
+          targetObjectId: 'rainy-day-care-wait-for-rain-action',
+          type: 'showObject',
+        },
       ],
     ],
     [
@@ -199,14 +266,15 @@ test('challenge choices stay visible for success feedback, then clean up', () =>
         'wind-and-support-support-stem-action',
         'wind-and-support-leave-leaning-action',
       ],
+      [],
     ],
   ] as const;
 
-  cases.forEach(([sceneId, stepId, choiceIds]) => {
+  cases.forEach(([sceneId, stepId, choiceIds, successStateChanges]) => {
     const scene = getSceneForLearningMode(getScene(sceneId), 'challenge');
     const step = scene.steps.find(item => item.id === stepId);
 
-    expect(step?.successStateChanges ?? []).toEqual([]);
+    expect(step?.successStateChanges ?? []).toEqual(successStateChanges);
     expect(step?.afterSuccessStateChanges).toEqual(
       choiceIds.map(targetObjectId => ({
         targetObjectId,
@@ -240,6 +308,12 @@ test('time cues precede every authored growth state', () => {
 
 test.each([
   [
+    'new-leaf-and-sunlight',
+    'move into sunlight',
+    'new-leaf-and-sunlight-learn-move-into-sunlight',
+    'new-leaf-and-sunlight-choose-sunlight-action',
+  ],
+  [
     'rainy-day-care',
     'check the soil',
     'rainy-day-care-learn-check-soil',
@@ -272,20 +346,55 @@ test.each([
   },
 );
 
-test('Quick Recall and Action Enablers never become learned vocabulary', () => {
-  const vocabularyIds = new Set(
-    helpItGrowLesson.scenes.flatMap(scene =>
-      scene.vocabulary?.map(item => item.id),
+test('promoted care vocabulary uses matching action and state visuals', () => {
+  const leafScene = getScene('new-leaf-and-sunlight');
+  const rainScene = getScene('rainy-day-care');
+  const windScene = getScene('wind-and-support');
+
+  expect(
+    leafScene.objects.find(
+      object => object.id === 'new-leaf-and-sunlight-watering-can',
+    )?.vocabId,
+  ).toBe('vocab-help-it-grow-new-leaf-and-sunlight-watering-can');
+  expect(
+    rainScene.objects.find(object => object.id === 'rainy-day-care-soil')
+      ?.vocabId,
+  ).toBe('vocab-help-it-grow-rainy-day-care-soil');
+  expect(
+    windScene.objects.find(object => object.id === 'wind-and-support-plant')
+      ?.vocabId,
+  ).toBe('vocab-help-it-grow-wind-and-support-flower');
+  expect(
+    windScene.objects.find(
+      object => object.id === 'wind-and-support-soft-tie-vocabulary',
+    )?.asset.source,
+  ).toBe('lessons/help-it-grow/wind-and-support/images/soft-tie.webp');
+
+  expect(
+    rainScene.steps.find(
+      step => step.id === 'rainy-day-care-learn-wait-for-rain-to-stop',
     ),
-  );
+  ).toMatchObject({
+    interaction: { targetObjectId: 'rainy-day-care-wait-for-rain-action' },
+    speechPractice: 'auto',
+    type: 'teach',
+  });
+  expect(
+    windScene.steps.find(
+      step => step.id === 'wind-and-support-find-flower-bud',
+    ),
+  ).toMatchObject({
+    promptText: 'flower',
+    speechPractice: 'auto',
+    type: 'teach',
+  });
+});
+
+test('remaining time and support enablers do not open pronunciation panels', () => {
   const enablerIds = new Set([
-    'new-leaf-and-sunlight-plant',
-    'new-leaf-and-sunlight-watering-can',
     'new-leaf-and-sunlight-first-time-cue',
-    'rainy-day-care-plant',
-    'rainy-day-care-soil',
+    'rainy-day-care-cloud',
     'wind-and-support-stick',
-    'wind-and-support-soft-tie',
     'wind-and-support-time-cue',
   ]);
 
@@ -293,16 +402,7 @@ test('Quick Recall and Action Enablers never become learned vocabulary', () => {
     scene.objects
       .filter(object => enablerIds.has(object.id))
       .forEach(object => expect(object.vocabId).toBeUndefined());
-    scene.steps
-      .filter(step =>
-        step.targetObjectIds.some(objectId => enablerIds.has(objectId)),
-      )
-      .forEach(step => {
-        expect(step.vocabId).toBeUndefined();
-        expect(step.speechPractice).toBeUndefined();
-      });
   });
-  expect([...vocabularyIds]).toHaveLength(10);
 });
 
 test('review selection is the frozen executable 4-5-6 set', () => {

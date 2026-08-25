@@ -13482,15 +13482,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 1024,
       "lessonIds": [
         "garden-to-table"
       ],
-      "maxPercent": 31,
+      "maxPercent": 42,
       "output": "lessons/garden-to-table/make-and-share/images/bowl-mixed.webp",
-      "outputBytes": 38544,
-      "outputSha256": "29a020cec99a1fde85167ff860b30d545df0f753439d02d9c2a6565b1a532528",
-      "profile": "objectMedium",
+      "outputBytes": 51968,
+      "outputSha256": "0e3831f6d5cd0574e265f3de41ef7ada3a83cbd685ec63324585ffb6bbbdbb2a",
+      "profile": "objectLarge",
       "roles": [
         "object"
       ],
@@ -13500,20 +13500,20 @@
       "source": "lessons/garden-to-table/make-and-share/images/bowl-mixed.png",
       "sourceBytes": 1068331,
       "sourceSha256": "bfc7c41a061323a7325ac5635331b416583c84af889f088f8beb57473a1f922a",
-      "width": 768
+      "width": 1024
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 1024,
       "lessonIds": [
         "garden-to-table"
       ],
-      "maxPercent": 31,
+      "maxPercent": 42,
       "output": "lessons/garden-to-table/make-and-share/images/bowl-prepared.webp",
-      "outputBytes": 35472,
-      "outputSha256": "b1cac94bbd46a71bdf90f82659cb3edbe4961b82c5a03182726c3aa4dc4d0d8e",
-      "profile": "objectMedium",
+      "outputBytes": 47690,
+      "outputSha256": "c2a0705443f73744077a4ea40a1ef21ecfc52c0aaeaa927bf6ee74c4a5f1778c",
+      "profile": "objectLarge",
       "roles": [
         "object"
       ],
@@ -13523,7 +13523,7 @@
       "source": "lessons/garden-to-table/make-and-share/images/bowl-prepared.png",
       "sourceBytes": 1008571,
       "sourceSha256": "5a99b83f404a350dbef230d8fe39b6f42081e5ac2957418a88c157a6c8ad43f3",
-      "width": 768
+      "width": 1024
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -14006,29 +14006,6 @@
       "source": "lessons/garden-to-table/save-for-next-season/images/adult-hand-seed.png",
       "sourceBytes": 704855,
       "sourceSha256": "67df6bedfc1f35cf42d78d0e6d537fe92a103d7f252009aad010cd6e9db26253",
-      "width": 768
-    },
-    {
-      "configSignature": "d3d4e2f7441de006",
-      "hasAlpha": true,
-      "height": 768,
-      "lessonIds": [
-        "garden-to-table"
-      ],
-      "maxPercent": 32,
-      "output": "lessons/garden-to-table/save-for-next-season/images/adult-store-control.webp",
-      "outputBytes": 24568,
-      "outputSha256": "b2442f6a478b961b3de450e70a46dc39d663b41d85bae6602fca69eeef43c78b",
-      "profile": "objectMedium",
-      "roles": [
-        "object"
-      ],
-      "sceneIds": [
-        "save-for-next-season"
-      ],
-      "source": "lessons/garden-to-table/save-for-next-season/images/adult-store-control.png",
-      "sourceBytes": 512537,
-      "sourceSha256": "f383ebb153f2fa994509f219dfb98ba4a242eb2d7b8136dc7eb3cde267ffaf00",
       "width": 768
     },
     {
@@ -16334,6 +16311,29 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "harvest-day"
+      ],
+      "maxPercent": 52,
+      "output": "lessons/harvest-day/sort-the-harvest/images/sorted-baskets.webp",
+      "outputBytes": 80008,
+      "outputSha256": "477d99d403c06a4f2069fc24699100976262d596178879e12ce9d8c646d7967a",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "sort-the-harvest"
+      ],
+      "source": "lessons/harvest-day/sort-the-harvest/images/sorted-baskets.png",
+      "sourceBytes": 847309,
+      "sourceSha256": "c207455c9d87a35bd1160ed2b838a4fe7362577a7f05157df4c718cae18f9981",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
       "height": 768,
       "lessonIds": [
         "harvest-day"
@@ -16886,15 +16886,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 1024,
       "lessonIds": [
         "help-it-grow"
       ],
-      "maxPercent": 24,
+      "maxPercent": 38,
       "output": "lessons/help-it-grow/rainy-day-care/images/rain.webp",
-      "outputBytes": 41962,
-      "outputSha256": "93f704dde3aa33e4623cd884ae74ed62bbdf47ebf0340b41347246b826520973",
-      "profile": "objectMedium",
+      "outputBytes": 54686,
+      "outputSha256": "3f97058b710c3fd05dfe7223e5336d941cb1f3b149950dccc7df275cb5e6e6b9",
+      "profile": "objectLarge",
       "roles": [
         "object"
       ],
@@ -16904,7 +16904,7 @@
       "source": "lessons/help-it-grow/rainy-day-care/images/rain.png",
       "sourceBytes": 492880,
       "sourceSha256": "21521050c3d732d5a765f6fd0f2aeff64347eb48e76e6e92eb2e51a19c78c294",
-      "width": 768
+      "width": 1024
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -28545,7 +28545,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-17T11:19:44.948Z",
+  "generatedAt": "2026-08-25T05:47:32.085Z",
   "releaseVersion": "v1",
-  "revision": "f10f24bf80397323"
+  "revision": "2636bcf11f5d067c"
 }

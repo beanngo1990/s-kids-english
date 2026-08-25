@@ -59,6 +59,11 @@ function makeNewLeafAndSunlightScene(): Scene {
   const sceneId = 'new-leaf-and-sunlight';
   const vocabulary = [
     vocabularyItem(sceneId, {
+      key: 'watering-can',
+      meaningVi: 'bình tưới cây',
+      word: 'watering can',
+    }),
+    vocabularyItem(sceneId, {
       key: 'leaf',
       meaningVi: 'chiếc lá',
       word: 'leaf',
@@ -73,6 +78,13 @@ function makeNewLeafAndSunlightScene(): Scene {
       meaningVi: 'bóng râm',
       tier: 'expanded',
       word: 'shade',
+    }),
+    vocabularyItem(sceneId, {
+      key: 'move-into-sunlight',
+      meaningVi: 'đưa vào vùng nắng',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'move into sunlight',
     }),
   ];
   const vocab = new Map(vocabulary.map(item => [item.word, item]));
@@ -121,13 +133,12 @@ function makeNewLeafAndSunlightScene(): Scene {
           }),
         ],
       }),
-      sceneObject({
+      learningObject({
         id: wateringCanId,
         assetSource: sceneImageSource(sceneId, 'watering-can'),
-        isInteractive: true,
         position: rect(70, 50, 23, 22),
-        presentation: 'cutout',
         touchArea: rect(65, 45, 33, 32),
+        vocab: vocab.get('watering can')!,
       }),
       sceneObject({
         id: timeCueId,
@@ -170,15 +181,14 @@ function makeNewLeafAndSunlightScene(): Scene {
         touchArea: rect(2, 57, 32, 26),
         vocab: vocab.get('shade')!,
       }),
-      sceneObject({
+      learningObject({
         id: moveSunlightActionId,
         assetSource: sceneImageSource(sceneId, 'move-sunlight-action'),
         initialVisibility: 'hidden',
-        isInteractive: true,
         learningScope: challengeScope,
         position: rect(8, 80, 38, 16),
-        presentation: 'cutout',
         touchArea: rect(4, 76, 46, 22),
+        vocab: vocab.get('move into sunlight')!,
       }),
       sceneObject({
         id: stayShadeActionId,
@@ -215,11 +225,13 @@ function makeNewLeafAndSunlightScene(): Scene {
       }),
       dragStep({
         id: `${sceneId}-water-plant`,
-        instructionVi: 'Cây hơi rũ. Kéo bình tưới cây tới chậu nhé.',
+        instructionVi: 'Kéo bình tưới cây tới chậu cây đang hơi rũ nhé.',
         instructionEn:
-          'The plant is drooping. Drag the watering can to the pot.',
-        successFeedbackVi: 'Cây tươi hơn rồi.',
-        successFeedbackEn: 'The plant looks fresher now.',
+          'Drag the watering can to the pot with the drooping plant.',
+        promptText: 'watering can',
+        successFeedbackVi: 'Cây tươi hơn rồi. Đây là bình tưới cây.',
+        successFeedbackEn:
+          'The plant looks fresher. This is a watering can.',
         failFeedbackVi: 'Kéo bình tưới cây tới chậu nhé.',
         failFeedbackEn: 'Drag the green watering can to the plant pot.',
         successStateChanges: [
@@ -228,8 +240,10 @@ function makeNewLeafAndSunlightScene(): Scene {
         ],
         effects: [lessonEffects.sparkle(plantId)],
         dropZoneId: potZoneId,
+        speechPractice: 'auto',
         targetObjectId: wateringCanId,
-        type: 'practice',
+        type: 'teach',
+        vocabId: vocab.get('watering can')!.id,
       }),
       tapStep({
         id: `${sceneId}-wait-new-leaf`,
@@ -350,10 +364,28 @@ function makeNewLeafAndSunlightScene(): Scene {
         type: 'practice',
       }),
       tapStep({
+        id: `${sceneId}-learn-move-into-sunlight`,
+        instructionVi: 'Chạm hình chậu cây đi vào vùng nắng nhé.',
+        instructionEn:
+          'Tap the picture of the plant moving into sunlight.',
+        learningScope: challengeScope,
+        promptText: 'move into sunlight',
+        successFeedbackVi: 'Đúng rồi, mình đưa cây vào vùng nắng.',
+        successFeedbackEn: 'Yes, move the plant into sunlight.',
+        failFeedbackVi: 'Chạm hình chậu cây có mũi tên hướng về tia nắng nhé.',
+        failFeedbackEn:
+          'Tap the picture with the arrow pointing toward the sunbeams.',
+        speechPractice: 'auto',
+        targetObjectId: moveSunlightActionId,
+        type: 'teach',
+        vocabId: vocab.get('move into sunlight')!.id,
+      }),
+      tapStep({
         id: `${sceneId}-choose-sunlight-action`,
         instructionVi: 'Đâu là hình chuyển chậu vào vùng nắng?',
         instructionEn: 'Which picture moves the pot into the sunlight?',
         learningScope: challengeScope,
+        promptText: 'move into sunlight',
         successFeedbackVi: 'Đúng rồi, mình đưa cây vào chỗ có nắng.',
         successFeedbackEn: 'Right, we move the plant into the sunlight.',
         failFeedbackVi: 'Tìm hình chậu đi về phía tia nắng nhé.',
@@ -367,6 +399,7 @@ function makeNewLeafAndSunlightScene(): Scene {
           sceneStateChanges.hide(stayShadeActionId),
         ],
         type: 'review',
+        vocabId: vocab.get('move into sunlight')!.id,
       }),
     ],
     completionReward: {
@@ -386,6 +419,11 @@ function makeRainyDayCareScene(): Scene {
       word: 'rain',
     }),
     vocabularyItem(sceneId, {
+      key: 'soil',
+      meaningVi: 'đất trồng cây',
+      word: 'soil',
+    }),
+    vocabularyItem(sceneId, {
       key: 'roots',
       meaningVi: 'rễ cây',
       tier: 'expanded',
@@ -398,6 +436,13 @@ function makeRainyDayCareScene(): Scene {
       type: 'phrase',
       word: 'check the soil',
     }),
+    vocabularyItem(sceneId, {
+      key: 'wait-for-rain-to-stop',
+      meaningVi: 'chờ mưa tạnh',
+      tier: 'challenge',
+      type: 'phrase',
+      word: 'wait for the rain to stop',
+    }),
   ];
   const vocab = new Map(vocabulary.map(item => [item.word, item]));
   const plantId = `${sceneId}-plant`;
@@ -409,6 +454,7 @@ function makeRainyDayCareScene(): Scene {
   const rootsId = `${sceneId}-roots`;
   const checkSoilActionId = `${sceneId}-check-soil-action`;
   const pourWaterActionId = `${sceneId}-pour-water-action`;
+  const waitForRainActionId = `${sceneId}-wait-for-rain-action`;
 
   return {
     id: sceneId,
@@ -450,12 +496,10 @@ function makeRainyDayCareScene(): Scene {
         touchArea: rect(49, 17, 34, 34),
         vocab: vocab.get('rain')!,
       }),
-      sceneObject({
+      learningObject({
         id: soilId,
         assetSource: sceneImageSource(sceneId, 'soil-wet'),
-        isInteractive: true,
         position: rect(42, 62, 16, 8),
-        presentation: 'cutout',
         touchArea: rect(37, 56, 26, 20),
         variants: [
           objectVariant({
@@ -471,6 +515,7 @@ function makeRainyDayCareScene(): Scene {
             touchArea: rect(9, 56, 26, 20),
           }),
         ],
+        vocab: vocab.get('soil')!,
       }),
       sceneObject({
         id: rootWindowControlId,
@@ -508,6 +553,15 @@ function makeRainyDayCareScene(): Scene {
         position: rect(54, 80, 38, 16),
         presentation: 'cutout',
         touchArea: rect(50, 76, 46, 22),
+      }),
+      learningObject({
+        id: waitForRainActionId,
+        assetSource: sceneImageSource(sceneId, 'rain'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(8, 80, 38, 16),
+        touchArea: rect(4, 76, 46, 22),
+        vocab: vocab.get('wait for the rain to stop')!,
       }),
     ],
     dropZones: [
@@ -646,12 +700,34 @@ function makeRainyDayCareScene(): Scene {
         correctObjectIds: [checkSoilActionId],
         targetObjectId: checkSoilActionId,
         targetObjectIds: [checkSoilActionId, pourWaterActionId],
+        successStateChanges: [
+          sceneStateChanges.show(waitForRainActionId),
+        ],
         afterSuccessStateChanges: [
           sceneStateChanges.hide(checkSoilActionId),
           sceneStateChanges.hide(pourWaterActionId),
         ],
         type: 'review',
         vocabId: vocab.get('check the soil')!.id,
+      }),
+      tapStep({
+        id: `${sceneId}-learn-wait-for-rain-to-stop`,
+        instructionVi: 'Chạm hình những giọt mưa để chờ mưa tạnh nhé.',
+        instructionEn:
+          'Tap the raindrops while we wait for the rain to stop.',
+        learningScope: challengeScope,
+        promptText: 'wait for the rain to stop',
+        successFeedbackVi: 'Đúng rồi, mình chờ mưa tạnh.',
+        successFeedbackEn: 'Yes, wait for the rain to stop.',
+        failFeedbackVi: 'Chạm hình những giọt nước màu xanh phía dưới nhé.',
+        failFeedbackEn: 'Tap the blue raindrops below.',
+        speechPractice: 'auto',
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(waitForRainActionId),
+        ],
+        targetObjectId: waitForRainActionId,
+        type: 'teach',
+        vocabId: vocab.get('wait for the rain to stop')!.id,
       }),
       tapStep({
         id: `${sceneId}-let-rain-pass`,
@@ -681,6 +757,20 @@ function makeRainyDayCareScene(): Scene {
         targetObjectId: plantId,
         type: 'practice',
       }),
+      tapStep({
+        id: `${sceneId}-learn-soil`,
+        instructionVi: 'Chạm phần đất sẫm màu còn ướt trong chậu nhé.',
+        instructionEn: 'Tap the dark soil that is still wet in the pot.',
+        promptText: 'soil',
+        successFeedbackVi: 'Đúng rồi, đây là đất trồng cây.',
+        successFeedbackEn: 'Yes, this is soil.',
+        failFeedbackVi: 'Chạm phần đất màu nâu trong chậu dưới mái che nhé.',
+        failFeedbackEn: 'Tap the brown soil in the sheltered plant pot.',
+        speechPractice: 'auto',
+        targetObjectId: soilId,
+        type: 'teach',
+        vocabId: vocab.get('soil')!.id,
+      }),
     ],
     completionReward: {
       stars: 3,
@@ -694,6 +784,11 @@ function makeRainyDayCareScene(): Scene {
 function makeWindAndSupportScene(): Scene {
   const sceneId = 'wind-and-support';
   const vocabulary = [
+    vocabularyItem(sceneId, {
+      key: 'flower',
+      meaningVi: 'bông hoa',
+      word: 'flower',
+    }),
     vocabularyItem(sceneId, {
       key: 'wind',
       meaningVi: 'gió',
@@ -711,6 +806,12 @@ function makeWindAndSupportScene(): Scene {
       word: 'stake',
     }),
     vocabularyItem(sceneId, {
+      key: 'soft-tie',
+      meaningVi: 'dây buộc mềm',
+      tier: 'expanded',
+      word: 'soft tie',
+    }),
+    vocabularyItem(sceneId, {
       key: 'support-stem',
       meaningVi: 'đỡ thân cây',
       tier: 'challenge',
@@ -726,6 +827,7 @@ function makeWindAndSupportScene(): Scene {
   const installedStakeId = `${sceneId}-installed-stake`;
   const stakeId = `${sceneId}-stake`;
   const softTieId = `${sceneId}-soft-tie`;
+  const softTieVocabularyId = `${sceneId}-soft-tie-vocabulary`;
   const installedTieId = `${sceneId}-installed-tie`;
   const supportStemActionId = `${sceneId}-support-stem-action`;
   const leaveLeaningActionId = `${sceneId}-leave-leaning-action`;
@@ -750,6 +852,7 @@ function makeWindAndSupportScene(): Scene {
         isInteractive: true,
         position: rect(34, 42, 32, 36),
         presentation: 'cutout',
+        role: 'learning',
         touchArea: rect(28, 36, 44, 46),
         variants: [
           objectVariant({
@@ -769,6 +872,7 @@ function makeWindAndSupportScene(): Scene {
             assetSource: sceneImageSource(sceneId, 'plant-flower-bud'),
           }),
         ],
+        vocabId: vocab.get('flower')!.id,
       }),
       learningObject({
         id: windId,
@@ -814,6 +918,15 @@ function makeWindAndSupportScene(): Scene {
         position: rect(69, 63, 25, 18),
         presentation: 'cutout',
         touchArea: rect(64, 58, 35, 28),
+      }),
+      learningObject({
+        id: softTieVocabularyId,
+        assetSource: sceneImageSource(sceneId, 'soft-tie'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(69, 63, 25, 18),
+        touchArea: rect(64, 58, 35, 28),
+        vocab: vocab.get('soft tie')!,
       }),
       sceneObject({
         id: installedTieId,
@@ -955,17 +1068,36 @@ function makeWindAndSupportScene(): Scene {
         id: `${sceneId}-wait-for-flower-bud`,
         instructionVi: 'Chạm vòng ngày đêm để xem cây lớn thêm nhé.',
         instructionEn: 'Tap the day-and-night circle and watch the plant grow.',
-        successFeedbackVi: 'Vài ngày sau, cây đứng thẳng và có nụ hoa.',
+        successFeedbackVi: 'Vài ngày sau, cây đứng thẳng và có một bông hoa.',
         successFeedbackEn:
-          'A few days later, the plant stands tall with a flower bud.',
+          'A few days later, the plant stands tall with a flower.',
         failFeedbackVi: 'Chạm vòng có mặt trời và mặt trăng nhé.',
         failFeedbackEn: 'Tap the circle with the sun and moon.',
         successStateChanges: [
           sceneStateChanges.setVariant(plantId, 'flower-bud'),
+          sceneStateChanges.show(softTieVocabularyId),
         ],
         effects: [lessonEffects.sparkle(plantId)],
         targetObjectId: timeCueId,
         type: 'practice',
+      }),
+      tapStep({
+        id: `${sceneId}-learn-soft-tie`,
+        instructionVi: 'Chạm dây buộc mềm đang giúp giữ cây nhé.',
+        instructionEn: 'Tap the soft tie that helps hold the plant.',
+        learningScope: expandedScope,
+        promptText: 'soft tie',
+        successFeedbackVi: 'Đúng rồi, đây là dây buộc mềm.',
+        successFeedbackEn: 'Yes, this is a soft tie.',
+        failFeedbackVi: 'Chạm dải dây mềm màu xanh bên phải nhé.',
+        failFeedbackEn: 'Tap the soft green tie on the right.',
+        speechPractice: 'optional',
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(softTieVocabularyId),
+        ],
+        targetObjectId: softTieVocabularyId,
+        type: 'teach',
+        vocabId: vocab.get('soft tie')!.id,
       }),
       tapStep({
         id: `${sceneId}-test-support`,
@@ -976,30 +1108,17 @@ function makeWindAndSupportScene(): Scene {
         successFeedbackEn: 'The stake and tie keep the plant standing tall.',
         failFeedbackVi: 'Chạm luồng gió có lá bay nhé.',
         failFeedbackEn: 'Tap the wind swirl with the flying leaves.',
-        successStateChanges: [sceneStateChanges.hide(windId)],
+        successStateChanges: [
+          sceneStateChanges.hide(windId),
+          sceneStateChanges.show(supportStemActionId),
+          sceneStateChanges.show(leaveLeaningActionId),
+        ],
         effects: [
           lessonEffects.bounce(installedStakeId),
           lessonEffects.bounce(installedTieId),
           lessonEffects.sparkle(plantId),
         ],
         targetObjectId: windId,
-        type: 'practice',
-      }),
-      tapStep({
-        id: `${sceneId}-find-flower-bud`,
-        instructionVi: 'Gió đã qua. Chạm cây để tìm nụ hoa nhỏ nhé.',
-        instructionEn:
-          'The wind has passed. Tap the plant to find the flower bud.',
-        successFeedbackVi: 'Cây đứng vững và đã có một nụ hoa.',
-        successFeedbackEn: 'The plant stands tall and has a flower bud.',
-        failFeedbackVi: 'Chạm chậu cây ở giữa nhé.',
-        failFeedbackEn: 'The plant pot is in the middle.',
-        successStateChanges: [
-          sceneStateChanges.show(supportStemActionId),
-          sceneStateChanges.show(leaveLeaningActionId),
-        ],
-        effects: [lessonEffects.sparkle(plantId)],
-        targetObjectId: plantId,
         type: 'practice',
       }),
       tapStep({
@@ -1038,6 +1157,22 @@ function makeWindAndSupportScene(): Scene {
         type: 'review',
         vocabId: vocab.get('support the stem')!.id,
       }),
+      tapStep({
+        id: `${sceneId}-find-flower-bud`,
+        instructionVi: 'Chạm cây đứng vững để tìm bông hoa màu vàng nhé.',
+        instructionEn:
+          'Tap the standing plant to find the yellow flower.',
+        promptText: 'flower',
+        successFeedbackVi: 'Đúng rồi, cây đã có một bông hoa.',
+        successFeedbackEn: 'Yes, the plant now has a flower.',
+        failFeedbackVi: 'Chạm chậu cây có bông hoa vàng ở giữa nhé.',
+        failFeedbackEn: 'The plant with the yellow flower is in the middle.',
+        effects: [lessonEffects.sparkle(plantId)],
+        speechPractice: 'auto',
+        targetObjectId: plantId,
+        type: 'teach',
+        vocabId: vocab.get('flower')!.id,
+      }),
     ],
     completionReward: {
       stars: 3,
@@ -1072,6 +1207,8 @@ export const helpItGrowLesson: Lesson = {
         'vocab-help-it-grow-new-leaf-and-sunlight-sunlight',
         'vocab-help-it-grow-rainy-day-care-rain',
         'vocab-help-it-grow-wind-and-support-wind',
+        'vocab-help-it-grow-new-leaf-and-sunlight-shade',
+        'vocab-help-it-grow-rainy-day-care-check-soil',
       ],
     },
   },

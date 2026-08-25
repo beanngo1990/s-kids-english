@@ -53,26 +53,39 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   và tưới lần đầu thành một chuỗi nhân-quả; ảnh pilot đã build/verify local nhưng lesson audio và
   image release chưa publish lên R2.
 - **Implemented:** vertical slice `help-it-grow` nối ba tình huống nắng, mưa và gió bằng cùng một
-  lineage cây cà chua non; dữ liệu, review 4/5/6 item, production cutouts, map icons và audio
-  production đã có. Bản nhịp mở rộng dùng lại 40 ảnh hiện có, thêm 57 audio vào corpus ban đầu
-  246 file; R2 đã upload và verify đủ 343/343 object ngày 2026-08-13.
+  lineage cây cà chua non. Vocabulary-first revision ngày 2026-08-25 dùng lại 40 ảnh, nâng
+  vocabulary/pronunciation lên 8/12/16, khóa meaningful turn 21/27/34 và giữ review 4/5/6.
+  User-facing payoff là bông hoa vàng đã nở; tên asset/variant `flower-bud` chỉ còn là technical
+  identifier ổn định. Google TTS tạo đúng 58 audio delta; lesson/full-corpus audit đạt
+  439/16.012 target với missing 0, invalid 0. R2 upload 59 object gồm audio và một WebP rebuild,
+  verify đủ 401/401, post-upload delta bằng 0; CDN smoke audio mới khớp local.
 - **Implemented:** `garden-friends` nối ba scene khám phá giun/ốc sên, ong/bướm và sâu bướm
   bằng observation controls thay vì cho bé kéo/chạm trực tiếp con vật. Lesson data, review 4/5/6,
-  production PNG masters, bundled map icons, WebP và action-first audio đã có. Sau khi sửa cutter
-  và tạo thêm 85 audio target, R2 đã upload delta 94 object và verify đủ 377/377 object ngày
-  2026-08-14.
-- **Implemented:** `harvest-day` nối ba scene tìm quả chín, hái bằng tay và phân loại thành quả.
-  Lesson giữ quả xanh trên cây, chỉ cho quả chín rời cây, chuyển giỏ `empty -> filled` và đưa quả
-  bị dập sang khay người lớn kiểm tra. Runtime data, review 4/5/6, production PNG masters, 33 WebP
-  và bốn bundled map icons đã có. Google TTS đã tạo 252 audio production target mới; R2 đã upload
-  và verify đủ 285/285 object ngày 2026-08-14. Sau khi sửa cutter làm mất alpha nội bộ, 30 cutout
-  được rebuild/upload lại với asset revision mới; remote verify vẫn 285/285 và post-upload dry-run
-  còn `Changed/new: 0`.
+  production PNG masters, bundled map icons, WebP và action-first audio đã có. Vocabulary-first
+  revision ngày 2026-08-25 dùng lại 35 WebP, nâng vocabulary/pronunciation lên 8/12/16 và nhịp
+  meaningful turn lên 19/25/34. Google TTS tạo đúng 78 audio delta; lesson/full-corpus audit đạt
+  432/16.090 target với missing 0, invalid 0. R2 verify đủ 455/455, post-upload delta bằng 0;
+  CDN smoke audio mới khớp local.
+- **Implemented:** `harvest-day` nối ba scene tìm quả chín, hái bằng tay và phân loại thành
+  quả. Pacing revision giữ quả xanh trên cây, cho bé hái lần lượt hai quả chín, kiểm tra cành sau
+  lượt đầu và xác nhận giỏ có đủ hai quả; scene cuối xác nhận riêng khay người lớn và payoff ba
+  giỏ đã phân loại. Vocabulary/pronunciation hiện là 8/12/16, review vẫn 4/5/6 và nhịp ngoài intro
+  vẫn là 18/27/36 meaningful turns theo core/expanded/challenge. Google TTS đã tạo đúng 46 audio
+  delta cho revision; lesson audit 459 target và full-corpus audit 15.903 target đều thiếu 0, lỗi
+  0. Production R2 hiện có 34 WebP + 413 audio, verify đủ 447/447 ngày 2026-08-25 và post-upload
+  delta bằng 0; audio `separate.mp3` tải qua production CDN khớp local theo size và SHA-256. Local
+  image build/verify pass 34/34. Sau khi sửa cutter làm mất alpha nội bộ, 30 cutout cũ đã được
+  rebuild/upload với asset revision mới; device smoke test sau audio revision 8/12/16 chưa chạy.
 - **Implemented:** `garden-to-table` nối ba scene rửa rau quả, làm/chia sẻ món nguội và nhờ người
-  lớn giữ hạt khô cho mùa sau. Lesson có 6/8/10 vocabulary targets, nhịp 19/23/27 hành động,
-  review 4/5/6, state `dirty -> clean`, `empty -> shared`, `empty -> stored`, 38 WebP runtime
-  assets và bốn bundled icons. Google TTS đã tạo 286 production audio file bao phủ 371 target;
-  R2 đã upload/verify đủ 324/324 object, lỗi `0`, và post-upload dry-run còn `Changed/new: 0`.
+  lớn giữ hạt khô cho mùa sau. Vocabulary/pronunciation hiện là 8/12/16, nhịp meaningful turn là
+  21/27/34 và review vẫn 4/5/6. Các state `dirty -> clean`, `empty -> shared`, `empty -> stored`,
+  37 WebP runtime assets và bốn bundled icons được giữ nguyên. Visual QA correction retire
+  pointer-hand sai ngữ nghĩa, dùng hình phong bì trên kệ cho `store it for next season` và cho
+  safety action chạm phong bì đã đóng. Google TTS đã tạo 69 audio ở revision đầu và thêm đúng 12
+  audio correction; lesson/full-corpus audit đạt 443/15.969 target với missing 0, invalid 0. R2
+  upload thêm 14 object correction, verify đủ 404/404 asset và post-upload delta bằng 0 ngày
+  2026-08-25; audio instruction mới trên production CDN khớp local theo size và SHA-256. Device
+  smoke test chưa chạy.
 - **Implemented:** vertical slice Foundation `feed-the-puppy` v2 nối ba scene gặp cún,
   chuẩn bị bát và giúp cún dùng bữa an toàn. Vocabulary/action/pronunciation budgets là 9/18/27,
   18/36/54 và 9/18/27 theo core/expanded/challenge; auto-micro giảm còn 9/12/15, phân bố 3/4/5
@@ -324,22 +337,28 @@ theo policy hiện tại.
 
 Storyboard Mốc 4B trong `docs/theme-4-help-it-grow-storyboard.md` khóa `help-it-grow` thành ba
 scene `new-leaf-and-sunlight` -> `rainy-day-care` -> `wind-and-support`, dùng cùng lineage cây cà
-chua non và kết thúc bằng nụ hoa sau cue thời gian. Vocabulary budget là 5/8/10 New Anchors theo
-core/expanded/challenge; nước, chậu cùng các đích kéo trực quan, đất, vòng thời gian và bộ
-que-dây chỉ là Quick Recall/Action Enabler. Sau kiểm thử Android, ba scene được mở rộng thành nhịp
-core 7/6/7, expanded 9/8/8 và challenge 10/10/10 tương tác ngoài intro; đây là số bước mỗi
-mini-scene vì map mở từng scene riêng. Không có hai pronunciation panels liền nhau, và review
-executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
+chua non và kết thúc bằng bông hoa vàng đã nở sau cue thời gian. Vocabulary-first revision ngày
+2026-08-25 khóa budget 8/12/16 New Anchors theo core/expanded/challenge. Core gồm `watering can`,
+`leaf`, `sunlight`, `rain`, `soil`, `flower`, `wind`, `stem`; expanded thêm `shade`, `roots`,
+`stake`, `soft tie`; challenge thêm `move into sunlight`, `check the soil`,
+`wait for the rain to stop`, `support the stem`. Chậu/đích kéo, vòng thời gian, mái che, mây và
+que đỡ regular còn là Action Enabler. Nhịp ngoài intro là core 7/7/7, expanded 9/9/9 và challenge
+11/12/11, tương ứng 21/27/34 meaningful turns. Không có hai pronunciation panels liền nhau, và
+review executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
 masters text-free từ ba production sheets. Đường mở lesson/review/replay luôn truyền learning
 mode đã chọn; nếu route cũ thiếu mode, ScenePlayer khôi phục setting đã lưu thay vì mặc định Core.
 Các illustration lựa chọn Challenge chỉ hiện trong đúng teach/review beat và được ẩn cả cặp ngay
 sau câu trả lời đúng, nên không trở thành đạo cụ thừa trong payoff/closure kế tiếp.
-Corpus Google TTS hiện có 303 audio; cùng 40 ảnh, R2 đã upload và dry-run verify đủ 343/343
-object (`Changed/new: 0`) ngày 2026-08-13.
+Revision dùng lại toàn bộ 40 ảnh. Asset filename/variant `plant-flower-bud` được giữ vì ổn định
+technical key, nhưng copy/audio dạy `flower`. Google TTS tạo 58 audio delta; lesson/full-corpus
+audit đạt 439/16.012 target với missing 0, invalid 0. R2 upload 59 object gồm audio và một WebP
+rebuild, verify đủ 401/401 và post-upload delta bằng 0 ngày 2026-08-25; audio
+`move_into_sunlight.mp3` trên production CDN khớp local theo size và SHA-256.
 
 Storyboard `docs/theme-4-garden-friends-storyboard.md` khóa `garden-friends` thành ba scene
-`under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`, vocabulary 6/8/10 và review
-executable 4/5/6. Nhịp ngoài intro là 16/20/25 hành động theo core/expanded/challenge. Animal
+`under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`, vocabulary/pronunciation 8/12/16
+và review executable 4/5/6. Nhịp ngoài intro là 19/25/34 meaningful turns theo
+core/expanded/challenge. Animal
 cutouts luôn non-interactive; bé thao tác lên lá, đất, observation ring,
 time cue, nước hoặc hình hành động. Một production sheet text-free cho mỗi scene được cắt thành
 32 object masters, cùng ba background và bốn bundled map icons. Cả năm lesson Theme 4 hiển thị
@@ -350,36 +369,50 @@ upload và verify đủ 292/292 object trên R2 ngày 2026-08-14 (`Changed/new: 
 đã được Google TTS tạo và publish. Cutter cũng được sửa theo gutter thực của sheet, build lại 9
 WebP từng bị cắt cụt hoặc dính mảnh từ hàng bên cạnh. R2 đã nhận delta 94/94, verify đủ 377/377;
 post-upload dry-run `Changed/new: 0`, audio dry-run `Missing files: 0`, `Invalid files: 0`.
+Vocabulary-first revision thêm `leaf`, `fruit`, `wings`, `water drop`, `shell` và
+`visit the flower` bằng đúng ảnh/state hiện có; con vật và duplicate mô tả bộ phận vẫn
+non-interactive, nên bé tiếp tục thao tác qua kính lúp, hoa, lá hoặc cây. Google TTS tạo 78 audio
+delta; lesson/full-corpus audit đạt 432/16.090 target với missing 0, invalid 0. R2 verify đủ
+455/455 và post-upload delta bằng 0 ngày 2026-08-25; audio `visit_the_flower.mp3` trên production
+CDN khớp local theo size và SHA-256.
 Các step tương tác dùng hướng dẫn action-first, gọi observation control bằng tên cụ thể `kính
 lúp`, thêm đặc điểm hình và chỉ dẫn vị trí khi cảnh có nhiều mục tiêu tương tự. Không dùng câu chỉ
 giải nghĩa mà thiếu động từ `Chạm`/`Kéo`/`Tìm`, và vị trí trong câu hướng dẫn phải khớp geometry
 thực tế của object.
 
 Storyboard `docs/theme-4-harvest-day-storyboard.md` khóa `harvest-day` thành ba scene
-`find-the-ripe-ones` -> `pick-gently` -> `sort-the-harvest`, vocabulary 6/8/10 và review
-executable 4/5/6. Nhịp ngoài intro là 16/19/24 hành động theo core/expanded/challenge. Scene
-đầu dùng quả đỏ tròn căng và quả xanh nhỏ để dạy `ripe`/`unripe`; challenge giữ quả xanh trên
-cành. Scene hai chỉ dùng bàn tay, chuyển đúng quả đỏ vào giỏ và không đổi state cây. Scene cuối
-nói rõ rau củ/rau thơm đến từ luống bên cạnh, xếp ba nhóm theo marker hình và đưa quả bị dập tới
-khay có bàn tay người lớn. Ba production sheets text-free được cắt thành PNG master, build thành
-33 WebP production asset và tạo bốn bundled map icons. Local image verify pass 33/33; Google TTS
-đã tạo đủ 252 audio production file còn thiếu với hậu kiểm `Missing files: 0`, `Invalid files: 0`.
-R2 đã upload và verify 285/285 object, lỗi `0`; post-upload dry-run còn `Changed/new: 0`, nên lesson
-đã sẵn sàng cho R2-first device test. Cutter thay alpha bằng raw channel thay vì `joinChannel`
-trên PNG buffer và từ chối output có opaque-black matte vượt 12% canvas; guard này ngăn nền đen
-hình chữ nhật lọt qua kiểm tra alpha/corner như bản đầu.
+`find-the-ripe-ones` -> `pick-gently` -> `sort-the-harvest`, vocabulary/pronunciation 8/12/16 và
+review executable 4/5/6. Revision giữ nhịp ngoài intro thành 18/27/36 meaningful turns và scene
+rhythm 6/6/6, 9/9/9, 12/12/12 theo core/expanded/challenge; mỗi vocabulary có đúng một
+pronunciation encounter và không có hai pronunciation panel liền nhau. Scene đầu học thêm `red`
+và `leave it on the plant` khi so sánh quả đỏ với quả xanh. Scene hai dạy `basket`, `gentle` và
+`branch` trong hai lượt hái bằng tay mà không đổi state hero plant. Scene cuối thêm `carrot` và
+`separate`, đưa quả bị dập tới khay có bàn tay người lớn rồi xác nhận ba giỏ tách riêng. Revision
+tái sử dụng toàn bộ 34 WebP hiện có; local image build/verify của release asset gần nhất pass
+34/34, lỗi 0. Google TTS đã tạo đúng 46 audio delta; lesson audit 459 logical target và full-corpus
+audit 15.903 target đều có missing 0, invalid 0, đồng thời audio manifest và English provenance đã
+được cập nhật. R2 upload đúng 46 audio object, verify 447/447 và post-upload delta bằng 0. Device
+smoke test sau revision 8/12/16 chưa chạy. Cutter thay alpha bằng raw channel thay vì `joinChannel` trên
+PNG buffer và từ chối output có opaque-black matte vượt 12% canvas; guard này ngăn nền đen hình
+chữ nhật lọt qua kiểm tra alpha/corner như bản đầu.
 
 Storyboard `docs/theme-4-garden-to-table-storyboard.md` khóa lesson cuối thành ba scene
-`rinse-and-drain` -> `make-and-share` -> `save-for-next-season`, vocabulary 6/8/10 và review
-executable 4/5/6. Nhịp ngoài intro là 19/23/27 hành động. Rau quả chuyển `dirty -> clean`, tô
+`rinse-and-drain` -> `make-and-share` -> `save-for-next-season`, vocabulary/pronunciation 8/12/16
+và review executable 4/5/6. Nhịp ngoài intro là 21/27/34 meaningful turn. Rau quả chuyển
+`dirty -> clean`, tô
 chuyển `empty -> with-lettuce -> prepared -> mixed -> shared`, còn phong bì được người lớn xử lý
-theo `empty -> filled -> closed -> stored`; hạt nhỏ không draggable và không là core anchor. Ba
-sheet chroma text-free được cắt thành 36 cutout PNG, thêm ba background, build 38 WebP runtime
-asset và tạo bốn bundled map icons. Cutter loại component nhỏ chạm gutter và từ chối chroma,
-opaque corner hoặc opaque-black matte. Local cutout/image verify pass. Google TTS tạo 286 audio
-file bao phủ 371 target; full-corpus dry-run còn `Missing files: 0`, `Invalid files: 0`. R2 đã
-upload và verify 324/324 object của lesson, `Errors: 0`; post-upload dry-run `Changed/new: 0`, nên
-lesson đã sẵn sàng cho R2-first device test.
+theo `empty -> filled -> closed -> stored`; `seed` là core anchor nhưng hạt nhỏ không draggable
+và luôn do người lớn xử lý. Challenge phrase `store it for next season` dùng hình phong bì đã
+được cất trên kệ; safety action kế tiếp chạm phong bì đã đóng để nhờ người lớn cất, không dùng
+pointer-hand control. Ba sheet chroma text-free được cắt thành 35 cutout PNG, thêm ba background,
+build 37 WebP runtime asset và tạo bốn bundled map icons. Cutter loại component nhỏ chạm gutter và
+từ chối chroma, opaque corner hoặc opaque-black matte. Local asset audit pass với 0
+missing/orphaned reference và verify đủ 37/37. Google TTS đã tạo 69 audio delta ở revision đầu và
+thêm đúng 12 audio cho visual/copy correction; lesson audit 443 target và full-corpus audit 15.969
+target đều missing 0, invalid 0, đồng thời audio manifest và English provenance đã được cập nhật.
+R2 upload thêm 14 correction object, verify 404/404 và post-upload delta bằng 0; audio instruction
+mới tải qua production CDN khớp local theo size và SHA-256. Device smoke test sau revision 8/12/16
+chưa chạy.
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
@@ -755,9 +788,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   speech practice; `Action Enabler` là object/công cụ giúp câu chuyện tiến lên và ưu tiên phản ứng
   state/SFX tức thì. Quick Recall phải vẫn giải được bằng lời Việt và hình nếu bé vào lesson theo
   free journey mà bỏ qua bài trước; từ ở mode cao hơn không trở thành core prerequisite. Bốn
-  lesson sau pilot đặt mục tiêu 5-6 core New Anchors trên ba scene, expanded thêm 2-3 và challenge
-  thêm 1-2 phrases; mọi deep-learn/pronunciation panel (kể cả `optional`) phải được ngăn bởi
-  action/visual payoff. `promptText` không tự phát model word độc lập ở Vietnamese mode nếu step
+  lesson được vocabulary-first revise đặt mục tiêu 8 core New Anchors trên ba scene, expanded thêm
+  4 và challenge thêm 4; đây là authoring target chứ chưa phải validator hồi tố cho lesson cũ.
+  Mọi deep-learn/pronunciation panel (kể cả `optional`) phải được ngăn bởi action/visual payoff.
+  `promptText` không tự phát model word độc lập ở Vietnamese mode nếu step
   không có vocabulary semantics, nên Quick Recall hiện là cue khái niệm bằng lời Việt và hình,
   không phải bài kiểm tra nghe English ẩn. Pilot 21/21 auto encounters là ngoại lệ lịch sử, không
   phải mẫu mật độ cho lesson mới. Onboarding preselect `expanded`, nên Theme 4 phải xem expanded

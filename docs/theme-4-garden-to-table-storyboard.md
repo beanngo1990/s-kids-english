@@ -2,7 +2,8 @@
 
 **Lesson ID:** `garden-to-table`  
 **Theme:** `khu-vuon-cua-be`  
-**Status:** Implemented; production audio/images published and verified on R2  
+**Status:** Vocabulary-first revision implemented and published to production R2 on 2026-08-25;
+device smoke test pending.
 **Target track:** `6-8 tuổi · Nâng cao`
 
 ## 1. Learning promise
@@ -16,12 +17,13 @@ bằng lời Việt, hình ảnh và hành động; không yêu cầu bé đọc
 | Order | Scene ID | Story beat | Core | Expanded | Challenge |
 | --- | --- | --- | ---: | ---: | ---: |
 | 1 | `rinse-and-drain` | Nhận biết rau quả, bật nước sạch, rửa và để ráo | 6 | 8 | 10 |
-| 2 | `make-and-share` | Cho nguyên liệu đã cắt vào tô, trộn và chia sẻ | 7 | 9 | 9 |
-| 3 | `save-for-next-season` | Nhờ người lớn cất hạt khô và nối về mùa mới | 6 | 6 | 8 |
-| **Total outside intro** | | | **19** | **23** | **27** |
+| 2 | `make-and-share` | Cho nguyên liệu đã cắt vào tô, trộn và chia sẻ | 9 | 12 | 14 |
+| 3 | `save-for-next-season` | Nhờ người lớn cất hạt khô và nối về mùa mới | 6 | 7 | 10 |
+| **Total outside intro** | | | **21** | **27** | **34** |
 
-Mỗi pronunciation panel được ngăn bởi một action/state payoff. Core có sáu auto encounters;
-expanded thêm hai optional encounters; challenge thêm hai auto phrase encounters.
+Mỗi pronunciation panel được ngăn bởi một action/state payoff. Vocabulary/pronunciation budget
+là 8/12/16: core có tám auto encounters, expanded thêm bốn optional encounters và challenge thêm
+bốn auto phrase encounters.
 
 ## 3. Frozen vocabulary
 
@@ -35,11 +37,18 @@ expanded thêm hai optional encounters; challenge thêm hai auto phrase encounte
 | Core | `make-and-share` | `bowl` | cái tô | noun | Tô trống, thành kín |
 | Core | `make-and-share` | `salad` | món rau trộn nguội | noun | Tô có xà lách và dưa leo |
 | Core | `make-and-share` | `share` | chia sẻ | verb | Hai phần ăn và hai bàn tay vui vẻ |
+| Core | `make-and-share` | `spoon` | chiếc thìa | noun | Chiếc thìa dài cạnh tô |
 | Expanded | `make-and-share` | `kitchen towel` | khăn bếp | noun | Khăn vải gấp, không phải giấy/nhãn |
+| Expanded | `make-and-share` | `cucumber slices` | các lát dưa leo | phrase | Các lát dưa leo tròn màu xanh |
+| Challenge | `make-and-share` | `mix the salad` | trộn món rau | phrase | Tô có các nguyên liệu đã trộn đều |
+| Core | `save-for-next-season` | `seed` | hạt giống | noun | Một hạt cà chua khô trên tay người lớn |
+| Expanded | `save-for-next-season` | `envelope` | phong bì | noun | Phong bì trơn đang đựng hạt |
 | Challenge | `save-for-next-season` | `save the seeds` | giữ hạt cho mùa sau | phrase | Tay người lớn cho hạt khô vào phong bì |
+| Challenge | `save-for-next-season` | `store it for next season` | cất lại cho mùa sau | phrase | Phong bì được cất an toàn trên kệ |
 
-`water`, `seed` và `basket` là Quick Recall/Action Enabler; không tạo vocabulary mới, không mở
-speech practice và không vào review pool.
+`water` và `basket` vẫn là Quick Recall/Action Enabler. `seed` được nâng thành core anchor vì đây
+là payoff vòng đời của toàn theme; hạt vẫn chỉ nằm trên tay người lớn và không thành child drag
+target.
 
 ## 4. Scene 1 — `rinse-and-drain`
 
@@ -78,11 +87,16 @@ nguội, chạm thìa trộn và chia món; không thao tác dao, bếp hoặc �
 3. **Expanded Action:** kéo khăn xuống dưới tô để giữ bàn khô.
 4. **Deep Learn — `bowl`:** chạm chiếc tô trống; auto speech.
 5. **Action:** kéo xà lách đã chuẩn bị vào tô; `empty -> lettuce`.
-6. **Action:** kéo lát dưa leo vào tô; `lettuce -> prepared`.
-7. **Deep Learn — `salad`:** chạm tô rau nguội đã chuẩn bị; auto speech.
-8. **Quick Action:** chạm thìa để trộn; `prepared -> mixed`.
-9. **Deep Learn — `share`:** chạm hình chia thành hai phần; auto speech.
-10. **Action:** kéo tô rau tới vùng có hai chiếc đĩa; `mixed -> shared`.
+6. **Expanded Deep Learn — `cucumber slices`:** chạm các lát dưa leo; optional speech.
+7. **Action:** kéo lát dưa leo vào tô; `lettuce -> prepared`.
+8. **Deep Learn — `salad`:** chạm tô rau nguội đã chuẩn bị; auto speech.
+9. **Discovery:** tìm chiếc thìa dài bên phải.
+10. **Deep Learn — `spoon`:** chạm chiếc thìa; auto speech.
+11. **Action:** chạm thìa để trộn; `prepared -> mixed`.
+12. **Challenge Deep Learn — `mix the salad`:** chạm hình tô đã trộn; auto speech.
+13. **Challenge Review:** tìm tô đã trộn thay vì tô còn tách nguyên liệu.
+14. **Deep Learn — `share`:** chạm hình chia thành hai phần; auto speech.
+15. **Action:** kéo tô rau tới vùng có hai chiếc đĩa; `mixed -> shared`.
 
 Completion art chỉ thể hiện món nguội và hai phần ăn, không ngụ ý bé tự cắt hoặc tự kiểm tra dị
 ứng.
@@ -98,14 +112,17 @@ miệng.
 ### Step contract
 
 1. **Intro:** người lớn đã chuẩn bị một hạt khô cho mùa sau.
-2. **Quick Recall:** chạm hạt khô trên tay người lớn để nhìn gần.
+2. **Deep Learn — `seed`:** chạm hạt khô trên tay người lớn; auto speech.
 3. **Action:** chạm bàn tay để người lớn cho hạt vào phong bì; `empty -> filled`.
-4. **Action:** chạm nắp phong bì; `filled -> closed`.
-5. **Challenge Deep Learn — `save the seeds`:** chạm hình tay người lớn cất hạt; auto speech.
-6. **Challenge Review:** tìm hình cất hạt trong phong bì thay vì đem trồng ngay.
-7. **Safety Action:** chạm bàn tay người lớn để nhờ cất phong bì; `closed -> stored`.
-8. **Time Action:** chạm cue mùa/thời gian; chậu mùa mới xuất hiện.
-9. **Celebration:** chạm chậu có hạt để nối lại đầu Theme 4.
+4. **Expanded Deep Learn — `envelope`:** chạm phong bì đang đựng hạt; optional speech.
+5. **Action:** chạm nắp phong bì; `filled -> closed`.
+6. **Challenge Deep Learn — `save the seeds`:** chạm hình tay người lớn cất hạt; auto speech.
+7. **Challenge Review:** tìm hình cất hạt trong phong bì thay vì đem trồng ngay.
+8. **Challenge Deep Learn — `store it for next season`:** chạm hình phong bì đã được cất an toàn
+   trên kệ; auto speech.
+9. **Safety Action:** chạm phong bì đã đóng để nhờ người lớn cất lên kệ; `closed -> stored`.
+10. **Time Action:** chạm cue mùa/thời gian; chậu mùa mới xuất hiện.
+11. **Celebration:** chạm chậu có hạt để nối lại đầu Theme 4.
 
 Scene State v1 được author độc lập; completion art gợi lại vòng đời nhưng không reset progress
 hoặc giả lập state xuyên lesson.
@@ -136,6 +153,9 @@ padding, không card/caption/border và không bóng đổ dính nền.
   empty/filled/closed/stored, adult-place-seed control, time cue, new-season pot, save-seeds action,
   plant-now action.
 
+Cell pointer-hand cũ đã bị retire khỏi cutter/runtime sau visual QA vì không diễn tả hành động
+`store it for next season`; production sheet gốc vẫn giữ cell này để có thể phục hồi khi cần.
+
 Ba scene reuse approved Theme 4 background. Cutter phải ghi raw alpha về RGBA, kiểm tra crop
 border, transparent corners, opaque-black matte và chroma residue trước khi tạo master/icon.
 
@@ -147,8 +167,22 @@ border, transparent corners, opaque-black matte và chroma residue trước khi 
 3. Không có knife, stove, hot water, unknown produce hoặc hành động nếm bắt buộc.
 4. Copy nói rõ nguyên liệu đã được người lớn rửa/cắt khi cần; parent tip nhắc dị ứng.
 5. Hạt khô do người lớn chuẩn bị/cất; không có hình tay trẻ cầm hạt hoặc đưa gần miệng.
-6. Vocabulary 6/8/10, speech 6 auto + 2 optional + 2 challenge auto, review 4/5/6.
+6. Vocabulary và pronunciation 8/12/16; speech là 8 core auto + 4 expanded optional + 4
+   challenge auto, review vẫn 4/5/6.
 7. Không có hai pronunciation panels liền nhau sau mode filtering.
-8. 19/23/27 action beats và mỗi scene có visible end state.
+8. 21/27/34 meaningful turns và mỗi scene có visible end state.
 9. PNG/WebP cutout có alpha thật; near-black opaque matte không vượt 12% canvas và không có chữ.
 10. Lesson validation, asset audit/build/verify, audio dry-run và Android build pass trước release.
+
+## 10. Revision status
+
+- Revision 8/12/16 hiện có 38 PNG master và 37 WebP runtime; pointer-hand cutout sai ngữ nghĩa đã
+  được retire. Local asset audit có 0 missing và 0 orphaned reference, verify đủ 37/37.
+- Google TTS đã tạo 69 audio cho revision đầu và thêm đúng 12 audio cho visual/copy correction.
+  Lesson audit có 443 logical target và full-corpus audit có 15.969 target, cả hai đều missing 0 và
+  invalid 0; generated audio manifest/provenance đã được cập nhật, còn bundled lesson audio
+  registry tiếp tục để trống theo mô hình R2-first.
+- R2 upload 69 object ở revision đầu, sau đó upload 14 object cho correction gồm 12 audio và hai
+  WebP được asset builder chuẩn hóa; verify đủ 404/404 asset và post-upload dry-run còn
+  `Changed/new: 0`. Audio instruction mới trên production CDN khớp local ở 40.077 byte và SHA-256
+  `339a5be46d379b0c30c2398696b8f27ef95b9b1ad4a79aa0833f9a0baacd8898`.

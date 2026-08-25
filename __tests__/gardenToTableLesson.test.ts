@@ -10,10 +10,10 @@ function hasPronunciationPanel(step: SceneStep) {
 }
 
 test.each([
-  ['core', 6],
-  ['expanded', 8],
-  ['challenge', 10],
-] as const)('%s mode exposes the frozen vocabulary budget', (mode, count) => {
+  ['core', 8],
+  ['expanded', 12],
+  ['challenge', 16],
+] as const)('%s mode exposes the vocabulary-first budget', (mode, count) => {
   const vocabulary = gardenToTableLesson.scenes.flatMap(scene =>
     getSceneForLearningMode(scene, mode).vocabulary,
   );
@@ -31,9 +31,69 @@ test.each([
 });
 
 test.each([
-  ['core', 6, 0],
-  ['expanded', 6, 2],
-  ['challenge', 8, 2],
+  [
+    'core',
+    [
+      'cucumber',
+      'rinse',
+      'lettuce',
+      'bowl',
+      'salad',
+      'share',
+      'spoon',
+      'seed',
+    ],
+  ],
+  [
+    'expanded',
+    [
+      'cucumber',
+      'rinse',
+      'lettuce',
+      'colander',
+      'bowl',
+      'salad',
+      'share',
+      'spoon',
+      'kitchen towel',
+      'cucumber slices',
+      'seed',
+      'envelope',
+    ],
+  ],
+  [
+    'challenge',
+    [
+      'cucumber',
+      'rinse',
+      'lettuce',
+      'colander',
+      'rinse it well',
+      'bowl',
+      'salad',
+      'share',
+      'spoon',
+      'kitchen towel',
+      'cucumber slices',
+      'mix the salad',
+      'seed',
+      'envelope',
+      'save the seeds',
+      'store it for next season',
+    ],
+  ],
+] as const)('%s mode exposes the intended vocabulary set', (mode, words) => {
+  expect(
+    gardenToTableLesson.scenes.flatMap(scene =>
+      getSceneForLearningMode(scene, mode).vocabulary.map(item => item.word),
+    ),
+  ).toEqual(words);
+});
+
+test.each([
+  ['core', 8, 0],
+  ['expanded', 8, 4],
+  ['challenge', 12, 4],
 ] as const)(
   '%s mode keeps one pronunciation encounter per New Anchor',
   (mode, autoCount, optionalCount) => {
@@ -102,10 +162,10 @@ test.each(modes)(
 );
 
 test.each([
-  ['core', [6, 7, 6]],
-  ['expanded', [8, 9, 6]],
-  ['challenge', [10, 9, 8]],
-] as const)('%s mode keeps the frozen interaction rhythm', (mode, counts) => {
+  ['core', [6, 9, 6]],
+  ['expanded', [8, 12, 7]],
+  ['challenge', [10, 14, 10]],
+] as const)('%s mode keeps the vocabulary-first interaction rhythm', (mode, counts) => {
   expect(
     gardenToTableLesson.scenes.map(
       scene =>
@@ -130,13 +190,22 @@ test('food scene uses only adult-prepared cold ingredients', () => {
   expect(gardenToTableLesson.metadata?.parentTipVi).toContain('dị ứng');
 });
 
-test('small seed stays an adult-handled recall object, not a core anchor', () => {
+test('seed is a core anchor while the dry seed stays adult-handled', () => {
   const scene = gardenToTableLesson.scenes.find(
     item => item.id === 'save-for-next-season',
   )!;
   const seedObjectId = 'save-for-next-season-adult-hand-seed';
 
-  expect(scene.vocabulary?.map(item => item.word) ?? []).not.toContain('seed');
+  expect(scene.vocabulary?.map(item => item.word) ?? []).toContain('seed');
+  expect(
+    scene.steps.find(
+      step => step.id === 'save-for-next-season-notice-dry-seed',
+    ),
+  ).toMatchObject({
+    speechPractice: 'auto',
+    type: 'teach',
+    vocabId: 'vocab-garden-to-table-save-for-next-season-seed',
+  });
   expect(
     scene.steps.some(
       step =>
@@ -183,6 +252,43 @@ test('produce, bowl, and envelope expose visible success states', () => {
       expect.objectContaining({ id: 'stored' }),
     ]),
   );
+});
+
+test('store phrase shows the stored envelope and the action targets the closed envelope', () => {
+  const scene = gardenToTableLesson.scenes.find(
+    item => item.id === 'save-for-next-season',
+  )!;
+  const envelopeId = 'save-for-next-season-envelope';
+  const storeActionId = 'save-for-next-season-store-for-next-season-action';
+
+  expect(
+    scene.objects.find(object => object.id === storeActionId)?.asset.source,
+  ).toBe(
+    'lessons/garden-to-table/save-for-next-season/images/envelope-stored.webp',
+  );
+  expect(
+    scene.objects.some(
+      object => object.id === 'save-for-next-season-adult-store-control',
+    ),
+  ).toBe(false);
+  expect(
+    scene.steps.find(
+      step => step.id === 'save-for-next-season-learn-store-for-next-season',
+    ),
+  ).toMatchObject({
+    instructionEn: 'Tap the envelope stored safely on the shelf.',
+    instructionVi: 'Chạm hình phong bì đã được cất an toàn trên kệ nhé.',
+    interaction: { targetObjectId: storeActionId },
+  });
+  expect(
+    scene.steps.find(
+      step => step.id === 'save-for-next-season-ask-adult-to-store',
+    ),
+  ).toMatchObject({
+    instructionEn: 'Tap the envelope to ask an adult to store it on the shelf.',
+    instructionVi: 'Chạm phong bì để nhờ người lớn cất lên kệ nhé.',
+    interaction: { targetObjectId: envelopeId },
+  });
 });
 
 test('review selection is the frozen executable 4-5-6 set', () => {

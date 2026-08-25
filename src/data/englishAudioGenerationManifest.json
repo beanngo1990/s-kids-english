@@ -41085,6 +41085,62 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_fruit_fail_754b05ae.mp3",
+      "sha256": "96d6ac65c48042e9353ece5aa78323be38514797730b9cf4edd1f3544e6a689c",
+      "text": "Tap the round green fruit beside the flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_fruit_success_7aa0f51c.mp3",
+      "sha256": "66873ffb683f11168b49fba495176d520f0eb546e76871d48838b7bf14d05d9c",
+      "text": "Yes, this is a small green fruit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
+      "sha256": "db3b13e427539a8983ae3ea3f277b55e1e8945338af454e83c0a752e0b2772fc",
+      "text": "Tap the yellow flower near the bee and butterfly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_success_5faea63c.mp3",
+      "sha256": "6877e4c4f02e16b485fdd5bf75c0be448048518f2d5e6f7fa5c2fd64b845d7ca",
+      "text": "Yes, they visit the flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51885,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_wings_fail_7613168e.mp3",
+      "sha256": "47d3256bb1fb7eb4d3522840ab0dd2ab4ffe4251d8f278e2644d0f3ce9558444",
+      "text": "Tap the magnifying glass around the two orange wings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_wings_success_591294b4.mp3",
+      "sha256": "e2f892b966acdbc6253adc5d279701ecad63ba1b352d0e7c0deec9da36ac8409",
+      "text": "Yes, these are wings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/observe_visitors_success_8a00e347.mp3",
+      "sha256": "d292299787a6a57e3ee4b285c580386ef361bf7323ba26cf6c4a69fed18c31f0",
+      "text": "The bee and butterfly are visiting the flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 45837,
       "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
       "sha256": "8ffaad9533c7ba6402cb1b755cb6f1466422a3420a3c426327df6dcf4268762b",
@@ -41125,6 +41181,38 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_fruit_9e8ec330.mp3",
+      "sha256": "b193ae2010848f6f594618b97c1db6df84466b201c69fa23eab4abc5331b65e7",
+      "text": "Tap the small green fruit on the plant in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
+      "sha256": "ce7f362b8d69d3fcf744fccc8d1cf41861ff0414e6e71551853e461d089b3282",
+      "text": "Tap the flower that the bee and butterfly are visiting.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48141,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_wings_e81c7576.mp3",
+      "sha256": "0a3ea003137c8af1f248e7f833e9edf2b6d1ae7897f9cb1384405eaf4cd5d539",
+      "text": "Tap the magnifying glass around the orange wings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61677,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
+      "sha256": "21198ba4cda88c8d54781df68f5c1e435704fe8436ce16d4ff2ac529a12818c6",
+      "text": "Tap the plant in the middle to watch the bee and butterfly near the flower.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 56205,
       "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
       "sha256": "42714b20bc7649d5a21c41127e8f843ebddf7f215b4e27814861a61f5cc76eb4",
@@ -41145,6 +41233,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
       "sha256": "b0fb626f6cf3016d264701526702edc7c4196e6b688bddab1f199581be1fe23b",
       "text": "Tap the sun-and-moon picture at the top.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 17613,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/visit_the_flower.mp3",
+      "sha256": "72717438a2758b56fa2dee7e0f303cd010e5922f9ae999be10516a78ae4b7488",
+      "text": "visit the flower",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41185,6 +41281,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
       "sha256": "dc95bb790befd3aa994733074b7603ffc2f0b0a2e6b951eb658193b741fde847",
       "text": "A few days later, a tiny green fruit appears.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12429,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/wings.mp3",
+      "sha256": "73cfb1ed6b9e64c7f8858776105c8521bf892e2d987fe799603817c64e2047a5",
+      "text": "wings",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41277,6 +41381,62 @@
     },
     {
       "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_fruit_fail_754b05ae.mp3",
+      "sha256": "0f2e472a63b6416041db7e864bcf35074bed3c5f9cababe055e8c09f05158e7b",
+      "text": "Tap the round green fruit beside the flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_fruit_success_7aa0f51c.mp3",
+      "sha256": "1a8d2c5daf0f7a898ad25bf47c4eec5fc134bdbe32dee1d2d12bbb86fdf86c90",
+      "text": "Yes, this is a small green fruit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
+      "sha256": "15189a1b158f92bec8a989920f70fde6cfb55cb70e1b5345e565aa7af15697a8",
+      "text": "Tap the yellow flower near the bee and butterfly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26541,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_success_5faea63c.mp3",
+      "sha256": "058d9b110aaff8b357f0d616194995a113157e11b321a9f1f6db5002f0da1d13",
+      "text": "Yes, they visit the flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_wings_fail_7613168e.mp3",
+      "sha256": "5b3a32420bd164bffe5e84f11e1c0a0aea7b52da6f38cec20f5587dbed5625fa",
+      "text": "Tap the magnifying glass around the two orange wings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_wings_success_591294b4.mp3",
+      "sha256": "4549e8f1f0ccbfd05359c7b78f007abb62da3c4bb509901abbdc39d2bf949d4a",
+      "text": "Yes, these are wings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/observe_visitors_success_8a00e347.mp3",
+      "sha256": "d63fd7d2537244c655d4ce2c5d44139f0e7939c542d5d23b120f273c2caedec7",
+      "text": "The bee and butterfly are visiting the flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 41229,
       "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_find_tiny_fruit_1086fde7.mp3",
       "sha256": "77de6b7270802126aeb7d376e01f2b8caa157a2b46b19fee100d75a4c02664a5",
@@ -41317,6 +41477,38 @@
     },
     {
       "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_fruit_9e8ec330.mp3",
+      "sha256": "bc3fa3e9cbde47fb0eca2472768afae543463c914bb0da125beec4abc6bc13f2",
+      "text": "Tap the small green fruit on the plant in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43245,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
+      "sha256": "b02118f020d0a33e54ce91e6d64a66d3082482121a144d7942b17e32bff8a5b2",
+      "text": "Tap the flower that the bee and butterfly are visiting.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_wings_e81c7576.mp3",
+      "sha256": "a680b3dfeddc0c462c8ad4c41118324a381057fa53cbc610625403d293365b79",
+      "text": "Tap the magnifying glass around the orange wings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 60525,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
+      "sha256": "19a602eecb5e61734899663fb2624f069e5dc1f7a9b37db1650b248d486abcb3",
+      "text": "Tap the plant in the middle to watch the bee and butterfly near the flower.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 54477,
       "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_bee_35fceb41.mp3",
       "sha256": "8e87bbbf80e9cc44fcbbebbe78bda3d8d0e46b5887b7587430f9d459da125a0e",
@@ -41337,6 +41529,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_wait_for_tiny_fruit_d36e305c.mp3",
       "sha256": "b969e1e59ce9ea533dce472634d0ae3dcfcfcaf230b38167e3842c1d03ecf30d",
       "text": "Tap the sun-and-moon picture at the top.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17325,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/visit_the_flower.mp3",
+      "sha256": "69c26a47d3bbf08f3178d5c1790d461d49d004cddd505cb6b7ba94885f42958a",
+      "text": "visit the flower",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41377,6 +41577,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wait_for_tiny_fruit_success_6e7393ab.mp3",
       "sha256": "275bc9ee84c677f74ab52258866134894696b38e00d674ff0470be882804bce4",
       "text": "A few days later, a tiny green fruit appears.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/wings.mp3",
+      "sha256": "57e6b52a0a506b4e5df76bcec47ae8d8af3ce14990f764734f308a29facd43b8",
+      "text": "wings",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41517,6 +41725,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_water_drop_fail_eadceceb.mp3",
+      "sha256": "567fca8faabef6c0c9c522ffcc97d417e22b4b853ae8f3201d915a392810c582",
+      "text": "Tap the blue water drop beside the empty dish.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/learn_water_drop_success_c9f64c49.mp3",
+      "sha256": "ad5b9fa9f9bd99633ca0fca7751754717cb8c17b26857af67dd9eb13a3f65566",
+      "text": "Yes, this is a water drop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 35181,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
       "sha256": "46261b87d15b937b4b26b4991a98e24332f5f6cca59f102bc57ab9b0b4f1487c",
@@ -41589,6 +41813,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_learn_water_drop_a792ea25.mp3",
+      "sha256": "af01f17600bd97ecfc7ce362d70aaa82f4807dbcef121291736972db71d6531c",
+      "text": "Tap the blue water drop near the bottom.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 42957,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
       "sha256": "966068f838eb35db98579c7f830449f2053a08161ce8a62c04ff72e5591f613e",
@@ -41597,10 +41829,34 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 53037,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/prompt_replace_leaf_tip_38067fe2.mp3",
+      "sha256": "a5aa012548af5b485e1cf167a1a2ba2421392a055fdde3af842d63157a8c418a",
+      "text": "Tap the large leaf to cover the caterpillar’s resting place again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40941,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/replace_leaf_tip_success_80f01e12.mp3",
+      "sha256": "129f41509cfa3d7f44be3075ea4aea5bf0965985ee425074e2da56273af81815",
+      "text": "The leaf gently covers the resting place again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 17037,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/watch_gently.mp3",
       "sha256": "1c0b142900cab2c02ad80b01b45f55876a61411031209131958bf7db247cebb5",
       "text": "watch gently",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15309,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-GB/neural2-c-r1/water_drop.mp3",
+      "sha256": "c08cee242775ad34d435fa36d2a2a9446658887d19903bd8a70913aa204bc331",
+      "text": "water drop",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41741,6 +41997,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_water_drop_fail_eadceceb.mp3",
+      "sha256": "6cd660499f539f0591980cefd60e668a06869f7f32141bd2a7b1d3b68a597435",
+      "text": "Tap the blue water drop beside the empty dish.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/learn_water_drop_success_c9f64c49.mp3",
+      "sha256": "f0190ceab568db771049721e339306df4812878a5356b184a37451cc37f24104",
+      "text": "Yes, this is a water drop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 31725,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/lift_leaf_tip_success_a9d631d8.mp3",
       "sha256": "0ef905b3ce2cf2048fe8af71f8a202dc206ba853a65879bca3bdc20f93cf8a35",
@@ -41813,6 +42085,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_learn_water_drop_a792ea25.mp3",
+      "sha256": "2d6499f7fb349d91a510b7b9dbc424689c3ae6785800dd83a898a4f528fb7830",
+      "text": "Tap the blue water drop near the bottom.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 40077,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_lift_leaf_tip_41ee0288.mp3",
       "sha256": "78bba43712d2cda94925faf3e7e748a922ec2ff13f21d3d750943642c3d9f0b1",
@@ -41821,10 +42101,34 @@
     },
     {
       "accent": "en-US",
+      "bytes": 51309,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/prompt_replace_leaf_tip_38067fe2.mp3",
+      "sha256": "afa480a95e3fff376060dd1de7476639a623dbf115046ce3f3514c3b84d35fbe",
+      "text": "Tap the large leaf to cover the caterpillar’s resting place again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/replace_leaf_tip_success_80f01e12.mp3",
+      "sha256": "2209d5d17c50eb884e1ec92d2ef80fecb5fc4994f646afe4641edc95935e1312",
+      "text": "The leaf gently covers the resting place again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 15597,
       "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/watch_gently.mp3",
       "sha256": "aeae5348263ca6758c213072fdb42db804b70a269d8a53f3627e186295ea1ccc",
       "text": "watch gently",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13869,
+      "key": "lessons/garden-friends/quiet-garden-watch/audio/en-US/neural2-c-r1/water_drop.mp3",
+      "sha256": "846b67f26e40f4b4a3e7a56fd48ad63296cf4fde13924ac20fbd006b1c0667ed",
+      "text": "water drop",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41901,6 +42205,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 36045,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_leaf_fail_6f4ad959.mp3",
+      "sha256": "7fe9ce91c78c4eb8bfb896541792a5f67fe4584d2677d41ea067af83bb53459b",
+      "text": "Tap the large green leaf on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 37197,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
       "sha256": "6f08e250a5cb3a71af48a4e88354e40a01700d848b13010155d4c23d6a1d9ec4",
@@ -41913,6 +42225,22 @@
       "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
       "sha256": "a5bca0394ec1ce3a12adce563843db698eb166f3a27f61aa292942a92d9b47f1",
       "text": "Yes, we look under the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 51597,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_shell_fail_4d59bfbf.mp3",
+      "sha256": "274c938012e05609ed70a5eec8cd413a1fb00b057c76ad3f0383f6b5bb469ba4",
+      "text": "Tap the magnifying glass around the brown spiral shell.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26829,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/learn_shell_success_a6ff115b.mp3",
+      "sha256": "7c5d6d788a4e86645f9e934728f490de403c31a35f1ec1b377ca5c295d3f4b48",
+      "text": "Yes, this is a shell.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41989,6 +42317,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 51309,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_shell_fail_36f4f6d4.mp3",
+      "sha256": "dc409d03562edf7385d1ae30217ecb6430d11d174e1fc63f49cb15c1ff6126f4",
+      "text": "Tap the magnifying glass around the snail with the spiral.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/notice_shell_success_c8be5def.mp3",
+      "sha256": "5c09dff544e766ee7282fca172af4421ded59bc3c8787305ee0c37625a7d6317",
+      "text": "The hard spiral is the snail’s shell.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 42669,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
       "sha256": "68fcb08e1bda9c4e21f19c6eff0bc7bdf04f2f0f6cf8636d0b2c9ceb0c088a93",
@@ -42021,10 +42365,26 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_leaf_8f5d3f8a.mp3",
+      "sha256": "0e963e2b84fb5e5e740d7bd1f0824efcd607c8c989986392784907c8c7e72709",
+      "text": "Tap the large green leaf covering the soil.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 40941,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
       "sha256": "d7ebdd2a1f972e37c8527688e5a752945bfa99ac7595a82a038eeea7fae2be58",
       "text": "Tap the hand lifting the leaf to look underneath.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53325,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_learn_shell_9fac201e.mp3",
+      "sha256": "50587cfdb241bf893f5af6ad560f22d98d43dc598a235bd7c5a6bd183b469049",
+      "text": "Tap the magnifying glass around the snail’s spiral shell.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42057,6 +42417,14 @@
       "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
       "sha256": "3af329d9eabecec6f1f1492a1a1f8c2a43b2da23c86c67acdd8e7afa64981460",
       "text": "Tap the large open leaf on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 50733,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-GB/neural2-c-r1/prompt_notice_shell_277d0b8e.mp3",
+      "sha256": "cd4a4474b40b160a4f4561b6002be12b0166546ea440b733257b7b1cdeafeaa2",
+      "text": "Tap the magnifying glass around the spiral on the snail.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42189,6 +42557,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_leaf_fail_6f4ad959.mp3",
+      "sha256": "c83d3969dbd17be21585ffabe8ed4f2ed98aaef6af0f3167a8a941eb14f18947",
+      "text": "Tap the large green leaf on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 35181,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_fail_c6a3a40f.mp3",
       "sha256": "e93f6edaae829d6557f2c5647fcfb40e7a3a7e0d15f5b366cde398b40a87916f",
@@ -42201,6 +42577,22 @@
       "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_look_under_leaf_success_6a011cf7.mp3",
       "sha256": "d415edc429a3622afaad8434eee625a0e10e9433bd368cb620402618904a76d0",
       "text": "Yes, we look under the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 48717,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_shell_fail_4d59bfbf.mp3",
+      "sha256": "69facc9e9182745413d09537760313e347d02c584280fe70c870d0d763a791e4",
+      "text": "Tap the magnifying glass around the brown spiral shell.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23085,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/learn_shell_success_a6ff115b.mp3",
+      "sha256": "4fbfd864bd57964e9133c738dd560a8a68d08ef8ddb4a9489bba15b03a4777df",
+      "text": "Yes, this is a shell.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42277,6 +42669,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 48717,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_shell_fail_36f4f6d4.mp3",
+      "sha256": "df0030fade4850a589fbc0e04ee0a92f2dcdbff4c40e8be892e5ac9a20fada3b",
+      "text": "Tap the magnifying glass around the snail with the spiral.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/notice_shell_success_c8be5def.mp3",
+      "sha256": "590742af29613e60ad13007a1e6825f4a17b7ee717006cd29492ca38d6ab39e2",
+      "text": "The hard spiral is the snail’s shell.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 39501,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_choose_look_under_leaf_e46aa281.mp3",
       "sha256": "a116e66fb78cbd1cdda23ea894b8b0ea80a209dccfe22d2fe5fbabf53b5a4954",
@@ -42309,10 +42717,26 @@
     },
     {
       "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_leaf_8f5d3f8a.mp3",
+      "sha256": "c32d5ec85b4b43b9d8d6b55b64cb32a30e6e230ed2d10321a2d9933e0c2dfedb",
+      "text": "Tap the large green leaf covering the soil.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 39213,
       "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_look_under_leaf_9b63f98b.mp3",
       "sha256": "1d4fda48601ff368c94fc0f215a8dcfd43aa6b1f8406a4c2587236e4192e7117",
       "text": "Tap the hand lifting the leaf to look underneath.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 49005,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_learn_shell_9fac201e.mp3",
+      "sha256": "ac0b4e49e0ddb34a3e8b4cd7c729d5511c4555642327e2d24c1d07d3023602d6",
+      "text": "Tap the magnifying glass around the snail’s spiral shell.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42345,6 +42769,14 @@
       "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_notice_open_leaf_101afb01.mp3",
       "sha256": "2de2f1936c28577c9724ba6ee776eb82cb56dd9f2da9eec9cd98037730b6e5a5",
       "text": "Tap the large open leaf on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 49293,
+      "key": "lessons/garden-friends/under-the-leaf/audio/en-US/neural2-c-r1/prompt_notice_shell_277d0b8e.mp3",
+      "sha256": "86ecb1b46d9a0eba2a927e64be0f82f88bccdcd77695103410a5f150fd59290a",
+      "text": "Tap the magnifying glass around the spiral on the snail.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42437,10 +42869,50 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/choose_mix_the_salad_fail_3b990fee.mp3",
+      "sha256": "7b625e166b03d270efaea33c0b73938078be2c58cce62b4a7d94f233bb7016ce",
+      "text": "Find the bowl with the ingredients mixed together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/choose_mix_the_salad_success_d1c4379d.mp3",
+      "sha256": "1436d65028401be4e030ca4893d495fa1dde42743554039b4aec33bdfdc4c750",
+      "text": "Right, the ingredients are mixed together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 67149,
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/completion_1e723b4a.mp3",
       "sha256": "2377586f25bfecdff67d43ffd2e39fc203c01af9cad6be550568b7f6756d995a",
       "text": "You made a cold salad from safely prepared ingredients and shared it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23373,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/cucumber_slices.mp3",
+      "sha256": "f3e119c98d8bf344ea3681c2d1f7cbd97b80ce459e9ec50a54f46e6cd674524a",
+      "text": "cucumber slices",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/find_spoon_fail_436abcb8.mp3",
+      "sha256": "0f3ee35fae7c433be7c82fe13c195d3860c97fa5502756822fbe430ac50d34ad",
+      "text": "Find the long tool with a round end beside the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/find_spoon_success_1f1220b0.mp3",
+      "sha256": "0a4c60efe25672c59cf3144bd0255036775b3401f02a1ce15655641948c101bb",
+      "text": "Right, the spoon is beside the bowl.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42477,6 +42949,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_cucumber_slices_fail_b4b6e31f.mp3",
+      "sha256": "9079aaa431c3c86df6452e9b75cd7e739a60bfe663bb4e56887d8b3e659cd9b6",
+      "text": "The round green slices are above the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_cucumber_slices_success_d0627fbe.mp3",
+      "sha256": "ebab5545aa9b45e00657d8bfd1df0af0726b8ebd6202291959a702cb5cd93c4b",
+      "text": "Yes, these are cucumber slices.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 34605,
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
       "sha256": "a1ddd69629d7344fad5c94f8ebbd59422fc815836d7f38b06b50a8dbe522a180",
@@ -42489,6 +42977,22 @@
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
       "sha256": "7a389f44f85bba166dd7a8025e13c1e7c90f5e04d450c5bdb7a242a638841bf2",
       "text": "The kitchen towel helps keep the counter dry.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38349,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_mix_the_salad_fail_04a8a406.mp3",
+      "sha256": "2bdad1d73778f9e25d453623c39da795457fba891f4d73816e04ce7d85dc6f90",
+      "text": "The mixed salad is in the upper-left picture.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30861,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_mix_the_salad_success_312bd61b.mp3",
+      "sha256": "c0ac892a230d9d9748fa46c0934f54aa01554dc377653754b289a409a72990ac",
+      "text": "Yes, we mix the salad.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42525,6 +43029,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 39213,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_spoon_fail_42538d53.mp3",
+      "sha256": "5feb417d6344d0e41c6271179f22116ecc68afc50cdfaacd3e01fd9dca6011cc",
+      "text": "The long spoon is on the right side of the bowl.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/learn_spoon_success_43340dec.mp3",
+      "sha256": "618cb2e72dabd639a03a471881258bbee2ae67b5cf84221b5520a5b59097c007",
+      "text": "Yes, this is a spoon.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 34317,
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
       "sha256": "a7ac47f8f4244e3d985333b0e7d764e6a1e69ec87529124bb67ba1ad7712c7d5",
@@ -42537,6 +43057,14 @@
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_salad_success_2163f57b.mp3",
       "sha256": "8dd187f59a8e82eabcddb929d176654a4fe942f59bd69f75ff364582ee9ce1c3",
       "text": "The cold salad is mixed now.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18477,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/mix_the_salad.mp3",
+      "sha256": "147e29a2ee01bd247d56cb8a4abcdda72fc2feedf71ba11c04814d8c295650de",
+      "text": "mix the salad",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42573,6 +43101,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_choose_mix_the_salad_cec18447.mp3",
+      "sha256": "4ef6b5f4380188abbc6bef4a49741c34a84b24ee4007aa037c9b2cde1b3b2f26",
+      "text": "Find the picture showing the mixed salad.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33741,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_find_spoon_0febda2f.mp3",
+      "sha256": "ceffeb1db930be6bf7c2263281f97a0b5f69a271d3248b93181892608071b14c",
+      "text": "Find the long spoon on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 66861,
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_intro_c1324f45.mp3",
       "sha256": "ef70f1231d993f9f47f1139e5866703f24ab269d8fd31b9b6cd70f794253c853",
@@ -42589,10 +43133,26 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_cucumber_slices_9e58ad0f.mp3",
+      "sha256": "1a190115c4af66d7dca3620368ba35531fb6fc0f84a422a2d8164a0eec82cdab",
+      "text": "Tap the round green cucumber slices.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 39501,
       "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
       "sha256": "244eecde507b9ed42fedbc9b6df0600f73ffb1ba5d8586c72b179daa0163dfdf",
       "text": "Tap the folded kitchen towel on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31437,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/prompt_learn_mix_the_salad_f457f6c2.mp3",
+      "sha256": "6d7a00ad93463340b3888cbe904122202b5d07d30c29fcfdbb26a8287c2e864f",
+      "text": "Tap the picture of the mixed salad.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -42693,10 +43253,50 @@
     },
     {
       "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/choose_mix_the_salad_fail_3b990fee.mp3",
+      "sha256": "e1a084010ed5198ec1438bf34ca0b96ebd1fc4df0fc39bdc107a19cb7618e1ff",
+      "text": "Find the bowl with the ingredients mixed together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/choose_mix_the_salad_success_d1c4379d.mp3",
+      "sha256": "eafffe58de792845007a392de005ee3c6e621cc1e7f5b4f44b503cc777dcf6f6",
+      "text": "Right, the ingredients are mixed together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 59373,
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/completion_1e723b4a.mp3",
       "sha256": "d9fe9c77f739df9f92c0c6e388caa1d5b69707fe1f78fc670b22dddc117a7dea",
       "text": "You made a cold salad from safely prepared ingredients and shared it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 20781,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/cucumber_slices.mp3",
+      "sha256": "4300797947ee2cef36cea85e4e53213bb68e977ca9711eebdd85bc84183c3745",
+      "text": "cucumber slices",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/find_spoon_fail_436abcb8.mp3",
+      "sha256": "b369377585ae07934401e889e856065526d83bae2e14cc38751184bbee61009c",
+      "text": "Find the long tool with a round end beside the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32013,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/find_spoon_success_1f1220b0.mp3",
+      "sha256": "3391af0d566ed23c1df109cb67051369351b8c3c99899257f7229176d6b5e861",
+      "text": "Right, the spoon is beside the bowl.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42733,6 +43333,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_cucumber_slices_fail_b4b6e31f.mp3",
+      "sha256": "ce7989766853124172fdd1bd33866908dda173058ddf3769bb7017edc726d1e5",
+      "text": "The round green slices are above the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33453,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_cucumber_slices_success_d0627fbe.mp3",
+      "sha256": "ea10c0066b9997e145be7982aec7bb78fa0e3d111f65bf09ebcdd535304ad2f6",
+      "text": "Yes, these are cucumber slices.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 31725,
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_fail_e60f2079.mp3",
       "sha256": "1b0945061d8938902f58173b2d2ec0500243cd29ff3db2349efe8fb03db052e6",
@@ -42745,6 +43361,22 @@
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_kitchen_towel_success_5e0d2153.mp3",
       "sha256": "954292699262013e93795f2d790347473ca11129a6a4acdfab38c91611c5f4ee",
       "text": "The kitchen towel helps keep the counter dry.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_mix_the_salad_fail_04a8a406.mp3",
+      "sha256": "e17469bc11330cc97c70f2b05876ff3b518c1bfd748cbd33cc551c1c89601843",
+      "text": "The mixed salad is in the upper-left picture.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25389,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_mix_the_salad_success_312bd61b.mp3",
+      "sha256": "4fc63b890850b50c9f275aa4296ec8dcc8550c2e53b99c79ee7cb3b6779ab2fa",
+      "text": "Yes, we mix the salad.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42781,6 +43413,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_spoon_fail_42538d53.mp3",
+      "sha256": "a6048a3fe3b107de6008a0be1986e097eb954c4e5e24aea7052051970072c8b1",
+      "text": "The long spoon is on the right side of the bowl.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23661,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/learn_spoon_success_43340dec.mp3",
+      "sha256": "2b89e5beaa20a0b266da9293fb8e55eed598b81548712b72a5b25b4e7dacf4d4",
+      "text": "Yes, this is a spoon.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 32877,
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_fail_d85b401e.mp3",
       "sha256": "8272147510e20148b52a242739af5132f2ef6f15831ab4fe0587eb3e4b843bad",
@@ -42793,6 +43441,14 @@
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_salad_success_2163f57b.mp3",
       "sha256": "8558408f92ba5ea0e4e59440cb0b029b75c03a69384d49d84a303d471c149a4b",
       "text": "The cold salad is mixed now.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/mix_the_salad.mp3",
+      "sha256": "e810ec5ac840f5475a6d51dab2ef946fe371ddf27fe41b26847b0e1cde8123e4",
+      "text": "mix the salad",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -42829,6 +43485,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_choose_mix_the_salad_cec18447.mp3",
+      "sha256": "3b57910b2c22a41aac7f50f85b14a3c72657c2b567d1edd01c2514a5177ad619",
+      "text": "Find the picture showing the mixed salad.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_find_spoon_0febda2f.mp3",
+      "sha256": "fed5c7654180f76eee4b99f30099853afa9b1ac11c3b63292125823401f87510",
+      "text": "Find the long spoon on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 59949,
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_intro_c1324f45.mp3",
       "sha256": "050d888f99345de8de257950691033d0c2dbbbf1af5134e0fc5260bb5599927f",
@@ -42845,10 +43517,26 @@
     },
     {
       "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_cucumber_slices_9e58ad0f.mp3",
+      "sha256": "41d790cbfb23f85409306ff926bcbed4581f924a8d8f1037cc78fb21c5babc96",
+      "text": "Tap the round green cucumber slices.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 35469,
       "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_kitchen_towel_bfe5668a.mp3",
       "sha256": "bbadb8bc0a15656dee5897bf0d38fb194c523060b79a35ab8f0eac126c052fb7",
       "text": "Tap the folded kitchen towel on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/garden-to-table/make-and-share/audio/en-US/neural2-c-r1/prompt_learn_mix_the_salad_f457f6c2.mp3",
+      "sha256": "b7ef58c835bca3eeb69ac8d96206edc7003179892403bbd192b5931ede33a7e7",
+      "text": "Tap the picture of the mixed salad.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43525,10 +44213,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 35757,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
-      "sha256": "c9d5238b4f1be91b2b31c887964b342de82eb508c855a39daab22892a5d765c9",
-      "text": "The adult hand is below the envelope.",
+      "bytes": 34029,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/ask_adult_to_store_fail_239cc1e7.mp3",
+      "sha256": "0df297dfe3b24e8f28ea7097762a2ffe04c5780963a3f74fa9d5badd633cfeb8",
+      "text": "The closed envelope is on the right.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -43597,10 +44285,34 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 13869,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/envelope.mp3",
+      "sha256": "855d5348cbf80a2a08156c3dea841fbc036a75c0f57bdd4200d02543f424b725",
+      "text": "envelope",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 50157,
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/intro_success_8415ef81.mp3",
       "sha256": "6f1068397ac23449e9593af4e48f04c176a73b7b4294b317515ab23afba53a42",
       "text": "We will tap the pictures and ask an adult to store it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30285,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_envelope_fail_ac310adc.mp3",
+      "sha256": "c4d18244d9c6f5d0c945b0dc550a5ad3108dab81df0b167d1ac8dc76a5b04817",
+      "text": "The envelope is above the table.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_envelope_success_8e2bec8e.mp3",
+      "sha256": "4caf629db20af11589f6fff7fb75af04b8b37837687965ac7b146d53b19959e8",
+      "text": "Yes, this is an envelope.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -43621,18 +44333,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37197,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
-      "sha256": "a403fa2a098e07ca1832f562aa537c8db2f79c58c195524c553927a65353e13a",
-      "text": "Tap the small seed on the open hand.",
+      "bytes": 33741,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_store_for_next_season_fail_dcc7d1b6.mp3",
+      "sha256": "bb887ae6a61cf7b1f7ef501b16f0b5c67056eee3934cbf1065b7ad0240fd224d",
+      "text": "The shelf with the envelope is above.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 41517,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
-      "sha256": "b74a49e92ad1225a04ffa6a09dd4bcf5286c92fbdfa7b993b86abedac3f5bacb",
-      "text": "This tomato seed has already been dried.",
+      "bytes": 34605,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/learn_store_for_next_season_success_95cf6dab.mp3",
+      "sha256": "65fe7eb686259db1fd6d1008f2aa3cffe32742356dc067930733cfd1dd91f51b",
+      "text": "Yes, store it for next season.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      "sha256": "a403fa2a098e07ca1832f562aa537c8db2f79c58c195524c553927a65353e13a",
+      "text": "Tap the small seed on the open hand.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -43653,10 +44373,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 45261,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
-      "sha256": "40c95b23667e04ceb4191d8d424acbac941758f3032fec9e0d0045a82cc61206",
-      "text": "Tap the hand to ask an adult to store the envelope.",
+      "bytes": 54477,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_ask_adult_to_store_b45cd459.mp3",
+      "sha256": "781f1093009c000df9d91dc2af4ecec9d568562466463f43832cfdbceef5dd52",
+      "text": "Tap the envelope to ask an adult to store it on the shelf.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -43693,10 +44413,26 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 33165,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_learn_envelope_47318a91.mp3",
+      "sha256": "0cf51d03df286d8b72c10dada0f7e88754dfd37243454a8fbedadb1ba5fcb518",
+      "text": "Tap the envelope holding the seed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 42381,
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
       "sha256": "c09c2fa3cd33227f2d844167d382cf3bcc40fc6baca474075cda458f29b8c66a",
       "text": "Tap the adult hand saving the dry seeds.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/prompt_learn_store_for_next_season_c96938a3.mp3",
+      "sha256": "d25e75f5c06b8b10142c7a7110748d84baaa0bbacbbe23523cf35aefc71a4d24",
+      "text": "Tap the envelope stored safely on the shelf.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -43733,6 +44469,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 26541,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/store_it_for_next_season.mp3",
+      "sha256": "4f0ed8a9c8ecc58a3436716119015cf9dc70b3bf11a390a11254493c4468158f",
+      "text": "store it for next season",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 33741,
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-GB/neural2-c-r1/wait_for_next_season_fail_e88924e1.mp3",
       "sha256": "2510d60796bbb1dbd73fab8fa5c0915e99c50c711c9d30b93ebf247d83bc6364",
@@ -43749,10 +44493,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32301,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_fail_7c1fc901.mp3",
-      "sha256": "364cfccb81a3f47464c38d9b172a99c16679b1dab8b307a18c220a5cdb96f097",
-      "text": "The adult hand is below the envelope.",
+      "bytes": 29421,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/ask_adult_to_store_fail_239cc1e7.mp3",
+      "sha256": "f5d7741bcf4afe9b125eca7b24d0455dbb15aa9c63bae137311c16cdb3582fd8",
+      "text": "The closed envelope is on the right.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43821,10 +44565,34 @@
     },
     {
       "accent": "en-US",
+      "bytes": 11565,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/envelope.mp3",
+      "sha256": "51cf10e61dfae3f413c53ceb9e0f93bea5005a88a258777039d845a49a42aa77",
+      "text": "envelope",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 47565,
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/intro_success_8415ef81.mp3",
       "sha256": "bf7a8ef7b96a40a2fe63c96cbc224e11a36907493ed9be4d3eab74945a371607",
       "text": "We will tap the pictures and ask an adult to store it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27693,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_envelope_fail_ac310adc.mp3",
+      "sha256": "139b1bd5caefbf8a5f5d597075a1da8ae7772aeb22794c23ab43f65ed845b270",
+      "text": "The envelope is above the table.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25101,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_envelope_success_8e2bec8e.mp3",
+      "sha256": "3f5c6c060c4977e83977b6f9f88f39ae187fca55d368fed9f9b64c0e3965dfc0",
+      "text": "Yes, this is an envelope.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43845,18 +44613,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32877,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
-      "sha256": "f529174da0be708387656f6f744fb6cf018e8bd88b7e22027aaeb962d9589150",
-      "text": "Tap the small seed on the open hand.",
+      "bytes": 30285,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_store_for_next_season_fail_dcc7d1b6.mp3",
+      "sha256": "0a325d52fbdc0cec4828340ceb3cda93231d3e5f4299d34a50e4125e1988974f",
+      "text": "The shelf with the envelope is above.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 37197,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_success_751e1d6a.mp3",
-      "sha256": "93d3dd25b182128f98a69917720c47ae3372e0ee7876898937557f878ba58964",
-      "text": "This tomato seed has already been dried.",
+      "bytes": 30573,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/learn_store_for_next_season_success_95cf6dab.mp3",
+      "sha256": "f0f4d791bc6b048add89837ba102f339d5d5712eb20648ab590fd3039e809e94",
+      "text": "Yes, store it for next season.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/notice_dry_seed_fail_eacc3317.mp3",
+      "sha256": "f529174da0be708387656f6f744fb6cf018e8bd88b7e22027aaeb962d9589150",
+      "text": "Tap the small seed on the open hand.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43877,10 +44653,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 41805,
-      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_ask_adult_to_store_9582c434.mp3",
-      "sha256": "d401f2e795fa0a6a2cd5c18f501d018e2d78396407d10390cb161cf4fe589174",
-      "text": "Tap the hand to ask an adult to store the envelope.",
+      "bytes": 52173,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_ask_adult_to_store_b45cd459.mp3",
+      "sha256": "9c358e552103a1bd50b6532f06a64059bc412e869a04390c69680d251206389e",
+      "text": "Tap the envelope to ask an adult to store it on the shelf.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43917,10 +44693,26 @@
     },
     {
       "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_envelope_47318a91.mp3",
+      "sha256": "f31afc761455f58adf8c9810ed36b21e1c3a9863be7f79382976eb3a35497079",
+      "text": "Tap the envelope holding the seed.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 39501,
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_save_the_seeds_4ae9f070.mp3",
       "sha256": "10f01ce30a2c98980244e852ec788e518dc5a108c8755eafaf07985b74b40d22",
       "text": "Tap the adult hand saving the dry seeds.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40077,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/prompt_learn_store_for_next_season_c96938a3.mp3",
+      "sha256": "339a5be46d379b0c30c2398696b8f27ef95b9b1ad4a79aa0833f9a0baacd8898",
+      "text": "Tap the envelope stored safely on the shelf.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43953,6 +44745,14 @@
       "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/save_the_seeds.mp3",
       "sha256": "e9fef3f3ec27debbb754aa2b6d955463d3735ea72a1bdba9b88dab4ff12c5e66",
       "text": "save the seeds",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 24813,
+      "key": "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/store_it_for_next_season.mp3",
+      "sha256": "81edab84f2c54758cbd8b6bd74a6f6e10161352186dcace42bb0b52d8f52c9ca",
+      "text": "store it for next season",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49013,6 +49813,38 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/compare_ripe_tomato_fail_2367adbd.mp3",
+      "sha256": "13f0d834c984586f37054d22af4462ef344b3571f99ed06a698bc4506fc260cd",
+      "text": "The round red tomato is on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/compare_ripe_tomato_success_72580ba0.mp3",
+      "sha256": "f4740f011f036ff8e3ff0106f43984e885d3915cae7669f5a64077b049800ae1",
+      "text": "Yes, this color is red.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/compare_unripe_tomato_fail_e71d7773.mp3",
+      "sha256": "5b387463d9f28590f562c6bb34c6b24c0136cdd9df237056c14a89d3d0d3f834",
+      "text": "The small green tomato is on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 60813,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/compare_unripe_tomato_success_6c0e8f25.mp3",
+      "sha256": "3df670ce9d29c17cbc9f1da45c59ed0d257f95cb92b994e3678967b409fa5628",
+      "text": "The green tomato is smaller, so it needs to stay on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 55629,
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/completion_5b943c07.mp3",
       "sha256": "8e1c50d311fc779551668c4dea3a828f4650870c4d1514feb99e831ec094c6ee",
@@ -49033,6 +49865,22 @@
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
       "sha256": "37c02ccd31a7493745fe3117d53197645431d05323485128f4fb7e6176fd8ca3",
       "text": "Right, we will pick the ripe tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44973,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_tomato_to_wait_fail_e2162a55.mp3",
+      "sha256": "0206b9d75212cfb4212aed5b4edf1a7bd85b23ed7fa62e7a02780791ffbc8104",
+      "text": "Find the small green tomato behind the leaf.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46989,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/find_tomato_to_wait_success_284c66d3.mp3",
+      "sha256": "309711d8333bc8885e7c73566923091a84802c0f6e4b55f34487379dfcec384d",
+      "text": "Right, we leave the green tomato to keep growing.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49069,10 +49917,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41805,
-      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
-      "sha256": "0b49c84df48f3be5e65ca426ecbec4206965d84238ec4ccca9abc381e626a7b8",
-      "text": "Yes, leave the unripe one on the plant.",
+      "bytes": 31149,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/learn_leave_unripe_one_success_2f3e52d3.mp3",
+      "sha256": "77c4b4083e986e28cbab9ca1017bce366091400f82dce478dbd82fb58af1dcef",
+      "text": "Yes, leave it on the plant.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49125,10 +49973,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 22509,
-      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/leave_the_unripe_one.mp3",
-      "sha256": "73226374799ecdff9e54bab5a97c828f24704346924a068359ec36c25198eecd",
-      "text": "leave the unripe one",
+      "bytes": 23085,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/leave_it_on_the_plant.mp3",
+      "sha256": "a20a2a225ab653b6a66c2da226f1510442ea6acf1ccc350cc07606bf7f134b90",
+      "text": "leave it on the plant",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49157,10 +50005,34 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_compare_ripe_tomato_46a829c5.mp3",
+      "sha256": "0a4a0b130ea304220fa8e1d792d2d1821b2ddf31a43b570d12821fb811505546",
+      "text": "Tap the tomato that is red.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 55341,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_compare_unripe_tomato_a8997d4d.mp3",
+      "sha256": "f88e5ee7b3351bc3e99c19dba9fbf57cc64a6c86eada7810ed3e78f8dbd9717e",
+      "text": "Tap the green tomato to compare its size with the red one.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 45837,
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
       "sha256": "ee6d642a90c21a28f320e71e69e84bb91959d0e185bb4cdacc3a3abcb76ac4ea",
       "text": "Find the red, round, firm tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49293,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_find_tomato_to_wait_0b264e6b.mp3",
+      "sha256": "f6f687bf06d0dff61c57092c190cbe90ee586e0355fe7a646b4a2b9f095947fc",
+      "text": "Find the smaller tomato that needs to stay on the plant.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49253,6 +50125,38 @@
     },
     {
       "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/compare_ripe_tomato_fail_2367adbd.mp3",
+      "sha256": "51fdee6750f380c7d3da6fe2672ffcd50ba23db48a209f1157efc9289b65802f",
+      "text": "The round red tomato is on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/compare_ripe_tomato_success_72580ba0.mp3",
+      "sha256": "f83b588651bb3d5b343afd5f187edf5543958e215d0cc3cfcfb297705ee055e9",
+      "text": "Yes, this color is red.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/compare_unripe_tomato_fail_e71d7773.mp3",
+      "sha256": "b44931bb77393b6e966df827aea0e28fd5452098c6011bd26f85b886b41a4437",
+      "text": "The small green tomato is on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55629,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/compare_unripe_tomato_success_6c0e8f25.mp3",
+      "sha256": "0ee048e6fcd4749794d59cb325af4fa735cc2c05e43be19c7769bf83b1c85bf7",
+      "text": "The green tomato is smaller, so it needs to stay on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 51885,
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/completion_5b943c07.mp3",
       "sha256": "1824633b13234f1ffae18def24b99523924d2ebcb18e3db3a8b9f358ea07624b",
@@ -49273,6 +50177,22 @@
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_ripe_tomato_success_f327b521.mp3",
       "sha256": "ce3e60746f113b2e02c51f7bd38ceff7cee10a16d055aa25fa729a6afdc2a73f",
       "text": "Right, we will pick the ripe tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38925,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_tomato_to_wait_fail_e2162a55.mp3",
+      "sha256": "09f0460f306faa12dab1b8f14084a182237bdb2dec79a892be5869da4fe3b4df",
+      "text": "Find the small green tomato behind the leaf.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/find_tomato_to_wait_success_284c66d3.mp3",
+      "sha256": "6e92b9a23a5ea4f2e3e6894ba2f6f08102d0819013f82dc5d2cc8e3536af3fe5",
+      "text": "Right, we leave the green tomato to keep growing.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49309,10 +50229,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_success_39d50e38.mp3",
-      "sha256": "1eab91980e6ff0d81a8f595716c03e96454b2081ec16d9eb3778c03e13a11f5c",
-      "text": "Yes, leave the unripe one on the plant.",
+      "bytes": 26253,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/learn_leave_unripe_one_success_2f3e52d3.mp3",
+      "sha256": "87285e087fc1a4355098a8f2ef9428f8f24d46f196824280d4b26fbacdf06cd1",
+      "text": "Yes, leave it on the plant.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49365,10 +50285,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 21069,
-      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/leave_the_unripe_one.mp3",
-      "sha256": "35fb14abdd12d995b6707608ffa22b7884f3e238d2bbf5241207b32389897dad",
-      "text": "leave the unripe one",
+      "bytes": 20205,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/leave_it_on_the_plant.mp3",
+      "sha256": "caad77c719690dfd5ceacc42bf3d06b24529e7d4f78a71c6f6e5d45658c2463c",
+      "text": "leave it on the plant",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49397,10 +50317,34 @@
     },
     {
       "accent": "en-US",
+      "bytes": 26253,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_compare_ripe_tomato_46a829c5.mp3",
+      "sha256": "644839844244c3981bb76f22e290f758c071929c8e02d9ded36f9697c2d91fc3",
+      "text": "Tap the tomato that is red.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 51885,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_compare_unripe_tomato_a8997d4d.mp3",
+      "sha256": "f7b5e6169b9eef3baebf7b7ec788cdebb817d5c5d9c153c74a09a8faba5ec679",
+      "text": "Tap the green tomato to compare its size with the red one.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 36333,
       "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_find_ripe_tomato_62637cd3.mp3",
       "sha256": "ac905ba6408da29963cd713af2020930cc891efe425c1b8a6394daea3d367d80",
       "text": "Find the red, round, firm tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/harvest-day/find-the-ripe-ones/audio/en-US/neural2-c-r1/prompt_find_tomato_to_wait_0b264e6b.mp3",
+      "sha256": "b9d3969bdb5bdf141223f474ae94a9add2a5097801ebabc148bbfb45a3f4a18f",
+      "text": "Find the smaller tomato that needs to stay on the plant.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49477,26 +50421,114 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 60525,
-      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/completion_704b0033.mp3",
-      "sha256": "a14c0b2d4b28053b84c262b50bbbf6a2b6b450f3e3dec9b3fee5d8e6986a7952",
-      "text": "You picked the ripe tomato by hand and kept the branch safe.",
+      "bytes": 12429,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/branch.mp3",
+      "sha256": "76e0d16d2dc741c2ae069b206b90677e8c384edd0a6d2ea56e8fb466cfd74179",
+      "text": "branch",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 43533,
-      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_fail_89ff2ab9.mp3",
-      "sha256": "0e2ee7fd1b4cbe418bd59e017f2ce33b18c40662064146d5a4730ede678c4c87",
-      "text": "Tap the basket with the red tomato on the right.",
+      "bytes": 29709,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_branch_after_first_pick_success_e9422f6d.mp3",
+      "sha256": "2ee8caf767bd149206294a8ad10de4a89b696f1fcc799741f4edce6aa7a9a57d",
+      "text": "Yes, this is a branch.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 38925,
-      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_success_412a67b4.mp3",
-      "sha256": "314ef710b2863a77e39524e9da6bee674b7a5007385687c0ad08717051df0f54",
-      "text": "We picked the ripe tomato very gently.",
+      "bytes": 45261,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_first_tomato_in_basket_fail_6f034d31.mp3",
+      "sha256": "5a9206b568f092b52955c443493d85625f47c70b642d19c33d159d3e87ed987e",
+      "text": "Tap the basket with one red tomato on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61965,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_first_tomato_in_basket_success_b4f24fea.mp3",
+      "sha256": "41f6cd1fe1f6f7dc426a1731d5cf98121476bc91fec513358aef3e4dac442ddb",
+      "text": "The basket has one ripe tomato, so we can find the other one.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 57069,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_fruit_stem_success_15a57583.mp3",
+      "sha256": "81b0f8e9322d9cf8d0f060ae0bfc3d6afe30e9e4b858fd7636fb557cf75fd78b",
+      "text": "We can see the stem and place a supporting hand below the fruit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_gentle_hand_fail_a847b7bd.mp3",
+      "sha256": "0a5534e4ffdb9b9f0c227e433c7f016a838768e856310529b835da1daf64b88b",
+      "text": "The supporting hand is below the red tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32589,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/check_gentle_hand_success_7ebfdcf7.mp3",
+      "sha256": "52b3a7ac32a3b2764cc94484c544f91d97b0ff7dc8d49245e38625fad18737d5",
+      "text": "Yes, this hand is gentle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 64557,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/completion_a72d2b95.mp3",
+      "sha256": "ea0e7f3e1abc70d89767cf58c3df1e932375d06caa098fdaec38254f8ca00999",
+      "text": "You picked both ripe tomatoes by hand and kept the branch safe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/confirm_two_tomatoes_fail_7a09d5ad.mp3",
+      "sha256": "262681d18e103ceeb6d38aa2fd5f44223f3bc78c2d317474e780a1b6cbbb8690",
+      "text": "The new red tomato is at the back of the basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 53325,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/confirm_two_tomatoes_success_bf242515.mp3",
+      "sha256": "41c88b5fd45038b98b188bd00cd298f069b24166ea5164b8ebd7bdd6f2423218",
+      "text": "Right, both ripe tomatoes are safely in the basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45837,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/find_second_ripe_tomato_fail_f076bb75.mp3",
+      "sha256": "385db7184f4f9fbf339b2e0dcac23b7f3caa92626ab7f55aa767f76b564961b0",
+      "text": "Find the red tomato on the left side of the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/find_second_ripe_tomato_success_f4b0a1ca.mp3",
+      "sha256": "8aed62af82ba96e89dc99cd5f982bb23426853efa244b527257b677600faffb9",
+      "text": "Right, the other red tomato is ready to pick too.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48717,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_fail_22809328.mp3",
+      "sha256": "3fdc6f28dac858ccfd196bbf0d44a3288f2a1ec826ea9ea77a8641d51bfbda5e",
+      "text": "Tap the basket with the two red tomatoes on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 30573,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/finish_success_78d4a3da.mp3",
+      "sha256": "5edc84080bdfa237bb04df4322639cbf45c112e3448df82e01fa69c90374430f",
+      "text": "Yes, this is a basket.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49513,6 +50545,14 @@
       "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/intro_success_ea1894f9.mp3",
       "sha256": "0883ed95eb48e2d295be138810184efd866f98ba040777cef7494fc17c69a273",
       "text": "Support the fruit with your hand without shaking the branch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37773,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_fail_7538c06e.mp3",
+      "sha256": "992f620518d9861439ffe05c0104506622a0302e12897f70a351b4a3087b84a2",
+      "text": "The green stem is above the red tomato.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49557,6 +50597,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 59661,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_second_tomato_in_basket_fail_efa110e4.mp3",
+      "sha256": "89ca6feef057160bc8405457dd3d1f470be9ed6565ed4bcd035b6dd6774deb95",
+      "text": "Drag the other red tomato on the plant to the basket on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61965,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_second_tomato_in_basket_success_7b338e99.mp3",
+      "sha256": "30e4af063b00ed51d833a4f66c00ca1f2ef5b55cecbc8fecefbdcdfda88f7ac3",
+      "text": "Both ripe tomatoes are in the basket, and the branch is safe.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 56493,
       "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
       "sha256": "2c29de25cd091e9f4fbedff7e35b2201f0324c35da747c2e9b6069dc5c621ccc",
@@ -49589,10 +50645,58 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 35469,
-      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_finish_36f42356.mp3",
-      "sha256": "2f648e1d963bc108c568fd117d259d2b682b677c0b19382a5ddbe1dc6737d7aa",
-      "text": "Tap the basket holding the tomato.",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_check_branch_after_first_pick_cf3cf304.mp3",
+      "sha256": "acfd672bfb4e6fbbc21ace92edb526954df238aa5bb7ea1b305170194c0cacf3",
+      "text": "Tap the steady branch on the tomato plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_check_first_tomato_in_basket_7a425109.mp3",
+      "sha256": "a8165b4fccefb974643f094de627154eb86e8160f82470e3b0d755502f32fb81",
+      "text": "Tap the basket to check the first tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61101,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_check_fruit_stem_19dc791f.mp3",
+      "sha256": "5333bd7c7998956d3c3db9a189fb3f20199a76ba1f971a64acd553c4ebfe0d10",
+      "text": "Tap the fruit stem so we can support the tomato just below it.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41517,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_check_gentle_hand_93471464.mp3",
+      "sha256": "7fe61699540fca3793d21b3c83781545f45617080b2e44bde54be619437cea39",
+      "text": "Tap the gentle hand supporting the tomato.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 54477,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_confirm_two_tomatoes_4010210f.mp3",
+      "sha256": "44edcad7f2e557d8c51c8d1f9f0cee6d2aa03241638486f38bf58638514b4802",
+      "text": "Tap the new tomato in the basket to check that both are there.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38637,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_find_second_ripe_tomato_7bd55acf.mp3",
+      "sha256": "7f1f6c9e0ee30bd4b90c1f6f173e8bddb0d4f5b1de985cd02403faa9489af4ca",
+      "text": "Find the other red tomato on the plant.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_finish_abca57c1.mp3",
+      "sha256": "ee54118438f81fffb8367313ebb6b008db1df9441a1a21ff84620fc9fb24a6c2",
+      "text": "Tap the basket holding the two tomatoes.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49621,6 +50725,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_place_second_tomato_in_basket_f204d722.mp3",
+      "sha256": "a577e1e4151f27bdaa97b1dc4d20b8199b1d0b30ed72dda6abefd2e44595ce0c",
+      "text": "Drag the other red tomato into the basket.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 37773,
       "key": "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prompt_place_tomato_in_basket_98528eee.mp3",
       "sha256": "ec5eddb0844957d087aa006723cf4eacf63fbbb014f52ca34553bdddf7288eb0",
@@ -49637,26 +50749,114 @@
     },
     {
       "accent": "en-US",
-      "bytes": 55341,
-      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/completion_704b0033.mp3",
-      "sha256": "45dc681cd00718901dae8b2c2adb3826111a10f7e2126271da580b19932d81fc",
-      "text": "You picked the ripe tomato by hand and kept the branch safe.",
+      "bytes": 11277,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/branch.mp3",
+      "sha256": "7c4914c4d1bb5c303a3af31435fdbbb19569649a446b3c4a8d3d2b6defefd53a",
+      "text": "branch",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 38637,
-      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_fail_89ff2ab9.mp3",
-      "sha256": "2285b190a8c5cd48054ec98bcf98a02b93a6ee0b24cba6fdfb7ff0abc6827453",
-      "text": "Tap the basket with the red tomato on the right.",
+      "bytes": 24237,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_branch_after_first_pick_success_e9422f6d.mp3",
+      "sha256": "43fadc3f4e3731d5e5a10978f568feabce104bd17b344cca309ff858cc59c8e9",
+      "text": "Yes, this is a branch.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 35757,
-      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_success_412a67b4.mp3",
-      "sha256": "d08e7f9c8b90adf15ac3fc0d663374174baf1c861f23d2868b9bdb5c6237156e",
-      "text": "We picked the ripe tomato very gently.",
+      "bytes": 41805,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_first_tomato_in_basket_fail_6f034d31.mp3",
+      "sha256": "b17e89478cd8596a6be48004129f250f491a2a83b9ce8535abe1ad1602ad4ffd",
+      "text": "Tap the basket with one red tomato on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 56493,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_first_tomato_in_basket_success_b4f24fea.mp3",
+      "sha256": "5e9e716f644808a7fce7118b5dc3441dfdb7714e4033c99eb627060334456b8f",
+      "text": "The basket has one ripe tomato, so we can find the other one.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55917,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_fruit_stem_success_15a57583.mp3",
+      "sha256": "1bf4bc5757a7fa5beb79febe579e4092d22a8a4fa312db07b8be1b7d204ec91d",
+      "text": "We can see the stem and place a supporting hand below the fruit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_gentle_hand_fail_a847b7bd.mp3",
+      "sha256": "c5dcb01c02f0453f006a19ed9a70db0af49f09501001cd828cc354274f5dca5b",
+      "text": "The supporting hand is below the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27117,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/check_gentle_hand_success_7ebfdcf7.mp3",
+      "sha256": "c3629ef2b1f33455a50825b176e7e7b8bf25a911fb6e4368a9a5912a95e52a2d",
+      "text": "Yes, this hand is gentle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59661,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/completion_a72d2b95.mp3",
+      "sha256": "ba83c0b22c3fa926ddb659093fbff5e5a11b28fe502540f1cff2313a44acbb89",
+      "text": "You picked both ripe tomatoes by hand and kept the branch safe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/confirm_two_tomatoes_fail_7a09d5ad.mp3",
+      "sha256": "3536f138f49774d3ff744d392a596cb276f60b6178442fcc46f66569fe8f217c",
+      "text": "The new red tomato is at the back of the basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 45837,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/confirm_two_tomatoes_success_bf242515.mp3",
+      "sha256": "fc18f65d834843c5d4edb6bd722f038c27e09e49ecfe6340702e345d2aa084c1",
+      "text": "Right, both ripe tomatoes are safely in the basket.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/find_second_ripe_tomato_fail_f076bb75.mp3",
+      "sha256": "30329571fe58b19bfb4eb7282be97d9b5bf38223790f572c1a4229aaaddc62cc",
+      "text": "Find the red tomato on the left side of the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/find_second_ripe_tomato_success_f4b0a1ca.mp3",
+      "sha256": "5436a3c6075781f0df3ece345d35bd5f0318dd8116c076969ae3b42788857ad5",
+      "text": "Right, the other red tomato is ready to pick too.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_fail_22809328.mp3",
+      "sha256": "685363de674a4e881e573e4e67a53c01cea218c29b33b1abf084ba44c4907623",
+      "text": "Tap the basket with the two red tomatoes on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 25101,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/finish_success_78d4a3da.mp3",
+      "sha256": "b1ec314ec83998bb2714988191c38568ae335d2f80cc7921dffcfcc4f96092eb",
+      "text": "Yes, this is a basket.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49673,6 +50873,14 @@
       "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/intro_success_ea1894f9.mp3",
       "sha256": "5e0431835e88b95cce95cc0ab39dc0e0545d13e566ab8185a8d20524923dad11",
       "text": "Support the fruit with your hand without shaking the branch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/learn_fruit_stem_fail_7538c06e.mp3",
+      "sha256": "81306126a120017f94a11ea5c4c164f5ec1d104eb55811be5b81855165f57af5",
+      "text": "The green stem is above the red tomato.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49717,6 +50925,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 57069,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_second_tomato_in_basket_fail_efa110e4.mp3",
+      "sha256": "083df8efeff0f6dc014a61f8e5a0a3bc616fb689fbe0ac8e884402d58ca2998e",
+      "text": "Drag the other red tomato on the plant to the basket on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 55917,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_second_tomato_in_basket_success_7b338e99.mp3",
+      "sha256": "c0a36ff1899f7d97f291bab735f2095585a4baf7fc9a7cc705346c097ed009a3",
+      "text": "Both ripe tomatoes are in the basket, and the branch is safe.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 53037,
       "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/place_tomato_in_basket_fail_5bc03cd5.mp3",
       "sha256": "2f368469e7975bd331e89072a212f3a6805b0bf8c035af1144038f84affbf024",
@@ -49749,10 +50973,58 @@
     },
     {
       "accent": "en-US",
-      "bytes": 31149,
-      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_finish_36f42356.mp3",
-      "sha256": "43f25634a455fad0c5945708a9705cd31db608d29aaba34b69e8321d74f68cc3",
-      "text": "Tap the basket holding the tomato.",
+      "bytes": 36045,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_check_branch_after_first_pick_cf3cf304.mp3",
+      "sha256": "f777125abdbe11ae2b77611eecb59a2e759a1bb9a9e355af140144a658f24465",
+      "text": "Tap the steady branch on the tomato plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34605,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_check_first_tomato_in_basket_7a425109.mp3",
+      "sha256": "ca52790c9eb1d95e4e589945b4667257e3d7099f0995e039c539856198183cb6",
+      "text": "Tap the basket to check the first tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 56205,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_check_fruit_stem_19dc791f.mp3",
+      "sha256": "df516896a2a10dd3cb1805724a3ba4ba0fadfbd2c2e5a84c55fc46b95c858790",
+      "text": "Tap the fruit stem so we can support the tomato just below it.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36909,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_check_gentle_hand_93471464.mp3",
+      "sha256": "d205efb84dadacde70f5bf258ae00d3b095143612221f021d8cea53424cfd101",
+      "text": "Tap the gentle hand supporting the tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 52461,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_confirm_two_tomatoes_4010210f.mp3",
+      "sha256": "b4d59c92b088feb7a5f036e31ff347337d51e9b814463d6273d4f6a3a83ef2b1",
+      "text": "Tap the new tomato in the basket to check that both are there.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34317,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_find_second_ripe_tomato_7bd55acf.mp3",
+      "sha256": "e56d1f93b9b5514327e97d84f8295cebaa66ba1b3510f6217dd1439d4bd60d39",
+      "text": "Find the other red tomato on the plant.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_finish_abca57c1.mp3",
+      "sha256": "693e92553ae2279c9b0962d07959f85be12669d063c2761c3030ac1a66add69e",
+      "text": "Tap the basket holding the two tomatoes.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49777,6 +51049,14 @@
       "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_learn_pick_0cbb0184.mp3",
       "sha256": "1333c23338861410f21450dd89a081880d80327da9446fc7122bf304b2ff92e9",
       "text": "Tap the hand gently picking the red tomato.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/harvest-day/pick-gently/audio/en-US/neural2-c-r1/prompt_place_second_tomato_in_basket_f204d722.mp3",
+      "sha256": "83599c393f9576d1bd89ca8e35aedec622652fae9033713bd3b96854bae1e8e6",
+      "text": "Drag the other red tomato into the basket.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49845,18 +51125,34 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 42093,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_fail_700aa40d.mp3",
-      "sha256": "967f85c73d11966df59973c5f5298accf5afe4bf5a72de03341b242134fd8f4a",
-      "text": "The middle basket has the red tomato shape.",
+      "bytes": 51885,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/confirm_adult_check_fail_18a4ba44.mp3",
+      "sha256": "443ba308a723b9160e9578db758aa9c7af0d2a94b2a652f41e3aec1f4631ab15",
+      "text": "The tray with the hand and bruised tomato is in the middle.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 59085,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/finish_success_83697327.mp3",
-      "sha256": "abf1e409e71dfd40aaffc2a20abcf108bed872306106c374e06408f2a8f5f6c0",
-      "text": "The tomatoes, vegetables, and herbs are sorted separately.",
+      "bytes": 48141,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/confirm_adult_check_success_faa11f42.mp3",
+      "sha256": "1c2f383b8291540539ad93f340e9a993721496c431f3d74cb6fc9c49aff3d19b",
+      "text": "The bruised tomato is separate in the adult-check tray.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/confirm_sorted_baskets_fail_25ec85ae.mp3",
+      "sha256": "c741bca9d0a0848f8b9f23bc686c880b395b85e3176107aca9ee35972c2cc0af",
+      "text": "The picture of the three sorted baskets is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/confirm_sorted_baskets_success_436abe21.mp3",
+      "sha256": "78ed2f007fab99a3731f948e6810dabe674212a59211cafae842a47fa4e639d8",
+      "text": "Yes, the three baskets are separate.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49889,6 +51185,22 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
       "sha256": "bbddbbc34a4fc4e43bd0b9269c2786725c89b297b0204add198b3c27266f09bf",
       "text": "Yes, this tomato is bruised.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45549,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_carrot_fail_77049916.mp3",
+      "sha256": "d47566f5bded64508782314d8013179508859720c374608733b5fc870c58bff4",
+      "text": "The long orange carrot is in the basket on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/learn_carrot_success_50367f98.mp3",
+      "sha256": "3f029e50fcfae5eca27c7f3da5ea5b07a2db8002d31d0e003c48fc61c1afd87b",
+      "text": "Yes, this is a carrot.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49957,10 +51269,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 35469,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_finish_c657da5e.mp3",
-      "sha256": "56fd833110c0ca5d73f1e83ee857eddeb824d51e00f6a9b5c686b97fb3ffe250",
-      "text": "Tap the tomato basket in the middle.",
+      "bytes": 55341,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_confirm_adult_check_d6713fd7.mp3",
+      "sha256": "a4b0bfd76e2ee1cbac9e5970ad055fec6dfff6638f12ac90ec035c2b26354daf",
+      "text": "Tap the tray with the bruised tomato for an adult to check.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_confirm_sorted_baskets_5bb29f30.mp3",
+      "sha256": "766f476a25b3eeaff04dce199e9ea03ed8a1211ced114518df08ac51812b5237",
+      "text": "Tap the three separate baskets.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49977,6 +51297,14 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
       "sha256": "c0545f477bed74f19cdaf656e7f4e8714939b0dd2c9fe38df21e7afa65e1b980",
       "text": "Tap the tomato with the brown bruise.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_learn_carrot_69dfcc7d.mp3",
+      "sha256": "6186d09017ba32e4010ac8db18f6e6de95e37e27f45f2f02c97991a563238449",
+      "text": "Tap the orange carrot in the vegetable basket.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -50025,6 +51353,14 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
       "sha256": "7d3e8e7d5cb7ffd01ffc097c4552bfdc6c60687db4de74b685e9dadd053a2280",
       "text": "Drag the vegetables into the basket on the left.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14733,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-GB/neural2-c-r1/separate.mp3",
+      "sha256": "470e72a26b2e26c68388537b1046550e36ad8794388796cea1b59b61bc010f74",
+      "text": "separate",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -50141,18 +51477,34 @@
     },
     {
       "accent": "en-US",
-      "bytes": 37485,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_fail_700aa40d.mp3",
-      "sha256": "096dcaa2bcc3b495bebc2e1dcf87d004b737f83fcaa5fb7ad7e774cc04b6b57c",
-      "text": "The middle basket has the red tomato shape.",
+      "bytes": 47565,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/confirm_adult_check_fail_18a4ba44.mp3",
+      "sha256": "44b5d5e10b1245d8db5231e8840fcd80a2453c9c452778d8864e9488b177e703",
+      "text": "The tray with the hand and bruised tomato is in the middle.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 51597,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/finish_success_83697327.mp3",
-      "sha256": "505a19e93faa727c6592e25ed051291e9badad4888c27fc9f27d3bea937829de",
-      "text": "The tomatoes, vegetables, and herbs are sorted separately.",
+      "bytes": 43245,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/confirm_adult_check_success_faa11f42.mp3",
+      "sha256": "22a6c757c2ccc4c7387f6391cace683a672f227354048ee7307f0c3f3627910e",
+      "text": "The bruised tomato is separate in the adult-check tray.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42381,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/confirm_sorted_baskets_fail_25ec85ae.mp3",
+      "sha256": "b7c94f62c5b71b3f7d2e4ee5a68e02fc9aed3afb75149267a587599c00e47118",
+      "text": "The picture of the three sorted baskets is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/confirm_sorted_baskets_success_436abe21.mp3",
+      "sha256": "9bbd3d8cb609e7d39ce7d66a401f3fafac1adfe993e993f54bf26c0a38caafbd",
+      "text": "Yes, the three baskets are separate.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50185,6 +51537,22 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_bruised_success_f02869d3.mp3",
       "sha256": "e830846541afcd649dc3261b29efbfabd209df76b2805406ada7fb95ad743c45",
       "text": "Yes, this tomato is bruised.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42093,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_carrot_fail_77049916.mp3",
+      "sha256": "ecff156dcea0ef1fae4f937488157b5c10d4b02174a6022c50f71becf999b980",
+      "text": "The long orange carrot is in the basket on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23949,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/learn_carrot_success_50367f98.mp3",
+      "sha256": "c360a0962ca8a0056d096fdbc84736104380e3da045f5b9e45bf79d9cdebeea4",
+      "text": "Yes, this is a carrot.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50253,10 +51621,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 30861,
-      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_finish_c657da5e.mp3",
-      "sha256": "75a9b4b7c5fe543db3d76a58ef3619cd3e604e3797ca2b1cefa546f1cf902727",
-      "text": "Tap the tomato basket in the middle.",
+      "bytes": 51021,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_confirm_adult_check_d6713fd7.mp3",
+      "sha256": "9c862da71ec59421943c2b97de957e36cd75e9dc08e63b794bd9e1944b9a93af",
+      "text": "Tap the tray with the bruised tomato for an adult to check.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29133,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_confirm_sorted_baskets_5bb29f30.mp3",
+      "sha256": "828d312862d39561f4643e547ccb0cc486110eb74e321bab845e429844887905",
+      "text": "Tap the three separate baskets.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50273,6 +51649,14 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_bruised_de315e4b.mp3",
       "sha256": "02a6b0ed777189185ce8d26108f997e4ea6302804fce70af8d186e19991b3b9b",
       "text": "Tap the tomato with the brown bruise.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_learn_carrot_69dfcc7d.mp3",
+      "sha256": "59a2158bfde3404597ded5804f9cd790a33b5ace50b6cfb448f4cfdcb9816ae9",
+      "text": "Tap the orange carrot in the vegetable basket.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50321,6 +51705,14 @@
       "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/prompt_sort_vegetables_e6d6c385.mp3",
       "sha256": "c8552b9701a10444087eb1b2295c76530caabe22a76b7995969ff39633663f0d",
       "text": "Drag the vegetables into the basket on the left.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 12141,
+      "key": "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/separate.mp3",
+      "sha256": "97bce06eb08584c581b0e1e7b72856636d0014fd0c970c1627b655ba2776de85",
+      "text": "separate",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50453,6 +51845,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 49869,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_move_into_sunlight_fail_5b1e06bb.mp3",
+      "sha256": "e21ff12fb7c5b63dca1e47e820d5ce5eeb3de67f3b191394c5f8b6f0be671277",
+      "text": "Tap the picture with the arrow pointing toward the sunbeams.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_move_into_sunlight_success_c4d981ba.mp3",
+      "sha256": "593bf460623cb38d39b3f0506c54e71f07de95ca2f1d905c0bbc768aba24bc41",
+      "text": "Yes, move the plant into sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 35757,
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
       "sha256": "3d9ccf9a5785b66922c4e4f24e764ea1ce4ef9c4a0a0bade28baf4b5ac31ec99",
@@ -50481,6 +51889,14 @@
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
       "sha256": "bdb83374a2a20b05a097b4ed72c541f69f6b1b3a19b9a2be85bd1b3b6be95889",
       "text": "Yes, the plant is enjoying the sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 23085,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/move_into_sunlight.mp3",
+      "sha256": "6dcb9c69dbd794625e6bd7c3148165c31129745e8d6c692ef01036158194116d",
+      "text": "move into sunlight",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -50534,6 +51950,14 @@
     {
       "accent": "en-GB",
       "bytes": 43533,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_move_into_sunlight_969dc22f.mp3",
+      "sha256": "664292e0bfebec94680c308fffe850561df4e1e9eb45927ff6c842706e971abc",
+      "text": "Tap the picture of the plant moving into sunlight.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43533,
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
       "sha256": "e9c517cb9b8372a593e59a6cda77eaa40fdfb24be267a604b526a11659afe8f2",
       "text": "Tap the cool dark area. It is shade.",
@@ -50581,10 +52005,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 53613,
-      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
-      "sha256": "57d57c796229b30a0f4e86b927c280d9191595ccf694becdeee289e69f7b955f",
-      "text": "The plant is drooping. Drag the watering can to the pot.",
+      "bytes": 46413,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/prompt_water_plant_f587d460.mp3",
+      "sha256": "7f685a2e66ede1775a690d5d412c8d54081ee773ebb2a1f543f8b5ad801f9f7b",
+      "text": "Drag the watering can to the pot with the drooping plant.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -50653,10 +52077,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 28845,
-      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
-      "sha256": "b8c75de5ccfcad3f0dc45e20bf6705b91403f06b63c9fcc0c1dfc0c8c0a9afc6",
-      "text": "The plant looks fresher now.",
+      "bytes": 47565,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-GB/neural2-c-r1/water_plant_success_36e594b9.mp3",
+      "sha256": "fe9d49eca5a0fe92c3a50f1a2e54094cfec21da1ec98622998b08284d206ac88",
+      "text": "The plant looks fresher. This is a watering can.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -50725,6 +52149,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 45261,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_move_into_sunlight_fail_5b1e06bb.mp3",
+      "sha256": "8554edc74e0f2c6f134710d4958466fca1dcf4af8949114cdd2c9f7917862288",
+      "text": "Tap the picture with the arrow pointing toward the sunbeams.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_move_into_sunlight_success_c4d981ba.mp3",
+      "sha256": "31b3a1cc28d1157c8155802276f5ad2599aeb6e3318616aa35fb6bceaedbe51a",
+      "text": "Yes, move the plant into sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 33741,
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_shade_fail_f28308d8.mp3",
       "sha256": "4a7073efcd0ae244116f484a70abdaef09f468a731cf3e6d579fc0269dc83e7b",
@@ -50753,6 +52193,14 @@
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/learn_sunlight_success_f61ce052.mp3",
       "sha256": "c5bb8f4417f0aa397fd19620eeb268cea1d6f811a536be2c49f7edd3cf2f04ca",
       "text": "Yes, the plant is enjoying the sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 18477,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/move_into_sunlight.mp3",
+      "sha256": "1eb382d59266e25277f2f874096078a0da0ec45d167c0b66be2599a34df8d5ce",
+      "text": "move into sunlight",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50805,6 +52253,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_move_into_sunlight_969dc22f.mp3",
+      "sha256": "14b6e24ae04a3ebf689ca67e3c2a7658c9521858da1f02efc9ff74f34df2bab7",
+      "text": "Tap the picture of the plant moving into sunlight.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 38349,
       "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_learn_shade_6d5448b4.mp3",
       "sha256": "93fddbb3aa64b9f91e048a70482619340411484cbff39cd044cb87ea5dfcbed9",
@@ -50853,10 +52309,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 47853,
-      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_water_plant_84841c0d.mp3",
-      "sha256": "19824200da71fe325ae921f7b4087582d89d0a5ab4ce0f56f73d238c27d6040e",
-      "text": "The plant is drooping. Drag the watering can to the pot.",
+      "bytes": 44109,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/prompt_water_plant_f587d460.mp3",
+      "sha256": "02882c393135309ef4c8d9048407954c184e9ac22b991590b601fba01645b32b",
+      "text": "Drag the watering can to the pot with the drooping plant.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -50925,10 +52381,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 25677,
-      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_success_9b4aa35c.mp3",
-      "sha256": "d92e513d872b4ec26ed8c1460dbc1fe0fab26abc2ee538f5708206515e7bafbe",
-      "text": "The plant looks fresher now.",
+      "bytes": 43821,
+      "key": "lessons/help-it-grow/new-leaf-and-sunlight/audio/en-US/neural2-c-r1/water_plant_success_36e594b9.mp3",
+      "sha256": "64a09a01356e2ba710f2b54ad317c3ff8df3036052aac49a9628f355f640a7df",
+      "text": "The plant looks fresher. This is a watering can.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -51053,6 +52509,30 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_soil_fail_a9560ace.mp3",
+      "sha256": "17059c0e1a11fa9bd1eb1cfdd56664adbba837abeb7de31cbfb203190f043c7f",
+      "text": "Tap the brown soil in the sheltered plant pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 32013,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_wait_for_rain_to_stop_fail_e0fe7b69.mp3",
+      "sha256": "df1d25a7f3cfd005419aa7bd62a321de6dfb511d2f804358fc5b12527f3cd8e9",
+      "text": "Tap the blue raindrops below.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/learn_wait_for_rain_to_stop_success_d8fd2bd5.mp3",
+      "sha256": "7b44261d0154ef44706bcfe81020f867009ef2ba0e9f98fb160b4a01b2c1f1a0",
+      "text": "Yes, wait for the rain to stop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 33741,
       "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
       "sha256": "ca7221b2366d7d739cc43cc6f5c4fe0a02fff6188130bd0284c49633fd84c01b",
@@ -51141,6 +52621,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_soil_9330550c.mp3",
+      "sha256": "3ec9b1b571e6adb89d3135b59f9797458aa08f970e55c1974edb2fa922e35ad5",
+      "text": "Tap the dark soil that is still wet in the pot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_learn_wait_for_rain_to_stop_a74d5318.mp3",
+      "sha256": "24ef8e49b3c024fb608093a7662972a428733a1d3668054ac97e3126ebe216fe",
+      "text": "Tap the raindrops while we wait for the rain to stop.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 34893,
       "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
       "sha256": "3375bd3f5f66212bc52c4a9c46384fba01a2551821f6c2e35c888717fcf37f56",
@@ -51209,6 +52705,14 @@
       "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/see_safe_plant_success_b3078240.mp3",
       "sha256": "987dfd27b93bc2302d0ca07ff37ad24fa5236ba6109c8ec86354d7d5a0e8cd80",
       "text": "The plant is safe, and the soil is still wet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26541,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-GB/neural2-c-r1/wait_for_the_rain_to_stop.mp3",
+      "sha256": "b325e04fdff4acece34f8adef01248c10c4ca67ab65b5829914f648b8eef1236",
+      "text": "wait for the rain to stop",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51333,6 +52837,30 @@
     },
     {
       "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_soil_fail_a9560ace.mp3",
+      "sha256": "1cac01dbbf2bc32f0bc167dedc2b8b952fdaf5ebf59c03d814bbb6a61b4ecc2b",
+      "text": "Tap the brown soil in the sheltered plant pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29709,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_wait_for_rain_to_stop_fail_e0fe7b69.mp3",
+      "sha256": "327a87725c71968959a7deb43545960d423f76d264f2ffa95f0d2f6c9b341e75",
+      "text": "Tap the blue raindrops below.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 30285,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/learn_wait_for_rain_to_stop_success_d8fd2bd5.mp3",
+      "sha256": "4e206cb7798904ff471c80e1acdc88d6a1234d93396eff81323180ec0f5dd36c",
+      "text": "Yes, wait for the rain to stop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 30285,
       "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/let_rain_pass_fail_d9a3a4cb.mp3",
       "sha256": "e581288bcea3b83c57564672b9933dc9397f36d3992ae4d865fcd027ab34748c",
@@ -51421,6 +52949,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_soil_9330550c.mp3",
+      "sha256": "a44d896f7ca2578af61d98e5075d4bc7390417aebe6add8720908ad74d7f8199",
+      "text": "Tap the dark soil that is still wet in the pot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_learn_wait_for_rain_to_stop_a74d5318.mp3",
+      "sha256": "343d35b33acd07a29b5a965ba102e8368add7e9777260ec9dcdd0e0f3b397f58",
+      "text": "Tap the raindrops while we wait for the rain to stop.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 31149,
       "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/prompt_let_rain_pass_43b6f057.mp3",
       "sha256": "930cef189017077af578a3c11996340d32f401c8687e357934efdce4c4602ec9",
@@ -51492,6 +53036,14 @@
       "voice": "en-US-Neural2-C"
     },
     {
+      "accent": "en-US",
+      "bytes": 23949,
+      "key": "lessons/help-it-grow/rainy-day-care/audio/en-US/neural2-c-r1/wait_for_the_rain_to_stop.mp3",
+      "sha256": "deb86a263554ad15361a326622243f2ddfa3442ae8030060fda22fc2cda51ca2",
+      "text": "wait for the rain to stop",
+      "voice": "en-US-Neural2-C"
+    },
+    {
       "accent": "en-GB",
       "bytes": 46125,
       "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/choose_support_stem_fail_38ab03f3.mp3",
@@ -51517,10 +53069,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41517,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
-      "sha256": "3c5299a43bf804862ca774fc76216f1d66b3340cd7375afdda0f50b2bcbf722f",
-      "text": "The plant stands tall and has a flower bud.",
+      "bytes": 39213,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/find_flower_bud_fail_4baa1d44.mp3",
+      "sha256": "b73d2b4e47b890bf6e1af816cc8cffbf462ab66a58d0511d598ea46b1d24d68c",
+      "text": "The plant with the yellow flower is in the middle.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/find_flower_bud_success_63a30e92.mp3",
+      "sha256": "569cf858e7f0b195e63cbbdaddde330951b2f29fdd7b0aa621ae8041d9ccbfd1",
+      "text": "Yes, the plant now has a flower.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51529,6 +53089,22 @@
       "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/intro_success_d16c4413.mp3",
       "sha256": "5d6fb9f7d74ee7dd3c3b7d8823c9970635bcaf66d4d153345bd8807fffd8ff69",
       "text": "Let's help the plant stand tall.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35181,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
+      "sha256": "6d10b52ed7b9cc1c65b8cff29d57f018e83a8af8ea30bb9e4dc6fe61ff972938",
+      "text": "Tap the soft green tie on the right.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 31149,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_success_9a9315ce.mp3",
+      "sha256": "defe7ee10af488900f94bf826e93f24c33c5334796f17e3b7966826013931a55",
+      "text": "Yes, this is a soft tie.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51637,10 +53213,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 56205,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
-      "sha256": "0193190b7c06f7b1a334c75d1f72beec38f88012fa6e7be5b714777d06f086e8",
-      "text": "The wind has passed. Tap the plant to find the flower bud.",
+      "bytes": 43533,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_find_flower_bud_53e24794.mp3",
+      "sha256": "05960468adf67810552f2575723a6cd4dfcdb4d7985c5c7ce827749dcdc92908",
+      "text": "Tap the standing plant to find the yellow flower.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51649,6 +53225,14 @@
       "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
       "sha256": "5538cd0e7815db3998ae4a44b0dc55949d2bbd24782c913d3bb93fd7e88c2672",
       "text": "The wind is stronger. The little plant is moving.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39789,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
+      "sha256": "e5a69621eaf8a61c938ae5b84d5282da535f5f348f4d01d5e7cce27318bbe494",
+      "text": "Tap the soft tie that helps hold the plant.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51717,6 +53301,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 15021,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/soft_tie.mp3",
+      "sha256": "98e4337d3d6c9f8fe36b5d4aea2d08e504922fe5f72e6df0d8545c138ffc61e7",
+      "text": "soft tie",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 11853,
       "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stake.mp3",
       "sha256": "1094e79bb867881f289f3d2867e1b8d68c378d69e0daec3d1303a43262bc16fa",
@@ -51757,10 +53349,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 59949,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
-      "sha256": "4656ead8480557cfd4e3b2811a33a8bb317cac2bb201f607bf7cdbd4e5b5c517",
-      "text": "A few days later, the plant stands tall with a flower bud.",
+      "bytes": 56205,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/wait_for_flower_bud_success_d760d7c5.mp3",
+      "sha256": "ec68aa54a4d9bb8fc7327f9f0645ed0823a4f0ff5c55c2c864a1380b9cfc9e92",
+      "text": "A few days later, the plant stands tall with a flower.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -51797,10 +53389,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38925,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/find_flower_bud_success_8b3e12d7.mp3",
-      "sha256": "0183c2a525bedfd41094d359cc0e683aeebdcf0b511ba7d56a0b799201d6df5b",
-      "text": "The plant stands tall and has a flower bud.",
+      "bytes": 35469,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/find_flower_bud_fail_4baa1d44.mp3",
+      "sha256": "3a6ae490e9ac2d8fda52755ef55364bcdd8d9e917a23f0e4610e10d21dad0b9c",
+      "text": "The plant with the yellow flower is in the middle.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/find_flower_bud_success_63a30e92.mp3",
+      "sha256": "d460e3bc8a69bdfa24e5e44a14eed7a4f0630259d2c6ca8b6ba0b62a8d7d117c",
+      "text": "Yes, the plant now has a flower.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -51809,6 +53409,22 @@
       "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/intro_success_d16c4413.mp3",
       "sha256": "b6d03341766ca4c69ba018c67f8fd703e66f63bb7561250cf3169622f6f1b6de",
       "text": "Let's help the plant stand tall.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
+      "sha256": "a5ae30513fe853b98c9dfee3742e7d43537a9a3c1188ed61e6faa3297f8ca97e",
+      "text": "Tap the soft green tie on the right.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 27405,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_success_9a9315ce.mp3",
+      "sha256": "5fdee0d31a014672c2e4d228dd7a50153decb4452bc73033465d38288b0e2e1a",
+      "text": "Yes, this is a soft tie.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -51917,10 +53533,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 51021,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_find_flower_bud_e9a178e8.mp3",
-      "sha256": "2a2dab54649d1d245369c918e9441efce8298caf0fef20b5e68afb0e33a1abba",
-      "text": "The wind has passed. Tap the plant to find the flower bud.",
+      "bytes": 40365,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_find_flower_bud_53e24794.mp3",
+      "sha256": "3f82c9e5fcca3bcb40488b8bad452c1793fc0b92759eb270611c515ead507fd1",
+      "text": "Tap the standing plant to find the yellow flower.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -51929,6 +53545,14 @@
       "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_intro_7ee0a1a4.mp3",
       "sha256": "4cfe340d43fcc9b4ea759133123fbd82559c1177778d1b0cac7cd4ae1ca01a7a",
       "text": "The wind is stronger. The little plant is moving.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
+      "sha256": "1b10f9ede44e0bee4c595d8a539a398dc53086135c4698b6b9a4d444a69ac9fd",
+      "text": "Tap the soft tie that helps hold the plant.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -51997,6 +53621,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 14445,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/soft_tie.mp3",
+      "sha256": "aef302ddc16b8bad23859d8a67976620bea5473792112f60e34a4163b86158bb",
+      "text": "soft tie",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 10413,
       "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/stake.mp3",
       "sha256": "b080e7d4edf4d8d2aee0eab51b3db64cf113184bca6f254b414d681579a5caf3",
@@ -52037,10 +53669,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 55341,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wait_for_flower_bud_success_e08dad63.mp3",
-      "sha256": "5c1c7d8c02590413e57ae184270c5d474a79dbfbf18224663e1609a3a229638c",
-      "text": "A few days later, the plant stands tall with a flower bud.",
+      "bytes": 51885,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/wait_for_flower_bud_success_d760d7c5.mp3",
+      "sha256": "b42d223af7f4efbddd09a41e26872fc53e8bc639a96c5114e86de9f4c5a52145",
+      "text": "A few days later, the plant stands tall with a flower.",
       "voice": "en-US-Neural2-C"
     },
     {
