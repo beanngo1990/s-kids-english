@@ -140,7 +140,7 @@ test.each([
 
 test.each([
   ['core', ['wait', 'feed', 'eat']],
-  ['expanded', ['wait', 'feed', 'eat', 'finished', 'happy', 'carry']],
+  ['expanded', ['wait', 'feed', 'eat', 'finished', 'celebrate', 'carry']],
   [
     'challenge',
     [
@@ -148,7 +148,7 @@ test.each([
       'feed',
       'eat',
       'finished',
-      'happy',
+      'celebrate',
       'carry',
       'ask-an-adult',
       'put-it-down',
@@ -208,8 +208,8 @@ test('post-meal cue images keep the story bowl empty', () => {
     item => item.id === 'puppy-eats',
   )!;
   const assetForCue = (key: string) =>
-    scene.objects.find(object => object.id === `puppy-eats-${key}-cue`)
-      ?.asset.source;
+    scene.objects.find(object => object.id === `puppy-eats-${key}-cue`)?.asset
+      .source;
 
   expect(assetForCue('feed')).toBe(
     'lessons/feed-the-puppy/puppy-eats/images/feed-action.webp',
@@ -245,7 +245,9 @@ test('core keeps the eating payoff visible when advanced cleanup is filtered out
   const eatingCue = scene.objects.find(
     object => object.id === 'puppy-eats-eat-cue',
   )!;
-  expect(resolveSceneObject(eatingCue, runtimeState[eatingCue.id])).toBeDefined();
+  expect(
+    resolveSceneObject(eatingCue, runtimeState[eatingCue.id]),
+  ).toBeDefined();
 });
 
 test.each(modes)(
@@ -328,25 +330,30 @@ test.each(modes)(
   },
 );
 
-test.each(modes)('%s mode never advances to a hidden interaction target', mode => {
-  feedThePuppyLesson.scenes.forEach(sourceScene => {
-    const scene = getSceneForLearningMode(sourceScene, mode);
-    let runtimeState: SceneRuntimeState = {};
+test.each(modes)(
+  '%s mode never advances to a hidden interaction target',
+  mode => {
+    feedThePuppyLesson.scenes.forEach(sourceScene => {
+      const scene = getSceneForLearningMode(sourceScene, mode);
+      let runtimeState: SceneRuntimeState = {};
 
-    scene.steps.forEach(step => {
-      step.targetObjectIds.forEach(objectId => {
-        const object = scene.objects.find(item => item.id === objectId);
-        expect(object).toBeDefined();
-        expect(resolveSceneObject(object!, runtimeState[objectId])).toBeDefined();
+      scene.steps.forEach(step => {
+        step.targetObjectIds.forEach(objectId => {
+          const object = scene.objects.find(item => item.id === objectId);
+          expect(object).toBeDefined();
+          expect(
+            resolveSceneObject(object!, runtimeState[objectId]),
+          ).toBeDefined();
+        });
+
+        runtimeState = applySceneStateChanges(runtimeState, [
+          ...(step.successStateChanges ?? []),
+          ...(step.afterSuccessStateChanges ?? []),
+        ]);
       });
-
-      runtimeState = applySceneStateChanges(runtimeState, [
-        ...(step.successStateChanges ?? []),
-        ...(step.afterSuccessStateChanges ?? []),
-      ]);
     });
-  });
-});
+  },
+);
 
 test('review selection is the frozen executable 4-5-6 set', () => {
   expect(
@@ -429,6 +436,61 @@ test('success-only state transitions keep the story payoff visible', () => {
       expect.objectContaining({ type: 'setObjectVariant', variantId: 'happy' }),
     ]),
   );
+});
+
+test('finished and celebrate replace the eating state with matching cues', () => {
+  const scene = getSceneForLearningMode(
+    feedThePuppyLesson.scenes.find(item => item.id === 'puppy-eats')!,
+    'expanded',
+  );
+  const finishedTeach = scene.steps.find(
+    step => step.id === 'puppy-eats-finished-teach',
+  )!;
+  const celebrateTeach = scene.steps.find(
+    step => step.id === 'puppy-eats-celebrate-teach',
+  )!;
+  const stateBefore = (stepIndex: number) =>
+    applySceneStateChanges(
+      {},
+      scene.steps
+        .slice(0, stepIndex)
+        .flatMap(step => [
+          ...(step.successStateChanges ?? []),
+          ...(step.afterSuccessStateChanges ?? []),
+        ]),
+    );
+  const hero = scene.objects.find(object => object.id === 'puppy-eats-hero')!;
+  const finishedCue = scene.objects.find(
+    object => object.id === 'puppy-eats-finished-cue',
+  )!;
+  const celebrateCue = scene.objects.find(
+    object => object.id === 'puppy-eats-celebrate-cue',
+  )!;
+  const beforeFinished = stateBefore(scene.steps.indexOf(finishedTeach));
+  const beforeCelebrate = stateBefore(scene.steps.indexOf(celebrateTeach));
+
+  expect(resolveSceneObject(hero, beforeFinished[hero.id])).toBeUndefined();
+  expect(
+    resolveSceneObject(finishedCue, beforeFinished[finishedCue.id])?.asset
+      .source,
+  ).toBe('lessons/feed-the-puppy/puppy-eats/images/eat-action-finishing.webp');
+  expect(resolveSceneObject(hero, beforeCelebrate[hero.id])).toBeUndefined();
+  expect(
+    resolveSceneObject(celebrateCue, beforeCelebrate[celebrateCue.id])?.asset
+      .source,
+  ).toBe('lessons/feed-the-puppy/puppy-eats/images/puppy-happy.webp');
+});
+
+test('dog body-language copy defines wag neutrally', () => {
+  const copy = feedThePuppyLesson.scenes
+    .flatMap(scene => scene.steps)
+    .flatMap(step => [step.successFeedbackEn, step.instructionEn])
+    .filter(Boolean)
+    .join(' ');
+
+  expect(copy).toContain('Wag means to move the tail from side to side.');
+  expect(copy).not.toContain('Wag means to move the tail happily.');
+  expect(copy).toContain('Celebrate means to show joy for something good.');
 });
 
 test('lesson metadata keeps the frozen foundation and pet-safety contract', () => {

@@ -364,11 +364,68 @@ test('promoted care vocabulary uses matching action and state visuals', () => {
     windScene.objects.find(object => object.id === 'wind-and-support-plant')
       ?.vocabId,
   ).toBe('vocab-help-it-grow-wind-and-support-flower');
+  const windPlant = windScene.objects.find(
+    object => object.id === 'wind-and-support-plant',
+  );
+  expect(windPlant).toMatchObject({
+    asset: {
+      source:
+        'lessons/help-it-grow/wind-and-support/images/plant-flower-bud.webp',
+    },
+    initialVariantId: 'swaying',
+  });
+  expect(windPlant?.variants).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        asset: expect.objectContaining({
+          source:
+            'lessons/help-it-grow/wind-and-support/images/plant-swaying.webp',
+        }),
+        id: 'swaying',
+      }),
+    ]),
+  );
+  expect(
+    windScene.objects.find(
+      object => object.id === 'wind-and-support-stake',
+    )?.asset.source,
+  ).toBe('lessons/help-it-grow/wind-and-support/images/installed-stake.webp');
   expect(
     windScene.objects.find(
       object => object.id === 'wind-and-support-soft-tie-vocabulary',
     )?.asset.source,
-  ).toBe('lessons/help-it-grow/wind-and-support/images/soft-tie.webp');
+  ).toBe('lessons/help-it-grow/wind-and-support/images/installed-tie.webp');
+  expect(
+    windScene.objects.find(
+      object => object.id === 'wind-and-support-installed-stake',
+    ),
+  ).toMatchObject({
+    position: { height: 30, width: 7, x: 51, y: 44 },
+    touchArea: { height: 40, width: 19, x: 45, y: 39 },
+  });
+  expect(
+    windScene.objects.find(
+      object => object.id === 'wind-and-support-installed-tie',
+    ),
+  ).toMatchObject({
+    position: { height: 8, width: 15, x: 46, y: 52 },
+    touchArea: { height: 20, width: 27, x: 40, y: 46 },
+  });
+
+  expect(
+    windScene.steps.find(step => step.id === 'wind-and-support-learn-stake'),
+  ).toMatchObject({
+    interaction: { targetObjectId: 'wind-and-support-installed-stake' },
+    vocabId: 'vocab-help-it-grow-wind-and-support-stake',
+  });
+  expect(
+    windScene.steps.find(
+      step => step.id === 'wind-and-support-learn-soft-tie',
+    ),
+  ).toMatchObject({
+    interaction: { targetObjectId: 'wind-and-support-installed-tie' },
+    vocabId: 'vocab-help-it-grow-wind-and-support-soft-tie',
+  });
 
   expect(
     rainScene.steps.find(

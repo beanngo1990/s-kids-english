@@ -2,8 +2,12 @@
 
 **Freeze date:** 2026-08-13
 
-**Status:** Vocabulary-first revision 8/12/16 implemented and published on 2026-08-25. Mốc 4B/4C
-cũ được giữ làm lịch sử và các delta trong mục 13 có ưu tiên khi mô tả runtime.
+**Status:** Vocabulary-first revision 8/12/16 was published on 2026-08-25. Follow-up visual audit
+teaches `stake` and `soft tie` on their installed states and keeps the flower state as the
+Reward/review representative. This correction uses 39 active WebP references and retains the old
+`stake.webp` only as an unused local orphan. Its audio/image delta was published and R2-verified on
+2026-08-25; device smoke testing remains. Mốc 4B/4C cũ
+được giữ làm lịch sử và các delta trong mục 13 có ưu tiên khi mô tả runtime.
 
 **Lesson ID:** `help-it-grow`
 
@@ -87,8 +91,8 @@ core prerequisite hoặc end state.
 | `wind-and-support` | `flower` | `flower` | bông hoa | noun | easy / core | `auto` | Cây đứng vững có bông hoa vàng đã nở. |
 | `wind-and-support` | `wind` | `wind` | gió | noun | easy / core | `auto` | Luồng gió xoáy cùng hai chiếc lá bay. |
 | `wind-and-support` | `stem` | `stem` | thân cây | noun | easy / core | `auto` | Phần thân xanh giữa rễ và lá, crop đủ ngữ cảnh. |
-| `wind-and-support` | `stake` | `stake` | cọc đỡ cây | noun | medium / expanded | `optional` | Một cọc làm vườn đầu tròn, không có chữ. |
-| `wind-and-support` | `soft-tie` | `soft tie` | dây buộc mềm | noun | medium / expanded | `optional` | Dải dây mềm màu xanh, không phải cọc. |
+| `wind-and-support` | `stake` | `stake` | cọc đỡ cây | noun | medium / expanded | `optional` | Cọc đầu tròn đã được đặt cạnh thân cây. |
+| `wind-and-support` | `soft-tie` | `soft tie` | dây buộc mềm | noun | medium / expanded | `optional` | Vòng dây xanh đã buộc mềm quanh thân cây và cọc. |
 | `wind-and-support` | `support-stem` | `support the stem` | đỡ thân cây | phrase | hard / challenge | `auto` | Cây nghiêng được cọc và dây mềm đỡ thẳng. |
 
 Vocabulary IDs dùng đúng dạng:
@@ -122,7 +126,7 @@ expanded/medium, challenge/hard. Không dùng `minAge` vì runtime chưa truyề
 | Chậu cây và đích trực quan | Action Enabler | Kéo cây vào vùng nắng hoặc dưới mái che. | Regular draggable hero-plant object/drop zones; cue Việt/visual đủ cho free journey. |
 | Vòng ngày-đêm | Action Enabler | Thể hiện thời gian trước lá mới và hoa. | Regular tap object; success đổi state sau cue. |
 | Mái che, mây và đích trú mưa | Action Enabler | Di chuyển chậu và cho cơn mưa đi qua. | Regular visual/drag/tap controls; phrase challenge dùng learning duplicate riêng. |
-| Que đỡ | Action Enabler ở core | Giúp mọi mode đạt cùng end state. | Que kéo vẫn là regular object; `stake` và `soft tie` dùng close-up learning object riêng ở expanded. |
+| Que đỡ | Action Enabler ở core | Giúp mọi mode đạt cùng end state. | Que và dây rời là regular object; `stake` và `soft tie` chỉ được dạy sau khi đã lắp vào cây, đồng thời giữ representative object ẩn cho Reward/review. |
 
 Vocabulary-first revision nâng `watering can` và `soil` từ Quick Recall thành core anchors vì hình
 và hành động đã đủ rõ; `soft tie` thành expanded anchor. Chậu/đích kéo, vòng thời gian, mái che,
@@ -459,15 +463,15 @@ let rain pass      -> cloud/hidden + rain/hidden
 
 | Object ID | Scope/role | Base/variants or visibility | Purpose |
 | --- | --- | --- | --- |
-| `wind-and-support-plant` | core / hero + learning | base `swaying`; variants `leaning`, `staked`, `supported`, `flower-bud` | Main state chain; variant cuối dạy New Anchor `flower`. |
+| `wind-and-support-plant` | core / hero + learning | representative base `flower-bud`; initial variant `swaying`, rồi `leaning`, `staked`, `supported`, `flower-bud` | Main state chain; Reward/review lấy đúng hình có hoa nhưng gameplay vẫn bắt đầu ở cây lay động. |
 | `wind-and-support-wind` | core / learning | visible -> hidden | New Anchor `wind` và review visual. |
 | `wind-and-support-stem` | core / learning close-up | visible | New Anchor `stem`, giữ đủ ngữ cảnh lá/thân. |
 | `wind-and-support-stick` | core / Action Enabler | visible -> hidden | Que đỡ dùng ở mọi mode. |
-| `wind-and-support-installed-stake` | core / decoration | hidden -> visible | End-state support asset. |
-| `wind-and-support-stake` | expanded / learning close-up | visible in expanded | Cọc đầu tròn; New Anchor `stake` và review visual. |
+| `wind-and-support-installed-stake` | core / interactive installed state | hidden -> visible | End-state support asset, được scale sát thân cây nhưng giữ touch rect rộng, và là target dạy `stake` sau hành động đặt cọc. |
+| `wind-and-support-stake` | expanded / hidden representative | hidden | Giữ mapping hình cọc đã lắp cho Reward/review, không tạo thêm cue rời trên scene. |
 | `wind-and-support-soft-tie` | core / Action Enabler | visible -> hidden | Dây mềm, không target word. |
-| `wind-and-support-soft-tie-vocabulary` | expanded / learning close-up | hidden -> visible sau time cue | New Anchor `soft tie`, dùng lại cutout dây xanh. |
-| `wind-and-support-installed-tie` | core / decoration | hidden -> visible | Hiện dây buộc lỏng ở end state. |
+| `wind-and-support-soft-tie-vocabulary` | expanded / hidden representative | hidden | Giữ mapping hình dây đã lắp cho Reward/review, không tạo cue rời trên scene. |
+| `wind-and-support-installed-tie` | core / interactive installed state | hidden -> visible | End state, được scale quanh thân/cọc nhưng giữ touch rect rộng, và là target dạy `soft tie`. |
 | `wind-and-support-support-stem-action` | challenge / phrase learning choice | visible in challenge | Text-free correct action visual. |
 | `wind-and-support-leave-leaning-action` | challenge / distractor | visible in challenge | Neutral distractor, không dấu X. |
 | `wind-and-support-time-cue` | core / Action Enabler | visible | Cue ngày-đêm trước bông hoa. |
@@ -516,7 +520,7 @@ test support       -> wind/hidden
    - State: hide loose stick; show installed stake; plant -> `staked`. Speech: none.
 
 4. `wind-and-support-learn-stake` — expanded, `teach/tap`, New Anchor.
-   - Target/vocab: `wind-and-support-stake` / `stake`.
+   - Target/vocab: `wind-and-support-installed-stake` / `stake`.
    - `instructionVi`: `Que dài đỡ cây là cọc đỡ. Chạm vào cọc nhé.`
    - `instructionEn`: `Tap the long plant support. It is a stake.`
    - `promptText`: `stake`.
@@ -557,7 +561,18 @@ test support       -> wind/hidden
    - `failFeedbackEn`: `Tap the circle with the sun and moon.`
    - State: plant -> `flower-bud`; sparkle plant. Speech: none.
 
-8. `wind-and-support-test-support` — core, `practice/tap`, Cause/Effect Check.
+8. `wind-and-support-learn-soft-tie` — expanded, `teach/tap`, New Anchor.
+   - Target/vocab: `wind-and-support-installed-tie` / `soft tie`.
+   - `instructionVi`: `Chạm dây buộc mềm đang giữ thân cây cạnh cọc nhé.`
+   - `instructionEn`: `Tap the soft tie holding the stem beside the stake.`
+   - `promptText`: `soft tie`.
+   - `successFeedbackVi`: `Đúng rồi, đây là dây buộc mềm.`
+   - `successFeedbackEn`: `Yes, this is a soft tie.`
+   - `failFeedbackVi`: `Chạm vòng dây xanh quanh thân cây và cọc nhé.`
+   - `failFeedbackEn`: `Tap the green tie around the stem and stake.`
+   - Speech: `optional`. State: none.
+
+9. `wind-and-support-test-support` — core, `practice/tap`, Cause/Effect Check.
    - Bé chạm wind thêm một lần để thử cọc và dây đã lắp.
    - `instructionVi` / `instructionEn`: `Gió lại thổi. Chạm luồng gió để thử cọc đỡ nhé.` /
      `The wind blows again. Tap the wind to test the support.`
@@ -565,17 +580,6 @@ test support       -> wind/hidden
      `The stake and tie keep the plant standing tall.`
    - Fail: `Chạm luồng gió có lá bay nhé.` / `Tap the wind swirl with the flying leaves.`
    - State: hide wind; bounce installed stake/tie; sparkle hero plant. Speech: none.
-
-9. `wind-and-support-find-flower-bud` — core, `teach/tap`, New Anchor + payoff.
-   - Bé chạm hero plant để tìm bông hoa vàng sau cue thời gian.
-   - `instructionVi` / `instructionEn`: `Chạm cây đứng vững để tìm bông hoa màu vàng nhé.` /
-     `Tap the standing plant to find the yellow flower.`
-   - `promptText`: `flower`.
-   - Success: `Đúng rồi, cây đã có một bông hoa.` / `Yes, the plant now has a flower.`
-   - Fail: `Chạm chậu cây có bông hoa vàng ở giữa nhé.` /
-     `The plant with the yellow flower is in the middle.`
-   - Speech: `auto`. Vocabulary-first runtime đặt payoff này sau challenge teach/review để luôn
-     kết thúc mini-scene bằng target `flower`.
 
 10. `wind-and-support-learn-support-stem` — challenge, `teach/tap`, New Anchor.
    - Target/vocab: `wind-and-support-support-stem-action` / `support the stem`.
@@ -600,6 +604,17 @@ test support       -> wind/hidden
     - `correctObjectIds`: only support-stem action. Đáp án đúng sparkle, distractor mờ trong lúc
       phát feedback; `afterSuccessStateChanges` ẩn cả hai choice illustrations khi chuyển bước.
       Speech: none.
+
+12. `wind-and-support-find-flower-bud` — core, `teach/tap`, New Anchor + payoff.
+   - Bé chạm hero plant để tìm bông hoa vàng sau cue thời gian.
+   - `instructionVi` / `instructionEn`: `Chạm cây đứng vững để tìm bông hoa màu vàng nhé.` /
+     `Tap the standing plant to find the yellow flower.`
+   - `promptText`: `flower`.
+   - Success: `Đúng rồi, cây đã có một bông hoa.` / `Yes, the plant now has a flower.`
+   - Fail: `Chạm chậu cây có bông hoa vàng ở giữa nhé.` /
+     `The plant with the yellow flower is in the middle.`
+   - Speech: `auto`. Vocabulary-first runtime đặt payoff này sau challenge teach/review để luôn
+     kết thúc mini-scene bằng target `flower`.
 
 ### Scene completion reward
 
@@ -795,7 +810,8 @@ trên. Runtime mới ưu tiên số encounter có ý nghĩa cho việc học t�
 3. `soil` dùng mảng đất ướt trong chậu sau khi bé quan sát mưa; core teach và phát âm `auto`.
 4. `wait for the rain to stop` dùng duplicate giọt mưa chỉ hiện đúng beat challenge; phrase teach
    xảy ra sau `check the soil` và trước khi cơn mưa đi qua.
-5. `soft tie` dùng close-up dây xanh tách khỏi cọc; expanded teach `optional` sau cue thời gian.
+5. `soft tie` dùng vòng dây xanh đã lắp quanh thân cây và cọc; expanded teach `optional` sau cue
+   thời gian.
 6. `flower` dùng cây đứng vững có bông hoa vàng đã nở; core teach `auto` là payoff cuối scene.
 
 Asset filename/variant `plant-flower-bud.png` và ID `find-flower-bud` được giữ ổn định để tránh
@@ -805,3 +821,7 @@ full-corpus audit đạt 16.012 target, đều missing 0/invalid 0. Image build 
 `rain.webp` từ master hiện hành, nên R2 upload tổng cộng 59 object delta và verify đủ 401/401;
 post-upload dry-run còn `Changed/new: 0`. Audio en-US `move_into_sunlight.mp3` tải qua production
 CDN khớp local theo size 18.477 byte và SHA-256 ngày 2026-08-25.
+
+Follow-up installed-state audit đã được generate/publish trong full-corpus delta ngày 2026-08-25.
+Remote verify đạt 21.296/21.296 object, lỗi 0 và post-upload `Changed/new: 0`; device smoke test
+chưa chạy.

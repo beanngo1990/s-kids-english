@@ -2,7 +2,9 @@
 
 **Freeze date:** 2026-08-25
 
-**Status:** Vocabulary-first revision, production audio and R2 delta published and remote-verified.
+**Status:** Vocabulary-first audio/R2 baseline was published and remote-verified on 2026-08-25.
+Follow-up representative mapping for `red`, `branch`, `gentle`, `carrot` and `separate` is local;
+it reuses the current 34 WebP/audio corpus and still needs app release/device smoke testing.
 
 **Lesson ID:** `harvest-day`
 
@@ -60,6 +62,7 @@ luống bên cạnh, không phải mọc ra từ cây cà chua chính.
   object riêng đặt trên cùng cây.
 - `leaf-cover`: `closed -> lifted`; quả xanh bắt đầu hidden phía sau lá.
 - Kính lúp làm lộ close-up quả chín; bé không cần đọc chữ để so sánh.
+- Core check làm hiện close-up quả chín làm target trực tiếp cho `red`, rồi dọn cue sau lượt nói.
 - Challenge action illustrations bắt đầu hidden và được cleanup sau sequence check.
 
 ### Step order
@@ -71,7 +74,7 @@ luống bên cạnh, không phải mọc ra từ cây cà chua chính.
 5. Fast beat: `Chạm chiếc lá lớn bên trái để nhìn phía sau nhé.` -> quả xanh xuất hiện.
 6. Teach `unripe`: `Chạm quả xanh còn nhỏ trên cây nhé.`
 7. Core check: `Tìm quả đỏ, tròn và căng nhé.` -> chỉ quả đỏ phản hồi đúng.
-8. Teach `red` expanded: chạm quả có màu đỏ.
+8. Teach `red` expanded: chạm close-up quả đỏ vừa được làm hiện.
 9. Expanded comparison: chạm quả xanh để so kích thước với quả đỏ.
 10. Expanded check: tìm quả còn nhỏ cần tiếp tục ở lại trên cây.
 11. Challenge fast beat: chạm quả xanh để hiện hai cách xử lý.
@@ -130,7 +133,8 @@ luống bên cạnh, không phải mọc ra từ cây cà chua chính.
 10. Expanded safety payoff: chạm khay đã có quả bị dập để xác nhận người lớn sẽ kiểm tra.
 11. Teach `sort by type` challenge: chạm hình ba giỏ đựng ba nhóm riêng.
 12. Challenge check: tìm hình mỗi loại ở một giỏ; correct sparkles, distractor dims, rồi cleanup.
-13. Teach `separate` challenge: chạm ba giỏ thành phẩm tách riêng, sau đó cleanup illustration.
+13. Teach `separate` challenge: chạm ba giỏ thành phẩm tách riêng; giữ hình payoff này tới cuối
+    scene và dùng làm representative image.
 
 ## 6. Image inventory
 
@@ -194,3 +198,6 @@ Bundled map icons: `find-the-ripe-ones`, `pick-gently`, `sort-the-harvest`, and
 - Android emulator smoke test của release pacing trước từng mở challenge scene 2 với đủ hai quả và
   phát prompt audio qua codec MPEG. Revision 8/12/16 đã remote-verify trên R2 nhưng chưa chạy lại
   child-path/device smoke test sau audio publish.
+- Follow-up correctness audit chỉ đổi object/representative mapping trong lesson data, không đổi
+  copy hoặc asset key. Vì vậy không có audio/image bytes mới cần publish; current mapping vẫn cần
+  device smoke test trong app build mới trước khi được coi là production-complete.

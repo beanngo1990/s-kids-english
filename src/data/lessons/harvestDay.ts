@@ -97,6 +97,7 @@ function makeFindTheRipeOnesScene(): Scene {
   const unripeTomatoId = `${sceneId}-unripe-tomato`;
   const observationRingId = `${sceneId}-observation-ring`;
   const ripeCloseupId = `${sceneId}-ripe-closeup`;
+  const redVocabularyVisualId = `${sceneId}-red-vocabulary-visual`;
   const leafCoverId = `${sceneId}-leaf-cover`;
   const leaveUnripeActionId = `${sceneId}-leave-unripe-action`;
   const pullUnripeActionId = `${sceneId}-pull-unripe-action`;
@@ -163,6 +164,15 @@ function makeFindTheRipeOnesScene(): Scene {
         position: rect(35, 62, 30, 25),
         touchArea: rect(30, 57, 40, 35),
         vocab: vocab.get('ripe')!,
+      }),
+      learningObject({
+        id: redVocabularyVisualId,
+        assetSource: sceneImageSource(sceneId, 'ripe-closeup'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(35, 62, 30, 25),
+        touchArea: rect(30, 57, 40, 35),
+        vocab: vocab.get('red')!,
       }),
       learningObject({
         id: leaveUnripeActionId,
@@ -279,6 +289,9 @@ function makeFindTheRipeOnesScene(): Scene {
         correctObjectIds: [ripeTomatoId],
         targetObjectId: ripeTomatoId,
         targetObjectIds: [ripeTomatoId, unripeTomatoId],
+        successStateChanges: [
+          sceneStateChanges.show(redVocabularyVisualId),
+        ],
         type: 'review',
         vocabId: vocab.get('ripe')!.id,
       }),
@@ -292,9 +305,12 @@ function makeFindTheRipeOnesScene(): Scene {
         successFeedbackEn: 'Yes, this color is red.',
         failFeedbackVi: 'Chạm quả tròn màu đỏ ở bên phải nhé.',
         failFeedbackEn: 'The round red tomato is on the right.',
-        effects: [lessonEffects.sparkle(ripeTomatoId)],
+        effects: [lessonEffects.sparkle(redVocabularyVisualId)],
         speechPractice: 'optional',
-        targetObjectId: ripeTomatoId,
+        afterSuccessStateChanges: [
+          sceneStateChanges.hide(redVocabularyVisualId),
+        ],
+        targetObjectId: redVocabularyVisualId,
         type: 'teach',
         vocabId: vocab.get('red')!.id,
       }),
@@ -426,6 +442,8 @@ function makePickGentlyScene(): Scene {
   const fruitStemId = `${sceneId}-fruit-stem`;
   const openHandId = `${sceneId}-open-hand`;
   const pickActionId = `${sceneId}-pick-action`;
+  const branchVocabularyVisualId = `${sceneId}-branch-vocabulary-visual`;
+  const gentleVocabularyVisualId = `${sceneId}-gentle-vocabulary-visual`;
   const basketId = `${sceneId}-basket`;
   const basketZoneId = `${sceneId}-basket-zone`;
 
@@ -486,6 +504,22 @@ function makePickGentlyScene(): Scene {
         position: rect(6, 61, 34, 30),
         touchArea: rect(2, 57, 42, 38),
         vocab: vocab.get('pick')!,
+      }),
+      learningObject({
+        id: branchVocabularyVisualId,
+        assetSource: sceneImageSource(sceneId, 'hero-plant'),
+        initialVisibility: 'hidden',
+        learningScope: challengeScope,
+        position: rect(25, 17, 46, 58),
+        vocab: vocab.get('branch')!,
+      }),
+      learningObject({
+        id: gentleVocabularyVisualId,
+        assetSource: sceneImageSource(sceneId, 'pick-action'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(6, 61, 34, 30),
+        vocab: vocab.get('gentle')!,
       }),
       sceneObject({
         id: basketSecondTomatoId,
@@ -611,6 +645,7 @@ function makePickGentlyScene(): Scene {
         successFeedbackEn: 'Yes, this is a branch.',
         failFeedbackVi: 'Chạm cây cà chua ở giữa nhé.',
         failFeedbackEn: 'The tomato plant is in the middle.',
+        effects: [lessonEffects.sparkle(heroPlantId)],
         speechPractice: 'auto',
         targetObjectId: heroPlantId,
         type: 'teach',
@@ -638,6 +673,7 @@ function makePickGentlyScene(): Scene {
         successFeedbackEn: 'Yes, this hand is gentle.',
         failFeedbackVi: 'Chạm bàn tay đang đỡ quả đỏ ở dưới nhé.',
         failFeedbackEn: 'The supporting hand is below the red tomato.',
+        effects: [lessonEffects.sparkle(pickActionId)],
         speechPractice: 'optional',
         afterSuccessStateChanges: [sceneStateChanges.hide(pickActionId)],
         targetObjectId: pickActionId,
@@ -763,6 +799,7 @@ function makeSortTheHarvestScene(): Scene {
   const sortByTypeActionId = `${sceneId}-sort-by-type-action`;
   const mixedBasketActionId = `${sceneId}-mixed-basket-action`;
   const sortedBasketsId = `${sceneId}-sorted-baskets`;
+  const carrotVocabularyVisualId = `${sceneId}-carrot-vocabulary-visual`;
   const vegetableZoneId = `${sceneId}-vegetable-zone`;
   const herbZoneId = `${sceneId}-herb-zone`;
   const tomatoZoneId = `${sceneId}-tomato-zone`;
@@ -822,6 +859,13 @@ function makeSortTheHarvestScene(): Scene {
             assetSource: sceneImageSource(sceneId, 'vegetable-basket-filled'),
           }),
         ],
+      }),
+      learningObject({
+        id: carrotVocabularyVisualId,
+        assetSource: sceneImageSource(sceneId, 'vegetable-basket-filled'),
+        initialVisibility: 'hidden',
+        position: rect(5, 64, 26, 24),
+        vocab: vocab.get('carrot')!,
       }),
       sceneObject({
         id: tomatoBasketId,
@@ -885,15 +929,14 @@ function makeSortTheHarvestScene(): Scene {
         presentation: 'cutout',
         touchArea: rect(52, 3, 47, 35),
       }),
-      sceneObject({
+      learningObject({
         id: sortedBasketsId,
         assetSource: sceneImageSource(sceneId, 'sorted-baskets'),
         initialVisibility: 'hidden',
-        isInteractive: true,
         learningScope: challengeScope,
         position: rect(24, 39, 52, 24),
-        presentation: 'cutout',
         touchArea: rect(20, 35, 60, 32),
+        vocab: vocab.get('separate')!,
       }),
     ],
     dropZones: [
@@ -1117,7 +1160,6 @@ function makeSortTheHarvestScene(): Scene {
         failFeedbackEn: 'The picture of the three sorted baskets is in the middle.',
         effects: [lessonEffects.sparkle(sortedBasketsId)],
         speechPractice: 'auto',
-        afterSuccessStateChanges: [sceneStateChanges.hide(sortedBasketsId)],
         targetObjectId: sortedBasketsId,
         type: 'teach',
         vocabId: vocab.get('separate')!.id,

@@ -163,8 +163,8 @@ test.each(modes)(
 
 test.each([
   ['core', [6, 9, 6]],
-  ['expanded', [8, 12, 7]],
-  ['challenge', [10, 14, 10]],
+  ['expanded', [9, 12, 7]],
+  ['challenge', [11, 14, 10]],
 ] as const)('%s mode keeps the vocabulary-first interaction rhythm', (mode, counts) => {
   expect(
     gardenToTableLesson.scenes.map(
@@ -174,6 +174,53 @@ test.each([
         ).length,
     ),
   ).toEqual(counts);
+});
+
+test('lettuce enters the colander in its own visible action before cucumber', () => {
+  const scene = gardenToTableLesson.scenes.find(
+    item => item.id === 'rinse-and-drain',
+  )!;
+  const lettuceStep = scene.steps.find(
+    step => step.id === 'rinse-and-drain-place-lettuce-in-colander',
+  )!;
+  const cucumberStep = scene.steps.find(
+    step => step.id === 'rinse-and-drain-place-produce-in-colander',
+  )!;
+
+  expect(lettuceStep.interaction).toMatchObject({
+    dropZoneId: 'rinse-and-drain-colander-zone',
+    targetObjectId: 'rinse-and-drain-lettuce',
+    type: 'drag',
+  });
+  expect(lettuceStep.successStateChanges).toEqual(
+    expect.arrayContaining([
+      {
+        targetObjectId: 'rinse-and-drain-lettuce',
+        type: 'hideObject',
+      },
+      {
+        targetObjectId: 'rinse-and-drain-lettuce-in-colander',
+        type: 'showObject',
+      },
+    ]),
+  );
+  expect(
+    scene.objects.find(
+      object => object.id === 'rinse-and-drain-lettuce-in-colander',
+    )?.asset.source,
+  ).toBe('lessons/garden-to-table/rinse-and-drain/images/lettuce-clean.webp');
+
+  expect(cucumberStep.interaction.targetObjectId).toBe(
+    'rinse-and-drain-cucumber',
+  );
+  expect(cucumberStep.successStateChanges).toContainEqual({
+    targetObjectId: 'rinse-and-drain-lettuce-in-colander',
+    type: 'hideObject',
+  });
+  expect(cucumberStep.successStateChanges).not.toContainEqual({
+    targetObjectId: 'rinse-and-drain-lettuce',
+    type: 'hideObject',
+  });
 });
 
 test('food scene uses only adult-prepared cold ingredients', () => {

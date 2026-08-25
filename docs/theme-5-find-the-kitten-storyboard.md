@@ -3,7 +3,9 @@
 **Lesson ID:** `find-the-kitten`  
 **Theme:** `nhung-nguoi-ban-dong-vat`  
 **Freeze date:** 2026-08-15  
-**Status:** Storyboard frozen for local vertical slice  
+**Status:** Production baseline and audit revision 2026-08-25 assets/audio were published and
+R2-verified. Device QA remains.
+
 **Track:** `3-8 tuổi · Làm quen`
 
 ## 1. Learning promise
@@ -67,16 +69,19 @@ Story: bé gọi mèo bước ra, quan sát chân/đuôi/lông rồi để mèo 
 
 | Tier      | Vocabulary                                                | Visible meaning/action              |
 | --------- | --------------------------------------------------------- | ----------------------------------- |
-| Core      | `call`, `come out`, `happy`                               | bàn tay gọi; mèo bước ra; mèo vui   |
-| Expanded  | `paw`, `tail`, `soft`                                     | bàn chân; đuôi; vùng lông mềm       |
+| Core      | `call`, `come out`, `friendly`                            | bàn tay gọi; mèo bước ra; mèo thân thiện dựng đuôi |
+| Expanded  | `paw`, `tail up`, `soft fur`                              | bàn chân; đuôi dựng lên; vùng lông mềm |
 | Challenge | `hold out your hand`, `let the kitten come`, `pet gently` | đưa tay thấp; chờ mèo tới; vuốt nhẹ |
 
 State chính:
 
 ```text
-kitten: peeking -> out -> happy -> near -> rubbing
+kitten: peeking -> out -> friendly (`happy` là variant ID nội bộ) -> near -> rubbing
 hand: hidden -> offered -> kitten-approaches -> gentle-pet
 ```
+
+Copy chỉ mô tả hình nhìn thấy được (`tail up`, `soft fur`), không dùng việc vẫy/dựng đuôi như
+bằng chứng tuyệt đối rằng mèo đang vui.
 
 ## 3. Speech rhythm
 
@@ -119,12 +124,16 @@ tìm mèo.
 - Không dạy bé kéo mèo ra, đuổi theo, bế ép hoặc chạm khi mèo đang trốn. Challenge cho mèo tự
   tới bàn tay trước khi vuốt nhẹ; Parent Tip nhắc hỏi người lớn và rửa tay sau khi chơi.
 
+Production baseline đã có trên R2. Current audit thay anchor thành `tail up`/`soft fur`, giữ
+`friendly` bằng hình trực tiếp và sửa copy mô tả body language; audio delta đã publish và
+R2-verify, còn chờ device QA.
+
 ## 6. Acceptance gates
 
 1. Vocabulary/action/speech đúng 9/18/27, 18/36/54 và 9/18/27.
 2. Auto-micro đúng 9/12/15, phân bố 3/4/5 mỗi scene.
 3. Core order là `kitten -> meow -> listen`, `box -> basket -> hide`,
-   `call -> come out -> happy`.
+   `call -> come out -> friendly`.
 4. Không có drag; mọi bước dùng tap/find và không biến mèo thành draggable object.
 5. Mọi instruction nói rõ `Chạm`/`Tìm`, target luôn visible, state không quay ngược.
 6. Không có story kitten/cue kitten hoặc các hiding-state object chồng nhau.

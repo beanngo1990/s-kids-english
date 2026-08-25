@@ -98,9 +98,9 @@ const themeCatalog: LessonTheme[] = [
     iconName: 'themeAnimalFriends',
     thumbnailEmoji: '🐾',
     descriptionVi:
-      'Bé cho thú cưng ăn, chơi cùng các bạn, chăm sóc nhẹ nhàng và giúp các bạn đi ngủ.',
+      'Bé cho chó con ăn và chơi, tìm mèo con, lau chân bẩn, chăm thỏ và chải lông cho mèo thật nhẹ nhàng.',
     descriptionEn:
-      'Feed, play with, gently care for, and help familiar animal friends get ready for bed.',
+      'Feed and play with a puppy, find and groom a kitten, clean muddy paws, and gently care for a rabbit.',
     lessonIds: [
       'feed-the-puppy',
       'play-with-the-puppy',

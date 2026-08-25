@@ -3,7 +3,9 @@
 **Lesson ID:** `play-with-the-puppy`  
 **Theme:** `nhung-nguoi-ban-dong-vat`  
 **Freeze date:** 2026-08-15  
-**Status:** Production assets published and verified on R2  
+**Status:** Production baseline and audit revision 2026-08-25 assets/audio were published and
+verified on R2. Device QA remains.
+
 **Track:** `3-8 tuổi · Làm quen`
 
 ## 1. Learning promise
@@ -72,7 +74,7 @@ Story: cún mang bóng về, trao lại cho bé, rồi hai bạn chuẩn bị ch
 | Tier      | Vocabulary                                 | Visible meaning/action                                       |
 | --------- | ------------------------------------------ | ------------------------------------------------------------ |
 | Core      | `fetch`, `bring`, `give`                   | cún đi lấy bóng; mang bóng tới gần; trao bóng vào bàn tay mở |
-| Expanded  | `hand`, `again`, `happy`                   | bàn tay nhận bóng; bóng trở lại điểm bắt đầu; cún vui vẻ     |
+| Expanded  | `hand`, `again`, `playful`                 | bàn tay nhận bóng; bóng trở lại điểm bắt đầu; cún cúi hai chân trước thành play bow để mời chơi tiếp |
 | Challenge | `your turn`, `roll the ball`, `let's play` | bóng ở lượt của bé; lăn lại; cún mời chơi tiếp               |
 
 Core luôn kết thúc với bóng về bên bé. Expanded/Challenge chỉ nối thêm lượt chơi mới, không làm
@@ -81,7 +83,7 @@ bóng quay ngược về phía cún trước khi bé thực hiện hành động
 State chính:
 
 ```text
-puppy: far-with-ball -> returning -> near -> happy
+puppy: far-with-ball -> returning -> near -> happy (technical variant) -> playful (play-bow rõ nghĩa)
 ball: hidden-in-puppy -> in-hand -> start -> rolling
 ```
 
@@ -113,7 +115,7 @@ Kết quả executable phải là:
 - Expanded: thêm `hold`;
 - Challenge: thêm `your turn`.
 
-Sáu visual phải khác silhouette: cún mời chơi, bóng riêng, tay lăn bóng, cún bắt bóng, cún giữ
+Sáu visual phải khác silhouette: cún mời chơi, bóng riêng, tay lăn bóng, cún đang bắt bóng, cún giữ
 bóng và bàn tay nhận lượt.
 
 ## 5. Visual and safety guardrails
@@ -140,6 +142,9 @@ và invalid 0. R2 đã upload đúng 541 object mới gồm 508 audio và 33 ima
 0; post-upload dry-run còn `Changed/new: 0`. Revision chống chồng hình tái sử dụng happy-puppy
 master đầy đủ từ lesson trước, rebuild một WebP runtime và bundled milestone icon; R2 upload delta
 một WebP, verify lại đủ 541/541 object và post-upload dry-run còn `Changed/new: 0`.
+
+Current audit dùng cue bắt bóng trực tiếp cho `catch` và play-bow cho `playful`; phần copy/audio
+delta đã publish và R2-verify, còn chờ device QA.
 
 ## 7. Acceptance gates
 

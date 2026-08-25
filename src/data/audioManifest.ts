@@ -33,14 +33,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A brush makes fur smooth and neat.",
     },
   },
-  [normalizeText("A clean brush is ready for healthy grooming.")]: {
+  [normalizeText("A clean brush is ready for grooming.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
-      text: "A clean brush is ready for healthy grooming.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_success_4970e9a9.mp3",
+      text: "A clean brush is ready for grooming.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
-      text: "A clean brush is ready for healthy grooming.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_success_4970e9a9.mp3",
+      text: "A clean brush is ready for grooming.",
+    },
+  },
+  [normalizeText("A curled tail bends around in a rounded shape.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_teach_success_86eafba0.mp3",
+      text: "A curled tail bends around in a rounded shape.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_teach_success_86eafba0.mp3",
+      text: "A curled tail bends around in a rounded shape.",
     },
   },
   [normalizeText("A few days later, a new leaf opens.")]: {
@@ -113,6 +123,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A fluffy kitten has soft puffy clean fur.",
     },
   },
+  [normalizeText("A fluffy towel is soft, thick, and gentle to touch.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel_teach_success_2c3cc405.mp3",
+      text: "A fluffy towel is soft, thick, and gentle to touch.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel_teach_success_2c3cc405.mp3",
+      text: "A fluffy towel is soft, thick, and gentle to touch.",
+    },
+  },
   [normalizeText("A gentle rabbit is calm and sweet.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
@@ -121,26 +141,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/gentle_rabbit_teach_success_99fd4be3.mp3",
       text: "A gentle rabbit is calm and sweet.",
-    },
-  },
-  [normalizeText("A happy cat is relaxed and loved.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
-      text: "A happy cat is relaxed and loved.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
-      text: "A happy cat is relaxed and loved.",
-    },
-  },
-  [normalizeText("A happy rabbit jumps and plays with joy.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
-      text: "A happy rabbit jumps and plays with joy.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
-      text: "A happy rabbit jumps and plays with joy.",
     },
   },
   [normalizeText("A hay rack holds hay for the rabbit.")]: {
@@ -153,14 +153,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A hay rack holds hay for the rabbit.",
     },
   },
-  [normalizeText("A hutch is a home for a rabbit.")]: {
+  [normalizeText("A hutch is one sheltered part of a rabbit’s larger living space.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
-      text: "A hutch is a home for a rabbit.",
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_d4695b8e.mp3",
+      text: "A hutch is one sheltered part of a rabbit’s larger living space.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
-      text: "A hutch is a home for a rabbit.",
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_d4695b8e.mp3",
+      text: "A hutch is one sheltered part of a rabbit’s larger living space.",
     },
   },
   [normalizeText("A little cleaning after dinner keeps the kitchen tidy.")]: {
@@ -273,14 +273,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A scoop is a small tool for lifting food.",
     },
   },
-  [normalizeText("A shiny coat looks bright and healthy.")]: {
+  [normalizeText("A shiny coat looks bright when light reflects from the fur.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
-      text: "A shiny coat looks bright and healthy.",
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_success_77a8ad20.mp3",
+      text: "A shiny coat looks bright when light reflects from the fur.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
-      text: "A shiny coat looks bright and healthy.",
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_success_77a8ad20.mp3",
+      text: "A shiny coat looks bright when light reflects from the fur.",
     },
   },
   [normalizeText("A small green neighbor is on the leaf.")]: {
@@ -353,24 +353,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "A sound is something we can hear.",
     },
   },
-  [normalizeText("A sweet purr means the kitten feels completely safe.")]: {
+  [normalizeText("A sweet purr is a soft purring sound with gentle vibrations.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
-      text: "A sweet purr means the kitten feels completely safe.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_success_22e51487.mp3",
+      text: "A sweet purr is a soft purring sound with gentle vibrations.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
-      text: "A sweet purr means the kitten feels completely safe.",
-    },
-  },
-  [normalizeText("A tail sways gently when a cat is calm.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
-      text: "A tail sways gently when a cat is calm.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
-      text: "A tail sways gently when a cat is calm.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_success_22e51487.mp3",
+      text: "A sweet purr is a soft purring sound with gentle vibrations.",
     },
   },
   [normalizeText("A tangle means fur twisted together gently.")]: {
@@ -1435,6 +1425,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Bring means carry something toward someone.",
     },
   },
+  [normalizeText("bristles")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles.mp3",
+      text: "bristles",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles.mp3",
+      text: "bristles",
+    },
+  },
+  [normalizeText("Bristles are the short hairs on a brush.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_teach_success_58107f26.mp3",
+      text: "Bristles are the short hairs on a brush.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_teach_success_58107f26.mp3",
+      text: "Bristles are the short hairs on a brush.",
+    },
+  },
   [normalizeText("bruised")]: {
     "en-US": {
       key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/bruised.mp3",
@@ -1485,16 +1495,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "brush the fur",
     },
   },
-  [normalizeText("Brush the fur keeps pets clean and happy.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
-      text: "Brush the fur keeps pets clean and happy.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
-      text: "Brush the fur keeps pets clean and happy.",
-    },
-  },
   [normalizeText("brush your hair")]: {
     "en-US": {
       key: "lessons/personal-care/face-and-hair-care/audio/en-US/neural2-c-r1/brush_your_hair.mp3",
@@ -1523,6 +1523,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/morning-routine/bathroom/audio/en-GB/neural2-c-r1/prompt_drag_toothbrush_8a678b98.mp3",
       text: "Brush your teeth.",
+    },
+  },
+  [normalizeText("Brushing the fur keeps a pet neat and comfortable.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_success_26ff9886.mp3",
+      text: "Brushing the fur keeps a pet neat and comfortable.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_success_26ff9886.mp3",
+      text: "Brushing the fur keeps a pet neat and comfortable.",
     },
   },
   [normalizeText("bubble")]: {
@@ -1747,6 +1757,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Call means use your voice to get attention.",
     },
   },
+  [normalizeText("calm")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm.mp3",
+      text: "calm",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm.mp3",
+      text: "calm",
+    },
+  },
+  [normalizeText("Calm means peaceful and not worried.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_teach_success_f35784a1.mp3",
+      text: "Calm means peaceful and not worried.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_teach_success_f35784a1.mp3",
+      text: "Calm means peaceful and not worried.",
+    },
+  },
   [normalizeText("candle")]: {
     "en-US": {
       key: "lessons/birthday-party/party-table/audio/en-US/neural2-c-r1/candle.mp3",
@@ -1945,6 +1975,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "caterpillar",
     },
   },
+  [normalizeText("celebrate")]: {
+    "en-US": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate.mp3",
+      text: "celebrate",
+    },
+    "en-GB": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate.mp3",
+      text: "celebrate",
+    },
+  },
+  [normalizeText("Celebrate means to show joy for something good.")]: {
+    "en-US": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate_teach_success_696b7c67.mp3",
+      text: "Celebrate means to show joy for something good.",
+    },
+    "en-GB": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate_teach_success_696b7c67.mp3",
+      text: "Celebrate means to show joy for something good.",
+    },
+  },
   [normalizeText("chair")]: {
     "en-US": {
       key: "lessons/at-school/classroom/audio/en-US/neural2-c-r1/chair.mp3",
@@ -2067,6 +2117,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/check_your_heartbeat.mp3",
       text: "check your heartbeat",
+    },
+  },
+  [normalizeText("cheerful")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful.mp3",
+      text: "cheerful",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful.mp3",
+      text: "cheerful",
+    },
+  },
+  [normalizeText("Cheerful means bright and full of good feelings.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_teach_success_b7706530.mp3",
+      text: "Cheerful means bright and full of good feelings.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_teach_success_b7706530.mp3",
+      text: "Cheerful means bright and full of good feelings.",
     },
   },
   [normalizeText("chew")]: {
@@ -2285,16 +2355,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/clean_hands.mp3",
       text: "clean hands",
-    },
-  },
-  [normalizeText("Clean means free from dust and neat.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
-      text: "Clean means free from dust and neat.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
-      text: "Clean means free from dust and neat.",
     },
   },
   [normalizeText("Clean means the dirt is gone.")]: {
@@ -2897,6 +2957,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-feelings/excited-and-proud/audio/en-GB/neural2-c-r1/curious.mp3",
       text: "curious",
+    },
+  },
+  [normalizeText("curled tail")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail.mp3",
+      text: "curled tail",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail.mp3",
+      text: "curled tail",
     },
   },
   [normalizeText("curtain")]: {
@@ -3619,6 +3689,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_place_produce_in_colander_e867a469.mp3",
       text: "Drag the clean cucumber into the colander.",
+    },
+  },
+  [normalizeText("Drag the clean green leaves into the colander with holes.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_lettuce_in_colander_fail_71d67e4a.mp3",
+      text: "Drag the clean green leaves into the colander with holes.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_lettuce_in_colander_fail_71d67e4a.mp3",
+      text: "Drag the clean green leaves into the colander with holes.",
+    },
+  },
+  [normalizeText("Drag the clean lettuce into the colander.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_place_lettuce_in_colander_5ef26ff6.mp3",
+      text: "Drag the clean lettuce into the colander.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_place_lettuce_in_colander_5ef26ff6.mp3",
+      text: "Drag the clean lettuce into the colander.",
     },
   },
   [normalizeText("Drag the cleaning brush to the spill.")]: {
@@ -6009,6 +6099,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "flower",
     },
   },
+  [normalizeText("fluffy fur")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur.mp3",
+      text: "fluffy fur",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur.mp3",
+      text: "fluffy fur",
+    },
+  },
+  [normalizeText("Fluffy fur looks soft, light, and puffy.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur_teach_success_9a3f7d88.mp3",
+      text: "Fluffy fur looks soft, light, and puffy.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur_teach_success_9a3f7d88.mp3",
+      text: "Fluffy fur looks soft, light, and puffy.",
+    },
+  },
   [normalizeText("fluffy kitten")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/fluffy_kitten.mp3",
@@ -6017,6 +6127,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten.mp3",
       text: "fluffy kitten",
+    },
+  },
+  [normalizeText("fluffy towel")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel.mp3",
+      text: "fluffy towel",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel.mp3",
+      text: "fluffy towel",
     },
   },
   [normalizeText("flush button")]: {
@@ -6227,6 +6347,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/playtime/friend-games/audio/en/friend.mp3",
       text: "friend",
+    },
+  },
+  [normalizeText("friendly")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly.mp3",
+      text: "friendly",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly.mp3",
+      text: "friendly",
+    },
+  },
+  [normalizeText("Friendly means kind and ready to be near others.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_teach_success_dcdfe9b9.mp3",
+      text: "Friendly means kind and ready to be near others.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_teach_success_dcdfe9b9.mp3",
+      text: "Friendly means kind and ready to be near others.",
     },
   },
   [normalizeText("frisbee")]: {
@@ -6901,66 +7041,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/my-feelings/happy-and-sad/audio/en-GB/neural2-c-r1/happy.mp3",
       text: "happy",
-    },
-  },
-  [normalizeText("happy cat")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat.mp3",
-      text: "happy cat",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat.mp3",
-      text: "happy cat",
-    },
-  },
-  [normalizeText("Happy means feeling cheerful and content.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_teach_success_318918f1.mp3",
-      text: "Happy means feeling cheerful and content.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_teach_success_318918f1.mp3",
-      text: "Happy means feeling cheerful and content.",
-    },
-  },
-  [normalizeText("Happy means feeling good and joyful.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_teach_success_d3d6fb5e.mp3",
-      text: "Happy means feeling good and joyful.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_teach_success_d3d6fb5e.mp3",
-      text: "Happy means feeling good and joyful.",
-    },
-  },
-  [normalizeText("Happy means feeling joyful.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_teach_success_17638824.mp3",
-      text: "Happy means feeling joyful.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_teach_success_17638824.mp3",
-      text: "Happy means feeling joyful.",
-    },
-  },
-  [normalizeText("Happy means full of joy.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
-      text: "Happy means full of joy.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
-      text: "Happy means full of joy.",
-    },
-  },
-  [normalizeText("happy rabbit")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit.mp3",
-      text: "happy rabbit",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit.mp3",
-      text: "happy rabbit",
     },
   },
   [normalizeText("Have fun and remember to keep your toys tidy.")]: {
@@ -19091,6 +19171,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "light",
     },
   },
+  [normalizeText("Light reflects from the kitten’s shiny coat.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_practice_success_ea475646.mp3",
+      text: "Light reflects from the kitten’s shiny coat.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_practice_success_ea475646.mp3",
+      text: "Light reflects from the kitten’s shiny coat.",
+    },
+  },
   [normalizeText("line up")]: {
     "en-US": {
       key: "lessons/afternoon-home/going-home/audio/en-US/neural2-c-r1/line_up.mp3",
@@ -19163,24 +19253,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Listen means pay attention to a sound.",
     },
   },
-  [normalizeText("listen to purr")]: {
+  [normalizeText("listen to the kitten purr")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr.mp3",
-      text: "listen to purr",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr.mp3",
+      text: "listen to the kitten purr",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr.mp3",
-      text: "listen to purr",
-    },
-  },
-  [normalizeText("Listen to purr brings calmness and joy.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
-      text: "Listen to purr brings calmness and joy.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
-      text: "Listen to purr brings calmness and joy.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr.mp3",
+      text: "listen to the kitten purr",
     },
   },
   [normalizeText("listen to the story")]: {
@@ -19245,6 +19325,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/family-dinner/dinner-cleanup/audio/en-GB/neural2-c-r1/prompt_drag_dish_to_dishwasher_5f112afa.mp3",
       text: "Load the dishwasher.",
+    },
+  },
+  [normalizeText("long ears")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears.mp3",
+      text: "long ears",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears.mp3",
+      text: "long ears",
+    },
+  },
+  [normalizeText("Long ears extend high above the rabbit’s head.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears_teach_success_12b2df88.mp3",
+      text: "Long ears extend high above the rabbit’s head.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears_teach_success_12b2df88.mp3",
+      text: "Long ears extend high above the rabbit’s head.",
     },
   },
   [normalizeText("look")]: {
@@ -19667,16 +19767,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the bowl with pieces of food.",
     },
   },
-  [normalizeText("Look for the bright and healthy fur.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
-      text: "Look for the bright and healthy fur.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
-      text: "Look for the bright and healthy fur.",
-    },
-  },
   [normalizeText("Look for the brown mud puddle.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/mud_practice_fail_0f29e971.mp3",
@@ -19887,14 +19977,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the careful and soft hands.",
     },
   },
-  [normalizeText("Look for the clean and fresh kitten.")]: {
+  [normalizeText("Look for the cat resting quietly with closed eyes.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
-      text: "Look for the clean and fresh kitten.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_teach_fail_bc9256b2.mp3",
+      text: "Look for the cat resting quietly with closed eyes.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
-      text: "Look for the clean and fresh kitten.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_teach_fail_bc9256b2.mp3",
+      text: "Look for the cat resting quietly with closed eyes.",
     },
   },
   [normalizeText("Look for the clean brush on the mat.")]: {
@@ -19925,16 +20015,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/toilet-routine/clean-and-private/audio/en-GB/neural2-c-r1/tap_clean_hands_fail_4d28b19f.mp3",
       text: "Look for the clean hands picture in the middle of the shelf.",
-    },
-  },
-  [normalizeText("Look for the clean kitten.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_fail_334b0002.mp3",
-      text: "Look for the clean kitten.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_fail_334b0002.mp3",
-      text: "Look for the clean kitten.",
     },
   },
   [normalizeText("Look for the clean paws.")]: {
@@ -20037,6 +20117,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the cozy mat.",
     },
   },
+  [normalizeText("Look for the curled tail.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_practice_fail_f34f65b8.mp3",
+      text: "Look for the curled tail.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_practice_fail_f34f65b8.mp3",
+      text: "Look for the curled tail.",
+    },
+  },
   [normalizeText("Look for the curtain on the right.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-US/neural2-c-r1/kitten_practice_fail_0cab84e7.mp3",
@@ -20045,16 +20135,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/hear-the-kitten/audio/en-GB/neural2-c-r1/kitten_practice_fail_0cab84e7.mp3",
       text: "Look for the curtain on the right.",
-    },
-  },
-  [normalizeText("Look for the curved golden tail.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_teach_fail_451be53c.mp3",
-      text: "Look for the curved golden tail.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_teach_fail_451be53c.mp3",
-      text: "Look for the curved golden tail.",
     },
   },
   [normalizeText("Look for the curved tail on the left.")]: {
@@ -20445,6 +20525,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/tangle_teach_fail_78db7bbc.mp3",
       text: "Look for the fur that needs gentle brushing.",
+    },
+  },
+  [normalizeText("Look for the fur with bright highlights.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_fail_1c51bb18.mp3",
+      text: "Look for the fur with bright highlights.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_fail_1c51bb18.mp3",
+      text: "Look for the fur with bright highlights.",
     },
   },
   [normalizeText("Look for the gentle hand.")]: {
@@ -20957,46 +21047,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the handwashing card on the left.",
     },
   },
-  [normalizeText("Look for the happy cat.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
-      text: "Look for the happy cat.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
-      text: "Look for the happy cat.",
-    },
-  },
-  [normalizeText("Look for the happy kitten.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/happy_practice_fail_539551d9.mp3",
-      text: "Look for the happy kitten.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/happy_practice_fail_539551d9.mp3",
-      text: "Look for the happy kitten.",
-    },
-  },
-  [normalizeText("Look for the happy puppy.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_practice_fail_a019f2a7.mp3",
-      text: "Look for the happy puppy.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_practice_fail_a019f2a7.mp3",
-      text: "Look for the happy puppy.",
-    },
-  },
-  [normalizeText("Look for the happy rabbit.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
-      text: "Look for the happy rabbit.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
-      text: "Look for the happy rabbit.",
-    },
-  },
   [normalizeText("Look for the hay rack.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hay_rack_practice_fail_3d3069fa.mp3",
@@ -21065,6 +21115,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/pain-and-help/audio/en-GB/neural2-c-r1/tap_please_help_fail_b86ff55a.mp3",
       text: "Look for the help card at the bottom right.",
+    },
+  },
+  [normalizeText("Look for the hopping rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_practice_fail_55bb9c91.mp3",
+      text: "Look for the hopping rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_practice_fail_55bb9c91.mp3",
+      text: "Look for the hopping rabbit.",
     },
   },
   [normalizeText("Look for the hug-request card in the bottom row.")]: {
@@ -21227,14 +21287,34 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the kitten stepping forward.",
     },
   },
-  [normalizeText("Look for the kitten tail.")]: {
+  [normalizeText("Look for the kitten with its tail up.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
-      text: "Look for the kitten tail.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_practice_fail_b310c1ab.mp3",
+      text: "Look for the kitten with its tail up.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
-      text: "Look for the kitten tail.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_practice_fail_b310c1ab.mp3",
+      text: "Look for the kitten with its tail up.",
+    },
+  },
+  [normalizeText("Look for the kitten with neat fur.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_practice_fail_ecaf11d9.mp3",
+      text: "Look for the kitten with neat fur.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_practice_fail_ecaf11d9.mp3",
+      text: "Look for the kitten with neat fur.",
+    },
+  },
+  [normalizeText("Look for the kitten with tidy, brushed fur.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_teach_fail_b9b54ca1.mp3",
+      text: "Look for the kitten with tidy, brushed fur.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_teach_fail_b9b54ca1.mp3",
+      text: "Look for the kitten with tidy, brushed fur.",
     },
   },
   [normalizeText("Look for the kitten.")]: {
@@ -22017,14 +22097,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the picture with just one scoop of food.",
     },
   },
-  [normalizeText("Look for the picture with the nearly empty bowl.")]: {
+  [normalizeText("Look for the picture with the empty bowl.")]: {
     "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/finished_teach_fail_b4321c06.mp3",
-      text: "Look for the picture with the nearly empty bowl.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/finished_teach_fail_d4a84460.mp3",
+      text: "Look for the picture with the empty bowl.",
     },
     "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/finished_teach_fail_b4321c06.mp3",
-      text: "Look for the picture with the nearly empty bowl.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/finished_teach_fail_d4a84460.mp3",
+      text: "Look for the picture with the empty bowl.",
     },
   },
   [normalizeText("Look for the pieces of food on the right.")]: {
@@ -22227,6 +22307,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy in the middle.",
     },
   },
+  [normalizeText("Look for the puppy making a play bow.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_practice_fail_8a5e6e1b.mp3",
+      text: "Look for the puppy making a play bow.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_practice_fail_8a5e6e1b.mp3",
+      text: "Look for the puppy making a play bow.",
+    },
+  },
   [normalizeText("Look for the puppy moving quickly.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/run_teach_fail_8b9860e7.mp3",
@@ -22307,6 +22397,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy sitting still.",
     },
   },
+  [normalizeText("Look for the puppy standing on the mat.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_teach_fail_dbbcde2e.mp3",
+      text: "Look for the puppy standing on the mat.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_teach_fail_dbbcde2e.mp3",
+      text: "Look for the puppy standing on the mat.",
+    },
+  },
   [normalizeText("Look for the puppy stopping the ball.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/catch_teach_fail_3cad9852.mp3",
@@ -22347,6 +22447,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the puppy with dry paws.",
     },
   },
+  [normalizeText("Look for the puppy with its front legs lowered.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_fail_ca08472f.mp3",
+      text: "Look for the puppy with its front legs lowered.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_fail_ca08472f.mp3",
+      text: "Look for the puppy with its front legs lowered.",
+    },
+  },
   [normalizeText("Look for the puppy with the blue collar.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/puppy_teach_fail_82c1e282.mp3",
@@ -22355,16 +22465,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/puppy_teach_fail_82c1e282.mp3",
       text: "Look for the puppy with the blue collar.",
-    },
-  },
-  [normalizeText("Look for the puppy with the happy face.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_teach_fail_9d9992a1.mp3",
-      text: "Look for the puppy with the happy face.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_teach_fail_9d9992a1.mp3",
-      text: "Look for the puppy with the happy face.",
     },
   },
   [normalizeText("Look for the puppy with the moving tail.")]: {
@@ -22477,16 +22577,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the rabbit eating the treat.",
     },
   },
-  [normalizeText("Look for the rabbit hopping with joy.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
-      text: "Look for the rabbit hopping with joy.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
-      text: "Look for the rabbit hopping with joy.",
-    },
-  },
   [normalizeText("Look for the rabbit hutch.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_practice_fail_bfe5646b.mp3",
@@ -22535,6 +22625,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_teach_fail_b6225c82.mp3",
       text: "Look for the rabbit mouth with a piece of hay.",
+    },
+  },
+  [normalizeText("Look for the rabbit resting quietly under the hand.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_teach_fail_0363f874.mp3",
+      text: "Look for the rabbit resting quietly under the hand.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_teach_fail_0363f874.mp3",
+      text: "Look for the rabbit resting quietly under the hand.",
     },
   },
   [normalizeText("Look for the rabbit waiting for food.")]: {
@@ -22637,16 +22737,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the red part peeking out.",
     },
   },
-  [normalizeText("Look for the relaxed and contented cat.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
-      text: "Look for the relaxed and contented cat.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
-      text: "Look for the relaxed and contented cat.",
-    },
-  },
   [normalizeText("Look for the rest card at the bottom right.")]: {
     "en-US": {
       key: "lessons/speaking-up/body-needs/audio/en-US/neural2-c-r1/tap_need_rest_fail_8471b278.mp3",
@@ -22655,6 +22745,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/speaking-up/body-needs/audio/en-GB/neural2-c-r1/tap_need_rest_fail_8471b278.mp3",
       text: "Look for the rest card at the bottom right.",
+    },
+  },
+  [normalizeText("Look for the resting cat.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_practice_fail_28f30ab5.mp3",
+      text: "Look for the resting cat.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_practice_fail_28f30ab5.mp3",
+      text: "Look for the resting cat.",
     },
   },
   [normalizeText("Look for the round basket on the right.")]: {
@@ -22785,6 +22885,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/dress-myself/fasteners-and-shoes/audio/en-GB/neural2-c-r1/tap_shoelace_fail_ea7308ac.mp3",
       text: "Look for the shoelace on the right side of the upper shelf.",
+    },
+  },
+  [normalizeText("Look for the short soft hairs on the brush.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_teach_fail_c1618709.mp3",
+      text: "Look for the short soft hairs on the brush.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_teach_fail_c1618709.mp3",
+      text: "Look for the short soft hairs on the brush.",
     },
   },
   [normalizeText("Look for the shorts in the middle of the bench.")]: {
@@ -22977,6 +23087,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the smiling kitten with its tail up.",
     },
   },
+  [normalizeText("Look for the smiling kitten with open eyes.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_teach_fail_9cb371f0.mp3",
+      text: "Look for the smiling kitten with open eyes.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_teach_fail_9cb371f0.mp3",
+      text: "Look for the smiling kitten with open eyes.",
+    },
+  },
   [normalizeText("Look for the smiling kitten.")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_teach_fail_cfe0c2c5.mp3",
@@ -22987,6 +23107,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the smiling kitten.",
     },
   },
+  [normalizeText("Look for the smiling puppy wagging its tail.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_fail_25b7d5f0.mp3",
+      text: "Look for the smiling puppy wagging its tail.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_fail_25b7d5f0.mp3",
+      text: "Look for the smiling puppy wagging its tail.",
+    },
+  },
   [normalizeText("Look for the smiling puppy.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_teach_fail_a78e8495.mp3",
@@ -22995,16 +23125,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_teach_fail_a78e8495.mp3",
       text: "Look for the smiling puppy.",
-    },
-  },
-  [normalizeText("Look for the smiling rabbit.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
-      text: "Look for the smiling rabbit.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
-      text: "Look for the smiling rabbit.",
     },
   },
   [normalizeText("Look for the snap fastener in the middle of the bench.")]: {
@@ -23037,14 +23157,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the soap bar near the top center.",
     },
   },
-  [normalizeText("Look for the soft and fluffy fur.")]: {
+  [normalizeText("Look for the soft bristles on the brush.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
-      text: "Look for the soft and fluffy fur.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_practice_fail_afa1e776.mp3",
+      text: "Look for the soft bristles on the brush.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
-      text: "Look for the soft and fluffy fur.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_practice_fail_afa1e776.mp3",
+      text: "Look for the soft bristles on the brush.",
     },
   },
   [normalizeText("Look for the soft brushing stroke.")]: {
@@ -23145,6 +23265,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/check-the-hiding-spots/audio/en-GB/neural2-c-r1/box_practice_fail_fb6c36a8.mp3",
       text: "Look for the square box on the left.",
+    },
+  },
+  [normalizeText("Look for the standing puppy.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_practice_fail_25d76c4b.mp3",
+      text: "Look for the standing puppy.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_practice_fail_25d76c4b.mp3",
+      text: "Look for the standing puppy.",
     },
   },
   [normalizeText("Look for the step stool on the floor below the toilet.")]: {
@@ -23507,6 +23637,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Look for the underwear on the rail on the left.",
     },
   },
+  [normalizeText("Look for the upright golden tail.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_teach_fail_f10be4f9.mp3",
+      text: "Look for the upright golden tail.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_teach_fail_f10be4f9.mp3",
+      text: "Look for the upright golden tail.",
+    },
+  },
+  [normalizeText("Look for the upright tail.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_practice_fail_e32b00d6.mp3",
+      text: "Look for the upright tail.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_practice_fail_e32b00d6.mp3",
+      text: "Look for the upright tail.",
+    },
+  },
   [normalizeText("Look for the waistband to the right of the child.")]: {
     "en-US": {
       key: "lessons/dress-myself/put-on-clothes/audio/en-US/neural2-c-r1/tap_waistband_fail_e4b7fd74.mp3",
@@ -23615,6 +23765,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/clean_teach_fail_6f2d94b1.mp3",
       text: "Look for the white paw with water drops.",
+    },
+  },
+  [normalizeText("Look for the white rabbit jumping in the air.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_teach_fail_fa3b32ca.mp3",
+      text: "Look for the white rabbit jumping in the air.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_teach_fail_fa3b32ca.mp3",
+      text: "Look for the white rabbit jumping in the air.",
     },
   },
   [normalizeText("Look for the white rabbit.")]: {
@@ -24827,6 +24987,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "napkin",
     },
   },
+  [normalizeText("neat")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat.mp3",
+      text: "neat",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat.mp3",
+      text: "neat",
+    },
+  },
+  [normalizeText("Neat means tidy and in good order.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_teach_success_db515b2b.mp3",
+      text: "Neat means tidy and in good order.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_teach_success_db515b2b.mp3",
+      text: "Neat means tidy and in good order.",
+    },
+  },
   [normalizeText("night light")]: {
     "en-US": {
       key: "lessons/bedtime/calm-room/audio/en-US/neural2-c-r1/night_light.mp3",
@@ -25657,6 +25837,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Play together.",
     },
   },
+  [normalizeText("playful")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful.mp3",
+      text: "playful",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful.mp3",
+      text: "playful",
+    },
+  },
+  [normalizeText("Playful means eager to play; a dog may show it with a play bow.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_success_074fb751.mp3",
+      text: "Playful means eager to play; a dog may show it with a play bow.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_success_074fb751.mp3",
+      text: "Playful means eager to play; a dog may show it with a play bow.",
+    },
+  },
   [normalizeText("playground")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/playground.mp3",
@@ -25893,14 +26093,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "purr",
     },
   },
-  [normalizeText("Purr is the happy vibrating sound a cat makes.")]: {
+  [normalizeText("Purr is the gentle vibrating sound a cat makes.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_success_09c18159.mp3",
-      text: "Purr is the happy vibrating sound a cat makes.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_success_6f12b183.mp3",
+      text: "Purr is the gentle vibrating sound a cat makes.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_success_09c18159.mp3",
-      text: "Purr is the happy vibrating sound a cat makes.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_success_6f12b183.mp3",
+      text: "Purr is the gentle vibrating sound a cat makes.",
     },
   },
   [normalizeText("push the cart")]: {
@@ -26493,6 +26693,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-GB/neural2-c-r1/red_teach_success_ebd85281.mp3",
       text: "Red is this bright color.",
+    },
+  },
+  [normalizeText("relaxed")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed.mp3",
+      text: "relaxed",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed.mp3",
+      text: "relaxed",
+    },
+  },
+  [normalizeText("Relaxed means calm and comfortable.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_teach_success_cdb30a66.mp3",
+      text: "Relaxed means calm and comfortable.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_teach_success_cdb30a66.mp3",
+      text: "Relaxed means calm and comfortable.",
     },
   },
   [normalizeText("rest")]: {
@@ -28477,16 +28697,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "soft",
     },
   },
-  [normalizeText("Soft brushing keeps the kitten cozy and safe.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
-      text: "Soft brushing keeps the kitten cozy and safe.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
-      text: "Soft brushing keeps the kitten cozy and safe.",
-    },
-  },
   [normalizeText("soft fur")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur.mp3",
@@ -28497,24 +28707,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "soft fur",
     },
   },
-  [normalizeText("Soft fur feels gentle and fluffy.")]: {
+  [normalizeText("Soft fur feels gentle to touch, not hard.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_success_0f04e912.mp3",
-      text: "Soft fur feels gentle and fluffy.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/soft_fur_teach_success_8e8609f2.mp3",
+      text: "Soft fur feels gentle to touch, not hard.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_success_0f04e912.mp3",
-      text: "Soft fur feels gentle and fluffy.",
-    },
-  },
-  [normalizeText("Soft fur feels warm and pleasant to touch.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
-      text: "Soft fur feels warm and pleasant to touch.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
-      text: "Soft fur feels warm and pleasant to touch.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/soft_fur_teach_success_8e8609f2.mp3",
+      text: "Soft fur feels gentle to touch, not hard.",
     },
   },
   [normalizeText("Soft light and gentle sounds make bedtime more relaxing.")]: {
@@ -28535,26 +28735,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/choose-the-ball/audio/en-GB/neural2-c-r1/soft_teach_success_57e4db60.mp3",
       text: "Soft means easy to press.",
-    },
-  },
-  [normalizeText("Soft means gentle to touch, not hard.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/soft_teach_success_4f79ed4e.mp3",
-      text: "Soft means gentle to touch, not hard.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/soft_teach_success_4f79ed4e.mp3",
-      text: "Soft means gentle to touch, not hard.",
-    },
-  },
-  [normalizeText("Soft means gentle to touch.")]: {
-    "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_success_e2c64965.mp3",
-      text: "Soft means gentle to touch.",
-    },
-    "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_success_e2c64965.mp3",
-      text: "Soft means gentle to touch.",
     },
   },
   [normalizeText("soft tie")]: {
@@ -28877,6 +29057,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/stake.mp3",
       text: "stake",
+    },
+  },
+  [normalizeText("stand")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand.mp3",
+      text: "stand",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand.mp3",
+      text: "stand",
+    },
+  },
+  [normalizeText("Stand means to be upright on your feet or paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_teach_success_c5e1939b.mp3",
+      text: "Stand means to be upright on your feet or paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_teach_success_c5e1939b.mp3",
+      text: "Stand means to be upright on your feet or paws.",
     },
   },
   [normalizeText("stand on tiptoes")]: {
@@ -29387,6 +29587,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tail means the part at the back of the puppy.",
     },
   },
+  [normalizeText("tail up")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up.mp3",
+      text: "tail up",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up.mp3",
+      text: "tail up",
+    },
+  },
+  [normalizeText("Tail up means the kitten is holding its tail upright.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_teach_success_1cfb1082.mp3",
+      text: "Tail up means the kitten is holding its tail upright.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_teach_success_1cfb1082.mp3",
+      text: "Tail up means the kitten is holding its tail upright.",
+    },
+  },
   [normalizeText("take a bite")]: {
     "en-US": {
       key: "lessons/snack-time/snack-table/audio/en-US/neural2-c-r1/take_a_bite.mp3",
@@ -29541,16 +29761,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "ui/audio/en-GB/neural2-c-r1/home_review_tap_three.wav",
       text: "Tap Play to open the unlocked game.",
-    },
-  },
-  [normalizeText("Tap softly so the kitten stays comfortable.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
-      text: "Tap softly so the kitten stays comfortable.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
-      text: "Tap softly so the kitten stays comfortable.",
     },
   },
   [normalizeText("Tap the adult hand offering help.")]: {
@@ -30343,6 +30553,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the bread.",
     },
   },
+  [normalizeText("Tap the bristles to check that they feel soft.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_bristles_practice_96f1ce0b.mp3",
+      text: "Tap the bristles to check that they feel soft.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_bristles_practice_96f1ce0b.mp3",
+      text: "Tap the bristles to check that they feel soft.",
+    },
+  },
   [normalizeText("Tap the brown mud puddle.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/en-US/neural2-c-r1/prompt_mud_teach_599a4a5c.mp3",
@@ -30559,6 +30779,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the calling hands so the kitten comes out.",
     },
   },
+  [normalizeText("Tap the calm rabbit resting quietly.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_calm_teach_3f9740bc.mp3",
+      text: "Tap the calm rabbit resting quietly.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_calm_teach_3f9740bc.mp3",
+      text: "Tap the calm rabbit resting quietly.",
+    },
+  },
   [normalizeText("Tap the candle.")]: {
     "en-US": {
       key: "lessons/calm-myself/slow-breathing/audio/en-US/neural2-c-r1/prompt_tap_candle_ffbf453f.mp3",
@@ -30669,6 +30899,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the cashier behind the green checkout counter.",
     },
   },
+  [normalizeText("Tap the cheerful kitten smiling at you.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cheerful_practice_6e690f06.mp3",
+      text: "Tap the cheerful kitten smiling at you.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cheerful_practice_6e690f06.mp3",
+      text: "Tap the cheerful kitten smiling at you.",
+    },
+  },
+  [normalizeText("Tap the cheerful kitten with a bright smile.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cheerful_teach_096337cc.mp3",
+      text: "Tap the cheerful kitten with a bright smile.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cheerful_teach_096337cc.mp3",
+      text: "Tap the cheerful kitten with a bright smile.",
+    },
+  },
   [normalizeText("Tap the chicken.")]: {
     "en-US": {
       key: "lessons/family-dinner/dinner-table/audio/en-US/neural2-c-r1/prompt_tap_chicken_b3b60b80.mp3",
@@ -30711,16 +30961,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/library-visit/story-circle/audio/en-GB/neural2-c-r1/prompt_tap_circle_d14312f2.mp3",
       text: "Tap the circle.",
-    },
-  },
-  [normalizeText("Tap the clean and neat kitten.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
-      text: "Tap the clean and neat kitten.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
-      text: "Tap the clean and neat kitten.",
     },
   },
   [normalizeText("Tap the clean brush to begin grooming.")]: {
@@ -31093,16 +31333,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/lunch-table/audio/en/prompt_lunchtable_tap_cup_8644be05.mp3",
       text: "Tap the cup.",
-    },
-  },
-  [normalizeText("Tap the curled kitten tail.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
-      text: "Tap the curled kitten tail.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
-      text: "Tap the curled kitten tail.",
     },
   },
   [normalizeText("Tap the curtain so the kitten can hide.")]: {
@@ -31695,14 +31925,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the flower on the right.",
     },
   },
-  [normalizeText("Tap the flower that the bee and butterfly are visiting.")]: {
+  [normalizeText("Tap the flowering plant that the bee and butterfly are visiting.")]: {
     "en-US": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
-      text: "Tap the flower that the bee and butterfly are visiting.",
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_visit_flower_f973aaeb.mp3",
+      text: "Tap the flowering plant that the bee and butterfly are visiting.",
     },
     "en-GB": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
-      text: "Tap the flower that the bee and butterfly are visiting.",
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_visit_flower_f973aaeb.mp3",
+      text: "Tap the flowering plant that the bee and butterfly are visiting.",
+    },
+  },
+  [normalizeText("Tap the flowering plant to watch the bee and butterfly visit.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_observe_visitors_8b47af91.mp3",
+      text: "Tap the flowering plant to watch the bee and butterfly visit.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_observe_visitors_8b47af91.mp3",
+      text: "Tap the flowering plant to watch the bee and butterfly visit.",
     },
   },
   [normalizeText("Tap the fluffy cute kitten.")]: {
@@ -31715,14 +31955,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the fluffy cute kitten.",
     },
   },
-  [normalizeText("Tap the fluffy soft fur.")]: {
+  [normalizeText("Tap the fluffy towel to dry the paws gently.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
-      text: "Tap the fluffy soft fur.",
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_fluffy_towel_practice_a4d8cef6.mp3",
+      text: "Tap the fluffy towel to dry the paws gently.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
-      text: "Tap the fluffy soft fur.",
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_fluffy_towel_practice_a4d8cef6.mp3",
+      text: "Tap the fluffy towel to dry the paws gently.",
+    },
+  },
+  [normalizeText("Tap the fluffy towel.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_fluffy_towel_teach_ab3a021e.mp3",
+      text: "Tap the fluffy towel.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_fluffy_towel_teach_ab3a021e.mp3",
+      text: "Tap the fluffy towel.",
     },
   },
   [normalizeText("Tap the flush button.")]: {
@@ -31845,6 +32095,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_fresh_hay_practice_69939b57.mp3",
       text: "Tap the fresh hay to prepare it for the rabbit.",
+    },
+  },
+  [normalizeText("Tap the friendly kitten with its tail up.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_friendly_teach_2a825fda.mp3",
+      text: "Tap the friendly kitten with its tail up.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_friendly_teach_2a825fda.mp3",
+      text: "Tap the friendly kitten with its tail up.",
     },
   },
   [normalizeText("Tap the frisbee.")]: {
@@ -32135,6 +32395,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/learn_fruit_stem_fail_ec4255ef.mp3",
       text: "Tap the green stem above the red tomato.",
+    },
+  },
+  [normalizeText("Tap the green tie around the stem and stake.")]: {
+    "en-US": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_fail_e5411cb0.mp3",
+      text: "Tap the green tie around the stem and stake.",
+    },
+    "en-GB": {
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_fail_e5411cb0.mp3",
+      text: "Tap the green tie around the stem and stake.",
     },
   },
   [normalizeText("Tap the green tomato to compare its size with the red one.")]: {
@@ -32477,6 +32747,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the hand towel.",
     },
   },
+  [normalizeText("Tap the hand using a light brushing stroke.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_practice_a2497caa.mp3",
+      text: "Tap the hand using a light brushing stroke.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_practice_a2497caa.mp3",
+      text: "Tap the hand using a light brushing stroke.",
+    },
+  },
   [normalizeText("Tap the hand washing one puppy paw.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_wash_teach_b7ff8796.mp3",
@@ -32567,66 +32847,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the handwashing picture to finish.",
     },
   },
-  [normalizeText("Tap the happy contented cat.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
-      text: "Tap the happy contented cat.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
-      text: "Tap the happy contented cat.",
-    },
-  },
-  [normalizeText("Tap the happy kitten.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_happy_teach_20531847.mp3",
-      text: "Tap the happy kitten.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_happy_teach_20531847.mp3",
-      text: "Tap the happy kitten.",
-    },
-  },
-  [normalizeText("Tap the happy puppy ready for another turn.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_lets_play_teach_868cadf0.mp3",
-      text: "Tap the happy puppy ready for another turn.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_lets_play_teach_868cadf0.mp3",
-      text: "Tap the happy puppy ready for another turn.",
-    },
-  },
-  [normalizeText("Tap the happy puppy.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_happy_teach_e999f52d.mp3",
-      text: "Tap the happy puppy.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_teach_e999f52d.mp3",
-      text: "Tap the happy puppy.",
-    },
-  },
-  [normalizeText("Tap the happy rabbit jumping in circles.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
-      text: "Tap the happy rabbit jumping in circles.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
-      text: "Tap the happy rabbit jumping in circles.",
-    },
-  },
-  [normalizeText("Tap the happy rabbit.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
-      text: "Tap the happy rabbit.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
-      text: "Tap the happy rabbit.",
-    },
-  },
   [normalizeText("Tap the hay rack.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_hay_rack_teach_3b54128b.mp3",
@@ -32667,14 +32887,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the headphones.",
     },
   },
-  [normalizeText("Tap the heart to celebrate with the puppy.")]: {
+  [normalizeText("Tap the heart to celebrate the finished meal.")]: {
     "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_happy_practice_f9b58c7b.mp3",
-      text: "Tap the heart to celebrate with the puppy.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_celebrate_practice_89c95532.mp3",
+      text: "Tap the heart to celebrate the finished meal.",
     },
     "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_happy_practice_f9b58c7b.mp3",
-      text: "Tap the heart to celebrate with the puppy.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_celebrate_practice_89c95532.mp3",
+      text: "Tap the heart to celebrate the finished meal.",
     },
   },
   [normalizeText("Tap the heel.")]: {
@@ -32719,6 +32939,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-bath/bath-finish/audio/en/prompt_tap_hook_f69bcb83.mp3",
       text: "Tap the hook.",
+    },
+  },
+  [normalizeText("Tap the hopping rabbit and remember to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_rabbit_hops_practice_b867842b.mp3",
+      text: "Tap the hopping rabbit and remember to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_rabbit_hops_practice_b867842b.mp3",
+      text: "Tap the hopping rabbit and remember to wash your hands.",
     },
   },
   [normalizeText("Tap the hug picture.")]: {
@@ -32773,6 +33003,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/afternoon-home/going-home/audio/en/prompt_tap_jacket_2caf05a8.mp3",
       text: "Tap the jacket.",
+    },
+  },
+  [normalizeText("Tap the joyful puppy celebrating its finished meal.")]: {
+    "en-US": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_celebrate_teach_c4236b0f.mp3",
+      text: "Tap the joyful puppy celebrating its finished meal.",
+    },
+    "en-GB": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_celebrate_teach_c4236b0f.mp3",
+      text: "Tap the joyful puppy celebrating its finished meal.",
     },
   },
   [normalizeText("Tap the juice.")]: {
@@ -32849,6 +33089,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the kitten hiding behind the blanket.",
     },
   },
+  [normalizeText("Tap the kitten making a soft purr.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_teach_71b6074d.mp3",
+      text: "Tap the kitten making a soft purr.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_teach_71b6074d.mp3",
+      text: "Tap the kitten making a soft purr.",
+    },
+  },
   [normalizeText("Tap the kitten paw.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_paw_teach_e2febaca.mp3",
@@ -32857,16 +33107,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_paw_teach_e2febaca.mp3",
       text: "Tap the kitten paw.",
-    },
-  },
-  [normalizeText("Tap the kitten purring happily.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
-      text: "Tap the kitten purring happily.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
-      text: "Tap the kitten purring happily.",
     },
   },
   [normalizeText("Tap the kitten sitting in the room.")]: {
@@ -32899,6 +33139,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the kitten snuggling close.",
     },
   },
+  [normalizeText("Tap the kitten so it can rest and relax.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_relaxed_practice_d2128256.mp3",
+      text: "Tap the kitten so it can rest and relax.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_relaxed_practice_d2128256.mp3",
+      text: "Tap the kitten so it can rest and relax.",
+    },
+  },
   [normalizeText("Tap the kitten so it comes all the way out.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_come_out_practice_27eda8f3.mp3",
@@ -32929,46 +33179,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the kitten so it wiggles its tail.",
     },
   },
-  [normalizeText("Tap the kitten soft fur.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_soft_teach_a4bc7828.mp3",
-      text: "Tap the kitten soft fur.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_soft_teach_a4bc7828.mp3",
-      text: "Tap the kitten soft fur.",
-    },
-  },
-  [normalizeText("Tap the kitten tail.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_teach_b03a8c02.mp3",
-      text: "Tap the kitten tail.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_teach_b03a8c02.mp3",
-      text: "Tap the kitten tail.",
-    },
-  },
-  [normalizeText("Tap the kitten to admire its clean look.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
-      text: "Tap the kitten to admire its clean look.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
-      text: "Tap the kitten to admire its clean look.",
-    },
-  },
-  [normalizeText("Tap the kitten to enjoy its sweet purr.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
-      text: "Tap the kitten to enjoy its sweet purr.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
-      text: "Tap the kitten to enjoy its sweet purr.",
-    },
-  },
   [normalizeText("Tap the kitten to greet it gently.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_happy_practice_023956a0.mp3",
@@ -32979,14 +33189,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the kitten to greet it gently.",
     },
   },
-  [normalizeText("Tap the kitten to hear its joyful purr.")]: {
+  [normalizeText("Tap the kitten to hear its soft purr.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
-      text: "Tap the kitten to hear its joyful purr.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_practice_d121a9d4.mp3",
+      text: "Tap the kitten to hear its soft purr.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
-      text: "Tap the kitten to hear its joyful purr.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_practice_d121a9d4.mp3",
+      text: "Tap the kitten to hear its soft purr.",
     },
   },
   [normalizeText("Tap the kitten to hear the gentle purr.")]: {
@@ -33019,24 +33229,54 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the kitten to see how pretty it looks.",
     },
   },
-  [normalizeText("Tap the kitten to see its happy smile.")]: {
+  [normalizeText("Tap the kitten to see its neat, brushed fur.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
-      text: "Tap the kitten to see its happy smile.",
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_neat_practice_72f0bb0e.mp3",
+      text: "Tap the kitten to see its neat, brushed fur.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
-      text: "Tap the kitten to see its happy smile.",
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_neat_practice_72f0bb0e.mp3",
+      text: "Tap the kitten to see its neat, brushed fur.",
     },
   },
-  [normalizeText("Tap the kitten to share its happiness.")]: {
+  [normalizeText("Tap the kitten with its tail up.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
-      text: "Tap the kitten to share its happiness.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_up_teach_367f2954.mp3",
+      text: "Tap the kitten with its tail up.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
-      text: "Tap the kitten to share its happiness.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_up_teach_367f2954.mp3",
+      text: "Tap the kitten with its tail up.",
+    },
+  },
+  [normalizeText("Tap the kitten with neat fur.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_neat_teach_2a89e8ce.mp3",
+      text: "Tap the kitten with neat fur.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_neat_teach_2a89e8ce.mp3",
+      text: "Tap the kitten with neat fur.",
+    },
+  },
+  [normalizeText("Tap the kitten’s curled tail.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_curled_tail_teach_be6f7bb0.mp3",
+      text: "Tap the kitten’s curled tail.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_curled_tail_teach_be6f7bb0.mp3",
+      text: "Tap the kitten’s curled tail.",
+    },
+  },
+  [normalizeText("Tap the kitten’s soft fur.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_soft_fur_teach_8f39b20d.mp3",
+      text: "Tap the kitten’s soft fur.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_soft_fur_teach_8f39b20d.mp3",
+      text: "Tap the kitten’s soft fur.",
     },
   },
   [normalizeText("Tap the knee.")]: {
@@ -35031,16 +35271,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the pitcher of clean water.",
     },
   },
-  [normalizeText("Tap the plant in the middle to watch the bee and butterfly near the flower.")]: {
-    "en-US": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
-      text: "Tap the plant in the middle to watch the bee and butterfly near the flower.",
-    },
-    "en-GB": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
-      text: "Tap the plant in the middle to watch the bee and butterfly near the flower.",
-    },
-  },
   [normalizeText("Tap the plant pot on the right.")]: {
     "en-US": {
       key: "lessons/grandparents-visit/garden-help/audio/en-US/neural2-c-r1/prompt_tap_plant_pot_63ae74f3.mp3",
@@ -35073,6 +35303,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/lunch-time/after-lunch/audio/en/prompt_cleanup_tap_plate_aa035936.mp3",
       text: "Tap the plate.",
+    },
+  },
+  [normalizeText("Tap the playful puppy making a play bow.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_playful_teach_f4b9be36.mp3",
+      text: "Tap the playful puppy making a play bow.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_playful_teach_f4b9be36.mp3",
+      text: "Tap the playful puppy making a play bow.",
+    },
+  },
+  [normalizeText("Tap the playful puppy ready for another turn.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_lets_play_teach_fa4a4fda.mp3",
+      text: "Tap the playful puppy ready for another turn.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_lets_play_teach_fa4a4fda.mp3",
+      text: "Tap the playful puppy ready for another turn.",
     },
   },
   [normalizeText("Tap the pointing hand that is choosing.")]: {
@@ -35269,6 +35519,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy looking at the bowl.",
     },
   },
+  [normalizeText("Tap the puppy making a play bow to play again.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_playful_practice_216b986d.mp3",
+      text: "Tap the puppy making a play bow to play again.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_playful_practice_216b986d.mp3",
+      text: "Tap the puppy making a play bow to play again.",
+    },
+  },
   [normalizeText("Tap the puppy mouth holding the ball.")]: {
     "en-US": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-US/neural2-c-r1/prompt_mouth_teach_cd662dbc.mp3",
@@ -35419,6 +35679,26 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the puppy so it waits.",
     },
   },
+  [normalizeText("Tap the puppy standing on four clean paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_stand_teach_cd7b9e31.mp3",
+      text: "Tap the puppy standing on four clean paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_stand_teach_cd7b9e31.mp3",
+      text: "Tap the puppy standing on four clean paws.",
+    },
+  },
+  [normalizeText("Tap the puppy that has finished eating.")]: {
+    "en-US": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_teach_fed565bc.mp3",
+      text: "Tap the puppy that has finished eating.",
+    },
+    "en-GB": {
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_finished_teach_fed565bc.mp3",
+      text: "Tap the puppy that has finished eating.",
+    },
+  },
   [normalizeText("Tap the puppy that has finished washing.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-US/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
@@ -35427,16 +35707,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/wash-the-paws/audio/en-GB/neural2-c-r1/prompt_finished_washing_teach_053fd07b.mp3",
       text: "Tap the puppy that has finished washing.",
-    },
-  },
-  [normalizeText("Tap the puppy that has nearly finished eating.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_teach_831ffa9c.mp3",
-      text: "Tap the puppy that has nearly finished eating.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_finished_teach_831ffa9c.mp3",
-      text: "Tap the puppy that has nearly finished eating.",
     },
   },
   [normalizeText("Tap the puppy that is ready to play.")]: {
@@ -35457,26 +35727,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_towel_practice_fc1eeb82.mp3",
       text: "Tap the puppy to bring the towel near its paws.",
-    },
-  },
-  [normalizeText("Tap the puppy to celebrate its clean paws.")]: {
-    "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
-      text: "Tap the puppy to celebrate its clean paws.",
-    },
-    "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
-      text: "Tap the puppy to celebrate its clean paws.",
-    },
-  },
-  [normalizeText("Tap the puppy to celebrate your kind play.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
-      text: "Tap the puppy to celebrate your kind play.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
-      text: "Tap the puppy to celebrate your kind play.",
     },
   },
   [normalizeText("Tap the puppy to check that its paws are dry.")]: {
@@ -35693,16 +35943,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the quiet sign.",
     },
   },
-  [normalizeText("Tap the rabbit and remember to wash your hands.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
-      text: "Tap the rabbit and remember to wash your hands.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
-      text: "Tap the rabbit and remember to wash your hands.",
-    },
-  },
   [normalizeText("Tap the rabbit as it finishes drinking.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_rabbit_drinks_practice_547466ad.mp3",
@@ -35713,16 +35953,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the rabbit as it finishes drinking.",
     },
   },
-  [normalizeText("Tap the rabbit back very gently.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
-      text: "Tap the rabbit back very gently.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
-      text: "Tap the rabbit back very gently.",
-    },
-  },
   [normalizeText("Tap the rabbit drinking water.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
@@ -35731,6 +35961,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/prompt_drink_teach_a14d4748.mp3",
       text: "Tap the rabbit drinking water.",
+    },
+  },
+  [normalizeText("Tap the rabbit hopping in the air.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_rabbit_hops_teach_065cc790.mp3",
+      text: "Tap the rabbit hopping in the air.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_rabbit_hops_teach_065cc790.mp3",
+      text: "Tap the rabbit hopping in the air.",
     },
   },
   [normalizeText("Tap the rabbit hopping.")]: {
@@ -35771,6 +36011,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/prompt_hungry_practice_9f312b8f.mp3",
       text: "Tap the rabbit so it looks at the rack.",
+    },
+  },
+  [normalizeText("Tap the rabbit so it sits calmly.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_calm_practice_a463c710.mp3",
+      text: "Tap the rabbit so it sits calmly.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_calm_practice_a463c710.mp3",
+      text: "Tap the rabbit so it sits calmly.",
     },
   },
   [normalizeText("Tap the rabbit so it wiggles its ears.")]: {
@@ -35843,16 +36093,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the rabbit to see its ears wiggle.",
     },
   },
-  [normalizeText("Tap the rabbit to share the joy.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
-      text: "Tap the rabbit to share the joy.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
-      text: "Tap the rabbit to share the joy.",
-    },
-  },
   [normalizeText("Tap the rabbit to watch it chew crisp hay.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/prompt_chew_practice_a2bece54.mp3",
@@ -35863,14 +36103,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the rabbit to watch it chew crisp hay.",
     },
   },
-  [normalizeText("Tap the rabbit to watch it hop happily.")]: {
+  [normalizeText("Tap the rabbit to watch it hop lightly.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
-      text: "Tap the rabbit to watch it hop happily.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_647675db.mp3",
+      text: "Tap the rabbit to watch it hop lightly.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
-      text: "Tap the rabbit to watch it hop happily.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_647675db.mp3",
+      text: "Tap the rabbit to watch it hop lightly.",
+    },
+  },
+  [normalizeText("Tap the rabbit’s back very gently.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_fluffy_fur_practice_c860f99e.mp3",
+      text: "Tap the rabbit’s back very gently.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_fluffy_fur_practice_c860f99e.mp3",
+      text: "Tap the rabbit’s back very gently.",
     },
   },
   [normalizeText("Tap the rack so it is fastened safely.")]: {
@@ -36049,6 +36299,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/prompt_learn_ripe_73c54df8.mp3",
       text: "Tap the red, round, firm tomato.",
+    },
+  },
+  [normalizeText("Tap the relaxed cat curled up comfortably.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_relaxed_teach_89fdfa9f.mp3",
+      text: "Tap the relaxed cat curled up comfortably.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_relaxed_teach_89fdfa9f.mp3",
+      text: "Tap the relaxed cat curled up comfortably.",
     },
   },
   [normalizeText("Tap the ribbon on the right side of the table.")]: {
@@ -36761,16 +37021,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the smile.",
     },
   },
-  [normalizeText("Tap the smiling puppy.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_happy_teach_5898b841.mp3",
-      text: "Tap the smiling puppy.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_happy_teach_5898b841.mp3",
-      text: "Tap the smiling puppy.",
-    },
-  },
   [normalizeText("Tap the smooth kitten fur.")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_smooth_teach_e0e61430.mp3",
@@ -36857,24 +37107,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the socks.",
     },
   },
-  [normalizeText("Tap the soft fur to praise the kitten.")]: {
+  [normalizeText("Tap the soft bristles on the brush.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
-      text: "Tap the soft fur to praise the kitten.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_bristles_teach_f6b1d8d5.mp3",
+      text: "Tap the soft bristles on the brush.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
-      text: "Tap the soft fur to praise the kitten.",
-    },
-  },
-  [normalizeText("Tap the soft green tie on the right.")]: {
-    "en-US": {
-      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
-      text: "Tap the soft green tie on the right.",
-    },
-    "en-GB": {
-      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
-      text: "Tap the soft green tie on the right.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_bristles_teach_f6b1d8d5.mp3",
+      text: "Tap the soft bristles on the brush.",
     },
   },
   [normalizeText("Tap the soft kitten fur.")]: {
@@ -36897,24 +37137,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the soft mat for the kitten.",
     },
   },
-  [normalizeText("Tap the soft part of the towel.")]: {
+  [normalizeText("Tap the soft tie holding the stem beside the stake.")]: {
     "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
-      text: "Tap the soft part of the towel.",
+      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_soft_tie_c3a8fd33.mp3",
+      text: "Tap the soft tie holding the stem beside the stake.",
     },
     "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
-      text: "Tap the soft part of the towel.",
-    },
-  },
-  [normalizeText("Tap the soft tie that helps hold the plant.")]: {
-    "en-US": {
-      key: "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
-      text: "Tap the soft tie that helps hold the plant.",
-    },
-    "en-GB": {
-      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
-      text: "Tap the soft tie that helps hold the plant.",
+      key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_soft_tie_c3a8fd33.mp3",
+      text: "Tap the soft tie holding the stem beside the stake.",
     },
   },
   [normalizeText("Tap the soft toy.")]: {
@@ -37081,6 +37311,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_find_flower_bud_53e24794.mp3",
       text: "Tap the standing plant to find the yellow flower.",
+    },
+  },
+  [normalizeText("Tap the standing puppy to check all four dry paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_stand_practice_0e9936df.mp3",
+      text: "Tap the standing puppy to check all four dry paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_stand_practice_0e9936df.mp3",
+      text: "Tap the standing puppy to check all four dry paws.",
     },
   },
   [normalizeText("Tap the star projector.")]: {
@@ -37327,6 +37567,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the table.",
     },
   },
+  [normalizeText("Tap the tail curled around the kitten’s paws.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_curled_tail_practice_0361b7ee.mp3",
+      text: "Tap the tail curled around the kitten’s paws.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_curled_tail_practice_0361b7ee.mp3",
+      text: "Tap the tail curled around the kitten’s paws.",
+    },
+  },
   [normalizeText("Tap the tail to make it wag.")]: {
     "en-US": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/prompt_tail_practice_f3c5b2e3.mp3",
@@ -37335,26 +37585,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/prompt_tail_practice_f3c5b2e3.mp3",
       text: "Tap the tail to make it wag.",
-    },
-  },
-  [normalizeText("Tap the tail to see it sway gently.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
-      text: "Tap the tail to see it sway gently.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
-      text: "Tap the tail to see it sway gently.",
-    },
-  },
-  [normalizeText("Tap the tail wagging happily.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_practice_4d66d3ca.mp3",
-      text: "Tap the tail wagging happily.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_practice_4d66d3ca.mp3",
-      text: "Tap the tail wagging happily.",
     },
   },
   [normalizeText("Tap the tangle to prepare for gentle brushing.")]: {
@@ -37693,16 +37923,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "Tap the towel drying both paws.",
     },
   },
-  [normalizeText("Tap the towel to use its soft side.")]: {
-    "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
-      text: "Tap the towel to use its soft side.",
-    },
-    "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
-      text: "Tap the towel to use its soft side.",
-    },
-  },
   [normalizeText("Tap the towel wiping the wet paw.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_wipe_teach_2fa6d70e.mp3",
@@ -37901,6 +38121,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     legacy: {
       key: "lessons/morning-routine/go-to-school/audio/en/prompt_school_tap_uniform_d9292e3c.mp3",
       text: "Tap the uniform.",
+    },
+  },
+  [normalizeText("Tap the upright tail used in a friendly greeting.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_up_practice_2da9c39b.mp3",
+      text: "Tap the upright tail used in a friendly greeting.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_up_practice_2da9c39b.mp3",
+      text: "Tap the upright tail used in a friendly greeting.",
     },
   },
   [normalizeText("Tap the vegetables.")]: {
@@ -38113,16 +38343,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/animal-trip/animal-gate/audio/en-GB/neural2-c-r1/prompt_tap_wristband_22b9db1c.mp3",
       text: "Tap the wristband.",
-    },
-  },
-  [normalizeText("Tap the yellow flower near the bee and butterfly.")]: {
-    "en-US": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
-      text: "Tap the yellow flower near the bee and butterfly.",
-    },
-    "en-GB": {
-      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
-      text: "Tap the yellow flower near the bee and butterfly.",
     },
   },
   [normalizeText("Tap the yellow flower on the left.")]: {
@@ -42213,6 +42433,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The bread is in front of you.",
     },
   },
+  [normalizeText("The bristles are soft and rounded for gentle grooming.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_practice_success_b560dba2.mp3",
+      text: "The bristles are soft and rounded for gentle grooming.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_practice_success_b560dba2.mp3",
+      text: "The bristles are soft and rounded for gentle grooming.",
+    },
+  },
   [normalizeText("The bruised tomato is separate in the adult-check tray.")]: {
     "en-US": {
       key: "lessons/harvest-day/sort-the-harvest/audio/en-US/neural2-c-r1/confirm_adult_check_success_faa11f42.mp3",
@@ -42533,6 +42763,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The chair is next to the table.",
     },
   },
+  [normalizeText("The cheerful kitten smiles after being brushed.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_practice_success_a1392cec.mp3",
+      text: "The cheerful kitten smiles after being brushed.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_practice_success_a1392cec.mp3",
+      text: "The cheerful kitten smiles after being brushed.",
+    },
+  },
   [normalizeText("The chicken is at the top.")]: {
     "en-US": {
       key: "lessons/animal-trip/farm-yard/audio/en-US/neural2-c-r1/tap_chicken_fail_377e9f3a.mp3",
@@ -42573,14 +42813,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The clapping card is in the bottom middle.",
     },
   },
-  [normalizeText("The clean brush keeps the kitten fresh.")]: {
+  [normalizeText("The clean brush is ready for grooming.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
-      text: "The clean brush keeps the kitten fresh.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_success_81d36100.mp3",
+      text: "The clean brush is ready for grooming.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
-      text: "The clean brush keeps the kitten fresh.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_success_81d36100.mp3",
+      text: "The clean brush is ready for grooming.",
     },
   },
   [normalizeText("The clean cool water is ready for the rabbit.")]: {
@@ -42611,6 +42851,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/turn_on_water_success_fbdb60a1.mp3",
       text: "The clean water is flowing now.",
+    },
+  },
+  [normalizeText("The clean water is now beside the thirsty rabbit.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_afe2d83b.mp3",
+      text: "The clean water is now beside the thirsty rabbit.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_afe2d83b.mp3",
+      text: "The clean water is now beside the thirsty rabbit.",
     },
   },
   [normalizeText("The cleaning brush is in the right place.")]: {
@@ -42901,6 +43151,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/lunch-time/lunch-table/audio/en-GB/neural2-c-r1/lunchtable_tap_cup_fail_1e4f1899.mp3",
       text: "The cup is on the table.",
+    },
+  },
+  [normalizeText("The curled tail makes a rounded shape by the paws.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_practice_success_0bb9f383.mp3",
+      text: "The curled tail makes a rounded shape by the paws.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_practice_success_0bb9f383.mp3",
+      text: "The curled tail makes a rounded shape by the paws.",
     },
   },
   [normalizeText("The curtain is on the right.")]: {
@@ -43333,6 +43593,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The flower is growing on the right.",
     },
   },
+  [normalizeText("The flowering plant is between the two visitors.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_fail_37aaa9e2.mp3",
+      text: "The flowering plant is between the two visitors.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_fail_37aaa9e2.mp3",
+      text: "The flowering plant is between the two visitors.",
+    },
+  },
   [normalizeText("The flowerpot is in the lower middle.")]: {
     "en-US": {
       key: "lessons/garden-to-table/save-for-next-season/audio/en-US/neural2-c-r1/celebrate_new_season_fail_2b2ec4ef.mp3",
@@ -43351,6 +43621,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/fluffy_kitten_practice_success_e9694104.mp3",
       text: "The fluffy kitten looks like a soft little puff.",
+    },
+  },
+  [normalizeText("The fluffy towel dries the paws gently.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel_practice_success_2f6991c5.mp3",
+      text: "The fluffy towel dries the paws gently.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel_practice_success_2f6991c5.mp3",
+      text: "The fluffy towel dries the paws gently.",
     },
   },
   [normalizeText("The foam is in the bathtub.")]: {
@@ -43441,6 +43721,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/park-visit/park-entrance/audio/en-GB/neural2-c-r1/tap_fountain_fail_2663c233.mp3",
       text: "The fountain is on the right.",
+    },
+  },
+  [normalizeText("The friendly kitten comes out to greet you.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_practice_success_491e565a.mp3",
+      text: "The friendly kitten comes out to greet you.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_practice_success_491e565a.mp3",
+      text: "The friendly kitten comes out to greet you.",
     },
   },
   [normalizeText("The frisbee is at the top.")]: {
@@ -43561,16 +43851,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_practice_success_ec929e65.mp3",
       text: "The gentle brush is ready to use.",
-    },
-  },
-  [normalizeText("The gentle purring sounds like a sweet lullaby.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
-      text: "The gentle purring sounds like a sweet lullaby.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
-      text: "The gentle purring sounds like a sweet lullaby.",
     },
   },
   [normalizeText("The gentle rabbit stays calm by the full rack.")]: {
@@ -43741,26 +44021,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/harvest-day/pick-gently/audio/en-GB/neural2-c-r1/prepare_hand_success_b30897bb.mp3",
       text: "The hand will support and turn the tomato gently.",
-    },
-  },
-  [normalizeText("The happy cat feels loved and peaceful.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
-      text: "The happy cat feels loved and peaceful.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
-      text: "The happy cat feels loved and peaceful.",
-    },
-  },
-  [normalizeText("The happy rabbit hops and you remember to wash your hands.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
-      text: "The happy rabbit hops and you remember to wash your hands.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
-      text: "The happy rabbit hops and you remember to wash your hands.",
     },
   },
   [normalizeText("The hard spiral is the snail’s shell.")]: {
@@ -43963,14 +44223,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten answers with a meow.",
     },
   },
-  [normalizeText("The kitten came close and rubbed its head happily.")]: {
+  [normalizeText("The kitten approaches with its tail held up.")]: {
     "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/completion_48c776e6.mp3",
-      text: "The kitten came close and rubbed its head happily.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_practice_success_eccf187c.mp3",
+      text: "The kitten approaches with its tail held up.",
     },
     "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/completion_48c776e6.mp3",
-      text: "The kitten came close and rubbed its head happily.",
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_practice_success_eccf187c.mp3",
+      text: "The kitten approaches with its tail held up.",
+    },
+  },
+  [normalizeText("The kitten came close and gently rubbed its head.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/completion_dae29c30.mp3",
+      text: "The kitten came close and gently rubbed its head.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/completion_dae29c30.mp3",
+      text: "The kitten came close and gently rubbed its head.",
     },
   },
   [normalizeText("The kitten came out and looked at you.")]: {
@@ -44013,16 +44283,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten enjoys the soft gentle brushing.",
     },
   },
-  [normalizeText("The kitten feels so relaxed. It purrs happily with joy.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_intro_18134f85.mp3",
-      text: "The kitten feels so relaxed. It purrs happily with joy.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_intro_18134f85.mp3",
-      text: "The kitten feels so relaxed. It purrs happily with joy.",
-    },
-  },
   [normalizeText("The kitten fur looks soft.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/soft_practice_success_ddc06b6a.mp3",
@@ -44031,6 +44291,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/soft_practice_success_ddc06b6a.mp3",
       text: "The kitten fur looks soft.",
+    },
+  },
+  [normalizeText("The kitten gently rubs its head against your hand.")]: {
+    "en-US": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/pet_gently_practice_success_2ff9146d.mp3",
+      text: "The kitten gently rubs its head against your hand.",
+    },
+    "en-GB": {
+      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/pet_gently_practice_success_2ff9146d.mp3",
+      text: "The kitten gently rubs its head against your hand.",
     },
   },
   [normalizeText("The kitten gently wiggles its tail.")]: {
@@ -44043,26 +44313,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten gently wiggles its tail.",
     },
   },
-  [normalizeText("The kitten happily rubs its head against your hand.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/pet_gently_practice_success_5a2eb875.mp3",
-      text: "The kitten happily rubs its head against your hand.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/pet_gently_practice_success_5a2eb875.mp3",
-      text: "The kitten happily rubs its head against your hand.",
-    },
-  },
-  [normalizeText("The kitten has delightfully soft fur.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
-      text: "The kitten has delightfully soft fur.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
-      text: "The kitten has delightfully soft fur.",
-    },
-  },
   [normalizeText("The kitten hears the call and comes out.")]: {
     "en-US": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/call_practice_success_43da7fa8.mp3",
@@ -44071,16 +44321,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/call_practice_success_43da7fa8.mp3",
       text: "The kitten hears the call and comes out.",
-    },
-  },
-  [normalizeText("The kitten is happy that you found it.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/happy_practice_success_58f792aa.mp3",
-      text: "The kitten is happy that you found it.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/happy_practice_success_58f792aa.mp3",
-      text: "The kitten is happy that you found it.",
     },
   },
   [normalizeText("The kitten is hiding behind the curtain.")]: {
@@ -44113,14 +44353,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten is looking at you and waiting.",
     },
   },
-  [normalizeText("The kitten is neatly groomed and purring happily.")]: {
+  [normalizeText("The kitten is lying down with its eyes closed.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/completion_70e8e7ff.mp3",
-      text: "The kitten is neatly groomed and purring happily.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/intro_success_7d6ebd7a.mp3",
+      text: "The kitten is lying down with its eyes closed.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/completion_70e8e7ff.mp3",
-      text: "The kitten is neatly groomed and purring happily.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/intro_success_7d6ebd7a.mp3",
+      text: "The kitten is lying down with its eyes closed.",
+    },
+  },
+  [normalizeText("The kitten is neatly groomed and making a soft purr.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/completion_196e7455.mp3",
+      text: "The kitten is neatly groomed and making a soft purr.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/completion_196e7455.mp3",
+      text: "The kitten is neatly groomed and making a soft purr.",
     },
   },
   [normalizeText("The kitten is not behind the basket either.")]: {
@@ -44153,14 +44403,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten is peeking out. Call your friend to come out.",
     },
   },
-  [normalizeText("The kitten is relaxing in your gentle care.")]: {
+  [normalizeText("The kitten is resting quietly. It makes a soft purring sound.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/intro_success_54cdcf69.mp3",
-      text: "The kitten is relaxing in your gentle care.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_intro_4288567f.mp3",
+      text: "The kitten is resting quietly. It makes a soft purring sound.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/intro_success_54cdcf69.mp3",
-      text: "The kitten is relaxing in your gentle care.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_intro_4288567f.mp3",
+      text: "The kitten is resting quietly. It makes a soft purring sound.",
     },
   },
   [normalizeText("The kitten is sitting beside the curtain.")]: {
@@ -44183,24 +44433,24 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten is sitting calmly waiting for brushing.",
     },
   },
-  [normalizeText("The kitten looks clean and adorable.")]: {
+  [normalizeText("The kitten makes a soft purr while lying down.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
-      text: "The kitten looks clean and adorable.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_practice_success_f1f18b10.mp3",
+      text: "The kitten makes a soft purr while lying down.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
-      text: "The kitten looks clean and adorable.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_practice_success_f1f18b10.mp3",
+      text: "The kitten makes a soft purr while lying down.",
     },
   },
-  [normalizeText("The kitten makes a sweet purr and dozes peacefully.")]: {
+  [normalizeText("The kitten makes a soft sound with gentle vibrations.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
-      text: "The kitten makes a sweet purr and dozes peacefully.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_practice_success_64ffe4c3.mp3",
+      text: "The kitten makes a soft sound with gentle vibrations.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
-      text: "The kitten makes a sweet purr and dozes peacefully.",
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_practice_success_64ffe4c3.mp3",
+      text: "The kitten makes a soft sound with gentle vibrations.",
     },
   },
   [normalizeText("The kitten paw is small and soft.")]: {
@@ -44213,16 +44463,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten paw is small and soft.",
     },
   },
-  [normalizeText("The kitten purrs with warm happy vibrations.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
-      text: "The kitten purrs with warm happy vibrations.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
-      text: "The kitten purrs with warm happy vibrations.",
-    },
-  },
   [normalizeText("The kitten sits nicely on the mat for grooming.")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely_practice_success_99306765.mp3",
@@ -44231,16 +44471,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely_practice_success_99306765.mp3",
       text: "The kitten sits nicely on the mat for grooming.",
-    },
-  },
-  [normalizeText("The kitten smiles with sweet joy.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
-      text: "The kitten smiles with sweet joy.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
-      text: "The kitten smiles with sweet joy.",
     },
   },
   [normalizeText("The kitten snuggles against your hand with love.")]: {
@@ -44263,6 +44493,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The kitten wants to play hide-and-seek. Say hello to your friend.",
     },
   },
+  [normalizeText("The kitten’s brushed fur looks neat and tidy.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_practice_success_172517c8.mp3",
+      text: "The kitten’s brushed fur looks neat and tidy.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_practice_success_172517c8.mp3",
+      text: "The kitten’s brushed fur looks neat and tidy.",
+    },
+  },
   [normalizeText("The kitten’s coat is smooth and shiny.")]: {
     "en-US": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/completion_b3890fdf.mp3",
@@ -44271,16 +44511,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/completion_b3890fdf.mp3",
       text: "The kitten’s coat is smooth and shiny.",
-    },
-  },
-  [normalizeText("The kitten’s coat shines bright and healthy.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
-      text: "The kitten’s coat shines bright and healthy.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
-      text: "The kitten’s coat shines bright and healthy.",
     },
   },
   [normalizeText("The kitten’s fur is a little messy. Let’s get a soft brush.")]: {
@@ -44301,16 +44531,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/smooth_practice_success_63334c0d.mp3",
       text: "The kitten’s fur is now smooth and neat.",
-    },
-  },
-  [normalizeText("The kitten’s tail sways gently with happiness.")]: {
-    "en-US": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_success_12907e40.mp3",
-      text: "The kitten’s tail sways gently with happiness.",
-    },
-    "en-GB": {
-      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_success_12907e40.mp3",
-      text: "The kitten’s tail sways gently with happiness.",
     },
   },
   [normalizeText("The knee is at the bottom.")]: {
@@ -44491,6 +44711,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/garden-to-table/make-and-share/audio/en-GB/neural2-c-r1/add_lettuce_success_9185f0e7.mp3",
       text: "The lettuce is in the bowl now.",
+    },
+  },
+  [normalizeText("The lettuce is in the colander. Now add the cucumber.")]: {
+    "en-US": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_lettuce_in_colander_success_bc0e2e94.mp3",
+      text: "The lettuce is in the colander. Now add the cucumber.",
+    },
+    "en-GB": {
+      key: "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_lettuce_in_colander_success_bc0e2e94.mp3",
+      text: "The lettuce is in the colander. Now add the cucumber.",
     },
   },
   [normalizeText("The lettuce leaves are clean now.")]: {
@@ -45103,14 +45333,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The pencil is on the table.",
     },
   },
-  [normalizeText("The pet brush is soft and safe for the kitten.")]: {
+  [normalizeText("The pet brush has soft, rounded bristles for gentle grooming.")]: {
     "en-US": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
-      text: "The pet brush is soft and safe for the kitten.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_success_cc89763c.mp3",
+      text: "The pet brush has soft, rounded bristles for gentle grooming.",
     },
     "en-GB": {
-      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
-      text: "The pet brush is soft and safe for the kitten.",
+      key: "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_success_cc89763c.mp3",
+      text: "The pet brush has soft, rounded bristles for gentle grooming.",
     },
   },
   [normalizeText("The picnic mat is on the right.")]: {
@@ -45333,6 +45563,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The plate is on the table.",
     },
   },
+  [normalizeText("The playful puppy invites you to play another turn.")]: {
+    "en-US": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_practice_success_fd9b5946.mp3",
+      text: "The playful puppy invites you to play another turn.",
+    },
+    "en-GB": {
+      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_practice_success_fd9b5946.mp3",
+      text: "The playful puppy invites you to play another turn.",
+    },
+  },
   [normalizeText("The playground is so much fun!")]: {
     "en-US": {
       key: "lessons/playtime/playground/audio/en-US/neural2-c-r1/intro_success_4da24919.mp3",
@@ -45371,6 +45611,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/plant-a-seed/prepare-the-pot/audio/en-GB/neural2-c-r1/completion_84062a15.mp3",
       text: "The pot of soil is ready for a seed.",
+    },
+  },
+  [normalizeText("The potted plant with the yellow flower is in the middle.")]: {
+    "en-US": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/observe_visitors_fail_bd5d637d.mp3",
+      text: "The potted plant with the yellow flower is in the middle.",
+    },
+    "en-GB": {
+      key: "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/observe_visitors_fail_bd5d637d.mp3",
+      text: "The potted plant with the yellow flower is in the middle.",
     },
   },
   [normalizeText("The pouring scoop is in the lower-left picture.")]: {
@@ -45463,14 +45713,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy caught the ball. Help it bring the ball back to you.",
     },
   },
-  [normalizeText("The puppy finished eating and feels happy.")]: {
+  [normalizeText("The puppy finished eating, so you celebrate together.")]: {
     "en-US": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_practice_success_8b7e42be.mp3",
-      text: "The puppy finished eating and feels happy.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate_practice_success_98afb556.mp3",
+      text: "The puppy finished eating, so you celebrate together.",
     },
     "en-GB": {
-      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_practice_success_8b7e42be.mp3",
-      text: "The puppy finished eating and feels happy.",
+      key: "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate_practice_success_98afb556.mp3",
+      text: "The puppy finished eating, so you celebrate together.",
     },
   },
   [normalizeText("The puppy gave you the ball.")]: {
@@ -45511,36 +45761,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/intro_success_d4a5ef1b.mp3",
       text: "The puppy is far away with the ball.",
-    },
-  },
-  [normalizeText("The puppy is happy to hear hello.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/hello_practice_success_fba6bddd.mp3",
-      text: "The puppy is happy to hear hello.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/hello_practice_success_fba6bddd.mp3",
-      text: "The puppy is happy to hear hello.",
-    },
-  },
-  [normalizeText("The puppy is happy to play gently with you.")]: {
-    "en-US": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_practice_success_acc31fa5.mp3",
-      text: "The puppy is happy to play gently with you.",
-    },
-    "en-GB": {
-      key: "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_practice_success_acc31fa5.mp3",
-      text: "The puppy is happy to play gently with you.",
-    },
-  },
-  [normalizeText("The puppy is happy with its clean dry paws.")]: {
-    "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/happy_practice_success_71586e9e.mp3",
-      text: "The puppy is happy with its clean dry paws.",
-    },
-    "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/happy_practice_success_71586e9e.mp3",
-      text: "The puppy is happy with its clean dry paws.",
     },
   },
   [normalizeText("The puppy is holding the ball in its mouth.")]: {
@@ -45683,6 +45903,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The puppy is waiting on the mat for help.",
     },
   },
+  [normalizeText("The puppy likes hearing your hello.")]: {
+    "en-US": {
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/hello_practice_success_a6357533.mp3",
+      text: "The puppy likes hearing your hello.",
+    },
+    "en-GB": {
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/hello_practice_success_a6357533.mp3",
+      text: "The puppy likes hearing your hello.",
+    },
+  },
   [normalizeText("The puppy paws are clean and dry, and you remembered to wash your hands.")]: {
     "en-US": {
       key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/completion_2d4277f9.mp3",
@@ -45721,6 +45951,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/play-with-the-puppy/roll-and-catch/audio/en-GB/neural2-c-r1/run_practice_success_7ce32789.mp3",
       text: "The puppy ran to the ball.",
+    },
+  },
+  [normalizeText("The puppy stands on four clean, dry paws.")]: {
+    "en-US": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_practice_success_ed191888.mp3",
+      text: "The puppy stands on four clean, dry paws.",
+    },
+    "en-GB": {
+      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_practice_success_ed191888.mp3",
+      text: "The puppy stands on four clean, dry paws.",
     },
   },
   [normalizeText("The puppy stops on the mat.")]: {
@@ -45843,6 +46083,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The purple grapes are just above the blue scale.",
     },
   },
+  [normalizeText("The purr is a soft sound with gentle vibrations.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr_practice_success_03f85fcd.mp3",
+      text: "The purr is a soft sound with gentle vibrations.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr_practice_success_03f85fcd.mp3",
+      text: "The purr is a soft sound with gentle vibrations.",
+    },
+  },
   [normalizeText("The puzzle is next to the paper.")]: {
     "en-US": {
       key: "lessons/home-play/creative-play/audio/en-US/neural2-c-r1/tap_puzzle_fail_d5d6ac61.mp3",
@@ -45873,14 +46123,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The quiet sign is on the right.",
     },
   },
-  [normalizeText("The rabbit chews the crisp hay happily.")]: {
+  [normalizeText("The rabbit ate the small treat and hopped lightly.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_a789d365.mp3",
-      text: "The rabbit chews the crisp hay happily.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_89f3192c.mp3",
+      text: "The rabbit ate the small treat and hopped lightly.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_a789d365.mp3",
-      text: "The rabbit chews the crisp hay happily.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_89f3192c.mp3",
+      text: "The rabbit ate the small treat and hopped lightly.",
     },
   },
   [normalizeText("The rabbit drinks when it is thirsty.")]: {
@@ -45893,16 +46143,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The rabbit drinks when it is thirsty.",
     },
   },
-  [normalizeText("The rabbit ears wiggle with happiness.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
-      text: "The rabbit ears wiggle with happiness.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
-      text: "The rabbit ears wiggle with happiness.",
-    },
-  },
   [normalizeText("The rabbit enjoyed fresh and cool clean water.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/completion_03387eb0.mp3",
@@ -45913,34 +46153,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The rabbit enjoyed fresh and cool clean water.",
     },
   },
-  [normalizeText("The rabbit enjoyed the treat and hopped around with joy.")]: {
+  [normalizeText("The rabbit finishes drinking and raises its head.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_5bceb0a0.mp3",
-      text: "The rabbit enjoyed the treat and hopped around with joy.",
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_fb834685.mp3",
+      text: "The rabbit finishes drinking and raises its head.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_5bceb0a0.mp3",
-      text: "The rabbit enjoyed the treat and hopped around with joy.",
-    },
-  },
-  [normalizeText("The rabbit enjoys nibbling the small treat.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
-      text: "The rabbit enjoys nibbling the small treat.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
-      text: "The rabbit enjoys nibbling the small treat.",
-    },
-  },
-  [normalizeText("The rabbit finished drinking and feels refreshed.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
-      text: "The rabbit finished drinking and feels refreshed.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
-      text: "The rabbit finished drinking and feels refreshed.",
+      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_fb834685.mp3",
+      text: "The rabbit finishes drinking and raises its head.",
     },
   },
   [normalizeText("The rabbit gently wiggles its ears.")]: {
@@ -45953,14 +46173,44 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The rabbit gently wiggles its ears.",
     },
   },
-  [normalizeText("The rabbit hops around with joy.")]: {
+  [normalizeText("the rabbit hops")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
-      text: "The rabbit hops around with joy.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/the_rabbit_hops.mp3",
+      text: "the rabbit hops",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
-      text: "The rabbit hops around with joy.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/the_rabbit_hops.mp3",
+      text: "the rabbit hops",
+    },
+  },
+  [normalizeText("The rabbit hops and you remember to wash your hands.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_practice_success_9d530c2e.mp3",
+      text: "The rabbit hops and you remember to wash your hands.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_practice_success_9d530c2e.mp3",
+      text: "The rabbit hops and you remember to wash your hands.",
+    },
+  },
+  [normalizeText("The rabbit hops lightly around its spot.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_64f1927e.mp3",
+      text: "The rabbit hops lightly around its spot.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_64f1927e.mp3",
+      text: "The rabbit hops lightly around its spot.",
+    },
+  },
+  [normalizeText("The rabbit hops means that the rabbit jumps with springy steps.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/the_rabbit_hops_teach_success_be0bfce7.mp3",
+      text: "The rabbit hops means that the rabbit jumps with springy steps.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/the_rabbit_hops_teach_success_be0bfce7.mp3",
+      text: "The rabbit hops means that the rabbit jumps with springy steps.",
     },
   },
   [normalizeText("The rabbit is eagerly waiting for the treat.")]: {
@@ -45971,16 +46221,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/intro_success_9a16a854.mp3",
       text: "The rabbit is eagerly waiting for the treat.",
-    },
-  },
-  [normalizeText("The rabbit is happy from your gentle care.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
-      text: "The rabbit is happy from your gentle care.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
-      text: "The rabbit is happy from your gentle care.",
     },
   },
   [normalizeText("The rabbit is hungry. Let’s prepare fresh sweet hay.")]: {
@@ -46023,6 +46263,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The rabbit is waiting calmly for help.",
     },
   },
+  [normalizeText("The rabbit nibbles the small treat.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_89de0544.mp3",
+      text: "The rabbit nibbles the small treat.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_89de0544.mp3",
+      text: "The rabbit nibbles the small treat.",
+    },
+  },
   [normalizeText("The rabbit rests calmly when petted gently.")]: {
     "en-US": {
       key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
@@ -46033,14 +46283,44 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The rabbit rests calmly when petted gently.",
     },
   },
-  [normalizeText("The rabbit’s fur is warm and soft.")]: {
+  [normalizeText("The rabbit sits calmly after the gentle pet.")]: {
     "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
-      text: "The rabbit’s fur is warm and soft.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_practice_success_91eb1b29.mp3",
+      text: "The rabbit sits calmly after the gentle pet.",
     },
     "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
-      text: "The rabbit’s fur is warm and soft.",
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_practice_success_91eb1b29.mp3",
+      text: "The rabbit sits calmly after the gentle pet.",
+    },
+  },
+  [normalizeText("The rabbit steadily chews the crisp hay.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_78d2e468.mp3",
+      text: "The rabbit steadily chews the crisp hay.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_78d2e468.mp3",
+      text: "The rabbit steadily chews the crisp hay.",
+    },
+  },
+  [normalizeText("The rabbit’s fluffy fur looks soft and light.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur_practice_success_f5e00012.mp3",
+      text: "The rabbit’s fluffy fur looks soft and light.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur_practice_success_f5e00012.mp3",
+      text: "The rabbit’s fluffy fur looks soft and light.",
+    },
+  },
+  [normalizeText("The rabbit’s long ears wiggle gently.")]: {
+    "en-US": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears_practice_success_055d0987.mp3",
+      text: "The rabbit’s long ears wiggle gently.",
+    },
+    "en-GB": {
+      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears_practice_success_055d0987.mp3",
+      text: "The rabbit’s long ears wiggle gently.",
     },
   },
   [normalizeText("The rack is filled with sweet hay.")]: {
@@ -46141,6 +46421,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/harvest-day/find-the-ripe-ones/audio/en-GB/neural2-c-r1/inspect_red_tomato_success_b113502d.mp3",
       text: "The red, round, firm tomato is easy to see.",
+    },
+  },
+  [normalizeText("The relaxed kitten rests in its cozy spot.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_practice_success_8e25e191.mp3",
+      text: "The relaxed kitten rests in its cozy spot.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_practice_success_8e25e191.mp3",
+      text: "The relaxed kitten rests in its cozy spot.",
     },
   },
   [normalizeText("The rest is at the top.")]: {
@@ -47003,16 +47293,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The soft mat is placed neatly on the floor.",
     },
   },
-  [normalizeText("The soft towel dries the paws gently.")]: {
-    "en-US": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_success_043448a2.mp3",
-      text: "The soft towel dries the paws gently.",
-    },
-    "en-GB": {
-      key: "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_success_043448a2.mp3",
-      text: "The soft towel dries the paws gently.",
-    },
-  },
   [normalizeText("The soft toy is next to the sleep mask.")]: {
     "en-US": {
       key: "lessons/bedtime/sleep-ready/audio/en-US/neural2-c-r1/tap_comfort_plush_fail_f5d67e59.mp3",
@@ -47403,24 +47683,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "The table is in the middle of the room.",
     },
   },
-  [normalizeText("The tail is up happily.")]: {
+  [normalizeText("The tail is moving from side to side.")]: {
     "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_practice_success_fca8b902.mp3",
-      text: "The tail is up happily.",
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/tail_practice_success_067673c7.mp3",
+      text: "The tail is moving from side to side.",
     },
     "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_practice_success_fca8b902.mp3",
-      text: "The tail is up happily.",
-    },
-  },
-  [normalizeText("The tail is wagging happily.")]: {
-    "en-US": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/tail_practice_success_d2bd3cee.mp3",
-      text: "The tail is wagging happily.",
-    },
-    "en-GB": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/tail_practice_success_d2bd3cee.mp3",
-      text: "The tail is wagging happily.",
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/tail_practice_success_067673c7.mp3",
+      text: "The tail is moving from side to side.",
     },
   },
   [normalizeText("The taking-turns card is at the bottom left.")]: {
@@ -47531,16 +47801,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/tap_thermometer_fail_e7233c04.mp3",
       text: "The thermometer is on the right.",
-    },
-  },
-  [normalizeText("The thirsty rabbit is glad to have water.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
-      text: "The thirsty rabbit is glad to have water.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
-      text: "The thirsty rabbit is glad to have water.",
     },
   },
   [normalizeText("The ticket is on the right.")]: {
@@ -48221,16 +48481,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/doctor-visit/health-check/audio/en-GB/neural2-c-r1/thermometer.mp3",
       text: "thermometer",
-    },
-  },
-  [normalizeText("These are long soft rabbit ears.")]: {
-    "en-US": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
-      text: "These are long soft rabbit ears.",
-    },
-    "en-GB": {
-      key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
-      text: "These are long soft rabbit ears.",
     },
   },
   [normalizeText("These are muddy pawprints.")]: {
@@ -50561,16 +50811,6 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This is the kite.",
     },
   },
-  [normalizeText("This is the kitten tail.")]: {
-    "en-US": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_teach_success_73219185.mp3",
-      text: "This is the kitten tail.",
-    },
-    "en-GB": {
-      key: "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_teach_success_73219185.mp3",
-      text: "This is the kitten tail.",
-    },
-  },
   [normalizeText("This is the knee.")]: {
     "en-US": {
       key: "lessons/afternoon-bath/bath-rinse/audio/en-US/neural2-c-r1/prompt_teach_knee_85e6cdd8.mp3",
@@ -52863,6 +53103,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "This lesson needs a parent to unlock it. Ask a parent for help!",
     },
   },
+  [normalizeText("This phrase means pay attention while the kitten makes its soft purr.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr_teach_success_69452e5f.mp3",
+      text: "This phrase means pay attention while the kitten makes its soft purr.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr_teach_success_69452e5f.mp3",
+      text: "This phrase means pay attention while the kitten makes its soft purr.",
+    },
+  },
   [normalizeText("throw away the wrapper")]: {
     "en-US": {
       key: "lessons/snack-time/snack-cleanup/audio/en-US/neural2-c-r1/throw_away_the_wrapper.mp3",
@@ -54515,14 +54765,14 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
       text: "wag",
     },
   },
-  [normalizeText("Wag means to move the tail happily.")]: {
+  [normalizeText("Wag means to move the tail from side to side.")]: {
     "en-US": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/wag_teach_success_99c7cff9.mp3",
-      text: "Wag means to move the tail happily.",
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/wag_teach_success_e9a9b17f.mp3",
+      text: "Wag means to move the tail from side to side.",
     },
     "en-GB": {
-      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/wag_teach_success_99c7cff9.mp3",
-      text: "Wag means to move the tail happily.",
+      key: "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/wag_teach_success_e9a9b17f.mp3",
+      text: "Wag means to move the tail from side to side.",
     },
   },
   [normalizeText("waistband")]: {
@@ -57381,6 +57631,16 @@ const enAudioByText: Record<string, EnglishAudioAssets> = {
     "en-GB": {
       key: "lessons/afternoon-home/ride-home/audio/en-GB/neural2-c-r1/completion_397ac373.mp3",
       text: "You traveled home safely.",
+    },
+  },
+  [normalizeText("You use light strokes along the kitten’s fur.")]: {
+    "en-US": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_success_bb2dde3d.mp3",
+      text: "You use light strokes along the kitten’s fur.",
+    },
+    "en-GB": {
+      key: "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_success_bb2dde3d.mp3",
+      text: "You use light strokes along the kitten’s fur.",
     },
   },
   [normalizeText("You used a library card and returned a book.")]: {
@@ -62692,13 +62952,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/put_it_down_teach_success_83f1dafe.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là đặt bát xuống.",
   },
-  [normalizeText("Chạm thỏ để bạn ngẩng đầu vui vẻ nhé.")]: {
-    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_93c52f0a.mp3",
-    text: "Chạm thỏ để bạn ngẩng đầu vui vẻ nhé.",
+  [normalizeText("Chạm thỏ sau khi bạn uống xong nhé.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_d7bd059c.mp3",
+    text: "Chạm thỏ sau khi bạn uống xong nhé.",
   },
-  [normalizeText("Thỏ đã uống no nước và rất sảng khoái.")]: {
-    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_success_b3a56ee2.mp3",
-    text: "Thỏ đã uống no nước và rất sảng khoái.",
+  [normalizeText("Thỏ uống xong và ngẩng đầu lên.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_practice_success_231d6696.mp3",
+    text: "Thỏ uống xong và ngẩng đầu lên.",
   },
   [normalizeText("Chạm bạn thỏ đang uống nước nhé.")]: {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/rabbit_drinks_teach_2e36c1c4.mp3",
@@ -62716,9 +62976,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_practice_6ba024da.mp3",
     text: "Chạm thỏ để đưa bát nước lại gần nhé.",
   },
-  [normalizeText("Thỏ rất thích nước mát sạch.")]: {
-    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_practice_success_e2bb7264.mp3",
-    text: "Thỏ rất thích nước mát sạch.",
+  [normalizeText("Bát nước sạch đã ở ngay cạnh thỏ.")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_practice_success_ea56c3df.mp3",
+    text: "Bát nước sạch đã ở ngay cạnh thỏ.",
   },
   [normalizeText("Chạm bạn thỏ đang khát nhé.")]: {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_teach_3ffac82c.mp3",
@@ -62984,6 +63244,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_teach_success_8f698971.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ con.",
   },
+  [normalizeText("Chạm thỏ để bạn ngồi bình tĩnh nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_practice_0a7b6d6e.mp3",
+    text: "Chạm thỏ để bạn ngồi bình tĩnh nhé.",
+  },
+  [normalizeText("Thỏ ngồi bình tĩnh sau khi được vuốt nhẹ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_practice_success_355fd15e.mp3",
+    text: "Thỏ ngồi bình tĩnh sau khi được vuốt nhẹ.",
+  },
+  [normalizeText("Chạm bạn thỏ đang nằm yên nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_teach_7f40a901.mp3",
+    text: "Chạm bạn thỏ đang nằm yên nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ nằm yên dưới bàn tay nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_teach_fail_b505524c.mp3",
+    text: "Chạm bạn thỏ nằm yên dưới bàn tay nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bình tĩnh.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_teach_success_84621a68.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bình tĩnh.",
+  },
   [normalizeText("Chạm cà rốt để chuẩn bị đưa cho thỏ nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_practice_08d1e7db.mp3",
     text: "Chạm cà rốt để chuẩn bị đưa cho thỏ nhé.",
@@ -63004,17 +63284,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/carrot_teach_success_efb12e1d.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là cà rốt.",
   },
-  [normalizeText("Thỏ đã ăn ngon và nhảy nhót thật vui vẻ.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/completion_e05f68e8.mp3",
-    text: "Thỏ đã ăn ngon và nhảy nhót thật vui vẻ.",
+  [normalizeText("Thỏ đã ăn món nhỏ và bật nhảy nhẹ nhàng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/completion_8103df91.mp3",
+    text: "Thỏ đã ăn món nhỏ và bật nhảy nhẹ nhàng.",
   },
   [normalizeText("Chạm thỏ để nhìn tai ngọ nguậy nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_practice_ce6e3b76.mp3",
     text: "Chạm thỏ để nhìn tai ngọ nguậy nhé.",
-  },
-  [normalizeText("Đôi tai thỏ ngọ nguậy rung rinh vui thích.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_practice_success_09a2c056.mp3",
-    text: "Đôi tai thỏ ngọ nguậy rung rinh vui thích.",
   },
   [normalizeText("Chạm đôi tai dài của thỏ nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_c07da640.mp3",
@@ -63023,10 +63299,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Chạm hai chiếc tai vểnh cao nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_fail_5f1c2568.mp3",
     text: "Chạm hai chiếc tai vểnh cao nhé.",
-  },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đôi tai thỏ.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/ears_teach_success_af1175bc.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là đôi tai thỏ.",
   },
   [normalizeText("Chạm thỏ để hoàn thành bữa ăn nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_practice_8c5c8709.mp3",
@@ -63048,53 +63320,21 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/feed_the_rabbit_teach_success_3d681974.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là cho thỏ ăn.",
   },
-  [normalizeText("Chạm thỏ để bạn vui cùng bé nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_practice_90066236.mp3",
-    text: "Chạm thỏ để bạn vui cùng bé nhé.",
+  [normalizeText("Bộ lông của bạn thỏ trông bông xốp và mềm.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/fluffy_fur_practice_success_b71122bf.mp3",
+    text: "Bộ lông của bạn thỏ trông bông xốp và mềm.",
   },
-  [normalizeText("Thỏ rất vui vì được chăm sóc chu đáo.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_practice_success_e452b205.mp3",
-    text: "Thỏ rất vui vì được chăm sóc chu đáo.",
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bộ lông bông xốp.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/fluffy_fur_teach_success_b867fbcd.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là bộ lông bông xốp.",
   },
-  [normalizeText("Chạm thỏ và nhớ rửa tay nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_908a790c.mp3",
-    text: "Chạm thỏ và nhớ rửa tay nhé.",
+  [normalizeText("Chạm thỏ để xem bạn bật nhảy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_a4b9ccef.mp3",
+    text: "Chạm thỏ để xem bạn bật nhảy nhé.",
   },
-  [normalizeText("Chạm bạn thỏ vui vẻ nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_fail_c88de101.mp3",
-    text: "Chạm bạn thỏ vui vẻ nhé.",
-  },
-  [normalizeText("Thỏ nhảy vui sướng và bé nhớ rửa tay sạch sẽ.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_practice_success_7e380013.mp3",
-    text: "Thỏ nhảy vui sướng và bé nhớ rửa tay sạch sẽ.",
-  },
-  [normalizeText("Chạm chú thỏ vui sướng nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_df5a836b.mp3",
-    text: "Chạm chú thỏ vui sướng nhé.",
-  },
-  [normalizeText("Chạm bạn thỏ vui sướng nhảy tung tăng nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_fail_6b5d3692.mp3",
-    text: "Chạm bạn thỏ vui sướng nhảy tung tăng nhé.",
-  },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ vui sướng.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_rabbit_teach_success_4e1e7184.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ vui sướng.",
-  },
-  [normalizeText("Chạm bạn thỏ đang vui nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_teach_8eea7886.mp3",
-    text: "Chạm bạn thỏ đang vui nhé.",
-  },
-  [normalizeText("Chạm bạn thỏ đang mỉm cười nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/happy_teach_fail_4c1b059a.mp3",
-    text: "Chạm bạn thỏ đang mỉm cười nhé.",
-  },
-  [normalizeText("Chạm thỏ để xem bạn nhảy vui vẻ nhé.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_27b28087.mp3",
-    text: "Chạm thỏ để xem bạn nhảy vui vẻ nhé.",
-  },
-  [normalizeText("Thỏ bật nhảy tung tăng vui sướng.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_success_5d0b9dbc.mp3",
-    text: "Thỏ bật nhảy tung tăng vui sướng.",
+  [normalizeText("Thỏ bật nhảy nhẹ nhàng quanh chỗ đứng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_practice_success_bdf3009c.mp3",
+    text: "Thỏ bật nhảy nhẹ nhàng quanh chỗ đứng.",
   },
   [normalizeText("Chạm bạn thỏ đang nhảy nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/hop_teach_8cee8c39.mp3",
@@ -63116,13 +63356,21 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/intro_success_354d891f.mp3",
     text: "Thỏ đang háo hức chờ món thưởng nhỏ.",
   },
+  [normalizeText("Đôi tai dài của thỏ ngọ nguậy nhẹ nhàng.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/long_ears_practice_success_558a8e1c.mp3",
+    text: "Đôi tai dài của thỏ ngọ nguậy nhẹ nhàng.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đôi tai dài.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/long_ears_teach_success_3f147baf.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đôi tai dài.",
+  },
   [normalizeText("Chạm thỏ để vuốt theo chiều lông nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_practice_72e8615d.mp3",
     text: "Chạm thỏ để vuốt theo chiều lông nhé.",
   },
-  [normalizeText("Thỏ nằm yên thích thú khi được vuốt nhẹ.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_practice_success_84f01093.mp3",
-    text: "Thỏ nằm yên thích thú khi được vuốt nhẹ.",
+  [normalizeText("Thỏ nằm yên khi được vuốt nhẹ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_practice_success_62abb226.mp3",
+    text: "Thỏ nằm yên khi được vuốt nhẹ.",
   },
   [normalizeText("Chạm tay vuốt ve thỏ nhẹ nhàng nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_teach_0b165f5c.mp3",
@@ -63136,13 +63384,29 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/pet_gently_teach_success_ea66dab2.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là vuốt ve nhẹ nhàng.",
   },
+  [normalizeText("Chạm thỏ đang nhảy và nhớ rửa tay nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/rabbit_hops_practice_e312d05b.mp3",
+    text: "Chạm thỏ đang nhảy và nhớ rửa tay nhé.",
+  },
+  [normalizeText("Thỏ bật nhảy và bé nhớ rửa tay sạch sẽ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/rabbit_hops_practice_success_ea1ac78b.mp3",
+    text: "Thỏ bật nhảy và bé nhớ rửa tay sạch sẽ.",
+  },
+  [normalizeText("Chạm bạn thỏ đang bật nhảy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/rabbit_hops_teach_89b403f9.mp3",
+    text: "Chạm bạn thỏ đang bật nhảy nhé.",
+  },
+  [normalizeText("Chạm bạn thỏ trắng đang nhảy nhé.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/rabbit_hops_teach_fail_a3bb5d91.mp3",
+    text: "Chạm bạn thỏ trắng đang nhảy nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là thỏ nhảy.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/rabbit_hops_teach_success_c82a05ad.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là thỏ nhảy.",
+  },
   [normalizeText("Chạm lưng thỏ thật nhẹ nhàng nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_practice_be6cd7e2.mp3",
     text: "Chạm lưng thỏ thật nhẹ nhàng nhé.",
-  },
-  [normalizeText("Lớp lông của bạn thỏ rất mềm và ấm.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_practice_success_c2a655a5.mp3",
-    text: "Lớp lông của bạn thỏ rất mềm và ấm.",
   },
   [normalizeText("Chạm lớp lông trắng mềm nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/soft_teach_4549c558.mp3",
@@ -63160,9 +63424,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_fail_3c85d5e0.mp3",
     text: "Chạm bạn thỏ đang ăn nhé.",
   },
-  [normalizeText("Thỏ gặm mẩu cà rốt nhỏ rất thích thú.")]: {
-    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_success_e10a46a9.mp3",
-    text: "Thỏ gặm mẩu cà rốt nhỏ rất thích thú.",
+  [normalizeText("Thỏ gặm mẩu cà rốt nhỏ.")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_practice_success_1c6f899a.mp3",
+    text: "Thỏ gặm mẩu cà rốt nhỏ.",
   },
   [normalizeText("Chạm đĩa món thưởng nhỏ nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_teach_17531ec4.mp3",
@@ -63244,17 +63508,21 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/dry_the_paws_teach_success_9783f174.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là lau khô bàn chân.",
   },
-  [normalizeText("Chạm cún để chúc mừng bạn sạch sẽ nhé.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_practice_cd76261f.mp3",
-    text: "Chạm cún để chúc mừng bạn sạch sẽ nhé.",
+  [normalizeText("Chạm khăn bông xốp để lau chân thật nhẹ nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/fluffy_towel_practice_f99c22e2.mp3",
+    text: "Chạm khăn bông xốp để lau chân thật nhẹ nhé.",
   },
-  [normalizeText("Cún vui vì chân đã sạch và khô.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_practice_success_741a694d.mp3",
-    text: "Cún vui vì chân đã sạch và khô.",
+  [normalizeText("Khăn bông xốp giúp lau chân thật nhẹ.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/fluffy_towel_practice_success_d25c3d05.mp3",
+    text: "Khăn bông xốp giúp lau chân thật nhẹ.",
   },
-  [normalizeText("Chạm chú cún đang vui nhé.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/happy_teach_e0f93044.mp3",
-    text: "Chạm chú cún đang vui nhé.",
+  [normalizeText("Chạm chiếc khăn bông xốp nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/fluffy_towel_teach_ceb932c2.mp3",
+    text: "Chạm chiếc khăn bông xốp nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn bông xốp.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/fluffy_towel_teach_success_c0e16403.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn bông xốp.",
   },
   [normalizeText("Chân cún đã sạch nhưng còn ướt. Mình lau khô nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/intro_a1a5768f.mp3",
@@ -63284,21 +63552,33 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/pat_teach_success_60e62f35.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là thấm nhẹ.",
   },
-  [normalizeText("Chạm khăn để dùng mặt mềm lau chân nhé.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_practice_2417cce5.mp3",
-    text: "Chạm khăn để dùng mặt mềm lau chân nhé.",
-  },
-  [normalizeText("Khăn mềm giúp lau chân thật nhẹ.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_practice_success_c857d146.mp3",
-    text: "Khăn mềm giúp lau chân thật nhẹ.",
-  },
-  [normalizeText("Chạm phần khăn mềm nhé.")]: {
-    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_teach_d92f76a7.mp3",
-    text: "Chạm phần khăn mềm nhé.",
-  },
   [normalizeText("Chạm chiếc khăn vàng xốp nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/soft_teach_fail_4eddd489.mp3",
     text: "Chạm chiếc khăn vàng xốp nhé.",
+  },
+  [normalizeText("Chạm cún đang đứng để kiểm tra bốn chân khô nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_practice_3b79bfc6.mp3",
+    text: "Chạm cún đang đứng để kiểm tra bốn chân khô nhé.",
+  },
+  [normalizeText("Chạm chú cún đang đứng nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_practice_fail_e0665d9f.mp3",
+    text: "Chạm chú cún đang đứng nhé.",
+  },
+  [normalizeText("Cún đứng vững bằng bốn bàn chân sạch và khô.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_practice_success_7a68ccf0.mp3",
+    text: "Cún đứng vững bằng bốn bàn chân sạch và khô.",
+  },
+  [normalizeText("Chạm chú cún đang đứng bằng bốn chân sạch nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_teach_96cf5200.mp3",
+    text: "Chạm chú cún đang đứng bằng bốn chân sạch nhé.",
+  },
+  [normalizeText("Chạm chú cún đang đứng trên tấm thảm nhé.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_teach_fail_49b58c43.mp3",
+    text: "Chạm chú cún đang đứng trên tấm thảm nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đứng.")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/stand_teach_success_7b96bf86.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đứng.",
   },
   [normalizeText("Chạm cún để đặt khăn gần bàn chân nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_practice_eb2e6cb4.mp3",
@@ -65788,9 +66068,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/tail_practice_fail_289be38b.mp3",
     text: "Chạm chiếc đuôi cong nhé.",
   },
-  [normalizeText("Chiếc đuôi đang vẫy vui vẻ.")]: {
-    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/tail_practice_success_375f285c.mp3",
-    text: "Chiếc đuôi đang vẫy vui vẻ.",
+  [normalizeText("Chiếc đuôi đang vẫy qua lại.")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/tail_practice_success_406c977b.mp3",
+    text: "Chiếc đuôi đang vẫy qua lại.",
   },
   [normalizeText("Chạm chiếc đuôi của cún nhé.")]: {
     key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/tail_teach_c125b395.mp3",
@@ -65900,6 +66180,22 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/carry_teach_success_16ca1643.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là mang; bưng.",
   },
+  [normalizeText("Chạm trái tim để chúc mừng cún ăn xong nhé.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/celebrate_practice_0ca737e2.mp3",
+    text: "Chạm trái tim để chúc mừng cún ăn xong nhé.",
+  },
+  [normalizeText("Cún đã ăn xong, mình cùng chúc mừng bạn.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/celebrate_practice_success_a4e3a0b2.mp3",
+    text: "Cún đã ăn xong, mình cùng chúc mừng bạn.",
+  },
+  [normalizeText("Chạm chú cún đang reo vui để chúc mừng nhé.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/celebrate_teach_bbf7fd70.mp3",
+    text: "Chạm chú cún đang reo vui để chúc mừng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chúc mừng.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/celebrate_teach_success_05dec572.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chúc mừng.",
+  },
   [normalizeText("Chạm tấm thảm ở giữa nhé.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/choose_feeding_spot_655885dc.mp3",
     text: "Chạm tấm thảm ở giữa nhé.",
@@ -65956,41 +66252,25 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_practice_success_94d05ee4.mp3",
     text: "Cún đã ăn xong bữa rồi.",
   },
-  [normalizeText("Chạm hình cún đã ăn gần hết nhé.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_teach_df007424.mp3",
-    text: "Chạm hình cún đã ăn gần hết nhé.",
+  [normalizeText("Chạm hình cún đã ăn xong nhé.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_teach_eb25ad2e.mp3",
+    text: "Chạm hình cún đã ăn xong nhé.",
   },
-  [normalizeText("Chạm hình chiếc bát gần trống nhé.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_teach_fail_a4921a2b.mp3",
-    text: "Chạm hình chiếc bát gần trống nhé.",
+  [normalizeText("Chạm hình chiếc bát đã trống nhé.")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_teach_fail_780367ff.mp3",
+    text: "Chạm hình chiếc bát đã trống nhé.",
   },
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đã xong.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/finished_teach_success_f49dc997.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là đã xong.",
   },
-  [normalizeText("Chạm trái tim để chúc mừng cún nhé.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_practice_5220dfe4.mp3",
-    text: "Chạm trái tim để chúc mừng cún nhé.",
-  },
   [normalizeText("Chạm trái tim cạnh chú cún nhé.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_practice_fail_8225fa9d.mp3",
     text: "Chạm trái tim cạnh chú cún nhé.",
   },
-  [normalizeText("Cún đã ăn xong và rất vui.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_practice_success_c6cb90e3.mp3",
-    text: "Cún đã ăn xong và rất vui.",
-  },
   [normalizeText("Chạm chú cún đang cười nhé.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_teach_0016a0e4.mp3",
     text: "Chạm chú cún đang cười nhé.",
-  },
-  [normalizeText("Chạm chú cún có khuôn mặt vui nhé.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_teach_fail_cfd46117.mp3",
-    text: "Chạm chú cún có khuôn mặt vui nhé.",
-  },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là vui vẻ.")]: {
-    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/happy_teach_success_030d6efa.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là vui vẻ.",
   },
   [normalizeText("Bát đã sẵn sàng. Mình giúp cún dùng bữa thật an toàn nhé.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/intro_64ce45f1.mp3",
@@ -66552,25 +66832,29 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/come_out_teach_success_3235e78d.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là bước ra.",
   },
-  [normalizeText("Mèo con đã tự đến gần và dụi đầu vui vẻ.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/completion_0821438f.mp3",
-    text: "Mèo con đã tự đến gần và dụi đầu vui vẻ.",
+  [normalizeText("Mèo con đã tự đến gần và nhẹ nhàng dụi đầu.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/completion_88346b17.mp3",
+    text: "Mèo con đã tự đến gần và nhẹ nhàng dụi đầu.",
+  },
+  [normalizeText("Chạm chú mèo đang dựng đuôi nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/friendly_practice_fail_b0001c22.mp3",
+    text: "Chạm chú mèo đang dựng đuôi nhé.",
+  },
+  [normalizeText("Mèo con thân thiện bước ra chào bé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/friendly_practice_success_b0a9ed41.mp3",
+    text: "Mèo con thân thiện bước ra chào bé.",
+  },
+  [normalizeText("Chạm mèo con thân thiện đang dựng đuôi nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/friendly_teach_52ae3296.mp3",
+    text: "Chạm mèo con thân thiện đang dựng đuôi nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là thân thiện.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/friendly_teach_success_e28864dd.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là thân thiện.",
   },
   [normalizeText("Chạm mèo để chào bạn thật nhẹ nhàng nhé.")]: {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/happy_practice_2f25283b.mp3",
     text: "Chạm mèo để chào bạn thật nhẹ nhàng nhé.",
-  },
-  [normalizeText("Chạm chú mèo vui vẻ nhé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/happy_practice_fail_e325f9e3.mp3",
-    text: "Chạm chú mèo vui vẻ nhé.",
-  },
-  [normalizeText("Mèo con vui vì bé đã tìm thấy bạn.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/happy_practice_success_6d7e3573.mp3",
-    text: "Mèo con vui vì bé đã tìm thấy bạn.",
-  },
-  [normalizeText("Chạm mèo con đang vui vẻ nhé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/happy_teach_03643cd0.mp3",
-    text: "Chạm mèo con đang vui vẻ nhé.",
   },
   [normalizeText("Chạm chú mèo đang cười và dựng đuôi nhé.")]: {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/happy_teach_fail_06caba32.mp3",
@@ -66656,9 +66940,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/pet_gently_practice_fail_e68cb03a.mp3",
     text: "Chạm bàn tay đang vuốt mèo nhé.",
   },
-  [normalizeText("Mèo con vui vẻ dụi đầu vào tay bé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/pet_gently_practice_success_e9c96961.mp3",
-    text: "Mèo con vui vẻ dụi đầu vào tay bé.",
+  [normalizeText("Mèo con nhẹ nhàng dụi đầu vào tay bé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/pet_gently_practice_success_8918dbf8.mp3",
+    text: "Mèo con nhẹ nhàng dụi đầu vào tay bé.",
   },
   [normalizeText("Chạm bàn tay đang vuốt lưng mèo nhẹ nhé.")]: {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/pet_gently_teach_0e2879be.mp3",
@@ -66692,29 +66976,29 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/soft_teach_fail_4a264f9c.mp3",
     text: "Chạm vùng lông vàng có bàn tay nhỏ nhé.",
   },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là mềm mại.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/soft_teach_success_717cb18f.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là mềm mại.",
+  [normalizeText("Chạm chiếc đuôi dựng lên để nhận ra lời chào nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_practice_8dce4780.mp3",
+    text: "Chạm chiếc đuôi dựng lên để nhận ra lời chào nhé.",
   },
-  [normalizeText("Chạm chiếc đuôi đang vẫy vui nhé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_practice_b8377c62.mp3",
-    text: "Chạm chiếc đuôi đang vẫy vui nhé.",
+  [normalizeText("Chạm chiếc đuôi đang dựng lên nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_practice_fail_bc6fcdc9.mp3",
+    text: "Chạm chiếc đuôi đang dựng lên nhé.",
   },
-  [normalizeText("Chiếc đuôi đang dựng lên vui vẻ.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_practice_success_d53318ce.mp3",
-    text: "Chiếc đuôi đang dựng lên vui vẻ.",
+  [normalizeText("Chiếc đuôi dựng lên khi mèo con bước tới chào bé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_practice_success_7f79c256.mp3",
+    text: "Chiếc đuôi dựng lên khi mèo con bước tới chào bé.",
   },
-  [normalizeText("Chạm chiếc đuôi cong của mèo nhé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_teach_68f98c6a.mp3",
-    text: "Chạm chiếc đuôi cong của mèo nhé.",
+  [normalizeText("Chạm chiếc đuôi đang dựng lên của mèo nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_teach_bde406d2.mp3",
+    text: "Chạm chiếc đuôi đang dựng lên của mèo nhé.",
   },
-  [normalizeText("Chạm chiếc đuôi vàng kem đang cong nhé.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_teach_fail_6948895e.mp3",
-    text: "Chạm chiếc đuôi vàng kem đang cong nhé.",
+  [normalizeText("Chạm chiếc đuôi vàng kem đang dựng lên nhé.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_teach_fail_42b88dab.mp3",
+    text: "Chạm chiếc đuôi vàng kem đang dựng lên nhé.",
   },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là cái đuôi.")]: {
-    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_teach_success_d27e38d7.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là cái đuôi.",
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là đuôi dựng lên.")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_teach_success_20215881.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là đuôi dựng lên.",
   },
   [normalizeText("Bé đã lắng nghe rất chăm chú.")]: {
     key: "lessons/five-senses/hearing-world/audio/vi/completion_23c885b6.mp3",
@@ -67276,13 +67560,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/garden-friends/flower-visitors/audio/vi/learn_fruit_success_0163ec61.mp3",
     text: "Đúng rồi, đây là một quả xanh nhỏ.",
   },
-  [normalizeText("Chạm bông hoa mà ong và bướm đang ghé thăm nhé.")]: {
-    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_visit_flower_2c085ec1.mp3",
-    text: "Chạm bông hoa mà ong và bướm đang ghé thăm nhé.",
+  [normalizeText("Chạm chậu hoa đang được ong và bướm ghé thăm nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_visit_flower_13dc6205.mp3",
+    text: "Chạm chậu hoa đang được ong và bướm ghé thăm nhé.",
   },
-  [normalizeText("Chạm bông hoa vàng cạnh ong và bướm nhé.")]: {
-    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_visit_flower_fail_0d426d2a.mp3",
-    text: "Chạm bông hoa vàng cạnh ong và bướm nhé.",
+  [normalizeText("Chạm chậu cây có hoa ở giữa hai bạn nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/learn_visit_flower_fail_cfbe24fb.mp3",
+    text: "Chạm chậu cây có hoa ở giữa hai bạn nhé.",
   },
   [normalizeText("Đúng rồi, các bạn ghé thăm bông hoa.")]: {
     key: "lessons/garden-friends/flower-visitors/audio/vi/learn_visit_flower_success_ab357e50.mp3",
@@ -67300,13 +67584,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/garden-friends/flower-visitors/audio/vi/learn_wings_success_10e7842c.mp3",
     text: "Đúng rồi, đây là đôi cánh.",
   },
-  [normalizeText("Chạm cây ở giữa để xem ong và bướm quanh hoa nhé.")]: {
-    key: "lessons/garden-friends/flower-visitors/audio/vi/observe_visitors_fa887bb1.mp3",
-    text: "Chạm cây ở giữa để xem ong và bướm quanh hoa nhé.",
-  },
-  [normalizeText("Chạm cây có bông hoa vàng ở giữa nhé.")]: {
-    key: "lessons/garden-friends/flower-visitors/audio/vi/observe_visitors_fail_bdc6d5ee.mp3",
-    text: "Chạm cây có bông hoa vàng ở giữa nhé.",
+  [normalizeText("Chạm chậu hoa ở giữa để xem ong và bướm ghé thăm nhé.")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/observe_visitors_00e7b8ba.mp3",
+    text: "Chạm chậu hoa ở giữa để xem ong và bướm ghé thăm nhé.",
   },
   [normalizeText("Ong và bướm đang ghé thăm bông hoa.")]: {
     key: "lessons/garden-friends/flower-visitors/audio/vi/observe_visitors_success_383cb6fe.mp3",
@@ -67887,6 +68167,18 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi, đó là rửa dưới nước sạch.")]: {
     key: "lessons/garden-to-table/rinse-and-drain/audio/vi/learn_rinse_success_b10d582c.mp3",
     text: "Đúng rồi, đó là rửa dưới nước sạch.",
+  },
+  [normalizeText("Kéo xà lách sạch vào chiếc rổ nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_lettuce_in_colander_cf488957.mp3",
+    text: "Kéo xà lách sạch vào chiếc rổ nhé.",
+  },
+  [normalizeText("Kéo cụm lá sạch vào rổ có nhiều lỗ nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_lettuce_in_colander_fail_95f984ce.mp3",
+    text: "Kéo cụm lá sạch vào rổ có nhiều lỗ nhé.",
+  },
+  [normalizeText("Xà lách đã vào rổ. Mình thêm dưa leo nhé.")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_lettuce_in_colander_success_88b35eea.mp3",
+    text: "Xà lách đã vào rổ. Mình thêm dưa leo nhé.",
   },
   [normalizeText("Kéo dưa leo sạch vào chiếc rổ nhé.")]: {
     key: "lessons/garden-to-table/rinse-and-drain/audio/vi/place_produce_in_colander_edd498e3.mp3",
@@ -68628,17 +68920,17 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_success_d3a84260.mp3",
     text: "Câu này nghĩa là vẫy tay tạm biệt.",
   },
-  [normalizeText("Chạm nhẹ tay để mèo không bị giật mình nhé.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_17ad9525.mp3",
-    text: "Chạm nhẹ tay để mèo không bị giật mình nhé.",
+  [normalizeText("Chạm bàn tay đang chải bằng lượt nhẹ nhé.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_45e856f3.mp3",
+    text: "Chạm bàn tay đang chải bằng lượt nhẹ nhé.",
   },
   [normalizeText("Chạm bàn tay nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_fail_42478aa0.mp3",
     text: "Chạm bàn tay nhé.",
   },
-  [normalizeText("Chải êm giúp mèo con cảm thấy rất dễ chịu.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_success_3de7c954.mp3",
-    text: "Chải êm giúp mèo con cảm thấy rất dễ chịu.",
+  [normalizeText("Bé dùng những lượt chải nhẹ theo chiều lông.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_success_485b7bb3.mp3",
+    text: "Bé dùng những lượt chải nhẹ theo chiều lông.",
   },
   [normalizeText("Chạm tay chải thật êm nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_teach_cfcde9de.mp3",
@@ -68679,30 +68971,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chải lông cho mèo.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_the_fur_teach_success_8e857e3c.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là chải lông cho mèo.",
-  },
-  [normalizeText("Chạm mèo con để ngắm bạn thật sạch đẹp nhé.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_practice_f5dab5cc.mp3",
-    text: "Chạm mèo con để ngắm bạn thật sạch đẹp nhé.",
-  },
-  [normalizeText("Chạm chú mèo sạch sẽ nhé.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_practice_fail_d1c53602.mp3",
-    text: "Chạm chú mèo sạch sẽ nhé.",
-  },
-  [normalizeText("Mèo con sạch sẽ và xinh xắn hẳn lên.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_practice_success_3f0d69b5.mp3",
-    text: "Mèo con sạch sẽ và xinh xắn hẳn lên.",
-  },
-  [normalizeText("Chạm chú mèo đã sạch sẽ nhé.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_teach_7c934de7.mp3",
-    text: "Chạm chú mèo đã sạch sẽ nhé.",
-  },
-  [normalizeText("Chạm bạn mèo thơm tho sạch sẽ nhé.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_teach_fail_6f435a69.mp3",
-    text: "Chạm bạn mèo thơm tho sạch sẽ nhé.",
-  },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là sạch sẽ.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/clean_teach_success_15b53f00.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là sạch sẽ.",
   },
   [normalizeText("Chạm chiếc bàn chải màu xanh nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/comb_teach_fail_66912dc7.mp3",
@@ -68780,13 +69048,37 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/intro_success_696e3e79.mp3",
     text: "Mèo con rất thích được bé chải lông êm ái.",
   },
+  [normalizeText("Chạm mèo con để ngắm bộ lông gọn gàng nhé.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_practice_474553f2.mp3",
+    text: "Chạm mèo con để ngắm bộ lông gọn gàng nhé.",
+  },
+  [normalizeText("Chạm chú mèo có bộ lông gọn nhé.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_practice_fail_d5b9a994.mp3",
+    text: "Chạm chú mèo có bộ lông gọn nhé.",
+  },
+  [normalizeText("Bộ lông mèo đã được chải thật gọn gàng.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_practice_success_7dbed3d8.mp3",
+    text: "Bộ lông mèo đã được chải thật gọn gàng.",
+  },
+  [normalizeText("Chạm chú mèo có bộ lông gọn gàng nhé.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_teach_11ce58e8.mp3",
+    text: "Chạm chú mèo có bộ lông gọn gàng nhé.",
+  },
+  [normalizeText("Chạm bạn mèo có lông được chải thẳng nhé.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_teach_fail_e938d0f4.mp3",
+    text: "Chạm bạn mèo có lông được chải thẳng nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là gọn gàng.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/neat_teach_success_d2ec16b4.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là gọn gàng.",
+  },
   [normalizeText("Chạm lông mèo để thấy ánh sáng óng ả nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/shiny_coat_practice_575ccbae.mp3",
     text: "Chạm lông mèo để thấy ánh sáng óng ả nhé.",
   },
-  [normalizeText("Bộ lông của mèo con sáng óng ả tuyệt đẹp.")]: {
-    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/shiny_coat_practice_success_bc9ab5ee.mp3",
-    text: "Bộ lông của mèo con sáng óng ả tuyệt đẹp.",
+  [normalizeText("Ánh sáng phản chiếu trên bộ lông óng mượt của mèo con.")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/shiny_coat_practice_success_3ffd5329.mp3",
+    text: "Ánh sáng phản chiếu trên bộ lông óng mượt của mèo con.",
   },
   [normalizeText("Chạm bộ lông sáng bóng của mèo nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/shiny_coat_teach_fail_22d53086.mp3",
@@ -68844,6 +69136,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/stroke_teach_success_98a473e3.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là vuốt nhẹ.",
   },
+  [normalizeText("Chạm lông bàn chải để kiểm tra đầu lông mềm nhé.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_practice_b5acb3d4.mp3",
+    text: "Chạm lông bàn chải để kiểm tra đầu lông mềm nhé.",
+  },
+  [normalizeText("Chạm phần lông mềm trên bàn chải nhé.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_practice_fail_2ad5bf88.mp3",
+    text: "Chạm phần lông mềm trên bàn chải nhé.",
+  },
+  [normalizeText("Lông bàn chải mềm và có đầu tròn để chải nhẹ nhàng.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_practice_success_bea0b83f.mp3",
+    text: "Lông bàn chải mềm và có đầu tròn để chải nhẹ nhàng.",
+  },
+  [normalizeText("Chạm phần lông mềm của bàn chải nhé.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_teach_b102d420.mp3",
+    text: "Chạm phần lông mềm của bàn chải nhé.",
+  },
+  [normalizeText("Chạm phần lông bàn chải có đầu tròn nhé.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_teach_fail_cd2f0916.mp3",
+    text: "Chạm phần lông bàn chải có đầu tròn nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là lông bàn chải.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_teach_success_7c6dde9b.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là lông bàn chải.",
+  },
   [normalizeText("Chạm chiếc bàn chải lông để chuẩn bị chải nhé.")]: {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/brush_practice_d9b90863.mp3",
     text: "Chạm chiếc bàn chải lông để chuẩn bị chải nhé.",
@@ -68872,9 +69188,9 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/clean_brush_practice_ff5da865.mp3",
     text: "Chạm bàn chải sạch để sẵn sàng chải lông nhé.",
   },
-  [normalizeText("Bàn chải sạch sẽ giúp lông mèo luôn thơm tho.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/clean_brush_practice_success_458ef8f9.mp3",
-    text: "Bàn chải sạch sẽ giúp lông mèo luôn thơm tho.",
+  [normalizeText("Bàn chải sạch đã sẵn sàng để chải lông.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/clean_brush_practice_success_f9d3020d.mp3",
+    text: "Bàn chải sạch đã sẵn sàng để chải lông.",
   },
   [normalizeText("Chạm chiếc bàn chải sạch sẽ nhé.")]: {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/clean_brush_teach_1aa6d25e.mp3",
@@ -68964,13 +69280,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/mat_teach_success_022d19ad.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là tấm thảm êm.",
   },
-  [normalizeText("Chạm chiếc bàn chải để kiểm tra răng bàn chải êm nhé.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/pet_brush_practice_ded88f03.mp3",
-    text: "Chạm chiếc bàn chải để kiểm tra răng bàn chải êm nhé.",
+  [normalizeText("Chạm chiếc bàn chải để kiểm tra lông bàn chải mềm nhé.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/pet_brush_practice_41f01725.mp3",
+    text: "Chạm chiếc bàn chải để kiểm tra lông bàn chải mềm nhé.",
   },
-  [normalizeText("Bàn chải thú cưng có đầu tròn rất êm cho da mèo.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/pet_brush_practice_success_d2c55d06.mp3",
-    text: "Bàn chải thú cưng có đầu tròn rất êm cho da mèo.",
+  [normalizeText("Bàn chải thú cưng có lông mềm, đầu tròn để chải nhẹ nhàng.")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/pet_brush_practice_success_c9ac8967.mp3",
+    text: "Bàn chải thú cưng có lông mềm, đầu tròn để chải nhẹ nhàng.",
   },
   [normalizeText("Chạm chiếc bàn chải thú cưng nhé.")]: {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/pet_brush_teach_9d3c8dae.mp3",
@@ -69004,26 +69320,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/sit_nicely_teach_success_6186fd3d.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là ngồi ngoan.",
   },
-  [normalizeText("Chạm lông mềm để khen bạn mèo nhé.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_practice_da266ec0.mp3",
-    text: "Chạm lông mềm để khen bạn mèo nhé.",
-  },
-  [normalizeText("Chạm bộ lông mềm nhé.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_practice_fail_1f45fc3c.mp3",
-    text: "Chạm bộ lông mềm nhé.",
-  },
-  [normalizeText("Mèo con có bộ lông rất mịn màng.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_practice_success_9772d9a7.mp3",
-    text: "Mèo con có bộ lông rất mịn màng.",
-  },
-  [normalizeText("Chạm bộ lông mềm mại nhé.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_teach_27c3f199.mp3",
-    text: "Chạm bộ lông mềm mại nhé.",
-  },
-  [normalizeText("Chạm mảng lông mềm mịn nhé.")]: {
-    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_teach_fail_fb5347e9.mp3",
-    text: "Chạm mảng lông mềm mịn nhé.",
-  },
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bộ lông mềm mại.")]: {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/soft_fur_teach_success_5b6a6d03.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là bộ lông mềm mại.",
@@ -69052,9 +69348,33 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/tangle_teach_success_71023882.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là lông xù rối.",
   },
-  [normalizeText("Mèo con đã được chải lông mượt mà và gừ gừ hạnh phúc.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/completion_6624b23c.mp3",
-    text: "Mèo con đã được chải lông mượt mà và gừ gừ hạnh phúc.",
+  [normalizeText("Chạm mèo đang cười tươi cùng bé nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_practice_7c2b3830.mp3",
+    text: "Chạm mèo đang cười tươi cùng bé nhé.",
+  },
+  [normalizeText("Chạm chú mèo đang cười nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_practice_fail_f5d804c3.mp3",
+    text: "Chạm chú mèo đang cười nhé.",
+  },
+  [normalizeText("Mèo con cười tươi sau khi được chải lông.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_practice_success_2174e558.mp3",
+    text: "Mèo con cười tươi sau khi được chải lông.",
+  },
+  [normalizeText("Chạm chú mèo đang cười tươi nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_teach_c9828b46.mp3",
+    text: "Chạm chú mèo đang cười tươi nhé.",
+  },
+  [normalizeText("Chạm bạn mèo đang cười và mở mắt nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_teach_fail_1ef0a53c.mp3",
+    text: "Chạm bạn mèo đang cười và mở mắt nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là vui tươi.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_teach_success_d2e3e046.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là vui tươi.",
+  },
+  [normalizeText("Mèo con đã được chải lông mượt mà và đang gừ gừ êm dịu.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/completion_70596183.mp3",
+    text: "Mèo con đã được chải lông mượt mà và đang gừ gừ êm dịu.",
   },
   [normalizeText("Chạm mèo con để bạn nằm êm ái nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cozy_practice_ac33a4d1.mp3",
@@ -69076,57 +69396,37 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cozy_teach_success_f5c06d64.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là ấm cúng dễ chịu.",
   },
-  [normalizeText("Chạm mèo con để chia sẻ niềm vui nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_practice_6d0566e7.mp3",
-    text: "Chạm mèo con để chia sẻ niềm vui nhé.",
+  [normalizeText("Chạm chiếc đuôi cuộn quanh chân mèo nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/curled_tail_practice_6f7f4157.mp3",
+    text: "Chạm chiếc đuôi cuộn quanh chân mèo nhé.",
+  },
+  [normalizeText("Chiếc đuôi cuộn thành đường cong tròn quanh chân mèo.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/curled_tail_practice_success_a972f571.mp3",
+    text: "Chiếc đuôi cuộn thành đường cong tròn quanh chân mèo.",
+  },
+  [normalizeText("Chạm chiếc đuôi đang cuộn cong nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/curled_tail_teach_7d572f13.mp3",
+    text: "Chạm chiếc đuôi đang cuộn cong nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chiếc đuôi cuộn cong.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/curled_tail_teach_success_a691720c.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là chiếc đuôi cuộn cong.",
   },
   [normalizeText("Chạm chú mèo nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_practice_fail_30e78495.mp3",
     text: "Chạm chú mèo nhé.",
   },
-  [normalizeText("Mèo con vô cùng sung sướng vì được chăm sóc.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_practice_success_21dbd19e.mp3",
-    text: "Mèo con vô cùng sung sướng vì được chăm sóc.",
+  [normalizeText("Mèo con đang nằm thư giãn. Bạn nhắm mắt và kêu gừ gừ khe khẽ.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/intro_6d62b25a.mp3",
+    text: "Mèo con đang nằm thư giãn. Bạn nhắm mắt và kêu gừ gừ khe khẽ.",
   },
-  [normalizeText("Chạm chú mèo vui sướng nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_teach_31161664.mp3",
-    text: "Chạm chú mèo vui sướng nhé.",
-  },
-  [normalizeText("Chạm bạn mèo đang thỏa mãn nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_teach_fail_d66fd88e.mp3",
-    text: "Chạm bạn mèo đang thỏa mãn nhé.",
-  },
-  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chú mèo vui sướng.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_cat_teach_success_3cb000ad.mp3",
-    text: "Đúng rồi. Từ vừa nghe có nghĩa là chú mèo vui sướng.",
-  },
-  [normalizeText("Chạm mèo con để bạn mỉm cười cùng bé nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_practice_a5d66cb1.mp3",
-    text: "Chạm mèo con để bạn mỉm cười cùng bé nhé.",
-  },
-  [normalizeText("Mèo con mỉm cười vui sướng bên bé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_practice_success_d4288072.mp3",
-    text: "Mèo con mỉm cười vui sướng bên bé.",
-  },
-  [normalizeText("Chạm bạn mèo đang mỉm cười nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/happy_teach_fail_b2284c9c.mp3",
-    text: "Chạm bạn mèo đang mỉm cười nhé.",
-  },
-  [normalizeText("Mèo con cảm thấy thật dễ chịu. Bạn nhắm mắt và kêu gừ gừ hạnh phúc.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/intro_2e1faab1.mp3",
-    text: "Mèo con cảm thấy thật dễ chịu. Bạn nhắm mắt và kêu gừ gừ hạnh phúc.",
-  },
-  [normalizeText("Mèo con đang lim dim tận hưởng sự yêu thương.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/intro_success_82e12275.mp3",
-    text: "Mèo con đang lim dim tận hưởng sự yêu thương.",
+  [normalizeText("Mèo con đang nằm nghỉ và nhắm mắt.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/intro_success_35feab6a.mp3",
+    text: "Mèo con đang nằm nghỉ và nhắm mắt.",
   },
   [normalizeText("Chạm mèo để lắng nghe tiếng gừ êm ái nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/listen_to_purr_practice_334fc03b.mp3",
     text: "Chạm mèo để lắng nghe tiếng gừ êm ái nhé.",
-  },
-  [normalizeText("Tiếng gừ gừ nhỏ nhẹ như tiếng hát ru êm dịu.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/listen_to_purr_practice_success_1bec1407.mp3",
-    text: "Tiếng gừ gừ nhỏ nhẹ như tiếng hát ru êm dịu.",
   },
   [normalizeText("Chạm tai để nghe tiếng gừ gừ nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/listen_to_purr_teach_9076388c.mp3",
@@ -69139,6 +69439,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nghe tiếng gừ gừ.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/listen_to_purr_teach_success_f0ea99a7.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là nghe tiếng gừ gừ.",
+  },
+  [normalizeText("Tiếng gừ gừ nhỏ và có độ rung nhẹ.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/listen_to_the_kitten_purr_practice_success_8675d9cd.mp3",
+    text: "Tiếng gừ gừ nhỏ và có độ rung nhẹ.",
   },
   [normalizeText("Chạm mèo con và nhớ rửa tay sạch sẽ nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/love_the_kitten_practice_419b1892.mp3",
@@ -69160,13 +69464,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/love_the_kitten_teach_success_d2c200b8.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là yêu thương mèo con.",
   },
-  [normalizeText("Chạm mèo để nghe tiếng gừ gừ thích thú nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_practice_9f169a88.mp3",
-    text: "Chạm mèo để nghe tiếng gừ gừ thích thú nhé.",
+  [normalizeText("Chạm mèo để nghe tiếng gừ gừ rung nhẹ nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_practice_39122e1f.mp3",
+    text: "Chạm mèo để nghe tiếng gừ gừ rung nhẹ nhé.",
   },
-  [normalizeText("Mèo con phát ra tiếng gừ gừ rung rinh hạnh phúc.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_practice_success_35c41d08.mp3",
-    text: "Mèo con phát ra tiếng gừ gừ rung rinh hạnh phúc.",
+  [normalizeText("Mèo con phát ra tiếng gừ gừ rung nhẹ.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_practice_success_8691ec24.mp3",
+    text: "Mèo con phát ra tiếng gừ gừ rung nhẹ.",
   },
   [normalizeText("Chạm mèo con đang gừ gừ nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_teach_6b068dc5.mp3",
@@ -69179,6 +69483,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là tiếng gừ gừ.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/purr_teach_success_4d45dad7.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là tiếng gừ gừ.",
+  },
+  [normalizeText("Chạm mèo con để bạn nghỉ ngơi thư giãn nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/relaxed_practice_c328b7ff.mp3",
+    text: "Chạm mèo con để bạn nghỉ ngơi thư giãn nhé.",
+  },
+  [normalizeText("Mèo con thư giãn trong góc nằm ấm cúng.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/relaxed_practice_success_322b4125.mp3",
+    text: "Mèo con thư giãn trong góc nằm ấm cúng.",
+  },
+  [normalizeText("Chạm chú mèo đang cuộn tròn thư giãn nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/relaxed_teach_d0747a76.mp3",
+    text: "Chạm chú mèo đang cuộn tròn thư giãn nhé.",
+  },
+  [normalizeText("Chạm bạn mèo đang nằm yên và nhắm mắt nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/relaxed_teach_fail_48efa5b1.mp3",
+    text: "Chạm bạn mèo đang nằm yên và nhắm mắt nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là thư giãn.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/relaxed_teach_success_5501067d.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là thư giãn.",
   },
   [normalizeText("Chạm mèo để đón bạn dụi đầu vào tay nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/snuggle_practice_c00a5380.mp3",
@@ -69200,13 +69524,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/snuggle_teach_success_360645ea.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là dụi đầu âu yếm.",
   },
-  [normalizeText("Chạm mèo để thưởng thức âm thanh đáng yêu nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_practice_1465890b.mp3",
-    text: "Chạm mèo để thưởng thức âm thanh đáng yêu nhé.",
+  [normalizeText("Chạm mèo để nghe tiếng gừ gừ nhỏ nhẹ nhé.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_practice_cbea066b.mp3",
+    text: "Chạm mèo để nghe tiếng gừ gừ nhỏ nhẹ nhé.",
   },
-  [normalizeText("Mèo con gừ gừ ngọt ngào và nhắm mắt lim dim.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_practice_success_a598df5c.mp3",
-    text: "Mèo con gừ gừ ngọt ngào và nhắm mắt lim dim.",
+  [normalizeText("Mèo con nằm nghỉ và phát ra tiếng gừ gừ nhỏ nhẹ.")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_practice_success_d6a6ce15.mp3",
+    text: "Mèo con nằm nghỉ và phát ra tiếng gừ gừ nhỏ nhẹ.",
   },
   [normalizeText("Chạm tiếng gừ ngọt ngào nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_teach_30bc9d87.mp3",
@@ -69219,22 +69543,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là tiếng gừ ngọt ngào.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/sweet_purr_teach_success_beee0e3a.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là tiếng gừ ngọt ngào.",
-  },
-  [normalizeText("Chạm đuôi mèo để xem đuôi vẫy khẽ nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_practice_cbdbc4af.mp3",
-    text: "Chạm đuôi mèo để xem đuôi vẫy khẽ nhé.",
-  },
-  [normalizeText("Chạm chiếc đuôi mèo nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_practice_fail_8a385bb7.mp3",
-    text: "Chạm chiếc đuôi mèo nhé.",
-  },
-  [normalizeText("Chiếc đuôi mèo đung đưa nhẹ nhàng thư thái.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_practice_success_cafdea38.mp3",
-    text: "Chiếc đuôi mèo đung đưa nhẹ nhàng thư thái.",
-  },
-  [normalizeText("Chạm chiếc đuôi cong nhẹ nhé.")]: {
-    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_teach_7b7232de.mp3",
-    text: "Chạm chiếc đuôi cong nhẹ nhé.",
   },
   [normalizeText("Chạm chiếc đuôi mềm màu cam nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_teach_fail_91cdef21.mp3",
@@ -70016,13 +70324,13 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/help-it-grow/wind-and-support/audio/vi/intro_success_6a92d8ef.mp3",
     text: "Mình cùng giúp cây đứng vững nhé.",
   },
-  [normalizeText("Chạm dây buộc mềm đang giúp giữ cây nhé.")]: {
-    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_soft_tie_9d9ac5c7.mp3",
-    text: "Chạm dây buộc mềm đang giúp giữ cây nhé.",
+  [normalizeText("Chạm dây buộc mềm đang giữ thân cây cạnh cọc nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_soft_tie_e42f312a.mp3",
+    text: "Chạm dây buộc mềm đang giữ thân cây cạnh cọc nhé.",
   },
-  [normalizeText("Chạm dải dây mềm màu xanh bên phải nhé.")]: {
-    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_soft_tie_fail_c1c7b0f3.mp3",
-    text: "Chạm dải dây mềm màu xanh bên phải nhé.",
+  [normalizeText("Chạm vòng dây xanh quanh thân cây và cọc nhé.")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_soft_tie_fail_faf26135.mp3",
+    text: "Chạm vòng dây xanh quanh thân cây và cọc nhé.",
   },
   [normalizeText("Đúng rồi, đây là dây buộc mềm.")]: {
     key: "lessons/help-it-grow/wind-and-support/audio/vi/learn_soft_tie_success_59fd3155.mp3",
@@ -74916,26 +75224,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/hand_teach_success_c879b6c5.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là bàn tay.",
   },
-  [normalizeText("Chạm cún để cùng vui vì đã chơi ngoan nhé.")]: {
-    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/happy_practice_1fe48da4.mp3",
-    text: "Chạm cún để cùng vui vì đã chơi ngoan nhé.",
-  },
-  [normalizeText("Chạm chú cún vui vẻ nhé.")]: {
-    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/happy_practice_fail_790bb469.mp3",
-    text: "Chạm chú cún vui vẻ nhé.",
-  },
-  [normalizeText("Cún rất vui khi chơi nhẹ nhàng với bé.")]: {
-    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/happy_practice_success_cf5bae54.mp3",
-    text: "Cún rất vui khi chơi nhẹ nhàng với bé.",
-  },
-  [normalizeText("Chạm chú cún đang cười vui nhé.")]: {
-    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/happy_teach_ce9a611a.mp3",
-    text: "Chạm chú cún đang cười vui nhé.",
-  },
-  [normalizeText("Chạm chú cún đang nhắm mắt cười nhé.")]: {
-    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/happy_teach_fail_a56e7b60.mp3",
-    text: "Chạm chú cún đang nhắm mắt cười nhé.",
-  },
   [normalizeText("Cún đã bắt được bóng. Gọi bạn mang bóng về cho bé nhé.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/intro_d652c7c8.mp3",
     text: "Cún đã bắt được bóng. Gọi bạn mang bóng về cho bé nhé.",
@@ -74959,6 +75247,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là mình cùng chơi nhé.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/lets_play_teach_success_b48ac09b.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là mình cùng chơi nhé.",
+  },
+  [normalizeText("Chạm cún đang cúi chào để chơi thêm nhé.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_practice_8d2398fc.mp3",
+    text: "Chạm cún đang cúi chào để chơi thêm nhé.",
+  },
+  [normalizeText("Chạm chú cún đang cúi hai chân trước nhé.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_practice_fail_11211f72.mp3",
+    text: "Chạm chú cún đang cúi hai chân trước nhé.",
+  },
+  [normalizeText("Tư thế cúi chào cho thấy cún muốn chơi thêm.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_practice_success_837e4122.mp3",
+    text: "Tư thế cúi chào cho thấy cún muốn chơi thêm.",
+  },
+  [normalizeText("Chạm chú cún đang cúi hai chân trước mời chơi nhé.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_teach_4adaac9b.mp3",
+    text: "Chạm chú cún đang cúi hai chân trước mời chơi nhé.",
+  },
+  [normalizeText("Chạm chú cún đang cúi thấp hai chân trước nhé.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_teach_fail_16b3c555.mp3",
+    text: "Chạm chú cún đang cúi thấp hai chân trước nhé.",
+  },
+  [normalizeText("Chạm chú cún đang cười và vẫy đuôi nhé.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_teach_fail_e8e61ec1.mp3",
+    text: "Chạm chú cún đang cười và vẫy đuôi nhé.",
+  },
+  [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là tinh nghịch và thích chơi.")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/playful_teach_success_8de29c8c.mp3",
+    text: "Đúng rồi. Từ vừa nghe có nghĩa là tinh nghịch và thích chơi.",
   },
   [normalizeText("Chạm hình lăn bóng để bắt đầu lượt mới nhé.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/roll_the_ball_practice_b8e1dc79.mp3",

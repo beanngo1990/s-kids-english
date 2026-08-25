@@ -148,7 +148,8 @@ function makeBeatSteps(
   return beats.flatMap((beat, index) => {
     const currentCueId = beat.cueObjectId ?? cueId(sceneId, beat.key);
     const nextBeat = beats[index + 1];
-    const nextCueId = nextBeat?.cueObjectId ??
+    const nextCueId =
+      nextBeat?.cueObjectId ??
       (nextBeat ? cueId(sceneId, nextBeat.key) : undefined);
     const learningScope = scopeForTier(beat.tier);
     const targetObjectId = beat.practice.targetObjectId ?? currentCueId;
@@ -257,7 +258,7 @@ function makeMeetThePuppyScene(): Scene {
         instructionVi: 'Chạm chú cún để chào bạn nhé.',
         instructionEn: 'Tap the puppy to say hello.',
         successVi: 'Cún vui khi được bé chào.',
-        successEn: 'The puppy is happy to hear hello.',
+        successEn: 'The puppy likes hearing your hello.',
         failVi: 'Chạm chú cún ở giữa nhé.',
         failEn: 'Tap the puppy in the middle.',
         effects: [lessonEffects.bounce(heroId)],
@@ -397,8 +398,8 @@ function makeMeetThePuppyScene(): Scene {
       practice: {
         instructionVi: 'Chạm chiếc đuôi để cún vẫy nhé.',
         instructionEn: 'Tap the tail to make it wag.',
-        successVi: 'Chiếc đuôi đang vẫy vui vẻ.',
-        successEn: 'The tail is wagging happily.',
+        successVi: 'Chiếc đuôi đang vẫy qua lại.',
+        successEn: 'The tail is moving from side to side.',
         failVi: 'Chạm chiếc đuôi cong nhé.',
         failEn: 'Tap the curved tail.',
         effects: [lessonEffects.bounce(cueId(sceneId, 'tail'))],
@@ -441,7 +442,7 @@ function makeMeetThePuppyScene(): Scene {
       teachVi: 'Chạm cún đang vẫy đuôi nhé.',
       teachEn: 'Tap the puppy wagging its tail.',
       teachSuccessVi: 'Wag nghĩa là vẫy đuôi.',
-      teachSuccessEn: 'Wag means to move the tail happily.',
+      teachSuccessEn: 'Wag means to move the tail from side to side.',
       teachFailVi: 'Chạm cún có chiếc đuôi đang lắc nhé.',
       teachFailEn: 'Tap the puppy with the moving tail.',
       practice: {
@@ -458,6 +459,7 @@ function makeMeetThePuppyScene(): Scene {
     },
   ];
   const vocabulary = makeBeatVocabulary(sceneId, beats);
+  const wagVocabulary = vocabulary.find(item => item.word === 'wag')!;
 
   return {
     id: sceneId,
@@ -504,6 +506,15 @@ function makeMeetThePuppyScene(): Scene {
         position: rect(69, 58, 24, 18),
         presentation: 'cutout',
         touchArea: rect(63, 51, 36, 31),
+      }),
+      learningObject({
+        id: `${sceneId}-wag-representative`,
+        assetSource: sceneImageSource(sceneId, 'wag-action'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        learningScope: challengeScope,
+        position: rect(34, 44, 32, 31),
+        vocab: wagVocabulary,
       }),
       ...makeBeatObjects(sceneId, beats, vocabulary),
     ],
@@ -982,12 +993,13 @@ function makePuppyEatsScene(): Scene {
       cueAsset: 'eat-action-finishing',
       cuePosition: rect(5, 43, 32, 29),
       cueTouchArea: rect(1, 37, 43, 41),
-      teachVi: 'Chạm hình cún đã ăn gần hết nhé.',
-      teachEn: 'Tap the puppy that has nearly finished eating.',
+      revealStateChanges: [sceneStateChanges.hide(heroId)],
+      teachVi: 'Chạm hình cún đã ăn xong nhé.',
+      teachEn: 'Tap the puppy that has finished eating.',
       teachSuccessVi: 'Finished nghĩa là đã xong.',
       teachSuccessEn: 'Finished means the action is done.',
-      teachFailVi: 'Chạm hình chiếc bát gần trống nhé.',
-      teachFailEn: 'Tap the picture with the nearly empty bowl.',
+      teachFailVi: 'Chạm hình chiếc bát đã trống nhé.',
+      teachFailEn: 'Tap the picture with the empty bowl.',
       practice: {
         instructionVi: 'Chạm chiếc bát trống để kiểm tra cún đã ăn xong nhé.',
         instructionEn: 'Tap the empty bowl to check that the puppy finished.',
@@ -1003,25 +1015,25 @@ function makePuppyEatsScene(): Scene {
       },
     },
     {
-      key: 'happy',
-      meaningVi: 'vui vẻ',
-      word: 'happy',
+      key: 'celebrate',
+      meaningVi: 'chúc mừng',
+      word: 'celebrate',
       tier: 'expanded',
-      type: 'adjective',
+      type: 'verb',
       cueAsset: 'puppy-happy',
       cuePosition: rect(67, 42, 29, 31),
       cueTouchArea: rect(61, 35, 38, 44),
-      teachVi: 'Chạm chú cún đang cười nhé.',
-      teachEn: 'Tap the smiling puppy.',
-      teachSuccessVi: 'Happy nghĩa là vui vẻ.',
-      teachSuccessEn: 'Happy means feeling good and joyful.',
-      teachFailVi: 'Chạm chú cún có khuôn mặt vui nhé.',
-      teachFailEn: 'Tap the puppy with the happy face.',
+      teachVi: 'Chạm chú cún đang reo vui để chúc mừng nhé.',
+      teachEn: 'Tap the joyful puppy celebrating its finished meal.',
+      teachSuccessVi: 'Celebrate nghĩa là cùng chúc mừng.',
+      teachSuccessEn: 'Celebrate means to show joy for something good.',
+      teachFailVi: 'Chạm chú cún đang cười và vẫy đuôi nhé.',
+      teachFailEn: 'Tap the smiling puppy wagging its tail.',
       practice: {
-        instructionVi: 'Chạm trái tim để chúc mừng cún nhé.',
-        instructionEn: 'Tap the heart to celebrate with the puppy.',
-        successVi: 'Cún đã ăn xong và rất vui.',
-        successEn: 'The puppy finished eating and feels happy.',
+        instructionVi: 'Chạm trái tim để chúc mừng cún ăn xong nhé.',
+        instructionEn: 'Tap the heart to celebrate the finished meal.',
+        successVi: 'Cún đã ăn xong, mình cùng chúc mừng bạn.',
+        successEn: 'The puppy finished eating, so you celebrate together.',
         failVi: 'Chạm trái tim cạnh chú cún nhé.',
         failEn: 'Tap the heart beside the puppy.',
         targetObjectId: heartId,

@@ -276,6 +276,70 @@ test('challenge verifies the sorted-basket payoff before scene completion', () =
   expect(confirmation.interaction.targetObjectId).toBe(
     'sort-the-harvest-sorted-baskets',
   );
+  expect(confirmation.afterSuccessStateChanges ?? []).not.toContainEqual({
+    targetObjectId: 'sort-the-harvest-sorted-baskets',
+    type: 'hideObject',
+  });
+});
+
+test('expanded color cue becomes visible before pronunciation and then clears', () => {
+  const scene = harvestDayLesson.scenes.find(
+    item => item.id === 'find-the-ripe-ones',
+  )!;
+  const reveal = scene.steps.find(
+    step => step.id === 'find-the-ripe-ones-find-ripe-tomato',
+  )!;
+  const teach = scene.steps.find(
+    step => step.id === 'find-the-ripe-ones-compare-ripe-tomato',
+  )!;
+
+  expect(reveal.successStateChanges).toContainEqual({
+    targetObjectId: 'find-the-ripe-ones-red-vocabulary-visual',
+    type: 'showObject',
+  });
+  expect(teach.interaction.targetObjectId).toBe(
+    'find-the-ripe-ones-red-vocabulary-visual',
+  );
+  expect(teach.afterSuccessStateChanges).toContainEqual({
+    targetObjectId: 'find-the-ripe-ones-red-vocabulary-visual',
+    type: 'hideObject',
+  });
+});
+
+test('reward vocabulary has direct positive representative assets', () => {
+  const representativeAssets = new Map<string, string>();
+
+  harvestDayLesson.scenes.forEach(scene => {
+    scene.objects.forEach(object => {
+      if (object.vocabId && !representativeAssets.has(object.vocabId)) {
+        representativeAssets.set(object.vocabId, object.asset.source);
+      }
+    });
+  });
+
+  expect(
+    representativeAssets.get(
+      'vocab-harvest-day-find-the-ripe-ones-red',
+    ),
+  ).toBe(
+    'lessons/harvest-day/find-the-ripe-ones/images/ripe-closeup.webp',
+  );
+  expect(
+    representativeAssets.get('vocab-harvest-day-pick-gently-branch'),
+  ).toBe('lessons/harvest-day/pick-gently/images/hero-plant.webp');
+  expect(
+    representativeAssets.get('vocab-harvest-day-pick-gently-gentle'),
+  ).toBe('lessons/harvest-day/pick-gently/images/pick-action.webp');
+  expect(
+    representativeAssets.get('vocab-harvest-day-sort-the-harvest-carrot'),
+  ).toBe(
+    'lessons/harvest-day/sort-the-harvest/images/vegetable-basket-filled.webp',
+  );
+  expect(
+    representativeAssets.get('vocab-harvest-day-sort-the-harvest-separate'),
+  ).toBe(
+    'lessons/harvest-day/sort-the-harvest/images/sorted-baskets.webp',
+  );
 });
 
 test('review selection is the frozen executable 4-5-6 set', () => {

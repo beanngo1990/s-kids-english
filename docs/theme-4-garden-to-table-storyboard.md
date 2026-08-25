@@ -2,8 +2,8 @@
 
 **Lesson ID:** `garden-to-table`  
 **Theme:** `khu-vuon-cua-be`  
-**Status:** Vocabulary-first revision implemented and published to production R2 on 2026-08-25;
-device smoke test pending.
+**Status:** Vocabulary-first revision and the follow-up lettuce-to-colander action were published
+to production R2 on 2026-08-25. Audio/R2 verification is complete; device smoke testing remains.
 **Target track:** `6-8 tuổi · Nâng cao`
 
 ## 1. Learning promise
@@ -16,10 +16,10 @@ bằng lời Việt, hình ảnh và hành động; không yêu cầu bé đọc
 
 | Order | Scene ID | Story beat | Core | Expanded | Challenge |
 | --- | --- | --- | ---: | ---: | ---: |
-| 1 | `rinse-and-drain` | Nhận biết rau quả, bật nước sạch, rửa và để ráo | 6 | 8 | 10 |
+| 1 | `rinse-and-drain` | Nhận biết rau quả, bật nước sạch, rửa và để ráo | 6 | 9 | 11 |
 | 2 | `make-and-share` | Cho nguyên liệu đã cắt vào tô, trộn và chia sẻ | 9 | 12 | 14 |
 | 3 | `save-for-next-season` | Nhờ người lớn cất hạt khô và nối về mùa mới | 6 | 7 | 10 |
-| **Total outside intro** | | | **21** | **27** | **34** |
+| **Total outside intro** | | | **21** | **28** | **35** |
 
 Mỗi pronunciation panel được ngăn bởi một action/state payoff. Vocabulary/pronunciation budget
 là 8/12/16: core có tám auto encounters, expanded thêm bốn optional encounters và challenge thêm
@@ -67,9 +67,10 @@ hiện ở expanded. Không có dao, kéo, nước nóng hoặc chữ trên rast
 6. **Deep Learn — `lettuce`:** chạm cụm lá xà lách; auto speech.
 7. **Action:** kéo xà lách tới dòng nước; `dirty -> clean`.
 8. **Expanded Deep Learn — `colander`:** chạm chiếc rổ có lỗ; optional speech.
-9. **Expanded Action:** kéo dưa leo sạch vào rổ; rổ `empty -> filled`, hai rau quả rời bàn.
-10. **Challenge Deep Learn — `rinse it well`:** chạm hình rửa cả hai mặt; auto speech.
-11. **Challenge Review:** tìm hình rửa kỹ thay vì chỉ làm ướt một chỗ.
+9. **Expanded Action:** kéo xà lách sạch vào rổ; cụm lá hiện trong rổ.
+10. **Expanded Action:** kéo dưa leo sạch vào rổ; rổ `empty -> filled`, cả hai rau quả rời bàn.
+11. **Challenge Deep Learn — `rinse it well`:** chạm hình rửa cả hai mặt; auto speech.
+12. **Challenge Review:** tìm hình rửa kỹ thay vì chỉ làm ướt một chỗ.
 
 Core end state giữ dưa leo/xà lách sạch. Expanded/challenge end state giữ rổ đầy rau quả đã ráo.
 
@@ -146,7 +147,8 @@ padding, không card/caption/border và không bóng đổ dính nền.
 
 - `rinse-and-drain-chroma.png` (4 x 3): cucumber dirty/clean, lettuce dirty/clean, water control,
   water stream, rinse action, colander empty/filled, rinse-well action, splash-only action,
-  clean-produce cue.
+  clean-produce cue. Trạng thái xà lách trong rổ tái sử dụng cutout `lettuce-clean`, không thêm
+  master mới.
 - `make-and-share-chroma.png` (4 x 3): towel folded/under-bowl, bowl empty/lettuce/prepared/mixed/
   shared, lettuce pieces, cucumber slices, spoon, salad close-up, share action.
 - `save-for-next-season-chroma.png` (4 x 3): adult hand with dry seed, seed close-up, envelope
@@ -170,7 +172,7 @@ border, transparent corners, opaque-black matte và chroma residue trước khi 
 6. Vocabulary và pronunciation 8/12/16; speech là 8 core auto + 4 expanded optional + 4
    challenge auto, review vẫn 4/5/6.
 7. Không có hai pronunciation panels liền nhau sau mode filtering.
-8. 21/27/34 meaningful turns và mỗi scene có visible end state.
+8. 21/28/35 meaningful turns và mỗi scene có visible end state.
 9. PNG/WebP cutout có alpha thật; near-black opaque matte không vượt 12% canvas và không có chữ.
 10. Lesson validation, asset audit/build/verify, audio dry-run và Android build pass trước release.
 
@@ -186,3 +188,6 @@ border, transparent corners, opaque-black matte và chroma residue trước khi 
   WebP được asset builder chuẩn hóa; verify đủ 404/404 asset và post-upload dry-run còn
   `Changed/new: 0`. Audio instruction mới trên production CDN khớp local ở 40.077 byte và SHA-256
   `339a5be46d379b0c30c2398696b8f27ef95b9b1ad4a79aa0833f9a0baacd8898`.
+- Follow-up audit thêm lượt kéo riêng cho xà lách sạch trước dưa leo, nâng meaningful turns lên
+  21/28/35. Thay đổi tái sử dụng WebP hiện có và audio delta đã được publish trong full-corpus run;
+  remote verify đạt 21.296/21.296 object, lỗi 0. Device smoke test chưa chạy cho revision này.

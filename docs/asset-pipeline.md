@@ -103,6 +103,24 @@ All image scripts accept `--lesson=<lesson-id>`. `assets:build` also accepts
 `--force`; otherwise it skips outputs whose source hash, profile, and config
 signature are unchanged.
 
+If a lesson's gitignored PNG masters are lost but its immutable production WebP
+files are still on R2, restore a continuity copy with:
+
+```bash
+npm run assets:restore-masters-from-r2 -- --lesson=supermarket-trip --dry-run
+npm run assets:restore-masters-from-r2 -- --lesson=supermarket-trip
+```
+
+The restore command downloads every lesson WebP through `assets.sungy.net`,
+checks its byte count and SHA-256 against `src/assets/asset-manifest.json`, writes
+the exact production WebP locally, and decodes a PNG master. It updates only
+source provenance; output hashes and the image revision remain unchanged, so a
+normal `assets:build` skips the recovered assets. These PNGs are continuity
+copies derived from compressed production WebP, not replacements for original
+lossless authoring files. Do not use `assets:build --force` on them unless an
+intentional re-encode is acceptable; replace them with original/regenerated
+lossless masters when those become available.
+
 The `plant-a-seed` pilot has a bounded authoring command:
 
 ```bash

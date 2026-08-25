@@ -35,38 +35,16 @@ ngắn, thao tác trực tiếp và visible payoff mà không cần giải mã i
 
 ### Foundation template đang thử nghiệm
 
-Theme 5 là `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật”. Mốc 5A tại
-`docs/theme-5-content-draft.md` đã khóa hành trình sáu lesson và chọn `feed-the-puppy` làm pilot,
-Mốc 5B tại `docs/theme-5-feed-the-puppy-storyboard.md` đã khóa storyboard pilot. Mốc 5C đã đăng
-ký theme cùng vertical slice `feed-the-puppy`; bản v2 hiện reauthor lesson theo blueprint Theme 1
-với vocabulary 9/18/27, 18/36/54 meaningful actions, 9/18/27 pronunciation encounter và
-9/12/15 lượt auto-micro. Story vocabulary ưu tiên dùng chính cún/bát/thảm; cue còn lại neo sát
-vùng hành động và runtime reference hiện là 36 trên 43 lesson masters; các cue sau bữa ăn dùng
-bát trống, còn cue `feed` trước bữa vẫn dùng bát đầy. Google TTS đã tạo 480
-clip còn thiếu; audio audit v2 có 626 target, thiếu 0 và lỗi 0. R2 đã upload delta 490 object,
-verify đủ 801/801 object. Bản tối ưu cue-anchor tiếp theo upload thêm 6 WebP; tập authoring hiện
-hành verify đủ 798/798 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Publish này
-không xóa các key cũ khỏi bucket. Revision local mới sửa scene dùng bữa để chỉ kéo bát một lần,
-không mang thức ăn trở lại sau khi cún ăn. Google TTS đã tạo thêm 36 clip; audio audit có 629
-target, thiếu 0 và lỗi 0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và
-post-upload dry-run còn `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2
-verify đủ 835/835 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`.
-
-Lesson Foundation thứ hai `play-with-the-puppy` đã được triển khai local theo storyboard
-`docs/theme-5-play-with-the-puppy-storyboard.md`: ba scene chọn bóng -> lăn/bắt -> mang về, nhịp
-9/18/27 từ, 18/36/54 meaningful actions, 9/18/27 pronunciation encounter và 9/12/15 auto-micro.
-Chỉ có một drag lăn bóng, không kéo cún. Local pipeline có 33 PNG master, 33 WebP và bốn bundled
-icon. Google TTS đã tạo 508 clip còn thiếu; audio audit có 613 target, missing 0 và invalid 0. R2
-đã upload/verify 541/541 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`.
-
-Lesson Foundation thứ ba `find-the-kitten` đã được triển khai local theo storyboard
-`docs/theme-5-find-the-kitten-storyboard.md`: ba scene nghe tiếng mèo -> kiểm tra chỗ trốn -> gọi
-mèo bước ra, nhịp 9/18/27 từ, 18/36/54 meaningful actions, 9/18/27 pronunciation encounter và
-9/12/15 auto-micro. Lesson không dùng drag; hai cue kiểm tra hộp/giỏ minh họa chỗ trống và kết
-thúc bằng cách chờ mèo tự đến rồi vuốt nhẹ. Local pipeline có 40 PNG master, 40 WebP cùng bốn
-bundled icon. Google TTS đã tạo 520 clip; full-corpus audit có 14.279 target, missing 0 và invalid
-0. R2 upload/verify đủ 560/560 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA
-chưa chạy.
+Theme 5 là `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật”. Sáu lesson Foundation đã
+được đăng ký theo hành trình khóa tại `docs/theme-5-content-draft.md`: `feed-the-puppy`,
+`play-with-the-puppy`, `find-the-kitten`, `clean-muddy-paws`, `care-for-the-rabbit` và
+`groom-the-kitten`. Mỗi lesson có storyboard riêng, vocabulary 9/18/27, 18/36/54 meaningful
+actions, 9/18/27 pronunciation encounter và 9/12/15 lượt auto-micro; review thực thi chọn 4/5/6
+item. Production audio và ảnh của revision audit 2026-08-25 đã được publish lên R2. Full-corpus
+audio audit đạt 16.156 target với 0 file thiếu và 0 file lỗi; đợt publish upload 279 audio cùng sáu
+WebP mới/đổi, verify đủ 21.296/21.296 remote object với 0 lỗi và post-upload delta bằng 0.
+`feed-the-puppy` có device QA lịch sử trên revision trước; current audit của cả sáu lesson, gồm
+`play-with-the-puppy`, vẫn cần device/child test.
 
 Template dùng ba mini-scene mỗi lesson và chỉ đưa một yêu cầu tại một thời điểm. Mỗi lesson giữ
 9/18/27 cơ hội nói nhưng chỉ tự bật micro 9/12/15 lần theo core/expanded/challenge. Mỗi vocabulary target được
@@ -83,8 +61,8 @@ không thêm tap/find hoặc reprise chỉ để đạt số lượng.
 6. Thiên nhiên quanh bé.
 
 Danh sách này khóa phạm vi nội dung còn lại, chưa khóa theme ID, lesson ID, catalog order hoặc
-asset. Trước khi nhân rộng sáu theme phải triển khai và child-test `feed-the-puppy`, kết hợp câu
-chữ đơn giản của Theme 1-3 với visible scene payoff của Scene State.
+asset. Trước khi nhân rộng sáu theme phải hoàn tất device/child test cho current audit Theme 5,
+kết hợp câu chữ đơn giản của Theme 1-3 với visible scene payoff của Scene State.
 
 ### Advanced hiện có
 
@@ -118,10 +96,11 @@ chữ đơn giản của Theme 1-3 với visible scene payoff của Scene State.
 
 ## 4. Rollout order
 
-1. Advanced Theme 4 đã hoàn thiện đủ năm lesson theo blueprint đã khóa.
-2. Ba lesson đầu Theme 5 đã triển khai và publish; `find-the-kitten` đã verify đủ 560/560 object
-   trên R2 với lỗi 0.
-3. Device/child-test lesson 3 trước khi author lesson 4–6 của Theme 5 cùng sáu Foundation theme
-   trong roadmap.
+1. Advanced Theme 4 đã author đủ năm lesson theo blueprint đã khóa; follow-up correctness audit
+   đã hoàn tất audio/R2 verification và còn chờ device QA.
+2. Sáu lesson Theme 5 đã triển khai và publish production assets; revision nội dung tiếp tục được
+   kiểm tra theo từng lesson.
+3. Device/child-test current audit của cả sáu lesson Theme 5 trước khi nhân rộng sáu Foundation
+   theme trong roadmap.
 4. Chỉ thêm schema/persisted preference cho content track khi Parent Mode cần filter/lock tự động;
    hiện tại parent chọn bằng catalog và nhãn lesson, không tạo setting ngầm chưa có runtime.

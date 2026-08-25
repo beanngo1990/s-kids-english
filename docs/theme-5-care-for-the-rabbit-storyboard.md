@@ -3,12 +3,14 @@
 **Lesson ID:** `care-for-the-rabbit`  
 **Theme:** `nhung-nguoi-ban-dong-vat`  
 **Freeze date:** 2026-08-17  
-**Status:** Storyboard drafted for vertical slice  
+**Status:** Production baseline and audit revision 2026-08-25 assets/audio were published and
+R2-verified. Device QA remains.
+
 **Track:** `3-8 tuổi · Làm quen` (Foundation)
 
 ## 1. Learning promise
 
-Bé làm quen với bạn thỏ trắng trong chuồng sạch, chuẩn bị cỏ khô thơm ngon, thêm nước sạch và thưởng cho thỏ một miếng cà rốt nhỏ đã được chuẩn bị trước, sau đó nhìn thỏ nhảy nhót tung tăng vui vẻ (`hop`).
+Bé làm quen với bạn thỏ trắng trong khu chăm sóc sạch, chuẩn bị cỏ khô, thêm nước sạch và thưởng cho thỏ một miếng cà rốt nhỏ đã được chuẩn bị trước, sau đó quan sát thỏ bật nhảy (`hop`). Chuồng trú chỉ là một phần của không gian sống rộng hơn; dáng nhảy không được dùng một mình để khẳng định cảm xúc.
 
 Bài học giữ đúng blueprint Foundation của Theme 5:
 - Mỗi từ có 1 lượt nghe – nói (guided speech turn) kèm 1 hành động ngay sau đó để áp dụng nghĩa và làm tiến trình câu chuyện thay đổi trực quan.
@@ -36,7 +38,7 @@ Mỗi scene có đúng 3/6/9 từ, 6/12/18 hành động và 3/4/5 lượt auto-
 | **Core** | `rabbit` | "Bé chạm vào bạn thỏ trắng nào!" | Chạm thỏ -> Thỏ vẫy nhẹ đôi tai dài chào bé. |
 | | `hay` | "Bé tìm bó cỏ khô thơm ngon nhé!" | Chạm búi cỏ khô -> Cỏ phát sáng nhẹ, sẵn sàng cho vào máng. |
 | | `hungry` | "Bé chạm vào máng cỏ đang trống nào!" | Chạm máng cỏ trống -> Thỏ nhìn máng đợi thức ăn. |
-| **Expanded** | `hutch` | "Bé chạm vào ngôi nhà của thỏ nhé!" | Chạm chuồng thỏ -> Cửa chuồng mở ra sạch sẽ. |
+| **Expanded** | `hutch` | "Bé chạm chuồng trú của thỏ nhé!" | Chạm chuồng thỏ -> Cửa khu trú mở ra; đây chỉ là một phần trong không gian sống rộng hơn. |
 | | `hay rack` | "Bé tìm chiếc máng cỏ nào!" | Chạm khay/máng cỏ -> Máng cỏ gài chắc chắn trên vách. |
 | | `chew` | "Bé chạm để xem thỏ gặm cỏ nhé!" | Chạm cỏ -> Thỏ nhai gặm cỏ ngon lành. |
 | **Challenge** | `fresh hay` | "Bé tìm phần cỏ tươi mới lấy ra nào!" | Chạm phần cỏ khô mới -> Búi cỏ đầy đặn xanh ngà. |
@@ -62,39 +64,40 @@ hay-rack: empty -> filling -> full-of-hay
 | | `drink` | "Bé chạm để thỏ uống nước nào!" | Chạm bát nước -> Thỏ cúi đầu uống từng ngụm mát lành. |
 | **Expanded** | `empty` | "Bé chạm vào chiếc bát đã cạn nước nhé!" | Chạm bát trống -> Bát cạn được nhấc ra để thêm nước. |
 | | `clean water` | "Bé chạm vào dòng nước trong veo nào!" | Chạm dòng nước rót -> Nước đầy ắp trong vắt trong bát. |
-| | `thirsty` | "Bé chạm vào bạn thỏ đang khát nước nhé!" | Chạm thỏ -> Thỏ liếm môi háo hức đợi nước. |
+| | `thirsty` | "Bé chạm vào bạn thỏ đang khát nước nhé!" | Chạm cue thỏ đang khát -> bát nước ở cạnh thỏ và hero trở lại, cúi xuống uống nước. |
 | **Challenge** | `water bowl` | "Bé tìm chiếc bát nước sạch sẽ nào!" | Chạm bát nước đầy -> Bát nước sáng sạch trên sàn. |
 | | `put it down` | "Bé chạm để đặt bát nước vào chuồng nhé!" | Chạm vị trí trên thảm -> Bát nước được đặt nhẹ nhàng vào góc chuồng. |
-| | `rabbit drinks` | "Bé chạm để xem thỏ uống xong vui vẻ nào!" | Chạm thỏ -> Thỏ uống no, ngẩng đầu hài lòng. |
+| | `rabbit drinks` | "Chạm thỏ sau khi bạn uống xong nhé." | Chạm thỏ -> Thỏ uống xong và ngẩng đầu. |
 
 **State transition chính:**
 ```text
 bowl: empty -> filling-with-clean-water -> full
-rabbit: thirsty-waiting -> drinking -> refreshed-happy
+rabbit: thirsty-waiting -> drinking -> refreshed (`happy` chỉ là variant ID legacy nếu còn xuất hiện trong asset map)
 ```
 
 ---
 
-### Scene 3 — `rabbit-snack-and-hop` (Món ăn nhỏ & Thỏ nhảy vui)
+### Scene 3 — `rabbit-snack-and-hop` (Món ăn nhỏ & Thỏ bật nhảy)
 
-**Mục tiêu câu chuyện:** Người lớn đưa miếng cà rốt nhỏ đã cắt sẵn cho bé thưởng thỏ, bé vuốt nhẹ lưng thỏ và thỏ nhảy nhót tung tăng khắp phòng.
+**Mục tiêu câu chuyện:** Người lớn đưa miếng cà rốt nhỏ đã cắt sẵn cho bé thưởng thỏ, bé vuốt nhẹ
+lưng thỏ và quan sát thỏ bật nhảy nhẹ quanh chỗ đứng.
 
 | Tier | Vocabulary | Lời thoại tiếng Việt (Audio prompt) | Thao tác & Phản hồi hình ảnh (Visual Payoff) |
 | :--- | :--- | :--- | :--- |
 | **Core** | `carrot` | "Bé tìm miếng cà rốt màu cam nào!" | Chạm miếng cà rốt nhỏ -> Miếng cà rốt đưa lại gần thỏ. |
 | | `treat` | "Bé chạm vào món thưởng nhỏ thơm ngon nhé!" | Chạm món thưởng -> Thỏ háo hức nhấm nháp miếng cà rốt. |
-| | `hop` | "Bé chạm để xem thỏ nhảy nhót nào!" | Chạm thỏ -> Thỏ nhảy bật lên vui vẻ (hop-hop). |
-| **Expanded** | `ears` | "Bé chạm vào đôi tai dài của thỏ nhé!" | Chạm tai thỏ -> Đôi tai thỏ ngọ nguậy rung rinh vui thích. |
-| | `soft` | "Bé chạm vào lớp lông trắng mềm mại nào!" | Chạm lưng thỏ -> Hiệu ứng lông mềm mại sáng nhẹ. |
-| | `happy` | "Bé chạm vào bạn thỏ đang mỉm cười nhé!" | Chạm thỏ -> Thỏ chớp mắt vui vẻ bên cạnh bé. |
+| | `hop` | "Bé chạm để xem thỏ bật nhảy nào!" | Chạm thỏ -> Thỏ bật nhảy nhẹ quanh chỗ đứng. |
+| **Expanded** | `long ears` | "Bé chạm vào đôi tai dài của thỏ nhé!" | Chạm tai thỏ -> Đôi tai dài ngọ nguậy nhẹ nhàng. |
+| | `fluffy fur` | "Bé chạm vào lớp lông trắng bông xốp nào!" | Chạm lưng thỏ -> Bộ lông bông xốp hiện rõ. |
+| | `calm` | "Bé chạm vào bạn thỏ đang nằm yên nhé!" | Chạm thỏ -> Thỏ ngồi bình tĩnh sau khi được vuốt nhẹ. |
 | **Challenge** | `feed the rabbit` | "Bé chạm để đưa món ngon cho thỏ nào!" | Chạm bàn tay đưa thức ăn -> Thỏ gặm hết mẩu cà rốt nhỏ. |
 | | `pet gently` | "Bé chạm để vuốt ve thỏ nhẹ nhàng nhé!" | Chạm bàn tay vuốt -> Bàn tay vuốt nhẹ lưng thỏ êm ái. |
-| | `happy rabbit` | "Bé chạm vào chú thỏ nhảy vòng tròn sung sướng nào!" | Chạm thỏ nhảy binky -> Thỏ nhảy xoay vòng đầy năng lượng. |
+| | `the rabbit hops` | "Bé chạm vào bạn thỏ đang bật nhảy nhé!" | Chạm thỏ đang nhảy -> Thỏ bật nhảy; bé nhớ rửa tay sau khi chăm sóc. |
 
 **State transition chính:**
 ```text
 carrot: on-plate -> offered-to-rabbit -> eaten
-rabbit: curious -> nibbling-treat -> happy-hopping
+rabbit: curious -> nibbling-treat -> calm -> hopping
 ```
 
 ---
@@ -102,7 +105,7 @@ rabbit: curious -> nibbling-treat -> happy-hopping
 ## 3. Speech rhythm
 
 - **Core:** Toàn bộ 3 anchor mỗi scene dùng `speechPractice: 'auto'` (tổng 9 auto turns).
-- **Expanded:** Anchor đầu tiên của mỗi scene (`hutch`, `empty`, `ears`) dùng `speechPractice: 'auto'` (tổng 3 auto + 9 core = 12 auto turns). Hai anchor còn lại dùng `optional`.
+- **Expanded:** Anchor đầu tiên của mỗi scene (`hutch`, `empty`, `long ears`) dùng `speechPractice: 'auto'` (tổng 3 auto + 9 core = 12 auto turns). Hai anchor còn lại dùng `optional`.
 - **Challenge:** Anchor hành động đầu tiên của mỗi scene (`fresh hay`, `water bowl`, `feed the rabbit`) dùng `speechPractice: 'auto'` (tổng 3 auto + 12 = 15 auto turns). Hai anchor còn lại dùng `optional`.
 - **Không có 2 pronunciation panel liên tiếp:** Giữa 2 lượt nói luôn có một thao tác tương tác chạm/tìm và phản hồi hoạt cảnh rõ ràng.
 - Giao diện luyện nói là lời mời tương tác hỗ trợ phát âm, không chấm điểm, không khóa tiến trình và trẻ luôn có thể đi tiếp nếu từ chối quyền micro.
@@ -148,6 +151,10 @@ Executable pool tương ứng từng mode:
   - Hướng dẫn vuốt ve nhẹ nhàng theo chiều lông; tuyệt đối không bế xốc hay kéo tai thỏ.
   - Parent Tip: Rửa tay sạch bằng xà phòng sau khi chơi và chăm sóc thú cưng.
 
+Production baseline đã có trên R2. Current audit cập nhật nghĩa trực tiếp cho `hutch`, `thirsty`,
+`gentle rabbit`, `long ears`, `fluffy fur`, `calm` và `the rabbit hops`, đồng thời bỏ suy diễn cảm
+xúc từ dáng nhảy. Audio delta đã publish và R2-verify; device QA chưa chạy.
+
 ---
 
 ## 6. Acceptance gates
@@ -157,4 +164,5 @@ Executable pool tương ứng từng mode:
 3. Đủ 6 Review items với silhouette và visual hoàn toàn tách biệt, không gây nhầm lẫn trong game review.
 4. Toàn bộ instruction tiếng Việt chuẩn 4–7 từ, sử dụng đúng 1 động từ hành động (`Chạm`, `Tìm`).
 5. Không có 2 recording panel liên tiếp; không có lỗi circular state.
-6. Validator và audio dry-run pass hoàn toàn không có lỗi reference hay missing items.
+6. Validator và audio dry-run phải pass hoàn toàn, không có lỗi reference, missing hoặc invalid
+   audio trước khi publish.

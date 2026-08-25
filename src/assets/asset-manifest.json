@@ -7299,7 +7299,7 @@
       "lessonIds": [
         "clean-muddy-paws"
       ],
-      "maxPercent": 29,
+      "maxPercent": 28,
       "output": "lessons/clean-muddy-paws/dry-the-paws/images/soft-towel.webp",
       "outputBytes": 44640,
       "outputSha256": "f440c20930632fdbf3f1dff5dc36df0f505dc1d1e0db406b83a93605e7d6227e",
@@ -10220,7 +10220,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 46,
+      "maxPercent": 42,
       "output": "lessons/feed-the-puppy/fill-the-bowl/images/feeding-mat.webp",
       "outputBytes": 26708,
       "outputSha256": "6207e2fda50a0aae35bcb3ac13b1697ab5d8be606f5a982b6680bbf6ebdbec1f",
@@ -10243,7 +10243,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 24,
+      "maxPercent": 27,
       "output": "lessons/feed-the-puppy/fill-the-bowl/images/food-scoop.webp",
       "outputBytes": 35214,
       "outputSha256": "77582e4897edddac7fd8f4b5db876d3f3b1f9456a5778247ab080f7e47581773",
@@ -10381,7 +10381,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 25,
+      "maxPercent": 24,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/empty-bowl-cue.webp",
       "outputBytes": 36670,
       "outputSha256": "9e2c5647f1d73a31b3c5423e226d0e549d9a4a18ef2723d09440cdfa342fc65b",
@@ -10427,7 +10427,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 34,
+      "maxPercent": 32,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-holding-tummy.webp",
       "outputBytes": 54908,
       "outputSha256": "cc7451a6d1823fe14383ff8bda73a656482c729b85669f3fa6922a06973653a5",
@@ -10450,7 +10450,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 42,
+      "maxPercent": 40,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-looking-at-bowl.webp",
       "outputBytes": 96866,
       "outputSha256": "1ebe56de5c21f4c64903a231408f8b8f66abf763d86cf760ec9ebe5934c884d7",
@@ -10473,7 +10473,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 34,
+      "maxPercent": 32,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-sitting.webp",
       "outputBytes": 57614,
       "outputSha256": "c254204de6b7b9e600441a50f1cbce11e355c6df50f251e322f6b86b00ad57bd",
@@ -10496,7 +10496,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 34,
+      "maxPercent": 32,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-wagging.webp",
       "outputBytes": 64208,
       "outputSha256": "b97f90327f76d5115ef5742fe5d60b6b47e2a9f161cf5aa8031aa17fad45ce1c",
@@ -10519,7 +10519,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 34,
+      "maxPercent": 32,
       "output": "lessons/feed-the-puppy/meet-the-puppy/images/puppy-waiting.webp",
       "outputBytes": 66340,
       "outputSha256": "aa382b94de339e2035be1527b36928a496f82904b26103a34134ba3a7f74dfac",
@@ -10557,6 +10557,29 @@
       "sourceBytes": 772507,
       "sourceSha256": "b6fe8945f8c168907cdbffe4174990161c2960fb086fe544d6088f198c10cf72",
       "width": 512
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 768,
+      "lessonIds": [
+        "feed-the-puppy"
+      ],
+      "maxPercent": 32,
+      "output": "lessons/feed-the-puppy/meet-the-puppy/images/wag-action.webp",
+      "outputBytes": 55154,
+      "outputSha256": "f1aeb58d55882f3470e743917e351cfff0f24fc10e78febb653e6c84ade528de",
+      "profile": "objectMedium",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "meet-the-puppy"
+      ],
+      "source": "lessons/feed-the-puppy/meet-the-puppy/images/wag-action.png",
+      "sourceBytes": 1157648,
+      "sourceSha256": "aae009f58a1dd3d3a962ed9c9580e692ea8cf743fef8e71b7fbd08b6f38fee3f",
+      "width": 768
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -10680,7 +10703,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 30,
+      "maxPercent": 32,
       "output": "lessons/feed-the-puppy/puppy-eats/images/eat-action-finishing.webp",
       "outputBytes": 40942,
       "outputSha256": "3ed8a46518c0c2cc02f780747b3dcb478983be8f21f26d3c8ec3dbca8ebd9538",
@@ -10726,7 +10749,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 39,
+      "maxPercent": 37,
       "output": "lessons/feed-the-puppy/puppy-eats/images/feed-action.webp",
       "outputBytes": 37000,
       "outputSha256": "789504b0e390fb6e81c76d7d3ea7214f47271e73e91684834ef01bdbf5dd9174",
@@ -10795,7 +10818,7 @@
       "lessonIds": [
         "feed-the-puppy"
       ],
-      "maxPercent": 39,
+      "maxPercent": 40,
       "output": "lessons/feed-the-puppy/puppy-eats/images/puppy-eating.webp",
       "outputBytes": 57642,
       "outputSha256": "d7f81a9192058596bc20a88d49b4088092ac9405ca37e566a06828a070ae3a8c",
@@ -12654,15 +12677,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 512,
       "lessonIds": [
         "garden-friends"
       ],
-      "maxPercent": 21,
+      "maxPercent": 17,
       "output": "lessons/garden-friends/flower-visitors/images/butterfly.webp",
-      "outputBytes": 54386,
-      "outputSha256": "042827754801bb3cbcc6a987f39ac7671b5d9ac845a17e5e5bc1048c96fda8ae",
-      "profile": "objectMedium",
+      "outputBytes": 33124,
+      "outputSha256": "06fa7928c92778229c13c2c202528cc159b8c79709909bb2b3eec87b11f6a55d",
+      "profile": "objectSmall",
       "roles": [
         "object"
       ],
@@ -12672,7 +12695,7 @@
       "source": "lessons/garden-friends/flower-visitors/images/butterfly.png",
       "sourceBytes": 874571,
       "sourceSha256": "19be0c63a90c72113c3780b957ae9982a2398ecc5d914a06f448cbc31c3c182b",
-      "width": 768
+      "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -12704,7 +12727,7 @@
       "lessonIds": [
         "garden-friends"
       ],
-      "maxPercent": 29,
+      "maxPercent": 27,
       "output": "lessons/garden-friends/flower-visitors/images/observation-ring.webp",
       "outputBytes": 63552,
       "outputSha256": "ed957cdf0de2e70e9cc4ec2e794a7ececf8f303116649a9b860128286d8094e7",
@@ -12934,7 +12957,7 @@
       "lessonIds": [
         "garden-friends"
       ],
-      "maxPercent": 43,
+      "maxPercent": 50,
       "output": "lessons/garden-friends/quiet-garden-watch/images/garden-neighbors.webp",
       "outputBytes": 94494,
       "outputSha256": "ce41fd5f020c50688e47299f8b86641728513ca955acc434209b87c8dedc8d50",
@@ -12943,6 +12966,7 @@
         "object"
       ],
       "sceneIds": [
+        "flower-visitors",
         "quiet-garden-watch"
       ],
       "source": "lessons/garden-friends/quiet-garden-watch/images/garden-neighbors.png",
@@ -13555,7 +13579,7 @@
       "lessonIds": [
         "garden-to-table"
       ],
-      "maxPercent": 27,
+      "maxPercent": 30,
       "output": "lessons/garden-to-table/make-and-share/images/cucumber-slices.webp",
       "outputBytes": 31744,
       "outputSha256": "c2c3fe6e40fa94d6f987405ca8d9e9141a064a82d15b86a323b9ae12f6027645",
@@ -14107,7 +14131,7 @@
       "lessonIds": [
         "garden-to-table"
       ],
-      "maxPercent": 32,
+      "maxPercent": 34,
       "output": "lessons/garden-to-table/save-for-next-season/images/envelope-stored.webp",
       "outputBytes": 37812,
       "outputSha256": "07bb3b0b394e8ce88dba67956470f82f63ce2b9df3cf1b85571b3210ef7fd5c0",
@@ -15189,6 +15213,29 @@
         "groom-the-kitten"
       ],
       "maxPercent": 40,
+      "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-shiny-coat.webp",
+      "outputBytes": 110796,
+      "outputSha256": "817737b4d0f94408f6a378f0b433f71f58fb75bb91634ce3fd1d42be58653cec",
+      "profile": "objectLarge",
+      "roles": [
+        "object"
+      ],
+      "sceneIds": [
+        "brush-the-fur"
+      ],
+      "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-shiny-coat.png",
+      "sourceBytes": 1032896,
+      "sourceSha256": "4b02e0a03b9eed93fab10801674489f5581ecf55edd6df490bfe54b9d38f777d",
+      "width": 1024
+    },
+    {
+      "configSignature": "d3d4e2f7441de006",
+      "hasAlpha": true,
+      "height": 1024,
+      "lessonIds": [
+        "groom-the-kitten"
+      ],
+      "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-sitting-calm.webp",
       "outputBytes": 47324,
       "outputSha256": "c24566379c8b15a4dd09613a044817709577bc236df5a8467f093ebe675368f5",
@@ -15410,29 +15457,6 @@
       "sourceBytes": 566192,
       "sourceSha256": "3e6bb28dfb3354b441d441d629979f41a0718d0c1a898e454453ecf8d643e2e2",
       "width": 1024
-    },
-    {
-      "configSignature": "d3d4e2f7441de006",
-      "hasAlpha": true,
-      "height": 768,
-      "lessonIds": [
-        "groom-the-kitten"
-      ],
-      "maxPercent": 29,
-      "output": "lessons/groom-the-kitten/get-the-brush/images/soft-kitten-fur.webp",
-      "outputBytes": 40340,
-      "outputSha256": "4c611d816ca1052c0bd62b195b9629c3624585950dff88f86001da42b21e99de",
-      "profile": "objectMedium",
-      "roles": [
-        "object"
-      ],
-      "sceneIds": [
-        "get-the-brush"
-      ],
-      "source": "lessons/groom-the-kitten/get-the-brush/images/soft-kitten-fur.png",
-      "sourceBytes": 801627,
-      "sourceSha256": "d0c37f58f68a8a0a36106a8284e4158c223a63efbf4bd3adaa8fd92f2eb95d2e",
-      "width": 768
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17024,15 +17048,15 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 768,
       "lessonIds": [
         "help-it-grow"
       ],
-      "maxPercent": 40,
+      "maxPercent": 30,
       "output": "lessons/help-it-grow/wind-and-support/images/installed-stake.webp",
-      "outputBytes": 18524,
-      "outputSha256": "03b5326f016813c99c7d6a6ba146578d40a97c3012491ac1e58cf17f4007bfd3",
-      "profile": "objectLarge",
+      "outputBytes": 13748,
+      "outputSha256": "1190dd064773d9816ede703e2b63edac316fac3810a63a447bac9040e9776eb9",
+      "profile": "objectMedium",
       "roles": [
         "object"
       ],
@@ -17042,20 +17066,20 @@
       "source": "lessons/help-it-grow/wind-and-support/images/installed-stake.png",
       "sourceBytes": 254716,
       "sourceSha256": "5e76b2eed269ce871234f487f7eb9497e9b4e537b7b0cdab3bf002284dc41dcf",
-      "width": 1024
+      "width": 768
     },
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 1024,
+      "height": 512,
       "lessonIds": [
         "help-it-grow"
       ],
-      "maxPercent": 40,
+      "maxPercent": 15,
       "output": "lessons/help-it-grow/wind-and-support/images/installed-tie.webp",
-      "outputBytes": 53618,
-      "outputSha256": "a37e6785cd40403ed0577a6067fa98bb9fa1dbc22fe9c7d37aab161ca2ba45a7",
-      "profile": "objectLarge",
+      "outputBytes": 26740,
+      "outputSha256": "88dfb18f5c4ccafcf9d036c3014dd10e6b4a9be891a87f67f4df410fffe26aca",
+      "profile": "objectSmall",
       "roles": [
         "object"
       ],
@@ -17065,7 +17089,7 @@
       "source": "lessons/help-it-grow/wind-and-support/images/installed-tie.png",
       "sourceBytes": 1054414,
       "sourceSha256": "cceeaa961970c1514ec1c189fed0533018b5484fba87156d81b6b1aecb7d1a8f",
-      "width": 1024
+      "width": 512
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -17235,30 +17259,7 @@
       "lessonIds": [
         "help-it-grow"
       ],
-      "maxPercent": 30,
-      "output": "lessons/help-it-grow/wind-and-support/images/stake.webp",
-      "outputBytes": 7202,
-      "outputSha256": "d3cc1f51c5d9e526721500d8dccaa95f9abba7a8df542043d574b1856a3c0ad2",
-      "profile": "objectMedium",
-      "roles": [
-        "object"
-      ],
-      "sceneIds": [
-        "wind-and-support"
-      ],
-      "source": "lessons/help-it-grow/wind-and-support/images/stake.png",
-      "sourceBytes": 202922,
-      "sourceSha256": "38eca13f0098325bce930610cef61b239df45e6dba8affd1fb1c94ac0622dd1f",
-      "width": 768
-    },
-    {
-      "configSignature": "d3d4e2f7441de006",
-      "hasAlpha": true,
-      "height": 768,
-      "lessonIds": [
-        "help-it-grow"
-      ],
-      "maxPercent": 27,
+      "maxPercent": 29,
       "output": "lessons/help-it-grow/wind-and-support/images/stem.webp",
       "outputBytes": 50274,
       "outputSha256": "07053ee8e6c1bf48d687c87fd27b99d0acf1667e3c7c6c34a4c7728fb0d4f913",
@@ -17350,7 +17351,7 @@
       "lessonIds": [
         "help-it-grow"
       ],
-      "maxPercent": 22,
+      "maxPercent": 27,
       "output": "lessons/help-it-grow/wind-and-support/images/wind.webp",
       "outputBytes": 42548,
       "outputSha256": "c7ddb582a5762b5a1149eeaf32e3f250da3222e4a3311833d8e3fe4febc9bf82",
@@ -24499,25 +24500,26 @@
     {
       "configSignature": "d3d4e2f7441de006",
       "hasAlpha": true,
-      "height": 768,
+      "height": 1024,
       "lessonIds": [
         "play-with-the-puppy"
       ],
-      "maxPercent": 34,
+      "maxPercent": 36,
       "output": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-play-bow.webp",
-      "outputBytes": 62740,
-      "outputSha256": "532a24b89d60e0284a8f1a320d65a80a2ae49d398b39abecd8ef66b42e43f58c",
-      "profile": "objectMedium",
+      "outputBytes": 88048,
+      "outputSha256": "77010243d6a119cb7c154aa3776511faaea8938cc93064d987a3845442af7919",
+      "profile": "objectLarge",
       "roles": [
         "object"
       ],
       "sceneIds": [
+        "bring-it-back",
         "choose-the-ball"
       ],
       "source": "lessons/play-with-the-puppy/choose-the-ball/images/puppy-play-bow.png",
       "sourceBytes": 1107145,
       "sourceSha256": "dc7f9b0e9550f589159b82abbc769d24c2774bd5dd76f96bfe9aa12f6666b111",
-      "width": 768
+      "width": 1024
     },
     {
       "configSignature": "d3d4e2f7441de006",
@@ -27045,8 +27047,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/baby.png",
-      "sourceBytes": 462864,
-      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "sourceBytes": 281341,
+      "sourceSha256": "76c5a569ecabcc8619d696fd3e059d2c9d3d821ac06f2110c6dbdaed6759e02f",
       "width": 495
     },
     {
@@ -27068,8 +27070,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/background.png",
-      "sourceBytes": 1419369,
-      "sourceSha256": "af8266f7a714461664afed9bbd6f1f645273f33a398612d633a0b661282c100d",
+      "sourceBytes": 216884,
+      "sourceSha256": "83c72e01a77b9c95b89e28c504d0fc64ec57e6cbd1da18d81a14f7569ad1fde4",
       "width": 941
     },
     {
@@ -27091,8 +27093,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/bag.png",
-      "sourceBytes": 153616,
-      "sourceSha256": "a9d1cb2ebca7de241fe7551d171ff494407158d40f44b98c6de869d2ea014072",
+      "sourceBytes": 78031,
+      "sourceSha256": "87a17db1d3979beb6b0772fcba3010c0dbc9c968744627d05d45dbdf498ff801",
       "width": 373
     },
     {
@@ -27114,8 +27116,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/card.png",
-      "sourceBytes": 121000,
-      "sourceSha256": "19d7eb4fa3174d898936719d58b3f905a4b785c2bb02fa574a9928434fa7970b",
+      "sourceBytes": 47247,
+      "sourceSha256": "4239ca4d6e6b8425c8c3fde2c75b7ecfb50cf7f7b112fd74897855f130116afc",
       "width": 407
     },
     {
@@ -27137,8 +27139,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/cashier.png",
-      "sourceBytes": 133676,
-      "sourceSha256": "95eeb8265a743c7bca49eb0f05322db638a1c032f2dbe70974197e8e660ef404",
+      "sourceBytes": 95773,
+      "sourceSha256": "d80fcb4aba234f4354f739c0a24f05561875f6b6993da7d6ae0ce037e49ab1bc",
       "width": 309
     },
     {
@@ -27160,8 +27162,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/counter.png",
-      "sourceBytes": 169245,
-      "sourceSha256": "00bd7509b548343a548f14fe706c59aadb52f0ffc293c7d2693a53ab29d9dee0",
+      "sourceBytes": 92113,
+      "sourceSha256": "a4269409984070a2ea82e7b64dede5484413de37114dbca2019eeeaaf2ce5216",
       "width": 469
     },
     {
@@ -27183,8 +27185,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/pack-bag.png",
-      "sourceBytes": 248697,
-      "sourceSha256": "4c26072bc03cc7da327a2a4b7565cb52d82da45852f38e2d51fb5387d6424606",
+      "sourceBytes": 125832,
+      "sourceSha256": "2e3f417e1c5f0ef4e04b73e46ad800a2fb700c8cb4a9962759c53731119a6cce",
       "width": 423
     },
     {
@@ -27206,8 +27208,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/receipt.png",
-      "sourceBytes": 108215,
-      "sourceSha256": "b9be0853a92b4412552d99d15c3f49a48d3662f05a1b5145f5f75076dbe7a9f6",
+      "sourceBytes": 56823,
+      "sourceSha256": "a067ba51816e76f426610c5972e179f6a0c779def6c23319b8f6e43f3bc4afdc",
       "width": 353
     },
     {
@@ -27229,8 +27231,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/say-thank-you.png",
-      "sourceBytes": 192536,
-      "sourceSha256": "a91b832221ca2bda803c275bb9f2342607283d45ef322ef2c2c8854e2be36018",
+      "sourceBytes": 101145,
+      "sourceSha256": "eef04161162f57eb92e194bdec5ab932fc418b5371e7b883f9c10e06a12eb759",
       "width": 429
     },
     {
@@ -27252,8 +27254,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/scan-item.png",
-      "sourceBytes": 223219,
-      "sourceSha256": "739b2c3d5b4ae131a39f70fcda35cc54d0d21a9dc1696849c36305c8ed3396c9",
+      "sourceBytes": 105017,
+      "sourceSha256": "d7668de324028d0c75158b5945be93b18134c0ebd3d38b3dc5732f017cfca2f1",
       "width": 420
     },
     {
@@ -27275,8 +27277,8 @@
         "checkout-counter"
       ],
       "source": "lessons/supermarket-trip/checkout-counter/images/scanner.png",
-      "sourceBytes": 96837,
-      "sourceSha256": "a1e487f18349efb915f12c500a1fc02f690ae8ed4acaa619bab4b5f96bfca0e3",
+      "sourceBytes": 54551,
+      "sourceSha256": "3687103126b41efd8063678b4419f9ead3aae2a8a66b16289bb0b016c7e36517",
       "width": 348
     },
     {
@@ -27298,8 +27300,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/baby.png",
-      "sourceBytes": 462864,
-      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "sourceBytes": 281341,
+      "sourceSha256": "76c5a569ecabcc8619d696fd3e059d2c9d3d821ac06f2110c6dbdaed6759e02f",
       "width": 495
     },
     {
@@ -27321,8 +27323,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/background.png",
-      "sourceBytes": 1469195,
-      "sourceSha256": "4523a0aecbbae9a7079539444252e56d2cb6eed6d24c85a794a08e024802647f",
+      "sourceBytes": 363178,
+      "sourceSha256": "324aea6cdf09c09c2089b267e1abd9f5a19791534e185eeaf656983858f116e5",
       "width": 941
     },
     {
@@ -27344,8 +27346,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/carrot.png",
-      "sourceBytes": 89951,
-      "sourceSha256": "3c0e1c2830199f28fe83ea660dd56d2c00bf4288869e764b97626db777867158",
+      "sourceBytes": 74447,
+      "sourceSha256": "445f854a14dc61bb039eaf15fed88aa9d7408f427bd929bbf85bea4f8e4c1292",
       "width": 334
     },
     {
@@ -27367,8 +27369,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/choose-drink.png",
-      "sourceBytes": 116581,
-      "sourceSha256": "075c696d2e2c029b294fafaba1e10651792d6716492efe77f3cfc4a2eccf9edf",
+      "sourceBytes": 55835,
+      "sourceSha256": "58d8fc5531f8f34d01dc3b7fb1f28330f8b296f7baaaff4a17b43e457ab58e62",
       "width": 250
     },
     {
@@ -27390,8 +27392,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/fruit.png",
-      "sourceBytes": 211372,
-      "sourceSha256": "2c0e5bbdb561054fc691871d88b110319fe24dede658042243037814d83afdd7",
+      "sourceBytes": 139430,
+      "sourceSha256": "cfc2d7ca5c12962316775b74fe23714b491ccee992f065c41b65bc972c4b63d3",
       "width": 440
     },
     {
@@ -27413,8 +27415,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/grapes.png",
-      "sourceBytes": 147753,
-      "sourceSha256": "df07d09c945bd03cb4f72374cd3f8b36cfa56bfb8e1343e487bde7039c6dd1ec",
+      "sourceBytes": 109459,
+      "sourceSha256": "68796383446aeb9104a6b87247025dec26e849ec7078b7cd7618e9116825addd",
       "width": 363
     },
     {
@@ -27436,8 +27438,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/pick-vegetables.png",
-      "sourceBytes": 274110,
-      "sourceSha256": "6926d793caa0c50e7634ba8971051c07ed48edba07966c5c396a73fd381f64f4",
+      "sourceBytes": 178656,
+      "sourceSha256": "e835b086bacd20d1a136d2c5378df699ae8b324e69c2f1804ff4fbfc76300b0a",
       "width": 392
     },
     {
@@ -27459,8 +27461,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/scale.png",
-      "sourceBytes": 156845,
-      "sourceSha256": "841a629c2c6308e66a873cc68afb541cfdab30d3c6da25cc80e7f3ccbaabef1e",
+      "sourceBytes": 87080,
+      "sourceSha256": "803b2db6dc6e04ed20a26aa430aa00ee3eb12d3e398bcfac2641cda3f45aa5f6",
       "width": 358
     },
     {
@@ -27482,8 +27484,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/tomato.png",
-      "sourceBytes": 119965,
-      "sourceSha256": "9d369ba57878547460f7ff9243ac116da07993133474547738671f471c08411d",
+      "sourceBytes": 73836,
+      "sourceSha256": "0206a8fbde7ab72fcd7965f3f1de116335b24e57c0a68b259e53a755d223724c",
       "width": 337
     },
     {
@@ -27505,8 +27507,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/vegetables.png",
-      "sourceBytes": 242424,
-      "sourceSha256": "20cf6bada3553ec0f47aa0f93629fe2a76703e789998a55ca8b226c1f3db9488",
+      "sourceBytes": 184502,
+      "sourceSha256": "d003765607180b7b91581acd6ad16acbd3cfe51e728908e52959e9b2406e7ba9",
       "width": 427
     },
     {
@@ -27528,8 +27530,8 @@
         "fresh-foods"
       ],
       "source": "lessons/supermarket-trip/fresh-foods/images/weigh-fruit.png",
-      "sourceBytes": 253116,
-      "sourceSha256": "36d86a13be2d3f3dae818edc0935d0d1791dfc3bcf4ee45306def3533a2379bb",
+      "sourceBytes": 125534,
+      "sourceSha256": "152942714351828f6ad8b4c7aac1bcb029242352e5e231647998fc29d3b494e1",
       "width": 398
     },
     {
@@ -27551,8 +27553,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/aisle.png",
-      "sourceBytes": 938298,
-      "sourceSha256": "8d4f15fc3dacd8c70597d19541f357041ed597fb34c1636ced8adc15d237a374",
+      "sourceBytes": 189984,
+      "sourceSha256": "a41a208ca7ec1dcf3129e4462f79011c6b43b7d3d08a90d1193435cd351b3a9a",
       "width": 512
     },
     {
@@ -27574,8 +27576,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/baby.png",
-      "sourceBytes": 462864,
-      "sourceSha256": "1346ce7a9654bdd5d703fa095b4dad6d799d8deb51c3b9b92314310422f910c1",
+      "sourceBytes": 281341,
+      "sourceSha256": "76c5a569ecabcc8619d696fd3e059d2c9d3d821ac06f2110c6dbdaed6759e02f",
       "width": 495
     },
     {
@@ -27597,8 +27599,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/background.png",
-      "sourceBytes": 1589703,
-      "sourceSha256": "6747a3b1b041e32184678bc361ba4d58f67979bf118a9eba855337740df7f953",
+      "sourceBytes": 318225,
+      "sourceSha256": "83a39a65cf157ce231614ed878266316a812212945218be1ff41fbbdc81ee1ce",
       "width": 941
     },
     {
@@ -27620,8 +27622,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/basket.png",
-      "sourceBytes": 178446,
-      "sourceSha256": "80a27b1bf9df9bc57cd0c19dd51dcb844335aa10527b602ec7982f5a45120773",
+      "sourceBytes": 111515,
+      "sourceSha256": "aff51901cea4966f7feaa540c8925c8facec073e8120e61da144a86f7368a381",
       "width": 428
     },
     {
@@ -27643,8 +27645,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/cart.png",
-      "sourceBytes": 1015525,
-      "sourceSha256": "353e85c92423ddf4675b9b06ef04f53680c95b8d34f371f32b74f08845f41934",
+      "sourceBytes": 491751,
+      "sourceSha256": "110ebd9e556054b665b4eb7ad7e66995cf54b5fd61b840b3645658bdc1610fb5",
       "width": 654
     },
     {
@@ -27666,8 +27668,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/check-list.png",
-      "sourceBytes": 181305,
-      "sourceSha256": "67f97c0d37bce3c4a61e0efb240a24c59b15737c2f92bcdd64c7bd75e2f25c38",
+      "sourceBytes": 92555,
+      "sourceSha256": "a58ec250d46a77689ff58d10b1157e4df3f1908251129c4e22de286bb7bd6a61",
       "width": 395
     },
     {
@@ -27689,8 +27691,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/coupon.png",
-      "sourceBytes": 100311,
-      "sourceSha256": "dea0995b0891cb09535c7a27fea427f6746fa1e5baeb68b839e00251efe9f1c5",
+      "sourceBytes": 53140,
+      "sourceSha256": "10a1e5145a053cbff6d99c5fda86acfaebd0ac18f905ccbc7b33f90de4bf440e",
       "width": 402
     },
     {
@@ -27712,8 +27714,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/make-list.png",
-      "sourceBytes": 197648,
-      "sourceSha256": "d1fd1bd088f292422c9ead14196a0b219853b5a3ce0d9eff81fe5a7ee77fd0f3",
+      "sourceBytes": 99167,
+      "sourceSha256": "65b4bf99201a2989a4caae55b9fa245436a7e11dd51cf502801b3fb8114ba4a5",
       "width": 408
     },
     {
@@ -27735,8 +27737,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/push-cart.png",
-      "sourceBytes": 204458,
-      "sourceSha256": "bc527e1f2b677745da201e960316fc96f89cbf8dc326f948efe38d799fffd290",
+      "sourceBytes": 119453,
+      "sourceSha256": "33c56a5e13d125f331125ff72128b23b068c9b850713277558caed17b73487a5",
       "width": 399
     },
     {
@@ -27758,8 +27760,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/shopping-list.png",
-      "sourceBytes": 126925,
-      "sourceSha256": "41872358fb9a3cc79e40f7e931a89ac1dbf00a7d9bea86cfd50d9c96216914b8",
+      "sourceBytes": 64523,
+      "sourceSha256": "c2c1555fe462bd7875d9ae5b38307910282e7992f62d091a519cfbab054540cb",
       "width": 358
     },
     {
@@ -27781,8 +27783,8 @@
         "shopping-list"
       ],
       "source": "lessons/supermarket-trip/shopping-list/images/wallet.png",
-      "sourceBytes": 157847,
-      "sourceSha256": "6f425841a49efab42fe3a9c7662649595cfb7ee03521d04f2e709f6916ebbe69",
+      "sourceBytes": 87991,
+      "sourceSha256": "daa7e2f84c3412dd7b9734357dd40fe0e9fa2f1b68a9a481f6eb1b425905cd3a",
       "width": 374
     },
     {
@@ -28545,7 +28547,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-25T05:47:32.085Z",
+  "generatedAt": "2026-08-25T11:34:59.669Z",
   "releaseVersion": "v1",
-  "revision": "2636bcf11f5d067c"
+  "revision": "0022b69c41a30492"
 }

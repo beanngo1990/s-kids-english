@@ -263,6 +263,25 @@ test('kitten action cues replace the story hero instead of stacking it', () => {
   ).not.toContain('welcome-the-kitten-hero');
 });
 
+test('welcome vocabulary uses visible features without treating a wag as happiness', () => {
+  const scene = findTheKittenLesson.scenes.find(
+    item => item.id === 'welcome-the-kitten',
+  )!;
+  const words = (scene.vocabulary ?? []).map(item => item.word);
+  const copy = scene.steps
+    .flatMap(step => [
+      step.instructionEn,
+      step.successFeedbackEn,
+      step.failFeedbackEn,
+    ])
+    .filter(Boolean)
+    .join(' ');
+
+  expect(words).toEqual(expect.arrayContaining(['tail up', 'soft fur']));
+  expect(words).not.toEqual(expect.arrayContaining(['tail', 'soft']));
+  expect(copy).not.toMatch(/tail wagging happily|tail is up happily/iu);
+});
+
 test('lesson metadata keeps the foundation and cat-safety contract', () => {
   expect(findTheKittenLesson.ageRange).toEqual({
     min: 3,

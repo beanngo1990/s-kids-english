@@ -1,16 +1,16 @@
 # Theme 5 Content Architecture v2 — Những người bạn động vật
 
 **Freeze date:** 2026-08-14
-**Status:** Content architecture v2 frozen; bốn lesson đầu đã đăng ký runtime; ba lesson đầu đã
-publish audio/ảnh lên R2, lesson 4 đã có vertical slice local
+**Status:** Content architecture v2 frozen; cả sáu lesson đã đăng ký runtime và revision audit
+2026-08-25 đã publish audio/ảnh lên R2, verify remote hoàn tất; còn chờ device/child test.
 **Content track:** `3-8 tuổi · Làm quen` / Foundation
-**Scope:** Theme dự kiến `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật” /
+**Scope:** Theme `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật” /
 “My Animal Friends”.
 
-Tài liệu này khóa phạm vi, hành trình, nhịp tương tác và phát âm của Theme 5. Pilot đầu tiên hiện
-đã được author và đăng ký runtime; exact step copy, object/variant ID, geometry, audio target và
-asset inventory của mỗi lesson thuộc storyboard riêng. Không thêm lesson tiếp theo vào runtime
-catalog chỉ dựa trên tài liệu này.
+Tài liệu này khóa phạm vi, hành trình, nhịp tương tác và phát âm của Theme 5. Cả sáu lesson hiện đã
+được author và đăng ký runtime; exact step copy, object/variant ID, geometry, audio target và asset
+inventory của mỗi lesson thuộc storyboard riêng. Không thêm lesson thứ bảy hoặc đổi catalog chỉ
+dựa trên tài liệu kiến trúc này.
 
 ## 1. Product role
 
@@ -34,14 +34,14 @@ nhóm nhân vật xuyên suốt gồm cún, mèo con và thỏ.
 - Theme ID: `nhung-nguoi-ban-dong-vat`.
 - `titleVi`: `Những người bạn động vật`.
 - `titleEn`: `My Animal Friends`.
-- `descriptionVi`: `Bé cho thú cưng ăn, chơi cùng các bạn, chăm sóc nhẹ nhàng và giúp các bạn đi ngủ.`
-- `descriptionEn`: `Feed, play with, gently care for, and help familiar animal friends get ready for bed.`
+- `descriptionVi`: `Bé cho chó con ăn và chơi, tìm mèo con, lau chân bẩn, chăm thỏ và chải lông cho mèo thật nhẹ nhàng.`
+- `descriptionEn`: `Feed and play with a puppy, find and groom a kitten, clean muddy paws, and gently care for a rabbit.`
 - `thumbnailEmoji`: `🐾`.
-- Bundled theme icon key dự kiến: `themeAnimalFriends`.
-- Parent-facing age label dự kiến: `3-8 tuổi · Làm quen`.
+- Bundled theme icon key: `themeAnimalFriends`.
+- Parent-facing age label: `3-8 tuổi · Làm quen`.
 
-Metadata trên hiện đã đăng ký cùng pilot. Lesson tiếp theo chỉ được thêm khi có data, review và
-asset tối thiểu để không tạo lesson card không mở được.
+Metadata và sáu lesson trên hiện đã đăng ký runtime. Revision tiếp theo chỉ được publish khi data,
+review, audio và image audit của lesson tương ứng đều đạt.
 
 ## 3. Foundation learning contract
 
@@ -128,37 +128,45 @@ tối đa số lần micro xuất hiện hoặc ngụ ý engine đã chấm đú
 | --- | --- | --- | --- | --- |
 | 1 | `feed-the-puppy` | Cho cún ăn / Feed the Puppy | Gặp cún đói -> chuẩn bị bát -> cún ăn | Cún ăn xong và vẫy đuôi |
 | 2 | `play-with-the-puppy` | Chơi cùng cún / Play with the Puppy | Chọn bóng -> lăn bóng -> cún mang về | Bóng trở lại bên bé |
-| 3 | `find-the-kitten` | Tìm mèo con / Find the Kitten | Nghe tiếng mèo -> tìm chỗ trốn -> gọi mèo ra | Mèo bước ra và dụi đầu vui vẻ |
+| 3 | `find-the-kitten` | Tìm mèo con / Find the Kitten | Nghe tiếng mèo -> tìm chỗ trốn -> gọi mèo ra | Mèo bước ra, tự đến gần và dụi đầu |
 | 4 | `clean-muddy-paws` | Rửa chân bẩn / Clean Muddy Paws | Nhìn chân bẩn -> rửa nhẹ -> lau khô | Dấu bùn biến mất, chân sạch và khô |
-| 5 | `care-for-the-rabbit` | Chăm thỏ con / Care for the Rabbit | Chuẩn bị cỏ khô -> thêm nước -> cho món nhỏ đã chuẩn bị | Thỏ ăn, uống và nhảy vui |
-| 6 | `groom-the-kitten` | Chải lông cho mèo con / Groom the Kitten | Lấy lược -> chải lông mượt -> mèo gừ gừ hạnh phúc | Mèo con lông mượt và gừ gừ âu yếm |
+| 5 | `care-for-the-rabbit` | Chăm thỏ con / Care for the Rabbit | Chuẩn bị cỏ khô -> thêm nước -> cho món nhỏ đã chuẩn bị | Thỏ ăn, uống và bật nhảy |
+| 6 | `groom-the-kitten` | Chải lông cho mèo con / Groom the Kitten | Lấy bàn chải lông -> chải nhẹ -> lắng nghe tiếng gừ gừ | Lông mèo gọn mượt; mèo nằm nghỉ và phát tiếng gừ gừ |
 
 Hành trình đi từ nhu cầu dễ hiểu nhất đến chăm sóc và gắn kết yêu thương với thú cưng. `feed-the-puppy` mở đầu vì
 đói -> bát -> thức ăn -> ăn là quan hệ nhìn thấy ngay và phù hợp nhất để child-test template.
 
 ## 6. Anchor families and role boundaries
 
-Danh sách dưới đây khóa semantic seed và tính khả thi của review, không phải toàn bộ ngân sách
-9/18/27. Riêng pilot đã có full vocabulary set. Storyboard lesson 2–6 phải mở rộng seed thành
-đúng ba cụm 3/6/9 từ theo từng scene mà không đổi outcome hoặc thêm từ mơ hồ chỉ để đủ số.
+Danh sách dưới đây tóm tắt semantic seed và tính khả thi của review, không thay thế full vocabulary
+set 9/18/27 đã author trong storyboard và runtime của từng lesson. Không thêm từ mơ hồ chỉ để giữ
+đủ số lượng.
 
 | Lesson | Core semantic seed | Expanded seed | Challenge seed |
 | --- | --- | --- | --- |
-| `feed-the-puppy` | puppy, hello, hungry; bowl, food, scoop; wait, eat, happy | sit, tummy, look; mat, empty, full; carry, feed, finished | tail, collar, wag; one scoop, meal, ready; ask an adult, put it down, step back |
+| `feed-the-puppy` | puppy, hello, hungry; bowl, food, scoop; wait, feed, eat | sit, tummy, look; mat, empty, full; finished, celebrate, carry | tail, collar, wag; one scoop, meal, ready; ask an adult, put it down, step back |
 | `play-with-the-puppy` | ball, run, catch, play | fetch | roll the ball |
 | `find-the-kitten` | kitten, box, basket, hide | under | find the kitten |
 | `clean-muddy-paws` | paws, mud, water, towel | basin | dry the paws |
 | `care-for-the-rabbit` | rabbit, hay, water, hop | hay rack | feed the rabbit |
-| `groom-the-kitten` | kitten, brush, smooth, purr | mat, comb | brush the fur |
+| `groom-the-kitten` | kitten, brush, smooth, purr | mat | brush the fur; bristles |
 
 - Exact review anchors phải có visual dương, rõ và không phụ thuộc chữ.
 - `hungry`, `hide`, `clean`, `quiet` chỉ được giữ nếu storyboard chứng minh meaning bằng trạng
   thái/hành động không mơ hồ; nếu không phải thay bằng noun/action cụ thể hơn.
 - `water`, `towel`, `bed` có thể đã xuất hiện ở catalog cũ nhưng Theme 5 được phép dạy lại khi
   lesson cần đứng độc lập. Không tối ưu uniqueness toàn app.
-- Từ cũ xuất hiện lại trong lesson sau mặc định là Quick Recall hoặc Action Enabler, không mở lại
-  first-production flow. Story reprise chỉ dành cho hai anchor trọng tâm của chính lesson hiện
-  tại.
+- Từ cũ xuất hiện lại trong lesson sau mặc định là Quick Recall hoặc Action Enabler. Ngoại lệ chỉ
+  dành cho mục tiêu giúp lesson Foundation chạy độc lập hoặc nhắc lại hành vi an toàn. Allowlist
+  Theme 5 hiện được khóa bằng test: `ask an adult`, `bowl`, `empty`, `hungry`, `kitten`, `mat`,
+  `pet gently`, `put it down`, `ready`, `wait` và `water`.
+- `happy` do lesson `my-feelings` của Theme 3 sở hữu. Theme 4–5 có thể dùng lại tự nhiên trong
+  feedback hoặc tên asset/state nội bộ, nhưng không khai báo lại làm New Anchor. Revision đầu
+  ngày 2026-08-25 đã thay tám anchor trùng và publish 148 clip audio. Follow-up audit khóa
+  các anchor theo ngữ cảnh thành `celebrate`, `playful`, `friendly`, `stand`, `calm`,
+  `the rabbit hops`, `cheerful` và `relaxed`; phần đổi anchor/copy này đã tạo thêm 279 audio và
+  publish cùng sáu WebP. Full-corpus audit đạt 16.156 target với thiếu 0/lỗi 0; R2 verify đủ
+  21.296/21.296 object, lỗi 0 và post-upload `Changed/new: 0`.
 
 ## 7. Pilot contract — `feed-the-puppy`
 
@@ -222,8 +230,19 @@ Storyboard `docs/theme-5-care-for-the-rabbit-storyboard.md` khóa ba scene
 `prepare-the-hay` -> `fill-the-water` -> `rabbit-snack-and-hop`. Lesson giữ
 vocabulary/action/pronunciation budget 9/18/27, 18/36/54 và 9/18/27; auto-micro 9/12/15;
 review executable 4/5/6. Core đi qua chuỗi làm quen -> chuẩn bị cỏ khô -> thêm nước sạch ->
-cho món cà rốt nhỏ đã chuẩn bị -> thỏ nhảy vui vẻ (`hop`). An toàn: cỏ khô và nước là thức ăn
+cho món cà rốt nhỏ đã chuẩn bị -> quan sát thỏ bật nhảy (`hop`). An toàn: cỏ khô và nước là thức ăn
 chính; cà rốt chỉ là món thưởng phụ; không bế xốc hay kéo tai thỏ; kết thúc bằng rửa tay sạch sẽ.
+
+### Lesson 6 contract — `groom-the-kitten`
+
+Storyboard `docs/theme-5-groom-the-kitten-storyboard.md` khóa ba scene `get-the-brush` ->
+`brush-the-fur` -> `kitten-purrs`. Lesson giữ vocabulary/action/pronunciation budget 9/18/27,
+18/36/54 và 9/18/27; auto-micro 9/12/15; review executable 4/5/6. Core đi qua chuỗi nhận biết mèo
+và bàn chải lông -> chải nhẹ để lông gọn mượt -> lắng nghe tiếng gừ gừ. Reward mapping có
+representative trực tiếp cho `bristles`, `neat`, `relaxed`, `curled tail` và
+`listen to the kitten purr`; riêng `shiny coat` dùng dedicated asset `kitten-shiny-coat`, không
+dùng chung hình `neat`. Tiếng gừ và dáng đuôi chỉ được mô tả như tín hiệu quan sát được, không dùng
+để khẳng định cảm xúc hoặc mức độ an toàn tuyệt đối.
 
 ## 8. Interaction and visual guardrails
 
@@ -250,15 +269,16 @@ chính; cà rốt chỉ là món thưởng phụ; không bế xốc hay kéo tai
   toàn thân một mình.
 - Parent tip nhắc trẻ hỏi người lớn trước khi cho vật nuôi ăn và rửa tay sau khi chăm sóc.
 
-## 10. Child-test gate before scaling
+## 10. Child-test gate before scaling sang theme mới
 
-Không author đồng loạt năm lesson còn lại trước khi pilot qua child test. Một lượt thử đạt khi:
+Không nhân rộng blueprint sang các Foundation theme mới trước khi current audit của cả sáu lesson
+Theme 5 qua device/child test. Một lượt thử đạt khi:
 
 1. Bé hoàn thành core story mà người lớn không cần chỉ tay hoặc diễn giải lại nhiệm vụ.
 2. Phần lớn target được tìm trước Auto-Hint; chỗ cần hint phải xác định được là copy, visual hay
    hitbox issue.
 3. Bé hiểu hành động kế tiếp từ audio và scene state, không dựa vào chữ English.
-4. Bé thử ít nhất bốn trong sáu guided speech turns; nếu bỏ lượt, ghi nhận nguyên nhân là nhịp,
+4. Bé thử ít nhất sáu trong chín guided speech turns của core; nếu bỏ lượt, ghi nhận nguyên nhân là nhịp,
    micro UX hay từ chưa rõ nghĩa.
 5. Không có recording panel liền nhau hoặc object thừa gây hiểu nhầm target.
 6. Bé có thể kể lại bằng tiếng Việt chuỗi đơn giản “lấy bát -> cho thức ăn -> cún ăn”.
@@ -282,10 +302,10 @@ minh pre-reader floor nhưng vẫn là tín hiệu quan trọng cho expanded pat
    0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và post-upload dry-run còn
    `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2 verify đủ 835/835 object
    với lỗi 0 và post-upload dry-run còn `Changed/new: 0`.
-5. **5E — Child test/template freeze:** `feed-the-puppy` và `play-with-the-puppy` đã được xác
-   nhận hoàn tất sau device QA; lesson 3 `find-the-kitten` đã author và publish theo template đã
-   tinh chỉnh. Lesson 4 `clean-muddy-paws` đã author và publish production assets, đang chờ
-   device QA. Lesson 5–6 vẫn chưa author.
+5. **5E — Child test/template freeze:** cả sáu lesson đã author và publish production assets.
+   `feed-the-puppy` có device QA lịch sử trên revision trước. Current audit của cả sáu lesson,
+   gồm `play-with-the-puppy`, vẫn chờ device/child test trước khi dùng blueprint để nhân rộng theme
+   mới.
 
 Catalog order, free/premium access và theme map layout chỉ thay đổi trong task runtime tương ứng;
 Mốc 5A không ngầm quyết định các contract đó.

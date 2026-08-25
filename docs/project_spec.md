@@ -2,14 +2,14 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-08-15
+**Kiểm chứng gần nhất:** 2026-08-25
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
 audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
 năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
-Theme 4 cùng năm vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
-`clean-muddy-paws`/`care-for-the-rabbit` của Theme 5 trong working tree hiện tại.
+Theme 4 cùng sáu vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
+`clean-muddy-paws`/`care-for-the-rabbit`/`groom-the-kitten` của Theme 5 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -50,8 +50,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** Scene State v1 cho object variants, trạng thái ẩn/hiện và thay đổi state chỉ sau
   tương tác đúng trong phạm vi lượt chạy scene hiện tại.
 - **Implemented:** pilot `plant-a-seed` dùng Scene State v1 để nối ba scene chuẩn bị chậu, gieo hạt
-  và tưới lần đầu thành một chuỗi nhân-quả; ảnh pilot đã build/verify local nhưng lesson audio và
-  image release chưa publish lên R2.
+  và tưới lần đầu thành một chuỗi nhân-quả; ảnh/audio hiện hành nằm trong corpus R2 đã verify.
 - **Implemented:** vertical slice `help-it-grow` nối ba tình huống nắng, mưa và gió bằng cùng một
   lineage cây cà chua non. Vocabulary-first revision ngày 2026-08-25 dùng lại 40 ảnh, nâng
   vocabulary/pronunciation lên 8/12/16, khóa meaningful turn 21/27/34 và giữ review 4/5/6.
@@ -78,14 +77,23 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   rebuild/upload với asset revision mới; device smoke test sau audio revision 8/12/16 chưa chạy.
 - **Implemented:** `garden-to-table` nối ba scene rửa rau quả, làm/chia sẻ món nguội và nhờ người
   lớn giữ hạt khô cho mùa sau. Vocabulary/pronunciation hiện là 8/12/16, nhịp meaningful turn là
-  21/27/34 và review vẫn 4/5/6. Các state `dirty -> clean`, `empty -> shared`, `empty -> stored`,
-  37 WebP runtime assets và bốn bundled icons được giữ nguyên. Visual QA correction retire
+  21/28/35 và review vẫn 4/5/6. Rau quả đi `dirty -> clean`; expanded colander đi từ `empty` ->
+  xà lách hiện riêng -> `filled`; tô đi `empty -> with-lettuce -> prepared -> mixed -> shared`;
+  phong bì đi `empty -> filled -> closed -> stored`. 37 WebP runtime assets và bốn bundled icons
+  được giữ nguyên. Visual QA correction retire
   pointer-hand sai ngữ nghĩa, dùng hình phong bì trên kệ cho `store it for next season` và cho
   safety action chạm phong bì đã đóng. Google TTS đã tạo 69 audio ở revision đầu và thêm đúng 12
   audio correction; lesson/full-corpus audit đạt 443/15.969 target với missing 0, invalid 0. R2
   upload thêm 14 object correction, verify đủ 404/404 asset và post-upload delta bằng 0 ngày
   2026-08-25; audio instruction mới trên production CDN khớp local theo size và SHA-256. Device
-  smoke test chưa chạy.
+  smoke test chưa chạy. Follow-up audit thêm một hành động riêng để xà lách sạch hiện trong rổ
+  trước khi dưa leo được đặt vào; thay đổi tái sử dụng 37 WebP và audio delta đã publish.
+- **Published revision:** correctness audit Theme 4 giữ nguyên vocabulary budget nhưng làm meaning
+  trực tiếp hơn: `help-it-grow` dạy cọc/dây trên trạng thái đã lắp đúng tỉ lệ và dùng cây có hoa
+  làm representative; `garden-friends` giữ ong/bướm sát hoa và dùng composite ba đối tượng cho
+  `visit the flower`; `harvest-day` bổ sung representative trực tiếp cho `red`, `branch`,
+  `gentle`, `carrot`, `separate` và giữ payoff phân loại; `garden-to-table` cho xà lách vào rổ ở
+  lượt riêng. Audio/image delta đã publish và R2-verify; device QA chưa chạy.
 - **Implemented:** vertical slice Foundation `feed-the-puppy` v2 nối ba scene gặp cún,
   chuẩn bị bát và giúp cún dùng bữa an toàn. Vocabulary/action/pronunciation budgets là 9/18/27,
   18/36/54 và 9/18/27 theo core/expanded/challenge; auto-micro giảm còn 9/12/15, phân bố 3/4/5
@@ -93,14 +101,15 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   Review vẫn chọn 4/5/6 visual
   distinct item. HUD lesson ghi cả `cảnh hiện tại/tổng cảnh` và `bước hiện tại/tổng step của cảnh`
   để parent QA không hiểu tổng của một scene là tổng lesson. Asset pipeline v2 có 43 lesson
-  master, 36 image được runtime tham chiếu; revision hậu bữa ăn thêm một sheet alpha 3×2 để mọi
+  master, 37 image được runtime tham chiếu sau khi `wag-action` trở thành representative trực
+  tiếp; sáu image còn lại được giữ như orphan local. Revision hậu bữa ăn thêm một sheet alpha 3×2 để mọi
   cue `carry/ask/put down/step` đều dùng bát trống, còn cue `feed` trước bữa vẫn dùng bát đầy;
   bốn map icons và theme icon giữ nguyên. Google TTS đã tạo 480 clip còn thiếu; audio audit v2
   có 626 target, thiếu 0 và lỗi 0. R2 đã upload delta 490 object, verify đủ 801/801 object với
   lỗi 0. Bản tối ưu cue-anchor tiếp theo upload thêm 6 WebP; tập authoring hiện hành verify đủ
   798/798 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Publish không xóa key cũ
-  khỏi bucket. Revision local mới sửa scene dùng bữa thành `wait -> feed -> eat -> finished ->
-  happy -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
+  khỏi bucket. Revision meal/cleanup tiếp theo sửa scene dùng bữa thành `wait -> feed -> eat -> finished ->
+  celebrate -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
   hồi bát đầy sau khi cún ăn. Google TTS đã tạo thêm 36 clip; audio audit revision có 629 target,
   thiếu 0 và lỗi 0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và post-upload
   dry-run còn `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2 verify đủ
@@ -116,7 +125,8 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** Foundation lesson `find-the-kitten` nối ba scene nghe tiếng mèo, kiểm tra chỗ
   trốn và gọi mèo bước ra. Budget vocabulary/action/pronunciation là 9/18/27, 18/36/54 và
   9/18/27; auto-micro 9/12/15, review 4/5/6. State đi một chiều `sitting -> hiding`,
-  `hiding -> peeking -> found`, rồi `peeking -> out -> happy -> near -> rubbing`; không có drag.
+  `hiding -> peeking -> found`, rồi `peeking -> out -> happy -> near -> rubbing`; `happy` ở đây là
+  technical variant ID, không phải vocabulary anchor, và lesson không có drag.
   Hai action cue kiểm tra hộp/giỏ đều hiển thị chỗ trống, còn tương tác cuối dạy đưa tay thấp,
   chờ mèo tự đến và vuốt nhẹ. Ba sheet chung được tách theo component thành 40 PNG master,
   build 40 WebP và bốn bundled icon; local cutout/image verify pass. Google TTS đã tạo 520 clip;
@@ -265,7 +275,7 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có năm themes và 35 lesson packs:
+Hiện có năm themes và 38 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
@@ -342,9 +352,10 @@ chua non và kết thúc bằng bông hoa vàng đã nở sau cue thời gian. V
 `leaf`, `sunlight`, `rain`, `soil`, `flower`, `wind`, `stem`; expanded thêm `shade`, `roots`,
 `stake`, `soft tie`; challenge thêm `move into sunlight`, `check the soil`,
 `wait for the rain to stop`, `support the stem`. Chậu/đích kéo, vòng thời gian, mái che, mây và
-que đỡ regular còn là Action Enabler. Nhịp ngoài intro là core 7/7/7, expanded 9/9/9 và challenge
-11/12/11, tương ứng 21/27/34 meaningful turns. Không có hai pronunciation panels liền nhau, và
-review executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
+que đỡ/dây buộc rời còn là Action Enabler; trạng thái cọc và dây đã lắp cạnh thân cây mới là
+target trực tiếp cho `stake` và `soft tie`. Nhịp ngoài intro là core 7/7/7, expanded 9/9/9 và
+challenge 11/12/11, tương ứng 21/27/34 meaningful turns. Không có hai pronunciation panels liền
+nhau, và review executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
 masters text-free từ ba production sheets. Đường mở lesson/review/replay luôn truyền learning
 mode đã chọn; nếu route cũ thiếu mode, ScenePlayer khôi phục setting đã lưu thay vì mặc định Core.
 Các illustration lựa chọn Challenge chỉ hiện trong đúng teach/review beat và được ẩn cả cặp ngay
@@ -398,11 +409,11 @@ chữ nhật lọt qua kiểm tra alpha/corner như bản đầu.
 
 Storyboard `docs/theme-4-garden-to-table-storyboard.md` khóa lesson cuối thành ba scene
 `rinse-and-drain` -> `make-and-share` -> `save-for-next-season`, vocabulary/pronunciation 8/12/16
-và review executable 4/5/6. Nhịp ngoài intro là 21/27/34 meaningful turn. Rau quả chuyển
-`dirty -> clean`, tô
-chuyển `empty -> with-lettuce -> prepared -> mixed -> shared`, còn phong bì được người lớn xử lý
-theo `empty -> filled -> closed -> stored`; `seed` là core anchor nhưng hạt nhỏ không draggable
-và luôn do người lớn xử lý. Challenge phrase `store it for next season` dùng hình phong bì đã
+và review executable 4/5/6. Nhịp ngoài intro là 21/28/35 meaningful turn. Rau quả chuyển
+`dirty -> clean`; ở expanded, rổ đi từ `empty` -> xà lách hiện riêng trong rổ -> `filled`; tô chuyển
+`empty -> with-lettuce -> prepared -> mixed -> shared`; phong bì được người lớn xử lý theo
+`empty -> filled -> closed -> stored`. `seed` là core anchor nhưng hạt nhỏ không draggable và
+luôn do người lớn xử lý. Challenge phrase `store it for next season` dùng hình phong bì đã
 được cất trên kệ; safety action kế tiếp chạm phong bì đã đóng để nhờ người lớn cất, không dùng
 pointer-hand control. Ba sheet chroma text-free được cắt thành 35 cutout PNG, thêm ba background,
 build 37 WebP runtime asset và tạo bốn bundled map icons. Cutter loại component nhỏ chạm gutter và
@@ -412,33 +423,45 @@ thêm đúng 12 audio cho visual/copy correction; lesson audit 443 target và fu
 target đều missing 0, invalid 0, đồng thời audio manifest và English provenance đã được cập nhật.
 R2 upload thêm 14 correction object, verify 404/404 và post-upload delta bằng 0; audio instruction
 mới tải qua production CDN khớp local theo size và SHA-256. Device smoke test sau revision 8/12/16
-chưa chạy.
+chưa chạy. Follow-up audit thêm một lượt kéo xà lách sạch vào rổ trước lượt kéo dưa leo và tái sử
+dụng cutout `lettuce-clean`; audio delta đã publish trong full-corpus run.
+
+Revision hiện tại của `help-it-grow`, `garden-friends` và `garden-to-table` đã generate/publish
+prompt/audio target delta; `harvest-day` tái sử dụng audio và 34 WebP hiện có. Full R2 verify đạt
+21.296/21.296 object với lỗi 0; cả bốn correction vẫn chờ device smoke test.
 
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
+Validator từ chối ID trùng trong danh sách vocabulary, object, drop zone và step của cùng một
+scene. Khi một learned word được cố ý dùng lại ở nhiều scene, cùng `vocabId` chỉ hợp lệ nếu toàn bộ
+định nghĩa vocabulary giống nhau; reuse có word/meaning/level/type/audio/scope mâu thuẫn sẽ là lỗi,
+ngoài các kiểm tra reference hiện có.
 
-Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký năm lesson Foundation:
+Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký sáu lesson Foundation:
 
 1. `feed-the-puppy`
 2. `play-with-the-puppy`
 3. `find-the-kitten`
 4. `clean-muddy-paws`
 5. `care-for-the-rabbit`
+6. `groom-the-kitten`
 
-Mốc 5A khóa sáu lesson dự kiến trong `docs/theme-5-content-draft.md`; Mốc 5B khóa storyboard pilot
-tại `docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
+Mốc 5A khóa kiến trúc của sáu lesson hiện đã author và đăng ký runtime trong
+`docs/theme-5-content-draft.md`; Mốc 5B ban đầu khóa storyboard pilot tại
+`docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
 `fill-the-bowl` -> `puppy-eats`, vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter
 9/18/27 và auto-micro 9/12/15 theo core/expanded/challenge; review chọn 4/5/6 item. Mỗi lượt nói
 nối ngay với một action áp dụng nghĩa,
 state giữ các chuỗi `waiting -> looking/wagging`, `empty -> filled/ready` và
-`waiting -> eating -> happy`, còn prompt luôn có `Chạm`/`Kéo`/`Tìm`. Từ gắn với cún, bát hoặc
-thảm dùng story object; cue còn lại neo sát vùng hành động. Runtime v2 tham chiếu 36 lesson images,
+`waiting -> eating -> happy`, trong đó `happy` chỉ là technical variant ID; prompt luôn có
+`Chạm`/`Kéo`/`Tìm`. Từ gắn với cún, bát hoặc
+thảm dùng story object; cue còn lại neo sát vùng hành động. Runtime v2 tham chiếu 37 lesson images,
 bốn map icons và `themeAnimalFriends`; HUD hiển thị mode, số scene và step của
 scene. Google TTS đã tạo 480 clip còn thiếu; audio audit có 626 target, thiếu 0 và lỗi 0. R2 đã
 upload delta 490 object, verify đủ 801/801 object với lỗi 0. Bản tối ưu cue-anchor sau đó upload
 thêm 6 WebP; tập authoring hiện hành verify đủ 798/798 object với lỗi 0 và post-upload dry-run
-còn `Changed/new: 0`; không xóa key cũ khỏi bucket. Revision local tiếp theo khóa scene dùng bữa
-theo thứ tự `wait -> feed -> eat -> finished -> happy -> carry -> ask an adult -> put it down ->
+còn `Changed/new: 0`; không xóa key cũ khỏi bucket. Revision meal/cleanup tiếp theo khóa scene dùng bữa
+theo thứ tự `wait -> feed -> eat -> finished -> celebrate -> carry -> ask an adult -> put it down ->
 step back`, chỉ `feed` kéo bát và không có state regression sau `eat`. Audio audit revision có 629
 target, thiếu 0 và lỗi 0. Google TTS đã tạo 36 clip mới; R2 đã upload delta 36 audio, verify đủ
 834/834 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Revision hình bát trống đã
@@ -480,7 +503,8 @@ Storyboard `docs/theme-5-care-for-the-rabbit-storyboard.md` khóa lesson thứ n
 `prepare-the-hay` -> `fill-the-water` -> `rabbit-snack-and-hop`. Runtime author 9/18/27
 vocabulary, 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ
 chuẩn bị cỏ khô thơm vào máng, thêm nước sạch vào bát, thưởng mẩu cà rốt nhỏ đã chuẩn bị, vuốt nhẹ
-và nhìn thỏ nhảy vui vẻ (`hop`). Review trả 4/5/6 item `rabbit`/`hay`/`water`/`hop` + `hay rack` +
+và quan sát thỏ bật nhảy nhẹ quanh chỗ đứng (`hop`). Review trả 4/5/6 item
+`rabbit`/`hay`/`water`/`hop` + `hay rack` +
 `feed the rabbit`. Local asset pipeline có 37 PNG master, 37 WebP và bốn icon map/milestone;
 cutout audit pass. Google TTS đã tạo 495 clip; audio audit có 607 target, missing 0 và invalid 0.
 R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
@@ -490,11 +514,26 @@ Storyboard `docs/theme-5-groom-the-kitten-storyboard.md` khóa lesson thứ sáu
 `get-the-brush` -> `brush-the-fur` -> `kitten-purrs`. Runtime author 9/18/27 vocabulary,
 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ lấy chiếc bàn chải
 lông chuyên dụng, chải lông nhẹ nhàng xuôi chiều gỡ rối, đến khi bộ lông suôn mượt và mèo con
-gừ gừ hạnh phúc (`purr`). Review trả 4/5/6 item `kitten`/`brush`/`smooth`/`purr` + `mat` +
+nghỉ và phát tiếng gừ gừ (`purr`). Review trả 4/5/6 item `kitten`/`brush`/`smooth`/`purr` + `mat` +
 `brush the fur`. Local asset pipeline có 28 PNG master, 28 WebP và bốn icon map/milestone;
 cutout audit pass. Google TTS đã tạo 587 clip; audio audit có 610 target, missing 0 và invalid 0.
 R2 upload/verify đủ 615/615 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
 chạy.
+
+Revision vocabulary ownership ngày 2026-08-25 giữ `happy` là New Anchor của `my-feelings` ở
+Theme 3, không dạy lại từ này trong Theme 4–5. Follow-up audit khóa tám anchor Theme 5 theo ngữ
+cảnh thành `celebrate`, `playful`, `friendly`, `stand`, `calm`, `the rabbit hops`, `cheerful` và
+`relaxed`; tên asset hoặc Scene State variant legacy có chứa `happy` chỉ là technical identifier,
+không mở pronunciation panel. Exact duplicates giữa các lesson Theme 5 chỉ còn allowlist phục vụ
+lesson Foundation độc lập hoặc an toàn: `ask an adult`, `bowl`, `empty`, `hungry`, `kitten`,
+`mat`, `pet gently`, `put it down`, `ready`, `wait` và `water`; test ownership sẽ fail nếu có từ
+trùng ngoài danh sách. Delta 148 audio/R2 đã publish thuộc revision ownership đầu trong ngày;
+follow-up đổi anchor/copy/representative đã tạo thêm 279 audio và publish cùng sáu WebP trong một
+delta 285 object. Full-corpus audit đạt 16.156 target với thiếu 0/lỗi 0; R2 verify đủ
+21.296/21.296 object, lỗi 0 và post-upload `Changed/new: 0`. Grooming audit dùng representative
+trực tiếp cho `bristles`, `neat`, `relaxed` và dedicated `kitten-shiny-coat` cho `shiny coat`,
+không dùng chung hình `neat` để thay cho độ óng của bộ lông. Current audit của cả sáu lesson chỉ
+còn chờ device QA.
 
 ### Hierarchy
 
@@ -1485,6 +1524,11 @@ quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc bi�
   `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png` (Gitignored local build artifact).
 - Raw/chroma inputs: `src/assets/source/lessons/` (Gitignored local build artifact).
 - Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp` (Gitignored local build artifact).
+- Khi gitignored PNG master của một lesson bị mất nhưng production WebP immutable vẫn còn trên R2,
+  `npm run assets:restore-masters-from-r2 -- --lesson=<lesson-id>` tải từng WebP qua CDN, xác minh
+  byte count/SHA-256 theo asset manifest và phục hồi local WebP + PNG continuity master mà không
+  đổi output hash/image revision. PNG phục hồi là bản giải mã từ WebP đã nén, không thay thế
+  lossless authoring original và không được force-rebuild nếu chưa chủ động chấp nhận re-encode.
 - Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2 CDN.
 - Catalog/audit/build/verify và missing-image check scan cả base object asset lẫn mọi
   `SceneObject.variants[].asset`; variant kế thừa role và dùng geometry override nếu có để chọn
@@ -1598,13 +1642,21 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 755/756 tests pass trong 83 suites sau khi thêm `clean-muddy-paws`. Suite mới guard
-  vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter 9/18/27, auto-micro 9/12/15,
-  action-first copy, target visibility, không drag, state `muddy -> clean-wet -> dry`, pet-care
-  safety và review 4/5/6. Guard tương ứng của ba lesson Theme 5 trước vẫn pass. 1 baseline failure
-  nằm ở `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
-  `NSPhotoLibraryUsageDescription`; thay đổi này không chạm iOS/localization. Các suite mục tiêu
-  cho lesson, learning-mode propagation, navigation replay và audio provenance đều pass.
+- Jest: 85/86 suites và 862/863 tests pass. Một baseline failure còn lại nằm ở
+  `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
+  `NSPhotoLibraryUsageDescription`; audit Theme 4/5 không chạm iOS/localization. Mười ba suite mục
+  tiêu cho lesson, vocabulary ownership, lesson validation và audio provenance pass 382/382.
+- Audio generation/full-corpus audit hiện có 16.156 target, 0 file thiếu và 0 file lỗi. R2 upload
+  285 object mới/đổi với tổng dung lượng 9,7 MiB; full remote verify đạt 21.296/21.296 object,
+  lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Production CDN `assets.sungy.net` trả
+  `kitten-shiny-coat.webp` và audio en-US `shiny_coat_teach_success_77a8ad20.mp3` với HTTP 200,
+  đúng content type và immutable cache headers.
+- Image audit/build/verify của các delta trực tiếp đạt: `help-it-grow` 39/39,
+  `feed-the-puppy` 37/37 và `groom-the-kitten` 28/28; cả ba đều 0 missing, 0 oversized. Các WebP
+  cũ không còn được tham chiếu vẫn được giữ local, không bị xóa trong audit này. Full image
+  reference check có 1.241 asset và không thiếu ảnh. Generated manifest local cũng có đủ 1.241
+  entry ở revision `0022b69c41a30492`; `wag-action`, các installed-state asset và dedicated
+  `kitten-shiny-coat` đã upload/verify R2 trong revision hiện tại.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
   `assembleDebug` pass ngày 2026-08-14 sau pacing revision `feed-the-puppy`. Store sandbox/physical-

@@ -49,7 +49,6 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const expectedEnglishTargetCountPerAccent = 5043;
 const bundledEnglishUiPrompts = [
   'Hi! I am Sungy, your child’s learning buddy.',
   'Let’s learn with Sungy today!',
@@ -65,7 +64,9 @@ const bundledEnglishUiPrompts = [
   'Let’s earn more stars!',
 ];
 
-test('English Neural2-C corpus is complete and matches its provenance', () => {
+// `generate:audio:dry-run` owns current-corpus completeness. This test protects
+// the integrity and cross-accent parity of the published provenance snapshot.
+test('English Neural2-C provenance is internally consistent across accents', () => {
   expect(manifest).toMatchObject({
     config: {
       audioEncoding: 'LINEAR16',
@@ -91,33 +92,46 @@ test('English Neural2-C corpus is complete and matches its provenance', () => {
   const counts = new Map<EnglishAccent, number>(
     ENGLISH_ACCENTS.map(accent => [accent, 0]),
   );
+  const textsByAccent = new Map<EnglishAccent, Set<string>>(
+    ENGLISH_ACCENTS.map(accent => [accent, new Set<string>()]),
+  );
   const uniqueKeys = new Set<string>();
 
   for (const target of manifest.targets) {
+    expect(ENGLISH_ACCENTS).toContain(target.accent);
     expect(uniqueKeys.has(target.key)).toBe(false);
     uniqueKeys.add(target.key);
     counts.set(target.accent, (counts.get(target.accent) ?? 0) + 1);
+    textsByAccent.get(target.accent)?.add(target.text);
 
     expect(target.key).toContain(
       `/audio/${target.accent}/${manifest.release}/`,
     );
     expect(target.voice).toBe(`${target.accent}-Neural2-C`);
+    expect(target.bytes).toBeGreaterThan(0);
+    expect(target.sha256).toMatch(/^[0-9a-f]{64}$/u);
+    expect(target.text.trim()).toBe(target.text);
+    expect(target.text.length).toBeGreaterThan(0);
     expect(getWordAudioAsset(target.text, target.accent)?.key).toBe(target.key);
 
     const assetPath = join(repoRoot, 'src/assets', target.key);
     if (existsSync(assetPath)) {
       const content = readFileSync(assetPath);
-      expect(content.length).toBeGreaterThan(0);
+      expect(content.length).toBe(target.bytes);
     }
   }
 
+  const usTexts = textsByAccent.get('en-US') ?? new Set<string>();
+  const gbTexts = textsByAccent.get('en-GB') ?? new Set<string>();
+
+  expect(counts.get('en-US')).toBeGreaterThan(0);
+  expect(counts.get('en-GB')).toBe(counts.get('en-US'));
+  expect(usTexts.size).toBe(counts.get('en-US'));
+  expect(gbTexts.size).toBe(counts.get('en-GB'));
+  expect([...gbTexts].sort()).toEqual([...usTexts].sort());
   expect(manifest.targets).toHaveLength(
-    expectedEnglishTargetCountPerAccent * ENGLISH_ACCENTS.length,
+    (counts.get('en-US') ?? 0) + (counts.get('en-GB') ?? 0),
   );
-  expect(Object.fromEntries(counts)).toEqual({
-    'en-GB': expectedEnglishTargetCountPerAccent,
-    'en-US': expectedEnglishTargetCountPerAccent,
-  });
   expect(uniqueKeys.size).toBe(manifest.targets.length);
 });
 

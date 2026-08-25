@@ -7,6 +7,8 @@
 - Thứ tự: bài Foundation thứ tư của `nhung-nguoi-ban-dong-vat`, sau
   `find-the-kitten`.
 - Độ tuổi hiển thị: `3-8 tuổi · Làm quen`.
+- Trạng thái: production baseline cùng audit revision 2026-08-25 assets/audio đã publish và
+  R2-verify; còn chờ device QA.
 - Câu chuyện: thấy chân cún dính bùn -> chờ người lớn -> rửa sạch -> lau khô -> rửa tay.
 - Payoff nhìn thấy được: bùn biến mất, nước trong chậu đổi màu, chân cún sạch và khô.
 
@@ -60,7 +62,7 @@ Mục tiêu câu chuyện: lau chân khô, xác nhận hoàn thành và rửa ta
 | Tier | Từ/cụm từ theo thứ tự | Hành động/payoff |
 | --- | --- | --- |
 | Core | `towel`, `wipe`, `dry` | lấy khăn -> lau nước -> hai chân khô |
-| Expanded | `soft`, `pat`, `happy` | dùng mặt khăn mềm -> thấm giọt cuối -> cún vui |
+| Expanded | `fluffy towel`, `pat`, `stand` | dùng khăn bông xốp -> thấm giọt cuối -> cún đứng trên bốn chân sạch, khô |
 | Challenge | `dry the paws`, `all done`, `wash hands` | kiểm tra lại -> cún rời thảm -> bé nhớ rửa tay |
 
 ## 4. Nhịp phát âm
@@ -97,4 +99,5 @@ Mục tiêu câu chuyện: lau chân khô, xác nhận hoàn thành và rửa ta
 - Test xác nhận 9/18/27 vocabulary, 18/36/54 action và 9/12/15 auto micro.
 - `assets:audit`, `assets:build`, `assets:verify`, cutout audit và `check:images` đều pass trước khi
   upload.
-- Google TTS và R2 là bước phát hành riêng, chỉ chạy khi được yêu cầu rõ ràng.
+- Current audit thay `soft`/`comfortable` bằng `fluffy towel` và `stand`, đồng thời thêm standing
+  payoff; audio/image delta đã publish và R2-verify. Device QA vẫn còn trước khi freeze revision.

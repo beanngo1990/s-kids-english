@@ -456,7 +456,10 @@ mode counts: 4 for `core`, 5 for `expanded`, and 6 for `challenge`.
 `assertValidLessons()` runs automatically when `src/data/lessons.ts` loads in
 dev. It catches common mistakes:
 
-- duplicated lesson, scene, object, drop zone, or step ids
+- duplicated lesson/scene ids, or duplicated object, drop-zone, vocabulary, or
+  step ids within a scene
+- conflicting vocabulary definitions that reuse one id across two scenes; an
+  identical definition may be intentionally reused for the same learned word
 - duplicated object variant ids or an invalid `initialVariantId`
 - missing `targetObjectId`, `correctObjectIds`, `dropZoneId`, or `nextStepId`
 - scene-state changes that reference a missing object or variant

@@ -18,13 +18,16 @@ test.each([
   ['core', 9],
   ['expanded', 18],
   ['challenge', 27],
-] as const)('%s mode exposes the foundation vocabulary budget', (mode, count) => {
-  const vocabulary = careForTheRabbitLesson.scenes.flatMap(
-    scene => getSceneForLearningMode(scene, mode).vocabulary,
-  );
+] as const)(
+  '%s mode exposes the foundation vocabulary budget',
+  (mode, count) => {
+    const vocabulary = careForTheRabbitLesson.scenes.flatMap(
+      scene => getSceneForLearningMode(scene, mode).vocabulary,
+    );
 
-  expect(vocabulary).toHaveLength(count);
-});
+    expect(vocabulary).toHaveLength(count);
+  },
+);
 
 test.each([
   ['core', 9, 9, 0],
@@ -80,17 +83,20 @@ test.each([
   },
 );
 
-test.each(modes)('%s mode separates every speech panel with an action', mode => {
-  careForTheRabbitLesson.scenes.forEach(sourceScene => {
-    const steps = getSceneForLearningMode(sourceScene, mode).steps;
-    for (let index = 1; index < steps.length; index += 1) {
-      expect(
-        hasPronunciationPanel(steps[index - 1]) &&
-          hasPronunciationPanel(steps[index]),
-      ).toBe(false);
-    }
-  });
-});
+test.each(modes)(
+  '%s mode separates every speech panel with an action',
+  mode => {
+    careForTheRabbitLesson.scenes.forEach(sourceScene => {
+      const steps = getSceneForLearningMode(sourceScene, mode).steps;
+      for (let index = 1; index < steps.length; index += 1) {
+        expect(
+          hasPronunciationPanel(steps[index - 1]) &&
+            hasPronunciationPanel(steps[index]),
+        ).toBe(false);
+      }
+    });
+  },
+);
 
 test.each(modes)('%s mode tells the child the required gesture', mode => {
   careForTheRabbitLesson.scenes.forEach(sourceScene => {
@@ -102,24 +108,29 @@ test.each(modes)('%s mode tells the child the required gesture', mode => {
   });
 });
 
-test.each(modes)('%s mode never advances to a hidden interaction target', mode => {
-  careForTheRabbitLesson.scenes.forEach(sourceScene => {
-    const scene = getSceneForLearningMode(sourceScene, mode);
-    let runtimeState: SceneRuntimeState = {};
+test.each(modes)(
+  '%s mode never advances to a hidden interaction target',
+  mode => {
+    careForTheRabbitLesson.scenes.forEach(sourceScene => {
+      const scene = getSceneForLearningMode(sourceScene, mode);
+      let runtimeState: SceneRuntimeState = {};
 
-    scene.steps.forEach(step => {
-      step.targetObjectIds.forEach(objectId => {
-        const object = scene.objects.find(item => item.id === objectId);
-        expect(object).toBeDefined();
-        expect(resolveSceneObject(object!, runtimeState[objectId])).toBeDefined();
+      scene.steps.forEach(step => {
+        step.targetObjectIds.forEach(objectId => {
+          const object = scene.objects.find(item => item.id === objectId);
+          expect(object).toBeDefined();
+          expect(
+            resolveSceneObject(object!, runtimeState[objectId]),
+          ).toBeDefined();
+        });
+        runtimeState = applySceneStateChanges(runtimeState, [
+          ...(step.successStateChanges ?? []),
+          ...(step.afterSuccessStateChanges ?? []),
+        ]);
       });
-      runtimeState = applySceneStateChanges(runtimeState, [
-        ...(step.successStateChanges ?? []),
-        ...(step.afterSuccessStateChanges ?? []),
-      ]);
     });
-  });
-});
+  },
+);
 
 test.each(modes)('%s mode does not add an unexplained drag gesture', mode => {
   const dragIds = careForTheRabbitLesson.scenes.flatMap(scene =>
@@ -136,7 +147,9 @@ test('review selection is the executable 4-5-6 set', () => {
     getReviewGameItems(careForTheRabbitLesson, 'core').map(item => item.word),
   ).toEqual(['rabbit', 'hay', 'water', 'hop']);
   expect(
-    getReviewGameItems(careForTheRabbitLesson, 'expanded').map(item => item.word),
+    getReviewGameItems(careForTheRabbitLesson, 'expanded').map(
+      item => item.word,
+    ),
   ).toEqual(['rabbit', 'hay', 'water', 'hop', 'hay rack']);
   expect(
     getReviewGameItems(careForTheRabbitLesson, 'challenge').map(
@@ -176,8 +189,93 @@ test('story state moves from hay preparation to water filling to treat and hoppi
       expect.objectContaining({ variantId: 'eaten' }),
       expect.objectContaining({ variantId: 'hopping' }),
       expect.objectContaining({ variantId: 'pet-soft' }),
-      expect.objectContaining({ variantId: 'happy' }),
     ]),
+  );
+  expect(changes[2]).not.toEqual(
+    expect.arrayContaining([expect.objectContaining({ variantId: 'happy' })]),
+  );
+});
+
+test('thirsty and gentle rabbit are visible in the correct state before teaching', () => {
+  const hayScene = getSceneForLearningMode(
+    careForTheRabbitLesson.scenes.find(
+      scene => scene.id === 'prepare-the-hay',
+    )!,
+    'challenge',
+  );
+  const waterScene = getSceneForLearningMode(
+    careForTheRabbitLesson.scenes.find(scene => scene.id === 'fill-the-water')!,
+    'expanded',
+  );
+  const thirstyCue = waterScene.objects.find(
+    object => object.id === 'fill-the-water-thirsty-cue',
+  )!;
+  const thirstyPractice = waterScene.steps.find(
+    step => step.id === 'fill-the-water-thirsty-practice',
+  )!;
+  const gentleTeach = hayScene.steps.find(
+    step => step.id === 'prepare-the-hay-gentle-rabbit-teach',
+  )!;
+  const beforeGentle = hayScene.steps.slice(
+    0,
+    hayScene.steps.indexOf(gentleTeach),
+  );
+  const gentleState = applySceneStateChanges(
+    {},
+    beforeGentle.flatMap(step => [
+      ...(step.successStateChanges ?? []),
+      ...(step.afterSuccessStateChanges ?? []),
+    ]),
+  );
+  const gentleHero = hayScene.objects.find(
+    object => object.id === 'prepare-the-hay-hero',
+  )!;
+
+  expect(thirstyCue.asset.source).toBe(
+    'lessons/care-for-the-rabbit/fill-the-water/images/rabbit-thirsty.webp',
+  );
+  expect(thirstyPractice.interaction.targetObjectId).toBe(
+    'fill-the-water-thirsty-cue',
+  );
+  expect(thirstyPractice.successStateChanges).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        targetObjectId: 'fill-the-water-hero',
+        type: 'showObject',
+      }),
+      expect.objectContaining({ variantId: 'drinking' }),
+    ]),
+  );
+  expect(
+    resolveSceneObject(gentleHero, gentleState[gentleHero.id])?.asset.source,
+  ).toBe(
+    'lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-standing-calm.webp',
+  );
+});
+
+test('rabbit care copy avoids unsafe housing and emotion claims', () => {
+  const words = careForTheRabbitLesson.scenes.flatMap(scene =>
+    (scene.vocabulary ?? []).map(item => item.word),
+  );
+  const copy = careForTheRabbitLesson.scenes
+    .flatMap(scene => scene.steps)
+    .flatMap(step => [
+      step.instructionEn,
+      step.successFeedbackEn,
+      step.failFeedbackEn,
+    ])
+    .filter(Boolean)
+    .join(' ');
+
+  expect(words).toEqual(
+    expect.arrayContaining(['long ears', 'fluffy fur', 'the rabbit hops']),
+  );
+  expect(copy).toContain(
+    'A hutch is one sheltered part of a rabbit’s larger living space.',
+  );
+  expect(copy).not.toContain('ears wiggle with happiness');
+  expect(JSON.stringify(careForTheRabbitLesson)).not.toMatch(
+    /enjoys nibbling|happily|happiness|with joy/iu,
   );
 });
 

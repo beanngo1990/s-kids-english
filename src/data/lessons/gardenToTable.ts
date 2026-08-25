@@ -96,6 +96,7 @@ function makeRinseAndDrainScene(): Scene {
   const waterStreamId = `${sceneId}-water-stream`;
   const rinseActionId = `${sceneId}-rinse-action`;
   const colanderId = `${sceneId}-colander`;
+  const lettuceInColanderId = `${sceneId}-lettuce-in-colander`;
   const rinseWellActionId = `${sceneId}-rinse-well-action`;
   const splashOnlyActionId = `${sceneId}-splash-only-action`;
   const washZoneId = `${sceneId}-wash-zone`;
@@ -174,6 +175,14 @@ function makeRinseAndDrainScene(): Scene {
           }),
         ],
         vocab: vocab.get('colander')!,
+      }),
+      sceneObject({
+        id: lettuceInColanderId,
+        assetSource: sceneImageSource(sceneId, 'lettuce-clean'),
+        initialVisibility: 'hidden',
+        learningScope: expandedScope,
+        position: rect(68, 65, 22, 21),
+        presentation: 'cutout',
       }),
       learningObject({
         id: rinseWellActionId,
@@ -324,6 +333,24 @@ function makeRinseAndDrainScene(): Scene {
         vocabId: vocab.get('colander')!.id,
       }),
       dragStep({
+        id: `${sceneId}-place-lettuce-in-colander`,
+        instructionVi: 'Kéo xà lách sạch vào chiếc rổ nhé.',
+        instructionEn: 'Drag the clean lettuce into the colander.',
+        learningScope: expandedScope,
+        successFeedbackVi: 'Xà lách đã vào rổ. Mình thêm dưa leo nhé.',
+        successFeedbackEn: 'The lettuce is in the colander. Now add the cucumber.',
+        failFeedbackVi: 'Kéo cụm lá sạch vào rổ có nhiều lỗ nhé.',
+        failFeedbackEn: 'Drag the clean green leaves into the colander with holes.',
+        effects: [lessonEffects.sparkle(colanderId)],
+        successStateChanges: [
+          sceneStateChanges.hide(lettuceId),
+          sceneStateChanges.show(lettuceInColanderId),
+        ],
+        dropZoneId: colanderZoneId,
+        targetObjectId: lettuceId,
+        type: 'practice',
+      }),
+      dragStep({
         id: `${sceneId}-place-produce-in-colander`,
         instructionVi: 'Kéo dưa leo sạch vào chiếc rổ nhé.',
         instructionEn: 'Drag the clean cucumber into the colander.',
@@ -336,7 +363,7 @@ function makeRinseAndDrainScene(): Scene {
         successStateChanges: [
           sceneStateChanges.setVariant(colanderId, 'filled'),
           sceneStateChanges.hide(cucumberId),
-          sceneStateChanges.hide(lettuceId),
+          sceneStateChanges.hide(lettuceInColanderId),
           sceneStateChanges.hide(waterStreamId),
           sceneStateChanges.show(rinseWellActionId),
           sceneStateChanges.show(splashOnlyActionId),

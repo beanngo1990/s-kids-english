@@ -501,6 +501,126 @@ test('validator catches missing object references', () => {
   );
 });
 
+test('validator rejects duplicate vocabulary ids within a scene', () => {
+  const invalidLesson: Lesson = {
+    ageRange: { max: 5, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-duplicate-vocabulary',
+    scenes: [
+      {
+        background: {
+          id: 'invalid-duplicate-vocabulary-background',
+          source: 'lessons/invalid-duplicate-vocabulary/images/background.png',
+          type: 'image',
+        },
+        id: 'invalid-duplicate-vocabulary-scene',
+        objects: [],
+        steps: [
+          {
+            id: 'invalid-duplicate-vocabulary-step',
+            instructionVi: 'Mình cùng bắt đầu nhé.',
+            interaction: { type: 'listen' },
+            successFeedbackVi: 'Mình bắt đầu thôi!',
+            targetObjectIds: [],
+            type: 'intro',
+          },
+        ],
+        titleEn: 'Invalid duplicate vocabulary',
+        titleVi: 'Từ vựng trùng lặp',
+        vocabulary: [
+          {
+            id: 'duplicate-vocabulary-id',
+            level: 'easy',
+            meaningVi: 'mèo',
+            type: 'noun',
+            word: 'cat',
+          },
+          {
+            id: 'duplicate-vocabulary-id',
+            level: 'easy',
+            meaningVi: 'mèo con',
+            type: 'noun',
+            word: 'kitten',
+          },
+        ],
+      },
+    ],
+    themeId: 'nhung-nguoi-ban-dong-vat',
+    titleEn: 'Invalid duplicate vocabulary',
+    titleVi: 'Từ vựng trùng lặp',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message: 'Duplicate id "duplicate-vocabulary-id".',
+        path: 'invalid-duplicate-vocabulary.scenes[0:invalid-duplicate-vocabulary-scene].vocabulary[1]',
+        severity: 'error',
+      }),
+    ]),
+  );
+});
+
+test('validator rejects conflicting vocabulary ids across scenes in a lesson', () => {
+  const sharedVocabularyId = 'duplicate-cross-scene-vocabulary-id';
+  const makeScene = (sceneId: string, word: string) => ({
+    background: {
+      id: `${sceneId}-background`,
+      source: `lessons/invalid-duplicate-cross-scene/${sceneId}/images/background.png`,
+      type: 'image' as const,
+    },
+    id: sceneId,
+    objects: [],
+    steps: [
+      {
+        id: `${sceneId}-intro`,
+        instructionVi: 'Mình cùng bắt đầu nhé.',
+        interaction: { type: 'listen' as const },
+        successFeedbackVi: 'Mình bắt đầu thôi!',
+        targetObjectIds: [],
+        type: 'intro' as const,
+      },
+    ],
+    titleEn: sceneId,
+    titleVi: sceneId,
+    vocabulary: [
+      {
+        id: sharedVocabularyId,
+        level: 'easy' as const,
+        meaningVi: word,
+        type: 'noun' as const,
+        word,
+      },
+    ],
+  });
+  const invalidLesson: Lesson = {
+    ageRange: { max: 5, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-duplicate-cross-scene-vocabulary',
+    scenes: [
+      makeScene('first-scene', 'cat'),
+      makeScene('second-scene', 'kitten'),
+    ],
+    themeId: 'nhung-nguoi-ban-dong-vat',
+    titleEn: 'Invalid duplicate cross-scene vocabulary',
+    titleVi: 'Từ vựng trùng giữa hai cảnh',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message: `Duplicate id "${sharedVocabularyId}".`,
+        path: 'invalid-duplicate-cross-scene-vocabulary.scenes[1:second-scene].vocabulary[0]',
+        severity: 'error',
+      }),
+    ]),
+  );
+});
+
 test('validator requires vocabulary for an authored speech-practice step', () => {
   const invalidLesson: Lesson = {
     ageRange: { max: 8, min: 3 },

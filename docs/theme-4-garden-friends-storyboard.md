@@ -2,8 +2,10 @@
 
 **Freeze date:** 2026-08-14
 
-**Status:** Vocabulary-first revision 8/12/16 implemented and published on 2026-08-25. Các
-contract revision trong tài liệu này thay thế budget và pacing cũ.
+**Status:** Vocabulary-first revision 8/12/16 was published on 2026-08-25. Follow-up visual audit
+keeps both visitors beside the flower and reuses the existing `garden-neighbors` composite for
+the phrase representative. This correction reuses all 35 WebP but changes VI/EN prompts. Its
+audio delta was published and R2-verified on 2026-08-25; device smoke testing remains.
 
 **Lesson ID:** `garden-friends`
 
@@ -89,7 +91,8 @@ thành câu chuyện. Các con vật được gọi là bạn/hàng xóm trong v
 5. Tap second watch control: `Chạm kính lúp dưới bên trái để chờ bướm nhé.` -> butterfly visible.
 6. Teach `butterfly`: `Chạm kính lúp quanh con bướm cánh cam nhé.`
 7. Challenge observation beat: tap the plant while both visitors are visibly near the flower.
-8. Teach `visit the flower` by tapping the yellow flower, never an animal.
+8. Teach `visit the flower` by tapping the central flowering plant while the bee and butterfly
+   remain visible and animate together; the animals themselves are never interaction targets.
 9. Tap time cue -> tiny fruit appears; expanded keeps a butterfly close-up for the next word.
 10. Teach expanded `wings` through a magnifying-glass control, then clean up the close-up.
 11. Find the tiny green fruit on the plant.
@@ -106,6 +109,8 @@ after the explicit time cue.
 - Expanded birdbath starts empty and has a filled variant; water drop is an Action Enabler.
 - `garden-neighbors` celebration is a non-interactive composite showing animals in separate,
   plausible garden positions.
+- Reward/review also reuses `garden-neighbors` for `visit the flower`, so the representative
+  visibly contains the flowering plant, bee and butterfly instead of a text-only phrase cue.
 - Challenge action illustrations start hidden and clean up after the choice.
 
 ### Step order
@@ -175,3 +180,6 @@ Bundled map icons: `under-the-leaf`, `flower-visitors`, `quiet-garden-watch`, an
   đều missing 0/invalid 0. R2 upload 78 audio, verify đủ 455/455 và post-upload dry-run còn
   `Changed/new: 0`. Audio en-US `visit_the_flower.mp3` tải qua production CDN khớp local theo
   size 17.325 byte và SHA-256 ngày 2026-08-25.
+- Follow-up visitor-cluster audit đã được generate/publish trong full-corpus delta ngày
+  2026-08-25. Remote verify đạt 21.296/21.296 object, lỗi 0 và post-upload `Changed/new: 0`;
+  device smoke test chưa chạy.

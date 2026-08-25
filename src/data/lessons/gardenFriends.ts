@@ -58,6 +58,8 @@ function sceneImageSource(sceneId: string, assetName: string) {
 function makeUnderTheLeafScene(): Scene {
   const sceneId = 'under-the-leaf';
   const vocabulary = [
+    // Deliberate local prerequisite: this lesson is independently accessible,
+    // and the child needs "leaf" before the challenge action phrase below.
     vocabularyItem(sceneId, {
       key: 'leaf',
       meaningVi: 'chiếc lá',
@@ -454,6 +456,8 @@ function makeUnderTheLeafScene(): Scene {
 function makeFlowerVisitorsScene(): Scene {
   const sceneId = 'flower-visitors';
   const vocabulary = [
+    // Deliberate local prerequisite for "visit the flower" in a lesson that can
+    // be opened without completing help-it-grow first.
     vocabularyItem(sceneId, {
       key: 'flower',
       meaningVi: 'bông hoa',
@@ -515,11 +519,18 @@ function makeFlowerVisitorsScene(): Scene {
     objects: [
       sceneObject({
         id: plantId,
-        assetSource: sceneImageSource(sceneId, 'plant-flower'),
+        // Keep the final fruit as the representative image while Scene State
+        // explicitly starts the story with the flowering plant.
+        assetSource: sceneImageSource(sceneId, 'plant-tiny-fruit'),
+        initialVariantId: 'flower',
         isInteractive: true,
         position: rect(30, 27, 42, 50),
         presentation: 'cutout',
         variants: [
+          objectVariant({
+            id: 'flower',
+            assetSource: sceneImageSource(sceneId, 'plant-flower'),
+          }),
           objectVariant({
             id: 'tiny-fruit',
             assetSource: sceneImageSource(sceneId, 'plant-tiny-fruit'),
@@ -548,7 +559,7 @@ function makeFlowerVisitorsScene(): Scene {
         assetSource: sceneImageSource(sceneId, 'butterfly'),
         initialVisibility: 'hidden',
         isInteractive: false,
-        position: rect(17, 42, 21, 19),
+        position: rect(43, 31, 17, 15),
         vocab: vocab.get('butterfly')!,
       }),
       learningObject({
@@ -557,7 +568,7 @@ function makeFlowerVisitorsScene(): Scene {
         initialVisibility: 'hidden',
         isInteractive: false,
         learningScope: expandedScope,
-        position: rect(17, 42, 21, 19),
+        position: rect(43, 31, 17, 15),
         vocab: vocab.get('wings')!,
       }),
       sceneObject({
@@ -574,9 +585,9 @@ function makeFlowerVisitorsScene(): Scene {
         assetSource: sceneImageSource(sceneId, 'observation-ring'),
         initialVisibility: 'hidden',
         isInteractive: true,
-        position: rect(13, 36, 29, 29),
+        position: rect(39, 25, 27, 27),
         presentation: 'cutout',
-        touchArea: rect(8, 31, 39, 39),
+        touchArea: rect(34, 20, 37, 37),
       }),
       sceneObject({
         id: wingsRingId,
@@ -584,17 +595,20 @@ function makeFlowerVisitorsScene(): Scene {
         initialVisibility: 'hidden',
         isInteractive: true,
         learningScope: expandedScope,
-        position: rect(13, 36, 29, 29),
+        position: rect(39, 25, 27, 27),
         presentation: 'cutout',
-        touchArea: rect(8, 31, 39, 39),
+        touchArea: rect(34, 20, 37, 37),
       }),
       learningObject({
         id: visitFlowerId,
-        assetSource: sceneImageSource(sceneId, 'flower'),
+        assetSource: sceneImageSource(
+          'quiet-garden-watch',
+          'garden-neighbors',
+        ),
         initialVisibility: 'hidden',
         learningScope: challengeScope,
-        position: rect(11, 20, 22, 20),
-        touchArea: rect(6, 15, 32, 30),
+        position: rect(30, 27, 42, 50),
+        touchArea: rect(25, 22, 52, 60),
         vocab: vocab.get('visit the flower')!,
       }),
       sceneObject({
@@ -712,33 +726,40 @@ function makeFlowerVisitorsScene(): Scene {
       }),
       tapStep({
         id: `${sceneId}-observe-visitors`,
-        instructionVi: 'Chạm cây ở giữa để xem ong và bướm quanh hoa nhé.',
-        instructionEn: 'Tap the plant in the middle to watch the bee and butterfly near the flower.',
+        instructionVi: 'Chạm chậu hoa ở giữa để xem ong và bướm ghé thăm nhé.',
+        instructionEn: 'Tap the flowering plant to watch the bee and butterfly visit.',
         learningScope: challengeScope,
         successFeedbackVi: 'Ong và bướm đang ghé thăm bông hoa.',
         successFeedbackEn: 'The bee and butterfly are visiting the flower.',
-        failFeedbackVi: 'Chạm cây có bông hoa vàng ở giữa nhé.',
-        failFeedbackEn: 'The plant with the yellow flower is in the middle.',
-        successStateChanges: [
-          sceneStateChanges.hide(flowerId),
-          sceneStateChanges.show(visitFlowerId),
+        failFeedbackVi: 'Chạm chậu cây có bông hoa vàng ở giữa nhé.',
+        failFeedbackEn: 'The potted plant with the yellow flower is in the middle.',
+        effects: [
+          lessonEffects.bounce(beeId),
+          lessonEffects.bounce(butterflyId),
+          lessonEffects.sparkle(plantId),
         ],
-        effects: [lessonEffects.sparkle(visitFlowerId)],
         targetObjectId: plantId,
+        targetObjectIds: [plantId, beeId, butterflyId],
         type: 'practice',
       }),
       tapStep({
         id: `${sceneId}-learn-visit-flower`,
-        instructionVi: 'Chạm bông hoa mà ong và bướm đang ghé thăm nhé.',
-        instructionEn: 'Tap the flower that the bee and butterfly are visiting.',
+        instructionVi: 'Chạm chậu hoa đang được ong và bướm ghé thăm nhé.',
+        instructionEn: 'Tap the flowering plant that the bee and butterfly are visiting.',
         learningScope: challengeScope,
         promptText: 'visit the flower',
         successFeedbackVi: 'Đúng rồi, các bạn ghé thăm bông hoa.',
         successFeedbackEn: 'Yes, they visit the flower.',
-        failFeedbackVi: 'Chạm bông hoa vàng cạnh ong và bướm nhé.',
-        failFeedbackEn: 'Tap the yellow flower near the bee and butterfly.',
+        failFeedbackVi: 'Chạm chậu cây có hoa ở giữa hai bạn nhé.',
+        failFeedbackEn: 'The flowering plant is between the two visitors.',
+        effects: [
+          lessonEffects.bounce(beeId),
+          lessonEffects.bounce(butterflyId),
+          lessonEffects.sparkle(plantId),
+        ],
         speechPractice: 'auto',
-        targetObjectId: visitFlowerId,
+        targetObjectId: plantId,
+        targetObjectIds: [plantId, beeId, butterflyId],
         type: 'teach',
         vocabId: vocab.get('visit the flower')!.id,
       }),

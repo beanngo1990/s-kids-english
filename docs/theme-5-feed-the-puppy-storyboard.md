@@ -3,7 +3,8 @@
 **Lesson ID:** `feed-the-puppy`
 **Theme:** `nhung-nguoi-ban-dong-vat`
 **Freeze date:** 2026-08-14
-**Status:** v2 đã author, kiểm tra local và publish audio/ảnh lên R2
+**Status:** v2 production baseline và audit revision 2026-08-25 đã publish audio/ảnh lên R2 và
+verify remote; còn chờ device QA.
 **Track:** `3-8 tuổi · Làm quen`
 
 ## 1. Learning promise
@@ -93,13 +94,16 @@ và nhờ người lớn hỗ trợ.
 | Tier | Vocabulary | Visible meaning/action |
 | --- | --- | --- |
 | Core | `wait`, `feed`, `eat` | cún ngồi chờ; kéo bát đầy lên thảm đúng một lần; cún cúi ăn |
-| Expanded | `finished`, `happy`, `carry` | bát trống/cún ăn xong; cún cười vui; hai tay bưng bát trống |
+| Expanded | `finished`, `celebrate`, `carry` | hình cún đã ăn xong; cún reo vui rồi chạm trái tim chúc mừng; hai tay bưng bát trống |
 | Challenge | `ask an adult`, `put it down`, `step back` | nhờ người lớn cất/rửa bát; đặt bát trống ở góc bàn; lùi lại |
 
 Hero puppy trong scene này là decoration, `isInteractive: false`, và không bao giờ là target của
 step tương tác. `feed` là drag bát duy nhất; `eat` chỉ chạm bát đã ở trên thảm. Sau `eat`, state
 không được quay lại `waiting` hoặc bát đầy. Challenge dùng `step-forward-action` làm distractor
 cho `step back` ở đoạn dọn bát.
+
+`finished` và `celebrate` dùng cue cún riêng thay cho hero đang ăn; định nghĩa `wag` chỉ mô tả
+chuyển động đuôi qua lại, không suy đoán cảm xúc chỉ từ một tín hiệu cơ thể.
 
 ## 4. Review contract
 
@@ -131,7 +135,8 @@ Source of truth nằm tại:
 src/assets/source/master/lessons/feed-the-puppy/<scene>/images/*.png
 ```
 
-Inventory source v2 hiện có 43 lesson masters. Runtime data tham chiếu 36 image; bảy asset không
+Inventory source v2 hiện có 43 lesson masters. Runtime data tham chiếu 37 image sau khi dùng
+`wag-action` làm representative trực tiếp; sáu asset không
 còn được lesson tham chiếu được giữ lại dưới dạng orphan để tránh xóa asset ngoài phạm vi. Chín
 cutout mở rộng ban đầu được cắt từ một sheet 3×3 duy nhất để giữ style và giảm thời gian tạo asset:
 
@@ -173,6 +178,9 @@ lỗi `0` và post-upload dry-run còn `Changed/new: 0`.
 
 Revision hình bát trống đã publish thêm năm WebP. R2 verify đủ 835/835 object với lỗi `0` và
 post-upload dry-run còn `Changed/new: 0`.
+
+Current audit đổi copy `wag`, cue `finished` và cue/copy `celebrate`; audio/image delta đã publish
+trong full-corpus run, R2-verify thành công và chỉ còn chờ device QA.
 
 Các lần publish tiếp theo vẫn phải:
 

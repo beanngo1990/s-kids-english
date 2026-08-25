@@ -801,8 +801,7 @@ function makeWashThePawsScene(): Scene {
         id: `${sceneId}-intro`,
         type: 'intro',
         instructionVi: 'Người lớn đã chuẩn bị chậu. Mình rửa chân cún nhé.',
-        instructionEn:
-          'An adult prepared a basin. Let’s wash the puppy paws.',
+        instructionEn: 'An adult prepared a basin. Let’s wash the puppy paws.',
         successFeedbackVi: 'Cún đang đứng yên cạnh chậu nước.',
         successFeedbackEn: 'The puppy is waiting calmly beside the basin.',
         targetObjectIds: [heroId, waterId, basinId],
@@ -857,7 +856,8 @@ function makeDryThePawsScene(): Scene {
       cueTouchArea: leftCueTouch,
       teachVi: 'Chạm khăn đang lau bàn chân nhé.',
       teachEn: 'Tap the towel wiping the wet paw.',
-      teachSuccessEn: 'Wipe means move a cloth over something to clean or dry it.',
+      teachSuccessEn:
+        'Wipe means move a cloth over something to clean or dry it.',
       teachFailVi: 'Chạm bàn tay cầm khăn vàng nhé.',
       teachFailEn: 'Tap the hand holding the yellow towel.',
       practice: {
@@ -895,26 +895,26 @@ function makeDryThePawsScene(): Scene {
       },
     },
     {
-      key: 'soft',
-      meaningVi: 'mềm mại',
-      word: 'soft',
+      key: 'fluffy-towel',
+      meaningVi: 'chiếc khăn bông xốp',
+      word: 'fluffy towel',
       tier: 'expanded',
-      type: 'adjective',
+      type: 'phrase',
       cueObjectId: towelId,
       revealStateChanges: [
         sceneStateChanges.show(towelId),
         sceneStateChanges.setVariant(towelId, 'soft'),
       ],
-      teachVi: 'Chạm phần khăn mềm nhé.',
-      teachEn: 'Tap the soft part of the towel.',
-      teachSuccessEn: 'Soft means gentle to touch.',
+      teachVi: 'Chạm chiếc khăn bông xốp nhé.',
+      teachEn: 'Tap the fluffy towel.',
+      teachSuccessEn: 'A fluffy towel is soft, thick, and gentle to touch.',
       teachFailVi: 'Chạm chiếc khăn vàng xốp nhé.',
       teachFailEn: 'Tap the fluffy yellow towel.',
       practice: {
-        instructionVi: 'Chạm khăn để dùng mặt mềm lau chân nhé.',
-        instructionEn: 'Tap the towel to use its soft side.',
-        successVi: 'Khăn mềm giúp lau chân thật nhẹ.',
-        successEn: 'The soft towel dries the paws gently.',
+        instructionVi: 'Chạm khăn bông xốp để lau chân thật nhẹ nhé.',
+        instructionEn: 'Tap the fluffy towel to dry the paws gently.',
+        successVi: 'Khăn bông xốp giúp lau chân thật nhẹ.',
+        successEn: 'The fluffy towel dries the paws gently.',
         failVi: 'Chạm chiếc khăn vàng nhé.',
         failEn: 'Tap the yellow towel.',
         targetObjectId: towelId,
@@ -946,27 +946,28 @@ function makeDryThePawsScene(): Scene {
       },
     },
     {
-      key: 'happy',
-      meaningVi: 'vui vẻ',
-      word: 'happy',
+      key: 'stand',
+      meaningVi: 'đứng',
+      word: 'stand',
       tier: 'expanded',
-      type: 'adjective',
+      type: 'verb',
       speechPractice: 'optional',
       cueObjectId: heroId,
-      teachVi: 'Chạm chú cún đang vui nhé.',
-      teachEn: 'Tap the happy puppy.',
-      teachSuccessEn: 'Happy means feeling good and joyful.',
-      teachFailVi: 'Chạm chú cún đang cười nhé.',
-      teachFailEn: 'Tap the smiling puppy.',
+      teachVi: 'Chạm chú cún đang đứng bằng bốn chân sạch nhé.',
+      teachEn: 'Tap the puppy standing on four clean paws.',
+      teachSuccessEn: 'Stand means to be upright on your feet or paws.',
+      teachFailVi: 'Chạm chú cún đang đứng trên tấm thảm nhé.',
+      teachFailEn: 'Tap the puppy standing on the mat.',
       practice: {
-        instructionVi: 'Chạm cún để chúc mừng bạn sạch sẽ nhé.',
-        instructionEn: 'Tap the puppy to celebrate its clean paws.',
-        successVi: 'Cún vui vì chân đã sạch và khô.',
-        successEn: 'The puppy is happy with its clean dry paws.',
-        failVi: 'Chạm chú cún vui vẻ nhé.',
-        failEn: 'Tap the happy puppy.',
+        instructionVi: 'Chạm cún đang đứng để kiểm tra bốn chân khô nhé.',
+        instructionEn: 'Tap the standing puppy to check all four dry paws.',
+        successVi: 'Cún đứng vững bằng bốn bàn chân sạch và khô.',
+        successEn: 'The puppy stands on four clean, dry paws.',
+        failVi: 'Chạm chú cún đang đứng nhé.',
+        failEn: 'Tap the standing puppy.',
         targetObjectId: heroId,
         effects: [lessonEffects.sound('correct')],
+        successStateChanges: [sceneStateChanges.setVariant(heroId, 'standing')],
       },
     },
     {
@@ -1046,6 +1047,10 @@ function makeDryThePawsScene(): Scene {
     },
   ];
   const vocabulary = makeBeatVocabulary(sceneId, beats);
+  const fluffyTowelVocabulary = vocabulary.find(
+    item => item.word === 'fluffy towel',
+  )!;
+  const standVocabulary = vocabulary.find(item => item.word === 'stand')!;
 
   return {
     id: sceneId,
@@ -1075,6 +1080,11 @@ function makeDryThePawsScene(): Scene {
             assetSource: sceneImageSource(sceneId, 'puppy-dry'),
           }),
           objectVariant({
+            id: 'standing',
+            assetSource: sceneImageSource(sceneId, 'puppy-all-done'),
+            position: rect(57, 44, 37, 37),
+          }),
+          objectVariant({
             id: 'finished',
             assetSource: sceneImageSource(sceneId, 'puppy-all-done'),
             position: rect(57, 44, 37, 37),
@@ -1095,6 +1105,24 @@ function makeDryThePawsScene(): Scene {
           }),
         ],
       }),
+      learningObject({
+        id: `${sceneId}-fluffy-towel-representative`,
+        assetSource: sceneImageSource(sceneId, 'soft-towel'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        learningScope: expandedScope,
+        position: rect(9, 61, 28, 20),
+        vocab: fluffyTowelVocabulary,
+      }),
+      learningObject({
+        id: `${sceneId}-stand-representative`,
+        assetSource: sceneImageSource(sceneId, 'puppy-all-done'),
+        initialVisibility: 'hidden',
+        isInteractive: false,
+        learningScope: expandedScope,
+        position: rect(57, 44, 37, 37),
+        vocab: standVocabulary,
+      }),
       ...makeBeatObjects(sceneId, beats, vocabulary),
     ],
     steps: [
@@ -1113,7 +1141,8 @@ function makeDryThePawsScene(): Scene {
     completionReward: {
       stars: 3,
       messageVi: 'Chân cún đã sạch, khô và bé cũng nhớ rửa tay.',
-      messageEn: 'The puppy paws are clean and dry, and you remembered to wash your hands.',
+      messageEn:
+        'The puppy paws are clean and dry, and you remembered to wash your hands.',
     },
   };
 }

@@ -246,8 +246,59 @@ test('success changes preserve the choose-roll-catch-return-give arc', () => {
       expect.objectContaining({ variantId: 'returning' }),
       expect.objectContaining({ variantId: 'near' }),
       expect.objectContaining({ variantId: 'happy' }),
+      expect.objectContaining({ variantId: 'playful' }),
     ]),
   );
+});
+
+test('catch review and practice use the catching action before restoring the story puppy', () => {
+  const scene = playWithThePuppyLesson.scenes.find(
+    item => item.id === 'roll-and-catch',
+  )!;
+  const reviewItem = getReviewGameItems(playWithThePuppyLesson, 'core').find(
+    item => item.word === 'catch',
+  )!;
+  const cue = scene.objects.find(object => object.id === reviewItem.visualId)!;
+  const practice = scene.steps.find(
+    step => step.id === 'roll-and-catch-catch-practice',
+  )!;
+
+  expect(reviewItem.visualId).toBe('roll-and-catch-catch-cue');
+  expect(cue.asset.source).toBe(
+    'lessons/play-with-the-puppy/roll-and-catch/images/puppy-catching-ball.webp',
+  );
+  expect(practice.interaction.targetObjectId).toBe('roll-and-catch-ball');
+  expect(practice.successStateChanges).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        targetObjectId: 'roll-and-catch-hero',
+        type: 'showObject',
+      }),
+      expect.objectContaining({ variantId: 'holding' }),
+    ]),
+  );
+});
+
+test('playful uses the concrete play-bow pose', () => {
+  const scene = playWithThePuppyLesson.scenes.find(
+    item => item.id === 'bring-it-back',
+  )!;
+  const hero = scene.objects.find(
+    object => object.id === 'bring-it-back-hero',
+  )!;
+  const playful = hero.variants?.find(variant => variant.id === 'playful');
+
+  expect(playful?.asset.source).toBe(
+    'lessons/play-with-the-puppy/choose-the-ball/images/puppy-play-bow.webp',
+  );
+  expect(
+    scene.steps
+      .flatMap(step => step.successStateChanges ?? [])
+      .filter(
+        change =>
+          change.type === 'setObjectVariant' && change.variantId === 'playful',
+      ),
+  ).toHaveLength(2);
 });
 
 test('story cues replace puppy and ball states instead of stacking them', () => {
@@ -272,6 +323,9 @@ test('story cues replace puppy and ball states instead of stacking them', () => 
     'roll-and-catch-hero',
   );
   expect(rollSnapshots.get('roll-and-catch-catch-teach')).toContain(
+    'roll-and-catch-catch-cue',
+  );
+  expect(rollSnapshots.get('roll-and-catch-catch-teach')).not.toContain(
     'roll-and-catch-hero',
   );
   expect(rollSnapshots.get('roll-and-catch-hold-teach')).not.toContain(
@@ -308,13 +362,13 @@ test('story cues replace puppy and ball states instead of stacking them', () => 
   [
     'bring-it-back-bring-cue',
     'bring-it-back-give-cue',
-    'bring-it-back-happy-cue',
+    'bring-it-back-playful-cue',
     'bring-it-back-lets-play-cue',
   ].forEach(objectId => expect(bringObjectIds).not.toContain(objectId));
-  expect(bringSnapshots.get('bring-it-back-happy-teach')).toEqual(
+  expect(bringSnapshots.get('bring-it-back-playful-teach')).toEqual(
     expect.arrayContaining(['bring-it-back-hero', 'bring-it-back-loose-ball']),
   );
-  expect(bringSnapshots.get('bring-it-back-happy-teach')).not.toContain(
+  expect(bringSnapshots.get('bring-it-back-playful-teach')).not.toContain(
     'bring-it-back-ball-in-hand',
   );
   expect(bringSnapshots.get('bring-it-back-your-turn-teach')).toContain(

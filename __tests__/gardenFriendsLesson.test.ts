@@ -226,6 +226,27 @@ test('new vocabulary uses visuals that directly show each meaning', () => {
     flowerScene.objects.find(object => object.id === 'flower-visitors-plant')
       ?.vocabId,
   ).toBe('vocab-garden-friends-flower-visitors-fruit');
+  const fruitPlant = flowerScene.objects.find(
+    object => object.id === 'flower-visitors-plant',
+  );
+  expect(fruitPlant).toMatchObject({
+    asset: {
+      source:
+        'lessons/garden-friends/flower-visitors/images/plant-tiny-fruit.webp',
+    },
+    initialVariantId: 'flower',
+  });
+  expect(fruitPlant?.variants).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        asset: expect.objectContaining({
+          source:
+            'lessons/garden-friends/flower-visitors/images/plant-flower.webp',
+        }),
+        id: 'flower',
+      }),
+    ]),
+  );
   expect(
     flowerScene.objects.find(object => object.id === 'flower-visitors-wings')
       ?.asset.source,
@@ -234,12 +255,75 @@ test('new vocabulary uses visuals that directly show each meaning', () => {
     flowerScene.objects.find(
       object => object.id === 'flower-visitors-visit-flower',
     )?.asset.source,
-  ).toBe('lessons/garden-friends/flower-visitors/images/flower.webp');
+  ).toBe(
+    'lessons/garden-friends/quiet-garden-watch/images/garden-neighbors.webp',
+  );
   expect(
     quietScene.objects.find(
       object => object.id === 'quiet-garden-watch-water-drop',
     )?.vocabId,
   ).toBe('vocab-garden-friends-quiet-garden-watch-water-drop');
+});
+
+test('visit the flower uses the visible plant and both visitors as one semantic cue', () => {
+  const scene = gardenFriendsLesson.scenes.find(
+    item => item.id === 'flower-visitors',
+  )!;
+  const observeStep = scene.steps.find(
+    step => step.id === 'flower-visitors-observe-visitors',
+  )!;
+  const teachStep = scene.steps.find(
+    step => step.id === 'flower-visitors-learn-visit-flower',
+  )!;
+  const objectsById = new Map(scene.objects.map(object => [object.id, object]));
+
+  expect(objectsById.get('flower-visitors-butterfly')?.position).toEqual({
+    height: 15,
+    width: 17,
+    x: 43,
+    y: 31,
+  });
+  expect(objectsById.get('flower-visitors-butterfly-observation-ring')).toMatchObject({
+    position: { height: 27, width: 27, x: 39, y: 25 },
+    touchArea: { height: 37, width: 37, x: 34, y: 20 },
+  });
+  expect(objectsById.get('flower-visitors-wings')?.position).toEqual({
+    height: 15,
+    width: 17,
+    x: 43,
+    y: 31,
+  });
+  expect(objectsById.get('flower-visitors-wings-observation-ring')).toMatchObject({
+    position: { height: 27, width: 27, x: 39, y: 25 },
+    touchArea: { height: 37, width: 37, x: 34, y: 20 },
+  });
+
+  [observeStep, teachStep].forEach(step => {
+    expect(step.interaction.targetObjectId).toBe('flower-visitors-plant');
+    expect(step.targetObjectIds).toEqual([
+      'flower-visitors-plant',
+      'flower-visitors-bee',
+      'flower-visitors-butterfly',
+    ]);
+    expect(step.effects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          targetObjectId: 'flower-visitors-bee',
+          type: 'animation',
+        }),
+        expect.objectContaining({
+          targetObjectId: 'flower-visitors-butterfly',
+          type: 'animation',
+        }),
+      ]),
+    );
+  });
+  expect(observeStep.successStateChanges ?? []).not.toContainEqual(
+    expect.objectContaining({
+      targetObjectId: 'flower-visitors-visit-flower',
+      type: 'showObject',
+    }),
+  );
 });
 
 test('children observe animals through controls instead of manipulating them', () => {

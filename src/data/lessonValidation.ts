@@ -4,6 +4,7 @@ import type {
   PercentRect,
   Scene,
   SceneStep,
+  VocabularyItem,
 } from '../types/lesson';
 
 export type LessonValidationSeverity = 'error' | 'warning';
@@ -68,11 +69,35 @@ export function validateLesson(lesson: Lesson, lessonPath = lesson.id) {
   issues.push(...validateUniqueIds(lesson.scenes, `${lessonPath}.scenes`));
 
   const lessonVocabularyIds = new Set<EntityId>();
+  const lessonVocabularyById = new Map<
+    EntityId,
+    { item: VocabularyItem; sceneIndex: number }
+  >();
 
   lesson.scenes.forEach((scene, sceneIndex) => {
-    scene.vocabulary?.forEach(vocab => lessonVocabularyIds.add(vocab.id));
+    scene.vocabulary?.forEach((vocab, vocabularyIndex) => {
+      const previous = lessonVocabularyById.get(vocab.id);
+      if (
+        previous &&
+        previous.sceneIndex !== sceneIndex &&
+        !hasSameVocabularyDefinition(previous.item, vocab)
+      ) {
+        issues.push(
+          error(
+            `${lessonPath}.scenes[${sceneIndex}:${scene.id}].vocabulary[${vocabularyIndex}]`,
+            `Duplicate id "${vocab.id}".`,
+          ),
+        );
+      }
+
+      lessonVocabularyIds.add(vocab.id);
+      lessonVocabularyById.set(vocab.id, { item: vocab, sceneIndex });
+    });
     issues.push(
-      ...validateScene(scene, `${lessonPath}.scenes[${sceneIndex}:${scene.id}]`),
+      ...validateScene(
+        scene,
+        `${lessonPath}.scenes[${sceneIndex}:${scene.id}]`,
+      ),
     );
   });
 
@@ -104,11 +129,18 @@ function validateScene(scene: Scene, scenePath: string) {
   const vocabularyIds = new Set(scene.vocabulary?.map(vocab => vocab.id));
 
   if (scene.steps.length === 0) {
-    issues.push(error(`${scenePath}.steps`, 'Scene must include at least one step.'));
+    issues.push(
+      error(`${scenePath}.steps`, 'Scene must include at least one step.'),
+    );
   }
 
   issues.push(...validateUniqueIds(renderableObjects, `${scenePath}.objects`));
-  issues.push(...validateUniqueIds(scene.dropZones ?? [], `${scenePath}.dropZones`));
+  issues.push(
+    ...validateUniqueIds(scene.dropZones ?? [], `${scenePath}.dropZones`),
+  );
+  issues.push(
+    ...validateUniqueIds(scene.vocabulary ?? [], `${scenePath}.vocabulary`),
+  );
   issues.push(...validateUniqueIds(scene.steps, `${scenePath}.steps`));
 
   renderableObjects.forEach((object, objectIndex) => {
@@ -127,11 +159,15 @@ function validateScene(scene: Scene, scenePath: string) {
       const variantPath = `${objectPath}.variants[${variantIndex}:${variant.id}]`;
 
       if (variant.position) {
-        issues.push(...validateRect(variant.position, `${variantPath}.position`));
+        issues.push(
+          ...validateRect(variant.position, `${variantPath}.position`),
+        );
       }
 
       if (variant.touchArea) {
-        issues.push(...validateRect(variant.touchArea, `${variantPath}.touchArea`));
+        issues.push(
+          ...validateRect(variant.touchArea, `${variantPath}.touchArea`),
+        );
       }
     });
 
@@ -149,7 +185,10 @@ function validateScene(scene: Scene, scenePath: string) {
 
     if (object.vocabId && !vocabularyIds.has(object.vocabId)) {
       issues.push(
-        error(objectPath, `vocabId "${object.vocabId}" is missing from scene vocabulary.`),
+        error(
+          objectPath,
+          `vocabId "${object.vocabId}" is missing from scene vocabulary.`,
+        ),
       );
     }
   });
@@ -159,7 +198,9 @@ function validateScene(scene: Scene, scenePath: string) {
     issues.push(...validateRect(dropZone.position, `${dropZonePath}.position`));
 
     if (dropZone.touchArea) {
-      issues.push(...validateRect(dropZone.touchArea, `${dropZonePath}.touchArea`));
+      issues.push(
+        ...validateRect(dropZone.touchArea, `${dropZonePath}.touchArea`),
+      );
     }
   });
 
@@ -208,7 +249,9 @@ function validateStep({
   const stepPath = `${scenePath}.steps[${stepIndex}:${step.id}]`;
 
   if (step.nextStepId && !stepIds.has(step.nextStepId)) {
-    issues.push(error(stepPath, `nextStepId "${step.nextStepId}" does not exist.`));
+    issues.push(
+      error(stepPath, `nextStepId "${step.nextStepId}" does not exist.`),
+    );
   }
 
   if (step.nextStepId === step.id) {
@@ -217,12 +260,19 @@ function validateStep({
 
   step.targetObjectIds.forEach(targetObjectId => {
     if (!objectIds.has(targetObjectId)) {
-      issues.push(error(stepPath, `targetObjectId "${targetObjectId}" does not exist.`));
+      issues.push(
+        error(stepPath, `targetObjectId "${targetObjectId}" does not exist.`),
+      );
     }
   });
 
   if (step.vocabId && !vocabularyIds.has(step.vocabId)) {
-    issues.push(error(stepPath, `vocabId "${step.vocabId}" is missing from scene vocabulary.`));
+    issues.push(
+      error(
+        stepPath,
+        `vocabId "${step.vocabId}" is missing from scene vocabulary.`,
+      ),
+    );
   }
 
   if (
@@ -248,18 +298,13 @@ function validateStep({
     }
   });
 
-  if (
-    step.interaction.type === 'tap' ||
-    step.interaction.type === 'find'
-  ) {
-    const interactionTargetIds =
-      step.interaction.correctObjectIds?.length
-        ? step.interaction.correctObjectIds
-        : step.interaction.targetObjectId
-          ? [step.interaction.targetObjectId]
-          : [];
-    const interactionLabel =
-      step.interaction.type === 'tap' ? 'Tap' : 'Find';
+  if (step.interaction.type === 'tap' || step.interaction.type === 'find') {
+    const interactionTargetIds = step.interaction.correctObjectIds?.length
+      ? step.interaction.correctObjectIds
+      : step.interaction.targetObjectId
+      ? [step.interaction.targetObjectId]
+      : [];
+    const interactionLabel = step.interaction.type === 'tap' ? 'Tap' : 'Find';
 
     Array.from(new Set(interactionTargetIds)).forEach(targetObjectId => {
       const interactionTarget = renderableObjects.find(
@@ -292,7 +337,9 @@ function validateStep({
     }
 
     if (!step.interaction.dropZoneId) {
-      issues.push(error(`${stepPath}.interaction`, 'Drag step must include dropZoneId.'));
+      issues.push(
+        error(`${stepPath}.interaction`, 'Drag step must include dropZoneId.'),
+      );
     } else if (!dropZoneIds.has(step.interaction.dropZoneId)) {
       issues.push(
         error(
@@ -367,9 +414,7 @@ function validateStep({
 
       if (
         change.type === 'setObjectVariant' &&
-        !targetObject.variants?.some(
-          variant => variant.id === change.variantId,
-        )
+        !targetObject.variants?.some(variant => variant.id === change.variantId)
       ) {
         issues.push(
           error(
@@ -402,7 +447,9 @@ function validateReachableSteps(
 
     reachableStepIds.add(activeStep.id);
 
-    const currentIndex = scene.steps.findIndex(step => step.id === activeStep.id);
+    const currentIndex = scene.steps.findIndex(
+      step => step.id === activeStep.id,
+    );
     const nextStepId: EntityId | undefined = activeStep.nextStepId;
 
     if (nextStepId && stepIds.has(nextStepId)) {
@@ -415,7 +462,9 @@ function validateReachableSteps(
 
   scene.steps.forEach(step => {
     if (!reachableStepIds.has(step.id)) {
-      issues.push(warning(`${scenePath}.steps[${step.id}]`, 'Step is not reachable.'));
+      issues.push(
+        warning(`${scenePath}.steps[${step.id}]`, 'Step is not reachable.'),
+      );
     }
   });
 
@@ -454,10 +503,7 @@ function validateRect(rect: PercentRect, path: string) {
   return issues;
 }
 
-function validateUniqueIds(
-  items: readonly { id: EntityId }[],
-  path: string,
-) {
+function validateUniqueIds(items: readonly { id: EntityId }[], path: string) {
   const issues: LessonValidationIssue[] = [];
   const ids = new Set<EntityId>();
 
@@ -470,6 +516,24 @@ function validateUniqueIds(
   });
 
   return issues;
+}
+
+function hasSameVocabularyDefinition(
+  left: VocabularyItem,
+  right: VocabularyItem,
+) {
+  return (
+    left.word === right.word &&
+    left.meaningVi === right.meaningVi &&
+    left.phonetic === right.phonetic &&
+    left.level === right.level &&
+    left.type === right.type &&
+    left.audio?.id === right.audio?.id &&
+    left.audio?.source === right.audio?.source &&
+    left.audio?.type === right.audio?.type &&
+    left.learningScope?.minAge === right.learningScope?.minAge &&
+    left.learningScope?.minMode === right.learningScope?.minMode
+  );
 }
 
 function error(path: string, message: string): LessonValidationIssue {

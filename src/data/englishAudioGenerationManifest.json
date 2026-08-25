@@ -20965,10 +20965,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41805,
-      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
-      "sha256": "65cd83ef1ecb6e5328c70906a9079bb76c2c999f9bde4abd3034f3d72fdfffb7",
-      "text": "The rabbit finished drinking and feels refreshed.",
+      "bytes": 41229,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/rabbit_drinks_practice_success_fb834685.mp3",
+      "sha256": "e5f1eb1ec4598b734cc0f0c6d52c183041714f3528548ba59f0f96a6384b926f",
+      "text": "The rabbit finishes drinking and raises its head.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -20997,10 +20997,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37773,
-      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
-      "sha256": "b9b80b9d548412b97193ecb05b2aa40122be3b4fda47b2d3f46abeeac12d12b1",
-      "text": "The thirsty rabbit is glad to have water.",
+      "bytes": 44973,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-GB/neural2-c-r1/thirsty_practice_success_afe2d83b.mp3",
+      "sha256": "56c6781239466154df8d6e664de5ade891c47b794760b78b32910cea58ccba2f",
+      "text": "The clean water is now beside the thirsty rabbit.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -21397,10 +21397,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 40365,
-      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_7ba0c88b.mp3",
-      "sha256": "a832ed1a7a3cf946708348d9666d8acc5d2359ebd345c0a850ef40d7887b533e",
-      "text": "The rabbit finished drinking and feels refreshed.",
+      "bytes": 39789,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/rabbit_drinks_practice_success_fb834685.mp3",
+      "sha256": "d05ac851546c9ba015ce95d6b55db4085d992c91989321c2808a89a042a68639",
+      "text": "The rabbit finishes drinking and raises its head.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -21429,10 +21429,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 33741,
-      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_6bb58af5.mp3",
-      "sha256": "43b9dd9949c4ade69f72a0e1ed5ea9375164fbd1d7215b4585e5bb7707ae1e10",
-      "text": "The thirsty rabbit is glad to have water.",
+      "bytes": 42093,
+      "key": "lessons/care-for-the-rabbit/fill-the-water/audio/en-US/neural2-c-r1/thirsty_practice_success_afe2d83b.mp3",
+      "sha256": "c7f3a7480546b71438552e1b28f44472e8458d4de6cae20b723b5283f9cdbfec",
+      "text": "The clean water is now beside the thirsty rabbit.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -21517,10 +21517,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36621,
-      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_a789d365.mp3",
-      "sha256": "81f75748bdc4061b91d776764d72ab8f1f4ce0cb556c135a3448a78c0979c0ed",
-      "text": "The rabbit chews the crisp hay happily.",
+      "bytes": 37773,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/chew_practice_success_78d2e468.mp3",
+      "sha256": "8c8fc50f198d43fa9dbc4e0e38c2c4d320ec00417244f56d8dc501792d3bd223",
+      "text": "The rabbit steadily chews the crisp hay.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -21797,10 +21797,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 30861,
-      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
-      "sha256": "3a3e3bf990e6d6971f3c15379ff626febcd52c37d9b92397ee0508620ee2c885",
-      "text": "A hutch is a home for a rabbit.",
+      "bytes": 59085,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-GB/neural2-c-r1/hutch_teach_success_d4695b8e.mp3",
+      "sha256": "378e7d3609b72b5917feb3f458f0e2017bb683957ecca96db99e58aabd78b5a8",
+      "text": "A hutch is one sheltered part of a rabbit’s larger living space.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22021,10 +22021,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34029,
-      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_a789d365.mp3",
-      "sha256": "afeba056c661d9f98aa4213ca5885f7860edbce21b67b6aa318201c30b22b3b4",
-      "text": "The rabbit chews the crisp hay happily.",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/chew_practice_success_78d2e468.mp3",
+      "sha256": "ef8b2fb6144debb8f98896cefcb15c3204b521f2410f018f9d55421bcb9828ec",
+      "text": "The rabbit steadily chews the crisp hay.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -22301,10 +22301,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 28269,
-      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_95c332dc.mp3",
-      "sha256": "b7f1faad5b675fe301bb2c46b16e555126c65820dd925451ca7710763580a63e",
-      "text": "A hutch is a home for a rabbit.",
+      "bytes": 55917,
+      "key": "lessons/care-for-the-rabbit/prepare-the-hay/audio/en-US/neural2-c-r1/hutch_teach_success_d4695b8e.mp3",
+      "sha256": "a0c2374686b2f5f1db826d4b473d78a54e5135686216b2f8dccb65514bd8e618",
+      "text": "A hutch is one sheltered part of a rabbit’s larger living space.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -22517,6 +22517,38 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_practice_success_91eb1b29.mp3",
+      "sha256": "b5753fb4af0308c7a4eaa178dc2fdb647b87c325541c8ff70ecb5de1cc7be6b0",
+      "text": "The rabbit sits calmly after the gentle pet.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_teach_fail_0363f874.mp3",
+      "sha256": "2ba29796da7534aba0a36d07841e24180d35472f9a5ff1b5db88cc90f248151c",
+      "text": "Look for the rabbit resting quietly under the hand.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36909,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm_teach_success_f35784a1.mp3",
+      "sha256": "529e880a67e4bcc763d097b920a042cbf0d50519f01673c9b54348359f3a172a",
+      "text": "Calm means peaceful and not worried.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 10413,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/calm.mp3",
+      "sha256": "31ebb72e7327e900030693aeb9cabc98aa9c0305b21cedd45a3f39e245757abd",
+      "text": "calm",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 27117,
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/carrot_practice_fail_81d7ba0d.mp3",
       "sha256": "1d5454e9ab909c4bc8fdb13275fffe386f1369c4d466d699279faf10dffa92a7",
@@ -22549,18 +22581,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 45837,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_5bceb0a0.mp3",
-      "sha256": "22f2e323d44ece3a880a261e2cfd91331b38a07bc4aa89bb5bb4083c17d46a2d",
-      "text": "The rabbit enjoyed the treat and hopped around with joy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 35469,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
-      "sha256": "5e235d23163615389571ba2ce2b2d2a8e4c5f0b6b50dd581c1f8f632682d582e",
-      "text": "The rabbit ears wiggle with happiness.",
+      "bytes": 42957,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/completion_89f3192c.mp3",
+      "sha256": "ec911f422ca55c8b5cfd350ce2860aac15e8606bd9657434884f9ff32a2b3bb0",
+      "text": "The rabbit ate the small treat and hopped lightly.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22569,14 +22593,6 @@
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
       "sha256": "7f358a6564e8069f1bef6180515d2ec2eef9c070d073547d475bfcf961a2073d",
       "text": "Look for the two upright ears.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 33453,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
-      "sha256": "8d8c9a6d680f10fd7d70a80dbcf1fc8b13ccf8ad0e2ae3a93d336cc08cadd1d1",
-      "text": "These are long soft rabbit ears.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22613,74 +22629,34 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36333,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
-      "sha256": "55d92b784afc77ce89d7e7b264b5f204a2128f7020cb6141a1cfeca139a67deb",
-      "text": "The rabbit is happy from your gentle care.",
+      "bytes": 43245,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur_practice_success_f5e00012.mp3",
+      "sha256": "16a314fe65697b63f622ed9b32dcda359b9b3dacf902e3a1ac109a39ece9a7d8",
+      "text": "The rabbit’s fluffy fur looks soft and light.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 25389,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
-      "sha256": "6167e8b70902aeeb0fccd7890905c4a89647e2525a0760311bbd3cec1952e774",
-      "text": "Look for the happy rabbit.",
+      "bytes": 48141,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur_teach_success_9a3f7d88.mp3",
+      "sha256": "867270fef804c2c909b1d4c20a98b7e0ed3a28c58531eb957c0bc57a5a3a4c7c",
+      "text": "Fluffy fur looks soft, light, and puffy.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 48717,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
-      "sha256": "d859b63ef1605ec8ae2c256378f1c0007e6eb13a13b7e2d0cf3745d42044f53a",
-      "text": "The happy rabbit hops and you remember to wash your hands.",
+      "bytes": 16173,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/fluffy_fur.mp3",
+      "sha256": "5f58b9c283ed8892df5a1799da83872c5aabed3c3d118b7f5f45455219524fd8",
+      "text": "fluffy fur",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32301,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
-      "sha256": "1dcb6b44a329fa68772c664383e523a775e38a441bf81254ca322a37d139def9",
-      "text": "Look for the rabbit hopping with joy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
-      "sha256": "261ebd7dd479353bc6ecfe993e9b8b48efda456b2d860d72c0b7a105d4681710",
-      "text": "A happy rabbit jumps and plays with joy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 16749,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_rabbit.mp3",
-      "sha256": "7608d3b6e4e758af858a89e3b9dc3e2fb27d4611805a7f8b333ee6d724c882ca",
-      "text": "happy rabbit",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 28269,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
-      "sha256": "bbedf3d5ff2a972c4a84c8650c1234a2e8e37dd0d0fae451092ae463f43fb05f",
-      "text": "Look for the smiling rabbit.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 28269,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
-      "sha256": "eb22348c88c54d3e5928d91bc34ad14ee9c672074efe5b963a677dc03b253f40",
-      "text": "Happy means full of joy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 30861,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
-      "sha256": "a9d8727a0957f878f48d4e5a06f13c16a93148f791aeee695ec2d411b62f0df7",
-      "text": "The rabbit hops around with joy.",
+      "bytes": 37197,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/hop_practice_success_64f1927e.mp3",
+      "sha256": "e737ea9c064b9221992d09331028a6ad4a50d976c18398c3f2cf75399c33aad6",
+      "text": "The rabbit hops lightly around its spot.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22717,6 +22693,30 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears_practice_success_055d0987.mp3",
+      "sha256": "785294abfe36778b5004358f20d37b125bcba1aff3718ca11385e72daedc6d79",
+      "text": "The rabbit’s long ears wiggle gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears_teach_success_12b2df88.mp3",
+      "sha256": "0d168c4c043efdbdc3b7cd71389e1a87d0656e3c0d56efd41e58f40f38356e3d",
+      "text": "Long ears extend high above the rabbit’s head.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15597,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/long_ears.mp3",
+      "sha256": "8e99ee9a54e059ef42c478d7aa2ac364a135d11ae69cc459a2bbaf6f54d78b78",
+      "text": "long ears",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 40077,
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
       "sha256": "81b47f19f771739ee61ba0ce8de908c3c714d8511323d2cabbf5bdad7e7d57d5",
@@ -22737,6 +22737,22 @@
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
       "sha256": "c7bd6aee088bb4bea243bad426ba4e5c18c912ddd2f7a17c7a74026fd4cd73e4",
       "text": "Pet gently means stroke softly with care.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_calm_practice_a463c710.mp3",
+      "sha256": "301a577e225be268cdcd7bc598c2bc218f4902111844e41e6d299b4e8fe16e1c",
+      "text": "Tap the rabbit so it sits calmly.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_calm_teach_3f9740bc.mp3",
+      "sha256": "e9a6f541f5463980006e213d0fdb05edf348bb66d3f92d612cac5b85d33e3ae8",
+      "text": "Tap the calm rabbit resting quietly.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22789,42 +22805,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 29997,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
-      "sha256": "52ba008c18e5b31943545b2bcabaee04cdb86d101d814a67ecd5fd7d8f40c295",
-      "text": "Tap the rabbit to share the joy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 41517,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
-      "sha256": "61bc6cee9c54bd3644e3c62fa68983091b5ca13448c9914f946ad00e325110d0",
-      "text": "Tap the rabbit and remember to wash your hands.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 40365,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
-      "sha256": "ddbc31d045ec763ceb28bddf4a295c5e69bff409686d8bd4c7ec7f39ba5725b0",
-      "text": "Tap the happy rabbit jumping in circles.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 22509,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
-      "sha256": "b3477b7f6825d65d3fc60ff6c11624ffce881818bb3bf37e9daf81a206ecfe75",
-      "text": "Tap the happy rabbit.",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_fluffy_fur_practice_c860f99e.mp3",
+      "sha256": "01a34013a0147ea56b79cb2021a852a176b051bd5016db56d83c0e3f30a8d0c0",
+      "text": "Tap the rabbit’s back very gently.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
       "bytes": 34605,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
-      "sha256": "ee5c8eba0c0c443564c4f242e385ff907abd5fcda8b27b4853a01e50532ff6f9",
-      "text": "Tap the rabbit to watch it hop happily.",
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_hop_practice_647675db.mp3",
+      "sha256": "a0e88fd7f8460e55e905eb100adad47d84ea831489eb6fea49bff790df112366",
+      "text": "Tap the rabbit to watch it hop lightly.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22861,10 +22853,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 33453,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
-      "sha256": "ec830e682cb9d4c787ab269a32261296969644af398e47c910d8537d28b59d30",
-      "text": "Tap the rabbit back very gently.",
+      "bytes": 47853,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_rabbit_hops_practice_b867842b.mp3",
+      "sha256": "e9f3ef42d56270f5064b066348edd27bfa3e4aa111a06d0ad808f257cf255024",
+      "text": "Tap the hopping rabbit and remember to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29709,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/prompt_rabbit_hops_teach_065cc790.mp3",
+      "sha256": "27f09f090cff15611aa3b14f545435e3a7da8506ad7388f4c9de5c4b4a159414",
+      "text": "Tap the rabbit hopping in the air.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22893,10 +22893,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 35757,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
-      "sha256": "53090cf33ecfda4d023420e59e4e087ff3d229f9c9dfe72de134fb467bd33ae6",
-      "text": "The rabbit’s fur is warm and soft.",
+      "bytes": 26253,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_practice_fail_55bb9c91.mp3",
+      "sha256": "97ac71cbfbf27f245e3efa77cb7fd3bddd570a4191e4230fda2d4a5cb1d06bc7",
+      "text": "Look for the hopping rabbit.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_practice_success_9d530c2e.mp3",
+      "sha256": "265f7becb390c7d0a114c2698a241b072c7a773d9212142bf635948e7705dfdd",
+      "text": "The rabbit hops and you remember to wash your hands.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35469,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/rabbit_hops_teach_fail_fa3b32ca.mp3",
+      "sha256": "1eb713e3ee3ead01560ea2fda5c562cb98fc1b1dd66bcf35b7cab30a37d65ee4",
+      "text": "Look for the white rabbit jumping in the air.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22909,10 +22925,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37773,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/soft_teach_success_0f04e912.mp3",
-      "sha256": "102ca156315ceadd7de051e02bea04e3514e98d4cbfb4e797e37104ad6156609",
-      "text": "Soft fur feels gentle and fluffy.",
+      "bytes": 53613,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/the_rabbit_hops_teach_success_be0bfce7.mp3",
+      "sha256": "e4c638de1663a0de51b40b7476fe2687af117d38120ec6183c56e8693f2089e9",
+      "text": "The rabbit hops means that the rabbit jumps with springy steps.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 18765,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/the_rabbit_hops.mp3",
+      "sha256": "a42e04f1c4c14ef4312e289afa32d3bcddf3a324f725e1bc6196fb89ece5eb95",
+      "text": "the rabbit hops",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22925,10 +22949,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 40941,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
-      "sha256": "3bd66cacf2e525643dd5e2e30ab67bbac33ba7cdc4592fc59c06d62c1f537156",
-      "text": "The rabbit enjoys nibbling the small treat.",
+      "bytes": 34029,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-GB/neural2-c-r1/treat_practice_success_89de0544.mp3",
+      "sha256": "ca446935908d682b83aab4a876b2be2df0b678d061d296746649d216b35f60b7",
+      "text": "The rabbit nibbles the small treat.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -22954,6 +22978,38 @@
       "sha256": "53c02cf7032ab9796cd3e3e38342e9ca5f3a7e213111f550bff25b090d3ce2de",
       "text": "treat",
       "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_practice_success_91eb1b29.mp3",
+      "sha256": "bc1c13a24fb2f35a77549da6b110c340172aaeba57a79974696af479322a9e36",
+      "text": "The rabbit sits calmly after the gentle pet.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_teach_fail_0363f874.mp3",
+      "sha256": "cc78b0f480cc43ca9ad9351015cf85ea30a2983a11ddd68148d75bda89806fd2",
+      "text": "Look for the rabbit resting quietly under the hand.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm_teach_success_f35784a1.mp3",
+      "sha256": "61da6c42c246f69f338d37b223e23aaf65a01ea72e0a6df95a4a199395a523a0",
+      "text": "Calm means peaceful and not worried.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 9837,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/calm.mp3",
+      "sha256": "767e67512ba01fb71a89562d6be76f1f3925fa9cb8dac933b6df5e13cbc40e4b",
+      "text": "calm",
+      "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
@@ -22989,18 +23045,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 42957,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_5bceb0a0.mp3",
-      "sha256": "aec5b3c67931924238a4ffe74d1a822278c6ba49b01a80c409bd1f4301a4ba7b",
-      "text": "The rabbit enjoyed the treat and hopped around with joy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 33741,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_practice_success_ac7dcdbd.mp3",
-      "sha256": "0cebffda0fd00d013c08867934efc2bc57587f5fe1e64b7fb18738c26985064e",
-      "text": "The rabbit ears wiggle with happiness.",
+      "bytes": 40077,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/completion_89f3192c.mp3",
+      "sha256": "ecd85d2c1cd32b086e0d9e576915d6cd2ff04f359d986fdaf6d52dc8fd0f8c85",
+      "text": "The rabbit ate the small treat and hopped lightly.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23009,14 +23057,6 @@
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_fail_4f8e1901.mp3",
       "sha256": "8fe4ba814a2c844edd9ad93dcbe5dda5ed55ece56a872d2c1d2b4be062a2c6f9",
       "text": "Look for the two upright ears.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 31725,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/ears_teach_success_4e1ce15d.mp3",
-      "sha256": "48c5dc1078dad31ac6c7c9a2a162672f4a25e6c816a367a2a7922dda2905b867",
-      "text": "These are long soft rabbit ears.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23053,74 +23093,34 @@
     },
     {
       "accent": "en-US",
-      "bytes": 33741,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_practice_success_8db05f9a.mp3",
-      "sha256": "bb670e81f7a060212e552ee0acd670ca2bdb495081b92e731168fe759a6e6eb5",
-      "text": "The rabbit is happy from your gentle care.",
+      "bytes": 39213,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur_practice_success_f5e00012.mp3",
+      "sha256": "c60307e93368d95cbb27bbf265a6438fde7e34631ff1d7f1cd38b1c243235532",
+      "text": "The rabbit’s fluffy fur looks soft and light.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 23085,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_fail_824f86a0.mp3",
-      "sha256": "9958579326e5a81a44f0c077ed7cb7a8a022e22b570b9284bf5ab7a4c05412bb",
-      "text": "Look for the happy rabbit.",
+      "bytes": 42669,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur_teach_success_9a3f7d88.mp3",
+      "sha256": "740ef86eb4ee2090af4424069cff90f120c7a0f7161281dfca97f96411a261bb",
+      "text": "Fluffy fur looks soft, light, and puffy.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 45261,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_practice_success_0bc7537f.mp3",
-      "sha256": "eb405163e6aaf7a21e0152c0c882c932004acd8fcdc6a5977f8149ed713997b6",
-      "text": "The happy rabbit hops and you remember to wash your hands.",
+      "bytes": 15309,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/fluffy_fur.mp3",
+      "sha256": "56c063816c4aab5809b974b2d4fe4a18ce46d053c37d5fdd5d1d65dfcfd63270",
+      "text": "fluffy fur",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 30573,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_fail_07c29d34.mp3",
-      "sha256": "aeae8a604f5fcfc7ea84d6a7e45aefe1be39f31857bd7e9542db5192787e3ec5",
-      "text": "Look for the rabbit hopping with joy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit_teach_success_e03a39d4.mp3",
-      "sha256": "be9e909cf23035584fd4206b3f8f14629da90283a1b82403c8aeaafb2905e84a",
-      "text": "A happy rabbit jumps and plays with joy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 15021,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_rabbit.mp3",
-      "sha256": "257183147e3890b094c3c4826907452a7b4152e628fa6e83cc81e599cc1b31e6",
-      "text": "happy rabbit",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 25101,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_fail_596e27f6.mp3",
-      "sha256": "406d0737bff69e2eb422d35dea6c263d23303c9e2ccdf2410d4178208a73cc36",
-      "text": "Look for the smiling rabbit.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 24525,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/happy_teach_success_ff28d9a0.mp3",
-      "sha256": "59e3c59b13a96dd545cce4fd834820eadaf3155872b0d7b5a9c4f8b8d7f61d36",
-      "text": "Happy means full of joy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 29997,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_ca70dfb1.mp3",
-      "sha256": "79586c21b028708ef73df8e71bf483fb07bdd9eeef2cbf62fcf2155d83e3b85c",
-      "text": "The rabbit hops around with joy.",
+      "bytes": 34893,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/hop_practice_success_64f1927e.mp3",
+      "sha256": "94edcef08ef19b047dbd4414201c03b561112747067256dab65851a42850da5e",
+      "text": "The rabbit hops lightly around its spot.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23157,6 +23157,30 @@
     },
     {
       "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears_practice_success_055d0987.mp3",
+      "sha256": "1a621a118c9afac696194beccd66394a7bd95bde62536d91069bb731a8d2d4d4",
+      "text": "The rabbit’s long ears wiggle gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears_teach_success_12b2df88.mp3",
+      "sha256": "17bb12c28c9269e25aa93457037398a95dd9dba4ff2b71ac53487552fd333d5b",
+      "text": "Long ears extend high above the rabbit’s head.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 15309,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/long_ears.mp3",
+      "sha256": "a88cfda148a024055b55139d5a07fe414659fa21d5bccc03690807f4d13e0354",
+      "text": "long ears",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 38349,
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_practice_success_e2b45fe4.mp3",
       "sha256": "9f4ee75886bb80bdf1eea65e587d176c60cfd5139b90c15a1ff888ea0e72db70",
@@ -23177,6 +23201,22 @@
       "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/pet_gently_teach_success_144ad84f.mp3",
       "sha256": "1094a0716354c1a004ffb1c0a0d95f672986827adec21ea728bc8c47d508c273",
       "text": "Pet gently means stroke softly with care.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32589,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_calm_practice_a463c710.mp3",
+      "sha256": "9836adb1abcaa790b5ea020dca81e753e281ef233c4d8bdd436d88b6e131d754",
+      "text": "Tap the rabbit so it sits calmly.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35181,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_calm_teach_3f9740bc.mp3",
+      "sha256": "ff3f58a1136ad965937e79c8658b1edeb0963ea48f1d6cde1310144380fe1d71",
+      "text": "Tap the calm rabbit resting quietly.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23229,42 +23269,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 27405,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_practice_7ed9d05d.mp3",
-      "sha256": "c4ee0b699a61cf3bba67e795b9ac78a5b9ffc5d01f70c0ad62bb81fc44d60308",
-      "text": "Tap the rabbit to share the joy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 38061,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_practice_6068e2c7.mp3",
-      "sha256": "43ba3e9ea95e8cfb90e39a56b55c55eea99df7e7adf1b9dcb87a0dfc6d776b11",
-      "text": "Tap the rabbit and remember to wash your hands.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 36045,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_rabbit_teach_bc87eb73.mp3",
-      "sha256": "ded882b73ce49f78bb9bf38e21d969ac31b5a5bd4cfe4f3a1ae923487f45e8ac",
-      "text": "Tap the happy rabbit jumping in circles.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 20493,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_happy_teach_ef234978.mp3",
-      "sha256": "a5d3cc5ff48c63bc3e3b6ab3c7a69c1490d653c6786e58eb7538ba132732dd3d",
-      "text": "Tap the happy rabbit.",
+      "bytes": 32877,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_fluffy_fur_practice_c860f99e.mp3",
+      "sha256": "950798d4dc3e70db5528f38c0f92c3f3bd05aace5d2259cf5c965339d886c1c7",
+      "text": "Tap the rabbit’s back very gently.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
       "bytes": 32589,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_93aced77.mp3",
-      "sha256": "48f15b595396dd1c03f87d85bc8badc1efcebe24ea033cbf8cbf30361e5ba9e9",
-      "text": "Tap the rabbit to watch it hop happily.",
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_hop_practice_647675db.mp3",
+      "sha256": "eb79ca80d73f56c927cda2e49fac6147d177c10d4d77582fab4882fcc9cd291c",
+      "text": "Tap the rabbit to watch it hop lightly.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23301,10 +23317,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32301,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_soft_practice_fb396439.mp3",
-      "sha256": "871482defbfe9fcc1ae39b91665ae4741b6761fc0d374301e171e9755d215424",
-      "text": "Tap the rabbit back very gently.",
+      "bytes": 42381,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_rabbit_hops_practice_b867842b.mp3",
+      "sha256": "f3e3c84f647e1360456ec19babd876cc2bacdb0f41c2a7d4a2c9bb69222ede92",
+      "text": "Tap the hopping rabbit and remember to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 29421,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/prompt_rabbit_hops_teach_065cc790.mp3",
+      "sha256": "a1a4f6d5d5a802a7445f1dcca4de3cd3cecd9c8743290e4f58d52c54119b6444",
+      "text": "Tap the rabbit hopping in the air.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23333,10 +23357,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34029,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_practice_success_d9d6ddbd.mp3",
-      "sha256": "bf06f41c1ec717b9b7fbac163a4f2165045957da29d8ec2d24c292f42a6ce236",
-      "text": "The rabbit’s fur is warm and soft.",
+      "bytes": 23949,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_practice_fail_55bb9c91.mp3",
+      "sha256": "c1c579fa1ae1fc1765313f02beb2c1428a13300a59f4af51b5e8068e140369df",
+      "text": "Look for the hopping rabbit.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_practice_success_9d530c2e.mp3",
+      "sha256": "e221c9d0574de3ce83e8f7c0d75cd2f5f985738b582dd828dea06bba77ee32c2",
+      "text": "The rabbit hops and you remember to wash your hands.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33741,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/rabbit_hops_teach_fail_fa3b32ca.mp3",
+      "sha256": "ae0529dfc257e8bd1fe3cc1009000310075dd3a59d22a54f063ce55bba9a6b48",
+      "text": "Look for the white rabbit jumping in the air.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23349,10 +23389,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35757,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/soft_teach_success_0f04e912.mp3",
-      "sha256": "8630d110f2904080fb156130e041e0004acf302491aef98e2175fab58cb40fa0",
-      "text": "Soft fur feels gentle and fluffy.",
+      "bytes": 51309,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/the_rabbit_hops_teach_success_be0bfce7.mp3",
+      "sha256": "0b5ee845be4cd3e59bcf1aab87faf21dd102f98cd48505ed88feb8db9b34303a",
+      "text": "The rabbit hops means that the rabbit jumps with springy steps.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 17325,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/the_rabbit_hops.mp3",
+      "sha256": "6a20fbe4d487e638995b6c8f9f4e262532d8091ba3d358fcacb5a5c503099935",
+      "text": "the rabbit hops",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23365,10 +23413,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36909,
-      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_ad5de8fc.mp3",
-      "sha256": "7e476eb11c1178f2daa6ce03cba963f3f6297e6a37893f6193b4a5df761315bf",
-      "text": "The rabbit enjoys nibbling the small treat.",
+      "bytes": 31149,
+      "key": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/en-US/neural2-c-r1/treat_practice_success_89de0544.mp3",
+      "sha256": "76507c56dbd129526a1197fae2969b81881db1fcc0eb79a1d32f867746462037",
+      "text": "The rabbit nibbles the small treat.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -23509,10 +23557,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41229,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/happy_practice_success_71586e9e.mp3",
-      "sha256": "9ef23972afe027e3867efb9fce0013beb8795bad876d2c638e950fe41d8a4099",
-      "text": "The puppy is happy with its clean dry paws.",
+      "bytes": 40365,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel_practice_success_2f6991c5.mp3",
+      "sha256": "707b1561f6087119113fab509aeec6fdc32f45b7aaafa65b57face71a6b721b6",
+      "text": "The fluffy towel dries the paws gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 61101,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel_teach_success_2c3cc405.mp3",
+      "sha256": "556d8c742f4bad07d61db0f968b49e26533d6d063b09fa1f2974b69c98709aa9",
+      "text": "A fluffy towel is soft, thick, and gentle to touch.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 16749,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/fluffy_towel.mp3",
+      "sha256": "40be5868f50e0eb4b7364cdc55a8e7cb519018df2dd0711f74091e7d79181fc5",
+      "text": "fluffy towel",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -23605,10 +23669,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 42381,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
-      "sha256": "427ec2f5154ce9fe1840ba545af669cfcd26b21c836e5cc22300354ed4d6cb4c",
-      "text": "Tap the puppy to celebrate its clean paws.",
+      "bytes": 44397,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_fluffy_towel_practice_a4d8cef6.mp3",
+      "sha256": "4fb794fbe27d21c17787448bf662381486b9bf046b27b2e54745c1ffc9f61242",
+      "text": "Tap the fluffy towel to dry the paws gently.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 22221,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_fluffy_towel_teach_ab3a021e.mp3",
+      "sha256": "6fa080ffe3081b73dae804c3c00a04c278c3824802efd8103a729701779e7d1d",
+      "text": "Tap the fluffy towel.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -23637,18 +23709,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36621,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
-      "sha256": "4e85a279dab41a3b5f914fbe2e9c58d4541224a9a1a9fba001ef13636a0167af",
-      "text": "Tap the towel to use its soft side.",
+      "bytes": 50157,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_stand_practice_0e9936df.mp3",
+      "sha256": "945b9bc87c4af359afb4adffd50c192fa204744211acb0091df5dbe0cbe4d3bd",
+      "text": "Tap the standing puppy to check all four dry paws.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 29133,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
-      "sha256": "f6a2cc960e72d26003da3af08672f78b03babc7d008c047b03229cd338f6a8b7",
-      "text": "Tap the soft part of the towel.",
+      "bytes": 44109,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/prompt_stand_teach_cd7b9e31.mp3",
+      "sha256": "f5dcb4cd801f382cc1402a2d4a04d45344f2e43496eb59aaa9503596de094a24",
+      "text": "Tap the puppy standing on four clean paws.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -23709,14 +23781,6 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 39789,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_practice_success_043448a2.mp3",
-      "sha256": "5d73f4947634a0f7d5aade4fdfb7e850cfd74cf4b965192ba1bcc407c76671fa",
-      "text": "The soft towel dries the paws gently.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 30285,
       "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
       "sha256": "b165273cee3c7855b6bd27981f35674fb8579dde8cc72960c72b93b269ffa9dd",
@@ -23725,10 +23789,42 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 27405,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_practice_fail_25d76c4b.mp3",
+      "sha256": "bdf84e6302f9e8d2fd2db61679e3194feef614cf454e38ce2482b1651f78b8c5",
+      "text": "Look for the standing puppy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 47853,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_practice_success_ed191888.mp3",
+      "sha256": "56e37dd3462b616c3e5e92456db42c27e7fc3d1fae600dd574310c95245df13a",
+      "text": "The puppy stands on four clean, dry paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 34893,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/soft_teach_success_e2c64965.mp3",
-      "sha256": "8ee27aa57233e62a4dc5e16dd7aab42c8175876e022696e21d568f4df5764e33",
-      "text": "Soft means gentle to touch.",
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_teach_fail_dbbcde2e.mp3",
+      "sha256": "5ce7678e594300b2c1ce1a275fb7589dbfeb9c3f6b7c443dfaf231a7b4fbf37a",
+      "text": "Look for the puppy standing on the mat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 49581,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand_teach_success_c5e1939b.mp3",
+      "sha256": "9c0456d2b89224da9139ce5cdd2d7dadabe0730607576b5f7babeb9c03db043f",
+      "text": "Stand means to be upright on your feet or paws.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12717,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-GB/neural2-c-r1/stand.mp3",
+      "sha256": "f203243be5a95ffed9e509d51e062fb668f0d8a5156c83fd6eea32e623a7c039",
+      "text": "stand",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -23957,10 +24053,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38925,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/happy_practice_success_71586e9e.mp3",
-      "sha256": "1a3c2d1358dc7380fa563c17e893d6745d8e67096eadea6248bf701221e32989",
-      "text": "The puppy is happy with its clean dry paws.",
+      "bytes": 37773,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel_practice_success_2f6991c5.mp3",
+      "sha256": "9bb69b1a44185ff3e5eb331ef2d2eeca24413906b104727b8ba12d2d3ce73136",
+      "text": "The fluffy towel dries the paws gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 53613,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel_teach_success_2c3cc405.mp3",
+      "sha256": "79350eeceab051eca1ee2eecaffe01792481d3dc6c4c9e76060934c59154ff92",
+      "text": "A fluffy towel is soft, thick, and gentle to touch.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 16173,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/fluffy_towel.mp3",
+      "sha256": "4e9b2fa6cdfa5a9d29789f546ac8a41a6fa82b82981ecdc324cd0e7c343f8419",
+      "text": "fluffy towel",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -24053,10 +24165,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38925,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_happy_practice_645fd8d6.mp3",
-      "sha256": "c026ca7f46b2ba8e392514160ffc4bfbfcb7bda1576d8ac20b3694c634e73dc2",
-      "text": "Tap the puppy to celebrate its clean paws.",
+      "bytes": 40653,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_fluffy_towel_practice_a4d8cef6.mp3",
+      "sha256": "fee6186745a452a2ce2f244756963ea3c3514990b6eab834ad59a9cc1627dd54",
+      "text": "Tap the fluffy towel to dry the paws gently.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 21069,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_fluffy_towel_teach_ab3a021e.mp3",
+      "sha256": "207d5c4385f6e2d7e7ae5240d4a619936266cbd00b2e8edb6380fd93e520a4fd",
+      "text": "Tap the fluffy towel.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -24085,18 +24205,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32877,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_practice_50c556df.mp3",
-      "sha256": "d00959f185e82124917e2f018fa9618d1b0534620a4160a345e09b6c479a4990",
-      "text": "Tap the towel to use its soft side.",
+      "bytes": 45261,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_stand_practice_0e9936df.mp3",
+      "sha256": "5e243c4f5386a5482e239325f6b905caa66a6a76d6f976c61b30124aa2201763",
+      "text": "Tap the standing puppy to check all four dry paws.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 27405,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_soft_teach_30af101c.mp3",
-      "sha256": "af18b1bcdeaefbfcb45484dc005f98e1f02e1fd49ab917256a1457277cc708b6",
-      "text": "Tap the soft part of the towel.",
+      "bytes": 40653,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/prompt_stand_teach_cd7b9e31.mp3",
+      "sha256": "ea4c41eb814ffc6e4e6d4f9334047523473c5cd64c079f86b359069155688a91",
+      "text": "Tap the puppy standing on four clean paws.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -24157,14 +24277,6 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_practice_success_043448a2.mp3",
-      "sha256": "4a892571087e4d922fcbdf327abefbe52142888168f9f92bbe5d8dc11d74529f",
-      "text": "The soft towel dries the paws gently.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 27693,
       "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_fail_1cb9e8ce.mp3",
       "sha256": "d051931fc6335bd3a6852caef88f6a41d55f9489ec07c6fdff1ea4c497b1f4cf",
@@ -24173,10 +24285,42 @@
     },
     {
       "accent": "en-US",
-      "bytes": 28845,
-      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/soft_teach_success_e2c64965.mp3",
-      "sha256": "7428d259c81f11a2acf6735bba40a9824320dc0cbd3bf11e25caa75dc91306cb",
-      "text": "Soft means gentle to touch.",
+      "bytes": 24237,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_practice_fail_25d76c4b.mp3",
+      "sha256": "f98c9824d4baa47a521605efea5fab72d4353d412bdd80a469d37c9a4e132d93",
+      "text": "Look for the standing puppy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 44109,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_practice_success_ed191888.mp3",
+      "sha256": "7d17faf06be7e7a9fff8d5f60bc08e6515aed1b5a7bc91662d8c4474dcb50ebb",
+      "text": "The puppy stands on four clean, dry paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_teach_fail_dbbcde2e.mp3",
+      "sha256": "10e8a53345a0fa5e3da828d33688d570c3aae5062c262c2b67a7ddf809f482a2",
+      "text": "Look for the puppy standing on the mat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand_teach_success_c5e1939b.mp3",
+      "sha256": "2cc63a6d14f3b58d0ca617d8b38ebba915a46638fccc17076e5c389c1b85e066",
+      "text": "Stand means to be upright on your feet or paws.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/clean-muddy-paws/dry-the-paws/audio/en-US/neural2-c-r1/stand.mp3",
+      "sha256": "914c373f2025255b810b11353454079195733ce4dbd67c04ab5c8e35bdd33c6d",
+      "text": "stand",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -34237,10 +34381,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 30573,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/hello_practice_success_fba6bddd.mp3",
-      "sha256": "ebe665cdca3bcd3bb45a54e53af2737e8cb9d9c666f00cd4fb02b6c7fe7f511f",
-      "text": "The puppy is happy to hear hello.",
+      "bytes": 32013,
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/hello_practice_success_a6357533.mp3",
+      "sha256": "aaff6fd1800b28f0ea3b25c50b0d9d63cf25b9bfecad7fe3d4bb8d8d865a2971",
+      "text": "The puppy likes hearing your hello.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -34589,10 +34733,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 29421,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/tail_practice_success_d2bd3cee.mp3",
-      "sha256": "77a1277d62cf54c8ee5a522082b625da999ae295cd6897276fe19d5fc0729475",
-      "text": "The tail is wagging happily.",
+      "bytes": 37197,
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/tail_practice_success_067673c7.mp3",
+      "sha256": "cac1f6e61d9084457a9982233f8c06cdef1fe6f6b8deafaaef5939b1fd6dda1d",
+      "text": "The tail is moving from side to side.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -34669,10 +34813,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36045,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/wag_teach_success_99c7cff9.mp3",
-      "sha256": "d7867867bff51bb80dd2227f81f8fc0260fb71a0dad3086fcac8567728d8cab5",
-      "text": "Wag means to move the tail happily.",
+      "bytes": 45549,
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-GB/neural2-c-r1/wag_teach_success_e9a9b17f.mp3",
+      "sha256": "5da4e51405323bbfdaf209116dc9c32e2e9ed16ded30e132907dfc4cda76eba0",
+      "text": "Wag means to move the tail from side to side.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -34726,9 +34870,9 @@
     {
       "accent": "en-US",
       "bytes": 28845,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/hello_practice_success_fba6bddd.mp3",
-      "sha256": "535db0a1be8eadf8834bb5cd1204d879136b4b126dd1c5278d32d174cf019bc4",
-      "text": "The puppy is happy to hear hello.",
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/hello_practice_success_a6357533.mp3",
+      "sha256": "af6c8883699bc0cd6683957468e1060467a8f2864229fa0b2059027289d4723e",
+      "text": "The puppy likes hearing your hello.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -35077,10 +35221,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 27693,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/tail_practice_success_d2bd3cee.mp3",
-      "sha256": "3a713976456b12fbc7ab4e99568498167f7fb960294a2c95c9e25fdd95ce16fc",
-      "text": "The tail is wagging happily.",
+      "bytes": 33165,
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/tail_practice_success_067673c7.mp3",
+      "sha256": "e0d4f0cbc3b114c6338604c7221302cc3629a43b5390db7c2c65ee0627d6176d",
+      "text": "The tail is moving from side to side.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -35157,10 +35301,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/wag_teach_success_99c7cff9.mp3",
-      "sha256": "81181ff0dde974e46b774333968a55419cbdb135fb10fb67ec079fdd93319fb2",
-      "text": "Wag means to move the tail happily.",
+      "bytes": 42669,
+      "key": "lessons/feed-the-puppy/meet-the-puppy/audio/en-US/neural2-c-r1/wag_teach_success_e9a9b17f.mp3",
+      "sha256": "4a71fb530fcfa1d9849c6eda0395702df05558dc6a01aead8e6a8e6e4568b8be",
+      "text": "Wag means to move the tail from side to side.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -35261,6 +35405,30 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 45549,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate_practice_success_98afb556.mp3",
+      "sha256": "b88760c35752a4336744b7c78ee60ffac51174bcd0c4d7ccda80891063e2144c",
+      "text": "The puppy finished eating, so you celebrate together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate_teach_success_696b7c67.mp3",
+      "sha256": "b71736caf6b3fbdb2b915cb7a9f047b6a94ce0b54215cfbdf49e97a3ec4e8b8a",
+      "text": "Celebrate means to show joy for something good.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 15021,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/celebrate.mp3",
+      "sha256": "2264c7f674305e000ae60a33455166871c0e45662471a7c636175aef4ceb560f",
+      "text": "celebrate",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 39789,
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/completion_544095a9.mp3",
       "sha256": "69de843e06ae613b3dd51d3d2194be116e4fd3ac2d6ba8ec3f5853fb4ad9a4ee",
@@ -35349,10 +35517,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37197,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/finished_teach_fail_b4321c06.mp3",
-      "sha256": "c39d7e8f8f26ac96f8acbc2e9db9a460059fe3ae265deb318d00019cbc660ecc",
-      "text": "Look for the picture with the nearly empty bowl.",
+      "bytes": 32589,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/finished_teach_fail_d4a84460.mp3",
+      "sha256": "151ad0529f75cfd6c23e551a66601eb422d8994c31b18707a30c5836878ec1df",
+      "text": "Look for the picture with the empty bowl.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -35377,30 +35545,6 @@
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_practice_fail_4cdcbe98.mp3",
       "sha256": "90fda19d2faa9ccf194c19f42d616962db9576ffa0e83a5243aaaab90c7ca43b",
       "text": "Look for the heart beside the puppy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 37773,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_practice_success_8b7e42be.mp3",
-      "sha256": "5ce7227f5085a0bc3cd71fbe94dc1b89bdac4f975276cb1199f959615d6594f7",
-      "text": "The puppy finished eating and feels happy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 33453,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_teach_fail_9d9992a1.mp3",
-      "sha256": "e7f82d4b48edcad3fd590fc56ff15f7d6f61e14decc8b37bef8de306cefc8f58",
-      "text": "Look for the puppy with the happy face.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 36621,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/happy_teach_success_d3d6fb5e.mp3",
-      "sha256": "69945c9a1777468ac828ff2493652247c07c5c1342ee47ce446327126a814c20",
-      "text": "Happy means feeling good and joyful.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -35445,6 +35589,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 37197,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_celebrate_practice_89c95532.mp3",
+      "sha256": "dcd61dc5120b0d384384e9c060aeff7c4bdac63c7c3052460ef42c89f9127f56",
+      "text": "Tap the heart to celebrate the finished meal.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46701,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_celebrate_teach_c4236b0f.mp3",
+      "sha256": "50b98303ad79724545fdef0b30bd1671ca88a270f85c135a47748164fa901a19",
+      "text": "Tap the joyful puppy celebrating its finished meal.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 49005,
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_eat_practice_aef1a496.mp3",
       "sha256": "c86dd6982a54957c03d0accf1513b9e7c8903d90484288731f157b0fbb54b210",
@@ -35477,26 +35637,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38061,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_finished_teach_831ffa9c.mp3",
-      "sha256": "0eed0d5a87b393dba22e40ec77bd888272edb5cff66c2728a86e3397233a23c5",
-      "text": "Tap the puppy that has nearly finished eating.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 35469,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_happy_practice_f9b58c7b.mp3",
-      "sha256": "d8abd7751c6fe94f473a230f92ef18c92fdf860d0f3f2c5de53f9007ab319063",
-      "text": "Tap the heart to celebrate with the puppy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 23949,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_happy_teach_5898b841.mp3",
-      "sha256": "d8844644e7c8e4f43a66f032711462dfe55e338e0e01eb8f3c5b7b389b4d7c26",
-      "text": "Tap the smiling puppy.",
+      "bytes": 32877,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-GB/neural2-c-r1/prompt_finished_teach_fed565bc.mp3",
+      "sha256": "7ff1dd926239373a879e81b5cfec293a3f0cc6af6a332a7b99b064caa29e7372",
+      "text": "Tap the puppy that has finished eating.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -35757,6 +35901,30 @@
     },
     {
       "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate_practice_success_98afb556.mp3",
+      "sha256": "76eede06c967cafca1bc253d49f36baf966c0d74497c4666f1c0b5fabce15b7f",
+      "text": "The puppy finished eating, so you celebrate together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate_teach_success_696b7c67.mp3",
+      "sha256": "119e392ff8005e241c51244bde53e02ebb63c05de2b05051404fe73c4738cdd4",
+      "text": "Celebrate means to show joy for something good.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13293,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/celebrate.mp3",
+      "sha256": "962737029d6bddb8a5dd33cd3d1ca8444cc6c1e1101dd3bdd0e9d03e5dc27e07",
+      "text": "celebrate",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 37485,
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/completion_544095a9.mp3",
       "sha256": "c2ad876d6bc5abfd6d7f85bf18c5ff6d36e5e011a2c6975d7f1920bd6b4f0a77",
@@ -35845,10 +36013,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36045,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/finished_teach_fail_b4321c06.mp3",
-      "sha256": "a0f756bbe213318da1ae0e4143fa57cdfd282ae119c976b34122ad98c1701883",
-      "text": "Look for the picture with the nearly empty bowl.",
+      "bytes": 30861,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/finished_teach_fail_d4a84460.mp3",
+      "sha256": "f621906dca1b6920c413f44002cdcabb37f8309d7e1e7e0a86e535e636a4e47b",
+      "text": "Look for the picture with the empty bowl.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -35873,30 +36041,6 @@
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_practice_fail_4cdcbe98.mp3",
       "sha256": "e2cee1dbf81e31fd6725f99a31a4462e22c22d44e8a1c52451034f58a8737b43",
       "text": "Look for the heart beside the puppy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 35757,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_practice_success_8b7e42be.mp3",
-      "sha256": "888a761cf2281f48156363c381b0e9015ae1a06350f86ea82085f2afb2a2462f",
-      "text": "The puppy finished eating and feels happy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 31149,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_teach_fail_9d9992a1.mp3",
-      "sha256": "c2fd34c5505d54d914d3df9aa96a9281b7c0bdce0e19c4fc878c75aa9bddac8d",
-      "text": "Look for the puppy with the happy face.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 33165,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/happy_teach_success_d3d6fb5e.mp3",
-      "sha256": "664764ce3b508b0db535a964131aed3d8e3101bd589d21ba4e5c5cd471c7ec95",
-      "text": "Happy means feeling good and joyful.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -35941,6 +36085,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 35757,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_celebrate_practice_89c95532.mp3",
+      "sha256": "64a7d12207075427ebd50de667172674fbc6235cb908554b36fb36098927d3d3",
+      "text": "Tap the heart to celebrate the finished meal.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_celebrate_teach_c4236b0f.mp3",
+      "sha256": "c802c54abbb26cb1ed86202f66bb4355050907b5641ea8ded77431ba3d7da203",
+      "text": "Tap the joyful puppy celebrating its finished meal.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 46125,
       "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_eat_practice_aef1a496.mp3",
       "sha256": "48f824db66387cbb86801a6460f05360e5d2ff17bc3aecb8ea62ce16074c6f7a",
@@ -35973,26 +36133,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36909,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_teach_831ffa9c.mp3",
-      "sha256": "736fd31be6aba4fd945dcb0b5690c232622dec71c0b1e1c1088d023ee16f7ef5",
-      "text": "Tap the puppy that has nearly finished eating.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 33453,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_happy_practice_f9b58c7b.mp3",
-      "sha256": "d9d408a9aee24d8936a590502ea72c3a0ded672811a52a2f0f36a815372ec6cc",
-      "text": "Tap the heart to celebrate with the puppy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 21933,
-      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_happy_teach_5898b841.mp3",
-      "sha256": "a3dddc297d6fe75c22a9ecd9c18bd15c4d16e02a14582c1ba4aaaadfdca2727c",
-      "text": "Tap the smiling puppy.",
+      "bytes": 30573,
+      "key": "lessons/feed-the-puppy/puppy-eats/audio/en-US/neural2-c-r1/prompt_finished_teach_fed565bc.mp3",
+      "sha256": "455124f1244a712b760418741c0ba164775ae4ce5918f1c5b7ac9a3a3551f6bc",
+      "text": "Tap the puppy that has finished eating.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -38181,26 +38325,42 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 42957,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/completion_48c776e6.mp3",
-      "sha256": "477534f0c1200b8b1fb2722e67bfd51ba5c429a66d41ff0e95bce35f46cbd759",
-      "text": "The kitten came close and rubbed its head happily.",
+      "bytes": 44109,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/completion_dae29c30.mp3",
+      "sha256": "26fcc0ae17241dbf6ca2dc72ceed259c23d7b5e0fbd58af496081a4514dd4b44",
+      "text": "The kitten came close and gently rubbed its head.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 25101,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/happy_practice_fail_539551d9.mp3",
-      "sha256": "8605b416a69c3073dc61cdcc56006e732db80d2b0afe40a850602ca9b3504169",
-      "text": "Look for the happy kitten.",
+      "bytes": 31437,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_practice_fail_b310c1ab.mp3",
+      "sha256": "cf74332bd28a2b68ac2dab688e5ff53c83f005cea6f7c1252e23ee7eeb7fec7a",
+      "text": "Look for the kitten with its tail up.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32589,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/happy_practice_success_58f792aa.mp3",
-      "sha256": "c6ef0a7bb7a25549be598ead4cea6f87684ee80f909322970b8ac02e7755a107",
-      "text": "The kitten is happy that you found it.",
+      "bytes": 37773,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_practice_success_491e565a.mp3",
+      "sha256": "83e818083faff1d9d9bd37e8f56de16c652e18cdb2f27b058c3c30e326135f0f",
+      "text": "The friendly kitten comes out to greet you.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly_teach_success_dcdfe9b9.mp3",
+      "sha256": "e27d78136ce90dfbf986e7e2bef69d3a1d852f589a61f5c9efa954419bd76558",
+      "text": "Friendly means kind and ready to be near others.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12429,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/friendly.mp3",
+      "sha256": "3e72d7d5de40b50811765f2dc52a945fcb0f895238d979d122113db22c223e7a",
+      "text": "friendly",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -38333,10 +38493,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 44109,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/pet_gently_practice_success_5a2eb875.mp3",
-      "sha256": "a24b0d604f729838fa9c11b3cad339d7d3eb5f817d585f7180afb1521169b0d7",
-      "text": "The kitten happily rubs its head against your hand.",
+      "bytes": 44397,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/pet_gently_practice_success_2ff9146d.mp3",
+      "sha256": "bf62c6cd019edb3752614c5833aa0b30877eee6ef743e22f337164264898460e",
+      "text": "The kitten gently rubs its head against your hand.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -38397,18 +38557,18 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 32877,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_happy_practice_023956a0.mp3",
-      "sha256": "ddbeb8f72a45437d00eadc9941a9ce9cb5d46601dbb1519b31270904320f394f",
-      "text": "Tap the kitten to greet it gently.",
+      "bytes": 36909,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_friendly_teach_2a825fda.mp3",
+      "sha256": "ffff3d59e60f7a963d1609677ddb91868544afc90ed4f17291820a50d231c6d1",
+      "text": "Tap the friendly kitten with its tail up.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 21933,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_happy_teach_20531847.mp3",
-      "sha256": "7fba2b65adeae04e66da05c655ddd63ea903db6e98744209e640fea196a14e4a",
-      "text": "Tap the happy kitten.",
+      "bytes": 32877,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_happy_practice_023956a0.mp3",
+      "sha256": "ddbeb8f72a45437d00eadc9941a9ce9cb5d46601dbb1519b31270904320f394f",
+      "text": "Tap the kitten to greet it gently.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -38485,6 +38645,14 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 28557,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_soft_fur_teach_8f39b20d.mp3",
+      "sha256": "d286e195739b02ed2dd87f829b9784795aa219955b9d06d9d92545ed58beb8fc",
+      "text": "Tap the kitten’s soft fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 33741,
       "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_soft_practice_925331af.mp3",
       "sha256": "9580061f7a5274b6f039c89669b1d189939970f027781cc2577bf0f827f332b4",
@@ -38493,26 +38661,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 29421,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_soft_teach_a4bc7828.mp3",
-      "sha256": "d932a088243602435d3e023de6c439dd3bbdf410078e123e343c95239380a83b",
-      "text": "Tap the kitten soft fur.",
+      "bytes": 44397,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_up_practice_2da9c39b.mp3",
+      "sha256": "c911e2783a80a778666839df95da2fe4c7355f47a188af4b06658e34031dd15a",
+      "text": "Tap the upright tail used in a friendly greeting.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 30573,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_practice_4d66d3ca.mp3",
-      "sha256": "90280a6b3ea16e0370462cc9ba4cc1e09b052dceb0ba10dc82a97faedb3bf4a8",
-      "text": "Tap the tail wagging happily.",
+      "bytes": 30285,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_up_teach_367f2954.mp3",
+      "sha256": "5b13299bd3d36151d7fb453c08d197dd0c3d017031edd7ac7688a24395946bca",
+      "text": "Tap the kitten with its tail up.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 21645,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/prompt_tail_teach_b03a8c02.mp3",
-      "sha256": "dff199cf7a9ac0587eb966b4fd1d9196372e28910ae33173fb744266b03fc8ed",
-      "text": "Tap the kitten tail.",
+      "bytes": 49005,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/soft_fur_teach_success_8e8609f2.mp3",
+      "sha256": "c8dd009b3c7353ead405cf7e4383c18e11ad9333ef046643463c3c04b020dd85",
+      "text": "Soft fur feels gentle to touch, not hard.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -38541,34 +38709,42 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 46125,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/soft_teach_success_4f79ed4e.mp3",
-      "sha256": "84bbfd79d4b6ea170c7378402ce77ba628716bc79a19652c0fabb1d7e64dda1e",
-      "text": "Soft means gentle to touch, not hard.",
+      "bytes": 25965,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_practice_fail_e32b00d6.mp3",
+      "sha256": "e1110992f07a6c63bd57a74d1a4797110186056c760ef6c7143cb79af6ea6b11",
+      "text": "Look for the upright tail.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 25389,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_practice_success_fca8b902.mp3",
-      "sha256": "699b76cadb0600a396baddb8643734457161dd91f731fe5d23083324fa4f8dd0",
-      "text": "The tail is up happily.",
+      "bytes": 40077,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_practice_success_eccf187c.mp3",
+      "sha256": "4c83410e8893e3236ccc138a05f37e7e4ac3c3eb590aa3230196390fc2296273",
+      "text": "The kitten approaches with its tail held up.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32013,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_teach_fail_451be53c.mp3",
-      "sha256": "cc4991461406980964305363458c6c31b90858ab07c6afeb519338d87427df47",
-      "text": "Look for the curved golden tail.",
+      "bytes": 32589,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_teach_fail_f10be4f9.mp3",
+      "sha256": "50268c58359e2ca0d0540f2de5bdcb8db436b1fbda20e74a51a9b2db60b9fb38",
+      "text": "Look for the upright golden tail.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 24237,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_teach_success_73219185.mp3",
-      "sha256": "539efd87bb968c2ee60e792bf4a1db94c9d2d3629b267201af7190629ed202a3",
-      "text": "This is the kitten tail.",
+      "bytes": 48717,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up_teach_success_1cfb1082.mp3",
+      "sha256": "84dd3ae9f629236f18beaccd447de742eb196416faa91a9ce2ec18991926fa24",
+      "text": "Tail up means the kitten is holding its tail upright.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13005,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-GB/neural2-c-r1/tail_up.mp3",
+      "sha256": "acf894b1b44e381de4355cbebec44102462dcc8645c118ff49fa36c5f4b6332d",
+      "text": "tail up",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -38637,26 +38813,42 @@
     },
     {
       "accent": "en-US",
-      "bytes": 40077,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/completion_48c776e6.mp3",
-      "sha256": "d6d02ea40a2f5e997d66dbf3233f28187d17e818a1e62174bc3f90cfb11f180c",
-      "text": "The kitten came close and rubbed its head happily.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 22221,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/happy_practice_fail_539551d9.mp3",
-      "sha256": "65de342ee01f3f7eba31474810762fb91fe73da2b97eae971af5237bb113b1eb",
-      "text": "Look for the happy kitten.",
+      "bytes": 39501,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/completion_dae29c30.mp3",
+      "sha256": "d601a4b61ab5d96b3836df7f146fc6ce214336b85b726694c03f2decb67b67eb",
+      "text": "The kitten came close and gently rubbed its head.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
       "bytes": 29421,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/happy_practice_success_58f792aa.mp3",
-      "sha256": "a9e342ef2eaa4b85af673cb08613a10d8f03d79c6b5987a9ce5a940daffe025c",
-      "text": "The kitten is happy that you found it.",
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_practice_fail_b310c1ab.mp3",
+      "sha256": "b9e125f48fa9064b4698c2c02bb426684162fd1bc20aa30be1cb4abab446d040",
+      "text": "Look for the kitten with its tail up.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_practice_success_491e565a.mp3",
+      "sha256": "9bc77673b4547eb550e149cc218d3c66b63fb21ae5e409cfed5eb98c5507e669",
+      "text": "The friendly kitten comes out to greet you.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40365,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly_teach_success_dcdfe9b9.mp3",
+      "sha256": "1d30afebd40cd7f8ead224bb82527b60fd256e48e27f5a319ee67c1e5523935f",
+      "text": "Friendly means kind and ready to be near others.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11277,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/friendly.mp3",
+      "sha256": "d1542eeafb3c3b6c926f64a7d56d1190aae5033b1880094ae65929ac716fd91b",
+      "text": "friendly",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -38789,10 +38981,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 39789,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/pet_gently_practice_success_5a2eb875.mp3",
-      "sha256": "4af151fe8497e7461ab750148decc5e2a2b4fbe487c508a256ebb89f39bff468",
-      "text": "The kitten happily rubs its head against your hand.",
+      "bytes": 40365,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/pet_gently_practice_success_2ff9146d.mp3",
+      "sha256": "c091b3a805767bb38d50e57fdde41d01d05f8ae5e7fc1b305d0e8fb22fd11365",
+      "text": "The kitten gently rubs its head against your hand.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -38853,18 +39045,18 @@
     },
     {
       "accent": "en-US",
-      "bytes": 29133,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_happy_practice_023956a0.mp3",
-      "sha256": "f2997912934926522c60f9929ef10428e41197634c2fe50d1a104364a5a15b04",
-      "text": "Tap the kitten to greet it gently.",
+      "bytes": 34029,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_friendly_teach_2a825fda.mp3",
+      "sha256": "93c579308e0c2193e4591f652e04b213620d84210581519c2c11585930ebe1e1",
+      "text": "Tap the friendly kitten with its tail up.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 19917,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_happy_teach_20531847.mp3",
-      "sha256": "1925b0013fad4f07396eb9f00cae91051925fcce3e0cc35c477a47304e17f283",
-      "text": "Tap the happy kitten.",
+      "bytes": 29133,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_happy_practice_023956a0.mp3",
+      "sha256": "f2997912934926522c60f9929ef10428e41197634c2fe50d1a104364a5a15b04",
+      "text": "Tap the kitten to greet it gently.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -38941,6 +39133,14 @@
     },
     {
       "accent": "en-US",
+      "bytes": 26829,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_soft_fur_teach_8f39b20d.mp3",
+      "sha256": "145bf777649ecdbe9840beb686080de697c56c6116e6b7b7a418ee9bb6b28c63",
+      "text": "Tap the kitten’s soft fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 31437,
       "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_soft_practice_925331af.mp3",
       "sha256": "9195ea0c766872f8a02fbd41d1e4a5dd601f4b776d3cab36b630161b0ce43389",
@@ -38949,26 +39149,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 27117,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_soft_teach_a4bc7828.mp3",
-      "sha256": "129a00e28a2a9c99d0a7af0d868adce998e5ef769126f4d125e8b9357f0c5e4c",
-      "text": "Tap the kitten soft fur.",
+      "bytes": 42093,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_up_practice_2da9c39b.mp3",
+      "sha256": "fcf0a90a46b52753c85f1c6e769b4630e1835aa6cf95ee5be1060df3da97d8ee",
+      "text": "Tap the upright tail used in a friendly greeting.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 30285,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_practice_4d66d3ca.mp3",
-      "sha256": "18a17178912a06f91fba89653322a773c29450e65acef1fbd0c0cec70568f2ef",
-      "text": "Tap the tail wagging happily.",
+      "bytes": 28557,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_up_teach_367f2954.mp3",
+      "sha256": "0a56e75e41503e9f66fa8df4cd3c3797acae4ba30daec5947ebfbd089e0af853",
+      "text": "Tap the kitten with its tail up.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 19053,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/prompt_tail_teach_b03a8c02.mp3",
-      "sha256": "9dc9f877dddbdf6fbb06ff5a88f0664da121e0c54787ccd69b0bae0e6f1245b2",
-      "text": "Tap the kitten tail.",
+      "bytes": 42381,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/soft_fur_teach_success_8e8609f2.mp3",
+      "sha256": "18b1ecdb2e3e62c5a728cb629f0cff36e00833d2c9ea9a78a955cd26232e9777",
+      "text": "Soft fur feels gentle to touch, not hard.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -38997,34 +39197,42 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38637,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/soft_teach_success_4f79ed4e.mp3",
-      "sha256": "cfbd71ca3dc6ff0497042757cfbba8c440d615ca61c2c764dc3d61221f5a9700",
-      "text": "Soft means gentle to touch, not hard.",
+      "bytes": 23661,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_practice_fail_e32b00d6.mp3",
+      "sha256": "1e4de2320a01af61d4ae3c776edd417fc820a61e3b1b273b81f51c1aeb5cb929",
+      "text": "Look for the upright tail.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 23373,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_practice_success_fca8b902.mp3",
-      "sha256": "20b2e32002328337fc513058af386590636ca8d81b86c04edafb4819fd1f3479",
-      "text": "The tail is up happily.",
+      "bytes": 36621,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_practice_success_eccf187c.mp3",
+      "sha256": "07462d25d2b25864def316bff1ce36924981ce04a42e17314a7bf6dbff285d1f",
+      "text": "The kitten approaches with its tail held up.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
       "bytes": 29133,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_teach_fail_451be53c.mp3",
-      "sha256": "1984cbb960c77eb34107fed344a993cb698dda9bad2695b32c12ef6987f98192",
-      "text": "Look for the curved golden tail.",
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_teach_fail_f10be4f9.mp3",
+      "sha256": "4341b435e2ae740476f400a4739ad39b8ca5e2483d777b29f5900c38421c8342",
+      "text": "Look for the upright golden tail.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 21933,
-      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_teach_success_73219185.mp3",
-      "sha256": "ba88986d990f82779b691e923d2baaff021f926bb2b84c8b836d6efc0ba4c555",
-      "text": "This is the kitten tail.",
+      "bytes": 44973,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up_teach_success_1cfb1082.mp3",
+      "sha256": "c6e9f0f3c3e39115eab15b2b1cf676b3dcc99f852e278f37e17f9e7f9ac54b27",
+      "text": "Tail up means the kitten is holding its tail upright.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13005,
+      "key": "lessons/find-the-kitten/welcome-the-kitten/audio/en-US/neural2-c-r1/tail_up.mp3",
+      "sha256": "98245102e3538e6e5356689694aab4eacf92bd1576d9a06e18ceb4b9c2a5da47",
+      "text": "tail up",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41101,10 +41309,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41517,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
-      "sha256": "db3b13e427539a8983ae3ea3f277b55e1e8945338af454e83c0a752e0b2772fc",
-      "text": "Tap the yellow flower near the bee and butterfly.",
+      "bytes": 43821,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_visit_flower_fail_37aaa9e2.mp3",
+      "sha256": "4de0a99fbfcd653103e1329499f74b5b9855ca3095218a705012a29d9dacd555",
+      "text": "The flowering plant is between the two visitors.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41129,6 +41337,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/learn_wings_success_591294b4.mp3",
       "sha256": "e2f892b966acdbc6253adc5d279701ecad63ba1b352d0e7c0deec9da36ac8409",
       "text": "Yes, these are wings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/observe_visitors_fail_bd5d637d.mp3",
+      "sha256": "3884aad78821d8fc0ac90bf73bb92facca74689956a07af31edb99cdb0f2dbaa",
+      "text": "The potted plant with the yellow flower is in the middle.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41189,10 +41405,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 42669,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
-      "sha256": "ce7f362b8d69d3fcf744fccc8d1cf41861ff0414e6e71551853e461d089b3282",
-      "text": "Tap the flower that the bee and butterfly are visiting.",
+      "bytes": 50733,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_learn_visit_flower_f973aaeb.mp3",
+      "sha256": "4b41d7a77218e216307ab2325a3f236e23df3ca90c0f698c71c0578c2b58f29e",
+      "text": "Tap the flowering plant that the bee and butterfly are visiting.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41205,10 +41421,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 61677,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
-      "sha256": "21198ba4cda88c8d54781df68f5c1e435704fe8436ce16d4ff2ac529a12818c6",
-      "text": "Tap the plant in the middle to watch the bee and butterfly near the flower.",
+      "bytes": 52173,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-GB/neural2-c-r1/prompt_observe_visitors_8b47af91.mp3",
+      "sha256": "db20a654f5e14949059920840945da5557389e7b1b981e0746389ea0f2f5f3f5",
+      "text": "Tap the flowering plant to watch the bee and butterfly visit.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -41397,10 +41613,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 40365,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_fail_43943460.mp3",
-      "sha256": "15189a1b158f92bec8a989920f70fde6cfb55cb70e1b5345e565aa7af15697a8",
-      "text": "Tap the yellow flower near the bee and butterfly.",
+      "bytes": 39213,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_visit_flower_fail_37aaa9e2.mp3",
+      "sha256": "b6bf9f7c8bb5a70a70b16f22537ab05c3bb65f38c0d6bbec5aeb69fb00aaf1de",
+      "text": "The flowering plant is between the two visitors.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41425,6 +41641,14 @@
       "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/learn_wings_success_591294b4.mp3",
       "sha256": "4549e8f1f0ccbfd05359c7b78f007abb62da3c4bb509901abbdc39d2bf949d4a",
       "text": "Yes, these are wings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 41229,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/observe_visitors_fail_bd5d637d.mp3",
+      "sha256": "0713302f7f884e67a090061f8dadb688f5b56117026cfebada06f95fd6b93f11",
+      "text": "The potted plant with the yellow flower is in the middle.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41485,10 +41709,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 43245,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_visit_flower_d3a746d0.mp3",
-      "sha256": "b02118f020d0a33e54ce91e6d64a66d3082482121a144d7942b17e32bff8a5b2",
-      "text": "Tap the flower that the bee and butterfly are visiting.",
+      "bytes": 50157,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_learn_visit_flower_f973aaeb.mp3",
+      "sha256": "99d83043cdbd44e3bfe54d8f5fae00e9b8f315d2877ea20621453ff9e46a5523",
+      "text": "Tap the flowering plant that the bee and butterfly are visiting.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -41501,10 +41725,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 60525,
-      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_observe_visitors_fbefce08.mp3",
-      "sha256": "19a602eecb5e61734899663fb2624f069e5dc1f7a9b37db1650b248d486abcb3",
-      "text": "Tap the plant in the middle to watch the bee and butterfly near the flower.",
+      "bytes": 49869,
+      "key": "lessons/garden-friends/flower-visitors/audio/en-US/neural2-c-r1/prompt_observe_visitors_8b47af91.mp3",
+      "sha256": "a0645cb6dbb957b9adde14a1fad2bd1c9c2c47bd5ab1c7571717ef24acc72e6d",
+      "text": "Tap the flowering plant to watch the bee and butterfly visit.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -43741,6 +43965,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 49293,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_lettuce_in_colander_fail_71d67e4a.mp3",
+      "sha256": "2d89a497c1d2781e556c44d9ae41d699f7833d86be601b2ee58f04af58c678ae",
+      "text": "Drag the clean green leaves into the colander with holes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 48429,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_lettuce_in_colander_success_bc0e2e94.mp3",
+      "sha256": "1e8e003fb703a8d027ac9d186caf4b57225a127a168c02d680fe898977c7356b",
+      "text": "The lettuce is in the colander. Now add the cucumber.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 42957,
       "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
       "sha256": "4ba896ebe2f615b60124c5ddcfb945c9a5be50e28acac866b4a9391d63f0bfb7",
@@ -43809,6 +44049,14 @@
       "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
       "sha256": "e33f3152743b508c76add199ffec17a73c2b8db4cf5552c74ea6e9d08b64113c",
       "text": "Tap the picture rinsing both sides well.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 35757,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-GB/neural2-c-r1/prompt_place_lettuce_in_colander_5ef26ff6.mp3",
+      "sha256": "86d30e2be16f4820c8e58a84609b8853dcc16d15e4e58c931b50a6dd9a317fb6",
+      "text": "Drag the clean lettuce into the colander.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -44045,6 +44293,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 46701,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_lettuce_in_colander_fail_71d67e4a.mp3",
+      "sha256": "73a2680aaa03eefdf03efdd0771122d113ff0483f007f7fd43d4fccf6a2d2cbb",
+      "text": "Drag the clean green leaves into the colander with holes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 46413,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_lettuce_in_colander_success_bc0e2e94.mp3",
+      "sha256": "3419409c62e2c4a4bd098b29727bb48ee4b250d623ec951480b45116b076b1af",
+      "text": "The lettuce is in the colander. Now add the cucumber.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 41229,
       "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/place_produce_in_colander_fail_f21b1458.mp3",
       "sha256": "58262d7fbd82fc10f32d7e305cc138b42a4ff19b1c9f85e6558ad8d6500f3ca6",
@@ -44113,6 +44377,14 @@
       "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_learn_rinse_it_well_799e179e.mp3",
       "sha256": "ee77c752aa74ce1d19e2511b0ab391c33f75af0f8383a57b6d736326e07e284d",
       "text": "Tap the picture rinsing both sides well.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34029,
+      "key": "lessons/garden-to-table/rinse-and-drain/audio/en-US/neural2-c-r1/prompt_place_lettuce_in_colander_5ef26ff6.mp3",
+      "sha256": "ed69d15f51e423f6ba7644b1d4eef7a41c48c946f4cfe933d0e0d55617707b98",
+      "text": "Drag the clean lettuce into the colander.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -46941,10 +47213,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 45837,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
-      "sha256": "b26ce59286abe453ac836118e89e60a2c828dbc788b364dcfa44f0a5ef692b78",
-      "text": "Soft brushing keeps the kitten cozy and safe.",
+      "bytes": 41805,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_softly_practice_success_bb2dde3d.mp3",
+      "sha256": "fb021615b5136db8409d986fb21c259402c2138b6f2d37d048af610132076330",
+      "text": "You use light strokes along the kitten’s fur.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -46997,10 +47269,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 40653,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
-      "sha256": "e88c26ac027d5815f1c1227061d9b921f8d7d144810b9e84921aeaf9dfe178eb",
-      "text": "Brush the fur keeps pets clean and happy.",
+      "bytes": 44397,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur_teach_success_26ff9886.mp3",
+      "sha256": "20955fd3ec7d931e361477b9bf5d9ab27b41ef871f53aebc12a3b24088f73a2a",
+      "text": "Brushing the fur keeps a pet neat and comfortable.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47009,38 +47281,6 @@
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/brush_the_fur.mp3",
       "sha256": "5f9c502ba54b0a586d7983b3b806abc4718ecbaf0da0f8b00e1443e66e0ecd48",
       "text": "brush the fur",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 25677,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_fail_334b0002.mp3",
-      "sha256": "1bd9893efc69dc0f85fab8d6b2f7aedc1d4c68b668eafb2e79afa73b33dbef6e",
-      "text": "Look for the clean kitten.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 34029,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
-      "sha256": "bcf2f3bfdea27754ae29c5d46fc611619dad8d9a9b5cc68dfcc1c5d3f3034ccd",
-      "text": "The kitten looks clean and adorable.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 32301,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
-      "sha256": "79eae54fb26af4ec967139199d162891e60fc26d40f41c9f011f223d50f0d55e",
-      "text": "Look for the clean and fresh kitten.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
-      "sha256": "660d731da267b6d1007812a14fea1f1b4a48f814daeb2ab6c5e62c801f779a34",
-      "text": "Clean means free from dust and neat.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47165,10 +47405,50 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 42093,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
-      "sha256": "01d6747d47cc052702facda83acdfd96bf7d813ed14ca6a9da31d78718a18555",
-      "text": "Tap softly so the kitten stays comfortable.",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_practice_fail_ecaf11d9.mp3",
+      "sha256": "163848f87363d0d896aeea0edf8aa2d83ee36912088b3531b90e71c114ab84a1",
+      "text": "Look for the kitten with neat fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42957,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_practice_success_172517c8.mp3",
+      "sha256": "bcb294c22d8dfd451c6493288643c8d27e4d577730cb950c2873502aaa6945c4",
+      "text": "The kitten’s brushed fur looks neat and tidy.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41805,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_teach_fail_b9b54ca1.mp3",
+      "sha256": "71ad4a4654c0bb0a78cc2ed045bdc6330a7f4d62a3c9d794c470c06b3b627778",
+      "text": "Look for the kitten with tidy, brushed fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat_teach_success_db515b2b.mp3",
+      "sha256": "aa3eb27119f897459b9127f5ddd9c3bba6919a4f713d1da56b7597bb602eb9b6",
+      "text": "Neat means tidy and in good order.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 11277,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/neat.mp3",
+      "sha256": "50f3eaff3836be40841851f9363a2ce0de5af764b4cb3b1f9047023ac03721e9",
+      "text": "neat",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_softly_practice_a2497caa.mp3",
+      "sha256": "7b7461a82f1de43c35e879969dd21ea6b06c9364c9814f0b380c08aa36c6a52b",
+      "text": "Tap the hand using a light brushing stroke.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47193,22 +47473,6 @@
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_brush_the_fur_teach_f770f334.mp3",
       "sha256": "5079dd0048baecd65bf7659fcdd21115060fc630847eff507941f291191539ed",
       "text": "Tap the picture of brushing the fur.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 39501,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
-      "sha256": "cad546b9b1f51b486d9650a5280d5801d3c61c82677c5976a5301038a6368c8f",
-      "text": "Tap the kitten to admire its clean look.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 29997,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
-      "sha256": "373a59acd03855d1294fe4482a23ef727681734ae51f8ff3da35a9e5dca67165",
-      "text": "Tap the clean and neat kitten.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47269,6 +47533,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 43821,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_neat_practice_72f0bb0e.mp3",
+      "sha256": "a92a7bda44e0e457fc1ec491b3c549884c8a7dd274ee5039b7da029eb07a85ae",
+      "text": "Tap the kitten to see its neat, brushed fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 29133,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_neat_teach_2a89e8ce.mp3",
+      "sha256": "8976db59911c2aa35d300368f1e8daa2a7c0dbd238a529b05fa28dccc45fc984",
+      "text": "Tap the kitten with neat fur.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 36333,
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/prompt_shiny_coat_practice_461fa6e3.mp3",
       "sha256": "7997dd68e2bffd0298d1ccb797fa81b7ff778b76dc335364543741986e69935a",
@@ -47317,26 +47597,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 40365,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
-      "sha256": "63fc5d00147493aa299b7536933956443e6302691d3b8660c97c3fe0868d5da2",
-      "text": "The kitten’s coat shines bright and healthy.",
+      "bytes": 42669,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_practice_success_ea475646.mp3",
+      "sha256": "85095c98a2a4e17bd60b9311b53905eb3f65681f26bb0551b12d2ab5528a2ef9",
+      "text": "Light reflects from the kitten’s shiny coat.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32589,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
-      "sha256": "43063de3ad7aeeca92cbb84fb7f66e9ea506c60a29f3ba4b1bdae682a51e2d5b",
-      "text": "Look for the bright and healthy fur.",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_fail_1c51bb18.mp3",
+      "sha256": "663ce57102149688cb6ace3ee0963a8ed43ee554c8d8a01eee377b2b979e15fc",
+      "text": "Look for the fur with bright highlights.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
-      "sha256": "e7cd59d2e25dc95076b336be64822a370190c7d2b80bf91d53c2cd9cff617081",
-      "text": "A shiny coat looks bright and healthy.",
+      "bytes": 52461,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-GB/neural2-c-r1/shiny_coat_teach_success_77a8ad20.mp3",
+      "sha256": "120502d43da39c88d39edf3ee8134f8c4aca92585beff9dabbdc0a6214f5e761",
+      "text": "A shiny coat looks bright when light reflects from the fur.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47429,10 +47709,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 42381,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_success_8c066090.mp3",
-      "sha256": "a852ef0dc0cc7edc354fd9f86ebc6c0a7459ec0705091b8b4d3f13cde4e53599",
-      "text": "Soft brushing keeps the kitten cozy and safe.",
+      "bytes": 37197,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_softly_practice_success_bb2dde3d.mp3",
+      "sha256": "01b52e496867e2faf866f791bb02ae7ab38da45cdcaa0887cf9f1a3f339fce14",
+      "text": "You use light strokes along the kitten’s fur.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47485,10 +47765,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38349,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_success_7a0af3f5.mp3",
-      "sha256": "af31753b72c7b9def858e9e97e99084dbd676d8dbe77c4af55d8032cb8c00fd3",
-      "text": "Brush the fur keeps pets clean and happy.",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur_teach_success_26ff9886.mp3",
+      "sha256": "3820d274d450691411d192bf93dcbe9bfa8a0c3381aef2649dbd329c94b3dbce",
+      "text": "Brushing the fur keeps a pet neat and comfortable.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47497,38 +47777,6 @@
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/brush_the_fur.mp3",
       "sha256": "ceaba4e88b8f8deecaf4236d2b8377e377fcbf63f36947b0914c6a593cba6e47",
       "text": "brush the fur",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 22509,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_fail_334b0002.mp3",
-      "sha256": "2fa63dc1a415c3b54357a2d51f610ef89d19137a012014a309fec1cac9c93b4e",
-      "text": "Look for the clean kitten.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 30573,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_practice_success_0ccf7263.mp3",
-      "sha256": "02cee7131f82852e964834355ac6360b3e9b5406ba004614b0cab5cd4c3d11b0",
-      "text": "The kitten looks clean and adorable.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 29709,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_fail_38b5999c.mp3",
-      "sha256": "26f15292f1a67d316b81d79527179a01fbd75415c4f9026828079ed3662dc4ee",
-      "text": "Look for the clean and fresh kitten.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 33741,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/clean_teach_success_dc5c9637.mp3",
-      "sha256": "f9951f06a0a81f883744983d2f455ea7d0a331c244a63a639417db0b356a8fcc",
-      "text": "Clean means free from dust and neat.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47653,10 +47901,50 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38925,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_practice_9adca24c.mp3",
-      "sha256": "457925e4ff73a2a87bfebf6480291f1c54a54a97a45502fb0074adad67824ccb",
-      "text": "Tap softly so the kitten stays comfortable.",
+      "bytes": 29421,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_practice_fail_ecaf11d9.mp3",
+      "sha256": "63f9118c3bad47ac0d9cd2a3cfb08d7a9d43510249230e34c16964783884509b",
+      "text": "Look for the kitten with neat fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_practice_success_172517c8.mp3",
+      "sha256": "a64dea3a4aa8dbd8c25450dec871b808ee746cf03c405fb62d918d7bf5cc76ac",
+      "text": "The kitten’s brushed fur looks neat and tidy.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_teach_fail_b9b54ca1.mp3",
+      "sha256": "8c20f7a6d01c2a24c48e11ad4d4abaa59850c866170c57187b58ab06e0bc2436",
+      "text": "Look for the kitten with tidy, brushed fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 32877,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat_teach_success_db515b2b.mp3",
+      "sha256": "ec4cc10cef0a32cc807509599d1d2c335946dc514a3b03a0d49e1092ccb58e72",
+      "text": "Neat means tidy and in good order.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 8973,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/neat.mp3",
+      "sha256": "6719db7bc82b5a6919e9f3d9c094308bad155b8a4ca6ccffb583363de019fd40",
+      "text": "neat",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_softly_practice_a2497caa.mp3",
+      "sha256": "83e871227c9fb2051db197583854551659827aeaa13d7d5b46019e53435093ce",
+      "text": "Tap the hand using a light brushing stroke.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47681,22 +47969,6 @@
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_brush_the_fur_teach_f770f334.mp3",
       "sha256": "4ac2980686ed4db153c3ec4039c36ceecdc4560bfc3bc1969b1936f288b2ee99",
       "text": "Tap the picture of brushing the fur.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_practice_3be8e3b0.mp3",
-      "sha256": "0a31cb796bdd1985cde6ce1159c1658e52f941eb48dfef014f1a3164324f40a1",
-      "text": "Tap the kitten to admire its clean look.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 27405,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_clean_teach_ad893d5f.mp3",
-      "sha256": "44ad1e94d263783e90b54316c081980cbb790a57d52b9c90392619ac9b7c47b9",
-      "text": "Tap the clean and neat kitten.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47757,6 +48029,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 39501,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_neat_practice_72f0bb0e.mp3",
+      "sha256": "2bd692ddf9969227818786cdcda7dba871bc9206527e882c7eef4171bb07c036",
+      "text": "Tap the kitten to see its neat, brushed fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 28269,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_neat_teach_2a89e8ce.mp3",
+      "sha256": "09596dded74931c3f2326203141d0e3dee8b4bb68f791f0ad989d7d8cdbefb7c",
+      "text": "Tap the kitten with neat fur.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 32877,
       "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/prompt_shiny_coat_practice_461fa6e3.mp3",
       "sha256": "86da240f9fb770a89d79052cab5174c6ae5073ae6df19343eee276a0c0d0e7a6",
@@ -47805,26 +48093,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35181,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_practice_success_fb38bbb9.mp3",
-      "sha256": "21a1b4a594c3a3e596378ff2eb4097066085c2b580cb0dacbda5b99c3f97d4d5",
-      "text": "The kitten’s coat shines bright and healthy.",
+      "bytes": 36909,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_practice_success_ea475646.mp3",
+      "sha256": "3bb386830d62d16305c327a0018fc6c3c65abc9338244432cee068a005a8cf73",
+      "text": "Light reflects from the kitten’s shiny coat.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 28845,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_fail_9aab08ba.mp3",
-      "sha256": "de77e179c4bd127b2c3b7faaee561cba7c23094e78b459a40bc914cd90a97ffd",
-      "text": "Look for the bright and healthy fur.",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_fail_1c51bb18.mp3",
+      "sha256": "0659be808c586790c44dabc77a1c76ff1ee77fe85b4ec24a46bb4cf40a3a9896",
+      "text": "Look for the fur with bright highlights.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 33453,
-      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_success_201fa2b3.mp3",
-      "sha256": "f1e14e85039d068e8250d1d2ae985c8ebfe3b8f6da31787279e80a776be0bbfe",
-      "text": "A shiny coat looks bright and healthy.",
+      "bytes": 47565,
+      "key": "lessons/groom-the-kitten/brush-the-fur/audio/en-US/neural2-c-r1/shiny_coat_teach_success_77a8ad20.mp3",
+      "sha256": "8592410e1a6342ccb12113d1fa29cc9faf07d258f949861e91d9b1f7596cc88e",
+      "text": "A shiny coat looks bright when light reflects from the fur.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -47909,6 +48197,46 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 36621,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_practice_fail_afa1e776.mp3",
+      "sha256": "2dba9af85afccb57b463be6a3e4e9a50ae6be85ae0cbd285876ca6a7af4f6b36",
+      "text": "Look for the soft bristles on the brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 46413,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_practice_success_b560dba2.mp3",
+      "sha256": "1432a14f788c9840632407d71ae4c7008f14d22fa3dfeb2d0d770190ac2aca77",
+      "text": "The bristles are soft and rounded for gentle grooming.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_teach_fail_c1618709.mp3",
+      "sha256": "2b7857f39ee7fb12e2f3cfd45a3f646fe99c0385a746ae1fc1f3880305a3f137",
+      "text": "Look for the short soft hairs on the brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles_teach_success_58107f26.mp3",
+      "sha256": "83a8f030dd97bff1e50fb7d7e424e08ad243acaa8c8badd7f7e7b31a5835232c",
+      "text": "Bristles are the short hairs on a brush.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 13581,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/bristles.mp3",
+      "sha256": "0dc80f3e35ea60c1856185523663b47b4b13be8e2e03bd2d4684a29d66613a14",
+      "text": "bristles",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 18765,
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/brush_practice_fail_8ebf1971.mp3",
       "sha256": "586bfd71a983d14a228a5e89f368fa0c84956ac65f4c4355b198d9ae13ebb724",
@@ -47957,10 +48285,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37773,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
-      "sha256": "8c5171894d1d39e6976311a7c32c474474a56987020658056f6aa0f9b2f6ea9c",
-      "text": "The clean brush keeps the kitten fresh.",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_practice_success_81d36100.mp3",
+      "sha256": "803986d44e90be9936b4cbd6351a7a12d2eadce17815a0f148498e2db3da9484",
+      "text": "The clean brush is ready for grooming.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -47973,10 +48301,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
-      "sha256": "47052d62786ffb56b604c1fb174829765b51d7cadbbb8aa9640761f580143fa2",
-      "text": "A clean brush is ready for healthy grooming.",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/clean_brush_teach_success_4970e9a9.mp3",
+      "sha256": "15c0bce475b7530ef192c3f991f324dade4e42730c70d63adfc803aa794008c4",
+      "text": "A clean brush is ready for grooming.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48117,10 +48445,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41229,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
-      "sha256": "7b76e04fb3dde25b3ab3e0f75340be0f860c6f98f075081c6f3f5dd4d675bf3d",
-      "text": "The pet brush is soft and safe for the kitten.",
+      "bytes": 59085,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush_practice_success_cc89763c.mp3",
+      "sha256": "40bb827c05c8eb9c540025db3812b5ab6134d86ec88a16e13ca54793f13c0ee7",
+      "text": "The pet brush has soft, rounded bristles for gentle grooming.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48145,6 +48473,22 @@
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/pet_brush.mp3",
       "sha256": "9cf4e881869912cfe7541a4838f5273e3b8a059f690345b679be1b0aa7e3676d",
       "text": "pet brush",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_bristles_practice_96f1ce0b.mp3",
+      "sha256": "da2ea8ea75617e4294557e1f105a982c9a1509b62b8ae90b1b25ded6cc408827",
+      "text": "Tap the bristles to check that they feel soft.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_bristles_teach_f6b1d8d5.mp3",
+      "sha256": "fa024f8748a9b2f67c9b675667b355115bb1339d74aaa851db3a586e1ed8e790",
+      "text": "Tap the soft bristles on the brush.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48269,22 +48613,6 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36621,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
-      "sha256": "ff4ad4a04487cef60e9c756d9ac0959a6614cb33aa54e5e88a369a9b3f079881",
-      "text": "Tap the soft fur to praise the kitten.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 28557,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
-      "sha256": "ca245cb3e6185dd13209d197e2f9894f2c3b6a67b1a638ee01889834e97abee2",
-      "text": "Tap the fluffy soft fur.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 42669,
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/prompt_tangle_practice_46aa21f7.mp3",
       "sha256": "1bea920d0548e7200890bf9879d7aa1abb8bf435e2278d37156b32b9a958fe5e",
@@ -48329,30 +48657,6 @@
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/sit_nicely.mp3",
       "sha256": "13bd84e676e67121d531829a08aa4a52f603602f8fd7b86a8a1a379ec17a66b3",
       "text": "sit nicely",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 37197,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
-      "sha256": "e05c1525a920f161ed5c36983f86b8e1c5dad510496cc12b8d7747d38c140553",
-      "text": "The kitten has delightfully soft fur.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 32301,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
-      "sha256": "9fe08b15b6eb320e0620b7588762cc587a8f5a4c9d51d5486a8a2eac50a7adf7",
-      "text": "Look for the soft and fluffy fur.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 43821,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-GB/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
-      "sha256": "b283f6ddf43248269602bb9c98dc00bd5cc3aac317b8bfa1e1d3d95754868618",
-      "text": "Soft fur feels warm and pleasant to touch.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48405,6 +48709,46 @@
     },
     {
       "accent": "en-US",
+      "bytes": 32301,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_practice_fail_afa1e776.mp3",
+      "sha256": "66b54ce01951b96a490631d92eeee4190fc6b38f29c73d659e1dfc6887131a92",
+      "text": "Look for the soft bristles on the brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 43821,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_practice_success_b560dba2.mp3",
+      "sha256": "9e15420469fb2bef6f429e69b5ffb651e9bc853846ea85c4835133fce9b0f41d",
+      "text": "The bristles are soft and rounded for gentle grooming.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 35469,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_teach_fail_c1618709.mp3",
+      "sha256": "ac7f706ef5eab0cdf49a669e590d3c06130ce440fc3765adec608a70657cdd58",
+      "text": "Look for the short soft hairs on the brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles_teach_success_58107f26.mp3",
+      "sha256": "abf8d5aac8bfb71851a2c0c33de1c5dcc6ee04c6a2574a1a2fa47805ef3accee",
+      "text": "Bristles are the short hairs on a brush.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11853,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/bristles.mp3",
+      "sha256": "1543cb34ad59ffe60dc992daf01184512799fcea37d09a8abb48c50d30f23357",
+      "text": "bristles",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 16461,
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/brush_practice_fail_8ebf1971.mp3",
       "sha256": "5b318e6bf4add5cce0b28eb7d290cb212f5bf47e361f97ac764f0fc9560c9069",
@@ -48453,10 +48797,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34893,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_success_0d682448.mp3",
-      "sha256": "b102b115393eca007b0363176c96e8676afb660580c2454dc5fdddd49c572f7c",
-      "text": "The clean brush keeps the kitten fresh.",
+      "bytes": 30861,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_practice_success_81d36100.mp3",
+      "sha256": "fcebefe24cc33c5b564f09d7fa23d068cbb63bbe51b3f18c97b6be004f9c83b7",
+      "text": "The clean brush is ready for grooming.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -48469,10 +48813,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 35757,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_success_9b3c2107.mp3",
-      "sha256": "0c530be0ab799770c68c6d480f7f5e8763ecf9044c3a11cae92ed98f5295eefa",
-      "text": "A clean brush is ready for healthy grooming.",
+      "bytes": 30573,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/clean_brush_teach_success_4970e9a9.mp3",
+      "sha256": "5d70f42909d8551909cba5355a4a5cde390e46e42180421d17a7b724372271c0",
+      "text": "A clean brush is ready for grooming.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -48613,10 +48957,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 38061,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_success_e01ed5a5.mp3",
-      "sha256": "6b09b639f1685ec053f9a512e78a076aaabce2152a5bc26b90b228ca47ca1ada",
-      "text": "The pet brush is soft and safe for the kitten.",
+      "bytes": 52749,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush_practice_success_cc89763c.mp3",
+      "sha256": "b686f19f192da1852bd23ab917f7336f0ae4f006acf4e264e308f092e1a4ae18",
+      "text": "The pet brush has soft, rounded bristles for gentle grooming.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -48641,6 +48985,22 @@
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/pet_brush.mp3",
       "sha256": "0eb41c3b8efcbbbdbc6378bd66799234a41ab2fdc4f0d78d1ee3be36777164f5",
       "text": "pet brush",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_bristles_practice_96f1ce0b.mp3",
+      "sha256": "6cad41a2c8f6d1d66e9b6dcca3fcdf9f99ee2425cdafd8a8319e61f9381892f9",
+      "text": "Tap the bristles to check that they feel soft.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31725,
+      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_bristles_teach_f6b1d8d5.mp3",
+      "sha256": "aa53ee4d9e0083e532fa93e5cdf829192499d87fb74b382dd3354dc40a45019f",
+      "text": "Tap the soft bristles on the brush.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -48765,22 +49125,6 @@
     },
     {
       "accent": "en-US",
-      "bytes": 33165,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_practice_a7b4344d.mp3",
-      "sha256": "b5f3de20b4b4155b59adfba9879d6352f941cd13addceec1af7d009963d8e57c",
-      "text": "Tap the soft fur to praise the kitten.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 27693,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_soft_fur_teach_78f8c91a.mp3",
-      "sha256": "30b5808eef9f0d90c725c473107ad7bb57f897ecc2a49dd5e5bfb6f68be7ba4e",
-      "text": "Tap the fluffy soft fur.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 39213,
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/prompt_tangle_practice_46aa21f7.mp3",
       "sha256": "d589af0e3fc6bba31999388a39cac6fcce11dffaab298c33ae7735982ad5dcc4",
@@ -48825,30 +49169,6 @@
       "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/sit_nicely.mp3",
       "sha256": "012e738be1e6c5d5c193494a3a92a8cdac277b9cf89e3ac226affa59e729c73b",
       "text": "sit nicely",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 35181,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_practice_success_6b492f4a.mp3",
-      "sha256": "e2266956ab52ee75ec0a74bd979bbfb3b0ee2c263bb9164665133db29a7cde7f",
-      "text": "The kitten has delightfully soft fur.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 31437,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_fail_efc629f2.mp3",
-      "sha256": "b11279deeb3238067e037885dad623a3d3efbdc7e099be5d14b8d7ec801db598",
-      "text": "Look for the soft and fluffy fur.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 40653,
-      "key": "lessons/groom-the-kitten/get-the-brush/audio/en-US/neural2-c-r1/soft_fur_teach_success_2a6f0991.mp3",
-      "sha256": "5f58505cc72cc37c6143edaa45eeebbff81560bc34d99e33ecaae2594dd5234e",
-      "text": "Soft fur feels warm and pleasant to touch.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -48901,10 +49221,42 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 43245,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/completion_70e8e7ff.mp3",
-      "sha256": "0f06cf7acd6900a5f089dcf1d5b19522258bc7f52d2bfd8fa53e2b64c6ff4913",
-      "text": "The kitten is neatly groomed and purring happily.",
+      "bytes": 45549,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_practice_success_a1392cec.mp3",
+      "sha256": "333c9624bc29a6f41204ec0232dc197319bf76c29d22e9db632675b4adbec1c0",
+      "text": "The cheerful kitten smiles after being brushed.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_teach_fail_9cb371f0.mp3",
+      "sha256": "4f6bd009d82c837b2449c0692a2b5410754d0da4c4868a3fbddaa99512d1943b",
+      "text": "Look for the smiling kitten with open eyes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 44109,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful_teach_success_b7706530.mp3",
+      "sha256": "d6e5de932cc2684d2081b2df7e59227e717a63c975aa05c3a056d8276493a522",
+      "text": "Cheerful means bright and full of good feelings.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/cheerful.mp3",
+      "sha256": "5ac8cf47f72cfb1d50a933070f55010ee67ed91570297ca2ef023b78247043b4",
+      "text": "cheerful",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/completion_196e7455.mp3",
+      "sha256": "96ba9474ced9d34be53d01d8f1a3757d4f762138697054b5beab198dcbf9719b",
+      "text": "The kitten is neatly groomed and making a soft purr.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48941,50 +49293,34 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 25101,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
-      "sha256": "bd7fcc652425ad7a5b27ae871bb8d99f8b370a0eaf207ceb4e515ed2de0068a2",
-      "text": "Look for the happy cat.",
+      "bytes": 25965,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_practice_fail_f34f65b8.mp3",
+      "sha256": "c9fe738d37c56cd9aeb678c6c68b2951df6d7afcbb8ed2d904e60eefe2d38a15",
+      "text": "Look for the curled tail.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 38349,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
-      "sha256": "d683641f75c50438e313f44cc4d2cbaa36b2d3ec1e143bee82108847533765ee",
-      "text": "The happy cat feels loved and peaceful.",
+      "bytes": 48429,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_practice_success_0bb9f383.mp3",
+      "sha256": "0594856a4a5892faf62cf08a1b2da46e708e101a9d5e86cb197c8db9a658b2a4",
+      "text": "The curled tail makes a rounded shape by the paws.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
-      "sha256": "cb8ddf68bfaa2f8ee44fe3257213f368a2b1692c2fae7b16211deeccb03cabde",
-      "text": "Look for the relaxed and contented cat.",
+      "bytes": 44397,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail_teach_success_86eafba0.mp3",
+      "sha256": "fc16bd063bec588a7d7da3d1c75a8207095994af7e85385b9657fe81048903b8",
+      "text": "A curled tail bends around in a rounded shape.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 35469,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
-      "sha256": "a296e3a416b757da12e3eadbd15afd8b264f20e8dc5eb09232d6c7b253fe1179",
-      "text": "A happy cat is relaxed and loved.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 15885,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_cat.mp3",
-      "sha256": "e7bdce47f6f21d7a2472d2fc18956f9ba3ea42a32a8320413fa094981cd6b1ab",
-      "text": "happy cat",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 35181,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
-      "sha256": "494d52172ba007d1f03def52a72002606a6699daf02b6504cc6ce0c920f43628",
-      "text": "The kitten smiles with sweet joy.",
+      "bytes": 15597,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/curled_tail.mp3",
+      "sha256": "0279e6fa8e4e3976f48d8f18617f444c8c7344336dff224883279078368a4b43",
+      "text": "curled tail",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -48997,26 +49333,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 41805,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/happy_teach_success_318918f1.mp3",
-      "sha256": "f0a287eaaca673992dcae70591a2a3a295f43b6628649bc694ed03ee36377909",
-      "text": "Happy means feeling cheerful and content.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 38349,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/intro_success_54cdcf69.mp3",
-      "sha256": "aaada59f9c086077861b8711cfc8b2b17371f9f1d28ed377eca1194b2703bd77",
-      "text": "The kitten is relaxing in your gentle care.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 44397,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
-      "sha256": "98575e4291e93893ef58a61f4dfefc88c5cd7598c8f8b8fccce370c6cff485fd",
-      "text": "The gentle purring sounds like a sweet lullaby.",
+      "bytes": 41229,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/intro_success_7d6ebd7a.mp3",
+      "sha256": "4b6ede364c4fe3ab67017f62370f6a103581bd2270e08f67f9a82df4d02df9f8",
+      "text": "The kitten is lying down with its eyes closed.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49029,18 +49349,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38925,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
-      "sha256": "4fddad2d33a048c1315b8fc1794218af6ee522ccc3d93148ee712db5f75a6215",
-      "text": "Listen to purr brings calmness and joy.",
+      "bytes": 49005,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr_practice_success_03f85fcd.mp3",
+      "sha256": "139fc22fd6cc286f6f11b06b786983480acd3a428b3effd483d089c2bfe5b01b",
+      "text": "The purr is a soft sound with gentle vibrations.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 16461,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_purr.mp3",
-      "sha256": "e8deedb6ca69f39c587740f1ec87d501ebc21d89fe027973db0f332250a10d05",
-      "text": "listen to purr",
+      "bytes": 62253,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr_teach_success_69452e5f.mp3",
+      "sha256": "a52cbd4bb459388643b22014d85814bffa21e28269a5884e94f479ff9410e52f",
+      "text": "This phrase means pay attention while the kitten makes its soft purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 25965,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/listen_to_the_kitten_purr.mp3",
+      "sha256": "568144d74483fecdeb4f5101c3308a2b82ce3d853185b143406353605ecaee3c",
+      "text": "listen to the kitten purr",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49077,6 +49405,22 @@
     },
     {
       "accent": "en-GB",
+      "bytes": 38925,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cheerful_practice_6e690f06.mp3",
+      "sha256": "0d071217cba14bde9ca3af4c69dca5eda77e580e2a52e35db6736f8ee0af21d8",
+      "text": "Tap the cheerful kitten smiling at you.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40365,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cheerful_teach_096337cc.mp3",
+      "sha256": "7c192d41303f06d6725a5b27ed78a94811444afcb36dd6c732ba2996ffe8ffe1",
+      "text": "Tap the cheerful kitten with a bright smile.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
       "bytes": 39789,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_cozy_practice_bd28b5f6.mp3",
       "sha256": "b63c3d1578ae23cdb8070271d56c756e5df87d15fcdc67bd559ff972eccea950",
@@ -49093,34 +49437,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36333,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
-      "sha256": "76e8d28e7865971be49f6a0163b13a2d959709966f743eff44173ea3f13d46c8",
-      "text": "Tap the kitten to share its happiness.",
+      "bytes": 43245,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_curled_tail_practice_0361b7ee.mp3",
+      "sha256": "0b466d1756fdb559c2a6e108189413c3fd84319360315c66a39911bf2f67588e",
+      "text": "Tap the tail curled around the kitten’s paws.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32013,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
-      "sha256": "263e45573fe009b1592a29d72d0ad9fa72bcfd118997ef609e78c5f3027b0e19",
-      "text": "Tap the happy contented cat.",
+      "bytes": 30285,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_curled_tail_teach_be6f7bb0.mp3",
+      "sha256": "5c949e0cb83376bcf5d4c9dd65bbf89ee30ebfdba7ff0b0b8aa3212b4b0d161f",
+      "text": "Tap the kitten’s curled tail.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 36909,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
-      "sha256": "ce7feca8873ff7fb64be8f241729921378e903d27738746c165b53501ca06101",
-      "text": "Tap the kitten to see its happy smile.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 60237,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_intro_18134f85.mp3",
-      "sha256": "67f4d8358812b85bff5c4408c35b8d33b32a7c8da6444f131c2c3c1e86755b64",
-      "text": "The kitten feels so relaxed. It purrs happily with joy.",
+      "bytes": 63117,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_intro_4288567f.mp3",
+      "sha256": "b402f7aaf923e560d7f05b02d1156434d4ee229bc328497e30893b34f5ff9a82",
+      "text": "The kitten is resting quietly. It makes a soft purring sound.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49157,18 +49493,34 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38349,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
-      "sha256": "5ee39a24adb5588cec737841c472d9a04b325b04ee091d10c082bc82dd30f617",
-      "text": "Tap the kitten to hear its joyful purr.",
+      "bytes": 35757,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_practice_d121a9d4.mp3",
+      "sha256": "6cf2effa8e81ede24dc4968e0292d3594373e50aca5c1952c2bb83c5ac0e92d3",
+      "text": "Tap the kitten to hear its soft purr.",
       "voice": "en-GB-Neural2-C"
     },
     {
       "accent": "en-GB",
-      "bytes": 32589,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
-      "sha256": "810fab946ec9213d8f01878d0c769f6e51ff35445cc3da65b5127bd104fc011d",
-      "text": "Tap the kitten purring happily.",
+      "bytes": 34605,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_purr_teach_71b6074d.mp3",
+      "sha256": "6699405db876846d2c03a232a25722b952a4bdff38e97591655f79493b15d705",
+      "text": "Tap the kitten making a soft purr.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 40077,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_relaxed_practice_d2128256.mp3",
+      "sha256": "4ea389f01c34c089ed8f55071a6c21bc8fb0be11343e5f2100f569769b886028",
+      "text": "Tap the kitten so it can rest and relax.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_relaxed_teach_89fdfa9f.mp3",
+      "sha256": "cb0a1ee1c72bf9b0cecb1971a3ea72336bd9beb3b4b5d40e51690f2cce37602f",
+      "text": "Tap the relaxed cat curled up comfortably.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49189,14 +49541,6 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 37773,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
-      "sha256": "15650411b7fc7e42120faededb00ab0dcb68a4f4ab5f191e6c986f20210a497d",
-      "text": "Tap the kitten to enjoy its sweet purr.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 28845,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_sweet_purr_teach_a3bac58c.mp3",
       "sha256": "d47e10d37770b47aadfe5d135d152b0f94bf642be5c4aff05585df60f89a0511",
@@ -49205,26 +49549,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 36333,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
-      "sha256": "6a411a244e991d717652f34e8466d1e95244f2f1dca7f8de3203e66f5f83848d",
-      "text": "Tap the tail to see it sway gently.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 30285,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
-      "sha256": "a0b3066bc837be8e60d71af6f425b660f59d1414d32160f4f51ae02ef3b3883d",
-      "text": "Tap the curled kitten tail.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 44973,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
-      "sha256": "02b097fc75fcdc0aa178b0503411e914f2488822243f8548476229d7573e8182",
-      "text": "The kitten purrs with warm happy vibrations.",
+      "bytes": 51597,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_practice_success_64ffe4c3.mp3",
+      "sha256": "d12969b41d873c54f3d34ebd37afb7ccea57083e5b4511202ee2256d50a3e12c",
+      "text": "The kitten makes a soft sound with gentle vibrations.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49237,10 +49565,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 45837,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_success_09c18159.mp3",
-      "sha256": "8272d661d64048ee0cdac4dd0e85821e662ed6b016c247f44ae89d842c552896",
-      "text": "Purr is the happy vibrating sound a cat makes.",
+      "bytes": 47565,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr_teach_success_6f12b183.mp3",
+      "sha256": "1b4dd6f69b66c017c76e2b1811ccedfb75a92d0bc7223b8d29ec53b2434595bf",
+      "text": "Purr is the gentle vibrating sound a cat makes.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49249,6 +49577,46 @@
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/purr.mp3",
       "sha256": "7762de94fd826d42e235427ca00ac0fc39a41de89499ddf6cea9d6f60f9f4035",
       "text": "purr",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 26253,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_practice_fail_28f30ab5.mp3",
+      "sha256": "cb97a5230a15abb9d4a8c01a491560d0c87616d94038256aa45900687a9be3af",
+      "text": "Look for the resting cat.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42669,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_practice_success_8e25e191.mp3",
+      "sha256": "a8379de5fc78a0a367a161e8fe2a7122d2c338d3d06522c90e996709d55a01a1",
+      "text": "The relaxed kitten rests in its cozy spot.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 45261,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_teach_fail_bc9256b2.mp3",
+      "sha256": "0ed703a37b1e038a886d7a9058d7b23c94b43acd7d28374093f78bd69d8864d1",
+      "text": "Look for the cat resting quietly with closed eyes.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed_teach_success_cdb30a66.mp3",
+      "sha256": "434a9af84545e927fa7a552a93bc0b13a0458a759706cf3fba51cfc5e6ef8f7e",
+      "text": "Relaxed means calm and comfortable.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 14733,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/relaxed.mp3",
+      "sha256": "1e157eaba03653294e1d2f1ec5d2b583813d94261a78e1d20af5aae662133365",
+      "text": "relaxed",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49285,10 +49653,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 45837,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
-      "sha256": "ba09adcec65760068db434cac697955a6d9cea1a2a7c33f075ab25460c8d5857",
-      "text": "The kitten makes a sweet purr and dozes peacefully.",
+      "bytes": 42093,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_practice_success_f1f18b10.mp3",
+      "sha256": "435366998bd99e6845b69a1eabc5bd83f0ac960be02a53ae6eda8b090ae8388f",
+      "text": "The kitten makes a soft purr while lying down.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49301,10 +49669,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 50157,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
-      "sha256": "7b3d98800d5e5a709783cef260cdb4bcaaf521d29b7f0262ad2f88b1d56d85fc",
-      "text": "A sweet purr means the kitten feels completely safe.",
+      "bytes": 58797,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/sweet_purr_teach_success_22e51487.mp3",
+      "sha256": "f4b13e44f000f4e2bb22d3f8153ccce9417653de7e14e37bbfed50ab08ecd5d0",
+      "text": "A sweet purr is a soft purring sound with gentle vibrations.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -49317,22 +49685,6 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 25101,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
-      "sha256": "2cd6d92a697365c02ee417badbb0aa6783894350816d6d20c6c116832383dbc1",
-      "text": "Look for the kitten tail.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 44973,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_practice_success_12907e40.mp3",
-      "sha256": "fbb9599af1b2c885c1488989b1d368a90130a3047fe714464844620de34c166e",
-      "text": "The kitten’s tail sways gently with happiness.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 29997,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_teach_fail_13583932.mp3",
       "sha256": "d18ac744d04044055e8661190cf0195075091ede81c8bda9bde896892491dd29",
@@ -49340,19 +49692,43 @@
       "voice": "en-GB-Neural2-C"
     },
     {
-      "accent": "en-GB",
-      "bytes": 40653,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-GB/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
-      "sha256": "fe6fcc5357f6ae9c43a7d21a4b299f2ad9dd32f62fa562d4578b87fc144a4f77",
-      "text": "A tail sways gently when a cat is calm.",
-      "voice": "en-GB-Neural2-C"
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_practice_success_a1392cec.mp3",
+      "sha256": "43a72bd2ea2287756f214448a900239d565f3b12e6231f44022366e55942422b",
+      "text": "The cheerful kitten smiles after being brushed.",
+      "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 39789,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/completion_70e8e7ff.mp3",
-      "sha256": "e0c7198f585b25638bb88e8cff5140d263cf17f0b366fcc27c46dc229a647085",
-      "text": "The kitten is neatly groomed and purring happily.",
+      "bytes": 36333,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_teach_fail_9cb371f0.mp3",
+      "sha256": "c4ae8ef548728fb9d48785988f14fdcefab7685e610734da1527c2a2861372ec",
+      "text": "Look for the smiling kitten with open eyes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40941,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful_teach_success_b7706530.mp3",
+      "sha256": "cd965b4a16a4cf7884154c29a521752604ea1a609e70672985fe13c603946757",
+      "text": "Cheerful means bright and full of good feelings.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 11277,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/cheerful.mp3",
+      "sha256": "7f7f43ee0b7a1da5f9e277b34d754e7b2c200b872acd56b54b2ff8a3dead6f94",
+      "text": "cheerful",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42957,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/completion_196e7455.mp3",
+      "sha256": "9c0e8ce7098a7b3bc6a769bdb649e52dffc7f145d9c6a30013edcfdc7eec2e36",
+      "text": "The kitten is neatly groomed and making a soft purr.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49389,50 +49765,34 @@
     },
     {
       "accent": "en-US",
-      "bytes": 22221,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_fail_adfcbb93.mp3",
-      "sha256": "940e5b8c040dca248f1dc9eb7c51c25da8e89b50412c54867f3d232c350c286b",
-      "text": "Look for the happy cat.",
+      "bytes": 22797,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_practice_fail_f34f65b8.mp3",
+      "sha256": "24065c020c8c121ad7aaf04170a69a7fc99a97f171c1ae3cbdc71ed966be136e",
+      "text": "Look for the curled tail.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 35181,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_practice_success_5e5de3f3.mp3",
-      "sha256": "2669831827547823285f575cf7937ca0a80bd5efdc162f52e0738b63c11ee3b5",
-      "text": "The happy cat feels loved and peaceful.",
+      "bytes": 43245,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_practice_success_0bb9f383.mp3",
+      "sha256": "a5689b280f4761b48ef94652ee03fa6bea32f4875f6d08c4bdcb97c555b0c5c4",
+      "text": "The curled tail makes a rounded shape by the paws.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 34605,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_fail_91ab953d.mp3",
-      "sha256": "ba0f58c4818d6805d5fa016b192a9d57de9d73824612b9146d71118cca56ab9c",
-      "text": "Look for the relaxed and contented cat.",
+      "bytes": 42381,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail_teach_success_86eafba0.mp3",
+      "sha256": "12e2c97d2f03328079083d7409c4dc691fe0e48777fee341066ec459cceb3fe0",
+      "text": "A curled tail bends around in a rounded shape.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 32877,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat_teach_success_74a30bde.mp3",
-      "sha256": "bcab3fe65a6a9723fb9295b3e06d0ffa06df6dbc76362a2c8ddf59cbd8c1d163",
-      "text": "A happy cat is relaxed and loved.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 13581,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_cat.mp3",
-      "sha256": "8c9b17d8bca789c7039aad5a5d188c07d758308c4a33f4130b56d30c198c1f1f",
-      "text": "happy cat",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 31725,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_practice_success_ceac8c35.mp3",
-      "sha256": "01bed70c3359fea10eaf9f29410b2fba1f0c9ff1f9932380c765ccf373d1f4df",
-      "text": "The kitten smiles with sweet joy.",
+      "bytes": 15309,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/curled_tail.mp3",
+      "sha256": "3622e756d79a3cdda47326611bb6ec88a4656f2f00692d8c2825af933821697d",
+      "text": "curled tail",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49445,26 +49805,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36909,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/happy_teach_success_318918f1.mp3",
-      "sha256": "5e1377f577076b74dae0557449f94b6778fa4a40df569b8d94a89a2b19c91481",
-      "text": "Happy means feeling cheerful and content.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 35469,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/intro_success_54cdcf69.mp3",
-      "sha256": "e898c3d5911cbfe82a1760f98531463e0ad651d48e3768fad0d14830bd421967",
-      "text": "The kitten is relaxing in your gentle care.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 40941,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_practice_success_1a91716c.mp3",
-      "sha256": "643cf280f0e645ac9eb78dfca258d4ed1c82eb1b2ce285f49617a202d778f67c",
-      "text": "The gentle purring sounds like a sweet lullaby.",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/intro_success_7d6ebd7a.mp3",
+      "sha256": "45ccf8d97cbebc032bf95319c7997768a6628675f4fee0be2cfac2783da24cbe",
+      "text": "The kitten is lying down with its eyes closed.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49477,18 +49821,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36621,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr_teach_success_36e20673.mp3",
-      "sha256": "86501529aa12c45961fdc1b5e3a36117ec703835558642a18e05dcdc45cf28cd",
-      "text": "Listen to purr brings calmness and joy.",
+      "bytes": 44973,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr_practice_success_03f85fcd.mp3",
+      "sha256": "8d3668f1ff199cb20a05cb4946e18d7aace6cafd914504db01176b294c65222a",
+      "text": "The purr is a soft sound with gentle vibrations.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 16173,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_purr.mp3",
-      "sha256": "c5cf84405e06ff28c23af230726c4946280fa340c1f3d57f0152fa1513e4d852",
-      "text": "listen to purr",
+      "bytes": 60237,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr_teach_success_69452e5f.mp3",
+      "sha256": "98098dec54ad7700e135b2f0afc58ffedb935cafaeadc52ccbcd8f8248967834",
+      "text": "This phrase means pay attention while the kitten makes its soft purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23661,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/listen_to_the_kitten_purr.mp3",
+      "sha256": "e9fa6b421c99248bfc24df7ef697b75a4792b7a1b3f62ddeadb95d5e36168340",
+      "text": "listen to the kitten purr",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49525,6 +49877,22 @@
     },
     {
       "accent": "en-US",
+      "bytes": 34893,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cheerful_practice_6e690f06.mp3",
+      "sha256": "96406e617eb8db136a3a63c072868272e8a99d547429b5bb4747d3bdbb32a74a",
+      "text": "Tap the cheerful kitten smiling at you.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37773,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cheerful_teach_096337cc.mp3",
+      "sha256": "3982f238a477697b5df92f48543c7e86526793a6369ff147928849da8db1bcdc",
+      "text": "Tap the cheerful kitten with a bright smile.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
       "bytes": 35469,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_cozy_practice_bd28b5f6.mp3",
       "sha256": "f160654d1391049f78b26cabc2a6a2409477137f052cbb1523a970f9b42a4656",
@@ -49541,34 +49909,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32013,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_practice_6f4efd21.mp3",
-      "sha256": "51f6f887ba35314f4d29bafffb223bc7985e0644a51e27bdd2e068d19f1f306a",
-      "text": "Tap the kitten to share its happiness.",
+      "bytes": 38061,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_curled_tail_practice_0361b7ee.mp3",
+      "sha256": "b6d21ae68e06239842d76ef2461797190cd401b4d7af3b2dee3d704f5ae365b9",
+      "text": "Tap the tail curled around the kitten’s paws.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 29133,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_cat_teach_6fdc9629.mp3",
-      "sha256": "c637504e0fa74fc47d76afd7f13a53469aa8e36263a232f4a1761c417896cf5c",
-      "text": "Tap the happy contented cat.",
+      "bytes": 27693,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_curled_tail_teach_be6f7bb0.mp3",
+      "sha256": "37955b47ad590fa2d3ba90260ef0b2206be34f8d1e70059528c9c83db77313ae",
+      "text": "Tap the kitten’s curled tail.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 34605,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_happy_practice_11733fd5.mp3",
-      "sha256": "153478b6df91fb69d625512c49830ce2356f67cacd6da6ecac36ef44cff3a4cb",
-      "text": "Tap the kitten to see its happy smile.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 55341,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_intro_18134f85.mp3",
-      "sha256": "9894b8546f9b667f3d87c49338894d7076a1429dee45db2cdaaaa2f095f8c84b",
-      "text": "The kitten feels so relaxed. It purrs happily with joy.",
+      "bytes": 56781,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_intro_4288567f.mp3",
+      "sha256": "e720ba1c048da8251dea0a511b7150e4cb87b94272a07089a8ccd8687b6f2592",
+      "text": "The kitten is resting quietly. It makes a soft purring sound.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49605,18 +49965,34 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34317,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_practice_a112b9c5.mp3",
-      "sha256": "a3fc1b7e5b7c504c0f72e8f403d6de3ac99af8621ca3fed79263ed2a7470bd9e",
-      "text": "Tap the kitten to hear its joyful purr.",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_practice_d121a9d4.mp3",
+      "sha256": "07607cfa721279b2ad973d91bda271e44cdda6d071e1689f01ae9f50a46d1cc7",
+      "text": "Tap the kitten to hear its soft purr.",
       "voice": "en-US-Neural2-C"
     },
     {
       "accent": "en-US",
-      "bytes": 29421,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_teach_9e2f122d.mp3",
-      "sha256": "8138c329bb4ee2b1effa2c2a9fcc1fa9f2720b14cdcd42c204fad96540a572a3",
-      "text": "Tap the kitten purring happily.",
+      "bytes": 32589,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_purr_teach_71b6074d.mp3",
+      "sha256": "bf32e5208a1a65fe088c33c120179cfd06371350325e4cd79303f86c80cdc86a",
+      "text": "Tap the kitten making a soft purr.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37485,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_relaxed_practice_d2128256.mp3",
+      "sha256": "4ac9fbc8c7fb12f45512c0dacc693c74d8a69e40315562c298320f64bc68c6d8",
+      "text": "Tap the kitten so it can rest and relax.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_relaxed_teach_89fdfa9f.mp3",
+      "sha256": "8e5ba0bd8bf1b66bbf38266d959a7c6be81430a12192d4cb89ae8123510899a9",
+      "text": "Tap the relaxed cat curled up comfortably.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49637,14 +50013,6 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34893,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_sweet_purr_practice_1d19d55c.mp3",
-      "sha256": "2347001b70c5a99f56a5334c3655c0c90e6053419e8f34c8fc33f57811e34462",
-      "text": "Tap the kitten to enjoy its sweet purr.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 25965,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_sweet_purr_teach_a3bac58c.mp3",
       "sha256": "bfa555087a64f25a3b04921c999956f674644be110cf3bc9cec63432749aee0e",
@@ -49653,26 +50021,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 34317,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_practice_0f2947f7.mp3",
-      "sha256": "458f20866579333feb2de0a6743e900891c84806b2240b840e0ccf81140a79b7",
-      "text": "Tap the tail to see it sway gently.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 26253,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/prompt_tail_teach_d91c306e.mp3",
-      "sha256": "7344fc3a7e2c6f860aa6b99e481bc7aff8f1629d1427f7f47bb347ba2a642ebc",
-      "text": "Tap the curled kitten tail.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 40941,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_practice_success_ca3f3a91.mp3",
-      "sha256": "e56a590acf39806ac35ed0cf60d33b30e95b768ee8f1965aa0fd4a930fd3390f",
-      "text": "The kitten purrs with warm happy vibrations.",
+      "bytes": 46413,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_practice_success_64ffe4c3.mp3",
+      "sha256": "a461fbbb4e5a83c365e566a7dea4dd6f1514d49a15145c2198599ce95c7520a6",
+      "text": "The kitten makes a soft sound with gentle vibrations.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49685,10 +50037,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 43533,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_success_09c18159.mp3",
-      "sha256": "85fab69715972aeb5f2bd997bae6988e66fd82ccec9e821e7ced52fb0c0807d7",
-      "text": "Purr is the happy vibrating sound a cat makes.",
+      "bytes": 44109,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr_teach_success_6f12b183.mp3",
+      "sha256": "4b674cf64f68f4113cb7f61dd4ce082b6959452464c391b5c040902cf3bd23c3",
+      "text": "Purr is the gentle vibrating sound a cat makes.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49697,6 +50049,46 @@
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/purr.mp3",
       "sha256": "e9e2a08c7be0bab249137274438618143f1f622d3db59358746e475bb7c8f14c",
       "text": "purr",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 23373,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_practice_fail_28f30ab5.mp3",
+      "sha256": "c330ed842701e8c2cef392959a4b01d096cb64ef88d80719150419cd57f5ecb4",
+      "text": "Look for the resting cat.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 39789,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_practice_success_8e25e191.mp3",
+      "sha256": "51a89a7545cd08ac32a0de646b07c8f57b896c48fd521c5f4544b1db85da2d86",
+      "text": "The relaxed kitten rests in its cozy spot.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 42669,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_teach_fail_bc9256b2.mp3",
+      "sha256": "35e18759b6d30153547bfbc138deb44c6c6fc91d6d363acbcdb4e80597569216",
+      "text": "Look for the cat resting quietly with closed eyes.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 33165,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed_teach_success_cdb30a66.mp3",
+      "sha256": "44fce76f551986e25627c1cd9b0e53ab246b63084d41f3276f2461b38899ad89",
+      "text": "Relaxed means calm and comfortable.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 13293,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/relaxed.mp3",
+      "sha256": "c62ea01817ee27d9dec8f22e063e35e7078a031cce101f6e3b82d7246c9cf2d4",
+      "text": "relaxed",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49733,10 +50125,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 42957,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_practice_success_b37a3b74.mp3",
-      "sha256": "d8e7416c6a662d375ee9426f145454e8b6f400bc11ee62039c2cda475ead78a9",
-      "text": "The kitten makes a sweet purr and dozes peacefully.",
+      "bytes": 40653,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_practice_success_f1f18b10.mp3",
+      "sha256": "511e541dc256ed74fb05c3b03c1c1888cd680a1319c89ba90e53af12186818ac",
+      "text": "The kitten makes a soft purr while lying down.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49749,10 +50141,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 46701,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_success_dcf8539a.mp3",
-      "sha256": "376fb4969a45dcfbafa01b1f7859a7547d4e986d07cbdb3dc16d4fd934b21eaa",
-      "text": "A sweet purr means the kitten feels completely safe.",
+      "bytes": 55053,
+      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/sweet_purr_teach_success_22e51487.mp3",
+      "sha256": "47f76f8aaa1afaf40362d6dd380d25e1fcce9d4221d7c9058cdf9c46b974b867",
+      "text": "A sweet purr is a soft purring sound with gentle vibrations.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -49765,34 +50157,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 21933,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_fail_007e1ac2.mp3",
-      "sha256": "5d5906199ee24de03bcd215209a4b13b1f9a281c625b3bd6bace28a491016f5b",
-      "text": "Look for the kitten tail.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 41229,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_practice_success_12907e40.mp3",
-      "sha256": "738fd706d4ca39ed4b214fb234034ea4bbcd9a16d3d76a55291bd0c25f0e81d0",
-      "text": "The kitten’s tail sways gently with happiness.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 27693,
       "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_teach_fail_13583932.mp3",
       "sha256": "d4f9d3987db0061184fb4040b8bb67eeecbe04c770e78ba44ce941691f8c850c",
       "text": "Look for the soft orange tail.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 39789,
-      "key": "lessons/groom-the-kitten/kitten-purrs/audio/en-US/neural2-c-r1/tail_teach_success_4f91d2d0.mp3",
-      "sha256": "540c2ff68b065704c41976bc14cd4567e3d6fc9cb82634ca7b42c4b9c57ee8fb",
-      "text": "A tail sways gently when a cat is calm.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -53093,10 +53461,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 35181,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
-      "sha256": "6d10b52ed7b9cc1c65b8cff29d57f018e83a8af8ea30bb9e4dc6fe61ff972938",
-      "text": "Tap the soft green tie on the right.",
+      "bytes": 39501,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/learn_soft_tie_fail_e5411cb0.mp3",
+      "sha256": "63502649e0a692e98c550e4d5f74b4cbf2b4ce623f546d72064416a44d195d28",
+      "text": "Tap the green tie around the stem and stake.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -53229,10 +53597,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 39789,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
-      "sha256": "e5a69621eaf8a61c938ae5b84d5282da535f5f348f4d01d5e7cce27318bbe494",
-      "text": "Tap the soft tie that helps hold the plant.",
+      "bytes": 46125,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-GB/neural2-c-r1/prompt_learn_soft_tie_c3a8fd33.mp3",
+      "sha256": "012403f5251c6aaf24292f2500996a02f9d85978a0bf6d0960a934fea6b95b2d",
+      "text": "Tap the soft tie holding the stem beside the stake.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -53413,10 +53781,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 32301,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_fail_36e33095.mp3",
-      "sha256": "a5ae30513fe853b98c9dfee3742e7d43537a9a3c1188ed61e6faa3297f8ca97e",
-      "text": "Tap the soft green tie on the right.",
+      "bytes": 36909,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/learn_soft_tie_fail_e5411cb0.mp3",
+      "sha256": "b0c7b48344c9be0dbaeebeb63eaea2ffe8b4ba273d5b5c9656db52e664838d1c",
+      "text": "Tap the green tie around the stem and stake.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -53549,10 +53917,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 37485,
-      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_soft_tie_bd93f648.mp3",
-      "sha256": "1b10f9ede44e0bee4c595d8a539a398dc53086135c4698b6b9a4d444a69ac9fd",
-      "text": "Tap the soft tie that helps hold the plant.",
+      "bytes": 44109,
+      "key": "lessons/help-it-grow/wind-and-support/audio/en-US/neural2-c-r1/prompt_learn_soft_tie_c3a8fd33.mp3",
+      "sha256": "89fedeec3d5a47b3a23b4042bbc112b03030764e5c5f1163e22a6950ed6a1781",
+      "text": "Tap the soft tie holding the stem beside the stake.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -73349,34 +73717,10 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 24525,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_practice_fail_a019f2a7.mp3",
-      "sha256": "5496dd3c3a2264d366793dce76f147238a7d0a217e3c28684321cc717ddec089",
-      "text": "Look for the happy puppy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 36045,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_practice_success_acc31fa5.mp3",
-      "sha256": "0362c1d9562df6b88217b4c0cf32f33ac021da4b5aa17757d5ffd18a3ce82fe7",
-      "text": "The puppy is happy to play gently with you.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 27405,
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_teach_fail_a78e8495.mp3",
       "sha256": "7dd37153cd7df7357266de3ad41e8029937f4808175772464be209b2cd435c88",
       "text": "Look for the smiling puppy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 29421,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/happy_teach_success_17638824.mp3",
-      "sha256": "692ad802b7613fa7c3404821a0195e2b5c020fde78b6665dcc68cf2e66ae1435",
-      "text": "Happy means feeling joyful.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -73409,6 +73753,54 @@
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/lets_play_teach_success_8862693d.mp3",
       "sha256": "6074f0f3907abee2c09f03333a5e5ef1c353e07beb8a244ced3d744f7053af6a",
       "text": "Let's play means we are inviting someone to play together.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 33453,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_practice_fail_8a5e6e1b.mp3",
+      "sha256": "1982883efad62cab68955766b7487d41cae4678e0368c04cb735b73f44473edf",
+      "text": "Look for the puppy making a play bow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 43245,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_practice_success_fd9b5946.mp3",
+      "sha256": "1c13a34d88d721d070d8380fce986f19a5bd10fec440c607e70a8b16d4f8f342",
+      "text": "The playful puppy invites you to play another turn.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_fail_25b7d5f0.mp3",
+      "sha256": "ab44151cbd3fee1f030d5cd419aebaf56c424b90487010ce1e134f5c2fe26e47",
+      "text": "Look for the smiling puppy wagging its tail.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 38061,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_fail_ca08472f.mp3",
+      "sha256": "d892838fe345f5280170dd9a90e9569d11ec763ad5bdb67a3135ee38b8c77ad8",
+      "text": "Look for the puppy with its front legs lowered.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 63117,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful_teach_success_074fb751.mp3",
+      "sha256": "f6feaea52ec5f5deff5d051a324a06c03947710d185c070262c9fd495a2c8c80",
+      "text": "Playful means eager to play; a dog may show it with a play bow.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 12141,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/playful.mp3",
+      "sha256": "2115e063ac7d972e42f84e6c2093fdff47713e2a4e948ae9ef625ca77d29a457",
+      "text": "playful",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -73493,22 +73885,6 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38637,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
-      "sha256": "25c8d708b8d9f5ddb0856f64e45f1d54b0101352c6eb38506c18840e46d62006",
-      "text": "Tap the puppy to celebrate your kind play.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
-      "bytes": 21645,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_happy_teach_e999f52d.mp3",
-      "sha256": "38a70dc8ddc961e423cfef40b1cf14a5b6b9075f09b82468032c82cd313acd41",
-      "text": "Tap the happy puppy.",
-      "voice": "en-GB-Neural2-C"
-    },
-    {
-      "accent": "en-GB",
       "bytes": 53037,
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_intro_3a0f33ba.mp3",
       "sha256": "ffb53ada687e86880d97ff78107abf08379fe73e2146fc73e64382cb27f410cb",
@@ -73525,10 +73901,26 @@
     },
     {
       "accent": "en-GB",
-      "bytes": 38061,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_lets_play_teach_868cadf0.mp3",
-      "sha256": "882bbc19f73826e3fd102887656db6bbcaf34c8bce5d9b01c674f87ed171fa64",
-      "text": "Tap the happy puppy ready for another turn.",
+      "bytes": 40077,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_lets_play_teach_fa4a4fda.mp3",
+      "sha256": "6d8f9bb75f98e07f481f691acfe2d4b2768b35fc89a538f66dab97ce6d110674",
+      "text": "Tap the playful puppy ready for another turn.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 42093,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_playful_practice_216b986d.mp3",
+      "sha256": "c5edbe5f08fc69db2e11f05dd9e552018c24fccce96c2d269d577e1edf3cd07b",
+      "text": "Tap the puppy making a play bow to play again.",
+      "voice": "en-GB-Neural2-C"
+    },
+    {
+      "accent": "en-GB",
+      "bytes": 39501,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-GB/neural2-c-r1/prompt_playful_teach_f4b9be36.mp3",
+      "sha256": "79564148d6dabfcc6de0a2a26e6f1b69b26eadde6ebb657d34bada0f1af68ee4",
+      "text": "Tap the playful puppy making a play bow.",
       "voice": "en-GB-Neural2-C"
     },
     {
@@ -73813,34 +74205,10 @@
     },
     {
       "accent": "en-US",
-      "bytes": 22221,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_practice_fail_a019f2a7.mp3",
-      "sha256": "6da5b0b547f55ac244ed4014c83c9dd16c9d70c11f2ca2dd60e0b754f7ee0198",
-      "text": "Look for the happy puppy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 33741,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_practice_success_acc31fa5.mp3",
-      "sha256": "bdf593e343bdf29b5bbb3dd5bceb8341f5d062425ce9343c9d3b6c16d48e018a",
-      "text": "The puppy is happy to play gently with you.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 24525,
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_teach_fail_a78e8495.mp3",
       "sha256": "522ccf8868313d54744089e7d632b6436bee9962e7e79def3734610b3b811bc3",
       "text": "Look for the smiling puppy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 25389,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/happy_teach_success_17638824.mp3",
-      "sha256": "a51270d0e53be94e643fd82f7121401c0690355438acf0a76d41de4db91aadf0",
-      "text": "Happy means feeling joyful.",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -73873,6 +74241,54 @@
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/lets_play_teach_success_8862693d.mp3",
       "sha256": "0e070ba1f7c0176f167cbfbee6d676f4084f597d961fca0689ab3d4b7052751b",
       "text": "Let's play means we are inviting someone to play together.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 31149,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_practice_fail_8a5e6e1b.mp3",
+      "sha256": "6e7379568fc47a42823281d661958c92a08397b0e21525c52fb91633df501500",
+      "text": "Look for the puppy making a play bow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 40653,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_practice_success_fd9b5946.mp3",
+      "sha256": "b9b406747b1d71f7110bfc382d730f383d61050bcaf4882b2afa4307cdd7d2ef",
+      "text": "The playful puppy invites you to play another turn.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38061,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_fail_25b7d5f0.mp3",
+      "sha256": "7444eac5f1bc4713122b7944290745fac8df5e65f6351f0cdc00c5644248c511",
+      "text": "Look for the smiling puppy wagging its tail.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 37197,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_fail_ca08472f.mp3",
+      "sha256": "16793c5c0dd350b00d1f218a2448986799896dc959157572cbb0ba257d212539",
+      "text": "Look for the puppy with its front legs lowered.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 59373,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful_teach_success_074fb751.mp3",
+      "sha256": "6485c1a8fd582545776b4a09bb0e7b9ef32898184d2209abd3f7ee2c1c43aa1f",
+      "text": "Playful means eager to play; a dog may show it with a play bow.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 10701,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/playful.mp3",
+      "sha256": "eaec1bc425a25e312ca84a3261b89f8334a5c5124d6c422a3455cd9c4348a584",
+      "text": "playful",
       "voice": "en-US-Neural2-C"
     },
     {
@@ -73957,22 +74373,6 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36333,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_happy_practice_ed6d2cf7.mp3",
-      "sha256": "c2fc13bce83177a54c8864e44cbcbdc795a2f06d5b1817ef825097062da14aec",
-      "text": "Tap the puppy to celebrate your kind play.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
-      "bytes": 19917,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_happy_teach_e999f52d.mp3",
-      "sha256": "d40d750877378231e88ca210898b7fd2a22135a093ef3a5c14ff40be16a9ff85",
-      "text": "Tap the happy puppy.",
-      "voice": "en-US-Neural2-C"
-    },
-    {
-      "accent": "en-US",
       "bytes": 48429,
       "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_intro_3a0f33ba.mp3",
       "sha256": "b139f12e39a9dcf74ad4844a32471fa8525f8241ebf24f72029f78be6347c3f1",
@@ -73989,10 +74389,26 @@
     },
     {
       "accent": "en-US",
-      "bytes": 36909,
-      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_lets_play_teach_868cadf0.mp3",
-      "sha256": "e12e14eedcad105be1a895f75f1ca6d1d6a93acc7b25fa25f00a125198700d9a",
-      "text": "Tap the happy puppy ready for another turn.",
+      "bytes": 38637,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_lets_play_teach_fa4a4fda.mp3",
+      "sha256": "551030f9b1b1c4f5003d62f41e84ef7fef0e14bf3d38302a9de7350856c1998e",
+      "text": "Tap the playful puppy ready for another turn.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 38637,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_playful_practice_216b986d.mp3",
+      "sha256": "fb8de33fd89fa0bb39c06e8ec501f3cabf4d822e15b5bb3c56ba7862cab4aac9",
+      "text": "Tap the puppy making a play bow to play again.",
+      "voice": "en-US-Neural2-C"
+    },
+    {
+      "accent": "en-US",
+      "bytes": 36621,
+      "key": "lessons/play-with-the-puppy/bring-it-back/audio/en-US/neural2-c-r1/prompt_playful_teach_f4b9be36.mp3",
+      "sha256": "5053f7febe5af992e2b1708c8edab63515c8d1ea4307f4e8538bdb8f0e79de36",
+      "text": "Tap the playful puppy making a play bow.",
       "voice": "en-US-Neural2-C"
     },
     {

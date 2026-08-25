@@ -18,13 +18,16 @@ test.each([
   ['core', 9],
   ['expanded', 18],
   ['challenge', 27],
-] as const)('%s mode exposes the foundation vocabulary budget', (mode, count) => {
-  const vocabulary = cleanMuddyPawsLesson.scenes.flatMap(
-    scene => getSceneForLearningMode(scene, mode).vocabulary,
-  );
+] as const)(
+  '%s mode exposes the foundation vocabulary budget',
+  (mode, count) => {
+    const vocabulary = cleanMuddyPawsLesson.scenes.flatMap(
+      scene => getSceneForLearningMode(scene, mode).vocabulary,
+    );
 
-  expect(vocabulary).toHaveLength(count);
-});
+    expect(vocabulary).toHaveLength(count);
+  },
+);
 
 test.each([
   ['core', 9, 9, 0],
@@ -80,17 +83,20 @@ test.each([
   },
 );
 
-test.each(modes)('%s mode separates every speech panel with an action', mode => {
-  cleanMuddyPawsLesson.scenes.forEach(sourceScene => {
-    const steps = getSceneForLearningMode(sourceScene, mode).steps;
-    for (let index = 1; index < steps.length; index += 1) {
-      expect(
-        hasPronunciationPanel(steps[index - 1]) &&
-          hasPronunciationPanel(steps[index]),
-      ).toBe(false);
-    }
-  });
-});
+test.each(modes)(
+  '%s mode separates every speech panel with an action',
+  mode => {
+    cleanMuddyPawsLesson.scenes.forEach(sourceScene => {
+      const steps = getSceneForLearningMode(sourceScene, mode).steps;
+      for (let index = 1; index < steps.length; index += 1) {
+        expect(
+          hasPronunciationPanel(steps[index - 1]) &&
+            hasPronunciationPanel(steps[index]),
+        ).toBe(false);
+      }
+    });
+  },
+);
 
 test.each(modes)('%s mode tells the child the required gesture', mode => {
   cleanMuddyPawsLesson.scenes.forEach(sourceScene => {
@@ -102,24 +108,29 @@ test.each(modes)('%s mode tells the child the required gesture', mode => {
   });
 });
 
-test.each(modes)('%s mode never advances to a hidden interaction target', mode => {
-  cleanMuddyPawsLesson.scenes.forEach(sourceScene => {
-    const scene = getSceneForLearningMode(sourceScene, mode);
-    let runtimeState: SceneRuntimeState = {};
+test.each(modes)(
+  '%s mode never advances to a hidden interaction target',
+  mode => {
+    cleanMuddyPawsLesson.scenes.forEach(sourceScene => {
+      const scene = getSceneForLearningMode(sourceScene, mode);
+      let runtimeState: SceneRuntimeState = {};
 
-    scene.steps.forEach(step => {
-      step.targetObjectIds.forEach(objectId => {
-        const object = scene.objects.find(item => item.id === objectId);
-        expect(object).toBeDefined();
-        expect(resolveSceneObject(object!, runtimeState[objectId])).toBeDefined();
+      scene.steps.forEach(step => {
+        step.targetObjectIds.forEach(objectId => {
+          const object = scene.objects.find(item => item.id === objectId);
+          expect(object).toBeDefined();
+          expect(
+            resolveSceneObject(object!, runtimeState[objectId]),
+          ).toBeDefined();
+        });
+        runtimeState = applySceneStateChanges(runtimeState, [
+          ...(step.successStateChanges ?? []),
+          ...(step.afterSuccessStateChanges ?? []),
+        ]);
       });
-      runtimeState = applySceneStateChanges(runtimeState, [
-        ...(step.successStateChanges ?? []),
-        ...(step.afterSuccessStateChanges ?? []),
-      ]);
     });
-  });
-});
+  },
+);
 
 test.each(modes)('%s mode does not add an unexplained drag gesture', mode => {
   const dragIds = cleanMuddyPawsLesson.scenes.flatMap(scene =>
@@ -139,7 +150,9 @@ test('review selection is the executable 4-5-6 set', () => {
     getReviewGameItems(cleanMuddyPawsLesson, 'expanded').map(item => item.word),
   ).toEqual(['paws', 'mud', 'water', 'towel', 'basin']);
   expect(
-    getReviewGameItems(cleanMuddyPawsLesson, 'challenge').map(item => item.word),
+    getReviewGameItems(cleanMuddyPawsLesson, 'challenge').map(
+      item => item.word,
+    ),
   ).toEqual(['paws', 'mud', 'water', 'towel', 'basin', 'dry the paws']);
 });
 
@@ -154,7 +167,9 @@ test('story state moves from muddy to clean wet to clean dry paws', () => {
   expect(changes[0]).toEqual(
     expect.arrayContaining([
       expect.objectContaining({ variantId: 'waiting' }),
-      expect.objectContaining({ targetObjectId: 'notice-the-muddy-paws-pawprints' }),
+      expect.objectContaining({
+        targetObjectId: 'notice-the-muddy-paws-pawprints',
+      }),
     ]),
   );
   expect(changes[1]).toEqual(
@@ -170,9 +185,51 @@ test('story state moves from muddy to clean wet to clean dry paws', () => {
     expect.arrayContaining([
       expect.objectContaining({ variantId: 'drying' }),
       expect.objectContaining({ variantId: 'dry' }),
+      expect.objectContaining({ variantId: 'standing' }),
       expect.objectContaining({ variantId: 'finished' }),
     ]),
   );
+});
+
+test('drying scene uses concrete fluffy towel and standing anchors', () => {
+  const scene = getSceneForLearningMode(
+    cleanMuddyPawsLesson.scenes.find(item => item.id === 'dry-the-paws')!,
+    'expanded',
+  );
+  const words = scene.vocabulary.map(item => item.word);
+  const standTeach = scene.steps.find(
+    step => step.id === 'dry-the-paws-stand-teach',
+  )!;
+  const stateBeforeStand = applySceneStateChanges(
+    {},
+    scene.steps
+      .slice(0, scene.steps.indexOf(standTeach))
+      .flatMap(step => [
+        ...(step.successStateChanges ?? []),
+        ...(step.afterSuccessStateChanges ?? []),
+      ]),
+  );
+  const hero = scene.objects.find(object => object.id === 'dry-the-paws-hero')!;
+  const fluffyTowelTeach = scene.steps.find(
+    step => step.id === 'dry-the-paws-fluffy-towel-teach',
+  )!;
+
+  expect(words).toEqual(expect.arrayContaining(['fluffy towel', 'stand']));
+  expect(words).not.toEqual(expect.arrayContaining(['soft', 'comfortable']));
+  expect(fluffyTowelTeach.interaction.targetObjectId).toBe(
+    'dry-the-paws-towel',
+  );
+  expect(
+    scene.steps.find(step => step.id === 'dry-the-paws-stand-practice')
+      ?.successStateChanges,
+  ).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ variantId: 'standing' }),
+    ]),
+  );
+  expect(
+    resolveSceneObject(hero, stateBeforeStand[hero.id])?.asset.source,
+  ).toBe('lessons/clean-muddy-paws/dry-the-paws/images/puppy-dry.webp');
 });
 
 test('lesson metadata keeps the foundation and pet-care safety contract', () => {

@@ -20,7 +20,9 @@ asset inventory của từng vertical slice nằm trong storyboard riêng tươn
 - Theme runtime hiện có đủ năm lesson theo thứ tự đã khóa.
 - Pilot có ba scene `prepare-the-pot` -> `plant-the-seed` -> `first-watering` và dùng Scene State
   v1 cho object variants, show/hide và success-only state changes.
-- `help-it-grow` đã có lesson data, production PNG masters, bundled icons và 40 ảnh runtime.
+- `help-it-grow` đã có lesson data, production PNG masters, bundled icons và 39 ảnh runtime đang
+  được tham chiếu; WebP `stake` cũ được giữ lại như một orphan local để không xóa asset ngoài phạm
+  vi audit.
   Vocabulary-first revision ngày 2026-08-25 nâng vocabulary/pronunciation lên 8/12/16, khóa nhịp
   meaningful turn 21/27/34 và giữ review 4/5/6. Google TTS tạo đúng 58 audio delta; lesson/full
   corpus audit đạt 439/16.012 target với missing 0, invalid 0. R2 upload 59 object gồm audio và
@@ -38,11 +40,18 @@ asset inventory của từng vertical slice nằm trong storyboard riêng tươn
 - `garden-to-table` đã có lesson data, storyboard, 38 production PNG masters (35 cutout và ba
   background), 37 WebP được runtime tham chiếu, bốn bundled icons và review 4/5/6.
   Vocabulary-first revision nâng vocabulary/pronunciation lên 8/12/16 và nhịp meaningful turn lên
-  21/27/34. Visual QA correction retire pointer-hand sai ngữ nghĩa, dùng hình phong bì trên kệ cho
+  21/28/35. Visual QA correction retire pointer-hand sai ngữ nghĩa, dùng hình phong bì trên kệ cho
   `store it for next season` và cho safety action chạm phong bì đã đóng. Google TTS tạo 69 audio ở
   revision đầu và thêm đúng 12 audio correction; lesson/full-corpus audit đạt 443/15.969 target với
   missing 0, invalid 0. R2 upload thêm 14 object correction, verify đủ 404/404 asset và post-upload
-  dry-run còn `Changed/new: 0` ngày 2026-08-25.
+  dry-run còn `Changed/new: 0` ngày 2026-08-25. Follow-up audit cho xà lách sạch một lượt
+  vào rổ riêng trước dưa leo đã được publish trong full-corpus delta cuối ngày.
+- Follow-up correctness audit hiện đã publish: `help-it-grow` dạy cọc/dây trên trạng thái đã lắp,
+  `garden-friends` gom cây/ong/bướm thành
+  một cụm nghĩa trực tiếp, `harvest-day` bổ sung representative cho năm anchor, và
+  `garden-to-table` thêm lượt xà lách riêng. Full-corpus audio audit đạt 16.156 target, thiếu 0 và
+  lỗi 0; R2 upload chung 285 object, verify đủ 21.296/21.296 với 0 lỗi và post-upload delta bằng 0.
+  Cả bốn correction vẫn chờ device smoke test.
 - Free tier hiện vẫn chỉ gồm `morning-routine` và `at-school`; Mốc 4A không đổi access policy.
 
 ### Đã khóa ở Mốc 4A
@@ -262,7 +271,7 @@ theme; storyboard tương ứng có ưu tiên khi mô tả chi tiết vertical s
 ### 8.1 `help-it-grow`
 
 **Purpose:** nối trực tiếp từ mầm của pilot, gộp chăm cây với nắng/mưa/gió và tạo payoff là cây có
-thêm lá, đứng thẳng.
+thêm lá, đứng thẳng và nở một bông hoa vàng sau cue thời gian.
 
 **Required beats:**
 
@@ -280,8 +289,9 @@ thêm lá, đứng thẳng.
   `support the stem`.
 
 **Frozen Quick Recall/Action Enablers còn lại:** chậu cùng các đích kéo, vòng thời gian, mái che,
-mây và que đỡ regular ở core. Những object này không mở deep-teach/recording flow. Nếu bé vào
-lesson theo free journey, cue Việt và hình vẫn phải đủ để thao tác.
+mây, que đỡ rời và dây buộc rời ở core. Hai object rời không mở deep-teach/recording flow; bản đã
+lắp cạnh thân cây mới là target cho `stake` và `soft tie` ở expanded. Nếu bé vào lesson theo free
+journey, cue Việt và hình vẫn phải đủ để thao tác.
 
 **Frozen scene IDs:** `new-leaf-and-sunlight` -> `rainy-day-care` -> `wind-and-support`.
 
@@ -309,6 +319,10 @@ không xâm lấn.
 - Core (8): `leaf`, `earthworm`, `snail`, `flower`, `bee`, `butterfly`, `fruit`, `caterpillar`.
 - Expanded (thêm 4): `tunnel`, `wings`, `water drop`, `birdbath`.
 - Challenge (thêm 4): `shell`, `look under the leaf`, `visit the flower`, `watch gently`.
+
+`leaf` và `flower` được dạy lại có chủ đích trong lesson này vì `journeyMode: free` cho phép mở
+lesson độc lập, còn hai từ là tiền đề trực tiếp cho `look under the leaf` và `visit the flower`.
+Đây là ngoại lệ prerequisite đã ghi rõ, không phải quy tắc lặp lại mọi anchor giữa hai lesson.
 
 **Recall/enabler còn lại:** `soil`, kính lúp, time cue và các control môi trường. Animal objects
 không draggable; bé chạm vùng quan sát hoặc môi trường, không chạm/kéo trực tiếp con vật.
@@ -370,8 +384,9 @@ trong `docs/theme-4-harvest-day-storyboard.md`; tài liệu đó có ưu tiên c
 **Recall/enabler candidates:** `water`, `basket`, `soil`. `seed` ở final beat được nâng thành core
 anchor có pronunciation vì nó là payoff vòng đời; hạt vẫn do người lớn cầm và cất.
 
-**State direction:** produce `dirty -> rinsed -> clean`; bowl `empty -> prepared -> shared`; seed
-envelope `empty -> filled -> stored`; completion visual trở lại hình hạt/chậu nhưng không reset
+**State direction:** cucumber/lettuce `dirty -> clean`; expanded colander `empty -> lettuce
+visible -> filled`; bowl `empty -> with-lettuce -> prepared -> mixed -> shared`; seed envelope
+`empty -> filled -> closed -> stored`. Completion visual trở lại hình hạt/chậu nhưng không reset
 runtime progress.
 
 **Frozen scene IDs:** `rinse-and-drain` -> `make-and-share` -> `save-for-next-season`. Exact
@@ -517,4 +532,5 @@ câu chuyện, state change hoặc safety; không chuyển chỉ để bảo to�
 Mốc 4C đã author runtime data, tạo/cắt production sheets và đăng ký `help-it-grow` vào catalog.
 Vocabulary-first revision ngày 2026-08-25 giữ 40 ảnh, nâng vocabulary/pronunciation lên 8/12/16,
 nhịp meaningful turn lên 21/27/34 và review vẫn 4/5/6. Trạng thái audio/R2 mới nhất được khóa tại
-`docs/theme-4-help-it-grow-storyboard.md`.
+`docs/theme-4-help-it-grow-storyboard.md`. Follow-up installed-state audit hiện dùng 39 reference
+runtime và không còn dùng WebP `stake` rời.
